@@ -1,0 +1,21 @@
+---
+title: Resources
+type: docs
+weight: 20
+url: /java/resources/
+---
+
+{{% alert color="primary" %}} 
+
+This table lists important Aspose.Slides for Java technical resources. 
+
+{{% /alert %}} 
+
+|**Resource**|**Description**|
+| :- | :- |
+|[Aspose.Slides for Java home page](https://products.aspose.com/slides/java)|Product home page.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/aspose-products/aspose-slides-product-family/)|Check this often for information about new releases and useful tips about Aspose.Slides.|
+|[Aspose.Slides for Java download](http://maven.aspose.com/repository/simple/ext-release-local/com/aspose/aspose-slides/)|Download the latest version of Aspose.Slides from here. We release often.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides)|Post your questions and issues here for a speedy resolution.|
+|[Aspose.Slides for Java product documentation](/slides/java/home/)|Full online documentation that includes this documentation as well as Aspose.Slides API Reference.|
+

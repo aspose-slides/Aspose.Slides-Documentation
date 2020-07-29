@@ -1,0 +1,20 @@
+---
+title: Aspose.Slides for .NET 17.12.1 Release Notes
+type: docs
+weight: 10
+url: /net/aspose-slides-for-net-17-12-1-release-notes/
+---
+
+|**Key**|**Summary**|**Category**|
+| :- | :- | :- |
+|SLIDESNET-39581|Application hangs while processing the chart data|Bug|
+|SLIDESNET-39584|Application hangs on saving file with cloned slide|Bug|
+|SLIDESNET-39565|When PPTX is converted to PDF, the text in graph is moved|Bug|
+|SLIDESNET-39566|When PPTX is converted to PDF, the color of graph title and axis text is changed|Bug|
+|SLIDESNET-39590|The shape gradient fill color is missing in the output PDF|Bug|
+|SLIDESNET-39591|The shape text has been misplaced in output PDF|Bug|
+|SLIDESNET-39592|PDF rendition is taking too much time|Bug|
+## **Public API Changes**
+
+
+Nothing
