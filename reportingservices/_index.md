@@ -3,6 +3,7 @@ title: Aspose.Slides for Reporting Services
 type: docs
 weight: 50
 url: /reportingservices/
+is_root: true
 ---
 
 {{% alert color="primary" %}} 
