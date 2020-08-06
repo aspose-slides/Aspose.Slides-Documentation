@@ -23,6 +23,7 @@ This page contains release notes for Aspose.Slides for Android via Java 20.7
 
 
 {{< highlight java >}}
+```java
 Presentation pres = new Presentation();
 try {
     IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);
@@ -40,10 +41,11 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```
 {{< /highlight >}}
 
 Contents of the resulting file:
-```
+```xml
 <math display='block' xmlns="http://www.w3.org/1998/Math/MathML">
     <mrow>
         <msup>
