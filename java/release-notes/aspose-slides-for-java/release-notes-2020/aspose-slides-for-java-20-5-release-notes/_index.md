@@ -177,7 +177,7 @@ Please see [this note](#DigitalSignature) for code samples.
    */
 public interface IDigitalSignature 
 {
-    /
+    /**
     * <p>
     * Certificate object that was used to sign the document.
     * Read-only {@link byte[]}.
@@ -185,7 +185,7 @@ public interface IDigitalSignature
     */
     public byte[] getCertificate();
 
-    /
+    /**
     * <p>
     * If this digital signature is valid and the document has not been tampered with, this value will be true.
     * Read-only {@code boolean}.
@@ -193,7 +193,7 @@ public interface IDigitalSignature
     */
     public boolean isValid();
 
-    /
+    /**
     * <p>
     * The time when the document was signed.
     * Read-only {@link java.util.Date}.
@@ -202,7 +202,7 @@ public interface IDigitalSignature
     public java.util.Date getSignTime();
 
 
-    /
+    /**
     * <p>
     * The purpose of signature.
     * Read/write {@link String}.
