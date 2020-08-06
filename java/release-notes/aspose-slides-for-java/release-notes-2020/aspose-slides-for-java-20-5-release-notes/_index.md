@@ -57,11 +57,11 @@ To sign a presentation or check the authenticity of presentation signatures, Asp
 ##### **Add Digital Signature from PFX Certificate**
 The code sample below demonstrates how to add a digital signature from a PFX certificate:
 
-\1. Open PFX file and pass the PFX password to [**DigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignature)** **object.
+1. Open PFX file and pass the PFX password to [**DigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignature)** **object.
 
-\2. Add a created signature to the presentation object.
+2. Add a created signature to the presentation object.
 
-
+{{< highlight java >}}
 
 Presentation pres = **new** Presentation();
 **try** {
@@ -80,7 +80,7 @@ Presentation pres = **new** Presentation();
 `   `**if** (pres != **null**) pres.dispose();
 }
 
-
+{{< /highlight >}}
 
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
