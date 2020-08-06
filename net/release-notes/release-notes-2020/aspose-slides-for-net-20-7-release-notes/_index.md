@@ -1,6 +1,7 @@
 ---
 title: Aspose.Slides for .NET 20.7 Release Notes
 type: docs
+weight: 9
 url: /net/aspose-slides-for-net-20-7-release-notes/
 ---
 
