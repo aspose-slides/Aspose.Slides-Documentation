@@ -67,21 +67,21 @@ This page contains release notes for [ Aspose.Slides for .NET 20.7](https://www
 Methods **IMathParagraph.WriteAsMathMl** and **IMathBlock.WriteAsMathMl** have been added. You can use them to export a mathematical paragraph or block to MathML format. The presentation MathML markup is used.
 
 {{< highlight csharp >}}
-    using (Presentation pres = new Presentation())
-    {
-        var autoShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 500, 50);
-        var mathParagraph = ((MathPortion)autoShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+    
+using (Presentation pres = new Presentation())
+{
+	var autoShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 500, 50);
+	var mathParagraph = ((MathPortion)autoShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 
-        mathParagraph.Add(new MathematicalText("a").SetSuperscript("2").Join("+").Join(new MathematicalText("b").SetSuperscript("2")).Join("=").Join(new MathematicalText("c").SetSuperscript("2")));
+	mathParagraph.Add(new MathematicalText("a").SetSuperscript("2").Join("+").Join(new MathematicalText("b").SetSuperscript("2")).Join("=").Join(new MathematicalText("c").SetSuperscript("2")));
 
-        using (Stream stream = new FileStream("mathml.xml", FileMode.Create))
-            mathParagraph.WriteAsMathMl(stream);
-    }
+	using (Stream stream = new FileStream("mathml.xml", FileMode.Create))
+		mathParagraph.WriteAsMathMl(stream);
+}
+	
 {{< /highlight >}}
 
 Contents of the resulting file:
-
-{{< highlight >}}
 
 <math display='block' xmlns="http://www.w3.org/1998/Math/MathML">
     <mrow>
@@ -101,4 +101,3 @@ Contents of the resulting file:
         </msup>
     </mrow>
 </math>
-{{< /highlight >}}
