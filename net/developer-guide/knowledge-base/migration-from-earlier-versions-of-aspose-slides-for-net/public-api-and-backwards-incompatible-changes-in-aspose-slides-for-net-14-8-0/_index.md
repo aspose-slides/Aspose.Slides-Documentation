@@ -22,7 +22,7 @@ Also, you can create a new VBA project using the VbaProject class which implemen
 
 The following example shows the creation of a simple VBA project containing one module and adding two required references to the libraries.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -68,11 +68,11 @@ The following example shows the creation of a simple VBA project containing one 
 
 }
 
-{{< /highlight >}}
+```
 
 This example shows how to copy a VBA project from an existing presentation to a new one.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres1 = new Presentation("PresentationWithMacroses.pptm"), pres2 = new Presentation())
 
@@ -82,7 +82,7 @@ This example shows how to copy a VBA project from an existing presentation to a 
 
 }
 
-{{< /highlight >}}
+```
 ### **Added Interfaces, Properties and Enumeration Options**
 #### **Added the Aspose.Slides.Charts.IChartSeries.Overlap Property**
 The Aspose.Slides.Charts.IChartSeries.Overlap property specifies how much bars and columns shall overlap on 2D charts (ranging from -100 to 100).
@@ -92,7 +92,7 @@ This is the property not only of this series but of all series in the parent ser
 - Use the ParentSeriesGroup property to access the parent series group.
 - Use the ParentSeriesGroup.Overlap read/write property to change value.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -112,11 +112,11 @@ This is the property not only of this series but of all series in the parent ser
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the Aspose.Slides.Charts.IChartSeriesGroup.Overlap Property**
 The Aspose.Slides.Charts.IChartSeriesGroup.Overlap property specifies how much bars and columns should overlap on 2D charts (from -100 to 100).
 
-{{< highlight java >}}
+```
 
 
 
@@ -132,11 +132,11 @@ using (Presentation pres = new Presentation())
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the ShapeThumbnailBounds.Appearance Enum Value**
 This method of shape thumbnail creation allows you to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by slide bounds.
 
-{{< highlight java >}}
+```
 
 
 
@@ -150,4 +150,4 @@ using (Presentation p = new Presentation("Presentation.pptx"))
 
 }
 
-{{< /highlight >}}
+```

@@ -19,7 +19,7 @@ The implementation of the above steps in C# and Visual Basic is as under:
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228432)
 
-{{< highlight csharp >}}
+```
 
  public static void Run()public static void Run()
 
@@ -207,7 +207,7 @@ static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wb
 
 
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 

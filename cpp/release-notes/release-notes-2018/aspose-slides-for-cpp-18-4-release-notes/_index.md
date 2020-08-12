@@ -29,15 +29,15 @@ ApplyExternalThemeToDependingSlides method has been added to IMasterSlide and Ma
 
 It creates a new master slide based on specified master slide, applies an external theme represented by Open XML Theme (THMX) to it and applies a new created master slide to all slides which are depending on specified master slide.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IMasterSlide> ApplyExternalThemeToDependingSlides(System::String fname);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to apply Open XML Theme "Theme1Word.thmx" to all slides which are depending on the specified master slide.
 
-{{< highlight java >}}
+```
 
  System::String pptxFileName = System::IO::Path::Combine(baseDir, u"SimplePresentation2.pptx");
 
@@ -71,11 +71,11 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Enum class SaveFormat has been changed**
 The value of the Pps element of the SaveFormat enum class was changed to 19:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -85,7 +85,7 @@ The value of the Pps element of the SaveFormat enum class was changed to 19:
 
 Pps = 19
 
-{{< /highlight >}}
+```
 #### **get_BestImagesCompressionRatio and set_BestImagesCompressionRatio methods have been added to PdfOptions**
 set_BestImagesCompressionRatio and get_BestImagesCompressionRatio methods have been added to PdfOptions class.
 
@@ -95,7 +95,7 @@ get_BestImagesCompressionRatio returns false by default (because the algorithm i
 
 Code snippet below shows how to set best compression ratio for PDF document images:
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<PdfOptions> options = System::MakeObject<PdfOptions>();
 
@@ -125,7 +125,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **HeaderFooterManager class marked as Obsolete and will be removed after release of v18.6**
 HeaderFooterManager class has been marked as Obsolete and will be removed after release of version 18.6.
 
@@ -137,7 +137,7 @@ These types allow to manage Header and Footer settings of master handout slide, 
 
 New methods have been added to access the added types.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IMasterHandoutSlideHeaderFooterManager> IMasterHandoutSlide::get_HeaderFooterManager();
 
@@ -145,39 +145,39 @@ System::SharedPtr<IMasterNotesSlideHeaderFooterManager> IMasterNotesSlide::get_H
 
 System::SharedPtr<INotesSlideHeaderFooterManager> INotesSlide::get_HeaderFooterManager();
 
-{{< /highlight >}}
+```
 
 The IBaseHandoutNotesSlideHeaderFooterManag interface in addition to IBaseSlideHeaderFooterManager methods has following methods.
 
 This method allows to get the value indicating that header placeholder is present:
 
-{{< highlight java >}}
+```
 
  bool get_IsHeaderVisible();
 
-{{< /highlight >}}
+```
 
 This method allows to change header placeholder visibility:
 
-{{< highlight java >}}
+```
 
  void SetHeaderVisibility(bool isVisible);
 
-{{< /highlight >}}
+```
 
 This method allows to set header placeholder text:
 
-{{< highlight java >}}
+```
 
  void SetHeaderText(System::String text);
 
-{{< /highlight >}}
+```
 
 IMasterNotesSlideHeaderFooterManager has following methods.
 
 These methods allow to change master notes slide and notes slides header, footer, slide number, date-time placeholders visibility:
 
-{{< highlight java >}}
+```
 
  void SetHeaderAndChildHeadersVisibility(bool isVisible);
 
@@ -187,11 +187,11 @@ void SetSlideNumberAndChildSlideNumbersVisibility(bool isVisible);
 
 void SetDateTimeAndChildDateTimesVisibility(bool isVisible);
 
-{{< /highlight >}}
+```
 
 These methods allow to set text to master notes slide and notes slides header, footer and date-time placeholders:
 
-{{< highlight java >}}
+```
 
  void SetHeaderAndChildHeadersText(System::String text);
 
@@ -199,29 +199,29 @@ void SetFooterAndChildFootersText(System::String text);
 
 void SetDateTimeAndChildDateTimesText(System::String text);
 
-{{< /highlight >}}
+```
 
 New methods have been added to IPresentationHeaderFooterManager and PresentationHeaderFooterManager.
 
 This method allows to change master handout, master notes slide and all notes slides header placeholders visibility:
 
-{{< highlight java >}}
+```
 
  void SetAllHeadersVisibility(bool isVisible);
 
-{{< /highlight >}}
+```
 
 This method allows to set text to master handout, master notes slide and all notes slides header placeholders:
 
-{{< highlight java >}}
+```
 
  void SetAllHeadersText(System::String text);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to manage the Header and Footer settings for Handout Master:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -277,11 +277,11 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to manage the Header and Footer settings for Notes Master and Notes slides:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -365,7 +365,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **InterruptionTokenSource and InterruptionToken classes have been added**
 InterruptionToken struct and InterruptionTokenSource class have been added.
 
@@ -373,7 +373,7 @@ These types support interruption of long-running tasks, such as deserialization,
 
 Code snippet below demonstrates interruption of running task.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<InterruptionTokenSource> tokenSource = System::MakeObject<InterruptionTokenSource>();
 
@@ -401,14 +401,14 @@ System::Threading::Thread::Sleep(5000); // some work
 
 tokenSource->Interrupt();
 
-{{< /highlight >}}
+```
 #### **Obsolete IHeaderFooterManager class and HeaderFooterManager methods have been deleted**
 Obsolete IHeaderFooterManager class has been deleted.
 Use IPresentationHeaderFooterManager class or one of corresponding IMasterSlideHeaderFooterManager, ILayoutSlideHeaderFooterManager, ISlideHeaderFooterManager classes instead.
 
 Obsolete HeaderFooterManager methods have been deleted:
 
-{{< highlight java >}}
+```
 
  bool get_IsFooterVisible();
 
@@ -422,11 +422,11 @@ bool get_IsDateTimeVisible();
 
 void set_IsDateTimeVisible(bool value);
 
-{{< /highlight >}}
+```
 
 Use following methods of PresentationHeaderFooterManager class instead:
 
-{{< highlight java >}}
+```
 
  void SetAllFootersVisibility(bool isVisible);
 
@@ -434,11 +434,11 @@ void SetAllSlideNumbersVisibility(bool isVisible);
 
 void SetAllDateTimesVisibility(bool isVisible);
 
-{{< /highlight >}}
+```
 
 Obsolete HeaderFooterManager methods have been deleted:
 
-{{< highlight java >}}
+```
 
  void SetFooterText(System::String text);
 
@@ -446,11 +446,11 @@ void SetDateTimeText(System::String date);
 
 void SetVisibilityOnTitleSlide(bool isPlaceholdersVisible);
 
-{{< /highlight >}}
+```
 
 Use following methods of PresentationHeaderFooterManager class instead:
 
-{{< highlight java >}}
+```
 
  void SetAllFootersText(System::String text);
 
@@ -458,7 +458,7 @@ void SetAllDateTimesText(System::String text);
 
 void SetVisibilityOnAllTitleSlides(bool isVisible);
 
-{{< /highlight >}}
+```
 #### **OLEActionVerbs value has been added to EffectPresetClassType enum class**
 OLEActionVerbs value has been added to EffectPresetClassType enum class.
 
@@ -466,7 +466,7 @@ It represents OLE Action Verb animation effects preset class.
 
 Code snippet below shows how to check whether the shape animation effect is OLE Action Verb.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -528,7 +528,7 @@ __dispose_guard_1.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **OLEObjectShow, OLEObjectEdit and OLEObjectOpen values have been added to EffectType enum class**
 OLEObjectShow, OLEObjectEdit and OLEObjectOpen values have been added to EffectType enum class.
 
@@ -536,7 +536,7 @@ These values are used for adding OLE Action Verbs effects to OleObjectFrames.
 
 Code snippet below shows how to add OLEObject Open effect.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -566,7 +566,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **PictureOrganizationChart value has been added to SmartArtLayoutType enum class**
 PictureOrganizationChart value has been added to SmartArtLayoutType enum class.
 
@@ -574,7 +574,7 @@ It represents Picture Organization Chart layout.
 
 Code snippet below shows how to add new SmartArt object with Picture Organization Chart layout:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -600,7 +600,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Support for BoxAndWhisker chart type has been implemented**
 Support for BoxAndWhisker chart type has been implemented. It includes new methods and enumerators.
 
@@ -608,11 +608,11 @@ AddDataPointForBoxAndWhiskerSeries method has been added to IChartDataPointColle
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is BoxAndWhisker only.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IChartDataPoint> AddDataPointForBoxAndWhiskerSeries(System::SharedPtr<IChartDataCell> value);
 
-{{< /highlight >}}
+```
 
 Enum class QuartileMethodType has been added.
 
@@ -625,65 +625,65 @@ get_QuartileMethod and set_QuartileMethod methods have been added to IChartSerie
 
 These methods represent quartile method of BoxAndWhisker series.
 
-{{< highlight java >}}
+```
 
  QuartileMethodType get_QuartileMethod();
 
 void set_QuartileMethod(QuartileMethodType value);
 
-{{< /highlight >}}
+```
 
 get_ShowInnerPoints and set_ShowInnerPoints methods have been added to IChartSeries and descendants.
 
 These methods represent inner points. True if inner points are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+```
 
  bool get_ShowInnerPoints();
 
 void set_ShowInnerPoints(bool value);
 
-{{< /highlight >}}
+```
 
 get_ShowMeanLine and set_ShowMeanLine methods have been added to IChartSeries and descendants.
 
 These methods represent mean line. True if mean line are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+```
 
  bool get_ShowMeanLine();
 
 void set_ShowMeanLine(bool value);
 
-{{< /highlight >}}
+```
 
 get_ShowMeanMarkers and set_ShowMeanMarkers methods have been added to IChartSeries and descendants.
 
 These methods represent mean markers. True if mean markers are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+```
 
  bool get_ShowMeanMarkers();
 
 void set_ShowMeanMarkers(bool value);
 
-{{< /highlight >}}
+```
 
 get_ShowOutlierPoints and set_ShowOutlierPoints methods have been added to IChartSeries and descendants.
 
 These methods represent outlier points. True if outlier points are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+```
 
  bool get_ShowOutlierPoints();
 
 void set_ShowOutlierPoints(bool value);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to create BoxAndWhisker chart from scratch and apply properties listed above. :
 
-{{< highlight java >}}
+```
 
  {
 
@@ -755,7 +755,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Support for Funnel chart type has been implemented**
 Support for Funnel chart type has been implemented.
 
@@ -763,7 +763,7 @@ AddDataPointForFunnelSeries method has been added to IChartDataPointCollection a
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Funnel.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -825,7 +825,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Support for Histogram and Histogram Pareto chart types has been implemented**
 Support for Histogram and Histogram Pareto chart types has been implemented. It includes new properties, methods and enumerators.
 
@@ -842,123 +842,123 @@ get_AggregationType and set_AggregationType methods have been added to IAxis and
 
 These methods represent aggregation type of category axis (binning). Applied to category. Used with Histogram or HistogramPareto series only.
 
-{{< highlight java >}}
+```
 
  AxisAggregationType get_AggregationType();
 
 void set_AggregationType(AxisAggregationType value);
 
-{{< /highlight >}}
+```
 
 get_BinWidth and set_BinWidth methods have been added to IAxis and descendants.
 
 These methods specify bin width when AggregationType property value setted to AxisAggregationType.ByBinWidth. Applied to category axes. Used with Histogram or HistogramPareto series only.
 
-{{< highlight java >}}
+```
 
  double get_BinWidth();
 
 void set_BinWidth(double value);
 
-{{< /highlight >}}
+```
 
 get_IsAutomaticOverflowBin and set_IsAutomaticOverflowBin methods have been added to IAxis and descendants.
 
 These methods specify automatic overflow bin value. If false: use OverflowBin property.
 
-{{< highlight java >}}
+```
 
  bool get_IsAutomaticOverflowBin();
 
 set_IsAutomaticOverflowBin(bool value);
 
-{{< /highlight >}}
+```
 
 get_IsAutomaticUnderflowBin and set_IsAutomaticUnderflowBin methods have been added to IAxis and descendants.
 
 These methods specify automatic underflow bin value. If false: use UnderflowBin property.
 
-{{< highlight java >}}
+```
 
  bool get_IsAutomaticUnderflowBin();
 
 set_IsAutomaticUnderflowBin(bool value);
 
-{{< /highlight >}}
+```
 
 get_IsOverflowBin and set_IsOverflowBin methods have been added to IAxis and descendants.
 
 These methods specify if overflow bin applied. Use IsAutomaticOverflowBin and OverflowBin to adjust overflow bin value.
 
-{{< highlight java >}}
+```
 
  bool get_IsOverflowBin();
 
 void set_IsOverflowBin(bool value);
 
-{{< /highlight >}}
+```
 
 get_IsUnderflowBin and set_IsUnderflowBin methods have been added to IAxis and descendants.
 
 These methods specify if underflow bin applied. Use IsAutomaticUnderflowBin and UnderflowBin to adjust underflow bin value.
 
-{{< highlight java >}}
+```
 
  bool get_IsUnderflowBin();
 
 void set_IsUnderflowBin(bool value);
 
-{{< /highlight >}}
+```
 
 get_NumberOfBins and set_NumberOfBins methods have been added to IAxis and descendants.
 
 These methods specify number of bins when AggregationType property value setted to AxisAggregationType.ByNumberOfBins. Applied to category axes.
 
-{{< highlight java >}}
+```
 
  uint32_t get_NumberOfBins();
 
 void set_NumberOfBins(uint32_t value);
 
-{{< /highlight >}}
+```
 
 get_OverflowBin and set_OverflowBin methods have been added to IAxis and descendants.
 
 These methods specify overflow bin custom value. Applied when IsAutomaticOverflowBin property setted to false and IsOverflowBin property equals true.
 
-{{< highlight java >}}
+```
 
  double get_OverflowBin();
 
 void set_OverflowBin(double value);
 
-{{< /highlight >}}
+```
 
 get_UnderflowBin and set_UnderflowBin methods have been added to IAxis and descendants.
 
 These methods specify underflow bin custom value. Applied when IsAutomaticUnderflowBin property setted to false and IsUnderflowBin property equals true.
 
-{{< highlight java >}}
+```
 
  double get_UnderflowBin();
 
 void set_UnderflowBin(double value);
 
-{{< /highlight >}}
+```
 
 AddDataPointForHistogramSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Histogram.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IChartDataPoint> AddDataPointForHistogramSeries(System::SharedPtr<IChartDataCell> value);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to create Histogram chart from scratch and apply properties listed above:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -1010,11 +1010,11 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to create HistogramPareto chart from scratch:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -1050,7 +1050,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Support for Sunburst chart type has been implemented**
 Support for Sunburst chart type has been implemented. It includes new properties and methods .
 
@@ -1058,25 +1058,25 @@ get_SizeValue method has been added to IChartDataPoint and descendants.
 
 It returns the size value of chart data point.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IDoubleChartValue> get_SizeValue();
 
-{{< /highlight >}}
+```
 
 AddDataPointForSunburstSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Sunburst.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IChartDataPoint> AddDataPointForSunburstSeries(System::SharedPtr<IChartDataCell> sizeValue);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to create Sunburst chart from scratch and apply properties listed above:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -1165,18 +1165,18 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Support for Treemap chart type has been implemented**
 Support for Treemap chart type has been implemented. It includes new properties, methods and enumerators.
 get_SizeValue method has been added to IChartDataPoint and descendants.
 
 It returns the size value of chart data point.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IDoubleChartValue> get_SizeValue();
 
-{{< /highlight >}}
+```
 
 Enum class ParentLabelLayoutType has been added
 
@@ -1192,27 +1192,27 @@ get_ParentLabelLayout and set_ParentLabelLayout methods have been added to IChar
 
 These methods represents layout of parent labels of Treemap series. Applies to series of type Treemap.
 
-{{< highlight java >}}
+```
 
  ParentLabelLayoutType get_ParentLabelLayout();
 
 void set_ParentLabelLayout(ParentLabelLayoutType value);
 
-{{< /highlight >}}
+```
 
 AddDataPointForTreemapSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Treemap.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IChartDataPoint> AddDataPointForTreemapSeries(System::SharedPtr<IChartDataCell> sizeValue);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to create Treemap chart from scratch and apply properties listed above. :
 
-{{< highlight java >}}
+```
 
  {
 
@@ -1303,7 +1303,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Support for Waterfall chart type has been implemented.**
 Support for Waterfall chart type has been implemented. It includes new properties and methods.
 
@@ -1311,39 +1311,39 @@ get_SetAsTotal and set_SetAsTotal methods have been added to IChartDataPoint and
 
 These methods specify set data point as total. Applied for Waterfall series type only.
 
-{{< highlight java >}}
+```
 
  bool get_SetAsTotal();
 
 void set_SetAsTotal(bool value);
 
-{{< /highlight >}}
+```
 
 get_ShowConnectorLines and set_ShowConnectorLines methods have been added to IChartSeries and descendants.
 
 These methods represent connector lines. True if connector lines are shown on the Waterfall chart. Applies to series of type Waterfall.
 
-{{< highlight java >}}
+```
 
  bool get_ShowConnectorLines();
 
 void set_ShowConnectorLines(bool value);
 
-{{< /highlight >}}
+```
 
 AddDataPointForWaterfallSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Waterfall.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IChartDataPoint> AddDataPointForWaterfallSeries(System::SharedPtr<IChartDataCell> value);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to create Waterfall chart from scratch and apply properties listed above:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -1411,23 +1411,23 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **WriteAsSvg method has been added to IShape and Shape**
 WriteAsSvg method (and its overload) has been added to IShape and Shape classes.
 
 This method allows to save content of the shape as an SVG file.
 
-{{< highlight java >}}
+```
 
  void WriteAsSvg(System::SharedPtr<System::IO::Stream> stream);
 
 void WriteAsSvg(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Export::ISVGOptions> svgOptions);
 
-{{< /highlight >}}
+```
 
 Code snippet below shows how to export slide's shape to an SVG file.
 
-{{< highlight java >}}
+```
 
  System::String pptxFileName = u"Presentation.pptx";
 
@@ -1479,4 +1479,4 @@ __dispose_guard_1.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```

@@ -47,11 +47,11 @@ The example how to merge several presentations of different types is given below
 To merge presentation slides with their own styles, just pass slide object into 
 [**AddClone (ISlide)**](https://apireference.aspose.com/net/slides/aspose.slides/islidecollection/methods/addclone) method:
 
-{{< highlight csharp >}}
+```
 
  mergedPresentation.Slides.AddClone(slide);
 
-{{< /highlight >}}
+```
 
 
 # **Merge Presentation with Slide Master**
@@ -59,11 +59,11 @@ To merge presentation slides with a slide template of their styles and layouts -
 
 Note, that Slide Layout of the Slide Master, that should be applied to slides, is choosed automatically. If there is no appropriate layout will be found, then layout of the source slide will be used. The allowCloneMissingLayout boolean parameter of AddClone method determines if the source layout can be used instead of not found layout. If allowCloneMissingLayout is true - source layout will be used instead of missed layout, otherwise PptxEditException will be thrown.
 
-{{< highlight csharp >}}
+```
 
  mergedPresentation.Slides.AddClone(slide, masterSlide, true);
 
-{{< /highlight >}}
+```
 
 If you want to define other Slide Layout, you should use [**AddClone (ISlide, ILayoutSlide)** ](https://apireference.aspose.com/net/slides/aspose.slides.islidecollection/addclone/methods/1)method.
 
@@ -72,31 +72,31 @@ If you want to define other Slide Layout, you should use [**AddClone (ISlide, I
 To merge a specific slide of presentation, you just need to choose it by the slide 
 index from source presentation and pass into [**AddClone (ISlide)**](https://apireference.aspose.com/net/slides/aspose.slides/islidecollection/methods/addclone) method:
 
-{{< highlight csharp >}}
+```
 
  mergedPresentation.Slides.AddClone(presentation3.Slides[0], masterSlide, true);
 
-{{< /highlight >}}
+```
 
 
 # **Merge Presentation with Slide Layout**
 To merge presentation sides, applying a new slide layout to them - you should use [**AddClone (ISlide, ILayoutSlide)** ](https://apireference.aspose.com/net/slides/aspose.slides.islidecollection/addclone/methods/1)method:
 
-{{< highlight csharp >}}
+```
 
  mergedPresentation.Slides.AddClone(presentation3.Slides[0], masterSlide, true);
 
-{{< /highlight >}}
+```
 
 
 # **Merge Slide to Presentation Section**
 To merge presentation slide into a presentation section, it is possible to use [**AddClone (ISlide, ISection)**](https://apireference.aspose.com/net/slides/aspose.slides.islidecollection/addclone/methods/3). You need to pass slide object and the section to which you want to clone this slide. The slide will be added to the end of the section:
 
-{{< highlight csharp >}}
+```
 
  mergedPresentation.Slides.AddClone(presentation3.Slides[0], section1);
 
-{{< /highlight >}}
+```
 
 
 

@@ -15,7 +15,7 @@ In Aspose.Slides for C++, various animations effects can be applied on the shape
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228428)
 
-{{< highlight csharp >}}
+```
 
  //Instantiate a presentation
 
@@ -79,7 +79,7 @@ pptPresentation.Write("d:\\ppt\\may\\animatedPres.ppt");
 
 
 
-{{< /highlight >}}
+```
 
 
 #### **Setting Animation Order**
@@ -87,7 +87,7 @@ In a presentation, animation effects can be applied on more than one shape, thei
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228428)
 
-{{< highlight csharp >}}
+```
 
  //Setting the animation order
 
@@ -97,7 +97,7 @@ rectangleAnimation.AnimationOrder = 2;
 
 
 
-{{< /highlight >}}
+```
 
 
 #### **Conclusion**

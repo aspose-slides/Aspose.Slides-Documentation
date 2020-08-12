@@ -8,13 +8,13 @@ url: /net/adding-shapes-to-presentation/
 ### **VSTO**
 Below is the code snippet for adding line shape:
 
-{{< highlight csharp >}}
+```
 
    Slide slide = Application.ActivePresentation.Slides[1];
 
   slide.Shapes.AddLine(10, 10, 100, 10);
 
-{{< /highlight >}}
+```
 ### **Aspose.Slides**
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
@@ -25,7 +25,7 @@ To add a simple plain line to a selected slide of the presentation, please follo
 
 In the example given below, we have added a line to the first slide of the presentation.
 
-{{< highlight csharp >}}
+```
 
    //Instantiate Prseetation class that represents the PPTX
 
@@ -39,7 +39,7 @@ In the example given below, we have added a line to the first slide of the prese
 
   slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-{{< /highlight >}}
+```
 ### **Download Running Code**
 - [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)

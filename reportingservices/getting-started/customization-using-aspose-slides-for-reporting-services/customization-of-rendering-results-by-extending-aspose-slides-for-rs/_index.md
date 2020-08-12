@@ -24,7 +24,7 @@ Suppose we want to add a note with some text, a logo and update the company name
 
 For that purpose we add the following class:
 
-{{< highlight java >}}
+```
 
  public class DemoRenderingExtension : Aspose.Slides.ReportingServices.Extension.RenderingExtensionBase
 
@@ -87,7 +87,7 @@ base.PostProcessTextBox(textBox);
 
 }
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 
@@ -102,7 +102,7 @@ Suppose that your assembly is called **TestSlidesRenderingExtension.dll**:
 - Copy the assembly to the ReportingService **bin** directory next to the Aspose.Slides.ReportingServices.dll. (For example: c:\Program Files\Microsoft SQL Server\MSRS10_50\Reporting Services\ReportServer\bin)
 - Grant FullTrust permission to your assembly by adding the following CodeGroup to **rssrvpolicy.config**:
 
-{{< highlight java >}}
+```
 
  <CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Nothing">
 
@@ -126,11 +126,11 @@ Suppose that your assembly is called **TestSlidesRenderingExtension.dll**:
 
 </CodeGroup>
 
-{{< /highlight >}}
+```
 
 Update the Aspose.Slides rendering extension config sections of **rsreportserver.config** to include your extension.
 
-{{< highlight java >}}
+```
 
  <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices">
 
@@ -142,7 +142,7 @@ Update the Aspose.Slides rendering extension config sections of **rsreportserver
 
 </Extension>
 
-{{< /highlight >}}
+```
 
 If you want to use the extension for every output type supported by Aspose.Slides, add the same config to extensions with the names ASPPTX, ASPPT, ASPPS, ASPPSX.
 The content of the Extension tag is an assembly-qualified name of the type. (See <http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx>)

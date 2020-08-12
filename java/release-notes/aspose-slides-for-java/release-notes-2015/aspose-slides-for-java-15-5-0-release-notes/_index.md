@@ -107,7 +107,7 @@ SLIDESJAVA-33853 - WortArt styles are improperly rendered in generated PDF
 
 SLIDESJAVA-33422 - Image missing in generated thumbnail
 ## **Public API Changes**
-{{< highlight java >}}
+```
 
  Public API Changes
 
@@ -125,4 +125,4 @@ ViewProperties.getNotesViewProperties() method have been added
 
 ViewProperties.getSlideViewProperties() method has been added
 
-{{< /highlight >}}
+```

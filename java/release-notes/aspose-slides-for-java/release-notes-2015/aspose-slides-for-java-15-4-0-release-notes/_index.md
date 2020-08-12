@@ -68,7 +68,7 @@ SLIDESJAVA-34161 - Setting Alternative property on Slide master shape is not get
 
 SLIDESJAVA-23004 - Rectangle shape added has 0 height and width
 ## **Public API Changes**
-{{< highlight java >}}
+```
 
  Public API Changes
 
@@ -195,4 +195,4 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 Minor Changes
 
-{{< /highlight >}}
+```

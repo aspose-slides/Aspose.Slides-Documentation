@@ -19,15 +19,15 @@ url: /cpp/aspose-slides-for-cpp-18-11-release-notes/
 GetEffectsByParagraph() method has been added to ISequence and Sequence classes.
 It returns the array of effects for the specified text paragraph.
 
-{{< highlight java >}}
+```
 
  System::ArrayPtr<System::SharedPtr<IEffect>> GetEffectsByParagraph(System::SharedPtr<IParagraph> paragraph);
 
-{{< /highlight >}}
+```
 
 Usage example:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -71,18 +71,18 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```
 #### **Saving presentation with Strict and Transitional conformance class option has been added**
 get_Conformance() and set_Conformance() methods have been added to Aspose::Slides::Export::PptxOptions class.
 The methods allows saving the presentation with Strict and Transitional Open XML Presentation conformance class.
 
-{{< highlight java >}}
+```
 
  Aspose::Slides::Export::Conformance get_Conformance();
 
 void set_Conformance(Aspose::Slides::Export::Conformance value);
 
-{{< /highlight >}}
+```
 
 Aspose::Slides::Export::Conformance enum consists of three named constants:
 
@@ -94,7 +94,7 @@ The default value is Ecma376_2006.
 
 For example, the following code allows saving the presentation in Strict format.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -124,4 +124,4 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```

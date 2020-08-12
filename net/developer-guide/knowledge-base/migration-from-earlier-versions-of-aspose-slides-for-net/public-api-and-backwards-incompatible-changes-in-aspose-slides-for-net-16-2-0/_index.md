@@ -23,13 +23,13 @@ CategoryAxisType.Date - category axis type is DateTime
 #### **Fast text extraction**
 The new static method GetPresentationText has been added to Presentation class. There're two overloads for this method:
 
-{{< highlight java >}}
+```
 
  PresentationText GetPresentationText(Stream stream)
 
 PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
 
-{{< /highlight >}}
+```
 
 The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
 Unarranged - The raw text with no respect to position on the slide
@@ -48,7 +48,7 @@ There's also a SlideText class which implements the ISlideText interface.
 
 The new API can be used like this:
 
-{{< highlight java >}}
+```
 
  PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
 
@@ -62,7 +62,7 @@ Console.WriteLine(text1.SlidesText[0].NotesText);
 
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged)
 
-{{< /highlight >}}
+```
 #### **ILegacyDiagram interface and LegacyDiagram class have been added**
 Interface Aspose.Slides.ILegacyDiagram and class Aspose.Slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003.
 New class provides methods to convert legacy diagram to modern editable SmartArt object or to editable GroupShape.
@@ -77,7 +77,7 @@ EmbeddedFileName - Returns the path of embedded OLE object
 #### **New property CategoryAxisType has been added to IAxis and Axis classes**
 Property CategoryAxisType specifies type of category axis.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(sourcePptxFileName))
 
@@ -97,11 +97,11 @@ Property CategoryAxisType specifies type of category axis.
 
 }
 
-{{< /highlight >}}
+```
 #### **New property ShowLabelAsDataCallout has been added to DataLabelFormat class and IDataLabelFormat interface**
 Property ShowLabelAsDataCallout determines either specified chart's data label will be displayed as data callout or as data label.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -119,12 +119,12 @@ Property ShowLabelAsDataCallout determines either specified chart's data label w
 
 }
 
-{{< /highlight >}}
+```
 #### **Property DrawSlidesFrame has been added to PdfOptions and XpsOptions**
 Boolean property DrawSlidesFrame has been added to interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions and to related classes Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation("input.pptx"))
 
@@ -134,4 +134,4 @@ The black frame around each slide will be drawn if this property set 'true'.
 
 }
 
-{{< /highlight >}}
+```

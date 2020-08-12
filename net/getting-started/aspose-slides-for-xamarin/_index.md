@@ -115,14 +115,14 @@ First, we create a content layout that will contain an image view and Prev, Next
 
 </LinearLayout>
 
-{{< /highlight >}}
+```
 
 
 
 Then we will reference the "Aspose.Slides.Droid.dll" library, include sample presentation ("HelloWorld.pptx") into Xamarin application Assets and add it’s initialization into MainActivity:
 
 **C# - MainActivity.cs - Initialization**
-{{< highlight csharp >}}
+```
 
  [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 
@@ -184,14 +184,14 @@ public class MainActivity : AppCompatActivity
 
 }
 
-{{< /highlight >}}
+```
 
 
 
 Let’s add displaying Prev and Next slide on buttons click:
 
 **C# - MainActivity.cs - Display slides on Prev and Next button click**
-{{< highlight csharp >}}
+```
 
  [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 
@@ -405,14 +405,14 @@ public class MainActivity : AppCompatActivity
 
 }
 
-{{< /highlight >}}
+```
 
 
 
 Finally, let’s implement adding an ellipse shape by touch on the slide:
 
 **C# - MainActivity.cs - Add ellipse by slide click**
-{{< highlight csharp >}}
+```
 
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 
@@ -460,7 +460,7 @@ Finally, let’s implement adding an ellipse shape by touch on the slide:
 
 }
 
-{{< /highlight >}}
+```
 
 
 

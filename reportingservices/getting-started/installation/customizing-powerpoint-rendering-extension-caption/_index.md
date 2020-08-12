@@ -25,19 +25,19 @@ The default captions of these extensions can be changed by overriding the defaul
 
 **Step** **2:** Find the following lines in rsreportserver.config file: 
 
-{{< highlight csharp >}}
+```
 
  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
 
 
 
-{{< /highlight >}}
+```
 
 **Step** **3:** Replace this extension parameter with the following: 
 
 **<Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices">**
 
-{{< highlight csharp >}}
+```
 
          <OverrideNames>
 
@@ -49,7 +49,7 @@ The default captions of these extensions can be changed by overriding the defaul
 
 
 
-{{< /highlight >}}
+```
 
 **Step** **4:** As a result of the above actions, the export options will appear as below: 
 

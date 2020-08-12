@@ -18,7 +18,7 @@ This method is not only for specific series but for all series of the parent ser
 - Use IChartSeries.getParentSeriesGroup() method for accessing to parent series group.
 - Use IChartSeriesGroup.getOverlap() and setOverlap(byte) methods to manage the value.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -32,21 +32,21 @@ if (series.get_Item(0).getOverlap() == 0) {
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the ShapeThumbnailBounds.Appearance Enum Value**
 This method of creating shape thumbnails allows developers to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by the slide bounds.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
 BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
 
-{{< /highlight >}}
+```
 ### **Added the VbaProject Class and IVbaProject Interface, Changed the Presentation.getVbaProject() and setVbaProject(VbaProject) Methods**
 A new feature allows developers to create and edit VBA projects in a presentation.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -86,4 +86,4 @@ pres.getVbaProject().getReferences().add(officeReference);
 
 pres.save("data\\test.pptm", SaveFormat.Pptm);
 
-{{< /highlight >}}
+```

@@ -28,7 +28,7 @@ The JRPptExporter class extends the JRAbstractExporter class so it can be used i
 
 **Java**
 
-{{< highlight csharp >}}
+```
 
     File sourceFile = new File(fileName); 
 
@@ -46,7 +46,7 @@ The JRPptExporter class extends the JRAbstractExporter class so it can be used i
 
 
 
-{{< /highlight >}}
+```
 
 **Presentation generated with JasperReports xmldatasource demo** 
 

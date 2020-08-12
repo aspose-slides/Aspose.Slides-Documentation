@@ -220,7 +220,7 @@ SLIDESJAVA-18168 - Improper thumbnail generation PNG+JPG in Linux environment
 
 SLIDESJAVA-18045 - Font rendering problem in generating slide thumbnail
 ## **Public API changes**
-{{< highlight java >}}
+```
 
  Public API changes
 
@@ -241,4 +241,4 @@ options.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
 
 pres.save("Somepresentation-out.tiff", SaveFormat.Tiff, options);
 
-{{< /highlight >}}
+```

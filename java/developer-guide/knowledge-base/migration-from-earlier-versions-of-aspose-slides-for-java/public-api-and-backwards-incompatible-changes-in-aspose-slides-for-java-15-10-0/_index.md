@@ -14,13 +14,13 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 #### **Chart series animation API has been added to ISequence**
 The new 2 methods have been added to com.aspose.slides.ISequence interface.
 
-{{< highlight java >}}
+```
 
  IEffect addEffect(IChart chart, int type, int index, int effectType, int subtype, int triggerType);
 
 IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, int effectType, int subtype, int triggerType);
 
-{{< /highlight >}}
+```
 
 These methods are intended to support the chart's elements animations:
 
@@ -33,7 +33,7 @@ The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType 
 
 To add a series animation to the chart the following code may be used:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation(inFileName);
 
@@ -81,11 +81,11 @@ try{
 
 }
 
-{{< /highlight >}}
+```
 
 Categories animation:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation(inFileName);
 
@@ -135,11 +135,11 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 Series elements animation:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation(inFileName);
 
@@ -237,11 +237,11 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 Categories elements animation:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation(inFileName);
 
@@ -339,7 +339,7 @@ try
 
 }
 
-{{< /highlight >}}
+```
 #### **New com.aspose.slides.VideoPlayerHtmlController added to support export od media files to HTML**
 The new public class com.aspose.slides.VideoPlayerHtmlController has been added. Using the instance of this class user can export video and audio files into HTML.
 
@@ -351,7 +351,7 @@ baseUri: The base URI which will be used to generate links
 
 Usage example:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -383,4 +383,4 @@ try
 
 }
 
-{{< /highlight >}}
+```

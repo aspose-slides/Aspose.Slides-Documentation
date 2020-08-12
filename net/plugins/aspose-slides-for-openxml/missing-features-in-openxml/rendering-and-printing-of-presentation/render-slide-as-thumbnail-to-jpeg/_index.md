@@ -14,7 +14,7 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -43,7 +43,7 @@ using (Presentation pres = new Presentation(srcFileName))
 }
 
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

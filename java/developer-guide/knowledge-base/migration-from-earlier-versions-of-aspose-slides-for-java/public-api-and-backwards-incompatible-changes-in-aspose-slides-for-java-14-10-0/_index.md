@@ -25,7 +25,7 @@ IChartDataPoint.remove()
 
 IChartCategory.remove()
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -47,7 +47,7 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**
 The methods getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() and corresponding set methods have been removed. They were marked as obsolete long time ago.
 #### **Un-useful and obsolete constructors have been removed**

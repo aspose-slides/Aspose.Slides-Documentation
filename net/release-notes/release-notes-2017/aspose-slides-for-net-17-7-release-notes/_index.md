@@ -51,7 +51,7 @@ url: /net/aspose-slides-for-net-17-7-release-notes/
 |SLIDESNET-39058|Images not properly generated from presentation file|Bug|
 ## **Public API Changes**
 #### **AddFromSvg methods were added to IImageCollection interface and ImageCollection class**
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -85,13 +85,13 @@ IPPImage AddFromSvg(string svgContent);
 
 IPPImage AddFromSvg(string svgContent, IExternalResourceResolver externalResResolver, string baseUri);
 
-{{< /highlight >}}
+```
 
 These methods provide ability to insert Svg fragment to the presentation's image collection.
 
 **Sample 1:**
 
-{{< highlight java >}}
+```
 
  using (var p = new Presentation())
 
@@ -107,11 +107,11 @@ p.Save(outPptxPath, SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+```
 
 **Sample 2 (with default external resources resolver):**
 
-{{< highlight java >}}
+```
 
  using (var p = new Presentation())
 
@@ -127,7 +127,7 @@ p.Save(outPptxPath, SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+```
 
 Please note: Using this default external resource resolver could create a vulnerability when client provided HTML or SVG file will make server software to obtain local or network file. Use with caution. It is recommended not to specify ExternalResourceResolver at all (only embedded objects will be read - see "Sample 1") or create some subclass which checks if specified uri is valid.
 #### **ColumnCount and ColumnSpacing properties have been added to ITextFrameFormat interface and to TextFrameFormat class**
@@ -137,7 +137,7 @@ These properties specify the number of columns in textbox and set an amount of s
 
 Code example:
 
-{{< highlight java >}}
+```
 
  using (Presentation presentation = new Presentation())
 
@@ -179,7 +179,7 @@ presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+```
 #### **IHtmlExternalResolver interface and HtmlExternalResolver class become obsolete**
 Use IExternalResourceResolver/ExternalResourceResolver instead. Will be removed in 17.12 release.
 #### **New API related to the BLOBs management has been added**
@@ -217,7 +217,7 @@ Working with BLOBs
 
 Here's is the sample of opening and saving the very large presentation:
 
-{{< highlight java >}}
+```
 
  static void OpenAndSaveLargePresentation()
 
@@ -273,13 +273,13 @@ File.Delete(pathToVeryLargePresentationFile);
 
 }
 
-{{< /highlight >}}
+```
 
 **Adding new BLOB to the presentation**
 
 This example demonstrates how to include the large BLOB (video file in that case) and prevent a high memory consumption.
 
-{{< highlight java >}}
+```
 
  static void AddingNewBlobToPresentation()
 
@@ -319,13 +319,13 @@ pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+```
 
 **Exporting BLOB from presentation into stream**
 
 Consider that we have a very large presentation containing multiple large BLOBs - audio and video files. We want to extract these files from presentation and don't want to load this presentation into memory to keep our memory consumption low. Here's is an example how we can achieve that:
 
-{{< highlight java >}}
+```
 
  static void ExportBlobsFromPresentaion()
 
@@ -411,7 +411,7 @@ outputFileStream.Write(buffer, 0, bytesRead);
 
 }
 
-{{< /highlight >}}
+```
 
 **API**
 
@@ -460,7 +460,7 @@ It returns Stream stream for reading. Please note that you must use 'using' or c
 New IExternalResourceResolver interface was added as a replacement of existing IHtmlExternalResolver (become obsolete).
 This is a callback interface used to resolve external resources during Html, Svg documents import.
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -502,7 +502,7 @@ System.IO.Stream GetEntity(string absoluteUri);
 
 }
 
-{{< /highlight >}}
+```
 
 ExternalResourceResolver is default implementation of IExternalResourceResolver.
 
@@ -512,7 +512,7 @@ A new property EmbeddedFileData has been added to IOleObjectFrame. It's needed t
 
 For example, when an image has been embedded into presentation, its data can be accessed through EmbeddedFileData property:
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(pptxFileName))
 
@@ -526,7 +526,7 @@ byte[] data = oleObjectFrame.EmbeddedFileData;
 
 }
 
-{{< /highlight >}}
+```
 #### **OfficeInteropShapeId property was added to IShape interface and Shape class respectively**
 Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively.
 
@@ -536,7 +536,7 @@ The value returned by OfficeInteropShapeId property corresponds to the value of 
 
 Code example:
 
-{{< highlight java >}}
+```
 
  using (Presentation presentation = new Presentation("Presentation.pptx"))
 
@@ -548,13 +548,13 @@ long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeI
 
 }
 
-{{< /highlight >}}
+```
 #### **TextFrame property has been added to ISmartArtShape interface and SmartArtShape class**
 TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively.
 
 This property allows you to get all text from SmartArt if it has not only nodes text.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation("Presentation.pptx"))
 
@@ -584,4 +584,4 @@ Console.WriteLine(nodeShape.TextFrame.Text);
 
 }
 
-{{< /highlight >}}
+```

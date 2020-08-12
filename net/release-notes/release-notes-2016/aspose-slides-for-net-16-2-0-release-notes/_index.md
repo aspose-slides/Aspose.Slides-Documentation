@@ -121,7 +121,7 @@ There's also a SlideText class which implements the ISlideText interface.
 
 The new API can be used like this:
 
-{{< highlight java >}}
+```
 
  PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
 
@@ -133,7 +133,7 @@ Console.WriteLine(text1.SlidesText[0].MasterText);
 
 Console.WriteLine(text1.SlidesText[0].NotesText);
 
-{{< /highlight >}}
+```
 
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
 ILegacyDiagram interface and LegacyDiagram class have been added
@@ -153,7 +153,7 @@ New property CategoryAxisType has been added to IAxis and Axis classes
 
 Property CategoryAxisType specifies type of category axis.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(sourcePptxFileName))
 
@@ -173,13 +173,13 @@ pres.Save(pptxOutPath, SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+```
 
 New property ShowLabelAsDataCallout has been added to DataLabelFormat class and IDataLabelFormat interface
 
 Property ShowLabelAsDataCallout determines either specified chart's data label will be displayed as data callout or as data label.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -197,7 +197,7 @@ pres.Save(pptxFileName, SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+```
 
 Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed
 
@@ -209,7 +209,7 @@ Property DrawSlidesFrame has been added to PdfOptions and XpsOptions
 Boolean property DrawSlidesFrame has been added to interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions and to related classes Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation("input.pptx"))
 
@@ -219,4 +219,4 @@ pres.Save("output.pdf", SaveFormat.Pdf, new PdfOptions() { DrawSlidesFrame = tru
 
 }
 
-{{< /highlight >}}
+```

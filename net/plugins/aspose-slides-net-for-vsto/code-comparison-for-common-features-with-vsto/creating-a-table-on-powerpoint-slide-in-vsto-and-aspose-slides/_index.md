@@ -13,7 +13,7 @@ The following steps add a table to a Microsoft PowerPoint slide using VSTO:
 - Add text to each cell of the table with a font size of 10.
 - Save the presentation to disk.
 ### **VSTO**
-{{< highlight csharp >}}
+```
 
  //Create a presentation
 
@@ -77,7 +77,7 @@ pres.SaveAs("tblVSTO.ppt",
 
 	  Microsoft.Office.Core.MsoTriState.msoFalse);
 
-{{< /highlight >}}
+```
 
 The following steps add a table to a Microsoft PowerPoint slide using Aspose.Slides:
 
@@ -86,7 +86,7 @@ The following steps add a table to a Microsoft PowerPoint slide using Aspose.Sli
 - Add text to each cell of the table with a font size of 10.
 - Write the presentation to disk.
 ### **Aspose.Slides**
-{{< highlight csharp >}}
+```
 
  //Create a presentation
 
@@ -130,7 +130,7 @@ for (int i = 0; i < tbl.RowsNumber; i++)
 
 pres.Write("tblSLD.ppt");
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772951)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)

@@ -172,7 +172,7 @@ SLIDESNET-18109 - Serializatiion in PPTX
 
 SLIDESNET-11407 - SmartArt rendering issue
 ## **Public API Changes**
-{{< highlight java >}}
+```
 
  Public API Changes
 
@@ -222,4 +222,4 @@ pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 pres.Slides[0].GetThumbnail();
 
 
-{{< /highlight >}}
+```

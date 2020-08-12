@@ -13,35 +13,35 @@ The Aspose.Slides.IShape.UniqueId property gets unique in a presentation scope s
 #### **Signature of the SetGroupingItem Method Changed in IChartCategoryLevelsManager**
 Signature of the IChartCategoryLevelsManager method
 
-{{< highlight java >}}
+```
 
  void SetGroupingItem(int level, IChartDataCell value);
 
-{{< /highlight >}}
+```
 
 is obsolete now and replaced with the signature
 
-{{< highlight java >}}
+```
 
  void SetGroupingItem(int level, object value);
 
-{{< /highlight >}}
+```
 
 Now calls like
 
-{{< highlight java >}}
+```
 
  .SetGroupingItem(1, workbook.GetCell(0, "A2", "Group 1"));
 
-{{< /highlight >}}
+```
 
 must be changed to calls like
 
-{{< highlight java >}}
+```
 
  .SetGroupingItem(1, "Group 1");
 
-{{< /highlight >}}
+```
 
 Pass a value like "Group 1" into SetGroupingItem but not a value of type IChartDataCell. Constructing IChartDataCell with a defined worksheet, row and column for category levels must satisfy some requirements and has been encapsulated in the SetGroupingItem(int, object) method.
 #### **SlideId Property Added to the Aspose.Slides.IBaseSlide Interface**

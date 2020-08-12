@@ -51,7 +51,7 @@ url: /net/aspose-slides-for-net-20-6-release-notes/
 ### **Property SpreadsheetOptions.RecoverWorkbookFromChartCache has been added**
 A new property **SpreadsheetOptions.RecoverWorkbookFromChartCache** has been added. If the data source of the chart is an external workbook and it's not available, it will be recovered from the chart cache.
 
-{{< highlight csharp >}}
+```
 
  LoadOptions lo = new LoadOptions();
 
@@ -69,4 +69,4 @@ using (Presentation pres = new Presentation("Presentation.pptx", lo))
 
 }
 
-{{< /highlight >}}
+```

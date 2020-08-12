@@ -14,7 +14,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 #### **Property DoughnutHoleSize has been added to IChartSeries and ChartSeries**
 Specifies the size of the hole in a doughnut chart.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -28,4 +28,4 @@ Specifies the size of the hole in a doughnut chart.
 
 }
 
-{{< /highlight >}}
+```

@@ -39,7 +39,7 @@ T he most important point to consider is to remove the previous Aspose.Slides fo
 
 **Step** **7:** Open **rsreportserver.config** file in some editor and locate the following lines that were created in order to add PowerPoint Formats Extensions during the installation of Aspose.Slides for Reporting Services. 
 
-{{< highlight csharp >}}
+```
 
  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
 
@@ -51,7 +51,7 @@ T he most important point to consider is to remove the previous Aspose.Slides fo
 
 
 
-{{< /highlight >}}
+```
 
 **Step** **8:** If MSI installer has not removed the above lines while uninstalling Aspose.Slides for Reporting Services, just delete these lines from **rsreportserver.config** file. 
 
@@ -65,7 +65,7 @@ T he most important point to consider is to remove the previous Aspose.Slides fo
 
 **<CodeGroup>**
 
-{{< highlight csharp >}}
+```
 
    ...
 
@@ -111,7 +111,7 @@ T he most important point to consider is to remove the previous Aspose.Slides fo
 
 
 
-{{< /highlight >}}
+```
 
 **Step** **11:** If MSI installer has not removed the above lines while uninstalling Aspose.Slides for Reporting Services, just remove these lines from **rssrvpolicy.config** file. 
 

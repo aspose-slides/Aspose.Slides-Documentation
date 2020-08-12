@@ -7,7 +7,7 @@ url: /net/rendered-as-tiff-by-user-defined-dimension/
 
 The following example shows how to convert a presentation into TIFF document with customized image size using **TiffOptions** class.
 
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -59,7 +59,7 @@ opts.ImageSize = new Size(1728, 1078);
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Tiff, opts);
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

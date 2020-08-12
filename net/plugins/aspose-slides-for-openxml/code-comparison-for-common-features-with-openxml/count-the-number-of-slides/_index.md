@@ -6,7 +6,7 @@ url: /net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -78,9 +78,9 @@ public static int CountSlides(PresentationDocument presentationDocument)
 
 } 
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides**
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -108,7 +108,7 @@ public static int CountSlides(string presentationFile)
 
 }  
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

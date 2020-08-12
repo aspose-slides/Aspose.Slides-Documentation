@@ -49,7 +49,7 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 
 
-{{< highlight csharp >}}
+```
 
  using (var presentation = new Presentation())
 
@@ -63,7 +63,7 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 }
 
-{{< /highlight >}}
+```
 
 
 
@@ -73,7 +73,7 @@ of the **Object** type, which means you can set any value to the property:
 
 
 
-{{< highlight csharp >}}
+```
 
  workbook.GetCell(0, "F2").Value = -2.5;
 
@@ -81,7 +81,7 @@ workbook.GetCell(0, "G3").Value = 6.3;
 
 workbook.GetCell(0, "H4").Value = 3;
 
-{{< /highlight >}}
+```
 
 
 
@@ -106,13 +106,13 @@ Then if you try to read the values from the cells B2 and C2, they will be calcul
 
 
 
-{{< highlight csharp >}}
+```
 
  object value1 = cell1.Value; // 7.8
 
 object value2 = cell2.Value; // 2.1
 
-{{< /highlight >}}
+```
 
 
 # **Logical Constants**

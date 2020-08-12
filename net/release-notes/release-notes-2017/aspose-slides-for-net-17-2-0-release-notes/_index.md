@@ -57,15 +57,15 @@ url: /net/aspose-slides-for-net-17-2-0-release-notes/
 ## **Public API Changes**
 #### **Equals method has been added to IBaseSlide interface and BaseSlide class**
 Method signature:
-{{< highlight csharp >}}
+```
 bool Equals(IBaseSlide slide);
-{{< /highlight >}}
+```
 
 It returns true for the slides / layout slides / master slides which identical by its structure and static content.
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
 Example code snippet:
-{{< highlight csharp >}}
+```
 using(Presentation presentation1 = new Presentation(@"SomePresentation1.pptx"))
 
 using(Presentation presentation2 = new Presentation(@"SomePresentation2.pptx"))
@@ -89,13 +89,13 @@ Console.WriteLine(string.Format("SomePresentation1 MasterSlide#{0} is equal to S
 }
 
 }
-{{< /highlight >}}
+```
 
 #### **IsMergedCell property has been added to ICell interface and Cell class**
 ICell.IsMergedCell property returns true if the cell is merged with any adjusted cell, false otherwise. It can be used to identify merged cells across the table.
 
 Code snippet for output all merged cells in a table:
-{{< highlight csharp >}}
+```
 using(Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 
 {
@@ -129,5 +129,5 @@ i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, curre
 }
 
 }
-{{< /highlight >}}
+```
 

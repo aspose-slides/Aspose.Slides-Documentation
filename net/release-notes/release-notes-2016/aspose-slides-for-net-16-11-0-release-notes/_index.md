@@ -66,7 +66,7 @@ IColorFormat InvertedSolidFillColor property has been added to ChartSeries class
 
 It allows to specify inverted solid color for series. To apply this color setting, set series FillType format to FillType.Solid.
 
-{{< highlight java >}}
+```
 
  Color inverColor = Color.Red;
 
@@ -122,7 +122,7 @@ using (Presentation pres = new Presentation())
 
 }
 
-{{< /highlight >}}
+```
 #### **Obsolete members related to PropertyType enum have been deleted**
 Aspose.Slides.Animation.BehaviorProperty.GetByType(Aspose.Slides.Animation.PropertyType)
 Aspose.Slides.Animation.BehaviorPropertyCollection.Add(Aspose.Slides.Animation.PropertyType)

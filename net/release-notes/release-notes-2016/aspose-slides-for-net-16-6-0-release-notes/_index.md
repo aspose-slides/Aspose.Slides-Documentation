@@ -100,7 +100,7 @@ The two new methods ReadDocumentProperties and UpdateDocumentProperties have bee
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
-{{< highlight java >}}
+```
 
  // read the info of presentation
 
@@ -122,11 +122,11 @@ info.UpdateDocumentProperties(props);
 
 info.WriteBindedPresentation("updated_presentation.pptx");
 
-{{< /highlight >}}
+```
 
 There's an another way to use properties of a particular presentation as a template to update properties in other presentations:
 
-{{< highlight java >}}
+```
 
  private void UpdateByTemplate()
 
@@ -174,11 +174,11 @@ private void UpdateByTemplate(string path, IDocumentProperties template)
 
 }
 
-{{< /highlight >}}
+```
 
 Or a new template can be created from scratch and then used to update multiple presentations:
 
-{{< highlight java >}}
+```
 
  private void UpdateByTemplate()
 
@@ -226,6 +226,6 @@ private void UpdateByTemplate(string path, IDocumentProperties template)
 
 }
 
-{{< /highlight >}}
+```
 
 Also, CreatedTime and LastPrinted properties of IDocumentProperties have been made readable and writable. IDocumentProperties.LastSavedTime has made writable too, but only if it is created as a standalone object or returned by IPresentationInfo.ReadDocumentProperties() method (not if it is returned by IPresentation.DocumentProperties property).

@@ -36,7 +36,7 @@ Let us take an example of a PresentationML document having single slide with one
 #### **Example**
 
 
-{{< highlight csharp >}}
+```
 
  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
@@ -142,6 +142,6 @@ Let us take an example of a PresentationML document having single slide with one
 
 
 
-{{< /highlight >}}
+```
 
 

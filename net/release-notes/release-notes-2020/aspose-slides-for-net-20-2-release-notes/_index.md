@@ -75,7 +75,7 @@ The code snippet below generates these objects:
 
 
 
-{{< highlight csharp >}}
+```
 
     using (Presentation pres = new Presentation())
 
@@ -118,7 +118,7 @@ The code snippet below generates these objects:
 
            }
 
-{{< /highlight >}}
+```
 
 
 
@@ -126,19 +126,19 @@ The code snippet below generates these objects:
 
 1) First, we get coordinates of the left top corner of the table cell:
 
-{{< highlight csharp >}}
+```
 
  double x = tbl.X + cell.OffsetX;
 
 double y = tbl.Y + cell.OffsetY;
 
-{{< /highlight >}}
+```
 
 
 
 2) Then, we use IParagrap.GetRect() and IPortion.GetRect() methods to add frame to portions and paragraphs:
 
-{{< highlight csharp >}}
+```
 
               foreach (IParagraph para in cell.TextFrame.Paragraphs)
 
@@ -187,13 +187,13 @@ double y = tbl.Y + cell.OffsetY;
 
                 }
 
-{{< /highlight >}}
+```
 
 
 
 3) Now we should add a frame to AutoShape paragraphs:
 
-{{< highlight csharp >}}
+```
 
       foreach (IParagraph para in autoShape.TextFrame.Paragraphs)
 
@@ -215,7 +215,7 @@ double y = tbl.Y + cell.OffsetY;
 
                }
 
-{{< /highlight >}}
+```
 
 
 

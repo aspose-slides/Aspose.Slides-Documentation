@@ -27,7 +27,7 @@ Following is the complete code of **LinkController** class which implements the 
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228440)
 
-{{< highlight csharp >}}
+```
 
  /// <summary>
 
@@ -229,13 +229,13 @@ class LinkController : ILinkEmbedController
 
 }
 
-{{< /highlight >}}
+```
 
 After writing the **LinkController** class, now we will use it with **HTMLOptions** class to export the presentation to HTML having externally linked images using the following code.
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228440)
 
-{{< highlight csharp >}}
+```
 
  using (var pres = new Presentation(@"C:\data\input.pptx"))
 
@@ -257,7 +257,7 @@ After writing the **LinkController** class, now we will use it with **HTMLOption
 
 }
 
-{{< /highlight >}}
+```
 
 We have assign **SlideImageFormat.Svg** to the **SlideImageFormat** property which means the resulting HTML file will contain SVG data inside to draw the presentation contents.
 

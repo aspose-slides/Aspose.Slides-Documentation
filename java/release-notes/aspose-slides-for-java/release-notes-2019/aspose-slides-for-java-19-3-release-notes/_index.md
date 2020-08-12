@@ -42,7 +42,7 @@ The code snippet below shows a sample of adding two hyperlinks with different co
 
 
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation();
 
@@ -76,7 +76,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 
 
 #### **getResourceLoadingCallback and setResourceLoadingCallback methods have been added to ILoadOptions interface and LoadOptions class**
@@ -88,7 +88,7 @@ getSvgResponsiveLayout and setSvgResponsiveLayout methods have been added to IHt
 
 
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -118,13 +118,13 @@ public boolean getSvgResponsiveLayout();
 
 public void setSvgResponsiveLayout(boolean value);
 
-{{< /highlight >}}
+```
 
 
 
 Code sample below shows how to export presentation to HTML with responsive layout:
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation("SomePresentation.pptx");
 
@@ -134,7 +134,7 @@ saveOptions.setSvgResponsiveLayout(true);
 
 presentation.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
 
-{{< /highlight >}}
+```
 
 
 
@@ -142,7 +142,7 @@ presentation.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
 
 But if you have your own HtmlFormatter and you want responsive HTML output to be IE-compatible, you need to embed the following CSS into the styles used in your custom HtmlFormatter:
 
-{{< highlight java >}}
+```
 
  svg {
 
@@ -164,7 +164,7 @@ But if you have your own HtmlFormatter and you want responsive HTML output to be
 
 }
 
-{{< /highlight >}}
+```
 
 
 
@@ -182,7 +182,7 @@ IHyperlink.setStopSoundOnClick(boolean value)
 
 The code snippet below shows adding a hyperlink to the slide and editing its tooltip later:
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation();
 
@@ -208,7 +208,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 
 
 #### **ITextFrame.highlightRegex method has been added**
@@ -216,7 +216,7 @@ New highlightRegex method has been added to ITextFrame interface and TextFrame c
 
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -236,11 +236,11 @@ It allows to highlight text part with background color using regex, similar to T
 
 public void highlightRegex(String regex, java.awt.Color highlightColor, ITextHighlightingOptions options);
 
-{{< /highlight >}}
+```
 
 The code snippet below shows how to use this feature:
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation("SomePresentation.pptx");
 
@@ -250,7 +250,7 @@ TextHighlightingOptions options = new TextHighlightingOptions();
 
 presentation.save("SomePresentation-out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 
 
 #### **ITextFrame.highlightText method has been added**
@@ -258,7 +258,7 @@ New highlightText method (+ overload) has been added to ITextFrame interface and
 
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -295,13 +295,13 @@ public void highlightText(String text, java.awt.Color highlightColor);
 public void highlightText(String text, java.awt.Color highlightColor, ITextHighlightingOptions options);
 
 
-{{< /highlight >}}
+```
 
 
 
 The code snippet below shows how to use this feature:
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation("SomePresentation.pptx");
 
@@ -315,7 +315,7 @@ options.setWholeWordsOnly(true);
 
 presentation.save("SomePresentation-out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 
 
 #### **ITextHighlightingOptions interface and TextHighlightingOptions class have been added**
@@ -323,7 +323,7 @@ com.aspose.slides.ITextHighlightingOptions interface and it's implementation by 
 
 There are 2 available options to specify CaseSensitive and WholeWordsOnly:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -381,7 +381,7 @@ public boolean getWholeWordsOnly();
 
 public void setWholeWordsOnly(boolean value);
 
-{{< /highlight >}}
+```
 
 
 #### **New HyperlinkColorSource enum has been added**
@@ -396,7 +396,7 @@ New IResourceLoadingArgs interface has been added.
 
 This interface used to manage external resource loading arguments.
 
-{{< highlight java >}}
+```
 
  IResourceLoadingArgs interface has following methods:
 
@@ -458,7 +458,7 @@ public void setUri(String value);
 
 public void setData( /*Byte*/ byte[] data);
 
-{{< /highlight >}}
+```
 
 
 #### **New IResourceLoadingCallback interface has been added**
@@ -466,7 +466,7 @@ New IResourceLoadingCallback interface has been added.
 
 This callback interface is used to manage external resources loading and has one method:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -484,13 +484,13 @@ This callback interface is used to manage external resources loading and has one
 
 public /*ResourceLoadingAction*/ int resourceLoading(IResourceLoadingArgs args);
 
-{{< /highlight >}}
+```
 
 
 
 The code snippet below shows how to use IResourceLoadingCallback interface:
 
-{{< highlight java >}}
+```
 
  public void LoadPresentation() {
 
@@ -542,7 +542,7 @@ private class ImageLoadingHandler implements IResourceLoadingCallback {
 
 }
 
-{{< /highlight >}}
+```
 
 
 #### **New ResourceLoadingAction enum has been added - JAVA**

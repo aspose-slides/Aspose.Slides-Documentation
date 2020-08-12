@@ -51,7 +51,7 @@ clear() - removes all sections from the collection.
 
 Example:
 
-{{< highlight java >}}
+```
 
  ISection section = pres.getSections().get_Item(2);
 
@@ -63,7 +63,7 @@ pres.getSections().appendEmptySection("Last empty section");
 
 pres.getSections().addSection("First empty", 3);
 
-{{< /highlight >}}
+```
 #### **com.aspose.slides.ISection interface and Section class have been added**
 ISection interface and Section class represent section of slides.
 
@@ -75,7 +75,7 @@ ISectionSlideCollection getSlidesListOfSection() - returns a list of slides in t
 
 Example:
 
-{{< highlight java >}}
+```
 
  pres.getSections().addSection("Section 1", pres.getSlides().get_Item(0));
 
@@ -83,13 +83,13 @@ pres.getSections().get_Item(0).setName("New section name");
 
 ISectionSlideCollection slidesInSection = pres.getSections().get_Item(0).getSlidesListOfSection();
 
-{{< /highlight >}}
+```
 #### **com.aspose.slides.ISectionSlideCollection interface and SectionSlideCollection class have been added**
 ISectionSlideCollection and SectionSlideCollection represents a collection of a slides in the section.
 
 Example:
 
-{{< highlight java >}}
+```
 
  ISectionSlideCollection slidesInSection = pres.getSections().get_Item(0).getSlidesListOfSection();
 
@@ -101,14 +101,14 @@ for(ISlide slide : slidesInSection)
 
 }
 
-{{< /highlight >}}
+```
 #### **getIncludeComments and setIncludeComments methods have been added to classes PdfOptions, SwfOptions, TiffOptions and HtmlOptions**
 getIncludeComments and setIncludeComments getter and setter have been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions interfaces and HtmlOptions, PdfOptions, SwfOptions, TiffOptions classes respectively.
 It specifies whether the exported document should include additional pages with comments or not. Default value is "false".
 
 Code example:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("Presentation.pptx");
 
@@ -126,11 +126,11 @@ pres.save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
 
 pres.dispose();
 
-{{< /highlight >}}
+```
 #### **Getters IPresentation.getSections, Presentation.getSections have been added**
 Getters IPresentation.getSections and Presentation.getSections return ISectionCollection instance (list of all slides sections that are defined in the presentation).
 
-{{< highlight java >}}
+```
 
  IPresentation pres = new Presentation();
 
@@ -138,4 +138,4 @@ pres.getSections().addSection("Section 1", pres.getSlides().get_Item(0));
 
 int n = pres.getSections().size();
 
-{{< /highlight >}}
+```

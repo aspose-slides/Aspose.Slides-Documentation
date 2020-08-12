@@ -75,7 +75,7 @@ Here is possible to add new colors not defined in presentation theme, or change 
 In [**Aspose.Slides**](https://products.aspose.com/slides/net) to choose the appropriate color from the theme color set and set it to the element, use [**IFillFormat.SolidFillColor.SchemeColor**](https://apireference.aspose.com/net/slides/aspose.slides/icolorformat/properties/schemecolor) property:
 
 
-{{< highlight csharp >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -89,7 +89,7 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/net) to choose the app
 
 }
 
-{{< /highlight >}}
+```
 
 
 
@@ -97,13 +97,13 @@ In the example above, we have set a reference on *Accent4* color, taken from the
 
 
 
-{{< highlight csharp >}}
+```
 
  var fillEffective = shape.FillFormat.GetEffective();
 
 Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
 
-{{< /highlight >}}
+```
 
 
 
@@ -111,13 +111,13 @@ We can check that color matches the one defined as *Accent4* for the presentat
 
 
 
-{{< highlight csharp >}}
+```
 
  Color themeAccent4 = pres.MasterTheme.ColorScheme.Accent4.Color;
 
 Console.WriteLine($"{themeAccent4.Name} - from theme");
 
-{{< /highlight >}}
+```
 
 
 
@@ -125,7 +125,7 @@ Lets us create one more element and assign it the same *Accent4* color from t
 
 
 
-{{< highlight csharp >}}
+```
 
  IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -137,7 +137,7 @@ otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
 pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 
-{{< /highlight >}}
+```
 
 
 
@@ -165,7 +165,7 @@ Let us create an element with the text, and assign the Latin font from the font 
 
 
 
-{{< highlight csharp >}}
+```
 
  IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
@@ -183,7 +183,7 @@ shape.TextFrame.Paragraphs.Add(paragraph);
 
 portion.PortionFormat.LatinFont = new FontData("+mn-lt");
 
-{{< /highlight >}}
+```
 
 
 
@@ -191,13 +191,13 @@ Now lets check that the same font is set for Body Latin:
 
 
 
-{{< highlight csharp >}}
+```
 
  Console.WriteLine($"Portion Body Latin font is: {portion.PortionFormat.GetEffective().LatinFont.FontName}");
 
 Console.WriteLine($"Theme Body Latin font is: {pres.MasterTheme.FontScheme.Minor.LatinFont}");
 
-{{< /highlight >}}
+```
 
 
 
@@ -205,11 +205,11 @@ It is possible to change the presentation theme font, which will be updated for 
 
 
 
-{{< highlight csharp >}}
+```
 
  pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
-{{< /highlight >}}
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -227,7 +227,7 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/net) its possible to a
 
 On the images above you can see, that to design the Background Style in PowerPoint, there are 12 predefined backgrounds available. However, if we upload the presentation, saved in PowerPoint through Aspose.Slides, then execute the following code - we will see only 3 predefined backgrounds in the resulting presentation:
 
-{{< highlight csharp >}}
+```
 
  using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -239,7 +239,7 @@ On the images above you can see, that to design the Background Style in PowerPoi
 
 }
 
-{{< /highlight >}}
+```
 
 The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/net/slides/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property.
 
@@ -247,11 +247,11 @@ To define which background should be used for presentation, set the needed prese
 
 
 
-{{< highlight csharp >}}
+```
 
  pres.Masters[0].Background.StyleIndex = 2;
 
-{{< /highlight >}}
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -290,7 +290,7 @@ So, the effects you can use in PowerPoint are strictly limited. While, in Aspos
 
 
 
-{{< highlight csharp >}}
+```
 
  using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 
@@ -310,7 +310,7 @@ So, the effects you can use in PowerPoint are strictly limited. While, in Aspos
 
 }
 
-{{< /highlight >}}
+```
 
 
 

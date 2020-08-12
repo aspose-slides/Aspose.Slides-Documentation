@@ -79,7 +79,7 @@ SLIDESJAVA-33856 - Chart series labels are improperly rendered in generated PDF
 
 SLIDESJAVA-32785 - The thumbnail is improperly rendered if it is lesser then slide size
 ## **Public API Changes**
-{{< highlight java >}}
+```
 
  Public API Changes
 
@@ -96,4 +96,4 @@ chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90)
 
 pres.save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```

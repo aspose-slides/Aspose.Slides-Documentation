@@ -14,7 +14,7 @@ To generate an **SVG** image from any desired slide with **Aspose.Slides.Pptx** 
 - Get the SVG image in a memory stream.
 - Save the memory stream to file.
 
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -66,7 +66,7 @@ using (Presentation pres = new Presentation(srcFileName))
 
 }
 
-{{< /highlight >}}
+```
 
 Below is the result of code:
 

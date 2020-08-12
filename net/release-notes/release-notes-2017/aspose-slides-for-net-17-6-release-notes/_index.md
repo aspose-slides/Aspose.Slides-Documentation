@@ -70,7 +70,7 @@ This property specifies whether the exported document should include additional 
 
 Code example:
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation("Presentation.pptx"))
 
@@ -90,7 +90,7 @@ pres.Save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
 
 }
 
-{{< /highlight >}}
+```
 #### **ISectionCollection interface and SectionCollection class have been added.**
 ISectionCollection and SectionCollection represent a collection of sections.
 
@@ -108,7 +108,7 @@ Clear() - removes all sections from the collection.
 
 Example:
 
-{{< highlight java >}}
+```
 
  ISection section = pres.Sections[2];
 
@@ -120,7 +120,7 @@ pres.Sections.AppendEmptySection("Last empty section");
 
 pres.Sections.AddSection("First empty", 3);
 
-{{< /highlight >}}
+```
 #### **ISection interface and Section class have been added**
 ISection interface and Section class represent section of slides.
 
@@ -132,7 +132,7 @@ ISectionSlideCollection GetSlidesListOfSection() - returns a list of slides in t
 
 Example:
 
-{{< highlight java >}}
+```
 
  pres.Sections.AddSection("Section 1", pres.Slides[0]);
 
@@ -140,13 +140,13 @@ pres.Sections[0].Name = "New section name";
 
 ISectionSlideCollection slidesInSection = pres.Sections[0].GetSlidesListOfSection();
 
-{{< /highlight >}}
+```
 #### **ISectionSlideCollection interface and SectionSlideCollection class have been added**
 ISectionSlideCollection and SectionSlideCollection represents a collection of a slides in the section.
 
 Example:
 
-{{< highlight java >}}
+```
 
  ISectionSlideCollection slidesInSection = pres.Sections[0].GetSlidesListOfSection();
 
@@ -158,11 +158,11 @@ foreach (ISlide slide in slidesInSection)
 
 }
 
-{{< /highlight >}}
+```
 #### **Properties IPresentation.Sections, Presentation.Sections have been added**
 Properties IPresentation.Sections and Presentation.Sections return ISectionCollection instance (list of all slides sections that are defined in the presentation).
 
-{{< highlight java >}}
+```
 
  IPresentation pres = new Presentaton();
 
@@ -170,4 +170,4 @@ pres.Sections.AddSection("Section 1", pres.Slides[0]);
 
 int n = pres.Sections.Count;
 
-{{< /highlight >}}
+```

@@ -75,41 +75,41 @@ url: /net/aspose-slides-for-net-17-1-0-release-notes/
 Default public constructors have been added to PortionFormat, ParagraphFormat and TextFrameFormat classes. Formats created with these constructions using can be used to specify text formats for a whole table, etc.
 
 Usage Example:
-{{< highlight csharp >}}
+```
 PortionFormat portionFormat = new PortionFormat();
 
 ParagraphFormat paragraphFormat = new ParagraphFormat();
 
 TextFrameFormat textFrameFormat = new TextFrameFormat();
-{{< /highlight >}}
+```
 
 #### **IBulkTextFormattable interface has been added**
 Aspose.Slides.IBulkTextFormattable interface has been added. It represents an object with possibility of bulk setting child text elements' formats. It contains the following methods:
 
-{{< highlight csharp >}}
+```
 void SetTextFormat(IPortionFormat source);
 
 void SetTextFormat(IParagraphFormat source);
 
 void SetTextFormat(ITextFrameFormat source);
-{{< /highlight >}}
+```
 
 Calling any of them will make an object of class that implements this interface set all its child portions / paragraphs / text frames (accordingly to used method overload) with all defined properties from provided format sample.
 #### **IFormatFactory interface and FormatFactory class have been added**
 Aspose.Slides.IFormatFactory interface and Aspose.Slides.FormatFactory class have been added. They allow to create PortionFormat, ParagraphFormat and TextFrameFormat instances via COM interface.
 
 Usage Example:
-{{< highlight csharp >}}
+```
 IPortionFormat portionFormat = FormatFactory.Instance.CreatePortionFormat();
 IParagraphFormat paragraphFormat = FormatFactory.Instance.CreateParagraphFormat();
 ITextFrameFormatparagraphFormat = FormatFactory.Instance.CreateTextFrameFormat();
-{{< /highlight >}}
+```
 
 #### **Properties DataLabelFormat.ShowLabelValueFromCell and IDataLabelFormat.ShowLabelValueFromCell have been added**
 Property DataLabelFormat.ShowLabelValueFromCell determines if data label text contains data from workbook data cell.
 
 
-{{< highlight csharp >}}
+```
 string lbl0 = "Label 0 cell value";
 
 string lbl1 = "Label 1 cell value";
@@ -145,11 +145,11 @@ series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
 series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
 
 }
-{{< /highlight >}}
+```
 
 #### **Properties IDataLabel.ValueFromCell and DataLabel.ValueFromCell have been added**
 Gets or sets workbook data cell. Applied if IDataLabelFormat.ShowLabelValueFromCell property equals true.
-{{< highlight csharp >}}
+```
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
@@ -187,7 +187,7 @@ series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
 pres.Save(outPath, SaveFormat.Pptx);
 
 }
-{{< /highlight >}}
+```
 
 #### **SetTextFormat methods have been added to Column class due to inheritance from IBulkTextFormattable added to IColumn interface**
 Aspose.Slides.Column class now implements IBulkTextFormattable interface as a part of IColumn interface. Portion, paragraph or text frame format properties can be set to all column cells by calling Column.SetTextFormat methods.
@@ -195,7 +195,7 @@ Aspose.Slides.Column class now implements IBulkTextFormattable interface as a pa
 Usage Examples:
 
 
-{{< highlight csharp >}}
+```
 ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
 
 
@@ -229,7 +229,7 @@ TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 
 someTable.Columns[1].SetTextFormat(textFrameFormat);
-{{< /highlight >}}
+```
 
 #### **SetTextFormat methods have been added to Row class due to inheritance from IBulkTextFormattable added to IRow interface**
 Aspose.Slides.Row class now implements IBulkTextFormattable interface as a part of IRow interface. Portion, paragraph or text frame format properties can be set to all row cells by calling Row.SetTextFormat methods.
@@ -237,7 +237,7 @@ Aspose.Slides.Row class now implements IBulkTextFormattable interface as a part 
 Usage Examples:
 
 
-{{< highlight csharp >}}
+```
 ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
 
 
@@ -271,7 +271,7 @@ TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 
 someTable.Rows[1].SetTextFormat(textFrameFormat);
-{{< /highlight >}}
+```
 
 #### **SetTextFormat methods have been added to Table class due to inheritance from IBulkTextFormattable added to ITable interface**
 Aspose.Slides.Table class now implements IBulkTextFormattable interface as a part of ITable interface. Portion, paragraph or text frame format properties can be set to all table cells by calling Table.SetTextFormat methods.
@@ -279,7 +279,7 @@ Aspose.Slides.Table class now implements IBulkTextFormattable interface as a par
 Usage Examples:
 
 
-{{< highlight csharp >}}
+```
 ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
 
 
@@ -313,17 +313,17 @@ TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 
 someTable.SetTextFormat(textFrameFormat);
-{{< /highlight >}}
+```
 
 #### **SlideSizeScaleType enum, ISlideSize.SetSize and SlideSize.SetSize methods have been added**
 New methods SetSize have been added to SlideSize class and ISlideSize interface.
 
 
-{{< highlight csharp >}}
+```
 void SetSize(SlideSizeType type, SlideSizeScaleType scaleType);
 
 void SetSize(float width, float height, SlideSizeScaleType scaleType);
-{{< /highlight >}}
+```
 
 These methods allow changing slide size with different ways of content scaling. Ways of content scaling are defined in new SlideSizeScaleType enum. There are following values.
 
@@ -334,7 +334,7 @@ Maximize - Maximize size of content. Use this for maximize the size of your cont
 Usage example:
 
 
-{{< highlight csharp >}}
+```
 using (Presentation presentation = new Presentation("presentation.ppt"))
 
 {
@@ -344,7 +344,7 @@ presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Metho
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used for set slide size with maximize size of content
 
 }
-{{< /highlight >}}
+```
 The property Size of interface ISlideSize and class SlideSize has been marked as Obsolete.
 
 The property Type of interface ISlideSize and class SlideSize has been marked as Obsolete.

@@ -21,7 +21,7 @@ This page contains release notes for Aspose.Slides for Android via Java 20.6
 
 New methods [**setRecoverWorkbookFromChartCache()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SpreadsheetOptions#setRecoverWorkbookFromChartCache-boolean-) and [**getRecoverWorkbookFromChartCache()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SpreadsheetOptions#getRecoverWorkbookFromChartCache--) have been added to [SpreadsheetOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SpreadsheetOptions). If the data source of the chart is an external workbook and it's not available, it will be recovered from the chart cache.
 
-{{< highlight java >}}
+```
 LoadOptions lo = new LoadOptions();
 lo.getSpreadsheetOptions().setRecoverWorkbookFromChartCache(true);
 
@@ -33,7 +33,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-{{< /highlight >}}
+```
 
 ### **iteratorJava() method has been added to IGenericCollection interface and several collection classes**
 **iteratorJava()** method has been added to [IGenericCollection](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IGenericCollection) interface and following classes:

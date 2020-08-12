@@ -57,7 +57,7 @@ TimeUnitType ActualMajorUnitScale            Gets actual major unit s
 TimeUnitType ActualMinorUnitScale            Gets actual minor unit scale of the axis.
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these properties.
-{{< highlight csharp >}}
+```
 using (Presentation pres = new Presentation())
 {
 
@@ -78,7 +78,7 @@ using (Presentation pres = new Presentation())
      double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
 
 }
-{{< /highlight >}}
+```
 
 #### **ActualX, ActualY, ActualWidth, ActualHeight have been added to IChartPlotArea, ChartPlotArea**
 float ActualX  Gets actual X location (left) of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
@@ -91,7 +91,7 @@ float ActualHeight      Gets actual height of the chart element. Call metho
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these properties.
 
-{{< highlight csharp >}}
+```
 using (Presentation pres = new Presentation())
 
 {
@@ -111,7 +111,7 @@ using (Presentation pres = new Presentation())
      double h = chart.PlotArea.ActualHeight;
 
 }
-{{< /highlight >}}
+```
 
 #### **DataSourceType and ExternalWorkbookPath properties has been added to IChartData interface and ChartData class**
 Two new properties have been added to IChartData interface and ChartData class:
@@ -123,7 +123,7 @@ ExternalWorkbookPath of type string, which represents external workbook path if 
 ChartDataSourceType is a new enum which represents the two values: InternalWorkbook and ExternalWorkbook.
 
 
-{{< highlight csharp >}}
+```
 using (Presentation pres = new Presentation("pres.pptx"))
 {
 
@@ -142,12 +142,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
      }
 
 }
-{{< /highlight >}}
+```
 
 #### **IActualLayout interface has been added**
 Properties of IActualLayout provide information about actual position of parent chart element. It is necessary to call method IChart.ValidateChartLayout() previously to fill properties with actual values.
 
-{{< highlight csharp >}}
+```
 using (Presentation pres = new Presentation())
 
 {
@@ -167,12 +167,12 @@ using (Presentation pres = new Presentation())
      double h = chart.PlotArea.ActualHeight;
 
 }
-{{< /highlight >}}
+```
 
 #### **Method ValidateChartLayout() has been added to IChart interface and Chart class**
 Calculates actual values of chart elements. The actual values include position of elements that implement IActualLayout interface (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 
-{{< highlight csharp >}}
+```
 using (Presentation pres = new Presentation())
 
 {
@@ -190,7 +190,7 @@ using (Presentation pres = new Presentation())
      double h = chart.PlotArea.ActualHeight;
 
 }
-{{< /highlight >}}
+```
 
 #### **New method LoadExternalFont has been added to FontsLoader class**
 The new method LoadExternalFont has been added to FontsLoader class:
@@ -199,7 +199,7 @@ public static void LoadExternalFont(byte[] data)
 
 This method allows to add font from the binary data.
 
-{{< highlight csharp >}}
+```
 // loading presentation uses SomeFont which is not installed on the system
 using(Presentation pres = new Presentation("pres.pptx")
 {
@@ -219,14 +219,14 @@ using(Presentation pres = new Presentation("pres.pptx")
      // font SomeFont will be available during the rendering or other operations
 
 }
-{{< /highlight >}}
+```
 
 #### **Ppt95 value has been added to Aspose.Slides.LoadFormat enumeration**
 The new Ppt95 value has been added to Aspose.Slides.LoadFormat enumeration. This value represents Microsoft PowerPoint 95 presentation format.
 
 Code snippet to check whether the presentation format is old Microsoft PowerPoint 95:
 
-{{< highlight csharp >}}
+```
 bool isOldFormat = PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat == LoadFormat.Ppt95;
-{{< /highlight >}}
+```
 

@@ -45,7 +45,7 @@ This page contains release notes for [Aspose.Slides for Java 20.4](https://repos
 The new **Fodp** value has been added to [**LoadFormat**](https://apireference.aspose.com/slides/java/com.aspose.slides/LoadFormat#Fodp) and [**SaveFormat**](https://apireference.aspose.com/slides/java/com.aspose.slides/SaveFormat#Fodp) enumerations. This value represents Flat XML ODF Presentation. 
 The code snippet below demonstrates loading and saving presentation in Fodp format.
 
-{{< highlight java >}}
+```
 
  // load Fodp presentation
 
@@ -87,7 +87,7 @@ if(presInfo.getLoadFormat() == com.aspose.slides.LoadFormat.Fodp)
 
 }
 
-{{< /highlight >}}
+```
 ### **New methods getReadOnlyRecommended() and setReadOnlyRecommended() have been added to IProtectionManager**
 New methods [**getReadOnlyRecommended()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#getReadOnlyRecommended--) and [**setReadOnlyRecommended()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setReadOnlyRecommended-boolean-) have been added to [**IProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager) interface and [**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/ProtectionManager) class.
 
@@ -95,7 +95,7 @@ It allows to get or set read-only recommendation for presentation. This feature 
 
 Property declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -113,11 +113,11 @@ public boolean getReadOnlyRecommended();
 
 public void setReadOnlyRecommended(boolean value);
 
-{{< /highlight >}}
+```
 
 The code snippet below demonstrates enabling this option:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -133,11 +133,11 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 ### **New methods R1C1Formula and Formula have been added to IChartDataCell**
 New methods [**getR1C1Formula()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getR1C1Formula--), [**setR1C1Formula()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-), [**getFormula()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getFormula--) and [**setFormula()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) have been added to [**ChartDataCell**](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartDataCell) class and [**IChartDataCell**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataCell) interface. These properties provide a way to set a formula value for the chart data cell.
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation();
 
@@ -161,13 +161,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 ### **PDF/A-1a and PDF/UA conformance options have been added to PdfCompliance class**
 New options [**PdfA1a**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1a) and [**PdfUa**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfUa) have been added to [**PdfCompliance**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfCompliance) enumeration. These options allow exporting a presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
 
 The code snippet below demonstrates saving presentation to PDF/A-1a compliant document.
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation("my_presentation.pptx");
 
@@ -185,13 +185,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 ### **Spreadsheet options for formulas calculation**
 Calculated data of a spreadsheet can depend on many different parameters. To allow editing them the [**SpreadsheetOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/SpreadsheetOptions) class has been added. It implements the [**ISpreadsheetOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISpreadsheetOptions) that intended to get and set spreadsheet parameters for formulas calculation.
 
 [**ISpreadsheetOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISpreadsheetOptions) interface declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -225,11 +225,11 @@ public interface ISpreadsheetOptions
 
 }
 
-{{< /highlight >}}
+```
 
 New methods [**getSpreadsheetOptions()**](https://apireference.aspose.com/slides/java/com.aspose.slides/ILoadOptions#getSpreadsheetOptions--) and [**setSpreadsheetOptions()**](https://apireference.aspose.com/slides/java/com.aspose.slides/ILoadOptions#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) have been added to the [**ILoadOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ILoadOptions) interface and [**LoadOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/LoadOptions) class:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -245,12 +245,12 @@ public ISpreadsheetOptions getSpreadsheetOptions();
 
 public void setSpreadsheetOptions(ISpreadsheetOptions value);
 
-{{< /highlight >}}
+```
 ##### **Example**
 -----
 The example below demonstrates how to use the spreadsheet options for a chart formulas:
 
-{{< highlight java >}}
+```
 
  LoadOptions loadOptions = new LoadOptions();
 
@@ -276,13 +276,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 ### **Mathematical text classes and interfaces have been added**
 Now it is possible to work with mathematical equations with the new mathematical text classes and interfaces. You can create new expressions or extract previously created ones from the presentation.
 
 Below is an example of using these new API to create the Pythagorean theorem:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -320,11 +320,11 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 
 The [**addMathShape()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addMathShape-float-float-float-float-) method has been added to the [**IShapeCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface and the [**ShapeCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeCollection) class:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -338,11 +338,11 @@ The [**addMathShape()**](https://apireference.aspose.com/slides/java/com.aspose.
 
 public final IAutoShape addMathShape(float x, float y, float width, float height)
 
-{{< /highlight >}}
+```
 
 The [**IMathPortion**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathPortion) interface with the [**MathPortion**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathPortion) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -372,11 +372,11 @@ public interface IMathPortion
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathParagraph**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathParagraph) interface with the [**MathParagraph**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathParagraph) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -410,11 +410,11 @@ public interface IMathParagraph extends IMathBlockCollection
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathBlock**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathBlock) interface with the [**MathBlock**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathBlock) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -472,7 +472,7 @@ public interface IMathBlock extends IMathElementCollection, IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathElement) interface has been added. This interface is implemented in all classes of different mathematical elements:
 
@@ -496,7 +496,7 @@ The [**IMathElement**](https://apireference.aspose.com/slides/java/com.aspose.sl
 - [MathSuperscriptElement](https://apireference.aspose.com/slides/java/com.aspose.slides/MathSuperscriptElement)
 - [MathBorderBox](https://apireference.aspose.com/slides/java/com.aspose.slides/MathBorderBox)
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1064,11 +1064,11 @@ public interface IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathAccent**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathAccent) interface with the [**MathAccent**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathAccent) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1118,11 +1118,11 @@ public interface IMathAccent extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathArray**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathArray) interface with the [**MathArray**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathArray) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1236,11 +1236,11 @@ public interface IMathArray extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathBar**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathBar) interface with the [**MathBar**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathBar) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1286,11 +1286,11 @@ public interface IMathBar extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathBorderBox**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathBorderBox) interface with the [**MathBorderBox**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathBorderBox) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1438,11 +1438,11 @@ public interface IMathBorderBox extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathBox**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathBox) interface with the [**IMathBox**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathBox) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1582,11 +1582,11 @@ public interface IMathBox extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathDelimiter**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathDelimiter) interface with the [**MathDelimiter**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathDelimiter) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1726,11 +1726,11 @@ public interface IMathDelimiter extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathematicalText**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathematicalText) interface with the [**MathematicalText**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathematicalText) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1774,11 +1774,11 @@ public interface IMathematicalText extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathFraction**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathFraction) interface with the [**MathFraction**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathFraction) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1840,11 +1840,11 @@ public interface IMathFraction extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathFunction**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathFunction) interface with the [**MathFunction**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathFunction) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1888,11 +1888,11 @@ public interface IMathFunction extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathGroupingCharacter**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathGroupingCharacter) interface with the [**MathGroupingCharacter**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathGroupingCharacter) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1980,11 +1980,11 @@ public interface IMathGroupingCharacter extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathLeftSubSuperscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathLeftSubSuperscriptElement) interface with the [**MathLeftSubSuperscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathLeftSubSuperscriptElement) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2040,11 +2040,11 @@ public interface IMathLeftSubSuperscriptElement extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathLimit**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathLimit) interface with the [**MathLimit**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathLimit) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2100,11 +2100,11 @@ public interface IMathLimit extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathMatrix**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathMatrix) interface with the [**MathMatrix**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathMatrix) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2428,11 +2428,11 @@ public interface IMathMatrix extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathNaryOperator**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathNaryOperator) interface with the [**MathNaryOperator** ](https://apireference.aspose.com/slides/java/com.aspose.slides/MathNaryOperator)class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2488,11 +2488,11 @@ public interface IMathNaryOperator extends IMathElement, IMathNaryOperatorProper
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathNaryOperatorProperties**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathNaryOperatorProperties) interface has been added as base interface of the [**IMathNaryOperator**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathNaryOperator) which is implemented in the [**MathNaryOperator**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathNaryOperator) class:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2582,11 +2582,11 @@ public interface IMathNaryOperatorProperties
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathRadical**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathRadical) interface with the [**MathRadical**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathRadical) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2646,11 +2646,11 @@ public interface IMathRadical extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathRightSubSuperscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathRightSubSuperscriptElement) interface with the [**MathRightSubSuperscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathRightSubSuperscriptElement) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2726,11 +2726,11 @@ public interface IMathRightSubSuperscriptElement extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathSubscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathSubscriptElement) interface with the [**MathSubscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathSubscriptElement) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2774,11 +2774,11 @@ public interface IMathSubscriptElement extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**IMathSuperscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/IMathSuperscriptElement) interface with the [**MathSuperscriptElement**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathSuperscriptElement) class have been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2822,11 +2822,11 @@ public interface IMathSuperscriptElement extends IMathElement
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathDelimiterShape**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathDelimiterShape) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2868,11 +2868,11 @@ public final class MathDelimiterShape
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathFractionTypes**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathFractionTypes) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -2938,11 +2938,11 @@ public final class MathFractionTypes
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathFunctionsOfOneArgument**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathFunctionsOfOneArgument) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3272,11 +3272,11 @@ public final class MathFunctionsOfOneArgument
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathFunctionsOfTwoArguments**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathFunctionsOfTwoArguments) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3342,11 +3342,11 @@ public final class MathFunctionsOfTwoArguments
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathHorizontalAlignment**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathHorizontalAlignment) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3412,11 +3412,11 @@ public final class MathHorizontalAlignment
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathIntegralTypes**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathIntegralTypes) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3506,11 +3506,11 @@ public final class MathIntegralTypes
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathJustification**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathJustification) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3580,11 +3580,11 @@ public final class MathJustification
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathLimitLocations**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathLimitLocations) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3638,11 +3638,11 @@ public final class MathLimitLocations
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathNaryOperatorTypes**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathNaryOperatorTypes) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3746,11 +3746,11 @@ public final class MathNaryOperatorTypes
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathRowSpacingRule**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathRowSpacingRule) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3828,11 +3828,11 @@ public final class MathRowSpacingRule
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathSpacingRules**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathSpacingRules) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3918,11 +3918,11 @@ public final class MathSpacingRules
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathTopBotPositions**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathTopBotPositions) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -3976,11 +3976,11 @@ public final class MathTopBotPositions
 
 }
 
-{{< /highlight >}}
+```
 
 The [**MathVerticalAlignment**](https://apireference.aspose.com/slides/java/com.aspose.slides/MathVerticalAlignment) class has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -4046,4 +4046,4 @@ public final class MathVerticalAlignment
 
 }
 
-{{< /highlight >}}
+```

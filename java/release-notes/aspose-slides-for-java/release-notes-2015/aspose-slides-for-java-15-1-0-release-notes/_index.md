@@ -130,7 +130,7 @@ SLIDESJAVA-30584 - Shapes improperly rendered in the slide thumbnail
 
 SLIDESJAVA-30583 - Slide title failed to render in generated thumbnail
 ## **Public API Changes**
-{{< highlight java >}}
+```
 
 
 
@@ -181,4 +181,4 @@ pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
 pres.getSlides().get_Item(0).getThumbnail(1, 1);
 
-{{< /highlight >}}
+```

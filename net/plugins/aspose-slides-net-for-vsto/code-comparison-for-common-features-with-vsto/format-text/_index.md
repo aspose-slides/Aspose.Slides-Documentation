@@ -13,7 +13,7 @@ Both the VSTO and Aspose.Slides methods take the following steps:
 - Change the formatting of the text in the third text box.
 - Save the presentation to disk.
 ### **VSTO**
-{{< highlight csharp >}}
+```
 
  //Open the presentation
 
@@ -71,9 +71,9 @@ shp.FillFormat.ForeColor = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
 pres.Write("outAspose.ppt");
 
-{{< /highlight >}}
+```
 ### **Aspose.Slides**
-{{< highlight csharp >}}
+```
 
  PowerPoint.Presentation pres = null;
 
@@ -131,7 +131,7 @@ pres.SaveAs("outVSTO.ppt",
 
 	Microsoft.Office.Core.MsoTriState.msoFalse);
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772953)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Format.Text.using.VSTO.and.Aspose.Slides.Aspose.Slides.zip)

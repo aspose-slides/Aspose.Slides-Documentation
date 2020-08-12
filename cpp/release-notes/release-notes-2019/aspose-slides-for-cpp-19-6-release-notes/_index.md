@@ -45,7 +45,7 @@ Sample code below outputs effective background fill:
 
 
 
-{{< highlight java >}}
+```
 
  auto pres = System::MakeObject<Presentation>(u"SamplePresentation.pptx");
 
@@ -68,7 +68,7 @@ else
 }
 
 
-{{< /highlight >}}
+```
 
 
 #### **IProgressCallback class has been added**
@@ -78,7 +78,7 @@ Code snippets below show how to use **IProgressCallback** interface class:
 
 
 
-{{< highlight java >}}
+```
 
  auto presentation = System::MakeObject<Presentation>(fileName);
 
@@ -89,9 +89,9 @@ saveOptions->set_ProgressCallback(System::MakeObject<CloningTests::ExportProgres
 presentation->Save(pdfFileName, Aspose::Slides::Export::SaveFormat::Pdf, saveOptions);
 
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  class ExportProgressHandler : public Aspose::Slides::IProgressCallback
 
@@ -110,7 +110,7 @@ public:
 };
 
 
-{{< /highlight >}}
+```
 
 
 #### **Obsolete methods related to notes and comments have been deleted**
@@ -118,17 +118,17 @@ The following methods of the **INotesSlide** class have been removed:
 
 
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<System::Drawing::Bitmap> GetThumbnail(float scaleX, float scaleY);
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<System::Drawing::Bitmap> GetThumbnail(System::Drawing::Size imageSize);
 
-{{< /highlight >}}
+```
 
 
 
@@ -138,23 +138,23 @@ The following methods of the ISlide class have been removed:
 
 
 
-{{< highlight java >}}
+```
 
  void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics, int32_t width, int32_t height);
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics, float scale);
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics);
 
-{{< /highlight >}}
+```
 
 Use **RenderToGraphics()** method with parameter of type **INotesCommentsLayoutingOptions** instead.
 
@@ -162,17 +162,17 @@ The following methods of the **IHtmlOptions**, **IPdfOptions**, **ISwfOptions** 
 
 
 
-{{< highlight java >}}
+```
 
  bool get_IncludeComments();
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  void set_IncludeComments(bool value);
 
-{{< /highlight >}}
+```
 
 Use **INotesCommentsLayoutingOptions** class instead.
 
@@ -188,16 +188,16 @@ Also the new method has been added to **IImageCollection** and **ImageCollection
 
 
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IPPImage> AddImage(System::SharedPtr<System::IO::Stream> stream, LoadingStreamBehavior loadingStreamBehavior);
 
-{{< /highlight >}}
+```
 
 **Adding new image as BLOB to the presentation** 
 This example demonstrates how to include the large BLOB (image) and prevent a high memory consumption.
 
-{{< highlight java >}}
+```
 
  void AddingNewBlobImageToPresentation()
 
@@ -238,4 +238,4 @@ This example demonstrates how to include the large BLOB (image) and prevent a hi
 }
 
 
-{{< /highlight >}}
+```

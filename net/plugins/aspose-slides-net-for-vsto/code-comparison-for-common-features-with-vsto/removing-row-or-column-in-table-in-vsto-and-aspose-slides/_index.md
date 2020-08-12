@@ -8,7 +8,7 @@ url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ### **VSTO**
 Below is code for removing rows or columns from table using VSTO Presentation:
 
-{{< highlight csharp >}}
+```
 
     string FileName = "Removing Row Or Column in Table.pptx";
 
@@ -32,7 +32,7 @@ Below is code for removing rows or columns from table using VSTO Presentation:
 
    }
 
-{{< /highlight >}}
+```
 ### **Aspose.Slides**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
@@ -45,7 +45,7 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Remove table column
 - Write the modified presentation as a PPTX file
 
-{{< highlight csharp >}}
+```
 
    string FileName = "Removing Row Or Column in Table.pptx";
 
@@ -70,7 +70,7 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
   MyPresentation.Save(FileName,Export.SaveFormat.Pptx);
 
 
-{{< /highlight >}}
+```
 ### **Download Running Code**
 - [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)

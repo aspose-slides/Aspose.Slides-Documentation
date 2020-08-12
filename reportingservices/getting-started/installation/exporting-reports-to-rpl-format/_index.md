@@ -27,7 +27,7 @@ Aspose.ReportingServices.Debug.Rpl.dll is available in latest versions of Aspose
 
 - Add following extension to **<Render>** tag of **rsreportserver.config** file (usually at c:\Program Files\Microsoft SQL Server\MSRS10_50.SQL2008R2\Reporting Services\ReportServer\rsreportserver.config)
 
-{{< highlight java >}}
+```
 
 
 
@@ -40,13 +40,13 @@ Aspose.ReportingServices.Debug.Rpl.dll is available in latest versions of Aspose
 	  </Extension>
 
 
-{{< /highlight >}}
+```
 
 Specify path to resulted RPL files by modifying Path element.
 
 - Give Aspose.ReportingServices.Debug.Rpl.dll permissions to execute. To do this, open C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config and add the following as the last item in the second to outer **<CodeGroup>** element ( which should be **<CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission. ">** ) :
 
-{{< highlight java >}}
+```
 
 
 
@@ -81,7 +81,7 @@ Specify path to resulted RPL files by modifying Path element.
 </CodeGroup>
 
 
-{{< /highlight >}}
+```
 
 - Restart Reporting services. You will find Aspose.Rpl option in Export menu.
 

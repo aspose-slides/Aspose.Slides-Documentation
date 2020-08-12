@@ -38,7 +38,7 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 
 **<Render>**
 
-{{< highlight csharp >}}
+```
 
    ...
 
@@ -58,7 +58,7 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 
 
 
-{{< /highlight >}}
+```
 
 1. Give Aspose.Slides for Reporting Services permissions to execute: 
    1. Open **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config**.
@@ -66,7 +66,7 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 
 **<CodeGroup>**
 
-{{< highlight csharp >}}
+```
 
 
 
@@ -114,7 +114,7 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 
 
 
-{{< /highlight >}}
+```
 
 1. Verify that Aspose.Slides for Reporting Services was installed successfully: 
    1. Open Report Manager and check the list of available export types for a report. {{% alert color="primary" %}} 

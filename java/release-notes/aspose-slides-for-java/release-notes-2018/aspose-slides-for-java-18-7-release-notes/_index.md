@@ -68,7 +68,7 @@ This method creates the new data point and adds it to the end of a collection.
 
 Applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer.isChartTypeStock(ChartType) method).
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -172,7 +172,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **getApplyImageTransparent and setApplyImageTransparent methods have been added to IPdfOptions**
 getApplyImageTransparent and setApplyImageTransparent methods have been added to IPdfOptions.
 
@@ -180,7 +180,7 @@ Method setImageTransparentColor sets the image transparent color.
 
 Method setApplyImageTransparent applies the specified transparent color to an image if true. True by default.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -200,13 +200,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **getHiLowLinesFormat method has been added to IChartSeriesGroup**
 getHiLowLinesFormat method has been added to IChartSeriesGroup.
 
 Specifies HiLowLines format. HiLowLines applied with HiLowClose, OpenHiLowClose, VolumeHiLowClose and VolumeOpenHiLowClose chart types.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -230,7 +230,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **getImageTransparentColor and setImageTransparentColor methods have been added to IPdfOptions**
 getImageTransparentColor and setImageTransparentColor methods have been added to IPdfOptions.
 
@@ -238,7 +238,7 @@ Method setImageTransparentColor sets the image transparent color.
 
 Method setApplyImageTransparent applies the specified transparent color to an image if true. True by default.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -258,13 +258,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **getInvertIfNegative and setInvertIfNegative methods have been added to IChartDataPoint**
 getInvertIfNegative and setInvertIfNegative methods have been added to IChartDataPoint.
 
 Specifies the data point shall invert its colors if the value is negative.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -306,13 +306,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **hasRoundedCorners and setRoundedCorners methods have been added to IChart**
 hasRoundedCorners and setRoundedCorners methods have been added to IChart.
 
 Specifies the chart area shall have rounded corners.
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation();
 
@@ -332,7 +332,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **The implementation of method IChartData.setRange() has been changed.**
 Implementation of the method has been changed to avoid lost of series settings (series type, formatting and etc.). Only data points will be updated.
 
@@ -344,7 +344,7 @@ It represents "Light Style 1 - Accent 5" preset table style.
 
 The code snippet below shows how to add a new Table with "Light Style 1 - Accent 5" style:
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation();
 
@@ -364,7 +364,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **The obsolete HeaderFooterManager class has been deleted**
 Obsolete HeaderFooterManager class has been deleted.
 

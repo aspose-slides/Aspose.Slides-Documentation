@@ -17,7 +17,7 @@ Aspose.Slides for .NET allows developers to add empty slides to their presentati
 - Do some work with the newly added empty slide
 - Finally, write the presentation file using the **Presentation** object
 
-{{< highlight csharp >}}
+```
 
  PresentationEx pres = new PresentationEx();
 
@@ -39,7 +39,7 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 
 pres.Write("EmptySlide.pptx");
 
-{{< /highlight >}}
+```
 ## **Accessing Slides of Presentation**
 Aspose.Slides for .NET provides Presentation class that can be used to find and access any desired slide present in the presentation.
 
@@ -47,7 +47,7 @@ Aspose.Slides for .NET provides Presentation class that can be used to find and 
 
 **Presentation** class represents a presentation file and exposes all slides in it as a **SlideCollection** collection (that is a collection of **Slide** objects). All of these slides can be accessed from this **Slides** collection using a slide index.
 
-{{< highlight csharp >}}
+```
 
  //Instantiate a Presentation object that represents a presentation file
 
@@ -57,7 +57,7 @@ PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
 SlideEx slide = pres.Slides[0];
 
-{{< /highlight >}}
+```
 ## **Removing Slides**
 We know that Presentation class in **Aspose.Slides for .NET** represents a presentation file. Presentation class encapsulates a **SlideCollection** that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
 
@@ -73,7 +73,7 @@ To remove a slide using its reference, please follow the steps below:
 - Remove the referenced slide from the presentation
 - Write the modified presentation file
 
-{{< highlight csharp >}}
+```
 
  //Instantiate a Presentation object that represents a presentation file
 
@@ -91,7 +91,7 @@ pres.Slides.Remove(slide);
 
 pres.Write("modified.pptx");
 
-{{< /highlight >}}
+```
 ## **Changing Position of Slide:**
 It's very simple to change the position of a slide in the presentation. Just follow the steps below:
 
@@ -102,7 +102,7 @@ It's very simple to change the position of a slide in the presentation. Just fol
 
 In the example given below, we have changed the position of a slide (lying at the zero index position 1) of the presentation) to index 1 (Position 2).
 
-{{< highlight csharp >}}
+```
 
  private static string MyDir = @"..\..\..\Sample Files\";
 
@@ -208,7 +208,7 @@ Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

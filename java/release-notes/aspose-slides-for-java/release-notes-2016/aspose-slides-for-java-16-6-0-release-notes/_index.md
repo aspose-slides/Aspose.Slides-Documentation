@@ -65,7 +65,7 @@ The two new methods readDocumentProperties and updateDocumentProperties have bee
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
-{{< highlight java >}}
+```
 
  // read the info of presentation
 
@@ -87,11 +87,11 @@ info.updateDocumentProperties(props);
 
 info.writeBindedPresentation("updated_presentation.pptx");
 
-{{< /highlight >}}
+```
 
 There's an another way to use properties of a particular presentation as a template to update properties in other presentations:
 
-{{< highlight java >}}
+```
 
  private void updateByTemplate()
 
@@ -139,11 +139,11 @@ private void updateByTemplate(String path, IDocumentProperties template)
 
 }
 
-{{< /highlight >}}
+```
 
 Or a new template can be created from scratch and then used to update multiple presentations:
 
-{{< highlight java >}}
+```
 
  private void updateByTemplate()
 
@@ -187,7 +187,7 @@ private void updateByTemplate(String path, IDocumentProperties template)
 
 }
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 

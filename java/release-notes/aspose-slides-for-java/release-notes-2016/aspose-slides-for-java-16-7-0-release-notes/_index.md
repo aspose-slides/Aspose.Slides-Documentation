@@ -36,7 +36,7 @@ url: /java/aspose-slides-for-java-16-7-0-release-notes/
 #### **Changes were made in API of text extraction**
 The following static methods of the Presentation class made deprecate (please use overloads of IPresentationFactory instead) and return an instance of IPresentationText interface instead of PresentationText class:
 
-{{< highlight java >}}
+```
 
  getPresentationText(InputStream stream, int mode)
 
@@ -44,13 +44,13 @@ getPresentationText(String file, int mode)
 
 getPresentationText(InputStream stream, int mode, LoadOptions options)
 
-{{< /highlight >}}
+```
 
 ExtractionMode enum renamed to TextExtractionArrangingMode.
 #### **Deprecate members in many classes and interfaces have been deleted**
 Members in many classes and interfaces marked as Deprecate a long time ago have been deleted in this release:
 
-{{< highlight java >}}
+```
 
  com.aspose.slides.BaseSlide.getParentPresentation()
 
@@ -194,4 +194,4 @@ com.aspose.slides.ISmartArtNodeCollection.getNodeByPosition(int)
 
 com.aspose.slides.ISmartArtNodeCollection.removeNodeByPosition(int)
 
-{{< /highlight >}}
+```

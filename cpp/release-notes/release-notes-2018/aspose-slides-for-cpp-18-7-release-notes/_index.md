@@ -29,7 +29,7 @@ The method creates a new data point and adds it to the end of the collection.
 
 It is applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer::IsChartTypeStock(ChartType) method).
 
-{{< highlight java >}}
+```
 
  {
 
@@ -149,13 +149,13 @@ It is applicable for series which chartType is one of Stock subtypes (see also C
 
 }
 
-{{< /highlight >}}
+```
 #### **get_HasRoundedCorners() and set_HasRoundedCorners() methods have been added to IChart and Chart classes**
 get_HasRoundedCorners() and set_HasRoundedCorners() methods have been added to IChart and Chart classes.
 
 The methods specify whether the chart area should have rounded corners.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -187,13 +187,13 @@ The methods specify whether the chart area should have rounded corners.
 
 }
 
-{{< /highlight >}}
+```
 #### **get_HiLowLinesFormat() method has been added to IChartSeriesGroup and ChartSeriesGroup classes**
 get_HiLowLinesFormat() method has been added to IChartSeriesGroup and ChartSeriesGroup classes.
 
 The method specifies HiLowLines format. HiLowLines applied with HiLowClose, OpenHiLowClose, VolumeHiLowClose and VolumeOpenHiLowClose chart types.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -229,7 +229,7 @@ The method specifies HiLowLines format. HiLowLines applied with HiLowClose, Open
 
 }
 
-{{< /highlight >}}
+```
 #### **get_ImageTransparentColor(), set_ImageTransparentColor(), get_ApplyImageTransparent() and set_ApplyImageTransparent() methods have been added to PdfOptions class**
 get_ImageTransparentColor(), set_ImageTransparentColor(), get_ApplyImageTransparent() and set_ApplyImageTransparent() methods have been added to IPdfOptions and PdfOptions classes.
 
@@ -237,7 +237,7 @@ get_ImageTransparentColor() method returns the image transparent color.
 set_ImageTransparentColor() method sets the image transparent color.
 get_ApplyImageTransparent() and set_ApplyImageTransparent() methods specify whether to apply transparent color to the image. The default value is True.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -271,13 +271,13 @@ get_ApplyImageTransparent() and set_ApplyImageTransparent() methods specify whet
 
 }
 
-{{< /highlight >}}
+```
 #### **get_InvertIfNegative() and set_InvertIfNegative() methods have been added to IChartDataPoint and ChartDataPoint classes**
 get_InvertIfNegative() and set_InvertIfNegative() methods have been added to IChartDataPoint and ChartDataPoint classes.
 
 The methods specify that the data point should invert its colors if the value is negative.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -329,7 +329,7 @@ The methods specify that the data point should invert its colors if the value is
 
 }
 
-{{< /highlight >}}
+```
 #### **Implementation of SetRange() method has been changed in ChartData class**
 Implementation of the method has been changed to avoid lost of series settings (series type, formatting and etc.). Only data points will be updated.
 
@@ -341,7 +341,7 @@ It represents "Light Style 1 - Accent 5" preset table style.
 
 The code snippet below shows how to add new Table with "Light Style 1 - Accent 5" style:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -373,7 +373,7 @@ The code snippet below shows how to add new Table with "Light Style 1 - Accent 5
 
 }
 
-{{< /highlight >}}
+```
 #### **Obsolete HeaderFooterManager class has been removed**
 Obsolete HeaderFooterManager class has been removed.
 

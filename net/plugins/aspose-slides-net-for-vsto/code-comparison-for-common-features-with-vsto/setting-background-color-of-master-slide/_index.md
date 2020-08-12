@@ -6,7 +6,7 @@ url: /net/setting-background-color-of-master-slide/
 ---
 
 ### **VSTO**
-{{< highlight csharp >}}
+```
 
  PowerPoint.Presentation presentation =
 
@@ -14,9 +14,9 @@ url: /net/setting-background-color-of-master-slide/
 
             presentation.SlideMaster.Background.Fill.ForeColor.RGB = -654262273;
 
-{{< /highlight >}}
+```
 ### **Aspose.Slides**
-{{< highlight csharp >}}
+```
 
  //Instantiate the Presentation class that represents the presentation file
 
@@ -36,7 +36,7 @@ using (PresentationEx pres = new PresentationEx())
 
 	pres.Save("Setting Background Color of Master Slide.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/787342)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Setting.Background.color.of.Master.Slide.Aspose.Slides.zip)

@@ -34,7 +34,7 @@ Aspose hosts all Java APIs on [Maven repository](https://repository.aspose.com/
 ### **Specify Maven Repository Configuration**
 First, you need to specify Aspose Maven Repository configuration / location in your Maven pom.xml as follows:
 
-{{< highlight java >}}
+```
 
  <repositories>
 
@@ -50,11 +50,11 @@ First, you need to specify Aspose Maven Repository configuration / location in y
 
 </repositories>
 
-{{< /highlight >}}
+```
 ### **Define Aspose.Slides for Java API Dependency**
 Then define Aspose.Slides for Java API dependency in your pom.xml as follows:
 
-{{< highlight java >}}
+```
 
  <dependencies>
 
@@ -84,7 +84,7 @@ Then define Aspose.Slides for Java API dependency in your pom.xml as follows:
 
 </dependencies>
 
-{{< /highlight >}}
+```
 
 After performing the above steps, Aspose.Slides for Java dependency will finally be defined in your Maven Project.
 

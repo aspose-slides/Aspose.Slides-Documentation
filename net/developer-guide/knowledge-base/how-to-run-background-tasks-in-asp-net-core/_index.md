@@ -18,10 +18,10 @@ A[ better approach](https://docs.microsoft.com/en-us/aspnet/core/performance/pe
 In this case, user can see the actual status (and even leave or reload the page), the server resources can be efficiently scaled and flexibly tuned. Also, retry-policy can be utilized. 
 
 So, the typical background processing solution includes the following parts:
-\1. API for scheduling the job.
-\2. API for tracking job status.
-\3. The background worker to process the scheduled jobs.
-\4. API for storing/getting the result.
+1. API for scheduling the job.
+2. API for tracking job status.
+3. The background worker to process the scheduled jobs.
+4. API for storing/getting the result.
 
 
 # **Background Task Example**

@@ -118,7 +118,7 @@ Sample code below outputs effective background fill:
 
 
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("SamplePresentation.pptx");
 
@@ -133,7 +133,7 @@ else
     Console.WriteLine("Fill type: " + effBackground.FillFormat.FillType);
 
 
-{{< /highlight >}}
+```
 
 
 #### **New IProgressCallback interface has been added**
@@ -141,7 +141,7 @@ New IProgressCallback interface has been added to ISaveOptions interface and S
 
 
 
-{{< highlight java >}}
+```
 
  public interface IProgressCallback
 
@@ -161,13 +161,13 @@ New IProgressCallback interface has been added to ISaveOptions interface and S
 
 
 
-{{< /highlight >}}
+```
 
 
 
 Code snippets below show how to use IProgressCallback interface:
 
-{{< highlight java >}}
+```
 
  using (Presentation presentation = new Presentation(fileName))
 
@@ -182,9 +182,9 @@ Code snippets below show how to use IProgressCallback interface:
 }
 
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  class ExportProgressHandler : IProgressCallback
 
@@ -201,7 +201,7 @@ Code snippets below show how to use IProgressCallback interface:
 }
 
 
-{{< /highlight >}}
+```
 #### **Pot value has been added to LoadFormat and SaveFormat enumerations**
 The new **Pot** value has been added to **Aspose.Slides.LoadFormat** and **Aspose.Slides.SaveFormat** enumerations. This value represents Microsoft PowerPoint 97-2003 Presentation template format.
 #### **Support of management images as BLOBs has been added**
@@ -213,7 +213,7 @@ This example demonstrates how to include the large BLOB (image) and prevent a hi
 
 
 
-{{< highlight java >}}
+```
 
  static void AddingNewBlobImageToPresentation()
 
@@ -258,4 +258,4 @@ This example demonstrates how to include the large BLOB (image) and prevent a hi
 }
 
 
-{{< /highlight >}}
+```

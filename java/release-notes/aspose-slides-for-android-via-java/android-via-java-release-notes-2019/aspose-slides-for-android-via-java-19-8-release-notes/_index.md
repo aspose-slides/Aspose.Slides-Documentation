@@ -40,7 +40,7 @@ Starting Aspose.Slides 19.8 all you need is to call **getEffective()** method fr
 
 
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("MyPresentation.pptx");
 
@@ -64,7 +64,7 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 **Note:**
 
@@ -79,7 +79,7 @@ Here is the code demonstrating portion's effective font height value changing af
 
 
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -177,7 +177,7 @@ try
 
 // Portion #1: 18
 
-{{< /highlight >}}
+```
 
 
 ### **Interfaces and classes representing effective table and table's elements formats have been added**
@@ -190,7 +190,7 @@ All of these interfaces and classes represent effective table and table's elemen
 
 Interfaces declarations:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -273,11 +273,11 @@ public interface ICellFormatEffectiveData extends IBaseTableFormatEffectiveData
 }
 
 
-{{< /highlight >}}
+```
 
 The following code demonstrates getting effective fill format for different table logic parts. Please note that cell formatting always has higher priority than row formatting, row - higher than column, column - higher that whole table. So finally **CellFormatEffectiveData** properties always used to draw the table. The following code is just an example of API.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("MyPresentation.pptx");
 
@@ -311,7 +311,7 @@ try
 
 }
 
-{{< /highlight >}}
+```
 ### **AccessibleEffectiveData and BaseEffectiveData classes have been added**
 Abstract generic com.aspose.slides.**AccessibleEffectiveData<TLocalData, TEffectiveData>** and com.aspose.slides.**BaseEffectiveData<TLocalData, TEffectiveData>** classes have been added. Both of that classes are abstract and used internally to maintain unified effective values getting system. Generic types TLocalData and TEffectiveData should be corresponding pair of local and effective data types.
 
@@ -367,7 +367,7 @@ Instances of all of these classes are used as parts of ThreeDFormatEffectiveData
 
 The following code sample demonstrates how to get effective properties for camera, light rig and shape's face relief.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("MyPresentation.pptx");
 
@@ -405,7 +405,7 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 
 ### **IBaseTableFormatEffectiveData interface and BaseTableFormatEffectiveData class have been added**
@@ -413,7 +413,7 @@ Abstract generic com.aspose.slides.**BaseTableFormatEffectiveData<TLocalData, TE
 
 **IBaseTableFormatEffectiveData** declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -530,13 +530,13 @@ public interface IBaseTableFormatEffectiveData
 }
 
 
-{{< /highlight >}}
+```
 ### **ICellFormat interface and CellFormat class have been added**
 com.aspose.slides.**ICellFormat** interface and **CellFormat** class have been added. They encapsulate cell fill and border formatting properties. Corresponding old properties from ICell are marked as deprecated and will be removed after Aspose.Slide 20.8 release.
 
 **ICellFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -653,13 +653,13 @@ public interface ICellFormat
 }
 
 
-{{< /highlight >}}
+```
 ### **ICell.getCellFormat() method has been added**
 getCellFormat() method has been added to **ICell** interface and **Cell** class. It allows to get an object with table cell formatting properties.
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -676,13 +676,13 @@ Method declaration:
 public ICellFormat getCellFormat();
 
 
-{{< /highlight >}}
+```
 ### **IColumnFormat interface and ColumnFormat class have been added**
 com.aspose.slides.**IColumnFormat** interface and **ColumnFormat** class have been added. It is not possible to set local formatting properties for a table column in PowerPoint, so this interface is used only as a mediator to get effective properties.
 
 **IColumnFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -701,13 +701,13 @@ public interface IColumnFormat
 }
 
 
-{{< /highlight >}}
+```
 ### **IColumn.getColumnFormat() method has been added**
 getColumnFormat() method has been added to IColumn interface and Column class. It allows to get an object with table column formatting properties.
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -724,7 +724,7 @@ Method declaration:
 public IColumnFormat getColumnFormat();
 
 
-{{< /highlight >}}
+```
 ### **getEffective() method has been added to several format interfaces**
 **getEffective()** method has been added to following interfaces:
 
@@ -749,7 +749,7 @@ com.aspose.slides.**IRowFormat** interface and **RowFormat** class have been add
 
 **IRowFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -768,13 +768,13 @@ public interface IRowFormat
 }
 
 
-{{< /highlight >}}
+```
 ### **IRow.getRowFormat() method has been added**
 getRowFormat() method has been added to IRow interface and Row class. It allows to get an object with table row formatting properties.
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -791,13 +791,13 @@ Method declaration:
 public IRowFormat getRowFormat();
 
 
-{{< /highlight >}}
+```
 ### **ITableFormat interface and TableFormat class have been added**
 com.aspose.slides.**ITableFormat** interface and **TableFormat** class have been added. They encapsulate table fill formatting property. Corresponding old property from ITable is marked as obsolete and will be returning null (it is inherited from IShape, so can not be removed completely) after Aspose.Slide 20.8 release.
 
 **ITableFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -830,13 +830,13 @@ public interface ITableFormat
 }
 
 
-{{< /highlight >}}
+```
 ### **ITable.getTableFormat() method has been added**
 getTableFormat() method has been added to ITable interface and Table class. It allows to get an object with table formatting properties.
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -853,7 +853,7 @@ Method declaration:
 public ITableFormat getTableFormat();
 
 
-{{< /highlight >}}
+```
 ### **Method for setting layout mode of chart plot area has been added**
 Methods **setLayoutTargetType()** and **getLayoutTargetType()** have been added to **ChartPlotArea** and **IChartPlotArea** classes. 
 
@@ -866,7 +866,7 @@ There are two possible values which are defined in **LayoutTargetType** class.
 
 
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation();
 
@@ -896,13 +896,13 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-8-release-notes_1.jpg)
 ### **New interface, class and methods have been added for creating OleObjectFrame object**
 New interface IOleEmbeddedDataInfo and OleEmbeddedDataInfo class have added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -949,11 +949,11 @@ public interface IOleEmbeddedDataInfo
 }
 
 
-{{< /highlight >}}
+```
 
 New methods addOleObjectFrame and insertOleObjectFrame have been added into IShapeCollection:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -980,11 +980,11 @@ New methods addOleObjectFrame and insertOleObjectFrame have been added into ISha
 public IOleObjectFrame addOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo);
 
 
-{{< /highlight >}}
+```
 
 and
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1013,13 +1013,13 @@ and
 public IOleObjectFrame insertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo);
 
 
-{{< /highlight >}}
+```
 
 These methods allow to get IOleEmbeddedDataInfo object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects without additional questions about the shell program for opening an OLE object.
 
 Following example shows how to set file type for an embedding object:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -1047,29 +1047,29 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 **Pay attention** that methods
 
-{{< highlight java >}}
+```
 
  IOleObjectFrame addOleObjectFrame(float x, float y, float width, float height, String className, byte[] objectData);
 
-{{< /highlight >}}
+```
 
 and
 
-{{< highlight java >}}
+```
 
  IOleObjectFrame insertOleObjectFrame(int index, float x, float y, float width, float height, String className, byte[] objectData);
 
-{{< /highlight >}}
+```
 
 now marked as deprecated and will be removed after release of version 20.05.
 ### **PersistenceType class, IControl.getPersistence() and IControl. getActiveXControlBinary() methods have been added**
 New PersistenceType class that specifies the method used to store properties of the ActiveX control has been added:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1156,11 +1156,11 @@ public final class PersistenceType
 }
 
 
-{{< /highlight >}}
+```
 
 New methods getPersistence() and getActiveXControlBinary() have been added to IControl interface:
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1177,9 +1177,9 @@ New methods getPersistence() and getActiveXControlBinary() have been added to IC
 public int getPersistence();
 
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -1194,11 +1194,11 @@ public int getPersistence();
 public byte[] getActiveXControlBinary();
 
 
-{{< /highlight >}}
+```
 
 These methods and class allow to define and implement custom methods for processing the properties of ActiveX objects depending of its persistence. For example:
 
-{{< highlight java >}}
+```
 
  switch (control.getPersistence())
 
@@ -1231,13 +1231,13 @@ These methods and class allow to define and implement custom methods for process
 }
 
 
-{{< /highlight >}}
+```
 ### **TextFrameFormatEffectiveData class has been added**
 com.aspose.slides.**TextFrameFormatEffectiveData** class has been added. It implements already known interface **ITextFrameFormatEffectiveData** and contains effective text frame formatting properties.
 
 The following code sample demonstrates getting some of effective text frame formatting properties.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("MyPresentation.pptx");
 
@@ -1271,13 +1271,13 @@ try
 
 }
 
-{{< /highlight >}}
+```
 ### **TextStyleEffectiveData class has been added**
 com.aspose.slides.**TextStyleEffectiveData** class has been added. It implements already known interface ITextStyleEffectiveData and contains effective text style properties.
 
 The following code sample demonstrates getting some of effective text style properties.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation("MyPresentation.pptx");
 
@@ -1313,7 +1313,7 @@ try
 
 }
 
-{{< /highlight >}}
+```
 ### **Widescreen value has been added to SlideSizeType class**
 The new **Widescreen** value has been added to com.aspose.slides.**SlideSizeType** class. This value represents Microsoft PowerPoint Widescreen slide size.
 

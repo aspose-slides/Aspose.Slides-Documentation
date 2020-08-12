@@ -26,7 +26,7 @@ To access a table that already exists in a slide, please follow the steps below:
 ##### **Example**
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228409)
 
-{{< highlight csharp >}}
+```
 
  //Instantiate Presentation class that represents PPTX//Instantiate Presentation class that represents PPTX
 
@@ -62,11 +62,11 @@ using (Presentation pres = new Presentation("table.pptx"))
 
 
 
-{{< /highlight >}}
+```
 
 [**Visual Basic**](/pages/createpage.action?spaceKey=slidescpp&title=Visual+Basic&linkCreation=true&fromPageId=60228409)
 
-{{< highlight csharp >}}
+```
 
  'Instantiate Presentation class that represents PPTX
 
@@ -104,7 +104,7 @@ End Using
 
 
 
-{{< /highlight >}}
+```
 
 ![todo:image_alt_text](/download/attachments/9218487/1957997574)
 

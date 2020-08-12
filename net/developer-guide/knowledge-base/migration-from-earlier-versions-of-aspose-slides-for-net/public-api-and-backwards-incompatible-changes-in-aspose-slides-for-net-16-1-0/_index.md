@@ -17,7 +17,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 Property RotationAngle has been added to interfaces Aspose.Slides.Charts.IChartTextBlockFormat and Aspose.Slides.ITextFrameFormat.
 It specifies the custom rotation that is being applied to the text within the bounding box.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -40,5 +40,5 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 }
 
 
-{{< /highlight >}}
+```
 #### **OdpException moved from Aspose.Slides.Odp to Aspose.Slides namespace**

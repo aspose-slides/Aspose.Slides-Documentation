@@ -62,7 +62,7 @@ SLIDESJAVA-34539 - Couldn't read "PowerPoint Document" record on converting PPT 
 
 SLIDESJAVA-6023 - Object resizing problem
 ## **Public API changes**
-{{< highlight java >}}
+```
 
  Public API changes
 
@@ -86,4 +86,4 @@ Methods getBlackWhiteMode(), setBlackWhiteMode(byte) have been added to com.aspo
 
 Methods removeAt(int), remove(ICommentAuthor) and clear() have been added to com.aspose.slides.ICommentAuthorCollection
 
-{{< /highlight >}}
+```

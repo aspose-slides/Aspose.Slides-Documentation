@@ -62,9 +62,9 @@ This page contains release notes for Aspose.Slides for .NET 19.8
 #### **New API for getting effective values was introduced**
 #### **What are 'local' and 'effective' values**
 Properties of text portion could be set via **IPortion.PortionFormat** at different levels of presentation structure hierarchy. Here are *some* of them:
-\1. In portion properties on portion's slide.
-\2. In prototype shape text style on layout or master slide (if portion's text frame shape has one).
-\3. In presentation global text settings.
+1. In portion properties on portion's slide.
+2. In prototype shape text style on layout or master slide (if portion's text frame shape has one).
+3. In presentation global text settings.
 
 For any of these levels values set directly at this level are called '**local**'. At any level '**local**' values could be defined or omitted. But finally when it comes to the moment when the application (built with Aspose.Slides or even PowerPoint itself) needs to know what the portion should look like (during image export or drawing on the screen) it uses '**effective**' values - a completely defined set of values built using hierarchy, possible values overriding on each level from the very bottom one and default values which are hardcoded into PowerPoint.
 
@@ -74,7 +74,7 @@ Starting Aspose.Slides v19.8 all you need is to call **GetEffective()** method f
 
 
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation("MyPresentation.pptx"))
 
@@ -93,7 +93,7 @@ Starting Aspose.Slides v19.8 all you need is to call **GetEffective()** method f
 }
 
 
-{{< /highlight >}}
+```
 
 **Note:**
 
@@ -106,7 +106,7 @@ Both of that classes are abstract and used internally to maintain unified effect
 
 Here is the code demonstrating portion's effective font height value changing after setting local font height values on different presentation structure levels.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -198,7 +198,7 @@ Here is the code demonstrating portion's effective font height value changing af
 
 // Portion #1: 18
 
-{{< /highlight >}}
+```
 
 
 #### **AccessibleEffectiveData and BaseEffectiveData classes have been added**
@@ -252,7 +252,7 @@ Instances of all of these classes are used as parts of ThreeDFormatEffectiveData
 
 The following code sample demonstrates how to get effective properties for camera, light rig and shape's face relief.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
 
@@ -284,7 +284,7 @@ The following code sample demonstrates how to get effective properties for camer
 
 }
 
-{{< /highlight >}}
+```
 #### **GetEffective() method has been added to several format interfaces**
 **GetEffective()** method has been added to following interfaces:
 
@@ -309,7 +309,7 @@ Abstract generic Aspose.Slides.**BaseTableFormatEffectiveData<TLocalData, TEffec
 
 **IBaseTableFormatEffectiveData** declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -393,7 +393,7 @@ public interface IBaseTableFormatEffectiveData
 
 }
 
-{{< /highlight >}}
+```
 
 
 ### **Interfaces and classes representing effective table and table's elements formats have been added**
@@ -406,7 +406,7 @@ All of these interfaces and classes represent effective table and table's elemen
 
 Interfaces declarations
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -456,13 +456,13 @@ public interface ICellFormatEffectiveData : IBaseTableFormatEffectiveData
 
 }
 
-{{< /highlight >}}
+```
 
 
 
 The following code demonstrates getting effective fill format for different table logic parts. Please note that cell formatting always has higher priority than row formatting, row - higher than column, column - higher that whole table. So finally **CellFormatEffectiveData** properties always used to draw the table. The following code is just an example of API.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
 
@@ -490,7 +490,7 @@ The following code demonstrates getting effective fill format for different tabl
 
 }
 
-{{< /highlight >}}
+```
 
 
 #### **TextStyleEffectiveData class has been added**
@@ -498,7 +498,7 @@ Aspose.Slides.**TextStyleEffectiveData** class has been added. It implements al
 
 The following code sample demonstrates getting some of effective text style properties.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
 
@@ -528,13 +528,13 @@ The following code sample demonstrates getting some of effective text style prop
 
 }
 
-{{< /highlight >}}
+```
 #### **ICell.CellFormat property has been added**
 CellFormat property has been added to ICell interface and Cell class. It allows to get an object with table cell formatting properties.
 
 Property declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -546,13 +546,13 @@ Property declaration:
 
 ICellFormat CellFormat { get; }
 
-{{< /highlight >}}
+```
 #### **ICellFormat interface and CellFormat class have been added**
 Aspose.Slides.**ICellFormat** interface and **CellFormat** class have been added. They encapsulate cell fill and border formatting properties. Corresponding old properties from ICell are marked as obsolete and will be removed after Aspose.Slide 20.8 release.
 
 **ICellFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -646,13 +646,13 @@ public interface ICellFormat
 
 }
 
-{{< /highlight >}}
+```
 #### **IColumn.ColumnFormat property has been added**
 ColumnFormat property has been added to IColumn interface and Column class. It allows to get an object with table column formatting properties.
 
 Property declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -664,13 +664,13 @@ Property declaration:
 
 IColumnFormat ColumnFormat{ get; }
 
-{{< /highlight >}}
+```
 #### **IColumnFormat interface and ColumnFormat class have been added**
 Aspose.Slides.**IColumnFormat** interface and **ColumnFormat** class have been added. It is not possible to set local formatting properties for a table column in PowerPoint, so this interface is used only as a mediator to get effective properties.
 
 **IColumnFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -694,13 +694,13 @@ public interface IColumnFormat
 
 }
 
-{{< /highlight >}}
+```
 #### **IRowFormat interface and RowFormat class have been added**
 Aspose.Slides.**IRowFormat** interface and **RowFormat** class have been added. It is not possible to set local formatting properties for a table row in PowerPoint, so this interface is used only as a mediator to get effective properties.
 
 **IRowFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -724,13 +724,13 @@ public interface IRowFormat
 
 }
 
-{{< /highlight >}}
+```
 #### **IRow.RowFormat property has been added**
 RowFormat property has been added to IRow interface and Row class. It allows to get an object with table row formatting properties.
 
 Property declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -742,13 +742,13 @@ Property declaration:
 
 IRowFormat RowFormat { get; }
 
-{{< /highlight >}}
+```
 #### **ITableFormat interface and TableFormat class have been added**
 Aspose.Slides.**ITableFormat** interface and **TableFormat** class have been added. They encapsulate table fill formatting property. Corresponding old property from ITable is marked as obsolete and will be returning null (it is inherited from IShape, so can not be removed completely) after Aspose.Slide 20.8 release.
 
 **ITableFormat** declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -782,13 +782,13 @@ public interface ITableFormat
 
 }
 
-{{< /highlight >}}
+```
 #### **ITable.TableFormat property has been added**
 TableFormat property has been added to ITable interface and Table class. It allows to get an object with table formatting properties.
 
 Property declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -800,11 +800,11 @@ Property declaration:
 
 ITableFormat TableFormat { get; }
 
-{{< /highlight >}}
+```
 #### **New interface, class and methods have been added for creating OleObjectFrame object**
 New interface IOleEmbeddedDataInfo and OleEmbeddedDataInfo class have added:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -838,11 +838,11 @@ public interface IOleEmbeddedDataInfo
 
 }
 
-{{< /highlight >}}
+```
 
 New methods AddOleObjectFrame and InsertOleObjectFrame have been added into IShapeCollection:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -864,11 +864,11 @@ New methods AddOleObjectFrame and InsertOleObjectFrame have been added into ISha
 
 IOleObjectFrame AddOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo);
 
-{{< /highlight >}}
+```
 
 and
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -892,13 +892,13 @@ and
 
 IOleObjectFrame InsertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo);
 
-{{< /highlight >}}
+```
 
 These methods allow to get IOleEmbeddedDataInfo object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects without additional questions about the shell program for opening an OLE object.
 
 Next example shows how to set file type for an embedding object:
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -920,29 +920,29 @@ Next example shows how to set file type for an embedding object:
 
 }
 
-{{< /highlight >}}
+```
 
 **Pay attention** that methods
 
-{{< highlight java >}}
+```
 
  IOleObjectFrame AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData);
 
-{{< /highlight >}}
+```
 
 and
 
-{{< highlight java >}}
+```
 
   IOleObjectFrame InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData);
 
-{{< /highlight >}}
+```
 
 now marked as obsolete and will be removed after release of version 20.05.
 #### **PersistenceType enum,  IControl.Persistence and IControl. ActiveXControlBinary properties have been added**
 New enumerator type PersistenceType that specifies the method used to store properties of the ActiveX control have been added:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -1004,13 +1004,13 @@ public enum PersistenceType
 
 }
 
-{{< /highlight >}}
+```
 
 
 
 New properties Persistence and ActiveXControlBinary have been added to IControl interface:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -1022,9 +1022,9 @@ New properties Persistence and ActiveXControlBinary have been added to IControl 
 
 PersistenceType Persistence { get; }
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -1034,11 +1034,11 @@ PersistenceType Persistence { get; }
 
 byte[] ActiveXControlBinary { get; }
 
-{{< /highlight >}}
+```
 
 These properties and enumeration allow to define and implement custom methods for processing the properties of ActiveX objects depending of its persistence. For example:
 
-{{< highlight java >}}
+```
 
  switch (control.Persistence)
 
@@ -1070,7 +1070,7 @@ These properties and enumeration allow to define and implement custom methods fo
 
 }
 
-{{< /highlight >}}
+```
 #### **Property for setting layout mode of chart plot area has been added**
 Property **LayoutTargetType** has been added to **ChartPlotArea** and **IChartPlotArea** classes. 
 
@@ -1082,7 +1082,7 @@ There are two possible values which are defined in **LayoutTargetType enum**.
 
 **LayoutTargetType.Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
 
-{{< highlight java >}}
+```
 
  using (Presentation presentation = new Presentation())
 
@@ -1106,7 +1106,7 @@ There are two possible values which are defined in **LayoutTargetType enum**.
 
 }
 
-{{< /highlight >}}
+```
 
 ![todo:image_alt_text](aspose-slides-for-net-19-8-release-notes_1.jpg)
 #### **Widescreen value has been added to SlideSizeType enumeration**

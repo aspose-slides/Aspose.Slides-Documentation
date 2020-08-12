@@ -6,7 +6,7 @@ url: /net/get-all-the-text-in-a-slide/
 ---
 
 ## **OpenXML SDK**
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -212,9 +212,9 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides**
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -268,7 +268,7 @@ return texts;
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

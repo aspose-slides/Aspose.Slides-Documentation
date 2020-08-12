@@ -46,7 +46,7 @@ DataLabelCollection.setShowBubbleSize(boolean value)
 New methods getFirstSlideNumber() and setFirstSlideNumber() allow to get or to set the number of first slide in a presentation.
 When a new first slide number value is specified all slide numbers are recalculated.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation(path);
 
@@ -56,4 +56,4 @@ pres.setFirstSlideNumber(10);
 
 pres.save(newPath, SaveFormat.Pptx);
 
-{{< /highlight >}}
+```

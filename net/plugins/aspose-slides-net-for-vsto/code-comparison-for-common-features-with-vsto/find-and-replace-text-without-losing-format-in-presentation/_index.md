@@ -12,7 +12,7 @@ Both methods follow these steps:
 - Replace the text.
 - Write the presentation.
 ### **VSTO**
-{{< highlight csharp >}}
+```
 
  private void findReplaceText(string strToFind, string strToReplaceWith)
 
@@ -70,9 +70,9 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 
 	}
 
-{{< /highlight >}}
+```
 ### **Aspose.Slides**
-{{< highlight csharp >}}
+```
 
  private static void findReplaceText(string strToFind, string strToReplaceWith)
 
@@ -116,7 +116,7 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772952)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Find.and.Replace.Text.without.Losing.Format.Aspose.Slides.zip)

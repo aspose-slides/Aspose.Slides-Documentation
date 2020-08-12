@@ -67,7 +67,7 @@ The code snippet below shows a sample of adding some comments and some replies t
 
 
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -157,7 +157,7 @@ The code snippet below shows a sample of adding some comments and some replies t
 
 }
 
-{{< /highlight >}}
+```
 
 
 #### **IViewProperties.NormalViewProperties, INormalViewRestoredProperties, and related members have been added to provide access to the presentation's "normal view properties".**
@@ -191,7 +191,7 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 
 
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -215,13 +215,13 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 
 }
 
-{{< /highlight >}}
+```
 
 
 ##### **New IOleObjectFrame .SubstitutePictureTitle property has been added**
 A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -242,11 +242,11 @@ A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** 
 string SubstitutePictureTitle { get; set; }
 
 
-{{< /highlight >}}
+```
 
 The code snippet below shows a sample of creating Excel object and setting its caption:
 
-{{< highlight java >}}
+```
 
  string oleSourceFile = "ExcelObject.xlsx";
 
@@ -297,7 +297,7 @@ using (Presentation pres = new Presentation())
 }
 
 
-{{< /highlight >}}
+```
 
 **Note**. When property IsObjectIcon of an IOleObjectFrame is set to value of false then SubstitutePictureTitle property is ignored.
 
@@ -309,7 +309,7 @@ Property **BubbleSizeRepresentation** has been added to IChartSeries, IChartSe
 
 Accordingly, **BubbleSizeRepresentationType** enum has been added to specify the possible ways to represent data as bubble chart sizes.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -328,13 +328,13 @@ Accordingly, **BubbleSizeRepresentationType** enum has been added to specify t
 }
 
 
-{{< /highlight >}}
+```
 #### **Support of converting SVG images into group of shapes has been added.**
 Since version 19.5 Aspose.Slides supports converting SVG images into group of shapes. 
 #### **New ISvgImage interface and SvgImage class were added**
 New ISvgImage interface was added to represent SVG image:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -397,11 +397,11 @@ public interface ISvgImage
 }
 
 
-{{< /highlight >}}
+```
 #### **AddImage method has been added to IImageCollection interface and ImageCollection class**
 New AddImage method has been added to IImageCollection interface and ImageCollection class:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -418,11 +418,11 @@ New AddImage method has been added to IImageCollection interface and ImageCollec
 IPPImage AddImage(ISvgImage svgImage);
 
 
-{{< /highlight >}}
+```
 
 These methods provide ability to insert Svg fragment to the presentation's image collection:
 
-{{< highlight java >}}
+```
 
  using (var p = new Presentation())
 
@@ -441,9 +441,9 @@ These methods provide ability to insert Svg fragment to the presentation's image
 }
 
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  using (var p = new Presentation())
 
@@ -462,13 +462,13 @@ These methods provide ability to insert Svg fragment to the presentation's image
 }
 
 
-{{< /highlight >}}
+```
 
 **Pay attention** that methods IPPImage **AddFromSvg**(string svgContent) and IPPImage **AddFromSvg**(string svgContent, IExternalResourceResolver externalResResolver, string baseUri) marked now as obsolete and will be deleted from API since version 19.10.
 #### **Property SvgImage property has been added to IPPImage interface and PPImage class**
 New property **SvgImage** have been to **IPPImage** interface and **PPImage** class:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -481,11 +481,11 @@ New property **SvgImage** have been to **IPPImage** interface and **PPImage** cl
 ISvgImage SvgImage { get; set; }
 
 
-{{< /highlight >}}
+```
 #### **AddGroupShape method has been added to IShapeCollection interface and IShapeCollection class**
 New AddGroupShape method has been added to IShapeCollection interface and ShapeCollection class:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -508,11 +508,11 @@ New AddGroupShape method has been added to IShapeCollection interface and ShapeC
 IGroupShape AddGroupShape(ISvgImage svgImage, float x, float y, float width, float height);
 
 
-{{< /highlight >}}
+```
 
 This method allows to convert SvgImage object that represents SVG data into group of shapes:
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation(pptxFileName))
 
@@ -541,4 +541,4 @@ This method allows to convert SvgImage object that represents SVG data into grou
 }
 
 
-{{< /highlight >}}
+```

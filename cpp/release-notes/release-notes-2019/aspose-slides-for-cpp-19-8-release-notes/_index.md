@@ -47,7 +47,7 @@ Starting Aspose.Slides19.8 all you need is to call **GetEffective()** method fro
 
 
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"MyPresentation.pptx");
 
@@ -65,7 +65,7 @@ System::SharedPtr<IPortionFormat> localPortionFormat = shape->get_TextFrame()->g
 
 System::SharedPtr<IPortionFormatEffectiveData> effectivePortionFormat = localPortionFormat->GetEffective();
 
-{{< /highlight >}}
+```
 
 **Note:**
 
@@ -78,7 +78,7 @@ Both of that classes are abstract and used internally to maintain unified effec
 
 Here is the code demonstrating portion's effective font height value changing after setting local font height values on different presentation structure levels.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -166,11 +166,11 @@ System::Console::WriteLine(System::String(u"Portion #1: ") + portion1->get_Porti
 
 // Portion #1: 18
 
-{{< /highlight >}}
+```
 ### **AccessibleEffectiveData and BaseEffectiveData class templates have been added**
 Abstract **Aspose::Slides::AccessibleEffectiveData** and **Aspose::Slides::BaseEffectiveData** class templates have been added.
 
-{{< highlight java >}}
+```
 
  template<typename TLocalData, typename TEffectiveData>
 
@@ -180,7 +180,7 @@ template<typename TLocalData, typename TEffectiveData>
 
 class BaseEffectiveData;
 
-{{< /highlight >}}
+```
 
 
 
@@ -222,13 +222,13 @@ Aspose::Slides::Theme::LineFormatCollectionEffectiveData
 ### **BasePortionFormatEffectiveData class template has been added**
 Abstract **Aspose::Slides::BasePortionFormatEffectiveData** class template has been added.
 
-{{< highlight java >}}
+```
 
  template<typename TLocalData, typename TEffectiveData>
 
 class BasePortionFormatEffectiveData;
 
-{{< /highlight >}}
+```
 
 It implements **IBasePortionFormatEffectiveData** interface and serves as a base class for immutable types which contain effective text portion formatting properties. Currently it has the only child class - **PortionFormatEffectiveData**.
 ### **CameraEffectiveData, LightRigEffectiveData and ShapeBevelEffectiveData classes have been added**
@@ -242,7 +242,7 @@ Instances of all of these classes are used as parts of ThreeDFormatEffectiveData
 
 The following code sample demonstrates how to get effective properties for camera, light rig and shape's face relief.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -282,7 +282,7 @@ The following code sample demonstrates how to get effective properties for came
 
 }
 
-{{< /highlight >}}
+```
 ### **GetEffective() method has been added to several format interfaces**
 **GetEffective()** method has been added to following interfaces:
 
@@ -305,13 +305,13 @@ Implementation of this method has been added to corresponding classes.
 ### **IBaseTableFormatEffectiveData interface and BaseTableFormatEffectiveData class have been added**
 Abstract **Aspose::Slides::BaseTableFormatEffectiveData** class template has been added.
 
-{{< highlight java >}}
+```
 
  template<typename TLocalData, typename TEffectiveData>
 
 class BaseTableFormatEffectiveData;
 
-{{< /highlight >}}
+```
 
 It implements **IBaseTableFormatEffectiveData** interface and serves as a base class for immutable types which contain effective text portion formatting properties.
 ### **ICellFormat interface and CellFormat class have been added**
@@ -322,7 +322,7 @@ They encapsulate cell fill and border formatting properties. Corresponding old p
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -334,7 +334,7 @@ Method declaration:
 
 virtual System::SharedPtr<ICellFormat> get_CellFormat() = 0;
 
-{{< /highlight >}}
+```
 
 
 ### **IColumnFormat interface and ColumnFormat class have been added**
@@ -344,7 +344,7 @@ virtual System::SharedPtr<ICellFormat> get_CellFormat() = 0;
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /// Returns the ColumnFormat object that contains formatting properties for this column.
 
@@ -354,7 +354,7 @@ Method declaration:
 
 virtual System::SharedPtr<IColumnFormat> get_ColumnFormat() = 0;
 
-{{< /highlight >}}
+```
 ### **IRowFormat interface and RowFormat class have been added**
 **Aspose::Slides::IRowFormat** interface and **Aspose::Slides::RowFormat** class have been added. It is not possible to set local formatting properties for a table row in PowerPoint, so this interface is used only as a mediator to get effective properties.
 ### **IRow::get_RowFormat() method has been added**
@@ -362,7 +362,7 @@ virtual System::SharedPtr<IColumnFormat> get_ColumnFormat() = 0;
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -374,7 +374,7 @@ Method declaration:
 
 virtual System::SharedPtr<IRowFormat> get_RowFormat() = 0;
 
-{{< /highlight >}}
+```
 
 
 ### **ITableFormat interface and TableFormat class have been added**
@@ -384,7 +384,7 @@ virtual System::SharedPtr<IRowFormat> get_RowFormat() = 0;
 
 Method declaration:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -396,7 +396,7 @@ Method declaration:
 
 virtual System::SharedPtr<ITableFormat> get_TableFormat() = 0;
 
-{{< /highlight >}}
+```
 ### **Interfaces and classes representing effective table and table's elements formats have been added**
 - **Aspose::Slides::ITableFormatEffectiveData** interface and **Aspose::Slides::TableFormatEffectiveData** class have been added.
 - **Aspose::Slides::IRowFormatEffectiveData** interface and **Aspose::Slides::RowFormatEffectiveData** class have been added.
@@ -407,7 +407,7 @@ All of these interfaces and classes represent effective table and table's elemen
 
 The following code demonstrates getting effective fill format for different table logic parts. Please note that cell formatting always has higher priority than row formatting, row - higher than column, column - higher that whole table. So finally **CellFormatEffectiveData** properties always used to draw the table. The following code is just an example of API.
 
-{{< highlight java >}}
+```
 
  {
 
@@ -435,7 +435,7 @@ The following code demonstrates getting effective fill format for different tabl
 
 }
 
-{{< /highlight >}}
+```
 ### **Methods for setting layout mode of chart plot area have been added**
 **get_LayoutTargetType()** and **set_LayoutTargetType()** methods have been added to ChartPlotArea and IChartPlotArea classes. 
 
@@ -447,7 +447,7 @@ There are two possible values which are defined in **LayoutTargetType** enum cla
 
 **LayoutTargetType::Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
@@ -465,13 +465,13 @@ chart->get_PlotArea()->AsILayoutable->Height = 0.7f;
 
 chart->get_PlotArea()->set_LayoutTargetType(Aspose::Slides::Charts::LayoutTargetType::Inner);
 
-{{< /highlight >}}
+```
 
 ![todo:image_alt_text](aspose-slides-for-cpp-19-8-release-notes_1.jpg)
 ### **New interface, class and methods have been added for creating OleObjectFrame object**
 **IOleEmbeddedDataInfo** interface and **OleEmbeddedDataInfo** class have been added:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -507,11 +507,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 **AddOleObjectFrame()** and **InsertOleObjectFrame()** methods have been added into IShapeCollection:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -533,9 +533,9 @@ public:
 
 virtual System::SharedPtr<IOleObjectFrame> AddOleObjectFrame(float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo) = 0;
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -559,13 +559,13 @@ virtual System::SharedPtr<IOleObjectFrame> AddOleObjectFrame(float x, float y, f
 
 virtual System::SharedPtr<IOleObjectFrame> InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo) = 0;
 
-{{< /highlight >}}
+```
 
 These methods allow to get IOleEmbeddedDataInfo object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects without additional questions about the shell program for opening an OLE object.
 
 Next example shows how to set file type for an embedding object:
 
-{{< highlight java >}}
+```
 
  {
 
@@ -591,29 +591,29 @@ Next example shows how to set file type for an embedding object:
 
 }
 
-{{< /highlight >}}
+```
 
 **Pay attention** that methods:
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IOleObjectFrame> AddOleObjectFrame(float x, float y, float width, float height, System::String className, System::ArrayPtr<uint8_t> objectData);
 
-{{< /highlight >}}
+```
 
 and
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<IOleObjectFrame> InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::String className, System::ArrayPtr<uint8_t> objectData);
 
-{{< /highlight >}}
+```
 
 now marked as obsolete and will be removed after release of version 20.05.
 ### **PersistenceType enum class, IControl::get_Persistence() and IControl::get_ActiveXControlBinary() methods have been added**
 **PersistenceType** enum class that specifies the method used to store properties of the ActiveX control have been added:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -675,11 +675,11 @@ enum class PersistenceType
 
 };
 
-{{< /highlight >}}
+```
 
 **get_Persistence()** and **get_ActiveXControlBinary()** methods have been added to IControl interface:
 
-{{< highlight java >}}
+```
 
  /// <summary>
 
@@ -699,11 +699,11 @@ virtual PersistenceType get_Persistence() = 0;
 
 virtual System::ArrayPtr<uint8_t> get_ActiveXControlBinary() = 0;
 
-{{< /highlight >}}
+```
 
 These methods and enumeration allow to define and implement custom methods for processing the properties of ActiveX objects depending of its persistence. For example:
 
-{{< highlight java >}}
+```
 
  switch (control->get_Persistence())
 
@@ -747,7 +747,7 @@ These methods and enumeration allow to define and implement custom methods for p
 
 }
 
-{{< /highlight >}}
+```
 
 
 ### **TextFrameFormatEffectiveData class has been added**
@@ -755,7 +755,7 @@ These methods and enumeration allow to define and implement custom methods for p
 
 The following code sample demonstrates getting some of effective text frame formatting properties.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"MyPresentation.pptx");
 
@@ -779,13 +779,13 @@ System::Console::WriteLine(System::String(u"   Right: ") + effectiveTextFrameFor
 
 System::Console::WriteLine(System::String(u"   Bottom: ") + effectiveTextFrameFormat->get_MarginBottom());
 
-{{< /highlight >}}
+```
 ### **TextStyleEffectiveData class has been added**
 **Aspose::Slides::TextStyleEffectiveData** class has been added. It implements already known interface ITextStyleEffectiveData and contains effective text style properties.
 
 The following code sample demonstrates getting some of effective text style properties.
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"MyPresentation.pptx");
 
@@ -813,7 +813,7 @@ for (int32_t i = 0; i <= 8; i++)
 
 }
 
-{{< /highlight >}}
+```
 ### **Widescreen value has been added to SlideSizeType enumeration**
 **Widescreen** value has been added to **Aspose::Slides::SlideSizeType** enum class. This value represents Microsoft PowerPoint Widescreen slide size.
 

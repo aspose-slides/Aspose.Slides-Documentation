@@ -28,7 +28,7 @@ There are several ways to apply a license, depending on whether you're working o
 
 **Java**
 
-{{< highlight csharp >}}
+```
 
 
 
@@ -60,13 +60,13 @@ There are several ways to apply a license, depending on whether you're working o
 
 
 
-{{< /highlight >}}
+```
 
 - Or, set the exporter parameter in the code.
 
 **Java**
 
-{{< highlight csharp >}}
+```
 
 
 
@@ -80,11 +80,11 @@ There are several ways to apply a license, depending on whether you're working o
 
 
 
-{{< /highlight >}}
+```
 #### **Applying a License on JasperServer**
 - Set the exporter parameter in the applicationContext.xml.
 
-{{< highlight csharp >}}
+```
 
 
 
@@ -94,4 +94,4 @@ There are several ways to apply a license, depending on whether you're working o
 
 </bean>
 
-{{< /highlight >}}
+```

@@ -11,7 +11,7 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 - Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for .NET through **TransitionType** enum
 - Write the modified presentation file.
 ##### **Example**
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -41,7 +41,7 @@ using (Presentation pres = new Presentation(FileName))
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

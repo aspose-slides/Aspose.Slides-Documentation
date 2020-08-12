@@ -27,7 +27,7 @@ Interface com.aspose.slides.ICustomXmlPartCollection and related class com.aspos
 #### **Method ICustomData.getCustomXmlParts has been added**
 Method com.aspose.slides.ICustomData.getCustomXmlParts() has been added. It represents collection of custom xml parts associated with the corresponding ICustomData instance.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -67,11 +67,11 @@ private static String getXmlStringSample(String name)
 
 }
 
-{{< /highlight >}}
+```
 #### **Method IPresentation.getAllCustomXmlParts has been added**
 Method com.aspose.slides.IPresentation.getAllCustomXmlParts() has been added. It returns all custom xml parts contained in the presentation.
 
-{{< highlight java >}}
+```
 
  //Sample for clear all custom xml parts from presentation
 
@@ -97,11 +97,11 @@ try
 
 }
 
-{{< /highlight >}}
+```
 #### **Property EffectFormat has been added to Background and IBackground**
 Property EffectFormat has been added to interface com.aspose.slides.IBackground and class com.aspose.slides.Background for specifying effects of slide background.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -139,11 +139,11 @@ try
 
 }
 
-{{< /highlight >}}
+```
 #### **setRange() method has been added to interface IChartData and class ChartData**
 Method setRange() has been added to interface com.aspose.slides.IChartData and class com.aspose.slides.ChartData. It allows to set data range with cells formula. Series and categories will be updated based on new data range.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -163,4 +163,4 @@ try
 
 }
 
-{{< /highlight >}}
+```

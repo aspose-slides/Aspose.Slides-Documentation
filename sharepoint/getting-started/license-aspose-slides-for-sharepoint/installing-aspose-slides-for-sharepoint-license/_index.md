@@ -28,27 +28,27 @@ Perform following steps to deploy the Aspose.Slides for SharePoint license:
 
 1. Run stsadm to add the solution to the SharePoint solution store: 
 
-{{< highlight java >}}
+```
 
  Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
 
-{{< /highlight >}}
+```
 
 1. Deploy the solution to all servers in the farm: 
 
-{{< highlight java >}}
+```
 
  Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
 
-{{< /highlight >}}
+```
 
 1. Execute administrative timer jobs to complete the deployment immediately: 
 
-{{< highlight java >}}
+```
 
  Stsadm.exe -o execadmsvcjobs
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 

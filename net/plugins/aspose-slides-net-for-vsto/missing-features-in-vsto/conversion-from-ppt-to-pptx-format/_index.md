@@ -27,7 +27,7 @@ SaveFormat is enumeration that can convert document in the extensions given belo
 |XPS|2| |
 Below is a code snippet that shows conversion from PPT to PPTX you can do it vice versa as well.
 
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -43,7 +43,7 @@ Presentation pres = new Presentation(srcFileName);
 
 pres.Save(destFileName, SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

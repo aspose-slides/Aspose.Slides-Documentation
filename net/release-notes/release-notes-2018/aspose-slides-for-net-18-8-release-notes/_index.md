@@ -70,7 +70,7 @@ Specifies the visibility of comments that do not have an author.
 
 The default value for this property is false, which means that comments without authors are not displayed.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation("no-author.odp"))
 
@@ -86,4 +86,4 @@ pres.Save("out_pres.pdf", SaveFormat.Pdf, options);
 
 }
 
-{{< /highlight >}}
+```

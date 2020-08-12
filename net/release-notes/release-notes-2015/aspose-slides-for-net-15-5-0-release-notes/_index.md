@@ -126,7 +126,7 @@ SLIDESNET-34950 - Export to PdfNotes does not work for merged API
 
 SLIDESNET-34068 - Slide background renders as black for generated thumbnails
 ## **Public API Changes**
-{{< highlight java >}}
+```
 
  Public API Changes
 
@@ -144,4 +144,4 @@ ViewProperties.NotesViewProperties property has been added
 
 ViewProperties.SlideViewProperties property has been added
 
-{{< /highlight >}}
+```

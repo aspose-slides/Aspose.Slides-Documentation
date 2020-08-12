@@ -67,7 +67,7 @@ com.aspose.slides.IBehaviorProperties has been renamed to IBehaviorPropertyColle
 com.aspose.slides.BehaviorProperties has been renamed to BehaviorPropertyCollection.
 Following methods were removed:
 
-{{< highlight java >}}
+```
 
  public void copyTo(PropertyType[] array, int arrayIndex)
 
@@ -75,11 +75,11 @@ public PropertyType get_Item(int index)
 
 public PropertyType set_Item(int index, PropertyType item)public IGenericEnumerator<PropertyType> iterator()
 
-{{< /highlight >}}
+```
 
 Following methods were marked as obsolete:
 
-{{< highlight java >}}
+```
 
  public void add(PropertyType item)
 
@@ -91,11 +91,11 @@ public bool remove(PropertyType item)
 
 public bool contains(PropertyType item)
 
-{{< /highlight >}}
+```
 
 Following methods were added:
 
-{{< highlight java >}}
+```
 
  public void addItem(IBehaviorProperty item)
 
@@ -125,21 +125,21 @@ public void set_Item(int index, IBehaviorProperty value)
 
 public IGenericEnumerator<IBehaviorProperty> iterator()
 
-{{< /highlight >}}
+```
 #### **Enum com.aspose.slides.PropertyType has been marked as Deprecated**
 PropertyType enum was replaced by BehaviorProperty class, and planned to be removed in November's release.
 
-{{< highlight java >}}
+```
 
  @Deprecated()//Use BehaviorProperty type instead. This type will be removed after 01.11.2016.
 
 public enum PropertyType
 
-{{< /highlight >}}
+```
 #### **getCoordinates() method has been added to IPortion and Portion**
 The new method getCoordinates() has been added to IPortion and Portion which allows of retrieveing the coordinates of the beginning of the portion:
 
-{{< highlight java >}}
+```
 
  AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -155,11 +155,11 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 
 }
 
-{{< /highlight >}}
+```
 #### **getRect() method has been added to IParagraph and Paragraph**
 The new method пetRect() has been added. It allows to get paragraph bounds rectangle.
 
-{{< highlight java >}}
+```
 
  AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -167,13 +167,13 @@ TextFrame textFrame = (TextFrame)shape.getTextFrame();
 
 Rectangle2D.Float rect = ((Paragraph) textFrame.getParagraphs().get_Item(0)).getRect();
 
-{{< /highlight >}}
+```
 #### **New interface com.aspose.slides.IBehaviorProperty and class com.aspose.slides.BehaviorProperty have been added**
 New BehaviorProperty class replaces and expands PropertyType enum functionality. Now it allows you to use the full set of predefined properties according <https://msdn.microsoft.com/en-us/library/dd949052(v=office.15).aspx> and <https://msdn.microsoft.com/en-us/library/documentformat.openxml.presentation.attributename(v=office.15).aspx> and also adds the ability to operate with custom properties which are not described in the specification.
 
 All predefined properties could be get through the call of corresponding static property, for example:
 
-{{< highlight java >}}
+```
 
  BehaviorProperty.getPptC()
 
@@ -181,33 +181,33 @@ BehaviorProperty.getStyleColor()
 
 BehaviorProperty.getFillOpacity()
 
-{{< /highlight >}}
+```
 
 represent ppt_c, style.color and fill.opacity values from list
 
 Instance of the BehaviorProperty class could also be get though call of getOrCreateByValue static method. This method looks for existing behavior property by value or creates new custom one with the specified value.
 
-{{< highlight java >}}
+```
 
  BehaviorProperty.getOrCreateByValue("style.color")
 
 BehaviorProperty.getOrCreateByValue("customProp")
 
-{{< /highlight >}}
+```
 
 Backward compatibility method was added only to simplify upgrade to 16.4 version for the customers which actively use PropertyType enum
 
-{{< highlight java >}}
+```
 
  BehaviorProperty.getByType(PropertyType.Color)
 
-{{< /highlight >}}
+```
 
 This methods (as well as properties) create only one instance for each property value. For example two calls of BehaviorProperty.getPptC() will return the same instance. This is true for custom properties as well.
 
 Instance properties of this class are described by the IBehaviorProperty interface
 
-{{< highlight java >}}
+```
 
  /**
 
@@ -253,11 +253,11 @@ public boolean isCustom();
 
 }
 
-{{< /highlight >}}
+```
 #### **New method getActualLabelText() has been added to DataLabel and IDataLabel classes**
 Returns actual label text based on DataLabelFormat settings or getTextFrameForOverriding().getText() value.
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -287,37 +287,37 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **Method getRelatedLegendEntry() has been added to ChartDataPoint and IChartDataPoint classes**
 Represents legend entry related with the data point.
 
-{{< highlight java >}}
+```
 
  IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 500, 400);
 
 chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0).getRelatedLegendEntry().setHide(true);
 
-{{< /highlight >}}
+```
 #### **Method getRelatedLegendEntry() has been added to ChartSeries and IChartSeries classes**
 Represents legend entry related with the series.
 
-{{< highlight java >}}
+```
 
  IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
 chart.getChartData().getSeries().get_Item(0).getRelatedLegendEntry().setHide(true);
 
-{{< /highlight >}}
+```
 #### **Method getRelatedLegendEntry() has been added to Trendline and ITrendline classes**
 Represents legend entry related with the trendline.
 
-{{< highlight java >}}
+```
 
  IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
 chart.getChartData().getSeries().get_Item(0).getTrendLines().get_Item(0).getRelatedLegendEntry().setHide(true);
 
-{{< /highlight >}}
+```
 #### **Swf and SwfNotes values have been added to com.aspose.slides.SaveFormat enumeration**
 New export format for an Adobe Flash file format (SWF) has been added.
 
@@ -327,7 +327,7 @@ The new public class SwfOptions has been added to Aspose.Slides.Export namespace
 
 To export presentation to SWF format the following code snippet can be used:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -353,7 +353,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 #### **TextAlignment.Distributed value has been added to com.aspose.slides.TextAlignment enum**
 It represents alignment of text distributed along the whole element.
 #### **Aspose.Slides for Java 16.4.0 depends on Bouncy Castle API**

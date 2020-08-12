@@ -9,7 +9,7 @@ url: /net/conversion-to-xps/
 
 The **Save** method exposed by Presentation class can be used to convert the whole presentation into **XPS** document. Further, **XpsOptions** class exposes **SaveMetafileAsPng** property that can be set to true or false as per requirement.
 
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -25,7 +25,7 @@ Presentation pres = new Presentation(srcFileName);
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Xps);
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

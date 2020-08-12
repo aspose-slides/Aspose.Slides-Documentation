@@ -18,7 +18,7 @@ These methods allow to get or set the title of alternative text associated with 
 
 Sample code demonstrating setting alternative text title:
 
-{{< highlight java >}}
+```
 
  System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
@@ -26,7 +26,7 @@ System::SharedPtr<IAutoShape> shape = presentation->get_Slides()->idx_get(0)->ge
 
 shape->set_AlternativeTextTitle(u"Alt text title");
 
-{{< /highlight >}}
+```
 
 
 

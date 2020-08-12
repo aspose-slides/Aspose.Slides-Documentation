@@ -9,7 +9,7 @@ PDF documents are widely used as a standard format of exchanging documents betwe
 
 **Aspose.Slides for .NET** offers the Presentation class that represents a presentation file. The **Presentation** class exposes the Save method that can be called to convert the whole presentation into a **PDF** document. The **PdfOptions** class provides options for creating the **PDF** such as JpegQuality, TextCompression, Compliance and others. These options can be used to get the desired standard of PDF.
 
-{{< highlight csharp >}}
+```
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -25,7 +25,7 @@ Presentation pres = new Presentation(srcFileName);
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Pdf);
 
-{{< /highlight >}}
+```
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

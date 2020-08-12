@@ -17,7 +17,7 @@ This represents error bars of chart series.
 
 In case of custom value type, to specify a value, use the ErrorBarCustomValues property of the specific data point in the DataPoints collection of series.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -51,11 +51,11 @@ In case of custom value type, to specify a value, use the ErrorBarCustomValues p
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the Aspose.Slides.Charts.IErrorBarsCustomValues Interface**
 When the IErrorBarsFormat.ValueType property is equal to Custom, to specify a value, use the ErrorBarCustomValues property of the specific data point in the DataPoints collection.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -105,11 +105,11 @@ When the IErrorBarsFormat.ValueType property is equal to Custom, to specify a va
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Interface**
 Specifies types of values in the ChartDataPoint.ErrorBarsCustomValues properties list.
 
-{{< highlight java >}}
+```
 
  using (Presentation pres = new Presentation())
 
@@ -159,7 +159,7 @@ Specifies types of values in the ChartDataPoint.ErrorBarsCustomValues properties
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the Aspose.Slides.IShapeCollection.AddClone(...), and .InsertClone(...) Methods**
 The following methods add/insert a copy of a specified shape into the collection. 
 
@@ -170,7 +170,7 @@ The following methods add/insert a copy of a specified shape into the collection
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y)
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-{{< highlight java >}}
+```
 
  using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
 
@@ -198,11 +198,11 @@ The following methods add/insert a copy of a specified shape into the collection
 
 }
 
-{{< /highlight >}}
+```
 #### **Added the ViewType enum, IViewProperties interface, ViewProperties class and IPresentation.ViewProperties Properties**
 The IPresentation.ViewProperty allows developers to change the presentation view type and notes visibility when a presentation is opened in PowerPoint.
 
-{{< highlight java >}}
+```
 
  using(Presentation p = new Presentation())
 
@@ -212,4 +212,4 @@ The IPresentation.ViewProperty allows developers to change the presentation view
 
 }
 
-{{< /highlight >}}
+```

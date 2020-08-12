@@ -50,7 +50,7 @@ Aspose.Slides.**DigitalSignatureCollection** class has been added. It implement
 
 **IDigitalSignatureCollection** declaration:
 
-{{< highlight csharp >}}
+```
 /// <summary>
 /// Represents a collection of digital signatures attached to a document.
 /// </summary>
@@ -78,13 +78,13 @@ void RemoveAt(int index);
 /// </summary>
 void Clear();
 }
-{{< /highlight >}}
+```
 
 #### **IDigitalSignature interface and DigitalSignature class have been added**
 Aspose.Slides.**DigitalSignature** class has been added. It implements **IDigitalSignature** interface and stores information about digital signature based on certificate used or will be used to sign the presentation.
 
 **IDigitalSignature** declaration:
-{{< highlight csharp >}}
+```
 /// <summary>
 /// Digital signature in signed file.
 /// </summary>
@@ -114,25 +114,25 @@ DateTime SignTime { get; }
 /// </summary>
 string Comments { get; set; }
 }
-{{< /highlight >}}
+```
 
 #### **IPresentation.DigitalSignatures property has been added**
 **DigitalSignatures** property has been added to **IPresentation** interface and **Presentation** class. It allows to access a collection of digital signatures which have been used to sign or add digital signatures which will be used to sign the presentation.
 
 Property declaration:
-{{< highlight csharp >}}
+```
 /// <summary>
 /// Returns the collection of signatures used to sign the presentation.
 /// Read-only <see cref="IDigitalSignatureCollection"/>.
 /// </summary>
 IDigitalSignatureCollection DigitalSignatures { get; }
-{{< /highlight >}}
+```
 
 #### **ISlideCollection.AddClone method has been added**
 **AddClone** method has been added to **ISlideCollection** interface and **SlideCollection** class. This method allows adding a slide clone into a specified section.
 
 Method declaration:
-{{< highlight csharp >}}
+```
 /// <summary>
 /// Adds a copy of a specified slide to the end of the specified section.
 /// </summary>
@@ -155,13 +155,13 @@ Method declaration:
 /// <exception cref="ArgumentNullException"/>
 /// <exception cref="PptxEditException"/>
 ISlide AddClone(ISlide sourceSlide, ISection section);
-{{< /highlight >}}
+```
 
 #### **IPdfOptions.AccessPermissions property has been added**
 **AccessPermissions** property has been added to **IPdfOptions** interface and **PdfOptions** class. All possible values of this property are defined in the **PdfAccessPermissions** enumeration. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
 ## **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
-{{< highlight csharp >}}
+```
 var pdfOptions = new PdfOptions();
 pdfOptions.Password = "my_password";
 pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
@@ -170,7 +170,7 @@ using (var presentation = new Presentation())
 {
 `    `presentation.Save(pdfFilePath, SaveFormat.Pdf, pdfOptions);
 }
-{{< /highlight >}}
+```
 
 
 

@@ -39,26 +39,26 @@ Allows using the factory functionality without instantiation.
 #### **Restrictions had been added for using undefined values for IShape.getFrame()**
 Code that attempts to assign an undefined frame to IShape.setFrame(IShapeFrame) doesn't make sense in general cases (particularly when the parent GroupShape is multiple nested into other {{GroupShape}}s). For example:
 
-{{< highlight java >}}
+```
 
  IShape shape = ...;
 
 shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
 
-{{< /highlight >}}
+```
 
 or
 
-{{< highlight java >}}
+```
 
  slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
 
-{{< /highlight >}}
+```
 
 Such code can lead to unclear situations. So restrictions have been added for using undefined values for IShape.Frame. The values of x, y, width, height, flipH, flipV and rotationAngle must be defined (not Float.NaN or NullableBool.NotDefined). The example code above now throws an ArgumentException exception.
 This applies to these use cases:
 
-{{< highlight java >}}
+```
 
  IShape shape = ...;
 
@@ -112,11 +112,11 @@ IShapeCollection shapes = ...;
 
 }
 
-{{< /highlight >}}
+```
 
 But the IShape.getRawFrame() frame can be undefined. This make sense when a shape is linked to a placeholder. Then undefined shape frame values are overridden from the parent placeholder shape. If there is no parent placeholder shape for that shape then it uses default values when it evaluates effective frame based on its IShape.getRawFrame(). Default values are 0 and NullableBool.False for x, y, width, height, flipH, flipV and rotationAngle. For example:
 
-{{< highlight java >}}
+```
 
  IShape shape = ...; // shape is linked to placeholder
 
@@ -124,7 +124,7 @@ shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableB
 
 // now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
 
-{{< /highlight >}}
+```
 ### **Changed Properties**
 #### **Changed the Type and Name of the Aspose.Slides.IShapeCollection.getParent() Method**
 The type of the Aspose.Slides.IShapeCollection.Parent property has been changed from ISlideComponent to the new IGroupShape interface. The IGroupShape interface is a descendant of the ISlideComponent so existing code needs no adaptation.

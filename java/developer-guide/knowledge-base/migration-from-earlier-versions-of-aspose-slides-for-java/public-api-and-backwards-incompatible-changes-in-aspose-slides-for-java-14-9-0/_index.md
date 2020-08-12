@@ -17,7 +17,7 @@ New methods added:
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation("presentation.pptx");
 
@@ -35,7 +35,7 @@ presentation.getImages().get_Item(1).replaceImage(
 
 presentation.save("presentation_out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Added Methods for Saving Slides Keeping Page Numbers**
 The following methods have been added:
 
@@ -46,16 +46,16 @@ The following methods have been added:
 
 These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTML formats. The 'slides' array allows to specify page numbers, starting from 1.
 
-{{< highlight java >}}
+```
 
  save(string fname, int\[\] slides, SaveFormat format);
 
-{{< /highlight >}}
+```
 
 
 
 
-{{< highlight java >}}
+```
 
  Presentation presentation = new Presentation(presentationFileName);
 
@@ -63,7 +63,7 @@ int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
 
 presentation.save(outFileName, slides, SaveFormat.Pdf);
 
-{{< /highlight >}}
+```
 #### **Added the SmartArtLayoutType.Custom Enum Value**
 This type of SmartArt layout represents diagram with custom template. Custom diagrams only can be loaded from presentation file and can't be created via method ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
 #### **Added the SmartArtShape Class and ISmartArtShape Interface**
@@ -77,7 +77,7 @@ SmartArtShape does not supported IShape properties RawFrame, Frame, Rotation, X,
 
 Example of usage:
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -97,7 +97,7 @@ for (ISmartArtShape shape : node.getShapes())
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
 The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes inside SmartArt diagram. Collection contains shapes associated with SmartArtNode. Property SmartArtNode.Shapes returns collections of all shapes associated with the node.
 
@@ -109,7 +109,7 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
 
 ﻿
 
-{{< highlight java >}}
+```
 
  Presentation pres = new Presentation();
 
@@ -129,4 +129,4 @@ for (ISmartArtShape shape : node.getShapes())
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```

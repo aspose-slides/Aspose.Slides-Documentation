@@ -40,10 +40,10 @@ To scan the text from the whole presentation, use the
 #### **Categorized and fast extraction of text**
 The new static method GetPresentationText has been added to Presentation class. There are two overloads for this method:
 
-{{< highlight java >}}
+```
 PresentationText GetPresentationText(Stream stream)
 PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
-{{< /highlight >}}
+```
 
 The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
 Unarranged - The raw text with no respect to position on the slide
