@@ -56,7 +56,7 @@ pres.save(self.dataDir + "TextBox.pptx", save_format.Pptx)
 
 print "Created TextBox, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

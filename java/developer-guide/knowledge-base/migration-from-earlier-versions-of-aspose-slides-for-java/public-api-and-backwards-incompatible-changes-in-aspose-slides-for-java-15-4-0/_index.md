@@ -18,7 +18,7 @@ Method com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets d
 #### **Method IConnector.reroute() has been added**
 Method com.aspose.slides.IConnector.reroute() reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 
-{{< highlight java >}}
+``` java
 
  Presentation input = new Presentation();
 
@@ -38,11 +38,11 @@ connector.reroute();
 
 input.save("output.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Method IPresentation.getSlideById(long) has been added**
 Method Aspose.Slides.IPresentation.getSlideById(int) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation();
 
@@ -50,11 +50,11 @@ long id = presentation.getSlides().get_Item(0).getSlideId();
 
 IBaseSlide slide = presentation.getSlideById(id);
 
-{{< /highlight >}}
+```
 #### **Method ISmartArt.getNodes() has been added**
 Method com.aspose.slides.ISmartArt.getNodes() returns collection of root nodes in SmartArt object.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -66,11 +66,11 @@ node.getTextFrame().setText("Second root node");
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Method ISmartArt.setLayout(int) has been added**
 Method for property com.aspose.slides.ISmartArt.setLayout(int) has been added. It allows change layout type of an existing diagram.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -80,11 +80,11 @@ smart.setLayout(SmartArtLayoutType.BasicProcess);
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Method ISmartArtNode.isHidden() has been added**
 Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a hidden node in the data model.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -102,11 +102,11 @@ if(hidden) {
 
 pres.Save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Methods ISmartArt.isReversed(), setReserved() have been added**
 Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation();
 
@@ -116,11 +116,11 @@ smart.setReversed(true);
 
 presentation.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) have been added**
 Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) allow get or sets organization chart type associated with current node.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -130,11 +130,11 @@ smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutT
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Property IShape.getConnectionSiteCount() has been added**
 Property com.aspose.slides.getConnectionSiteCount() returns the number of connection sites on the shape.
 
-{{< highlight java >}}
+``` java
 
  Presentation input = new Presentation();
 
@@ -160,7 +160,7 @@ if (ellipse.getConnectionSiteCount() > wantedIndex) {
 
 input.save("output.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 #### **Minor Changes**
 This is the list of minor API changes:
 

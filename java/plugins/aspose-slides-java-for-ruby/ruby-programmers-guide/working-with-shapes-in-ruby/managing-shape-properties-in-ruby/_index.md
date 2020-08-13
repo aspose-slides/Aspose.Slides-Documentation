@@ -48,7 +48,7 @@ pres.save(data_dir + "ChangeShapesOrder.pptx", save_format.Pptx)
 
 puts "Changed shapes order, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Shape Properties (Aspose.Slides)** from any of the below mentioned social coding sites:
 

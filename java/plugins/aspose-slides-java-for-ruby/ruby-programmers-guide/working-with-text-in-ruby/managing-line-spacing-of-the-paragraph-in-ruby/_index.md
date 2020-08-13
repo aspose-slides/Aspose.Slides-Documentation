@@ -52,7 +52,7 @@ To Manage Line Spacing of the paragraph using **Aspose.Slides Java for Ruby**, c
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Line Spacing of the paragraph (Aspose.Slides)** from any of the below mentioned social coding sites:
 

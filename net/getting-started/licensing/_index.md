@@ -29,7 +29,7 @@ The easiest way to set a license is to put the license file in the same folder a
 
 **C#**
 
-{{< highlight csharp >}}
+``` csharp
 
  //Instantiate an instance of license and set the license file through its path
 
@@ -38,7 +38,7 @@ Aspose.Slides.License license = new Aspose.Slides.License();
 license.SetLicense("Aspose.Slides.lic");
 
 
-{{< /highlight >}}
+``` 
 
 
 
@@ -48,7 +48,7 @@ It is also possible to load a license from a stream. The following code snippet 
 
 **C#**
 
-{{< highlight csharp >}}
+``` csharp
 
  //Instantiate an instance of license and set the license through a stream
 
@@ -56,7 +56,7 @@ Aspose.Slides.License license = new Aspose.Slides.License();
 
 license.SetLicense(myStream);
 
-{{< /highlight >}}
+``` 
 
 
 ### **Check If Aspose.Slides License is Applied in Application**
@@ -64,7 +64,7 @@ It is also possible to check if Aspose.Slides license is properly in the applica
 
 **C#**
 
-{{< highlight csharp >}}
+``` csharp
 
  //Instantiate an instance of license and set the license through a stream
 
@@ -94,7 +94,7 @@ if(!isLicensed)
 
 
 
-{{< /highlight >}}
+``` 
 
 
 ### **Embedding a Resource**
@@ -109,7 +109,7 @@ The following code snippet is used to set the license.
 
 **C#**
 
-{{< highlight csharp >}}
+``` csharp
 
  //Instantiate the License class
 
@@ -121,7 +121,7 @@ license.SetLicense("Aspose.Slides.lic");
 
 
 
-{{< /highlight >}}
+``` 
 
 
 

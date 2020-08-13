@@ -54,7 +54,7 @@ pres.save(data_dir + "AddImage.pptx", save_format.Pptx)
 
 puts "Added image, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding an Image in Table Cell (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -52,7 +52,7 @@ To Add Audio Frame to Slide using **Aspose.Slides Java for Ruby**, call **add_au
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Audio Frame to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

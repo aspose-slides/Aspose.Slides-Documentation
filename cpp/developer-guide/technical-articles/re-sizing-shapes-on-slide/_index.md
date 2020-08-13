@@ -12,7 +12,7 @@ To avoid shapes disorientation, each shape on the slide needs to be updated acco
 
 **C#**
 
-{{< highlight csharp >}}
+``` cpp
 
       //Load a presentation
 
@@ -66,7 +66,7 @@ To avoid shapes disorientation, each shape on the slide needs to be updated acco
 
      presentation.Save("Resize.pptx",SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 
@@ -78,7 +78,7 @@ You need to use following code on your end if you need to re-size the slides wit
 
 **C#**
 
-{{< highlight csharp >}}
+``` cpp
 
      Presentation presentation = new Presentation("D:\\Test.pptx");
 
@@ -205,4 +205,4 @@ You need to use following code on your end if you need to re-size the slides wit
 
     presentation.Save("D:\\Resize.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```

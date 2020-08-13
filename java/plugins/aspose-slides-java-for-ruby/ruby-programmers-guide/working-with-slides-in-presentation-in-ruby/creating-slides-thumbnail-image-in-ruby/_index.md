@@ -38,7 +38,7 @@ To Generate a Thumbnail from a Slide using **Aspose.Slides Java for Ruby**, call
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Generating a Thumbnail from a Slide with User Defined Dimensions**
 To Generate a Thumbnail from a Slide with user defined Dimensions using **Aspose.Slides Java for Ruby**, call **create_thumbnail_custom_size** method of **Thumbnail** module. Here you can see example code.
 
@@ -84,7 +84,7 @@ To Generate a Thumbnail from a Slide with user defined Dimensions using **Aspose
 
 end  
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Generating a Thumbnail from a Slide in Notes Slides View**
 To Generate a Thumbnail from a Slide in Notes Slides View using **Aspose.Slides Java for Ruby**, call **create_thumbnail_in_notes_slides_view** method of **Thumbnail** module. Here you can see example code.
 
@@ -130,7 +130,7 @@ To Generate a Thumbnail from a Slide in Notes Slides View using **Aspose.Slides 
 
 end  
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Generating a Thumbnail of User Defined Window from a Slide**
 To Generate a Thumbnail of user defined Window from a Slide using **Aspose.Slides Java for Ruby**, call **create_thumbnail_of_user_defined_window** method of **Thumbnail** module. Here you can see example code.
 
@@ -170,7 +170,7 @@ To Generate a Thumbnail of user defined Window from a Slide using **Aspose.Slide
 
 end  
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating Slides Thumbnail Image (Aspose.Slides)** from any of the below mentioned social coding sites:
 

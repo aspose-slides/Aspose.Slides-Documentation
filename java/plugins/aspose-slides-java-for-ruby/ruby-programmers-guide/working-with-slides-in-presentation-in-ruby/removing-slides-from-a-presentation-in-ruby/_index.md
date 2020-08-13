@@ -40,7 +40,7 @@ To remove Slide by Index from a Presentation using **Aspose.Slides Java for Ruby
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Remove Slide by ID**
 To remove Slide by ID from a Presentation using **Aspose.Slides Java for Ruby**, call **remove_slide_by_id** method of **RemoveSlides** module. Here you can see example code.
 
@@ -72,7 +72,7 @@ To remove Slide by ID from a Presentation using **Aspose.Slides Java for Ruby**,
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Removing Slides from a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

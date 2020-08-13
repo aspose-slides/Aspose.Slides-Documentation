@@ -50,7 +50,7 @@ pres.save(dataDir + "FillFormat.pptx", saveFormat.Pptx)
 
 print "Set fill format for smartart node, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

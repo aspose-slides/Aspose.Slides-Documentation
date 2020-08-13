@@ -10,7 +10,7 @@ To Format Lines of the Shapes using **Aspose.Slides Java for Jython**. Here you 
 
 **Jython Code**
 
-{{< highlight java >}}
+``` java
 
  from aspose-slides import Settings
 
@@ -202,7 +202,7 @@ if __name__ == '__main__':
 
     FormatLines()
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

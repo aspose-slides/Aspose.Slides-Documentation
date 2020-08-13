@@ -69,7 +69,7 @@ In order to use fallback font functionality, you need to set the rules how fallb
 
 Here is an example:
 
-{{< highlight java >}}
+``` csharp
 
  uint startUnicodeIndex = 0x0B80;
 
@@ -85,13 +85,13 @@ string[] fontNames = new string[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial"};
 
 IFontFallBackRule thirdRule = new FontFallBackRule (0x1F300, 0x1F64F, fontNames);
 
-{{< /highlight >}}
+``` 
 
 It is possible to specify several rules and add them into [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection). Then you may assign this fallback font fules collection into an appropriate field of **FontsManager** object.
 
 Each presentation has FontsManager object, implementing [**IFontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager)**,** which defines the main logic of fonts rendering:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation())
 
@@ -108,17 +108,17 @@ Each presentation has FontsManager object, implementing [**IFontsManager**](http
 }
 
 
-{{< /highlight >}}
+``` 
 
 Note: The ranges of several rules can overlap. In this case, the fonts from overlapped rules will be merged and places in order the rules were added into the list.
 
 You can automatically retrieve a new linked instance directly from the **FontsManager**:
 
-{{< highlight java >}}
+``` csharp
 
  IFontFallBackRulesCollection userRulesList = presentation.FontsManager.FontFallBackRulesCollection;
 
-{{< /highlight >}}
+``` 
 
 
 
@@ -126,7 +126,7 @@ This can be used to **change existing FontsManager settings**, as shown in the n
 
 You may also use several collections with different set of rules by assigning the required list in the FontsManager. If you do not want to use multiple lists, you do not have to create a new collection. 
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("MyPresentation.pptx"))
 
@@ -141,13 +141,13 @@ You may also use several collections with different set of rules by assigning th
 }
 
 
-{{< /highlight >}}
+``` 
 #### **IFontsManager.FontFallBackRulesCollection property added**
 [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection) property has been added to [**IFontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager) interface and [**FontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/fontsmanager) class. It allows to get and set a collection of [**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) objects to control the rules of using fallback fonts.
 
 **FontFallBackRulesCollection** can be used in the following way:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(path + "input.pptx"))
 
@@ -196,7 +196,7 @@ You may also use several collections with different set of rules by assigning th
 }
 
 
-{{< /highlight >}}
+``` 
 #### **IFontFallBackRulesCollection, IFontFallBackRule interfaces and FontFallBackRulesCollection, FontFallBackRule classed added**
 [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/fontfallbackrulescollection) (implementes [**IFontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontfallbackrulescollection)) represents an object for managing a collection of **FontFallBackRule** objects.
 
@@ -204,7 +204,7 @@ You may also use several collections with different set of rules by assigning th
 
 Below is an example:
 
-{{< highlight java >}}
+``` csharp
 
  void RenderingWithFallBack()
 
@@ -258,13 +258,13 @@ Below is an example:
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Equals and GetHashCode methods were overridden for Aspose.Slides.Effects classes**
 Equals and GetHashCode methods were overridden for Aspose.Slides.Effects classes, now objects of these classes are compared by their semantic value.
 
 Full list of updated classes:
 
-{{< highlight java >}}
+``` csharp
 
  Aspose.Slides.Effects.AlphaBiLevel
 
@@ -358,7 +358,7 @@ Aspose.Slides.Effects.Tint
 
 Aspose.Slides.Effects.TintEffectiveData
 
-{{< /highlight >}}
+``` 
 #### **Equals and GetHashCode methods were overridden for GradientStopEffectiveData**
 Equals and GetHashCode methods were overridden for Aspose.Slides.**GradientStopEffectiveData** class, 
 now objects of this class are compared by their semantic value.

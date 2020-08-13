@@ -40,7 +40,7 @@ To Add Plain Line to Slide using **Aspose.Slides Java for Ruby**, call **add_pla
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Adding Arrow Shaped Line to Slide**
 To Add Arrow Shaped Line to Slide using **Aspose.Slides Java for Ruby**, call **add_arrow_line** method of **AddingLineShape** module. Here you can see example code.
 
@@ -97,7 +97,7 @@ To Add Arrow Shaped Line to Slide using **Aspose.Slides Java for Ruby**, call **
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Line Shape to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

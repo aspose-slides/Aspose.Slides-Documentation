@@ -34,7 +34,7 @@ pres.save(self.dataDir + "Aspose_Position.pptx", save_format.Pptx)
 
 print "Changes slide position, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Changing the Position of a Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

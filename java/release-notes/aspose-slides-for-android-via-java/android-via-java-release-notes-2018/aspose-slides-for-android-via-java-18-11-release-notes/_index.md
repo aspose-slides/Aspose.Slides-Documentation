@@ -46,19 +46,19 @@ This enum consists of three members:
 getConformance() and setConformance() methods have been added to PptxOptions class.
 The methods allow saving the presentation with Strict and Transitional Open XML Presentation conformance class.
 
-{{< highlight java >}}
+``` java
 
  public final /*Conformance*/ int getConformance();
 
 public final void setConformance(/*Conformance*/int value)
 
-{{< /highlight >}}
+```
 
 By default getConformance() method returns Conformance.Ecma376_2006.
 
 For example, the following code allows saving the presentation in Strict format.
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -80,21 +80,21 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 #### **The getEffectsByParagraph method has been added to Sequence class and ISequence interface**
 getEffectsByParagraph method has been added to Sequence class and ISequence interface.
 
 It returns the array of effects for the specified text paragraph.
 
-{{< highlight java >}}
+``` java
 
  public final IEffect[] getEffectsByParagraph(IParagraph paragraph)
 
-{{< /highlight >}}
+```
 
 Usage example:
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("Presentation.pptx");
 
@@ -126,4 +126,4 @@ pres.dispose();
 
 }
 
-{{< /highlight >}}
+```

@@ -38,7 +38,7 @@ To convert presentation to HTML using **Aspose.Slides Java for Ruby**, simply in
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to HTML (Aspose.Slides)** from any of the below mentioned social coding sites:
 

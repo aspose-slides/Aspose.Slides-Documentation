@@ -7,7 +7,7 @@ url: /net/working-with-size-and-layout-of-presentation/
 
 **SlideSize.Type** and **SlideSize.Size** are the properties of presentation class which could be set or get as shown below in the example.
 ##### **Example**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -35,7 +35,7 @@ auxPresentation.Slides.RemoveAt(0);
 
 auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

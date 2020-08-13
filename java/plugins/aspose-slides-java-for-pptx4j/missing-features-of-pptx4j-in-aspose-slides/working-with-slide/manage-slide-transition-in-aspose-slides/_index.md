@@ -14,7 +14,7 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate Presentation class that represents a presentation file
 
@@ -44,7 +44,7 @@ presentation.getSlides().get_Item(3).getSlideShowTransition().setAdvanceOnClick(
 
 presentation.getSlides().get_Item(3).getSlideShowTransition().setAdvanceAfterTime (3000);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

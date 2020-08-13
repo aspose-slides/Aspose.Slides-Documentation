@@ -10,7 +10,7 @@ To Convert Presentation with Notes using Aspose.Slides Java for Python. Here you
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
  # Instantiate a Presentation object that represents a PPTX file
 
@@ -47,7 +47,7 @@ pres.save(self.dataDir + "Notes.pdf", save_format.pdf)
 
 print "Document has been converted, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation with Notes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

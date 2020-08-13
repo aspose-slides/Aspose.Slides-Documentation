@@ -32,7 +32,7 @@ To convert presentation to XPS with default size using **Aspose.Slides Java for 
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Converting Presentation to XPS with custom size**
 To convert presentation to XPS with custom size using **Aspose.Slides Java for Ruby**, simply invoke **convert_with_custom_size** method of **ConvertingToXps** module. Here you can see example code.
 
@@ -68,7 +68,7 @@ To convert presentation to XPS with custom size using **Aspose.Slides Java for R
 
 end  
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to XPS (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -50,7 +50,7 @@ Let's say we have a table with some text inside and simple AutoShape nearby.
 
 **The code snippet below generates those objects.**
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -99,23 +99,23 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 **The source code snippet below will add a yellow frame to all paragraphs and blue frame to all portions which contain substring "0".**
 
  1) In the first step, We're getting coordinates of the left top corner of the table cell.
 
-{{< highlight java >}}
+``` java
 
  double x = tbl.getX() + cell.getOffsetX();
 
 double y = tbl.getY() + cell.getOffsetY();
 
-{{< /highlight >}}
+```
 
  2) In the next step we're using [IParagrap.getRect()](https://apireference.aspose.com/java/slides/com.aspose.slides/IParagraph#getRect--) and [IPortion.getRect()](https://apireference.aspose.com/java/slides/com.aspose.slides/IPortion#getRect--) methods in order to add frame to portions and paragraphs.
 
-{{< highlight java >}}
+``` java
 
  for (IParagraph para : cell.getTextFrame().getParagraphs())
 
@@ -164,11 +164,11 @@ double y = tbl.getY() + cell.getOffsetY();
 
 }
 
-{{< /highlight >}}
+```
 
  3) Add frame to AutoShape paragraphs.
 
-{{< highlight java >}}
+``` java
 
  for (IParagraph para : autoShape.getTextFrame().getParagraphs())
 
@@ -190,7 +190,7 @@ double y = tbl.getY() + cell.getOffsetY();
 
 }
 
-{{< /highlight >}}
+```
 
 **Result:**
 

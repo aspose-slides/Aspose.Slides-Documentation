@@ -29,7 +29,7 @@ pres.save(data_dir + "Aspose.pdf", save_format.Pdf)
 puts "Document has been converted, please check the output file."
 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Hello World (Aspose.Slides)** from any of the below mentioned social coding sites:
 

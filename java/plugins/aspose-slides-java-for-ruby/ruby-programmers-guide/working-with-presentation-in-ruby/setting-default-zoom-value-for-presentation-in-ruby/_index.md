@@ -34,7 +34,7 @@ pres.save(data_dir + "Zoom.pptx", save_format.Pptx)
 
 puts "Set zoom value, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Default Zoom Value (Aspose.Slides)** from any of the below mentioned social coding sites:
 

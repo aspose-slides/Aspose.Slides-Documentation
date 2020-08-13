@@ -52,7 +52,7 @@ pres.save(self.dataDir + "RectShpPic.pptx", save_format.Pptx)
 
 print "Filled shapes with Picture, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

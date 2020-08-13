@@ -289,7 +289,7 @@ pres.save(self.dataDir + "FormattedChart.pptx", save_format.Pptx)
 
 print "Formatted chart entities, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

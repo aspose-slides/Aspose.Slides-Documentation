@@ -55,7 +55,7 @@ You can directly include the source code of **Aspose.Slides Java for Apache POI*
 
 To configure **Aspose.Slides for Java API**, include the Aspose repository URL and Aspose.Slides for Java API maven dependency in your **pom.xml** as following:
 ### **Aspose Maven Repository**
-{{< highlight java >}}
+``` java
 
  <repositories>
 
@@ -71,9 +71,9 @@ To configure **Aspose.Slides for Java API**, include the Aspose repository URL a
 
 </repositories>
 
-{{< /highlight >}}
+```
 ### **Aspose.Slides for Java Maven Dependency**
-{{< highlight java >}}
+``` java
 
  <dependency>
 
@@ -87,7 +87,7 @@ To configure **Aspose.Slides for Java API**, include the Aspose repository URL a
 
 </dependency>
 
-{{< /highlight >}}
+```
 
 **Note:** Please use the available latest version of the Aspose API.
 ## **Support, Extend and Contribute**

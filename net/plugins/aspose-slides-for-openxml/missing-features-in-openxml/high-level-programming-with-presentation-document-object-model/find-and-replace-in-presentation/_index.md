@@ -12,7 +12,7 @@ Following are the steps to follow:
 1. Replace the text.
 1. Write the presentation.
 
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -53,7 +53,7 @@ foreach (Paragraph para in tb[i].Paragraphs)
 pres.Save(FilePath + "Find and Replace.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
 
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

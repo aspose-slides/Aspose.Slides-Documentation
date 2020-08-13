@@ -91,7 +91,7 @@ pres.save(self.dataDir + "ChartTrendLines.pptx", save_format.Pptx)
 
 print "Done with chart trend lines, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

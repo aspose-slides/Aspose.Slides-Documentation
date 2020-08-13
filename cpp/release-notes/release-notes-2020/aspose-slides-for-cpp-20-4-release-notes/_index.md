@@ -33,7 +33,7 @@ The new **Fodp** value has been added to **Aspose::Slides::LoadFormat** and **A
 
 The code snippet below demonstrates loading and saving presentation in Fodp format.
 
-{{< highlight cpp >}}
+``` cpp
 
  using namespace System;
 
@@ -61,11 +61,11 @@ if (presInfo->get_LoadFormat() == LoadFormat::Fodp)
 
 }
 
-{{< /highlight >}}
+```
 ### **get_R1C1Formula(), set_R1C1Formula(String) and get_Formula(), set_Formula(String) methods for ChartDataCell have been added**
 New methods **get_R1C1Formula()**, **set_R1C1Formula(String)** and **get_Formula()**, **set_Formula(String)** methods have been added to **ChartDataCell** class and **IChartDataCell** interface. These methods provide a way to set a formula value for a chart data cell.
 
-{{< highlight cpp >}}
+``` cpp
 
  using namespace System;
 
@@ -85,7 +85,7 @@ auto cell2 = workbook->GetCell(0, u"C2");
 
 cell2->set_R1C1Formula(u"MAX(R2C6:R5C8) / 3");
 
-{{< /highlight >}}
+```
 ### **get_ReadOnlyRecommended() and set_ReadOnlyRecommended(bool) methods for IProtectionManager have been added**
 New **get_ReadOnlyRecommended()** and **set_ReadOnlyRecommended(bool)** methods have been added to **IProtectionManager** interface and **ProtectionManager** class.
 
@@ -93,7 +93,7 @@ They allow to get and set read-only recommendation for presentation. This featur
 
 Methods declaration:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -115,11 +115,11 @@ virtual bool get_ReadOnlyRecommended() = 0;
 
 virtual void set_ReadOnlyRecommended(bool value) = 0;
 
-{{< /highlight >}}
+```
 
 The code snippet below demonstrates enabling this option:
 
-{{< highlight cpp >}}
+``` cpp
 
  using namespace System;
 
@@ -131,13 +131,13 @@ pres->get_ProtectionManager()->set_ReadOnlyRecommended(true);
 
 pres->Save(u"ReadOnlyPresentation.pptx", Export::SaveFormat::Pptx);
 
-{{< /highlight >}}
+```
 ### **Mathematical text classes, enums and interfaces have been added**
 Now it is possible to work with mathematical equations new mathematical text classes, enums, and interfaces. You can create new expressions or extract previously created ones from the presentation.
 
 Below is an example of using these new API to create the Pythagorean theorem:
 
-{{< highlight cpp >}}
+``` cpp
 
  using namespace System;
 
@@ -165,11 +165,11 @@ mathParagraph->Add(mathBlock);
 
 pres->Save(u"Pythagorean.pptx", Export::SaveFormat::Pptx);
 
-{{< /highlight >}}
+```
 
 The **AddMathShape** method has been added to the **IShapeCollection** interface and the **ShapeCollection** class:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -179,11 +179,11 @@ The **AddMathShape** method has been added to the **IShapeCollection** interface
 
 virtual System::SharedPtr<IAutoShape> AddMathShape(float x, float y, float width, float height) = 0;
 
-{{< /highlight >}}
+```
 
 The **IMathPortion** interface with the **MathPortion** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -207,11 +207,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathParagraph** interface with the **MathParagraph** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -247,11 +247,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathBlock** interface with the **MathBlock** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -295,12 +295,12 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathElement** interface has been added. This interface is implemented in all classes of different mathematical elements: MathSubscriptElement, MathNaryOperator, MathGroupingCharacter, MathDelimiter, MathematicalText, MathBlock, MathRadical, MathLimit, MathArray, MathAccent, MathBar,
 MathLeftSubSuperscriptElement, MathMatrix, MathRightSubSuperscriptElement, MathBox, MathFraction, MathFunction, MathSuperscriptElement , MathBorderBox:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -684,11 +684,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathAccent** interface with the **MathAccent** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -738,11 +738,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathArray** interface with the **MathArray** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -874,11 +874,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathBar** interface with the **MathBar** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -922,11 +922,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathBorderBox** interface with the **MathBorderBox** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1088,11 +1088,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathBox** interface with the **IMathBox** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1272,11 +1272,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathDelimiter** interface with the **MathDelimiter** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1436,11 +1436,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathematicalText** interface with the **MathematicalText** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1480,11 +1480,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathFraction** interface with the **MathFraction** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1540,11 +1540,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathFunction** interface with the **MathFunction** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1578,11 +1578,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathGroupingCharacter** interface with the **MathGroupingCharacter** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1684,11 +1684,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathLeftSubSuperscriptElement** interface with the **MathLeftSubSuperscriptElement** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1730,11 +1730,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathLimit** interface with the **MathLimit** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -1782,11 +1782,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathMatrix** interface with the **MathMatrix** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2104,11 +2104,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathNaryOperator** interface with the **MathNaryOperator** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2150,11 +2150,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathNaryOperatorProperties** interface has been added as base interfaсe of the **IMathNaryOperator** which is implemented in the **MathNaryOperator** class:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2254,11 +2254,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathRadical** interface with the **MathRadical** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2312,11 +2312,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathRightSubSuperscriptElement** interface with the **MathRightSubSuperscriptElement** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2386,11 +2386,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathSubscriptElement** interface with the **MathSubscriptElement** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2424,11 +2424,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The **IMathSuperscriptElement** interface with the **MathSuperscriptElement** class have been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2462,11 +2462,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathDelimiterShape** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2496,11 +2496,11 @@ enum class MathDelimiterShape
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathFractionTypes** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2546,11 +2546,11 @@ enum class MathFractionTypes
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathFunctionsOfOneArgument** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2772,11 +2772,11 @@ enum class MathFunctionsOfOneArgument
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathFunctionsOfTwoArguments** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2822,11 +2822,11 @@ enum class MathFunctionsOfTwoArguments
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathHorizontalAlignment** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2872,11 +2872,11 @@ enum class MathHorizontalAlignment
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathIntegralTypes** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2938,11 +2938,11 @@ enum class MathIntegralTypes
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathJustification** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -2992,11 +2992,11 @@ enum class MathJustification
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathLimitLocations** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3034,11 +3034,11 @@ enum class MathLimitLocations
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathNaryOperatorTypes** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3110,11 +3110,11 @@ enum class MathNaryOperatorTypes
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathRowSpacingRule** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3168,11 +3168,11 @@ enum class MathRowSpacingRule
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathSpacingRules** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3234,11 +3234,11 @@ enum class MathSpacingRules
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathTopBotPositions** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3276,11 +3276,11 @@ enum class MathTopBotPositions
 
 };
 
-{{< /highlight >}}
+```
 
 The enum **MathVerticalAlignment** has been added:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3326,13 +3326,13 @@ enum class MathVerticalAlignment
 
 };
 
-{{< /highlight >}}
+```
 ### **PDF/A-1a and PDF/UA conformance options have been added to PdfCompliance enumeration**
 New options **PdfA1a** and **PdfUa** have been added to **PdfCompliance** enumeration. These options allow exporting a presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
 
 The code snippet below demonstrates saving presentation to PDF/A-1a compliant document.
 
-{{< highlight cpp >}}
+``` cpp
 
  using namespace System;
 
@@ -3346,13 +3346,13 @@ options->set_Compliance(PdfCompliance::PdfA1a);
 
 presentation->Save(u"my_presentation.pdf", SaveFormat::Pdf, options);
 
-{{< /highlight >}}
+```
 ### **Spreadsheet options for formulas calculation**
 Calculated data of a spreadsheet can depend on many different parameters, and to allow editing them the Aspose::Slides::**SpreadsheetOptions** class has been added. It implements the **ISpreadsheetOptions** that intended to get and set spreadsheet parameters for formulas calculating.
 
 **ISpreadsheetOptions** interface declaration:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3388,11 +3388,11 @@ public:
 
 };
 
-{{< /highlight >}}
+```
 
 **get_SpreadsheetOptions()** and **set_SpreadsheetOptions(SharedPtr<ISpreadsheetOptions>)** methods have been added to the **ILoadOptions** interface and **LoadOptions** class:
 
-{{< highlight cpp >}}
+``` cpp
 
  /// <summary>
 
@@ -3410,11 +3410,11 @@ virtual System::SharedPtr<ISpreadsheetOptions> get_SpreadsheetOptions() = 0;
 
 virtual void set_SpreadsheetOptions(System::SharedPtr<ISpreadsheetOptions> value) = 0;
 
-{{< /highlight >}}
+```
 ### **Example**
 The example below demonstrates how to use the spreadsheet options for a chart formulas:
 
-{{< highlight cpp >}}
+``` cpp
 
  using namespace System;
 
@@ -3436,4 +3436,4 @@ cell->set_Formula(u"FINDB(\"ス\", \"テキスト\")");
 
 auto value1 = cell->get_Value(); // 5
 
-{{< /highlight >}}
+```

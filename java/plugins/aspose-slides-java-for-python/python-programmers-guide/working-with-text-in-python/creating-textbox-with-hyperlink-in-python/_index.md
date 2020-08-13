@@ -52,7 +52,7 @@ pres.save(self.dataDir + "hLinkPPTX.pptx", save_format.Pptx)
 
 print "Created TextBox with Hyperlink, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

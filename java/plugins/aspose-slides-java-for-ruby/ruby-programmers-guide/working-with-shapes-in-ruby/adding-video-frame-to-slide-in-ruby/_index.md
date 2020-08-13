@@ -46,7 +46,7 @@ To Add Video Frame to Slide using **Aspose.Slides Java for Ruby**, call **add_vi
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Video Frame to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

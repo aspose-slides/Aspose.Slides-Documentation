@@ -10,7 +10,7 @@ To Convert Presentation to HTML using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
  # Instantiate a Presentation object that represents a PPTX file
 
@@ -32,7 +32,7 @@ pres.save(self.dataDir + "Aspose.html", save_format.Html, html_opt)
 
 print "Document has been converted, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting To Html (Aspose.Slides)** from any of the below mentioned social coding sites:
 

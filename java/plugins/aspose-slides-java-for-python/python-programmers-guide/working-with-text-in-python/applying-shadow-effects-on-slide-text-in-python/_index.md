@@ -64,7 +64,7 @@ pres.save(self.dataDir + "OutShadow.pptx", save_format.Pptx)
 
 print "Applied shadow effects on text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

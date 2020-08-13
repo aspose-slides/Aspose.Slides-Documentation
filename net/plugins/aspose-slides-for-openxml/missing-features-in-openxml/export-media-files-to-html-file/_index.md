@@ -14,7 +14,7 @@ In order to export media files to HTML. Please follow the steps below:
 
 In the example given below, we have exported the media files to HTML.
 ##### **Example**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -48,7 +48,7 @@ using (Presentation pres = new Presentation(srcFileName))
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

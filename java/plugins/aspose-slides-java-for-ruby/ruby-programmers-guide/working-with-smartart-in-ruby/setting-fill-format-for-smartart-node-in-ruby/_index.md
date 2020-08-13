@@ -46,7 +46,7 @@ pres.save(data_dir + "FillFormat.pptx", Rjb::import('com.aspose.slides.SaveForma
 
 puts "Set fill format for smartart node, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Fill Format for SmartArt Node (Aspose.Slides)** from any of the below mentioned social coding sites:
 

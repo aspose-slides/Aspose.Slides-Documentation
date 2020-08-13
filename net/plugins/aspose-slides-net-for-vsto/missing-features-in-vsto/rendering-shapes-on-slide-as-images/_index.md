@@ -14,7 +14,7 @@ Images are added in slide background and shapes. Sometimes, it is required to ex
 
 In **Aspose.Slides for .NET**, images can be added to slide shape and slide background. The images are added in **ImageCollectionEx** of the presentation. In this example we will traverse through each shape inside every slide of presentation and see if there is any image added in slide shape. If the image will be found for any shape, we will extract that and will save it in file.The following code snippet will serve the purpose.
 
-{{< highlight csharp >}}
+``` csharp
 
  //Accessing the presentation
 
@@ -151,12 +151,12 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 		ifImageFound = false;
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extracting Shapes as image file**
-{{< highlight csharp >}}
+``` csharp
 
  //Instantiate a Presentation object that represents a PPT file
 
@@ -187,7 +187,7 @@ for (int i = 0; i < shapes.Count; i++)
 
 }
 
-{{< /highlight >}}
+``` 
 
 *Note:*Extraction of shape is currently supported in .ppt file.
 ## **Download Sample Code**

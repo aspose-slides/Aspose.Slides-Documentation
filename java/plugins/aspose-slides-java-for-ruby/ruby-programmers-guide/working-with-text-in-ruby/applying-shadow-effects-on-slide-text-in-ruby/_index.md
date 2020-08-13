@@ -60,7 +60,7 @@ pres.save(data_dir + "OutShadow.pptx", save_format.Pptx)
 
 puts "Applied shadow effects on text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Applying Shadow Effects on Slide Text (Aspose.Slides)** from any of the below mentioned social coding sites:
 

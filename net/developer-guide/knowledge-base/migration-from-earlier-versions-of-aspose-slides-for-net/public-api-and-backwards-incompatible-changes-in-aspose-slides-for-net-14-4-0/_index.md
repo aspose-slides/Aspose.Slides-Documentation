@@ -10,7 +10,7 @@ url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net
 #### **Aspose.Slides.ILayoutSlide.HasDependingSlides property had been added**
 The property Aspose.Slides.ILayoutSlide.HasDependingSlides returns true if there exists at least one slide that depends on this layout slide. For example:
 
-{{< highlight java >}}
+``` csharp
 
  ILayoutSlide layout = ...;
 
@@ -18,11 +18,11 @@ if (!layout.HasDependingSlides)
 
     layout.Remove();
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.ILayoutSlide.Remove() method**
 The method Aspose.Slides.ILayoutSlide.Remove() allows you to remove a layout from a presentation with minimum of code. For example:
 
-{{< highlight java >}}
+``` csharp
 
  ILayoutSlide layout = ...;
 
@@ -30,11 +30,11 @@ if (!layout.HasDependingSlides)
 
     layout.Remove();
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) method**
 The method Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) allows you to remove a layout from the collection. Code examples:
 
-{{< highlight java >}}
+``` csharp
 
  ILayoutSlide layout = ...;
 
@@ -42,11 +42,11 @@ if (!layout.HasDependingSlides)
 
     presentation.LayoutSlides.Remove(layout);
 
-{{< /highlight >}}
+``` 
 
 or
 
-{{< highlight java >}}
+``` csharp
 
  IMasterSlide masterSlide = ...;
 
@@ -56,29 +56,29 @@ if (!layout.HasDependingSlides)
 
     masterSlide.LayoutSlides.Remove(layout);
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.ILayoutSlideCollection.RemoveUnused()**
 The method Aspose.Slides.ILayoutSlideCollection.RemoveUnused() allows you to remove unused layout slides (layout slides whose HasDependingSlides is false). Code examples:
 
-{{< highlight java >}}
+``` csharp
 
  presentation.LayoutSlides.RemoveUnused();
 
-{{< /highlight >}}
+``` 
 
 or
 
-{{< highlight java >}}
+``` csharp
 
  IMasterSlide masterSlide = ...;
 
 masterSlide.LayoutSlides.RemoveUnused();
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.IMasterSlide.HasDependingSlides property**
 The property Aspose.Slides.IMasterSlide.HasDependingSlides returns true if there exists at least one slide that depends on this master slide. For example:
 
-{{< highlight java >}}
+``` csharp
 
  IMasterSlide masterSlide = ...;
 
@@ -86,17 +86,17 @@ if (!masterSlide.HasDependingSlides)
 
     presentation.Masters.Remove(masterSlide);
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.ISlide.Remove() method**
 The method Aspose.Slides.ISlide.Remove() allows you to remove a slide from a presentation with minimum of code. For example:
 
-{{< highlight java >}}
+``` csharp
 
  ISlide slide = ...;
 
 slide.Remove();
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat**
 The property Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat returns IFillFormat for a SmartArt node bullet if the layout provides bullets. It can be used to set the bullet image.
 
@@ -104,7 +104,7 @@ The property Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat returns IFill
 #### **Aspose.Slides.SmartArt.ISmartArtNode.Level property**
 The property Aspose.Slides.SmartArt.ISmartArtNode.Level returns nested level for SmartArt nodes.
 
-{{< highlight java >}}
+``` csharp
 
  ISmartArtNode node = diagram.AllNodes[0];
 
@@ -112,11 +112,11 @@ if(node.Level == 1)
 
     node.TextFrame.Text = "First level";
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.Position property**
 The property Aspose.Slides.SmartArt.ISmartArtNode.Position returns the position of a node among its siblings.
 
-{{< highlight java >}}
+``` csharp
 
  ISmartArtNode node = diagram.AllNodes[0];
 
@@ -124,17 +124,17 @@ if (node.ChildNodes.Count > 3)
 
     node.ChildNodes[0].Position++;
 
-{{< /highlight >}}
+``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.Remove() method had been added**
 The Aspose.Slides.SmartArt.ISmartArtNode.Remove() method allows the removal of a node from a diagram.
 
-{{< highlight java >}}
+``` csharp
 
  ISmartArt node = diagram.AllNodes[0];
 
 node.Remove();
 
-{{< /highlight >}}
+``` 
 #### **IGlobalLayoutSlideCollection interface and GlobalLayoutSlideCollection class**
 The IGlobalLayoutSlideCollection interface and the GlobalLayoutSlideCollection class have been added into the Aspose.Slides namespace.
 
@@ -150,7 +150,7 @@ The IMasterLayoutSlideCollection interface and MasterLayoutSlideCollection class
 
 The IMasterLayoutSlideCollection interface represents a collections of all layout slides of a defined master slide. It extends the ILayoutSlideCollection interface with methods for adding, inserting, removing or cloning layout slides in the context of the individual collections of a master's layout slides:
 
-{{< highlight java >}}
+``` csharp
 
  // Method signature:
 
@@ -162,7 +162,7 @@ IMasterSlide destMasterSlide = ...;
 
 destMasterSlide.LayoutSlides.AddClone(sourceLayout);
 
-{{< /highlight >}}
+``` 
 
 The method can be used to add a copy of a specified layout slide to the end of the collection. The new layout will be linked with the parent master slide for this layout slides collection. So this is analogue of copying or pasting with the **Use Destination Theme** option in PowerPoint. Analogue of this method is the method IGlobalLayoutSlideCollection.AddClone(ILayoutSlide, IMasterSlide) accessed with the IPresentation.LayoutSlides property.
 

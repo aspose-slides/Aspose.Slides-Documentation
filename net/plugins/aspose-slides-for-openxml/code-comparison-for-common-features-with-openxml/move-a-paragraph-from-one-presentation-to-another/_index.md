@@ -6,7 +6,7 @@ url: /net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML Presentation**
-{{< highlight csharp >}}
+``` csharp
 
   string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -113,11 +113,11 @@ return slidePart;
 }
 
 
-{{< /highlight >}}
+``` 
 ## **Aspose.Slides**
 It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Whether extracting text from one slide or an entire presentation, Aspose.Slides uses the PresentationScanner Class and the static methods it exposes. They are all packed under the namespace [Aspose.Slides.Util](http://www.aspose.com/docs/display/slidesnet/Aspose.Slides.Util+namespace).
 
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -181,7 +181,7 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 
 }   
 
-{{< /highlight >}}
+``` 
 ## **Download Running Code Example**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

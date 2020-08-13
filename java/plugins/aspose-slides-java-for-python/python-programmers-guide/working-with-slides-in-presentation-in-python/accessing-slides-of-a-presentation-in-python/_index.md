@@ -46,7 +46,7 @@ print "Slide: "
 
 print slide
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Accessing Slides of a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -42,7 +42,7 @@ The code sample below demonstrates how to add a digital signature from a PFX ce
 2. Add a created signature to the presentation object.
 
 
-{{< highlight java >}}
+``` java
 Presentation pres = new Presentation();
 try {
     // Create DigitalSignature object with PFX file and PFX password 
@@ -59,10 +59,10 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-{{< /highlight >}}
+```
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
-{{< highlight java >}}
+``` java
 
 // Open presentation
 Presentation pres = new Presentation("SomePresentationSigned.pptx");
@@ -89,13 +89,13 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-{{< /highlight >}}
+```
 ### **IDigitalSignatureCollection interface and DigitalSignatureCollection class have been added**
 [**DigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignatureCollection) class has been added. It implements [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) interface and represents a collection of digital signatures that were used or will be used to sign the presentation.
 
 [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) declaration:
 
-{{< highlight java >}}
+``` java
 
 /**
    * <p>
@@ -134,14 +134,14 @@ public interface IDigitalSignatureCollection extends IGenericCollection<IDigital
      */
     public void clear();
 }
-{{< /highlight >}}
+```
 Please see [this note](#DigitalSignature) for code samples.
 ### **IDigitalSignature interface and DigitalSignature class have been added**
 [**DigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature)** **class has been added. It implements [**IDigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature)** **interface and stores information about digital signature based on certificate used or will be used to sign the presentation.
 
 [**IDigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) declaration:
 
-{{< highlight java >}}
+``` java
 
 /**
    * <p>
@@ -184,14 +184,14 @@ public interface IDigitalSignature
     public String getComments();
     public void setComments(String value);
 }
-{{< /highlight >}}
+```
 Please see [this note](#DigitalSignature) for code samples.
 ### **IPresentation.getDigitalSignatures() method has been added**
 [**getDigitalSignatures()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--) method has been added to [**IPresentation**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation) interface and [**Presentation**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class. It allows to access a collection of digital signatures which have been used to sign or add digital signatures which will be used to sign the presentation.
 
 Method declaration:
 
-{{< highlight java >}}
+``` java
 
 /**
    * <p>
@@ -200,7 +200,7 @@ Method declaration:
    * </p>
    */
 public final IDigitalSignatureCollection getDigitalSignatures()
-{{< /highlight >}}
+```
 Please see [this note](#DigitalSignature) for code samples.
 
 
@@ -209,7 +209,7 @@ Please see [this note](#DigitalSignature) for code samples.
 
 [**isWriteProtected()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isWriteProtected--)** **and [**checkWriteProtection()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-)** **declarations:
 
-{{< highlight java >}}
+``` java
 
 /**
    * <p>
@@ -236,21 +236,21 @@ public byte isWriteProtected();
    */
 public boolean checkWriteProtection(String password);
 
-{{< /highlight >}}
+```
 ##### **Example**
 The example below demonstrates how to check a password to modify a presentation:
-{{< highlight java >}}
+``` java
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(presentationFilePath);
 boolean isWriteProtectedByPassword = info.isWriteProtected() == NullableBool.True && info.checkWriteProtection("my_password");
-{{< /highlight >}}
+```
 
 ### **Check a Write Protection Password via IProtectionManager interface**
 [**checkWriteProtection()** ](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#checkWriteProtection-java.lang.String-)method has been added to the [**IProtectionManager**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager)** **interface and [**ProtectionManager**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ProtectionManager)** **class. This method allows checking whether a presentation is protected by a password to modify. The password to modify is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
 
 Method declaration:
 
-{{< highlight java >}}
+``` java
 
 /**
    * <p>
@@ -265,26 +265,26 @@ Method declaration:
    */
 public boolean checkWriteProtection(String password);
 
-{{< /highlight >}}
+```
 ##### **Example**
 The example below demonstrates how to check a password to modify a presentation:
 
 
-{{< highlight java >}}
+``` java
 Presentation presentation = new Presentation(presentationFilePath);
 try {
     boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
 } finally {
     if (presentation != null) presentation.dispose();
 }
-{{< /highlight >}}
+```
 
 ### **Check Open Protection of Presentation via IPresentationInfo interface**
 [**isPasswordProtected()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isPasswordProtected--)** **method has been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) interface and [**PresentationInfo**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo)** **class. This property allows checking whether a presentation is protected to open. The presentation has protection to open when a password is set to the document.
 
 Method declaration:
 
-{{< highlight java >}}
+``` java
 /**
    * <p>
    * Gets a value that indicates whether a binded presentation is protected by a password to open.
@@ -292,18 +292,18 @@ Method declaration:
    */
 public boolean isPasswordProtected();
 
-{{< /highlight >}}
+```
 ##### **Example**
 The example below demonstrates how to check protection to open:
 
 
-{{< highlight java >}}
+``` java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(presentationFilePath);
 if (info.isPasswordProtected())
 {
     System.out.println("The presentation '" + presentationFilePath + "' is protected by password to open.");
 }
-{{< /highlight >}}
+```
 
 ### **Support of Shapes Alignment has been added**
 The feature helps to change the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or align them relative to each other.
@@ -335,7 +335,7 @@ Let's say we want to align shapes with indexes 1, 2 and 4 along the top border 
 
 ##### **Solution**
 
-{{< highlight java >}}
+``` java
 Presentation pres = new Presentation("example.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -351,17 +351,17 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-{{< /highlight >}}
+```
 
 ##### **![todo:image_alt_text](aspose-slides-for-android-via-java-20-5-release-notes_5.png)**
 ##### **Example 2**
 Another option shows how to align entire collection of shapes on the slide:
 
-{{< highlight java >}}
+``` java
 Presentation pres = new Presentation("example.pptx");
 try {
     SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0).getShapes());
 } finally {
     if (pres != null) pres.dispose();
 }
-{{< /highlight >}}
+```

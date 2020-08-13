@@ -76,7 +76,7 @@ The following static methods of the Presentation class made obsolete (please use
 #### **Obsolete members in many classes and interfaces have been deleted**
 Members in many classes and interfaces marked as Obsolete a long time ago have been deleted in this release:
 
-{{< highlight java >}}
+``` csharp
 
  Aspose.Slides.BaseSlide.ParentPresentation
 
@@ -202,4 +202,4 @@ Aspose.Slides.SmartArt.ISmartArtNodeCollection.GetNodeByPosition(System.Int32)
 
 Aspose.Slides.SmartArt.ISmartArtNodeCollection.RemoveNodeByPosition(System.Int32)
 
-{{< /highlight >}}
+``` 

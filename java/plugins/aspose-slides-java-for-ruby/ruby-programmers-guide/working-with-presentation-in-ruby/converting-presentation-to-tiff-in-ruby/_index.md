@@ -32,7 +32,7 @@ To convert presentation to TIFF with default size using **Aspose.Slides Java for
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Converting Presentation to TIFF with custom size**
 To convert presentation to TIFF with custom size using **Aspose.Slides Java for Ruby**, simply invoke **convert_with_custom_size** method of **ConvertingToTiff** module. Here you can see example code.
 
@@ -98,7 +98,7 @@ To convert presentation to TIFF with custom size using **Aspose.Slides Java for 
 
 end  
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to TIFF (Aspose.Slides)** from any of the below mentioned social coding sites:
 

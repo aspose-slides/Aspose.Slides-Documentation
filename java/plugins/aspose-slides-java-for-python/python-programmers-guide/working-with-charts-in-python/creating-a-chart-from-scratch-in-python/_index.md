@@ -243,7 +243,7 @@ pres.save(self.dataDir + "AsposeScatterChart.pptx", save_format.Pptx)
 
 print "Created scatter chart, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

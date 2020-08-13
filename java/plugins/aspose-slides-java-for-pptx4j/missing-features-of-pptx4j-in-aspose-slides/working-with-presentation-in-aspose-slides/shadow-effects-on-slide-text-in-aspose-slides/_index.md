@@ -10,7 +10,7 @@ Aspose.Slides for Java provides **OuterShadow** class in order to apply shadow
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  // instantiate a Presentation Object
 
@@ -50,7 +50,7 @@ shadow.setRectangleAlign(RectangleAlignment.TopLeft);
 
 shadow.getShadowColor().setPresetColor(PresetColor.Black);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

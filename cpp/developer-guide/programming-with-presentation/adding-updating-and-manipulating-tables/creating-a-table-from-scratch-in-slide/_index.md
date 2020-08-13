@@ -35,7 +35,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 #### **Example**
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228411)
 
-{{< highlight csharp >}}
+``` cpp
 
  //Instantiate Presentation class that represents PPTX file
 
@@ -105,11 +105,11 @@ using (Presentation pres = new Presentation())
 
 }
 
-{{< /highlight >}}
+```
 
 [**Visual Basic**](/pages/createpage.action?spaceKey=slidescpp&title=Visual+Basic&linkCreation=true&fromPageId=60228411)
 
-{{< highlight csharp >}}
+``` cpp
 
  'Instantiate Presentation class that represents PPTX file
 
@@ -179,7 +179,7 @@ End Using
 
 
 
-{{< /highlight >}}
+```
 
 ![todo:image_alt_text](/download/attachments/9218488/1651689853)
 
@@ -197,7 +197,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 #### **Example**
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228411)
 
-{{< highlight csharp >}}
+``` cpp
 
  //Instantiate Presentation class that represents PPTX file
 
@@ -249,11 +249,11 @@ using (Presentation pres = new Presentation())
 
 //Instantiate Presentation class that represents PPTX file
 
-{{< /highlight >}}
+```
 
 [**Visual Basic**](/pages/createpage.action?spaceKey=slidescpp&title=Visual+Basic&linkCreation=true&fromPageId=60228411)
 
-{{< highlight csharp >}}
+``` cpp
 
  'Instantiate Presentation class that represents PPTX file
 
@@ -299,7 +299,7 @@ End Using
 
 
 
-{{< /highlight >}}
+```
 
 ![todo:image_alt_text](creating-a-table-from-scratch-in-slide_1.png)
 

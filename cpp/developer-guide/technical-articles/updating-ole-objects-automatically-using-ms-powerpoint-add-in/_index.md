@@ -14,7 +14,7 @@ After installing such Add-in, just add Auto_Open() macro (OnPresentationOpen() i
 
 **Visual Basic**
 
-{{< highlight csharp >}}
+``` cpp
 
 
 
@@ -64,7 +64,7 @@ End Sub
 
 
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 

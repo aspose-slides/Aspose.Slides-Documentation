@@ -21,7 +21,7 @@ This article describes how to install Aspose.Slides for Reporting Services on a 
 1. Register Aspose.Slides for Reporting Services as a rendering extension. 
    1. Open **C:\Program Files\Microsoft Visual Studio <Version>\Common7\IDE\PrivateAssemblies\ RSReportDesigner.config** (where <Version> is “8” for Visual Studio 2005 or “9.0” for Visual Studio 2008) and add the following lines into the <Render> element: 
 
-{{< highlight csharp >}}
+``` xml
 
  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
 
@@ -33,7 +33,7 @@ This article describes how to install Aspose.Slides for Reporting Services on a 
 
 
 
-{{< /highlight >}}
+```
 
 
 
@@ -44,7 +44,7 @@ This article describes how to install Aspose.Slides for Reporting Services on a 
 
 **<CodeGroup>**
 
-{{< highlight csharp >}}
+``` xml
 
 
 
@@ -92,7 +92,7 @@ This article describes how to install Aspose.Slides for Reporting Services on a 
 
 
 
-{{< /highlight >}}
+```
 
 
 

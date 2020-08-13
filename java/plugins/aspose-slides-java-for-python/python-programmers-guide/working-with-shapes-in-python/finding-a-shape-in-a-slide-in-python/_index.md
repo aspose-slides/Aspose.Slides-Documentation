@@ -10,7 +10,7 @@ To Convert Presentation to HTML using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
  def main(self):
 
@@ -52,7 +52,7 @@ while (i < slide.getShapes().size()):
 
 return None
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Finding a Shape in a Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

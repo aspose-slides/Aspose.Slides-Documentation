@@ -181,7 +181,7 @@ pres.save(self.dataDir + "AsposePieChart.pptx", save_format.Pptx)
 
 print "Set pie chart sector colors, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

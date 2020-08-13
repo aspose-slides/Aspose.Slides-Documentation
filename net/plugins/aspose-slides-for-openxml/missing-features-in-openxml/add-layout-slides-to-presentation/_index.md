@@ -14,7 +14,7 @@ Aspose.Slides for .NET allows developers to add new Layout slides in presentatio
 - Add an empty slide with newly added Layout slide
 - Finally, write the presentation file using the Presentation object
 ##### **Example**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -120,7 +120,7 @@ using (Presentation p = new Presentation(FileName))
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

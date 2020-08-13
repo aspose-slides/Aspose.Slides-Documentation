@@ -60,7 +60,7 @@ To Create a TextBox on Slide using **Aspose.Slides Java for Ruby**, call **creat
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating a TextBox on Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

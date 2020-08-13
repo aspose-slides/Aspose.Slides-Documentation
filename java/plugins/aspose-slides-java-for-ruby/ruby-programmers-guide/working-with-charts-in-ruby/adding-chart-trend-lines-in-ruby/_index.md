@@ -87,7 +87,7 @@ pres.save(data_dir + "ChartTrendLines.pptx", save_format.Pptx)
 
 puts "Done with chart trend lines, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Chart Trend Lines (Aspose.Slides)** from any of the below mentioned social coding sites:
 

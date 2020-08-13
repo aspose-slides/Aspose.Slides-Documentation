@@ -18,7 +18,7 @@ In Aspose.Slides for Java, SlideCollection (a collection of Slide objects) e
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate Presentation class that represents a PPTX file
 
@@ -30,7 +30,7 @@ ISlideCollection slds = pres.getSlides();
 
 slds.addClone(pres.getSlides().get_Item(0));
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

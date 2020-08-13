@@ -10,7 +10,7 @@ In Aspose.Slides for Java, the presentation slide comment are associated with pa
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  // ======================================
 
@@ -104,7 +104,7 @@ for (ICommentAuthor author1 : pres.getCommentAuthors())
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

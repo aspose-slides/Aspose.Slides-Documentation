@@ -46,7 +46,7 @@ In other cases, the **FontFallBack** will be used first and then **FontSubstitut
 
 Here an example:
 
-{{< highlight java >}}
+``` java
 
  long startUnicodeIndex = 0x0B80;
 
@@ -63,11 +63,11 @@ String[] fontNames = new String[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial"};
 IFontFallBackRule thirdRule = new FontFallBackRule (0x1F300, 0x1F64F, fontNames);
 
 
-{{< /highlight >}}
+```
 
 Of course, rules have to be added to the list (**FontFallBackRulesCollection**) which can be assigned int the **FontManager** to be used in the render:
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation();
 
@@ -87,19 +87,19 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 
 The ranges of several rules can be overlapped. In this case, the fonts from overlapped rules will be merged and arranged in order as rules were been added to the list. You can quickly use several collections with a different set of rules simply by assigning the required list in the manager. If you do not want to use multiple lists, you do not have to create a new collection. You can automatically retrieve a new linked instance directly from the **FontManager**:
 
-{{< highlight java >}}
+``` java
 
  IFontFallBackRulesCollection userRulesList = presentation.getFontsManager().getFontFallBackRulesCollection();
 
-{{< /highlight >}}
+```
 
 Below is the snippet how the new functionality may be used for rendering:
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation(path + "MyPresentation.pptx");
 
@@ -117,13 +117,13 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 ### **Equals and hashCode methods were overridden for com.aspose.slides.Effects classes**
 Equals and hashCode methods were overridden for com.aspose.slides.Effects classes, now objects of these classes are compared by their semantic value.
 
 Full list of updated classes:
 
-{{< highlight java >}}
+``` java
 
  com.aspose.slides.Effects.AlphaBiLevel
 
@@ -217,7 +217,7 @@ com.aspose.slides.Effects.Tint
 
 com.aspose.slides.Effects.TintEffectiveData
 
-{{< /highlight >}}
+```
 ### **Equals and hashCode methods were overridden for GradientStopEffectiveData**
 Equals and hashCode methods were overridden for com.aspose.slides.**GradientStopEffectiveData** class, now objects of this class are compared by their semantic value.
 ### **Interfaces and classes for new FontsFallBack functionality have been added**
@@ -229,7 +229,7 @@ com.aspose.slides.**IFontFallBackRule** interface and **FontFallBackRule** class
 
 Below is an example:
 
-{{< highlight java >}}
+``` java
 
  void renderingWithFallBack()
 
@@ -288,13 +288,13 @@ Below is an example:
 }
 
 
-{{< /highlight >}}
+```
 ### **setFontFallBackRulesCollection and getFontFallBackRulesCollection methods have been added**
 **setFontFallBackRulesCollection** and **getFontFallBackRulesCollection** methods have been added to **IFontsManager** interface and **FontsManager** class. It allows to get and set a collection of **FontFallBackRule** objects for control of new functionality.
 
 **setFontFallBackRulesCollection** and **getFontFallBackRulesCollection** methods can be used in the following way:
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation(path + "input.pptx");
 
@@ -336,7 +336,7 @@ try {
 
 }
 
-{{< /highlight >}}
+```
 
 
 

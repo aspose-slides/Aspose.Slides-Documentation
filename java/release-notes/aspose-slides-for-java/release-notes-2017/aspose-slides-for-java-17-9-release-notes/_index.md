@@ -42,7 +42,7 @@ getDocumentLevelFontSources method returns instance of IFontSources class that h
 - getFontFolders/setFontFolders - get/set folders that are recursively searched for font files.
 - getMemoryFonts/getMemoryFonts - get/set collection of fonts represented as byte arrays.
 
-{{< highlight java >}}
+``` java
 
  byte[] memoryFont1 = ReadAllBytesFromFile("customfonts\\CustomFont1.ttf");
 
@@ -68,11 +68,11 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 The fonts that are passed to FontSources are available to the presentation throughout its lifetime and are not available outside the presentation. Consider the following example:
 
-{{< highlight java >}}
+``` java
 
  final String[] fontFolders1 = new String[] { "assets\\fonts" };
 
@@ -170,13 +170,13 @@ presentation2.dispose();
 
 }
 
-{{< /highlight >}}
+```
 #### **CategoryAxisType.Auto value has been replaced with IAxis.setCategoryAxisTypeAutomatically() method in Aspose.Slides for Java**
 Method IAxis.setCategoryAxisTypeAutomatically() call IAxis.setCategoryAxisType method and set a value that is automatically determined based on axis data.
 #### **Obsolete com.aspose.slides.Presentation.getPresentationText methods have been deleted**
 Obsolete Presentation.getPresentationText methods have been deleted:
 
-{{< highlight java >}}
+``` java
 
  com.aspose.slides.Presentation.getPresentationText(InputStream stream, /*TextExtractionArrangingMode*/int mode)
 
@@ -184,13 +184,13 @@ com.aspose.slides.Presentation.getPresentationText(String file, /*TextExtraction
 
 com.aspose.slides.Presentation.getPresentationText(InputStream stream, /*TextExtractionArrangingMode*/int mode, LoadOptions options)
 
-{{< /highlight >}}
+```
 #### **Value HtmlNotes has been added to SaveFormat enumeration**
 Element HtmlNotes has been added to Aspose.Slides.Export.SaveFormat enumeration. This element allows saving presentation Notes Page View into HTML format.
 
 Code example:
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("Presentation.pptx");
 
@@ -206,7 +206,7 @@ pres.dispose();
 
 }
 
-{{< /highlight >}}
+```
 #### **Write document elements methods have been made non-final in EmbedAllFontsHtmlController class. WriteAllFonts method has been added.**
 writeDocumentStart, writeDocumentEnd, writeSlideStart, writeSlideEnd, writeShapeStart, writeShapeEnd methods have been made non-final to provide a better support to customize generated HTML documents.
 
@@ -214,7 +214,7 @@ In addition, writeAllFonts method has been added. It allows overriding the way h
 
 Please review the example how to use overridable methods to create a custom HTML document with a link to CSS file.
 
-{{< highlight java >}}
+``` java
 
  public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
 
@@ -265,11 +265,11 @@ super.writeAllFonts(generator, presentation);
 
 }
 
-{{< /highlight >}}
+```
 
 There is the example how CustomHeaderAndFontsController can be used.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -291,4 +291,4 @@ pres.dispose();
 
 }
 
-{{< /highlight >}}
+```

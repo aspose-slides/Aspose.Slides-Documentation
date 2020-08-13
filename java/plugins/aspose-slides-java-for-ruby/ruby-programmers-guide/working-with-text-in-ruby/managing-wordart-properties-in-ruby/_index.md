@@ -72,7 +72,7 @@ pres.save(data_dir + "WordArt.pptx", save_format.Pptx)
 
 puts "Done with word art, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing WordArt Properties (Aspose.Slides)** from any of the below mentioned social coding sites:
 

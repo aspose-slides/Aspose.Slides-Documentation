@@ -99,7 +99,7 @@ pres.save(data_dir + "AsposeChartModified.pptx", save_format.Pptx)
 
 puts "Updated chart, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Updating an Existing Chart (Aspose.Slides)** from any of the below mentioned social coding sites:
 

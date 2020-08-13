@@ -30,7 +30,7 @@ This is the collection of IFontSubstRule instances used to substitute fonts duri
 
 The following example shows how to replace a font in a presentation:
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -42,11 +42,11 @@ pres.getFontsManager().replaceFont(sourceFont, destFont);
 
 pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 
 Another example, shows font substitution for rendering when it is inaccessible:
 
-{{< highlight java >}}
+``` java
 
 
 
@@ -70,4 +70,4 @@ pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
 pres.getSlides().get_Item(0).getThumbnail(1, 1);
 
-{{< /highlight >}}
+```

@@ -150,7 +150,7 @@ pres.save(self.dataDir + "RectShpLnJoin.pptx", save_format.Pptx)
 
 print "Formatted join styles, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

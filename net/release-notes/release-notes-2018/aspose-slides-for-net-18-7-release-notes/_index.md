@@ -66,7 +66,7 @@ IChart.HasRoundedCorners and Chart.HasRoundedCorners properties have been added.
 
 Specifies the chart area shall have rounded corners.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation())
 
@@ -82,13 +82,13 @@ Specifies the chart area shall have rounded corners.
 
 }
 
-{{< /highlight >}}
+``` 
 #### **IChartDataPoint.InvertIfNegative property has been added**
 IChartDataPoint.InvertIfNegative and ChartDataPoint.InvertIfNegative properties have been added.
 
 Specifies the data point shall invert its colors if the value is negative.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -126,7 +126,7 @@ Specifies the data point shall invert its colors if the value is negative.
 
 }
 
-{{< /highlight >}}
+``` 
 #### **IChartDataPointCollection.AddDataPointForStockSeries() method has been added**
 IChartDataPointCollection.AddDataPointForStockSeries() and ChartDataPointCollection.AddDataPointForStockSeries() methods have been added.
 
@@ -134,7 +134,7 @@ These methods create the new data point and adds it to the end of collection.
 
 Applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer.IsChartTypeStock(ChartType) method).
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -234,13 +234,13 @@ Applicable for series which chartType is one of Stock subtypes (see also ChartTy
 
 }
 
-{{< /highlight >}}
+``` 
 #### **IChartSeriesGroup.HiLowLinesFormat property has been added**
 Specifies HiLowLines format. HiLowLines applied with HiLowClose, OpenHiLowClose, VolumeHiLowClose and VolumeOpenHiLowClose chart types.
 
 IChartSeriesGroup.HiLowLinesFormat and ChartSeriesGroup.HiLowLinesFormat properties have been added.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -260,7 +260,7 @@ IChartSeriesGroup.HiLowLinesFormat and ChartSeriesGroup.HiLowLinesFormat propert
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Implementation of method IChartData.SetRange() has been changed.**
 Implementation of the method has been changed to avoid lost of series settings (series type, formatting and etc.). Only data points will be updated.
 
@@ -272,7 +272,7 @@ ImageTransparentColor sets the image transparent color.
 
 ApplyImageTransparent Applies the specified transparent color to an image if true. True by default.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -290,7 +290,7 @@ ApplyImageTransparent Applies the specified transparent color to an image if tru
 
 }
 
-{{< /highlight >}}
+``` 
 #### **LightStyle1Accent5 value has been added to TableStylePreset enum**
 LightStyle1Accent5 value has been added to TableStylePreset enum.
 
@@ -298,7 +298,7 @@ It represents "Light Style 1 - Accent 5" preset table style.
 
 The code snippet below shows how to add new Table with "Light Style 1 - Accent 5" style:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation())
 
@@ -314,7 +314,7 @@ The code snippet below shows how to add new Table with "Light Style 1 - Accent 5
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Obsolete HeaderFooterManager class has been deleted**
 Obsolete HeaderFooterManager class has been deleted.
 

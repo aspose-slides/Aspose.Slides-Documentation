@@ -50,7 +50,7 @@ srcPres.save(data_dir + "CloneShape.pptx", save_format.Pptx)
 
 puts "Cloned shape, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Cloning Shapes in Slides (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -58,7 +58,7 @@ To Add Fixed Error Bar Value for Chart using **Aspose.Slides Java for Ruby**, ca
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Adding Custom Error Bar Value for Chart**
 To Add Custom Error Bar Value for Chart for Chart using **Aspose.Slides Java for Ruby**, call **add_custom_error_bar_value** method of **ErrorBars** module. Here you can see example code.
 
@@ -142,7 +142,7 @@ To Add Custom Error Bar Value for Chart for Chart using **Aspose.Slides Java for
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Error Bars for Charts (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -99,7 +99,7 @@ pres.save(data_dir + "CreateTable.pptx", save_format.Pptx)
 puts "Created table, please check the output file."
 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating a Table from Scratch in Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

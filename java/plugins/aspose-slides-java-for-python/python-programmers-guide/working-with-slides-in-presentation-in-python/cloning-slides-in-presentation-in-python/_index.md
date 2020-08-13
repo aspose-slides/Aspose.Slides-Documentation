@@ -79,7 +79,7 @@ dest_pres.save(self.dataDir + "Aspose_dest2.pptx", save_format.Pptx)
 print "Slide has been cloned, please check the output file."
 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Cloning Slides in Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

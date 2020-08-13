@@ -138,7 +138,7 @@ imageIO.write(image, "jpeg", self.File(self.dataDir + "ContentBG_tnail.jpg"))
 
 print "Created thumbnail of user defined window, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

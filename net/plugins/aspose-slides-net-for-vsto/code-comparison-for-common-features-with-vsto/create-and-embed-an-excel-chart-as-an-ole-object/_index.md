@@ -23,7 +23,7 @@ Using VSTO, the following steps are performed:
 1. Position the chart on the slide.
 1. Save the presentation.
 
-{{< highlight csharp >}}
+``` csharp
 
  public void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 
@@ -399,7 +399,7 @@ private void ThisAddIn_Startup(object sender, System.EventArgs e)
 
 }
 
-{{< /highlight >}}
+``` 
 ### **Aspose.Slides**
 Using Aspose.Slides for .NET, the following steps are performed:
 
@@ -411,7 +411,7 @@ Using Aspose.Slides for .NET, the following steps are performed:
 1. Replace the object changed image with the image obtained in step 3 to cater for the object changed issue.
 1. Write the output presentation to disk in PPTX format.
 
-{{< highlight csharp >}}
+``` csharp
 
  static void Main(string[] args)
 
@@ -589,7 +589,7 @@ private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772950)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.and.Embed.an.Excel.Chart.as.an.OLE.Object.Aspose.Slides.zip)

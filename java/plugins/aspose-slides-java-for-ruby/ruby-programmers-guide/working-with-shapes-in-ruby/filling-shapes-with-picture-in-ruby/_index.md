@@ -54,7 +54,7 @@ To Fill Shapes with Picture using **Aspose.Slides Java for Ruby**, call **fill_s
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Filling Shapes with Picture (Aspose.Slides)** from any of the below mentioned social coding sites:
 

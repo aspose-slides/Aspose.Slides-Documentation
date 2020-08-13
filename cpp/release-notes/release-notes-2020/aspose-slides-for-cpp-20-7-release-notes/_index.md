@@ -35,7 +35,7 @@ This page contains release notes for Aspose.Slides for C++ 20.7.
 
 Methods [**IMathParagraph::WriteAsMathMl()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.i_math_paragraph#a7d0b6f25dba389dddf0e2a080d6ff0ce) and [**IMathBlock::WriteAsMathMl()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.i_math_block#a9436c0dd37a8b1d9042e7b9990f80c58) have been added. You can use them to export a mathematical paragraph or block to MathML format. The presentation MathML markup is used.
 
-{{< highlight cpp >}}
+``` cpp
 ```cpp
 using namespace System;
 using namespace Aspose::Slides;
@@ -55,7 +55,7 @@ auto stream = MakeObject<IO::FileStream>(u"mathml.xml", IO::FileMode::Create);
 mathParagraph->WriteAsMathMl(stream);
 stream->Close();
 ```
-{{< /highlight >}}
+```
 
 Contents of the resulting file:
 

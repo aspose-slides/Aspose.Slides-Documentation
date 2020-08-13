@@ -42,7 +42,7 @@ The base IBaseHeaderFooterManager interface of all listed types has following pr
 
 These properties allow getting value indicating that a footer, page number and date-time placeholders are present:
 
-{{< highlight java >}}
+``` csharp
 
  bool IsFooterVisible { get; }
 
@@ -50,11 +50,11 @@ bool IsSlideNumberVisible { get; }
 
 bool IsDateTimeVisible { get; }
 
-{{< /highlight >}}
+``` 
 
 These methods allow changing footer, page number and date-time placeholders visibility:
 
-{{< highlight java >}}
+``` csharp
 
  void SetFooterVisibility(bool isVisible);
 
@@ -62,23 +62,23 @@ void SetSlideNumberVisibility(bool isVisible);
 
 void SetDateTimeVisibility(bool isVisible);
 
-{{< /highlight >}}
+``` 
 
 These methods allow setting text to footer and date-time placeholder:
 
-{{< highlight java >}}
+``` csharp
 
  void SetFooterText(string text);
 
 void SetDateTimeText(string text);
 
-{{< /highlight >}}
+``` 
 
 In addition, IMasterSlideHeaderFooterManager and ILayoutSlideHeaderFooterManager have following properties and methods to manage instance own and all childs elements Header and Footer settings.
 
 These methods allow changing master/layout slide footer, page number, date-time placeholder and all child footer placeholders visibility. Child placeholders mean placeholders are contained on depending layout slides and depending slides. Depending layout slides and slides use and depend on master slide:
 
-{{< highlight java >}}
+``` csharp
 
  void SetFooterAndChildFootersVisibility(bool isVisible);
 
@@ -86,21 +86,21 @@ void SetSlideNumberAndChildSlideNumbersVisibility(bool isVisible);
 
 void SetDateTimeAndChildDateTimesVisibility(bool isVisible);
 
-{{< /highlight >}}
+``` 
 
 These methods allow setting text to master/layout slide footer and date-time placeholder and all child footer placeholders. Child placeholders mean placeholders are contained on depending layout slides and depending slides. Depending layout slides and slides use and depend on master slide:
 
-{{< highlight java >}}
+``` csharp
 
  void SetFooterAndChildFootersText(string text);
 
 void SetDateTimeAndChildDateTimesText(string text);
 
-{{< /highlight >}}
+``` 
 
 New properties have been added to access the added types.
 
-{{< highlight java >}}
+``` csharp
 
  IMasterSlideHeaderFooterManager IMasterSlide.HeaderFooterManager { get; }
 
@@ -108,21 +108,21 @@ ILayoutSlideHeaderFooterManager ILayoutSlide.HeaderFooterManager { get; }
 
 ISlideHeaderFooterManager ISlide.HeaderFooterManager { get; }
 
-{{< /highlight >}}
+``` 
 
 The type of the property has been changed
 
-{{< highlight java >}}
+``` csharp
 
  IPresentationSlideHeaderFooterManager IPresentation.HeaderFooterManager { get; }
 
-{{< /highlight >}}
+``` 
 
 IHeaderFooterManager and class HeaderFooterManager have been marked as Obsolete.
 
 Usage examples:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("presentation.ppt"))
 
@@ -160,9 +160,9 @@ headerFooterManager.SetDateTimeText("Date and time text"); // Method SetDateTime
 
 }
 
-{{< /highlight >}}
+``` 
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("presentation.ppt"))
 
@@ -182,11 +182,11 @@ headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // M
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Id property has been added to ISvgShape**
 Id property has been added to ISvgShape to support custom IDs of shapes in generated SVG. Below is the example of custom SVG Shape formatting controller to set custom shape IDs:
 
-{{< highlight java >}}
+``` csharp
 
  class CustomSvgShapeFormattingController : ISvgShapeFormattingController
 
@@ -212,11 +212,11 @@ svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **New EmbedAllFontsHtmlController has been added**
 A new HTML Controller has been added: EmbedAllFontsHtmlController. It is used to embed all presentation fonts in HTML document. Here's an example of using this new controller:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -240,13 +240,13 @@ pres.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
 
 }
 
-{{< /highlight >}}
+``` 
 
 Please note that EmbedAllFontsHtmlController has parameterized constructor where an array of font names can be passed to prevent them from embedding. Some fonts, like Calibri or Arial, used in presentation are not needed to be embedded (which leads the resulting HTML document become larger) because almost every system already has them installed.
 
 Another major feature of EmbedAllFontsHtmlController is that it supports inheritance and WriteFont method is intended to be overridden:
 
-{{< highlight java >}}
+``` csharp
 
  public virtual void WriteFont(
 
@@ -268,11 +268,11 @@ byte[] fontData)
 
 }
 
-{{< /highlight >}}
+``` 
 
 By default, font embedded or serialized in HTML document as bas64 string. But for example, you may create your own controller to dump files somewhere in your own file structure. Below is a sample implementation of LinkAllFontsHtmlController controller intended to write font files on disk and just add link for it in @font-face:
 
-{{< highlight java >}}
+``` csharp
 
  class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 
@@ -328,7 +328,7 @@ generator.AddHtml("</style>");
 
 }
 
-{{< /highlight >}}
+``` 
 
 
 

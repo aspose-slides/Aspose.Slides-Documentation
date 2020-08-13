@@ -76,7 +76,7 @@ pres.save(data_dir + "AlignText.pptx", save_format.Pptx)
 
 puts "Aligned Text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Vertically align the text in table cell (Aspose.Slides)** from any of the below mentioned social coding sites:
 

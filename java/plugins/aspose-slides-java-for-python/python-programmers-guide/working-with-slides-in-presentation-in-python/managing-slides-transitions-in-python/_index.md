@@ -34,7 +34,7 @@ pres.save(self.dataDir + "SimpleTransition.pptx", save_format.Pptx)
 
 print "Done with simple transition, please check the output file." 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Slides Transitions (Aspose.Slides)** from any of the below mentioned social coding sites:
 

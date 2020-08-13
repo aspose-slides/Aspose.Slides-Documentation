@@ -38,7 +38,7 @@ To clone slide within the Same Presentation from One Position to the End using *
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - From One Position to Anther within the Same Presentation**
 To clone slide from one Position to Anther within the same Presentation using **Aspose.Slides Java for Ruby**, call **clone_to_aonther_position** of **CloneSlides** module. Here you can see example code.
 
@@ -76,7 +76,7 @@ To clone slide from one Position to Anther within the same Presentation using **
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - In Another Presentation at the End of the Existing Slides**
 To clone slide at the End of the Existing Slides using **Aspose.Slides Java for Ruby**, call **clone_to_other_presentation_at_end_of_existing_slide** of **CloneSlides** module. Here you can see example code.
 
@@ -114,7 +114,7 @@ To clone slide at the End of the Existing Slides using **Aspose.Slides Java for 
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Cloning Slides in Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

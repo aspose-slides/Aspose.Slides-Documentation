@@ -12,7 +12,7 @@ Printing of the presentation to the default printer is quite simple in Aspose.Sl
 - Create an instance of Presentation class to load a presentation that is to be printed
 - Call the Print method with no parameters as exposed by the Presentation object
 
-{{< highlight csharp >}}
+``` csharp
 
  PrintByDefaultPrinter();
 
@@ -51,14 +51,14 @@ public static void PrintBySpecificPrinter()
     asposePresentation.Print("LaserJet1100");
 
 
-{{< /highlight >}}
+``` 
 ## **Printing to specific printer**
 Printing of the presentation to the specific printer requires the name of the printer as parameter to the Print method of the Presentation. Perform the following steps in order to print the presentation to the desired printer:
 
 - Create an instance of Presentation class to load a presentation that is to be printed
 - Call the Print method of the Presentation class with printer name as string parameter to the Print method
 
-{{< highlight csharp >}}
+``` csharp
 
  public static void PrintBySpecificPrinter()
 
@@ -76,7 +76,7 @@ Printing of the presentation to the specific printer requires the name of the pr
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

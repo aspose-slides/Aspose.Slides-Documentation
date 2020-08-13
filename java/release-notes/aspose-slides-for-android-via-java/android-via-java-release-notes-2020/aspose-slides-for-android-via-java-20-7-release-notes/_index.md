@@ -22,7 +22,7 @@ This page contains release notes for Aspose.Slides for Android via Java 20.7
 [**IMathParagraph.writeAsMathMl**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathParagraph#writeAsMathMl-java.io.OutputStream-) and [**IMathBlock.writeAsMathMl**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathBlock#writeAsMathMl-java.io.OutputStream-) methods have been added. You can use them to export a mathematical paragraph or block to MathML format. The presentation MathML markup is used.
 
 
-{{< highlight java >}}
+``` java
 ```java
 Presentation pres = new Presentation();
 try {
@@ -42,7 +42,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-{{< /highlight >}}
+```
 
 Contents of the resulting file:
 ```xml

@@ -269,7 +269,7 @@ pres.save(data_dir + "FormattedChart.pptx", Rjb::import('com.aspose.slides.SaveF
 
 puts "Formatted chart entities, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Formatting Chart Entities (Aspose.Slides)** from any of the below mentioned social coding sites:
 

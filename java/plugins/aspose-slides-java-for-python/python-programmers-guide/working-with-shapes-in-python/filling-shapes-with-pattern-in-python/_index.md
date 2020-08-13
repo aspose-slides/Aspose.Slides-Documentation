@@ -54,7 +54,7 @@ pres.save(self.dataDir + "RectShpPatt.pptx", save_format.Pptx)
 
 print "Filled shapes with Pattern, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

@@ -122,7 +122,7 @@ pres.save(data_dir + "CloneRowColumn.pptx", save_format.Pptx)
 
 puts "Cloned Row & Column from table, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Cloning Row or Column in table (Aspose.Slides)** from any of the below mentioned social coding sites:
 

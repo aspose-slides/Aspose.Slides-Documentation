@@ -50,7 +50,7 @@ Following releases of running examples are available to download on all of the b
 ### **Using**
 You can create HelloWorld document using following example code:
 
-{{< highlight java >}}
+``` java
 
  from aspose-slides import Settings
 
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
     HelloWorld()
 
-{{< /highlight >}}
+```
 ## **Support, Extend and Contribute**
 ### **Support**
 From the very first days of Aspose, we knew that just giving our customers good products would not be enough. We also needed to deliver good service. We are developers ourselves and understand how frustrating it is when a technical issue or a quirk in the software stops you from doing what you need to do. We're here to solve problems, not create them.

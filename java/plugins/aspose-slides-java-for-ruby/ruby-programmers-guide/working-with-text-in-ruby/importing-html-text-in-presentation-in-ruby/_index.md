@@ -86,7 +86,7 @@ def read_file(file_name)
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Importing HTML Text in Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

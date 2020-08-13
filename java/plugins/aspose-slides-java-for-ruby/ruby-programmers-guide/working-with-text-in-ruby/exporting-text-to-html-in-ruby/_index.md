@@ -54,7 +54,7 @@ writer.close()                    
 
 puts "Export text to html, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Exporting Text to HTML (Aspose.Slides)** from any of the below mentioned social coding sites:
 

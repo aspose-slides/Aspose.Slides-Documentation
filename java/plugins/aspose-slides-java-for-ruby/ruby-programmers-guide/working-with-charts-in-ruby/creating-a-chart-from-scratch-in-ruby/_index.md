@@ -145,7 +145,7 @@ To Create Normal Chart using **Aspose.Slides Java for Ruby**, call **create_norm
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Creating Scattered Chart**
 To Create Scattered Chart using **Aspose.Slides Java for Ruby**, call **create_scatter_chart** method of **CreateChart** module. Here you can see example code.
 
@@ -241,7 +241,7 @@ To Create Scattered Chart using **Aspose.Slides Java for Ruby**, call **create_s
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating a Chart from Scratch (Aspose.Slides)** from any of the below mentioned social coding sites:
 

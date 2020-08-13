@@ -78,7 +78,7 @@ Aspose.Slides.Animation.IBehaviorProperties has been renamed to IBehaviorPropert
 Aspose.Slides.Animation.BehaviorProperties has been renamed to BehaviorPropertyCollection.
 Following methods were removed:
 
-{{< highlight java >}}
+``` csharp
 
  public void CopyTo(PropertyType[] array, int arrayIndex)
 
@@ -86,11 +86,11 @@ public PropertyType this[int index]
 
 public IEnumerator<PropertyType> GetEnumerator()
 
-{{< /highlight >}}
+``` 
 
 Following methods were marked as obsolete:
 
-{{< highlight java >}}
+``` csharp
 
  public void Add(PropertyType item)
 
@@ -102,11 +102,11 @@ public bool Remove(PropertyType item)
 
 public bool Contains(PropertyType item)
 
-{{< /highlight >}}
+``` 
 
 Following methods were added:
 
-{{< highlight java >}}
+``` csharp
 
  public void Add(IBehaviorProperty item)
 
@@ -134,21 +134,21 @@ public IBehaviorProperty this[int index]
 
 public IEnumerator<IBehaviorProperty> GetEnumerator()
 
-{{< /highlight >}}
+``` 
 #### **Enum Aspose.Slides.Animation.PropertyType has been marked as Obsolete**
 PropertyType enum was replaced by BehaviorProperty class, and planned to be removed in November's release.
 
-{{< highlight java >}}
+``` csharp
 
  [Obsolete("Use BehaviorProperty type instead. This type will be removed after 01.11.2016.")]
 
 public enum PropertyType
 
-{{< /highlight >}}
+``` 
 #### **GetCoordinates method has been added to IPortion and Portion**
 The new method GetCoordinates has been added to IPortion and Portion which allows of retrieveing the coordinates of the beginning of the portion:
 
-{{< highlight java >}}
+``` csharp
 
  AutoShape shape = (AutoShape)pres.Slides[0].Shapes[0];
 
@@ -168,11 +168,11 @@ foreach (var paragraph in textFrame.Paragraphs)
 
 }
 
-{{< /highlight >}}
+``` 
 #### **GetRect method has been added to IParagraph and Paragraph**
 The new method GetRect() has been added. It allows to get paragraph bounds rectangle.
 
-{{< highlight java >}}
+``` csharp
 
  AutoShape shape = (AutoShape)pres.Slides[0].Shapes[0];
 
@@ -180,13 +180,13 @@ var textFrame = (TextFrame)shape.TextFrame
 
 RectangleF rect = ((Paragraph) textFrame.Paragraphs[0]).GetRect()
 
-{{< /highlight >}}
+``` 
 #### **New interface Aspose.Slides.Animation.IBehaviorProperty and class Aspose.Slides.Animation.BehaviorProperty have been added**
 New BehaviorProperty class replaces and expands PropertyType enum functionality. Now it allows you to use the full set of predefined properties and custom properties, which are not described in the specification.
 
 Instances for predefined time animate values can be retrieved through corresponding static properties, for example:
 
-{{< highlight java >}}
+``` csharp
 
  BehaviorProperty.PptC
 
@@ -194,33 +194,33 @@ BehaviorProperty.StyleColor
 
 BehaviorProperty.FillOpacity
 
-{{< /highlight >}}
+``` 
 
 represent ppt_c, style.color and fill.opacity values from list.
 
 The another way is the using of GetOrCreateByValue(string) method:
 
-{{< highlight java >}}
+``` csharp
 
  BehaviorProperty.GetOrCreateByValue("style.color")
 
 BehaviorProperty.GetOrCreateByValue("customProp")
 
-{{< /highlight >}}
+``` 
 
 Backward compatibility method was added only to simplify upgrade to 16.4 version for the customers which actively use PropertyType enum
 
-{{< highlight java >}}
+``` csharp
 
  BehaviorProperty.GetByType(PropertyType.Color)
 
-{{< /highlight >}}
+``` 
 
 This methods (as well as properties) create only one instance for each property value. For example two calls of BehaviorProperty.PptC will return the same instance. This is true for custom properties as well.
 
 Instance properties of this class are described by the IBehaviorProperty interface
 
-{{< highlight java >}}
+``` csharp
 
  public interface IBehaviorProperty
 
@@ -246,11 +246,11 @@ Instance properties of this class are described by the IBehaviorProperty interfa
 
     }
 
-{{< /highlight >}}
+``` 
 #### **New method GetActualLabelText() has been added to IDataLabel interface and DataLabel class**
 Returns actual label text based on DataLabelFormat settings or TextFrameForOverriding.Text value.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -276,37 +276,37 @@ Returns actual label text based on DataLabelFormat settings or TextFrameForOverr
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Property RelatedLegendEntry has been added to ChartDataPoint and IChartDataPoint classes**
 Represents legend entry related with the data point.
 
-{{< highlight java >}}
+``` csharp
 
  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
 
 chart.ChartData.Series[0].DataPoints[0].RelatedLegendEntry.Hide = true;
 
-{{< /highlight >}}
+``` 
 #### **Property RelatedLegendEntry has been added to ChartSeries and IChartSeries classes**
 Represents legend entry related with the series.
 
-{{< highlight java >}}
+``` csharp
 
  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
 chart.ChartData.Series[0].RelatedLegendEntry.Hide = true;
 
-{{< /highlight >}}
+``` 
 #### **Property RelatedLegendEntry has been added to Trendline and ITrendline classes**
 Represents legend entry related with the trendline.
 
-{{< highlight java >}}
+``` csharp
 
  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
 chart.ChartData.Series[0].Trendlines[0].RelatedLegendEntry.Hide = true;
 
-{{< /highlight >}}
+``` 
 #### **Swf and SwfNotes values have been added to Aspose.Slides.Export.SaveFormat enumeration**
 New export format for an Adobe Flash file format (SWF) has been added.
 
@@ -316,7 +316,7 @@ The new public class SwfOptions has been added to Aspose.Slides.Export namespace
 
 To export presentation to SWF format the following code snippet can be used:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("Presentation1.pptx"))
 
@@ -336,6 +336,6 @@ To export presentation to SWF format the following code snippet can be used:
 
    pres.Save("outputNotes.swf", SaveFormat.SwfNotes, swfOptions);
 
-{{< /highlight >}}
+``` 
 #### **TextAlignment.Distributed value has been added to TextAlignment enum**
 It represents alignment of text distributed along the whole element.

@@ -50,7 +50,7 @@ pres.save(data_dir + "VideoFrame.pptx", save_format.Pptx)
 
 puts "Embedded video frame in a slide, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding an Embedded Video Frame to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

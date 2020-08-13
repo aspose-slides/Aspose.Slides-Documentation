@@ -190,7 +190,7 @@ pres.save(self.dataDir + "output.pdf", save_format.Pdf)
 
 print "Done with font family for text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

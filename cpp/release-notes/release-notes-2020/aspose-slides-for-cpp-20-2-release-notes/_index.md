@@ -33,7 +33,7 @@ Let's say we have a table with some text inside and simple AutoShape nearby.
 
 **The code snippet below generates those objects.**
 
-{{< highlight cpp >}}
+``` cpp
 
  {
 
@@ -79,23 +79,23 @@ Let's say we have a table with some text inside and simple AutoShape nearby.
 
 }
 
-{{< /highlight >}}
+```
 
 **The source code snippet below will add a yellow frame to all paragraphs and blue frame to all portions which contain substring "0".**
 
- 1) In the first step, We're getting coordinates of the left top corner of the table cell.
+\1) In the first step, We're getting coordinates of the left top corner of the table cell.
 
-{{< highlight cpp >}}
+``` cpp
 
  double x = tbl->get_X() + cell->get_OffsetX();
 
 double y = tbl->get_Y() + cell->get_OffsetY();
 
-{{< /highlight >}}
+```
 
- 2) In the next step we're using [IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_paragraph/#a56f6e0026bbb81aa948bb0b000b8cf08) methods in order to add frame to portions and paragraphs.
+\2) In the next step we're using [IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_paragraph/#a56f6e0026bbb81aa948bb0b000b8cf08) methods in order to add frame to portions and paragraphs.
 
-{{< highlight cpp >}}
+``` cpp
 
  {
 
@@ -155,11 +155,11 @@ double y = tbl->get_Y() + cell->get_OffsetY();
 
 }
 
-{{< /highlight >}}
+```
 
- 3) Add frame to AutoShape paragraphs.
+\3) Add frame to AutoShape paragraphs.
 
-{{< highlight cpp >}}
+``` cpp
 
  {
 
@@ -191,7 +191,7 @@ double y = tbl->get_Y() + cell->get_OffsetY();
 
 }
 
-{{< /highlight >}}
+```
 
 **Result:**
 

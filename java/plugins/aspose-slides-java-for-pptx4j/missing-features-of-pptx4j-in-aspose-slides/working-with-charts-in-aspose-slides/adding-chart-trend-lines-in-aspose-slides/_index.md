@@ -21,7 +21,7 @@ Aspose.Slides for Java provides a simple API for managing different chart Trend 
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Creating empty presentation//Creating empty presentation
 
@@ -90,7 +90,7 @@ tredLinePower.setBackward(1);
 
 pres.save(dataDir + "AsposeChartTrendLines.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

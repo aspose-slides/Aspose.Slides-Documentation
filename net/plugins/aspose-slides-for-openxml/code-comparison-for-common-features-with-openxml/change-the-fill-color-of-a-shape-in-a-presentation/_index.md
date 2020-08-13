@@ -6,7 +6,7 @@ url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **OpenXML Presentation**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -80,7 +80,7 @@ public static void SetPPTShapeColor(string docName)
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Aspose.Slides**
 We need to follow following steps to fill the shapes in presentation:
 
@@ -91,7 +91,7 @@ We need to follow following steps to fill the shapes in presentation:
 - Set the color of the Shape.
 - Write the modified presentation as a PPTX file.
 
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -125,7 +125,7 @@ using (Presentation pres = new Presentation())
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Running Code Example**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

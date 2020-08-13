@@ -50,7 +50,7 @@ To Set the Image as Background to Slides using **Aspose.Slides Java for Ruby**, 
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting the Image as Background to Slides (Aspose.Slides)** from any of the below mentioned social coding sites:
 

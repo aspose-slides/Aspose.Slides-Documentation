@@ -144,7 +144,7 @@ pres.save(self.dataDir + "RemoveDP.pptx", save_format.Pptx)
 
 print "Remove document property, please check output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

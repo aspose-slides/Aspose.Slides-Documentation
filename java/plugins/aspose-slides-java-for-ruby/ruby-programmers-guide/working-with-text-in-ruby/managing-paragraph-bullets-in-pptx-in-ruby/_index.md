@@ -118,7 +118,7 @@ To Manage Paragraph Bullets using **Aspose.Slides Java for Ruby**, call **paragr
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Paragraph Bullets (Aspose.Slides)** from any of the below mentioned social coding sites:
 

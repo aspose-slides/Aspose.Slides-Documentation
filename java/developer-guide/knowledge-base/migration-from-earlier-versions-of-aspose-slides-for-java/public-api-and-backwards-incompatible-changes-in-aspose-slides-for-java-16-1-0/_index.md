@@ -17,7 +17,7 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 Methods getRotationAngle() and setRotationAngle() have been added to interfaces com.aspose.slides.IChartTextBlockFormat and com.aspose.slides.ITextFrameFormat.
 They provide access to the custom rotation that is being applied to the text within the bounding box.
 
-{{< highlight java >}}
+``` java
 
 
 
@@ -38,4 +38,4 @@ chart.getChartTitle().addTextFrameForOverriding("Custom title").getTextFrameForm
 pres.save("out.pptx", SaveFormat.Pptx);
 
 
-{{< /highlight >}}
+```

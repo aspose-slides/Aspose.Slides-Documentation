@@ -10,7 +10,7 @@ Aspose.Slides for Java now facilitates to add custom SmartArt shapes in their sl
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //==================
 
@@ -64,7 +64,7 @@ for(IShape shape : slide0.getShapes())
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

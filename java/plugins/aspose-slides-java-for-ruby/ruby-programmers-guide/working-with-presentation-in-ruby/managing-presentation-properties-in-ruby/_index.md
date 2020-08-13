@@ -58,7 +58,7 @@ To access Built-in properties of presentation using **Aspose.Slides Java for Rub
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Modifying Built-in Properties**
 To update Built-in properties of presentation using **Aspose.Slides Java for Ruby**, call **update_properties** method of **Properties** module. Here you can see example code.
 
@@ -102,7 +102,7 @@ To update Built-in properties of presentation using **Aspose.Slides Java for Rub
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Adding Custom Document Properties**
 To add custom property of document using **Aspose.Slides Java for Ruby**, call **add_custom_properties** method of **Properties** module. Here you can see example code.
 
@@ -142,7 +142,7 @@ To add custom property of document using **Aspose.Slides Java for Ruby**, call *
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Removing Document Properties**
 To add custom property of document using **Aspose.Slides Java for Ruby**, call **remove_property** method of **Properties** module. Here you can see example code.
 
@@ -182,7 +182,7 @@ To add custom property of document using **Aspose.Slides Java for Ruby**, call *
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Presentation Properties (Aspose.Slides)** from any of the below mentioned social coding sites:
 

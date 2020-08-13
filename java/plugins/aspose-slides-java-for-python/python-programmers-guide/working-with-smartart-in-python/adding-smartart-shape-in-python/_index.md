@@ -34,7 +34,7 @@ pres.save(self.dataDir + "SimpleSmartArt.pptx", saveFormat.Pptx)
 
 print "Created smartart shape, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

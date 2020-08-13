@@ -38,7 +38,7 @@ Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, w
 
 Let’s start with adding a new Sunburst chart to the presentation:
 
-{{< highlight java >}}
+``` cpp
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -46,7 +46,7 @@ System::SharedPtr<IChart> chart = pres->get_Slides()->idx_get(0)->get_Shapes()->
 
 // ...
 
-{{< /highlight >}}
+```
 
 Read more about [**Creating Sunburst Chart**](/slides/cpp/adding-charts/#addingcharts-creatingsunburstchart)
 
@@ -59,13 +59,13 @@ If there is a need to format data points of the chart, we should use the followi
 ### **Show Data Point Value**
 Show value of "Leaf 4" data point:
 
-{{< highlight java >}}
+``` cpp
 
  System::SharedPtr<IChartDataPointCollection> dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
 
 dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
 
-{{< /highlight >}}
+```
 
 
 
@@ -73,7 +73,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 ### **Set Data Point label and its color**
 ` `Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
 
-{{< highlight java >}}
+``` cpp
 
  System::SharedPtr<IDataLabel> branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
 
@@ -87,7 +87,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 
 branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Yellow());
 
-{{< /highlight >}}
+```
 
 
 
@@ -95,7 +95,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 ### **Set Data Point Branch Color**
 ` `Change color of "Steam 4" branch:
 
-{{< highlight java >}}
+``` cpp
 
  System::SharedPtr<IFormat> steam4Format = dataPoints->idx_get(9)->get_DataPointLevels()->idx_get(1)->get_Format();
 
@@ -103,7 +103,7 @@ steam4Format->get_Fill()->set_FillType(Aspose::Slides::FillType::Solid);
 
 steam4Format->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(255, 0, 176, 240));
 
-{{< /highlight >}}
+```
 
 
 
@@ -113,7 +113,7 @@ steam4Format->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color
 ##### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
-{{< highlight java >}}
+``` cpp
 
  auto pdfOptions = System::MakeObject<PdfOptions>();
 
@@ -127,13 +127,13 @@ auto presentation = System::MakeObject<Presentation>();
 
 presentation->Save(pdfFilePath, Aspose::Slides::Export::SaveFormat::Pdf, pdfOptions);
 
-{{< /highlight >}}
+```
 
 
 ### **ISlideCollection::AddClone() method has been added**
 [**AddClone()**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_slide_collection/#a46981dac8b18355531a04a70c70c444b) method has been added to [**ISlideCollection**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_slide_collection/)** **interface and [**SlideCollection**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.slide_collection/)** **class. This method allows adding a slide clone into a specified section.
 #### **Method declaration**
-{{< highlight java >}}
+``` cpp
 
  /// <summary>
 
@@ -154,9 +154,9 @@ presentation->Save(pdfFilePath, Aspose::Slides::Export::SaveFormat::Pdf, pdfOpti
 System::SharedPtr<ISlide> AddClone(System::SharedPtr<ISlide> sourceSlide, System::SharedPtr<ISection> section);
 
 
-{{< /highlight >}}
+```
 #### **Example**
-{{< highlight java >}}
+``` cpp
 
  auto presentation = MakeObject<Presentation>();
 
@@ -171,7 +171,7 @@ presentation->get_Slides()->AddClone(presentation->get_Slides()->idx_get(0), sec
 // Now the second section contains a copy of the first slide.
 
 
-{{< /highlight >}}
+```
 
 
 

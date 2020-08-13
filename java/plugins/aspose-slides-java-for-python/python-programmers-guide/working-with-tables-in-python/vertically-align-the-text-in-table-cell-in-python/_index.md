@@ -78,7 +78,7 @@ pres.save(self.dataDir + "AlignText.pptx", save_format.Pptx)
 
 print "Aligned Text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

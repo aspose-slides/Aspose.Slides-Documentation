@@ -168,7 +168,7 @@ pres.save(self.dataDir + "SetGapWidth.pptx", save_format.Pptx)
 
 print "Set Gapwidth property of chart series, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

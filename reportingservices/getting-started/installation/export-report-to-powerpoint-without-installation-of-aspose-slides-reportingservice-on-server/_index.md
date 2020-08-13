@@ -26,7 +26,7 @@ The process of rendering consist of two parts: 
 
  3) Use this class to integrate web service proxy and Apose.Slides for Reporting Service
 
-{{< highlight java >}}
+``` xml
 
  class PowerpointRenderer
 
@@ -179,11 +179,11 @@ return new MemoryStream(result);
 
 }
 
-{{< /highlight >}}
+```
 
  4) Now you can export report by using this code:
 
-{{< highlight java >}}
+``` xml
 
  PowerpointRenderer powerpointRenderer = new PowerpointRenderer();
 
@@ -195,7 +195,7 @@ powerpointRenderer.Password = "password";
 
 powerpointRenderer.Render("test.ppt, "/AdventureWorks Sample Reports/Sales Order Detail SQL2008R2", Aspose.Slides.ReportingServices.OutputPresentationFormat.Ppt);
 
-{{< /highlight >}}
+```
 
 {{% alert color="primary" %}} 
 

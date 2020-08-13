@@ -40,31 +40,31 @@ In this example Aspose.Slides will attempt to find the license file in the folde
 
 **Java**
 
-{{< highlight csharp >}}
+``` java
 
  com.aspose.slides.License license = new com.aspose.slides.License();
 
 license.setLicense("Aspose.Slides.Java.lic");
 
-{{< /highlight >}}
+```
 #### **Example 2**
 Initializes a license from a stream.
 
 **Java**
 
-{{< highlight csharp >}}
+``` java
 
  com.aspose.slides.License license = new com.aspose.slides.License();
 
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
-{{< /highlight >}}
+```
 #### **Setting a License in PHP Using PHP/Java Bridge**
 Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slides for Java**. It is because of the fact that PHP developers actually use the API of **Aspose.Slides for Java** in PHP. **PHP/Java Bridge** provides an interface to the PHP developers that makes it possible to use Java classes in PHP syntax.
 
 [**PHP**](/pages/createpage.action?spaceKey=slidesjava&title=PHP&linkCreation=true&fromPageId=9503253)
 
-{{< highlight csharp >}}
+``` java
 
  <?php
 
@@ -113,13 +113,13 @@ Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slid
 
 ?>
 
-{{< /highlight >}}
+```
 ### **Validate the License**
 It is possible to validate if the license has been set properly or not. The [License](https://apireference.aspose.com/java/slides/com.aspose.slides/License) class has the isLicensed field that will return true if license has been properly set.
 
 **Java**
 
-{{< highlight csharp >}}
+``` java
 
  License license = new License();
 
@@ -131,6 +131,6 @@ if (License.isLicensed()) {
 
 }
 
-{{< /highlight >}}
+```
 
 

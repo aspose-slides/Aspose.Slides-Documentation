@@ -6,7 +6,7 @@ url: /net/delete-all-the-comments-by-an-author/
 ---
 
 ## **OpenXML SDK**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -100,9 +100,9 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Aspose.Slides**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -146,7 +146,7 @@ public static void DeleteCommentsByAuthorInPresentation(string fileName, string 
 
 }    
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

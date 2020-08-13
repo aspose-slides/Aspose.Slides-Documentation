@@ -48,7 +48,7 @@ To Fill Shapes with Solid Color using **Aspose.Slides Java for Ruby**, call **fi
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Filling Shapes with Solid Color (Aspose.Slides)** from any of the below mentioned social coding sites:
 

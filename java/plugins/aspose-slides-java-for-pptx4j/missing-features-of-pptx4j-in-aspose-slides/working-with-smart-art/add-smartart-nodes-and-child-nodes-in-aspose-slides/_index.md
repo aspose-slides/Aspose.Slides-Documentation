@@ -20,7 +20,7 @@ Aspose.Slides for Java has provided the simplest API to manage the SmartArt shap
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  // Load the desired the presentation
 
@@ -66,13 +66,13 @@ for (IShape shape : pres.getSlides().get_Item(0).getShapes())
 
 pres.save(dataDir + "AsposeAddSmartArtNode.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 
 **Adding Smart Art to Specific Location**
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Creating a presentation instance
 
@@ -103,7 +103,7 @@ chNode.getTextFrame().setText("Sample Text Added");
 pres1.save(dataDir + "AsposeAddSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

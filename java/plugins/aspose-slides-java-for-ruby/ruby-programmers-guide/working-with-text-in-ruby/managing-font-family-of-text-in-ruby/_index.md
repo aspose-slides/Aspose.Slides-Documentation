@@ -80,7 +80,7 @@ To Manage Font Family of Text using **Aspose.Slides Java for Ruby**, call **font
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Font Family of Text (Aspose.Slides)** from any of the below mentioned social coding sites:
 

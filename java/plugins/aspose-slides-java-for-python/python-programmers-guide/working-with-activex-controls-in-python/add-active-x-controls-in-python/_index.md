@@ -34,7 +34,7 @@ pres.save(dataDir + "AddActiveX.pptx", saveFormat.Pptx)
 
 print "Added ActiveX control, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

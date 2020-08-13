@@ -6,7 +6,7 @@ url: /net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML Presentation:**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -166,7 +166,7 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
 }   
 
-{{< /highlight >}}
+``` 
 ## **Aspose.Slides**
 In order to apply theme we need to clone the slide with master, please follow the steps below:
 
@@ -179,7 +179,7 @@ In order to apply theme we need to clone the slide with master, please follow th
 - Call the AddClone method exposed by the ISlideCollection object and pass the slide from the source presentation to be cloned and master slide as parameter to the AddClone method.
 - Write the modified destination presentation file.
 
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -237,7 +237,7 @@ public static void ApplyThemeToPresentation(string presentationFile, string outp
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Running Code Example**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

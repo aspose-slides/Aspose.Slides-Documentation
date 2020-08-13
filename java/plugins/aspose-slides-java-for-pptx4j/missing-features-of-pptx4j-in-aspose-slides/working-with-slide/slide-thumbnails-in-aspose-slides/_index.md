@@ -15,7 +15,7 @@ To generate the thumbnail of any desired slide using Aspose.Slides for Java:
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate a Presentation class that represents the PPTX file
 
@@ -33,7 +33,7 @@ BufferedImage image = sld.getThumbnail(1f, 1f);
 
 ImageIO.write(image,"jpeg",new File(dataDir + "AsposeThumbnail.jpg"));
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

@@ -97,7 +97,7 @@ pres.save(self.dataDir + "AsposeChartModified.pptx", save_format.Pptx)
 
 print "Updated chart, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

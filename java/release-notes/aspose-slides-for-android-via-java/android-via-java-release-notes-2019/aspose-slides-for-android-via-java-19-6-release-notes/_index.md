@@ -31,7 +31,7 @@ The com.aspose.slides.IBackgroundEffectiveData interface and it's implementation
 
 
 
-{{< highlight java >}}
+``` java
 
  /**
 
@@ -82,7 +82,7 @@ public interface IBackgroundEffectiveData extends IFillParamSource
 }
 
 
-{{< /highlight >}}
+```
 
 
 ### **IBaseSlide.createBackgroundEffective method has been added**
@@ -92,7 +92,7 @@ Sample code below outputs effective background fill:
 
 
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("SamplePresentation.pptx");
 
@@ -107,14 +107,14 @@ else
     System.out.println("Fill type: " + effBackground.getFillFormat().getFillType());
 
 
-{{< /highlight >}}
+```
 
 
 ### **New IProgressCallback interface has been added**
 New IProgressCallback interface has been added to ISaveOptions interface and SaveOptions abstract class. 
 IProgressCallback interface represents a callback object for saving progress updates in percentage.
 
-{{< highlight java >}}
+``` java
 
  /**
 
@@ -148,13 +148,13 @@ public interface IProgressCallback
 
 
 
-{{< /highlight >}}
+```
 
 Code snippets below show how to use IProgressCallback interface:
 
 
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("fileName");
 
@@ -176,9 +176,9 @@ try
 
 
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+``` java
 
  class ExportProgressHandler implements IProgressCallback {
 
@@ -191,7 +191,7 @@ try
 }
 
 
-{{< /highlight >}}
+```
 
 
 ### **Obsolete methods and properties related to notes and comments have been deleted**
@@ -223,11 +223,11 @@ Also, the new method has been added to **IImageCollection** interface and **Imag
 
 
 
-{{< highlight java >}}
+``` java
 
  public IPPImage addImage(java.io.InputStream stream, int loadingStreamBehavior);
 
-{{< /highlight >}}
+```
 
 
 ##### **Adding a new image as BLOB to the presentation.**
@@ -235,7 +235,7 @@ This example demonstrates how to include a large BLOB (image) and prevent high m
 
 
 
-{{< highlight java >}}
+``` java
 
  static void addingNewBlobImageToPresentation()
 
@@ -300,7 +300,7 @@ This example demonstrates how to include a large BLOB (image) and prevent high m
 
 
 
-{{< /highlight >}}
+```
 
 
 

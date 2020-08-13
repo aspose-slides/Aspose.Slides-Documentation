@@ -32,7 +32,7 @@ pres.save(data_dir + "AddActiveX.pptx", Rjb::import('com.aspose.slides.SaveForma
 
 puts "Added ActiveX control, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Media Player ActiveX Controls in Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

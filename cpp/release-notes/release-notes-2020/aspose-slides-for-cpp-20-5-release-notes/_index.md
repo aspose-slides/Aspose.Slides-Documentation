@@ -269,9 +269,9 @@ To sign a presentation or check the authenticity of presentation signatures, Asp
 #### **Add digital signature from PFX Certificate**
 The code sample below demonstrates how to add a digital signature from a PFX certificate:
 
-1. Open PFX file and pass the PFX password to [**DigitalSignature** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)object.
+\1. Open PFX file and pass the PFX password to [**DigitalSignature** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)object.
 
-2. Add a created signature to the presentation object.
+\2. Add a created signature to the presentation object.
 
 
 

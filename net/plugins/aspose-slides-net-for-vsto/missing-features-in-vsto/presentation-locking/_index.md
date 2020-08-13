@@ -34,7 +34,7 @@ As mentioned earlier, each shape class has an associated shape lock class for pr
 
 The code samples that follow apply protection to all shapes types in a presentation.
 
-{{< highlight csharp >}}
+``` csharp
 
  //Instatiate Presentation class that represents a PPTX file
 
@@ -163,13 +163,13 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
-{{< /highlight >}}
+``` 
 
 **Removing Protection**
 
 Protection applied using Aspose.Slides for .NET can only be removed with Aspose.Slides for .NET. To unlock a shape, set the value of the applied lock to false. The code sample that follows shows how to unlock shapes in a locked presentation.
 
-{{< highlight csharp >}}
+``` csharp
 
  //Open the desired presentation
 
@@ -297,7 +297,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812535)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Presentation%20Locking%20%28Aspose.Slides%29.zip)

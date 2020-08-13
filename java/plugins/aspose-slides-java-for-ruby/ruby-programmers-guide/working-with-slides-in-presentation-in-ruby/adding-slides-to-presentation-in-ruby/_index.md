@@ -46,7 +46,7 @@ pres.save(data_dir + "EmptySlide.pptx", save_format.Pptx)
 
 puts "Document has been created, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Slides to Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

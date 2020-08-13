@@ -37,7 +37,7 @@ IResourceLoadingCallback can be used to manage external workbook loading. See Ne
 
 
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("presentation.pptx");
 
@@ -68,7 +68,7 @@ finally {
 }
 
 
-{{< /highlight >}}
+```
 
 
 
@@ -78,7 +78,7 @@ setExternalWorkbook() method can be also used to update a path to the external w
 
 
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -131,13 +131,13 @@ finally {
 }
 
 
-{{< /highlight >}}
+```
 
 
 
  3) Combination of methods IChartData.readWorkbookStream() and IChartData.setExternalWorkbook() can be used to create an external workbook from scratch or to make an internal workbook external.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("presentaion.pptx");
 
@@ -188,7 +188,7 @@ try
 }
 
 
-{{< /highlight >}}
+```
 
 
 

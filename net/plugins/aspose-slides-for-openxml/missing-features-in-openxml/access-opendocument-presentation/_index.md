@@ -7,7 +7,7 @@ url: /net/access-opendocument-presentation/
 
 Aspose.Slides for .NET offers **Presentation** class that represents a presentation file.**Presentation** class can now also access **ODP** through **Presentation** constructor when the object is instantiated.
 ##### **Example**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -27,7 +27,7 @@ using (Presentation pres = new Presentation(srcFileName))
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

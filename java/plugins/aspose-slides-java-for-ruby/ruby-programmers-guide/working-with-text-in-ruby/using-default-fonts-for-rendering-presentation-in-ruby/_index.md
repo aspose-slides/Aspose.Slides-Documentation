@@ -42,7 +42,7 @@ To Use Default Fonts for Rendering Presentation using **Aspose.Slides Java for R
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Using Default Fonts for Rendering Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

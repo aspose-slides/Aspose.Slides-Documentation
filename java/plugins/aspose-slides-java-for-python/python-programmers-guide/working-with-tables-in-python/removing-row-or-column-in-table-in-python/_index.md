@@ -36,7 +36,7 @@ pres.save(self.dataDir + "RemoveRowColumn.pptx", save_format.Pptx)
 
 print "Removed Row & Column from table, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

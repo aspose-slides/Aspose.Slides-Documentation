@@ -59,7 +59,7 @@ To Connect shapes using connectors by using **Aspose.Slides Java for Ruby**, cal
 end
 
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Connecting Shape with connector on desired connection site**
 To Connect Shape with connector on desired connection site using **Aspose.Slides Java for Ruby**, call **connect_shapes_with_connector** method of **ConnectShapes** module. Here you can see example code.
 
@@ -125,7 +125,7 @@ To Connect Shape with connector on desired connection site using **Aspose.Slides
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Connecting shapes using Connectors (Aspose.Slides)** from any of the below mentioned social coding sites:
 

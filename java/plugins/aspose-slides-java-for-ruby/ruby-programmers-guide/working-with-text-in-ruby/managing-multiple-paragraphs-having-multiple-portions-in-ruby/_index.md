@@ -124,7 +124,7 @@ To Manage Multiple Paragraphs having Multiple Portions using **Aspose.Slides Jav
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Multiple Paragraphs having Multiple Portions (Aspose.Slides)** from any of the below mentioned social coding sites:
 

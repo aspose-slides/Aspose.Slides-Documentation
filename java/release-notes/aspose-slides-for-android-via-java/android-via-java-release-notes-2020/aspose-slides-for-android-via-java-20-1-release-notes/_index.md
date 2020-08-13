@@ -23,7 +23,7 @@ The code snippet below demonstrates saving presentation to HTML and PDF with dif
 
 
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("SomePresentation.pptx");
 
@@ -53,7 +53,7 @@ try
 
 }
 
-{{< /highlight >}}
+```
 
 
 

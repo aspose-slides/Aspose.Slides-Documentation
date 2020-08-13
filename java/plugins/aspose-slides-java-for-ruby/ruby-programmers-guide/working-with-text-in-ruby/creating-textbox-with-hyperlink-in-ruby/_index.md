@@ -60,7 +60,7 @@ To Create a TextBox with Hyperlink using **Aspose.Slides Java for Ruby**, call *
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating TextBox with Hyperlink (Aspose.Slides)** from any of the below mentioned social coding sites:
 

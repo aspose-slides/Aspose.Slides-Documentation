@@ -24,7 +24,7 @@ You can design watermark in any way however there are usually attend common feat
 ## **Add Text Watermark to Slide**
 To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://apireference.aspose.com/net/slides/aspose.slides/textframe) type. This type is not inherited from [IShape](https://apireference.aspose.com/net/slides/aspose.slides/ishape/), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://apireference.aspose.com/net/slides/aspose.slides/textframe) object into [IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/) object. To add watermark into the shape, use [**AddTextFrame**](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/methods/addtextframe) method with watermark text passed into it:
 
-{{< highlight csharp >}}
+``` csharp
 
  using (var presentation = new Presentation())
 
@@ -38,7 +38,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
 
 }
 
-{{< /highlight >}}
+``` 
 
 
 
@@ -54,7 +54,7 @@ All the other logic is the same as in adding watermark into a single slide - cre
 object and then add watermark into it with
  [**AddTextFrame**](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/methods/addtextframe) method:
 
-{{< highlight csharp >}}
+``` csharp
 
  using (var presentation = new Presentation())
 
@@ -68,7 +68,7 @@ object and then add watermark into it with
 
 }
 
-{{< /highlight >}}
+``` 
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -78,7 +78,7 @@ object and then add watermark into it with
 ## **Set Font of Text Watermark**
 You can change the font of text watermark:
 
-{{< highlight csharp >}}
+``` csharp
 
  int alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -86,13 +86,13 @@ IPortion watermarkPortion = watermarkTextFrame.Paragraphs[0].Portions[0];
 
 watermarkPortion.PortionFormat.FontHeight = 52;
 
-{{< /highlight >}}
+``` 
 
 
 ## **Set Text Watermark Transparency**
 To set the transparency of text watermark use this code:
 
-{{< highlight csharp >}}
+``` csharp
 
  int alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -102,7 +102,7 @@ watermarkPortion.PortionFormat.FillFormat.FillType = FillType.Solid;
 
 watermarkPortion.PortionFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.FromArgb(alpha, red, green, blue);
 
-{{< /highlight >}}
+``` 
 
 
 ## **Center Text Watermark**
@@ -110,7 +110,7 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 
-{{< highlight csharp >}}
+``` csharp
 
  PointF center = new PointF(presentation.SlideSize.Size.Width / 2, presentation.SlideSize.Size.Height / 2);
 
@@ -130,14 +130,14 @@ float y = center.Y - height / 2;
 
 IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, x, y, width, height);
 
-{{< /highlight >}}
+``` 
 
 
 # **Image Watermark**
 ## **Add Image Watermark to Presentation**
 To add image watermark into all presentation slides, you may do the following:
 
-{{< highlight csharp >}}
+``` csharp
 
  IPPImage image = presentation.Images.AddImage(File.ReadAllBytes("watermark.png"));
 
@@ -153,7 +153,7 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-{{< /highlight >}}
+``` 
 
 
 
@@ -161,7 +161,7 @@ watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.St
 # **Lock Watermark from Editing**
 If its needed to prevent watermark from editing, use [**AutoShape.ShapeLock** ](https://apireference.aspose.com/net/slides/aspose.slides/autoshape/properties/shapelock)property on the shape, that wraps its. With this property you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
 
-{{< highlight csharp >}}
+``` csharp
 
  // Lock Shapes from modifying
 
@@ -175,7 +175,7 @@ watermarkShape.ShapeLock.PositionLocked = true;
 
 watermarkShape.ShapeLock.GroupingLocked = true;
 
-{{< /highlight >}}
+``` 
 
 
 
@@ -186,17 +186,17 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 # **Bring Watermark to Front**
 In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.Reorder** ](https://apireference.aspose.com/net/slides/aspose.slides.slidecollection/reorder/methods/1)method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
 
-{{< highlight csharp >}}
+``` csharp
 
  slide.Shapes.Reorder(slide.Shapes.Count - 1, watermarkShape);
 
-{{< /highlight >}}
+``` 
 
 
 # **Set Watermark Rotation**
 Here is an example how to set the rotation of watermark (and its parent shape):
 
-{{< highlight csharp >}}
+``` csharp
 
  float h = presentation.SlideSize.Size.Height;
 
@@ -224,7 +224,7 @@ private int calculateRotation(float height, float width)
 
 }
 
-{{< /highlight >}}
+``` 
 
 
 # **Set Name to Watermark**
@@ -232,17 +232,17 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
 
 
-{{< highlight csharp >}}
+``` csharp
 
  watermarkShape.Name = "watermark";
 
-{{< /highlight >}}
+``` 
 
 
 # **Remove Watermark**
 To remove watermark shape and its child controls from slide, use [AutoShape.Name](https://apireference.aspose.com/net/slides/aspose.slides/ishape/properties/name) property to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.Remove**](https://apireference.aspose.com/net/cells/aspose.cells.drawing/shapecollection/methods/remove) method:
 
-{{< highlight csharp >}}
+``` csharp
 
  for (int i = 0; i < slide.Shapes.Count; i++)
 
@@ -260,7 +260,7 @@ To remove watermark shape and its child controls from slide, use [AutoShape.Name
 
 }
 
-{{< /highlight >}}
+``` 
 
 
 # **Live Example**

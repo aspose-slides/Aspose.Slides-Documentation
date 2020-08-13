@@ -68,7 +68,7 @@ To Manage Paragraph Indent using **Aspose.Slides Java for Ruby**, call **paragra
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Paragraph Indent (Aspose.Slides)** from any of the below mentioned social coding sites:
 

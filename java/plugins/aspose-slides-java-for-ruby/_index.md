@@ -44,11 +44,11 @@ It is very simple and easy to install Aspose.Slides Java for Ruby gem, please fo
 
 1. Run following command. 
 
-{{< highlight java >}}
+``` java
 
  $ gem install aspose-slidesjava
 
-{{< /highlight >}}
+```
 
 1. Download required Aspose.Slides for Java Component from following link.
    <http://www.aspose.com/community/files/72/java-components/aspose.slides-for-java/default.aspx>
@@ -56,7 +56,7 @@ It is very simple and easy to install Aspose.Slides Java for Ruby gem, please fo
 ### **Using**
 Include the required files for working with the helloworld example.
 
-{{< highlight java >}}
+``` java
 
  require File.dirname(File.dirname(File.dirname(__FILE__))) + '/lib/aspose-slidesjava'
 
@@ -66,7 +66,7 @@ include Asposeslidesjava::HelloWorld
 
 initialize_aspose_slides
 
-{{< /highlight >}}
+```
 
 Let's understand the above code.
 

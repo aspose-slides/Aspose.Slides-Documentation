@@ -88,7 +88,7 @@ To Manage Font Related Properties using **Aspose.Slides Java for Ruby**, call **
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Font Related Properties (Aspose.Slides)** from any of the below mentioned social coding sites:
 

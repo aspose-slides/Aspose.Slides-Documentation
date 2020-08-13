@@ -20,4 +20,4 @@ save_format = Rjb::import('com.aspose.slides.SaveFormat')
 
 pres.save(data_dir + "output.pptx", save_format.Pptx)
 
-{{< /highlight >}}
+```

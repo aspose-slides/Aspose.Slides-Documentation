@@ -56,7 +56,7 @@ pres.save(self.dataDir + "HelloWorld.pptx", save_format.Pptx)
 
 print "Document has been saved, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

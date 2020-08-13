@@ -46,7 +46,7 @@ pres.save(data_dir + "RemoveRowColumn.pptx", save_format.Pptx)
 
 puts "Removed Row & Column from table, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Removing Row Or Column in Table (Aspose.Slides)** from any of the below mentioned social coding sites:
 

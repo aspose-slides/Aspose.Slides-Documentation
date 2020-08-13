@@ -25,7 +25,7 @@ The following method, which allows to remove a chart category from the containin
 
 IChartCategory.Remove()
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -51,7 +51,7 @@ IChartCategory.Remove()
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Obsolete Aspose.Slides.ParagraphFormat propertyies have been removed**
 The properties BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle have been removed. They were marked as obsolete long time ago.
 #### **Unuseful and obsolete constructors have been removed**

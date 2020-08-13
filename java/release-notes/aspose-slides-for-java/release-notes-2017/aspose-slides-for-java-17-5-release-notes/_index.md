@@ -25,7 +25,7 @@ The base IBaseHeaderFooterManager interface of all listed types has following me
 
 These methods allow getting value indicating that a footer, page number and date-time placeholders are present:
 
-{{< highlight java >}}
+``` java
 
  boolean isFooterVisible();
 
@@ -33,11 +33,11 @@ boolean isSlideNumberVisible();
 
 boolean isDateTimeVisible();
 
-{{< /highlight >}}
+```
 
 These methods allow changing footer, page number and date-time placeholders visibility:
 
-{{< highlight java >}}
+``` java
 
  void setFooterVisibility(boolean isVisible);
 
@@ -45,23 +45,23 @@ void setSlideNumberVisibility(boolean isVisible);
 
 void setDateTimeVisibility(boolean isVisible);
 
-{{< /highlight >}}
+```
 
 These methods allow setting text to footer and date-time placeholder:
 
-{{< highlight java >}}
+``` java
 
  void setFooterText(String text);
 
 void setDateTimeText(String text);
 
-{{< /highlight >}}
+```
 
 In addition, IMasterSlideHeaderFooterManager and ILayoutSlideHeaderFooterManager have following methods to manage instance own and all child elements Header and Footer settings.
 
 These methods allow changing master slide footer, page number, date-time placeholder and all child footer placeholders visibility. Child placeholders mean placeholders are contained on depending layout slides and depending slides. Depending layout slides and slides use and depend on master slide:
 
-{{< highlight java >}}
+``` java
 
  void setFooterAndChildFootersVisibility(boolean isVisible);
 
@@ -69,21 +69,21 @@ void setSlideNumberAndChildSlideNumbersVisibility(boolean isVisible);
 
 void setDateTimeAndChildDateTimesVisibility(boolean isVisible);
 
-{{< /highlight >}}
+```
 
 These methods allow setting text to master slide footer and date-time placeholder and all child footer placeholders. Child placeholders mean placeholders are contained on depending layout slides and depending slides. Depending layout slides and slides use and depend on master slide:
 
-{{< highlight java >}}
+``` java
 
  void setFooterAndChildFootersText(String text);
 
 void setDateTimeAndChildDateTimesText(String text);
 
-{{< /highlight >}}
+```
 
 New methods have been added to access the added types.
 
-{{< highlight java >}}
+``` java
 
  IMasterSlideHeaderFooterManager IMasterSlide.getHeaderFooterManager();
 
@@ -91,21 +91,21 @@ ILayoutSlideHeaderFooterManager ILayoutSlide.getHeaderFooterManager();
 
 ISlideHeaderFooterManager ISlide.getHeaderFooterManager();
 
-{{< /highlight >}}
+```
 
 Return type of IPresentation.getHeaderFooterManager() method has been changed.
 
-{{< highlight java >}}
+``` java
 
  IPresentationHeaderFooterManager getHeaderFooterManager();
 
-{{< /highlight >}}
+```
 
 Interface IHeaderFooterManager and class HeaderFooterManager and theirs methods have been marked as Obsolete
 
 Usage examples:
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("presentation.ppt");
 
@@ -147,9 +147,9 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("presentation.ppt");
 
@@ -173,13 +173,13 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 
 #### **getId and setId methods have been added to ISvgShape**
 getId and setId methods have been added to ISvgShape to support custom IDs of shapes in generated SVG. Below is an example of custom SVG Shape formatting controller to set custom shape's id:
 
-{{< highlight java >}}
+``` java
 
  class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
 
@@ -211,11 +211,11 @@ svgShape.setId("shape-" + m_shapeIndex++);
 
 }
 
-{{< /highlight >}}
+```
 #### **New com.aspose.slides.EmbedAllFontsHtmlController has been added**
 A new HTML Controller has been added: EmbedAllFontsHtmlController. It is used to embed all presentation fonts in HTML document. Here's an example of using this new controller:
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -239,13 +239,13 @@ pres.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 Please note that EmbedAllFontsHtmlController has parameterized constructor where an array of font names can be passed to prevent them from embedding. Some fonts, like Calibri or Arial, used in presentation are not needed to be embedded (which leads the resulting HTML document become larger) because almost every system already has them installed.
 
 Another major feature of EmbedAllFontsHtmlController is that it supports inheritance and WriteFont method is intended to be overridden:
 
-{{< highlight java >}}
+``` java
 
  public void writeFont(
 
@@ -267,11 +267,11 @@ byte[] fontData)
 
 }
 
-{{< /highlight >}}
+```
 
 By default, font embedded or serialized in HTML document as bas64 string. But for example, you may create your own controller to dump files somewhere in your own file structure. Below is a sample implementation of LinkAllFontsHtmlController controller intended to write font files on disk and just add link for it in @font-face:
 
-{{< highlight java >}}
+``` java
 
  class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 
@@ -325,4 +325,4 @@ generator.addHtml("</style>");
 
 }
 
-{{< /highlight >}}
+```

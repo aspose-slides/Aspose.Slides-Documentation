@@ -56,7 +56,7 @@ pres.save(data_dir + "GroupShape.pptx", save_format.Pptx)
 
 puts "Added group shape, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Working with Group Shapes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

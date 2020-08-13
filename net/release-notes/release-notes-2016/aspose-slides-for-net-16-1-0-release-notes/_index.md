@@ -64,7 +64,7 @@ SLIDESNET-35648 - Bullets are improperly rendered in generated thumbnails
 
 SLIDESNET-34145 - The background image is improperly rendered in generated thumbnail
 ## **Public API Changes**
-{{< highlight java >}}
+``` csharp
 
  Public API Changes
 
@@ -101,4 +101,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 OdpException moved from Aspose.Slides.Odp to Aspose.Slides namespace
 
-{{< /highlight >}}
+``` 

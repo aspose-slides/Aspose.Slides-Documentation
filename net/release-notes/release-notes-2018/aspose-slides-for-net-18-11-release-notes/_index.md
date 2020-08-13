@@ -55,15 +55,15 @@ GetEffectsByParagraph method has been added to Sequence class and ISequence inte
 
 It returns the array of effects for the specified text paragraph.
 
-{{< highlight java >}}
+``` csharp
 
  IEffect[] GetEffectsByParagraph(IParagraph paragraph);
 
-{{< /highlight >}}
+``` 
 
 Usage example:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(path + "presentation.pptx"))
 
@@ -87,7 +87,7 @@ Console.WriteLine("Paragraph \"" + paragraph.Text + "\" has " + effects[0].Type 
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Saving the presentation with Strict and Transitional conformance class option has been added**
 A new Conformance property has been added to PptxOptions class. It allows saving the presentation with Strict and Transitional Open XML Presentation conformance class.
 
@@ -101,7 +101,7 @@ Conformance property has value "Ecma376_2006" by default.
 
 For example, the following code allows saving the presentation in Strict format.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("Presentation.pptx"))
 
@@ -113,4 +113,4 @@ presentation.Save("PresOut.pptx", SaveFormat.Pptx, opt);
 
 }
 
-{{< /highlight >}}
+``` 

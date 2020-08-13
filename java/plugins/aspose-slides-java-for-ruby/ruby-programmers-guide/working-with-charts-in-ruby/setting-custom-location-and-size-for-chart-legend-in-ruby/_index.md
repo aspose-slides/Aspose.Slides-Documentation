@@ -50,7 +50,7 @@ To Set Custom Location and Size for Chart Legend using **Aspose.Slides Java for 
 
 end 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Custom Location and Size for Chart Legend (Aspose.Slides)** from any of the below mentioned social coding sites:
 

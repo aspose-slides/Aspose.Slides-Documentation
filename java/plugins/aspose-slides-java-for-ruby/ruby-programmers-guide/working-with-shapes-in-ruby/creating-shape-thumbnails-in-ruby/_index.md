@@ -30,7 +30,7 @@ Rjb::import('javax.imageio.ImageIO').write(image,"jpeg",Rjb::import('java.io.Fil
 
 puts "Generated shape Thumbnail from a slide, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating Shape Thumbnails (Aspose.Slides)** from any of the below mentioned social coding sites:
 

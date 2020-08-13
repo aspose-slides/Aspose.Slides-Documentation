@@ -62,7 +62,7 @@ pres.save(self.dataDir + "Aspose-Custom-Size.tiff", save_format.Tiff,opts)
 
 print "Document has been converted, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to TIFF (Aspose.Slides)** from any of the below mentioned social coding sites:
 

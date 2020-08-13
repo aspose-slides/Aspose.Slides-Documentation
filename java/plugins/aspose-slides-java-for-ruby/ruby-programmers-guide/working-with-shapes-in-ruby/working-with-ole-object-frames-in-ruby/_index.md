@@ -46,7 +46,7 @@ if oof != nil
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Working with OLE Object Frames (Aspose.Slides)** from any of the below mentioned social coding sites:
 

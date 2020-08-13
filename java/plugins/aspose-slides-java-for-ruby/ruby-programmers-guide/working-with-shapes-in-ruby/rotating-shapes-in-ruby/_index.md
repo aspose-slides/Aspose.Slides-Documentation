@@ -40,7 +40,7 @@ pres.save(data_dir + "RectShpRot.pptx", save_format.Pptx)
 
 puts "Rotated shape, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Rotating Shapes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

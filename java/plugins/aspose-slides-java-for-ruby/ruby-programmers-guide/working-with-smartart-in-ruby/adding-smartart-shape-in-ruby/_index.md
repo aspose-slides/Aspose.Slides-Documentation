@@ -36,7 +36,7 @@ To Add SmartArt shape using **Aspose.Slides Java for Ruby**, call **create_smart
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding SmartArt shape (Aspose.Slides)** from any of the below mentioned social coding sites:
 

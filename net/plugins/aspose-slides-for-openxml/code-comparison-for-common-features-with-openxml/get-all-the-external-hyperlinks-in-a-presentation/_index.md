@@ -6,7 +6,7 @@ url: /net/get-all-the-external-hyperlinks-in-a-presentation/
 ---
 
 ## **OpenXML Presentation**
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -79,11 +79,11 @@ return ret;
 }
 
 
-{{< /highlight >}}
+``` 
 ## **Aspose.Slides**
 Aspose.Slides for .NET allows developers to manage the hyperlinks in presentation on the presentation, slide and text frame level.The **IHyperlinkQueries** class helps to manage hyperlinks in a presentation.
 
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -101,7 +101,7 @@ foreach (IHyperlinkContainer link in links)
 
     Console.WriteLine(link.HyperlinkClick.ExternalUrl);
 
-{{< /highlight >}}
+``` 
 ## **Download Running Code Example**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

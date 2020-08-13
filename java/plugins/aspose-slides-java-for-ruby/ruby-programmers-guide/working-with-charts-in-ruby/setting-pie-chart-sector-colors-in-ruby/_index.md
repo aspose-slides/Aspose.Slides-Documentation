@@ -183,7 +183,7 @@ pres.save(data_dir + "AsposePieChart.pptx", Rjb::import('com.aspose.slides.SaveF
 
 puts "Set pie chart sector colors, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Pie Chart Sector Colors (Aspose.Slides)** from any of the below mentioned social coding sites:
 

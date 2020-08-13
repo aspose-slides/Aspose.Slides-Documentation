@@ -59,7 +59,7 @@ The following are some of the features which are even unavailable when dealing w
 
 Let us take an example of a PresentationML document having single slide with one text box containing “Hello World” text. In order to read the text through XML classes, you will have to write a program that can parse this simple text from the following fragment:
 
-{{< highlight csharp >}}
+``` cpp
 
  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
@@ -163,7 +163,7 @@ Let us take an example of a PresentationML document having single slide with one
 
 </p:sld>
 
-{{< /highlight >}}
+```
 ## **PPT to PPTX conversion**
 ### **About Conversion**
 Aspose.Slides now also support converting PPT to PPTX.

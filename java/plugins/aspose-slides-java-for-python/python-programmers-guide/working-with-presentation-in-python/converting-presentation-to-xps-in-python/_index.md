@@ -10,7 +10,7 @@ To Convert Presentation to XPS using Aspose.Slides Java for Python. Here you can
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
  def convert_with_default_size(self):
 
@@ -50,7 +50,7 @@ pres.save(self.dataDir + "Aspose-Custom-Size.xps", save_format.Xps, opts)
 
 print "Document has been converted, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to XPS (Aspose.Slides)** from any of the below mentioned social coding sites:
 

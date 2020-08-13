@@ -13,7 +13,7 @@ This article explains how different tiff export options:
 
 The **Save** method exposed by **Presentation** class can be called by developers to convert the whole presentation into **TIFF** document. Further, TiffOptions class exposes ImageSize property enabling the developer to define the size of the image if required.
 
-{{< highlight csharp >}}
+``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -33,7 +33,7 @@ using (Presentation pres = new Presentation(srcFileName))
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

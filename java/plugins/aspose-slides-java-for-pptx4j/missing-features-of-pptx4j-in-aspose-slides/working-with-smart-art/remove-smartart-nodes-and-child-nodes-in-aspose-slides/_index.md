@@ -23,7 +23,7 @@ The following sample code will help to remove node and child node inside SmartAr
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  // Load the desired the presentation
 
@@ -67,13 +67,13 @@ for (IShape shape : pres.getSlides().get_Item(0).getShapes())
 
 pres.save(dataDir + "AsposeRemoveSmartArtNode.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 
 **Removing Smart Art from Specific Location**
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  // Load the desired the presentation
 
@@ -127,7 +127,7 @@ for (IShape shape : pres1.getSlides().get_Item(0).getShapes())
 
 pres1.save(datadir + "AsposeRemoveSmartArtNodeByPosition.pptx",	SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

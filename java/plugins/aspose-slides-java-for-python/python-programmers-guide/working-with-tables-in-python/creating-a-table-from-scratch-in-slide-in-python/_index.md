@@ -87,7 +87,7 @@ pres.save(self.dataDir + "CreateTable.pptx", save_format.Pptx)
 
 print "Created table, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

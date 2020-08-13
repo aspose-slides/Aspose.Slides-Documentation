@@ -72,7 +72,7 @@ DocumentLevelFontSources property is of type IFontSources that has the following
 - string[] FontFolders - folders that are recursively searched for font files.
 - byte[][] MemoryFonts - a collection of fonts represented as byte arrays.
 
-{{< highlight java >}}
+``` csharp
 
  byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 
@@ -94,11 +94,11 @@ using (IPresentation presentation = CreatePresentation("MyPresentation.pptx", lo
 
 }
 
-{{< /highlight >}}
+``` 
 
 The fonts that are passed with DocumentLevelFontSources property are available to the presentation throughout its lifetime and are not available outside the presentation. Consider the following example:
 
-{{< highlight java >}}
+``` csharp
 
  string[] fontFolders1 = new string[] { "assets\\fonts" };
 
@@ -126,11 +126,11 @@ using (IPresentation presentation2 = CreatePresentation("MyPresentation2.pptx", 
 
 }
 
-{{< /highlight >}}
+``` 
 
 If you need to add external fonts at application level and make it available to all presentations please use FonsLoader class. You can use them together like as follows:
 
-{{< highlight java >}}
+``` csharp
 
  byte[] globalMemoryFont = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 
@@ -168,7 +168,7 @@ using (IPresentation presentation = CreatePresentation("MyPresentation.pptx", lo
 
 }
 
-{{< /highlight >}}
+``` 
 #### **CategoryAxisType.Auto value has been replaced with IAxis.SetCategoryAxisTypeAutomatically() method**
 Method IAxis.SetCategoryAxisTypeAutomatically() sets IAxis.CategoryAxisType property with a value that is automatically determined based on axis data.
 #### **Element HtmlNotes has been added to SaveFormat enumeration**
@@ -176,7 +176,7 @@ Element HtmlNotes has been added to Aspose.Slides.Export.SaveFormat enumeration.
 
 Code example:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("Presentation.pptx"))
 
@@ -188,11 +188,11 @@ pres.Save("Output.html", SaveFormat.HtmlNotes);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Obsolete Presentation.GetPresentationText methods have been deleted**
 Obsolete Presentation.GetPresentationText methods have been deleted:
 
-{{< highlight java >}}
+``` csharp
 
  Aspose.Slides.Presentation.GetPresentationText(Stream stream, TextExtractionArrangingMode mode)
 
@@ -200,7 +200,7 @@ Aspose.Slides.Presentation.GetPresentationText(String file, TextExtractionArrang
 
 Aspose.Slides.Presentation.GetPresentationText(Stream stream, TextExtractionArrangingMode mode, LoadOptions options)
 
-{{< /highlight >}}
+``` 
 #### **Write document elements methods have been made virtual in EmbedAllFontsHtmlController class. WriteAllFonts method has been Added.**
 WriteDocumentStart, WriteDocumentEnd, WriteSlideStart, WriteSlideEnd, WriteShapeStart, WriteShapeEnd methods have been made virtual to provide a better support to customize generated HTML documents.
 
@@ -208,7 +208,7 @@ In addition, WriteAllFonts method has been added. It allows overriding the way h
 
 Please review the example how to use overridable methods to create a custom HTML document with a link to CSS file.
 
-{{< highlight java >}}
+``` csharp
 
  public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 
@@ -263,11 +263,11 @@ base.WriteAllFonts(generator, presentation);
 
 }
 
-{{< /highlight >}}
+``` 
 
 There is the example how CustomHeaderAndFontsController can be used.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -287,7 +287,7 @@ pres.Save("pres.html", SaveFormat.Html, options);
 
 }
 
-{{< /highlight >}}
+``` 
 
 
 

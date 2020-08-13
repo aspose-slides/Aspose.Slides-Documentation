@@ -54,7 +54,7 @@ pres.save(self.dataDir + "AddImage.pptx", save_format.Pptx)
 
 print "Added image, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

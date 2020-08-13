@@ -60,7 +60,7 @@ To Manage Paragraphs Alignment using **Aspose.Slides Java for Ruby**, call **par
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Paragraphs Alignment (Aspose.Slides)** from any of the below mentioned social coding sites:
 

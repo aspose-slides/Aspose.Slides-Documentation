@@ -32,7 +32,7 @@ To convert Presentation to TIFF Notes using **Aspose.Slides Java for Ruby**, sim
 
 end   
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Converting Presentation to PDF Notes**
 To convert Presentation to PDF Notes using **Aspose.Slides Java for Ruby**, simply invoke **convert_to_pdf_notes** method of **ConvertingToNotes** module. Here you can see example code.
 
@@ -60,7 +60,7 @@ To convert Presentation to PDF Notes using **Aspose.Slides Java for Ruby**, simp
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation with Notes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

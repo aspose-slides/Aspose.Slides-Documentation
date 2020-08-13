@@ -24,7 +24,7 @@ The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.
 
 Example of usage:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -48,7 +48,7 @@ Example of usage:
 
 }
 
-{{< /highlight >}}
+``` 
 
 {{% /alert %}} 
 #### **SmartArtShapeCollection Class, ISmartArtShapeCollection Interface and ISmartArtNode.Shapes Property Added**
@@ -58,7 +58,7 @@ The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspo
 
 **Note**: depending on the SmartArtLayoutType one SmartArtShape can be shared between several nodes.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -82,7 +82,7 @@ The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspo
 
 }
 
-{{< /highlight >}}
+``` 
 
 {{% /alert %}} 
 #### **Methods for Saving Slides with Page Numbers Keeping Added**
@@ -96,7 +96,7 @@ The following methods have been added:
 These methods allow developers to save specified presentation slides to PDF, XPS, TIFF, HTML formats. The 'slides' array is used to specify page numbers, starting from 1.
 Save(string fname, int[] slides, SaveFormat format);
 
-{{< highlight java >}}
+``` csharp
 
  Presentation presentation = new Presentation(presentationFileName);
 
@@ -104,7 +104,7 @@ int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
 
 presentation.Save(outFileName, slides, SaveFormat.Pdf);
 
-{{< /highlight >}}
+``` 
 #### **Methods for Replacing Images Added to PPImage, IPPImage**
 New methods added:
 
@@ -112,7 +112,7 @@ New methods added:
 - IPPImage.ReplaceImage(Image newImage)
 - IPPImage.ReplaceImage(IPPImage newImage)
 
-{{< highlight java >}}
+``` csharp
 
  Presentation presentation = new Presentation(presentation.pptx);
 
@@ -140,4 +140,4 @@ oldImage.ReplaceImage(presentation.Images[3]);
 
 presentation.Save(presentation_out.pptx, SaveFormat.Pptx);
 
-{{< /highlight >}}
+``` 

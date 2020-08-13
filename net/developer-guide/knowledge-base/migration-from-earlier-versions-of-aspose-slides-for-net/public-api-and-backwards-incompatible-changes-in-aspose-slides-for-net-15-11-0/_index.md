@@ -33,7 +33,7 @@ The new property FirstSlideNumber added to Presentation allows to get or to set 
 
 When a new FirstSlideNumber value is specified all slide numbers are recalculated.
 
-{{< highlight java >}}
+``` csharp
 
  using(var pres = new Presenation(path))
 
@@ -47,4 +47,4 @@ When a new FirstSlideNumber value is specified all slide numbers are recalculate
 
 }
 
-{{< /highlight >}}
+``` 

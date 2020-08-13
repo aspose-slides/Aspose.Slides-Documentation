@@ -38,7 +38,7 @@ pres.save(self.dataDir + "RectPicFrame.pptx", save_format.Pptx)
 
 print "Added picture frame to slide, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

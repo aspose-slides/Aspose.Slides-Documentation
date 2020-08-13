@@ -69,7 +69,7 @@ NotesPosition and CommentsPosition properties have values None by default.
 
 For example, the following code allows exporting presentation to PDF document with comments placed right and truncated notes (shown only on first page).
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("Presentation.pptx"))
 
@@ -85,11 +85,11 @@ presentation.Save("PresOut.pdf", SaveFormat.Pdf, opt);
 
 }
 
-{{< /highlight >}}
+``` 
 
 The following code allows changing default color of comments area and the width of comments area:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("comments.pptx"))
 
@@ -109,7 +109,7 @@ presentation.Save("PresOut.pdf", SaveFormat.Pdf, opt);
 
 }
 
-{{< /highlight >}}
+``` 
 
 Elements SwfNotes, TiffNotes, HtmlNotes and PdfNotes of SaveFormat enumeration and property IncludeComments of SwfOptions, TiffOptions, HtmlOptions and PdfOptions are obsolete now.
 
@@ -119,7 +119,7 @@ All added methods accept an object of type INotesCommentsLayoutingOptions, which
 
 The following methods have been added to the Presentation class and the IPresentation interface:
 
-{{< highlight java >}}
+``` csharp
 
  Bitmap[] GetThumbnails(INotesCommentsLayoutingOptions notesCommentsLayouting);
 
@@ -133,11 +133,11 @@ Bitmap[] GetThumbnails(INotesCommentsLayoutingOptions notesCommentsLayouting, Si
 
 Bitmap[] GetThumbnails(INotesCommentsLayoutingOptions notesCommentsLayouting, int[] slides, Size imageSize);
 
-{{< /highlight >}}
+``` 
 
 The following examples allows getting a set of Bitmap objects for all existing slides with the arrangement of comments on the right, including full notes.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("comments.pptx"))
 
@@ -153,11 +153,11 @@ Bitmap[] bmps = presentation.GetThumbnails(options);
 
 }
 
-{{< /highlight >}}
+``` 
 
 To obtain an image of a specific slide, for example, slides 2 and 7, without displaying comments and with notes truncated to the size of the page, you can use the following code.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("comments.pptx"))
 
@@ -171,11 +171,11 @@ Bitmap[] bmps = presentation.GetThumbnails(options, new int[] { 2, 7 });
 
 }
 
-{{< /highlight >}}
+``` 
 
 The following methods have been added to the Slides class and ISlides interface:
 
-{{< highlight java >}}
+``` csharp
 
  Bitmap GetThumbnail(INotesCommentsLayoutingOptions notesCommentsLayouting);
 
@@ -189,11 +189,11 @@ void RenderToGraphics(INotesCommentsLayoutingOptions notesCommentsLayouting, Gra
 
 void RenderToGraphics(INotesCommentsLayoutingOptions notesCommentsLayouting, Graphics graphics);
 
-{{< /highlight >}}
+``` 
 
 To get an image of the third presentation slide with the comments displayed on the right, you can use the following code:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation("comments.pptx"))
 
@@ -207,7 +207,7 @@ Bitmap bmp = presentation.Slides[2].GetThumbnail(options);
 
 }
 
-{{< /highlight >}}
+``` 
 
 Note that the GetThumbnail and RenderToGraphics methods of the Slide class can throw an exception of type InvalidOperationException if the NotesCommentsLayouting.NotesPosition property takes the value NotesPositions.BottomFull. This is due to the fact that when you send NotesCommentsLayouting.NotesPosition, which has the value NotesPositions.BottomFull, the notes may be too long and go beyond the page.
 

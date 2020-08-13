@@ -23,7 +23,7 @@ Aspose.Slides for Java provides a simple API for creating and filling pie charts
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate Presentation class that represents PPTX file
 
@@ -186,7 +186,7 @@ chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
 
 pres.save(dataDir + "AsposePieChart.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

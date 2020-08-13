@@ -10,7 +10,7 @@ Aspose.Slides for Java allows developers to add audio files in their slides. The
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate Prsentation class that represents the PPTX
 
@@ -38,7 +38,7 @@ af.setVolume(AudioVolumeMode.Loud);
 
 pres.save("AsposeAudio.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

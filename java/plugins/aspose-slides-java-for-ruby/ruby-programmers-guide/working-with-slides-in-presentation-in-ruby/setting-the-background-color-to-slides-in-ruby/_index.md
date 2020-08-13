@@ -40,7 +40,7 @@ To Set the Background Color of a Master Slide using **Aspose.Slides Java for Rub
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Setting the Background Color of a Normal Slide**
 To Set the Background Color of a Master Slide using **Aspose.Slides Java for Ruby**, simply invoke **set_background_color_of_normal_slide** method of **Background** module. Here you can see example code.
 
@@ -76,7 +76,7 @@ To Set the Background Color of a Master Slide using **Aspose.Slides Java for Rub
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting the Background Color to Slides (Aspose.Slides)** from any of the below mentioned social coding sites:
 

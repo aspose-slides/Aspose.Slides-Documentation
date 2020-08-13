@@ -10,7 +10,7 @@ It's possible to save presentations with password protection. The [Presentation
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate a Presentation object that represents a PPT file
 
@@ -24,7 +24,7 @@ pres.getProtectionManager().encrypt("pass");
 
 pres.save(dataDir + "AsposeProtection.pptx", com.aspose.slides.SaveFormat.Pptx);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

@@ -32,7 +32,7 @@ The code snippet below shows a sample of usage Size and SizeF:
 
 
 
-{{< highlight java >}}
+``` java
 
  Presentation p = new Presentation("ExistingChart.pptx"); 
 
@@ -49,7 +49,7 @@ SizeF slideSize = p.getSlideSize().getSize();
 android.graphics.Bitmap bmp = p.getSlides().get_Item(0).getThumbnail(new Size(800, 600));
 
 
-{{< /highlight >}}
+```
 
 
 #### **Support of external workbooks as a data source for charts has been added - ANDROID**
@@ -61,7 +61,7 @@ IResourceLoadingCallback can be used to manage external workbook loading. See Ne
 
  1) Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook can't be loaded an exception is thrown.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("presentation.pptx");
 
@@ -92,7 +92,7 @@ finally {
 }
 
 
-{{< /highlight >}}
+```
 
 
 
@@ -100,7 +100,7 @@ finally {
 
 setExternalWorkbook() method can be also used to update a path to the external workbook if it has been moved. Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. If the relative path was provided for an external workbook, it converts to full path automatically.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation();
 
@@ -153,13 +153,13 @@ finally {
 }
 
 
-{{< /highlight >}}
+```
 
 
 
  3) Combination of methods IChartData.readWorkbookStream() and IChartData.setExternalWorkbook() can be used to create an external workbook from scratch or to make an internal workbook external.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("presentaion.pptx");
 
@@ -210,7 +210,7 @@ try
 }
 
 
-{{< /highlight >}}
+```
 
 
 

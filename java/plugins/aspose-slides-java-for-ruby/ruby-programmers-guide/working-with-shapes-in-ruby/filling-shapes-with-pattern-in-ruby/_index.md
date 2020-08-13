@@ -54,7 +54,7 @@ To Fill Shapes with Pattern using **Aspose.Slides Java for Ruby**, call **fill_s
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Filling Shapes with Pattern (Aspose.Slides)** from any of the below mentioned social coding sites:
 

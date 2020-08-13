@@ -28,7 +28,7 @@ pres.save(data_dir + "Aspose.pptx", save_format.Pptx)
 
 puts "Document has been converted, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting PPT to PPTX (Aspose.Slides)** from any of the below mentioned social coding sites:
 

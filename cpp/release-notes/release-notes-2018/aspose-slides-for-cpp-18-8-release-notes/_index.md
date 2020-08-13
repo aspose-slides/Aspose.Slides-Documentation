@@ -22,7 +22,7 @@ The methods specify visibility of comments that do not have an author.
 
 The default value is False, which means that comments without authors are not displayed.
 
-{{< highlight java >}}
+``` cpp
 
  {
 
@@ -54,4 +54,4 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-{{< /highlight >}}
+```

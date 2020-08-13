@@ -53,7 +53,7 @@ SLIDESJAVA-33719 - The background image is improperly rendered in generated thum
 
 SLIDESJAVA-33711 - Symbols are improperly rendered for bullets and inside table for generated thumbnails
 ## **Public API Changes**
-{{< highlight java >}}
+``` java
 
 
 
@@ -84,4 +84,4 @@ chart.getChartTitle().addTextFrameForOverriding("Custom title").getTextFrameForm
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
-{{< /highlight >}}
+```

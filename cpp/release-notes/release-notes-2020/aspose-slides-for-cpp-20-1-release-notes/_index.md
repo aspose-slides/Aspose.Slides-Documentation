@@ -33,7 +33,7 @@ The code snippet below demonstrates saving presentation to Html and Pdf with dif
 
 
 
-{{< highlight java >}}
+``` cpp
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"SomePresentation.pptx");
 
@@ -53,7 +53,7 @@ pdfOpts->set_DefaultRegularFont(u"Arial Black");
 
 pres->Save(u"SomePresentation-out-ArialBlack.pdf", Aspose::Slides::Export::SaveFormat::Pdf, pdfOpts);
 
-{{< /highlight >}}
+```
 
 
 

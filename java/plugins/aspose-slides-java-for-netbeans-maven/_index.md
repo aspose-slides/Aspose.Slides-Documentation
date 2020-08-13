@@ -83,13 +83,13 @@ To remove evaluation message and feature limitations, product license should be 
 - Place **Aspose.Slides.Java.lic** file in the folder that contains the Aspose.Slides.jar
 - Use following code for activating the license: 
 
-{{< highlight java >}}
+``` java
 
  License license = new License();
 
 license.setLicense("Aspose.Slides.Java.lic");
 
-{{< /highlight >}}
+```
 ## **Support, Extend and Contribute**
 ### **Support**
 - If you like to see known / reported issues (by the users or Q.A team) in the plugin.

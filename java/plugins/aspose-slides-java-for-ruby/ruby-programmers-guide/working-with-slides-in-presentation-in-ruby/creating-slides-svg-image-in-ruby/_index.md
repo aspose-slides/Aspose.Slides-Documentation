@@ -46,7 +46,7 @@ end
 
 puts "Created SVG images, please check output files."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating Slides SVG Image (Aspose.Slides)** from any of the below mentioned social coding sites:
 

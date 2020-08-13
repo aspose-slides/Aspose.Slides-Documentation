@@ -29,7 +29,7 @@ This page contains release notes for [Aspose.Slides for CPP 19.10](https://www.
 
 Full list of updated classes:
 
-{{< highlight java >}}
+``` cpp
 
  Aspose::Slides::Effects::AlphaBiLevel
 
@@ -123,7 +123,7 @@ Aspose::Slides::Effects::Tint
 
 Aspose::Slides::Effects::TintEffectiveData
 
-{{< /highlight >}}
+```
 ### **Equals() and GetHashCode() methods have been overridden for GradientStopEffectiveData class**
 **Equals()** and **GetHashCode()** methods have been overridden for **Aspose::Slides::GradientStopEffectiveData** class, now objects of this class are compared by their semantic value.
 ### **IFontsManager::get_FontFallBackRulesCollection() and IFontsManager::set_FontFallBackRulesCollection() methods have been added**
@@ -132,7 +132,7 @@ These methods allow to get and set a collection of FontFallBackRule objects for 
 
 **FontFallBackRulesCollection** can be used in the following way:
 
-{{< highlight java >}}
+``` cpp
 
  {
 
@@ -184,7 +184,7 @@ These methods allow to get and set a collection of FontFallBackRule objects for 
 
 }    
 
-{{< /highlight >}}
+```
 ### **Interfaces and classes for new FontsFallBack functionality have been added**
 **Aspose::Slides::IFontFallBackRulesCollection** interface and **Aspose::Slides::FontFallBackRulesCollection** class have been added.
 **Aspose::Slides::IFontFallBackRule** interface and **Aspose::Slides::FontFallBackRule** class have been added.
@@ -194,7 +194,7 @@ These methods allow to get and set a collection of FontFallBackRule objects for 
 
 Below is an example:
 
-{{< highlight java >}}
+``` cpp
 
  void RenderingWithFallBack()
 
@@ -272,7 +272,7 @@ Below is an example:
 
 } 
 
-{{< /highlight >}}
+```
 
 
 ### **Introducing new API for control a FontFallBack functionality**
@@ -284,7 +284,7 @@ In other cases, the **FontFallBack** will be used first and then **FontSubstitu
 
 Here an example:
 
-{{< highlight java >}}
+``` cpp
 
  {
 
@@ -310,11 +310,11 @@ Here an example:
 
 }
 
-{{< /highlight >}}
+```
 
 Of course, rules have to be added to the list (**FontFallBackRulesCollection**) which can be assigned int the **FontManager** to be used in the render:
 
-{{< highlight java >}}
+``` cpp
 
  {
 
@@ -336,19 +336,19 @@ Of course, rules have to be added to the list (**FontFallBackRulesCollection**) 
 
 }
 
-{{< /highlight >}}
+```
 
 The ranges of several rules can be overlapped. In this case, the fonts from overlapped rules will be merged and arranged in order as rules were been added to the list. You can quickly use several collections with a different set of rules simply by assigning the required list in the manager. If you do not want to use multiple lists, you do not have to create a new collection. You can automatically retrieve a new linked instance directly from the **FontManager**:
 
-{{< highlight java >}}
+``` cpp
 
  System::SharedPtr<IFontFallBackRulesCollection> userRulesList = presentation->get_FontsManager()->get_FontFallBackRulesCollection();
 
-{{< /highlight >}}
+```
 
 Below is the snippet how the new functionality may be used for rendering:
 
-{{< highlight java >}}
+``` cpp
 
  {
 
@@ -366,4 +366,4 @@ Below is the snippet how the new functionality may be used for rendering:
 
 }
 
-{{< /highlight >}}
+```

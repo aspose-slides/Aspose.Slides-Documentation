@@ -68,7 +68,7 @@ pres.save(self.dataDir + "Export.slides", save_format.slides, opts)
 
 print "Set page size for slides, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

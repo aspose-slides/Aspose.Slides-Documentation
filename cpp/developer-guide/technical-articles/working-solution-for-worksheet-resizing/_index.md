@@ -28,7 +28,7 @@ Suppose, we have defined a template excel sheet and and desire to add that to pr
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228430)
 
-{{< highlight csharp >}}
+``` cpp
 
  WorkbookDesigner workbookDesigner = new WorkbookDesigner();
 
@@ -210,7 +210,7 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 
 
-{{< /highlight >}}
+```
 
 
 
@@ -224,7 +224,7 @@ Suppose, we have defined a template excel sheet and and desire to add that to pr
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228430)
 
-{{< highlight csharp >}}
+``` cpp
 
  WorkbookDesigner workbookDesigner = new WorkbookDesigner();
 
@@ -438,7 +438,7 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 
 
-{{< /highlight >}}
+```
 
 
 

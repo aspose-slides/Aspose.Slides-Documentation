@@ -24,7 +24,7 @@ Specifies the visibility of comments that do not have an author.
 
 By default getShowCommentsByNoAuthor() return false, which means that comments without authors are not displayed.
 
-{{< highlight java >}}
+``` java
 
  Presentation pres = new Presentation("no-author.odp");
 
@@ -48,7 +48,7 @@ pres.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 
 

@@ -60,7 +60,7 @@ pres.save(data_dir + "HelloWorld.pptx", save_format.Pptx)
 
 puts "Document has been saved, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Hello World** **(Aspose.Slides)** from any of the below mentioned social coding sites:
 

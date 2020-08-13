@@ -12,7 +12,7 @@ The [Presentation](http://docs.aspose.com:8082/docs/display/slidesjava/com.aspo
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate a Presentation object that represents a PPT file
 
@@ -26,7 +26,7 @@ pres.getProtectionManager().setEncryptDocumentProperties ( false);
 
 pres.getProtectionManager().encrypt("pass");
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

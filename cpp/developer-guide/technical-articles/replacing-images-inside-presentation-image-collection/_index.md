@@ -22,7 +22,7 @@ Aspose.Slides for C++ provides a simple API methods for replacing the images ins
 
 **C#**
 
-{{< highlight csharp >}}
+``` cpp
 
  //Instantiate the presentation
 
@@ -57,7 +57,7 @@ pres.Save("c:\\Presentations\\TestSmart.pptx", SaveFormat.Pptx);
 }
 
 
-{{< /highlight >}}
+```
 
 
 

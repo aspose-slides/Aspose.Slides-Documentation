@@ -56,7 +56,7 @@ def find_shape(slide, alttext)
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Finding a Shape in a Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

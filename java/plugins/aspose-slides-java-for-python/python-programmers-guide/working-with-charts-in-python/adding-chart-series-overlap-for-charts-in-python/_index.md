@@ -39,7 +39,7 @@ pres.save(self.dataDir + "Overlap.pptx", save_format.Pptx)
 
 print "Added chart series overlap for charts, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 

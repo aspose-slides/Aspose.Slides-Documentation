@@ -10,7 +10,7 @@ To Convert Presentation to HTML using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
  # Create an instance of Presentation class
 
@@ -34,7 +34,7 @@ pres.save(self.dataDir + "Welcome_PH.pptx", save_format.Pptx)
 
 print "Replaced text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Replacing Text in a Placeholder (Aspose.Slides)** from any of the below mentioned social coding sites:
 

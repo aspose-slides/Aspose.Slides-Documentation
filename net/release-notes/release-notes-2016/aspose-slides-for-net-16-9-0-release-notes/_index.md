@@ -54,7 +54,7 @@ Property EffectFormat has been added to interface Aspose.Slides.IBackground and 
 
 Code snippet:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -86,11 +86,11 @@ Code snippet:
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Property ICustomData.CustomXmlParts has been added**
 Property Aspose.Slides.ICustomData.CustomXmlParts has been added. It represents a collection of custom xml parts associated with the corresponding ICustomData instance.
 
-{{< highlight java >}}
+``` csharp
 
  using(Presentation pres = new Presentation())
 
@@ -124,11 +124,11 @@ private static string GetXmlStringSample(string name)
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Property IPresentation.AllCustomXmlParts has been added**
 Property Aspose.Slides.IPresentation.AllCustomXmlParts has been added. It returns all custom xml parts contained in the presentation.
 
-{{< highlight java >}}
+``` csharp
 
  //Sample for clear all custom xml parts from presentation
 
@@ -148,11 +148,11 @@ using (Presentation pres = new Presentation("PresentationWithCustomXml.pptx"))
 
 }
 
-{{< /highlight >}}
+``` 
 #### **SetRange method has been added to interface IChartData and class ChartData**
 Method SetRange has been added to interface Aspose.Slides.Charts.IChartData and class Aspose.Slides.Charts.ChartData. It allows to set data range with cells formula. Series and categories will be updated based on new data range.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -166,4 +166,4 @@ Method SetRange has been added to interface Aspose.Slides.Charts.IChartData and 
 
 }
 
-{{< /highlight >}}
+``` 

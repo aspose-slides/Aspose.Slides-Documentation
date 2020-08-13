@@ -40,7 +40,7 @@ The **updateChartData** parameter defines whether an excel workbook will be loa
 
 
 
-{{< highlight java >}}
+``` cpp
 
      auto pres = System::MakeObject<Presentation>();
 
@@ -50,7 +50,7 @@ The **updateChartData** parameter defines whether an excel workbook will be loa
 
     (System::DynamicCast_noexcept<Aspose::Slides::Charts::ChartData>(chartData))->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 
-{{< /highlight >}}
+```
 
 
 ### **New AddEffect() method has been added to the Sequence and ISequence classes**
@@ -60,7 +60,7 @@ It allows to add a new animation effect for a single paragraph.
 
 
 
-{{< highlight java >}}
+``` cpp
 
      auto presentation = System::MakeObject&lt;Presentation&gt;(path + u"input.pptx");
 
@@ -83,4 +83,4 @@ It allows to add a new animation effect for a single paragraph.
          Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
 
-{{< /highlight >}}
+```

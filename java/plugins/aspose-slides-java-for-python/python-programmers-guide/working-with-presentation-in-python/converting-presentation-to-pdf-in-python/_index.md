@@ -10,7 +10,7 @@ To Convert Presentation to HTML using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
 
 
@@ -26,7 +26,7 @@ pres.save(self.dataDir + "Aspose.pdf", save_format.Pdf)
 
 print "Document has been converted, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to PDF (Aspose.Slides)** from any of the below mentioned social coding sites:
 

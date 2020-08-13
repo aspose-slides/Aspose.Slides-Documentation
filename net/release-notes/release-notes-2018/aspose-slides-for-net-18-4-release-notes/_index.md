@@ -69,7 +69,7 @@ IMasterSlide ApplyExternalThemeToDependingSlides(string fname);
 
 Code snippet below shows how to apply Open XML Theme "Theme1Word.thmx" to all slides which are depending on the specified master slide.
 
-{{< highlight java >}}
+``` csharp
 
  string pptxFileName = Path.Combine(baseDir, "SimplePresentation2.pptx");
 
@@ -87,7 +87,7 @@ pres.Save(outPptxFileName, SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **BestImagesCompressionRatio property has been added to PdfOptions**
 BestImagesCompressionRatio property has been added to PdfOptions class.
 
@@ -95,7 +95,7 @@ It provides a possibility to find the best compression ratio for every image in 
 
 Code snippet below shows how to set best compression ratio for PDF document images:
 
-{{< highlight java >}}
+``` csharp
 
  PdfOptions options = new PdfOptions
 
@@ -113,7 +113,7 @@ pres.Save("pres.pdf", SaveFormat.Pdf, options);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **HeaderFooterManager class marked as Obsolete and will be removed after release of version 18.6**
 HeaderFooterManager class has been marked as Obsolete and will be removed after release of version 18.6.
 
@@ -125,7 +125,7 @@ These types allow to manage Header and Footer settings of master handout slide, 
 
 New properties have been added to access the added types.
 
-{{< highlight java >}}
+``` csharp
 
  IMasterHandoutSlideHeaderFooterManager IMasterHandoutSlide.HeaderFooterManager { get; }
 
@@ -133,39 +133,39 @@ IMasterNotesSlideHeaderFooterManager IMasterNotesSlide.HeaderFooterManager { get
 
 INotesSlideHeaderFooterManager INotesSlide.HeaderFooterManager { get; }
 
-{{< /highlight >}}
+``` 
 
 The IBaseHandoutNotesSlideHeaderFooterManag interface in addition to IBaseSlideHeaderFooterManager methods has following properties and methods.
 
 This property allows to get the value indicating that header placeholder is present:
 
-{{< highlight java >}}
+``` csharp
 
  bool IsHeaderVisible { get; }
 
-{{< /highlight >}}
+``` 
 
 This method allows to change header placeholder visibility:
 
-{{< highlight java >}}
+``` csharp
 
  void SetHeaderVisibility(bool isVisible);
 
-{{< /highlight >}}
+``` 
 
 This method allows to set header placeholder text:
 
-{{< highlight java >}}
+``` csharp
 
  void SetHeaderText(string text);
 
-{{< /highlight >}}
+``` 
 
 IMasterNotesSlideHeaderFooterManager has following properties and methods.
 
 These methods allow to change master notes slide and notes slides header, footer, slide number, date-time placeholders visibility:
 
-{{< highlight java >}}
+``` csharp
 
  void SetHeaderAndChildHeadersVisibility(bool isVisible);
 
@@ -175,11 +175,11 @@ void SetSlideNumberAndChildSlideNumbersVisibility(bool isVisible);
 
 void SetDateTimeAndChildDateTimesVisibility(bool isVisible);
 
-{{< /highlight >}}
+``` 
 
 These methods allow to set text to master notes slide and notes slides header, footer and date-time placeholders:
 
-{{< highlight java >}}
+``` csharp
 
  void SetHeaderAndChildHeadersText(string text);
 
@@ -187,29 +187,29 @@ void SetFooterAndChildFootersText(string text);
 
 void SetDateTimeAndChildDateTimesText(string text);
 
-{{< /highlight >}}
+``` 
 
 New methods have been added to IPresentationHeaderFooterManager and PresentationHeaderFooterManager.
 
 This method allows to change master handout, master notes slide and all notes slides header placeholders visibility:
 
-{{< highlight java >}}
+``` csharp
 
  void SetAllHeadersVisibility(bool isVisible);
 
-{{< /highlight >}}
+``` 
 
 This method allows to set text to master handout, master notes slide and all notes slides header placeholders:
 
-{{< highlight java >}}
+``` csharp
 
  void SetAllHeadersText(string text);
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to manage the Header and Footer settings for Handout Master:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation(path + "presentation.pptx"))
 
@@ -249,11 +249,11 @@ headerFooterManager.SetDateTimeText("New date and time text"); // set master han
 
 }
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to manage the Header and Footer settings for Notes Master and Notes slides:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation presentation = new Presentation(path + "presentation.pptx"))
 
@@ -321,7 +321,7 @@ headerFooterManager.SetDateTimeText("New date and time text"); // set text to no
 
 }
 
-{{< /highlight >}}
+``` 
 #### **InterruptionToken struct and InterruptionTokenSource class have been added**
 InterruptionToken struct and InterruptionTokenSource class have been added.
 
@@ -329,7 +329,7 @@ These types support interruption of long-running tasks, such as deserialization,
 
 Code snippet below demonstrates interruption of running task.
 
-{{< highlight java >}}
+``` csharp
 
  static void Run(Action<InterruptionToken> action, InterruptionToken token)
 
@@ -369,14 +369,14 @@ tokenSource.Interrupt(); // we don't need the result of an interruptable action
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Obsolete IHeaderFooterManager interface and HeaderFooterManager methods have been deleted**
 Obsolete IHeaderFooterManager interface has been deleted.
 Use IPresentationHeaderFooterManager interface or one of corresponding IMasterSlideHeaderFooterManager, ILayoutSlideHeaderFooterManager, ISlideHeaderFooterManager interfaces instead.
 
 Obsolete HeaderFooterManager properties have been deleted:
 
-{{< highlight java >}}
+``` csharp
 
 public bool IsFooterVisible
 
@@ -384,11 +384,11 @@ public bool IsSlideNumberVisible
 
 public bool IsDateTimeVisible
 
-{{< /highlight >}}
+``` 
 
 Use folowing methods of PresentationHeaderFooterManager class instead:
 
-{{< highlight java >}}
+``` csharp
 
 public void SetAllFootersVisibility(bool isVisible)
 
@@ -396,11 +396,11 @@ public void SetAllSlideNumbersVisibility(bool isVisible)
 
 public void SetAllDateTimesVisibility(bool isVisible)
 
-{{< /highlight >}}
+``` 
 
 Obsolete HeaderFooterManager methods have been deleted:
 
-{{< highlight java >}}
+``` csharp
 
 public void SetFooterText(string text)
 
@@ -408,11 +408,11 @@ public void SetDateTimeText(string date)
 
 public void SetVisibilityOnTitleSlide(bool isPlaceholdersVisible)
 
-{{< /highlight >}}
+``` 
 
 Use folowing methods of PresentationHeaderFooterManager class instead:
 
-{{< highlight java >}}
+``` csharp
 
 public void SetAllFootersText(string text)
 
@@ -420,7 +420,7 @@ public void SetAllDateTimesText(string text)
 
 public void SetVisibilityOnAllTitleSlides(bool isVisible)
 
-{{< /highlight >}}
+``` 
 #### **OLEActionVerbs value has been added to EffectPresetClassType**
 OLEActionVerbs value has been added to EffectPresetClassType enum.
 
@@ -428,7 +428,7 @@ It represents OLE Action Verb animation effects preset class.
 
 Code snippet below shows how to check whether the shape animation effect is OLE Action Verb.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(path + "presentation.pptx"))
 
@@ -456,7 +456,7 @@ Console.WriteLine("This shape has the OLE Action Verb effect");
 
 }
 
-{{< /highlight >}}
+``` 
 #### **OLEObjectShow, OLEObjectEdit and OLEObjectOpen values have been added to Aspose.Slides.Animation.EffectType**
 OLEObjectShow, OLEObjectEdit and OLEObjectOpen values have been added to Aspose.Slides.Animation.EffectType enum.
 
@@ -464,7 +464,7 @@ These values are used for adding OLE Action Verbs effects to OleObjectFrames.
 
 Code snippet below shows how to add OLEObject Open effect.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("presentation.pptx"))
 
@@ -476,7 +476,7 @@ IEffect effect = pres.Slides[0].Timeline.MainSequence.AddEffect(ole, EffectType.
 
 }
 
-{{< /highlight >}}
+``` 
 #### **PictureOrganizationChart value has been added to SmartArtLayoutType**
 PictureOrganizationChart value has been added to SmartArtLayoutType enum.
 
@@ -484,7 +484,7 @@ It represents Picture Organization Chart layout.
 
 Code snippet below shows how to add new SmartArt object with Picture Organization Chart layout:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -494,11 +494,11 @@ ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtL
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Public enum SaveFormat has been changed**
 The value of the Pps element of the SaveFormat enum was changed to 19:
 
-{{< highlight java >}}
+``` csharp
 
  /// <summary>
 
@@ -508,18 +508,18 @@ The value of the Pps element of the SaveFormat enum was changed to 19:
 
 Pps = 19
 
-{{< /highlight >}}
+``` 
 #### **Support for BoxAndWhisker chart type has been added**
 Support for BoxAndWhisker chart type has been added. It includes new properties, methods and enumerators.
 AddDataPointForBoxAndWhiskerSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is BoxAndWhisker only.
 
-{{< highlight java >}}
+``` csharp
 
  IChartDataPoint AddDataPointForBoxAndWhiskerSeries(IChartDataCell value);
 
-{{< /highlight >}}
+``` 
 
 Public enum QuartileMethodType has been added.
 
@@ -532,55 +532,55 @@ QuartileMethod property has been added to IChartSeries and descendants.
 
 It represents quartile method of BoxAndWhisker series.
 
-{{< highlight java >}}
+``` csharp
 
  QuartileMethodType QuartileMethod { get; set; }
 
-{{< /highlight >}}
+``` 
 
 ShowInnerPoints property has been added to IChartSeries and descendants.
 
 It represents inner points. True if inner points are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+``` csharp
 
  bool ShowInnerPoints { get; set; }
 
-{{< /highlight >}}
+``` 
 
 ShowMeanLine property has been added to IChartSeries and descendants.
 
 It represents mean line. True if mean line are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+``` csharp
 
  bool ShowMeanLine { get; set; }
 
-{{< /highlight >}}
+``` 
 
 ShowMeanMarkers property has been added to IChartSeries and descendants.
 
 It represents mean markers. True if mean markers are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+``` csharp
 
  bool ShowMeanMarkers { get; set; }
 
-{{< /highlight >}}
+``` 
 
 ShowOutlierPoints property has been added to IChartSeries and descendants.
 
 It represents outlier points. True if outlier points are shown on the BoxAndWhisker chart.
 
-{{< highlight java >}}
+``` csharp
 
  bool ShowOutlierPoints { get; set; }
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to create BoxAndWhisker chart from scratch and apply properties listed above. :
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -637,14 +637,14 @@ pres.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Support for Funnel chart type has been added**
 Support for Funnel chart type has been added.
 AddDataPointForFunnelSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Funnel.
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -690,7 +690,7 @@ pres.Save("Funnel.pptx", SaveFormat.Pptx)
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Support for Histogram and Histogram Pareto chart types has been added**
 Support for Histogram and Histogram Pareto chart types has been added. It includes new properties, methods and enumerators.
 Public enum AxisAggregationType has been added
@@ -706,91 +706,91 @@ AggregationType property has been added to IAxis and descendants.
 
 It represents aggregation type of category axis (binning). Applied to category. Used with Histogram or HistogramPareto series only.
 
-{{< highlight java >}}
+``` csharp
 
  AxisAggregationType AggregationType { get; set; }
 
-{{< /highlight >}}
+``` 
 
 BinWidth property has been added to IAxis and descendants.
 
 It specifies bin width when AggregationType property value setted to AxisAggregationType.ByBinWidth. Applied to category axes. Used with Histogram or HistogramPareto series only.
 
-{{< highlight java >}}
+``` csharp
 
  double BinWidth { get; set; }
 
-{{< /highlight >}}
+``` 
 
 IsAutomaticOverflowBin property has been added to IAxis and descendants.
 
 It specifies automatic overflow bin value. If false: use OverflowBin property.
 
-{{< highlight java >}}
+``` csharp
 
  bool IsAutomaticOverflowBin { get; set; }
 
-{{< /highlight >}}
+``` 
 
 IsAutomaticUnderflowBin property has been added to IAxis and descendants.
 
 It specifies automatic underflow bin value. If false: use UnderflowBin property.
 
-{{< highlight java >}}
+``` csharp
 
  bool IsAutomaticUnderflowBin { get; set; }
 
-{{< /highlight >}}
+``` 
 
 IsOverflowBin property has been added to IAxis and descendants.
 
 It specifies if overflow bin applied. Use IsAutomaticOverflowBin and OverflowBin to adjust overflow bin value.
 
-{{< highlight java >}}
+``` csharp
 
  bool IsOverflowBin { get; set; }
 
-{{< /highlight >}}
+``` 
 
 IsUnderflowBin property has been added to IAxis and descendants.
 
 It specifies if underflow bin applied. Use IsAutomaticUnderflowBin and UnderflowBin to adjust underflow bin value.
 
-{{< highlight java >}}
+``` csharp
 
  bool IsUnderflowBin { get; set; }
 
-{{< /highlight >}}
+``` 
 
 NumberOfBins property has been added to IAxis and descendants.
 
 It specifies number of bins when AggregationType property value setted to AxisAggregationType.ByNumberOfBins. Applied to category axes.
 
-{{< highlight java >}}
+``` csharp
 
  uint NumberOfBins { get; set; }
 
-{{< /highlight >}}
+``` 
 
 OverflowBin property has been added to IAxis and descendants.
 
 It specifies overflow bin custom value. Applied when IsAutomaticOverflowBin property setted to false and IsOverflowBin property equals true.
 
-{{< highlight java >}}
+``` csharp
 
  double OverflowBin { get; set; }
 
-{{< /highlight >}}
+``` 
 
 UnderflowBin property has been added to IAxis and descendants.
 
 It specifies underflow bin custom value. Applied when IsAutomaticUnderflowBin property setted to false and IsUnderflowBin property equals true.
 
-{{< highlight java >}}
+``` csharp
 
  double UnderflowBin { get; set; }
 
-{{< /highlight >}}
+``` 
 
 AddDataPointForHistogramSeries method has been added to IChartDataPointCollection and descendants.
 
@@ -800,7 +800,7 @@ IChartDataPoint AddDataPointForHistogramSeries(IChartDataCell value);
 
 Code snippet below shows how to create Histogram chart from scratch and apply properties listed above:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -836,11 +836,11 @@ pres.Save("Histogram.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to create HistogramPareto chart from scratch:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -860,18 +860,18 @@ pres.Save("HistogramPareto.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Support for Sunburst chart type has been added**
 Support for Sunburst chart type has been added. It includes new properties and methods .
 SizeValue property has been added to IChartDataPoint and descendants.
 
 It returns the size value of chart data point.
 
-{{< highlight java >}}
+``` csharp
 
  IDoubleChartValue SizeValue { get; }
 
-{{< /highlight >}}
+``` 
 
 AddDataPointForSunburstSeries method has been added to IChartDataPointCollection and descendants.
 
@@ -881,7 +881,7 @@ IChartDataPoint AddDataPointForSunburstSeries(IChartDataCell sizeValue);
 
 Code snippet below shows how to create Sunburst chart from scratch and apply properties listed above:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -954,18 +954,18 @@ pres.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Support for Treemap chart type has been added**
 Support for Treemap chart type has been added. It includes new properties, methods and enumerators.
 SizeValue property has been added to IChartDataPoint and descendants.
 
 It returns the size value of chart data point.
 
-{{< highlight java >}}
+``` csharp
 
  IDoubleChartValue SizeValue { get; }
 
-{{< /highlight >}}
+``` 
 
 Public enum ParentLabelLayoutType has been added
 
@@ -981,25 +981,25 @@ ParentLabelLayout property has been added to IChartSeries and descendants.
 
 It represents layout of parent labels of Treemap series. Applies to series of type Treemap.
 
-{{< highlight java >}}
+``` csharp
 
  ParentLabelLayoutType ParentLabelLayout { get; set; }
 
-{{< /highlight >}}
+``` 
 
 AddDataPointForTreemapSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Treemap.
 
-{{< highlight java >}}
+``` csharp
 
  IChartDataPoint AddDataPointForTreemapSeries(IChartDataCell sizeValue);
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to create Treemap chart from scratch and apply properties listed above. :
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -1074,42 +1074,42 @@ pres.Save("Treemap.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Support for Waterfall chart type has been added**
 Support for Waterfall chart type has been added. It includes new properties and methods.
 SetAsTotal property has been added to IChartDataPoint and descendants.
 
 It sets data point as total. Applied for Waterfall series type only.
 
-{{< highlight java >}}
+``` csharp
 
  bool SetAsTotal { get; set; }
 
-{{< /highlight >}}
+``` 
 
 ShowConnectorLines property has been added to IChartSeries and descendants.
 
 It sepresents connector lines. True if connector lines are shown on the Waterfall chart. Applies to series of type Waterfall.
 
-{{< highlight java >}}
+``` csharp
 
  bool ShowConnectorLines { get; set; }
 
-{{< /highlight >}}
+``` 
 
 AddDataPointForWaterfallSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Waterfall.
 
-{{< highlight java >}}
+``` csharp
 
  IChartDataPoint AddDataPointForWaterfallSeries(IChartDataCell value);
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to create Waterfall chart from scratch and apply properties listed above:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation())
 
@@ -1161,23 +1161,23 @@ pres.Save("Waterfall.pptx", SaveFormat.Pptx);
 
 }
 
-{{< /highlight >}}
+``` 
 #### **WriteAsSvg method has been added to Shape and IShape**
 WriteAsSvg method (and its overload) has been added to Shape class and IShape interface.
 
 This method allows to save content of the shape as an SVG file.
 
-{{< highlight java >}}
+``` csharp
 
  void WriteAsSvg(Stream stream);
 
 void WriteAsSvg(Stream stream, ISVGOptions svgOptions);
 
-{{< /highlight >}}
+``` 
 
 Code snippet below shows how to export slide's shape to an SVG file.
 
-{{< highlight java >}}
+``` csharp
 
  string pptxFileName = "Presentation.pptx";
 
@@ -1197,4 +1197,4 @@ pres.Slides[0].Shapes[0].WriteAsSvg(stream);
 
 }
 
-{{< /highlight >}}
+``` 

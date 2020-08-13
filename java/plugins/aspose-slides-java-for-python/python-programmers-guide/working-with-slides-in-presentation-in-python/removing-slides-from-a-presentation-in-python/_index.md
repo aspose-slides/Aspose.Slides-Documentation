@@ -52,7 +52,7 @@ pres.save(self.dataDir + "Modified.pptx", save_format.Pptx)
 
 print "Removed slide by ID, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Removing Slides from a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -38,7 +38,7 @@ pres.save(data_dir + "Position.pptx", Rjb::import('com.aspose.slides.SaveFormat'
 
 puts "Set label distance, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting the Label Distance From Category Axis (Aspose.Slides)** from any of the below mentioned social coding sites:
 

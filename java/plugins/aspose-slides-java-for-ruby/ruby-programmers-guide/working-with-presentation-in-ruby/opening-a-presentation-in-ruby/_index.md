@@ -24,4 +24,4 @@ pres = Rjb::import('com.aspose.slides.Presentation').new(data_dir + "demo.pptx")
 
 puts pres.getSlides().size()
 
-{{< /highlight >}}
+```

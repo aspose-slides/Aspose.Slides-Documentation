@@ -10,7 +10,7 @@ To Convert Presentation to HTML using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight java >}}
+``` java
 
  pres = self.Presentation()
 
@@ -24,7 +24,7 @@ pres.save(self.dataDir + "Zoom.pptx", save_format.Pptx)
 
 print "Set zoom value, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Default Zoom Value for Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

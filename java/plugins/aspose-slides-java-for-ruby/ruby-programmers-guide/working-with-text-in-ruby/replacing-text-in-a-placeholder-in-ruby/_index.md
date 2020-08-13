@@ -38,7 +38,7 @@ pres.save(data_dir + "Welcome_PH.pptx", save_format.Pptx)
 
 puts "Replaced text, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Replacing Text in a Placeholder (Aspose.Slides)** from any of the below mentioned social coding sites:
 

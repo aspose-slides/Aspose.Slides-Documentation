@@ -13,7 +13,7 @@ Both methods follow these steps:
 - Set some text.
 - Write the presentation.
 ### **VSTO**
-{{< highlight csharp >}}
+``` csharp
 
  private void AddTextBox()
 
@@ -63,9 +63,9 @@ Both methods follow these steps:
 
 }
 
-{{< /highlight >}}
+``` 
 ### **Aspose.Slides**
-{{< highlight csharp >}}
+``` csharp
 
  static void AddTextBox()
 
@@ -123,7 +123,7 @@ Both methods follow these steps:
 
 }
 
-{{< /highlight >}}
+``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772947)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)

@@ -44,7 +44,7 @@ To Add Chart Series Overlap for Charts using **Aspose.Slides Java for Ruby**, ca
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Chart Series Overlap for Charts (Aspose.Slides)** from any of the below mentioned social coding sites:
 

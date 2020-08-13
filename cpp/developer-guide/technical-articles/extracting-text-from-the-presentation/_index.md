@@ -20,7 +20,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
 
 **C#**
 
-{{< highlight csharp >}}
+``` cpp
 
  //Instatiate PresentationEx class that represents a PPTX file
 
@@ -61,7 +61,7 @@ for (int i = 0; i < textFramesSlideOne.Length; i++)
 
 
 
-{{< /highlight >}}
+```
 
 
 #### **Extracting Text from the Whole Presentation**
@@ -73,7 +73,7 @@ To scan the text from the whole presentation, use the [GetAllTextFrames](http://
 
 **C#**
 
-{{< highlight csharp >}}
+``` cpp
 
  //Instatiate Presentation class that represents a PPTX file
 
@@ -114,20 +114,20 @@ for (int i = 0; i < textFramesPPTX.Length; i++)
         }
 
 
-{{< /highlight >}}
+```
 
 
 #### **Categorized and fast extraction of text**
 The new static method GetPresentationText has been added to Presentation class. There are two overloads for this method:
 
-{{< highlight java >}}
+``` cpp
 
  PresentationText GetPresentationText(Stream stream)
 
 PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
 
 
-{{< /highlight >}}
+```
 
 The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
 Unarranged - The raw text with no respect to position on the slide
@@ -146,7 +146,7 @@ There is also a SlideText class which implements the ISlideText interface.
 
 The new API can be used like this:
 
-{{< highlight java >}}
+``` cpp
 
  PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
 
@@ -161,4 +161,4 @@ Console.WriteLine(text1.SlidesText[0].NotesText);
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
 
 
-{{< /highlight >}}
+```

@@ -67,7 +67,7 @@ Let's say we want to align shapes with indexes 1, 2, and 4 along the top border
 
 **Example:**
 
-{{< highlight csharp >}}
+``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -81,7 +81,7 @@ using (Presentation pres = new Presentation("example.pptx"))
             slide.Shapes.IndexOf(shape3)
     });
 }
-{{< /highlight >}}
+``` 
 
 **![todo:image_alt_text](aspose-slides-for-net-20-5-release-notes_3.png)**
 
@@ -89,19 +89,19 @@ using (Presentation pres = new Presentation("example.pptx"))
 
 Another option shows how to align the entire collection of shapes on the slide:
 
-{{< highlight csharp >}}
+``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
     SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
 }
-{{< /highlight >}}
+``` 
 
 ### **Check the Write Protection Password via IPresentationInfo Interface**
 **IsWriteProtected** property and **CheckWriteProtection** method have been added to **IPresentationInfo** interface and **PresentationInfo** class. This property and method allow checking whether a presentation is protected by a password to modify. The password to modify is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
 
 Property and method declarations:
 
-{{< highlight csharp >}}
+``` csharp
 /// <summary>
 /// Gets a value that indicates whether a binded presentation is write protected.
 /// </summary>
@@ -124,7 +124,7 @@ NullableBool IsWriteProtected { **get**; }
 /// </remarks>
 /// <exception cref="InvalidOperationException"/>
 bool CheckWriteProtection(string password);
-{{< /highlight >}}
+``` 
 
 **Example:**
 
@@ -137,7 +137,7 @@ bool isWriteProtectedByPassword = info.IsWriteProtected == NullableBool.True && 
 
 Method declaration:
 
-{{< highlight csharp >}}
+``` csharp
 /// <summary>
 /// Determines whether a presentation is a password protected to modify.
 /// </summary>
@@ -148,40 +148,40 @@ Method declaration:
 /// 2. When the password is null or empty, this method returns false.
 /// </remarks>
 bool CheckWriteProtection(string password);
-{{< /highlight >}}
+``` 
 
 **Example:**
 
 The example below demonstrates how to check a password to modify a presentation:
 
-{{< highlight csharp >}}
+``` csharp
 using (var presentation = new Presentation(presentationFilePath))
 {
 `   `bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
 }
-{{< /highlight >}}
+``` 
 
 ### **Check Presentation Open Protection via IPresentationInfo Interface**
 **IsPasswordProtected** property has been added to **IPresentationInfo** interface and **PresentationInfo** class. This property allows checking whether a presentation is protected to open. The presentation has protection to open when a password is set to the document.
 
 Property declaration:
 
-{{< highlight csharp >}}
+``` csharp
 /// <summary>
 /// Gets a value that indicates whether a binded presentation is protected by a password to open.
 /// </summary>
 bool IsPasswordProtected { get; }
-{{< /highlight >}}
+``` 
 
 **Example:**
 
 The example below demonstrates how to check protection to open:
-{{< highlight csharp >}}
+``` csharp
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(presentationFilePath);
 if (info.IsPasswordProtected)
 {
 `    `Console.WriteLine("The presentation '" + presentationFilePath + "' is protected by password to open.");
 }
-{{< /highlight >}}
+``` 
 
 

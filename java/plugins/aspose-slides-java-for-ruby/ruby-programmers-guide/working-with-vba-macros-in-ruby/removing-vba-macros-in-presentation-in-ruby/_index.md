@@ -28,7 +28,7 @@ pres.save(data_dir + "RemoveVBAMacro.pptx", Rjb::import('com.aspose.slides.SaveF
 
 puts "Removed VBA Macro, please check the output file."
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Removing VBA Macros in Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

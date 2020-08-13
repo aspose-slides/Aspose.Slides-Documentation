@@ -30,7 +30,7 @@ To access Slide by Index of a Presentation using **Aspose.Slides Java for Ruby**
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Access Slide by ID**
 To access Slide by ID of a Presentation using **Aspose.Slides Java for Ruby**, call **get_slide_by_id** method of **AccessSlides** module. Here you can see example code.
 
@@ -62,7 +62,7 @@ To access Slide by ID of a Presentation using **Aspose.Slides Java for Ruby**, c
 
 end   
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Accessing Slides of a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

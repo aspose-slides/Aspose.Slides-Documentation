@@ -10,7 +10,7 @@ Aspose.Slides for Java offers the [Presentation](http://www.aspose.com/docs/dis
 
 **Java**
 
-{{< highlight java >}}
+``` java
 
  //Instantiate a Presentation object that represents a PPT file
 
@@ -20,7 +20,7 @@ Presentation pres = new Presentation(dataDir + "presentation.ppt");
 
 pres.save(dataDir + "AsposeConvert.pdf", SaveFormat.Pdf);
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 - [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)

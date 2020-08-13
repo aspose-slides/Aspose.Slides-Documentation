@@ -21,7 +21,7 @@ fileName: The name of the HTML file
 baseUri: The base URI which will be used to generate links
 Usage example:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation("example.pptx"))
 
@@ -47,17 +47,17 @@ Usage example:
 
 }
 
-{{< /highlight >}}
+``` 
 #### **Chart series animation API has been added**
 The new 2 methods have been added to Aspose.Slides.Animation.ISequence interface.
 
-{{< highlight java >}}
+``` csharp
 
  IEffect AddEffect(IChart chart, EffectChartMajorGroupingType type, int index, EffectType effectType, EffectSubtype subtype, EffectTriggerType triggerType);
 
 IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesIndex, int categoriesIndex, EffectType effectType, EffectSubtype subtype, EffectTriggerType triggerType);
 
-{{< /highlight >}}
+``` 
 
 These methods are intended to support the chart's elements animations:
 by series
@@ -69,7 +69,7 @@ The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType 
 
 To add a series animation to the chart the following code may be used:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -113,11 +113,11 @@ To add a series animation to the chart the following code may be used:
 
 }
 
-{{< /highlight >}}
+``` 
 
 Categories animation:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -161,11 +161,11 @@ Categories animation:
 
 }
 
-{{< /highlight >}}
+``` 
 
 Series elements animation:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -257,11 +257,11 @@ Series elements animation:
 
 }
 
-{{< /highlight >}}
+``` 
 
 Categories elements animation:
 
-{{< highlight java >}}
+``` csharp
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -353,4 +353,4 @@ Categories elements animation:
 
 }
 
-{{< /highlight >}}
+``` 

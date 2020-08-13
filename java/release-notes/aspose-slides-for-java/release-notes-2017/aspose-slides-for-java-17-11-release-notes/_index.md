@@ -25,13 +25,13 @@ url: /java/aspose-slides-for-java-17-11-release-notes/
 #### **Methods Paragraph.getEndParagraphPortionFormat and setEndParagraphPortionFormat have been added to Slides.Java**
 A new methods getEndParagraphPortionFormat/setEndParagraphPortionFormat have been added. These methods specifies the portion properties that are to be used if another portion is inserted after the last one.
 
-{{< highlight java >}}
+``` java
 
  IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
 IPortionFormat endParaPortionFormat = paragraph.getEndParagraphPortionFormat();
 
-{{< /highlight >}}
+```
 #### **Possibility to control the look of layouting of notes and comments in exported document - Java**
 A new getNotesCommentsLayouting method has been added to PdfOptions, TiffOptions, SwfOptions and HtmlOptions classes. It allows specifying look and layouting of notes and comments in exported document.
 
@@ -44,7 +44,7 @@ getCommentsAreaWidth/setCommentsAreaWidth - Gets or sets the width of the commen
 
 The following code allows exporting presentation to PDF document with comments placed left and truncated notes (shown only on first page).
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -64,11 +64,11 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 The following example allows changing default color of comments area or width of comments area.
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -92,7 +92,7 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 Elements SwfNotes, TiffNotes, HtmlNotes and PdfNotes of SaveFormat enumeration and methods getIncludeComments/setIncludeComments of SwfOptions, TiffOptions, HtmlOptions and PdfOptions are obsolete now.
 
@@ -102,7 +102,7 @@ All added methods accept an object of type INotesCommentsLayoutingOptions, which
 
 The following methods have been added to the Presentation class and the IPresentation interface:
 
-{{< highlight java >}}
+``` java
 
  public java.awt.image.BufferedImage[] getThumbnails(INotesCommentsLayoutingOptions notesCommentsLayouting);
 
@@ -116,11 +116,11 @@ public java.awt.image.BufferedImage[] getThumbnails(INotesCommentsLayoutingOptio
 
 public java.awt.image.BufferedImage[] getThumbnails(INotesCommentsLayoutingOptions notesCommentsLayouting, int[] slides,java.awt.Dimension imageSize);
 
-{{< /highlight >}}
+```
 
 For example, to get a set of BufferedImage objects for all existing slides with the arrangement of comments on the right, including full notes, you can use the following code:
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -140,11 +140,11 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 To obtain an image of a specific slide, for example, slides 2 and 7, without displaying comments and with notes truncated to the size of the page, you can use the following code:
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -162,11 +162,11 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 The following methods have been added to the Slides class and ISlides interface:
 
-{{< highlight java >}}
+``` java
 
  public java.awt.image.BufferedImage getThumbnail(INotesCommentsLayoutingOptions notesCommentsLayouting);
 
@@ -180,11 +180,11 @@ public void renderToGraphics(INotesCommentsLayoutingOptions notesCommentsLayouti
 
 public void renderToGraphics(INotesCommentsLayoutingOptions notesCommentsLayouting,java.awt.Graphics2D graphics);
 
-{{< /highlight >}}
+```
 
 For example, to get an image of the third presentation slide with the comments displayed on the right, you can use the following code:
 
-{{< highlight java >}}
+``` java
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -202,7 +202,7 @@ presentation.dispose();
 
 }
 
-{{< /highlight >}}
+```
 
 Note that the getThumbnail and renderToGraphics methods of the Slide class can throw an exception of type InvalidOperationException if the notesCommentsLayouting.setNotesPosition() method takes the value NotesPositions.BottomFull. This is due to the fact that the notes may be too long and go beyond the page.
 

@@ -68,7 +68,7 @@ To Set the AutofitType property of text frame using **Aspose.Slides Java for Rub
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Setting the anchor of TextFrame**
 To Set the anchor of TextFrame using **Aspose.Slides Java for Ruby**, call **set_anchor_of_text** method of **ManageText** module. Here you can see example code.
 
@@ -132,7 +132,7 @@ To Set the anchor of TextFrame using **Aspose.Slides Java for Ruby**, call **set
 
 end
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Rotating the text**
 To Rotate the text using **Aspose.Slides Java for Ruby**, call **rotate_text** method of **ManageText** module. Here you can see example code.
 
@@ -196,7 +196,7 @@ To Rotate the text using **Aspose.Slides Java for Ruby**, call **rotate_text** m
 
 end
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Text Autofit and Rotation (Aspose.Slides)** from any of the below mentioned social coding sites:
 
