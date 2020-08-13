@@ -7,7 +7,7 @@ url: /java/aspose-slides-for-android-via-java-19-12-release-notes/
 
 {{% alert color="primary" %}} 
 
-` `This page contains release notes for Aspose.Slides for Android via Java 19.12
+ This page contains release notes for Aspose.Slides for Android via Java 19.12
 
 {{% /alert %}} 
 
@@ -70,7 +70,7 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_2.png)
 ### **Set Data Point label and its color**
-` `Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
+ Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
 
 ``` java
 
@@ -90,7 +90,7 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_3.png)
 ### **Set Data Point Branch Color**
-` `Change color of "Steam 4" branch:
+ Change color of "Steam 4" branch:
 
 ``` java
 
@@ -106,7 +106,7 @@ steam4Format.getFill().getSolidFillColor().setColor(android.graphics.Color.argb(
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_4)
 ### **getAccessPermissions() and setAccessPermissions() methods have been added to IPdfOptions interface and PdfOptions class**
-` `[**getAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#getAccessPermissions--) and [**setAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions)** **interface and [**PdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfOptions)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfAccessPermissions) class. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
+ [**getAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#getAccessPermissions--) and [**setAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions)** **interface and [**PdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfOptions)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfAccessPermissions) class. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
 ##### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 

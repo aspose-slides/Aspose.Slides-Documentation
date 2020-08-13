@@ -7,7 +7,7 @@ url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 
 {{% alert color="primary" %}} 
 
-` `Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ### **Creating a Chart**

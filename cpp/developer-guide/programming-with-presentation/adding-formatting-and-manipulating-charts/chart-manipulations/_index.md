@@ -236,7 +236,7 @@ Aspose.Slides for C++ provides support for changing series color.
 1. Set fill type and fill color.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 
 
@@ -250,7 +250,7 @@ Aspose.Slides for C++ provides support for setting chart area. **IChart.HasRoun
 1. Set round corner property True.
 1. Save modified presentation. 
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingChartAreaRoundedBorders-SettingChartAreaRoundedBorders.cpp" >}}
 ### **Change color of categories in a series**
@@ -262,7 +262,7 @@ Aspose.Slides for C++ provides support for changing color of categories in a ser
 1. Set fill type and fill color.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 
 
@@ -276,7 +276,7 @@ Aspose.Slides for C++ provides support for changing color of categories in a ser
 1. Set font height.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontPropertiesForChartDataTable-SettingFontPropertiesForChartDataTable.cpp" >}}
 
@@ -285,7 +285,7 @@ Aspose.Slides for C++ provides support for changing color of categories in a ser
 Aspose.Slides for C++ provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddDoughnutCallout-AddDoughnutCallout.cpp" >}}
-### ` `**Hide Information From Chart**
+###  **Hide Information From Chart**
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for C++ you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HideInformationFromChart-HideInformationFromChart.cpp" >}}

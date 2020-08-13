@@ -64,7 +64,7 @@ Aspose.Slides for .NET allows developers to get a unique shape identifier in sl
 
 
 ## **Access Layout Formats For Shape**
-` `Aspose.Slides for .NET provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
+ Aspose.Slides for .NET provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
 
 Below sample code is given.
 

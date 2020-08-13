@@ -35,9 +35,9 @@ Aspose.Slides release 19.8 introduces new API for getting effective values.
 #### **What are 'local' and 'effective' values**
 Properties of text portion could be set via **IPortion::get_PortionFormat()** at different levels of presentation structure hierarchy. Here are ***some*** of them:
 
-1. ` `In portion properties on portion's slide.
-1. ` `In prototype shape text style on layout or master slide (if portion's text frame shape has one).
-1. ` `In presentation global text settings.
+1.  In portion properties on portion's slide.
+1.  In prototype shape text style on layout or master slide (if portion's text frame shape has one).
+1.  In presentation global text settings.
 
 For any of these levels values set directly at this level are called '**local**'. At any level '**local**' values could be defined or omitted. But finally when it comes to the moment when the application (built with Aspose.Slides or even PowerPoint itself) needs to know what the portion should look like (during image export or drawing on the screen) it uses '**effective**' values - a completely defined set of values built using hierarchy, possible values overriding on each level from the very bottom one and default values which are hardcoded into PowerPoint.
 

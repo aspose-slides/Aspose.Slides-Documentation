@@ -85,7 +85,7 @@ In the example given below, we have got the file format.
 In order to verify the file format. Please follow the steps below:
 
 1. Create an instance of [IPresentationInfo](http://www.aspose.com/api/net/slides/aspose.slides/ipresentationinfo/properties/index) class.
-1. ` `Check whether the presentation format is old Microsoft PowerPoint 95.
+1.  Check whether the presentation format is old Microsoft PowerPoint 95.
 
 In the example given below, we have got the file format.
 
