@@ -120,9 +120,9 @@ The following code shows how to insert SVG fragments to the presentation image c
 ## **Convert SVG Images Into Group Shape**
 
 
-` `New **AddGroupShape** method has been added to **IShapeCollection interface** and **ShapeCollection class** in Aspose.Slides for C++. This method allows to convert **SvgImage** object that represents SVG data into a group of shapes.
+ New **AddGroupShape** method has been added to **IShapeCollection interface** and **ShapeCollection class** in Aspose.Slides for C++. This method allows to convert **SvgImage** object that represents SVG data into a group of shapes.
 
-` `The code sample below shows how to convert SVG images into a group of shapes.
+ The code sample below shows how to convert SVG images into a group of shapes.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ConvertSvgImageObjectIntoGroupOfShapes-ConvertSvgImageObjectIntoGroupOfShapes.cpp" >}}
 ## **Add Image as BLOB in Presentation**
@@ -132,7 +132,7 @@ This example demonstrates how to include the large BLOB (image) and prevent a hi
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddBlobImageToPresentation-AddBlobImageToPresentation.cpp" >}}
 ## **Saving Progress Updates in Percentage**
-` `New **IProgressCallback** interface has been added to **ISaveOptions** interface and **SaveOptions** abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.  
+ New **IProgressCallback** interface has been added to **ISaveOptions** interface and **SaveOptions** abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.  
 
 The following code snippets below shows how to use IProgressCallback interface:
 

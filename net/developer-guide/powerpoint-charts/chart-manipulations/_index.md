@@ -188,7 +188,7 @@ Aspose.Slides for .NET provides support for changing series color. 
 1. Set fill type and fill color.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-SupportForChangingSeriesColor-SupportForChangingSeriesColor.cs" >}}
 ### **Setting chart area rounded borders**
@@ -200,7 +200,7 @@ Aspose.Slides for .NET provides support for setting chart area. **IChart.HasRou
 1. Set round corner property True.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-SupportForChartAreaRoundedBorders-SupportForChartAreaRoundedBorders.cs" >}}
 ### **Change color of categories in a series**
@@ -212,7 +212,7 @@ Aspose.Slides for .NET provides support for changing color of categories in a se
 1. Set fill type and fill color.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-ChangeColorOfCategories-ChangeColorOfCategories.cs" >}}
 ### **Setting font properties for chart data table**
@@ -224,7 +224,7 @@ Aspose.Slides for .NET provides support for changing color of categories in a se
 1. Set font height.
 1. Save modified presentation.
 
-` `Below sample example is given. 
+ Below sample example is given. 
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-SettingFontProperties-SettingFontProperties.cs" >}}
 ### **Setting Callout For Doughnut chart**

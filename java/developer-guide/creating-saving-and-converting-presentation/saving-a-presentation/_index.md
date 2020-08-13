@@ -61,9 +61,9 @@ Aspose.Slides for Java provides a facility to render comments of presentations 
 
 
 
-` `Render Emoji
+ Render Emoji
 
-` `Aspose.Slides for Java provides a facility to render emoji characters of presentations or slide when converting those into [PDF](https://wiki.fileformat.com/view/pdf/), image, [XPS ](https://wiki.fileformat.com/page-description-language/xps/)or [SWF](https://wiki.fileformat.com/page-description-language/swf/).  An example is given below that shows how to render emoji characters of presentation.
+ Aspose.Slides for Java provides a facility to render emoji characters of presentations or slide when converting those into [PDF](https://wiki.fileformat.com/view/pdf/), image, [XPS ](https://wiki.fileformat.com/page-description-language/xps/)or [SWF](https://wiki.fileformat.com/page-description-language/swf/).  An example is given below that shows how to render emoji characters of presentation.
 
 
 
@@ -71,7 +71,7 @@ Aspose.Slides for Java provides a facility to render comments of presentations 
 
 
 ## **Add an Image From SVG Object**
-` `Aspose.Slides for Java added a new [**addImage** ](https://apireference.aspose.com/java/slides/com.aspose.slides/IImageCollection#addImage-java.awt.image.BufferedImage-)method to **[IImageCollection](https://apireference.aspose.com/java/slides/com.aspose.slides/IImageCollection)** **interface** and [**ImageCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/ImageCollection) **class.** These methods provide the ability to insert [SVG ](https://wiki.fileformat.com/page-description-language/svg/)fragments to the presentation image collection.  
+ Aspose.Slides for Java added a new [**addImage** ](https://apireference.aspose.com/java/slides/com.aspose.slides/IImageCollection#addImage-java.awt.image.BufferedImage-)method to **[IImageCollection](https://apireference.aspose.com/java/slides/com.aspose.slides/IImageCollection)** **interface** and [**ImageCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/ImageCollection) **class.** These methods provide the ability to insert [SVG ](https://wiki.fileformat.com/page-description-language/svg/)fragments to the presentation image collection.  
 
 The code sample below shows how to insert SVG fragments to the presentation image collection.
 
@@ -91,10 +91,10 @@ The following code shows how to insert SVG fragments to the presentation image c
 
 
 ## **Convert SVG Images Into Group Shape**
-` `New [**addGroupShape**](https://apireference.aspose.com/java/slides/com.aspose.slides/IShapeCollection#addGroupShape--) method has been added to **[IShapeCollection ](https://apireference.aspose.com/java/slides/com.aspose.slides/IShapeCollection)interface** and [**ShapeCollection** ](https://apireference.aspose.com/java/slides/com.aspose.slides/ShapeCollection)**class** in Aspose.Slides for Java. This method allows to convert [**SvgImage**](https://apireference.aspose.com/java/slides/com.aspose.slides/SvgImage) object that represents [SVG](https://wiki.fileformat.com/page-description-language/svg/) data into a group of shapes.
+ New [**addGroupShape**](https://apireference.aspose.com/java/slides/com.aspose.slides/IShapeCollection#addGroupShape--) method has been added to **[IShapeCollection ](https://apireference.aspose.com/java/slides/com.aspose.slides/IShapeCollection)interface** and [**ShapeCollection** ](https://apireference.aspose.com/java/slides/com.aspose.slides/ShapeCollection)**class** in Aspose.Slides for Java. This method allows to convert [**SvgImage**](https://apireference.aspose.com/java/slides/com.aspose.slides/SvgImage) object that represents [SVG](https://wiki.fileformat.com/page-description-language/svg/) data into a group of shapes.
 
 
-` `The code sample below shows how to convert SVG images into a group of shapes.
+ The code sample below shows how to convert SVG images into a group of shapes.
 
 
 
@@ -102,7 +102,7 @@ The following code shows how to insert SVG fragments to the presentation image c
 
 
 ## **Saving Progress Updates in Percentage**
-` `New [**IProgressCallback**](https://apireference.aspose.com/java/slides/com.aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://apireference.aspose.com/java/slides/com.aspose.slides/SaveOptions)abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.  
+ New [**IProgressCallback**](https://apireference.aspose.com/java/slides/com.aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://apireference.aspose.com/java/slides/com.aspose.slides/SaveOptions)abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.  
 
 The following code snippets below show how to use IProgressCallback interface:
 

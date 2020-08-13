@@ -7,7 +7,7 @@ url: /java/aspose-slides-for-android-via-java-20-1-release-notes/
 
 {{% alert color="primary" %}} 
 
-` `This page contains release notes for Aspose.Slides for Android via Java 20.1
+ This page contains release notes for Aspose.Slides for Android via Java 20.1
 
 {{% /alert %}} 
 
