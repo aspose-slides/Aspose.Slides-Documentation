@@ -39,26 +39,26 @@ To create Aspose.Slides Maven project for using [Aspose.Slides for Java API](htt
 
 Then follow the steps below:
 
-\1. Select **New Project**.
-\2. Select **Aspose.Slides Maven Project** 
-\3. Click **Next**. 
+1. Select **New Project**.
+2. Select **Aspose.Slides Maven Project** 
+3. Click **Next**. 
 
 ![todo:image_alt_text](http://i.imgur.com/JZSDsAH.jpg)
 
 
-\4. Provide a **GroupId, ArtifactId** and **Version** for your maven project and click **Next.**
+4. Provide a **GroupId, ArtifactId** and **Version** for your maven project and click **Next.**
 
 ![todo:image_alt_text](http://i.imgur.com/eGtlseY.jpg)
 
 
 `    `You can select "Also Download Examples Source Code" checkbox to download the sample usage examples of the API (as shown in above snapshot)
 
-\6. Provide a **Project Name** and **Location** just like when creating any Java application
+6. Provide a **Project Name** and **Location** just like when creating any Java application
 
 ![todo:image_alt_text](http://i.imgur.com/WkSnyoi.jpg)
 
 
-\7. Click **Finish**.
+7. Click **Finish**.
 `    `This will retrieve the [Aspose.Slides for Java API](http://goo.gl/WU9cOL) latest maven dependency reference from Aspose Cloud Maven Repository and configure it in pom.xml
 `     `If you have selected "Also Download Examples Source Code" checkbox. Downloading of the examples will also begin from the [Aspose.Slides for Java API GitHub Repository](https://goo.gl/wPPfil)
 
@@ -78,7 +78,7 @@ To create / copy [Examples Source Codes ](https://goo.gl/wPPfil)into the project
 
 Then follow the steps below on IntelliJ IDEA:
 
-\1. Select **File** => **New -** As shown below: 
+1. Select **File** => **New -** As shown below: 
 
 ![todo:image_alt_text](http://i.imgur.com/N8tT9Q0.jpg)
 
@@ -88,7 +88,7 @@ Then follow the steps below on IntelliJ IDEA:
 ![todo:image_alt_text](http://i.imgur.com/aUBWkhp.jpg)
 
 
-\2. Select **Aspose.Slides Example** Option from Menu - As shown below: 
+2. Select **Aspose.Slides Example** Option from Menu - As shown below: 
 
 ![todo:image_alt_text](http://i.imgur.com/9YHmDNt.jpg)
 
@@ -98,13 +98,13 @@ Then follow the steps below on IntelliJ IDEA:
 ![todo:image_alt_text](http://i.imgur.com/5PZwsuq.jpg)
 
 
-\3. **Aspose.Slides Examples wizard** dialog will appear, where you can select any examples category to create / copy the examples into your project
+3. **Aspose.Slides Examples wizard** dialog will appear, where you can select any examples category to create / copy the examples into your project
 `    `Select any examples category and click **Create** : 
 
 ![todo:image_alt_text](http://i.imgur.com/LOqN9Co.jpg)
 
 
-\5. This will create / copy  the selected category examples into the project under **com.aspose.slides.examples** package.
+5. This will create / copy  the selected category examples into the project under **com.aspose.slides.examples** package.
 `    `Also any required resources for the execution of the examples will be copied to **src/main/resources** folder - As shown below:
 
 ![todo:image_alt_text](http://i.imgur.com/I6kGIwI.jpg)

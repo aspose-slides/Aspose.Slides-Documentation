@@ -61,9 +61,9 @@ IResourceLoadingCallback can be used to manage external workbook loading.
 
 
 
-1) Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook can't be loaded an exception is thrown.
+ 1) Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook can't be loaded an exception is thrown.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation("presentation.pptx"))
 
@@ -86,15 +86,15 @@ IResourceLoadingCallback can be used to manage external workbook loading.
 }
 
 
-```
+{{< /highlight >}}
 
 
 
-2) An external workbook can be assigned to a chart as a data source. For this purpose IChartData.SetExternalWorkbook(string workbookPath) method has been added.
+ 2) An external workbook can be assigned to a chart as a data source. For this purpose IChartData.SetExternalWorkbook(string workbookPath) method has been added.
 
 SetExternalWorkbook() method can be also used to update a path to the external workbook if it has been moved. *Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. *If the relative path was provided for an external workbook, it converts to full path automatically.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -139,13 +139,13 @@ SetExternalWorkbook() method can be also used to update a path to the external w
 }
 
 
-```
+{{< /highlight >}}
 
 
 
-3) Combination of methods IChartData.ReadWorkbookStream() and IChartData.SetExternalWorkbook() can be used to create an external workbook from scratch or to make an internal workbook external.
+ 3) Combination of methods IChartData.ReadWorkbookStream() and IChartData.SetExternalWorkbook() can be used to create an external workbook from scratch or to make an internal workbook external.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation("presentaion.pptx"))
 
@@ -182,4 +182,4 @@ SetExternalWorkbook() method can be also used to update a path to the external w
 }
 
 
-```
+{{< /highlight >}}

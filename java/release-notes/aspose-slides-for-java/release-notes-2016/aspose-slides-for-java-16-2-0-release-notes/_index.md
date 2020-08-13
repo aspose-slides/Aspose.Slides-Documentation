@@ -82,7 +82,7 @@ ISlideText.getNotesText() - The text on the notes page's shapes for this slide
 There's also a SlideText class which implements the ISlideText interface.
 The new API can be used like this:
 
-```
+{{< highlight java >}}
 
  PresentationText text1 = Presentation.getPresentationText(stream, ExtractionMode.Unarranged);
 
@@ -94,7 +94,7 @@ System.out.println(text1.getSlidesText()[0].getMasterText());
 
 System.out.println(text1.getSlidesText()[0].getNotesText());
 
-```
+{{< /highlight >}}
 
 LegacyDiagram class and ILegacyDiagram interface have been added
 
@@ -112,7 +112,7 @@ getEmbeddedFileLabel() - Returns the file name of embedded OLE object
 getEmbeddedFileName() - Returns the path of embedded OLE object
 New methods getCategoryAxisType() and setCategoryAxisType() have been added to IAxis and Axis classes
 
-```
+{{< highlight java >}}
 
  Methods getCategoryAxisType() and setCategoryAxisType() specify the type of category axis.
 
@@ -140,13 +140,13 @@ if(pres != null) pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 
 New methods getShowLabelAsDataCallout() and setShowLabelAsDataCallout() have been added to DataLabelFormat class and IDataLabelFormat interface
 
 Methods getShowLabelAsDataCallout() and setShowLabelAsDataCallout() determine either specified chart's data label will be displayed as data callout or as data label.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -170,14 +170,14 @@ if(pres != null) pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 
 Methods getDrawSlidesFrame() and setDrawSlidesFrame() have been added to PdfOptions and XpsOptions
 
 Methods setDrawSlidesFrame() and getDrawSlidesFrame() have been added to interfaces IPdfOptions, IXpsOptions and to related classes PdfOptions, XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("input.pptx");
 
@@ -197,7 +197,7 @@ if(pres != null) pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 
 Methods getUpdateDateTimeFields(), setUpdateDateTimeFields(), setUpdateSlideNumberFields() and getUpdateSlideNumberFields() have been removed
 

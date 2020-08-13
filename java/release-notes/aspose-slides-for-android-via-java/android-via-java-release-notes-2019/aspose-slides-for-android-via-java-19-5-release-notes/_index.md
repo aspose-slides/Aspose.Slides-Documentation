@@ -31,7 +31,7 @@ New ISvgImage interface was added to represent SVG image:
 
 
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -112,13 +112,13 @@ public interface ISvgImage
 }
 
 
-```
+{{< /highlight >}}
 
 
 #### **The addImage method has been added to IImageCollection interface and ImageCollection class**
 New addImage method has been added to IImageCollection interface and ImageCollection class:
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -139,13 +139,13 @@ New addImage method has been added to IImageCollection interface and ImageCollec
 public IPPImage addImage(ISvgImage svgImage);
 
 
-```
+{{< /highlight >}}
 
 
 
 These methods provide the ability to insert SVG fragment to the presentation's image collection:
 
-```
+{{< highlight java >}}
 
  Presentation p = new Presentation();
 
@@ -172,9 +172,9 @@ finally {
 }
 
 
-```
+{{< /highlight >}}
 
-```
+{{< highlight java >}}
 
  Presentation p = new Presentation();
 
@@ -201,13 +201,13 @@ finally {
 
 
 
-```
+{{< /highlight >}}
 
 **Pay attention** that methods IPPImage **addFromSvg**(String svgContent) and IPPImage **addFromSvg**(String svgContent, IExternalResourceResolver externalResResolver, String baseUri) marked now as **Deprecated** and will be deleted from API since version 19.10.
 #### **getSvgImage and setSvgImage methods have been added to IPPImage interface and PPImage class**
 New **getSvgImage** and **setSvgImage** methods have been added to **IPPImage** interface and **PPImage** class:
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -235,7 +235,7 @@ public void setSvgImage(ISvgImage value);
 
 
 
-```
+{{< /highlight >}}
 
 
 #### **The addGroupShape method has been added to IShapeCollection interface and IShapeCollection class**
@@ -243,7 +243,7 @@ New **addGroupShape** method has been added to IShapeCollection interface and Sh
 
 
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -270,11 +270,11 @@ New **addGroupShape** method has been added to IShapeCollection interface and Sh
 IGroupShape addGroupShape(ISvgImage svgImage, float x, float y, float width, float height);
 
 
-```
+{{< /highlight >}}
 
 This method allows converting SvgImage object that represents SVG data into a group of shapes:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation(pptxFileName);
 
@@ -309,7 +309,7 @@ finally {
 }
 
 
-```
+{{< /highlight >}}
 
 
 ### **Support for the representation of bubble size values has been added.**
@@ -318,7 +318,7 @@ finally {
 
 Accordingly, **BubbleSizeRepresentationType** enum has been added to specify the possible ways to represent data as bubble chart sizes.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -341,13 +341,13 @@ finally {
 }
 
 
-```
+{{< /highlight >}}
 
 
 ### **New getSubstitutePictureTitle and setSubstitutePictureTitle methods have been added to IOleObjectFrame interface**
 New methods **getSubstitutePictureTitle** and **setSubstitutePictureTitle** have been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon:
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -390,13 +390,13 @@ public String getSubstitutePictureTitle();
 public void setSubstitutePictureTitle(String value);
 
 
-```
+{{< /highlight >}}
 
 
 
 The code snippet below shows a sample of creating Excel object and setting its caption:
 
-```
+{{< highlight java >}}
 
  String oleSourceFile = "ExcelObject.xlsx";
 
@@ -451,7 +451,7 @@ try
 }
 
 
-```
+{{< /highlight >}}
 
 **Note**. **SubstitutePictureTitle** value is ignored if **ObjectIcon** of an IOleObjectFrame is set to **false**.
 
@@ -467,7 +467,7 @@ Method **IViewProperties.*getNormalViewProperties*** has been added to provide a
 ### **The SplitterBarStateType enum has been added.**
 The **SplitterBarStateType** enum has three members:
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -508,11 +508,11 @@ public static final int Restored = 1;
 public static final int Maximized = 2;
 
 
-```
+{{< /highlight >}}
 
 
 ### **The INormalViewProperties interface has been added.**
-```
+{{< highlight java >}}
 
  /**
 
@@ -735,7 +735,7 @@ public interface INormalViewProperties
 
 
 
-```
+{{< /highlight >}}
 
 
 
@@ -743,7 +743,7 @@ Possible values for setting **VerticalBarState** and **HorizontalBarState** are:
 
 Properties **RestoredLeft** and **RestoredTop** specify the sizing of the top or side slide region of the normal view, when **SplitterBarStateType.Restored** value applied for **VerticalBarState** and **HorizontalBarState** accordingly.
 ### **The INormalViewRestoredProperties interface has been added.**
-```
+{{< highlight java >}}
 
  /**
 
@@ -834,11 +834,11 @@ public interface INormalViewRestoredProperties
 }
 
 
-```
+{{< /highlight >}}
 
 The code snippet below shows a sample of usage of NormalViewProperties:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -871,7 +871,7 @@ finally {
 }
 
 
-```
+{{< /highlight >}}
 ### **getParentComment and setParentComment methods have been added to IComment interface**
 New methods **getParentComment** and **setParentComment** have been added to **IComment** interface and **Comment** class.
 
@@ -883,7 +883,7 @@ It allows to get or set the parent comment, thus creating a dialog in the form o
 
 The code snippet below shows a sample of adding some comments and some replies to them:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -982,7 +982,7 @@ finally {
 }
 
 
-```
+{{< /highlight >}}
 
 
 

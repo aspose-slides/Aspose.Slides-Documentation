@@ -25,7 +25,7 @@ This code will show how to export report from ReportViewer 2010/2012 to PPT/PPTX
 
 [**C#**](/pages/createpage.action?spaceKey=slidesreportingservices&title=C&linkCreation=true&fromPageId=10289153)
 
-```
+{{< highlight csharp >}}
 
 
 
@@ -244,13 +244,13 @@ namespace Slides.ReportViewer2010
 }
 
 
-```
+{{< /highlight >}}
 #### **Using from Windows Forms**
 Optionally you can add Export buttons to TollStripPanel of ReportViewer by adding next code to Form's constructor:
 
 [**C#**](/pages/createpage.action?spaceKey=slidesreportingservices&title=C&linkCreation=true&fromPageId=10289153)
 
-```
+{{< highlight csharp >}}
 
 
 
@@ -289,7 +289,7 @@ ToolStrip toolStrip = (ToolStrip) reportViewer.Controls.Find("toolStrip1", true)
                                                        });
 
 
-```
+{{< /highlight >}}
 
 {{% alert color="primary" %}} 
 

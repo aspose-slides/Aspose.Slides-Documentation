@@ -172,7 +172,7 @@ The code snippet below shows how to use this feature:
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Text-HighlightText-HighlightText.java" >}}
 ## **Highlight Text using Regular Expression**
- New highlightRegex method has been added to ITextFrame interface and TextFrame class.
+` `New highlightRegex method has been added to ITextFrame interface and TextFrame class.
 
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 

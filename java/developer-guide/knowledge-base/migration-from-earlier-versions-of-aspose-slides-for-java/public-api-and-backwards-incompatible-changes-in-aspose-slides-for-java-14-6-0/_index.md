@@ -15,13 +15,13 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 #### **Added ViewType Enumeration, IViewProperties Interface, ViewProperties Class and IPresentation.getViewProperties() Method**
 The IPresentation.getViewProperty() method provides access to IViewProperties and allows you to change the presentation view type and notes visibility when a presentation is opened in Microsoft PowerPoint.
 
-```
+{{< highlight java >}}
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
-```
+{{< /highlight >}}
 #### **Added the Aspose.Slides.IShapeCollection.addClone(...) and .insertClone(...) Methods**
 The methods
 
@@ -34,7 +34,7 @@ The methods
 
 adds/inserts a copy of a specified shape into the collection. 
 
-```
+{{< highlight java >}}
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -58,11 +58,11 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
-```
+{{< /highlight >}}
 #### **Added the Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Interface**
 This interface specifies the types of values in the ChartDataPoint.ErrorBarsCustomValues properties list.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -108,11 +108,11 @@ for (int i = 0; i < points.size(); i++)
 
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
-```
+{{< /highlight >}}
 #### **Added the Aspose.Slides.Charts.IErrorBarsCustomValues Interface**
 When the IErrorBarsFormat.ValueType property is equal to Custom to specify value use the ErrorBarCustomValues property of the specific data point in the DataPoints collection of the series.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -158,12 +158,12 @@ for (int i = 0; i < points.size(); i++)
 
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
-```
+{{< /highlight >}}
 #### **Added the Aspose.Slides.Charts.IErrorBarsFormat Interface**
 This interface represents error bars of chart series.
 In case of custom value type to specify value use the ErrorBarCustomValues property of a specific data point in the DataPoins collection of the series.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -193,4 +193,4 @@ errBarX.setEndCap(true);
 
 pres.save("data/ErrorBars.pptx", SaveFormat.Pptx);
 
-```
+{{< /highlight >}}

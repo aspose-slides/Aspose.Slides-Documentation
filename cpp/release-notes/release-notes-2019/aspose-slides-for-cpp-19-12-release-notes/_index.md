@@ -38,7 +38,7 @@ Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, w
 
 Let’s start with adding a new Sunburst chart to the presentation:
 
-```
+{{< highlight java >}}
 
  System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -46,7 +46,7 @@ System::SharedPtr<IChart> chart = pres->get_Slides()->idx_get(0)->get_Shapes()->
 
 // ...
 
-```
+{{< /highlight >}}
 
 Read more about [**Creating Sunburst Chart**](/slides/cpp/adding-charts/#addingcharts-creatingsunburstchart)
 
@@ -59,21 +59,21 @@ If there is a need to format data points of the chart, we should use the followi
 ### **Show Data Point Value**
 Show value of "Leaf 4" data point:
 
-```
+{{< highlight java >}}
 
  System::SharedPtr<IChartDataPointCollection> dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
 
 dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
 
-```
+{{< /highlight >}}
 
 
 
 ![todo:image_alt_text](aspose-slides-for-cpp-19-12-release-notes_2.png)
 ### **Set Data Point label and its color**
- Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
+` `Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
 
-```
+{{< highlight java >}}
 
  System::SharedPtr<IDataLabel> branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
 
@@ -87,15 +87,15 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 
 branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Yellow());
 
-```
+{{< /highlight >}}
 
 
 
 ![todo:image_alt_text](aspose-slides-for-cpp-19-12-release-notes_3.png)
 ### **Set Data Point Branch Color**
- Change color of "Steam 4" branch:
+` `Change color of "Steam 4" branch:
 
-```
+{{< highlight java >}}
 
  System::SharedPtr<IFormat> steam4Format = dataPoints->idx_get(9)->get_DataPointLevels()->idx_get(1)->get_Format();
 
@@ -103,17 +103,17 @@ steam4Format->get_Fill()->set_FillType(Aspose::Slides::FillType::Solid);
 
 steam4Format->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(255, 0, 176, 240));
 
-```
+{{< /highlight >}}
 
 
 
 ![todo:image_alt_text](aspose-slides-for-cpp-19-12-release-notes_4)
-###  **IPdfOptions::get_AccessPermissions() and IPdfOptions::set_AccessPermissions() methods have been added**
- [**get_AccessPermissions()**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.i_pdf_options/#ac80b9006c6eab82c84f87dc0235f081b) and [**set_AccessPermissions()**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.i_pdf_options/#ac2b89307d944084a00853ff3dfa070e3) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.i_pdf_options/)** **interface and [**PdfOptions**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.pdf_options/)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/cpp/slides/namespace/aspose.slides.export/#a8a80eed4177a9fe0cefe91999e4ec353) enumeration. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
+### ` `**IPdfOptions::get_AccessPermissions() and IPdfOptions::set_AccessPermissions() methods have been added**
+` `[**get_AccessPermissions()**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.i_pdf_options/#ac80b9006c6eab82c84f87dc0235f081b) and [**set_AccessPermissions()**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.i_pdf_options/#ac2b89307d944084a00853ff3dfa070e3) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.i_pdf_options/)** **interface and [**PdfOptions**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.export.pdf_options/)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/cpp/slides/namespace/aspose.slides.export/#a8a80eed4177a9fe0cefe91999e4ec353) enumeration. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
 ##### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
-```
+{{< highlight java >}}
 
  auto pdfOptions = System::MakeObject<PdfOptions>();
 
@@ -127,13 +127,13 @@ auto presentation = System::MakeObject<Presentation>();
 
 presentation->Save(pdfFilePath, Aspose::Slides::Export::SaveFormat::Pdf, pdfOptions);
 
-```
+{{< /highlight >}}
 
 
 ### **ISlideCollection::AddClone() method has been added**
 [**AddClone()**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_slide_collection/#a46981dac8b18355531a04a70c70c444b) method has been added to [**ISlideCollection**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_slide_collection/)** **interface and [**SlideCollection**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.slide_collection/)** **class. This method allows adding a slide clone into a specified section.
 #### **Method declaration**
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -154,9 +154,9 @@ presentation->Save(pdfFilePath, Aspose::Slides::Export::SaveFormat::Pdf, pdfOpti
 System::SharedPtr<ISlide> AddClone(System::SharedPtr<ISlide> sourceSlide, System::SharedPtr<ISection> section);
 
 
-```
+{{< /highlight >}}
 #### **Example**
-```
+{{< highlight java >}}
 
  auto presentation = MakeObject<Presentation>();
 
@@ -171,7 +171,7 @@ presentation->get_Slides()->AddClone(presentation->get_Slides()->idx_get(0), sec
 // Now the second section contains a copy of the first slide.
 
 
-```
+{{< /highlight >}}
 
 
 

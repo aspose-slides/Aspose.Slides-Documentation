@@ -20,7 +20,7 @@ The following steps show how to manually install Aspose.Slides for Reporting Ser
 
 **rs_test**
 
-```
+{{< highlight csharp >}}
 
 
 
@@ -66,6 +66,6 @@ if ($app) {
 
 
 
-```
+{{< /highlight >}}
 
 For more information about Reporting Service cmdlets for SharePoint, read [this Microsoft article](http://technet.microsoft.com/en-us/library/gg492249?ppud=4) where you can find additional info about Reporting Service **cmdlets** for Sharepoint.

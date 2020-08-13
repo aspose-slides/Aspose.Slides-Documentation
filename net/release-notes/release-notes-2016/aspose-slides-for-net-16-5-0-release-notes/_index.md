@@ -77,7 +77,7 @@ This property represents the picture used as a bullet in the paragraph.
 
 Code snippet:
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -139,7 +139,7 @@ Code snippet:
 
 }
 
-```
+{{< /highlight >}}
 #### **Property ShowHiddenSlides has been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions and IXpsOption interfaces and correspondent classes**
 Property ShowHiddenSlides has been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions, IXpsOption interfaces and HtmlOptions, PdfOption, SwfOptions, TiffOptions, XpsOption classes.
 
@@ -147,7 +147,7 @@ This property specifies whether the exported document should include hidden slid
 
 Code example:
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation("Presentation.pptx"))
 
@@ -167,4 +167,4 @@ Code example:
 
 }
 
-```
+{{< /highlight >}}

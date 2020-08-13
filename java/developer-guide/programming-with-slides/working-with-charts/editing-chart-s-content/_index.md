@@ -161,7 +161,7 @@ Aspose.Slides for Java provides support for changing series color. 
 1. Set fill type and fill color.
 1. Save modified presentation.
 
- Below sample example is given. 
+` `Below sample example is given. 
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SupportForChangingSeriesColor-SupportForChangingSeriesColor.java" >}}
 ## **Setting chart area rounded borders**
@@ -173,7 +173,7 @@ Aspose.Slides for Java provides support for setting chart area. **IChart.HasRou
 1. Set round corner property True.
 1. Save modified presentation.
 
- Below sample example is given. 
+` `Below sample example is given. 
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SupportForChartAreaRoundedBorders-SupportForChartAreaRoundedBorders.java" >}}
 ## **Change color of categories in series**
@@ -197,7 +197,7 @@ Aspose.Slides for Java provides support for changing color of categories in a se
 1. Set font height.
 1. Save modified presentation.
 
- Below sample example is given. 
+` `Below sample example is given. 
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingFontPropertiesForTable-SettingFontPropertiesForTable.java" >}}
 ## **Setting Callout For Doughnut chart**
@@ -205,14 +205,14 @@ Aspose.Slides for Java provides support for setting series data label callout s
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-AddDoughnutCallout-AddDoughnutCallout.java" >}}
 ## **Set Font Properties for Chart**
- Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart. 
+` `Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart. 
 
 - Instantiate Presentation class object.
 - Add chart on the slide.
 - Set font height.
 - Save modified presentation.
 
- Below sample example is given.
+` `Below sample example is given.
 
 
 

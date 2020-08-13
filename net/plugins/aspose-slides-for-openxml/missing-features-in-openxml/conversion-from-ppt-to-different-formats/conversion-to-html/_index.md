@@ -7,7 +7,7 @@ url: /net/conversion-to-html/
 
 **HTML** is one of several widely used format for exchanging data. **Aspose.Slides for .NET** provides support for converting a presentation to HTML. Below is code snippet that shows you how.
 
-```
+{{< highlight csharp >}}
 
  string FilePath = @"..\..\..\Sample Files\";
 
@@ -27,7 +27,7 @@ htmlOpt.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter("", false);
 
 pres.Save(destFileName, Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

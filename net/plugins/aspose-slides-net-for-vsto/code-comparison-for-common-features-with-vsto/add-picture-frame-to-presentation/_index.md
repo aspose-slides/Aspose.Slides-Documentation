@@ -8,7 +8,7 @@ url: /net/add-picture-frame-to-presentation/
 ### **VSTO**
 Below is the code for adding picture in VSTO presentation:
 
-```
+{{< highlight csharp >}}
 
   string ImageFilePath="AddPicture.jpg";
 
@@ -18,7 +18,7 @@ Below is the code for adding picture in VSTO presentation:
 
  Microsoft.Office.Core.MsoTriState.msoCTrue, 0, 0);
 
-```
+{{< /highlight >}}
 ### **Aspose.Slides**
 To add a simple picture frame to your slide, please follow the steps below:
 
@@ -32,7 +32,7 @@ To add a simple picture frame to your slide, please follow the steps below:
 
 The above steps are implemented in the example given below.
 
-```
+{{< highlight csharp >}}
 
    string ImageFilePath = "AddPicture.jpg";
 
@@ -54,7 +54,7 @@ The above steps are implemented in the example given below.
 
   sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
-```
+{{< /highlight >}}
 ### **Download Running Code**
 - [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)

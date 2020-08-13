@@ -66,7 +66,7 @@ SLIDESNET-35404 - Aspose.Slides failed to load chart series fill if it is Automa
 
 SLIDESNET-34585 - Border for merged table cells is improperly applied
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
  Public API Changes
 
@@ -501,4 +501,4 @@ pres.Save(outFileName, SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}

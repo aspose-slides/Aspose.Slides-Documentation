@@ -14,7 +14,7 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 #### **Methods getDoughnutHoleSize(), setDoughnutHoleSize(byte) have been added to IChartSeries and ChartSeries**
 Specifies the size of the hole in a doughnut chart.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -24,4 +24,4 @@ chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90)
 
 pres.save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
-```
+{{< /highlight >}}

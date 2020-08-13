@@ -20,7 +20,7 @@ In Aspose.Slides for C++ version 18.5 support for setting SmartArtShape X and Y 
 
 The code snippet below shows how to set custom SmartArtShape position, size and rotation (please note that adding new nodes causes a recalculation of the positions and sizes of all nodes):
 
-```
+{{< highlight java >}}
 
  {
 
@@ -82,4 +82,4 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-```
+{{< /highlight >}}

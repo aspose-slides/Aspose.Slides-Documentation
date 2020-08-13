@@ -37,7 +37,7 @@ The code snippet below shows how to add a clone of the slide with some text to t
 
 
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation();
 
@@ -82,7 +82,7 @@ finally {
 }
 
 
-```
+{{< /highlight >}}
 
 
 #### **New TransitionMorphType enum has been added ANDROID**
@@ -98,7 +98,7 @@ The code snippet below shows how to set morph transition to slide and change mor
 
 
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation("presentation.pptx");
 
@@ -123,4 +123,4 @@ finally
 }
 
 
-```
+{{< /highlight >}}

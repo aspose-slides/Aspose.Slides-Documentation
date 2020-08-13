@@ -29,7 +29,7 @@ These methods allow to get or set the source of hyperlink color, which could be 
 
 The code snippet below shows a sample of adding two hyperlinks with different colors to the same slide:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -57,7 +57,7 @@ The code snippet below shows a sample of adding two hyperlinks with different co
 
 }
 
-```
+{{< /highlight >}}
 #### **get_ResourceLoadingCallback() and set_ResourceLoadingCallback() methods have been added to ILoadOptions class**
 New get_ResourceLoadingCallback() and set_ResourceLoadingCallback() methods have been added to ILoadOptions and LoadOptions classes.
 
@@ -65,7 +65,7 @@ This property represents the callback interface which manages external resources
 #### **get_SvgResponsiveLayout() and set_SvgResponsiveLayout() methods have been added to IHtmlOptions class**
 New get_SvgResponsiveLayout() and set_SvgResponsiveLayout() methods have been added to IHtmlOptions and HtmlOptions classes.
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -87,13 +87,13 @@ virtual bool get_SvgResponsiveLayout();
 
 virtual void set_SvgResponsiveLayout(bool value);
 
-```
+{{< /highlight >}}
 
 
 
 Code sample below shows how to export presentation to HTML with responsive layout:
 
-```
+{{< highlight java >}}
 
  System::SharedPtr < Presentation > presentation = System::MakeObject < Presentation > (u "SomePresentation.pptx");
 
@@ -103,7 +103,7 @@ saveOptions - > set_SvgResponsiveLayout(true);
 
 presentation - > Save(u "SomePresentation-out.html", Aspose::Slides::Export::SaveFormat::Html, saveOptions);
 
-```
+{{< /highlight >}}
 
 
 
@@ -111,7 +111,7 @@ presentation - > Save(u "SomePresentation-out.html", Aspose::Slides::Export::Sav
 
 But if you have your own HtmlFormatter and you want responsive HTML output to be IE-compatible, you need to embed the following CSS into the styles used in your custom HtmlFormatter:
 
-```
+{{< highlight java >}}
 
  svg {
 
@@ -133,7 +133,7 @@ But if you have your own HtmlFormatter and you want responsive HTML output to be
 
 }
 
-```
+{{< /highlight >}}
 
 
 
@@ -147,7 +147,7 @@ New HighlightRegex method has been added to ITextFrame and TextFrame classes.
 
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -163,13 +163,13 @@ It allows to highlight text part with background color using regex, similar to T
 
 virtual void HighlightRegex(System::String regex, System::Drawing::Color highlightColor, System::SharedPtr < ITextHighlightingOptions > options);
 
-```
+{{< /highlight >}}
 
 
 
 The code snippet below shows how to use this feature:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -185,7 +185,7 @@ The code snippet below shows how to use this feature:
 
 }
 
-```
+{{< /highlight >}}
 
 
 #### **HighlightText() method has been added to ITextFrame class**
@@ -193,7 +193,7 @@ New HighlightText method has been added to ITextFrame and TextFrame classes.
 
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -221,13 +221,13 @@ virtual void HighlightText(System::String text, System::Drawing::Color highlight
 
 virtual void HighlightText(System::String text, System::Drawing::Color highlightColor, System::SharedPtr < ITextHighlightingOptions > options);
 
-```
+{{< /highlight >}}
 
 
 
 The code snippet below shows how to use this feature:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -249,7 +249,7 @@ The code snippet below shows how to use this feature:
 
 }
 
-```
+{{< /highlight >}}
 
 
 #### **Hyperlink class changed to be mutable**
@@ -263,7 +263,7 @@ Hyperlink::set_StopSoundOnClick()
 
 The code snippet below shows adding a hyperlink to the slide and editing its tooltip later:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -283,7 +283,7 @@ The code snippet below shows adding a hyperlink to the slide and editing its too
 
 }
 
-```
+{{< /highlight >}}
 
 
 #### **ITextHighlightingOptions and TextHighlightingOptions classes have been added**
@@ -291,7 +291,7 @@ Aspose::Slides::ITextHighlightingOptions and Aspose::Slides::TextHighlightingOpt
 
 There are 2 available options to specify:
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -333,7 +333,7 @@ virtual bool get_WholeWordsOnly();
 
 virtual void set_WholeWordsOnly(bool value);
 
-```
+{{< /highlight >}}
 
 
 #### **New HyperlinkColorSource enum class has been added**
@@ -350,7 +350,7 @@ This class is used to manage external resource loading arguments.
 
 IResourceLoadingArgs class has the folowing methods:
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -394,7 +394,7 @@ virtual void set_Uri(System::String value);
 
 virtual void SetData(System::ArrayPtr < uint8_t > data);
 
-```
+{{< /highlight >}}
 
 
 #### **New IResourceLoadingCallback class has been added**
@@ -402,7 +402,7 @@ New IResourceLoadingCallback class has been added.
 
 This callback interface is used to manage external resources loading and has one method:
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -416,13 +416,13 @@ This callback interface is used to manage external resources loading and has one
 
 virtual ResourceLoadingAction ResourceLoading(System::SharedPtr < IResourceLoadingArgs > args);
 
-```
+{{< /highlight >}}
 
 
 
 The code snippet below shows how to use IResourceLoadingCallback class:
 
-```
+{{< highlight java >}}
 
  ResourceLoadingAction ImageLoadingHandler::ResourceLoading(System::SharedPtr < IResourceLoadingArgs > args) {
 
@@ -458,7 +458,7 @@ The code snippet below shows how to use IResourceLoadingCallback class:
 
 }
 
-```
+{{< /highlight >}}
 
 
 #### **New ResourceLoadingAction enum class has been added**

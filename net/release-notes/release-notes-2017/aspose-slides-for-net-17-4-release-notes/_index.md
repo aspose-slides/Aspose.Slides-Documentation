@@ -54,7 +54,7 @@ float ActualHeight - Gets actual height of the chart element. Call method IChart
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these properties.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -74,4 +74,4 @@ double h = chart.ChartData.Series[0].Labels[0].ActualHeight;
 
 }
 
-```
+{{< /highlight >}}

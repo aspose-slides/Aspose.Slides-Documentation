@@ -20,7 +20,7 @@ See examples here: <http://www.aspose.com/docs/display/slidesnet/Managing+Paragr
 #### **Method IConnector.Reroute has been added**
 Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the Reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 
-```
+{{< highlight java >}}
 
  using(Presentation input = new Presentation())
 
@@ -44,11 +44,11 @@ Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the s
 
 }
 
-```
+{{< /highlight >}}
 #### **Method IPresentation.GetSlideById has been added**
 Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
-```
+{{< highlight java >}}
 
  using (Presentation presentation = new Presentation())
 
@@ -62,11 +62,11 @@ Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, 
 
 }
 
-```
+{{< /highlight >}}
 #### **Property IShape.ConnectionSiteCount has been added**
 Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connection sites on the shape.
 
-```
+{{< highlight java >}}
 
  using(Presentation input = new Presentation())
 
@@ -98,11 +98,11 @@ Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connecti
 
 }
 
-```
+{{< /highlight >}}
 #### **Property ISmartArt.IsReversed has been added**
 Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -116,11 +116,11 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the stat
 
 }
 
-```
+{{< /highlight >}}
 #### **Property ISmartArt.Nodes has been added**
 Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes in SmartArt object.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -136,11 +136,11 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes
 
 }
 
-```
+{{< /highlight >}}
 #### **Property ISmartArtNode.IsHidden has been added**
 Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node is a hidden node in the data model.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -164,11 +164,11 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node
 
 }
 
-```
+{{< /highlight >}}
 #### **Property ISmartArtNode.OrganizationChartLayout has been added**
 Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get or sets organization chart type associated with current node.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -182,11 +182,11 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get
 
 }
 
-```
+{{< /highlight >}}
 #### **Set method for property ISmartArt.Layout has been added**
 The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been added.It allows change layout type of an existing diagram.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -200,7 +200,7 @@ The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been add
 
 }
 
-```
+{{< /highlight >}}
 #### **Minor API changes**
 **This is the list of minor API changes:**
 

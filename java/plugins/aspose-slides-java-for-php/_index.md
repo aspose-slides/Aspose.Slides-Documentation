@@ -182,25 +182,25 @@ $ git clone [https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master
 ### **How to configure the source code on Windows Platform**
 Please follow below simple steps to configure PHP/Java Bridge on Windows Platform
 
-\1. Install PHP5 and configure as you normally do
-\2. Install JRE 6 (Java Runtime Environment) if you don’t already have it. You can check this in C:\Program Files etc. You can download it here . I am using JRE 6 as It is compatible with PHP Java Bridge (PJB).
+1. Install PHP5 and configure as you normally do
+2. Install JRE 6 (Java Runtime Environment) if you don’t already have it. You can check this in C:\Program Files etc. You can download it here . I am using JRE 6 as It is compatible with PHP Java Bridge (PJB).
 
-\3. Install Apache Tomcat 8.0. You can download it here
+3. Install Apache Tomcat 8.0. You can download it here
 
 4.Download [JavaBridge.war](http://sourceforge.net/projects/php-java-bridge/files/Binary%20package/php-java-bridge_6.2.1/JavaBridgeTemplate621.war/download). Copy this file to tomcat webapps directory.
 (ex: C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps )
 
-\5. Restart tomcat apache service.
+5. Restart tomcat apache service.
 
 6.Go to <http://localhost:8080/JavaBridge/test.php> to check if php works. You can find other examples in there
 
 7.Copy your [Aspose.Slides Java](http://www.aspose.com/community/files/72/java-components/aspose.slides-for-java/default.aspx) jar file to C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\JavaBridge\WEB-INF\lib
 
-\8. Clone [Aspose.Slides Java for PHP](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_for_PHP) examples inside C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\ folder.
+8. Clone [Aspose.Slides Java for PHP](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_for_PHP) examples inside C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\ folder.
 
-\8. Copy folder C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\JavaBridge\java to your Aspose.Slides Java for PHP examples folder.
+8. Copy folder C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\JavaBridge\java to your Aspose.Slides Java for PHP examples folder.
 
-\10. Restart apache tomcat service and start using examples. 
+10. Restart apache tomcat service and start using examples. 
 ## **Support, Extend and Contribute**
 ### **Support**
 From the very first days of Aspose, we knew that just giving our customers good products would not be enough. We also needed to deliver good service. We are developers ourselves and understand how frustrating it is when a technical issue or a quirk in the software stops you from doing what you need to do. We're here to solve problems, not create them.

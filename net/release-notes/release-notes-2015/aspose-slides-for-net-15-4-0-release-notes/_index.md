@@ -107,7 +107,7 @@ SLIDESNET-12585 - Unsupported Brush Type Exception on PPTX to PDF
 
 SLIDESNET-3681 - Accessing objects on the notes page view
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
  Public API Changes
 
@@ -267,4 +267,4 @@ pres.Save("out.pptx", Export.SaveFormat.Pptx);
 
 Minor API changes
 
-```
+{{< /highlight >}}

@@ -133,7 +133,7 @@ SLIDESNET-17213 - Word art styles does not rendered in generated PDF
 
 SLIDESNET-36116 - Add Hyperlink to some part of text in an existing portion in PPTX file
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
  Public API Changes
 
@@ -170,4 +170,4 @@ chart.ChartData.Series[i].GetAutomaticSeriesColor();
 
 }
 
-```
+{{< /highlight >}}

@@ -39,7 +39,7 @@ The code snippet below shows a sample of adding some comments and some replies t
 
 
 
-```
+{{< highlight java >}}
 
  {
 
@@ -132,7 +132,7 @@ The code snippet below shows a sample of adding some comments and some replies t
 
 
 
-```
+{{< /highlight >}}
 
 
 #### **get_SubstitutePictureTitle() and set_SubstitutePictureTitle() methods have been added to IOleObjectFrame class**
@@ -140,7 +140,7 @@ New **get_SubstitutePictureTitle()** and **set_SubstitutePictureTitle()** method
 
 
 
-```
+{{< highlight java >}}
 
  /// <summary>
 
@@ -179,13 +179,13 @@ ASPOSE_SLIDES_SHARED_API System::String get_SubstitutePictureTitle();
 ASPOSE_SLIDES_SHARED_API void set_SubstitutePictureTitle(System::String value);
 
 
-```
+{{< /highlight >}}
 
 
 
 The code snippet below shows a sample of creating Excel object and setting its caption:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -240,7 +240,7 @@ The code snippet below shows a sample of creating Excel object and setting its c
 
 
 
-```
+{{< /highlight >}}
 
 
 
@@ -271,7 +271,7 @@ Specifies the sizing of the slide region (width when a child of RestoredTop, hei
 
 
 
-```
+{{< highlight java >}}
 
  {
 
@@ -298,7 +298,7 @@ Specifies the sizing of the slide region (width when a child of RestoredTop, hei
 }
 
 
-```
+{{< /highlight >}}
 
 
 #### **Support for converting SVG images into a group of shapes has been added**
@@ -308,7 +308,7 @@ New **ISvgImage** and **SvgImage** classes have been added.
 
 New **AddImage()** method has been added to **IImageCollection** and **ImageCollection** classes. This method provides the ability to insert Svg fragment into a image collection.
 
-```
+{{< highlight java >}}
 
  {
 
@@ -327,9 +327,9 @@ New **AddImage()** method has been added to **IImageCollection** and **ImageColl
 }
 
 
-```
+{{< /highlight >}}
 
-```
+{{< highlight java >}}
 
  {
 
@@ -350,7 +350,7 @@ New **AddImage()** method has been added to **IImageCollection** and **ImageColl
 
 
 
-```
+{{< /highlight >}}
 
 **Pay attention** that methods IPPImage::AddFromSvg(System::String) and IPPImage::AddFromSvg(System::String, System::SharedPtr<Import::IExternalResourceResolver>, System::String) are marked as obsolete and will be deleted from API since version 19.10.
 
@@ -358,7 +358,7 @@ New **get_SvgImage()** and **set_SvgImage()** methods have been added to **IPPIm
 
 New **AddGroupShape()** method has been added to **IShapeCollection** and **ShapeCollection** classes. This method allows to convert SvgImage object that represents SVG data into a group of shapes.
 
-```
+{{< highlight java >}}
 
  {
 
@@ -387,7 +387,7 @@ New **AddGroupShape()** method has been added to **IShapeCollection** and **Shap
 }
 
 
-```
+{{< /highlight >}}
 
 
 #### **Support for the representation of bubble size values has been added**
@@ -399,7 +399,7 @@ New **get_BubbleSizeRepresentation()** and **set_BubbleSizeRepresentation()** me
 
 **BubbleSizeRepresentationType** enum class has been added to specify the possible ways to represent data as bubble chart sizes.
 
-```
+{{< highlight java >}}
 
  {
 
@@ -422,4 +422,4 @@ New **get_BubbleSizeRepresentation()** and **set_BubbleSizeRepresentation()** me
 
 
 
-```
+{{< /highlight >}}

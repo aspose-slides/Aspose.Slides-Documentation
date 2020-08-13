@@ -74,7 +74,7 @@ url: /java/aspose-slides-for-java-16-5-0-release-notes/
 This method represents the picture used as a bullet in the paragraph.
 Code snippet:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -152,13 +152,13 @@ finally
 
 }
 
-```
+{{< /highlight >}}
 #### **getShowHiddenSlides(), setShowHiddenSlides() methods have been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions and IXpsOption interfaces and correspondent classes**
 Methods getShowHiddenSlides() and setShowHiddenSlides() have been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions, IXpsOption interfaces and HtmlOptions, PdfOption, SwfOptions, TiffOptions, XpsOption classes.
 These methods specifies whether the exported document should include hidden slides or not. Default value is "false".
 Code example:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("Presentation.pptx");
 
@@ -188,4 +188,4 @@ finally
 
 }
 
-```
+{{< /highlight >}}

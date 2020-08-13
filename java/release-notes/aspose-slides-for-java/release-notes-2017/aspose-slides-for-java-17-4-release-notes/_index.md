@@ -30,7 +30,7 @@ float getActualHeight() - Gets actual height of the chart element. Call method I
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these methods.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -54,4 +54,4 @@ if (pres != null) pres.dispose();
 
 }
 
-```
+{{< /highlight >}}

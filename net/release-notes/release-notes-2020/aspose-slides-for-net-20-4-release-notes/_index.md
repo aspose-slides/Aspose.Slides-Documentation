@@ -55,29 +55,29 @@ This value represents Flat XML ODF Presentation.
 
 The code snippet below demonstrates loading and saving presentation in Fodp format.
 
-```
+{{< highlight csharp >}}
 // load Fodp presentation
 using (Presentation presentation = new Presentation("SourcePresenation.fodp"))
 {
 }
-```
+{{< /highlight >}}
 
-```
+{{< highlight csharp >}}
 // save presentation to Fodp format
 using (Presentation presentation = new Presentation("SourcePresentation.pptx"))
 {
       presentation.Save("TargetPresenation.fodp", SaveFormat.Fodp);
 }
-```
+{{< /highlight >}}
 
-```
+{{< highlight csharp >}}
 // get presentation properties
 IPresentationInfo presInfo = PresentationFactory.Instance.GetPresentationInfo("pres.fodp");
 if(presInfo.LoadFormat == Aspose.Slides.LoadFormat.Fodp)
 {
       IDocumentProperties docProperties = presInfo.ReadDocumentProperties();
 }
-```
+{{< /highlight >}}
 
 ### **IProtectionManager.ReadOnlyRecommended property has been added**
 A new property **ReadOnlyRecommended** has been added to **IProtectionManager** interface and **ProtectionManager** class.
@@ -87,24 +87,24 @@ It allows to get or set read-only recommendation for presentation. This feature 
 Property declaration:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Gets or sets read-only recommendation.
 /// Read/write <see cref="bool"/>.
 /// </summary>
 bool ReadOnlyRecommended { get; set; }
-```
+{{< /highlight >}}
 
 The code snippet below demonstrates enabling this option:
 
 
-```
+{{< highlight csharp >}}
 using (Presentation pres = new Presentation())
 {
       pres.ProtectionManager.ReadOnlyRecommended = true;
       pres.Save("ReadOnlyPresentation.pptx", SaveFormat.Pptx);
 }
-```
+{{< /highlight >}}
 
 ### **Mathematical text classes, enums and interfaces have been added**
 Now it is possible to work with mathematical equations via new mathematical text classes, enums, and interfaces. You can create new expressions or extract previously created ones from the presentation.
@@ -114,7 +114,7 @@ Please see the detailed description and usage examples here: [PowerPoint Math Eq
 Below is an example of using these new API to create the Pythagorean theorem:
 
 
-```
+{{< highlight csharp >}}
 using(Presentation pres = new Presentation())
 {
     IAutoShape mathShape = pres.Slides[0].Shapes.AddMathShape(10, 10, 100, 25);
@@ -133,25 +133,25 @@ using(Presentation pres = new Presentation())
 
         pres.Save("Pythagorean.pptx", SaveFormat.Pptx); ;
 }
-```
+{{< /highlight >}}
 
 
 
 The **AddMathShape** method has been added to the **IShapeCollection** interface and the **ShapeCollection** class:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Creates a new AutoShape of the type Rectangle to host mathematical content inside and adds it to the end of the collection.
 /// </summary>
 IAutoShape AddMathShape(float x, float y, float width, float height);
-```
+{{< /highlight >}}
 
 
 The **IMathPortion** interface with the **MathPortion** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Represents a portion with mathematical context inside.
 /// </summary>
@@ -162,13 +162,13 @@ public interface IMathPortion
       /// </summary>
       IMathParagraph MathParagraph { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathParagraph** interface with the **MathParagraph** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Mathematical paragraph that is a container for mathematical blocks (IMathBlock)
 /// </summary>
@@ -180,13 +180,13 @@ public interface IMathParagraph : IMathBlockCollection
       /// </summary>
       MathJustification Justification { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathBlock** interface with the **MathBlock** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies an instance of mathematical text that contained within a MathParagraph and starts on its own line.
 /// All math zones, including equations, expressions, arrays of equations or expressions, and formulas are represented by math block.
@@ -209,7 +209,7 @@ public interface IMathBlock : IMathElementCollection, IMathElement
       /// </summary>
       IMathBlock JoinBlock(IMathBlock other);
 }
-```
+{{< /highlight >}}
 
 
 The **IMathElement** interface has been added. This interface is implemented in all classes of different mathematical elements:
@@ -219,7 +219,7 @@ MathRadical, MathLimit, MathArray, MathAccent, MathBar, MathLeftSubSuperscri
 MathRightSubSuperscriptElement, MathBox, MathFraction, MathFunction, MathSuperscriptElement , MathBorderBox.
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Base interface of any mathematical element:
 /// fraction, mathmatical text, function, expression with multiple elements etc
@@ -454,13 +454,13 @@ public interface IMathElement
       /// </summary>
       IMathBox ToBox();
 }
-```
+{{< /highlight >}}
 
 
 The **IMathAccent** interface with the **MathAccent** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the accent function, consisting of a base and a combining diacritical mark
 /// Example accent functions: 𝑎́
@@ -479,13 +479,13 @@ public interface IMathAccent : IMathElement
       /// </summary>
       char Character { get;  set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathArray** interface with the **MathArray** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies vertical array of equations or any mathematical objects
 /// </summary>
@@ -528,13 +528,13 @@ public interface IMathArray : IMathElement
       /// </summary>
       uint RowSpacing { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathBar** interface with the **MathBar** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// This element specifies the bar function, consisting of a base argument and an overbar or underbar
 /// </summary>
@@ -551,13 +551,13 @@ public interface IMathBar : IMathElement
       /// </summary>
       MathTopBotPositions Position { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathBorderBox** interface with the **MathBorderBox** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the Border Box object, consisting of a border drawn around an instance of mathematical
 /// text(such as a formula or equation). The default behavior of borderBox is a rectangular border.
@@ -611,13 +611,13 @@ public interface IMathBorderBox : IMathElement
       /// </summary>
       bool StrikethroughTopLeftToBottomRight { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathBox** interface with the **IMathBox** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the box object, which is used to group components of an equation or other instance of mathematical text.
 /// A boxed object can (for example) serve as an operator emulator with or without an alignment point,
@@ -674,13 +674,13 @@ public interface IMathBox : IMathElement
       byte ExplicitBreak { get; set; }
 
 }
-```
+{{< /highlight >}}
 
 
 The **IMathDelimiter** interface with the **MathDelimiter** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the delimiter object, consisting of opening and closing delimiters (such as parentheses,
 /// braces, brackets, and vertical bars), and an element contained inside. The delimiter may have more than one
@@ -735,13 +735,13 @@ public interface IMathDelimiter : IMathElement
       /// </summary>
       IMathDelimiter Delimit(char separatorCharacter);
 }
-```
+{{< /highlight >}}
 
 
 The **IMathematicalText** interface with the **MathematicalText** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Mathematical text
 /// </summary>
@@ -757,13 +757,13 @@ public interface IMathematicalText : IMathElement
       /// </summary>
       IPortionFormat Format { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathFraction** interface with the **MathFraction** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the fraction object, consisting of a numerator and denominator separated by a fraction bar.
 /// The fraction bar can be horizontal or diagonal, depending on the fraction properties.
@@ -787,13 +787,13 @@ public interface IMathFraction : IMathElement
       /// </summary>
       IMathElement Denominator { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathFunction** interface with the **MathFunction** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the Function-Apply object, which consists of a function name and an argument element.
 /// </summary>
@@ -810,13 +810,13 @@ public interface IMathFunction : IMathElement
       /// </summary>
       IMathElement Base { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathGroupingCharacter** interface with the **MathGroupingCharacter** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// This element specifies the Group-Character object, consisting of a character drawn above or below text,
 /// often with the purpose of visually grouping items.
@@ -850,13 +850,13 @@ public interface IMathGroupingCharacter : IMathElement
       /// </summary>
       MathTopBotPositions VerticalJustification { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathLeftSubSuperscriptElement** interface with the **MathLeftSubSuperscriptElement** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the Sub-Superscript object, which consists of a base
 /// and a subscript and superscript placed to the left of the base.
@@ -878,13 +878,13 @@ public interface IMathLeftSubSuperscriptElement : IMathElement
       /// </summary>
       IMathElement Superscript { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathLimit** interface with the **MathLimit** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the Limit object, consisting of text on the baseline and reduced-size text immediately above or below it.
 /// </summary>
@@ -905,13 +905,13 @@ public interface IMathLimit : IMathElement
       /// </summary>
       bool UpperLimit { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathMatrix** interface with the **MathMatrix** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the Matrix object, consisting of one or more elements laid out in one or more rows and one or more columns.
 /// It is important to note that matrices do not have built in delimiters. Like other math elements,
@@ -1039,13 +1039,13 @@ public interface IMathMatrix : IMathElement
       void DeleteColumn(int columnIndex);
 
 }
-```
+{{< /highlight >}}
 
 
 The **IMathNaryOperator** interface with the **MathNaryOperator** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies an n-ary object, consisting of an n-ary object, a base (or operand), and optional upper and
 /// lower limits. Examples of n-ary objects are: Summation, Union, Intersection, Integral
@@ -1067,12 +1067,12 @@ public interface IMathNaryOperator : IMathElement, IMathNaryOperatorProperties
       /// </summary>
       IMathElement Superscript { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathNaryOperatorProperties** interface has been added as base interface of the **IMathNaryOperator** which is implemented in the class **MathNaryOperator** :
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies properties of IMathNaryOperator
 /// </summary>
@@ -1104,13 +1104,13 @@ public interface IMathNaryOperatorProperties
       /// </summary>
       bool HideSuperscript { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathRadical** interface with the **MathRadical** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the radical function, consisting of a base, and an optional degree.
 /// Example of radical object is √𝑥.
@@ -1133,13 +1133,13 @@ public interface IMathRadical : IMathElement
       /// </summary>
       bool HideDegree { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathRightSubSuperscriptElement** interface with the **MathRightSubSuperscriptElement** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the Sub-Superscript object, which consists of a base
 /// and a subscript and superscript placed to the right of the base.
@@ -1169,13 +1169,13 @@ public interface IMathRightSubSuperscriptElement : IMathElement
       /// </summary>
       bool AlignScripts { get; set; }
 }
-```
+{{< /highlight >}}
 
 
 The **IMathSubscriptElement** interface with the **MathSubscriptElement** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the subscript object, which consists of a base
 /// and a reduced-size subscript placed below and to the right.
@@ -1192,12 +1192,12 @@ public interface IMathSubscriptElement : IMathElement
       /// </summary>
       IMathElement Subscript { get; }
 }
-```
+{{< /highlight >}}
 
 The **IMathSuperscriptElement** interface with the **MathSuperscriptElement** class have been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies the superscript object, which consists of a base
 /// and a reduced-size superscript placed above and to the right
@@ -1214,13 +1214,13 @@ public interface IMathSuperscriptElement : IMathElement
       /// </summary>
       IMathElement Superscript { get; }
 }
-```
+{{< /highlight >}}
 
 
 The **MathDelimiterShape** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// The location and size of the delimiters relative to the content of the operands
 /// </summary>
@@ -1236,13 +1236,13 @@ public enum MathDelimiterShape
       /// </summary>
       Match
 }
-```
+{{< /highlight >}}
 
 
 The **MathFractionTypes** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Fraction Types
 /// </summary>
@@ -1268,13 +1268,13 @@ public enum MathFractionTypes
       /// </summary>
       NoBar = 4
 }
-```
+{{< /highlight >}}
 
 
 The **MathFunctionsOfOneArgument** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Common mathematical functions of one argument
 /// </summary>
@@ -1410,13 +1410,13 @@ public enum MathFunctionsOfOneArgument
       /// </summary>
       HyperbolicArcCot
 }
-```
+{{< /highlight >}}
 
 
 The **MathFunctionsOfTwoArguments** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Common mathematical functions of two arguments
 /// </summary>
@@ -1442,13 +1442,13 @@ public enum MathFunctionsOfTwoArguments
       /// </summary>
       Max
 }
-```
+{{< /highlight >}}
 
 
 The **MathHorizontalAlignment** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Horizontal Alignment
 /// </summary>
@@ -1474,13 +1474,13 @@ public enum MathHorizontalAlignment
       /// </summary>
       Right = 3
 }
-```
+{{< /highlight >}}
 
 
 The **MathIntegralTypes** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Mathematical integral types
 /// </summary>
@@ -1516,13 +1516,13 @@ public enum MathIntegralTypes
       /// </summary>
       Volume
 }
-```
+{{< /highlight >}}
 
 
 The **MathJustification** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Specifies justification of the math paragraph (a series of adjacent instances of mathematical text within the same paragraph)
 /// </summary>
@@ -1550,13 +1550,13 @@ public enum MathJustification
       /// </summary>
       CenteredAsGroup = 4
 }
-```
+{{< /highlight >}}
 
 
 The **MathLimitLocations** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Location of limits (subscript\superscript) in n-ary operators.
 /// </summary>
@@ -1577,12 +1577,12 @@ public enum MathLimitLocations
       /// </summary>
       SubscriptSuperscript = 2
 }
-```
+{{< /highlight >}}
 
 The **MathNaryOperatorTypes** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Nary operator IMathNaryOperator types (excluding integrals)
 /// For integrals <see cref="MathIntegralTypes"/>
@@ -1624,13 +1624,13 @@ public enum MathNaryOperatorTypes
       /// </summary>
       LogicalOr
 }
-```
+{{< /highlight >}}
 
 
 The **MathRowSpacingRule** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// The type of vertical spacing between columns in a matrix or array
 /// </summary>
@@ -1661,13 +1661,13 @@ public enum MathRowSpacingRule
       /// </summary>
       Multiple = 4
 }
-```
+{{< /highlight >}}
 
 
 The **MathSpacingRules** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Types of gap (horizontal spacing) between columns of a matrix
 /// </summary>
@@ -1702,13 +1702,13 @@ public enum MathSpacingRules
       /// </summary>
       Multiple = 4
 }
-```
+{{< /highlight >}}
 
 
 The **MathTopBotPositions** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Top\bottom positions enumeration
 /// </summary>
@@ -1729,13 +1729,13 @@ public enum MathTopBotPositions
       /// </summary>
       Bottom
 }
-```
+{{< /highlight >}}
 
 
 The **MathVerticalAlignment** enum has been added:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Vertical Alignment
 /// </summary>
@@ -1761,7 +1761,7 @@ public enum MathVerticalAlignment
       /// </summary>
       Bottom = 3
 }
-```
+{{< /highlight >}}
 
 ### **PDF/A-1a and PDF/UA conformance options have been added to PdfCompliance enumeration**
 New options **PdfA1a** and **PdfUa** have been added to **PdfCompliance** enum. These options allow exporting presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
@@ -1769,18 +1769,18 @@ New options **PdfA1a** and **PdfUa** have been added to **PdfCompliance** enu
 The code snippet below demonstrates saving presentation to a PDF/A-1a compliant document.
 
 
-```
+{{< highlight csharp >}}
 using (Presentation presentation = new Presentation("my_presentation.pptx"))
 {
       var options = new PdfOptions { Compliance = PdfCompliance.PdfA1a };
       presentation.Save("my_presentation.pdf", SaveFormat.Pdf, options);
 }
-```
+{{< /highlight >}}
 
 ### **R1C1Formula and Formula properties for ChartDataCell have been added**
 New properties **R1C1Formula** and **Formula** have been added to **ChartDataCell** class and **IChartDataCell** interface. These properties provide a way to set a formula value for the chart data cell.
 
-```
+{{< highlight csharp >}}
 using (Presentation presentation = new Presentation())
 {
       IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
@@ -1791,7 +1791,7 @@ using (Presentation presentation = new Presentation())
       IChartDataCell cell2 = workbook.GetCell(0, "C2");
       cell2.R1C1Formula = "MAX(R2C6:R5C8) / 3";
 }
-```
+{{< /highlight >}}
 
 ### **Spreadsheet options for formulas calculation**
 Calculated data of a spreadsheet can depend on many different parameters. To allow editing them the Aspose.Slides.**SpreadsheetOptions** class has been added. It implements the **ISpreadsheetOptions** that intended to get and set spreadsheet parameters for formulas calculation.
@@ -1799,7 +1799,7 @@ Calculated data of a spreadsheet can depend on many different parameters. To all
 **ISpreadsheetOptions** interface declaration:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 /// Represents options for spreadsheets. For example, these options affect calculating formulas for charts.
 /// </summary>
@@ -1811,21 +1811,21 @@ public interface ISpreadsheetOptions
       /// </summary>
       CultureInfo PreferredCulture { get; set; }
 }
-```
+{{< /highlight >}}
 The **SpreadsheetOptions** property has been added to the **ILoadOptions** interface and **LoadOptions** class:
 
 
-```
+{{< highlight csharp >}}
 /// <summary>
 ///Gets options for spreadsheets. For example, these options affect calculating formulas for charts.
 /// </summary>
 ISpreadsheetOptions SpreadsheetOptions { get; set; }
-```
+{{< /highlight >}}
 
 **Example**
 The example below demonstrates how to use the spreadsheet options for the chart formulas:
 
-```
+{{< highlight csharp >}}
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.SpreadsheetOptions.PreferredCulture = new System.Globalization.CultureInfo("ja-JP");
 
@@ -1838,5 +1838,5 @@ using (Presentation presentation = new Presentation(loadOptions))
       cell.Formula = "FINDB(\"ス\", \"テキスト\")";
       var value1 = cell.Value; // 5
 }
-```
+{{< /highlight >}}
 

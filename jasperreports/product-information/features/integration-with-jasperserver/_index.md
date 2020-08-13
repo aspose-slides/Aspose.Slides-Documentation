@@ -13,7 +13,7 @@ To integrate Aspose.Slides for JasperReports with JasperServer, it is necessary 
 
 1. Add new exporter properties to the **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** config file.
 
-```
+{{< highlight csharp >}}
 
  <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
 
@@ -47,12 +47,12 @@ To integrate Aspose.Slides for JasperReports with JasperServer, it is necessary 
 
 
 
-```
+{{< /highlight >}}
 
 1. Copy **aspose.slides.jasperreports.jar** to **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
 1. To use the font mapping feature, update **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** as below.
 
-```
+{{< highlight csharp >}}
 
  <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
 
@@ -79,4 +79,4 @@ To integrate Aspose.Slides for JasperReports with JasperServer, it is necessary 
 
 
 
-```
+{{< /highlight >}}

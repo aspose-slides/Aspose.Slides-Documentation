@@ -89,7 +89,7 @@ SLIDESNET-34964 - Invalid String exception on accessing presentaiton
 
 SLIDESNET-33701 - Changing the angles in LinearGradientAngle doesn't have an effect
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
 
 
@@ -116,4 +116,4 @@ pres.Save(newPath, SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}

@@ -33,7 +33,7 @@ Find the rendering options listed immediately below and replace them with the co
 ##### **Find Aspose.Slides for Reporting Service Rendering Options**
 **<Render>**
 
-```
+{{< highlight csharp >}}
 
    ...
 
@@ -56,11 +56,11 @@ Find the rendering options listed immediately below and replace them with the co
 
 
 
-```
+{{< /highlight >}}
 ##### **Replacement Code**
 **<Render>**
 
-```
+{{< highlight csharp >}}
 
    ...
 
@@ -139,7 +139,7 @@ Find the rendering options listed immediately below and replace them with the co
 
 
 
-```
+{{< /highlight >}}
 #### **Adding Password Protection for Exported Presentations in Visual Studio**
 To apply the changes described here, you need to modify file where the Microsoft Visual Studio Report Designer is installed.
 #### **Step 1. Open the Visual Studio directory.**
@@ -150,7 +150,7 @@ Replace the exisisting Aspose.Slides for Reporting Services rendering extensions
 ##### **Find Aspose.Slides for Reporting Service Rendering Options**
 **<Render>**
 
-```
+{{< highlight csharp >}}
 
    ...
 
@@ -173,11 +173,11 @@ Replace the exisisting Aspose.Slides for Reporting Services rendering extensions
 
 
 
-```
+{{< /highlight >}}
 ##### **Replacement Code**
 **<Render>**
 
-```
+{{< highlight csharp >}}
 
    ...
 
@@ -256,4 +256,4 @@ Replace the exisisting Aspose.Slides for Reporting Services rendering extensions
 
 
 
-```
+{{< /highlight >}}

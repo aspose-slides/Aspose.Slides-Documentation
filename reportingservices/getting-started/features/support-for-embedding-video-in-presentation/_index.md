@@ -13,11 +13,11 @@ Microsoft SQL Server Reporting Services does not have built-in abilities to expo
 
 In order to embed video to slides please put to the report a text box with text: 
 
-```
+{{< highlight java >}}
 
  <asposeObject type="video" url="file://c:\MyVideos\intro.wmv" playMode="Auto" vlume="Loud" cover="file://c:\MyVideos\introCover.jpg"/>
 
-```
+{{< /highlight >}}
 
 
 It works for SQL Server version 2008 and more. The feature is supported only for PPTX export. 

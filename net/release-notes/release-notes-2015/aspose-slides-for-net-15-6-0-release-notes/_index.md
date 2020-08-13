@@ -135,7 +135,7 @@ SLIDESNET-33985 - The master template improperly applied on the presenation afte
 
 SLIDESNET-31346 - Thumbnail Issue
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
 
 
@@ -181,4 +181,4 @@ notes = slide.NotesSlideManager.AddNotesSlide();
 
 slide.NotesSlideManager.RemoveNotesSlide();
 
-```
+{{< /highlight >}}

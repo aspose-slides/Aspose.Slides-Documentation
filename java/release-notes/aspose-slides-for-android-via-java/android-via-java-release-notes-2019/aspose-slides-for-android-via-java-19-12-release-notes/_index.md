@@ -7,7 +7,7 @@ url: /java/aspose-slides-for-android-via-java-19-12-release-notes/
 
 {{% alert color="primary" %}} 
 
- This page contains release notes for Aspose.Slides for Android via Java 19.12
+` `This page contains release notes for Aspose.Slides for Android via Java 19.12
 
 {{% /alert %}} 
 
@@ -27,7 +27,7 @@ Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, w
 
 Let’s start with adding a new Sunburst chart to the presentation:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -45,7 +45,7 @@ try
 
 }
 
-```
+{{< /highlight >}}
 
 Read more about [Creating Sunburst Chart](/slides/java/creating-and-updating-chart-in-a-slide/#creatingandupdatingchartinaslide-creatingsunburstchart).
 
@@ -58,21 +58,21 @@ If there is a need to format data points of the chart, we should use the followi
 ### **Show Data Point value**
 Show value of "Leaf 4" data point:
 
-```
+{{< highlight java >}}
 
  IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
 
 dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
 
-```
+{{< /highlight >}}
 
 
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_2.png)
 ### **Set Data Point label and its color**
- Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
+` `Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
 
-```
+{{< highlight java >}}
 
  IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(2).getLabel();
 
@@ -84,15 +84,15 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 
 branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-```
+{{< /highlight >}}
 
 
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_3.png)
 ### **Set Data Point Branch Color**
- Change color of "Steam 4" branch:
+` `Change color of "Steam 4" branch:
 
-```
+{{< highlight java >}}
 
  IFormat steam4Format = dataPoints.get_Item(9).getDataPointLevels().get_Item(1).getFormat();
 
@@ -100,17 +100,17 @@ steam4Format.getFill().setFillType(FillType.Solid);
 
 steam4Format.getFill().getSolidFillColor().setColor(android.graphics.Color.argb(0, 176, 240, 255));
 
-```
+{{< /highlight >}}
 
 
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_4)
 ### **getAccessPermissions() and setAccessPermissions() methods have been added to IPdfOptions interface and PdfOptions class**
- [**getAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#getAccessPermissions--) and [**setAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions)** **interface and [**PdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfOptions)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfAccessPermissions) class. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
+` `[**getAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#getAccessPermissions--) and [**setAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions)** **interface and [**PdfOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfOptions)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/PdfAccessPermissions) class. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
 ##### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
-```
+{{< highlight java >}}
 
  PdfOptions pdfOptions = new PdfOptions();
 
@@ -130,7 +130,7 @@ try {
 
 }
 
-```
+{{< /highlight >}}
 
 
 ### **ISlideCollection.addClone() method has been added**
@@ -138,7 +138,7 @@ try {
 
 Method declaration:
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -189,7 +189,7 @@ Method declaration:
 public ISlide addClone(ISlide sourceSlide, ISection section);
 
 
-```
+{{< /highlight >}}
 
 
 

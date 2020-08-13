@@ -66,7 +66,7 @@ byte getAutofitType() — Returns text autofit mode.
 
 Code example:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -94,7 +94,7 @@ try{
 
 }
 
-```
+{{< /highlight >}}
 #### **Interface com.aspose.slides.ITextStyleEffectiveData has been added**
 Represents effective values (formatting values with inheritance applied) of text style. It contains the following methods:
 
@@ -103,7 +103,7 @@ IParagraphFormatEffectiveData getDefaultParagraphFormat() — Returns effective 
 
 Code example:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -125,7 +125,7 @@ try{
 
 }
 
-```
+{{< /highlight >}}
 #### **New classes were added, intended to provide the functionality to embed EOT and WOFF fonts into generated HTML document**
 The two new classes were added to provide the functionality to embed WOFF and EOT fonts into generated HTML document:
 
@@ -134,7 +134,7 @@ EmbeddedEotFontsHtmlController
 
 Below is an example of how to use the new EmbeddedWoffFontsHtmlController class to export HTML with embedded WOFF fonts:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -156,13 +156,13 @@ try
 
 }
 
-```
+{{< /highlight >}}
 #### **New interface IResponsiveHtmlController and class ResponsiveHtmlController have been added**
 The new class was added intended to provide the responsive HTML to the generated HTML files: ResponsiveHtmlController.
 
 This controller can be used in the same manner as other HTML controllers:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("pres.pptx");
 
@@ -184,7 +184,7 @@ try
 
 }
 
-```
+{{< /highlight >}}
 #### **New methods have been added to com.aspose.slides.FontsManager**
 The following new methods have been added to IFontsManager interface and FontsManager class:
 
@@ -193,7 +193,7 @@ void removeEmbeddedFont(IFontData fontData) - this method removes the embedded f
 
 There is the sample demonstrates the use case for these new methods:
 
-```
+{{< highlight java >}}
 
  // load the presentation with embedded "FunSized" font in it
 
@@ -245,4 +245,4 @@ try
 
 }
 
-```
+{{< /highlight >}}

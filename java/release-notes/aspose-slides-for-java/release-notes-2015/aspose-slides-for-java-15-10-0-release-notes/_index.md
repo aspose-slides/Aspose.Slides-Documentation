@@ -60,7 +60,7 @@ SLIDESJAVA-34114 - The bullet is improperly rendered in generated slide thumbnai
 
 SLIDESJAVA-17014 - Resizing of embedded charts in PPT causes zooming problem
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
  Public API Changes
 
@@ -534,4 +534,4 @@ if(pres \!= null) pres.dispose();
 
 }
 
-```
+{{< /highlight >}}

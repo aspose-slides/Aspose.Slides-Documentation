@@ -6,7 +6,7 @@ url: /net/add-a-comment-to-a-slide/
 ---
 
 ## **OpenXML Presentation:**
-```
+{{< highlight csharp >}}
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -245,13 +245,13 @@ return slidePart;
 }
 
 
-```
+{{< /highlight >}}
 ## **Aspose.Slides**
 In **Aspose.Slides** for .NET, the PPT slide comment collection is included in every **Slide** class. The **CommentCollection** class is used to hold the particular slide comments. The **Comment** class include information like author who added slide comment, his initials, time of creation, the position of slide comment on slide and the comment text. The **CommentAuthor** class is used to add the authors for slide comments on presentation level. The **Presentation** class holds the collection of authors for presentation in **CommentAuthors** class.
 
 In the following example, we have added the code snippet for adding the slide comments.
 
-```
+{{< highlight csharp >}}
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -285,7 +285,7 @@ using (Presentation pres = new Presentation())
 
 }
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

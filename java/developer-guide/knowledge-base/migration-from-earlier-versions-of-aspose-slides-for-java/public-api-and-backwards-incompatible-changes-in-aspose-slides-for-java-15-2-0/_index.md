@@ -31,7 +31,7 @@ The signature of the IGradientStopCollection method void insert(int index, float
 getAutomaticSeriesColor() method returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.
 ﻿
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -45,7 +45,7 @@ for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
 
 }
 
-```
+{{< /highlight >}}
 #### **Method for removing chart data point and chart category by its index has been added**
 IChartDataPointCollection.removeAt(int index) method has been added for removing chart data point by its index.
 IChartCategoryCollection.removeAt(int index) method has been added for removing chart category by its index.

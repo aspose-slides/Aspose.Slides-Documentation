@@ -8,7 +8,7 @@ url: /net/add-image-in-table-cell/
 ### **VSTO**
 Below is the code for adding image in Table cell:
 
-```
+{{< highlight csharp >}}
 
     //Open Prsentation class that contains the table
 
@@ -39,7 +39,7 @@ Below is the code for adding image in Table cell:
    }
 
 
-```
+{{< /highlight >}}
 ### **Aspose.Slides**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To add image in a table cell while creating a new table, please follow the steps below:
 
@@ -54,7 +54,7 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Add the image to the first cell of the table
 - Save the modified presentation as a PPTX file
 
-```
+{{< highlight csharp >}}
 
    string FileName = "Adding Image in Table Cell.pptx";
 
@@ -97,7 +97,7 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
   MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
 
 
-```
+{{< /highlight >}}
 ### **Download Running Code**
 - [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)

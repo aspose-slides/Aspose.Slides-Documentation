@@ -38,7 +38,7 @@ Now in Aspose.Slides for .NET version 18.5 support for setting SmartArtShape X a
 
 The code snippet below shows how to set custom SmartArtShape position, size and rotation (please note that adding new nodes causes a recalculation of the positions and sizes of all nodes):
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -84,4 +84,4 @@ pres.Save(path + "SmartArt.pptx", SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}

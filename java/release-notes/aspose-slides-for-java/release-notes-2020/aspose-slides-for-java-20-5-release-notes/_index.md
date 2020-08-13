@@ -39,37 +39,29 @@ This page contains release notes for [Aspose.Slides for Java 20.5](https://repos
 
 # **Public API Changes**
 ### **Digital Signature in PowerPoint**
-**Digital certificate** is used to create a password-protected PowerPoint presentation, marked as created by 
-a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - 
-a certificate authority. After installing the digital certificate into the system, it can be used to add a digital 
-signature to the presentation via File -> Info -> Protect Presentation:
+**Digital certificate** is used to create a password-protected PowerPoint presentation, marked as created by a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - a certificate authority. After installing the digital certificate into the system, it can be used to add a digital signature to the presentation via File -> Info -> Protect Presentation:
 
 ![todo:image_alt_text](aspose-slides-for-java-20-5-release-notes_1)
 
 
 
-The presentation may contain more than one digital signatures. After the digital signature is added to the presentation, 
-a special message will appear in the PowerPoint:
+The presentation may contain more than one digital signatures. After the digital signature is added to the presentation, a special message will appear in the PowerPoint:
 
 ![todo:image_alt_text](aspose-slides-for-java-20-5-release-notes_2.png)
 
 
 
-To sign a presentation or check the authenticity of presentation signatures, Aspose.Slides API provides 
-[**IDigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature) interface, 
-[**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) 
-interface and[ ](https://apireference.aspose.com/net/slides/aspose.slides/ipresentation/properties/digitalsignatures)[**IPresentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation)**.[getDigitalSignatures()](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getDigitalSignatures--)** method. Currently, digital signatures are supported for PPTX format only.
+To sign a presentation or check the authenticity of presentation signatures, Aspose.Slides API provides [**IDigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature)** **interface, [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) interface and[ ](https://apireference.aspose.com/net/slides/aspose.slides/ipresentation/properties/digitalsignatures)[**IPresentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation)**.[getDigitalSignatures()](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getDigitalSignatures--)** method. Currently, digital signatures are supported for PPTX format only.
 
 
 ##### **Add Digital Signature from PFX Certificate**
 The code sample below demonstrates how to add a digital signature from a PFX certificate:
 
-1. Open PFX file and pass the PFX password to 
-[**DigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignature) object.
+1. Open PFX file and pass the PFX password to [**DigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignature)** **object.
 
 2. Add a created signature to the presentation object.
 
-```
+{{< highlight java >}}
 
 Presentation pres = new Presentation();
 try {
@@ -87,11 +79,13 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-```
+{{< /highlight >}}
 
 
 Now its possible to check if the presentation was digitally signed and has not been modified:
-```
+
+
+{{< highlight java >}}
 // Open presentation
 Presentation pres = new Presentation("SomePresentationSigned.pptx");
 try {
@@ -117,7 +111,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-```
+{{< /highlight >}}
 -----
 ### **IDigitalSignatureCollection interface and DigitalSignatureCollection class have been added**
 [**DigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignatureCollection) class has been added. It implements [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) interface and represents a collection of digital signatures that were used or will be used to sign the presentation.
@@ -125,7 +119,7 @@ try {
 [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) declaration:
 
 
-```
+{{< highlight java >}}
 /**
   * <p>
   * Represents a collection of digital signatures attached to a document.
@@ -164,19 +158,17 @@ public interface IDigitalSignatureCollection extends IGenericCollection<IDigital
     public void clear();
 }
 
-```
+{{< /highlight >}}
 
 Please see [this note](#DigitalSignature) for code samples.
 
 -----
 ### **IDigitalSignature interface and DigitalSignature class have been added**
-[**DigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignature) 
-class has been added. It implements [**IDigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature) interface and stores the information 
-about digital signature based on certificate used or will be used to sign the presentation.
+[**DigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/DigitalSignature)** **class has been added. It implements [**IDigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature)** **interface and stores the information about digital signature based on certificate used or will be used to sign the presentation.
 
 [**IDigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature) declaration:
 
-```
+{{< highlight java >}}
 
 /**
    * <p>
@@ -220,7 +212,7 @@ public interface IDigitalSignature
     public void setComments(String value);
 }
 
-```
+{{< /highlight >}}
 Please see [this note](#DigitalSignature) for code samples.
 
 -----
@@ -229,7 +221,7 @@ Please see [this note](#DigitalSignature) for code samples.
 
 Method declaration:
 
-```
+{{< highlight java >}}
 
 /**
    * <p>
@@ -239,21 +231,17 @@ Method declaration:
    */
 public final IDigitalSignatureCollection getDigitalSignatures()
 
-```
+{{< /highlight >}}
 Please see [this note](#DigitalSignature) for code samples.
 
 -----
 ### **Check a Write Protection Password via IPresentationInfo interface**
-[**isWriteProtected()** ](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#isWriteProtected--)and 
-[**checkWriteProtection()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-) methods have been added to 
-[**IPresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) interface and [**PresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/PresentationInfo) class. 
-These methods allow checking whether a presentation is protected by a password to modify. The password to restrict modifying is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
+[**isWriteProtected()** ](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#isWriteProtected--)and [**checkWriteProtection()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-)** **methods have been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo)** **interface and [**PresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/PresentationInfo)** **class. These methods allow checking whether a presentation is protected by a password to modify. The password to restrict modifying is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
 
-[**isWriteProtected()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#isWriteProtected--) 
-and [**checkWriteProtection()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-) declarations:
+[**isWriteProtected()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#isWriteProtected--)** **and [**checkWriteProtection()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-)** **declarations:
 
 
-```
+{{< highlight java >}}
 /**
    * <p>
    * Gets a value that indicates whether a binded presentation is write protected.
@@ -279,29 +267,24 @@ public byte isWriteProtected();
    */
 public boolean checkWriteProtection(String password);
 
-```
+{{< /highlight >}}
 ##### **Example**
 The example below demonstrates how to check a password to restrict modifying the presentation:
 
 
-```
+{{< highlight java >}}
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(presentationFilePath);
 boolean isWriteProtectedByPassword = info.isWriteProtected() == NullableBool.True && info.checkWriteProtection("my_password");
-```
+{{< /highlight >}}
 
 -----
 ### **Check a Write Protection Password via IProtectionManager interface**
-[**checkWriteProtection()** ](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#checkWriteProtection-java.lang.String-)method 
-has been added to the [**IProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager) 
-interface and [**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/ProtectionManager) class. 
-This method allows checking whether a presentation is protected by a password from modifying. The password to restrict modifying is 
-intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path 
-using host applications.
+[**checkWriteProtection()** ](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#checkWriteProtection-java.lang.String-)method has been added to the [**IProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager)** **interface and [**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/ProtectionManager)** **class. This method allows checking whether a presentation is protected by a password from modifying. The password to restrict modifying is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
 
 Method declaration:
 
-```
+{{< highlight java >}}
 
 /**
    * <p>
@@ -316,47 +299,44 @@ Method declaration:
    */
 public boolean checkWriteProtection(String password);
 
-```
+{{< /highlight >}}
 ##### **Example**
 The example below demonstrates how to check a password that restricts modifying the presentation:
 
 
-```
+{{< highlight java >}}
 Presentation presentation = new Presentation(presentationFilePath);
 try {
     boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
 } finally {
     if (presentation != null) presentation.dispose();
 }
-```
+{{< /highlight >}}
 -----
 ### **Check Protection to Open Presentation via IPresentationInfo interface**
-[**isPasswordProtected()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#isPasswordProtected--) 
-method has been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) 
-interface and [**PresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/PresentationInfo) class. 
-This property allows checking whether a presentation is protected from opening. The presentation has an open protection when the password is set to the document.
+[**isPasswordProtected()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#isPasswordProtected--)** **method has been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) interface and [**PresentationInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/PresentationInfo)** **class. This property allows checking whether a presentation is protected from opening. The presentation has an open protection when the password is set to the document.
 
 Method declaration:
 
 
-```
+{{< highlight java >}}
 /**
    * <p>
    * Gets a value that indicates whether a binded presentation is protected by a password to open.
    * </p>
    */
 public boolean isPasswordProtected();
-```
+{{< /highlight >}}
 ##### **Example**
 The example below demonstrates how to check protection to open:
 
-```
+{{< highlight java >}}
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(presentationFilePath);
 if (info.isPasswordProtected())
 {
     System.out.println("The presentation '" + presentationFilePath + "' is protected by password to open.");
 }
-```
+{{< /highlight >}}
 -----
 ### **Support for Shapes Alignment has been added**
 The feature helps to change the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or align them relative to each other.
@@ -367,9 +347,7 @@ To provide options from the picture above has been added overloaded method **[S
 
 
 ##### **ShapesElignmentType Enum**
-The [**ShapesElignmentType**](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType) determines the way to 
-align shapes. Possible values for [**ShapesElignmentType**](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType): 
-[*AlignLeft*](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignLeft)*, [AlignRight](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignRight), [AlignCenter](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignCenter), [AlignTop](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignTop), [AlignMiddle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignMiddle), [AlignBottom](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignBottom), [DistributeHorizontally](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#DistributeHorizontally), [DistributeVertically](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#DistributeVertically)*.
+The [**ShapesElignmentType**](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType)** **determines the way to align shapes. Possible values for [**ShapesElignmentType**](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType)** **: [*AlignLeft*](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignLeft)*, [AlignRight](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignRight), [AlignCenter](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignCenter), [AlignTop](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignTop), [AlignMiddle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignMiddle), [AlignBottom](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#AlignBottom), [DistributeHorizontally](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#DistributeHorizontally), [DistributeVertically](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType#DistributeVertically)*.
 
 
 ##### **SlideUtil.alignShape() Method**
@@ -379,7 +357,7 @@ The method changes the placement of selected shapes on the slide. Input paramete
 - *boolean* **alignToSlide**- if true, shapes will be aligned relative to the slide edges, otherwise shapes will be aligned relative to each other.
 - [*IBaseSlide*](https://apireference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) **slide** - parent slide.
 - *int[]* **shapeIndexes** - indexes of shapes to be aligned.
-- [*IShapeCollection*](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) **shapes** - a collection of shapes to be aligned.
+- [*IShapeCollection*](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection)* ***shapes** - a collection of shapes to be aligned.
 ##### **Example 1**
 ![todo:image_alt_text](aspose-slides-for-java-20-5-release-notes_4.png)
 
@@ -387,7 +365,7 @@ Let's say we want to align shapes with indexes 1, 2 and 4 along the top border 
 
 
 ##### **Solution**
-```
+{{< highlight java >}}
 Presentation pres = new Presentation("example.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -403,12 +381,12 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-```
+{{< /highlight >}}
 ![todo:image_alt_text](aspose-slides-for-java-20-5-release-notes_5.png)
 ##### **Example 2**
 Another option shows how to align the entire collection of shapes on the slide:
 
-```
+{{< highlight java >}}
 
 Presentation pres = new Presentation("example.pptx");
 try {
@@ -416,6 +394,6 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-```
+{{< /highlight >}}
 -----
 

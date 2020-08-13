@@ -27,7 +27,7 @@ Aspose::Slides::SlideShow::TransitionType enumeration has been extended with new
 
 The code snippet below shows how to add a clone of the slide with some text to the presentation and set a transition of morph type to the second slide:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -72,7 +72,7 @@ The code snippet below shows how to add a clone of the slide with some text to t
 }
 
 
-```
+{{< /highlight >}}
 #### **New TransitionMorphType enum has been added (C++)**
 New Aspose::Slides::SlideShow::TransitionMorphType enum has been added. It represents different types of Morph slide transition.
 
@@ -84,7 +84,7 @@ TransitionMorphType enum has three members:
 
 The code snippet below shows how to set morph transition to slide and change morph type:
 
-```
+{{< highlight java >}}
 
  {
 
@@ -107,7 +107,7 @@ The code snippet below shows how to set morph transition to slide and change mor
 }
 
 
-```
+{{< /highlight >}}
 
 
 

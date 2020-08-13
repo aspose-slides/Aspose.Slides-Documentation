@@ -40,7 +40,7 @@ Below is an example of a PresentationML document with a single slide containing 
 
 **XML**
 
-```
+{{< highlight csharp >}}
 
  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
@@ -146,4 +146,4 @@ Below is an example of a PresentationML document with a single slide containing 
 
 
 
-```
+{{< /highlight >}}

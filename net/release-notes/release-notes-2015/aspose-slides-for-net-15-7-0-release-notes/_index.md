@@ -113,7 +113,7 @@ SLIDESNET-34375 - ArgumentException on thumbnails rendering
 
 SLIDESNET-34179 - Aspose generated chart failed to get edited in Powerpoint
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
 
 
@@ -127,4 +127,4 @@ Method RenderToGraphics has been added to Slide
 
 Property PixelFormat has been added to ITiffOptions and TiffOptions
 
-```
+{{< /highlight >}}

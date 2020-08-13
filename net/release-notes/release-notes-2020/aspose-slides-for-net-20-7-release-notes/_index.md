@@ -67,7 +67,7 @@ This page contains release notes for [ Aspose.Slides for .NET 20.7](https://www
 
 Methods **IMathParagraph.WriteAsMathMl** and **IMathBlock.WriteAsMathMl** have been added. You can use them to export a mathematical paragraph or block to MathML format. The presentation MathML markup is used.
 
-```
+{{< highlight csharp >}}
 ```    
 using (Presentation pres = new Presentation())
 {
@@ -80,7 +80,7 @@ using (Presentation pres = new Presentation())
 		mathParagraph.WriteAsMathMl(stream);
 }
 ```
-```
+{{< /highlight >}}
 
 Contents of the resulting file:
 ```

@@ -35,7 +35,7 @@ url: /java/aspose-slides-for-java-17-8-release-notes/
 #### **getNotesStyle method has been added to IMasterNotesSlide interface and MasterNotesSlide class**
 getNotesStyle() method has been added to IMasterNotesSlide interface and MasterNotesSlide class respectively. Return value specifies the style of a notes text.
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -65,11 +65,11 @@ presentation.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Method com.aspose.slides.IChartData.switchRowColumn() has been added**
 Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -87,15 +87,15 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Method FontsLoader.getFontFolders() has been added**
 Returns folders where font files are searched. Those are folders that have been added with loadExternalFonts() method as well as system font folders.
 
-```
+{{< highlight java >}}
 
  String[] fontFolders = FontsLoader.getFontFolders();
 
-```
+{{< /highlight >}}
 #### **New EmbedFontCharacters enum and addEmbeddedFont() methods have been added**
 To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloaded methods addEmbeddedFont() have been added:
 
@@ -116,7 +116,7 @@ void addEmbeddedFont(byte[] fontData, EmbedFontCharacters embedFontRule)
 
 Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in Presentation can be embedded:
 
-```
+{{< highlight java >}}
 
  IFontData[] allFonts = pres.getFontsManager().getFonts();
 
@@ -130,7 +130,7 @@ pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
 }
 
-```
+{{< /highlight >}}
 
 Please note that an ArgumentException will be thrown if embedded font which is already embedded will be added again using addEmbeddedFont() method.
 #### **Methods to get-set edges of fill rectangle have been added to com.aspose.slides.IPictureFillFormat interface and PictureFillFormat class**
@@ -144,7 +144,7 @@ For example, a left offset of 25% specifies that the left edge of the fill recta
 
 Code example:
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation();
 
@@ -196,4 +196,4 @@ presentation.dispose();
 
 }
 
-```
+{{< /highlight >}}

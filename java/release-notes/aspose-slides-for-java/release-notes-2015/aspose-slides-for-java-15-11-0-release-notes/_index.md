@@ -54,7 +54,7 @@ SLIDESJAVA-34222 - Invalid String exception on accessing presentaiton
 
 SLIDESJAVA-34089 - Unknown file format exception on generating PDF
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
 
 
@@ -76,4 +76,4 @@ pres.save(newPath, SaveFormat.Pptx);
 Obsolete methods in com.aspose.slides.DataLabelCollection class have been deleted
 
 
-```
+{{< /highlight >}}

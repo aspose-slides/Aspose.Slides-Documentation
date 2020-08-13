@@ -48,7 +48,7 @@ IChartSeriesGroup
 
 Specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size).
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -66,13 +66,13 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **getShowDataLabelsOverMaximum and setShowDataLabelsOverMaximum methods have been added to IChart**
 getShowDataLabelsOverMaximum and setShowDataLabelsOverMaximum methods have been added to IChart
 
 The methods specify whether to show the data labels when the value is greater than the maximum value on the value axis.
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation();
 
@@ -94,7 +94,7 @@ presentation.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **You can use Aspose.Slides for Java with any BouncyCastle Provider**
 We have rewritten our algorithms, so now Aspose.Slides.Java API can be called safely without any dependency from Bouncy Castle library.
 

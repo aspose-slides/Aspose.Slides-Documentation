@@ -75,7 +75,7 @@ IChart.ShowDataLabelsOverMaximum and Chart.ShowDataLabelsOverMaximum property ha
 
 The property specifies whether to show the data labels when the value is greater than the maximum value on the value axis.
 
-```
+{{< highlight java >}}
 
  using (Presentation presentation = new Presentation())
 
@@ -93,7 +93,7 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}
 #### **IChartSeries.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properties have been added**
 IChartSeries.BubbleSizeScale and ChartSeries.BubbleSizeScale properties have been added.
 
@@ -102,7 +102,7 @@ IChartSeriesGroup.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properti
 
 Specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size).
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -116,4 +116,4 @@ chart.ChartData.SeriesGroups[0].BubbleSizeScale = 150;
 
 }
 
-```
+{{< /highlight >}}

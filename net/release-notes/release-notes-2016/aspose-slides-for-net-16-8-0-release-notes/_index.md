@@ -79,7 +79,7 @@ EmbeddedEotFontsHtmlController
 
 Below there is an example of how to use the new EmbeddedWoffFontsHtmlController class to export HTML with embedded WOFF fonts:
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -99,7 +99,7 @@ pres.Save("pres.html", SaveFormat.Html, htmlOptions);
 
 }
 
-```
+{{< /highlight >}}
 #### **New methods have been added to FontsManager**
 The following new methods have been added to IFontsManager interface and FontsManager class:
 
@@ -109,7 +109,7 @@ void RemoveEmbeddedFont(IFontData fontData) - this method removes an embedded fo
 
 The following sample demonstrates an use case for these new methods:
 
-```
+{{< highlight java >}}
 
  // load a presentation with embedded "FunSized" font
 
@@ -151,13 +151,13 @@ using (Presentation pres = new Presentation("pres.ppt"))
 
 }
 
-```
+{{< /highlight >}}
 #### **New responsive HTML controller has been added**
 The new class ResponsiveHtmlController has been added to provide the possibility to generate responsive HTML files.
 
 This controller can be used in the same manner as other HTML controllers:
 
-```
+{{< highlight java >}}
 
  using (var pres = new Presentation("pres.pptx"))
 
@@ -173,6 +173,6 @@ pres.Save("pres.html", SaveFormat.Html, htmlOptions);
 
 }
 
-```
+{{< /highlight >}}
 #### **Otp value has been added to LoadFormat and SaveFormat enumerations**
 The new Otp value has been added to Aspose.Slides.LoadFormat and Aspose.Slides.SaveFormat enumerations. This value represents the OpenOffice OTP Presentation template format.

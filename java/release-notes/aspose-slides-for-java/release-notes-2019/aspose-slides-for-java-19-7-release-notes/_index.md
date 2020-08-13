@@ -54,7 +54,7 @@ Parameter **updateChartData** defines whether excel workbook will be loaded or n
 
 
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -75,7 +75,7 @@ try
 }
 
 
-```
+{{< /highlight >}}
 
 
 ### **New addEffect method has been added to Sequence class and ISequence interface**
@@ -87,7 +87,7 @@ Usage example:
 
 
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation(path + "input.pptx");
 
@@ -113,7 +113,7 @@ try
 
 }
 
-```
+{{< /highlight >}}
 
 
 

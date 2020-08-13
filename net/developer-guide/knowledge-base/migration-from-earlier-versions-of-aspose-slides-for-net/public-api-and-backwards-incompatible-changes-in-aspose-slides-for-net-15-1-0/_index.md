@@ -30,7 +30,7 @@ Using to persistently replace font in the presentation. 
 
 The following example shows how to replace font in the presentation:
 
-```
+{{< highlight java >}}
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -43,11 +43,11 @@ The following example shows how to replace font in the presentation:
             pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 
-```
+{{< /highlight >}}
 
 Another example, demonstrates font substitution for rendering when inaccessible:
 
-```
+{{< highlight java >}}
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -69,4 +69,4 @@ Another example, demonstrates font substitution for rendering when inaccessible:
 
             pres.Slides[0].GetThumbnail();
 
-```
+{{< /highlight >}}

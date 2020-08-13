@@ -15,7 +15,7 @@ Using VSTO, take the following steps:
 1. Apply animation to the picture.
 1. Write the presentation to disk.
 
-```
+{{< highlight csharp >}}
 
  //Creating empty presentation
 
@@ -43,7 +43,7 @@ pres.SaveAs("VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 
 Microsoft.Office.Core.MsoTriState.msoFalse);
 
-```
+{{< /highlight >}}
 ### **Aspose.Slides**
 Using Aspose.Slides for .NET, perform the following steps:
 
@@ -54,7 +54,7 @@ Using Aspose.Slides for .NET, perform the following steps:
 1. Apply animation to the picture.
 1. Write the presentation to disk.
 
-```
+{{< highlight csharp >}}
 
  //Creating empty presentation
 
@@ -84,7 +84,7 @@ PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;
 
 pres.Write("AsposeAnim.ppt");
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772946)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Picture.Frame.with.Animation.Aspose.Slides.zip)

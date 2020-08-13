@@ -171,6 +171,6 @@ To add a formatted rectangle to a slide, please follow the steps below:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FormattedRectangle-FormattedRectangle.cpp" >}}
 ### **Add SVG Into Slide**
- Now Aspose.Slides for C++ allows you to add SVG image into the presentation image collection. The implementation is demonstrated in the example below.
+` `Now Aspose.Slides for C++ allows you to add SVG image into the presentation image collection. The implementation is demonstrated in the example below.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-InsertSvgIntoPresentation-InsertSvgIntoPresentation.cpp" >}}

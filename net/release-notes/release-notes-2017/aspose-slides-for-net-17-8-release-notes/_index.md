@@ -55,15 +55,15 @@ url: /net/aspose-slides-for-net-17-8-release-notes/
 #### **Method FontsLoader.GetFontFolders has been added**
 Returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
 
-```
+{{< highlight java >}}
 
  string[] fontFolders = FontsLoader.GetFontFolders();
 
-```
+{{< /highlight >}}
 #### **Method IChartData.SwitchRowColumn() has been added**
 Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -77,7 +77,7 @@ pres.Save(outputFileName, SaveFormat.PPTX);
 
 }
 
-```
+{{< /highlight >}}
 #### **New EmbedFontCharacters enum and AddEmbeddedFont methods has been added**
 To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloads of AddEmbeddedFont method have been added:
 
@@ -98,7 +98,7 @@ void AddEmbeddedFont(byte[] fontData, EmbedFontCharacters embedFontRule)
 
 Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in Presentation can be embedded:
 
-```
+{{< highlight java >}}
 
  IFontData[] allFonts = pres.FontsManager.GetFonts();
 
@@ -118,11 +118,11 @@ pres.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
 
 }
 
-```
+{{< /highlight >}}
 
 Or, using the new features of .NET framework, this snippet can be replaced with the following:
 
-```
+{{< highlight java >}}
 
  IFontData[] allFonts = pres.FontsManager.GetFonts();
 
@@ -136,7 +136,7 @@ pres.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
 
 }
 
-```
+{{< /highlight >}}
 
 Please note that an ArgumentException will be thrown if embedded font which is already embedded will be added again using AddEmbeddedFont method.
 #### **NotesStyle property has been added to IMasterNotesSlide interface and MasterNotesSlide class**
@@ -144,7 +144,7 @@ NotesStyle property has been added to IMasterNotesSlide interface and MasterNote
 
 This property specifies the style of a notes text.
 
-```
+{{< highlight java >}}
 
  using (Presentation presentation = new Presentation(path + "Presentation.pptx"))
 
@@ -172,7 +172,7 @@ presentation.Save(path + "Presentation-out.pptx", SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}
 #### **StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom properties have been added to IPictureFillFormat interface and PictureFillFormat class**
 Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom has been added to IPictureFillFormat interface and PictureFillFormat class respectively.
 
@@ -184,7 +184,7 @@ For example, a left offset of 25% specifies that the left edge of the fill recta
 
 Code example:
 
-```
+{{< highlight java >}}
 
  using (Presentation presentation = new Presentation())
 
@@ -232,4 +232,4 @@ presentation.Save("StretchOffsetExample.pptx", SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}

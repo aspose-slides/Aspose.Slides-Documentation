@@ -30,7 +30,7 @@ IChart.ShowDataLabelsOverMaximum and Chart.ShowDataLabelsOverMaximum property ha
 
 The property specifies whether to show the data labels when the value is greater than the maximum value on the value axis.
 
-```
+{{< highlight java >}}
 
  {
 
@@ -64,7 +64,7 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-```
+{{< /highlight >}}
 #### **IChartSeries.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properties have been implemented**
 IChartSeries.BubbleSizeScale and ChartSeries.BubbleSizeScale properties have been implemented.
 
@@ -72,7 +72,7 @@ Specifies the scale factor for the bubble chart (can be between 0 and 300 percen
 
 IChartSeriesGroup.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properties have been implemented.
 
-```
+{{< highlight java >}}
 
  Specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size).
 
@@ -104,4 +104,4 @@ __dispose_guard_0.SetCurrentException(std::current_exception());
 
 }
 
-```
+{{< /highlight >}}

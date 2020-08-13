@@ -24,7 +24,7 @@ Previously, Aspose.Slides for Android via Java was distributed as a single ZIP 
 1. Add maven repository into your build.gradle 
 1. Add '[Aspose.Slides for Android via Java](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides/)' JAR as a dependency
 
-```
+{{< highlight java >}}
 
  // 1. Add maven repository into your build.gradle 
 
@@ -48,7 +48,7 @@ dependencies {
 
 }
 
-```
+{{< /highlight >}}
 ## **Your First Application Using Aspose.Slides for Android via Java**
 This article gives you an idea of getting started with Aspose.Slides for Android via Java. It will demonstrate how to setup a new Android project from scratch, add a reference to the Aspose.Slides JAR and create a new PowerPoint presentation which is saved to disk in PPTX format. This example uses [Android Studio](https://developer.android.com/studio/index.html) for development and the application is run on the Android Emulator. To get started with Aspose.Slides for Android via Java, please follow this step-by-step tutorial to create an app which uses Aspose.Slides for Android via Java:
 
@@ -107,7 +107,7 @@ This article gives you an idea of getting started with Aspose.Slides for Android
 
 1. Navigate back to the code section of the app and add the following imports: 
 
-```
+{{< highlight java >}}
 
  import java.io.File;
 
@@ -129,11 +129,11 @@ import com.aspose.slides.ShapeType;
 
 import android.os.Environment; 
 
-```
+{{< /highlight >}}
 
 And then insert the following code in the body of the onCreate method to create a new Presentation from scratch using Aspose.Slides and save it to the SDCard in PPTX format.
 
-```
+{{< highlight java >}}
 
  try
 
@@ -203,7 +203,7 @@ catch (Exception e)
 
 }
 
-```
+{{< /highlight >}}
 
 The full code should look like this:
 

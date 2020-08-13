@@ -23,7 +23,7 @@ PptXPptY value has been added to Aspose.Slides.Animation.PropertyType enumeratio
 #### **System.Drawing.Color GetAutomaticSeriesColor() method has been added to Aspose.Slides.Charts.IChartSeries**
 GetAutomaticSeriesColor method returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.
 
-```
+{{< highlight java >}}
 
 
 
@@ -43,4 +43,4 @@ using (Presentation pres = new Presentation())
 
 }
 
-```
+{{< /highlight >}}

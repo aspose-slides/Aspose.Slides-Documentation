@@ -7,7 +7,7 @@ url: /net/create-a-new-presentation-in-vsto-and-aspose-slides/
 
 Below are two code examples that illustrate how VSTO and Aspose.Slides for .NET can be used to achieve the same goal.
 ## **VSTO**
-```
+{{< highlight csharp >}}
 
  private void CreatePresentation()
 
@@ -45,9 +45,9 @@ pres.SaveAs("outVSTO.ppt",
 
 }
 
-```
+{{< /highlight >}}
 ## **Aspose.Slides**
-```
+{{< highlight csharp >}}
 
  private static void CreatePresentation()
 
@@ -75,7 +75,7 @@ pres.SaveAs("outVSTO.ppt",
 
 }
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772949)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)

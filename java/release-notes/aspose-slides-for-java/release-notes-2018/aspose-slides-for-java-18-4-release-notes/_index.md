@@ -42,7 +42,7 @@ IMasterSlide applyExternalThemeToDependingSlides(string fname);
 
 Code snippet below shows how to apply Open XML Theme "Theme1Word.thmx" to all slides which are depending on the specified master slide.
 
-```
+{{< highlight java >}}
 
  String pptxFileName = baseDir + "SimplePresentation2.pptx";
 
@@ -62,7 +62,7 @@ pres.save(outPptxFileName, SaveFormat.Pptx);
 
 pres.dispose();
 
-```
+{{< /highlight >}}
 #### **com.aspose.slides.HeaderFooterManager class marked as Deprecated and will be removed after release of version 18.6**
 com.aspose.slides.HeaderFooterManager class has been marked as Deprecated and will be removed after release of version 18.6.
 
@@ -73,7 +73,7 @@ Use IPresentationHeaderFooterManager interface or one of corresponding IMasterSl
 
 Deprecated HeaderFooterManager methods have been deleted:
 
-```
+{{< highlight java >}}
 
  isFooterVisible
 
@@ -81,11 +81,11 @@ isSlideNumberVisible
 
 isDateTimeVisible
 
-```
+{{< /highlight >}}
 
 Use folowing methods of PresentationHeaderFooterManager class instead:
 
-```
+{{< highlight java >}}
 
  setAllFootersVisibility(boolean isVisible)
 
@@ -93,11 +93,11 @@ setAllSlideNumbersVisibility(boolean isVisible)
 
 setAllDateTimesVisibility(boolean isVisible)
 
-```
+{{< /highlight >}}
 
 Deprecated HeaderFooterManager methods have been deleted:
 
-```
+{{< highlight java >}}
 
  setFooterText(String text)
 
@@ -105,11 +105,11 @@ setDateTimeText(String date)
 
 setVisibilityOnTitleSlide(boolean isPlaceholdersVisible)
 
-```
+{{< /highlight >}}
 
 Use folowing methods of PresentationHeaderFooterManager class instead:
 
-```
+{{< highlight java >}}
 
  setAllFootersText(String text)
 
@@ -117,17 +117,17 @@ setAllDateTimesText(String text)
 
 setVisibilityOnAllTitleSlides(boolean isVisible)
 
-```
+{{< /highlight >}}
 #### **Enum SaveFormat has been changed**
 The value of the Pps element of the SaveFormat enum was changed to 19:
 
-```
+{{< highlight java >}}
 
  /// Save presentation in PPS format.
 
 Pps = 19
 
-```
+{{< /highlight >}}
 #### **getBestImagesCompressionRatio and setBestImagesCompressionRatio methods have been added to PdfOptions**
 getBestImagesCompressionRatio and setBestImagesCompressionRatio methods have been added to PdfOptions
 
@@ -135,7 +135,7 @@ It provides a possibility to find the best compression ratio for every image in 
 
 Code snippet below shows how to set best compression ratio for PDF document images:
 
-```
+{{< highlight java >}}
 
  PdfOptions options = new PdfOptions();
 
@@ -147,7 +147,7 @@ pres.save("pres.pdf", SaveFormat.Pdf, options);
 
 pres.dispose();
 
-```
+{{< /highlight >}}
 #### **HeaderFooterManagers for com.aspose.slides.MasterHandoutSlide, MasterNotesSlide and NotesSlide have been added**
 com.aspose.slides.IBaseHandoutNotesSlideHeaderFooterManager, IMasterHandoutSlideHeaderFooterManager, IMasterNotesSlideHeaderFooterManager, INotesSlideHeaderFooterManager interfaces and BaseHandoutNotesSlideHeaderFooterManager, MasterHandoutSlideHeaderFooterManager, MasterNotesSlideHeaderFooterManager, NotesSlideHeaderFooterManager classes have been added.
 
@@ -155,7 +155,7 @@ These types allow to manage Header and Footer settings of master handout slide, 
 
 New methods have been added to access the added types.
 
-```
+{{< highlight java >}}
 
  IMasterHandoutSlideHeaderFooterManager IMasterHandoutSlide.getHeaderFooterManager()
 
@@ -163,17 +163,17 @@ IMasterNotesSlideHeaderFooterManager IMasterNotesSlide.getHeaderFooterManager()
 
 INotesSlideHeaderFooterManager INotesSlide.getHeaderFooterManager()
 
-```
+{{< /highlight >}}
 
 The IBaseHandoutNotesSlideHeaderFooterManag interface in addition to IBaseSlideHeaderFooterManager methods has following methods.
 
 This method allows to get the value indicating that header placeholder is present:
 
-```
+{{< highlight java >}}
 
  bool isHeaderVisible()
 
-```
+{{< /highlight >}}
 
 This method allows to change header placeholder visibility:
 
@@ -181,17 +181,17 @@ void setHeaderVisibility(boolean isVisible);
 
 This method allows to set header placeholder text:
 
-```
+{{< highlight java >}}
 
  void setHeaderText(String text);
 
-```
+{{< /highlight >}}
 
 IMasterNotesSlideHeaderFooterManager has following methods.
 
 These methods allow to change master notes slide and notes slides header, footer, slide number, date-time placeholders visibility:
 
-```
+{{< highlight java >}}
 
  void setHeaderAndChildHeadersVisibility(boolean isVisible);
 
@@ -201,11 +201,11 @@ void setSlideNumberAndChildSlideNumbersVisibility(boolean isVisible);
 
 void setDateTimeAndChildDateTimesVisibility(boolean isVisible);
 
-```
+{{< /highlight >}}
 
 These methods allow to set text to master notes slide and notes slides header, footer and date-time placeholders:
 
-```
+{{< highlight java >}}
 
  void setHeaderAndChildHeadersText(String text);
 
@@ -213,29 +213,29 @@ void setFooterAndChildFootersText(String text);
 
 void setDateTimeAndChildDateTimesText(String text);
 
-```
+{{< /highlight >}}
 
 New methods have been added to IPresentationHeaderFooterManager and PresentationHeaderFooterManager.
 
 This method allows to change master handout, master notes slide and all notes slides header placeholders visibility:
 
-```
+{{< highlight java >}}
 
  void setAllHeadersVisibility(boolean isVisible);
 
-```
+{{< /highlight >}}
 
 This method allows to set text to master handout, master notes slide and all notes slides header placeholders:
 
-```
+{{< highlight java >}}
 
  void setAllHeadersText(String text);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to manage the Header and Footer settings for Handout Master:
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation(path + "presentation.pptx");
 
@@ -277,11 +277,11 @@ headerFooterManager.setDateTimeText("New date and time text"); // set master han
 
 presentation.dispose();
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to manage the Header and Footer settings for Notes Master and Notes slides:
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation(path + "presentation.pptx");
 
@@ -351,7 +351,7 @@ headerFooterManager.setDateTimeText("New date and time text"); // set text to no
 
 presentation.dispose();
 
-```
+{{< /highlight >}}
 #### **InterruptionToken and InterruptionTokenSource classes have been added**
 InterruptionToken and InterruptionTokenSource classes have been added.
 
@@ -359,7 +359,7 @@ These types support interruption of long-running tasks, such as deserialization,
 
 Code snippet below demonstrates interruption of running task.
 
-```
+{{< highlight java >}}
 
  final InterruptionTokenSource tokenSource = new InterruptionTokenSource();
 
@@ -397,7 +397,7 @@ Thread.sleep(5000); // some work
 
 tokenSource.interrupt();
 
-```
+{{< /highlight >}}
 #### **OLEActionVerbs value has been added to EffectPresetClassType enum**
 OLEActionVerbs value has been added to EffectPresetClassType enum.
 
@@ -405,7 +405,7 @@ It represents OLE Action Verb animation effects preset class.
 
 Code snippet below shows how to check whether the shape animation effect is OLE Action Verb.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation(path + "presentation.pptx");
 
@@ -437,7 +437,7 @@ System.out.println("This shape has the OLE Action Verb effect");
 
 pres.dispose();
 
-```
+{{< /highlight >}}
 #### **OLEObjectShow, OLEObjectEdit and OLEObjectOpen values have been added to com.aspose.slides.EffectType enum**
 OLEObjectShow, OLEObjectEdit and OLEObjectOpen values have been added to com.aspose.slides.EffectType enum
 
@@ -445,7 +445,7 @@ These values are used for adding OLE Action Verbs effects to OleObjectFrames.
 
 Code snippet below shows how to add OLEObject Open effect.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("presentation.pptx");
 
@@ -459,7 +459,7 @@ IEffect effect = pres.getSlides().get_Item(0).getTimeline().getMainSequence().ad
 
 pres.dispose();
 
-```
+{{< /highlight >}}
 #### **PictureOrganizationChart value has been added to SmartArtLayoutType enum**
 PictureOrganizationChart value has been added to SmartArtLayoutType enum.
 
@@ -467,7 +467,7 @@ It represents Picture Organization Chart layout.
 
 Code snippet below shows how to add new SmartArt object with Picture Organization Chart layout:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -479,7 +479,7 @@ ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 
 
 pres.dispose();
 
-```
+{{< /highlight >}}
 #### **Support for BoxAndWhisker chart type has been added**
 Support for BoxAndWhisker chart type has been added.
 
@@ -487,11 +487,11 @@ addDataPointForBoxAndWhiskerSeries method has been added to IChartDataPointColle
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is BoxAndWhisker only.
 
-```
+{{< highlight java >}}
 
  IChartDataPoint addDataPointForBoxAndWhiskerSeries(IChartDataCell value);
 
-```
+{{< /highlight >}}
 
 Public enum QuartileMethodType has been added.
 
@@ -504,65 +504,65 @@ getQuartileMethod and setQuartileMethod methods have been added to IChartSeries 
 
 It represents quartile method of BoxAndWhisker series.
 
-```
+{{< highlight java >}}
 
  /*QuartileMethodType*/int getQuartileMethod();
 
 void setQuartileMethod(/*QuartileMethodType*/int value);
 
-```
+{{< /highlight >}}
 
 getShowInnerPoints and setShowInnerPoints methods have been added to IChartSeries and descendants.
 
 It represents inner points. True if inner points are shown on the BoxAndWhisker chart.
 
-```
+{{< highlight java >}}
 
  boolean getShowInnerPoints();
 
 void setShowInnerPoints(boolean value);
 
-```
+{{< /highlight >}}
 
 getShowMeanLine and setShowMeanLine methods has been added to IChartSeries and descendants.
 
 It represents mean line. True if mean line are shown on the BoxAndWhisker chart.
 
-```
+{{< highlight java >}}
 
  boolean getShowMeanLine();
 
 void setShowMeanLine(boolean value);
 
-```
+{{< /highlight >}}
 
 getShowMeanMarkers and setShowMeanMarkers methods have been added to IChartSeries and descendants.
 
 It represents mean markers. True if mean markers are shown on the BoxAndWhisker chart.
 
-```
+{{< highlight java >}}
 
  boolean getShowMeanMarkers();
 
 void setShowMeanMarkers(boolean value);
 
-```
+{{< /highlight >}}
 
 getShowOutlierPoints and setShowOutlierPoints methos have been added to IChartSeries and descendants.
 
 It represents outlier points. True if outlier points are shown on the BoxAndWhisker chart.
 
-```
+{{< highlight java >}}
 
  boolean getShowOutlierPoints();
 
 void setShowOutlierPoints(boolean value);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to create BoxAndWhisker chart from scratch and apply properties listed above. :
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -623,7 +623,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Support for Funnel chart type has been added**
 Support for Funnel chart type has been added.
 
@@ -631,7 +631,7 @@ addDataPointForFunnelSeries method has been added to IChartDataPointCollection a
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Funnel.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -681,7 +681,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Support for Histogram and Histogram Pareto chart types has been added**
 Support for Histogram and Histogram Pareto chart types has been added.
 
@@ -696,7 +696,7 @@ ByNumberOfBins - Aggregate categories by number of bins. Property IAxis.NumberOf
 
 Some methods have been added to IAxis and descendants.
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -793,21 +793,21 @@ public double getUnderflowBin();
 
 public void setUnderflowBin(double value);
 
-```
+{{< /highlight >}}
 
 addDataPointForHistogramSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Histogram.
 
-```
+{{< highlight java >}}
 
  IChartDataPoint addDataPointForHistogramSeries(IChartDataCell value);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to create Histogram chart from scratch and apply properties listed above:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -847,11 +847,11 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to create HistogramPareto chart from scratch:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -875,7 +875,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Support for Sunburst chart type has been added**
 Support for Sunburst chart type has been added.
 
@@ -883,25 +883,25 @@ getSizeValue method has been added to IChartDataPoint and descendants.
 
 It returns the size value of chart data point.
 
-```
+{{< highlight java >}}
 
  IDoubleChartValue getSizeValue()
 
-```
+{{< /highlight >}}
 
 addDataPointForSunburstSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Sunburst.
 
-```
+{{< highlight java >}}
 
  IChartDataPoint addDataPointForSunburstSeries(IChartDataCell sizeValue);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to create Sunburst chart from scratch and apply properties listed above:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -978,7 +978,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Support for Treemap chart type has been added**
 Support for Treemap chart type has been added.
 
@@ -986,11 +986,11 @@ getSizeValue method has been added to IChartDataPoint and descendants.
 
 It returns the size value of chart data point.
 
-```
+{{< highlight java >}}
 
  IDoubleChartValue getSizeValue()
 
-```
+{{< /highlight >}}
 
 Public enum ParentLabelLayoutType has been added
 
@@ -1006,27 +1006,27 @@ getParentLabelLayout and setParentLabelLayout methods have been added to IChartS
 
 It represents layout of parent labels of Treemap series. Applies to series of type Treemap.
 
-```
+{{< highlight java >}}
 
  /*ParentLabelLayoutType*/int getParentLabelLayout();
 
 void setParentLabelLayout(/*ParentLabelLayoutType*/int value);
 
-```
+{{< /highlight >}}
 
 addDataPointForTreemapSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Treemap.
 
-```
+{{< highlight java >}}
 
  IChartDataPoint addDataPointForTreemapSeries(IChartDataCell sizeValue);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to create Treemap chart from scratch and apply properties listed above. :
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -1105,7 +1105,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **Support for Waterfall chart type has been added**
 Support for Waterfall chart type has been added.
 
@@ -1113,39 +1113,39 @@ getSetAsTotal and setSetAsTotal methods have been added to IChartDataPoint and d
 
 It sets data point as total. Applied for Waterfall series type only.
 
-```
+{{< highlight java >}}
 
  boolean getSetAsTotal();
 
 void setSetAsTotal(boolean value);
 
-```
+{{< /highlight >}}
 
 getShowConnectorLines and setShowConnectorLines methods have been added to IChartSeries and descendants.
 
 It sepresents connector lines. True if connector lines are shown on the Waterfall chart. Applies to series of type Waterfall.
 
-```
+{{< highlight java >}}
 
  boolean getShowConnectorLines();
 
 void setShowConnectorLines(boolean value);
 
-```
+{{< /highlight >}}
 
 addDataPointForWaterfallSeries method has been added to IChartDataPointCollection and descendants.
 
 It creates the new data point and adds it to the end of collection. Applicable for series which chart type is Waterfall.
 
-```
+{{< highlight java >}}
 
  IChartDataPoint addDataPointForWaterfallSeries(IChartDataCell value);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to create Waterfall chart from scratch and apply properties listed above:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation();
 
@@ -1201,23 +1201,23 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **WriteAsSvg method has been added to com.aspose.slides.Shape and IShape**
 WriteAsSvg method (and its overload) has been added to Shape class and IShape interface.
 
 This method allows to save content of the shape as an SVG file.
 
-```
+{{< highlight java >}}
 
  void writeAsSvg(Stream stream);
 
 void WriteAsSvg(java.io.OutputStream stream, ISVGOptions svgOptions);
 
-```
+{{< /highlight >}}
 
 Code snippet below shows how to export slide's shape to an SVG file.
 
-```
+{{< highlight java >}}
 
  String pptxFileName = "Presentation.pptx";
 
@@ -1235,4 +1235,4 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}

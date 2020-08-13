@@ -43,7 +43,7 @@ Let's see how we can create the following mathematical equation via Aspose.Slide
 
 To add a mathematical expression on the slide, first, add a shape that will contain the mathematical text:
 
-```
+{{< highlight csharp >}}
 
  using (Presentation pres = new Presentation())
 
@@ -53,32 +53,32 @@ To add a mathematical expression on the slide, first, add a shape that will con
 
 }
 
-```
+{{< /highlight >}}
 
 
 After creating, the shape will already contain one paragraph with a mathematical portion by default. The [**MathPortion** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathportion)class is a portion that contains a mathematical text inside. To access mathematical content inside [**MathPortion**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathportion), refer to the [**MathParagraph** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph)variable:
 
-```
+{{< highlight csharp >}}
 
  var mathParagraph = (mathShape.TextFrame.Paragraphs[0].Portions[0] as MathPortion).MathParagraph;
 
-```
+{{< /highlight >}}
 
 
 The [**MathParagraph** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph)class allows to read, add, edit and delete math blocks ([**MathBlock**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathblock)), that consist of a combination of mathematical elements. For example, create a fraction and place it in the presentation:
 
-```
+{{< highlight csharp >}}
 
  var fraction = new MathematicalText("x").Divide("y");
 
 mathParagraph.Add(new MathBlock(fraction));
 
-```
+{{< /highlight >}}
 
 
 Each mathematical element is represented by some class that implements the [**IMathElement** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement)interface. This interface provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
 
-```
+{{< highlight csharp >}}
 
  var mathBlock = new MathematicalText("c")
 
@@ -92,7 +92,7 @@ Each mathematical element is represented by some class that implements the [**I
 
     .Join(new MathematicalText("b").SetSuperscript("2"));
 
-```
+{{< /highlight >}}
 
 
 
@@ -100,7 +100,7 @@ Operations of the interface [**IMathElement** ](https://apireference.aspose.co
 
 The full source code sample:
 
-```
+{{< highlight csharp >}}
 
  using (Presentation pres = new Presentation())
 
@@ -136,7 +136,7 @@ The full source code sample:
 
 }
 
-```
+{{< /highlight >}}
 
 
 # **Mathematical Element Types**
@@ -182,13 +182,13 @@ Example:
 
 is created using a combination of [**MathFunction** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathfunction)and [**MathLimit** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit)elements this way:
 
-```
+{{< highlight csharp >}}
 
  var funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
 
 var mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
 
-```
+{{< /highlight >}}
 
 
 ## **MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement classes**
@@ -245,7 +245,7 @@ Each mathematical element and mathematical expression (via [**MathBlock**](https
 
 Joins a mathematical element and forms a mathematical block. For example:
 
-```
+{{< highlight csharp >}}
 
  IMathElement element1 = new MathematicalText("x");
 
@@ -253,7 +253,7 @@ IMathElement element2 = new MathematicalText("y");
 
 IMathBlock block = element1.Join(element2);
 
-```
+{{< /highlight >}}
 ## **Divide method**
 - [Divide(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/divide/methods/2)
 - [Divide(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/divide)
@@ -262,20 +262,20 @@ IMathBlock block = element1.Join(element2);
 
 Creates a fraction of the specified type with this numerator and specified denominator. For example:
 
-```
+{{< highlight csharp >}}
 
  IMathElement numerator = new MathematicalText("x");
 
 IMathFraction fraction = numerator.Divide("y", MathFractionTypes.Linear);
 
-```
+{{< /highlight >}}
 ## **Enclose method**
 - [Enclose()](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/enclose)
 - [Enclose(Char, Char)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/enclose/methods/1)
 
 Encloses the element in specified characters such as parenthesis or another character as framing.
 
-```
+{{< highlight csharp >}}
 
  /// <summary>
 
@@ -293,25 +293,25 @@ IMathDelimiter Enclose();
 
 IMathDelimiter Enclose(char beginningCharacter, char endingCharacter);
 
-```
+{{< /highlight >}}
 
 
 For example:
 
-```
+{{< highlight csharp >}}
 
  IMathDelimiter delimiter = new MathematicalText("x"). Enclose('[', ']');
 
 IMathDelimiter delimiter2 = new MathematicalText("elem1").Join("elem2").Enclose();
 
-```
+{{< /highlight >}}
 ## **Function method**
 - [Function(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/function/methods/1)
 - [Function(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/function)
 
 Takes a function of an argument using the current object as the function name.
 
-```
+{{< highlight csharp >}}
 
  /// <summary>
 
@@ -325,16 +325,16 @@ IMathFunction Function(IMathElement functionArgument);
 
 IMathFunction Function(string functionArgument);
 
-```
+{{< /highlight >}}
 
 
 For example:
 
-```
+{{< highlight csharp >}}
 
  IMathFunction func = new MathematicalText("sin").Function("x");
 
-```
+{{< /highlight >}}
 ## **AsArgumentOfFunction method**
 - [AsArgumentOfFunction(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/4)
 - [AsArgumentOfFunction(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/asargumentoffunction)
@@ -350,7 +350,7 @@ Takes the specified function using the current instance as the argument. You can
 
 For example:
 
-```
+{{< highlight csharp >}}
 
  var funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
 
@@ -362,7 +362,7 @@ var func3 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfOneArg
 
 var func4 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3")
 
-```
+{{< /highlight >}}
 ## **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft methods**
 - [SetSubscript(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setsubscript/methods/1)
 - [SetSubscript(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setsubscript)
@@ -377,11 +377,11 @@ Sets subscript and superscript. You can set subscript and superscript at the sam
 
 Example:
 
-```
+{{< highlight csharp >}}
 
  var script = new MathematicalText("y").SetSubSuperscriptOnTheLeft("2x", "3z");
 
-```
+{{< /highlight >}}
 ## **Radical method**
 - [Radical(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/radical/methods/1)
 - [Radical(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/radical)
@@ -390,11 +390,11 @@ Specifies the mathematical root of the given degree from the specified argument.
 
 Example:
 
-```
+{{< highlight csharp >}}
 
  var radical = new MathematicalText("x").Radical("3");
 
-```
+{{< /highlight >}}
 ## **SetUpperLimit and SetLowerLimit methods**
 - [SetUpperLimit(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setupperlimit/methods/1)
 - [SetUpperLimit(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setupperlimit)
@@ -409,11 +409,11 @@ Let's consider an expression: 
 
 Such expressions can be created through a combination of classes [MathFunction ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/MathFunction)and [MathLimit](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/MathLimit), and operations of the [IMathElement ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/IMathElement)as follows:
 
-```
+{{< highlight csharp >}}
 
  var mathExpression = MathText.Create("lim").SetLowerLimit("x→∞").Function("x");
 
-```
+{{< /highlight >}}
 ## **Nary and Integral methods**
 - [Nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/nary)
 - [Nary(MathNaryOperatorTypes, String, String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/nary/methods/1)
@@ -427,23 +427,23 @@ Both **Nary** and **Integral** methods create and return the N-ary operator repr
 
 Example:
 
-```
+{{< highlight csharp >}}
 
  IMathBlock baseArg = new MathematicalText("x").Join(new MathematicalText("dx").ToBox());
 
 IMathNaryOperator integral = baseArg.Integral(MathIntegralTypes.Simple, "0", "1");
 
-```
+{{< /highlight >}}
 ## **ToMathArray method**
 [**ToMathArray**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/tomatharray) puts elements in a vertical array. If this operation is called for a **MathBlock** instance, all child elements will be placed in the returned array.
 
 Example:
 
-```
+{{< highlight csharp >}}
 
  var arrayFunction = new MathematicalText("x").Join("y").ToMathArray();
 
-```
+{{< /highlight >}}
 ## **Formatting operations: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
 - [**Accent**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/accent) method sets an accent mark (a character on the top of the element).
 - [**Overbar**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/overbar) and [**Underbar**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/underbar) methods set a bar on the top or bottom.
@@ -453,7 +453,7 @@ Example:
 
 Examples:
 
-```
+{{< highlight csharp >}}
 
  var accent = new MathematicalText("x").Accent('\u0303');
 
@@ -465,4 +465,4 @@ var borderBox = new MathematicalText("x+y+z").ToBorderBox();
 
 var boxedOperator = new MathematicalText(":=").ToBox();
 
-```
+{{< /highlight >}}

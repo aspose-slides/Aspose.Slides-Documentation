@@ -93,7 +93,7 @@ SLIDESNET-34997 - Master slide is improperly applied on the slides
 
 SLIDESNET-33699 - Charts missing in generated thumbnail
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
  Public API Changes
 
@@ -116,4 +116,4 @@ pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}

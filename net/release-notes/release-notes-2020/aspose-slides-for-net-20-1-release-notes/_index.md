@@ -58,7 +58,7 @@ It allows to get or set the default font used instead of all missing fonts durin
 
 The code snippet below demonstrates saving presentation to HTML and PDF with different default regular font.
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation("SomePresentation.pptx"))
 
@@ -82,7 +82,7 @@ The code snippet below demonstrates saving presentation to HTML and PDF with dif
 
 }
 
-```
+{{< /highlight >}}
 
 
 

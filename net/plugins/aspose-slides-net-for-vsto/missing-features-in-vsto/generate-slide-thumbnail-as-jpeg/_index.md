@@ -32,7 +32,7 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
   bmp.Save("Test Thumbnail.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
-```
+{{< /highlight >}}
 #### **Download Running Example**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Slide Thumbnail to JPEG/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Slide%20Thumbnail%20to%20JPEG)

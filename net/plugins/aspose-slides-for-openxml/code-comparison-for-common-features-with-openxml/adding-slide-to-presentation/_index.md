@@ -8,7 +8,7 @@ url: /net/adding-slide-to-presentation/
 ## **OpenXML Presentation**
 In below functionality by default a slide is added to presentation.Here we are adding new slide at index 2 having some text in it.
 
-```
+{{< highlight csharp >}}
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -234,7 +234,7 @@ public static void InsertNewSlide(PresentationDocument presentationDocument, int
 
 }
 
-```
+{{< /highlight >}}
 ## **Aspose.Slides**
 Each PowerPoint presentation file contains one **Main Master slide** and other **Normal slides**. It means that a presentation file contains at least one or more slides. It is important to know that presentation files without slides are not supported by Aspose.Slides for .NET. Each slide has specific position and a **unique Id**. The **slide Id** can range from 0 to 255 for master slides and from 256 to 65535 for normal slides.
 
@@ -246,7 +246,7 @@ Aspose.Slides for .NET allows developers to add empty slides to the presentation
 - Add another slide and insert text on it.
 - Finally, write the PPT file using the Write method exposed by Presentation object
 
-```
+{{< highlight csharp >}}
 
  string FileName = FilePath + "Adding Slide to Presentation.pptx";
 
@@ -268,7 +268,7 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
 pres.Save(FileName,Aspose.Slides.Export.SaveFormat.Pptx);
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

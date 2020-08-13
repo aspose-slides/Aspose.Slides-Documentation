@@ -20,7 +20,7 @@ Aspose.Slides for C++ provides a simple API methods to get the Warning Callbacks
 
 [**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228444)
 
-```
+{{< highlight csharp >}}
 
  class HandleFontsWarnings : Aspose.Slides.Warnings.IWarningCallback
 
@@ -61,7 +61,7 @@ foreach(ISlide slide in presentation.Slides)
 }
 
 
-```
+{{< /highlight >}}
 
 
 

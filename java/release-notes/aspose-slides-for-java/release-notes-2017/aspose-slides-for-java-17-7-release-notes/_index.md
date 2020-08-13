@@ -30,7 +30,7 @@ url: /java/aspose-slides-for-java-17-7-release-notes/
 #### **addFromSvg methods were added to com.aspose.slides.IImageCollection interface and ImageCollection class**
 AddFromSvg methods were added to IImageCollection interface and ImageCollection class
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -72,13 +72,13 @@ public final IPPImage addFromSvg(String svgContent)
 
 public final IPPImage addFromSvg(String svgContent, IExternalResourceResolver externalResResolver, String baseUri)
 
-```
+{{< /highlight >}}
 
 These methods provide ability to insert Svg fragment to the presentation's image collection.
 
 **Sample 1:**
 
-```
+{{< highlight java >}}
 
  Presentation p = new Presentation();
 
@@ -94,11 +94,11 @@ p.save(outPptxPath, SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}
 
 **Sample 2 (with default external resources resolver):**
 
-```
+{{< highlight java >}}
 
  Presentation p = new Presentation();
 
@@ -114,14 +114,14 @@ p.save(outPptxPath, SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}
 
 Please note: Using this default external resource resolver could create a vulnerability when client provided HTML or SVG file will make server software to obtain local or network file. Use with caution. It is recommended not to specify ExternalResourceResolver at all (only embedded objects will be read - see "Sample 1") or create some subclass which checks if specified uri is valid.
 #### **com.aspose.slides.IExternalResourceResolver interface and ExternalResourceResolver class were added**
 New IExternalResourceResolver interface was added as a replacement of existing IHtmlExternalResolver (become obsolete).
 This is a callback interface used to resolve external resources during Html, Svg documents import.
 
-```
+{{< highlight java >}}
 
  /**
 
@@ -173,7 +173,7 @@ public InputStream getEntity(String absoluteUri);
 
 }
 
-```
+{{< /highlight >}}
 
 ExternalResourceResolver is default implementation of IExternalResourceResolver.
 
@@ -186,7 +186,7 @@ These methods specify the number of columns in textbox and set an amount of spac
 
 Code example:
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation();
 
@@ -228,13 +228,13 @@ presentation.save("ColumnCount.pptx", SaveFormat.Pptx);
 
 }
 
-```
+{{< /highlight >}}
 #### **getEmbeddedFileData method has been added to IOleObjectFrame**
 getEmbeddedFileData() method has been added to IOleObjectFrame. It's needed to retrieve the file data of embedded OLE object.
 
 For example, when an image has been embedded into presentation, its data can be accessed through getEmbeddedFileData method:
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation(pptxFileName);
 
@@ -252,7 +252,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **getOfficeInteropShapeId method has been added to IShape interface and Shape class respectively**
 Method getOfficeInteropShapeId has been added to IShape interfaces and Shape class respectively.
 
@@ -262,7 +262,7 @@ The value returned by this method corresponds to the value of the Id of the Micr
 
 Code example:
 
-```
+{{< highlight java >}}
 
  Presentation presentation = new Presentation("Presentation.pptx");
 
@@ -278,13 +278,13 @@ presentation.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **getTextFrame method has been added to ISmartArtShape interface and SmartArtShape class**
 getTextFrame method has been added to ISmartArtShape interface and SmartArtShape class respectively.
 
 This property allows you to get all text from SmartArt if it has not only nodes text.
 
-```
+{{< highlight java >}}
 
  Presentation pres = new Presentation("Presentation.pptx");
 
@@ -318,7 +318,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 #### **New API related to the BLOBs management has been added to Aspose.Slides for Java**
 **New BLOBs API**
 
@@ -355,7 +355,7 @@ The other option that can be customized is the amount of process's memory that c
 
 Here's is the sample of opening and saving the very large presentation:
 
-```
+{{< highlight java >}}
 
  static void openAndSaveLargePresentation()
 
@@ -407,13 +407,13 @@ new File(pathToVeryLargePresentationFile).delete();
 
 }
 
-```
+{{< /highlight >}}
 
 **Adding new BLOB to the presentation**
 
 This example demonstrates how to include the large BLOB (video file in that case) and prevent a high memory consumption.
 
-```
+{{< highlight java >}}
 
  static void addingNewBlobToPresentation()
 
@@ -461,13 +461,13 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 
 **Exporting BLOB from presentation into stream**
 
 Consider that we have a very large presentation containing multiple large BLOBs - audio and video files. We want to extract these files from presentation and don't want to load this presentation into memory to keep our memory consumption low. Here's is an example how we can achieve that:
 
-```
+{{< highlight java >}}
 
  static void exportBlobsFromPresentaion()
 
@@ -555,7 +555,7 @@ pres.dispose();
 
 }
 
-```
+{{< /highlight >}}
 
 **API**
 

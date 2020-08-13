@@ -114,7 +114,7 @@ Parameter **updateChartData** defines whether excel workbook will be loaded or n
 
 
 
-```
+{{< highlight java >}}
 
  using (Presentation pres = new Presentation())
 
@@ -129,7 +129,7 @@ Parameter **updateChartData** defines whether excel workbook will be loaded or n
 }
 
 
-```
+{{< /highlight >}}
 
 
 
@@ -137,7 +137,7 @@ In some scenarios user have to implement retrieving of workbook data on his own.
 
 
 
-```
+{{< highlight java >}}
 
  public void SetExternalWorkbookMethodNetwork()
 
@@ -224,7 +224,7 @@ private class WorkbookLoadingHandler : IResourceLoadingCallback
 
 } 
 
-```
+{{< /highlight >}}
 
 
 ### **New AddEffect method has been added to Sequence class and ISequence interface**
@@ -234,7 +234,7 @@ It allows to add new animation effect for single paragraph.
 
 Usage example:
 
-```
+{{< highlight java >}}
 
  using (Presentation presentation = new Presentation(path + "input.pptx")
 
@@ -253,4 +253,4 @@ Usage example:
 }
 
 
-```
+{{< /highlight >}}

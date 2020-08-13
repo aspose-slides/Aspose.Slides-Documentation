@@ -24,7 +24,7 @@ Using VSTO, the following steps are performed:
 1. Save the presentation.
 1. Close the instances of Microsoft Excel and PowerPoint.
 
-```
+{{< highlight csharp >}}
 
  //Global Variables
 
@@ -287,7 +287,7 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 
 	}
 
-```
+{{< /highlight >}}
 ### **Aspose.Slides**
 Using Aspose.Slides for .NET, the following steps are performed:
 
@@ -303,7 +303,7 @@ Using Aspose.Slides for .NET, the following steps are performed:
 1. Now, set the chart rotation angles in X and Y direction.
 1. Save the presentation to PPTX format.
 
-```
+{{< highlight csharp >}}
 
  public static void GEN_ASPOSE_Chart()
 
@@ -402,7 +402,7 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 	}
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/772948)
 - [Github](https://github.com/asposemarketplace/Aspose_for_VSTO/releases/download/3/Create.a.Chart.Aspose.Slides.zip)

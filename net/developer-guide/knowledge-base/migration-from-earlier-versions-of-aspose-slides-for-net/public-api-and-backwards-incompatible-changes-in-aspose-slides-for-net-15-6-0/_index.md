@@ -54,7 +54,7 @@ This property specifies how a shape will render in black-and-white display mode.
 #### **Рroperty ISlide.NotesSlideManager has been added. Property ISlide.NotesSlide and method ISlide.AddNotesSlide() have been marked as Obsolete.**
 ISlide.NotesSlide, ISlide.AddNotesSlide() members has been marked as Obsolete. Use new property ISlide.NotesSlideManager instead.
 
-```
+{{< highlight java >}}
 
  ISlide slide = ...;
 
@@ -70,4 +70,4 @@ notes = slide.NotesSlideManager.AddNotesSlide();
 
 slide.NotesSlideManager.RemoveNotesSlide();
 
-```
+{{< /highlight >}}

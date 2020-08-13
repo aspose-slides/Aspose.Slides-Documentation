@@ -6,7 +6,7 @@ url: /net/get-all-the-text-in-all-the-slides/
 ---
 
 ## **OpenXML SDK**
-```
+{{< highlight csharp >}}
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -130,9 +130,9 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 
 }
 
-```
+{{< /highlight >}}
 ## **Aspose.Slides**
-```
+{{< highlight csharp >}}
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
@@ -208,7 +208,7 @@ public static string GetSlideText(string docName, int index)
 
 }
 
-```
+{{< /highlight >}}
 ## **Download Sample Code**
 - [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

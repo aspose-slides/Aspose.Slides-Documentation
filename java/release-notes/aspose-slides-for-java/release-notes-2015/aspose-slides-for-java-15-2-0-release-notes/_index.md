@@ -79,7 +79,7 @@ SLIDESJAVA-33365 - Paragraph spacing changed for Aspose.Slides generated text fr
 
 SLIDESJAVA-33318 - Font size in PDF and in thumbnails is bigger than in original PPTX
 ## **Public API Changes**
-```
+{{< highlight java >}}
 
  Public API Changes
 
@@ -112,4 +112,4 @@ Method for removing chart data point and chart category by its index has been ad
 
 PptXPptY value has been added to com.aspose.slides.PropertyType enumeration
 
-```
+{{< /highlight >}}

@@ -34,7 +34,7 @@ com.aspose.slides.BehaviorPropertyCollection.remove(int)
 #### **Method getInvertedSolidFillColor() was added to ChartSeries and IChartSeries**
 Method IColorFormat getInvertedSolidFillColor() was added to com.aspose.slides.ChartSeries and com.aspose.slides.IChartSeries
 
-```
+{{< highlight java >}}
 
  java.awt.Color inverColor = java.awt.Color.red;
 
@@ -94,11 +94,11 @@ pres.save(outPath, SaveFormat.Pptx);
 
 finally { if (pres != null) ((IDisposable)pres).dispose(); }
 
-```
+{{< /highlight >}}
 #### **Methods getName() and setName() were added to com.aspose.slides.MasterSlide**
 Methods getName() and setName() were added to com.aspose.slides.MasterSlide
 
-```
+{{< highlight java >}}
 
  final Presentation pres = new Presentation(fileName);
 
@@ -110,6 +110,6 @@ pres.getMasters().get_Item(0).getName();
 
 ...
 
-```
+{{< /highlight >}}
 #### **Some methods marked as final**
 297 public methods have been marked as final to ensure proper library using.

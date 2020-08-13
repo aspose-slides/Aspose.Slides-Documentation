@@ -34,19 +34,19 @@ When you call the SetLicense method, the license name that you pass should be th
 
 **C++**
 
-```
+{{< highlight csharp >}}
 
  SharedPtr<Aspose::Slides::License> lic = MakeObject<Aspose::Slides::License>();
 
 lic->SetLicense(L"Aspose.Slides.lic");
 
-```
+{{< /highlight >}}
 ### **Loading a License from a Stream Object**
 The following example shows how to load a license from a stream.
 
 **C++**
 
-```
+{{< highlight csharp >}}
 
  SharedPtr<Aspose::Slides::License> lic = MakeObject<Aspose::Slides::License>();
 
@@ -54,13 +54,13 @@ System::SharedPtr<System::IO::FileStream> stream= System::IO::File::OpenRead(L"A
 
 lic->SetLicense(stream); 
 
-```
+{{< /highlight >}}
 ## **Check If Aspose.Slides License is Applied in Application**
 It is also possible to check if Aspose.Slides license is properly in the application or not. This is helpful when you're unsure whether the license is applied or not and saves you from running into license related issues. The following code snippet is used to check the license.
 
 **C#**
 
-```
+{{< highlight csharp >}}
 
  //Instantiate an instance of license and set the license through a stream
 
@@ -88,4 +88,4 @@ if(!isLicensed)
 
 
 
-```
+{{< /highlight >}}
