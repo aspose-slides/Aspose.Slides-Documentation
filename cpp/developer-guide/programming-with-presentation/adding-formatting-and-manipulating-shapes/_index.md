@@ -5,5 +5,4 @@ weight: 20
 url: /cpp/adding-formatting-and-manipulating-shapes/
 ---
 
-### **Articles in this section**
 

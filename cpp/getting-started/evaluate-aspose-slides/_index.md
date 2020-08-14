@@ -11,9 +11,8 @@ You can easily download Aspose.Slides for evaluation. The evaluation download is
 
 The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save, and limits to one slide when extracting the text from presentation slides.
 
-!
 
-![todo:image_alt_text](/download/attachments/9218558/1861292958)
+![todo:image_alt_text](Evaluate-Aspose.Slides-001.png)
 
 {{% /alert %}} {{% alert color="primary" %}} 
 

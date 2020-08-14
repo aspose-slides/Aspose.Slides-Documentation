@@ -5,5 +5,4 @@ weight: 40
 url: /cpp/adding-formatting-and-manipulating-smartart/
 ---
 
-### **Articles in this section**
 

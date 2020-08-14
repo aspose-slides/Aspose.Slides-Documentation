@@ -106,12 +106,12 @@ End Using
 
 ```
 
-![todo:image_alt_text](/download/attachments/9218487/1957997574)
+![todo:image_alt_text](Accessing%20an%20Existing%20Table%20in%20SlideEx-00.png)
 
 **Figure**: Original table before modification
 
 The above code snippet locates an existing table in the slide and then adds some text in the first column of the second row in the table as shown below:
 
-![todo:image_alt_text](/download/attachments/9218487/99942998)
+![todo:image_alt_text](Accessing%20an%20Existing%20Table%20in%20SlideEx-002.png)
 
 **Figure**: Table with modified text

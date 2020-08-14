@@ -19,13 +19,3 @@ The Aspose solution supports the following features of the presentation document
 - Bullets
 - Tables
   You can export the presentation documents to PDF documents directly using Aspose.Slides for C++ component only. That is, you do not need any other third party or Aspose.Pdf component for this purpose. Further, you can customize the presentation to PDF export with different options as explained in [this topic](http://docs.aspose.com/display/slidesnet/Converting+to+PDF+File) .
-#### **A Presentation Document Converted to PDF Document through Aspose.Slides for C++**
-
-
-
-![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
-
-
-
-
-![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)

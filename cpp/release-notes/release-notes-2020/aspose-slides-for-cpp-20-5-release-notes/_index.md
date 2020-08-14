@@ -39,7 +39,9 @@ Shapes alignment feature is used to change the placement of selected shapes on
 
 
 
-[**SlideUtil::AlignShapes()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a03a73955adaefd4d7a65d21ab0f68f77)** **method and [**ShapesAlignmentType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f)** **enum has been added to provide options from the picture above.
+[**SlideUtil::AlignShapes()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a03a73955adaefd4d7a65d21ab0f68f77) 
+method and [**ShapesAlignmentType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) 
+enum has been added to provide options from the picture above.
 
 
 #### **ShapesAlignmentType enum**
@@ -63,21 +65,22 @@ Let's say we want to align shapes with indexes 1, 2 and 4 along the top border 
 
 
 #### **Solution**
-**using** **namespace** System;
-**using** **namespace** Aspose::Slides;
+``` cpp
+using namespace System;
+using namespace Aspose::Slides;
 
-**auto** pres = MakeObject<Presentation>(u"example.pptx");
-**auto** slide = pres->get_Slides()->idx_get(0);
-**auto** shape1 = slide->get_Shapes()->idx_get(1);
-**auto** shape2 = slide->get_Shapes()->idx_get(2);
-**auto** shape3 = slide->get_Shapes()->idx_get(4);
+auto pres = MakeObject<Presentation>(u"example.pptx");
+auto slide = pres->get_Slides()->idx_get(0);
+auto shape1 = slide->get_Shapes()->idx_get(1);
+auto shape2 = slide->get_Shapes()->idx_get(2);
+auto shape3 = slide->get_Shapes()->idx_get(4);
 SlideUtil::AlignShapes(Aspose::Slides::ShapesAlignmentType::AlignTop, true, pres->get_Slides()->idx_get(0),
-`    `MakeArray<int32_t>({
-`        `slide->get_Shapes()->IndexOf(shape1),
-`        `slide->get_Shapes()->IndexOf(shape2),
-`        `slide->get_Shapes()->IndexOf(shape3)
-`    `}));
-
+        MakeArray<int32_t>({
+        slide->get_Shapes()->IndexOf(shape1),
+        slide->get_Shapes()->IndexOf(shape2),
+        slide->get_Shapes()->IndexOf(shape3)
+    }));
+```
 The result is the following:
 
 ![todo:image_alt_text](aspose-slides-for-cpp-20-5-release-notes_3.png)
@@ -85,49 +88,51 @@ The result is the following:
 
 #### **Example 2**
 Here is another example, showing how to align the entire collection of shapes on the slide:
-
-**auto** pres = System::MakeObject<Aspose::Slides::Presentation>(u"example.pptx");
+``` cpp
+auto pres = System::MakeObject<Aspose::Slides::Presentation>(u"example.pptx");
 SlideUtil::AlignShapes(Aspose::Slides::ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
-
+```
 
 ### **IDigitalSignature interface and DigitalSignature class have been added**
-[**DigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)** **class has been added, which implements [**IDigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)** **interface and stores information about digital signature based on the certificate, which is used or will be used to sign the presentation.
+[**DigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature) 
+class has been added, which implements [**IDigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature) 
+interface and stores information about digital signature based on the certificate, which is used or will be used to sign the presentation.
 
 [**IDigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature) interface declaration:
-
+```cpp
 /// <summary>
 /// Digital signature in signed file.
 /// </summary>
-**class** **IDigitalSignature** : **public** System::Object
+class IDigitalSignature: public System::Object
 {
-**public**:
-`   `/// <summary>
-`   `/// Certificate object that was used to sign the document.
-`   `/// Read-only <see cref="X509Certificate2"></see>.
-`   `/// </summary>
-`   `**virtual** System::SharedPtr<System::Security::Cryptography::X509Certificates::X509Certificate2> get_Certificate() = 0;
-`   `/// <summary>
-`   `/// If this digital signature is valid and the document has not been tampered with, this value will be true.
-`   `/// Read-only <see cref="bool"></see>.
-`   `/// </summary>
-`   `**virtual** bool get_IsValid() = 0;
-`   `/// <summary>
-`   `/// The time when the document was signed.
-`   `/// Read-only <see cref="DateTime"></see>.
-`   `/// </summary>
-`   `**virtual** System::DateTime get_SignTime() = 0;
-`   `/// <summary>
-`   `/// The purpose of signature.
-`   `/// Read <see cref="System::String"></see>.
-`   `/// </summary>
-`   `**virtual** System::String get_Comments() = 0;
-`   `/// <summary>
-`   `/// The purpose of signature.
-`   `/// Write <see cref="System::String"></see>.
-`   `/// </summary>
-`   `**virtual** void set_Comments(System::String value) = 0;
+public:
+     /// <summary>
+     /// Certificate object that was used to sign the document.
+     /// Read-only <see cref="X509Certificate2"></see>.
+     /// </summary>
+     virtual System::SharedPtr<System::Security::Cryptography::X509Certificates::X509Certificate2> get_Certificate() = 0;
+     /// <summary>
+     /// If this digital signature is valid and the document has not been tampered with, this value will be true.
+     /// Read-only <see cref="bool"></see>.
+     /// </summary>
+     virtual bool get_IsValid() = 0;
+     /// <summary>
+     /// The time when the document was signed.
+     /// Read-only <see cref="DateTime"></see>.
+     /// </summary>
+     virtual System::DateTime get_SignTime() = 0;
+     /// <summary>
+     /// The purpose of signature.
+     /// Read <see cref="System::String"></see>.
+     /// </summary>
+     virtual System::String get_Comments() = 0;
+     /// <summary>
+     /// The purpose of signature.
+     /// Write <see cref="System::String"></see>.
+     /// </summary>
+     virtual void set_Comments(System::String value) = 0;
 };
-
+```
 
 ### **IDigitalSignatureCollection interface and DigitalSignatureCollection class have been added**
 [**DigitalSignatureCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature_collection) class has been added, which implements [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) interface and represents a collection of digital signatures that were used or will be used to sign the presentation.
@@ -140,24 +145,24 @@ SlideUtil::AlignShapes(Aspose::Slides::ShapesAlignmentType::AlignBottom, false, 
 **class** **IDigitalSignatureCollection** : **public** Aspose::Slides::IGenericCollection<System::SharedPtr<Aspose::Slides::IDigitalSignature>>
 {
 **public**:
-`   `/// <summary>
-`   `/// Returns the signature by index.
-`   `/// </summary>
-`   `**virtual** System::SharedPtr<IDigitalSignature> idx_get(int32_t index) = 0;
-`   `/// <summary>
-`   `/// Adds the signature at the end of collection.
-`   `/// </summary>
-`   `/// <param name="digitalSignature">Signature to add.</param>
-`   `**virtual** void Add(System::SharedPtr<IDigitalSignature> digitalSignature) = 0;
-`   `/// <summary>
-`   `/// Removes the signature at the specified index.
-`   `/// </summary>
-`   `/// <param name="index">Index of the signature that should be deleted.</param>
-`   `**virtual** void RemoveAt(int32_t index) = 0;
-`   `/// <summary>
-`   `/// Removes all signatures from collection.
-`   `/// </summary>
-`   `**virtual** void Clear() = 0;
+     /// <summary>
+     /// Returns the signature by index.
+     /// </summary>
+     **virtual** System::SharedPtr<IDigitalSignature> idx_get(int32_t index) = 0;
+     /// <summary>
+     /// Adds the signature at the end of collection.
+     /// </summary>
+     /// <param name="digitalSignature">Signature to add.</param>
+     **virtual** void Add(System::SharedPtr<IDigitalSignature> digitalSignature) = 0;
+     /// <summary>
+     /// Removes the signature at the specified index.
+     /// </summary>
+     /// <param name="index">Index of the signature that should be deleted.</param>
+     **virtual** void RemoveAt(int32_t index) = 0;
+     /// <summary>
+     /// Removes all signatures from collection.
+     /// </summary>
+     **virtual** void Clear() = 0;
 };
 
 
@@ -303,12 +308,12 @@ Now its possible to check if the presentation was digitally signed and has not 
 **auto** pres = MakeObject<Presentation>(u"SomePresentationSigned.pptx");
 **if** (pres->get_DigitalSignatures()->get_Count() > 0)
 {
-`   `bool allSignaturesAreValid = true;
+     bool allSignaturesAreValid = true;
 
 `    `Console::WriteLine(u"Signatures used to sign the presentation: ");
 
-`   `// Check if all digital signatures are valid
-`   `**for** (int32_t i = 0; i < pres->get_DigitalSignatures()->get_Count(); ++i)
+     // Check if all digital signatures are valid
+     **for** (int32_t i = 0; i < pres->get_DigitalSignatures()->get_Count(); ++i)
 `    `{
 `       `**auto** signature = pres->get_DigitalSignatures()->idx_get(i);
 `        `Console::WriteLine(u"{0}, {1} --- {2}",
@@ -318,8 +323,8 @@ Now its possible to check if the presentation was digitally signed and has not 
 `        `allSignaturesAreValid &= signature->get_IsValid();
 `    `}
 
-`   `**if** (allSignaturesAreValid)
+     **if** (allSignaturesAreValid)
 `        `Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
-`   `**else** 
+     **else** 
 `        `Console::WriteLine(u"Presentation has been modified since signing.");
 }

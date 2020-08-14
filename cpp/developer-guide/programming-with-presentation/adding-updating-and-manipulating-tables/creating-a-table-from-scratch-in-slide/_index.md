@@ -181,7 +181,7 @@ End Using
 
 ```
 
-![todo:image_alt_text](/download/attachments/9218488/1651689853)
+![todo:image_alt_text](creating-a-table-from-scratch-in-slide_1.png)
 
 **Figure**: Table added to the slide
 #### **Removing Table Cells Border**
@@ -301,6 +301,6 @@ End Using
 
 ```
 
-![todo:image_alt_text](creating-a-table-from-scratch-in-slide_1.png)
+![todo:image_alt_text](RemoveTableBorders-002.png)
 
 **Figure**: Table added to the slide

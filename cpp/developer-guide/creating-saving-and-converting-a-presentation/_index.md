@@ -5,5 +5,4 @@ weight: 10
 url: /cpp/creating-saving-and-converting-a-presentation/
 ---
 
-### **Articles in this section**
 
