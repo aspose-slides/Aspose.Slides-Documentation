@@ -12,24 +12,6 @@ url: /java/product-overview/
 Aspose.Slides for Java is a Microsoft PowerPoint® management API that enables Java applications to read and write PowerPoint® documents without Microsoft PowerPoint®. Aspose.Slides for Java is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio & video to slides, previewing slides, exporting slides to SVG, PDF and other formats.
 
 
-
-**Contents Summary**
-
-1 [Product Description](#ProductOverview-ProductDescription) 
-
-1.1 [Presentation Features](#ProductOverview-PresentationFeatures)
-
-1.2 [Slides Features](#ProductOverview-SlidesFeatures)
-
-1.3 [Graphics & Multimedia Features](#ProductOverview-Graphics&MultimediaFeatures)
-
-1.4 [Table Features](#ProductOverview-TableFeatures)
-
-1.5 [Text & Paragraph Features](#ProductOverview-Text&ParagraphFeatures)
-
-1.6 [Advance Features](#ProductOverview-AdvanceFeatures)
-
-
 ### **Product Description**
 Aspose.Slides for Java can be used with any kind of application either it is a Web or Desktop Application. Moreover, Aspose.Slides for Java also provides fully featured demos and working examples for developers to have a better understanding of the API.
 

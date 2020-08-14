@@ -5,24 +5,6 @@ weight: 30
 url: /net/aspose-slides-for-openxml/
 ---
 
-**Contents Summary**
-
-- [What is OpenXML?](#Aspose.SlidesforOpenXML-WhatisOpenXML?)
-- [Aspose.Slides for .NET](#Aspose.SlidesforOpenXML-Aspose.Slidesfor.NET)
-- [Aspose.Slides for OpenXML](#Aspose.SlidesforOpenXML-Aspose.SlidesforOpenXML) 
-  - [Introduction](#Aspose.SlidesforOpenXML-Introduction)
-  - [System Requirements and Supported Platforms](#Aspose.SlidesforOpenXML-SystemRequirementsandSupportedPlatforms) 
-    - [System Requirements](#Aspose.SlidesforOpenXML-SystemRequirements)
-    - [Supported Operating Systems](#Aspose.SlidesforOpenXML-SupportedOperatingSystems)
-    - [.NET Framework versions supported](#Aspose.SlidesforOpenXML-.NETFrameworkversionssupported)
-  - [Downloading](#Aspose.SlidesforOpenXML-Downloading)
-  - [Installing](#Aspose.SlidesforOpenXML-Installing)
-  - [Support, Extend and Contribute](#Aspose.SlidesforOpenXML-Support,ExtendandContribute) 
-    - [Support](#Aspose.SlidesforOpenXML-Support)
-    - [Extend and Contribute](#Aspose.SlidesforOpenXML-ExtendandContribute)
-    - [Source Code](#Aspose.SlidesforOpenXML-SourceCode)
-    - [How to configure the source code](#Aspose.SlidesforOpenXML-Howtoconfigurethesourcecode)
-- [Sample Code Examples](#Aspose.SlidesforOpenXML-SampleCodeExamples)
 # **What is OpenXML?**
 OpenXML SDK is a .NET SDK from Microsoft in order to process Microsoft Office 2007 and above file formats. These file formats are basically zipped packages and the Open XML SDK for Office simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The classes in the Open XML SDK encapsulate many common tasks that developers perform on Open XML packages, so that you can perform complex operations with lines of code.
 

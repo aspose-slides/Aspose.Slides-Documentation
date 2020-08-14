@@ -5,14 +5,6 @@ weight: 20
 url: /java/supported-file-formats/
 ---
 
-
-**Contents Summary**
-
-1 [Supported Microsoft PowerPoint Versions](#SupportedFileFormats-SupportedMicrosoftPowerPointVersions)
-
-2 [Supported File Formats](#SupportedFileFormats-SupportedFileFormats)
-
-
 ## **Supported Microsoft PowerPoint Versions**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000

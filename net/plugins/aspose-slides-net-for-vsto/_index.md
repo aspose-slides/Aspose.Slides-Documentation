@@ -5,24 +5,6 @@ weight: 20
 url: /net/aspose-slides-net-for-vsto/
 ---
 
-**Contents Summary**
-
-- [What is VSTO?](#Aspose.Slides.NETforVSTO-WhatisVSTO?)
-- [Aspose.Slides for .NET](#Aspose.Slides.NETforVSTO-Aspose.Slidesfor.NET)
-- [Aspose.Slides for VSTO](#Aspose.Slides.NETforVSTO-Aspose.SlidesforVSTO) 
-  - [Introduction](#Aspose.Slides.NETforVSTO-Introduction)
-  - [System Requirements and Supported Platforms](#Aspose.Slides.NETforVSTO-SystemRequirementsandSupportedPlatforms) 
-    - [System Requirements](#Aspose.Slides.NETforVSTO-SystemRequirements)
-    - [Supported Operating Systems](#Aspose.Slides.NETforVSTO-SupportedOperatingSystems)
-    - [.NET Framework versions supported](#Aspose.Slides.NETforVSTO-.NETFrameworkversionssupported)
-  - [Downloading](#Aspose.Slides.NETforVSTO-Downloading)
-  - [Installing](#Aspose.Slides.NETforVSTO-Installing)
-  - [Support, Extend and Contribute](#Aspose.Slides.NETforVSTO-Support,ExtendandContribute) 
-    - [Support](#Aspose.Slides.NETforVSTO-Support)
-    - [Extend and Contribute](#Aspose.Slides.NETforVSTO-ExtendandContribute)
-    - [Source Code](#Aspose.Slides.NETforVSTO-SourceCode)
-    - [How to configure the source code](#Aspose.Slides.NETforVSTO-Howtoconfigurethesourcecode)
-- [Sample Code Examples](#Aspose.Slides.NETforVSTO-SampleCodeExamples)
 # **What is VSTO?**
 VSTO, or Visual Studio Tools for Office, or Microsoft Visual Studio Tools is part of Microsoft's Visual Studio .NET tools suite and supports the Microsoft .NET Framework. It is used by developers to write code connecting Microsoft Office Word, Excel and Outlook applications. Developers using VSTO can employ C# or Visual Basic languages. It is an alternative to Visual Basic for Applications, or VBA.
 # **Aspose.Slides for .NET**

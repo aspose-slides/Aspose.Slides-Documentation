@@ -40,7 +40,7 @@ This page contains release notes for [Aspose.Slides for Java 20.2](https://repos
 ## **Public API Changes**
 -----
 ### **Get Text Location in a Table Cell**
-Method [**IPortion.getRect()**](https://apireference.aspose.com/java/slides/com.aspose.slides/IPortion#getRect--)** **has been added. This method extends and actually replaces method [IPortion.getCoordinates()](https://apireference.aspose.com/java/slides/com.aspose.slides/IPortion#getCoordinates--) which is marked as obsolete now.
+Method [**IPortion.getRect()**](https://apireference.aspose.com/java/slides/com.aspose.slides/IPortion#getRect--) has been added. This method extends and actually replaces method [IPortion.getCoordinates()](https://apireference.aspose.com/java/slides/com.aspose.slides/IPortion#getCoordinates--) which is marked as obsolete now.
 Methods [IPortion.getRect()](https://apireference.aspose.com/java/slides/com.aspose.slides/IPortion#getRect--) and [IParagraph.getRect()](https://apireference.aspose.com/java/slides/com.aspose.slides/IParagraph#getRect--) can be applied to text within table cells.
 
 The following example shows how those properties work.
