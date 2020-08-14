@@ -29,7 +29,7 @@ The WSS Administration and Timer services are needed because some setup actions 
 To install Aspose.Slides for SharePoint: 
 
 1. Unpack Aspose.Slides.SharePoint zip to the local drive on the MOSS 7.0 or WSS 3.0 Server.
-1. Run setup.exe and follow the instructions on the screen.
+2. Run setup.exe and follow the instructions on the screen.
    The setup program performs the following actions: 
    1. Checks the installation prerequisites. Setup will not continue if any check fails. 
 
@@ -40,7 +40,7 @@ To install Aspose.Slides for SharePoint:
 
 
 
-1. Displays the End User License Agreement. You must accept the agreement to proceed. 
+3. Displays the End User License Agreement. You must accept the agreement to proceed. 
 
    **The EULA** 
 
@@ -49,7 +49,7 @@ To install Aspose.Slides for SharePoint:
 
 
 
-1. Displays deployment target selection. Selects the web applications and site collections that the feature should be activated for. 
+4. Displays deployment target selection. Selects the web applications and site collections that the feature should be activated for. 
 
    **Selecting deployment targets** 
 
@@ -58,7 +58,7 @@ To install Aspose.Slides for SharePoint:
 
 
 
-1. Deploys the feature to server farm. 
+5. Deploys the feature to server farm. 
 
    **The installation progress bar** 
 
@@ -67,8 +67,8 @@ To install Aspose.Slides for SharePoint:
 
 
 
-1. Activates Aspose.Slides for the selected site collections and configures their parent web applications.
-1. Displays a list of web applications and site collections that the feature has been deployed and activated for. 
+6. Activates Aspose.Slides for the selected site collections and configures their parent web applications.
+7. Displays a list of web applications and site collections that the feature has been deployed and activated for. 
 
    **Successful installation** 
 

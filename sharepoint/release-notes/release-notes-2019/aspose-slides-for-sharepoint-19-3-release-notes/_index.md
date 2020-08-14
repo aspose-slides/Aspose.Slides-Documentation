@@ -12,6 +12,6 @@ This page contains release notes for Aspose.Slides for Sharepoint 19.3
 {{% /alert %}} 
 
 |**Key** |**Summary** |**Category** |
-| :-: | :-: | :-: |
+| :-: | :- | :-: |
 |SLIDESSP-33282|[Use Aspose.Slides for .NET 19.3 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.3+Release+Notes)|Feature|
 

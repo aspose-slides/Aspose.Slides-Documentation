@@ -34,7 +34,7 @@ Perform following steps to deploy the Aspose.Slides for SharePoint license:
 
 ```
 
-1. Deploy the solution to all servers in the farm: 
+2. Deploy the solution to all servers in the farm: 
 
 ``` xml
 
@@ -42,7 +42,7 @@ Perform following steps to deploy the Aspose.Slides for SharePoint license:
 
 ```
 
-1. Execute administrative timer jobs to complete the deployment immediately: 
+3. Execute administrative timer jobs to complete the deployment immediately: 
 
 ``` xml
 

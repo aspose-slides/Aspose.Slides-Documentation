@@ -16,6 +16,6 @@ The evaluation version of Aspose.Slides (without a license specified) provides f
 
 {{% /alert %}} {{% alert color="primary" %}} 
 
-If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](http://www.aspose.com/corporate/purchase/faqs/temporary-license.aspx)
+If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

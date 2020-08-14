@@ -6,7 +6,7 @@ url: /java/aspose-slides-for-java-17-1-0-release-notes/
 ---
 
 |**Key** |**Summary** |**Category** |
-| :-: | :-: | :-: |
+| :-: | :- | :-: |
 |SLIDESNET-38199|Support for Value from Cells feature for chart data labels|Feature|
 |SLIDESNET-36738|Support for bulk setting text properties for whole table, row or column|Feature|
 |SLIDESNET-35709|Set and control text spellcheck language using Aspose.Slides|Feature|

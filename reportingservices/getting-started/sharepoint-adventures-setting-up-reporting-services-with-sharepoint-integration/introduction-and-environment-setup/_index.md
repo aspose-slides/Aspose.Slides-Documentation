@@ -1,5 +1,5 @@
 ---
-title: Introduction &amp; Environment Setup
+title: Introduction and Environment Setup
 type: docs
 weight: 10
 url: /reportingservices/introduction-and-environment-setup/

@@ -18,7 +18,7 @@ When Aspose.Slides for SharePoint is installed on the SharePoint server, it adds
 To convert a Microsoft PowerPoint document from a SharePoint document library: 
 
 1. Select a Microsoft PowerPoint document in a document library.
-1. Click the down arrow to reveal a menu and click **Convert via Aspose.Slides.SharePoint**. 
+2. Click the down arrow to reveal a menu and click **Convert via Aspose.Slides.SharePoint**. 
 
    **The Presentation 2 file's menu showing the Convert via Aspose.Slides option** 
 
@@ -27,8 +27,8 @@ To convert a Microsoft PowerPoint document from a SharePoint document library:
 
 
 
-1. Select the desired output format from the form. If you wish, change the output file name and the destination folder.
-1. Click **Convert** to convert the file. 
+3. Select the desired output format from the form. If you wish, change the output file name and the destination folder.
+4. Click **Convert** to convert the file. 
 
    **The conversion form lets you select output file format, name and destination** 
 
@@ -37,7 +37,7 @@ To convert a Microsoft PowerPoint document from a SharePoint document library:
 
 
 
-1. When the conversion is complete, a success message is displayed. 
+5. When the conversion is complete, a success message is displayed. 
 
    **The conversion was successful** 
 
@@ -46,7 +46,7 @@ To convert a Microsoft PowerPoint document from a SharePoint document library:
 
 
 
-1. Click **Source Library** (to go to the source directory) or **Destination Library** (to go to the directory the file was saved to). 
+6. Click **Source Library** (to go to the source directory) or **Destination Library** (to go to the directory the file was saved to). 
 
    The converted document appears in the document library. 
 

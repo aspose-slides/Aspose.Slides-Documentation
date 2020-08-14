@@ -12,7 +12,7 @@ This page contains release notes for Aspose.Slides for Jasper Reports 19.7
 {{% /alert %}} 
 
 |**Key** |**Summary** |**Category** |
-| :-: | :-: | :-: |
+| :-: | :- | :-: |
 |SLIDESJR-33317|[Use Aspose.Slides for Java 19.7 features](https://docs.aspose.com/display/slidesjava/Aspose.Slides+for+Java+19.7+Release+Notes)|Feature|
 |SLIDESJR-33324|Table border color changes to black in generated PPT|Bug|
 

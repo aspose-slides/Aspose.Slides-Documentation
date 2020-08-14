@@ -12,7 +12,7 @@ This page contains release notes for Aspose.Slides for Jasper Reports 20.1
 {{% /alert %}} 
 
 |**Key** |**Summary** |**Category** |
-| :-: | :-: | :-: |
+| :-: | :- | :-: |
 |SLIDESJR-33347|Use [Aspose.Slides for Java 20.1](https://docs.aspose.com/display/slidesjava/Aspose.Slides+for+Java+20.1+Release+Notes) features|Feature|
 
 

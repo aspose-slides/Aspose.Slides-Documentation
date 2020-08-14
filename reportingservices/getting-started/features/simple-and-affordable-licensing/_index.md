@@ -5,7 +5,8 @@ weight: 60
 url: /reportingservices/simple-and-affordable-licensing/
 ---
 
-#### **Types of Licenses {{% alert color="primary" %}} There are two types of licenses currently offered: Server Subscription Site Subscription {{% /alert %}}**
+#### Types of Licenses 
+{{% alert color="primary" %}} There are two types of licenses currently offered: Server Subscription Site Subscription {{% /alert %}}
 Every license comes with 1 year worth of free upgrades to any new version of the product that comes out and 1 year of unlimited free technical support. 
 
 Aspose.Slides for Reporting Services evaluation and paid versions is the same download. Simply download Aspose.Slides for Reporting Services and install it on the server, it will work in the evaluation mode. 
