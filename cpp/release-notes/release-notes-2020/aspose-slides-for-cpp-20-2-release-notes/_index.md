@@ -33,164 +33,104 @@ Let's say we have a table with some text inside and simple AutoShape nearby.
 
 **The code snippet below generates those objects.**
 
-``` cpp
-
+```cpp
  {
-
     System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
     System::SharedPtr<ITable> tbl =
-
         pres->get_Slides()->idx_get(0)->get_Shapes()->AddTable(50.0f, 50.0f, System::MakeArray<double>({ 50, 70 }), System::MakeArray<double>({ 50, 50, 50 }));
 
     System::SharedPtr<IParagraph> paragraph0 = System::MakeObject<Paragraph>();
-
     paragraph0->get_Portions()->Add(System::MakeObject<Portion>(u"Text "));
-
     paragraph0->get_Portions()->Add(System::MakeObject<Portion>(u"in0"));
-
     paragraph0->get_Portions()->Add(System::MakeObject<Portion>(u" Cell"));
 
     System::SharedPtr<IParagraph> paragraph1 = System::MakeObject<Paragraph>();
-
     paragraph1->set_Text(u"On0");
 
     System::SharedPtr<IParagraph> paragraph2 = System::MakeObject<Paragraph>();
-
     paragraph2->get_Portions()->Add(System::MakeObject<Portion>(u"Hi there "));
-
     paragraph2->get_Portions()->Add(System::MakeObject<Portion>(u"col0"));
 
     System::SharedPtr<ICell> cell = tbl->get_Rows()->idx_get(1)->idx_get(1);
-
     cell->get_TextFrame()->get_Paragraphs()->Clear();
-
     cell->get_TextFrame()->get_Paragraphs()->Add(paragraph0);
-
     cell->get_TextFrame()->get_Paragraphs()->Add(paragraph1);
-
     cell->get_TextFrame()->get_Paragraphs()->Add(paragraph2);
 
     System::SharedPtr<IAutoShape> autoShape =
-
         pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 400.0f, 100.0f, 60.0f, 120.0f);
-
     autoShape->get_TextFrame()->set_Text(u"Text in shape");
-
 }
-
 ```
 
 **The source code snippet below will add a yellow frame to all paragraphs and blue frame to all portions which contain substring "0".**
 
-\1) In the first step, We're getting coordinates of the left top corner of the table cell.
+1) In the first step, We're getting coordinates of the left top corner of the table cell.
 
-``` cpp
-
- double x = tbl->get_X() + cell->get_OffsetX();
-
+```cpp
+double x = tbl->get_X() + cell->get_OffsetX();
 double y = tbl->get_Y() + cell->get_OffsetY();
-
 ```
 
-\2) In the next step we're using [IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_paragraph/#a56f6e0026bbb81aa948bb0b000b8cf08) methods in order to add frame to portions and paragraphs.
 
-``` cpp
+2) In the next step we're using [IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_paragraph/#a56f6e0026bbb81aa948bb0b000b8cf08) methods in order to add frame to portions and paragraphs.
 
+```cpp
  {
-
     auto para_enumerator = cell->get_TextFrame()->get_Paragraphs()->GetEnumerator();
-
     while (para_enumerator->MoveNext())
-
     {
-
         auto para = para_enumerator->get_Current();
-
         if (para->get_Text() == u"")
-
             continue;
 
         System::Drawing::RectangleF rect = para->GetRect();
-
         System::SharedPtr<IAutoShape> shape = 
-
             pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 
-
                 rect.get_X() + (float)x, rect.get_Y() + (float)y, rect.get_Width(), rect.get_Height());
 
         shape->get_FillFormat()->set_FillType(Aspose::Slides::FillType::NoFill);
-
         shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Yellow());
-
         shape->get_LineFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
 
         auto portion_enumerator = para->get_Portions()->GetEnumerator();
-
         while (portion_enumerator->MoveNext())
-
         {
-
             auto portion = portion_enumerator->get_Current();
-
             if (portion->get_Text().Contains(u"0"))
-
             {
-
                 rect = portion->GetRect();
-
                 shape = 
-
                     pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 
-
                         rect.get_X() + (float)x, rect.get_Y() + (float)y, rect.get_Width(), rect.get_Height());
 
                 shape->get_FillFormat()->set_FillType(Aspose::Slides::FillType::NoFill);
-
             }
-
         }
-
     }
-
 }
-
 ```
 
-\3) Add frame to AutoShape paragraphs.
 
-``` cpp
+3) Add frame to AutoShape paragraphs.
 
+```cpp
  {
-
     auto para_enumerator = autoShape->get_TextFrame()->get_Paragraphs()->GetEnumerator();
-
     while (para_enumerator->MoveNext())
-
     {
-
         auto para = para_enumerator->get_Current();
-
         System::Drawing::RectangleF rect = para->GetRect();
-
         System::SharedPtr<IAutoShape> shape = 
-
             pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 
-
                 rect.get_X() + autoShape->get_X(), rect.get_Y() + autoShape->get_Y(), rect.get_Width(), rect.get_Height());
 
-
-
         shape->get_FillFormat()->set_FillType(Aspose::Slides::FillType::NoFill);
-
         shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Yellow());
-
         shape->get_LineFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
-
     }
-
 }
-
 ```
 
 **Result:**

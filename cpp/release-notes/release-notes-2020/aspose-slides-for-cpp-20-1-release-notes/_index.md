@@ -31,28 +31,18 @@ These methods allow to get or set the default font used instead of all missing 
 
 The code snippet below demonstrates saving presentation to Html and Pdf with different default regular font.
 
-
-
-``` cpp
-
- System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"SomePresentation.pptx");
+```cpp
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"SomePresentation.pptx");
 
 System::SharedPtr<HtmlOptions> htmlOpts = System::MakeObject<HtmlOptions>();
-
 htmlOpts->set_DefaultRegularFont(u"Arial Black");
-
 pres->Save(u"SomePresentation-out-ArialBlack.html", Aspose::Slides::Export::SaveFormat::Html, htmlOpts);
-
 htmlOpts->set_DefaultRegularFont(u"Lucida Console");
-
 pres->Save(u"Somepresentation-out-LucidaConsole.html", Aspose::Slides::Export::SaveFormat::Html, htmlOpts);
 
 System::SharedPtr<PdfOptions> pdfOpts = System::MakeObject<PdfOptions>();
-
 pdfOpts->set_DefaultRegularFont(u"Arial Black");
-
 pres->Save(u"SomePresentation-out-ArialBlack.pdf", Aspose::Slides::Export::SaveFormat::Pdf, pdfOpts);
-
 ```
 
 
