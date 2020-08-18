@@ -9,9 +9,9 @@ url: /java/extracting-text-from-the-presentation/
 
 It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Text can be extracted in following ways:
 
-[Extracting text from one slide](/slides/java/extracting-text-from-the-presentation-html/)
-[Extracting text using GetAllTextBoxes method](/slides/java/extracting-text-from-the-presentation-html/)
-[Categorized and fast extraction of text](/slides/java/extracting-text-from-the-presentation-html/)
+[Extracting text from one slide](/slides/java/extracting-text-from-the-presentation/)
+[Extracting text using GetAllTextBoxes method](/slides/java/extracting-text-from-the-presentation/)
+[Categorized and fast extraction of text](/slides/java/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 #### **Extracting Text from a Slide**

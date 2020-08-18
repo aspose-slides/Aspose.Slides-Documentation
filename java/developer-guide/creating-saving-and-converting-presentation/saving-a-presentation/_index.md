@@ -7,7 +7,7 @@ url: /java/saving-a-presentation/
 
 {{% alert color="primary" %}} 
 
-[Opening a Presentation](/slides/java/opening-a-presentation-html/) described how to use the [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
+[Opening a Presentation](/slides/java/opening-a-presentation/) described how to use the [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
 
 {{% /alert %}} 
 

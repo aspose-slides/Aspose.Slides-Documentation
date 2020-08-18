@@ -17,7 +17,7 @@ Aspose.Slides for Java is a component that can be used to manipulate Microsoft P
 
 {{% /alert %}} 
 ### **Creating a Presentation**
-Below are two code examples that illustrate how VSTO and Aspose.Slides for Java can be used to achieve the same goal. The first example is [VSTO](/slides/java/create-a-new-presentation-html/); [the second example](/slides/java/create-a-new-presentation-html/) uses Aspose.Slides.
+Below are two code examples that illustrate how VSTO and Aspose.Slides for Java can be used to achieve the same goal. The first example is [VSTO](/slides/java/create-a-new-presentation/); [the second example](/slides/java/create-a-new-presentation/) uses Aspose.Slides.
 #### **VSTO Example**
 **The VSTO output** 
 

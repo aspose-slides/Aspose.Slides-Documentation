@@ -23,7 +23,7 @@ Aspose.Slides supports the following presentation features when converting to PD
 - Bullets.
 - Tables.
 
-You can export presentations to PDFs directly using Aspose.Slides for Java: you do not need any other component. Further, you can customize the presentation to PDF export with various options as explained in [Converting to PDF](/slides/java/converting-a-presentation-html/).
+You can export presentations to PDFs directly using Aspose.Slides for Java: you do not need any other component. Further, you can customize the presentation to PDF export with various options as explained in [Converting to PDF](/slides/java/converting-a-presentation/).
 
 **The input presentation** 
 

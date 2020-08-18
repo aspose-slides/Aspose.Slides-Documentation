@@ -36,4 +36,4 @@ Aspose.Slides for Reporting Services supports the following RDL elements:
 
 ![todo:image_alt_text](comprehensive-rdl-support_2.png)
 
-For more sample reports, see the [Report Samples Gallery](/slides/reportingservices/sample-reports-gallery-html/) section. 
+For more sample reports, see the [Report Samples Gallery](/slides/reportingservices/sample-reports-gallery/) section. 

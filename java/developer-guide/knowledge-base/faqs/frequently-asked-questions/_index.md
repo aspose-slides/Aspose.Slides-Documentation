@@ -9,12 +9,12 @@ url: /java/frequently-asked-questions/
 
 This page collects a number of frequently asked questions about:
 
-- [Supported file formats](/slides/java/frequently-asked-questions-html/).
-- [Exceptions](/slides/java/frequently-asked-questions-html/).
-- [Working with slides](/slides/java/frequently-asked-questions-html/).
-- [Cloning slides](/slides/java/frequently-asked-questions-html/).
-- [Working with presentations](/slides/java/frequently-asked-questions-html/).
-- [Formatting and images](/slides/java/frequently-asked-questions-html/).
+- [Supported file formats](/slides/java/frequently-asked-questions/).
+- [Exceptions](/slides/java/frequently-asked-questions/).
+- [Working with slides](/slides/java/frequently-asked-questions/).
+- [Cloning slides](/slides/java/frequently-asked-questions/).
+- [Working with presentations](/slides/java/frequently-asked-questions/).
+- [Formatting and images](/slides/java/frequently-asked-questions/).
 
 {{% /alert %}} 
 ### **Supported File Formats**
@@ -28,7 +28,7 @@ This page collects a number of frequently asked questions about:
 - Microsoft PowerPoint 2007 -2010Template (POTX)
 - Microsoft PowerPoint 2007-2010 SlideShow (PPSX)
 - Open Document Format presentations (ODP)
-  Read more about supported file formats in the [File Formats and Conversions](/slides/java/file-formats-and-conversions-html/) section of the documentation.
+  Read more about supported file formats in the [File Formats and Conversions](/slides/java/file-formats-and-conversions/) section of the documentation.
 ### **Exceptions**
 #### **Q: I am getting an OutOfMemory exception while importing a large PPT file with images to MemoryStream. Is there a limitation in Aspose.Slides regarding file size?**
 **A** : There is no specific formula for calculating the presentation size support by Aspose.Slides. There should be enough space to accommodate the whole presentation structure and images in the presentation. Normally, the images in the memory occupy more space than hard disk especially when there are effects on it as well.

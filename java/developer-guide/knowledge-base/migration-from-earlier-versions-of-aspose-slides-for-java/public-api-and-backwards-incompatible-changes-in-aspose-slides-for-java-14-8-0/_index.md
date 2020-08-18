@@ -7,7 +7,7 @@ url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-ja
 
 {{% alert color="primary" %}} 
 
-This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0-html/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0-html/) introduced with the Aspose.Slides for Java 14.8.0 API.
+This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) introduced with the Aspose.Slides for Java 14.8.0 API.
 
 {{% /alert %}} 
 ## **Public API Changes**

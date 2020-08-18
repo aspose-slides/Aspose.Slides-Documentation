@@ -7,4 +7,4 @@ url: /java/introduction-to-presentation-in-php/
 
 **This section includes the following topics:**
 
-- [Hello World Application in PHP](/slides/java/hello-world-application-in-php-html/)
+- [Hello World Application in PHP](/slides/java/hello-world-application-in-php/)

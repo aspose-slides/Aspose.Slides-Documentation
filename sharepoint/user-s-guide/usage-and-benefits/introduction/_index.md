@@ -15,7 +15,7 @@ Aspose.Slides for SharePoint is flexible solution for converting ~Microsoft Powe
 
 This article covers the following: 
 
-- [A note on the SharePoint document library](/slides/sharepoint/sharepoint-document-library-html/).
+- [A note on the SharePoint document library](/slides/sharepoint/sharepoint-document-library/).
 - [The benefits of using Aspose.Slides for SharePoint](/slides/sharepoint/benefits-of-using-aspose-slides-for-sharepoint-html/).
-- [How to convert Microsoft PowerPoint documents into other formats](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats-html/).
-- [Summary](/slides/sharepoint/summary-html/)
+- [How to convert Microsoft PowerPoint documents into other formats](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+- [Summary](/slides/sharepoint/summary/)

@@ -15,8 +15,8 @@ Aspose.Slides for C++ also facilitates developers to add custom tables in their 
 
 This article explains how to create different types of charts:
 
-- [Creating Table from Scratch](/slides/cpp/creating-a-table-from-scratch-in-slide-html/).
-- [Remove Table Borders](/slides/cpp/creating-a-table-from-scratch-in-slide-html/).
+- [Creating Table from Scratch](/slides/cpp/creating-a-table-from-scratch-in-slide/).
+- [Remove Table Borders](/slides/cpp/creating-a-table-from-scratch-in-slide/).
 
 {{% /alert %}} 
 #### **Creating Table from Scratch**

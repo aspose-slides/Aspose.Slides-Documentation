@@ -9,7 +9,7 @@ url: /cpp/applying-protection-to-presentation/
 
 A common use for Aspose.Slides is to create, update and save Microsoft PowerPoint 2007 (PPTX) presentations as part of an automated workflow. Users of the application that uses Aspose.Slides this way get access to the output presentations. Protecting them from editing is a common concern. It is important that auto-generated presentations retain their original formatting and content.
 
-This article explains how [presentations and slides are constructed](/slides/cpp/applying-protection-to-presentation-html/) and how Aspose.Slides for C++ can [apply protection to](/slides/cpp/applying-protection-to-presentation-html/), and then [remove it from](/slides/cpp/applying-protection-to-presentation-html/) a presentation. This feature is unique to Aspose.Slides and, at the time of writing, is not available in Microsoft PowerPoint. It gives developers a way of controlling how the presentations their applications create are used.
+This article explains how [presentations and slides are constructed](/slides/cpp/applying-protection-to-presentation/) and how Aspose.Slides for C++ can [apply protection to](/slides/cpp/applying-protection-to-presentation/), and then [remove it from](/slides/cpp/applying-protection-to-presentation/) a presentation. This feature is unique to Aspose.Slides and, at the time of writing, is not available in Microsoft PowerPoint. It gives developers a way of controlling how the presentations their applications create are used.
 
 {{% /alert %}} 
 ### **Composition of a Slide**

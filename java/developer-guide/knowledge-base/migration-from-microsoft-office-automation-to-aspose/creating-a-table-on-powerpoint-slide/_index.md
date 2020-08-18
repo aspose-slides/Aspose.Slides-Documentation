@@ -7,7 +7,7 @@ url: /java/creating-a-table-on-powerpoint-slide/
 
 {{% alert color="primary" %}} 
 
-Tables are widely used to display data on presentation slides. This article shows how to create a 15 x 15 table with a font size of 10 programmatically using first [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide-html/) and then [Aspose.Slides for Java](/slides/java/creating-a-table-on-powerpoint-slide-html/).
+Tables are widely used to display data on presentation slides. This article shows how to create a 15 x 15 table with a font size of 10 programmatically using first [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/) and then [Aspose.Slides for Java](/slides/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ### **Creating Tables**
