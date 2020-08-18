@@ -62,76 +62,108 @@ url: /net/aspose-slides-for-net-16-12-0-release-notes/
 ## **Public API Changes**
 #### **Aspose.Slides.Metered class has been added**
 Aspose.Slides.Metered class has been added. It provides methods to set metered key and check consumption quantity for associated metered account. This new licensing method will be accessible soon.
-#### **Public methods**
-Metered() Initializes a new instance of this class. void SetMeteredKey(string publicKey, string privateKey) Sets metered public and private key. parameters: publicKey Metered pubilc key. privateKey Metered private key. static decimal GetConsumptionQuantity() Gets consumption quantity.
-Usage example: 
+###### **Public methods**
+Metered() Initializes a new instance of this class. void SetMeteredKey(string publicKey, string privateKey) Sets metered public and private key. 
+parameters: 
+- publicKey - Metered pubilc key. 
+- privateKey - Metered private key. 
+- static decimal GetConsumptionQuantity() Gets consumption quantity.
+
+######Usage example: 
+``` csharp
 Metered metered = new Metered();
 metered.SetMeteredKey("PublicKey", "PrivateKey");
 decimal consumption = Metered.GetConsumptionQuantity();
+```
 #### **IAxis.TickMarksSpacing and IAxis.IsAutomaticTickMarksSpacing properties have been added.**
 IAxis.IsAutomaticTickMarksSpacing property specifies automatic tick marks spacing value. If false: use TickMarksSpacing property.
 IAxis.TickMarksSpacing specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis. 
+``` csharp
 using (Presentation pres = new Presentation())
 {
-pres.Slides.AddClone(pres.Slides[0]);
-IChart barChart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredBar, 50, 50, 600, 400, true); 
-
-
-barChart.Axes.VerticalAxis.IsAutomaticTickMarksSpacing = false; 
-
-barChart.Axes.VerticalAxis.TickMarksSpacing = 2;
+  pres.Slides.AddClone(pres.Slides[0]);
+  IChart barChart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredBar, 50, 50, 600, 400, true); 
+  
+  barChart.Axes.VerticalAxis.IsAutomaticTickMarksSpacing = false; 
+  barChart.Axes.VerticalAxis.TickMarksSpacing = 2;
 }
+```
 #### **New properties PicturesCompression and DeletePicturesCroppedAreas has been added to HTML and SVG options**
 The new properties PicturesCompression and DeletePicturesCroppedAreas has been added to IHtmlOptions and ISVGOptions.
+
 PicturesCompression is an enum containing the following values:
-Dpi330 good quality for high-definition (HD) displays Dpi220 excellent quality on most printers and screens Dpi150 good for web pages and projectors Dpi96 minimize document size for sharing Dpi72 default compression level DocumentResolution use document resolution the picture will not be compressed and used in document as-is
+- **Dpi330** - good quality for high-definition (HD) displays 
+- **Dpi220** - excellent quality on most printers and screens 
+- **Dpi150** - good for web pages and projectors 
+- **Dpi96** - minimize document size for sharing 
+- **Dpi72** - default compression level 
+- **DocumentResolution** - use document resolution - the picture will not be compressed and used in document as-is
+
 The value affects the pictures quality in generated SVG/HTML documents. Please note that the higher DPI, the larger resulting document.
+
 DeletePicturesCroppedAreas is a boolean flag indicating if the cropped parts remain as part of the document. If true the cropped parts will be removed, if false they will be serialized in the document (which can possibly lead to a larger SVG/HTML file).
+
 Here's an example of export the presentation to SVG and HTML documents with 220 and 96 DPI respectively: 
+``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
-using (FileStream stream = new FileStream("pres.svg", FileMode.OpenOrCreate))
-{
-SVGOptions svgOptions = new SVGOptions
-{
-PicturesCompression = PicturesCompression.Dpi220
-};
-pres.Slides[0].WriteAsSvg(stream, svgOptions);
-} 
-
-HtmlOptions htmlOptions = new HtmlOptions
-{
-PicturesCompression = PicturesCompression.Dpi96
-};
-pres.Save("pres.html", SaveFormat.Html, htmlOptions);
+  using (FileStream stream = new FileStream("pres.svg", FileMode.OpenOrCreate))
+  {
+    SVGOptions svgOptions = new SVGOptions
+    {
+      PicturesCompression = PicturesCompression.Dpi220
+    };
+    pres.Slides[0].WriteAsSvg(stream, svgOptions);
+  } 
+  
+  HtmlOptions htmlOptions = new HtmlOptions
+  {
+    PicturesCompression = PicturesCompression.Dpi96
+  };
+  
+  pres.Save("pres.html", SaveFormat.Html, htmlOptions);
 }
+```
+
 #### **New static property Header has been added to class FieldType**
 The new static property Header has been added to class FieldType. It allows getting the instance of FieldType class that represents "header" field type.
+``` csharp
 public static FieldType Header { get; }
+```
 The new API can be used like this: 
+``` csharp
 using (Presentation pres = new Presentation("presentation.ppt"))
 {
-ISlide slide = pres.Slides[0];
-IAutoShape shape = slide.Shapes[0] as IAutoShape;
-IParagraph paragraph = shape.TextFrame.Paragraphs[0];
-for (int portionIndex = 0; portionIndex < paragraph.Portions.Count; portionIndex++)
-{
-IPortion portion = paragraph.Portions[portionIndex];
-IField field = portion.Field;
-if (field != null && field.Type == FieldType.Header) // FieldType.Header property is used to find portion with appropriate field type
-{
-Console.WriteLine(portion.Text);
+  ISlide slide = pres.Slides[0];
+  IAutoShape shape = slide.Shapes[0] as IAutoShape;
+  IParagraph paragraph = shape.TextFrame.Paragraphs[0];
+  for (int portionIndex = 0; portionIndex < paragraph.Portions.Count; portionIndex++)
+  {
+    IPortion portion = paragraph.Portions[portionIndex];
+    IField field = portion.Field;
+    if (field != null && field.Type == FieldType.Header) // FieldType.Header property is used to find portion with appropriate field type
+    {
+      Console.WriteLine(portion.Text);
+    }
+  }
 }
-}
-}
+```
 #### **SvgExternalFontsHandling enum, ISVGOptions.ExternalFontsHandling and SVGOptions.ExternalFontsHandling properties have been added**
 ExternalFontsHandling property has been added to Aspose.Slides.Export.ISVGOptions interface and Aspose.Slides.Export.SVGOptions class with return type of Aspose.Slides.Export.SvgExternalFontsHandling enum.
+
 This property defines how Aspose.Slides should handle externally loaded fonts during slide export to SVG format.
 There are 3 possible options:
-SvgExternalFontsHandling.AddLinksToFontFiles. In this case a separate css definition will be added to svg/defs section per each font that was actually used for some piece of text on the slide and was loaded externally by calling to FontsLoader.LoadExternalFonts method. Each definition contains local links to 3 separate font types: TTF, EOT and WOFF. To work correctly font files must be placed in the same directory as SVG file (could be copied there after the export) and must be named the same as original TTF file (for example FancyFont.ttf, FancyFont.eot, FancyFont.woff). If some of the fonts is missing there will be no error, but the resulting SVG file could be rendered incorrectly in some browsers (please take a look to 'Font-browsers compatibility' section below). SvgExternalFontsHandling.Embed. In this case the same css definitions will be added based on the same principle, but the font files content will be embedded directly to SVG file. Choosing this option user should place EOF and WOFF versions of the font to the same directory as original TTF file (the path to which is passed to FontsLoader.LoadExternalFonts method) before the export. If some of the fonts are missing it won't be added to SVG file at all and again it could result incorrect rendering in some browsers. SvgExternalFontsHandling.Vectorize. In this case the text that uses externally loaded fonts will be transformed to graphical objects. It works the same way as when SVGOptions.Vectorize property is set to true, but only for external fonts.
-Font-browser compatibility
+- **SvgExternalFontsHandling.AddLinksToFontFiles**. In this case a separate css definition will be added to svg/defs section per each font that was actually used for some piece of text on the slide and was loaded externally by calling to FontsLoader.LoadExternalFonts method. Each definition contains local links to 3 separate font types: TTF, EOT and WOFF. To work correctly font files must be placed in the same directory as SVG file (could be copied there after the export) and must be named the same as original TTF file (for example FancyFont.ttf, FancyFont.eot, FancyFont.woff). If some of the fonts is missing there will be no error, but the resulting SVG file could be rendered incorrectly in some browsers (please take a look to 'Font-browsers compatibility' section below). 
+- **SvgExternalFontsHandling.Embed**. In this case the same css definitions will be added based on the same principle, but the font files content will be embedded directly to SVG file. Choosing this option user should place EOF and WOFF versions of the font to the same directory as original TTF file (the path to which is passed to FontsLoader.LoadExternalFonts method) before the export. If some of the fonts are missing it won't be added to SVG file at all and again it could result incorrect rendering in some browsers. 
+- **SvgExternalFontsHandling.Vectorize**. In this case the text that uses externally loaded fonts will be transformed to graphical objects. It works the same way as when SVGOptions.Vectorize property is set to true, but only for external fonts.
+##### Font-browser compatibility
 To make result SVG file rendered correctly in most of modern browsers two additional font files format are recommended to be used along with regular TTF file.
-EOT (Embedded Open Type) for compatibility with all versions of IE. WOFF (Web Open Font Format) for compatibility with all other browsers and as an alternative to TTF.
+
+EOT (Embedded Open Type) - for compatibility with all versions of IE. 
+WOFF (Web Open Font Format) for compatibility with all other browsers and as an alternative to TTF.
+
 If you don't have a copy of the font in these formats, you can use a wide variety of 3rd party tools that allows to convert TTF file to EOT and WOFF formats.
+
 Font license restrictions
+
 Please take a note that some fonts might have restrictions on embedding or/and any other kind of distribution. Always check font license agreement before converting, copying or embedding it to SVG file.

@@ -71,100 +71,72 @@ url: /net/aspose-slides-for-net-16-5-0-release-notes/
 |SLIDESNET-35704|Text alignment issue after PPT to PNG conversion|Bug|
 |SLIDESNET-35458|DateTime field missing in generated PDF|Bug|
 |SLIDESNET-33695|SmartArt failed to render in generated thumbnails|Bug|
+
 ## **Public API Changes**
 #### **Property Picture has been added to IBulletFormat interface and BulletFormat class**
 This property represents the picture used as a bullet in the paragraph.
 
 Code snippet:
-
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
      //Accessing the first slide
-
      ISlide slide = pres.Slides[0];
-
-     //Instantiate the image for bullets
-
+     
+	 //Instantiate the image for bullets
      Image img = new Bitmap("bullet.png");
-
      IPPImage imgx = pres.Images.AddImage(img);
-
-     //Adding and accessing Autoshape
-
+     
+	 //Adding and accessing Autoshape
      IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-     //Accessing the text frame of created autoshape
-
+     
+	 //Accessing the text frame of created autoshape
      ITextFrame txtFrm = aShp.TextFrame;
-
-     //Removing the default exisiting paragraph
-
+     
+	 //Removing the default exisiting paragraph
      txtFrm.Paragraphs.RemoveAt(0);
-
-     //Creating new paragraph
-
+     
+	 //Creating new paragraph
      Paragraph para = new Paragraph();
-
      para.Text = "Welcome to Aspose.Slides";
 
      //Setting paragraph bullet style and image
-
      para.ParagraphFormat.Bullet.Type = BulletType.Picture;
-
      para.ParagraphFormat.Bullet.Picture.Image = imgx;
 
      //Setting Bullet Height
-
      para.ParagraphFormat.Bullet.Height = 100;
 
      //Adding Paragraph to text frame
-
      txtFrm.Paragraphs.Add(para);
 
      //Writing the presentation as a PPTX file
-
      pres.Save("Bullet.pptx", SaveFormat.Pptx);
 
      //Writing the presentation as a PPT file
-
      pres.Save("Bullet.ppt", SaveFormat.Ppt);
 
      //Writing the presentation as a ODP file
-
      pres.Save("Bullet.odp", SaveFormat.Odp);
-
 }
-
 ``` 
+
 #### **Property ShowHiddenSlides has been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions and IXpsOption interfaces and correspondent classes**
 Property ShowHiddenSlides has been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions, IXpsOption interfaces and HtmlOptions, PdfOption, SwfOptions, TiffOptions, XpsOption classes.
 
 This property specifies whether the exported document should include hidden slides or not. Default value is "false".
 
 Code example:
-
 ``` csharp
-
- using (Presentation pres = new Presentation("Presentation.pptx"))
-
+using (Presentation pres = new Presentation("Presentation.pptx"))
 {
-
 	//Instantiate the PdfOptions class
-
 	PdfOptions pdfOptions = new PdfOptions();
 
 	//Specify that the generated document should include hidden slides
-
 	pdfOptions.ShowHiddenSlides = true;
 
 	//Save the presentation to PDF with specified options
-
 	pres.Save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
-
 }
-
 ``` 

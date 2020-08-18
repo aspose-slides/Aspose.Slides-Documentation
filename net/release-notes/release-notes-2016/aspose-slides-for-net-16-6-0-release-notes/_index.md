@@ -92,140 +92,90 @@ url: /net/aspose-slides-for-net-16-6-0-release-notes/
 |SLIDESNET-33564|Bullets are improperly rendered in converted PPTX and exported PDF|Bug|
 |SLIDESNET-23829|Bullet character is not rendered in generated PDF|Bug|
 |SLIDESNET-22339|Custom bullets failed to render in exported PDF|Bug|
+
 ## **Public API Changes**
 #### **New elements have been added into Aspose.Slides.LoadFormat enumeration**
 Aspose.Slides.LoadFormat enumeration has been extended with new elements: Potx, Pptm, Ppsm, Potm.
+
 #### **New methods ReadDocumentProperties, UpdateDocumentProperties, and WriteBindedPresentation have been added to IPresentationInfo, logic of the IDocumentProperties.LastSavedTime property setter has been changed**
 The two new methods ReadDocumentProperties and UpdateDocumentProperties have been added to IPresentationInfo interface. They provide a quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
 ``` csharp
-
- // read the info of presentation
-
+// read the info of presentation
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("presentation.pptx");
 
 // obtain the current properties
-
 IDocumentProperties props = info.ReadDocumentProperties();
 
 // set the new values of Author and Title fields
-
 props.Author = "New Author";
-
 props.Title = "New Title";
 
 // update the presentation with a new values
-
 info.UpdateDocumentProperties(props);
-
 info.WriteBindedPresentation("updated_presentation.pptx");
-
 ``` 
 
 There's an another way to use properties of a particular presentation as a template to update properties in other presentations:
-
 ``` csharp
-
- private void UpdateByTemplate()
-
+private void UpdateByTemplate()
 {
-
   DocumentProperties template;
-
   IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("template.pptx");
-
   template = (DocumentProperties)info.ReadDocumentProperties();
 
   template.Author = "Template Author";
-
   template.Title = "Template Title";
-
   template.Category = "Template Category";
-
   template.Keywords = "Keyword1, Keyword2, Keyword3";
-
   template.Company = "Our Company";
-
   template.Comments = "Created from template";
-
   template.ContentType = "Template Content";
-
   template.Subject = "Template Subject";
 
   UpdateByTemplate("doc1.pptx", template);
-
   UpdateByTemplate("doc2.odp", template);
-
   UpdateByTemplate("doc3.ppt", template);
-
 }
 
 private void UpdateByTemplate(string path, IDocumentProperties template)
-
 {
-
     IPresentationInfo toUpdate = PresentationFactory.Instance.GetPresentationInfo(path);
-
     toUpdate.UpdateDocumentProperties(template);
-
     toUpdate.WriteBindedPresentation(path);
-
 }
-
 ``` 
 
 Or a new template can be created from scratch and then used to update multiple presentations:
 
 ``` csharp
-
- private void UpdateByTemplate()
-
+private void UpdateByTemplate()
 {
-
     DocumentProperties template = new DocumentProperties()
-
     {
-
         Author = "Template Author",
-
         Title = "Template Title",
-
         Category = "Template Category",
-
         Keywords = "Keyword1, Keyword2, Keyword3",
-
         Company = "Our Company",
-
         Comments = "Created from template",
-
         ContentType = "Template Content",
-
         Subject = "Template Subject"
-
     };
 
     UpdateByTemplate("doc1.pptx", template);
-
     UpdateByTemplate("doc2.odp", template);
-
     UpdateByTemplate("doc3.ppt", template);
-
 }
 
 private void UpdateByTemplate(string path, IDocumentProperties template)
-
 {
-
     IPresentationInfo toUpdate = PresentationFactory.Instance.GetPresentationInfo(path);
-
     toUpdate.UpdateDocumentProperties(template);
-
     toUpdate.WriteBindedPresentation(path);
-
 }
-
 ``` 
 
 Also, CreatedTime and LastPrinted properties of IDocumentProperties have been made readable and writable. IDocumentProperties.LastSavedTime has made writable too, but only if it is created as a standalone object or returned by IPresentationInfo.ReadDocumentProperties() method (not if it is returned by IPresentation.DocumentProperties property).

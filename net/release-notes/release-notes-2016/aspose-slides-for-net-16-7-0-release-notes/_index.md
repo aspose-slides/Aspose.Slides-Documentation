@@ -63,143 +63,84 @@ url: /net/aspose-slides-for-net-16-7-0-release-notes/
 |SLIDESNET-33362|Wrong Gradient type returned for the shape|Bug|
 |SLIDESNET-31404|Arrow shape rendered as square in exported PDF|Bug|
 |SLIDESNET-6241|CloneSlide Problem: MS-PowerPoint 2000 shows blank slide instead of Rectangular Callout shape|Bug|
+
 ## **Public API Changes**
 #### **API changes related to text extraction**
 Changes were made in API related to the text extraction:
 ISlideText and IPresentationText interface, ExtractionMode enum and PresentationText class were moved from Aspose.Slides.Util to Aspose.Slides namespace.
-The following static methods of the Presentation class made obsolete (please use overloads of IPresentationFactory instead) and return an instance of IPresentationText interface instead of PresentationText class:
 
+The following static methods of the Presentation class made obsolete (please use overloads of IPresentationFactory instead) and return an instance of IPresentationText interface instead of PresentationText class:
 - GetPresentationText(Stream stream, ExtractionMode mode);
 - GetPresentationText(String file, ExtractionMode mode);
 - GetPresentationText(Stream stream, ExtractionMode mode, LoadOptions options).
 - ExtractionMode enum renamed to TextExtractionArrangingMode.
+
 #### **Obsolete members in many classes and interfaces have been deleted**
 Members in many classes and interfaces marked as Obsolete a long time ago have been deleted in this release:
-
 ``` csharp
-
- Aspose.Slides.BaseSlide.ParentPresentation
-
+Aspose.Slides.BaseSlide.ParentPresentation
 Aspose.Slides.BaseSlide.Tags
-
 Aspose.Slides.BaseSlide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
-
 Aspose.Slides.Slide.NotesSlide
-
 Aspose.Slides.Slide.OverrideTheme
-
 Aspose.Slides.Slide.AddNotesSlide
-
 Aspose.Slides.Slide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
-
 Aspose.Slides.ISlide.NotesSlide
-
 Aspose.Slides.ISlide.AddNotesSlide
-
 Aspose.Slides.LayoutSlide.OverrideTheme
-
 Aspose.Slides.LayoutSlide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
-
 Aspose.Slides.MasterSlide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
-
 Aspose.Slides.NotesSlide.OverrideTheme
-
 Aspose.Slides.NotesSlide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
-
 Aspose.Slides.MasterNotesSlide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
-
 Aspose.Slides.MasterHandoutSlide.ApplyColorScheme(Aspose.Slides.Theme.ExtraColorScheme)
 
 Aspose.Slides.DocumentProperties.Count
-
 Aspose.Slides.DocumentProperties.Contains(System.String)
-
 Aspose.Slides.DocumentProperties.GetPropertyName(System.Int32)
-
 Aspose.Slides.DocumentProperties.Remove(System.String)
-
 Aspose.Slides.IDocumentProperties.Count
-
 Aspose.Slides.IDocumentProperties.Contains(System.String)
-
 Aspose.Slides.IDocumentProperties.GetPropertyName(System.Int32)
-
 Aspose.Slides.IDocumentProperties.Remove(System.String)
-
 Aspose.Slides.ParagraphFormatEffectiveData.BulletColor
-
 Aspose.Slides.Presentation.EncryptDocumentProperties
-
 Aspose.Slides.Presentation.IsEncrypted
-
 Aspose.Slides.Presentation.IsOnlyDocumentPropertiesLoaded
-
 Aspose.Slides.Presentation.IsWriteProtected
-
 Aspose.Slides.Presentation.Tags
-
 Aspose.Slides.Presentation.Encrypt(System.String)
-
 Aspose.Slides.Presentation.RemoveEncryption
-
 Aspose.Slides.Presentation.RemoveWriteProtection
-
 Aspose.Slides.Presentation.SetWriteProtection(System.String)
-
 Aspose.Slides.Shape.HLinkClick
-
 Aspose.Slides.Shape.HLinkMouseOver
-
 Aspose.Slides.Shape.Tags
-
 Aspose.Slides.ShapeFrame.CloneShapeFrame
-
 Aspose.Slides.IShapeFrame.CloneShapeFrame
-
 Aspose.Slides.SlideCollection.AddClone(Aspose.Slides.ISlide,Aspose.Slides.IMasterSlide)
-
 Aspose.Slides.SlideCollection.InsertClone(System.Int32,Aspose.Slides.ISlide,Aspose.Slides.IMasterSlide)
-
 Aspose.Slides.ISlideCollection.AddClone(Aspose.Slides.ISlide,Aspose.Slides.IMasterSlide)
-
 Aspose.Slides.ISlideCollection.InsertClone(System.Int32,Aspose.Slides.ISlide,Aspose.Slides.IMasterSlide)
-
 Aspose.Slides.SlideShow.SlideShowTransition.BuiltInSound
 
 Aspose.Slides.Charts.Axis.RotationAngle
-
 Aspose.Slides.Charts.Axis.SourceLinked
-
 Aspose.Slides.Charts.ChartCategory.Levels
-
 Aspose.Slides.Charts.IChartCategory.Levels
-
 Aspose.Slides.Charts.ChartCategoryLevelsManager.DeleteValueOfLevel(System.Int32)
-
 Aspose.Slides.Charts.ChartCategoryLevelsManager.SetValueOfLevel(System.Int32,Aspose.Slides.Charts.IChartDataCell)
-
 Aspose.Slides.Charts.IChartCategoryLevelsManager.DeleteValueOfLevel(System.Int32)
-
 Aspose.Slides.Charts.IChartCategoryLevelsManager.SetValueOfLevel(System.Int32,Aspose.Slides.Charts.IChartDataCell)
-
 Aspose.Slides.Charts.ChartSeries.MarkerFill
-
 Aspose.Slides.Charts.ChartSeries.MarkerSize
-
 Aspose.Slides.Charts.ChartSeries.MarkerSymbol
-
 Aspose.Slides.Charts.ChartSeries.NameCells
-
 Aspose.Slides.Charts.DataLabel.LinkedSource
-
 Aspose.Slides.Charts.TrendlineCollection.Add(Aspose.Slides.Charts.ITrendline)
 
 Aspose.Slides.SmartArt.SmartArtNodeCollection.GetNodeByPosition(System.Int32)
-
 Aspose.Slides.SmartArt.SmartArtNodeCollection.RemoveNodeByPosition(System.Int32)
-
 Aspose.Slides.SmartArt.ISmartArtNodeCollection.GetNodeByPosition(System.Int32)
-
 Aspose.Slides.SmartArt.ISmartArtNodeCollection.RemoveNodeByPosition(System.Int32)
-
 ``` 

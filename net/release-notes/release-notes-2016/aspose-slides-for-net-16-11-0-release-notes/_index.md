@@ -60,6 +60,7 @@ url: /net/aspose-slides-for-net-16-11-0-release-notes/
 |SLIDESNET-35295|Chart export disregards series number formatting|Bug|
 |SLIDESNET-34999|Presentation repair message on saving the presentation with cleared paragraphs from text frame|Bug|
 |SLIDESNET-33382|OleObjectFrame object representing VTF file reference contains empty strings in "LinkPathShort" and "LinkPathLong" properties.|Bug|
+
 ## **Public API Changes**
 #### **InvertedSolidFillColor property has been added**
 IColorFormat InvertedSolidFillColor property has been added to ChartSeries class and to IChartSeries interface.
@@ -67,68 +68,47 @@ IColorFormat InvertedSolidFillColor property has been added to ChartSeries class
 It allows to specify inverted solid color for series. To apply this color setting, set series FillType format to FillType.Solid.
 
 ``` csharp
-
- Color inverColor = Color.Red;
-
+Color inverColor = Color.Red;
 Color seriesColor;
-
 using (Presentation pres = new Presentation())
-
 {
-
     IChart chart = p.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-
     IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
 
     chart.ChartData.Series.Clear();
-
     chart.ChartData.Categories.Clear();
 
     // Adding new series
-
     chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
     // Adding new categories
-
     chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-
     chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-
     chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
 
     // Take first chart series
-
     IChartSeries series = chart.ChartData.Series[0];
 
     // Now populating series data
-
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
     seriesColor = series.GetAutomaticSeriesColor();
-
     series.InvertIfNegative = true;
-
     series.Format.Fill.FillType = FillType.Solid;
-
     series.Format.Fill.SolidFillColor.Color = seriesColor;
-
     series.InvertedSolidFillColor.Color = inverColor;
 
     pres.Save(outPath, SaveFormat.Pptx);
-
 }
-
 ``` 
 #### **Obsolete members related to PropertyType enum have been deleted**
+``` csharp
 Aspose.Slides.Animation.BehaviorProperty.GetByType(Aspose.Slides.Animation.PropertyType)
 Aspose.Slides.Animation.BehaviorPropertyCollection.Add(Aspose.Slides.Animation.PropertyType)
 Aspose.Slides.Animation.BehaviorPropertyCollection.Contains(Aspose.Slides.Animation.PropertyType)
 Aspose.Slides.Animation.BehaviorPropertyCollection.IndexOf(Aspose.Slides.Animation.PropertyType)
 Aspose.Slides.Animation.BehaviorPropertyCollection.Insert(System.Int32,Aspose.Slides.Animation.PropertyType)
 Aspose.Slides.Animation.BehaviorPropertyCollection.Remove(Aspose.Slides.Animation.PropertyType)
-
-Obsolete enum Aspose.Slides.Animation.PropertyType has been deleted.
+```
+#### **Obsolete enum Aspose.Slides.Animation.PropertyType has been deleted.**

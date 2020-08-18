@@ -73,6 +73,7 @@ url: /net/aspose-slides-for-net-16-3-0-release-notes/
 |SLIDESNET-33824|Index was out of range exception on deleting column from table|Bug|
 |SLIDESNET-33768|Text formatting lost inside SmartArt on cloning slide|Bug|
 |SLIDESNET-33736|Setting table height to 196 failed to open table in PP2003 installed with compatibility pack|Bug|
+
 ## **Public API Changes**
 #### **Class PieSplitCustomPointCollection and interface IPieSplitCustomPointCollection have been added**
 Class Aspose.Slides.Charts.PieSplitCustomPointCollection and interface Aspose.Slides.Charts.IPieSplitCustomPointCollection have been added. They represent a collection of points that shall be drawn in the second pie or bar on a bar-of-pie or pie-of-pie chart with a custom split.

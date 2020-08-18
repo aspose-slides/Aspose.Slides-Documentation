@@ -44,126 +44,84 @@ url: /net/aspose-slides-for-net-16-9-0-release-notes/
 |SLIDESNET-35728|Master notes slide returns null|Bug|
 |SLIDESNET-34017|Series label count returns 0 for already added labels to show series values|Bug|
 |SLIDESNET-33920|Chart.CategoryAxis return null for ScatterChart|Bug|
+
 ## **Public API Changes**
+
 #### **Interface ICustomXmlPart and class CustomXmlPart have been added**
 Interface Aspose.Slides.ICustomXmlPart and related class Aspose.Slides.CustomXmlPart have been added. It represents one custom xml part and provides methods to get or set xml content, used schema's and id.
+
 #### **Interface ICustomXmlPartCollection and class CustomXmlPartCollection have been added**
 Interface Aspose.Slides.ICustomXmlPartCollection and related class Aspose.Slides.CustomXmlPartCollection have been added. It represents a collection of custom xml parts and provides methods to get, create and delete items.
+
 #### **Property EffectFormat has been added to IBackground and Background**
 Property EffectFormat has been added to interface Aspose.Slides.IBackground and class Aspose.Slides.Background for specifying effects of slide background.
 
 Code snippet:
-
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
      IBackground background = pres.Slides[0].Background;
-
      background.Type = BackgroundType.OwnBackground;
 
      // Set slide background to Solid color
-
      background.FillFormat.FillType = FillType.Solid;
-
      background.FillFormat.SolidFillColor.Color = Color.Cornsilk;
 
      // Add shadow to slide
-
      background.EffectFormat.EnableOuterShadowEffect();
-
      IOuterShadow shadow = background.EffectFormat.OuterShadowEffect;
-
      shadow.ShadowColor.Color = Color.Chocolate;
-
      shadow.Distance = 15.0;
-
      shadow.Direction = 45f;
 
      pres.Save(path + "out.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
+
 #### **Property ICustomData.CustomXmlParts has been added**
 Property Aspose.Slides.ICustomData.CustomXmlParts has been added. It represents a collection of custom xml parts associated with the corresponding ICustomData instance.
-
 ``` csharp
-
- using(Presentation pres = new Presentation())
-
+using(Presentation pres = new Presentation())
 {
-
     pres.Slides[0].CustomData.CustomXmlParts.Add(GetXmlStringSample("John Doe")); //add new custom xml to slide custom data
-
     pres.Save(@"out.pptx", SaveFormat.Pptx);
-
 }
-
 private static string GetXmlStringSample(string name)
-
 {
-
     string xmlString =
-
         "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-
         "<employees xmlns=\"http://schemas.test.com/sample\">" +
-
             "<employee>" +
-
                 "<name>" + name + "</name>" +
-
             "</employee>" +
-
         "</employees>";
-
     return xmlString;
-
 }
-
 ``` 
+
 #### **Property IPresentation.AllCustomXmlParts has been added**
 Property Aspose.Slides.IPresentation.AllCustomXmlParts has been added. It returns all custom xml parts contained in the presentation.
 
 ``` csharp
-
- //Sample for clear all custom xml parts from presentation
-
+//Sample for clear all custom xml parts from presentation
 using (Presentation pres = new Presentation("PresentationWithCustomXml.pptx"))
-
 {
-
     foreach (ICustomXmlPart item in pres.AllCustomXmlParts)
-
     {
-
         item.Remove();
-
     }
-
     pres.Save("out.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
+
 #### **SetRange method has been added to interface IChartData and class ChartData**
 Method SetRange has been added to interface Aspose.Slides.Charts.IChartData and class Aspose.Slides.Charts.ChartData. It allows to set data range with cells formula. Series and categories will be updated based on new data range.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 10, 10, 400, 300);
-
     chart.ChartData.SetRange("Sheet1!A1:B4");
-
     pres.Save("output.pptx", Export.SaveFormat.Pptx);
-
 }
-
 ``` 
