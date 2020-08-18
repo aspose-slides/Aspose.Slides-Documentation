@@ -80,8 +80,8 @@ url: /net/aspose-slides-for-net-15-6-0-release-notes/
 
 #### DataLabel constructor signature has been changed
 DataLabel constructor signature has been changed:
-was: `DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);`
-now: `DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint);`
+- was: `DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);`
+- now: `DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint);`
 
 #### Members IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) have been marked as Obsolete and their substitutions have been introduced instead.
 Property IDocumentProperties.Count and methods IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) have been marked as Obsolete. Property IDocumentProperties.CountOfCustomProperties and methods IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) have been added instead.
@@ -111,6 +111,7 @@ Property IDocumentProperties.AppVersion has been added to get builtIn document p
 Property BlackWhiteMode has been added to IShape and to Shape.
 
 This property specifies how a shape will render in black-and-white display mode.
+
 |**Value**|**Meaning **|
 | :- | :- |
 |Color|Render with normal coloring| 
