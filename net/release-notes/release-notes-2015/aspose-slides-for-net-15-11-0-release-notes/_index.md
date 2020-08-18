@@ -53,14 +53,29 @@ url: /net/aspose-slides-for-net-15-11-0-release-notes/
 ## **Public API Changes**
 
 #### Obsolete properties in DataLabelCollection class have been deleted
+Obsolete properties in DataLabelCollection class have been deleted:
+- Aspose.Slides.Charts.DataLabelCollection.Delete
+- Aspose.Slides.Charts.DataLabelCollection.Format
+- Aspose.Slides.Charts.DataLabelCollection.LinkedSource
+- Aspose.Slides.Charts.DataLabelCollection.NumberFormat
+- Aspose.Slides.Charts.DataLabelCollection.Position
+- Aspose.Slides.Charts.DataLabelCollection.Separator
+- Aspose.Slides.Charts.DataLabelCollection.ShowBubbleSize
+- Aspose.Slides.Charts.DataLabelCollection.ShowCategoryName
+- Aspose.Slides.Charts.DataLabelCollection.ShowLeaderLines
+- Aspose.Slides.Charts.DataLabelCollection.ShowLegendKey
+- Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
+- Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
+- Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 #### The new property FirstSlideNumber has been added to the Presentation class
+The new property FirstSlideNumber added to Presentation allows to get or to set the number of first slide in a presentation.
 
+When a new FirstSlideNumber value is specified all slide numbers are recalculated.
 ``` csharp
 using(var pres = new Presenation(path))
 {
   int firstSlideNumber = pres.FirstSlideNumber;
-  
   pres.FirstSlideNumber = 10;
   pres.Save(newPath, SaveFormat.Pptx);
 }

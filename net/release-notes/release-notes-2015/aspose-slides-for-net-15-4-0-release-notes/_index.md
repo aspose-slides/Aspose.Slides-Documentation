@@ -66,10 +66,17 @@ SLIDESNET-31745 - Connectors layouting
 ## **Public API Changes**
 
 #### Enum OrganizationChartLayoutType has been added
+The Aspose.Slides.SmartArt.OrganizationChartLayoutType enum represents formatting type the child nodes in an organization chart.
 
 #### Method IBulletFormat.ApplyDefaultParagraphIndentsShifts has been added
+Method Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets default non-zero shifts for effective paragraph Indent and MarginLeft when bullets is enabled (like PowerPoint do if enable paragraph bullets/numbering in it). If bullets is disabled then just reset paragraph Indent and MarginLeft (like PowerPoint do if disable paragraph bullets/numbering in it).
+See examples here: http://www.aspose.com/docs/display/slidesnet/Managing+Paragraph+Bullets+in+PPTX
+
 
 #### Method IConnector.Reroute has been added
+Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the Reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
+
+``` csharp
 using(Presentation input = new Presentation())
 {
   IShapeCollection shapes = input.Slides[0].Shapes;
@@ -84,8 +91,9 @@ using(Presentation input = new Presentation())
   input.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
-
 #### Method IPresentation.GetSlideById has been added
+Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, MasterSlide or LayoutSlide by slide Id.
+
 ``` csharp
 using (Presentation presentation = new Presentation())
 {
@@ -96,6 +104,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 #### Property IShape.ConnectionSiteCount has been added
+Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connection sites on the shape.
+
 ``` csharp
 using(Presentation input = new Presentation())
 {
@@ -116,6 +126,7 @@ using(Presentation input = new Presentation())
 ```
 
 #### Property ISmartArt.IsReversed has been added
+Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -128,6 +139,8 @@ using (Presentation pres = new Presentation())
 ```
 
 #### Property ISmartArt.Nodes has been added
+Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes in SmartArt object.
+
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -141,6 +154,8 @@ using (Presentation pres = new Presentation())
 ```
 
 #### Property ISmartArtNode.IsHidden has been added
+Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node is a hidden node in the data model.
+
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -156,6 +171,8 @@ using (Presentation pres = new Presentation())
 ```
 
 #### Property ISmartArtNode.OrganizationChartLayout has been added
+Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get or sets organization chart type assosiated with current node.
+
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -166,6 +183,7 @@ using (Presentation pres = new Presentation())
 ```
 
 #### Set method for property ISmartArt.Layout has been added
+The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been added.It allows change layout type of an existing diagram.
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -174,3 +192,24 @@ using (Presentation pres = new Presentation())
   pres.Save("out.pptx", Export.SaveFormat.Pptx);
 }
 ```
+
+## **Minor API changes**
+This is the list of minor API changes:
+
+|**Member**|**Action**|
+| :- | :- |
+|Enum Aspose.Slides.BevelColorMode | deleted, unused enum |
+|Property ThreeDFormatEffectiveData.BevelColorMode| deleted, unused property |
+|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart | added |
+|Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent|added |
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent|deleted| 
+|Inheritance of IParagraphFormatEffectiveData from ISlideComponent|deleted| 
+|Property Aspose.Slides.IThreeDFormat.AsISlideComponent|deleted| 
+|Inheritance of IThreeDFormat from ISlideComponent|deleted| 
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar|deleted as obsolete |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont|deleted as obsolete |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight|deleted as obsolete |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType|deleted as obsolete |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith|deleted as obsolete |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle|deleted as obsolete | 
+

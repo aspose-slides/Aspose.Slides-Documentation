@@ -98,8 +98,21 @@ url: /net/aspose-slides-for-net-15-1-0-release-notes/
 
 ## **Public API Changes**
 
-### **Fonts substitutions functinality has been added**
+#### **Fonts substitutions functinality has been added**
+Possibility to replace font globally across the presentation and temporary for rendering has been added.
 
+New property "FontsManager" of Presentation class has been introduced. FontsManager class has following members:
+
+###### IFontSubstRuleCollection FontSubstRuleList Property
+This collection of IFontSubstRule instancesusing to substitute fonts during rendering.IFontSubstRule hasSourceFont andDestFont properties implementing IFontData interface andReplaceFontCondition property allowing to choose condition of replacement ("WhenInaccessible" or "Always").
+
+###### IFontData GetFonts() Method
+Using to retrieve all fonts uisng in the current presentation.
+
+###### ReplaceFont Methods
+Using to persistently replace font in the presentation.
+
+The following example shows how to replace font in the presentation:
 
 ``` csharp
 Presentation pres = new Presentation("PresContainsArialFont.pptx");
@@ -109,7 +122,11 @@ IFontData destFont = new FontData("Times New Roman");
 
 pres.FontsManager.ReplaceFont(sourceFont, destFont);
 pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
+```
 
+Another example, demonstrates font substitution for rendering when inaccessible:
+
+``` csharp
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
 IFontData sourceFont = new FontData("SomeRareFont");

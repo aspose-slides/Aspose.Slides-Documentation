@@ -7,6 +7,7 @@ url: /net/release-notes-2015/
 
 - [Aspose.Slides for .NET 15.11.0 Release Notes](/slides/net/aspose-slides-for-net-15-11-0-release-notes/)
 - [Aspose.Slides for .NET 15.10.0 Release Notes](/slides/net/aspose-slides-for-net-15-10-0-release-notes/)
+- [Aspose.Slides for .NET 15.9.0 Release Notes](/slides/net/aspose-slides-for-net-15-9-0-release-notes/)
 - [Aspose.Slides for .NET 15.8.0 Release Notes](/slides/net/aspose-slides-for-net-15-8-0-release-notes/)
 - [Aspose.Slides for .NET 15.7.0 Release Notes](/slides/net/aspose-slides-for-net-15-7-0-release-notes/)
 - [Aspose.Slides for .NET 15.6.0 Release Notes](/slides/net/aspose-slides-for-net-15-6-0-release-notes/)

@@ -58,6 +58,7 @@ url: /net/aspose-slides-for-net-15-8-0-release-notes/
 
 ## **Public API Changes**
 #### Property DoughnutHoleSize has been added to IChartSeries and ChartSeries
+Specifies the size of the hole in a doughnut chart.
 ``` csharp
 using (Presentation pres = new Presentation())
 {

@@ -79,11 +79,21 @@ request a free 30-day temporary license
 
 ## **Public API Changes**
 
-AddDataPointForDoughnutSeries methods have been added
-Aspose.Slides.SmartArt.SmartArtShape class has been inherited from Aspose.Slides.GeometryShape class
-Methods for removing chart data point and chart category by index has been added
-PptXPptY value has been added to Aspose.Slides.Animation.PropertyType enumeration
-System.Drawing.Color GetAutomaticSeriesColor() method has been added to Aspose.Slides.Charts.IChartSeries
+#### AddDataPointForDoughnutSeries methods have been added
+The two overloads of IChartDataPointCollection.AddDataPointForDoughnutSeries() method have been added for adding data points into series of Doughnut chart type.
+
+####Aspose.Slides.SmartArt.SmartArtShape class has been inherited from Aspose.Slides.GeometryShape class
+Aspose.Slides.SmartArt.SmartArtShape class has been inherited from Aspose.Slides.GeometryShape class. This change improves Aspose.Slides object model and adds new features to SmartArtShape class.
+
+####Methods for removing chart data point and chart category by index has been added
+IChartDataPointCollection.RemoveAt(int index) method has been added for removing chart data point by its index.
+IChartCategoryCollection.RemoveAt(int index) method has been added for removing chart category by its index.
+
+####PptXPptY value has been added to Aspose.Slides.Animation.PropertyType enumeration
+PptXPptY value has been added to Aspose.Slides.Animation.PropertyType enumeration in the scope of a serialization issue fix.
+
+####System.Drawing.Color GetAutomaticSeriesColor() method has been added to Aspose.Slides.Charts.IChartSeries
+GetAutomaticSeriesColor method returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.
 
 ``` csharp
 using (Presentation pres = new Presentation())

@@ -45,6 +45,13 @@ url: /net/aspose-slides-for-net-15-10-0-release-notes/
 ## **Public API Changes**
 
 #### **New VideoPlayerHtmlController added to support export od media files to HTML**
+The new public class VideoPlayerHtmlController has been added to Aspose.Slides.Export namespace. Using the instance of this class user can export video and audio files into HTML.
+VideoPlayerHtmlController contructors accepts the following parameters:
+path: The path where video and audio files will be generated
+fileName: The name of the HTML file
+baseUri: The base URI which will be used to generate links
+Usage example:
+
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -61,6 +68,22 @@ using (Presentation pres = new Presentation("example.pptx"))
 ```
 
 #### **Chart series animation API has been added**
+The new 2 methods have been added to Aspose.Slides.Animation.ISequence interface.
+```csharp
+IEffect AddEffect(IChart chart, EffectChartMajorGroupingType type, int index, EffectType effectType, EffectSubtype subtype, EffectTriggerType triggerType);
+IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesIndex, int categoriesIndex, EffectType effectType, EffectSubtype subtype, EffectTriggerType triggerType);
+```
+
+These methods are intended to support the chart's elements animations:
+- by series
+- by categories
+- by series elements
+- by categories elements
+
+The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType related to the chart's elements animation were introduced.
+
+To add a series animation to the chart the following code may be used:
+
 ``` csharp
 using (Presentation pres = new Presentation(inFileName))
 {
@@ -90,7 +113,7 @@ using (Presentation pres = new Presentation(inFileName))
   pres.Save(outFileName, SaveFormat.Pptx);
 }
 ```
-
+Categories animation:
 ``` csharp
 using (Presentation pres = new Presentation(inFileName))
 {
@@ -120,7 +143,7 @@ using (Presentation pres = new Presentation(inFileName))
   pres.Save(outFileName, SaveFormat.Pptx);
 }
 ```
-
+Series elements animation:
 ``` csharp
 using (Presentation pres = new Presentation(inFileName))
 {
@@ -182,7 +205,7 @@ using (Presentation pres = new Presentation(inFileName))
   pres.Save(outFileName, SaveFormat.Pptx);
 }
 ```
-
+Categories elements animation:
 ``` csharp
 using (Presentation pres = new Presentation(inFileName))
 {
