@@ -6,41 +6,45 @@ url: /net/aspose-slides-for-net-15-10-0-release-notes/
 ---
 
 ## **Minor Changes**
-SLIDESNET-36651 - Animating chart series API
+|**Key**|**Summary**|
+| :- | :- |
+|SLIDESNET-36651 | Animating chart series API|
 
 ## **Other improments and changes**
 
-### **Bug Fixes
-SLIDESNET-37012 - Empty column is missing in generated PDF
-SLIDESNET-37006 - Incorrect text on ppt to html in Chrome
-SLIDESNET-36987 - Chart label font color changed on saving pptx
-SLIDESNET-36956 - Presentation gets corrupt on adding slide notes
-SLIDESNET-36950 - Aspose.Slides corrupts PPTX file if it contains a trash folder
-SLIDESNET-36948 - Implement ODP rotate and translate frame's transformations
-SLIDESNET-36935 - Saving POT to POTX results in corrupted presenatation
-SLIDESNET-36920 - Artifacts from chart on generated thumbnail
-SLIDESNET-36911 - Background missing in generated thumbnail
-SLIDESNET-36906 - Problem with number format of list in generated PDF
-SLIDESNET-36902 - Saved pptx presentation requires recovery in PowerPoint
-SLIDESNET-36879 - Bullets are lost in generated html file
-SLIDESNET-36862 - Cell's border is not completely drawn in case of adjacent merged cells
-SLIDESNET-36848 - Layouts are distorted
-SLIDESNET-36607 - Text on pdf is lost when opened in mac
-SLIDESNET-36052 - Series Fill Color not getting applied on secondary Y axis
-SLIDESNET-35988 - Exception on exporting PPT to PDF
-SLIDESNET-35768 - Fonts are not rendered from HTML to presentation
-SLIDESNET-35590 - ArgumentException is thrown while Odp loading
-SLIDESNET-35579 - Wrong Display of Chart data when converting PPTX to JPG
-SLIDESNET-35541 - The bullet is improperly rendered in generated slide thumbnail
-SLIDESNET-35539 - Table cell border is rendered wrong
-SLIDESNET-35482 - Improper charts rendering
-SLIDESNET-35422 - Object Reference Exception is thrown on opening the PPTX file
-SLIDESNET-35404 - Aspose.Slides failed to load chart series fill if it is Automatic fill color
-SLIDESNET-34585 - Border for merged table cells is improperly applied
+#### **Bug Fixes
+|**Key**|**Summary**|
+| :- | :- |
+|SLIDESNET-37012 | Empty column is missing in generated PDF|
+|SLIDESNET-37006 | Incorrect text on ppt to html in Chrome|
+|SLIDESNET-36987 | Chart label font color changed on saving pptx|
+|SLIDESNET-36956 | Presentation gets corrupt on adding slide notes|
+|SLIDESNET-36950 | Aspose.Slides corrupts PPTX file if it contains a trash folder|
+|SLIDESNET-36948 | Implement ODP rotate and translate frame's transformations|
+|SLIDESNET-36935 | Saving POT to POTX results in corrupted presenatation|
+|SLIDESNET-36920 | Artifacts from chart on generated thumbnail|
+|SLIDESNET-36911 | Background missing in generated thumbnail|
+|SLIDESNET-36906 | Problem with number format of list in generated PDF|
+|SLIDESNET-36902 | Saved pptx presentation requires recovery in PowerPoint|
+|SLIDESNET-36879 | Bullets are lost in generated html file|
+|SLIDESNET-36862 | Cell's border is not completely drawn in case of adjacent merged cells|
+|SLIDESNET-36848 | Layouts are distorted|
+|SLIDESNET-36607 | Text on pdf is lost when opened in mac|
+|SLIDESNET-36052 | Series Fill Color not getting applied on secondary Y axis|
+|SLIDESNET-35988 | Exception on exporting PPT to PDF|
+|SLIDESNET-35768 | Fonts are not rendered from HTML to presentation|
+|SLIDESNET-35590 | ArgumentException is thrown while Odp loading|
+|SLIDESNET-35579 | Wrong Display of Chart data when converting PPTX to JPG|
+|SLIDESNET-35541 | The bullet is improperly rendered in generated slide thumbnail|
+|SLIDESNET-35539 | Table cell border is rendered wrong|
+|SLIDESNET-35482 | Improper charts rendering|
+|SLIDESNET-35422 | Object Reference Exception is thrown on opening the PPTX file|
+|SLIDESNET-35404 | Aspose.Slides failed to load chart series fill if it is Automatic fill color|
+|SLIDESNET-34585 | Border for merged table cells is improperly applied|
 
 ## **Public API Changes**
 
-### **New VideoPlayerHtmlController added to support export od media files to HTML**
+#### **New VideoPlayerHtmlController added to support export od media files to HTML**
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -56,7 +60,7 @@ using (Presentation pres = new Presentation("example.pptx"))
 }
 ```
 
-### **Chart series animation API has been added**
+#### **Chart series animation API has been added**
 ``` csharp
 using (Presentation pres = new Presentation(inFileName))
 {
