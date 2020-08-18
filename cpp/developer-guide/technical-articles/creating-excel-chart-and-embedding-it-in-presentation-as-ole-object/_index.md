@@ -17,7 +17,7 @@ Following sequence of steps is required to create and embed an Excel Chart as an
 #### **Implementation of the Required Steps**
 The implementation of the above steps in C# and Visual Basic is as under:
 
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228432)
+[**C#**]()
 
 ``` cpp
 

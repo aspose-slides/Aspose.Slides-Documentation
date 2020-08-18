@@ -13,7 +13,7 @@ Save a presentation to files by calling the [Presentation](http://www.aspose.co
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SaveToFile-SaveToFile.cpp" >}}
 ### **Save to Stream**
-It is possible to save a presentation to a stream by passing an output stream to the [Presentation](/pages/createpage.action?spaceKey=slidescpp&title=Aspose.Slides.Presentation+Class&linkCreation=true&fromPageId=60228364) class Save method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
+It is possible to save a presentation to a stream by passing an output stream to the [Presentation]() class Save method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SaveToStream-SaveToStream.cpp" >}}
 ### **Save with Password Protection**

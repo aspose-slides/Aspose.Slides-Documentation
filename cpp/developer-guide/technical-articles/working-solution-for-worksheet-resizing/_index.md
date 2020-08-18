@@ -26,7 +26,7 @@ Suppose, we have defined a template excel sheet and and desire to add that to pr
 
 
 
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228430)
+[**C#**]()
 
 ``` cpp
 
@@ -222,7 +222,7 @@ Suppose, we have defined a template excel sheet and and desire to add that to pr
 
 
 
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228430)
+[**C#**]()
 
 ``` cpp
 

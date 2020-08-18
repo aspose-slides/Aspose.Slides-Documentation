@@ -18,7 +18,7 @@ Aspose.Slides for C++ provides a simple API methods to get the Warning Callbacks
 1. Load the presentation file that is using a font for text inside that is unavailable on your target machine.
 1. Generate the slide thumbnail to see the effect.
 
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228444)
+[**C#**]()
 
 ``` cpp
 

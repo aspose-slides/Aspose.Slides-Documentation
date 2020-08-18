@@ -166,7 +166,7 @@ The implementation of the above steps is demonstrated in the example below.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddVBAMacros-AddVBAMacros.cpp" >}}
 ### **Remove VBA Macros**
-The [Presentation](/pages/createpage.action?spaceKey=slidescpp&title=Aspose.Slides.Presentation+Class&linkCreation=true&fromPageId=60228390) class now has included the support to remove the VBA macros inside presentation. The following example shows how to access and remove a VBA macro in presentation.
+The [Presentation]() class now has included the support to remove the VBA macros inside presentation. The following example shows how to access and remove a VBA macro in presentation.
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load presentation with Macro.
 1. Access the Macro module and remove that

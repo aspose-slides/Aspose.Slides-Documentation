@@ -25,7 +25,7 @@ Following is the complete code of **LinkController** class which implements the 
 - **public void SaveExternal(int id, byte[] entityData)** 
   The final method of the sequence, it is called when it comes to storing the resource externally. We have the resource identifier and the resource contents as a byte array. It’s up to us what to do with the provided resource data.
 
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228440)
+[**C#**]()
 
 ``` cpp
 
@@ -233,7 +233,7 @@ class LinkController : ILinkEmbedController
 
 After writing the **LinkController** class, now we will use it with **HTMLOptions** class to export the presentation to HTML having externally linked images using the following code.
 
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228440)
+[**C#**]()
 
 ``` cpp
 

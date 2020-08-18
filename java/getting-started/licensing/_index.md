@@ -62,7 +62,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 #### **Setting a License in PHP Using PHP/Java Bridge**
 Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slides for Java**. It is because of the fact that PHP developers actually use the API of **Aspose.Slides for Java** in PHP. **PHP/Java Bridge** provides an interface to the PHP developers that makes it possible to use Java classes in PHP syntax.
 
-[**PHP**](/pages/createpage.action?spaceKey=slidesjava&title=PHP&linkCreation=true&fromPageId=9503253)
+[**PHP**]()
 
 ``` java
 

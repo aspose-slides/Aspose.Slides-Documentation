@@ -33,7 +33,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 - Add some text to the Text Frame
 - Savethe modified presentation as a PPTX file
 #### **Example**
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228411)
+[**C#**]()
 
 ``` cpp
 
@@ -107,7 +107,7 @@ using (Presentation pres = new Presentation())
 
 ```
 
-[**Visual Basic**](/pages/createpage.action?spaceKey=slidescpp&title=Visual+Basic&linkCreation=true&fromPageId=60228411)
+[**Visual Basic**]()
 
 ``` cpp
 
@@ -195,7 +195,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 - Iterate through each Cell to clear the Top, Bottom, Right, Left Borders
 - Savethe modified presentation as a PPTX file
 #### **Example**
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228411)
+[**C#**]()
 
 ``` cpp
 
@@ -251,7 +251,7 @@ using (Presentation pres = new Presentation())
 
 ```
 
-[**Visual Basic**](/pages/createpage.action?spaceKey=slidescpp&title=Visual+Basic&linkCreation=true&fromPageId=60228411)
+[**Visual Basic**]()
 
 ``` cpp
 

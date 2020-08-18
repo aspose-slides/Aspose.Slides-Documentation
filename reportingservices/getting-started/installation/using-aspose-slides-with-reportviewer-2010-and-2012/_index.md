@@ -23,7 +23,7 @@ RplRenderer uses [soft page breaks](http://msdn.microsoft.com/en-us/library/dd25
 #### **Sample Code**
 This code will show how to export report from ReportViewer 2010/2012 to PPT/PPTX using RplRenderer. Execute RenderToPpt method to render current report to PPT.
 
-[**C#**](/pages/createpage.action?spaceKey=slidesreportingservices&title=C&linkCreation=true&fromPageId=10289153)
+[**C#**]()
 
 ``` xml
 
@@ -248,7 +248,7 @@ namespace Slides.ReportViewer2010
 #### **Using from Windows Forms**
 Optionally you can add Export buttons to TollStripPanel of ReportViewer by adding next code to Form's constructor:
 
-[**C#**](/pages/createpage.action?spaceKey=slidesreportingservices&title=C&linkCreation=true&fromPageId=10289153)
+[**C#**]()
 
 ``` xml
 

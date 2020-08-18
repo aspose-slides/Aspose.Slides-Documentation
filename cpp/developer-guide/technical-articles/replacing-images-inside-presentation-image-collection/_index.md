@@ -13,7 +13,7 @@ Aspose.Slides for C++ makes it possible to replace the images added in slide sha
 #### **Replacing Image inside Presentation Image Collection**
 Aspose.Slides for C++ provides a simple API methods for replacing the images inside presentation image collection. Please follow the steps below:
 
-1. Load the presentation file with image inside it using [Presentation](/pages/createpage.action?spaceKey=slidescpp&title=Presentation+class&linkCreation=true&fromPageId=60228442) class.
+1. Load the presentation file with image inside it using [Presentation]() class.
 1. Load an image from file in byte array.
 1. Replace the target image with new image in byte array
 1. In second approach load the image in Image object and replace the target image with loaded image.

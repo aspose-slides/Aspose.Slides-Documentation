@@ -119,7 +119,7 @@ This section includes the following topics
     - [Manage Slide Transition in Aspose.Slides](/slides/java/manage-slide-transition-in-aspose-slides/)
     - [Slide Thumbnails in Aspose.Slides](/slides/java/slide-thumbnails-in-aspose-slides/)
     - [Working with Slide Comments in Aspose.Slides](/slides/java/working-with-slide-comments-in-aspose-slides/)
-  - [Working with Smart Art](/slides/java/working-with-smart-art-html/)
+  - [Working with Smart Art](/slides/java/working-with-smart-art/)
     - [Add SmartArt Nodes and Child Nodes in Aspose.Slides](/slides/java/add-smartart-nodes-and-child-nodes-in-aspose-slides/)
     - [Manage Smart Art in Aspose.Slides](/slides/java/manage-smart-art-in-aspose-slides/)
     - [Remove SmartArt Nodes and Child Nodes in Aspose.Slides](/slides/java/remove-smartart-nodes-and-child-nodes-in-aspose-slides/)

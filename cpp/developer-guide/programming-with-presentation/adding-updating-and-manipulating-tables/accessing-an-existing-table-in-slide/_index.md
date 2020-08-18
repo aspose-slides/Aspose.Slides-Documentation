@@ -24,7 +24,7 @@ To access a table that already exists in a slide, please follow the steps below:
 - After the Table is found, you can use ITable object to control the table. For example, in our case, we have added a new row in the desired table
 - Save the modified presentation as a PPT file
 ##### **Example**
-[**C#**](/pages/createpage.action?spaceKey=slidescpp&title=C&linkCreation=true&fromPageId=60228409)
+[**C#**]()
 
 ``` cpp
 
@@ -64,7 +64,7 @@ using (Presentation pres = new Presentation("table.pptx"))
 
 ```
 
-[**Visual Basic**](/pages/createpage.action?spaceKey=slidescpp&title=Visual+Basic&linkCreation=true&fromPageId=60228409)
+[**Visual Basic**]()
 
 ``` cpp
 

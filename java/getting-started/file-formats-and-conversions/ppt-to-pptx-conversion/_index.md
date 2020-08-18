@@ -11,7 +11,7 @@ PPT to PPTX conversion is supported from Aspose.Slides for Java. Most presentati
 
 {{% /alert %}} 
 ### **Features Supported in Conversion**
-Aspose.Slides for Java provides partial support for converting the PPT file format to PPTX. Support for conversion has just been introduced to Aspose.Slides for Java, so it has a few limitations and works best for simple presentations. The main advantage that Aspose.Slides for Java provides when converting PPT to PPTX is how easy the API is to use. To see examples of the code, read about [Converting PPT to PPTX](/pages/createpage.action?spaceKey=slidesjava&title=Converting+PPT+to+PPTX&linkCreation=true&fromPageId=9503197). Below, lists explain which features are supported and which are not for PPT to PPTX conversion.
+Aspose.Slides for Java provides partial support for converting the PPT file format to PPTX. Support for conversion has just been introduced to Aspose.Slides for Java, so it has a few limitations and works best for simple presentations. The main advantage that Aspose.Slides for Java provides when converting PPT to PPTX is how easy the API is to use. To see examples of the code, read about [Converting PPT to PPTX](). Below, lists explain which features are supported and which are not for PPT to PPTX conversion.
 
 
 **Source PPT presentation**
