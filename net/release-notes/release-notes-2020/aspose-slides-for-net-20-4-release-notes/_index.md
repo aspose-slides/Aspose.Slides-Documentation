@@ -66,7 +66,7 @@ using (Presentation presentation = new Presentation("SourcePresenation.fodp"))
 // save presentation to Fodp format
 using (Presentation presentation = new Presentation("SourcePresentation.pptx"))
 {
-      presentation.Save("TargetPresenation.fodp", SaveFormat.Fodp);
+    presentation.Save("TargetPresenation.fodp", SaveFormat.Fodp);
 }
 ``` 
 
@@ -75,7 +75,7 @@ using (Presentation presentation = new Presentation("SourcePresentation.pptx"))
 IPresentationInfo presInfo = PresentationFactory.Instance.GetPresentationInfo("pres.fodp");
 if(presInfo.LoadFormat == Aspose.Slides.LoadFormat.Fodp)
 {
-      IDocumentProperties docProperties = presInfo.ReadDocumentProperties();
+    IDocumentProperties docProperties = presInfo.ReadDocumentProperties();
 }
 ``` 
 
@@ -101,8 +101,8 @@ The code snippet below demonstrates enabling this option:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
-      pres.ProtectionManager.ReadOnlyRecommended = true;
-      pres.Save("ReadOnlyPresentation.pptx", SaveFormat.Pptx);
+    pres.ProtectionManager.ReadOnlyRecommended = true;
+    pres.Save("ReadOnlyPresentation.pptx", SaveFormat.Pptx);
 }
 ``` 
 

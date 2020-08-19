@@ -52,21 +52,12 @@ url: /net/aspose-slides-for-net-20-6-release-notes/
 A new property **SpreadsheetOptions.RecoverWorkbookFromChartCache** has been added. If the data source of the chart is an external workbook and it's not available, it will be recovered from the chart cache.
 
 ``` csharp
-
- LoadOptions lo = new LoadOptions();
-
+LoadOptions lo = new LoadOptions();
 lo.SpreadsheetOptions.RecoverWorkbookFromChartCache = true;
-
 using (Presentation pres = new Presentation("Presentation.pptx", lo))
-
 {
-
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
-
     IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
     ...
-
 }
-
 ``` 

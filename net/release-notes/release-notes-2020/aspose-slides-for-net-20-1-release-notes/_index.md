@@ -59,29 +59,17 @@ It allows to get or set the default font used instead of all missing fonts durin
 The code snippet below demonstrates saving presentation to HTML and PDF with different default regular font.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("SomePresentation.pptx"))
-
+using (Presentation pres = new Presentation("SomePresentation.pptx"))
 {
-
- HtmlOptions htmlOpts = new HtmlOptions();
-
- htmlOpts.DefaultRegularFont = "Arial Black";
-
- pres.Save(@"SomePresentation-out-ArialBlack.html", SaveFormat.Html, htmlOpts);
-
- htmlOpts.DefaultRegularFont = "Lucida Console";
-
- pres.Save(@"Somepresentation-out-LucidaConsole.html", SaveFormat.Html, htmlOpts);
-
- PdfOptions pdfOpts = new PdfOptions();
-
- pdfOpts.DefaultRegularFont = "Arial Black";
-
- pres.Save(@"SomePresentation-out-ArialBlack.pdf", SaveFormat.Pdf, pdfOpts);
-
+	HtmlOptions htmlOpts = new HtmlOptions();
+	htmlOpts.DefaultRegularFont = "Arial Black";
+	pres.Save(@"SomePresentation-out-ArialBlack.html", SaveFormat.Html, htmlOpts);
+	htmlOpts.DefaultRegularFont = "Lucida Console";
+	pres.Save(@"Somepresentation-out-LucidaConsole.html", SaveFormat.Html, htmlOpts);
+	PdfOptions pdfOpts = new PdfOptions();
+	pdfOpts.DefaultRegularFont = "Arial Black";
+	pres.Save(@"SomePresentation-out-ArialBlack.pdf", SaveFormat.Pdf, pdfOpts);
 }
-
 ``` 
 
 

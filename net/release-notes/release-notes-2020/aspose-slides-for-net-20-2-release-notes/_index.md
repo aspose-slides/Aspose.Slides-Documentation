@@ -76,48 +76,30 @@ The code snippet below generates these objects:
 
 
 ``` csharp
+using (Presentation pres = new Presentation())
+{
+	ITable tbl = pres.Slides[0].Shapes.AddTable(50, 50, new double[] { 50, 70 }, new double[] { 50, 50, 50 });
+	IParagraph paragraph0 = new Paragraph();
+	paragraph0.Portions.Add(new Portion("Text "));
+	paragraph0.Portions.Add(new Portion("in0"));
+	paragraph0.Portions.Add(new Portion(" Cell"));
 
-    using (Presentation pres = new Presentation())
+	IParagraph paragraph1 = new Paragraph();
+	paragraph1.Text = "On0";
 
-           {
+	IParagraph paragraph2 = new Paragraph();
+	paragraph2.Portions.Add(new Portion("Hi there "));
+	paragraph2.Portions.Add(new Portion("col0"));
 
-                ITable tbl = pres.Slides[0].Shapes.AddTable(50, 50, new double[] { 50, 70 }, new double[] { 50, 50, 50 });
+	ICell cell = tbl.Rows[1][1];
+	cell.TextFrame.Paragraphs.Clear();
+	cell.TextFrame.Paragraphs.Add(paragraph0);
+	cell.TextFrame.Paragraphs.Add(paragraph1);
+	cell.TextFrame.Paragraphs.Add(paragraph2);
 
-                IParagraph paragraph0 = new Paragraph();
-
-                paragraph0.Portions.Add(new Portion("Text "));
-
-                paragraph0.Portions.Add(new Portion("in0"));
-
-                paragraph0.Portions.Add(new Portion(" Cell"));
-
-                IParagraph paragraph1 = new Paragraph();
-
-                paragraph1.Text = "On0";
-
-                IParagraph paragraph2 = new Paragraph();
-
-                paragraph2.Portions.Add(new Portion("Hi there "));
-
-                paragraph2.Portions.Add(new Portion("col0"));
-
-                ICell cell = tbl.Rows[1][1];
-
-                cell.TextFrame.Paragraphs.Clear();
-
-                cell.TextFrame.Paragraphs.Add(paragraph0);
-
-                cell.TextFrame.Paragraphs.Add(paragraph1);
-
-                cell.TextFrame.Paragraphs.Add(paragraph2);
-
-
-                IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 60, 120);
-
-                autoShape.TextFrame.Text = "Text in shape";
-
-           }
-
+    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 60, 120);
+	autoShape.TextFrame.Text = "Text in shape";
+}
 ``` 
 
 
@@ -127,102 +109,59 @@ The code snippet below generates these objects:
 1) First, we get coordinates of the left top corner of the table cell:
 
 ``` csharp
-
- double x = tbl.X + cell.OffsetX;
-
+double x = tbl.X + cell.OffsetX;
 double y = tbl.Y + cell.OffsetY;
-
 ``` 
-
-
 
 2) Then, we use IParagrap.GetRect() and IPortion.GetRect() methods to add frame to portions and paragraphs:
 
 ``` csharp
+foreach (IParagraph para in cell.TextFrame.Paragraphs)
+{
+   if (para.Text == "")
+	   continue;
 
-              foreach (IParagraph para in cell.TextFrame.Paragraphs)
+   RectangleF rect = para.GetRect();
 
-                {
+   IAutoShape shape =
+	   pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
+		   rect.X + (float)x, rect.Y + (float)y, rect.Width, rect.Height);
 
-                   if (para.Text == "")
+   shape.FillFormat.FillType = FillType.NoFill;
+   shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
+   shape.LineFormat.FillFormat.FillType = FillType.Solid;
 
-                       continue;
+   foreach (IPortion portion in para.Portions)
+   {
+	   if (portion.Text.Contains("0"))
+	   {
+		   rect = portion.GetRect();
+		   shape =
+			   pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
+				   rect.X + (float)x, rect.Y + (float)y, rect.Width, rect.Height);
 
-                   RectangleF rect = para.GetRect();
-
-                   IAutoShape shape =
-
-                       pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
-
-                           rect.X + (float)x, rect.Y + (float)y, rect.Width, rect.Height);
-
-                   shape.FillFormat.FillType = FillType.NoFill;
-
-                   shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-
-                   shape.LineFormat.FillFormat.FillType = FillType.Solid;
-
-
-                   foreach (IPortion portion in para.Portions)
-
-                    {
-
-                       if (portion.Text.Contains("0"))
-
-                        {
-
-                           rect = portion.GetRect();
-
-                           shape =
-
-                               pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
-
-                                   rect.X + (float)x, rect.Y + (float)y, rect.Width, rect.Height);
-
-                           shape.FillFormat.FillType = FillType.NoFill;
-
-                        }
-
-                    }
-
-                }
-
+		   shape.FillFormat.FillType = FillType.NoFill;
+	   }
+   }
+}
 ``` 
-
-
 
 3) Now we should add a frame to AutoShape paragraphs:
 
 ``` csharp
+foreach (IParagraph para in autoShape.TextFrame.Paragraphs)
+{
+	RectangleF rect = para.GetRect();
+	IAutoShape shape =
+	    pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
+        rect.X + autoShape.X, rect.Y + autoShape.Y, rect.Width, rect.Height);
 
-      foreach (IParagraph para in autoShape.TextFrame.Paragraphs)
-
-               {
-
-                    RectangleF rect = para.GetRect();
-
-                    IAutoShape shape =
-
-                        pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
-
-                            rect.X + autoShape.X, rect.Y + autoShape.Y, rect.Width, rect.Height);
-
-                    shape.FillFormat.FillType = FillType.NoFill;
-
-                    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-
-                    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-
-               }
-
+	shape.FillFormat.FillType = FillType.NoFill;
+	shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
+	shape.LineFormat.FillFormat.FillType = FillType.Solid;
+}
 ``` 
-
-
 
 **Result**:
 
 ![todo:image_alt_text](aspose-slides-for-net-20-2-release-notes_2.png)
-
-
-
-
