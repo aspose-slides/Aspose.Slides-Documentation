@@ -10,7 +10,7 @@ To Set Custom Location and Size for Chart Legend using **Aspose.Slides Java for 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_location_and_size()
 

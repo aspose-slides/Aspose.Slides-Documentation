@@ -10,7 +10,7 @@ To convert presentation to TIFF with default size using **Aspose.Slides Java for
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def convert_with_default_size()
 
@@ -38,7 +38,7 @@ To convert presentation to TIFF with custom size using **Aspose.Slides Java for 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def convert_with_custom_size()
 

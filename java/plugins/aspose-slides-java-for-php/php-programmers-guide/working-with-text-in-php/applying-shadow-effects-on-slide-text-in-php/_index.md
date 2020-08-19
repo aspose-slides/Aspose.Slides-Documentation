@@ -10,7 +10,7 @@ To Apply Shadow Effects on Slide Text using **Aspose.Slides Java for PHP**, simp
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -64,7 +64,7 @@ $pres->save($dataDir . "OutShadow.pptx", $save_format->Pptx);
 
 print "Applied shadow effects on text, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Applying Shadow Effects on Slide Text (Aspose.Slides)** from any of the below mentioned social coding sites:
 

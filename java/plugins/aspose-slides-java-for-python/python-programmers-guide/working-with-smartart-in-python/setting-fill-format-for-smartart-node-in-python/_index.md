@@ -10,7 +10,7 @@ To Set Fill Format for SmartArt Node using **Aspose.Slides Java for Python**. He
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

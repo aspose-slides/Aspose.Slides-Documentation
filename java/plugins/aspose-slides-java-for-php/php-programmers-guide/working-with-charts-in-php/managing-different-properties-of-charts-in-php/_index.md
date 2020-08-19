@@ -10,7 +10,7 @@ To Set the RotationX, RotationY and DepthPercents properties of 3D Chart using *
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function set_rotation_and_depth($dataDir=null){
 
@@ -94,13 +94,13 @@ To Set the RotationX, RotationY and DepthPercents properties of 3D Chart using *
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Setting the GapWidth property of Chart Series**
 To Set the GapWidth property of Chart Series using **Aspose.Slides Java for PHP**, call **set_gapwidth** method of **ChartProperties** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function set_gapwidth($dataDir=null){
 
@@ -178,7 +178,7 @@ To Set the GapWidth property of Chart Series using **Aspose.Slides Java for PHP*
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Different Properties of Charts (Aspose.Slides)** from any of the below mentioned social coding sites:
 

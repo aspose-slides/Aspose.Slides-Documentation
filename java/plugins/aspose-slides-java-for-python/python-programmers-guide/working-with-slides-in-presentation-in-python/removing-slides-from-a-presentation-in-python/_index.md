@@ -10,7 +10,7 @@ To Remove Slides from a Presentation using Aspose.Slides Java for Python. Here y
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def remove_slide_by_index(self):
 

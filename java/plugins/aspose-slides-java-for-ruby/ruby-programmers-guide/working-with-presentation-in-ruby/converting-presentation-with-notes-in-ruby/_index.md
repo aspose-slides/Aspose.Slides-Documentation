@@ -10,7 +10,7 @@ To convert Presentation to TIFF Notes using **Aspose.Slides Java for Ruby**, sim
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def convert_to_tiff_notes()
 
@@ -38,7 +38,7 @@ To convert Presentation to PDF Notes using **Aspose.Slides Java for Ruby**, simp
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def convert_to_pdf_notes()
 

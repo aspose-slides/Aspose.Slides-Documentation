@@ -10,7 +10,7 @@ To Manage Paragraphs Alignment using **Aspose.Slides Java for Ruby**, call **par
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def paragraphs_alignment()
 

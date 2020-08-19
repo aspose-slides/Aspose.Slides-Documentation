@@ -10,7 +10,7 @@ To Fill Shapes with Solid Color using **Aspose.Slides Java for Ruby**, call **fi
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def fill_shapes_with_solid_color()
 

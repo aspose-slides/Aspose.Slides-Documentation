@@ -10,7 +10,7 @@ To access Slide by Index of a Presentation using **Aspose.Slides Java for PHP**,
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  public static function get_slide_by_index($dataDir=null)
 
@@ -28,13 +28,13 @@ print "Slide: " . $slide . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Access Slide by ID**
 To access Slide by ID of a Presentation using **Aspose.Slides Java for Ruby**, call **get_slide_by_id** method of **AccessSlides** module. Here you can see example code.
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  public static function get_slide_by_id($dataDir=null)
 
@@ -56,7 +56,7 @@ print "Slide: " . $slide . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Accessing Slides of a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

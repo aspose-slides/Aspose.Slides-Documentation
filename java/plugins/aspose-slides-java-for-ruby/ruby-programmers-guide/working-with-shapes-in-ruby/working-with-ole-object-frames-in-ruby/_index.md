@@ -10,7 +10,7 @@ To Access an OLE Object Frame from a Slide using **Aspose.Slides Java for Ruby**
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/Shapes/'
 

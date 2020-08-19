@@ -10,7 +10,7 @@ To add Slides to Presentation using **Aspose.Slides Java for PHP**, simply invok
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -42,7 +42,7 @@ $pres->save($dataDir . "EmptySlide.pptx", $save_format->Pptx);
 
 print "Document has been created, please check the output file.";
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Slides to Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To clone slide within the Same Presentation from One Position to the End using *
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def clone_to_end_of_presentation()
 
@@ -44,7 +44,7 @@ To clone slide from one Position to Anther within the same Presentation using **
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def clone_to_aonther_position()
 
@@ -82,7 +82,7 @@ To clone slide at the End of the Existing Slides using **Aspose.Slides Java for 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def clone_to_other_presentation_at_end_of_existing_slide()
 

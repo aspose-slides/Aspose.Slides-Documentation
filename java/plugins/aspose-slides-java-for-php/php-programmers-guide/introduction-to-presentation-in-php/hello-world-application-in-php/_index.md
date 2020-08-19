@@ -10,7 +10,7 @@ In this simple application, we will create a PowerPoint presentation having Hell
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation
 
@@ -56,7 +56,7 @@ $pres->save($dataDir . "HelloWorld.pptx", $save_format->Pptx);
 
 print "Document has been saved, please check the output file.";
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Hello World** **(Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ In order to save presentation using *Aspose.Slides Java for PHP{*}, you can use 
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
 
 
@@ -18,4 +18,4 @@ $save_format = new SaveFormat();
 
 pres->save($dataDir . "output.pptx", $save_format->Pptx)
 
-{{< /highlight >}}
+```

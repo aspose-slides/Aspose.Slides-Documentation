@@ -10,7 +10,7 @@ To Manage Font Family of Text using **Aspose.Slides Java for PHP**, call **font_
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
      public static function font_family_of_text($dataDir=null){
 
@@ -87,7 +87,7 @@ To Manage Font Family of Text using **Aspose.Slides Java for PHP**, call **font_
 
     }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Font Family of Text (Aspose.Slides)** from any of the below mentioned social coding sites:
 

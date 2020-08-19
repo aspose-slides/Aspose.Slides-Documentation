@@ -10,7 +10,7 @@ To Add Picture Frame to Slide using **Aspose.Slides Java for PHP**, call **add_p
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_picture_frame($dataDir=null)
 
@@ -44,7 +44,7 @@ To Add Picture Frame to Slide using **Aspose.Slides Java for PHP**, call **add_p
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Picture Frame to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

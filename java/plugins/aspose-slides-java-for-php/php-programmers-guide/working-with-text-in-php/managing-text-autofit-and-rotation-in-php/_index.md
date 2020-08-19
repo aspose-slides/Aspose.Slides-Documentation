@@ -10,7 +10,7 @@ To Set the AutofitType property of text frame using **Aspose.Slides Java for PHP
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function set_autofittype_of_text($dataDir=null){
 
@@ -72,13 +72,13 @@ print "Set autofittype of text, please check the output file.".PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Setting the anchor of TextFrame**
 To Set the anchor of TextFrame using **Aspose.Slides Java for PHP**, call **set_anchor_of_text** method of **ManageText** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function set_anchor_of_text($dataDir=null){
 
@@ -140,13 +140,13 @@ print "Set anchor of text, please check the output file.".PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Rotating the text**
 To Rotate the text using **Aspose.Slides Java for PHP**, call **rotate_text** method of **ManageText** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function rotate_text($dataDir=null){
 
@@ -208,7 +208,7 @@ To Rotate the text using **Aspose.Slides Java for PHP**, call **rotate_text** me
 
     }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Text Autofit and Rotation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

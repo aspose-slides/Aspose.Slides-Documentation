@@ -10,7 +10,7 @@ To set default Zoom value for presentation using **Aspose.Slides Java for PHP**,
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -30,7 +30,7 @@ $pres->save($dataDir . "Zoom.pptx", $save_format->Pptx);
 
 print "Set zoom value, please check the output file.";
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Default Zoom Value (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Clone Row or Column in table using **Aspose.Slides Java for Python**. Here yo
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  pres = self.Presentation()
 

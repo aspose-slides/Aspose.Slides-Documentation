@@ -10,7 +10,7 @@ To Add Video Frame to Slide using **Aspose.Slides Java for PHP**, call **add_vid
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_video_frame($dataDir=null)
 
@@ -48,7 +48,7 @@ To Add Video Frame to Slide using **Aspose.Slides Java for PHP**, call **add_vid
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Video Frame to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

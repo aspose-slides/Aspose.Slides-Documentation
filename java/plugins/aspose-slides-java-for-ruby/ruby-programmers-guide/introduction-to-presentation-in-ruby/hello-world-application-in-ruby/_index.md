@@ -10,7 +10,7 @@ In this simple application, we will create a PowerPoint presentation having Hell
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(__FILE__))) + '/data/'
 

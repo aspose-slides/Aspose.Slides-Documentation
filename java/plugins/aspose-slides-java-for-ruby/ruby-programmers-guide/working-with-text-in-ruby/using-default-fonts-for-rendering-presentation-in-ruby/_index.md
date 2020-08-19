@@ -10,7 +10,7 @@ To Use Default Fonts for Rendering Presentation using **Aspose.Slides Java for R
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_default_font_for_rendering()
 

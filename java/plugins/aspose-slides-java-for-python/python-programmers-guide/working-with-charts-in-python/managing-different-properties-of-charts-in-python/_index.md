@@ -10,7 +10,7 @@ To Manage Different Properties of Charts using **Aspose.Slides Java for Python**
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def set_rotation_and_depth(self):
 

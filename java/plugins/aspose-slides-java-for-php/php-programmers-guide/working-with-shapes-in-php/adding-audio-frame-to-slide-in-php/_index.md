@@ -10,7 +10,7 @@ To Add Audio Frame to Slide using **Aspose.Slides Java for PHP**, call **add_aud
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_audio_frame($dataDir=null)
 
@@ -52,7 +52,7 @@ To Add Audio Frame to Slide using **Aspose.Slides Java for PHP**, call **add_aud
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Audio Frame to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Replace Text in a Placeholder using **Aspose.Slides Java for PHP**, simply in
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -34,7 +34,7 @@ $pres->save($dataDir . "Welcome_PH.pptx", $save_format->Pptx);
 
 print "Replaced text, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Replacing Text in a Placeholder (Aspose.Slides)** from any of the below mentioned social coding sites:
 

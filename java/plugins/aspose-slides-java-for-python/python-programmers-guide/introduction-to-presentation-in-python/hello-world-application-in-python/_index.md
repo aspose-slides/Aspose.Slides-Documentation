@@ -10,7 +10,7 @@ To create Hello World document using **Aspose.Slides Java for Python**. Here you
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation
 

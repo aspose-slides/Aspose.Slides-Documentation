@@ -10,7 +10,7 @@ To Manage Font Family of Text using **Aspose.Slides Java for Python**. Here you 
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def font_properties(self):
 

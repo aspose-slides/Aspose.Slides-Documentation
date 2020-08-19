@@ -10,7 +10,7 @@ To Add Line Shape to Slide using **Aspose.Slides Java for Python**. Here you can
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def add_plain_line(self):
 

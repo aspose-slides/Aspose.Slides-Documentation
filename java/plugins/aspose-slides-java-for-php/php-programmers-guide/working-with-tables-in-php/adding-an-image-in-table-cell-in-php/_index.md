@@ -10,7 +10,7 @@ To Add an Image in Table Cell using **Aspose.Slides Java for PHP**, simply invok
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  $pres = new Presentation();
 
@@ -54,7 +54,7 @@ $pres->save($dataDir . "AddImage.pptx", $save_format->Pptx);
 
 print "Added image, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding an Image in Table Cell (Aspose.Slides)** from any of the below mentioned social coding sites:
 

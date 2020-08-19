@@ -10,7 +10,7 @@ To Create a Table from Scratch in Slide using **Aspose.Slides Java for Python**.
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  pres =  self.Presentation()
 

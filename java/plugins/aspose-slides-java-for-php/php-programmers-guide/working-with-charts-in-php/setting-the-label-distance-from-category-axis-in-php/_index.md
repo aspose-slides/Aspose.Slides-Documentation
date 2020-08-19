@@ -10,7 +10,7 @@ To Set the Label Distance From Category Axis using **Aspose.Slides Java for PHP*
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -38,7 +38,7 @@ $pres->save($dataDir . "Position.pptx", $save_format->Pptx);
 
 print "Set label distance, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting the Label Distance From Category Axis (Aspose.Slides)** from any of the below mentioned social coding sites:
 

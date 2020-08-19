@@ -10,7 +10,7 @@ To Create Slides SVG Image using **Aspose.Slides Java for Ruby**, simply invoke 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/'
 

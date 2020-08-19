@@ -10,7 +10,7 @@ To Find a Shape in a Slide using **Aspose.Slides Java for PHP**, simply invoke *
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -24,13 +24,13 @@ $shape = FindShape::find_shape($slide, "Shape1");
 
 print "Shape: " . $shape . PHP_EOL;
 
-{{< /highlight >}}
+```
 
 To Find a Shape in a Slide using **Aspose.Slides Java for PHP**, simply invoke **FindShape** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function find_shape($slide, $alttext)
 
@@ -60,7 +60,7 @@ To Find a Shape in a Slide using **Aspose.Slides Java for PHP**, simply invoke *
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Finding a Shape in a Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To remove Slide by Index from a Presentation using **Aspose.Slides Java for PHP*
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  public static function remove_slide_by_index($dataDir=null)
 
@@ -38,13 +38,13 @@ print "Removed slide by Index, please check the output file." . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Remove Slide by ID**
 To remove Slide by ID from a Presentation using **Aspose.Slides Java for PHP**, call **remove_slide_by_id** method of **RemoveSlides** module. Here you can see example code.
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  public static function remove_slide_by_id($dataDir=null)
 
@@ -69,7 +69,7 @@ To remove Slide by ID from a Presentation using **Aspose.Slides Java for PHP**, 
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Removing Slides from a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Update an Existing Chart using **Aspose.Slides Java for PHP**, simply invoke 
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -97,7 +97,7 @@ $pres->save($dataDir . "AsposeChartModified.pptx", $save_format->Pptx);
 
 print "Updated chart, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Updating an Existing Chart (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To convert OpenDocument to PPTX presentation using **Aspose.Slides Java for PHP*
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate a Presentation object that represents a PPTX file
 
@@ -24,7 +24,7 @@ $pres->save($dataDir . "Source.pptx", $save_format->Pptx);
 
 print "Document has been converted, please check the output file.";
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Accessing OpenDocument Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

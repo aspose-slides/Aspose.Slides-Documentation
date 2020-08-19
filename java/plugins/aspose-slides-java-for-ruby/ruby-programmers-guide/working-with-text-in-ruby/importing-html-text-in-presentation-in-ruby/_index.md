@@ -10,7 +10,7 @@ To Import HTML Text in Presentation using **Aspose.Slides Java for Ruby**, simpl
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def initialize()
 

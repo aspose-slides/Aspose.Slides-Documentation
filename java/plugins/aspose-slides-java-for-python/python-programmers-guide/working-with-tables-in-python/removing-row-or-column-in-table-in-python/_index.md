@@ -10,7 +10,7 @@ To Remove Row Or Column in Table using **Aspose.Slides Java for Python**. Here y
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  pres = self.Presentation()
 

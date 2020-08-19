@@ -10,7 +10,7 @@ To Rotate Shapes using **Aspose.Slides Java for Python**. Here you can see examp
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

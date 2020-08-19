@@ -10,7 +10,7 @@ To Add SmartArt shape using **Aspose.Slides Java for PHP**, call **create_smarta
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
      public static function create_smartart_shape($dataDir=null){
 
@@ -38,7 +38,7 @@ To Add SmartArt shape using **Aspose.Slides Java for PHP**, call **create_smarta
 
     }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding SmartArt shape (Aspose.Slides)** from any of the below mentioned social coding sites:
 

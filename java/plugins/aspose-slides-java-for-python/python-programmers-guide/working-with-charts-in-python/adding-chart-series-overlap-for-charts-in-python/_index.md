@@ -10,7 +10,7 @@ To Add Chart Series Overlap for Charts using **Aspose.Slides Java for Python**. 
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

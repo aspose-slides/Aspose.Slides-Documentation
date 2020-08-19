@@ -10,7 +10,7 @@ To Vertically align the text in table cell using **Aspose.Slides Java for PHP**,
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  $pres = new Presentation();
 
@@ -78,7 +78,7 @@ $pres->save($dataDir . "AlignText.pptx", $save_format->Pptx);
 
 print "Aligned Text, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Vertically align the text in table cell (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Manage Font Related Properties using **Aspose.Slides Java for Ruby**, call **
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def font_properties()
 

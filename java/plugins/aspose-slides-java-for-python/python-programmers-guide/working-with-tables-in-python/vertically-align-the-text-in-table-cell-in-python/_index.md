@@ -10,7 +10,7 @@ To Vertically align the text in table cell using **Aspose.Slides Java for Python
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  pres = self.Presentation()
 

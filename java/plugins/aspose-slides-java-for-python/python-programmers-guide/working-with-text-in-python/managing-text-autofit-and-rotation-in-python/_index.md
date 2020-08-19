@@ -10,7 +10,7 @@ To Manage Text Autofit and Rotation using **Aspose.Slides Java for Python**. Her
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def set_autofittype_of_text(self):
 

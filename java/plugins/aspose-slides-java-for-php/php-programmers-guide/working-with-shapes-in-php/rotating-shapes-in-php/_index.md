@@ -10,7 +10,7 @@ To Rotate Shapes using **Aspose.Slides Java for PHP**, simply invoke **RotatingS
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -38,7 +38,7 @@ $pres->save($dataDir . "RectShpRot.pptx", $save_format->Pptx);
 
 print "Rotated shape, please check the output file." . PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Rotating Shapes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

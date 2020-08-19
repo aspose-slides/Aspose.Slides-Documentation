@@ -10,7 +10,7 @@ To Manage Slides Transitions using Aspose.Slides Java for Python. Here you can s
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

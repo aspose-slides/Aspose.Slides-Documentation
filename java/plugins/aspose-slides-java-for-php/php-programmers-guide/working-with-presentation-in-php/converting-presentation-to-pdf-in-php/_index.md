@@ -10,7 +10,7 @@ To convert presentation to PDF document using **Aspose.Slides Java for PHP**, si
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate a Presentation object that represents a PPTX file
 
@@ -24,7 +24,7 @@ $pres->save($dataDir . "Aspose.pdf", $save_format->Pdf);
 
 print "Document has been converted, please check the output file.";
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Hello World (Aspose.Slides)** from any of the below mentioned social coding sites:
 

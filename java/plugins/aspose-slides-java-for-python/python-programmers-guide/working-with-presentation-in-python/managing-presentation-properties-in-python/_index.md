@@ -10,7 +10,7 @@ To Manage Properties using **Aspose.Slides Java for Python**. Here you can see e
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def get_properties(self):
 

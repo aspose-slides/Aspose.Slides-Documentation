@@ -10,7 +10,7 @@ To Work With Slide Size and Layout using **Aspose.Slides Java for Python**. Here
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def set_size_and_type(self):
 

@@ -10,7 +10,7 @@ To Use Default Fonts for Rendering Presentation using **Aspose.Slides Java for P
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
      public static function set_default_font_for_rendering($dataDir=null){
 
@@ -38,7 +38,7 @@ To Use Default Fonts for Rendering Presentation using **Aspose.Slides Java for P
 
     }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Using Default Fonts for Rendering Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

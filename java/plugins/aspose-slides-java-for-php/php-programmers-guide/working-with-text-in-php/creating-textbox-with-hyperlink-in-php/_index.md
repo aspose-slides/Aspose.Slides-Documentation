@@ -10,7 +10,7 @@ To Create a TextBox with Hyperlink using **Aspose.Slides Java for PHP**, call **
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
      public static function create_textbox_with_hyperlink(){
 
@@ -78,7 +78,7 @@ To Create a TextBox with Hyperlink using **Aspose.Slides Java for PHP**, call **
 
     }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating TextBox with Hyperlink (Aspose.Slides)** from any of the below mentioned social coding sites:
 

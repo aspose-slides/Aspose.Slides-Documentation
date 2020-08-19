@@ -10,7 +10,7 @@ To remove Slide by Index from a Presentation using **Aspose.Slides Java for Ruby
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def remove_slide_by_index()
 
@@ -46,7 +46,7 @@ To remove Slide by ID from a Presentation using **Aspose.Slides Java for Ruby**,
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def remove_slide_by_id()
 

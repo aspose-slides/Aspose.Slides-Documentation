@@ -10,7 +10,7 @@ To Manage Paragraph Indent using **Aspose.Slides Java for Ruby**, call **paragra
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def paragraphs_indentation()
 

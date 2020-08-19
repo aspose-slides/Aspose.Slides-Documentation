@@ -10,7 +10,7 @@ To change the Position of a Slide using **Aspose.Slides Java for Ruby**, simply 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/'
 

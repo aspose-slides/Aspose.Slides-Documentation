@@ -10,7 +10,7 @@ To Add Chart Trend Lines using **Aspose.Slides Java for PHP**, simply invoke **C
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Creating empty presentation
 
@@ -91,7 +91,7 @@ $pres->save($dataDir . "ChartTrendLines.pptx", $save_format->Pptx);
 
 print "Done with chart trend lines, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Chart Trend Lines (Aspose.Slides)** from any of the below mentioned social coding sites:
 

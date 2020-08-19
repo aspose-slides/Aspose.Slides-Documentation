@@ -10,7 +10,7 @@ To Fill Shapes with Picture using **Aspose.Slides Java for Python**. Here you ca
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

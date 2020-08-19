@@ -10,7 +10,7 @@ To Add SmartArt shape document using **Aspose.Slides Java for Python**. Here you
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

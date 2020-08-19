@@ -10,7 +10,7 @@ To create a simple slide transition effect using **Aspose.Slides Java for PHP**,
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function run($dataDir=null)
 
@@ -40,7 +40,7 @@ print "Done with simple transition, please check the output file." . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Slides Transitions (Aspose.Slides)** from any of the below mentioned social coding sites:
 

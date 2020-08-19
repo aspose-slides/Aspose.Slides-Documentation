@@ -10,7 +10,7 @@ To Generate a Thumbnail from a Slide using **Aspose.Slides Java for Ruby**, call
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_thumbnail()
 
@@ -44,7 +44,7 @@ To Generate a Thumbnail from a Slide with user defined Dimensions using **Aspose
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_thumbnail_custom_size()
 
@@ -90,7 +90,7 @@ To Generate a Thumbnail from a Slide in Notes Slides View using **Aspose.Slides 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_thumbnail_in_notes_slides_view()
 
@@ -136,7 +136,7 @@ To Generate a Thumbnail of user defined Window from a Slide using **Aspose.Slide
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_thumbnail_of_user_defined_window()
 

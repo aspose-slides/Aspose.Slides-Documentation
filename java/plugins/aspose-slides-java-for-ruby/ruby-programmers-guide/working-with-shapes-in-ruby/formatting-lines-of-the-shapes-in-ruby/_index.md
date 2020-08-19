@@ -10,7 +10,7 @@ To Format the Lines of Shapes using **Aspose.Slides Java for Ruby**, call **form
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def format_lines()
 
@@ -66,7 +66,7 @@ To Format the Join Styles using **Aspose.Slides Java for Ruby**, call **format_j
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def format_join_styles()
 

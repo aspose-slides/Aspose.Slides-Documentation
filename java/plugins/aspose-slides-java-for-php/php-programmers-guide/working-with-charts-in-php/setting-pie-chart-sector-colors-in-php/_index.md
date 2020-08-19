@@ -10,7 +10,7 @@ To Set Pie Chart Sector Colors using **Aspose.Slides Java for PHP**, simply invo
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  $pres = new Presentation();
 
@@ -181,7 +181,7 @@ $pres->save($dataDir . "AsposePieChart.pptx", $save_format->Pptx);
 
 print "Set pie chart sector colors, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Pie Chart Sector Colors (Aspose.Slides)** from any of the below mentioned social coding sites:
 

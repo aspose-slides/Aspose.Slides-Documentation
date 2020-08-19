@@ -10,7 +10,7 @@ To Set the Image as Background to Slides using **Aspose.Slides Java for Python**
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

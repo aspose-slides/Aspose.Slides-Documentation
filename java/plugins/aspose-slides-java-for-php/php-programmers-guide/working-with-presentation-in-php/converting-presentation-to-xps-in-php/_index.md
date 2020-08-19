@@ -10,7 +10,7 @@ To convert presentation to XPS with default size using **Aspose.Slides Java for 
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function convert_with_default_size($dataDir=null)
 
@@ -30,13 +30,13 @@ print "Document has been converted, please check the output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Converting Presentation to XPS with custom size**
 To convert presentation to XPS with custom size using **Aspose.Slides Java for PHP**, simply invoke **convert_with_custom_size** method of **ConvertingToXps** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function convert_with_custom_size($dataDir=null)
 
@@ -64,7 +64,7 @@ print "Document has been converted, please check the output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to XPS (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Find a Shape in a Slide using **Aspose.Slides Java for Ruby**, simply invoke 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def initialize()
 

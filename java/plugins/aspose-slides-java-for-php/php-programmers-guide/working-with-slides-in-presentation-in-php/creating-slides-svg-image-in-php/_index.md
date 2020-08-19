@@ -10,7 +10,7 @@ To Create Slides SVG Image using **Aspose.Slides Java for PHP**, simply invoke *
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -41,7 +41,7 @@ $i++;
 print "Created SVG images, please check output files." . PHP_EOL;
 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating Slides SVG Image (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Manage Multiple Paragraphs having Multiple Portions using **Aspose.Slides Jav
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def multiple_paragraphs_having_muliple_portions()
 

@@ -10,7 +10,7 @@ To Create a Table from Scratch in Slide using **Aspose.Slides Java for PHP**, si
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  $pres = new Presentation();
 
@@ -36,7 +36,7 @@ $pres->save($dataDir . "RemoveRowColumn.pptx", $save_format->Pptx);
 
 print "Removed Row & Column from table, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating a Table from Scratch in Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

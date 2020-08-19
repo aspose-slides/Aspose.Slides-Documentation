@@ -10,7 +10,7 @@ To Add Media Player ActiveX Controls in Slide using **Aspose.Slides Java for PHP
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -34,7 +34,7 @@ $pres->save($dataDir . "AddActiveX.pptx", $saveFormat->Pptx);
 
 print "Added ActiveX control, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Media Player ActiveX Controls in Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

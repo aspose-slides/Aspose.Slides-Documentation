@@ -10,7 +10,7 @@ To access Slide by Index of a Presentation using **Aspose.Slides Java for Ruby**
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def get_slide_by_index()
 
@@ -36,7 +36,7 @@ To access Slide by ID of a Presentation using **Aspose.Slides Java for Ruby**, c
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def get_slide_by_id()
 

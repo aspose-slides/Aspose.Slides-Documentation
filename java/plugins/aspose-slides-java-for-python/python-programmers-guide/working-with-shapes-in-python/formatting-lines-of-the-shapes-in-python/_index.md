@@ -10,7 +10,7 @@ To Format Lines of the Shapes using **Aspose.Slides Java for Python**. Here you 
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def format_lines(self):
 

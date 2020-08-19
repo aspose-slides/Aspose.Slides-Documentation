@@ -10,7 +10,7 @@ To Manage Paragraph Bullets using **Aspose.Slides Java for Ruby**, call **paragr
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def paragraphs_bullets()
 

@@ -10,7 +10,7 @@ To Format the Lines of Shapes using **Aspose.Slides Java for PHP**, call **forma
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function format_lines($dataDir=null)
 
@@ -68,13 +68,13 @@ To Format the Lines of Shapes using **Aspose.Slides Java for PHP**, call **forma
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Formatting the Join Styles**
 To Format the Join Styles using **Aspose.Slides Java for Ruby**, call **format_join_styles** method of **FormatLines** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function format_join_styles($dataDir=null)
 
@@ -166,7 +166,7 @@ To Format the Join Styles using **Aspose.Slides Java for Ruby**, call **format_j
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Formatting Lines of the Shapes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

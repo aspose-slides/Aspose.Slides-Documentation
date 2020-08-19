@@ -10,7 +10,7 @@ To access Built-in properties of presentation using **Aspose.Slides Java for Rub
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def get_properties()
 
@@ -64,7 +64,7 @@ To update Built-in properties of presentation using **Aspose.Slides Java for Rub
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def update_properties()
 
@@ -108,7 +108,7 @@ To add custom property of document using **Aspose.Slides Java for Ruby**, call *
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_custom_properties()
 
@@ -148,7 +148,7 @@ To add custom property of document using **Aspose.Slides Java for Ruby**, call *
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def remove_property()
 

@@ -10,7 +10,7 @@ To Create a TextBox with Hyperlink using **Aspose.Slides Java for Ruby**, call *
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_textbox_with_hyperlink()
 

@@ -10,7 +10,7 @@ To access Built-in properties of presentation using **Aspose.Slides Java for PHP
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function get_properties($dataDir=null)
 
@@ -56,13 +56,13 @@ print "Title : " . $dp->getTitle() . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Modifying Built-in Properties**
 To update Built-in properties of presentation using **Aspose.Slides Java for PHP**, call **update_properties** method of **Properties** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function update_properties($dataDir=null)
 
@@ -98,13 +98,13 @@ To update Built-in properties of presentation using **Aspose.Slides Java for PHP
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Adding Custom Document Properties**
 To add custom property of document using **Aspose.Slides Java for PHP**, call **add_custom_properties** method of **Properties** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_custom_properties($dataDir=null)
 
@@ -136,13 +136,13 @@ print "Added custom properties, please check output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Removing Document Properties**
 To add custom property of document using **Aspose.Slides Java for PHP**, call **remove_property** method of **Properties** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function remove_property($dataDir=null)
 
@@ -174,7 +174,7 @@ print "Remove document property, please check output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing Presentation Properties (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Manage WordArt Properties using **Aspose.Slides Java for PHP**, simply invoke
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -76,7 +76,7 @@ $pres->save($dataDir . "WordArt.pptx", $save_format->Pptx);
 
 print "Done with word art, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing WordArt Properties (Aspose.Slides)** from any of the below mentioned social coding sites:
 

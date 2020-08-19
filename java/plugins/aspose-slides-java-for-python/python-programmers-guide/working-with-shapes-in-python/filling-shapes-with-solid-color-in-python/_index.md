@@ -10,7 +10,7 @@ Fill Shapes with Solid Color using **Aspose.Slides Java for Python**. Here you c
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

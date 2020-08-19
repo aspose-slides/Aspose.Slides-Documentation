@@ -10,7 +10,7 @@ To Fill Shapes with Picture using **Aspose.Slides Java for Ruby**, call **fill_s
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def fill_shapes_with_picture()
 

@@ -10,7 +10,7 @@ To Set the Image as Background to Slides using **Aspose.Slides Java for PHP**, s
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function set_image_as_background_color($dataDir=null)
 
@@ -54,7 +54,7 @@ print "Set image as background, please check the output file." . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting the Image as Background to Slides (Aspose.Slides)** from any of the below mentioned social coding sites:
 

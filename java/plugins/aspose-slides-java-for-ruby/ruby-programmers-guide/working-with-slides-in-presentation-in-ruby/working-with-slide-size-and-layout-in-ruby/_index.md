@@ -10,7 +10,7 @@ To Set the Size and Type of a slide using **Aspose.Slides Java for Ruby**, simpl
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_size_and_type()
 
@@ -54,7 +54,7 @@ To Set the page size when generating PDF using **Aspose.Slides Java for Ruby**, 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_page_size_for_pdf()
 

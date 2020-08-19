@@ -10,7 +10,7 @@ To Create Normal Chart using **Aspose.Slides Java for PHP**, call **create_norma
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function create_normal_chart($dataDir=null){
 
@@ -154,7 +154,7 @@ To Create Normal Chart using **Aspose.Slides Java for PHP**, call **create_norma
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating a Chart from Scratch (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Create a Chart from Scratch using **Aspose.Slides Java for Python**. Here you
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def create_normal_chart(self):
 

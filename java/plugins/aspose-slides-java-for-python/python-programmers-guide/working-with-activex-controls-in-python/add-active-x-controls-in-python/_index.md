@@ -10,7 +10,7 @@ To Add Active X Controls using **Aspose.Slides Java for Python**. Here you can s
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

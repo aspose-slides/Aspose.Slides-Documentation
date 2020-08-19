@@ -10,7 +10,7 @@ To Set Pie Chart Sector Colors using **Aspose.Slides Java for Python**. Here you
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  pres = self.Presentation()
 

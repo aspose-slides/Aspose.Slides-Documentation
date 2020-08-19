@@ -10,7 +10,7 @@ To Manage Line Spacing of the paragraph using **Aspose.Slides Java for Ruby**, c
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def line_spacing()
 

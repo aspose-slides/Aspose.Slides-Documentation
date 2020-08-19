@@ -10,7 +10,7 @@ To Set the Background Color to Slides using **Aspose.Slides Java for Python**. H
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def set_background_color_of_master_slide(self):
 

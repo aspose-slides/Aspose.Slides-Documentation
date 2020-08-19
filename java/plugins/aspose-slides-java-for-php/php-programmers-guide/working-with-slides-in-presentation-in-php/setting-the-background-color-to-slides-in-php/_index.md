@@ -10,7 +10,7 @@ To Set the Background Color of a Master Slide using **Aspose.Slides Java for PHP
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  public static function set_background_color_of_master_slide($dataDir=null)
 
@@ -44,13 +44,13 @@ print "Set background color of master slide, please check the output file." . PH
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Setting the Background Color of a Normal Slide**
 To Set the Background Color of a Master Slide using **Aspose.Slides Java for PHP**, simply invoke **set_background_color_of_normal_slide** method of **Background** module. Here you can see example code.
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  public static function set_background_color_of_normal_slide($dataDir=null)
 
@@ -84,7 +84,7 @@ print "Set background color of normal slide, please check the output file." . PH
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting the Background Color to Slides (Aspose.Slides)** from any of the below mentioned social coding sites:
 

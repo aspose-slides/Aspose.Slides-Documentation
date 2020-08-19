@@ -10,7 +10,7 @@ To Add Chart Series Overlap for Charts using **Aspose.Slides Java for Ruby**, ca
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_overlap_for_chart()
 

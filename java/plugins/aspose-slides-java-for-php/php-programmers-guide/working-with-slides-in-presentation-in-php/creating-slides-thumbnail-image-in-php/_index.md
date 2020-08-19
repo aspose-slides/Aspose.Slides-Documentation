@@ -10,7 +10,7 @@ To Generate a Thumbnail from a Slide using **Aspose.Slides Java for PHP**, call 
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function create_thumbnail($dataDir=null)
 
@@ -38,13 +38,13 @@ print "Created thumbnail, please check the output file." . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Generating a Thumbnail from a Slide with User Defined Dimensions**
 To Generate a Thumbnail from a Slide with user defined Dimensions using **Aspose.Slides Java for PHP**, call **create_thumbnail_custom_size** method of **Thumbnail** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function create_thumbnail_custom_size($dataDir=null)
 
@@ -84,13 +84,13 @@ print "Created thumbnail with custom size, please check the output file.". PHP_E
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Generating a Thumbnail from a Slide in Notes Slides View**
 To Generate a Thumbnail from a Slide in Notes Slides View using **Aspose.Slides Java for PHP**, call **create_thumbnail_in_notes_slides_view** method of **Thumbnail** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function create_thumbnail_in_notes_slides_view($dataDir=null)
 
@@ -131,13 +131,13 @@ print "Created thumbnail in notes slides view, please check the output file." . 
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Generating a Thumbnail of User Defined Window from a Slide**
 To Generate a Thumbnail of user defined Window from a Slide using **Aspose.Slides Java for PHP**, call **create_thumbnail_of_user_defined_window** method of **Thumbnail** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function create_thumbnail_of_user_defined_window($dataDir=null)
 
@@ -171,7 +171,7 @@ print "Created thumbnail of user defined window, please check the output file." 
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating Slides Thumbnail Image (Aspose.Slides)** from any of the below mentioned social coding sites:
 

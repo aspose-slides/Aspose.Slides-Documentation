@@ -10,7 +10,7 @@ To Add an Image in Table Cell using **Aspose.Slides Java for Python**. Here you 
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  pres = self.Presentation()
 

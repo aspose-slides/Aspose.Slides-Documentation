@@ -10,7 +10,7 @@ To convert Presentation to TIFF Notes using **Aspose.Slides Java for PHP**, simp
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function convert_to_tiff_notes($dataDir=null)
 
@@ -30,13 +30,13 @@ print "Document has been converted, please check the output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Converting Presentation to PDF Notes**
 To convert Presentation to PDF Notes using **Aspose.Slides Java for PHP**, simply invoke **convert_to_pdf_notes** method of **ConvertingToNotes** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function convert_to_pdf_notes($dataDir=null)
 
@@ -56,7 +56,7 @@ print "Document has been converted, please check the output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation with Notes (Aspose.Slides)** from any of the below mentioned social coding sites:
 

@@ -10,7 +10,7 @@ To Export Text to HTML using **Aspose.Slides Java for Ruby**, simply invoke **Ex
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/Text/'
 

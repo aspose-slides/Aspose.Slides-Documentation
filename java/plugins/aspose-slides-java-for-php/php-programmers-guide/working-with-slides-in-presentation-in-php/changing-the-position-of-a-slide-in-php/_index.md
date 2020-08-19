@@ -10,7 +10,7 @@ To change the Position of a Slide using **Aspose.Slides Java for PHP**, simply i
 
 **PHP Code**
 
-{{< highlight php >}}
+```
 
  public static function run($dataDir=null)
 
@@ -38,7 +38,7 @@ print "Changes slide position, please check the output file." . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Changing the Position of a Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

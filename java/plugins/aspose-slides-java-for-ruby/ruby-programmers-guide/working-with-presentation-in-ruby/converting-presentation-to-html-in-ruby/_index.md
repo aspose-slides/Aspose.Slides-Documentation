@@ -10,7 +10,7 @@ To convert presentation to HTML using **Aspose.Slides Java for Ruby**, simply in
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def convert_to_html()
 

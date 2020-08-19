@@ -10,7 +10,7 @@ To Manage Font Family of Text using **Aspose.Slides Java for Ruby**, call **font
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def font_family_of_text()
 

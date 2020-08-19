@@ -10,7 +10,7 @@ To Apply Shadow Effects on Slide Text using **Aspose.Slides Java for Python**. H
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Create an instance of Presentation class
 

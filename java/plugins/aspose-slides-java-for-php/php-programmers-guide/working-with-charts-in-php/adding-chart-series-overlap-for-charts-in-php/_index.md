@@ -10,7 +10,7 @@ To Add Chart Series Overlap for Charts using **Aspose.Slides Java for PHP**, cal
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -40,7 +40,7 @@ $pres->save($dataDir . "Overlap.pptx", $save_format->Pptx);
 
 print "Added chart series overlap for charts, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Chart Series Overlap for Charts (Aspose.Slides)** from any of the below mentioned social coding sites:
 

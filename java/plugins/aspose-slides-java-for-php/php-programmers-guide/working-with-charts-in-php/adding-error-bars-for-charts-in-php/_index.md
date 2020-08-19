@@ -10,7 +10,7 @@ To Add Fixed Error Bar Value for Chart using **Aspose.Slides Java for PHP**, cal
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_fixed_error_bar_value($dataDir = null){
 
@@ -63,13 +63,13 @@ To Add Fixed Error Bar Value for Chart using **Aspose.Slides Java for PHP**, cal
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Adding Custom Error Bar Value for Chart**
 To Add Custom Error Bar Value for Chart for Chart using **Aspose.Slides Java for PHP**, call **add_custom_error_bar_value** method of **ErrorBars** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_custom_error_bar_value($dataDir = null)
 
@@ -143,7 +143,7 @@ To Add Custom Error Bar Value for Chart for Chart using **Aspose.Slides Java for
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Error Bars for Charts (Aspose.Slides)** from any of the below mentioned social coding sites:
 

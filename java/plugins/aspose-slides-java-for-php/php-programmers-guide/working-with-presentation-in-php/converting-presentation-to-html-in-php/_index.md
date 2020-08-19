@@ -10,7 +10,7 @@ To convert presentation to HTML using **Aspose.Slides Java for PHP**, simply inv
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function convert_to_html($dataDir=null)
 
@@ -36,7 +36,7 @@ print "Document has been converted, please check the output file.";
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Converting Presentation to HTML (Aspose.Slides)** from any of the below mentioned social coding sites:
 

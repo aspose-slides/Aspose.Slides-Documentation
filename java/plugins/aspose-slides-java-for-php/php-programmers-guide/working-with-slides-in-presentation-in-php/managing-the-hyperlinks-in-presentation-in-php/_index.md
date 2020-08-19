@@ -10,7 +10,7 @@ To Remove Hyperlinks inside Presentation using **Aspose.Slides Java for PHP**, s
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -28,7 +28,7 @@ $pres->save($dataDir . "Hyperlinks.pptx", $save_format->Pptx);
 
 print "Removed hyperlinks successfully, please check the output file." . PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Managing the Hyperlinks in Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 

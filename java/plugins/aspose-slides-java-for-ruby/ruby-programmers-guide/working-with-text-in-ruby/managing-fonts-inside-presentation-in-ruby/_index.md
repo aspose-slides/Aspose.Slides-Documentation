@@ -10,7 +10,7 @@ To Replace Fonts Explicitly Inside Presentation using **Aspose.Slides Java for R
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def replace_font()    
 

@@ -10,7 +10,7 @@ To Update an Existing Chart **Aspose.Slides Java for Python**. Here you can see 
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

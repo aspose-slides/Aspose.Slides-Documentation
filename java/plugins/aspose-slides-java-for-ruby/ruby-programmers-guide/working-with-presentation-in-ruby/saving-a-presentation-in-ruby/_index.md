@@ -10,7 +10,7 @@ In order to save presentation using **Aspose.Slides Java for Ruby**, you can use
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/'
 

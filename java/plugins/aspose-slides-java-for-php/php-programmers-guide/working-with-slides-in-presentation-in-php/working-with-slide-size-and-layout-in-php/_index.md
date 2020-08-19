@@ -10,7 +10,7 @@ To Set the Size and Type of a slide using **Aspose.Slides Java for PHP**, simply
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function set_size_and_type($dataDir=null)
 
@@ -46,13 +46,13 @@ print "Set slide size and type, please check the output file." . PHP_EOL;
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Setting the page size when generating PDF**
 To Set the page size when generating PDF using **Aspose.Slides Java for Ruby**, simply invoke **set_page_size_for_pdf** method of **SizeAndLayout** module. Here you can see example code.
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_page_size_for_pdf()
 
@@ -84,7 +84,7 @@ To Set the page size when generating PDF using **Aspose.Slides Java for Ruby**, 
 
 end 
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Working With Slide Size and Layout (Aspose.Slides)** from any of the below mentioned social coding sites:
 

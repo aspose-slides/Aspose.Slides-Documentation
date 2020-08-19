@@ -10,7 +10,7 @@ To Add Plain Line to Slide using **Aspose.Slides Java for PHP**, call **add_plai
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_plain_line($dataDir=null)
 
@@ -40,13 +40,13 @@ To Add Plain Line to Slide using **Aspose.Slides Java for PHP**, call **add_plai
 
 }
 
-{{< /highlight >}}
+```
 ## **Aspose.Slides - Adding Arrow Shaped Line to Slide**
 To Add Arrow Shaped Line to Slide using **Aspose.Slides Java for PHP**, call **add_arrow_line** method of **AddingLineShape** module. Here you can see example code.
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function add_arrow_line($dataDir=null)
 
@@ -111,7 +111,7 @@ To Add Arrow Shaped Line to Slide using **Aspose.Slides Java for PHP**, call **a
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Adding Line Shape to Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

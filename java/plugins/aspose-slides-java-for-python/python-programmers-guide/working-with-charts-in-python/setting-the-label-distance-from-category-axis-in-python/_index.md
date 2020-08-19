@@ -10,7 +10,7 @@ For Setting the Label Distance From Category Axis using **Aspose.Slides Java for
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

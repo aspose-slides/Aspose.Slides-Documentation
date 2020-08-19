@@ -10,7 +10,7 @@ To Set the RotationX, RotationY and DepthPercents properties of 3D Chart using *
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_rotation_and_depth()
 
@@ -102,7 +102,7 @@ To Set the GapWidth property of Chart Series using **Aspose.Slides Java for Ruby
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_gapwidth()
 

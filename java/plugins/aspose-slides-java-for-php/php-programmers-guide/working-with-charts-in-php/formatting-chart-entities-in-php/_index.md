@@ -10,7 +10,7 @@ To Format Chart Entities using **Aspose.Slides Java for PHP**, simply invoke **F
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 
@@ -283,7 +283,7 @@ $pres->save($dataDir . "FormattedChart.pptx", $save_format->Pptx);
 
 print "Formatted chart entities, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Formatting Chart Entities (Aspose.Slides)** from any of the below mentioned social coding sites:
 

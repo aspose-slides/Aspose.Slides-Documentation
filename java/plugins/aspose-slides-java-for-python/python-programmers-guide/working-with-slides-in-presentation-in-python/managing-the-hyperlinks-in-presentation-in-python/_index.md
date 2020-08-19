@@ -10,7 +10,7 @@ To Manage the Hyperlinks in Presentation using Aspose.Slides Java for Python. He
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

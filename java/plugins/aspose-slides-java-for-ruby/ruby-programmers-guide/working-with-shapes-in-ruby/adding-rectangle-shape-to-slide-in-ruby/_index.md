@@ -10,7 +10,7 @@ To Add Simple Rectangle in the Slide using **Aspose.Slides Java for Ruby**, call
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_simple_rectangle_shape()    
 
@@ -46,7 +46,7 @@ To Add Formatted Rectangle in the Slide using **Aspose.Slides Java for Ruby**, c
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_formatted_rectangle_shape()    
 

@@ -10,7 +10,7 @@ To Add Chart Trend Lines using **Aspose.Slides Java for Python**. Here you can s
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Creating empty presentation
 

@@ -10,7 +10,7 @@ To Convert PPT to PPTX document using **Aspose.Slides Java for Python**. Here yo
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate a Presentation object that represents a PPTX file
 

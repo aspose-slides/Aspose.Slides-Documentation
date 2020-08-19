@@ -10,7 +10,7 @@ To Create a TextBox on Slide using **Aspose.Slides Java for PHP**, call **create
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
      public static function create_textbox($dataDir=null){
 
@@ -58,7 +58,7 @@ To Create a TextBox on Slide using **Aspose.Slides Java for PHP**, call **create
 
     }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Creating a TextBox on Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 

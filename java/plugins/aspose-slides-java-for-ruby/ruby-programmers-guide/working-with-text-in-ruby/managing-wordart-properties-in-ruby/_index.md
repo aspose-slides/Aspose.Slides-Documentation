@@ -10,7 +10,7 @@ To Manage WordArt Properties using **Aspose.Slides Java for Ruby**, simply invok
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/Text/'
 

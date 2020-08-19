@@ -10,7 +10,7 @@ To Clone Row or Column in table using **Aspose.Slides Java for PHP**, simply inv
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  $pres = new Presentation();
 
@@ -114,7 +114,7 @@ $pres->save($dataDir . "CloneRowColumn.pptx", $save_format->Pptx);
 
 print "Cloned Row & Column from table, please check the output file."; PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Cloning Row or Column in table (Aspose.Slides)** from any of the below mentioned social coding sites:
 

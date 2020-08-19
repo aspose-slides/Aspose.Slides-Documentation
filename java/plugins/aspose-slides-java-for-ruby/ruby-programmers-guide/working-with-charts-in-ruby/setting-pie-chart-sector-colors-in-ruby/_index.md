@@ -10,7 +10,7 @@ To Set Pie Chart Sector Colors using **Aspose.Slides Java for Ruby**, simply inv
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/'
 

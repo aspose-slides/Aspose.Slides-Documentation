@@ -10,7 +10,7 @@ To Clone Slides in Presentation using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def clone_to_end_of_presentation(self):
 

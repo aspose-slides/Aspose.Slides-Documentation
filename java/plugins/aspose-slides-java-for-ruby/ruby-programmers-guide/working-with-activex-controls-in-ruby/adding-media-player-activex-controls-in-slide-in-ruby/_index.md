@@ -10,7 +10,7 @@ To Add Media Player ActiveX Controls in Slide using **Aspose.Slides Java for Rub
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/'
 

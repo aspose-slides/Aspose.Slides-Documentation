@@ -10,7 +10,7 @@ To Create Normal Chart using **Aspose.Slides Java for Ruby**, call **create_norm
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_normal_chart()
 
@@ -151,7 +151,7 @@ To Create Scattered Chart using **Aspose.Slides Java for Ruby**, call **create_s
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_scatter_chart()
 

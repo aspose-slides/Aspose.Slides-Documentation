@@ -10,7 +10,7 @@ To Fill Shapes with Solid Color using **Aspose.Slides Java for PHP**, call **fil
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function fill_shapes_with_solid_color($dataDir=null)
 
@@ -52,7 +52,7 @@ To Fill Shapes with Solid Color using **Aspose.Slides Java for PHP**, call **fil
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Filling Shapes with Solid Color (Aspose.Slides)** from any of the below mentioned social coding sites:
 

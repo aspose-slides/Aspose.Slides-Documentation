@@ -10,7 +10,7 @@ To Set the Image as Background to Slides using **Aspose.Slides Java for Ruby**, 
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_image_as_background_color()
 

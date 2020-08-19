@@ -10,7 +10,7 @@ To Add Picture Frame to Slide using **Aspose.Slides Java for Ruby**, call **add_
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_picture_frame()
 

@@ -10,7 +10,7 @@ To Set the Background Color of a Master Slide using **Aspose.Slides Java for Rub
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_background_color_of_master_slide()
 
@@ -46,7 +46,7 @@ To Set the Background Color of a Master Slide using **Aspose.Slides Java for Rub
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def set_background_color_of_normal_slide()
 

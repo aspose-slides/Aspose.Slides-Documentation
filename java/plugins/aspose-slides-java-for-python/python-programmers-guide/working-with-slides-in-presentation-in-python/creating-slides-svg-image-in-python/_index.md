@@ -10,7 +10,7 @@ To Create Slides Thumbnail Image using Aspose.Slides Java for Python. Here you c
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Instantiate Presentation class that represents the presentation file
 

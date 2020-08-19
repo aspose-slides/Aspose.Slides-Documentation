@@ -10,7 +10,7 @@ To Add Audio Frame to Slide using **Aspose.Slides Java for Ruby**, call **add_au
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_audio_frame()
 

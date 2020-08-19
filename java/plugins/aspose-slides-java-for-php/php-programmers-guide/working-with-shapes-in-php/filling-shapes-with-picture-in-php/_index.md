@@ -10,7 +10,7 @@ To Fill Shapes with Picture using **Aspose.Slides Java for PHP**, call **fill_sh
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  public static function fill_shapes_with_picture($dataDir=null)
 
@@ -58,7 +58,7 @@ To Fill Shapes with Picture using **Aspose.Slides Java for PHP**, call **fill_sh
 
 }
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Filling Shapes with Picture (Aspose.Slides)** from any of the below mentioned social coding sites:
 

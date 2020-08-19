@@ -10,7 +10,7 @@ In order to open presentation using **Aspose.Slides Java for PHP**, you can use 
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
 
 
@@ -23,4 +23,4 @@ $pres = new Presentation("demo.pptx");
 print $pres->getSlides()->size();
 
 
-{{< /highlight >}}
+```

@@ -10,7 +10,7 @@ To Remove Row Or Column in Table using **Aspose.Slides Java for Ruby**, simply i
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  data_dir = File.dirname(File.dirname(File.dirname(File.dirname(__FILE__)))) + '/data/Tables/'
 

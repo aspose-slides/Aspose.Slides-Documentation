@@ -10,7 +10,7 @@ To Add Simple Ellipse in the Slide using **Aspose.Slides Java for Ruby**, call *
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_simple_ellipse_shape()    
 
@@ -46,7 +46,7 @@ To Add Formatted Ellipse in the Slide using **Aspose.Slides Java for Ruby**, cal
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def add_formatted_ellipse_shape()    
 

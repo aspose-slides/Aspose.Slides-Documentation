@@ -10,7 +10,7 @@ To Convert Presentation to TIFF using Aspose.Slides Java for Python. Here you ca
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  def convert_with_default_size(self):
 

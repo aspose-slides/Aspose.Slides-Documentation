@@ -10,7 +10,7 @@ To Set Fill Format for SmartArt Node using **Aspose.Slides Java for PHP**, simpl
 
 **PHPCode**
 
-{{< highlight php >}}
+```
 
  # Create an instance of Presentation class
 
@@ -50,7 +50,7 @@ $pres->save($dataDir . "FillFormat.pptx", $saveFormat->Pptx);
 
 print "Set fill format for smartart node, please check the output file.".PHP_EOL;
 
-{{< /highlight >}}
+```
 ## **Download Running Code**
 Download **Setting Fill Format for SmartArt Node (Aspose.Slides)** from any of the below mentioned social coding sites:
 

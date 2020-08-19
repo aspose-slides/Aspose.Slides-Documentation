@@ -10,7 +10,7 @@ To Add SmartArt shape using **Aspose.Slides Java for Ruby**, call **create_smart
 
 **Ruby Code**
 
-{{< highlight ruby >}}
+```
 
  def create_smartart_shape()
 

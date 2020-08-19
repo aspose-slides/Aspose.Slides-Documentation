@@ -10,7 +10,7 @@ To Use Default Fonts for Rendering Presentation using **Aspose.Slides Java for P
 
 **Python Code**
 
-{{< highlight python >}}
+```
 
  # Use load options to define the default regualr and asian fonts
 
