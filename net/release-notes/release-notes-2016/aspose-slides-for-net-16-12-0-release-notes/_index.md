@@ -69,7 +69,7 @@ parameters:
 - privateKey - Metered private key. 
 - static decimal GetConsumptionQuantity() Gets consumption quantity.
 
-######Usage example: 
+###### **Usage example: **
 ``` csharp
 Metered metered = new Metered();
 metered.SetMeteredKey("PublicKey", "PrivateKey");
@@ -156,7 +156,7 @@ There are 3 possible options:
 - **SvgExternalFontsHandling.AddLinksToFontFiles**. In this case a separate css definition will be added to svg/defs section per each font that was actually used for some piece of text on the slide and was loaded externally by calling to FontsLoader.LoadExternalFonts method. Each definition contains local links to 3 separate font types: TTF, EOT and WOFF. To work correctly font files must be placed in the same directory as SVG file (could be copied there after the export) and must be named the same as original TTF file (for example FancyFont.ttf, FancyFont.eot, FancyFont.woff). If some of the fonts is missing there will be no error, but the resulting SVG file could be rendered incorrectly in some browsers (please take a look to 'Font-browsers compatibility' section below). 
 - **SvgExternalFontsHandling.Embed**. In this case the same css definitions will be added based on the same principle, but the font files content will be embedded directly to SVG file. Choosing this option user should place EOF and WOFF versions of the font to the same directory as original TTF file (the path to which is passed to FontsLoader.LoadExternalFonts method) before the export. If some of the fonts are missing it won't be added to SVG file at all and again it could result incorrect rendering in some browsers. 
 - **SvgExternalFontsHandling.Vectorize**. In this case the text that uses externally loaded fonts will be transformed to graphical objects. It works the same way as when SVGOptions.Vectorize property is set to true, but only for external fonts.
-##### Font-browser compatibility
+###### **Font-browser compatibility**
 To make result SVG file rendered correctly in most of modern browsers two additional font files format are recommended to be used along with regular TTF file.
 
 EOT (Embedded Open Type) - for compatibility with all versions of IE. 

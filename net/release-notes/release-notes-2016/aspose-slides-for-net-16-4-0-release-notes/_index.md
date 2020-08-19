@@ -76,14 +76,14 @@ url: /net/aspose-slides-for-net-16-4-0-release-notes/
 #### **Aspose.Slides.Animation.IBehaviorProperties interface and BehaviorProperties class have been renamed to IBehaviorPropertyCollection and BehaviorPropertyCollection, changes in public API has been made**
 Aspose.Slides.Animation.IBehaviorProperties has been renamed to IBehaviorPropertyCollection and inherits IList<IBehaviorProperty> instead of IList<PropertyType> now.
 Aspose.Slides.Animation.BehaviorProperties has been renamed to BehaviorPropertyCollection.
-###### Following methods were removed:
+###### **Following methods were removed:**
 ``` csharp
 public void CopyTo(PropertyType[] array, int arrayIndex)
 public PropertyType this[int index]
 public IEnumerator<PropertyType> GetEnumerator()
 ``` 
 
-###### Following methods were marked as obsolete:
+###### **Following methods were marked as obsolete:**
 ``` csharp
 public void Add(PropertyType item)
 public int IndexOf(PropertyType item)
@@ -92,7 +92,7 @@ public bool Remove(PropertyType item)
 public bool Contains(PropertyType item)
 ``` 
 
-######Following methods were added:
+###### **Following methods were added:**
 ``` csharp
 public void Add(IBehaviorProperty item)
 public void Add(string propertyValue)

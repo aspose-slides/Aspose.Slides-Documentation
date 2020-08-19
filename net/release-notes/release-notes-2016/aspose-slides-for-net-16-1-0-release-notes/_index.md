@@ -6,40 +6,46 @@ url: /net/aspose-slides-for-net-16-1-0-release-notes/
 ---
 
 ## **Minor Changes**
-SLIDESNET-37033 - Setting custom rotation angle for textframe
-SLIDESNET-34799 - Support for default automatic series colors for chart
+|**Key**|**Summary**|
+| :- | :- |
+|SLIDESNET-37033 | Setting custom rotation angle for textframe|
+|SLIDESNET-34799 | Support for default automatic series colors for chart|
 
 ## **Other Improvements and Changes**
-SLIDESNET-37155 - Presentation repair message on saving PPTX with mp3
-SLIDESNET-37108 - ArgumentNullException on ppt presentation save
-SLIDESNET-37106 - PptxReadException thrown on loading pptx
-SLIDESNET-37083 - Error occurs on opening PPTX file
-SLIDESNET-37080 - Missing chart category
-SLIDESNET-37071 - Charts rendered incorrectly in generated PDF
-SLIDESNET-37068 - Presentation loading takes too much time
-SLIDESNET-37066 - PptxReadException thrown on loading pptx
-SLIDESNET-37065 - PPT presentaiton can't constains more than 8 placeholders in one slide
-SLIDESNET-37060 - Chart is Plotting 0 for null values
-SLIDESNET-37044 - Properties set on slide master are returned as undefined
-SLIDESNET-37041 - Chart rendered incorrectly on slide cloning
-SLIDESNET-36995 - Empty datapoints appear while DisplayBlanksAsType.Gap is set
-SLIDESNET-36986 - Application keeps executing on generating thumbnails
-SLIDESNET-36957 - Setting some borders for table cells doesn't work
-SLIDESNET-36936 - Wrong word wrapping in table cells
-SLIDESNET-36884 - 3D bevel effects are not getting applied in generated presentation
-SLIDESNET-36871 - Format exception on loading ODP presentaiton
-SLIDESNET-36796 - Missing text in generated thumbnail
-SLIDESNET-36670 - joinPortionsWithSameFormatting() changes font size
-SLIDESNET-36638 - ArgumentOutOfRange Exception on loading presentation
-SLIDESNET-36557 - Saving to PPT changes markers of bullets
-SLIDESNET-36522 - Text Alignment changed on pdf export
-SLIDESNET-36471 - Wrong text alignment in cells
-SLIDESNET-36416 - Text Wrapping issue in exported XPS and PDF
-SLIDESNET-35648 - Bullets are improperly rendered in generated thumbnails
-SLIDESNET-34145 - The background image is improperly rendered in generated thumbnail
+|**Key**|**Summary**|
+| :- | :- |
+|SLIDESNET-37155 | Presentation repair message on saving PPTX with mp3|
+|SLIDESNET-37108 | ArgumentNullException on ppt presentation save|
+|SLIDESNET-37106 | PptxReadException thrown on loading pptx|
+|SLIDESNET-37083 | Error occurs on opening PPTX file|
+|SLIDESNET-37080 | Missing chart category|
+|SLIDESNET-37071 | Charts rendered incorrectly in generated PDF|
+|SLIDESNET-37068 | Presentation loading takes too much time|
+|SLIDESNET-37066 | PptxReadException thrown on loading pptx|
+|SLIDESNET-37065 | PPT presentaiton can't constains more than 8 placeholders in one slide|
+|SLIDESNET-37060 | Chart is Plotting 0 for null values|
+|SLIDESNET-37044 | Properties set on slide master are returned as undefined|
+|SLIDESNET-37041 | Chart rendered incorrectly on slide cloning|
+|SLIDESNET-36995 | Empty datapoints appear while DisplayBlanksAsType.Gap is set|
+|SLIDESNET-36986 | Application keeps executing on generating thumbnails|
+|SLIDESNET-36957 | Setting some borders for table cells doesn't work|
+|SLIDESNET-36936 | Wrong word wrapping in table cells|
+|SLIDESNET-36884 | 3D bevel effects are not getting applied in generated presentation|
+|SLIDESNET-36871 | Format exception on loading ODP presentaiton|
+|SLIDESNET-36796 | Missing text in generated thumbnail|
+|SLIDESNET-36670 | joinPortionsWithSameFormatting() changes font size|
+|SLIDESNET-36638 | ArgumentOutOfRange Exception on loading presentation|
+|SLIDESNET-36557 | Saving to PPT changes markers of bullets|
+|SLIDESNET-36522 | Text Alignment changed on pdf export|
+|SLIDESNET-36471 | Wrong text alignment in cells|
+|SLIDESNET-36416 | Text Wrapping issue in exported XPS and PDF|
+|SLIDESNET-35648 | Bullets are improperly rendered in generated thumbnails|
+|SLIDESNET-34145 | The background image is improperly rendered in generated thumbnail|
 
 ## **Public API Changes**
 #### Property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces
+Property RotationAngle has been added to interfaces Aspose.Slides.Charts.IChartTextBlockFormat and Aspose.Slides.ITextFrameFormat.
+It specifies the custom rotation that is being applied to the text within the bounding box.
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -57,3 +63,4 @@ using (Presentation pres = new Presentation())
 ```
 
 #### OdpException moved from Aspose.Slides.Odp to Aspose.Slides namespace
+OdpException moved from Aspose.Slides.Odp to Aspose.Slides namespace.

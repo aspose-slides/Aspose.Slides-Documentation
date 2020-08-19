@@ -9,86 +9,86 @@ url: /net/aspose-slides-for-net-16-2-0-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
-|SLIDESNET-37152|- Support for creating callout data label for Pie chart|Enhancements|
-|SLIDESNET-37134|- Support for setting slide frame|Enhancements|
-|SLIDESNET-37014|- Support for Legacy SmartArt processing|Enhancements|
-|SLIDESNET-36904|- Support to change Axis type of a chart with cases Text Axis and Date Axis|Enhancements|
-|SLIDESNET-36872|- Horizontal scrolling on generated PDF|Enhancements|
-|SLIDESNET-35516|- Support to determine the original file name from embedded objects using Aspose.Slides|Enhancements|
-|SLIDESNET-34668|- Support for Date Axis in Aspose.Slides charts|Enhancements|
-|SLIDESNET-37148|- Support for extracting SmartArt text frames using Utils.GetAllTextFrames|Enhancements|
-|SLIDESNET-37222|- PptxReadException on pptx load|Bug|
-|SLIDESNET-37214|- Table's border failed to be drawn|Bug|
-|SLIDESNET-37205|- OutOfMemoryException on presentation load|Bug|
-|SLIDESNET-37203|- IConnector.Reroute() does not update shape frame|Bug|
-|SLIDESNET-37192|- Presentation repair message when video is added|Bug|
-|SLIDESNET-37185|- Poor drawing quality in generated PDF|Bug|
-|SLIDESNET-37183|- GetThumbnail() renders images with grey border|Bug|
-|SLIDESNET-37181|- Dispose method do not release memory|Bug|
-|SLIDESNET-37171|- Internal exception appears on saving presentation|Bug|
-|SLIDESNET-37169|- Problem with getthumbnail method|Bug|
-|SLIDESNET-37168|- Aspose Presentation object not disposing even after call .Dispose()|Bug|
-|SLIDESNET-37166|- ArgumentOutOfRangeException on split by width method|Bug|
-|SLIDESNET-37165|- Cell height error and column span is zero|Bug|
-|SLIDESNET-37164|- IndexOutOfRangeException on split by width method|Bug|
-|SLIDESNET-37163|- Code halts system|Bug|
-|SLIDESNET-37162|- System.ArgumentOutOfRangeException on splitting the cells|Bug|
-|SLIDESNET-37153|- Bullet appeared after saving pptx to pdf|Bug|
-|SLIDESNET-37151|- PptxRead exception on accessing presentation|Bug|
-|SLIDESNET-37149|- Argument Exception on saving presentation to PDF|Bug|
-|SLIDESNET-37147|- ArgumentException on saving the presentation|Bug|
-|SLIDESNET-37143|- Table is rendered bigger|Bug|
-|SLIDESNET-37142|- Shape color is changed on load and save|Bug|
-|SLIDESNET-37141|- UpdateDateTimeFields property not working|Bug|
-|SLIDESNET-37140|- Table is drawing wrong on thumbnail generated from PPTX|Bug|
-|SLIDESNET-37139|- Font size changed|Bug|
-|SLIDESNET-37135|- Wrong text alignment on load and save ppt|Bug|
-|SLIDESNET-37132|- Shadow effect appeared on load and save pptx|Bug|
-|SLIDESNET-37131|- Slide title appearing twice on html|Bug|
-|SLIDESNET-37127|- Numbering to bullets and dashes|Bug|
-|SLIDESNET-37122|- Shape color changed on load and save|Bug|
-|SLIDESNET-37120|- FormatException thrown on loading ppt|Bug|
-|SLIDESNET-37118|- PptxReadException thrown on loading pptx|Bug|
-|SLIDESNET-37114|- Shape border lines disappeared on load and save ppt|Bug|
-|SLIDESNET-37104|- Problem with custom shows on presentation load and save|Bug|
-|SLIDESNET-37100|- Transparency Turned on Incorrectly after load and Save|Bug|
-|SLIDESNET-37095|- Rotated text label on chart not rotated in PDF|Bug|
-|SLIDESNET-37086|- LinkFileName and LinkPathLong properties are not working|Bug|
-|SLIDESNET-37062|- Wrong bullet appears on saved slide|Bug|
-|SLIDESNET-37032|- Text alignment changed on presentation load and save|Bug|
-|SLIDESNET-37026|- Aspose.Slides increased memory issue|Bug|
-|SLIDESNET-37011|- Cloning singlee slide takes about 3 second|Bug|
-|SLIDESNET-36992|- Wrong legend entry for series removed on removing|Bug|
-|SLIDESNET-36965|- Legacy SmartArt in PPTX presentation cause to various problems|Bug|
-|SLIDESNET-36961|- Incorrect LastPrinted value for a file that has never been printed|Bug|
-|SLIDESNET-36941|- PptxReadException thrown on loading pptx|Bug|
-|SLIDESNET-36877|- Setting chart title position is not working in Aspose.Slides|Bug|
-|SLIDESNET-36837|- VBA digital sign is lost during conversion|Bug|
-|SLIDESNET-36650|- Wrong text wrapping in cell of table in generated thumbnail and PDF|Bug|
-|SLIDESNET-36522|- Text Alignment changed on pdf export|Bug|
-|SLIDESNET-36512|- GeometryDeserializationContext.loadPaths() throws ArrayIndexOutOfBoundsException|Bug|
-|SLIDESNET-36434|- Wrong text rendering in generated Pdf and Html||
-|SLIDESNET-36415|- Saving PPTX with embedded file changes embedded file name|Bug|
-|SLIDESNET-36412|- Table rendered with wrong font in generated Pdf|Bug|
-|SLIDESNET-36374|- Text missing in the first table row in generated PDF|Bug|
-|SLIDESNET-36231|- Text missing in exported HTML when viewed in different browsers|Bug|
-|SLIDESNET-36160|- Fonts get changed on cloning slides|Bug|
-|SLIDESNET-36113|- IndexOutOfBound Exception is thrown on setting the numbered bullet list as Undefined|Bug|
-|SLIDESNET-36018|- Bullets appeared in cloned presentation|Bug|
-|SLIDESNET-36000|- SmartArts are missing in generated PDF|Bug|
-|SLIDESNET-35961|- Problem adding bullets in presentation file|Bug|
-|SLIDESNET-35851|- Error when opening the generated PDF file in Acrobat Reader|Bug|
-|SLIDESNET-34892|- String measurement is incorrect when drawing on canvas|Bug|
-|SLIDESNET-34847|- SmartArt is missing or wrongly rendered on exported PDFs|Bug|
-|SLIDESNET-34840|- Exception: "reading animation group failed" while opening a PPTX file|Bug|
-|SLIDESNET-34333|- Text missing in generated thumbnail for SmartArt shape|Bug|
-|SLIDESNET-34004|- SmartArt font changes on opening and saving presentation|Bug|
-|SLIDESNET-33892|- Text improperly rendered in generated slide thumbnail|Bug|
-|SLIDESNET-33867|- PptException: reading animation group failed on exporting presentation to PDF|Bug|
-|SLIDESNET-33843|- Hyperlinks are lost on converting PPT to PPTX|Bug|
-|SLIDESNET-33712|- PPT to PPTX conversion bug|Bug|
-|SLIDESNET-33355|- Bullet characters are rendered of wrong size in generated thumbnails|Bug|
-|SLIDESNET-32649|- Text converted to image while converting PPT to PPTX|Bug|
+|SLIDESNET-37152 | Support for creating callout data label for Pie chart|Enhancements|
+|SLIDESNET-37134 | Support for setting slide frame|Enhancements|
+|SLIDESNET-37014 | Support for Legacy SmartArt processing|Enhancements|
+|SLIDESNET-36904 | Support to change Axis type of a chart with cases Text Axis and Date Axis|Enhancements|
+|SLIDESNET-36872 | Horizontal scrolling on generated PDF|Enhancements|
+|SLIDESNET-35516 | Support to determine the original file name from embedded objects using Aspose.Slides|Enhancements|
+|SLIDESNET-34668| Support for Date Axis in Aspose.Slides charts|Enhancements|
+|SLIDESNET-37148| Support for extracting SmartArt text frames using Utils.GetAllTextFrames|Enhancements|
+|SLIDESNET-37222| PptxReadException on pptx load|Bug|
+|SLIDESNET-37214| Table's border failed to be drawn|Bug|
+|SLIDESNET-37205| OutOfMemoryException on presentation load|Bug|
+|SLIDESNET-37203| IConnector.Reroute() does not update shape frame|Bug|
+|SLIDESNET-37192| Presentation repair message when video is added|Bug|
+|SLIDESNET-37185| Poor drawing quality in generated PDF|Bug|
+|SLIDESNET-37183| GetThumbnail() renders images with grey border|Bug|
+|SLIDESNET-37181| Dispose method do not release memory|Bug|
+|SLIDESNET-37171| Internal exception appears on saving presentation|Bug|
+|SLIDESNET-37169| Problem with getthumbnail method|Bug|
+|SLIDESNET-37168| Aspose Presentation object not disposing even after call .Dispose()|Bug|
+|SLIDESNET-37166| ArgumentOutOfRangeException on split by width method|Bug|
+|SLIDESNET-37165| Cell height error and column span is zero|Bug|
+|SLIDESNET-37164| IndexOutOfRangeException on split by width method|Bug|
+|SLIDESNET-37163| Code halts system|Bug|
+|SLIDESNET-37162| System.ArgumentOutOfRangeException on splitting the cells|Bug|
+|SLIDESNET-37153| Bullet appeared after saving pptx to pdf|Bug|
+|SLIDESNET-37151| PptxRead exception on accessing presentation|Bug|
+|SLIDESNET-37149| Argument Exception on saving presentation to PDF|Bug|
+|SLIDESNET-37147| ArgumentException on saving the presentation|Bug|
+|SLIDESNET-37143| Table is rendered bigger|Bug|
+|SLIDESNET-37142| Shape color is changed on load and save|Bug|
+|SLIDESNET-37141| UpdateDateTimeFields property not working|Bug|
+|SLIDESNET-37140| Table is drawing wrong on thumbnail generated from PPTX|Bug|
+|SLIDESNET-37139| Font size changed|Bug|
+|SLIDESNET-37135| Wrong text alignment on load and save ppt|Bug|
+|SLIDESNET-37132| Shadow effect appeared on load and save pptx|Bug|
+|SLIDESNET-37131| Slide title appearing twice on html|Bug|
+|SLIDESNET-37127| Numbering to bullets and dashes|Bug|
+|SLIDESNET-37122| Shape color changed on load and save|Bug|
+|SLIDESNET-37120| FormatException thrown on loading ppt|Bug|
+|SLIDESNET-37118| PptxReadException thrown on loading pptx|Bug|
+|SLIDESNET-37114| Shape border lines disappeared on load and save ppt|Bug|
+|SLIDESNET-37104| Problem with custom shows on presentation load and save|Bug|
+|SLIDESNET-37100| Transparency Turned on Incorrectly after load and Save|Bug|
+|SLIDESNET-37095| Rotated text label on chart not rotated in PDF|Bug|
+|SLIDESNET-37086| LinkFileName and LinkPathLong properties are not working|Bug|
+|SLIDESNET-37062| Wrong bullet appears on saved slide|Bug|
+|SLIDESNET-37032| Text alignment changed on presentation load and save|Bug|
+|SLIDESNET-37026| Aspose.Slides increased memory issue|Bug|
+|SLIDESNET-37011| Cloning singlee slide takes about 3 second|Bug|
+|SLIDESNET-36992| Wrong legend entry for series removed on removing|Bug|
+|SLIDESNET-36965| Legacy SmartArt in PPTX presentation cause to various problems|Bug|
+|SLIDESNET-36961| Incorrect LastPrinted value for a file that has never been printed|Bug|
+|SLIDESNET-36941| PptxReadException thrown on loading pptx|Bug|
+|SLIDESNET-36877| Setting chart title position is not working in Aspose.Slides|Bug|
+|SLIDESNET-36837| VBA digital sign is lost during conversion|Bug|
+|SLIDESNET-36650| Wrong text wrapping in cell of table in generated thumbnail and PDF|Bug|
+|SLIDESNET-36522| Text Alignment changed on pdf export|Bug|
+|SLIDESNET-36512| GeometryDeserializationContext.loadPaths() throws ArrayIndexOutOfBoundsException|Bug|
+|SLIDESNET-36434| Wrong text rendering in generated Pdf and Html||
+|SLIDESNET-36415| Saving PPTX with embedded file changes embedded file name|Bug|
+|SLIDESNET-36412| Table rendered with wrong font in generated Pdf|Bug|
+|SLIDESNET-36374| Text missing in the first table row in generated PDF|Bug|
+|SLIDESNET-36231| Text missing in exported HTML when viewed in different browsers|Bug|
+|SLIDESNET-36160| Fonts get changed on cloning slides|Bug|
+|SLIDESNET-36113| IndexOutOfBound Exception is thrown on setting the numbered bullet list as Undefined|Bug|
+|SLIDESNET-36018| Bullets appeared in cloned presentation|Bug|
+|SLIDESNET-36000| SmartArts are missing in generated PDF|Bug|
+|SLIDESNET-35961| Problem adding bullets in presentation file|Bug|
+|SLIDESNET-35851| Error when opening the generated PDF file in Acrobat Reader|Bug|
+|SLIDESNET-34892| String measurement is incorrect when drawing on canvas|Bug|
+|SLIDESNET-34847| SmartArt is missing or wrongly rendered on exported PDFs|Bug|
+|SLIDESNET-34840| Exception: "reading animation group failed" while opening a PPTX file|Bug|
+|SLIDESNET-34333| Text missing in generated thumbnail for SmartArt shape|Bug|
+|SLIDESNET-34004| SmartArt font changes on opening and saving presentation|Bug|
+|SLIDESNET-33892| Text improperly rendered in generated slide thumbnail|Bug|
+|SLIDESNET-33867| PptException: reading animation group failed on exporting presentation to PDF|Bug|
+|SLIDESNET-33843| Hyperlinks are lost on converting PPT to PPTX|Bug|
+|SLIDESNET-33712| PPT to PPTX conversion bug|Bug|
+|SLIDESNET-33355| Bullet characters are rendered of wrong size in generated thumbnails|Bug|
+|SLIDESNET-32649| Text converted to image while converting PPT to PPTX|Bug|
 ## **Public API Changes**
 
 #### **Enum Slides.Charts.CategoryAxisType has been added**
@@ -120,7 +120,7 @@ PresentationText represents the raw text extracted from the presentation. It con
 
 There's also a SlideText class which implements the ISlideText interface.
 
-###### The new API can be used like this:
+###### **The new API can be used like this:**
 
 ``` csharp
 PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
@@ -133,7 +133,8 @@ PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", E
 ```
 
 #### **ILegacyDiagram interface and LegacyDiagram class have been added**
-Interface Aspose.Slides.ILegacyDiagram and class Aspose.Slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003. New class provides methods to convert legacy diagram to modern editable SmartArt object or to editable GroupShape.
+Interface Aspose.Slides.ILegacyDiagram and class Aspose.Slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003. 
+New class provides methods to convert legacy diagram to modern editable SmartArt object or to editable GroupShape.
 
 #### **New Aspose.Slides.TextAlignment enum membed added (JustifyLow)**
 A new member of TextAlignment enum member has been added:
@@ -141,9 +142,9 @@ A new member of TextAlignment enum member has been added:
 
 #### **New properties for Aspose.Slides.IOleObjectFrame and OleObjectFrame**
 A new properties has been added to IOleObjectFrame interface and OleObjectFrame class implementing this interface. These properties using to provide information about an object embedded into the presentation:
-EmbeddedFileExtension - Returns the file extension for the current embedded object or empty string if object is not a link
-EmbeddedFileLabel - Returns the file name of embedded OLE object
-EmbeddedFileName - Returns the path of embedded OLE object
+- **EmbeddedFileExtension** - Returns the file extension for the current embedded object or empty string if object is not a link
+- **EmbeddedFileLabel** - Returns the file name of embedded OLE object
+- **EmbeddedFileName** - Returns the path of embedded OLE object
 
 #### **New property CategoryAxisType has been added to IAxis and Axis classes**
 Property CategoryAxisType specifies type of category axis.
