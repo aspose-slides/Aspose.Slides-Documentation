@@ -30,6 +30,7 @@ url: /net/aspose-slides-for-net-18-5-release-notes/
 |SLIDESNET-39979|ArgumentOutOfRangeException on loading presentation|Bug|
 |SLIDESNET-39994|IndexOutOfRangeException is thrown on loading the presentation|Bug|
 |SLIDESNET-40057|Bubble Chart not being updated in generated thumbnail|Bug|
+
 ## **Public API Changes**
 #### **Support for setting X and Y properties has been added to SmartArtShape class**
 Aspose.Slides for .NET versions from 14.9 to 17.6 did not support RawFrame, Frame, Rotation, X, Y, Width and Height properties of SmartArtShape class and thrown System.NotSupportedException on attempt of setting them. Since Aspose.Slides for .NET version 17.7 SmartArtShape supports setting Frame, Rotation, Width and Height properties.
@@ -39,49 +40,31 @@ Now in Aspose.Slides for .NET version 18.5 support for setting SmartArtShape X a
 The code snippet below shows how to set custom SmartArtShape position, size and rotation (please note that adding new nodes causes a recalculation of the positions and sizes of all nodes):
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
+  ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
+  // Move SmartArt shape to new position
+  ISmartArtNode node = smart.AllNodes[1];
+  ISmartArtShape shape = node.Shapes[1];
+  shape.X += (shape.Width * 2);
+  shape.Y -= (shape.Height / 2);
 
-// Move SmartArt shape to new position
+  // Change SmartArt shape's widths
+  node = smart.AllNodes[2];
+  shape = node.Shapes[1];
+  shape.Width += (shape.Width / 2);
 
-ISmartArtNode node = smart.AllNodes[1];
+  // Change SmartArt shape's height
+  node = smart.AllNodes[3];
+  shape = node.Shapes[1];
+  shape.Height += (shape.Height / 2);
 
-ISmartArtShape shape = node.Shapes[1];
+  // Change SmartArt shape's rotation
+  node = smart.AllNodes[4];
+  shape = node.Shapes[1];
+  shape.Rotation = 90;
 
-shape.X += (shape.Width * 2);
-
-shape.Y -= (shape.Height / 2);
-
-// Change SmartArt shape's widths
-
-node = smart.AllNodes[2];
-
-shape = node.Shapes[1];
-
-shape.Width += (shape.Width / 2);
-
-// Change SmartArt shape's height
-
-node = smart.AllNodes[3];
-
-shape = node.Shapes[1];
-
-shape.Height += (shape.Height / 2);
-
-// Change SmartArt shape's rotation
-
-node = smart.AllNodes[4];
-
-shape = node.Shapes[1];
-
-shape.Rotation = 90;
-
-pres.Save(path + "SmartArt.pptx", SaveFormat.Pptx);
-
+  pres.Save(path + "SmartArt.pptx", SaveFormat.Pptx);
 }
-
 ``` 

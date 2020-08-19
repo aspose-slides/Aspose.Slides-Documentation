@@ -67,19 +67,12 @@ IChart.HasRoundedCorners and Chart.HasRoundedCorners properties have been added.
 Specifies the chart area shall have rounded corners.
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
-
     ISlide slide = presentation.Slides[0];
-
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-
     chart.HasRoundedCorners = true;
-
     presentation.Save("output.pptx", SaveFormat.Pptx);
-
 }
 
 ``` 
@@ -89,44 +82,27 @@ IChartDataPoint.InvertIfNegative and ChartDataPoint.InvertIfNegative properties 
 Specifies the data point shall invert its colors if the value is negative.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-
     IChartSeriesCollection series = chart.ChartData.Series;
-
     chart.ChartData.Series.Clear();
 
 
-
     series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
-
     series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2",-5));
-
     series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3",3));
-
     series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4",-2));
-
     series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5",1));
-
-
 
     series[0].InvertIfNegative = false;
 
-
-
     series[0].DataPoints[2].InvertIfNegative = true;
 
-
-
     pres.Save("output.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
+
 #### **IChartDataPointCollection.AddDataPointForStockSeries() method has been added**
 IChartDataPointCollection.AddDataPointForStockSeries() and ChartDataPointCollection.AddDataPointForStockSeries() methods have been added.
 
@@ -135,131 +111,72 @@ These methods create the new data point and adds it to the end of collection.
 Applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer.IsChartTypeStock(ChartType) method).
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
 
-
-
     chart.ChartData.Series.Clear();
-
     chart.ChartData.Categories.Clear();
-
-
 
     IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
 
-
-
     chart.ChartData.Categories.Add(wb.GetCell(0, 1, 0, "A"));
-
     chart.ChartData.Categories.Add(wb.GetCell(0, 2, 0, "B"));
-
     chart.ChartData.Categories.Add(wb.GetCell(0, 3, 0, "C"));
 
-
-
     chart.ChartData.Series.Add(wb.GetCell(0, 0, 1, "Open"), chart.Type);
-
     chart.ChartData.Series.Add(wb.GetCell(0, 0, 2, "High"), chart.Type);
-
     chart.ChartData.Series.Add(wb.GetCell(0, 0, 3, "Low"), chart.Type);
-
     chart.ChartData.Series.Add(wb.GetCell(0, 0, 4, "Close"), chart.Type);
-
-
 
     IChartSeries series = chart.ChartData.Series[0];
 
-
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 1, 72));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 1, 25));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 1, 38));
 
-
-
     series = chart.ChartData.Series[1];
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 2, 172));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 2, 57));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 2, 57));
 
-
-
     series = chart.ChartData.Series[2];
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 3, 12));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 3, 12));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 3, 13));
 
-
-
     series = chart.ChartData.Series[3];
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 4, 25));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 4, 38));
-
     series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 4, 50));
 
-
-
     chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-
     chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
-
-
     foreach (IChartSeries ser in chart.ChartData.Series)
-
     {
-
         ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-
     }
 
-
-
     pres.Save("output.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
+
 #### **IChartSeriesGroup.HiLowLinesFormat property has been added**
 Specifies HiLowLines format. HiLowLines applied with HiLowClose, OpenHiLowClose, VolumeHiLowClose and VolumeOpenHiLowClose chart types.
 
 IChartSeriesGroup.HiLowLinesFormat and ChartSeriesGroup.HiLowLinesFormat properties have been added.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, true);
 
-
-
     chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
-
     chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-
-
     pres.Save("output.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
 #### **Implementation of method IChartData.SetRange() has been changed.**
 Implementation of the method has been changed to avoid lost of series settings (series type, formatting and etc.). Only data points will be updated.
@@ -273,24 +190,16 @@ ImageTransparentColor sets the image transparent color.
 ApplyImageTransparent Applies the specified transparent color to an image if true. True by default.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("pres.pptx"))
-
+using (Presentation pres = new Presentation("pres.pptx"))
 {
-
     pres.Save("pres.pdf", SaveFormat.Pdf, new PdfOptions
-
     {
-
         ApplyImageTransparent = true,
-
         ImageTransparentColor = Color.Transparent
-
     });
-
 }
-
 ``` 
+
 #### **LightStyle1Accent5 value has been added to TableStylePreset enum**
 LightStyle1Accent5 value has been added to TableStylePreset enum.
 
@@ -299,22 +208,15 @@ It represents "Light Style 1 - Accent 5" preset table style.
 The code snippet below shows how to add new Table with "Light Style 1 - Accent 5" style:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
-
     ITable table = presentation.Slides[0].Shapes.AddTable(50, 50, new double[] { 200, 200 }, new double[] { 50, 50, 50, 50 });
-
     table.StylePreset = TableStylePreset.LightStyle1Accent5;
 
-
-
     presentation.Save(path + "presentation-out.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
+
 #### **Obsolete HeaderFooterManager class has been deleted**
 Obsolete HeaderFooterManager class has been deleted.
 

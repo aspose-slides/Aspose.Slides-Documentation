@@ -71,19 +71,12 @@ Specifies the visibility of comments that do not have an author.
 The default value for this property is false, which means that comments without authors are not displayed.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("no-author.odp"))
-
+using (Presentation pres = new Presentation("no-author.odp"))
 {
+  PdfOptions options = new PdfOptions();
+  options.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
+  options.NotesCommentsLayouting.ShowCommentsByNoAuthor = true;
 
-PdfOptions options = new PdfOptions();
-
-options.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
-
-options.NotesCommentsLayouting.ShowCommentsByNoAuthor = true;
-
-pres.Save("out_pres.pdf", SaveFormat.Pdf, options);
-
+  pres.Save("out_pres.pdf", SaveFormat.Pdf, options);
 }
-
 ``` 

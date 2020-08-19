@@ -56,35 +56,23 @@ GetEffectsByParagraph method has been added to Sequence class and ISequence inte
 It returns the array of effects for the specified text paragraph.
 
 ``` csharp
-
- IEffect[] GetEffectsByParagraph(IParagraph paragraph);
-
+IEffect[] GetEffectsByParagraph(IParagraph paragraph);
 ``` 
 
 Usage example:
 
 ``` csharp
-
- using (Presentation pres = new Presentation(path + "presentation.pptx"))
-
+using (Presentation pres = new Presentation(path + "presentation.pptx"))
 {
-
-ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-IAutoShape autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
-
-foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
-
-{
-
-IEffect[] effects = sequence.GetEffectsByParagraph(paragraph);
-
-if (effects.Length > 0)
-
-Console.WriteLine("Paragraph \"" + paragraph.Text + "\" has " + effects[0].Type + " effect.");
-
-}
-
+  ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+  IAutoShape autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
+  
+  foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
+  {
+    IEffect[] effects = sequence.GetEffectsByParagraph(paragraph);
+	if (effects.Length > 0)
+      Console.WriteLine("Paragraph \"" + paragraph.Text + "\" has " + effects[0].Type + " effect.");
+  }
 }
 
 ``` 
@@ -102,15 +90,9 @@ Conformance property has value "Ecma376_2006" by default.
 For example, the following code allows saving the presentation in Strict format.
 
 ``` csharp
-
- using (Presentation presentation = new Presentation("Presentation.pptx"))
-
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-
-PptxOptions opt = new PptxOptions() { Conformance = Conformance.Iso29500_2008_Strict };
-
-presentation.Save("PresOut.pptx", SaveFormat.Pptx, opt);
-
+  PptxOptions opt = new PptxOptions() { Conformance = Conformance.Iso29500_2008_Strict };
+  presentation.Save("PresOut.pptx", SaveFormat.Pptx, opt);
 }
-
 ``` 

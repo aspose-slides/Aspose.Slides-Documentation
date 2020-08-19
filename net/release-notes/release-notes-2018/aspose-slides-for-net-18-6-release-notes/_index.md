@@ -76,24 +76,18 @@ IChart.ShowDataLabelsOverMaximum and Chart.ShowDataLabelsOverMaximum property ha
 The property specifies whether to show the data labels when the value is greater than the maximum value on the value axis.
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
+  ISlide slide = presentation.Slides[0];
+  IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 100, 600, 400);
 
-ISlide slide = presentation.Slides[0];
+  chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+  chart.ShowDataLabelsOverMaximum = false;
 
-IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 100, 600, 400);
-
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-chart.ShowDataLabelsOverMaximum = false;
-
-presentation.Save("output.pptx", SaveFormat.Pptx);
-
+  presentation.Save("output.pptx", SaveFormat.Pptx);
 }
-
 ``` 
+
 #### **IChartSeries.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properties have been added**
 IChartSeries.BubbleSizeScale and ChartSeries.BubbleSizeScale properties have been added.
 
@@ -103,17 +97,11 @@ IChartSeriesGroup.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properti
 Specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size).
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 100, 100, 400, 300);
-
-chart.ChartData.SeriesGroups[0].BubbleSizeScale = 150;
-
-...
-
+  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 100, 100, 400, 300);
+  
+  chart.ChartData.SeriesGroups[0].BubbleSizeScale = 150;
+  ...
 }
-
 ``` 
