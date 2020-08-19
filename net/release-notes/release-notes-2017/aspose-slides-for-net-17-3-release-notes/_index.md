@@ -44,72 +44,47 @@ url: /net/aspose-slides-for-net-17-3-release-notes/
 
 ## **Public API Changes**
 #### **ActualMaxValue, ActualMinValue, ActualMajorUnit, ActualMinorUnit, ActualMajorUnitScale, ActualMinorUnitScale have been added to Axis, IAxis**
-double ActualMaxValue         Gets actual maximum value on the axis.
-
-double ActualMinValue         Gets actual minimum value on the axis.
-
-double ActualMajorUnit         Gets actual major unit of the axis.
-
-double ActualMinorUnit        Gets actual minor unit of the axis.
-
-TimeUnitType ActualMajorUnitScale            Gets actual major unit scale of the axis.
-
-TimeUnitType ActualMinorUnitScale            Gets actual minor unit scale of the axis.
+- double ActualMaxValue         Gets actual maximum value on the axis.
+- double ActualMinValue         Gets actual minimum value on the axis.
+- double ActualMajorUnit         Gets actual major unit of the axis.
+- double ActualMinorUnit        Gets actual minor unit of the axis.
+- TimeUnitType ActualMajorUnitScale            Gets actual major unit scale of the axis.
+- TimeUnitType ActualMinorUnitScale            Gets actual minor unit scale of the axis.
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these properties.
 ``` csharp
 using (Presentation pres = new Presentation())
 {
-
      Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
-
      chart.ValidateChartLayout();
 
-
-
      double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
-
      double minValue = chart.Axes.VerticalAxis.ActualMinValue;
 
-
-
      double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
-
      double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
-
 }
 ``` 
 
 #### **ActualX, ActualY, ActualWidth, ActualHeight have been added to IChartPlotArea, ChartPlotArea**
 float ActualX  Gets actual X location (left) of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
 
-float ActualY  Gets actual top of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
-
-float ActualWidth       Gets actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
-
-float ActualHeight      Gets actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
+- float ActualY  Gets actual top of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
+- float ActualWidth       Gets actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
+- float ActualHeight      Gets actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these properties.
 
 ``` csharp
 using (Presentation pres = new Presentation())
-
 {
-
      Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-
      chart.ValidateChartLayout();
 
-
-
      double x = chart.PlotArea.ActualX;
-
      double y = chart.PlotArea.ActualY;
-
      double w = chart.PlotArea.ActualWidth;
-
      double h = chart.PlotArea.ActualHeight;
-
 }
 ``` 
 
@@ -122,25 +97,17 @@ ExternalWorkbookPath of type string, which represents external workbook path if 
 
 ChartDataSourceType is a new enum which represents the two values: InternalWorkbook and ExternalWorkbook.
 
-
+Example:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
-
      ISlide slide = pres.Slides[1];
-
      IChart chart = (IChart)slide.Shapes[0];
-
      ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
-
      if (sourceType == ChartDataSourceType.ExternalWorkbook)
-
      {
-
-`        `string path = chart.ChartData.ExternalWorkbookPath;
-
+         string path = chart.ChartData.ExternalWorkbookPath;
      }
-
 }
 ``` 
 
@@ -149,23 +116,14 @@ Properties of IActualLayout provide information about actual position of parent 
 
 ``` csharp
 using (Presentation pres = new Presentation())
-
 {
-
      Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-
      chart.ValidateChartLayout();
 
-
-
      double x = chart.PlotArea.ActualX;
-
      double y = chart.PlotArea.ActualY;
-
      double w = chart.PlotArea.ActualWidth;
-
      double h = chart.PlotArea.ActualHeight;
-
 }
 ``` 
 
@@ -174,21 +132,13 @@ Calculates actual values of chart elements. The actual values include position o
 
 ``` csharp
 using (Presentation pres = new Presentation())
-
 {
-
      Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-
      chart.ValidateChartLayout();
-
      double x = chart.PlotArea.ActualX;
-
      double y = chart.PlotArea.ActualY;
-
      double w = chart.PlotArea.ActualWidth;
-
      double h = chart.PlotArea.ActualHeight;
-
 }
 ``` 
 
@@ -203,21 +153,13 @@ This method allows to add font from the binary data.
 // loading presentation uses SomeFont which is not installed on the system
 using(Presentation pres = new Presentation("pres.pptx")
 {
-
      // load SomeFont from file into the byte array
-
      byte[] fontData = File.ReadAllBytes(@"fonts\SomeFont.ttf"));
 
-
-
      // load font represented as byte array
-
      FontsLoader.LoadExternalFont(fontData);
 
-
-
      // font SomeFont will be available during the rendering or other operations
-
 }
 ``` 
 

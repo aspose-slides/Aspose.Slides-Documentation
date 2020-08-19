@@ -71,103 +71,79 @@ This property specifies whether the exported document should include additional 
 Code example:
 
 ``` csharp
-
- using (Presentation pres = new Presentation("Presentation.pptx"))
-
+using (Presentation pres = new Presentation("Presentation.pptx"))
 {
+  //Instantiate the PdfOptions class
+  PdfOptions pdfOptions = new PdfOptions();
 
-//Instantiate the PdfOptions class
+  //Specify that the generated document should include comment pages
+  pdfOptions.IncludeComments = true;
 
-PdfOptions pdfOptions = new PdfOptions();
-
-//Specify that the generated document should include comment pages
-
-pdfOptions.IncludeComments = true;
-
-//Save the presentation to PDF with specified options
-
-pres.Save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
-
+  //Save the presentation to PDF with specified options
+  pres.Save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
 }
-
 ``` 
+
 #### **ISectionCollection interface and SectionCollection class have been added.**
 ISectionCollection and SectionCollection represent a collection of sections.
 
 Methods and properties:
 
-ISection this[int index](https://apireference.aspose.com/slides/net/aspose.slides/isection) - gets the element at the specified index.
-ISection AddSection(string name, ISlide startedFromSlide) - adds a new section started form specific slide.
-ISection AddEmptySection(string name, int index) - adds an empty section to the specified position of the collection.
-RemoveSectionWithSlides(ISection section) - removes section and slides contained in the section.
-RemoveSection(ISection section) - removes section. Slides contained in the section will be merged into previous section.
-ReorderSectionWithSlides(ISection section, int index) - moves section and its slides from the collection to the specified position.
-ISection AppendEmptySection(string name) - adds an empty section to the end of the collection.
-int IndexOf(ISection section) - returns an index of the specified section in the collection.
-Clear() - removes all sections from the collection.
+- ISection this[int index](https://apireference.aspose.com/slides/net/aspose.slides/isection) - gets the element at the specified index.
+- ISection AddSection(string name, ISlide startedFromSlide) - adds a new section started form specific slide.
+- ISection AddEmptySection(string name, int index) - adds an empty section to the specified position of the collection.
+- RemoveSectionWithSlides(ISection section) - removes section and slides contained in the section.
+- RemoveSection(ISection section) - removes section. Slides contained in the section will be merged into previous section.
+- ReorderSectionWithSlides(ISection section, int index) - moves section and its slides from the collection to the specified position.
+- ISection AppendEmptySection(string name) - adds an empty section to the end of the collection.
+- int IndexOf(ISection section) - returns an index of the specified section in the collection.
+- Clear() - removes all sections from the collection.
 
 Example:
 
 ``` csharp
-
- ISection section = pres.Sections[2];
-
+ISection section = pres.Sections[2];
 pres.Sections.ReorderSectionWithSlides(section, 0);
-
 pres.Sections.RemoveSectionWithSlides(pres.Sections[0]);
-
 pres.Sections.AppendEmptySection("Last empty section");
-
 pres.Sections.AddSection("First empty", 3);
-
 ``` 
+
 #### **ISection interface and Section class have been added**
 ISection interface and Section class represent section of slides.
 
 Methods and properties:
 
-string Name - returns the name of the section.
-ISlide StartedFromSlide - returns first slide of the section.
-ISectionSlideCollection GetSlidesListOfSection() - returns a list of slides in the section.
+- string Name - returns the name of the section.
+- ISlide StartedFromSlide - returns first slide of the section.
+- ISectionSlideCollection GetSlidesListOfSection() - returns a list of slides in the section.
 
 Example:
 
 ``` csharp
-
- pres.Sections.AddSection("Section 1", pres.Slides[0]);
-
+pres.Sections.AddSection("Section 1", pres.Slides[0]);
 pres.Sections[0].Name = "New section name";
-
 ISectionSlideCollection slidesInSection = pres.Sections[0].GetSlidesListOfSection();
-
 ``` 
+
 #### **ISectionSlideCollection interface and SectionSlideCollection class have been added**
 ISectionSlideCollection and SectionSlideCollection represents a collection of a slides in the section.
 
 Example:
 
 ``` csharp
-
- ISectionSlideCollection slidesInSection = pres.Sections[0].GetSlidesListOfSection();
-
+ISectionSlideCollection slidesInSection = pres.Sections[0].GetSlidesListOfSection();
 foreach (ISlide slide in slidesInSection)
-
 {
-
-// do something with slide
-
+  // do something with slide
 }
-
 ``` 
+
 #### **Properties IPresentation.Sections, Presentation.Sections have been added**
 Properties IPresentation.Sections and Presentation.Sections return ISectionCollection instance (list of all slides sections that are defined in the presentation).
 
 ``` csharp
-
- IPresentation pres = new Presentaton();
-
+IPresentation pres = new Presentaton();
 pres.Sections.AddSection("Section 1", pres.Slides[0]);
-
 int n = pres.Sections.Count;
-
 ``` 

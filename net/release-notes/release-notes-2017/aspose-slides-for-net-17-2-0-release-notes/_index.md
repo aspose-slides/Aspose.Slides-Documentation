@@ -67,27 +67,16 @@ Two slides are equal if all shapes, styles, texts, animation and other settings.
 Example code snippet:
 ``` csharp
 using(Presentation presentation1 = new Presentation(@"SomePresentation1.pptx"))
-
 using(Presentation presentation2 = new Presentation(@"SomePresentation2.pptx"))
-
 {
-
-for (int i = 0; i < presentation1.Masters.Count; i++)
-
-{
-
-for (int j = 0; j < presentation2.Masters.Count; j++)
-
-{
-
-if (presentation1.Masters[i].Equals(presentation2.Masters[j]))
-
-Console.WriteLine(string.Format("SomePresentation1 MasterSlide#{0} is equal to SomePresentation2 MasterSlide#{1}", i, j));
-
-}
-
-}
-
+  for (int i = 0; i < presentation1.Masters.Count; i++)
+  {
+    for (int j = 0; j < presentation2.Masters.Count; j++)
+    {
+      if (presentation1.Masters[i].Equals(presentation2.Masters[j]))
+        Console.WriteLine(string.Format("SomePresentation1 MasterSlide#{0} is equal to SomePresentation2 MasterSlide#{1}", i, j));
+    }
+  }
 }
 ``` 
 
@@ -97,37 +86,19 @@ ICell.IsMergedCell property returns true if the cell is merged with any adjusted
 Code snippet for output all merged cells in a table:
 ``` csharp
 using(Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
-
 {
-
-ITable table = pres.Slides[0].Shapes[0] as ITable; // assuming that Slide#0.Shape#0 is a table
-
-for (int i = 0; i < table.Rows.Count; i++)
-
-{
-
-for (int j = 0; j < table.Columns.Count; j++)
-
-{
-
-ICell currentCell = table.Rows[i][j];
-
-if (currentCell.IsMergedCell)
-
-{
-
-Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-
-i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
-
-}
-
-}
-
-
-
-}
-
+  ITable table = pres.Slides[0].Shapes[0] as ITable; // assuming that Slide#0.Shape#0 is a table
+  for (int i = 0; i < table.Rows.Count; i++)
+  {
+    for (int j = 0; j < table.Columns.Count; j++)
+    {
+      ICell currentCell = table.Rows[i][j];
+      if (currentCell.IsMergedCell)
+      {
+        Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
+            i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
+      }
+    }
+  }
 }
 ``` 
-

@@ -49,7 +49,6 @@ net2.0_x64\Aspose.Slides.dll assembly will not be included in Aspose.Slides for 
 |SLIDESNET-39404|Include Comments when set to false is still showing comments in PDF|Bug|
 ## **Public API Changes**
 
-
 None
 
 

@@ -48,30 +48,20 @@ url: /net/aspose-slides-for-net-17-4-release-notes/
 
 #### **ActualX, ActualY, ActualWidth, ActualHeight have been added to IDataLabel, DataLabel**
 float ActualX - Gets actual X location (left) of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
-float ActualY - Gets actual top of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
-float ActualWidth - Gets actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
-float ActualHeight - Gets actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
+- float ActualY - Gets actual top of the chart element relative to the left top corner of the chart. Call method IChart.ValidateChartLayout() before to get actual values.
+- float ActualWidth - Gets actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
+- float ActualHeight - Gets actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values.
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these properties.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
-Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-
-chart.ValidateChartLayout();
-
-double x = chart.ChartData.Series[0].Labels[0].ActualX;
-
-double y = chart.ChartData.Series[0].Labels[0].ActualY;
-
-double w = chart.ChartData.Series[0].Labels[0].ActualWidth;
-
-double h = chart.ChartData.Series[0].Labels[0].ActualHeight;
-
+  Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
+  chart.ValidateChartLayout();
+  double x = chart.ChartData.Series[0].Labels[0].ActualX;
+  double y = chart.ChartData.Series[0].Labels[0].ActualY;
+  double w = chart.ChartData.Series[0].Labels[0].ActualWidth;
+  double h = chart.ChartData.Series[0].Labels[0].ActualHeight;
 }
-
 ``` 

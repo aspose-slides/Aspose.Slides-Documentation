@@ -77,9 +77,7 @@ Default public constructors have been added to PortionFormat, ParagraphFormat an
 Usage Example:
 ``` csharp
 PortionFormat portionFormat = new PortionFormat();
-
 ParagraphFormat paragraphFormat = new ParagraphFormat();
-
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 ``` 
 
@@ -88,9 +86,7 @@ Aspose.Slides.IBulkTextFormattable interface has been added. It represents an ob
 
 ``` csharp
 void SetTextFormat(IPortionFormat source);
-
 void SetTextFormat(IParagraphFormat source);
-
 void SetTextFormat(ITextFrameFormat source);
 ``` 
 
@@ -111,39 +107,22 @@ Property DataLabelFormat.ShowLabelValueFromCell determines if data label text co
 
 ``` csharp
 string lbl0 = "Label 0 cell value";
-
 string lbl1 = "Label 1 cell value";
-
 string lbl2 = "Label 2 cell value";
 
-
-
 using (Presentation pres = new Presentation())
-
 {
+  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
+  
+  IChartSeriesCollection series = chart.ChartData.Series;
+  
+  series[0].Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
+  
+  IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
 
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
-
-
-
-IChartSeriesCollection series = chart.ChartData.Series;
-
-
-
-series[0].Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
-
-
-
-IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-
-
-series[0].Labels[0].ValueFromCell = wb.GetCell(0, "A10", lbl0);
-
-series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
-
-series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
-
+  series[0].Labels[0].ValueFromCell = wb.GetCell(0, "A10", lbl0);
+  series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
+  series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
 }
 ``` 
 
@@ -153,39 +132,19 @@ Gets or sets workbook data cell. Applied if IDataLabelFormat.ShowLabelValueFromC
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
-
-
-
 using (Presentation pres = new Presentation())
-
 {
+  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
+  IChartSeriesCollection series = chart.ChartData.Series;
+  series[0].Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
+  
+  IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
 
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
-
-
-
-IChartSeriesCollection series = chart.ChartData.Series;
-
-
-
-series[0].Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
-
-
-
-IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-
-
-series[0].Labels[0].ValueFromCell = wb.GetCell(0, "A10", lbl0);
-
-series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
-
-series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
-
-
-
-pres.Save(outPath, SaveFormat.Pptx);
-
+  series[0].Labels[0].ValueFromCell = wb.GetCell(0, "A10", lbl0);
+  series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
+  series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
+  
+  pres.Save(outPath, SaveFormat.Pptx);
 }
 ``` 
 
@@ -198,36 +157,20 @@ Usage Examples:
 ``` csharp
 ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
 
-
-
 // setting first column cells' font height
-
 PortionFormat portionFormat = new PortionFormat();
-
 portionFormat.FontHeight = 25;
-
 someTable.Columns[0].SetTextFormat(portionFormat);
 
-
-
 // setting first column cells' text alignment and right margin in one call
-
 ParagraphFormat paragraphFormat = new ParagraphFormat();
-
 paragraphFormat.Alignment = TextAlignment.Right;
-
 paragraphFormat.MarginRight = 20;
-
 someTable.Columns[0].SetTextFormat(paragraphFormat);
 
-
-
 // setting second column cells' text vertical type
-
 TextFrameFormat textFrameFormat = new TextFrameFormat();
-
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-
 someTable.Columns[1].SetTextFormat(textFrameFormat);
 ``` 
 
@@ -236,40 +179,23 @@ Aspose.Slides.Row class now implements IBulkTextFormattable interface as a part 
 
 Usage Examples:
 
-
 ``` csharp
 ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
 
-
-
 // setting first row cells' font height
-
 PortionFormat portionFormat = new PortionFormat();
-
 portionFormat.FontHeight = 25;
-
 someTable.Rows[0].SetTextFormat(portionFormat);
 
-
-
 // setting first row cells' text alignment and right margin in one call
-
 ParagraphFormat paragraphFormat = new ParagraphFormat();
-
 paragraphFormat.Alignment = TextAlignment.Right;
-
 paragraphFormat.MarginRight = 20;
-
 someTable.Rows[0].SetTextFormat(paragraphFormat);
 
-
-
 // setting second row cells' text vertical type
-
 TextFrameFormat textFrameFormat = new TextFrameFormat();
-
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-
 someTable.Rows[1].SetTextFormat(textFrameFormat);
 ``` 
 
@@ -278,71 +204,47 @@ Aspose.Slides.Table class now implements IBulkTextFormattable interface as a par
 
 Usage Examples:
 
-
 ``` csharp
 ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
 
-
-
 // setting table cells' font height
-
 PortionFormat portionFormat = new PortionFormat();
-
 portionFormat.FontHeight = 25;
-
 someTable.SetTextFormat(portionFormat);
 
-
-
 // setting table cells' text alignment and right margin in one call
-
 ParagraphFormat paragraphFormat = new ParagraphFormat();
-
 paragraphFormat.Alignment = TextAlignment.Right;
-
 paragraphFormat.MarginRight = 20;
-
 someTable.SetTextFormat(paragraphFormat);
 
-
-
 // setting table cells' text vertical type
-
 TextFrameFormat textFrameFormat = new TextFrameFormat();
-
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-
 someTable.SetTextFormat(textFrameFormat);
 ``` 
 
 #### **SlideSizeScaleType enum, ISlideSize.SetSize and SlideSize.SetSize methods have been added**
 New methods SetSize have been added to SlideSize class and ISlideSize interface.
 
-
 ``` csharp
 void SetSize(SlideSizeType type, SlideSizeScaleType scaleType);
-
 void SetSize(float width, float height, SlideSizeScaleType scaleType);
 ``` 
 
 These methods allow changing slide size with different ways of content scaling. Ways of content scaling are defined in new SlideSizeScaleType enum. There are following values.
 
-DoNotScale - do not scale slide content. Use this for set the size without modification content.
-EnsureFit - Scale to ensure fit. Use this for scale it down to ensure it will fit on slide.
-Maximize - Maximize size of content. Use this for maximize the size of your content.
+- **DoNotScale** - do not scale slide content. Use this for set the size without modification content.
+- **EnsureFit** - Scale to ensure fit. Use this for scale it down to ensure it will fit on slide.
+- **Maximize** - Maximize size of content. Use this for maximize the size of your content.
 
 Usage example:
 
-
 ``` csharp
 using (Presentation presentation = new Presentation("presentation.ppt"))
-
 {
-
-presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used for set slide size with scale content to ensure fit
-
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used for set slide size with maximize size of content
-
+  presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used for set slide size with scale content to ensure fit
+  presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used for set slide size with maximize size of content
 }
 ``` 
 The property Size of interface ISlideSize and class SlideSize has been marked as Obsolete.

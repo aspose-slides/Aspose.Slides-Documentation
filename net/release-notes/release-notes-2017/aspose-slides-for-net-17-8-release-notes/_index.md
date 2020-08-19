@@ -51,91 +51,68 @@ url: /net/aspose-slides-for-net-17-8-release-notes/
 |SLIDESNET-39161|Link with OpenFile ActionType hyperlink is recognized as Hyperlink|Bug|
 |SLIDESNET-39164|External font not applied|Bug|
 |SLIDESNET-39187|Newline rendering issues in paragraph|Bug|
+
 ## **Public API Changes**
 #### **Method FontsLoader.GetFontFolders has been added**
 Returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
 
 ``` csharp
-
- string[] fontFolders = FontsLoader.GetFontFolders();
-
+string[] fontFolders = FontsLoader.GetFontFolders();
 ``` 
+
 #### **Method IChartData.SwitchRowColumn() has been added**
 Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
+  IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-
-chart.ChartData.SwitchRowColumn();
-
-pres.Save(outputFileName, SaveFormat.PPTX);
-
+  chart.ChartData.SwitchRowColumn();
+  pres.Save(outputFileName, SaveFormat.PPTX);
 }
-
 ``` 
+
 #### **New EmbedFontCharacters enum and AddEmbeddedFont methods has been added**
 To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloads of AddEmbeddedFont method have been added:
 
 EmbedFontCharacters enum has two members:
-
-OnlyUsed: Embed only the characters used in the presentation (best for reducing file size).
-All: Embed all characters (best for editing by other people).
+- **OnlyUsed**: Embed only the characters used in the presentation (best for reducing file size).
+- **All**: Embed all characters (best for editing by other people).
 
 New method AddEmbeddedFont with two overloads has been added to IFontsManager interface and FontsManager implementation class:
 
 To embed font from existed IFontData:
 
-void AddEmbeddedFont(IFontData fontData, EmbedFontCharacters embedFontRule)
+- void AddEmbeddedFont(IFontData fontData, EmbedFontCharacters embedFontRule)
 
 To embed font from a binary data:
 
-void AddEmbeddedFont(byte[] fontData, EmbedFontCharacters embedFontRule)
+- void AddEmbeddedFont(byte[] fontData, EmbedFontCharacters embedFontRule)
 
 Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in Presentation can be embedded:
 
 ``` csharp
-
- IFontData[] allFonts = pres.FontsManager.GetFonts();
-
+IFontData[] allFonts = pres.FontsManager.GetFonts();
 IFontData[] embeddedFonts = pres.FontsManager.GetEmbeddedFonts();
-
 foreach (IFontData font in allFonts)
-
 {
-
-if (!embeddedFonts.Contains(font))
-
-{
-
-pres.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
-
+  if (!embeddedFonts.Contains(font))
+  {
+    pres.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
+  }
 }
-
-}
-
 ``` 
 
 Or, using the new features of .NET framework, this snippet can be replaced with the following:
 
 ``` csharp
-
- IFontData[] allFonts = pres.FontsManager.GetFonts();
-
+IFontData[] allFonts = pres.FontsManager.GetFonts();
 IFontData[] embeddedFonts = pres.FontsManager.GetEmbeddedFonts();
-
 foreach (IFontData font in allFonts.Except(embeddedFonts))
-
 {
-
-pres.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
-
+  pres.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
 }
-
 ``` 
 
 Please note that an ArgumentException will be thrown if embedded font which is already embedded will be added again using AddEmbeddedFont method.
@@ -145,33 +122,20 @@ NotesStyle property has been added to IMasterNotesSlide interface and MasterNote
 This property specifies the style of a notes text.
 
 ``` csharp
-
- using (Presentation presentation = new Presentation(path + "Presentation.pptx"))
-
+using (Presentation presentation = new Presentation(path + "Presentation.pptx"))
 {
-
-IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
-
-if (notesMaster != null)
-
-{
-
-// Get MasterNotesSlide text style
-
-ITextStyle notesStyle = notesMaster.NotesStyle;
-
-//Set symbol bullet for the first level paragraphs
-
-IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
-
-paragraphFormat.Bullet.Type = BulletType.Symbol;
-
+  IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
+  if (notesMaster != null)
+  {
+    // Get MasterNotesSlide text style
+    ITextStyle notesStyle = notesMaster.NotesStyle;
+	
+	//Set symbol bullet for the first level paragraphs
+	IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
+	paragraphFormat.Bullet.Type = BulletType.Symbol;
+  }
+  presentation.Save(path + "Presentation-out.pptx", SaveFormat.Pptx);
 }
-
-presentation.Save(path + "Presentation-out.pptx", SaveFormat.Pptx);
-
-}
-
 ``` 
 #### **StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom properties have been added to IPictureFillFormat interface and PictureFillFormat class**
 Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom has been added to IPictureFillFormat interface and PictureFillFormat class respectively.
@@ -185,51 +149,34 @@ For example, a left offset of 25% specifies that the left edge of the fill recta
 Code example:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
+  // Get the first slide of presentation
+  ISlide slide = presentation.Slides[0];
 
-// Get the first slide of presentation
+  // Add an AutoShape of Rectangle type
+  IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+  
+  // Create image
+  Bitmap img = new Bitmap("image.png");
+  IPPImage imgEx = presentation.Images.AddImage(img);
+  
+  // Set shape's fill type
+  aShape.FillFormat.FillType = FillType.Picture;
+  
+  // Set shape's picture fill mode
+  aShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+  
+  // Set image to fill the shape
+  aShape.FillFormat.PictureFillFormat.Picture.Image = imgEx;
+  
+  // Specify image offsets from the corresponding edge of the shape's bounding box
+  aShape.FillFormat.PictureFillFormat.StretchOffsetLeft = 25;
+  aShape.FillFormat.PictureFillFormat.StretchOffsetRight = 25;
+  aShape.FillFormat.PictureFillFormat.StretchOffsetTop = -20;
+  aShape.FillFormat.PictureFillFormat.StretchOffsetBottom = -10;
 
-ISlide slide = presentation.Slides[0];
-
-// Add an AutoShape of Rectangle type
-
-IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-// Create image
-
-Bitmap img = new Bitmap("image.png");
-
-IPPImage imgEx = presentation.Images.AddImage(img);
-
-// Set shape's fill type
-
-aShape.FillFormat.FillType = FillType.Picture;
-
-// Set shape's picture fill mode
-
-aShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-
-// Set image to fill the shape
-
-aShape.FillFormat.PictureFillFormat.Picture.Image = imgEx;
-
-// Specify image offsets from the corresponding edge of the shape's bounding box
-
-aShape.FillFormat.PictureFillFormat.StretchOffsetLeft = 25;
-
-aShape.FillFormat.PictureFillFormat.StretchOffsetRight = 25;
-
-aShape.FillFormat.PictureFillFormat.StretchOffsetTop = -20;
-
-aShape.FillFormat.PictureFillFormat.StretchOffsetBottom = -10;
-
-// Save created presentation
-
-presentation.Save("StretchOffsetExample.pptx", SaveFormat.Pptx);
-
+  // Save created presentation
+  presentation.Save("StretchOffsetExample.pptx", SaveFormat.Pptx);
 }
-
 ``` 

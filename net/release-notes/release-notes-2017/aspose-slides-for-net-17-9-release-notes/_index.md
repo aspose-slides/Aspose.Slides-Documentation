@@ -73,101 +73,64 @@ DocumentLevelFontSources property is of type IFontSources that has the following
 - byte[][] MemoryFonts - a collection of fonts represented as byte arrays.
 
 ``` csharp
-
- byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
-
+byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
-
 ILoadOptions loadOptions = new LoadOptions();
-
 loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts", "global\\fonts" };
-
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
-
 using (IPresentation presentation = CreatePresentation("MyPresentation.pptx", loadOptions))
-
 {
-
-//work with the presentation
-
-//CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
-
+  //work with the presentation
+  //CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
 }
-
 ``` 
 
 The fonts that are passed with DocumentLevelFontSources property are available to the presentation throughout its lifetime and are not available outside the presentation. Consider the following example:
 
 ``` csharp
-
- string[] fontFolders1 = new string[] { "assets\\fonts" };
-
+string[] fontFolders1 = new string[] { "assets\\fonts" };
 string[] fontFolders2 = new string[] { "global\\fonts" };
 
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
-
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
 IFontSources fontSources1 = new FontSources { FontFolders = fontFolders1, MemoryFonts = new byte[][] { memoryFont1 } };
-
 IFontSources fontSources2 = new FontSources { FontFolders = fontFolders2, MemoryFonts = new byte[][] { memoryFont2 } };
 
 using (IPresentation presentation1 = CreatePresentation("MyPresentation1.pptx", new LoadOptions { DocumentLevelFontSources = fontSources1 }))
-
 using (IPresentation presentation2 = CreatePresentation("MyPresentation2.pptx", new LoadOptions { DocumentLevelFontSources = fontSources2 }))
-
 {
-
-//work with the presentations
-
-//CustomFont1 as well as fonts from assets\fonts folder and its subfolders are available to presentation1 but not to presentation2
-
-//CustomFont2 as well as fonts from global\fonts folder and its subfolders are available to presentation2 but not to presentation1
-
+  //work with the presentations
+  //CustomFont1 as well as fonts from assets\fonts folder and its subfolders are available to presentation1 but not to presentation2
+  //CustomFont2 as well as fonts from global\fonts folder and its subfolders are available to presentation2 but not to presentation1
 }
-
 ``` 
 
 If you need to add external fonts at application level and make it available to all presentations please use FonsLoader class. You can use them together like as follows:
 
 ``` csharp
-
- byte[] globalMemoryFont = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
-
+byte[] globalMemoryFont = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] localMemoryFont = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
 ILoadOptions loadOptions = new LoadOptions();
-
 loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts" };
-
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { localMemoryFont };
 
 using (IPresentation presentation = CreatePresentation("MyPresentation.pptx", loadOptions))
-
 {
-
-//work with the presentation
-
-//CustomFont2 as well as fonts from assets\fonts folder and its subfolders are available to the presentation
-
-//CustomFont1 as well as fonts from global\fonts folder and its subfolders are unavailable to the presentation
-
+  //work with the presentation
+  //CustomFont2 as well as fonts from assets\fonts folder and its subfolders are available to the presentation
+  //CustomFont1 as well as fonts from global\fonts folder and its subfolders are unavailable to the presentation
 }
 
 FontsLoader.LoadExternalFonts(new string[] { "global\\fonts" });
-
 FontsLoader.LoadExternalFont(globalMemoryFont);
 
 using (IPresentation presentation = CreatePresentation("MyPresentation.pptx", loadOptions))
-
 {
-
-//work with the presentation
-
-//CustomFont1 and CustomFont2 as well as fonts from global\fonts and assets\fonts folders and their subfolders are available to the presentation
-
+  //work with the presentation
+  //CustomFont1 and CustomFont2 as well as fonts from global\fonts and assets\fonts folders and their subfolders are available to the presentation
 }
-
 ``` 
 #### **CategoryAxisType.Auto value has been replaced with IAxis.SetCategoryAxisTypeAutomatically() method**
 Method IAxis.SetCategoryAxisTypeAutomatically() sets IAxis.CategoryAxisType property with a value that is automatically determined based on axis data.
@@ -177,30 +140,22 @@ Element HtmlNotes has been added to Aspose.Slides.Export.SaveFormat enumeration.
 Code example:
 
 ``` csharp
-
- using (Presentation pres = new Presentation("Presentation.pptx"))
-
+using (Presentation pres = new Presentation("Presentation.pptx"))
 {
-
-// Saving notes pages
-
-pres.Save("Output.html", SaveFormat.HtmlNotes);
-
+  // Saving notes pages
+  pres.Save("Output.html", SaveFormat.HtmlNotes);
 }
-
 ``` 
+
 #### **Obsolete Presentation.GetPresentationText methods have been deleted**
 Obsolete Presentation.GetPresentationText methods have been deleted:
 
 ``` csharp
-
- Aspose.Slides.Presentation.GetPresentationText(Stream stream, TextExtractionArrangingMode mode)
-
+Aspose.Slides.Presentation.GetPresentationText(Stream stream, TextExtractionArrangingMode mode)
 Aspose.Slides.Presentation.GetPresentationText(String file, TextExtractionArrangingMode mode)
-
 Aspose.Slides.Presentation.GetPresentationText(Stream stream, TextExtractionArrangingMode mode, LoadOptions options)
-
 ``` 
+
 #### **Write document elements methods have been made virtual in EmbedAllFontsHtmlController class. WriteAllFonts method has been Added.**
 WriteDocumentStart, WriteDocumentEnd, WriteSlideStart, WriteSlideEnd, WriteShapeStart, WriteShapeEnd methods have been made virtual to provide a better support to customize generated HTML documents.
 
@@ -209,84 +164,51 @@ In addition, WriteAllFonts method has been added. It allows overriding the way h
 Please review the example how to use overridable methods to create a custom HTML document with a link to CSS file.
 
 ``` csharp
-
- public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
-
+public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 {
+  // Custom header template
+  const string Header = +"<!DOCTYPE html>\n" +
+      "<html>\n" +
+	  "<head>\n" +
+	  "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
+	  "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
+	  "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" +
+	  "</head>";
+	  
+  private readonly string m_cssFileName;
 
-// Custom header template
+  public CustomHeaderAndFontsController(string cssFileName)
+  {
+    m_cssFileName = cssFileName;
+  }
 
-const string Header = +"<!DOCTYPE html>\n" +
+  public override void WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
+  {
+    generator.AddHtml(string.Format(Header, m_cssFileName));
+    WriteAllFonts(generator, presentation);
+  }
 
-"<html>\n" +
-
-"<head>\n" +
-
-"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-
-"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-
-"<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" +
-
-"</head>";
-
-
-private readonly string m_cssFileName;
-
-public CustomHeaderAndFontsController(string cssFileName)
-
-{
-
-m_cssFileName = cssFileName;
-
+  public override void WriteAllFonts(IHtmlGenerator generator, IPresentation presentation)
+  {
+    generator.AddHtml("<!-- Embedded fonts -->");
+    base.WriteAllFonts(generator, presentation);
+  }
 }
-
-public override void WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-
-{
-
-generator.AddHtml(string.Format(Header, m_cssFileName));
-
-WriteAllFonts(generator, presentation);
-
-}
-
-public override void WriteAllFonts(IHtmlGenerator generator, IPresentation presentation)
-
-{
-
-generator.AddHtml("<!-- Embedded fonts -->");
-
-base.WriteAllFonts(generator, presentation);
-
-}
-
-}
-
 ``` 
 
 There is the example how CustomHeaderAndFontsController can be used.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("pres.pptx"))
-
+using (Presentation pres = new Presentation("pres.pptx"))
 {
-
-CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-
-HtmlOptions options = new HtmlOptions
-
-{
-
-HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
-
-};
-
-pres.Save("pres.html", SaveFormat.Html, options);
-
+  CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
+  HtmlOptions options = new HtmlOptions
+  {
+    HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
+  };
+  
+  pres.Save("pres.html", SaveFormat.Html, options);
 }
-
 ``` 
 
 

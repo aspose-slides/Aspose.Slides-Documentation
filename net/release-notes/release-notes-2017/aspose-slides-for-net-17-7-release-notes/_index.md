@@ -52,39 +52,23 @@ url: /net/aspose-slides-for-net-17-7-release-notes/
 ## **Public API Changes**
 #### **AddFromSvg methods were added to IImageCollection interface and ImageCollection class**
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Add an image to a presentation from Svg.
-
 /// </summary>
-
 /// <remarks>Svg to Metafile(EmfPlusOnly) conversion will be performed</remarks>
-
 /// <param name="svgContent">Svg content.</param>
-
 /// <returns>Added image.</returns>
-
 IPPImage AddFromSvg(string svgContent);
 
 /// <summary>
-
 /// Add an image to a presentation from Svg.
-
 /// </summary>
-
 /// <remarks>Svg to Metafile(EmfPlusOnly) conversion will be performed</remarks>
-
 /// <param name="svgContent">Svg content.</param>
-
 /// <param name="externalResResolver">A callback object used to fetch external objects. If this parameter is null all external objects will be ignored.</param>
-
 /// <param name="baseUri">Base URI of the specified Svg. Used to resolve relative links.</param>
-
 /// <returns>Added image.</returns>
-
 IPPImage AddFromSvg(string svgContent, IExternalResourceResolver externalResResolver, string baseUri);
-
 ``` 
 
 These methods provide ability to insert Svg fragment to the presentation's image collection.
@@ -92,44 +76,29 @@ These methods provide ability to insert Svg fragment to the presentation's image
 **Sample 1:**
 
 ``` csharp
-
- using (var p = new Presentation())
-
+using (var p = new Presentation())
 {
-
-var svgContent = File.ReadAllText(svgPath);
-
-var emfImage = p.Images.AddFromSvg(svgContent);
-
-p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, emfImage.Width, emfImage.Height, emfImage);
-
-p.Save(outPptxPath, SaveFormat.Pptx);
-
+  var svgContent = File.ReadAllText(svgPath);
+  var emfImage = p.Images.AddFromSvg(svgContent);
+  p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, emfImage.Width, emfImage.Height, emfImage);
+  p.Save(outPptxPath, SaveFormat.Pptx);
 }
-
 ``` 
 
 **Sample 2 (with default external resources resolver):**
 
 ``` csharp
-
- using (var p = new Presentation())
-
+using (var p = new Presentation())
 {
-
-var svgContent = File.ReadAllText(new Uri(new Uri(baseDir), "image1.svg").AbsolutePath);
-
-var emfImage = p.Images.AddFromSvg(svgContent, new ExternalResourceResolver(), baseDir);
-
-p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, emfImage.Width, emfImage.Height, emfImage);
-
-p.Save(outPptxPath, SaveFormat.Pptx);
-
+  var svgContent = File.ReadAllText(new Uri(new Uri(baseDir), "image1.svg").AbsolutePath);
+  var emfImage = p.Images.AddFromSvg(svgContent, new ExternalResourceResolver(), baseDir);
+  p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, emfImage.Width, emfImage.Height, emfImage);
+  p.Save(outPptxPath, SaveFormat.Pptx);
 }
-
 ``` 
 
 Please note: Using this default external resource resolver could create a vulnerability when client provided HTML or SVG file will make server software to obtain local or network file. Use with caution. It is recommended not to specify ExternalResourceResolver at all (only embedded objects will be read - see "Sample 1") or create some subclass which checks if specified uri is valid.
+
 #### **ColumnCount and ColumnSpacing properties have been added to ITextFrameFormat interface and to TextFrameFormat class**
 Property ColumnCount and ColumnSpacing has been added to ITextFrameFormat interface and TextFrameFormat class respectively.
 
@@ -138,50 +107,37 @@ These properties specify the number of columns in textbox and set an amount of s
 Code example:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
+  // Get the first slide of presentation
+  ISlide slide = presentation.Slides[0];
 
-// Get the first slide of presentation
+  // Add an AutoShape of Rectangle type
+  IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-ISlide slide = presentation.Slides[0];
+  // Add TextFrame to the Rectangle
+  aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
+      "you can add or delete text and the new or remaining text automatically adjusts " +
+      "itself to flow within the container. You cannot have text flow from one container " +
+	  "to other though -- we told you PowerPoint's column options for text are limited!");
 
-// Add an AutoShape of Rectangle type
+  // Get text format of TextFrame
+  ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
 
-IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+  // Specify number of columns in TextFrame
+  format.ColumnCount = 3;
 
-// Add TextFrame to the Rectangle
+  // Specify spacing between columns
+  format.ColumnSpacing = 10;
 
-aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-
-"you can add or delete text and the new or remaining text automatically adjusts " +
-
-"itself to flow within the container. You cannot have text flow from one container " +
-
-"to other though -- we told you PowerPoint's column options for text are limited!");
-
-// Get text format of TextFrame
-
-ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-// Specify number of columns in TextFrame
-
-format.ColumnCount = 3;
-
-// Specify spacing between columns
-
-format.ColumnSpacing = 10;
-
-// Save created presentation
-
-presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-
+  // Save created presentation
+  presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
 }
-
 ``` 
+
 #### **IHtmlExternalResolver interface and HtmlExternalResolver class become obsolete**
 Use IExternalResourceResolver/ExternalResourceResolver instead. Will be removed in 17.12 release.
+
 #### **New API related to the BLOBs management has been added**
 **New BLOBs API**
 
@@ -218,61 +174,39 @@ Working with BLOBs
 Here's is the sample of opening and saving the very large presentation:
 
 ``` csharp
-
- static void OpenAndSaveLargePresentation()
-
+static void OpenAndSaveLargePresentation()
 {
+  // supposed the size of presentation is very large, let's say more than 2Gb
+  const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
+  
+  LoadOptions loadOptions = new LoadOptions
+  {
+      BlobManagementOptions = {
+	      // let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
+		  // the Presentation's instance lifetime, but we don't need to load it into memory or copy into
+		  // thetemporary file
+		  PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+      }
+  };
 
-// supposed the size of presentation is very large, let's say more than 2Gb
-
-const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
-
-LoadOptions loadOptions = new LoadOptions
-
-{
-
-BlobManagementOptions = {
-
-// let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
-
-// the Presentation's instance lifetime, but we don't need to load it into memory or copy into
-
-// thetemporary file
-
-PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-
+  using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
+  {
+    // the huge presentation is loaded and ready to use, but the memory consumption is still low.
+    
+	// make any changes to the presentation.
+	pres.Slides[0].Name = "Very large presentation";
+	
+	// presentation will be saved to the other file, the memory consumptions still low during saving.
+	pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+	
+	// can't do that! IO exception will be thrown, because the file is locked while pres objects will
+	// not be disposed
+	File.Delete(pathToVeryLargePresentationFile);
+  }
+  
+  // it's ok to do it here, the source file is not locked by pres object
+  File.Delete(pathToVeryLargePresentationFile);
 }
-
-};
-
-using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
-
-{
-
-// the huge presentation is loaded and ready to use, but the memory consumption is still low.
-
-// make any changes to the presentation.
-
-pres.Slides[0].Name = "Very large presentation";
-
-// presentation will be saved to the other file, the memory consumptions still low during saving.
-
-pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
-
-// can't do that! IO exception will be thrown, because the file is locked while pres objects will
-
-// not be disposed
-
-File.Delete(pathToVeryLargePresentationFile);
-
-}
-
-// it's ok to do it here, the source file is not locked by pres object
-
-File.Delete(pathToVeryLargePresentationFile);
-
-}
-
 ``` 
 
 **Adding new BLOB to the presentation**
@@ -280,45 +214,27 @@ File.Delete(pathToVeryLargePresentationFile);
 This example demonstrates how to include the large BLOB (video file in that case) and prevent a high memory consumption.
 
 ``` csharp
-
- static void AddingNewBlobToPresentation()
-
+static void AddingNewBlobToPresentation()
 {
+  // supposed we have the very large video file we want to include into the presentation
+  const string pathToVeryLargeVideo = "veryLargeVideo.avi";
 
-// supposed we have the very large video file we want to include into the presentation
-
-const string pathToVeryLargeVideo = "veryLargeVideo.avi";
-
-// create a new presentation which will contain this video
-
-using (Presentation pres = new Presentation())
-
-{
-
-using (FileStream fileStream = new FileStream(pathToVeryLargeVideo, FileMode.Open))
-
-{
-
-// let's add the video to the presentation - we choose KeepLocked behavior, because we not
-
-// have an intent to access the "veryLargeVideo.avi" file.
-
-IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-
-pres.Slides[0].Shapes.AddVideoFrame(0, 0, 480, 270, video);
-
-// save the presentation. Despite that the output presentation will be very large, the memory
-
-// consumption will be low the whole lifetime of the pres object
-
-pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
-
+  // create a new presentation which will contain this video
+  using (Presentation pres = new Presentation())
+  {
+    using (FileStream fileStream = new FileStream(pathToVeryLargeVideo, FileMode.Open))
+	{
+	  // let's add the video to the presentation - we choose KeepLocked behavior, because we not
+	  // have an intent to access the "veryLargeVideo.avi" file.
+	  IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+	  pres.Slides[0].Shapes.AddVideoFrame(0, 0, 480, 270, video);
+	  
+	  // save the presentation. Despite that the output presentation will be very large, the memory
+	  // consumption will be low the whole lifetime of the pres object
+	  pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
+	}
+  }
 }
-
-}
-
-}
-
 ``` 
 
 **Exporting BLOB from presentation into stream**
@@ -326,206 +242,141 @@ pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
 Consider that we have a very large presentation containing multiple large BLOBs - audio and video files. We want to extract these files from presentation and don't want to load this presentation into memory to keep our memory consumption low. Here's is an example how we can achieve that:
 
 ``` csharp
-
- static void ExportBlobsFromPresentaion()
-
+static void ExportBlobsFromPresentaion()
 {
-
-// supposed the presentation contains a multiple audios and videos and it size is huge.
-
-const string hugePresentationWithAudiosAndVideosFile = @"c:\bin\aspose\Tasks\020, 38595\orig\Large Video File Test1.pptx";
-
-LoadOptions loadOptions = new LoadOptions
-
-{
-
-BlobManagementOptions =
-
-{
-
-// lock the source file and don't load it into memory
-
-PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-
+  // supposed the presentation contains a multiple audios and videos and it size is huge.
+  const string hugePresentationWithAudiosAndVideosFile = @"c:\bin\aspose\Tasks\020, 38595\orig\Large Video File Test1.pptx";
+  
+  LoadOptions loadOptions = new LoadOptions
+  {
+      BlobManagementOptions =
+	  {
+	    // lock the source file and don't load it into memory
+		PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+      }
+  };
+  
+  // create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
+  using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions))
+  {
+    // let's save each video to a file. to prevent memory usage we need a buffer which will be used
+    // to exchange tha data from the presentation's video stream to a stream for newly created video file.
+	byte[] buffer = new byte[8 * 1024];
+	
+	// iterate through the videos
+	for (var index = 0; index < pres.Videos.Count; index++)
+	{
+	  IVideo video = pres.Videos[index];
+	  // open the presentation video stream. Please note that we intentionally avoid accessing properties
+	  // like video.BinaryData - this property returns a byte array containing full video, and that means
+	  // this bytes will be loaded into memory. We will use video.GetStream, which will return Stream and
+	  // that allows us to not load the whole video into memory.
+	  using (Stream presVideoStream = video.GetStream())
+	  {
+	    using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
+		{
+		  int bytesRead;
+		  while ((bytesRead = presVideoStream.Read(buffer, 0, buffer.Length)) > 0)
+		  {
+		    outputFileStream.Write(buffer, 0, bytesRead);
+		  }
+        }
+	  }
+      // memory consumption will stay low no matter what size the videos or presentation is.
+    }
+    // do the same for audios if needed.
+  }
 }
-
-};
-
-// create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
-
-using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions))
-
-{
-
-// let's save each video to a file. to prevent memory usage we need a buffer which will be used
-
-// to exchange tha data from the presentation's video stream to a stream for newly created video file.
-
-byte[] buffer = new byte[8 * 1024];
-
-// iterate through the videos
-
-for (var index = 0; index < pres.Videos.Count; index++)
-
-{
-
-IVideo video = pres.Videos[index];
-
-// open the presentation video stream. Please note that we intentionally avoid accessing properties
-
-// like video.BinaryData - this property returns a byte array containing full video, and that means
-
-// this bytes will be loaded into memory. We will use video.GetStream, which will return Stream and
-
-// that allows us to not load the whole video into memory.
-
-using (Stream presVideoStream = video.GetStream())
-
-{
-
-using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
-
-{
-
-int bytesRead;
-
-while ((bytesRead = presVideoStream.Read(buffer, 0, buffer.Length)) > 0)
-
-{
-
-outputFileStream.Write(buffer, 0, bytesRead);
-
-}
-
-}
-
-}
-
-// memory consumption will stay low no matter what size the videos or presentation is.
-
-}
-
-// do the same for audios if needed.
-
-}
-
-}
-
 ``` 
 
 **API**
 
 A number of the new properties, classes and enums has been added to support BLOBs handling.
-ILoadOptions
+
+**ILoadOptions**
 
 BlobManagementOptions property of type IBlobManagementOptions has been added. It represents the options which can be used to manage Binary Large Objects (BLOBs) handling behavior, such as using of temporary files or max BLOBs bytes in memory.
-IBlobManagementOptions interface
+
+**IBlobManagementOptions interface**
 
 A new interface IBlobManagementOptions has been added. It inteded to configure a a different behavior aspects regarding BLOBs handling for the IPresentation instance lifetime.
 
 PresentationLockingBehavior property of PresentationLockingBehavior enum. This property defines if an instance of the Presentation class can be an owner of the source - file or stream during the instance lifetime. If the instance is an owner, it locks the source.
-IsTemporaryFilesAllowed of type bool. This property defines if temporary files can be created while working with BLOBs, what greatly decreases the memory consumption but requires permissions to create files.
-TempFilesRootPath of type string. The root path where temporary files will be created. Hosting process should have permissions to create files and folders there.
-MaxBlobsBytesInMemory of type ulong. Defines the maximum amount (in bytes) that all BLOBs in total may occupy in memory.
+- IsTemporaryFilesAllowed of type bool. This property defines if temporary files can be created while working with BLOBs, what greatly decreases the memory consumption but requires permissions to create files.
+- TempFilesRootPath of type string. The root path where temporary files will be created. Hosting process should have permissions to create files and folders there.
+- MaxBlobsBytesInMemory of type ulong. Defines the maximum amount (in bytes) that all BLOBs in total may occupy in memory.
 
-PresentationLockingBehavior enum
+**PresentationLockingBehavior enum**
 
 The new PresentationLockingBehavior enum has been added, it values represents the behavior regarding treating the IPresentation source (file or Stream) while loading and working with an instance of IPresentation. It has the following members:
+- LoadAndRelease - The source will be locked only for a time of IPresentation constructor execution.
+- KeepLocked - The source will be locked for a whole lifetime of IPresentation instance, until it will be disposed.
 
-LoadAndRelease - The source will be locked only for a time of IPresentation constructor execution.
-KeepLocked - The source will be locked for a whole lifetime of IPresentation instance, until it will be disposed.
-
-IVideoCollection and IAudioCollection
+**IVideoCollection and IAudioCollection**
 
 A new method has been added to IVideoCollection and IAudioCollection to support adding large videos and audios as streams to treat them as BLOBs:
 
-IVideo AddVideo(Stream stream, LoadingStreamBehavior loadingStreamBehavior)
-IAudio AddAudio(Stream stream, LoadingStreamBehavior loadingStreamBehavior)
+- IVideo AddVideo(Stream stream, LoadingStreamBehavior loadingStreamBehavior)
+- IAudio AddAudio(Stream stream, LoadingStreamBehavior loadingStreamBehavior)
 
-LoadingStreamBehavior
+**LoadingStreamBehavior**
 
 This new enum is used to select proper behavior to handle the stream. It contains the following possible values:
+- ReadStreamAndRelease - the stream will be read to the end and then released - i.e. it will be guaranteed that this stream will not be used by IPresentation instance in the future.
+- KeepLocked - the stream will be locked inside the IPresentation object, i.e. the ownership of the stream will be transferred. The IPresentation object will be responsible to correctly dispose the stream when this object will be disposed itself.
 
-ReadStreamAndRelease - the stream will be read to the end and then released - i.e. it will be guaranteed that this stream will not be used by IPresentation instance in the future.
-KeepLocked - the stream will be locked inside the IPresentation object, i.e. the ownership of the stream will be transferred. The IPresentation object will be responsible to correctly dispose the stream when this object will be disposed itself.
-
-IVideo and IAudio
+**IVideo and IAudio**
 
 To support getting large BLOBs inside presentation as Stream a new method has been added:
-
-Stream GetStream()
+- Stream GetStream()
 
 It returns Stream stream for reading. Please note that you must use 'using' or close stream after using.
+
 #### **New IExternalResourceResolver interface and ExternalResourceResolver class were added**
 New IExternalResourceResolver interface was added as a replacement of existing IHtmlExternalResolver (become obsolete).
+
 This is a callback interface used to resolve external resources during Html, Svg documents import.
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Callback interface used to resolve external resources during Html, Svg documents import.
-
 /// </summary>
-
 [ComVisible(true), Guid("88ff6edd-d6d4-43e4-b25a-7806671fe7ca")]
-
 public interface IExternalResourceResolver
-
 {
-
-/// <summary>
-
-/// Resolves the absolute URI from the base and relative URIs.
-
-/// </summary>
-
-/// <param name="baseUri">Base URI of linking objects</param>
-
-/// <param name="relativeUri">Relative URI to the linked object.</param>
-
-/// <returns>Absolute URI or null if the relative URI cannot be resolved.</returns>
-
-string ResolveUri(string baseUri, string relativeUri);
-
-/// <summary>
-
-/// Maps a URI to an object containing the actual resource.
-
-/// </summary>
-
-/// <param name="absoluteUri">Absolute URI to the object.</param>
-
-/// <returns> A <see cref="System.IO.Stream"/> object or null if resource cannot be streamed.</returns>
-
-System.IO.Stream GetEntity(string absoluteUri);
-
+  /// <summary>
+  /// Resolves the absolute URI from the base and relative URIs.
+  /// </summary>
+  /// <param name="baseUri">Base URI of linking objects</param>
+  /// <param name="relativeUri">Relative URI to the linked object.</param>
+  /// <returns>Absolute URI or null if the relative URI cannot be resolved.</returns>
+  string ResolveUri(string baseUri, string relativeUri);
+  
+  /// <summary>
+  /// Maps a URI to an object containing the actual resource.
+  /// </summary>
+  /// <param name="absoluteUri">Absolute URI to the object.</param>
+  /// <returns> A <see cref="System.IO.Stream"/> object or null if resource cannot be streamed.</returns>
+  System.IO.Stream GetEntity(string absoluteUri);
 }
-
 ``` 
 
 ExternalResourceResolver is default implementation of IExternalResourceResolver.
 
 Please note: Using ExternalResourceResolver could create a vulnerability when client provided HTML or SVG file will make server software to obtain local or network file. Use with caution. It is recommended not to specify ExternalResourceResolver at all (only embedded objects will be read - see "Sample 1") or create some subclass which checks if specified uri is valid.
+
 #### **New property EmbeddedFileData has been added to IOleObjectFrame**
 A new property EmbeddedFileData has been added to IOleObjectFrame. It's needed to retrieve the file data of embedded OLE object.
 
 For example, when an image has been embedded into presentation, its data can be accessed through EmbeddedFileData property:
 
 ``` csharp
-
- using (Presentation pres = new Presentation(pptxFileName))
-
+using (Presentation pres = new Presentation(pptxFileName))
 {
-
-IOleObjectFrame oleObjectFrame = (IOleObjectFrame)pres.Slides[0].Shapes[0];
-
-string fileName = oleObjectFrame.EmbeddedFileName;
-
-byte[] data = oleObjectFrame.EmbeddedFileData;
-
+  IOleObjectFrame oleObjectFrame = (IOleObjectFrame)pres.Slides[0].Shapes[0];
+  string fileName = oleObjectFrame.EmbeddedFileName;
+  byte[] data = oleObjectFrame.EmbeddedFileData;
 }
-
 ``` 
 #### **OfficeInteropShapeId property was added to IShape interface and Shape class respectively**
 Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively.
@@ -537,51 +388,32 @@ The value returned by OfficeInteropShapeId property corresponds to the value of 
 Code example:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation("Presentation.pptx"))
-
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-
-// Getting unique shape identifier in slide scope
-
-long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-
+  // Getting unique shape identifier in slide scope
+  long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
 }
-
 ``` 
+
 #### **TextFrame property has been added to ISmartArtShape interface and SmartArtShape class**
 TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively.
 
 This property allows you to get all text from SmartArt if it has not only nodes text.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("Presentation.pptx"))
-
+using (Presentation pres = new Presentation("Presentation.pptx"))
 {
-
-ISlide slide = presentation.Slides[0];
-
-ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
-
-ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
-
-foreach (ISmartArtNode smartArtNode in smartArtNodes)
-
-{
-
-foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
-
-{
-
-if (nodeShape.TextFrame != null)
-
-Console.WriteLine(nodeShape.TextFrame.Text);
-
+  ISlide slide = presentation.Slides[0];
+  ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
+  
+  ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
+  foreach (ISmartArtNode smartArtNode in smartArtNodes)
+  {
+    foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
+	{
+	  if (nodeShape.TextFrame != null)
+	    Console.WriteLine(nodeShape.TextFrame.Text);
+    }
+  }
 }
-
-}
-
-}
-
 ``` 
