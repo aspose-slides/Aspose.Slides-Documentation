@@ -75,24 +75,14 @@ Starting Aspose.Slides v19.8 all you need is to call **GetEffective()** method f
 
 
 ``` csharp
-
- using (Presentation pres = new Presentation("MyPresentation.pptx"))
-
+using (Presentation pres = new Presentation("MyPresentation.pptx"))
 {
-
     IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
-
     ITextFrameFormat localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-
     ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
     IPortionFormat localPortionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
-
     IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.GetEffective();
-
 }
-
-
 ``` 
 
 **Note:**
@@ -107,97 +97,59 @@ Both of that classes are abstract and used internally to maintain unified effect
 Here is the code demonstrating portion's effective font height value changing after setting local font height values on different presentation structure levels.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IAutoShape newShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-
     newShape.AddTextFrame("");
-
     newShape.TextFrame.Paragraphs[0].Portions.Clear();
 
     IPortion portion0 = new Portion("Sample text with first portion");
-
     IPortion portion1 = new Portion(" and second portion.");
 
     newShape.TextFrame.Paragraphs[0].Portions.Add(portion0);
-
     newShape.TextFrame.Paragraphs[0].Portions.Add(portion1);
 
     Console.WriteLine("Effective font height just after creation:");
-
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     pres.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-
     Console.WriteLine("Effective font height after setting entire presentation default font height:");
-
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     newShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-
     Console.WriteLine("Effective font height after setting paragraph default font height:");
-
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     newShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 55;
-
     Console.WriteLine("Effective font height after setting portion #0 font height:");
-
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     newShape.TextFrame.Paragraphs[0].Portions[1].PortionFormat.FontHeight = 18;
-
     Console.WriteLine("Effective font height after setting portion #1 font height:");
-
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
-
 }
 
 // Output:
-
 // Effective font height just after creation:
-
 // Portion #0: 18
-
 // Portion #1: 18
-
 // Effective font height after setting entire presentation default font height:
-
 // Portion #0: 24
-
 // Portion #1: 24
-
 // Effective font height after setting paragraph default font height:
-
 // Portion #0: 40
-
 // Portion #1: 40
-
 // Effective font height after setting portion #0 font height:
-
 // Portion #0: 55
-
 // Portion #1: 40
-
 // Effective font height after setting portion #1 font height:
-
 // Portion #0: 55
-
 // Portion #1: 18
-
 ``` 
 
 
@@ -208,37 +160,38 @@ Abstract generic Aspose.Slides.**AccessibleEffectiveData<TLocalData, TEffectiveD
 **BaseEffectiveData** class is a base class for **AccessibleEffectiveData** and also for all effective data classes that don't have their own inheritance hierarchy and serve as parts of more complex effective data classes.
 
 Child classes of **AccessibleEffectiveData**:
-Aspose.Slides.BackgroundEffectiveData
-Aspose.Slides.BasePortionFormatEffectiveData
-Aspose.Slides.EffectFormatEffectiveData
-Aspose.Slides.FillFormatEffectiveData
-Aspose.Slides.LineFormatEffectiveData
-Aspose.Slides.ParagraphFormatEffectiveData
-Aspose.Slides.TextFrameFormatEffectiveData
-Aspose.Slides.TextStyleEffectiveData
-Aspose.Slides.ThreeDFormatEffectiveData
-Aspose.Slides.Theme.ThemeEffectiveData
+- Aspose.Slides.BackgroundEffectiveData
+- Aspose.Slides.BasePortionFormatEffectiveData
+- Aspose.Slides.EffectFormatEffectiveData
+- Aspose.Slides.FillFormatEffectiveData
+- Aspose.Slides.LineFormatEffectiveData
+- Aspose.Slides.ParagraphFormatEffectiveData
+- Aspose.Slides.TextFrameFormatEffectiveData
+- Aspose.Slides.TextStyleEffectiveData
+- Aspose.Slides.ThreeDFormatEffectiveData
+- Aspose.Slides.Theme.ThemeEffectiveData
 
 Child classes of **BaseEffectiveData**:
-Aspose.Slides.AccessibleEffectiveData
-Aspose.Slides.BulletFormatEffectiveData
-Aspose.Slides.CameraEffectiveData
-Aspose.Slides.FontsEffectiveData
-Aspose.Slides.GradientFormatEffectiveData
-Aspose.Slides.LightRigEffectiveData
-Aspose.Slides.LineFillFormatEffectiveData
-Aspose.Slides.PatternFormatEffectiveData
-Aspose.Slides.PictureEffectiveData
-Aspose.Slides.PictureFillFormatEffectiveData
-Aspose.Slides.ShapeBevelEffectiveData
-Aspose.Slides.TabEffectiveData
-Aspose.Slides.Theme.ColorSchemeEffectiveData
-Aspose.Slides.Theme.EffectStyleCollectionEffectiveData
-Aspose.Slides.Theme.EffectStyleEffectiveData
-Aspose.Slides.Theme.FillFormatCollectionEffectiveData
-Aspose.Slides.Theme.FontSchemeEffectiveData
-Aspose.Slides.Theme.FormatSchemeEffectiveData
-Aspose.Slides.Theme.LineFormatCollectionEffectiveData
+- Aspose.Slides.AccessibleEffectiveData
+- Aspose.Slides.BulletFormatEffectiveData
+- Aspose.Slides.CameraEffectiveData
+- Aspose.Slides.FontsEffectiveData
+- Aspose.Slides.GradientFormatEffectiveData
+- Aspose.Slides.LightRigEffectiveData
+- Aspose.Slides.LineFillFormatEffectiveData
+- Aspose.Slides.PatternFormatEffectiveData
+- Aspose.Slides.PictureEffectiveData
+- Aspose.Slides.PictureFillFormatEffectiveData
+- Aspose.Slides.ShapeBevelEffectiveData
+- Aspose.Slides.TabEffectiveData
+- Aspose.Slides.Theme.ColorSchemeEffectiveData
+- Aspose.Slides.Theme.EffectStyleCollectionEffectiveData
+- Aspose.Slides.Theme.EffectStyleEffectiveData
+- Aspose.Slides.Theme.FillFormatCollectionEffectiveData
+- Aspose.Slides.Theme.FontSchemeEffectiveData
+- Aspose.Slides.Theme.FormatSchemeEffectiveData
+- Aspose.Slides.Theme.LineFormatCollectionEffectiveData
+
 #### **BasePortionFormatEffectiveData class has been added**
 Abstract generic Aspose.Slides.**BasePortionFormatEffectiveData<TLocalData, TEffectiveData>** class has been added. It implements IBasePortionFormatEffectiveData interface and serves as a base class for immutable types which contain effective text portion formatting properties. Currently it has the only child class - PortionFormatEffectiveData.
 #### **CameraEffectiveData, LightRigEffectiveData and ShapeBevelEffectiveData classes have been added**
@@ -253,38 +206,26 @@ Instances of all of these classes are used as parts of ThreeDFormatEffectiveData
 The following code sample demonstrates how to get effective properties for camera, light rig and shape's face relief.
 
 ``` csharp
-
- using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
-
+using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
 {
-
     IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
-
+	
     Console.WriteLine("= Effective camera properties =");
-
     Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-
     Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-
     Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 
     Console.WriteLine("= Effective light rig properties =");
-
     Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-
     Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 
     Console.WriteLine("= Effective shape's top face relief properties =");
-
     Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-
     Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-
     Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-
 }
-
 ``` 
+
 #### **GetEffective() method has been added to several format interfaces**
 **GetEffective()** method has been added to following interfaces:
 
@@ -310,89 +251,53 @@ Abstract generic Aspose.Slides.**BaseTableFormatEffectiveData<TLocalData, TEffec
 **IBaseTableFormatEffectiveData** declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Base interface for immutable objects which contain effective table formatting properties.
-
 /// </summary>
-
 public interface IBaseTableFormatEffectiveData
-
 {
-
     /// <summary>
-
     /// Returns fill format effective value.
-
     /// Read-only <see cref="IFillFormatEffectiveData"/>.
-
     /// </summary>
-
     IFillFormatEffectiveData FillFormat { get; }
-
+	
     /// <summary>
-
     /// Returns left border line format effective value.
-
     /// Read-only <see cref="ILineFormatEffectiveData"/>.
-
     /// </summary>
-
     ILineFormatEffectiveData BorderLeft { get; }
 
     /// <summary>
-
     /// Returns top border line format effective value.
-
     /// Read-only <see cref="ILineFormatEffectiveData"/>.
-
     /// </summary>
-
     ILineFormatEffectiveData BorderTop { get; }
 
     /// <summary>
-
     /// Returns right border line format effective value.
-
     /// Read-only <see cref="ILineFormatEffectiveData"/>.
-
     /// </summary>
-
     ILineFormatEffectiveData BorderRight { get; }
 
     /// <summary>
-
     /// Returns bottom border line format effective value.
-
     /// Read-only <see cref="ILineFormatEffectiveData"/>.
-
     /// </summary>
-
     ILineFormatEffectiveData BorderBottom { get; }
 
     /// <summary>
-
     /// Returns down diagonal line format effective value.
-
     /// Read-only <see cref="ILineFormatEffectiveData"/>.
-
     /// </summary>
-
     ILineFormatEffectiveData BorderDiagonalDown { get; }
 
     /// <summary>
-
     /// Returns up diagonal line format effective value.
-
     /// Read-only <see cref="ILineFormatEffectiveData"/>.
-
     /// </summary>
-
     ILineFormatEffectiveData BorderDiagonalUp { get; }
-
 }
-
 ``` 
 
 
@@ -407,91 +312,53 @@ All of these interfaces and classes represent effective table and table's elemen
 Interfaces declarations
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Immutable object which contains effective table formatting properties.
-
 /// </summary>
-
 public interface ITableFormatEffectiveData : IBaseTableFormatEffectiveData
-
 {
-
 }
 
 /// <summary>
-
 /// Immutable object which contains effective table row formatting properties.
-
 /// </summary>
-
 public interface IRowFormatEffectiveData : IBaseTableFormatEffectiveData
-
 {
-
 }
 
 /// <summary>
-
 /// Immutable object which contains effective table column formatting properties.
-
 /// </summary>
-
 public interface IColumnFormatEffectiveData : IBaseTableFormatEffectiveData
-
 {
-
 }
 
 /// <summary>
-
 /// Immutable object which contains effective table cell formatting properties.
-
 /// </summary>
-
 public interface ICellFormatEffectiveData : IBaseTableFormatEffectiveData
-
 {
-
 }
-
 ``` 
-
-
 
 The following code demonstrates getting effective fill format for different table logic parts. Please note that cell formatting always has higher priority than row formatting, row - higher than column, column - higher that whole table. So finally **CellFormatEffectiveData** properties always used to draw the table. The following code is just an example of API.
 
 ``` csharp
-
- using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
-
+using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
 {
-
     ITable tbl = pres.Slides[0].Shapes[0] as ITable;
-
     ITableFormatEffectiveData tableFormatEffective = tbl.TableFormat.GetEffective();
-
     IRowFormatEffectiveData rowFormatEffective = tbl.Rows[0].RowFormat.GetEffective();
-
     IColumnFormatEffectiveData columnFormatEffective = tbl.Columns[0].ColumnFormat.GetEffective();
-
     ICellFormatEffectiveData cellFormatEffective = tbl[0, 0].CellFormat.GetEffective();
-
-    IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.FillFormat;
-
+    
+	IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.FillFormat;
     IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.FillFormat;
-
     IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.FillFormat;
-
     IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.FillFormat;
-
     /* Output and comparison */
-
 }
-
 ``` 
-
 
 #### **TextStyleEffectiveData class has been added**
 Aspose.Slides.**TextStyleEffectiveData** class has been added. It implements already known interface **ITextStyleEffectiveData** and contains effective text style properties.
@@ -499,199 +366,127 @@ Aspose.Slides.**TextStyleEffectiveData** class has been added. It implements al
 The following code sample demonstrates getting some of effective text style properties.
 
 ``` csharp
-
- using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
-
+using (Presentation pres = new Presentation(@"MyPresentation.pptx"))
 {
-
     IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
-
     ITextStyleEffectiveData effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-
+	
     for (int i = 0; i <= 8; i++)
-
     {
-
         IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.GetLevel(i);
-
         Console.WriteLine("= Effective paragraph formatting for style level #" + i + " =");
 
         Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-
         Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-
         Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-
         Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-
     }
-
 }
-
 ``` 
+
 #### **ICell.CellFormat property has been added**
 CellFormat property has been added to ICell interface and Cell class. It allows to get an object with table cell formatting properties.
 
 Property declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Returns the CellFormat object that contains formatting properties for this cell.
-
 /// Read-only <see cref="ICellFormat"/>.
-
 /// </summary>
-
 ICellFormat CellFormat { get; }
-
 ``` 
+
 #### **ICellFormat interface and CellFormat class have been added**
 Aspose.Slides.**ICellFormat** interface and **CellFormat** class have been added. They encapsulate cell fill and border formatting properties. Corresponding old properties from ICell are marked as obsolete and will be removed after Aspose.Slide 20.8 release.
 
 **ICellFormat** declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Represents format of a table cell.
-
 /// </summary>
-
 public interface ICellFormat
-
 {
-
     /// <summary>
-
     /// Returns a cell fill properties object.
-
     /// Read-only <see cref="IFillFormat"/>.
-
     /// </summary>
-
     IFillFormat FillFormat { get; }
 
     /// <summary>
-
     /// Returns a left border line properties object.
-
     /// Read-only <see cref="ILineFormat"/>.
-
     /// </summary>
-
     ILineFormat BorderLeft { get; }
 
     /// <summary>
-
     /// Returns a top border line properties object.
-
     /// Read-only <see cref="ILineFormat"/>.
-
     /// </summary>
-
     ILineFormat BorderTop { get; }
 
     /// <summary>
-
     /// Returns a right border line properties object.
-
     /// Read-only <see cref="ILineFormat"/>.
-
     /// </summary>
-
     ILineFormat BorderRight { get; }
 
     /// <summary>
-
     /// Returns a bottom border line properties object.
-
     /// Read-only <see cref="ILineFormat"/>.
-
     /// </summary>
-
     ILineFormat BorderBottom { get; }
 
     /// <summary>
-
     /// Returns a top-left to bottom-right diagonal line properties object.
-
     /// Read-only <see cref="ILineFormat"/>.
-
     /// </summary>
-
     ILineFormat BorderDiagonalDown { get; }
 
     /// <summary>
-
     /// Returns a bottom-left to top-right diagonal line properties object.
-
     /// Read-only <see cref="ILineFormat"/>.
-
     /// </summary>
-
     ILineFormat BorderDiagonalUp { get; }
 
     /// <summary>
-
     /// Gets effective table cell formatting properties with inheritance and table styles applied.
-
     /// </summary>
-
     /// <returns>A <see cref="ICellFormatEffectiveData"/>.</returns>
-
     ICellFormatEffectiveData GetEffective();
-
 }
-
 ``` 
+
 #### **IColumn.ColumnFormat property has been added**
 ColumnFormat property has been added to IColumn interface and Column class. It allows to get an object with table column formatting properties.
 
 Property declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Returns the ColumnFormat object that contains formatting properties for this column.
-
 /// Read-only <see cref="IColumnFormat"/>.
-
 /// </summary>
-
 IColumnFormat ColumnFormat{ get; }
-
 ``` 
+
 #### **IColumnFormat interface and ColumnFormat class have been added**
 Aspose.Slides.**IColumnFormat** interface and **ColumnFormat** class have been added. It is not possible to set local formatting properties for a table column in PowerPoint, so this interface is used only as a mediator to get effective properties.
 
 **IColumnFormat** declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Represents format of a table column.
-
 /// </summary>
-
 public interface IColumnFormat
-
 {
-
     /// <summary>
-
     /// Gets effective table column formatting properties with inheritance and table styles applied.
-
     /// </summary>
-
     /// <returns>A <see cref="IColumnFormatEffectiveData"/>.</returns>
-
     IColumnFormatEffectiveData GetEffective();
-
 }
 
 ``` 
@@ -701,197 +496,122 @@ Aspose.Slides.**IRowFormat** interface and **RowFormat** class have been added. 
 **IRowFormat** declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Represents format of a table row.
-
 /// </summary>
-
 public interface IRowFormat
-
 {
-
     /// <summary>
-
     /// Gets effective table row formatting properties with inheritance and table styles applied.
-
     /// </summary>
-
     /// <returns>A <see cref="IRowFormatEffectiveData"/>.</returns>
-
     IRowFormatEffectiveData GetEffective();
-
 }
-
 ``` 
+
 #### **IRow.RowFormat property has been added**
 RowFormat property has been added to IRow interface and Row class. It allows to get an object with table row formatting properties.
 
 Property declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Returns the RowFormat object that contains formatting properties for this row.
-
 /// Read-only <see cref="IRowFormat"/>.
-
 /// </summary>
-
 IRowFormat RowFormat { get; }
-
 ``` 
+
 #### **ITableFormat interface and TableFormat class have been added**
 Aspose.Slides.**ITableFormat** interface and **TableFormat** class have been added. They encapsulate table fill formatting property. Corresponding old property from ITable is marked as obsolete and will be returning null (it is inherited from IShape, so can not be removed completely) after Aspose.Slide 20.8 release.
 
 **ITableFormat** declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Represents format of a table.
-
 /// </summary>
-
 public interface ITableFormat
-
 {
-
     /// <summary>
-
     /// Returns a table fill properties object.
-
     /// Read-only <see cref="IFillFormat"/>.
-
     /// </summary>
-
     IFillFormat FillFormat { get; }
 
     /// <summary>
-
     /// Gets effective table formatting properties with inheritance and table styles applied.
-
     /// </summary>
-
     /// <returns>A <see cref="ITableFormatEffectiveData"/>.</returns>
-
     ITableFormatEffectiveData GetEffective();
-
 }
-
 ``` 
+
 #### **ITable.TableFormat property has been added**
 TableFormat property has been added to ITable interface and Table class. It allows to get an object with table formatting properties.
 
 Property declaration:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Returns the TableFormat object that contains formatting properties for this table.
-
 /// Read-only <see cref="ITableFormat"/>.
-
 /// </summary>
-
 ITableFormat TableFormat { get; }
-
 ``` 
+
 #### **New interface, class and methods have been added for creating OleObjectFrame object**
 New interface IOleEmbeddedDataInfo and OleEmbeddedDataInfo class have added:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Represents embedded data info for OLE object.
-
 /// </summary>
-
 public interface IOleEmbeddedDataInfo
-
 {
-
        /// <summary>
-
        /// Returns the file data of embedded OLE object
-
        /// Read only <see cref="T:byte[]"/>.
-
        /// </summary>
-
        byte[] EmbeddedFileData { get; }
 
        /// <summary>
-
        /// Returns the file extension for the current embedded OLE object
-
        /// Read only <see cref="string"/>.
-
        /// </summary>
-
        string EmbeddedFileExtension { get; }
-
 }
-
 ``` 
 
 New methods AddOleObjectFrame and InsertOleObjectFrame have been added into IShapeCollection:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Adds a new OLE object to the end of a collection.
-
 /// </summary>
-
 /// <param name="x">X coordinate of a new OLE frame.</param>
-
 /// <param name="y">Y coordinate of a new OLE frame.</param>
-
 /// <param name="width">Width of a new OLE frame.</param>
-
 /// <param name="height">Height of a new OLE frame.</param>
-
 /// <param name="dataInfo">Embedded data info <see cref="IOleEmbeddedDataInfo"/>.</param>
-
 /// <returns>Created OLE object.</returns>
-
 IOleObjectFrame AddOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo);
-
 ``` 
 
 and
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Creates a new OLE object and inserts it to a collection at the specified index.
-
 /// </summary>
-
 /// <param name="index">The zero-based index at which OLE object should be inserted.</param>
-
 /// <param name="x">X coordinate of a new OLE frame.</param>
-
 /// <param name="y">Y coordinate of a new OLE frame.</param>
-
 /// <param name="width">Width of a new OLE frame.</param>
-
 /// <param name="height">Height of a new OLE frame.</param>
-
 /// <param name="dataInfo">Embedded data info <see cref="IOleEmbeddedDataInfo"/>.</param>
-
 /// <returns>Created OLE object.</returns>
-
 IOleObjectFrame InsertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo);
-
 ``` 
 
 These methods allow to get IOleEmbeddedDataInfo object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects without additional questions about the shell program for opening an OLE object.
@@ -899,43 +619,30 @@ These methods allow to get IOleEmbeddedDataInfo object as a parameter so now OLE
 Next example shows how to set file type for an embedding object:
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     // Add known Ole objects
-
     byte[] fileBytes = File.ReadAllBytes("test.zip");
-
+	
     // Create Ole embedded file info
-
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileBytes, "zip");
-
-    // Create OLE object
-
+    
+	// Create OLE object
     IOleObjectFrame oleFrame = pres.Slides[0].Shapes.AddOleObjectFrame(150, 20, 50, 50, dataInfo);
-
     oleFrame.IsObjectIcon = true;
-
 }
-
 ``` 
 
 **Pay attention** that methods
 
 ``` csharp
-
- IOleObjectFrame AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData);
-
+IOleObjectFrame AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData);
 ``` 
 
 and
 
 ``` csharp
-
-  IOleObjectFrame InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData);
-
+IOleObjectFrame InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData);
 ``` 
 
 now marked as obsolete and will be removed after release of version 20.05.
@@ -943,169 +650,102 @@ now marked as obsolete and will be removed after release of version 20.05.
 New enumerator type PersistenceType that specifies the method used to store properties of the ActiveX control have been added:
 
 ``` csharp
-
- /// <summary>
-
-/// Specifies the method used to store properties of the ActiveX control.
-
-/// </summary>
-
-public enum PersistenceType
-
-{
-
 /// <summary>
+/// Specifies the method used to store properties of the ActiveX control.
+/// </summary>
+public enum PersistenceType
+{
+   /// <summary>
+   /// Persistance id not specified.
+   /// </summary>
+   NotDefined = -1,
 
-       /// Persistance id not specified.
+   ///<summary>
+   /// Specifies that the ActiveX control is persisted using property-bag-based persistence. 
+   /// Property-bag-based persistence stores an ActiveX control by means of a collection of name 
+   /// and value pairs which specify the data persisted by the ActiveX control.
+   ///</summary>
+   PersistPropertyBag,
 
-       /// </summary>
+   ///<summary>
+   /// Specifies that the ActiveX control is persisted using a stream-based persistence 
+   /// that does not support initialization of the ActiveX control to a default state.
+   ///</summary>
+   PersistStream,
 
-       NotDefined = -1,
+   ///<summary>
+   /// Specifies that the ActiveX control is persisted using a stream-based persistence 
+   /// that supports initialization of the ActiveX control to a default state.
+   ///</summary>
+   PersistStreamInit,
 
-       ///<summary>
-
-       /// Specifies that the ActiveX control is persisted using property-bag-based persistence. 
-
-       /// Property-bag-based persistence stores an ActiveX control by means of a collection of name 
-
-       /// and value pairs which specify the data persisted by the ActiveX control.
-
-       ///</summary>
-
-       PersistPropertyBag,
-
-       ///<summary>
-
-       /// Specifies that the ActiveX control is persisted using a stream-based persistence 
-
-       /// that does not support initialization of the ActiveX control to a default state.
-
-       ///</summary>
-
-       PersistStream,
-
-       ///<summary>
-
-       /// Specifies that the ActiveX control is persisted using a stream-based persistence 
-
-       /// that supports initialization of the ActiveX control to a default state.
-
-       ///</summary>
-
-       PersistStreamInit,
-
-       ///<summary>
-
-       /// Specifies that the ActiveX control is persisted using storage-based persistence.
-
-       ///</summary>
-
-       PersistStorage
-
+   ///<summary>
+   /// Specifies that the ActiveX control is persisted using storage-based persistence.
+   ///</summary>
+   PersistStorage
 }
-
 ``` 
-
-
 
 New properties Persistence and ActiveXControlBinary have been added to IControl interface:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Gets the method used to store properties of the ActiveX control.
-
 /// Read only <see cref="PersistenceType"/>.
-
 /// </summary>
-
 PersistenceType Persistence { get; }
-
 ``` 
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Specifies the persistence of an ActiveX control when the method used to persist is either PersistStream, PersistStreamInit or PersistStorage.
-
 /// </summary>
-
 byte[] ActiveXControlBinary { get; }
-
 ``` 
 
 These properties and enumeration allow to define and implement custom methods for processing the properties of ActiveX objects depending of its persistence. For example:
 
 ``` csharp
-
- switch (control.Persistence)
-
+switch (control.Persistence)
 {
-
         case PersistenceType.PersistPropertyBag:
-
                control.Properties["Value"] = value;
-
                 break;
-
         case PersistenceType.PersistStorage:
-
               ManagePersistStorage_UserMethod(control.ActiveXControlBinary);
-
                 break;
-
         case PersistenceType.PersistStream:
-
                ManagePersistStream_UserMethod(control.ActiveXControlBinary);
-
                 break;
-
         case PersistenceType.PersistStreamInit:
-
                ManagePersistStreamInit_UserMethod(control.ActiveXControlBinary);
-
                 break;
-
 }
-
 ``` 
+
 #### **Property for setting layout mode of chart plot area has been added**
 Property **LayoutTargetType** has been added to **ChartPlotArea** and **IChartPlotArea** classes. 
 
 If layout of the plot area defined manually this property specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside (including axis and axis labels).
 
 There are two possible values which are defined in **LayoutTargetType enum**.
-
-**LayoutTargetType.Inner** - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
-
-**LayoutTargetType.Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
+- **LayoutTargetType.Inner** - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
+- **LayoutTargetType.Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
-
    ISlide slide = presentation.Slides[0];
-
    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-
+   
    chart.PlotArea.AsILayoutable.X = 0.2f;
-
    chart.PlotArea.AsILayoutable.Y = 0.2f;
-
    chart.PlotArea.AsILayoutable.Width = 0.7f;
-
    chart.PlotArea.AsILayoutable.Height = 0.7f;
-
+   
    chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
-
    ...
-
 }
-
 ``` 
 
 ![todo:image_alt_text](aspose-slides-for-net-19-8-release-notes_1.jpg)

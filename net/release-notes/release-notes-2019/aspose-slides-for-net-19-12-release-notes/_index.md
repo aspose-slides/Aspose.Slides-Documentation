@@ -56,27 +56,27 @@ Aspose.Slides.**DigitalSignatureCollection** class has been added. It implement
 /// </summary>
 public interface IDigitalSignatureCollection : IGenericCollection<IDigitalSignature>
 {
-/// <summary>
-/// Returns the signature by index.
-/// </summary>
-IDigitalSignature this[int index] { get; }
+	/// <summary>
+	/// Returns the signature by index.
+	/// </summary>
+	IDigitalSignature this[int index] { get; }
 
-/// <summary>
-/// Adds the signature at the end of collection.
-/// </summary>
-/// <param name="digitalSignature">Signature to add.</param>
-void Add(IDigitalSignature digitalSignature);
+	/// <summary>
+	/// Adds the signature at the end of collection.
+	/// </summary>
+	/// <param name="digitalSignature">Signature to add.</param>
+	void Add(IDigitalSignature digitalSignature);
 
-/// <summary>
-/// Removes the signature at the specified index.
-/// </summary>
-/// <param name="index">Index of the signature that should be deleted.</param>
-void RemoveAt(int index);
+	/// <summary>
+	/// Removes the signature at the specified index.
+	/// </summary>
+	/// <param name="index">Index of the signature that should be deleted.</param>
+	void RemoveAt(int index);
 
-/// <summary>
-/// Removes all signatures from collection.
-/// </summary>
-void Clear();
+	/// <summary>
+	/// Removes all signatures from collection.
+	/// </summary>
+	void Clear();
 }
 ``` 
 
@@ -90,29 +90,29 @@ Aspose.Slides.**DigitalSignature** class has been added. It implements **IDigi
 /// </summary>
 public interface IDigitalSignature
 {
-/// <summary>
-/// Certificate object that was used to sign the document.
-/// Read-only <see cref="X509Certificate2"/>.
-/// </summary>
-X509Certificate2 Certificate { get; }
+	/// <summary>
+	/// Certificate object that was used to sign the document.
+	/// Read-only <see cref="X509Certificate2"/>.
+	/// </summary>
+	X509Certificate2 Certificate { get; }
 
-/// <summary>
-/// If this digital signature is valid and the document has not been tampered with, this value will be true.
-/// Read-only <see cref="bool"/>.
-/// </summary>
-bool IsValid { get; }
+	/// <summary>
+	/// If this digital signature is valid and the document has not been tampered with, this value will be true.
+	/// Read-only <see cref="bool"/>.
+	/// </summary>
+	bool IsValid { get; }
 
-/// <summary>
-/// The time when the document was signed.
-/// Read-only <see cref="DateTime"/>.
-/// </summary>
-DateTime SignTime { get; }
+	/// <summary>
+	/// The time when the document was signed.
+	/// Read-only <see cref="DateTime"/>.
+	/// </summary>
+	DateTime SignTime { get; }
 
-/// <summary>
-/// The purpose of signature.
-/// Read/write <see cref="string"/>.
-/// </summary>
-string Comments { get; set; }
+	/// <summary>
+	/// The purpose of signature.
+	/// Read/write <see cref="string"/>.
+	/// </summary>
+	string Comments { get; set; }
 }
 ``` 
 
@@ -168,7 +168,7 @@ pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPer
 
 using (var presentation = new Presentation())
 {
-`    `presentation.Save(pdfFilePath, SaveFormat.Pdf, pdfOptions);
+  presentation.Save(pdfFilePath, SaveFormat.Pdf, pdfOptions);
 }
 ``` 
 

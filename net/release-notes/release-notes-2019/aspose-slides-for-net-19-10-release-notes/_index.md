@@ -70,21 +70,15 @@ In order to use fallback font functionality, you need to set the rules how fallb
 Here is an example:
 
 ``` csharp
-
- uint startUnicodeIndex = 0x0B80;
-
+uint startUnicodeIndex = 0x0B80;
 uint endUnicodeIndex = 0x0BFF;
 
 IFontFallBackRule firstRule = new FontFallBackRule (startUnicodeIndex, endUnicodeIndex, "Vijaya");
-
 IFontFallBackRule secondRule = new FontFallBackRule (0x3040, 0x309F, "MS Mincho, MS Gothic");
 
 //Also the fonts list can be added in several ways:
-
 string[] fontNames = new string[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial"};
-
 IFontFallBackRule thirdRule = new FontFallBackRule (0x1F300, 0x1F64F, fontNames);
-
 ``` 
 
 It is possible to specify several rules and add them into [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection). Then you may assign this fallback font fules collection into an appropriate field of **FontsManager** object.
@@ -92,22 +86,15 @@ It is possible to specify several rules and add them into [**FontFallBackRulesC
 Each presentation has FontsManager object, implementing [**IFontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager)**,** which defines the main logic of fonts rendering:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation())
-
+using (Presentation presentation = new Presentation())
 {
-
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
 
     userRulesList.Add(new FontFallBackRule(0x0B80, 0x0BFF, "Vijaya"));
-
     userRulesList.Add(new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic"));
 
     presentation.FontsManager.FontFallBackRulesCollection = userRulesList;
-
 }
-
-
 ``` 
 
 Note: The ranges of several rules can overlap. In this case, the fonts from overlapped rules will be merged and places in order the rules were added into the list.
@@ -115,29 +102,19 @@ Note: The ranges of several rules can overlap. In this case, the fonts from over
 You can automatically retrieve a new linked instance directly from the **FontsManager**:
 
 ``` csharp
-
- IFontFallBackRulesCollection userRulesList = presentation.FontsManager.FontFallBackRulesCollection;
-
+IFontFallBackRulesCollection userRulesList = presentation.FontsManager.FontFallBackRulesCollection;
 ``` 
-
-
 
 This can be used to **change existing FontsManager settings**, as shown in the next example.
 
 You may also use several collections with different set of rules by assigning the required list in the FontsManager. If you do not want to use multiple lists, you do not have to create a new collection. 
 
 ``` csharp
-
- using (Presentation presentation = new Presentation("MyPresentation.pptx"))
-
+using (Presentation presentation = new Presentation("MyPresentation.pptx"))
 {
-
     IFontFallBackRulesCollection userRulesList = presentation.FontsManager.FontFallBackRulesCollection;
-
     userRulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
-
     presentation.Slides[0].GetThumbnail (1f,1f).Save ("Slide0.png", ImageFormat.Png);
-
 }
 
 
@@ -148,55 +125,31 @@ You may also use several collections with different set of rules by assigning th
 **FontFallBackRulesCollection** can be used in the following way:
 
 ``` csharp
-
- using (Presentation pres = new Presentation(path + "input.pptx"))
-
+using (Presentation pres = new Presentation(path + "input.pptx"))
 {
-
     // Getting an empty collection from FontsManager
-
     IFontFallBackRulesCollection rulesList = pres.FontsManager.FontFallBackRulesCollection;
 
-
-
     // Adding of rule to collection
-
     rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
 
-
-
     // Saving of thumbnail from the first slide to PNG
-
     pres.Slides[0].GetThumbnail(1f, 1f).Save(path + "Slide_0.png", ImageFormat.Png);
-
     //New instance of rules collection
-
     IFontFallBackRulesCollection anotherRulesList = new FontFallBackRulesCollection();
 
-
-
     //Filling by the another set of rules
-
     anotherRulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Tahoma"));
-
     anotherRulesList.Add(new FontFallBackRule(0x3040, 0x309F, "MS Mincho"));
 
-
-
     //Assigning of new rules to the FontsManager
-
     pres.FontsManager.FontFallBackRulesCollection = anotherRulesList;
 
-
-
     // Rendering of thumbnail with new rules and saving to PNG
-
     pres.Slides[0].GetThumbnail(1f, 1f).Save(path + "Slide_0_Another.png", ImageFormat.Png);
-
 }
-
-
 ``` 
+
 #### **IFontFallBackRulesCollection, IFontFallBackRule interfaces and FontFallBackRulesCollection, FontFallBackRule classed added**
 [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/fontfallbackrulescollection) (implementes [**IFontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontfallbackrulescollection)) represents an object for managing a collection of **FontFallBackRule** objects.
 
@@ -205,160 +158,94 @@ You may also use several collections with different set of rules by assigning th
 Below is an example:
 
 ``` csharp
-
- void RenderingWithFallBack()
-
+void RenderingWithFallBack()
 {
-
     // Create new instance of a rules collection
-
     IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
-
+	
     // create a number of rules
-
     rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
-
     //rulesList.Add(new FontFallBackRule(...));
-
-    foreach (IFontFallBackRule fallBackRule in rulesList)
-
+    
+	foreach (IFontFallBackRule fallBackRule in rulesList)
     {
-
         //Trying to remove FallBack font "Tahoma" from loaded rules
-
         fallBackRule.Remove("Tahoma");
-
-        //And to update of rules for specified range
-
+        
+		//And to update of rules for specified range
         if ((fallBackRule.RangeEndIndex >= 0x4000) && (fallBackRule.RangeStartIndex < 0x5000))
-
             fallBackRule.AddFallBackFonts("Verdana");
-
     }
-
+	
     //Also we can remove any existing rules from list
-
     if (rulesList.Count > 0)
-
         rulesList.Remove(rulesList[0]);
-
-    using (Presentation pres = new Presentation(path + "input.pptx"))
-
+    
+	using (Presentation pres = new Presentation(path + "input.pptx"))
     {
-
         //Assigning a prepared rules list for using
-
         pres.FontsManager.FontFallBackRulesCollection = rulesList;
-
-        // Rendering of thumbnail with using of initialized rules collection and saving to PNG
-
+        
+		// Rendering of thumbnail with using of initialized rules collection and saving to PNG
         pres.Slides[0].GetThumbnail(1f, 1f).Save(path + "Slide_0.png", ImageFormat.Png);
-
     }
-
 }
-
 ``` 
+
 #### **Equals and GetHashCode methods were overridden for Aspose.Slides.Effects classes**
 Equals and GetHashCode methods were overridden for Aspose.Slides.Effects classes, now objects of these classes are compared by their semantic value.
 
 Full list of updated classes:
 
 ``` csharp
-
- Aspose.Slides.Effects.AlphaBiLevel
-
+Aspose.Slides.Effects.AlphaBiLevel
 Aspose.Slides.Effects.AlphaBiLevelEffectiveData
-
 Aspose.Slides.Effects.AlphaCeiling
-
 Aspose.Slides.Effects.AlphaCeilingEffectiveData
-
 Aspose.Slides.Effects.AlphaFloor
-
 Aspose.Slides.Effects.AlphaFloorEffectiveData
-
 Aspose.Slides.Effects.AlphaInverse
-
 Aspose.Slides.Effects.AlphaInverseEffectiveData
-
 Aspose.Slides.Effects.AlphaModulate
-
 Aspose.Slides.Effects.AlphaModulateEffectiveData
-
 Aspose.Slides.Effects.AlphaModulateFixed
-
 Aspose.Slides.Effects.AlphaModulateFixedEffectiveData
-
 Aspose.Slides.Effects.AlphaReplace
-
 Aspose.Slides.Effects.AlphaReplaceEffectiveData
-
 Aspose.Slides.Effects.BiLevel
-
 Aspose.Slides.Effects.BiLevelEffectiveData
-
 Aspose.Slides.Effects.Blur
-
 Aspose.Slides.Effects.BlurEffectiveData
-
 Aspose.Slides.Effects.ColorChange
-
 Aspose.Slides.Effects.ColorChangeEffectiveData
-
 Aspose.Slides.Effects.ColorReplace
-
 Aspose.Slides.Effects.ColorReplaceEffectiveData
-
 Aspose.Slides.Effects.Duotone
-
 Aspose.Slides.Effects.DuotoneEffectiveData
-
 Aspose.Slides.Effects.FillOverlay
-
 Aspose.Slides.Effects.FillOverlayEffectiveData
-
 Aspose.Slides.Effects.Glow
-
 Aspose.Slides.Effects.GlowEffectiveData
-
 Aspose.Slides.Effects.GrayScale
-
 Aspose.Slides.Effects.GrayScaleEffectiveData
-
 Aspose.Slides.Effects.HSL
-
 Aspose.Slides.Effects.HSLEffectiveData
-
 Aspose.Slides.Effects.InnerShadow
-
 Aspose.Slides.Effects.InnerShadowEffectiveData
-
 Aspose.Slides.Effects.Luminance
-
 Aspose.Slides.Effects.LuminanceEffectiveData
-
 Aspose.Slides.Effects.OuterShadow
-
 Aspose.Slides.Effects.OuterShadowEffectiveData
-
 Aspose.Slides.Effects.PresetShadow
-
 Aspose.Slides.Effects.PresetShadowEffectiveData
-
 Aspose.Slides.Effects.Reflection
-
 Aspose.Slides.Effects.ReflectionEffectiveData
-
 Aspose.Slides.Effects.SoftEdge
-
 Aspose.Slides.Effects.SoftEdgeEffectiveData
-
 Aspose.Slides.Effects.Tint
-
 Aspose.Slides.Effects.TintEffectiveData
-
 ``` 
+
 #### **Equals and GetHashCode methods were overridden for GradientStopEffectiveData**
 Equals and GetHashCode methods were overridden for Aspose.Slides.**GradientStopEffectiveData** class, 
 now objects of this class are compared by their semantic value.

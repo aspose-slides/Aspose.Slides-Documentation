@@ -88,27 +88,21 @@ Aspose.Slides.SlideShow.TransitionType enumeration has been extended with new el
 The code snippet below shows how to add a clone of the slide with some text to the presentation and set a transition of morph type to the second slide:
 
 ``` csharp
-
- using(Presentation presentation = new Presentation()) {
-
- AutoShape autoshape = (AutoShape) presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-
- autoshape.TextFrame.Text = "Test text";
-
- presentation.Slides.AddClone(presentation.Slides[0]);
-
- presentation.Slides[1].Shapes[0].X += 100;
-
- presentation.Slides[1].Shapes[0].Y += 50;
-
- presentation.Slides[1].Shapes[0].Width -= 200;
-
- presentation.Slides[1].Shapes[0].Height -= 10;
-
- presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
-
- presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-
+using(Presentation presentation = new Presentation()) 
+{
+  AutoShape autoshape = (AutoShape) presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+  autoshape.TextFrame.Text = "Test text";
+  
+  presentation.Slides.AddClone(presentation.Slides[0]);
+  
+  presentation.Slides[1].Shapes[0].X += 100;
+  presentation.Slides[1].Shapes[0].Y += 50;
+  presentation.Slides[1].Shapes[0].Width -= 200;
+  presentation.Slides[1].Shapes[0].Height -= 10;
+  
+  presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+  
+  presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 }
 ``` 
 
@@ -124,19 +118,12 @@ TransitionMorphType enum has three members:
 The code snippet below shows how to set morph transition to slide and change morph type:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation("presentation.pptx"))
-
+using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-
     ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-
     presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
 
 

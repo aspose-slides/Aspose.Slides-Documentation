@@ -68,97 +68,51 @@ The code snippet below shows a sample of adding some comments and some replies t
 
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     // Add comment
-
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-
     IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-
-
     // Add reply for comment1
-
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-
     IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
     reply1.ParentComment = comment1;
 
-
-
     // Add reply for comment1
-
     IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
     reply2.ParentComment = comment1;
 
-
-
     // Add reply to reply
-
     IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
     subReply.ParentComment = reply2;
 
-
-
     IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
     IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-
-
     IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
     reply3.ParentComment = comment3;
 
-
-
     // Display hierarchy on console
-
     ISlide slide = pres.Slides[0];
-
     var comments = slide.GetSlideComments(null);
-
     for (int i = 0; i < comments.Length; i++)
-
     {
-
         IComment comment = comments[i];
-
         while (comment.ParentComment != null)
-
         {
-
             Console.Write("\t");
-
             comment = comment.ParentComment;
-
         }
 
-
-
         Console.Write("{0} : {1}", comments[i].Author.Name, comments[i].Text);
-
         Console.WriteLine();
-
     }
 
-
-
     // Remove comment1 and all its replies
-
     comment1.Remove();
-
 }
-
 ``` 
-
 
 #### **IViewProperties.NormalViewProperties, INormalViewRestoredProperties, and related members have been added to provide access to the presentation's "normal view properties".**
 The normal view consists of three content regions: the slide itself, a side content region, and a bottom content region. Properties pertaining to the positioning of the different content regions. This information allows the application to save its view state to the file, so that when reopened the view is in the same state as when the presentation was last saved.
@@ -190,113 +144,62 @@ Property **DimensionSize**  specifies the size of the slide region (width when 
 Property **AutoAdjust** specifies whether the size of the side content region should compensate for the new size when resizing the window containing the view within the application
 
 
-
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-
     pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
 
-
-
     pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-
     pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-
     pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
 
-
-
     pres.Save("presentation.pptx", SaveFormat.Pptx);
-
 }
-
 ``` 
-
 
 ##### **New IOleObjectFrame .SubstitutePictureTitle property has been added**
 A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Returns or set the title for OleObject icon.
-
 /// Read/write <see cref="string"/>.
-
 /// </summary>
-
 /// <remarks>
-
 /// When IsObjectIcon == false this value is ignored.
-
 /// The string can be truncated according to the size of the Ole icon.
-
 /// </remarks>
-
 string SubstitutePictureTitle { get; set; }
-
-
 ``` 
 
 The code snippet below shows a sample of creating Excel object and setting its caption:
 
 ``` csharp
-
- string oleSourceFile = "ExcelObject.xlsx";
-
+string oleSourceFile = "ExcelObject.xlsx";
 string oleIconFile = "Image.png";
 
-
-
 using (Presentation pres = new Presentation())
-
 {
-
     IPPImage image = null;
-
     ISlide slide = pres.Slides[0];
 
-
-
     // Add Ole objects
-
     byte[] allbytes = File.ReadAllBytes(oleSourceFile);
-
     IOleObjectFrame oof = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, "Excel.Sheet.12", allbytes);
-
     oof.IsObjectIcon = true;
 
-
-
     // Add image object
-
     byte[] imgBuf = File.ReadAllBytes(oleIconFile);
-
     using (MemoryStream ms = new MemoryStream(imgBuf))
-
     {
-
         image = pres.Images.AddImage(new Bitmap(ms));
-
     }
-
     oof.SubstitutePictureFormat.Picture.Image = image;
 
-
-
     // Set caption to OLE icon
-
     oof.SubstitutePictureTitle = "Caption example";
-
 }
-
-
 ``` 
 
 **Note**. When property IsObjectIcon of an IOleObjectFrame is set to value of false then SubstitutePictureTitle property is ignored.
@@ -310,21 +213,13 @@ Property **BubbleSizeRepresentation** has been added to IChartSeries, IChartSe
 Accordingly, **BubbleSizeRepresentationType** enum has been added to specify the possible ways to represent data as bubble chart sizes.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
-
-
 
     chart.ChartData.SeriesGroups[0].BubbleSizeRepresentation = BubbleSizeRepresentationType.Width;
 
-
-
-     pres.Save("Presentation.pptx", SaveFormat.Pptx);
-
+    pres.Save("Presentation.pptx", SaveFormat.Pptx);
 }
 
 
@@ -335,133 +230,73 @@ Since version 19.5 Aspose.Slides supports converting SVG images into group of sh
 New ISvgImage interface was added to represent SVG image:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Represents an SVG image.
-
 /// </summary>
-
 [ComVisible(true), Guid("8BB43C22-78D1-4032-A149-82FCD3992F0F"), CsToCppPorter.CppVirtualInheritance("System.Object")]
-
 public interface ISvgImage
-
 {
-
        /// <summary>
-
        /// Returns SVG content.
-
        /// Read-only <see cref="string"/>.
-
        /// </summary>
-
        string SvgContent { get; }
 
-
-
        /// <summary>
-
        /// Returns SVG data.
-
        /// Read-only <see cref="T:byte[]"/>.
-
        /// </summary>
-
        byte[] SvgData { get; }
 
-
-
        /// <summary>
-
        /// Return callback interface used to resolve external resources during SVG documents import.
-
        /// Read-only <see cref="IExternalResourceResolver"/>.
-
        /// </summary>
-
        IExternalResourceResolver ExternalResourceResolver { get; }
 
-
-
        /// <summary>
-
        /// Returns base URI of the specified SVG. Used to resolve relative links.
-
        /// Read-only <see cref="string"/>.
-
        /// </summary>
-
        string BaseUri { get; }
-
 }
-
-
 ``` 
+
 #### **AddImage method has been added to IImageCollection interface and ImageCollection class**
 New AddImage method has been added to IImageCollection interface and ImageCollection class:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Add an image to a presentation from SVG object.
-
 /// </summary>
-
 /// <param name="svgImage">Svg image object <see cref="ISvgImage"/></param>
-
 /// <returns>Added image.</returns>
-
 /// <exception cref="ArgumentNullException">When svgImage parameter is null.</exception>
-
 IPPImage AddImage(ISvgImage svgImage);
-
-
 ``` 
 
 These methods provide ability to insert Svg fragment to the presentation's image collection:
 
 ``` csharp
-
- using (var p = new Presentation())
-
+using (var p = new Presentation())
 {
-
     string svgContent = File.ReadAllText(svgPath);
-
     ISvgImage svgImage = new SvgImage(svgContent);
-
     IPPImage ppImage = p.Images.AddImage(svgImage);
-
     p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, ppImage.Width, ppImage.Height, ppImage);
-
     p.Save(outPptxPath, SaveFormat.Pptx);
-
 }
-
-
 ``` 
 
 ``` csharp
-
- using (var p = new Presentation())
-
+using (var p = new Presentation())
 {
-
     string svgContent = File.ReadAllText(new Uri(new Uri(baseDir), "image1.svg").AbsolutePath);
-
     ISvgImage svgImage = new SvgImage(svgContent, new ExternalResourceResolver(), baseDir);
-
     IPPImage ppImage = p.Images.AddImage(svgImage);
-
     p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, ppImage.Width, ppImage.Height, ppImage);
-
     p.Save(outPptxPath, SaveFormat.Pptx);
-
 }
-
-
 ``` 
 
 **Pay attention** that methods IPPImage **AddFromSvg**(string svgContent) and IPPImage **AddFromSvg**(string svgContent, IExternalResourceResolver externalResResolver, string baseUri) marked now as obsolete and will be deleted from API since version 19.10.
@@ -469,76 +304,43 @@ These methods provide ability to insert Svg fragment to the presentation's image
 New property **SvgImage** have been to **IPPImage** interface and **PPImage** class:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Returns or sets ISvgImage object <see cref="ISvgImage"/>
-
 /// </summary>
-
 /// <remarks>This value indicates that this image has been created from svg.</remarks>
-
 ISvgImage SvgImage { get; set; }
-
-
 ``` 
+
 #### **AddGroupShape method has been added to IShapeCollection interface and IShapeCollection class**
 New AddGroupShape method has been added to IShapeCollection interface and ShapeCollection class:
 
 ``` csharp
-
- /// <summary>
-
+/// <summary>
 /// Creates a new GroupShape, fills it with converted shapes from SVG and adds it to the end of the collection.
-
 /// </summary>
-
 /// <param name="svgImage">Svg image object <see cref="ISvgImage"/></param>
-
 /// <param name="x">The X coordinate for the left side of the shape group frame.</param>
-
 /// <param name="y">The Y coordinate for the top side of the shape group frame.</param>
-
 /// <param name="width">The width of the group of the shape group frame.</param>
-
 /// <param name="height">The height of a group of the shape group frame.</param>
-
 /// <returns>Created GroupShape object.</returns>
-
 IGroupShape AddGroupShape(ISvgImage svgImage, float x, float y, float width, float height);
-
-
 ``` 
 
 This method allows to convert SvgImage object that represents SVG data into group of shapes:
 
 ``` csharp
-
- using (Presentation pres = new Presentation(pptxFileName))
-
+using (Presentation pres = new Presentation(pptxFileName))
 {
-
     PictureFrame pFrame = pres.Slides[0].Shapes[0] as PictureFrame;
-
     ISvgImage svgImage = pFrame.PictureFormat.Picture.Image.SvgImage;
-
     if (svgImage != null)
-
     {
-
         // Convert svg image into group of shapes
-
         IGroupShape groupShape = pres.Slides[0].Shapes.AddGroupShape(svgImage, pFrame.Frame.X, pFrame.Frame.Y,
-
             pFrame.Frame.Width, pFrame.Frame.Height);
-
         // remove source svg image from presentation
-
         pres.Slides[0].Shapes.Remove(pFrame);
-
     }
-
 }
-
-
 ``` 

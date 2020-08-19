@@ -115,115 +115,59 @@ Parameter **updateChartData** defines whether excel workbook will be loaded or n
 
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
       IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
-
       IChartData chartData = chart.ChartData;
-
       (chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
-
 }
-
-
 ``` 
-
-
-
 In some scenarios user have to implement retrieving of workbook data on his own. For example if access to the source protected by password. In such cases user can use IResourceLoadingCallback.
 
-
-
 ``` csharp
-
- public void SetExternalWorkbookMethodNetwork()
-
+public void SetExternalWorkbookMethodNetwork()
 {
-
    string externalWbPath = @"http://606178d2.ngrok.io/webgrind/styles/2.xlsx";
-
    LoadOptions opts = new LoadOptions();
-
    opts.ResourceLoadingCallback = new WorkbookLoadingHandler();
-
    using (Presentation pres = new Presentation(opts))
-
    {
-
       IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
-
       IChartData chartData = chart.ChartData;
-
       (chartData as ChartData).SetExternalWorkbook(externalWbPath);
-
    }
-
 }
 
-
 private class WorkbookLoadingHandler : IResourceLoadingCallback
-
 {
-
    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
-
    {
-
       string workbookPath = args.OriginalUri;
-
       if (workbookPath.IndexOf(':') > 1 && !workbookPath.StartsWith("file:///")) // schemed path
-
       {
-
          try
-
          {
-
             WebRequest request = WebRequest.Create(workbookPath);
-
             request.Credentials = new System.Net.NetworkCredential("testuser", "testuser");
-
             using (WebResponse response = request.GetResponse())
-
             using (Stream responseStream = response.GetResponseStream())
-
             {
-
                 byte[] buffer = BlobDownloadManager.Download(responseStream);
-
                 args.SetData(buffer);
-
                 return ResourceLoadingAction.UserProvided;
-
             }
-
           }
-
           catch (Exception ex)
-
           {
-
              throw new InvalidOperationException(ex.ToString());
-
           }
-
       }
-
       else
-
       {
-
           return ResourceLoadingAction.Default;
-
       }
-
    }
-
 } 
-
 ``` 
 
 
@@ -235,21 +179,14 @@ It allows to add new animation effect for single paragraph.
 Usage example:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation(path + "input.pptx")
-
+using (Presentation presentation = new Presentation(path + "input.pptx")
 {
-
- // select paragraph to add effect
-
- IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
- IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
-
- // add Fly animation effect to selected paragraph
-
- IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
+	// select paragraph to add effect
+	IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+	IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
+	
+	// add Fly animation effect to selected paragraph
+	IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 }
 
 

@@ -80,13 +80,9 @@ It allows to get or set the title of alternative text associated with a shape.
 Sample code demonstrating setting alternative text title:
 
 ``` csharp
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 IAutoShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 50, 300, 150);
-
 shape.AlternativeTextTitle = "Alt text title";
-
 ``` 
 
 

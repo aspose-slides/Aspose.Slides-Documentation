@@ -90,120 +90,76 @@ This page contains release notes for [Aspose.Slides for .NET 19.6](https://www.
 #### **PLEASE NOTE: Obsolete methods and properties related to notes and comments have been deleted**
 Following methods of the **INotesSlide** interface have been removed:
 
-**Bitmap GetThumbnail(float scaleX, float scaleY);**
-
-**Bitmap GetThumbnail(Size imageSize);**
+- **Bitmap GetThumbnail(float scaleX, float scaleY);**
+- **Bitmap GetThumbnail(Size imageSize);**
 
 Use **ISlide.GetThumbnail** method with parameter of type **INotesCommentsLayoutingOptions** instead.
 
 Following methods of the **ISlide** interface have been removed:
-
-**void RenderToGraphics(bool withNotes, Graphics graphics, int width, int height);**
-
-**void RenderToGraphics(bool withNotes, Graphics graphics, float scale);**
-
-**void RenderToGraphics(bool withNotes, Graphics graphics);**
+- **void RenderToGraphics(bool withNotes, Graphics graphics, int width, int height);**
+- **void RenderToGraphics(bool withNotes, Graphics graphics, float scale);**
+- **void RenderToGraphics(bool withNotes, Graphics graphics);**
 
 Use **RenderToGraphics** method with parameter of type **INotesCommentsLayoutingOptions** instead.
 
 Property **bool IncludeComments** has been removed from IHtmlOptions, IPdfOptions, ISwfOptions and ITiffOptions interfaces. Use **INotesCommentsLayoutingOptions** interface instead.
 
 Named constants **PdfNotes**, **TiffNotes**, **SwfNotes** and **HtmlNotes** have been removed from the **SaveFormat** enumeration. Use specific options with **INotesCommentsLayoutingOptions** element for saving presentation instead.
+
 #### **BackgroundEffectiveData class and IBackgroundEffectiveData interface have been added**
 Aspose.Slides.IBackgroundEffectiveData interface and it's implementation by Aspose.Slides.BackgroundEffectiveData class have been added. They represent effective background of slide and contain information about effective fill format and effective effect format.
+
 #### **IBaseSlide.CreateBackgroundEffective method has been added**
 CreateBackgroundEffective method has been added to IBaseSlide interface and BaseSlide class. Using this method allows to get effective values for slide's background.
 
 Sample code below outputs effective background fill:
 
-
-
 ``` csharp
-
- Presentation pres = new Presentation("SamplePresentation.pptx");
-
+Presentation pres = new Presentation("SamplePresentation.pptx");
 IBackgroundEffectiveData effBackground = pres.Slides[0].CreateBackgroundEffective();
-
 if (effBackground.FillFormat.FillType == FillType.Solid)
-
     Console.WriteLine("Fill color: " + effBackground.FillFormat.SolidFillColor);
-
 else
-
     Console.WriteLine("Fill type: " + effBackground.FillFormat.FillType);
-
-
 ``` 
 
 
 #### **New IProgressCallback interface has been added**
 New IProgressCallback interface has been added to ISaveOptions interface and SaveOptions abstract class. IProgressCallback interface represents a callback object for saving progress updates in percentage.
 
-
-
 ``` csharp
-
- public interface IProgressCallback
-
+public interface IProgressCallback
 {
-
     /// <summary>
-
     /// Reports a progress update.
-
     /// </summary>
-
     /// <param name="progressValue">A value of the updated progress.</param>
-
     void Reporting(double progressValue);
-
 }
-
-
-
 ``` 
-
-
 
 Code snippets below show how to use IProgressCallback interface:
 
 ``` csharp
-
- using (Presentation presentation = new Presentation(fileName))
-
+using (Presentation presentation = new Presentation(fileName))
 {
-
     ISaveOptions saveOptions = new PdfOptions();
-
     saveOptions.ProgressCallback = new ExportProgressHandler();
-
     presentation.Save(pdfFileName, SaveFormat.Pdf, saveOptions);
-
 }
 
-
-``` 
-
-``` csharp
-
- class ExportProgressHandler : IProgressCallback
-
+class ExportProgressHandler : IProgressCallback
 {
-
     public void Reporting(double progressValue)
-
     {
-
         // Use progress percentage value here
-
     }
-
 }
-
-
 ``` 
+
 #### **Pot value has been added to LoadFormat and SaveFormat enumerations**
 The new **Pot** value has been added to **Aspose.Slides.LoadFormat** and **Aspose.Slides.SaveFormat** enumerations. This value represents Microsoft PowerPoint 97-2003 Presentation template format.
+
 #### **Support of management images as BLOBs has been added**
 The new method has been added to **IImageCollection** interface and **ImageCollection** class to support adding large image as streams to treat them as BLOBs:
 
@@ -211,51 +167,26 @@ The new method has been added to **IImageCollection** interface and **ImageColle
 ##### **Adding new image as BLOB to the presentation**
 This example demonstrates how to include the large BLOB (image) and prevent a high memory consumption.
 
-
-
 ``` csharp
-
- static void AddingNewBlobImageToPresentation()
-
+static void AddingNewBlobImageToPresentation()
 {
-
     // supposed we have the large image file we want to include into the presentation
-
     const string pathToLargeImage = "largeImage.png";
 
-
-
     // create a new presentation which will contain this image
-
     using (Presentation pres = new Presentation())
-
     {
-
         using (FileStream fileStream = new FileStream(pathToLargeImage, FileMode.Open))
-
         {
-
             // let's add the image to the presentation - we choose KeepLocked behavior, because we not
-
             // have an intent to access the "largeImage.png" file.
-
             IPPImage img = pres.Images.AddImage(fileStream, LoadingStreamBehavior.KeepLocked);
-
             pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
-
-
             // save the presentation. Despite that the output presentation will be
-
             // large, the memory consumption will be low the whole lifetime of the pres object
-
             pres.Save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
-
         }
-
     }
-
 }
-
-
 ``` 

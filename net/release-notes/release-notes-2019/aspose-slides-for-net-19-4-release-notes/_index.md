@@ -60,85 +60,47 @@ Since version 19.4 Aspose.Slides supports external workbooks as a data source fo
 IResourceLoadingCallback can be used to manage external workbook loading.
 
 
-
  1) Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook can't be loaded an exception is thrown.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("presentation.pptx"))
-
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
-
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
-
     ChartData chartData = (ChartData)chart.ChartData;
-
-
 
     Assert.AreEqual(chartData.DataSourceType, ChartDataSourceType.ExternalWorkbook);
 
-
-
     chartData.Series[0].DataPoints[0].Value.AsCell.Value = 100;
-
     pres.Save(outPptxFileName, SaveFormat.Pptx);
-
 }
-
-
 ``` 
-
-
 
  2) An external workbook can be assigned to a chart as a data source. For this purpose IChartData.SetExternalWorkbook(string workbookPath) method has been added.
 
 SetExternalWorkbook() method can be also used to update a path to the external workbook if it has been moved. *Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. *If the relative path was provided for an external workbook, it converts to full path automatically.
 
 ``` csharp
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
-
     IChartData chartData = chart.ChartData;
-
-
 
     Assert.AreEqual(chartData.DataSourceType, ChartDataSourceType.InternalWorkbook);
 
-
-
     chartData.SetExternalWorkbook("externalWorkbook.xlsx");
-
-
 
     Assert.AreEqual(chartData.DataSourceType, ChartDataSourceType.ExternalWorkbook);
 
-
-
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
-
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
-
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B3"));
-
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B4"));
 
-
-
     chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A2"));
-
     chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A3"));
-
     chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A4"));
-
     pres.Save("Presentation.pptx", SaveFormat.Pptx);
-
 }
-
-
 ``` 
 
 
@@ -146,40 +108,21 @@ SetExternalWorkbook() method can be also used to update a path to the external w
  3) Combination of methods IChartData.ReadWorkbookStream() and IChartData.SetExternalWorkbook() can be used to create an external workbook from scratch or to make an internal workbook external.
 
 ``` csharp
-
- using (Presentation pres = new Presentation("presentaion.pptx"))
-
+using (Presentation pres = new Presentation("presentaion.pptx"))
 {
-
     string externalWbPath = "externalWorkbook.pptx";
-
-
 
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600);
 
-
-
     if (File.Exists(externalWbPath))
-
         File.Delete(externalWbPath);
 
-
-
     using (FileStream fileStream = new FileStream(externalWbPath, FileMode.CreateNew))
-
     {
-
         byte[] worbookData = chart.ChartData.ReadWorkbookStream().ToArray();
-
         fileStream.Write(worbookData, 0, worbookData.Length);
-
     }
 
-
-
     chart.ChartData.SetExternalWorkbook(externalWbPath);
-
 }
-
-
 ``` 
