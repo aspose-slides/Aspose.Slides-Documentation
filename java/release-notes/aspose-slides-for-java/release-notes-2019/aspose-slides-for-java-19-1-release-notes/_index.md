@@ -34,13 +34,9 @@ By default Aspose.Slides for Java uses system locale.
 Available methods in the CurrentThreadSettings class:
 
 ``` java
-
- public static final Locale getLocale()
-
+public static final Locale getLocale()
 public static final void setLocale(Locale locale)
-
 public static final void setLocale(String localeName)
-
 ```
 
 - getLocale() method returns default Locale for Aspose.Slides.
@@ -49,10 +45,9 @@ public static final void setLocale(String localeName)
 Sample code demonstrating setting en-US Locale:
 
 ``` java
-
- CurrentThreadSettings.setLocale(new Locale("en", "US"));
-
+CurrentThreadSettings.setLocale(new Locale("en", "US"));
 ```
+
 #### **getAlternativeTextTitle and setAlternativeTextTitle methods have been added to IShape interface**
 A new methods getAlternativeTextTitle and setAlternativeTextTitle have been added to IShape interface and Shape class.
 
@@ -61,13 +56,9 @@ These methods allow to get or set the title of alternative text associated with 
 Sample code demonstrating setting alternative text title:
 
 ``` java
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 50, 300, 150);
-
 shape.setAlternativeTextTitle("Alt text title");
-
 ```
 
 

@@ -12,7 +12,6 @@ request a free 30-day temporary license.
 ## **Major Features**
 SLIDESNET-35615 - FontEntity class alternate / implementation in the latest version of Aspose.Slides
 ## **Minor Features**
-Minor Features
 
 SLIDESJAVA-34406 - Support for managing VBA macros inside presentation
 
@@ -50,9 +49,7 @@ SLIDESNET-3710 - Serialization of Group Shapes
 
 SLIDESNET-12540 - Paragraph.BulletOffset has no effect
 ## **Other Improvements ans Changes**
-Other Improvements ans Changes
-
-Bug Fixes
+#### **Bug Fixes**
 
 SLIDESJAVA-33223 - Problems to create PDF' on servers with java.awt.headless=true
 
@@ -72,11 +69,7 @@ SLIDESJAVA-34650 - WordArt text is improperly rendered in thumbnail
 
 SLIDESJAVA-34647 - Not able to view the HTML file after converting a PPT file
 
-SLIDESJAVA-34646 - Metafile
-
-- throws NullPointerException
-
-throws NullPointerException
+SLIDESJAVA-34646 - Metafile throws NullPointerException
 
 SLIDESJAVA-34645 - TextureBrush throws ClassCastException: Metafile cannot be cast to Bitmap
 
@@ -130,55 +123,46 @@ SLIDESJAVA-30584 - Shapes improperly rendered in the slide thumbnail
 
 SLIDESJAVA-30583 - Slide title failed to render in generated thumbnail
 ## **Public API Changes**
+
+#### **Fonts substitutions functionality has been added**
+The possibility to replace fonts globally across the presentation and temporary for rendering has been added.
+
+New method getFontsManager() of Presentation class has been introduced. FontsManager class has following members:
+
+**IFontSubstRuleCollection getFontSubstRuleList()** method
+
+This is the collection of IFontSubstRule instances used to substitute fonts during rendering.IFontSubstRule has getSourceFont() and getDestFont() methods implementing IFontData interface and getReplaceFontCondition() method allowing to choose the condition of replacement ("WhenInaccessible" or "Always").
+
+IFontData getFonts() method can be used to retrieve all fonts used in the current presentation.
+
+replaceFont(...) methods can be used to persistently replace a font in a presentation.
+
+The following example shows how to replace a font in a presentation:
+
 ``` java
-
-
-
-Public API Changes
-
-Fonts substitutions functionality has been added
-
 Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
-
 IFontData sourceFont = new FontData("Arial");
-
-
 IFontData destFont = new FontData("Times New Roman");
-
-
 pres.getFontsManager().replaceFont(sourceFont, destFont);
 
-
 pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
+```
 
+``` java
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
-
 IFontData sourceFont = new FontData("SomeRareFont");
-
-
 IFontData destFont = new FontData("Arial");
 
-
 IFontSubstRule fontSubstRule = new FontSubstRule(
-
-
 sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-
 IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-
 fontSubstRuleCollection.add(fontSubstRule);
-
 
 pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-
 // Arial font will be used instead of SomeRareFont when inaccessible
-
-
 pres.getSlides().get_Item(0).getThumbnail(1, 1);
-
 ```

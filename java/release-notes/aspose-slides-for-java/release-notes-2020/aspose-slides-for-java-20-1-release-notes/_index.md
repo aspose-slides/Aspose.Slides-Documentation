@@ -42,36 +42,21 @@ It allows to get or set the default font used instead of all missing fonts durin
 
 The code snippet below demonstrates saving presentation to HTML and PDF with different default regular font.
 
-
-
 ``` java
-
- Presentation pres = new Presentation("SomePresentation.pptx");
-
+Presentation pres = new Presentation("SomePresentation.pptx");
 try
-
 {
-
     HtmlOptions htmlOpts = new HtmlOptions();
-
     htmlOpts.setDefaultRegularFont("Arial Black");
-
     pres.save("SomePresentation-out-ArialBlack.html", SaveFormat.Html, htmlOpts);
-
+	
     htmlOpts.setDefaultRegularFont("Lucida Console");
-
     pres.save("Somepresentation-out-LucidaConsole.html", SaveFormat.Html, htmlOpts);
-
+	
     PdfOptions pdfOpts = new PdfOptions();
-
     pdfOpts.setDefaultRegularFont("Arial Black");
-
     pres.save("SomePresentation-out-ArialBlack.pdf", SaveFormat.Pdf, pdfOpts);
-
 } finally {
-
     if (pres != null) pres.dispose();
-
 }
-
 ```

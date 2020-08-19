@@ -25,51 +25,15 @@ Specifies the visibility of comments that do not have an author.
 By default getShowCommentsByNoAuthor() return false, which means that comments without authors are not displayed.
 
 ``` java
-
- Presentation pres = new Presentation("no-author.odp");
-
+Presentation pres = new Presentation("no-author.odp");
 try
-
 {
-
-PdfOptions options = new PdfOptions();
-
-options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
-
-options.getNotesCommentsLayouting().setShowCommentsByNoAuthor(true);
-
-pres.save("out_pres.pdf", SaveFormat.Pdf, options);
-
+    PdfOptions options = new PdfOptions();
+    options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+    options.getNotesCommentsLayouting().setShowCommentsByNoAuthor(true);
+    pres.save("out_pres.pdf", SaveFormat.Pdf, options);
 }
-
 finally {
-
-pres.dispose();
-
+    pres.dispose();
 }
-
 ```
-
-
-
-h4. getShowCommentsByNoAuthor and setShowCommentsByNoAuthor methods have been added to INotesCommentsLayoutingOptions 
-
-getShowCommentsByNoAuthor() and setShowCommentsByNoAuthor(boolean) methods have been added to INotesCommentsLayoutingOptions. 
-
-Specifies the visibility of comments that do not have an author. 
-
-By default getShowCommentsByNoAuthor() return false, which means that comments without authors are not displayed. 
-
-{code} 
-Presentation pres = new Presentation("no-author.odp"); 
-try 
-{ 
-PdfOptions options = new PdfOptions(); 
-options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right); 
-options.getNotesCommentsLayouting().setShowCommentsByNoAuthor(true); 
-pres.save("out_pres.pdf", SaveFormat.Pdf, options); 
-} 
-finally { 
-pres.dispose(); 
-} 
-{code}

@@ -36,103 +36,79 @@ url: /java/aspose-slides-for-java-17-8-release-notes/
 getNotesStyle() method has been added to IMasterNotesSlide interface and MasterNotesSlide class respectively. Return value specifies the style of a notes text.
 
 ``` java
-
- Presentation presentation = new Presentation("Presentation.pptx");
-
+Presentation presentation = new Presentation("Presentation.pptx");
 try{
+    IMasterNotesSlide notesMaster = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
 
-IMasterNotesSlide notesMaster = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+    if (notesMaster != null) {
+        // Get MasterNotesSlide text style
+        ITextStyle notesStyle = notesMaster.getNotesStyle();
 
-if (notesMaster != null) {
+        //Set symbol bullet for the first level paragraphs
+        IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
+        paragraphFormat.getBullet().setType(BulletType.Symbol);
+    }
 
-// Get MasterNotesSlide text style
-
-ITextStyle notesStyle = notesMaster.getNotesStyle();
-
-//Set symbol bullet for the first level paragraphs
-
-IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
-
-paragraphFormat.getBullet().setType(BulletType.Symbol);
-
-}
-
-presentation.save("Presentation-out.pptx", SaveFormat.Pptx);
-
+    presentation.save("Presentation-out.pptx", SaveFormat.Pptx);
 }finally {
-
-presentation.dispose();
-
+    presentation.dispose();
 }
-
 ```
+
 #### **Method com.aspose.slides.IChartData.switchRowColumn() has been added**
 Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa.
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-
-chart.getChartData().switchRowColumn();
-
-pres.save(outputFileName, SaveFormat.Pptx);
-
+    chart.getChartData().switchRowColumn();
+    pres.save(outputFileName, SaveFormat.Pptx);
 }finally {
-
-pres.dispose();
-
+    pres.dispose();
 }
-
 ```
+
 #### **Method FontsLoader.getFontFolders() has been added**
 Returns folders where font files are searched. Those are folders that have been added with loadExternalFonts() method as well as system font folders.
 
 ``` java
-
- String[] fontFolders = FontsLoader.getFontFolders();
-
+String[] fontFolders = FontsLoader.getFontFolders();
 ```
+
 #### **New EmbedFontCharacters enum and addEmbeddedFont() methods have been added**
 To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloaded methods addEmbeddedFont() have been added:
 
 EmbedFontCharacters enum has two members:
-
-OnlyUsed: Embed only the characters used in the presentation (best for reducing file size).
-All: Embed all characters (best for editing by other people).
+- **OnlyUsed**: Embed only the characters used in the presentation (best for reducing file size).
+- **All**: Embed all characters (best for editing by other people).
 
 New methods addEmbeddedFont() have been added to IFontsManager interface and FontsManager implementation class:
 
 To embed font from existing IFontData:
-
+```java
 void addEmbeddedFont(IFontData fontData, EmbedFontCharacters embedFontRule)
+```
 
 To embed font from a binary data:
-
+```java
 void addEmbeddedFont(byte[] fontData, EmbedFontCharacters embedFontRule)
+```
 
 Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in Presentation can be embedded:
 
 ``` java
-
- IFontData[] allFonts = pres.getFontsManager().getFonts();
-
+IFontData[] allFonts = pres.getFontsManager().getFonts();
 IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-
 for (IFontData font : except(allFonts, embeddedFonts))
-
 {
-
-pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
-
+    pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 }
-
 ```
 
 Please note that an ArgumentException will be thrown if embedded font which is already embedded will be added again using addEmbeddedFont() method.
+
 #### **Methods to get-set edges of fill rectangle have been added to com.aspose.slides.IPictureFillFormat interface and PictureFillFormat class**
 getStretchOffsetLeft, setStretchOffsetLeft, getStretchOffsetTop, setStretchOffsetTop, getStretchOffsetRight, setStretchOffsetRight, getStretchOffsetBottom, setStretchOffsetBottom methods have been added to IPictureFillFormat interface and PictureFillFormat class respectively.
 
@@ -145,55 +121,36 @@ For example, a left offset of 25% specifies that the left edge of the fill recta
 Code example:
 
 ``` java
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 try {
+    // Get the first slide of presentation
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Get the first slide of presentation
+    // Add an AutoShape of Rectangle type
+    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-ISlide slide = presentation.getSlides().get_Item(0);
+    // Create image
+    BufferedImage img = ImageIO.read(new File("image.png"));
+    IPPImage imgEx = presentation.getImages().addImage(img);
 
-// Add an AutoShape of Rectangle type
+    // Set shape's fill type
+    aShape.getFillFormat().setFillType(FillType.Picture);
 
-IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    // Set shape's picture fill mode
+    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-// Create image
+    // Set image to fill the shape
+    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(imgEx);
 
-BufferedImage img = ImageIO.read(new File("image.png"));
+    // Specify image offsets from the corresponding edge of the shape's bounding box
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25f);
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25f);
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20f);
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10f);
 
-IPPImage imgEx = presentation.getImages().addImage(img);
-
-// Set shape's fill type
-
-aShape.getFillFormat().setFillType(FillType.Picture);
-
-// Set shape's picture fill mode
-
-aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-// Set image to fill the shape
-
-aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(imgEx);
-
-// Specify image offsets from the corresponding edge of the shape's bounding box
-
-aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25f);
-
-aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25f);
-
-aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20f);
-
-aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10f);
-
-// Save created presentation
-
-presentation.save("StretchOffsetExample.pptx", SaveFormat.Pptx);
-
+    // Save created presentation
+    presentation.save("StretchOffsetExample.pptx", SaveFormat.Pptx);
 } finally {
-
-presentation.dispose();
-
+    presentation.dispose();
 }
-
 ```

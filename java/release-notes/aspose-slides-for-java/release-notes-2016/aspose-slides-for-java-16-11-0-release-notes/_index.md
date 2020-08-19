@@ -23,7 +23,7 @@ url: /java/aspose-slides-for-java-16-11-0-release-notes/
 ## **Public API Changes**
 #### **Deprecated type com.aspose.slides.PropertyType was removed**
 Obsoleted type com.aspose.slides.PropertyType was removed with all methods that use it
-
+```java
 com.aspose.slides.PropertyType
 com.aspose.slides.BehaviorProperty.getByType(int)
 com.aspose.slides.BehaviorPropertyCollection.add(int)
@@ -31,85 +31,61 @@ com.aspose.slides.BehaviorPropertyCollection.contains(int)
 com.aspose.slides.BehaviorPropertyCollection.indexOf(int)
 com.aspose.slides.BehaviorPropertyCollection.insert(int,int)
 com.aspose.slides.BehaviorPropertyCollection.remove(int)
+```
 #### **Method getInvertedSolidFillColor() was added to ChartSeries and IChartSeries**
 Method IColorFormat getInvertedSolidFillColor() was added to com.aspose.slides.ChartSeries and com.aspose.slides.IChartSeries
 
 ``` java
-
- java.awt.Color inverColor = java.awt.Color.red;
-
+java.awt.Color inverColor = java.awt.Color.red;
 java.awt.Color seriesColor;
 
 final Presentation pres = new Presentation();
-
 try
-
 {
+	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+	IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
 
-IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
+	chart.getChartData().getSeries().clear();
+	chart.getChartData().getCategories().clear();
 
-chart.getChartData().getSeries().clear();
+	// Adding new series
+	chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
 
-chart.getChartData().getCategories().clear();
+	// Adding new categories
+	chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
+	chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
+	chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
 
-// Adding new series
+	// Take first chart series
+	IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
+	// Now populating series data
+	series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
+	series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
+	series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
 
-// Adding new categories
+	seriesColor = series.getAutomaticSeriesColor();
 
-chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-
-chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-
-chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-// Take first chart series
-
-IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-// Now populating series data
-
-series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-
-series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-
-series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-
-seriesColor = series.getAutomaticSeriesColor();
-
-series.setInvertIfNegative(true);
-
-series.getFormat().getFill().setFillType(FillType.Solid);
-
-series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-
-series.getInvertedSolidFillColor().setColor(inverColor);
-
-pres.save(outPath, SaveFormat.Pptx);
-
+	series.setInvertIfNegative(true);
+	series.getFormat().getFill().setFillType(FillType.Solid);
+	series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
+	series.getInvertedSolidFillColor().setColor(inverColor);
+	pres.save(outPath, SaveFormat.Pptx);
 }
-
 finally { if (pres != null) ((IDisposable)pres).dispose(); }
-
 ```
+
 #### **Methods getName() and setName() were added to com.aspose.slides.MasterSlide**
 Methods getName() and setName() were added to com.aspose.slides.MasterSlide
 
 ``` java
-
- final Presentation pres = new Presentation(fileName);
-
+final Presentation pres = new Presentation(fileName);
 ...
-
 pres.getMasters().get_Item(0).setName("NewMasterName");
-
 pres.getMasters().get_Item(0).getName();
-
 ...
-
 ```
+
 #### **Some methods marked as final**
 297 public methods have been marked as final to ensure proper library using.

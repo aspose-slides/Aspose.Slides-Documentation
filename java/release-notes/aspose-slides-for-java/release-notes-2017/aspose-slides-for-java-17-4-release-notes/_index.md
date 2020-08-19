@@ -21,37 +21,28 @@ url: /java/aspose-slides-for-java-17-4-release-notes/
 |SLIDESJAVA-36086|PPT to PDF creates corrupted output when pdfOptions.setSaveMetafilesAsPng(false) is used.|Bug|
 |SLIDESJAVA-35983|Exception on loading PPTX|Bug|
 |SLIDESJAVA-35671|Diagrams content missing while converting PPTX to PDF|Bug|
+
 ## **Public API Changes**
+
 #### **getActualX, getActualY, getActualWidth, getActualHeight methods have been added to IDataLabel, DataLabel**
 float getActualX() - Gets actual X location (left) of the chart element relative to the left top corner of the chart. Call method IChart.validateChartLayout() before to get actual values.
-float getActualY() - Gets actual top of the chart element relative to the left top corner of the chart. Call method IChart.validateChartLayout() before to get actual values.
-float getActualWidth() - Gets actual width of the chart element. Call method IChart.validateChartLayout() before to get actual values.
-float getActualHeight() - Gets actual height of the chart element. Call method IChart.validateChartLayout() before to get actual values.
+
+- float getActualY() - Gets actual top of the chart element relative to the left top corner of the chart. Call method IChart.validateChartLayout() before to get actual values.
+- float getActualWidth() - Gets actual width of the chart element. Call method IChart.validateChartLayout() before to get actual values.
+- float getActualHeight() - Gets actual height of the chart element. Call method IChart.validateChartLayout() before to get actual values.
 
 Call method IChart.ValidateChartLayout() previously to get actual values for these methods.
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
-
-Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-
-chart.validateChartLayout();
-
-double x = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualX();
-
-double y = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualY();
-
-double w = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualWidth();
-
-double h = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualHeight();
-
+	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
+	chart.validateChartLayout();
+	double x = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualX();
+	double y = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualY();
+	double w = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualWidth();
+	double h = chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(0).getActualHeight();
 } finally {
-
-if (pres != null) pres.dispose();
-
+	if (pres != null) pres.dispose();
 }
-
 ```

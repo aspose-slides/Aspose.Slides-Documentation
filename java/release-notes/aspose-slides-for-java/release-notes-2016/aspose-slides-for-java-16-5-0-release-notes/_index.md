@@ -70,122 +70,81 @@ url: /java/aspose-slides-for-java-16-5-0-release-notes/
 ## **Public API Changes**
 #### **Aspose.Slides for Java 16.5.0 depends on Bouncy Castle 1.54**
 'Bouncy Castle Crypto API' library has been updated to release 1.54. Aspose.Slides for Java 16.5.0 depends from latest version of this library now.
+
 #### **getPicture() method has been added to IBulletFormat interface and BulletFormat class**
 This method represents the picture used as a bullet in the paragraph.
+
 Code snippet:
-
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try
-
 {
-
 	 //Accessing the first slide
-
 	 ISlide slide = pres.getSlides().get_Item(0);
 
 	 //Instantiate the image for bullets
-
 	 BufferedImage img = null;
-
 	 try {
-
 		 img = ImageIO.read(new File("bullet.jpg"));
-
 	 } catch (IOException e) { }
-
 	 IPPImage imgx = pres.getImages().addImage(img);
 
 	 //Adding and accessing Autoshape
-
 	 IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
 	 //Accessing the text frame of created autoshape
-
 	 ITextFrame txtFrm = aShp.getTextFrame();
-
 	 //Removing the default exisiting paragraph
-
 	 txtFrm.getParagraphs().removeAt(0);
 
 	 //Creating new paragraph
-
 	 Paragraph para = new Paragraph();
-
 	 para.setText("Welcome to Aspose.Slides");
 
 	 //Setting paragraph bullet style and image
-
 	 para.getParagraphFormat().getBullet().setType(BulletType.Picture);
-
 	 para.getParagraphFormat().getBullet().getPicture().setImage(imgx);
 
 	 //Setting Bullet Height
-
 	 para.getParagraphFormat().getBullet().setHeight(100);
 
 	 //Adding Paragraph to text frame
-
 	 txtFrm.getParagraphs().add(para);
 
 	 //Writing the presentation as a PPTX file
-
 	 pres.save("Bullet.pptx", SaveFormat.Pptx);
-
 	 //Writing the presentation as a PPT file
-
 	 pres.save("Bullet.ppt", SaveFormat.Ppt);
-
 	 //Writing the presentation as a ODP file
-
 	 pres.save("Bullet.odp", SaveFormat.Odp);
-
 }
-
 finally
-
 {
-
 	if(pres != null) pres.dispose();
-
 }
-
 ```
+
 #### **getShowHiddenSlides(), setShowHiddenSlides() methods have been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions and IXpsOption interfaces and correspondent classes**
 Methods getShowHiddenSlides() and setShowHiddenSlides() have been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions, IXpsOption interfaces and HtmlOptions, PdfOption, SwfOptions, TiffOptions, XpsOption classes.
+
 These methods specifies whether the exported document should include hidden slides or not. Default value is "false".
+
 Code example:
-
 ``` java
-
- Presentation pres = new Presentation("Presentation.pptx");
-
+Presentation pres = new Presentation("Presentation.pptx");
 try
-
 {
-
 	//Instantiate the PdfOptions class
-
 	PdfOptions pdfOptions = new PdfOptions();
 
 	//Specify that the generated document should include hidden slides
-
 	pdfOptions.setShowHiddenSlides(true);
 
 	//Save the presentation to PDF with specified options
-
 	pres.save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
-
 }
-
 finally
-
 {
-
 	if(pres != null) pres.dispose();
-
 }
-
 ```

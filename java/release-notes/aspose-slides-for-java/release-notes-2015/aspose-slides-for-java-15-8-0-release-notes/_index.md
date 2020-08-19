@@ -6,14 +6,12 @@ url: /java/aspose-slides-for-java-15-8-0-release-notes/
 ---
 
 ## **Minor Changes**
-Minor Changes
 
 SLIDESNET-35418 - Set Doughnut Hole Size in Doughnut Chart
 
 SLIDESJAVA-33949 - Support for embedding video for Media Player ActiveX control
 ## **Other Improvements and Changes**
-# **Other Improvements and Changes**
-Bug Fixes
+#### **Bug Fixes**
 
 SLIDESJAVA-35037 - SAXParseException on set license method
 
@@ -79,21 +77,11 @@ SLIDESJAVA-33856 - Chart series labels are improperly rendered in generated PDF
 
 SLIDESJAVA-32785 - The thumbnail is improperly rendered if it is lesser then slide size
 ## **Public API Changes**
-``` java
-
- Public API Changes
-
-Methods getDoughnutHoleSize(), setDoughnutHoleSize(byte) have been added to IChartSeries and ChartSeries
-
+#### **Methods getDoughnutHoleSize(), setDoughnutHoleSize(byte) have been added to IChartSeries and ChartSeries**
+Specifies the size of the hole in a doughnut chart.
+```java
 Presentation pres = new Presentation();
-
-
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Doughnut, 50, 50, 400, 400);
-
-
-chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90);
-
-
+chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90);                   
 pres.save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
-
 ```

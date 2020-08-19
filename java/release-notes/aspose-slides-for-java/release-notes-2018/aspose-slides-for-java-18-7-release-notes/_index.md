@@ -69,110 +69,59 @@ This method creates the new data point and adds it to the end of a collection.
 Applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer.isChartTypeStock(ChartType) method).
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
-
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
 
-
-
     chart.getChartData().getSeries().clear();
-
     chart.getChartData().getCategories().clear();
-
-
 
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
 
-
-
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
 
-
-
     chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-
     chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-
     chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-
     chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
-
-
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
 
-
-
     series = chart.getChartData().getSeries().get_Item(1);
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
 
-
-
     series = chart.getChartData().getSeries().get_Item(2);
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
 
-
-
     series = chart.getChartData().getSeries().get_Item(3);
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
 
-
-
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
-
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
-
-
     for(IChartSeries ser : chart.getChartData().getSeries())
-
     {
-
         ser.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
     }
 
-
-
     pres.save("output.pptx", SaveFormat.Pptx);
-
 } finally {
-
     pres.dispose();
-
 }
-
 ```
+
 #### **getApplyImageTransparent and setApplyImageTransparent methods have been added to IPdfOptions**
 getApplyImageTransparent and setApplyImageTransparent methods have been added to IPdfOptions.
 
@@ -181,56 +130,36 @@ Method setImageTransparentColor sets the image transparent color.
 Method setApplyImageTransparent applies the specified transparent color to an image if true. True by default.
 
 ``` java
-
- Presentation pres = new Presentation("pres.pptx");
-
+Presentation pres = new Presentation("pres.pptx");
 try {
-
     PdfOptions options = new PdfOptions();
-
     options.setApplyImageTransparent(true);
-
     options.setImageTransparentColor(Color.WHITE);
-
     pres.save("pres.pdf", SaveFormat.Pdf, options);
-
 } finally {
-
     pres.dispose();
-
 }
-
 ```
+
 #### **getHiLowLinesFormat method has been added to IChartSeriesGroup**
 getHiLowLinesFormat method has been added to IChartSeriesGroup.
 
 Specifies HiLowLines format. HiLowLines applied with HiLowClose, OpenHiLowClose, VolumeHiLowClose and VolumeOpenHiLowClose chart types.
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
-
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, true);
 
-
-
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
 
-
-
     pres.save("output.pptx", SaveFormat.Pptx);
-
 } finally {
-
     pres.dispose();
-
 }
-
 ```
+
 #### **getImageTransparentColor and setImageTransparentColor methods have been added to IPdfOptions**
 getImageTransparentColor and setImageTransparentColor methods have been added to IPdfOptions.
 
@@ -239,104 +168,67 @@ Method setImageTransparentColor sets the image transparent color.
 Method setApplyImageTransparent applies the specified transparent color to an image if true. True by default.
 
 ``` java
-
- Presentation pres = new Presentation("pres.pptx");
-
+Presentation pres = new Presentation("pres.pptx");
 try {
-
     PdfOptions options = new PdfOptions();
-
     options.setApplyImageTransparent(true);
-
     options.setImageTransparentColor(Color.WHITE);
-
     pres.save("pres.pdf", SaveFormat.Pdf, options);
-
 } finally {
-
     pres.dispose();
-
 }
-
 ```
+
 #### **getInvertIfNegative and setInvertIfNegative methods have been added to IChartDataPoint**
 getInvertIfNegative and setInvertIfNegative methods have been added to IChartDataPoint.
 
 Specifies the data point shall invert its colors if the value is negative.
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
-
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-
     IChartSeriesCollection series = chart.getChartData().getSeries();
-
     chart.getChartData().getSeries().clear();
 
-
-
     series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-
     series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2",-5));
-
     series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3",3));
-
     series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4",-2));
-
     series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5",1));
 
-
-
     series.get_Item(0).setInvertIfNegative(false);
-
     series.get_Item(0).getInvertIfNegative()
-
     series.get_Item(0).getDataPoints().get_Item(2).setInvertIfNegative(true);
 
-
-
     pres.save("output.pptx", SaveFormat.Pptx);
-
 } finally {
-
     pres.dispose();
-
 }
-
 ```
+
 #### **hasRoundedCorners and setRoundedCorners methods have been added to IChart**
 hasRoundedCorners and setRoundedCorners methods have been added to IChart.
 
 Specifies the chart area shall have rounded corners.
 
 ``` java
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 try {
-
     ISlide slide = presentation.getSlides().get_Item(0);
-
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-
     chart.setRoundedCorners(true);
-
     presentation.save("output.pptx", SaveFormat.Pptx);
-
 } finally {
-
     presentation.dispose();
-
 }
-
 ```
+
 #### **The implementation of method IChartData.setRange() has been changed.**
 Implementation of the method has been changed to avoid lost of series settings (series type, formatting and etc.). Only data points will be updated.
 
 If a number of series in data range greater than a count of series in the chart data, then additional series with the same type as the last series in the current collection will be added to the end of the collection.
+
 #### **The LightStyle1Accent5 value has been added to TableStylePreset enum**
 LightStyle1Accent5 value has been added to TableStylePreset enum.
 
@@ -345,26 +237,17 @@ It represents "Light Style 1 - Accent 5" preset table style.
 The code snippet below shows how to add a new Table with "Light Style 1 - Accent 5" style:
 
 ``` java
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 try {
-
     ITable table = presentation.getSlides().get_Item(0).getShapes().addTable(50, 50, new double[] { 200, 200 }, new double[] { 50, 50, 50, 50 });
-
     table.setStylePreset(TableStylePreset.LightStyle1Accent5);
 
-
-
     presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-
 } finally {
-
     presentation.dispose();
-
 }
-
 ```
+
 #### **The obsolete HeaderFooterManager class has been deleted**
 Obsolete HeaderFooterManager class has been deleted.
 

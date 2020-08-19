@@ -33,75 +33,64 @@ url: /java/aspose-slides-for-java-17-6-release-notes/
 |SLIDESJAVA-36424|Incorrect HTML generated from presentation|Bug|
 |SLIDESJAVA-36442|Aspose.Slides not identifying merge cells|Bug|
 |SLIDESJAVA-36448|Mime type for Presentation is giving exception|Bug|
+
 ## **Public API Changes**
+
 #### **com.aspose.slides.ISectionCollection interface and SectionCollection class have been added**
 ISectionCollection and SectionCollection represent a collection of sections.
 
 List of methods:
 
-ISection get_Item(int) - gets the element at the specified index.
-ISection addSection(string name, ISlide startedFromSlide) - adds a new section started form specific slide.
-ISection addEmptySection(string name, int index) - adds an empty section to the specified position of the collection.
-removeSectionWithSlides(ISection section) - removes section and slides contained in the section.
-removeSection(ISection section) - removes section. Slides contained in the section will be merged into previous section.
-reorderSectionWithSlides(ISection section, int index) - moves section and its slides from the collection to the specified position.
-ISection appendEmptySection(string name) - adds an empty section to the end of the collection.
-int indexOf(ISection section) - returns an index of the specified section in the collection.
-clear() - removes all sections from the collection.
+- `ISection get_Item(int)` - gets the element at the specified index.
+- `ISection addSection(string name, ISlide startedFromSlide)` - adds a new section started form specific slide.
+- `ISection addEmptySection(string name, int index)` - adds an empty section to the specified position of the collection.
+- `removeSectionWithSlides(ISection section)` - removes section and slides contained in the section.
+- `removeSection(ISection section)` - removes section. Slides contained in the section will be merged into previous section.
+- `reorderSectionWithSlides(ISection section, int index)` - moves section and its slides from the collection to the specified position.
+- `ISection appendEmptySection(string name)` - adds an empty section to the end of the collection.
+- `int indexOf(ISection section)` - returns an index of the specified section in the collection.
+- `clear()` - removes all sections from the collection.
 
 Example:
 
 ``` java
-
- ISection section = pres.getSections().get_Item(2);
-
+ISection section = pres.getSections().get_Item(2);
 pres.getSections().reorderSectionWithSlides(section, 0);
-
 pres.getSections().removeSectionWithSlides(pres.getSections().get_Item(0));
-
 pres.getSections().appendEmptySection("Last empty section");
-
 pres.getSections().addSection("First empty", 3);
-
 ```
+
 #### **com.aspose.slides.ISection interface and Section class have been added**
 ISection interface and Section class represent section of slides.
 
 List of methods:
 
-string getName() - returns the name of the section.
-ISlide getStartedFromSlide() - returns first slide of the section.
-ISectionSlideCollection getSlidesListOfSection() - returns a list of slides in the section.
+- `string getName()` - returns the name of the section.
+- `ISlide getStartedFromSlide()` - returns first slide of the section.
+- `ISectionSlideCollection getSlidesListOfSection()` - returns a list of slides in the section.
 
 Example:
 
 ``` java
-
- pres.getSections().addSection("Section 1", pres.getSlides().get_Item(0));
-
+pres.getSections().addSection("Section 1", pres.getSlides().get_Item(0));
 pres.getSections().get_Item(0).setName("New section name");
-
 ISectionSlideCollection slidesInSection = pres.getSections().get_Item(0).getSlidesListOfSection();
-
 ```
+
 #### **com.aspose.slides.ISectionSlideCollection interface and SectionSlideCollection class have been added**
 ISectionSlideCollection and SectionSlideCollection represents a collection of a slides in the section.
 
 Example:
 
 ``` java
-
- ISectionSlideCollection slidesInSection = pres.getSections().get_Item(0).getSlidesListOfSection();
-
+ISectionSlideCollection slidesInSection = pres.getSections().get_Item(0).getSlidesListOfSection();
 for(ISlide slide : slidesInSection)
-
 {
-
-// do something with slide
-
+    // do something with slide
 }
-
 ```
+
 #### **getIncludeComments and setIncludeComments methods have been added to classes PdfOptions, SwfOptions, TiffOptions and HtmlOptions**
 getIncludeComments and setIncludeComments getter and setter have been added to IHtmlOptions, IPdfOption, ISwfOptions, ITiffOptions interfaces and HtmlOptions, PdfOptions, SwfOptions, TiffOptions classes respectively.
 It specifies whether the exported document should include additional pages with comments or not. Default value is "false".
@@ -109,33 +98,21 @@ It specifies whether the exported document should include additional pages with 
 Code example:
 
 ``` java
-
- Presentation pres = new Presentation("Presentation.pptx");
-
+Presentation pres = new Presentation("Presentation.pptx");
 //Instantiate the PdfOptions class
-
 PdfOptions pdfOptions = new PdfOptions();
-
 //Specify that the generated document should include comment pages
-
 pdfOptions.setIncludeComments(true);
-
 //Save the presentation to PDF with specified options
-
 pres.save("Presentation.pdf", SaveFormat.Pdf, pdfOptions);
-
 pres.dispose();
-
 ```
+
 #### **Getters IPresentation.getSections, Presentation.getSections have been added**
 Getters IPresentation.getSections and Presentation.getSections return ISectionCollection instance (list of all slides sections that are defined in the presentation).
 
 ``` java
-
- IPresentation pres = new Presentation();
-
+IPresentation pres = new Presentation();
 pres.getSections().addSection("Section 1", pres.getSlides().get_Item(0));
-
 int n = pres.getSections().size();
-
 ```

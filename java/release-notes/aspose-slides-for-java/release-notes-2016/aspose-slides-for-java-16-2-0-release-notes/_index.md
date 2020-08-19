@@ -5,7 +5,7 @@ weight: 110
 url: /java/aspose-slides-for-java-16-2-0-release-notes/
 ---
 
-Minor Changes
+## **Minor Changes**
 
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
@@ -57,151 +57,116 @@ Minor Changes
 |SLIDESJAVA-34245|- Text improperly rendered in generated thumbnails|Bug|
 |SLIDESJAVA-33851|- SmartArt shapes are missing in generated PDF|Bug|
 |SLIDESJAVA-30744|- Images and text improperly rendered in slide thumbnail|Bug|
-Public API Changes
 
-Enum com.aspose.slides.CategoryAxisType has been added
+## **Public API Changes**
+
+#### **Enum com.aspose.slides.CategoryAxisType has been added**
 
 Used in IAxis.setCategoryAxisType(), IAxis.getCategoryAxisType(), Axis.setCategoryAxisType() and Axis.getCategoryAxisType() properties to determine category axis type.
-CategoryAxisType.Auto - category axis type will be determined automatically during serialization (this behavior is not implemented now)
-CategoryAxisType.Text - category axis type is Text
-CategoryAxisType.Date - category axis type is DateTime
-Fast text extraction has been added in Aspose.Slides for Java
+- CategoryAxisType.Auto - category axis type will be determined automatically during serialization (this behavior is not implemented now)
+- CategoryAxisType.Text - category axis type is Text
+- CategoryAxisType.Date - category axis type is DateTime
 
+#### **Fast text extraction has been added in Aspose.Slides for Java**
 The new static method getPresentationText has been added to Presentation class.
+```java
 PresentationText getPresentationText(InputStream stream, int mode)
+```
+
 The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
-Unarranged - The raw text with no respect to position on the slide
-Arranged - The text is positioned in the same order as on the slide
-Unarranged mode can be used when speed is critical, it's faster than Arranged mode.
+- Unarranged - The raw text with no respect to position on the slide
+- Arranged - The text is positioned in the same order as on the slide
+- Unarranged mode can be used when speed is critical, it's faster than Arranged mode.
 
 PresentationText represents the raw text extracted from the presentation. It contains a getSlidesText() property which returns an array of ISlideText objects. Every object represent the text on the corresponding slide. ISlideText object have the following properties:
-ISlideText.getText() - The text on the slide's shapes
-ISlideText.getMasterText() - The text on the master page's shapes for this slide
-ISlideText.getLayoutText() - The text on the layout page's shapes for this slide
-ISlideText.getNotesText() - The text on the notes page's shapes for this slide
+
+- `ISlideText.getText()` - The text on the slide's shapes
+- `ISlideText.getMasterText()` - The text on the master page's shapes for this slide
+- `ISlideText.getLayoutText()` - The text on the layout page's shapes for this slide
+- `ISlideText.getNotesText()` - The text on the notes page's shapes for this slide
+
 There's also a SlideText class which implements the ISlideText interface.
 The new API can be used like this:
 
 ``` java
-
- PresentationText text1 = Presentation.getPresentationText(stream, ExtractionMode.Unarranged);
-
+PresentationText text1 = Presentation.getPresentationText(stream, ExtractionMode.Unarranged);
 System.out.println(text1.getSlidesText()[0].getText());
-
 System.out.println(text1.getSlidesText()[0].getLayoutText());
-
 System.out.println(text1.getSlidesText()[0].getMasterText());
-
 System.out.println(text1.getSlidesText()[0].getNotesText());
-
 ```
 
-LegacyDiagram class and ILegacyDiagram interface have been added
+#### **LegacyDiagram class and ILegacyDiagram interface have been added**
 
 Interface com.aspose.slides.ILegacyDiagram and class com.aspose.slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003.
+
 New class provides methods to convert legacy diagram to modern editable SmartArt object or to editable GroupShape.
-New com.aspose.slides.TextAlignment enum membed added (JustifyLow)
 
+#### **New com.aspose.slides.TextAlignment enum membed added (JustifyLow)**
 A new member of TextAlignment enum member has been added:
-JustifyLow - Kashida justify low.
-New methods for com.aspose.slides.IOleObjectFrame and OleObjectFrame have been added
+- `JustifyLow` - Kashida justify low.
 
+#### **New methods for com.aspose.slides.IOleObjectFrame and OleObjectFrame have been added**
 New methods has been added to IOleObjectFrame interface and OleObjectFrame class. These methods provide information about OLE object embedded into presentation:
-getEmbeddedFileExtension() - Returns the file extension for the current embedded object or empty string if object is not a link
-getEmbeddedFileLabel() - Returns the file name of embedded OLE object
-getEmbeddedFileName() - Returns the path of embedded OLE object
-New methods getCategoryAxisType() and setCategoryAxisType() have been added to IAxis and Axis classes
+- `getEmbeddedFileExtension()` - Returns the file extension for the current embedded object or empty string if object is not a link
+- `getEmbeddedFileLabel()` - Returns the file name of embedded OLE object
+- `getEmbeddedFileName()` - Returns the path of embedded OLE object
 
+#### **New methods getCategoryAxisType() and setCategoryAxisType() have been added to IAxis and Axis classes**
+Methods getCategoryAxisType() and setCategoryAxisType() specify the type of category axis.
+ 
 ``` java
-
- Methods getCategoryAxisType() and setCategoryAxisType() specify the type of category axis.
-
 Presentation pres = new Presentation(sourcePptxFileName);
-
 try
-
 {
-
-IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
-chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
-
-chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
-
-chart.getAxes().getHorizontalAxis().setMajorUnit(1);
-
-chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
-
-pres.Save(pptxOutPath, SaveFormat.Pptx);
-
+   IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+   chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
+   chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
+   chart.getAxes().getHorizontalAxis().setMajorUnit(1);
+   chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
+   pres.save(pptxOutPath, SaveFormat.Pptx);
 } finally {
-
-if(pres != null) pres.dispose();
-
+   if(pres != null) pres.dispose();
 }
-
 ```
 
-New methods getShowLabelAsDataCallout() and setShowLabelAsDataCallout() have been added to DataLabelFormat class and IDataLabelFormat interface
-
+#### **New methods getShowLabelAsDataCallout() and setShowLabelAsDataCallout() have been added to DataLabelFormat class and IDataLabelFormat interface**
 Methods getShowLabelAsDataCallout() and setShowLabelAsDataCallout() determine either specified chart's data label will be displayed as data callout or as data label.
-
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try
-
 {
-
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 500, 400);
-
-chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowLabelAsDataCallout(true);
-
-chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(2).getDataLabelFormat().setShowLabelAsDataCallout(false);
-
-pres.save(pptxFileName, SaveFormat.Pptx);
-
+   IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 500, 400);
+   chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+   chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowLabelAsDataCallout(true);
+   chart.getChartData().getSeries().get_Item(0).getLabels().get_Item(2).getDataLabelFormat().setShowLabelAsDataCallout(false);
+   pres.save(pptxFileName, SaveFormat.Pptx);
 } finally {
-
-if(pres != null) pres.dispose();
-
+	if(pres != null) pres.dispose();
 }
-
 ```
 
-Methods getDrawSlidesFrame() and setDrawSlidesFrame() have been added to PdfOptions and XpsOptions
-
+#### **Methods getDrawSlidesFrame() and setDrawSlidesFrame() have been added to PdfOptions and XpsOptions**
 Methods setDrawSlidesFrame() and getDrawSlidesFrame() have been added to interfaces IPdfOptions, IXpsOptions and to related classes PdfOptions, XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 
 ``` java
-
- Presentation pres = new Presentation("input.pptx");
-
+Presentation pres = new Presentation("input.pptx");
 try
-
 {
-
-PdfOptions options = new PdfOptions();
-
-options.setDrawSlidesFrame(true);
-
-pres.save("output.pdf", SaveFormat.Pdf, options);
-
+	PdfOptions options = new PdfOptions();
+	options.setDrawSlidesFrame(true);
+	pres.save("output.pdf", SaveFormat.Pdf, options);
 } finally {
-
-if(pres != null) pres.dispose();
-
+	if(pres != null) pres.dispose();
 }
-
 ```
 
-Methods getUpdateDateTimeFields(), setUpdateDateTimeFields(), setUpdateSlideNumberFields() and getUpdateSlideNumberFields() have been removed
+#### **Methods getUpdateDateTimeFields(), setUpdateDateTimeFields(), setUpdateSlideNumberFields() and getUpdateSlideNumberFields() have been removed**
 
 Methods getUpdateDateTimeFields(), setUpdateDateTimeFields(), getUpdateSlideNumberFields() and setUpdateSlideNumberFields() have been removed from Presentation class and from IPresentation interface.
+
 The Text property of TextFrame, Paragraph, Portion classes and ITextFrame, IParagraph, IPortion interfaces returns text with updated "datetime" fields.
+
 Also properties DocumentProperties.setCreatedTime(), DocumentProperties.setLastSavedTime() and DocumentProperties.setLastPrinted() have been removed.
-Comments
+

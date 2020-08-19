@@ -6,7 +6,6 @@ url: /java/aspose-slides-for-java-15-5-0-release-notes/
 ---
 
 ## **Minor Changes**
-Minor Changes
 
 SLIDESNET-36346 - Setting default zoom size for presentation when it will open in PowerPoint
 
@@ -14,8 +13,7 @@ SLIDESNET-34169 - Support for generating PDF of only slide notes
 
 SLIDESNET-33598 - Change the position of category axis
 ## **Other Improvements and Changes**
-# **Other Improvements and Changes**
-Bug Fixes
+#### **Bug Fixes**
 
 SLIDESJAVA-34903 - Improper text rendering in generated Html
 
@@ -29,11 +27,7 @@ SLIDESJAVA-34859 - PPTX to html throws Unexpected font parsing exception
 
 SLIDESJAVA-34858 - Image is improperly rendered in generated thumbnail
 
-SLIDESJAVA-34857 - Bitmap.
-
-- throws ImageLoadException: Not enough data in stream.
-
-throws ImageLoadException: Not enough data in stream.
+SLIDESJAVA-34857 - Bitmap throws ImageLoadException: Not enough data in stream.
 
 SLIDESJAVA-34854 - rendering pptx notes to html
 
@@ -89,11 +83,7 @@ SLIDESJAVA-34705 - Unexpected font parsing exception on opening the PPTX file
 
 SLIDESJAVA-34667 - Excepion on loading the presentations using Aspose.Slides
 
-SLIDESJAVA-34648 - Metafile.
-
-- throws ArgumentException: Error reading WMF metafile
-
-throws ArgumentException: Error reading WMF metafile
+SLIDESJAVA-34648 - Metafile throws ArgumentException: Error reading WMF metafile
 
 SLIDESJAVA-34627 - Unexpected font parsing exception while converting PPTX to PDF
 
@@ -106,23 +96,28 @@ SLIDESJAVA-34384 - Chart category axis is improperly rendered in generated thumb
 SLIDESJAVA-33853 - WortArt styles are improperly rendered in generated PDF
 
 SLIDESJAVA-33422 - Image missing in generated thumbnail
+
 ## **Public API Changes**
-``` java
+#### **CommonSlideViewProperties class and ICommonSlideViewProperties interface have been added**
+com.aspose.slides.CommonSlideViewProperties class (and its interface com.aspose.slides.ICommonSlideViewProperties) represents common slide view properties (currently view scale options).
 
- Public API Changes
+#### **IAxis.getLabelOffset(), setLabelOffset(int) methods have been added**
+IAxis.getLabelOffset(), setLabelOffset(int) methods allow to get and to specify the distance of labels from the axis. Applied to category or date axis.
 
-CommonSlideViewProperties class and ICommonSlideViewProperties interface have been added
+#### **IChartTextBlockFormat.getAutofitType(), setAutofitType(byte) methods have been added**
+Methods getAutofitType(), setAutofitType(/TextAutofitType/byte) have been added to com.aspose.slides.IChartTextBlockFormat interface.
+Changing of this value can produce a certain influence only for these chart parts: DataLabel and DataLabelFormat (full suport in PowerPoint 2013; in PowerPoint 2007 there is no effect for rendering).
 
-IAxis.getLabelOffset(), setLabelOffset(int) methods have been added
+#### **Methods IChartTextBlockFormat.getWrapText(), setWrapText(byte) have been added**
+Methods getWrapText(), setWrapText(/NullableBool/byte) have been added to interface com.aspose.slides.IChartTextBlockFormat.
+Changing of this value can produce a certain influence only for these chart parts: DataLabel and DataLabelFormat (full suport in PowerPoint 2007/2013).
 
-IChartTextBlockFormat.getAutofitType(), setAutofitType(byte) methods have been added
+#### **The methods to manage margins have been added to IChartTextBlockFormat**
+getMarginLeft(), setMarginLeft(double), getMarginRight(), setMarginRight(double), getMarginTop(), setMarginTop(double), getMarginBottom() and setMarginBottom(double) methods have been added to interface com.aspose.slides.IChartTextBlockFormat.
+Changing of this values can produce a certain influence only for these chart parts: DataLabel and DataLabelFormat (full suport in PowerPoint 2013; in PowerPoint 2007 there is no effect for rendering).
 
-Methods IChartTextBlockFormat.getWrapText(), setWrapText(byte) have been added
+#### **ViewProperties.getNotesViewProperties() method have been added**
+com.aspose.slides.ViewProperties.getNotesViewProperties() property has been added. It gets common view properties associated with the notes view mode.
 
-The methods to manage margins have been added to IChartTextBlockFormat
-
-ViewProperties.getNotesViewProperties() method have been added
-
-ViewProperties.getSlideViewProperties() method has been added
-
-```
+#### **ViewProperties.getSlideViewProperties() method has been added**
+com.aspose.slides.ViewProperties.getSlideViewProperties() method has been added. Its gets common view properties associated with the slide view mode.

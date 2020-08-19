@@ -43,170 +43,109 @@ getDocumentLevelFontSources method returns instance of IFontSources class that h
 - getMemoryFonts/getMemoryFonts - get/set collection of fonts represented as byte arrays.
 
 ``` java
-
- byte[] memoryFont1 = ReadAllBytesFromFile("customfonts\\CustomFont1.ttf");
-
-byte[] memoryFont2 = ReadAllBytesFromFile("customfonts\\CustomFont2.ttf");
+byte[] memoryFont1 = ReadAllBytesFromFile("customfonts\CustomFont1.ttf");
+byte[] memoryFont2 = ReadAllBytesFromFile("customfonts\CustomFont2.ttf");
 
 ILoadOptions loadOptions = new LoadOptions();
-
-loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets\\fonts", "global\\fonts" });
-
+loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets\fonts", "global\fonts" });
 loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFont1, memoryFont2 });
-
 IPresentation presentation = CreatePresentation("MyPresentation.pptx", loadOptions);
-
 try{
-
-//work with the presentation
-
-//CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
-
+    //work with the presentation
+    //CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
 }finally {
-
-presentation.dispose();
-
+    presentation.dispose();
 }
-
 ```
 
 The fonts that are passed to FontSources are available to the presentation throughout its lifetime and are not available outside the presentation. Consider the following example:
 
 ``` java
+final String[] fontFolders1 = new String[] { "assets\fonts" };
+final String[] fontFolders2 = new String[] { "global\fonts" };
 
- final String[] fontFolders1 = new String[] { "assets\\fonts" };
-
-final String[] fontFolders2 = new String[] { "global\\fonts" };
-
-final byte[] memoryFont1 = ReadAllBytesFromFile("customfonts\\CustomFont1.ttf");
-
-final byte[] memoryFont2 = ReadAllBytesFromFile("customfonts\\CustomFont2.ttf");
+final byte[] memoryFont1 = ReadAllBytesFromFile("customfonts\CustomFont1.ttf");
+final byte[] memoryFont2 = ReadAllBytesFromFile("customfonts\CustomFont2.ttf");
 
 final IFontSources fontSources1 = new FontSources() {{
-
-setFontFolders(fontFolders1);
-
-setMemoryFonts(new byte[][] { memoryFont1 });
-
+    setFontFolders(fontFolders1);
+    setMemoryFonts(new byte[][] { memoryFont1 });
 }};
-
 final IFontSources fontSources2 = new FontSources() {{
-
-setFontFolders(fontFolders2);
-
-setMemoryFonts(new byte[][] { memoryFont2 });
-
+    setFontFolders(fontFolders2);
+    setMemoryFonts(new byte[][] { memoryFont2 });
 }};
-
 final IPresentation presentation1 = CreatePresentation("MyPresentation1.pptx", new LoadOptions(){{setDocumentLevelFontSources(fontSources1);}});
-
 try{
-
-final IPresentation presentation2 = CreatePresentation("MyPresentation2.pptx", new LoadOptions(){{setDocumentLevelFontSources(fontSources2);}});
-
-try {
-
-//work with the presentations
-
-//CustomFont1 as well as fonts from assets\fonts folder and its subfolders are available to presentation1 but not to presentation2
-
-//CustomFont2 as well as fonts from global\fonts folder and its subfolders are available to presentation2 but not to presentation1
-
-}finally{
-
-presentation2.dispose();
-
-}
-
+    final IPresentation presentation2 = CreatePresentation("MyPresentation2.pptx", new LoadOptions(){{setDocumentLevelFontSources(fontSources2);}});
+    try {
+        //work with the presentations
+        //CustomFont1 as well as fonts from assets\fonts folder and its subfolders are available to presentation1 but not to presentation2
+        //CustomFont2 as well as fonts from global\fonts folder and its subfolders are available to presentation2 but not to presentation1
+    }finally{
+        presentation2.dispose();
+    }
 }finally {
-
-presentation1.dispose();
-
+    presentation1.dispose();
 }
 
 If you need to add external fonts at application level and make it available to all presentations please use FonsLoader class. You can use them together like as follows:
 
-byte[] globalMemoryFont = ReadAllBytesFromFile("customfonts\\CustomFont1.ttf");
-
-byte[] localMemoryFont = ReadAllBytesFromFile("customfonts\\CustomFont2.ttf");
+byte[] globalMemoryFont = ReadAllBytesFromFile("customfonts\CustomFont1.ttf");
+byte[] localMemoryFont = ReadAllBytesFromFile("customfonts\CustomFont2.ttf");
 
 ILoadOptions loadOptions = new LoadOptions();
-
-loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets\\fonts" });
-
+loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets\fonts" });
 loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { localMemoryFont });
 
 IPresentation presentation1 = CreatePresentation("MyPresentation.pptx", loadOptions);
-
 try{
-
-//work with the presentation
-
-//CustomFont2 as well as fonts from assets\fonts folder and its subfolders are available to the presentation
-
-//CustomFont1 as well as fonts from global\fonts folder and its subfolders are unavailable to the presentation
-
+    //work with the presentation
+    //CustomFont2 as well as fonts from assets\fonts folder and its subfolders are available to the presentation
+    //CustomFont1 as well as fonts from global\fonts folder and its subfolders are unavailable to the presentation
 }finally {
-
-presentation1.dispose();
-
+    presentation1.dispose();
 }
 
-FontsLoader.loadExternalFonts(new String[] { "global\\fonts" });
-
+FontsLoader.loadExternalFonts(new String[] { "global\fonts" });
 FontsLoader.loadExternalFont(globalMemoryFont);
 
 IPresentation presentation2 = CreatePresentation("MyPresentation.pptx", loadOptions);
-
 try{
-
-//work with the presentation
-
-//CustomFont1 and CustomFont2 as well as fonts from global\fonts and assets\fonts folders and their subfolders are available to the presentation
-
+    //work with the presentation
+    //CustomFont1 and CustomFont2 as well as fonts from global\fonts and assets\fonts folders and their subfolders are available to the presentation
 }finally {
-
-presentation2.dispose();
-
+    presentation2.dispose();
 }
-
 ```
+
 #### **CategoryAxisType.Auto value has been replaced with IAxis.setCategoryAxisTypeAutomatically() method in Aspose.Slides for Java**
 Method IAxis.setCategoryAxisTypeAutomatically() call IAxis.setCategoryAxisType method and set a value that is automatically determined based on axis data.
+
 #### **Obsolete com.aspose.slides.Presentation.getPresentationText methods have been deleted**
 Obsolete Presentation.getPresentationText methods have been deleted:
 
 ``` java
-
- com.aspose.slides.Presentation.getPresentationText(InputStream stream, /*TextExtractionArrangingMode*/int mode)
-
+com.aspose.slides.Presentation.getPresentationText(InputStream stream, /*TextExtractionArrangingMode*/int mode)
 com.aspose.slides.Presentation.getPresentationText(String file, /*TextExtractionArrangingMode*/int mode)
-
 com.aspose.slides.Presentation.getPresentationText(InputStream stream, /*TextExtractionArrangingMode*/int mode, LoadOptions options)
-
 ```
+
 #### **Value HtmlNotes has been added to SaveFormat enumeration**
 Element HtmlNotes has been added to Aspose.Slides.Export.SaveFormat enumeration. This element allows saving presentation Notes Page View into HTML format.
 
 Code example:
 
 ``` java
-
- Presentation pres = new Presentation("Presentation.pptx");
-
+Presentation pres = new Presentation("Presentation.pptx");
 try {
-
-// Saving notes pages
-
-pres.save("Output.html", SaveFormat.HtmlNotes);
-
+    // Saving notes pages
+    pres.save("Output.html", SaveFormat.HtmlNotes);
 } finally {
-
-pres.dispose();
-
+    pres.dispose();
 }
-
 ```
+
 #### **Write document elements methods have been made non-final in EmbedAllFontsHtmlController class. WriteAllFonts method has been added.**
 writeDocumentStart, writeDocumentEnd, writeSlideStart, writeSlideEnd, writeShapeStart, writeShapeEnd methods have been made non-final to provide a better support to customize generated HTML documents.
 
@@ -215,80 +154,48 @@ In addition, writeAllFonts method has been added. It allows overriding the way h
 Please review the example how to use overridable methods to create a custom HTML document with a link to CSS file.
 
 ``` java
-
- public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
-
-// Custom header template
-
-final static String Header = "<!DOCTYPE html>\n" +
-
-"<html>\n" +
-
-"<head>\n" +
-
-"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-
-"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-
-"<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-
-"</head>";
+public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
+    // Custom header template
+    final static String Header = "<!DOCTYPE html>\n" +
+            "<html>\n" +
+            "<head>\n" +
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
+            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
+            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
+            "</head>";
 
 
-private final String m_cssFileName;
+    private final String m_cssFileName;
 
-public CustomHeaderAndFontsController(String cssFileName) {
+    public CustomHeaderAndFontsController(String cssFileName) {
+        m_cssFileName = cssFileName;
+    }
 
-m_cssFileName = cssFileName;
+    @Override
+    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) {
+        generator.addHtml(String.format(Header, m_cssFileName));
+        writeAllFonts(generator, presentation);
+    }
 
+    @Override
+    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) {
+        generator.addHtml("<!-- Embedded fonts -->");
+        super.writeAllFonts(generator, presentation);
+    }
 }
-
-@Override
-
-public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) {
-
-generator.addHtml(String.format(Header, m_cssFileName));
-
-writeAllFonts(generator, presentation);
-
-}
-
-@Override
-
-public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) {
-
-generator.addHtml("<!-- Embedded fonts -->");
-
-super.writeAllFonts(generator, presentation);
-
-}
-
-}
-
 ```
 
 There is the example how CustomHeaderAndFontsController can be used.
 
 ``` java
-
- Presentation pres = new Presentation("pres.pptx");
-
+Presentation pres = new Presentation("pres.pptx");
 try{
-
-final CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-
-HtmlOptions options = new HtmlOptions(){{
-
-setHtmlFormatter(HtmlFormatter.createCustomFormatter(htmlController));
-
-}};
-
-pres.save("pres.html", SaveFormat.Html, options);
-
+    final CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
+    HtmlOptions options = new HtmlOptions(){{
+        setHtmlFormatter(HtmlFormatter.createCustomFormatter(htmlController));
+    }};
+    pres.save("pres.html", SaveFormat.Html, options);
 }finally {
-
-pres.dispose();
-
+    pres.dispose();
 }
-
 ```

@@ -32,7 +32,9 @@ This page contains release notes for Aspose.Slides for Java 19.3
 |SLIDESJAVA-37481|ODP file not properly converted to PPTX|Bug|
 |SLIDESJAVA-37483|ODP file not properly converted to PPTX|Bug|
 |SLIDESJAVA-37591|PPTX not properly converted to PNG|Bug|
+
 ## **Public API Changes**
+
 #### **getColorSource and setColorSource methods have been added to IHyperlink interface**
 New methods getColorSource and setColorSource have been added to IHyperlink interface and Hyperlink class.
 
@@ -40,42 +42,26 @@ It allows to get or set the source of hyperlink color, which could be obtained e
 
 The code snippet below shows a sample of adding two hyperlinks with different colors to the same slide:
 
-
-
 ``` java
+Presentation presentation = new Presentation();
+try
+{
+    IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+    shape1.addTextFrame("This is a sample of colored hyperlink.");
+    IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
+    portionFormat.getFillFormat().setFillType(FillType.Solid);
+    portionFormat.getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
 
- Presentation presentation = new Presentation();
+    IAutoShape shape2 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+    shape2.addTextFrame("This is a sample of usual hyperlink.");
+    shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 
-try {
-
- IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-
- shape1.addTextFrame("This is a sample of colored hyperlink.");
-
- IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-
- portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-
- portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
-
- portionFormat.getFillFormat().setFillType(FillType.Solid);
-
- portionFormat.getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
-
- IAutoShape shape2 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-
- shape2.addTextFrame("This is a sample of usual hyperlink.");
-
- shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-
- presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
-
- presentation.dispose();
-
+    presentation.dispose();
 }
-
 ```
 
 
@@ -86,128 +72,84 @@ These methods represent the callback interface which manages external resources 
 #### **getSvgResponsiveLayout and setSvgResponsiveLayout methods have been added to IHtmlOptions**
 getSvgResponsiveLayout and setSvgResponsiveLayout methods have been added to IHtmlOptions.
 
-
-
 ``` java
-
- /**
-
+/**
  * <p>
-
  * True to exclude width and height attributes from svg container - that will make layout responsive. False - otherwise.
-
  * Read/write {@code boolean}.
-
  * </p>
-
  */
-
-public boolean getSvgResponsiveLayout();
+ public boolean getSvgResponsiveLayout();
 
 /**
-
  * <p>
-
  * True to exclude width and height attributes from svg container - that will make layout responsive. False - otherwise.
-
  * Read/write {@code boolean}.
-
  * </p>
-
  */
-
 public void setSvgResponsiveLayout(boolean value);
-
 ```
-
-
 
 Code sample below shows how to export presentation to HTML with responsive layout:
 
 ``` java
-
- Presentation presentation = new Presentation("SomePresentation.pptx");
-
+Presentation presentation = new Presentation("SomePresentation.pptx");
 HtmlOptions saveOptions = new HtmlOptions();
-
 saveOptions.setSvgResponsiveLayout(true);
-
 presentation.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
-
 ```
-
-
 
 **Note:** While omitting width/height in SVG tag is enough for all modern browsers to layout result correctly, Internet Explorer requires additional CSS tweak. If you don't use your custom HtmlFormatter for saving you don't need to worry about this - Aspose.Slides add this tweak automatically in that case.
 
 But if you have your own HtmlFormatter and you want responsive HTML output to be IE-compatible, you need to embed the following CSS into the styles used in your custom HtmlFormatter:
 
-``` java
-
- svg {
-
- position: absolute;
-
- top: 0;
-
- left: 0;
-
-}
-
-.slide {
-
- position: relative;
-
- overflow: hidden;
-
- padding - top: XXX;
-
-}
-
 ```
-
-
+svg
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slide
+{
+  position: relative;
+  overflow: hidden;
+  padding-top: XXX;
+}
+```
 
 Where XXX is a percentage relation of your presentation slide height to width.
 
 For example, if you have a usual landscape-oriented presentation with 16:9 slide size you need to specify padding-top: 56%. If you have an album-oriented presentation with 3:4 slide size you need to specify padding-top: 133%.
-#### **Hyperlink class changed to be mutable - JAVA**
+
+#### **Hyperlink class changed to be mutable**
 Hyperlink class changed to be mutable. Now it is possible to change values of the following properties which were read-only before:
 
+```java
 IHyperlink.setTargetFrame(String value)
 IHyperlink.setTooltip(String value)
 IHyperlink.setHistory(boolean value)
 IHyperlink.setHighlightClick(boolean value)
 IHyperlink.setStopSoundOnClick(boolean value)
+```
 
 The code snippet below shows adding a hyperlink to the slide and editing its tooltip later:
 
 ``` java
+Presentation presentation = new Presentation();
+try
+{
+    IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+    shape1.addTextFrame("Aspose: File Format APIs");
+    IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+    portionFormat.setFontHeight(32);
 
- Presentation presentation = new Presentation();
-
-try {
-
- IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-
- shape1.addTextFrame("Aspose: File Format APIs");
-
- IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-
- portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-
- portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
- portionFormat.setFontHeight(32);
-
- presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
-
- presentation.dispose();
-
+    presentation.dispose();
 }
-
 ```
 
 
@@ -217,39 +159,24 @@ New highlightRegex method has been added to ITextFrame interface and TextFrame c
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 
 ``` java
-
- /**
-
+/**
  * <p>
-
  * Highlight all matches of regular expression in text frame text using specified color.
-
  * </p>
-
  * @param regex Text of regular expression to get text to highlight.
-
  * @param highlightColor Highlighting color.
-
  * @param options Highlighting options.
-
  */
-
-public void highlightRegex(String regex, java.awt.Color highlightColor, ITextHighlightingOptions options);
-
+public void highlightRegex(String regex,java.awt.Color highlightColor, ITextHighlightingOptions options);
 ```
 
 The code snippet below shows how to use this feature:
 
 ``` java
-
- Presentation presentation = new Presentation("SomePresentation.pptx");
-
+Presentation presentation = new Presentation("SomePresentation.pptx");
 TextHighlightingOptions options = new TextHighlightingOptions();
-
-((AutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\\b[^\\s]{10,}\\b", java.awt.Color.YELLOW, options); // highlighting all words with 10 symbols or longer
-
+((AutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\b[^\s]{10,}\b", java.awt.Color.YELLOW, options); // highlighting all words with 10 symbols or longer
 presentation.save("SomePresentation-out.pptx", SaveFormat.Pptx);
-
 ```
 
 
@@ -259,64 +186,36 @@ New highlightText method (+ overload) has been added to ITextFrame interface and
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
 
 ``` java
-
- /**
-
+/**
  * <p>
-
  * Highlight all matches of sample in text frame text using specified color.
-
  * </p>
-
  * @param text Text sample to highlight.
-
  * @param highlightColor Highlighting color.
-
  */
-
-public void highlightText(String text, java.awt.Color highlightColor);
+public void highlightText(String text,java.awt.Color highlightColor);
 
 /**
-
  * <p>
-
  * Highlight all matches of sample in text frame text using specified color.
-
  * </p>
-
  * @param text Text sample to highlight.
-
  * @param highlightColor Highlighting color.
-
  * @param options Highlighting options.
-
  */
-
-public void highlightText(String text, java.awt.Color highlightColor, ITextHighlightingOptions options);
-
-
+public void highlightText(String text,java.awt.Color highlightColor, ITextHighlightingOptions options);
 ```
-
-
 
 The code snippet below shows how to use this feature:
 
 ``` java
-
- Presentation presentation = new Presentation("SomePresentation.pptx");
-
-((AutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("important", java.awt.Color.LIGHT_GRAY); // highlighting all words 'important'
-
+Presentation presentation = new Presentation("SomePresentation.pptx");
+((AutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("important", java.awt.Color.LIGHT_GRAY); // highlighting all words 'important'
 TextHighlightingOptions options = new TextHighlightingOptions();
-
 options.setWholeWordsOnly(true);
-
-((AutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("the", java.awt.Color.DARK_GRAY, options); // highlighting all separate 'the' occurrences
-
+((AutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("the", java.awt.Color.DARK_GRAY, options); // highlighting all separate 'the' occurrences
 presentation.save("SomePresentation-out.pptx", SaveFormat.Pptx);
-
 ```
-
 
 #### **ITextHighlightingOptions interface and TextHighlightingOptions class have been added**
 com.aspose.slides.ITextHighlightingOptions interface and it's implementation by com.aspose.slides.TextHighlightingOptions class have been added. They represent extra options for new TextFrame.highlightText method.
@@ -324,63 +223,35 @@ com.aspose.slides.ITextHighlightingOptions interface and it's implementation by 
 There are 2 available options to specify CaseSensitive and WholeWordsOnly:
 
 ``` java
-
- /**
-
- * <p>
-
- * Set true to use case-sensitive search, false - otherwise.
-
- * Read/write {@code boolean}.
-
- * </p>
-
- */
-
-public boolean getCaseSensitive();
-
 /**
-
  * <p>
-
  * Set true to use case-sensitive search, false - otherwise.
-
  * Read/write {@code boolean}.
-
  * </p>
-
  */
-
+public boolean getCaseSensitive();
+/**
+ * <p>
+ * Set true to use case-sensitive search, false - otherwise.
+ * Read/write {@code boolean}.
+ * </p>
+ */
 public void setCaseSensitive(boolean value);
 
 /**
-
  * <p>
-
  * Set true to match only whole words, false - otherwise.
-
  * Read/write {@code boolean}.
-
  * </p>
-
  */
-
 public boolean getWholeWordsOnly();
-
 /**
-
  * <p>
-
  * Set true to match only whole words, false - otherwise.
-
  * Read/write {@code boolean}.
-
  * </p>
-
  */
-
 public void setWholeWordsOnly(boolean value);
-
 ```
 
 
@@ -391,75 +262,46 @@ HyperlinkColorSource enum has two members:
 
 - Styles: Hyperlink color is obtained from slide/presentation styles.
 - PortionFormat: Hyperlink color is obtained from PortionFormat properties (PortionFormat.getFillFormat() and PortionFormat.getLineFormat()).
-#### **New IResourceLoadingArgs interface has been added - JAVA**
+
+#### **New IResourceLoadingArgs interface has been added**
 New IResourceLoadingArgs interface has been added.
 
 This interface used to manage external resource loading arguments.
 
 ``` java
-
- IResourceLoadingArgs interface has following methods:
-
- /**
-
-  * <p>
-
-  * Original URI of the resource as specified in imported presentation.
-
-  * </p>
-
-  */
-
- public String getOriginalUri();
+IResourceLoadingArgs interface has following methods:
+/**
+ * <p>
+ * Original URI of the resource as specified in imported presentation.
+ * </p>
+ */
+public String getOriginalUri();
 
 /**
-
  * <p>
-
  * URI of the resource which is used for downloading if {@link IResourceLoadingCallback#resourceLoading(IResourceLoadingArgs)}
-
  * returns {@link ResourceLoadingAction#Default}.
-
  * Initially it's set to original URI of the resource, but can be redefined to any value.
-
  * </p>
-
  */
-
 public String getUri();
-
 /**
-
  * <p>
-
  * URI of the resource which is used for downloading if {@link IResourceLoadingCallback#resourceLoading(IResourceLoadingArgs)}
-
  * returns {@link ResourceLoadingAction#Default}.
-
  * Initially it's set to original URI of the resource, but can be redefined to any value.
-
  * </p>
-
  */
-
 public void setUri(String value);
 
 /**
-
  * <p>
-
  * Sets user provided data of the resource which used if {@link IResourceLoadingCallback#resourceLoading(IResourceLoadingArgs)}
-
  * returns {@link ResourceLoadingAction#UserProvided}.
-
  * </p>
-
  */
-
-public void setData( /*Byte*/ byte[] data);
-
+public void setData(/*Byte*/byte[] data);
 ```
-
 
 #### **New IResourceLoadingCallback interface has been added**
 New IResourceLoadingCallback interface has been added.
@@ -467,85 +309,57 @@ New IResourceLoadingCallback interface has been added.
 This callback interface is used to manage external resources loading and has one method:
 
 ``` java
-
- /**
-
+/**
  * <p>
-
  * Callback method which regulates external resources loading.
-
  * </p>
-
  * @return The resource loading decision {@link ResourceLoadingAction}.
-
  * @param args The loading resource data {@link IResourceLoadingArgs}.
-
  */
-
-public /*ResourceLoadingAction*/ int resourceLoading(IResourceLoadingArgs args);
-
+public /*ResourceLoadingAction*/int resourceLoading(IResourceLoadingArgs args);
 ```
-
-
 
 The code snippet below shows how to use IResourceLoadingCallback interface:
 
 ``` java
-
- public void LoadPresentation() {
-
- LoadOptions opts = new LoadOptions();
-
- opts.setResourceLoadingCallback(new ImageLoadingHandler());
-
- Presentation presentation = new Presentation(path + "presentation.pptx", opts);
-
+public void LoadPresentation()
+{
+    LoadOptions opts = new LoadOptions();
+    opts.setResourceLoadingCallback(new ImageLoadingHandler());
+    Presentation presentation = new Presentation(path + "presentation.pptx", opts);
 }
 
-private class ImageLoadingHandler implements IResourceLoadingCallback {
+private class ImageLoadingHandler implements IResourceLoadingCallback
+{
+    public int resourceLoading(IResourceLoadingArgs args)
+    {
+        if (args.getOriginalUri().endsWith(".jpg"))
+        {
+            try // load substitute image
+            {
+                byte[] imageBytes = java.nio.file.Files.readAllBytes(new File(path + "aspose-logo.jpg").toPath());
+                args.setData(imageBytes);
+                return ResourceLoadingAction.UserProvided;
+            }
+            catch (RuntimeException ex)
+            {
+                return ResourceLoadingAction.Skip;
+            }
+        }
+        else if (args.getOriginalUri().endsWith(".png"))
+        {
+            // set substitute url
+            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
+            return ResourceLoadingAction.Default;
+        }
 
- public int resourceLoading(IResourceLoadingArgs args) {
-
-  if (args.getOriginalUri().endsWith(".jpg")) {
-
-   try // load substitute image
-
-   {
-
-    byte[] imageBytes = java.nio.file.Files.readAllBytes(new File(path + "aspose-logo.jpg").toPath());
-
-    args.setData(imageBytes);
-
-    return ResourceLoadingAction.UserProvided;
-
-   } catch (RuntimeException ex) {
-
-    return ResourceLoadingAction.Skip;
-
-   }
-
-  } else if (args.getOriginalUri().endsWith(".png")) {
-
-   // set substitute url
-
-   args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-
-   return ResourceLoadingAction.Default;
-
-  }
-
-  // skip all other images
-
-  return ResourceLoadingAction.Skip;
-
- }
-
+        // skip all other images
+        return ResourceLoadingAction.Skip;
+    }
 }
-
 ```
 
-
-#### **New ResourceLoadingAction enum has been added - JAVA**
+#### **New ResourceLoadingAction enum has been added**
 ResourceLoadingAction enum has been added.
 
 It specifies the mode of external resource loading and has three members:

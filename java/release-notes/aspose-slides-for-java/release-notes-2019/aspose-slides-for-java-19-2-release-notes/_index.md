@@ -28,65 +28,42 @@ This page contains release notes for Aspose.Slides for Java 19.2
 |SLIDESJAVA-37549|Exception:: ArgumentOutOfRange when doing `renderToGraphics'|Bug|
 |SLIDESJAVA-37552|Exception on converting PPTX to PDF|Bug|
 |SLIDESJAVA-37575|PPTX not properly converted to PDF|Bug|
+
 ## **Public API Changes**
-#### **MorphTransition class and IMorphTransition interface have been added Java**
+
+#### **MorphTransition class and IMorphTransition interface have been added**
 The com.aspose.slides.IMorphTransition interface and it's implementation by com.aspose.slides.MorphTransition class have been added. They represent a new morph transition introduced in PowerPoint 2019.
-#### **Morph value has been added into TransitionType enumeration Java**
+
+#### **Morph value has been added into TransitionType enumeration**
 com.aspose.slides.TransitionType enumeration has been extended with new element Morph related to new PowerPoint 2019 transition Morph.
 
 The code snippet below shows how to add a clone of the slide with some text to the presentation and set a transition of morph type to the second slide:
 
-
-
 ``` java
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 try
-
 {
-
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-
     autoshape.getTextFrame().setText("Test text");
-
-
 
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
 
-
-
     IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-
     shape.setX(shape.getX() + 100);
-
     shape.setY(shape.getY() + 50);
-
     shape.setWidth(shape.getWidth() - 200);
-
     shape.setHeight(shape.getHeight() - 10);
-
-
 
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
 
-
-
     presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-
 }
-
 finally {
-
     presentation.dispose();
-
 }
-
-
 ```
 
-
-#### **New TransitionMorphType enum has been added Java**
+#### **New TransitionMorphType enum has been added**
 New com.aspose.slides.TransitionMorphType enum has been added. It represents different types of Morph slide transition.
 
 TransitionMorphType enum has three members:
@@ -97,33 +74,18 @@ TransitionMorphType enum has three members:
 
 The code snippet below shows how to set morph transition to slide and change morph type:
 
-
-
 ``` java
-
- Presentation presentation = new Presentation("presentation.pptx");
-
+Presentation presentation = new Presentation("presentation.pptx");
 try
-
 {
-
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-
     ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-
     presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-
 }
-
 finally
-
 {
-
     presentation.dispose();
-
 }
-
-
 ```
 
 

@@ -6,7 +6,6 @@ url: /java/aspose-slides-for-java-15-7-0-release-notes/
 ---
 
 ## **Minor Changes**
-Minor Changes
 
 SLIDESNET-36484 - Support for reading password protected file in read only mode
 
@@ -78,9 +77,7 @@ SLIDESJAVA-13646 - Table misplaced from the slide of size 25 x 56 with font heig
 
 SLIDESJAVA-11047 - Pass the validation check of MS Office 2010
 ## **Other improvements and changes**
-Other improvements and changes
-
-But fixes
+#### **But fixes**
 
 SLIDESJAVA-34999 - Paragraph alignment returns -1 for Center Alignment value
 
@@ -220,25 +217,21 @@ SLIDESJAVA-18168 - Improper thumbnail generation PNG+JPG in Linux environment
 
 SLIDESJAVA-18045 - Font rendering problem in generating slide thumbnail
 ## **Public API changes**
-``` java
 
- Public API changes
+#### **com.aspose.slides.IChartDataPoint.getAutomaticDataPointColor() method has been added**
+This method returns an automatic color of data point based on series index, data point index, parentSeriesGroup, isColorVaried values and chart style.
+This color is used by default if fillType equals NotDefined.
 
-com.aspose.slides.IChartDataPoint.getAutomaticDataPointColor() method has been added
+#### **Enum com.aspose.slides.ImagePixelFormat has been added**
+Enum com.aspose.slides.ImagePixelFormat has been added for specifying pixel format for the generated images.
 
-com.aspose.slides.ImagePixelFormat enum has been added
+#### **Methods getPixelFormat(), setPixelFormat(int) have been added to com.aspose.slides.ITiffOptions**
+Methods getPixelFormat(), setPixelFormat(/ImagePixelFormat/int) have been added to com.aspose.slides.ITiffOptions and com.aspose.slides.TiffOptions for specifying pixel format for the generated TIFF images.
 
-getPixelFormat(), setPixelFormat(int) methods have been added to com.aspose.slides.ITiffOptions
-
+Using example:
+```java
 Presentation pres = new Presentation("Somepresentation.pptx");
-
-
 TiffOptions options = new TiffOptions();
-
-
 options.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
-
-
 pres.save("Somepresentation-out.tiff", SaveFormat.Tiff, options);
-
 ```

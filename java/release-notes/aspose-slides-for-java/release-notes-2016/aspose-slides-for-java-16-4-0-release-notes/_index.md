@@ -63,144 +63,102 @@ url: /java/aspose-slides-for-java-16-4-0-release-notes/
 ## **Public API Changes**
 #### **com.aspose.slides.IBehaviorProperties interface and BehaviorProperties class have been renamed to IBehaviorPropertyCollection and BehaviorPropertyCollection respectivelly**
 Aspose.Slides.Animation.IBehaviorProperties interface and BehaviorProperties class have been renamed to IBehaviorPropertyCollection and BehaviorPropertyCollection, changes in public API has been made
+
 com.aspose.slides.IBehaviorProperties has been renamed to IBehaviorPropertyCollection and inherits IGenericList<IBehaviorProperty> instead of IGenericList<PropertyType>
+
 com.aspose.slides.BehaviorProperties has been renamed to BehaviorPropertyCollection.
+
 Following methods were removed:
-
 ``` java
-
- public void copyTo(PropertyType[] array, int arrayIndex)
-
+public void copyTo(PropertyType[] array, int arrayIndex)
 public PropertyType get_Item(int index)
-
 public PropertyType set_Item(int index, PropertyType item)public IGenericEnumerator<PropertyType> iterator()
-
 ```
-
 Following methods were marked as obsolete:
-
 ``` java
-
- public void add(PropertyType item)
-
+public void add(PropertyType item)
 public int indexOf(PropertyType item)
-
 public void insert(int index, PropertyType item)
-
 public bool remove(PropertyType item)
-
 public bool contains(PropertyType item)
-
 ```
 
 Following methods were added:
 
 ``` java
-
- public void addItem(IBehaviorProperty item)
-
+public void addItem(IBehaviorProperty item)
 public void add(string propertyValue)
 
 public int indexOfItem(IBehaviorProperty item)
-
 public int indexOf(string propertyValue)
 
 public void insertItem(int index, IBehaviorProperty item)
-
 public void insert(int index, string propertyValue)
 
 public void copyToTArray(IBehaviorProperty[] array, int arrayIndex)
 
 public boolean removeItem(IBehaviorProperty item)
-
 public boolean remove(string propertyValue)
 
 public boolean containsItem(IBehaviorProperty item)
-
 public boolean contains(string propertyValue)
 
 public IBehaviorProperty get_Item(int index)
-
 public void set_Item(int index, IBehaviorProperty value)
 
 public IGenericEnumerator<IBehaviorProperty> iterator()
-
 ```
 #### **Enum com.aspose.slides.PropertyType has been marked as Deprecated**
 PropertyType enum was replaced by BehaviorProperty class, and planned to be removed in November's release.
 
 ``` java
-
- @Deprecated()//Use BehaviorProperty type instead. This type will be removed after 01.11.2016.
-
+@Deprecated()//Use BehaviorProperty type instead. This type will be removed after 01.11.2016.
 public enum PropertyType
-
 ```
+
 #### **getCoordinates() method has been added to IPortion and Portion**
 The new method getCoordinates() has been added to IPortion and Portion which allows of retrieveing the coordinates of the beginning of the portion:
-
 ``` java
-
- AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
+AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
-
 for (IParagraph paragraph : textFrame.getParagraphs()){
-
   for (IPortion portion : paragraph.getPortions()){
-
     Point2D.Float point = portion.getCoordinates();
-
   }
-
 }
-
 ```
+
 #### **getRect() method has been added to IParagraph and Paragraph**
 The new method пetRect() has been added. It allows to get paragraph bounds rectangle.
-
 ``` java
-
- AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
+AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();
-
 Rectangle2D.Float rect = ((Paragraph) textFrame.getParagraphs().get_Item(0)).getRect();
-
 ```
+
 #### **New interface com.aspose.slides.IBehaviorProperty and class com.aspose.slides.BehaviorProperty have been added**
 New BehaviorProperty class replaces and expands PropertyType enum functionality. Now it allows you to use the full set of predefined properties according <https://msdn.microsoft.com/en-us/library/dd949052(v=office.15).aspx> and <https://msdn.microsoft.com/en-us/library/documentformat.openxml.presentation.attributename(v=office.15).aspx> and also adds the ability to operate with custom properties which are not described in the specification.
 
 All predefined properties could be get through the call of corresponding static property, for example:
 
 ``` java
-
- BehaviorProperty.getPptC()
-
+BehaviorProperty.getPptC()
 BehaviorProperty.getStyleColor()
-
 BehaviorProperty.getFillOpacity()
-
 ```
-
 represent ppt_c, style.color and fill.opacity values from list
 
 Instance of the BehaviorProperty class could also be get though call of getOrCreateByValue static method. This method looks for existing behavior property by value or creates new custom one with the specified value.
 
 ``` java
-
- BehaviorProperty.getOrCreateByValue("style.color")
-
+BehaviorProperty.getOrCreateByValue("style.color")
 BehaviorProperty.getOrCreateByValue("customProp")
-
 ```
 
 Backward compatibility method was added only to simplify upgrade to 16.4 version for the customers which actively use PropertyType enum
 
 ``` java
-
- BehaviorProperty.getByType(PropertyType.Color)
-
+BehaviorProperty.getByType(PropertyType.Color)
 ```
 
 This methods (as well as properties) create only one instance for each property value. For example two calls of BehaviorProperty.getPptC() will return the same instance. This is true for custom properties as well.
@@ -208,116 +166,78 @@ This methods (as well as properties) create only one instance for each property 
 Instance properties of this class are described by the IBehaviorProperty interface
 
 ``` java
-
  /**
-
  * <p>
-
  * Represent property types for animation behavior.
-
  * Follows the list of properties from https://msdn.microsoft.com/en-us/library/dd949052(v=office.15).aspx
-
  * and https://msdn.microsoft.com/en-us/library/documentformat.openxml.presentation.attributename(v=office.15).aspx
-
  * </p>
-
  */
-
 public interface IBehaviorProperty{
 
 /**
-
  * <p>
-
  * Value of the property
-
  * </p>
-
  */
-
 public String getValue();
 
 /**
-
  * <p>
-
  * Shows if this property does not belong to the predefined properties list in the specification:
-
  * https://msdn.microsoft.com/en-us/library/dd949052(v=office.15).aspx
-
  * </p>
-
  */
-
 public boolean isCustom();
-
 }
-
 ```
+
 #### **New method getActualLabelText() has been added to DataLabel and IDataLabel classes**
 Returns actual label text based on DataLabelFormat settings or getTextFrameForOverriding().getText() value.
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
-
   IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 500, 400);
 
   chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowBubbleSize(true);
-
   chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-
   chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
   chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowSeriesName(true);
 
   IDataLabelCollection labels = chart.getChartData().getSeries().get_Item(0).getLabels();
 
   System.out.println(labels.get_Item(0).getActualLabelText()); //"Y-Values; 0.7; 2.7; 10"
-
   System.out.println(labels.get_Item(1).getActualLabelText()); //"Y-Values; 1.8; 3.2; 4"
-
   System.out.println(labels.get_Item(2).getActualLabelText()); //"Y-Values; 2.6; 0.8; 8"
-
 } finally {
-
   if (pres != null) pres.dispose();
-
 }
-
 ```
 #### **Method getRelatedLegendEntry() has been added to ChartDataPoint and IChartDataPoint classes**
 Represents legend entry related with the data point.
 
 ``` java
-
- IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 500, 400);
-
+IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 500, 400);
 chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0).getRelatedLegendEntry().setHide(true);
-
 ```
+
 #### **Method getRelatedLegendEntry() has been added to ChartSeries and IChartSeries classes**
 Represents legend entry related with the series.
 
 ``` java
-
- IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
+IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 chart.getChartData().getSeries().get_Item(0).getRelatedLegendEntry().setHide(true);
-
 ```
+
 #### **Method getRelatedLegendEntry() has been added to Trendline and ITrendline classes**
 Represents legend entry related with the trendline.
 
 ``` java
-
- IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
+IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 chart.getChartData().getSeries().get_Item(0).getTrendLines().get_Item(0).getRelatedLegendEntry().setHide(true);
-
 ```
+
 #### **Swf and SwfNotes values have been added to com.aspose.slides.SaveFormat enumeration**
 New export format for an Adobe Flash file format (SWF) has been added.
 
@@ -328,33 +248,24 @@ The new public class SwfOptions has been added to Aspose.Slides.Export namespace
 To export presentation to SWF format the following code snippet can be used:
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try {
-
   SwfOptions swfOptions = new SwfOptions();
-
   swfOptions.setViewerIncluded(false);
 
   // Saving presentation
-
   pres.save("output.swf", SaveFormat.Swf, swfOptions);
 
   swfOptions.setViewerIncluded(true);
-
   // Saving notes pages
-
   pres.save("outputNotes.swf", SaveFormat.SwfNotes, swfOptions);
-
 } finally {
-
   if(pres != null) pres.dispose();
-
 }
-
 ```
+
 #### **TextAlignment.Distributed value has been added to com.aspose.slides.TextAlignment enum**
 It represents alignment of text distributed along the whole element.
+
 #### **Aspose.Slides for Java 16.4.0 depends on Bouncy Castle API**
 Aspose.Slides for Java 16.4.0 depends on [Bouncy Castle API](http://www.bouncycastle.org/java.html). The library can be downloaded from [Maven repository](http://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on/1.52). It is also included into the release package <ZIP>\lib\3rd_party\bcprov-jdk15on-1.52.jar.

@@ -50,11 +50,15 @@ url: /java/aspose-slides-for-java-16-3-0-release-notes/
 |SLIDESJAVA-33724|Assertion Error on generating PDF in Windows 8 environment|Bug|
 |SLIDESJAVA-33561|Pie Chart label format changed in generated PDF|Bug|
 ## **Public API Changes**
+
 #### **Enum com.aspose.slides.PieSplitType has been added**
 com.aspose.slides.PieSplitType represents a type of splitting points in the second pie or bar on a pie-of-pie or bar-of-pie chart.
+
 #### **Interface IPieSplitCustomPointCollection and class PieSplitCustomPointCollection have been added**
 Class com.aspose.slides.PieSplitCustomPointCollection and interface com.aspose.slides.IPieSplitCustomPointCollection have been added. They represent a collection of points that has to be drawn in the second pie or bar on a bar-of-pie or pie-of-pie chart with a custom split.
+
 #### **Method getFirstSliceAngle() has been added to com.aspose.slides.IChartSeries**
 Method getFirstSliceAngle() has been added to class com.aspose.slides.ChartSeries and interface com.aspose.slides.IChartSeries. It specifies the angle of the first pie or doughnut chart slice.
+
 #### **Methods for setting the second plot options for PieOfPie or BarOfPie chart have been added**
 Methods getSecondPieSize(), getPieSplitPosition(), getPieSplitBy() and getPieSplitCustomPoints() have been added to classes com.aspose.slides.ChartSeries, com.aspose.slides.ChartSeriesGroup ant to interfaces com.aspose.slides.IChartSeries, com.aspose.slides.IChartSeriesGroup. They represent settings of second plot options for BarOfPie or PieOfPie chart.

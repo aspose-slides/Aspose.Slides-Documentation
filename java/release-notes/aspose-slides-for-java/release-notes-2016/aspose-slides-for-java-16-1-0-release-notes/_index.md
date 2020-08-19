@@ -6,14 +6,12 @@ url: /java/aspose-slides-for-java-16-1-0-release-notes/
 ---
 
 ## **Minor Changes**
-Minor Changes
 
 SLIDESNET-37033 - Setting custom rotation angle for textframe
 
 SLIDESNET-34799 - Support for default automatic series colors for chart
 ## **Other Improvements and Changes**
-# **Other Improvements and Changes**
-Bug Fixes
+#### **Bug Fixes**
 
 SLIDESJAVA-35229 - IndexOutOfRangeException thrown on saving odp
 
@@ -53,35 +51,22 @@ SLIDESJAVA-33719 - The background image is improperly rendered in generated thum
 
 SLIDESJAVA-33711 - Symbols are improperly rendered for bullets and inside table for generated thumbnails
 ## **Public API Changes**
-``` java
+#### **Methods getRotationAngle() and setRotationAngle() have been added to IChartTextBlockFormat and ITextFrameFormat interfaces**
+Methods getRotationAngle() and setRotationAngle() have been added to interfaces com.aspose.slides.IChartTextBlockFormat and com.aspose.slides.ITextFrameFormat.
+They provide access to the custom rotation that is being applied to the text within the bounding box.
 
-
-
-Public API Changes
-
-Methods getRotationAngle() and setRotationAngle() have been added to IChartTextBlockFormat and ITextFrameFormat interfaces
-
+```java
 Presentation pres = new Presentation();
-
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
 
-
 IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-
 series.getLabels().getDefaultDataLabelFormat().setShowValue (true);
-
-
-series.getLabels().getDefaultDataLabelFormat().getTextFormat ().getTextBlockFormat().setRotationAngle(65);
-
+series.getLabels().getDefaultDataLabelFormat().getTextFormat().getTextBlockFormat().setRotationAngle(65);
 
 chart.setTitle(true);
-
-
 chart.getChartTitle().addTextFrameForOverriding("Custom title").getTextFrameFormat().setRotationAngle(-30);
 
-
 pres.save("out.pptx", SaveFormat.Pptx);
-
 ```

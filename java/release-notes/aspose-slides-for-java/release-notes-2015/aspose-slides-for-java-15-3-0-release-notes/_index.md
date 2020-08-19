@@ -6,10 +6,9 @@ url: /java/aspose-slides-for-java-15-3-0-release-notes/
 ---
 
 ## **Major Features**
-## **Major Features**
 Improved SmartArt customization support
+
 ## **All changes**
-All changes
 
 SLIDESJAVA-34768 - Aspose.Slides takes big time to export 1 slide presentaiton to PDF
 

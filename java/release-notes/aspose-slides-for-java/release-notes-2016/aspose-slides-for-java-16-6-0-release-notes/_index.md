@@ -57,136 +57,89 @@ url: /java/aspose-slides-for-java-16-6-0-release-notes/
 |SLIDESJAVA-34171|Text not showing properly after PPTX to JPG conversion|Bug|
 |SLIDESJAVA-33940|Presentation style is missing in generated PDF|Bug|
 |SLIDESJAVA-33461|Removing slide from PPT corrupts generated presentation|Bug|
+
 ## **Public API Changes**
 #### **New elements have been added into com.aspose.slides.LoadFormat enumeration**
 com.aspose.slides.LoadFormat enumeration has been extended with new elements: Potx, Pptm, Ppsm, Potm.
+
 #### **New methods readDocumentProperties, updateDocumentProperties and writeBindedPresentation have been added to IPresentationInfo, logic of the IDocumentProperties.setLastSavedTime() method has been changed**
 The two new methods readDocumentProperties and updateDocumentProperties have been added to IPresentationInfo interface. They provide a quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
 ``` java
-
- // read the info of presentation
-
+// read the info of presentation
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
 // obtain the current properties
-
 IDocumentProperties props = info.readDocumentProperties();
 
 // set the new values of Author and Title fields
-
 props.setAuthor("New Author");
-
 props.setTitle("New Title");
 
 // update the presentation with a new values
-
 info.updateDocumentProperties(props);
-
 info.writeBindedPresentation("updated_presentation.pptx");
-
 ```
 
 There's an another way to use properties of a particular presentation as a template to update properties in other presentations:
 
 ``` java
-
- private void updateByTemplate()
-
+private void updateByTemplate()
 {
-
   DocumentProperties template;
-
   IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
-
   template = (DocumentProperties)info.readDocumentProperties();
 
   template.setAuthor("Template Author");
-
   template.setTitle("Template Title");
-
   template.setCategory("Template Category");
-
   template.setKeywords("Keyword1, Keyword2, Keyword3");
-
   template.setCompany("Our Company");
-
   template.setComments("Created from template");
-
   template.setContentType("Template Content");
-
   template.setSubject("Template Subject");
 
   updateByTemplate("doc1.pptx", template);
-
   updateByTemplate("doc2.odp", template);
-
   updateByTemplate("doc3.ppt", template);
-
 }
 
 private void updateByTemplate(String path, IDocumentProperties template)
-
 {
-
   IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
-
   toUpdate.updateDocumentProperties(template);
-
   toUpdate.writeBindedPresentation(path);
-
 }
-
 ```
 
 Or a new template can be created from scratch and then used to update multiple presentations:
 
 ``` java
-
- private void updateByTemplate()
-
+private void updateByTemplate()
 {
-
   DocumentProperties template = new DocumentProperties();
-
   template.setAuthor("Template Author");
-
   template.setTitle("Template Title");
-
   template.setCategory("Template Category");
-
   template.setKeywords("Keyword1, Keyword2, Keyword3");
-
   template.setCompany("Our Company");
-
   template.setComments("Created from template");
-
   template.setContentType("Template Content");
-
   template.setSubject("Template Subject");
 
   updateByTemplate("doc1.pptx", template);
-
   updateByTemplate("doc2.odp", template);
-
   updateByTemplate("doc3.ppt", template);
-
 }
 
 private void updateByTemplate(String path, IDocumentProperties template)
-
 {
-
   IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
-
   toUpdate.updateDocumentProperties(template);
-
   toUpdate.writeBindedPresentation(path);
-
 }
-
 ```
 
 {{% alert color="primary" %}} 

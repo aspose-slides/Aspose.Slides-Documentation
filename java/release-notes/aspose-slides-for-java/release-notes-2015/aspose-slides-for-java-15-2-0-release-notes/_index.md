@@ -9,7 +9,6 @@ get started with Aspose.Slides for Java.
 
 request a free 30-day temporary license.
 ## **Minor Features**
-Minor Features
 
 SLIDESNET-35378 - RemoveAt method for chart series data point collection is missing
 
@@ -19,9 +18,8 @@ SLIDESNET-36088 - Implement all types of hyperlink monikers
 
 SLIDESNET-34858 - Support for availability of same property for getting the file format as of Aspsoe.Cells and Aspsoe.Words
 ## **Other Improvements ans Changes**
-Other Improvements ans Changes
 
-Bug Fixes
+#### **Bug Fixes**
 
 SLIDESJAVA-34759 - The slide background is wrongly rendered in generated PDF
 
@@ -43,11 +41,7 @@ SLIDESJAVA-34714 - Content is not showing in the generated HTML file
 
 SLIDESJAVA-34706 - Image quality is not good when converting PPTX to Image conversion
 
-SLIDESJAVA-34697 - Bitmap.
-
-- throws java.lang.ArrayIndexOutOfBoundsException: 74
-
-throws java.lang.ArrayIndexOutOfBoundsException: 74
+SLIDESJAVA-34697 - Bitmap throws java.lang.ArrayIndexOutOfBoundsException: 74
 
 SLIDESJAVA-34690 - Aspose.Slides failed to read the master theme name for presentaiton
 
@@ -63,11 +57,7 @@ SLIDESJAVA-34660 - Chart data in plot area is missing in generated thumbnail
 
 SLIDESJAVA-34659 - Chart category axis is improperly rendered in generated thumbnails
 
-SLIDESJAVA-34649 - Bitmap.
-
-- throws IOException: Error reading PNG image data
-
-throws IOException: Error reading PNG image data
+SLIDESJAVA-34649 - Bitmap throws IOException: Error reading PNG image data
 
 SLIDESJAVA-34641 - Java.lang.AssertionError: Cannot read a name from the name table in a font. when converting PPTX to PDF on Solaris
 
@@ -79,37 +69,39 @@ SLIDESJAVA-33365 - Paragraph spacing changed for Aspose.Slides generated text fr
 
 SLIDESJAVA-33318 - Font size in PDF and in thumbnails is bigger than in original PPTX
 ## **Public API Changes**
+
+#### **addDataPointForDoughnutSeries methods have been added**
+The two overloads of IChartDataPointCollection.addDataPointForDoughnutSeries() method have been added for adding data points into series of Doughnut type.
+
+#### **com.aspose.slides.SmartArtShape class has been inherited from com.aspose.slides.GeometryShape class**
+com.aspose.slides.SmartArtShape class has been inherited from com.aspose.slides.GeometryShape class. This change improves Aspose.Slides object model and adds new features to SmartArtShape class.
+
+#### **IGradientStopCollection.add(...) and IGradientStopCollection.insert(...) methods have been changed**
+The signature of IGradientStop add(float position, int presetColor) is replaced with IGradientStop addPresetColor(float position, int presetColor) signature.
+
+The signature of IGradientStopCollection method IGradientStop add(float position, SchemeColor schemeColor) is replaced with IGradientStop addSchemeColor(float position, int schemeColor) signature.
+
+The signature of the IGradientStopCollection method void insert(int index, float position, int presetColor) is replaced with void insertPresetColor(int index, float position, int presetColor) signature.
+
+The signature of the IGradientStopCollection method void insert(int index, float position, SchemeColor schemeColor) is replaced with void insertSchemeColor(int index, float position, int schemeColor) signature.
+
+#### **java.awt.Color getAutomaticSeriesColor() method has been added to com.aspose.slides.IChartSeries**
+getAutomaticSeriesColor() method returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.
+
 ``` java
-
- Public API Changes
-
-addDataPointForDoughnutSeries methods have been added
-
-com.aspose.slides.SmartArtShape class has been inherited from com.aspose.slides.GeometryShape class
-
-IGradientStopCollection.add(...) and IGradientStopCollection.insert(...) methods have been changed
-
-java.awt.Color getAutomaticSeriesColor() method has been added to com.aspose.slides.IChartSeries
-
 Presentation pres = new Presentation();
 
-
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-
 for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-
-
 {
-
-
-chart.getChartData().getSeries().get_Item(i) .getAutomaticSeriesColor();
-
-
+    chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
 }
-
-Method for removing chart data point and chart category by its index has been added
-
-PptXPptY value has been added to com.aspose.slides.PropertyType enumeration
-
 ```
+
+#### **Method for removing chart data point and chart category by its index has been added**
+IChartDataPointCollection.removeAt(int index) method has been added for removing chart data point by its index.
+
+IChartCategoryCollection.removeAt(int index) method has been added for removing chart category by its index.
+#### **PptXPptY value has been added to com.aspose.slides.PropertyType enumeration**
+PptXPptY value has been added to com.aspose.slides.PropertyType enumeration in the scope of a serialization issue fix.
+

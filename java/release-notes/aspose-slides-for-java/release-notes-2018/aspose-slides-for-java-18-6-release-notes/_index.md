@@ -38,63 +38,47 @@ url: /java/aspose-slides-for-java-18-6-release-notes/
 |SLIDESJAVA-36975|Exception on converting presentation to PDF|Bug|
 |SLIDESJAVA-37008|Presentation not saving|Bug|
 |SLIDESJAVA-37099|Size increased after converting PPTX to PDF|Bug|
+
 ## **Public API Changes**
+
 #### **getBubbleSizeScale and setBubbleSizeScale methods have been added to IChartSeries and IChartSeriesGroup**
-IChartSeries
+**IChartSeries**
 
 getBubbleSizeScale specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size). This is the getter not only of this series but of all series of parent series group - this is projection of appropriate group property. Use getParentSeriesGroup for access to parent series group. Use ParentSeriesGroup getBubbleSizeScale and setBubbleSizeScale methods for access to value.
 
-IChartSeriesGroup
+**IChartSeriesGroup**
 
 Specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size).
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try{
-
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 100, 100, 400, 300);
-
-chart.getChartData().getSeriesGroups().get_Item(0).setBubbleSizeScale(150);
-
-...
-
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 100, 100, 400, 300);
+    chart.getChartData().getSeriesGroups().get_Item(0).setBubbleSizeScale(150);
+    ...
 }finally {
-
-pres.dispose();
-
+    pres.dispose();
 }
-
 ```
+
 #### **getShowDataLabelsOverMaximum and setShowDataLabelsOverMaximum methods have been added to IChart**
 getShowDataLabelsOverMaximum and setShowDataLabelsOverMaximum methods have been added to IChart
 
 The methods specify whether to show the data labels when the value is greater than the maximum value on the value axis.
 
 ``` java
-
- Presentation presentation = new Presentation();
-
+Presentation presentation = new Presentation();
 try{
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 100, 600, 400);
-
-chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-
-chart.setShowDataLabelsOverMaximum(false);
-
-presentation.save("output.pptx", SaveFormat.Pptx);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 100, 600, 400);
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setShowDataLabelsOverMaximum(false);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 }finally {
-
-presentation.dispose();
-
+    presentation.dispose();
 }
-
 ```
+
 #### **You can use Aspose.Slides for Java with any BouncyCastle Provider**
 We have rewritten our algorithms, so now Aspose.Slides.Java API can be called safely without any dependency from Bouncy Castle library.
 
@@ -105,17 +89,25 @@ a) Use Bouncy Castle cryptography APIs.
 You should add following reference:
 
 Provider - <https://www.bouncycastle.org/download/bcprov-jdk15on-159.jar>
+
 PKIX/CMS/EAC/PKCS/OCSP/TSP/OPENSSL - <https://www.bouncycastle.org/download/bcpkix-jdk15on-159.jar>
+
 Add BouncyCastleProvider to java security:
+```java
 Security.addProvider(new BouncyCastleProvider());
+```
 
 b) Use FIPS version of Bouncy Castle cryptography APIs.
 You should add following reference:
 
 Provider - <https://downloads.bouncycastle.org/fips-java/bc-fips-1.0.1.jar>
+
 CMS/EAC/OCSP/PKIX/PKCS/TSP - <https://downloads.bouncycastle.org/fips-java/bcpkix-fips-1.0.1.jar>
+
 Add BouncyCastleFipsProvider to java security:
+```java
 Security.addProvider(new BouncyCastleFipsProvider());
+```
 
 c) Add both version of BC to classpath or do not add anything.
 

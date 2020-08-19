@@ -42,53 +42,33 @@ Now in Aspose.Slides for Java version 18.5 support for setting SmartArtShape X a
 The code snippet below shows how to set custom SmartArtShape position, size and rotation (please note that adding new nodes causes a recalculation of the positions and sizes of all nodes):
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try{
+    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
+    // Move SmartArt shape to new position
+    ISmartArtNode node = smart.getAllNodes().get_Item(1);
+    ISmartArtShape shape = node.getShapes().get_Item(1);
+    shape.setX(shape.getX() + shape.getWidth() * 2);
+    shape.setY(shape.getY() - shape.getHeight() * 2);
 
-// Move SmartArt shape to new position
+    // Change SmartArt shape's widths
+    node = smart.getAllNodes().get_Item(2);
+    shape = node.getShapes().get_Item(1);
+    shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
 
-ISmartArtNode node = smart.getAllNodes().get_Item(1);
+    // Change SmartArt shape's height
+    node = smart.getAllNodes().get_Item(3);
+    shape = node.getShapes().get_Item(1);
+    shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
 
-ISmartArtShape shape = node.getShapes().get_Item(1);
+    // Change SmartArt shape's rotation
+    node = smart.getAllNodes().get_Item(4);
+    shape = node.getShapes().get_Item(1);
+    shape.setRotation(90);
 
-shape.setX(shape.getX() + shape.getWidth() * 2);
-
-shape.setY(shape.getY() - shape.getHeight() * 2);
-
-// Change SmartArt shape's widths
-
-node = smart.getAllNodes().get_Item(2);
-
-shape = node.getShapes().get_Item(1);
-
-shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
-
-// Change SmartArt shape's height
-
-node = smart.getAllNodes().get_Item(3);
-
-shape = node.getShapes().get_Item(1);
-
-shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
-
-// Change SmartArt shape's rotation
-
-node = smart.getAllNodes().get_Item(4);
-
-shape = node.getShapes().get_Item(1);
-
-shape.setRotation(90);
-
-pres.save(path + "SmartArt.pptx", SaveFormat.Pptx);
-
+    pres.save(path + "SmartArt.pptx", SaveFormat.Pptx);
 }finally {
-
-pres.dispose();
-
+    pres.dispose();
 }
-
 ```
