@@ -7,7 +7,7 @@ url: /net/convert-presentation-to-html/
 
 **HTML** is one of several widely used format for exchanging data. **Aspose.Slides for .NET** provides support for converting a presentation to HTML. Below is code snippet that shows you how.
 #### **Example**
-{{< highlight cs >}}
+``` 
 
  //Instantiate a Presentation object that represents a presentation file
 
@@ -33,6 +33,6 @@ pres.Save("Converted.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Converting Presentation to HTML](http://www.aspose.com/docs/display/slidesnet/Converting+Presentation+to+HTML).
+For more details, visit [Converting Presentation to HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/).
 
 {{% /alert %}}

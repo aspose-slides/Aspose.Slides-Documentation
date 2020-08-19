@@ -7,7 +7,7 @@ url: /cpp/accessing-an-existing-table-in-slide/
 
 {{% alert color="primary" %}} 
 
-This page is no longer maintained. For an updated page, please visit <http://www.aspose.com/docs/display/slidesnet/Adding%2C+Updating+and+Manipulating+Tables#Adding%2CUpdatingandManipulatingTables-AccessinganExistingTable>
+This page is no longer maintained. For an updated page, please [visit](/slides/cpp/adding-updating-and-manipulating-tables/)
 
 {{% /alert %}} {{% alert color="primary" %}} 
 

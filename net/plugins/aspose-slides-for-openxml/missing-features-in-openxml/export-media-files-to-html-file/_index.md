@@ -60,6 +60,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Exporting media files into html file](http://www.aspose.com/docs/display/slidesnet/Exporting+media+files+into+html+file).
+For more details, visit [Exporting media files into html file](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 
 {{% /alert %}}

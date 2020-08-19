@@ -7,9 +7,10 @@ url: /net/convert-presentation-to-tiff-with-notes/
 
 TIFF is one of several widely used image formats that Aspose.Slides for .NET supports for converting a presentation with notes to images. You can also generate slide thumbnails in the Notes Slide view. Below are two code snippets that shows how to generate TIFF images of a presentation in Notes Slide view.
 
-The [Save](http://www.aspose.com/docs/display/slidesnet/Aspose.Slides.Presentation.Save+Method) method exposed by [Presentation](http://www.aspose.com/docs/display/slidesnet/Aspose.Slides.Presentation+Class) class can be used to convert the whole presentation in Notes Slide view to TIFF. You can also generate a slide thumbnail in Notes Slide view for individual slides.
+The [Save](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save) method exposed by [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class can be used to convert the whole presentation in Notes Slide view to TIFF. You can also generate a slide thumbnail in Notes Slide view for individual slides.
 #### **Example**
-{{< highlight cs >}}
+
+``` 
 
   //Instantiate a Presentation object that represents a presentation file
 
@@ -31,6 +32,6 @@ The [Save](http://www.aspose.com/docs/display/slidesnet/Aspose.Slides.Presentati
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Converting Presentation with Notes](http://www.aspose.com/docs/display/slidesnet/Converting+Presentation+with+Notes).
+For more details, visit [Converting Presentation with Notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/).
 
 {{% /alert %}}

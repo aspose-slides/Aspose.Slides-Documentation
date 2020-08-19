@@ -11,7 +11,7 @@ It has been observed that Excel Worksheets embedded as OLE in a PowerPoint Prese
 
 {{% /alert %}} 
 #### **Background**
-In [Adding Ole Frames article](), we have explained how to add an Ole Frame in presentation in a PowerPoint Presentation using Aspose.Slides for C++. In order to accommodate the [object changed issue](https://docs-qa.aspose.com/display/slidesnet/Object+Changed+Issue+When+Adding+OleObjectFrame), we assigned the worksheet image of selected area to the Chart OLE Object Frame. In the output presentation, when we double click the OLE Object Frame showing the worksheet Image, the Excel Chart is activated. The end users can make any desired changes in the actual Excel Workbook and then return to the concerned Slide by clicking outside the activated Excel Workbook. The size of the OLE Object Frame will change when the user gets back to the slide. The resizing factor will be different for different sizes of OLE Object Frame and embedded Excel Workbook. 
+In [Adding Ole Frames article](), we have explained how to add an Ole Frame in presentation in a PowerPoint Presentation using Aspose.Slides for C++. In order to accommodate the [object changed issue](https://docs.aspose.com/display/slidesnet/Object+Changed+Issue+When+Adding+OleObjectFrame), we assigned the worksheet image of selected area to the Chart OLE Object Frame. In the output presentation, when we double click the OLE Object Frame showing the worksheet Image, the Excel Chart is activated. The end users can make any desired changes in the actual Excel Workbook and then return to the concerned Slide by clicking outside the activated Excel Workbook. The size of the OLE Object Frame will change when the user gets back to the slide. The resizing factor will be different for different sizes of OLE Object Frame and embedded Excel Workbook. 
 #### **Cause of Resizing**
 Since the Excel Workbook has its own window size, it tries to retain its original size on first time activation. On the other hand, the OLE Object Frame will have its own size. According to Microsoft, on activation of the Excel Workbook, Excel and PowerPoint negotiate the size and ensure it is in the correct proportions as part of the embedding operation. Based on the differences in the Excel Windows size and OLE Object Frame size / position, the resizing takes place. 
 #### **Working Solution**
@@ -454,6 +454,6 @@ There are two approaches to fix the worksheet resizing issue. The selection of t
 h4. {_}Related Sections 
 {_}
 
-[Creating and Embedding an Excel Chart as OLE Object in Presentation](https://docs-qa.aspose.com/display/slidesnet/Creating+Excel+Chart+and+Embedding+it+in+Presentation+as+OLE+Object)
+[Creating and Embedding an Excel Chart as OLE Object in Presentation](https://docs.aspose.com/display/slidesnet/Creating+Excel+Chart+and+Embedding+it+in+Presentation+as+OLE+Object)
 
-[Updating OLE Objects automatically](https://docs-qa.aspose.com/display/slidesnet/Updating+OLE+objects+automatically+using+MS+PowerPoint+Add+In)
+[Updating OLE Objects automatically](https://docs.aspose.com/display/slidesnet/Updating+OLE+objects+automatically+using+MS+PowerPoint+Add+In)

@@ -129,6 +129,6 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding layout Slide to Presentation](http://www.aspose.com/docs/display/slidesnet/Adding+Layout+Slides+to+Presentation).
+For more details, visit [Adding layout Slide to Presentation](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

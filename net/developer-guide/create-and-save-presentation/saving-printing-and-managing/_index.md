@@ -93,7 +93,7 @@ In the example given below, we have get and set the slide number property.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-SetSlideNumber-SetSlideNumber.cs" >}}
 ## **Add Blob in Presentations**
-[Aspose.Slides](/slides/net/home/) for .NET provides a facility to add large files (video file in that case) and prevent a high memory consumption. An example is given below that shows how to add Blob in presentations.
+[Aspose.Slides](/slides/net/) for .NET provides a facility to add large files (video file in that case) and prevent a high memory consumption. An example is given below that shows how to add Blob in presentations.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AddBlobToPresentation-AddBlobToPresentation.cs" >}}
 ## **Export Blob from Presentations**

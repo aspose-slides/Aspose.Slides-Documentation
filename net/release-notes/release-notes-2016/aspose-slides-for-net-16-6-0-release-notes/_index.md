@@ -7,8 +7,8 @@ url: /net/aspose-slides-for-net-16-6-0-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
-|SLIDESNET-37491|[Restoring support for read only document properties to make changes](http://www.aspose.com/docs/display/slidesnet/Saving%2C+Printing+and+Managing#Saving%2CPrintingandManaging-WorkingwithAdvancedDocumentProperties)|Feature|
-|SLIDESNET-32388|[Inserting video from web in presentation](http://www.aspose.com/docs/display/slidesnet/Adding+and+Formatting+Shapes#AddingandFormattingShapes-AddingVideoFramewithVideofromWebSource)|Feature|
+|SLIDESNET-37491|[Restoring support for read only document properties to make changes](/slides/net/managing-document-properties/)|Feature|
+|SLIDESNET-32388|[Inserting video from web in presentation](/slides/net/adding-shapes/#add-embedded-video-frame)|Feature|
 |SLIDESNET-37410|Implement FillOverlay effect|Feature|
 |SLIDESNET-37606|Empty tiff is generated for exported Tiff|Bug|
 |SLIDESNET-37601|Chart data fail to open in Edit mode on saving presentation|Bug|

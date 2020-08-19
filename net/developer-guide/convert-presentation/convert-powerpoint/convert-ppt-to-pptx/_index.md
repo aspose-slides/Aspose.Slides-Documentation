@@ -37,7 +37,7 @@ To convert a PPT to PPTX simply pass the file name and save format to the [**Sa
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-PPTtoPPTX-PPTtoPPTX.cs" >}}
 
-Read more about [**PPT vs PPTX**](/slides/net/ppt-vs-pptx/) presentation formats and how [**Aspose.Slides supports PPT to PPTX conversion**](/slides/net/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion).
+Read more about [**PPT vs PPTX**](/slides/net/ppt-vs-pptx/) presentation formats and how [**Aspose.Slides supports PPT to PPTX conversion**](/slides/net/convert-ppt-to-pptx/).
 
 
 

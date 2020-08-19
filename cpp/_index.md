@@ -20,7 +20,7 @@ Aspose.Slides for C++ is a Microsoft PowerPoint® management API that enables C+
 
 Following are the links to some useful resources you may need to accomplish your tasks.
 
-- [Aspose.Slides for C++ Online Documentation](/slides/cpp/home/)
+- [Aspose.Slides for C++ Online Documentation](/slides/cpp/)
 - [Aspose.Slides for C++ Features](/slides/cpp/features-overview/)
 - [Aspose.Slides for C++ Release Notes](/slides/cpp/release-notes/)
 - [Aspose.Slides for C++ Product Page](https://products.aspose.com/slides/cpp)

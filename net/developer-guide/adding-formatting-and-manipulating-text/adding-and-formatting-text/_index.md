@@ -6,7 +6,7 @@ url: /net/adding-and-formatting-text/
 ---
 
 ## **Replacing Text in a Placeholder**
-Using [Aspose.Slides for .NET](/slides/net/home/), developers can also find and modify a specific Placeholder present in a slide. In this topic, we are going to demonstrate with the help of an example that how the text contained inside a Placeholder can be replaced or modified using Aspose.Slides for .NET. The following two steps will be used to modify text in Placeholder.
+Using [Aspose.Slides for .NET](/slides/net/), developers can also find and modify a specific Placeholder present in a slide. In this topic, we are going to demonstrate with the help of an example that how the text contained inside a Placeholder can be replaced or modified using Aspose.Slides for .NET. The following two steps will be used to modify text in Placeholder.
 
 Step 1: Create a Slide Containing a Placeholder
 

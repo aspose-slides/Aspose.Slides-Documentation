@@ -37,8 +37,4 @@ using (Presentation pres = new Presentation(srcFileName))
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/OpenDocument%20Presentation)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
-{{% alert color="primary" %}} 
 
-For more details, visit [Accessing OpenDocument Presentation](http://www.aspose.com/docs/display/slidesnet/Accessing+OpenDocument+Presentation).
-
-{{% /alert %}}

@@ -221,4 +221,4 @@ By using Aspose.Cells for C++ along with Aspose.Slides for C++, we can create an
 
 {{% /alert %}} 
 #### **Related Sections**
-[Working Solution for Chart Resizing](https://docs-qa.aspose.com/display/slidesnet/Working+Solution+for+Chart+Resizing+in+PPTX)[Object Changed Issue](https://docs-qa.aspose.com/display/slidesnet/Updating+OLE+objects+automatically+using+MS+PowerPoint+Add+In)
+[Working Solution for Chart Resizing](https://docs.aspose.com/display/slidesnet/Working+Solution+for+Chart+Resizing+in+PPTX)[Object Changed Issue](https://docs.aspose.com/display/slidesnet/Updating+OLE+objects+automatically+using+MS+PowerPoint+Add+In)

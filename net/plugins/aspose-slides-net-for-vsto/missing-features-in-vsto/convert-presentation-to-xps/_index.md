@@ -9,7 +9,8 @@ url: /net/convert-presentation-to-xps/
 
 The **Save** method exposed by Presentation class can be used to convert the whole presentation into **XPS** document. Further, **XpsOptions** class exposes **SaveMetafileAsPng** property that can be set to true or false as per requirement.
 #### **Example**
-{{< highlight cs >}}
+
+``` 
 
  //Instantiate a Presentation object that represents a presentation file
 
@@ -31,6 +32,6 @@ pres.Save("converted.xps", Aspose.Slides.Export.SaveFormat.Xps);
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Conversion to XPS](http://www.aspose.com/docs/display/slidesnet/Conversion+to+XPS).
+For more details, visit [Conversion to XPS](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
 
 {{% /alert %}}

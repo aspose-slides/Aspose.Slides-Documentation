@@ -56,8 +56,3 @@ using (Presentation pres = new Presentation("example.pptx"))
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
 
-{{% alert color="primary" %}} 
-
-For more details, visit [Exporting media files into html file](http://www.aspose.com/docs/display/slidesnet/Exporting+media+files+into+html+file).
-
-{{% /alert %}}

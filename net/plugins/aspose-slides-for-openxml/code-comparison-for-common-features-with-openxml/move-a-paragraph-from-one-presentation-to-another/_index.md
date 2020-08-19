@@ -115,7 +115,7 @@ return slidePart;
 
 ``` 
 ## **Aspose.Slides**
-It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Whether extracting text from one slide or an entire presentation, Aspose.Slides uses the PresentationScanner Class and the static methods it exposes. They are all packed under the namespace [Aspose.Slides.Util](http://www.aspose.com/docs/display/slidesnet/Aspose.Slides.Util+namespace).
+It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Whether extracting text from one slide or an entire presentation, Aspose.Slides uses the PresentationScanner Class and the static methods it exposes. They are all packed under the namespace [Aspose.Slides.Util](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil).
 
 ``` csharp
 

@@ -12,7 +12,8 @@ To generate an SVG image from any desired slide with Aspose.Slides.Pptx for .NET
 - Get the SVG image in a memory stream.
 - Save the memory stream to file.
 #### **Example**
-{{< highlight cs >}}
+
+```
 
  //Instantiate a Presentation class that represents the presentation file
 
@@ -68,6 +69,6 @@ SvgStream.Close();
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Creating Slide SVG Image](http://www.aspose.com/docs/display/slidesnet/Creating+Slides+SVG+Image).
+For more details, visit [Creating Slide SVG Image](/slides/net/presentation-viewer/).
 
 {{% /alert %}}

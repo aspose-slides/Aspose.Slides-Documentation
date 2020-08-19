@@ -132,6 +132,6 @@ using (Presentation p = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding Layout Slides to Presentation](http://www.aspose.com/docs/display/slidesnet/Adding+Layout+Slides+to+Presentation).
+For more details, visit [Adding Layout Slides to Presentation](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

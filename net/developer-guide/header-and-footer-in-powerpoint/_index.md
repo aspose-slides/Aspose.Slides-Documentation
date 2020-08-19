@@ -9,11 +9,11 @@ description: "Header and footer in PowerPoint with Aspose.Slides."
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/net/home/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
+[Aspose.Slides](/slides/net/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
 
 {{% /alert %}} 
 
-[Aspose.Slides for .NET](/slides/net/home/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on the presentation master level.
+[Aspose.Slides for .NET](/slides/net/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on the presentation master level.
 ## **Managing Header and Footer Text**
 Notes of some specific slide could be updated as shown in the example below:
 

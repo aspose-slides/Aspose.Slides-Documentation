@@ -8,7 +8,7 @@ url: /cpp/aspose-slides-for-cpp-19-1-release-notes/
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
 |SLIDESCPP-1647|Improve thumbnails rendering quality (v19.1)|Feature|
-|SLIDESCPP-1669|[Use Aspose.Slides for .NET 19.1 features](https://docs.asposeptyltd.com/display/slidesnet/Aspose.Slides+for+.NET+19.1+Release+Notes)|Feature|
+|SLIDESCPP-1669|Use Aspose.Slides for .NET 19.1 features|Feature|
 ## **Public API Changes**
 
 #### **get_AlternativeTextTitle() and set_AlternativeTextTitle() methods have been added to IShape class**

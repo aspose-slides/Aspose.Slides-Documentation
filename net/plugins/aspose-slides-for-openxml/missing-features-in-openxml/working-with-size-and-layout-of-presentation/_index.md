@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Working With Slide Size and Layout](http://www.aspose.com/docs/display/slidesnet/Working+With+Slide+Size+and+Layout).
+For more details, visit [Working With Slide Size and Layout](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

@@ -16,7 +16,7 @@ The Aspose.Slides.SmartArt.OrganizationChartLayoutType enum represents formattin
 #### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts has been added**
 Method Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets default non-zero shifts for effective paragraph Indent and MarginLeft when bullets is enabled (like PowerPoint do if enable paragraph bullets/numbering in it). If bullets is disabled then just reset paragraph Indent and MarginLeft (like PowerPoint do if disable paragraph bullets/numbering in it).
 
-See examples here: <http://www.aspose.com/docs/display/slidesnet/Managing+Paragraph+Bullets+in+PPTX>
+See examples [here](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **Method IConnector.Reroute has been added**
 Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the Reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 

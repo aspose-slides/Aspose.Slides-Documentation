@@ -119,5 +119,5 @@ This table lists important Aspose.Slides for C++ technical resources.
 |[Aspose.Slide blog](https://blog.aspose.com/category/aspose-products/aspose-slides-product-family/)|Check this often for information about new releases and useful tips about Aspose.Slides.|
 |[Aspose.Slides for C++ download](https://downloads.aspose.com/slides/cpp)|All new and old product release are maintained for customer reference.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides)|Post your questions and issues here for a speedy resolution.|
-|[Aspose.Slides for C++ product documentation](/slides/cpp/home/)|Full online documentation that includes this documentation as well as Aspose.Slides API Reference.|
+|[Aspose.Slides for C++ product documentation](/slides/cpp/)|Full online documentation that includes this documentation as well as Aspose.Slides API Reference.|
 

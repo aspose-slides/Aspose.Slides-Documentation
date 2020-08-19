@@ -53,6 +53,6 @@ using (Presentation pres = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Managing Slides Transitions](http://www.aspose.com/docs/display/slidesnet/Managing+Slides+Transitions).
+For more details, visit [Managing Slides Transitions](/slides/net/slide-transition/).
 
 {{% /alert %}}

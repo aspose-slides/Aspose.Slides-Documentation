@@ -55,8 +55,4 @@ switch (info.LoadFormat)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c/view/SourceCode)
 
-{{% alert color="primary" %}} 
 
-For more details, visit [Getting the format of a file](http://www.aspose.com/docs/display/slidesnet/Getting+the+format+of+a+file).
-
-{{% /alert %}}

@@ -5,11 +5,8 @@ weight: 10
 url: /cpp/creating-a-table-from-scratch-in-slide/
 ---
 
+
 {{% alert color="primary" %}} 
-
-This page is no longer maintained. For an updated page, please visit <http://www.aspose.com/docs/display/slidesnet/Adding%2C+Updating+and+Manipulating+Tables>
-
-{{% /alert %}} {{% alert color="primary" %}} 
 
 Aspose.Slides for C++ also facilitates developers to add custom tables in their slides from scratch. This is one of the newest features added in Aspose.Slides for C++ since last few versions. In this topic, we will explain that how can developers create and add tables to their slides using Aspose.Slides for C++.
 

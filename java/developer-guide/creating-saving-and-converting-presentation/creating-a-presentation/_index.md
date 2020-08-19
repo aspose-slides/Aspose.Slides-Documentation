@@ -34,7 +34,7 @@ Please follow the steps below to create a PowerPoint presentation having Hello W
 ## **Setting Default Zoom Value for Presentation**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://apireference.aspose.com/java/slides/com.aspose.slides/ViewProperties) of a presentation. SlideViewProperties as well as NotesViewProperties could be set programmatically. In this topic, we will see with an example how to set the View Properties of Presentation in [Aspose.Slides](https://docs.aspose.com/display/slidesproductfamily/Home).
+Aspose.Slides for Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://apireference.aspose.com/java/slides/com.aspose.slides/ViewProperties) of a presentation. SlideViewProperties as well as NotesViewProperties could be set programmatically. In this topic, we will see with an example how to set the View Properties of Presentation in [Aspose.Slides](https://docs.aspose.com/slides/).
 
 {{% /alert %}} 
 

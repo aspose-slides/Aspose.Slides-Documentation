@@ -24,5 +24,5 @@ This table lists important Aspose.Slides for .NET technical resources.
 |[Aspose.Slide blog](https://blog.aspose.com/category/aspose-products/aspose-slides-product-family/)|Check this often for information about new releases and useful tips about Aspose.Slides.|
 |[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|All new and old product release are maintained for customer reference.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides)|Post your questions and issues here for a speedy resolution.|
-|[Aspose.Slides for .NET product documentation](/slides/net/home/)|Full online documentation that includes this documentation as well as Aspose.Slides API Reference.|
+|[Aspose.Slides for .NET product documentation](/slides/net/)|Full online documentation that includes this documentation as well as Aspose.Slides API Reference.|
 
