@@ -47,11 +47,8 @@ getConformance() and setConformance() methods have been added to PptxOptions cla
 The methods allow saving the presentation with Strict and Transitional Open XML Presentation conformance class.
 
 ``` java
-
- public final /*Conformance*/ int getConformance();
-
+public final /*Conformance*/ int getConformance();
 public final void setConformance(/*Conformance*/int value)
-
 ```
 
 By default getConformance() method returns Conformance.Ecma376_2006.
@@ -59,71 +56,43 @@ By default getConformance() method returns Conformance.Ecma376_2006.
 For example, the following code allows saving the presentation in Strict format.
 
 ``` java
-
- Presentation presentation = new Presentation("Presentation.pptx");
-
+Presentation presentation = new Presentation("Presentation.pptx");
 try
-
 {
-
-PptxOptions opt = new PptxOptions();
-
-opt.setConformance(Conformance.Iso29500_2008_Strict);
-
-presentation.save("PresOut.pptx", SaveFormat.Pptx, opt);
-
+	PptxOptions opt = new PptxOptions();
+	opt.setConformance(Conformance.Iso29500_2008_Strict);
+	presentation.save("PresOut.pptx", SaveFormat.Pptx, opt);
 }
-
 finally {
-
-presentation.dispose();
-
+	presentation.dispose();
 }
-
 ```
+
 #### **The getEffectsByParagraph method has been added to Sequence class and ISequence interface**
 getEffectsByParagraph method has been added to Sequence class and ISequence interface.
 
 It returns the array of effects for the specified text paragraph.
 
 ``` java
-
- public final IEffect[] getEffectsByParagraph(IParagraph paragraph)
-
+public final IEffect[] getEffectsByParagraph(IParagraph paragraph)
 ```
 
 Usage example:
 
 ``` java
-
- Presentation pres = new Presentation("Presentation.pptx");
-
+Presentation pres = new Presentation("Presentation.pptx");
 try
-
 {
-
-ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-IAutoShape autoShape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
-for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
-
-{
-
-IEffect[] effects = sequence.getEffectsByParagraph(paragraph);
-
-if (effects.length > 0)
-
-Log.d("Debug", "Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
-
+	ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+	IAutoShape autoShape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+	for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
+	{
+		IEffect[] effects = sequence.getEffectsByParagraph(paragraph);
+		if (effects.length > 0)
+			Log.d("Debug", "Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
+	}
 }
-
-}
-
 finally {
-
-pres.dispose();
-
+	pres.dispose();
 }
-
 ```

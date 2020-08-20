@@ -30,25 +30,14 @@ These classes are used instead of android.util.Size and android.util.SizeF to su
 
 The code snippet below shows a sample of usage Size and SizeF:
 
-
-
 ``` java
-
- Presentation p = new Presentation("ExistingChart.pptx"); 
-
-
+Presentation p = new Presentation("ExistingChart.pptx"); 
 
 //get silde size
-
 SizeF slideSize = p.getSlideSize().getSize(); 
 
-
-
 //create a thumbnail using custom size
-
 android.graphics.Bitmap bmp = p.getSlides().get_Item(0).getThumbnail(new Size(800, 600));
-
-
 ```
 
 
@@ -62,36 +51,20 @@ IResourceLoadingCallback can be used to manage external workbook loading. See Ne
  1) Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook can't be loaded an exception is thrown.
 
 ``` java
-
- Presentation pres = new Presentation("presentation.pptx");
-
+Presentation pres = new Presentation("presentation.pptx");
 try
-
 {
-
     IChart chart = (IChart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
     ChartData chartData = (ChartData)chart.getChartData();
-
-
 
     assert(chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook);
 
-
-
     chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-
     pres.save(outPptxFileName, SaveFormat.Pptx);
-
 }
-
 finally {
-
     pres.dispose();
-
 }
-
-
 ```
 
 
@@ -101,58 +74,31 @@ finally {
 setExternalWorkbook() method can be also used to update a path to the external workbook if it has been moved. Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. If the relative path was provided for an external workbook, it converts to full path automatically.
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try
-
 {
-
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
-
     IChartData chartData = chart.getChartData();
 
-
-
     assert(chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook);
-
-
 
     chartData.setExternalWorkbook("externalWorkbook.xlsx");
 
-
-
     assert(chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook);
 
-
-
     chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-
     chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-
     chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-
     chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
 
-
-
     chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-
     chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-
     chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-
     pres.save("Presentation.pptx", SaveFormat.Pptx);
-
 }
-
 finally {
-
     pres.dispose();
-
 }
-
-
 ```
 
 
@@ -160,58 +106,28 @@ finally {
  3) Combination of methods IChartData.readWorkbookStream() and IChartData.setExternalWorkbook() can be used to create an external workbook from scratch or to make an internal workbook external.
 
 ``` java
-
- Presentation pres = new Presentation("presentaion.pptx");
-
+Presentation pres = new Presentation("presentaion.pptx");
 try
-
 {
-
     String externalWbPath = "externalWorkbook.pptx";
-
-
 
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
 
-
-
     java.io.File file = new File(externalWbPath);
-
     if (file.exists())
-
         file.delete();
 
-
-
     byte[] worbookData = chart.getChartData().readWorkbookStream();
-
     FileOutputStream outputStream = new FileOutputStream(file);
-
     outputStream.write(worbookData);
-
     outputStream.close();
 
-
-
     chart.getChartData().setExternalWorkbook(externalWbPath);
-
 } catch (FileNotFoundException e) {
-
     e.printStackTrace();
-
 } catch (IOException e) {
-
     e.printStackTrace();
-
 } finally {
-
     pres.dispose();
-
 }
-
-
 ```
-
-
-
-

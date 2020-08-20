@@ -30,29 +30,16 @@ Method **setExternalWorkbook**(String *workbookPath*, boolean *updateChartData*
 
 Parameter **updateChartData** defines whether excel workbook will be loaded or not. If value is false only workbook path will be updated.  Chart data won't be loaded and updated from the target workbook. It's useful when target workbook doesn't exist yet or is not available. If value is true chart data will be updated from the target workbook as regular method setExternalWorkbook() does.
 
-
-
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try
-
 {
-
       IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-
       IChartData chartData = chart.getChartData();
-
       ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
-
 } finally {
-
       if (pres != null) pres.dispose();
-
 }
-
-
 ```
 
 
@@ -63,36 +50,17 @@ It allows to add new animation effect for single paragraph.
 
 Usage example:
 
-
-
 ``` java
-
- Presentation presentation = new Presentation(path + "input.pptx");
-
+Presentation presentation = new Presentation(path + "input.pptx");
 try
-
 {
-
     // select paragraph to add effect
-
     IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-
     // add Fly animation effect to selected paragraph
-
     IEffect effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().
-
     addEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
 } finally {
-
     if (presentation != null) presentation.dispose();
-
 }
-
 ```
-
-
-
-

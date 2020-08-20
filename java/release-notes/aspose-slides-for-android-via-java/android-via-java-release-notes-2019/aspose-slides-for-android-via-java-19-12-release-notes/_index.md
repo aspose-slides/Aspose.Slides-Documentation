@@ -21,35 +21,22 @@ Among other types of PowerPoint charts, there are two "hierarchical" types - **T
 
 Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, while other columns define hierarchical datapoints:
 
-
-
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_1.png)
 
 Let’s start with adding a new Sunburst chart to the presentation:
 
 ``` java
-
- Presentation pres = new Presentation();
-
+Presentation pres = new Presentation();
 try
-
 {
-
    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
-
    // ...
-
 } finally {
-
    if (pres != null) pres.dispose();
-
 }
-
 ```
 
 Read more about [Creating Sunburst Chart](/slides/java/creating-and-updating-chart-in-a-slide/#creatingandupdatingchartinaslide-creatingsunburstchart).
-
-
 
 If there is a need to format data points of the chart, we should use the following:
 
@@ -59,11 +46,8 @@ If there is a need to format data points of the chart, we should use the followi
 Show value of "Leaf 4" data point:
 
 ``` java
-
- IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-
+IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
 dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-
 ```
 
 
@@ -73,17 +57,11 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
  Set "Branch 1" data label to show a series name ("Series1") instead of the category name. Then set the text color to yellow:
 
 ``` java
-
- IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(2).getLabel();
-
+IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(2).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
-
 branch1Label.getDataLabelFormat().setShowSeriesName(true);
-
 branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-
 branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-
 ```
 
 
@@ -93,13 +71,9 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
  Change color of "Steam 4" branch:
 
 ``` java
-
- IFormat steam4Format = dataPoints.get_Item(9).getDataPointLevels().get_Item(1).getFormat();
-
+IFormat steam4Format = dataPoints.get_Item(9).getDataPointLevels().get_Item(1).getFormat();
 steam4Format.getFill().setFillType(FillType.Solid);
-
 steam4Format.getFill().getSolidFillColor().setColor(android.graphics.Color.argb(0, 176, 240, 255));
-
 ```
 
 
@@ -111,25 +85,15 @@ steam4Format.getFill().getSolidFillColor().setColor(android.graphics.Color.argb(
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
 ``` java
-
- PdfOptions pdfOptions = new PdfOptions();
-
+PdfOptions pdfOptions = new PdfOptions();
 pdfOptions.setPassword("my_password");
-
 pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
-
 Presentation presentation = new Presentation();
-
 try {
-
    presentation.save(pdfFilePath, SaveFormat.Pdf, pdfOptions);
-
 } finally {
-
    if (presentation != null) presentation.dispose();
-
 }
-
 ```
 
 
@@ -139,57 +103,28 @@ try {
 Method declaration:
 
 ``` java
-
- /**
-
+/**
  * <p>
-
  * Adds a copy of a specified slide to the end of the specified section.
-
  * </p>
-
  * @return New slide.
-
  * @param sourceSlide Slide to clone.
-
  * @param section Section for a new slide.
-
  * <pre>
-
  * IPresentation presentation = new Presentation();
-
  * try
-
  * {
-
  *     presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
-
  *     presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));
-
  *     
-
  *     ISection section2 = presentation.getSections().appendEmptySection("Section 2");
-
  *     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
-
  *     
-
  *     // Now the second section contains a copy of the first slide.
-
  * } finally {
-
  *     if (presentation != null) presentation.dispose();
-
  * }
-
  * </pre>
-
  */
-
 public ISlide addClone(ISlide sourceSlide, ISection section);
-
-
 ```
-
-
-
