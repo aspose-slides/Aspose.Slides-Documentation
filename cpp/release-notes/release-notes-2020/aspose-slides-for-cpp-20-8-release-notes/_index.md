@@ -30,7 +30,7 @@ This page contains release notes for Aspose.Slides for C++ 20.8.
 |SLIDESCPP-2525|Improve thumbnails rendering quality (20.8)|Enhancement|
 
 ## **Public API Changes**
-#### **IChartData::GetRange() method has been added**
+### **IChartData::GetRange() method has been added**
 
 [**IChartData::GetRange()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a8299de9b9dbd6353bd5bd8f5b5da22c9) method has been added. The method returns the workbook data range that is used by the chart. [**IChartData::GetRange()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a8299de9b9dbd6353bd5bd8f5b5da22c9) method returns a string value. 
 
@@ -45,7 +45,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::C
 System::String result = chart->get_ChartData()->GetRange();
 ```
 
-#### **Shape Sketched Style effect has been added**
+### **Shape Sketched Style effect has been added**
 Sketched Style effect feature helps to change the appearance of shapes in a slide forcing shapes to look like a sketch. It applies a hand-drawn (or “sketched”) styling to shapes.
 
 The picture below demonstrates PowerPoint UI elements to apply this effect to a shape.
@@ -121,7 +121,7 @@ public:
 virtual System::SharedPtr<ISketchFormat> get_SketchFormat() = 0;
 ```
 
-##### **Example**
+#### **Example**
 The example below demonstrates how to set sketchy type for a shape:
 
 ```cpp
