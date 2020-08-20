@@ -19,13 +19,9 @@ These methods allow to get or set the title of alternative text associated with 
 Sample code demonstrating setting alternative text title:
 
 ``` cpp
-
- System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 System::SharedPtr<IAutoShape> shape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 100, 50, 300, 150);
-
 shape->set_AlternativeTextTitle(u"Alt text title");
-
 ```
 
 

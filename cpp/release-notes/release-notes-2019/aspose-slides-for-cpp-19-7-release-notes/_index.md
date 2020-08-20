@@ -38,18 +38,13 @@ The **SetExternalWorkbook(System::String workbookPath, bool updateChartData)** m
 
 The **updateChartData** parameter defines whether an excel workbook will be loaded or not. If the value is *false* only the workbook path will be updated. Chart data won't be loaded and updated from the target workbook. This is useful when the target workbook doesn't yet exist or is not available. If the value is true chart data will be updated from the target workbook as the **SetExternalWorkbook(System::String)** method does.
 
-
-
 ``` cpp
-
-     auto pres = System::MakeObject<Presentation>();
-
+{
+    auto pres = System::MakeObject<Presentation>();
     auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
-
     auto chartData = chart->get_ChartData();
-
     (System::DynamicCast_noexcept<Aspose::Slides::Charts::ChartData>(chartData))->SetExternalWorkbook(u"http://path/doesnt/exists", false);
-
+}
 ```
 
 
@@ -58,29 +53,17 @@ The **AddEffect(System::SharedPtr<IShape>, EffectType, EffectSubtype, EffectTrig
 
 It allows to add a new animation effect for a single paragraph.
 
-
-
 ``` cpp
-
-     auto presentation = System::MakeObject&lt;Presentation&gt;(path + u"input.pptx");
-
+{
+    auto presentation = System::MakeObject&lt;Presentation&gt;(path + u"input.pptx");
     // select paragraph to add effect
-
     auto autoShape = System::DynamicCast&lt;Aspose::Slides::IAutoShape&gt;(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-
     auto paragraph = autoShape->get_TextFrame()->get_Paragraphs()->idx_get(0);
-
     // add Fly animation effect to selected paragraph
-
     auto effect = presentation->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence()->AddEffect(
-
          paragraph, 
-
          Aspose::Slides::Animation::EffectType::Fly, 
-
          Aspose::Slides::Animation::EffectSubtype::Left, 
-
          Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-
+}
 ```

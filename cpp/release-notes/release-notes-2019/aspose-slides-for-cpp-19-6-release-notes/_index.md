@@ -46,28 +46,16 @@ Sample code below outputs effective background fill:
 
 
 ``` cpp
-
- auto pres = System::MakeObject<Presentation>(u"SamplePresentation.pptx");
-
+auto pres = System::MakeObject<Presentation>(u"SamplePresentation.pptx");
 System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-
 if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-
 {
-
     System::Console::WriteLine(System::String(u"Fill color: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-
 }
-
 else
-
 {
-
     System::Console::WriteLine(System::String(u"Fill type: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-
 }
-
-
 ```
 
 
@@ -79,37 +67,21 @@ Code snippets below show how to use **IProgressCallback** interface class:
 
 
 ``` cpp
-
- auto presentation = System::MakeObject<Presentation>(fileName);
-
+auto presentation = System::MakeObject<Presentation>(fileName);
 System::SharedPtr<ISaveOptions> saveOptions = System::MakeObject<PdfOptions>();
-
 saveOptions->set_ProgressCallback(System::MakeObject<CloningTests::ExportProgressHandler>());
-
 presentation->Save(pdfFileName, Aspose::Slides::Export::SaveFormat::Pdf, saveOptions);
-
-
 ```
 
 ``` cpp
-
- class ExportProgressHandler : public Aspose::Slides::IProgressCallback
-
+class ExportProgressHandler : public Aspose::Slides::IProgressCallback
 {
-
 public:
-
     void Reporting(double progressValue)
-
     {
-
         //...
-
     }
-
 };
-
-
 ```
 
 
@@ -119,59 +91,27 @@ The following methods of the **INotesSlide** class have been removed:
 
 
 ``` cpp
-
- System::SharedPtr<System::Drawing::Bitmap> GetThumbnail(float scaleX, float scaleY);
-
+System::SharedPtr<System::Drawing::Bitmap> GetThumbnail(float scaleX, float scaleY);
+System::SharedPtr<System::Drawing::Bitmap> GetThumbnail(System::Drawing::Size imageSize);
 ```
-
-``` cpp
-
- System::SharedPtr<System::Drawing::Bitmap> GetThumbnail(System::Drawing::Size imageSize);
-
-```
-
-
 
 Use **ISlide::GetThumbnail()** method with parameter of type **INotesCommentsLayoutingOptions** instead.
 
 The following methods of the ISlide class have been removed:
 
-
-
 ``` cpp
-
- void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics, int32_t width, int32_t height);
-
-```
-
-``` cpp
-
- void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics, float scale);
-
-```
-
-``` cpp
-
- void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics);
-
+void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics, int32_t width, int32_t height);
+void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics, float scale);
+void RenderToGraphics(bool withNotes, System::SharedPtr<System::Drawing::Graphics> graphics);
 ```
 
 Use **RenderToGraphics()** method with parameter of type **INotesCommentsLayoutingOptions** instead.
 
 The following methods of the **IHtmlOptions**, **IPdfOptions**, **ISwfOptions** and **ITiffOptions** classes have been removed:
 
-
-
 ``` cpp
-
- bool get_IncludeComments();
-
-```
-
-``` cpp
-
- void set_IncludeComments(bool value);
-
+bool get_IncludeComments();
+void set_IncludeComments(bool value);
 ```
 
 Use **INotesCommentsLayoutingOptions** class instead.
@@ -187,55 +127,31 @@ Since version 19.6 Aspose.Slides supports managing of presentation images as BLO
 Also the new method has been added to **IImageCollection** and **ImageCollection** classes to support adding large image as streams to treat them as BLOBs:
 
 
-
 ``` cpp
-
- System::SharedPtr<IPPImage> AddImage(System::SharedPtr<System::IO::Stream> stream, LoadingStreamBehavior loadingStreamBehavior);
-
+System::SharedPtr<IPPImage> AddImage(System::SharedPtr<System::IO::Stream> stream, LoadingStreamBehavior loadingStreamBehavior);
 ```
 
 **Adding new image as BLOB to the presentation** 
 This example demonstrates how to include the large BLOB (image) and prevent a high memory consumption.
 
 ``` cpp
-
- void AddingNewBlobImageToPresentation()
-
+void AddingNewBlobImageToPresentation()
 {
-
     // supposed we have the large image file we want to include into the presentation
-
     const System::String pathToLargeImage = u"largeImage.png";
-
-
-
+    
     // create a new presentation which will contain this image
-
     auto pres = System::MakeObject<Presentation>();
-
-
 
     auto fileStream = System::MakeObject<System::IO::FileStream>(pathToLargeImage, System::IO::FileMode::Open);
 
-
-
     // let's add the image to the presentation - we choose KeepLocked behavior, because we not
-
     // have an intent to access the "largeImage.png" file.
-
     auto img = pres->get_Images()->AddImage(fileStream, Aspose::Slides::LoadingStreamBehavior::KeepLocked);
 
-
-
     pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 0.0f, 0.0f, 300.0f, 200.0f, img);
-
     // save the presentation. Despite that the output presentation will be
-
     // large, the memory consumption will be low the whole lifetime of the pres object
-
     pres->Save(u"presentationWithLargeImage.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-
 }
-
-
 ```

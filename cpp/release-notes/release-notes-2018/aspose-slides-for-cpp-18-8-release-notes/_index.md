@@ -23,35 +23,19 @@ The methods specify visibility of comments that do not have an author.
 The default value is False, which means that comments without authors are not displayed.
 
 ``` cpp
-
- {
-
-auto pres = System::MakeObject<Presentation>(u"no-author.odp");
-
-System::Details::DisposeGuard<1> __dispose_guard_0({pres});
-
-try
-
 {
-
-auto options = System::MakeObject<PdfOptions>();
-
-options->get_NotesCommentsLayouting()->set_CommentsPosition(Aspose::Slides::Export::CommentsPositions::Right);
-
-options->get_NotesCommentsLayouting()->set_ShowCommentsByNoAuthor(true);
-
-pres->Save(u"out_pres.pdf", Aspose::Slides::Export::SaveFormat::Pdf, options);
-
+    auto pres = System::MakeObject<Presentation>(u"no-author.odp");
+    System::Details::DisposeGuard<1> __dispose_guard_0({pres});
+    try
+    {
+        auto options = System::MakeObject<PdfOptions>();
+        options->get_NotesCommentsLayouting()->set_CommentsPosition(Aspose::Slides::Export::CommentsPositions::Right);
+        options->get_NotesCommentsLayouting()->set_ShowCommentsByNoAuthor(true);
+        pres->Save(u"out_pres.pdf", Aspose::Slides::Export::SaveFormat::Pdf, options);
+    }
+    catch(...)
+    {
+        __dispose_guard_0.SetCurrentException(std::current_exception());
+    }
 }
-
-catch(...)
-
-{
-
-__dispose_guard_0.SetCurrentException(std::current_exception());
-
-}
-
-}
-
 ```

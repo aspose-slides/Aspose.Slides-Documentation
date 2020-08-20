@@ -1,4 +1,4 @@
----
+Ôªø---
 title: Aspose.Slides for CPP 20.4 Release Notes
 type: docs
 weight: 40
@@ -12,8 +12,8 @@ This page contains release notes for Aspose.Slides for C++ 20.4
 {{% /alert %}} 
 ## **Supported platforms**
 -----
-- Aspose.Slides for C++†for Windows (Microsoft Visual C++).
-- Aspose.Slides for C++†for Linux (Clang).
+- Aspose.Slides for C++ for Windows (Microsoft Visual C++).
+- Aspose.Slides for C++ for Linux (Clang).
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
@@ -29,7 +29,7 @@ This page contains release notes for Aspose.Slides for C++ 20.4
 ## **Public API Changes**
 -----
 ### **Fodp value has been added to LoadFormat and SaveFormat enumerations**
-The new **Fodp** value has been added to **Aspose::Slides::LoadFormat**†and **Aspose::Slides::Export::SaveFormat** enumerations. This value represents Flat XML ODF Presentation.
+The new **Fodp** value has been added to **Aspose::Slides::LoadFormat** and **Aspose::Slides::Export::SaveFormat** enumerations. This value represents Flat XML ODF Presentation.
 
 The code snippet below demonstrates loading and saving presentation in Fodp format.
 
@@ -53,7 +53,7 @@ if (presInfo->get_LoadFormat() == LoadFormat::Fodp)
 ```
 
 ### **get_R1C1Formula(), set_R1C1Formula(String) and get_Formula(), set_Formula(String) methods for ChartDataCell have been added**
-New methods **get_R1C1Formula()**, **set_R1C1Formula(String)** and **get_Formula()**, **set_Formula(String)** methods have been added to†**ChartDataCell** class and†**IChartDataCell** interface. These methods provide a way to set a formula value for a chart data cell.
+New methods **get_R1C1Formula()**, **set_R1C1Formula(String)** and **get_Formula()**, **set_Formula(String)** methods have been added to **ChartDataCell** class and **IChartDataCell** interface. These methods provide a way to set a formula value for a chart data cell.
 
 ```cpp
 using namespace System;
@@ -72,7 +72,7 @@ cell2->set_R1C1Formula(u"MAX(R2C6:R5C8) / 3");
 ### **get_ReadOnlyRecommended() and set_ReadOnlyRecommended(bool) methods for IProtectionManager have been added**
 New **get_ReadOnlyRecommended()** and **set_ReadOnlyRecommended(bool)** methods have been added to **IProtectionManager** interface and **ProtectionManager** class.
 
-They allow to get and set read-only recommendation for presentation. This feature was introduced in PowerPoint 2019, when enabled it makes PowerPoint to open the presentation in read-only mode first. If such presentation is opened in earlier versions of PowerPoint, this†recommendation is ignored.
+They allow to get and set read-only recommendation for presentation. This feature was introduced in PowerPoint 2019, when enabled it makes PowerPoint to open the presentation in read-only mode first. If such presentation is opened in earlier versions of PowerPoint, this recommendation is ignored.
 
 Methods declaration:
 
@@ -102,9 +102,9 @@ pres->Save(u"ReadOnlyPresentation.pptx", Export::SaveFormat::Pptx);
 ```
 
 ### **Mathematical text classes, enums and interfaces have been added**
-Now it is possible to†work with mathematical equations new mathematical text classes, enums, and interfaces. You can create new expressions or extract previously created ones from the presentation.
+Now it is possible to work with mathematical equations new mathematical text classes, enums, and interfaces. You can create new expressions or extract previously created ones from the presentation.
 
-Below is an example of using these new API to create the†Pythagorean theorem:
+Below is an example of using these new API to create the Pythagorean theorem:
 
 ```cpp
 using namespace System;
@@ -152,7 +152,7 @@ public:
 };
 ```
 
-The **IMathParagraph**†interface with the **MathParagraph**†class have been added:
+The **IMathParagraph** interface with the **MathParagraph** class have been added:
 
 ```cpp
 /// <summary>
@@ -174,7 +174,7 @@ public:
 };
 ```
 
-The **IMathBlock** interface with the **MathBlock**†class have been added:
+The **IMathBlock** interface with the **MathBlock** class have been added:
 
 ```cpp
 /// <summary>
@@ -200,8 +200,8 @@ public:
 };
 ```
 
-The **IMathElement**†interface has been added. This interface is implemented in all classes of different mathematical elements: MathSubscriptElement,†MathNaryOperator,†MathGroupingCharacter,†MathDelimiter,†MathematicalText,†MathBlock,†MathRadical,†MathLimit,†MathArray,†MathAccent,†MathBar,
-MathLeftSubSuperscriptElement,†MathMatrix,†MathRightSubSuperscriptElement,†MathBox,†MathFraction,†MathFunction,†MathSuperscriptElement , MathBorderBox:
+The **IMathElement** interface has been added. This interface is implemented in all classes of different mathematical elements: MathSubscriptElement, MathNaryOperator, MathGroupingCharacter, MathDelimiter, MathematicalText, MathBlock, MathRadical, MathLimit, MathArray, MathAccent, MathBar,
+MathLeftSubSuperscriptElement, MathMatrix, MathRightSubSuperscriptElement, MathBox, MathFraction, MathFunction, MathSuperscriptElement , MathBorderBox:
 
 ```cpp
 /// <summary>
@@ -426,7 +426,7 @@ public:
 };
 ```
 
-The **IMathArray**†interface with the **MathArray**†class have been added:
+The **IMathArray** interface with the **MathArray** class have been added:
 
 ```cpp
 /// <summary>
@@ -522,7 +522,7 @@ public:
 };
 ```
 
-The **IMathBorderBox**†interface with the **MathBorderBox**†class have been added:
+The **IMathBorderBox** interface with the **MathBorderBox** class have been added:
 
 ```cpp
 /// <summary>
@@ -862,7 +862,7 @@ public:
 };
 ```
 
-The **IMathGroupingCharacter** interface with the†**MathGroupingCharacter** class have been added:
+The **IMathGroupingCharacter** interface with the **MathGroupingCharacter** class have been added:
 
 ```cpp
 /// <summary>
@@ -942,7 +942,7 @@ public:
 };
 ```
 
-The **IMathLimit**†interface with the **MathLimit**†class have been added:
+The **IMathLimit** interface with the **MathLimit** class have been added:
 
 ```cpp
 /// <summary>
@@ -970,7 +970,7 @@ public:
 };
 ```
 
-The **IMathMatrix**†interface with the **MathMatrix**†class have been added:
+The **IMathMatrix** interface with the **MathMatrix** class have been added:
 
 ```cpp
 /// <summary>
@@ -1133,7 +1133,7 @@ public:
 };
 ```
 
-The **IMathNaryOperator** interface with the **MathNaryOperator**†class have been added:
+The **IMathNaryOperator** interface with the **MathNaryOperator** class have been added:
 
 ```cpp
 /// <summary>
@@ -1158,7 +1158,7 @@ public:
 };
 ```
 
-The **IMathNaryOperatorProperties**†interface has been added as base interfa—Åe of the **IMathNaryOperator**†which is implemented in the **MathNaryOperator**†class:
+The **IMathNaryOperatorProperties** interface has been added as base interfa—Åe of the **IMathNaryOperator** which is implemented in the **MathNaryOperator** class:
 
 ```cpp
 /// <summary>
@@ -1212,7 +1212,7 @@ public:
 };
 ```
 
-The **IMathRadical** interface with the **MathRadical**†class have been added:
+The **IMathRadical** interface with the **MathRadical** class have been added:
 
 ```cpp
 /// <summary>
@@ -1243,7 +1243,7 @@ public:
 };
 ```
 
-The **IMathRightSubSuperscriptElement**†interface with the **MathRightSubSuperscriptElement** class have been added:
+The **IMathRightSubSuperscriptElement** interface with the **MathRightSubSuperscriptElement** class have been added:
 
 ```cpp
 /// <summary>
@@ -1343,7 +1343,7 @@ enum class MathDelimiterShape
 };
 ```
 
-The enum **MathFractionTypes**†has been added:
+The enum **MathFractionTypes** has been added:
 
 ```cpp
 /// <summary>
@@ -1370,7 +1370,7 @@ enum class MathFractionTypes
 };
 ```
 
-The enum **MathFunctionsOfOneArgument**†has been added:
+The enum **MathFunctionsOfOneArgument** has been added:
 
 ```cpp
 /// <summary>
@@ -1485,7 +1485,7 @@ enum class MathFunctionsOfOneArgument
 };
 ```
 
-The enum **MathFunctionsOfTwoArguments**†has been added:
+The enum **MathFunctionsOfTwoArguments** has been added:
 
 ```cpp
 /// <summary>
@@ -1512,7 +1512,7 @@ enum class MathFunctionsOfTwoArguments
 };
 ```
 
-The enum **MathHorizontalAlignment**†has been added:
+The enum **MathHorizontalAlignment** has been added:
 
 ```cpp
 /// <summary>
@@ -1539,7 +1539,7 @@ enum class MathHorizontalAlignment
 };
 ```
 
-The enum **MathIntegralTypes**†has been added:
+The enum **MathIntegralTypes** has been added:
 
 ```cpp
 /// <summary>
@@ -1574,7 +1574,7 @@ enum class MathIntegralTypes
 };
 ```
 
-The enum **MathJustification**†has been added:
+The enum **MathJustification** has been added:
 
 ```cpp
 /// <summary>
@@ -1626,7 +1626,7 @@ enum class MathLimitLocations
 };
 ```
 
-The enum **MathNaryOperatorTypes**†has been added:
+The enum **MathNaryOperatorTypes** has been added:
 
 ```cpp
 /// <summary>
@@ -1666,7 +1666,7 @@ enum class MathNaryOperatorTypes
 };
 ```
 
-The enum **MathRowSpacingRule**†has been added:
+The enum **MathRowSpacingRule** has been added:
 
 ```cpp
 /// <summary>
@@ -1697,7 +1697,7 @@ enum class MathRowSpacingRule
 };
 ```
 
-The enum **MathSpacingRules**†has been added:
+The enum **MathSpacingRules** has been added:
 
 ```cpp
 /// <summary>
@@ -1732,7 +1732,7 @@ enum class MathSpacingRules
 };
 ```
 
-The enum **MathTopBotPositions**†has been added:
+The enum **MathTopBotPositions** has been added:
 
 ```cpp
 /// <summary>
@@ -1755,7 +1755,7 @@ enum class MathTopBotPositions
 };
 ```
 
-The enum **MathVerticalAlignment**†has been added:
+The enum **MathVerticalAlignment** has been added:
 
 ```cpp
 /// <summary>
@@ -1783,7 +1783,7 @@ enum class MathVerticalAlignment
 ```
 
 ### **PDF/A-1a and PDF/UA conformance options have been added to PdfCompliance enumeration**
-New options†**PdfA1a** and†**PdfUa** have been added to†**PdfCompliance** enumeration. These options allow exporting a presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
+New options **PdfA1a** and **PdfUa** have been added to **PdfCompliance** enumeration. These options allow exporting a presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
 
 The code snippet below demonstrates saving presentation to PDF/A-1a compliant document.
 
@@ -1798,9 +1798,9 @@ presentation->Save(u"my_presentation.pdf", SaveFormat::Pdf, options);
 ```
 
 ### **Spreadsheet options for formulas calculation**
-Calculated data of a spreadsheet can depend on many different parameters, and to allow editing them the Aspose::Slides::**SpreadsheetOptions** class has been added. It implements the **ISpreadsheetOptions**†that intended to†get and set†spreadsheet parameters for formulas calculating.
+Calculated data of a spreadsheet can depend on many different parameters, and to allow editing them the Aspose::Slides::**SpreadsheetOptions** class has been added. It implements the **ISpreadsheetOptions** that intended to get and set spreadsheet parameters for formulas calculating.
 
-**ISpreadsheetOptions**†interface declaration:
+**ISpreadsheetOptions** interface declaration:
 
 ```cpp
 /// <summary>
@@ -1822,7 +1822,7 @@ public:
 };
 ```
 
-**get_SpreadsheetOptions()** and **set_SpreadsheetOptions(SharedPtr<ISpreadsheetOptions>)** methods have been added to the **ILoadOptions** interface and†**LoadOptions** class:
+**get_SpreadsheetOptions()** and **set_SpreadsheetOptions(SharedPtr<ISpreadsheetOptions>)** methods have been added to the **ILoadOptions** interface and **LoadOptions** class:
 
 ```cpp
 /// <summary>

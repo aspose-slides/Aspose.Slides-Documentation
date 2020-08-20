@@ -20,68 +20,43 @@ GetEffectsByParagraph() method has been added to ISequence and Sequence classes.
 It returns the array of effects for the specified text paragraph.
 
 ``` cpp
-
- System::ArrayPtr<System::SharedPtr<IEffect>> GetEffectsByParagraph(System::SharedPtr<IParagraph> paragraph);
-
+System::ArrayPtr<System::SharedPtr<IEffect>> GetEffectsByParagraph(System::SharedPtr<IParagraph> paragraph);
 ```
 
 Usage example:
 
 ``` cpp
-
- {
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-
-System::Details::DisposeGuard<1> __dispose_guard_0({pres});
-
-try
-
 {
+    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"Presentation.pptx");
+    System::Details::DisposeGuard<1> __dispose_guard_0({pres});
+    try
+    {
+        System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
+        System::SharedPtr<IAutoShape> autoShape = System::DynamicCast<Aspose::Slides::IAutoShape>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-System::SharedPtr<IAutoShape> autoShape = System::DynamicCast<Aspose::Slides::IAutoShape>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-
-auto paragraph_enumerator = autoShape->get_TextFrame()->get_Paragraphs()->GetEnumerator();
-
-while (paragraph_enumerator->MoveNext())
-
-{
-
-auto paragraph = paragraph_enumerator->get_Current();
-
-System::ArrayPtr<System::SharedPtr<IEffect>> effects = sequence->GetEffectsByParagraph(paragraph);
-
-if (effects->get_Length() > 0)
-
-System::Console::WriteLine(System::String(u"Paragraph \"") + paragraph->get_Text() + u"\" has " + System::ObjectExt::ToString(effects[0]->get_Type()) + u" effect.");
-
+        auto paragraph_enumerator = autoShape->get_TextFrame()->get_Paragraphs()->GetEnumerator();
+        while (paragraph_enumerator->MoveNext())
+        {
+            auto paragraph = paragraph_enumerator->get_Current();
+            System::ArrayPtr<System::SharedPtr<IEffect>> effects = sequence->GetEffectsByParagraph(paragraph);
+            if (effects->get_Length() > 0)
+                System::Console::WriteLine(System::String(u"Paragraph \"") + paragraph->get_Text() + u"\" has " + System::ObjectExt::ToString(effects[0]->get_Type()) + u" effect.");
+        }
+    }
+    catch(...)
+    {
+        __dispose_guard_0.SetCurrentException(std::current_exception());
+    }
 }
-
-}
-
-catch(...)
-
-{
-
-__dispose_guard_0.SetCurrentException(std::current_exception());
-
-}
-
-}
-
 ```
+
 #### **Saving presentation with Strict and Transitional conformance class option has been added**
 get_Conformance() and set_Conformance() methods have been added to Aspose::Slides::Export::PptxOptions class.
 The methods allows saving the presentation with Strict and Transitional Open XML Presentation conformance class.
 
 ``` cpp
-
- Aspose::Slides::Export::Conformance get_Conformance();
-
+Aspose::Slides::Export::Conformance get_Conformance();
 void set_Conformance(Aspose::Slides::Export::Conformance value);
-
 ```
 
 Aspose::Slides::Export::Conformance enum consists of three named constants:
@@ -95,33 +70,18 @@ The default value is Ecma376_2006.
 For example, the following code allows saving the presentation in Strict format.
 
 ``` cpp
-
- {
-
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"Presentation.pptx");
-
-System::Details::DisposeGuard<1> __dispose_guard_0({presentation});
-
-try
-
 {
-
-System::SharedPtr<PptxOptions> opt = System::MakeObject<PptxOptions>();
-
-opt->set_Conformance(Aspose::Slides::Export::Conformance::Iso29500_2008_Strict);
-
-presentation->Save(u"PresOut.pptx", Aspose::Slides::Export::SaveFormat::Pptx, opt);
-
+    System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"Presentation.pptx");
+    System::Details::DisposeGuard<1> __dispose_guard_0({presentation});
+    try
+    {
+        System::SharedPtr<PptxOptions> opt = System::MakeObject<PptxOptions>();
+        opt->set_Conformance(Aspose::Slides::Export::Conformance::Iso29500_2008_Strict);
+        presentation->Save(u"PresOut.pptx", Aspose::Slides::Export::SaveFormat::Pptx, opt);
+    }
+    catch(...)
+    {
+        __dispose_guard_0.SetCurrentException(std::current_exception());
+    }
 }
-
-catch(...)
-
-{
-
-__dispose_guard_0.SetCurrentException(std::current_exception());
-
-}
-
-}
-
 ```

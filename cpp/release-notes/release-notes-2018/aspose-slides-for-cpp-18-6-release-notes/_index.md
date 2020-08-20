@@ -31,39 +31,22 @@ IChart.ShowDataLabelsOverMaximum and Chart.ShowDataLabelsOverMaximum property ha
 The property specifies whether to show the data labels when the value is greater than the maximum value on the value axis.
 
 ``` cpp
-
- {
-
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-
-System::Details::DisposeGuard<1> __dispose_guard_0({ presentation});
-
-try
-
 {
-
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-
-System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithMarkers, 20, 100, 600, 400);
-
-chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-chart->set_ShowDataLabelsOverMaximum(false);
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-
+    System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+    System::Details::DisposeGuard<1> __dispose_guard_0({ presentation});
+    try
+    {
+        System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+        System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithMarkers, 20, 100, 600, 400);
+        chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+        chart->set_ShowDataLabelsOverMaximum(false);
+        presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    }
+    catch(...)
+    {
+        __dispose_guard_0.SetCurrentException(std::current_exception());
+    }
 }
-
-catch(...)
-
-{
-
-__dispose_guard_0.SetCurrentException(std::current_exception());
-
-}
-
-}
-
 ```
 #### **IChartSeries.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properties have been implemented**
 IChartSeries.BubbleSizeScale and ChartSeries.BubbleSizeScale properties have been implemented.
@@ -73,35 +56,18 @@ Specifies the scale factor for the bubble chart (can be between 0 and 300 percen
 IChartSeriesGroup.BubbleSizeScale and IChartSeriesGroup.BubbleSizeScale properties have been implemented.
 
 ``` cpp
-
- Specifies the scale factor for the bubble chart (can be between 0 and 300 percents of the default size).
-
 {
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-System::Details::DisposeGuard<1> __dispose_guard_0({ pres});
-
-try
-
-{
-
-System::SharedPtr<IChart> chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Bubble, 100, 100, 400, 300);
-
-chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_BubbleSizeScale(150);
-
-...
-
+    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+    System::Details::DisposeGuard<1> __dispose_guard_0({ pres});
+    try
+    {
+        System::SharedPtr<IChart> chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Bubble, 100, 100, 400, 300);
+        chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_BubbleSizeScale(150);
+        ...
+    }
+    catch(...)
+    {
+        __dispose_guard_0.SetCurrentException(std::current_exception());
+    }
 }
-
-catch(...)
-
-{
-
-__dispose_guard_0.SetCurrentException(std::current_exception());
-
-}
-
-}
-
 ```
