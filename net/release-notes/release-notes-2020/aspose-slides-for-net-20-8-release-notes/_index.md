@@ -70,11 +70,11 @@ Sketched Style effect feature helps to change the appearance of shapes in a slid
 
 The picture below demonstrates PowerPoint UI elements to apply this effect to a shape.
 
-![todo:image_alt_text](aspose-slides-for-net-20-8-release-notes_1.png)
+![todo:image_alt_text](aspose-slides-for-net-20-8-release-notes_1.png) or ![todo:image_alt_text](aspose-slides-for-net-20-8-release-notes_3.png)
 
 In Aspose.Slides, to provide the same options for the Sketched Style effect, enum **LineSketchType** and interface **ISketchFormat** have been added. **SketchFormat** property (int **SketchFormat** type) has been added to the **ILineFormat** interface.
 
-### **LineSketchType Enum**
+#### **LineSketchType Enum**
 
 The **LineSketchType** determines the preset sketched style.
 
@@ -106,7 +106,7 @@ public enum LineSketchType
 }
 ```
 
-### **ISketchFormat Interface**
+#### **ISketchFormat Interface**
 The **ISketchFormat** interface with the **SketchFormat** implementation class has been added:
 
 ```csharp 
@@ -133,7 +133,7 @@ public interface ISketchFormat
 ISketchFormat SketchFormat { get; }
 ```
 
-### **Example**
+#### **Example**
 The example below demonstrates how to set sketchy type for a shape:
 ```csharp 
 using (Presentation pres = new Presentation())
