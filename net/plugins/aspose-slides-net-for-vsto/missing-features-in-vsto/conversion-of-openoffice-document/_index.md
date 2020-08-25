@@ -9,7 +9,7 @@ Aspose.Slides for .NET offers **Presentation** class that represents a presentat
 
 Below is the example of converting from ODP to PPT/PPTX.
 #### **Example**
-{{< highlight cs >}}
+```
 
  //Instantiate a Presentation object that represents a presentation file
 
@@ -27,7 +27,7 @@ using(PresentationEx pres = new PresentationEx("OpenOfficePresentation.odp"))
 
 Below is the example of converting from PPT/PPTX to ODP.
 #### **Example**
-{{< highlight cs >}}
+``` 
 
  //Instantiate a Presentation object that represents a presentation file
 

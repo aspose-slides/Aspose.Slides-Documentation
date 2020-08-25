@@ -100,6 +100,6 @@ pres.save(dataDir + "AsposeChartTrendLines.pptx", SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding Chart Trend Lines](http://www.aspose.com/docs/display/slidesjava/Adding+Chart+Trend+Lines).
+For more details, visit [Adding Chart Trend Lines](/slides/java/adding-chart-trend-lines-in-aspose-slides/).
 
 {{% /alert %}}

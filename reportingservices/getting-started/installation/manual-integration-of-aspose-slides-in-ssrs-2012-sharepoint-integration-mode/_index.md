@@ -15,7 +15,7 @@ The following steps show how to manually install Aspose.Slides for Reporting Ser
 
 1. Copy the **Aspose.Slides.ReportingServices.dll** from the **Universal** directory to the **SharePonit RS** bin directory.
    In our case it's *C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\WebServices\Reporting\bin* 
-1. Update Sharepoint's **rssrvpolicy.config** file (from the *C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\WebServices\Reporting* directory) in the same way as described in the [Asopose.Slides for Reporting Services manual installation article#rssrvpolicy](http://www.aspose.com/docs/display/slidesreportingservices/Install+Manually).
+1. Update Sharepoint's **rssrvpolicy.config** file (from the *C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\WebServices\Reporting* directory) in the same way as described in the [Aspose.Slides for Reporting Services manual installation](https://docs.aspose.com/slides/reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/) article.
 1. Run the following script in Powershell, but replace rs_test with the name of your Reporting Services app name. 
 
 **rs_test**

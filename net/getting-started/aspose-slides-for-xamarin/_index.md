@@ -35,7 +35,7 @@ First, we create a content layout that will contain an image view and Prev, Next
 
 
 **XML - content_main.xml - Create content layout**
-{{< highlight html >}}
+``` 
 
  <LinearLayout
 

@@ -14,7 +14,7 @@ In order to export media files to HTML. Please follow the steps below:
 
 In the example given below, we have exported the media files to HTML.
 #### **Example**
-{{< highlight cs >}}
+``` 
 
  //Loading a presentation
 

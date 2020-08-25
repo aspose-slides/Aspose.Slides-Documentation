@@ -71,9 +71,9 @@ To download IntellliJ IDEA
   - In Search Box type: "Aspose"
   - Select "**Aspose.Slides Java for IntelliJ IDEA Maven**" plugin to install.
 ## **Installing**
-[Installing Aspose.Slides for IntelliJ IDEA - Maven](http://www.aspose.com/docs/display/slidesjava/Installing+and+Using+Aspose.Slides+for+IntelliJ+IDEA+-+Maven#InstallingandUsingAspose.SlidesforIntelliJIDEA-Maven-Installing)
+[Installing Aspose.Slides for IntelliJ IDEA - Maven](/slides/java/installing-and-using-aspose-slides-for-intellij-idea-maven/#installing)
 ## **Using**
-[Using Aspose.Slides for IntelliJ IDEA - Maven](http://www.aspose.com/docs/display/slidesjava/Installing+and+Using+Aspose.Slides+for+IntelliJ+IDEA+-+Maven#InstallingandUsingAspose.SlidesforIntelliJIDEA-Maven-Using)
+[Using Aspose.Slides for IntelliJ IDEA - Maven](/slides/java/installing-and-using-aspose-slides-for-intellij-idea-maven/#using)
 ## **Video Demo**
 Please check [the video](https://youtu.be/PLIwxTs1USc) below to see Aspose.Slides Maven Project Wizard and Aspose.Slides Example Wizard in action.
 ## **Support, Extend and Contribute**

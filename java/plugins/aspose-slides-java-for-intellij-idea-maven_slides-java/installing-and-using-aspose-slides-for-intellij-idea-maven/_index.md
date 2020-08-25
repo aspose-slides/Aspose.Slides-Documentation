@@ -72,9 +72,9 @@ Then follow the steps below:
 
 `      `The created Aspose.Slides for Java API Maven project is ready to be modified as per your project’s requirements.
 
-`      `If you have opted to download [Examples Source Codes](https://goo.gl/wPPfil), you can use [Aspose.Slides Examples wizard](http://www.aspose.com/docs/display/slidesjava/4.2.2.2+Aspose.Slides+Examples+Wizard) to copy / create the downloaded examples into your project.
+`      `If you have opted to download [Examples Source Codes](https://goo.gl/wPPfil), you can use [Aspose.Slides Examples wizard](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) to copy / create the downloaded examples into your project.
 ### **Aspose.Slides Examples Wizard**
-To create / copy [Examples Source Codes ](https://goo.gl/wPPfil)into the project using **Aspose.Slides Examples Wizard**, you need to first download the examples by opting  "Also Download Examples Source Code" on [Aspose.Slides Maven Project Wizard.](http://www.aspose.com/docs/display/slidesjava/4.2.2.1+Aspose.Slides+Maven+Project+Wizard)
+To create / copy [Examples Source Codes ](https://goo.gl/wPPfil)into the project using **Aspose.Slides Examples Wizard**, you need to first download the examples by opting  "Also Download Examples Source Code" on [Aspose.Slides Maven Project Wizard.](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_IntelliJ_IDEA(Maven)-v1.0.0.0)
 
 Then follow the steps below on IntelliJ IDEA:
 

@@ -63,9 +63,9 @@ Following are three recommended methods for the successful downloading and insta
   [http://cdn.aspose.com/marketplace/eclipse/java/maven/asposeslides](http://cdn.aspose.com/marketplace/eclipse/java/maven/asposeslides/)
   Then select "Aspose.Slides Java (Maven) for Eclipse" and **Finish**. Accept License Agreement and Install the plugin.
 ## **Installing**
-[Installing Aspose.Slides Java (Maven) for Eclipse](http://www.aspose.com/docs/display/slidesjava/Installing+and+Using+Aspose.Slides+Java+%28Maven%29+for+Eclipse#InstallingandUsingAspose.SlidesJava%28Maven%29forEclipse-Installing)
+[Installing Aspose.Slides Java (Maven) for Eclipse](/slides/java/installing-and-using-aspose-slides-java-maven-for-eclipse/#installing)
 ## **Using the Plugin**
-[Using Aspose.Slides Java (Maven) for Eclipse](http://www.aspose.com/docs/display/slidesjava/Installing+and+Using+Aspose.Slides+Java+%28Maven%29+for+Eclipse#InstallingandUsingAspose.SlidesJava%28Maven%29forEclipse-Using)
+[Using Aspose.Slides Java (Maven) for Eclipse](/slides/java/installing-and-using-aspose-slides-java-maven-for-eclipse/#using)
 ### **How to apply Aspose License?**
 This Plugin uses an evaluation version of Aspose.Slides. Once you are happy with your evaluation, you can purchase a license at the [Aspose website](http://www.aspose.com/purchase/default.aspx).
 To remove evaluation message and feature limitations, product license should be applied. You will receive a license file after you have purchased the product. Please follow the steps below to apply the license

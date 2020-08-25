@@ -72,9 +72,9 @@ Download only Java EE / SE supported NetBeans download bundle of the current lat
   - Select "**Aspose.Slides Java NetBeans (Maven)**" plugin
   - Click **"Install"**
 ## **Installing**
-[Installing Aspose.Slides for NetBeans - Maven](http://www.aspose.com/docs/display/slidesjava/Installing+and+Using+Aspose.Slides+for+NetBeans+-+Maven#InstallingandUsingAspose.SlidesforNetBeans-Maven-Installing)
+[Installing Aspose.Slides for NetBeans - Maven](/slides/java/installing-and-using-aspose-slides-for-netbeans-maven/#installing)
 ## **Using the Plugin**
-[Using Aspose.Slides for NetBeans - Maven](http://www.aspose.com/docs/display/slidesjava/Installing+and+Using+Aspose.Slides+for+NetBeans+-+Maven#InstallingandUsingAspose.SlidesforNetBeans-Maven-Using)
+[Using Aspose.Slides for NetBeans - Maven](/slides/java/installing-and-using-aspose-slides-for-netbeans-maven/#using)
 ### **How to apply Aspose License?**
 This Plugin uses an evaluation version of Aspose.Slides. Once you are happy with your evaluation, you can purchase a license at the [Aspose website](http://www.aspose.com/purchase/default.aspx).
 To remove evaluation message and feature limitations, product license should be applied. You will receive a license file after you have purchased the product. Please follow the steps below to apply the license
