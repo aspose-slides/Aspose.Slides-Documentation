@@ -43,7 +43,7 @@ It applies a hand-drawn (or “sketched”) styling to shapes.
 
 The picture below demonstrates PowerPoint UI elements to apply this effect to a shape.
 
-![todo:image_alt_text](aspose-slides-for-net-20-8-release-notes_1.png)
+![todo:image_alt_text](aspose-slides-for-android-via-java-20-8-release-notes_1.png) or ![todo:image_alt_text](aspose-slides-for-android-via-java-20-8-release-notes_2.png)
 
 In Aspose.Slides, to provide the same options for the Sketched Style effect, [LineSketchType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) class 
 and interface [ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) 
@@ -51,7 +51,7 @@ interface have been added. [getSketchFormat()](https://apireference.aspose.com/s
 method (of [ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) type) has been added to the 
 [ILineFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat) interface.
 
-### **LineSketchType Enum**
+#### **LineSketchType Enum**
 
 The [LineSketchType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) determines the preset sketched style.
 
@@ -98,7 +98,7 @@ public final class LineSketchType
 }
 ```
 
-### **ISketchFormat Interface**
+#### **ISketchFormat Interface**
 The [ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) interface with the 
 [SketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SketchFormat) 
 implementation class has been added:
@@ -142,7 +142,7 @@ public interface ISketchFormat
 public ISketchFormat getSketchFormat();
 ```
 
-### **Example**
+#### **Example**
 The example below demonstrates how to set sketchy type for a shape:
 ```java 
 Presentation pres = new Presentation();
@@ -161,4 +161,4 @@ try {
 
 The shape border line style generated via the code snippet above has the following appearance:
 
-![todo:image_alt_text](aspose-slides-for-net-20-8-release-notes_2.png)
+![todo:image_alt_text](aspose-slides-for-android-via-java-20-8-release-notes_3.png)
