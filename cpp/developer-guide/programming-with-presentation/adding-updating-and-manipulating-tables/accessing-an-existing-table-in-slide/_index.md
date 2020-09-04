@@ -14,7 +14,7 @@ This page is no longer maintained. For an updated page, please [visit](/slides/c
 Aspose.Slides for C++ allows developers to not only add custom tables in their slides but also access or manage the existing ones. In this topic, we will discuss about accessing a table that already exists in a slide.
 
 {{% /alert %}} 
-### **Accessing an Existing Table**
+## **Accessing an Existing Table**
 To access a table that already exists in a slide, please follow the steps below:
 
 - Create an instance of Presentation class
@@ -23,7 +23,7 @@ To access a table that already exists in a slide, please follow the steps below:
 - Iterate through all Shapes until you find the Table. If a slide contains only one table then you can simply check a shape and if it is found to be a Table then just typecast it as a Table object. But, if the slide contains more than one tables then it's better to find your desired table using its Alternative Text
 - After the Table is found, you can use ITable object to control the table. For example, in our case, we have added a new row in the desired table
 - Save the modified presentation as a PPT file
-##### **Example**
+### **Example**
 [**C#**]()
 
 ``` cpp

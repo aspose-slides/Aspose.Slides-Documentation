@@ -15,7 +15,7 @@ There are known issues with some image bullets and WordArt objects which will be
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Fonts substitutions functinality has been added**
+### **Fonts substitutions functinality has been added**
 The possibility to replace fonts globally across the presentation and temporary for rendering has been added.
 
 New method getFontsManager() of Presentation class has been introduced. FontsManager class has following members:

@@ -5,7 +5,7 @@ weight: 60
 url: /reportingservices/simple-and-affordable-licensing/
 ---
 
-#### Types of Licenses 
+## Types of Licenses 
 {{% alert color="primary" %}} There are two types of licenses currently offered: Server Subscription Site Subscription {{% /alert %}}
 Every license comes with 1 year worth of free upgrades to any new version of the product that comes out and 1 year of unlimited free technical support. 
 
@@ -16,7 +16,7 @@ Make sure to take advantage of the Aspose.Slides for Reporting Services evaluati
 
 
 Evaluation mode injects watermarks into exported reports. When you [purchase a license](http://www.aspose.com/Purchase/Aspose.Slides.Reporting.Services/Default.aspx), simply copy the license to the appropriate folder and Aspose.Slides for Reporting Services will start to work in the licensed mode. 
-#### **Server Subscription**
+## **Server Subscription**
 Server subscription provides following features:
 
 - One license is required for each physical or virtual server.
@@ -26,7 +26,7 @@ Server subscription provides following features:
 - Free new releases and hot fixes for 1 year.
 - Free technical support for 1 year.
 - Discount applies to multiple purchases.
-#### **Site Subscription**
+## **Site Subscription**
 Site subscription provides following features:
 
 - One license is required per one physical site (campus).

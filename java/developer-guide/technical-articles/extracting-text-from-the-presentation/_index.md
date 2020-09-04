@@ -14,14 +14,14 @@ It's not uncommon that developers need to extract the text from a presentation. 
 [Categorized and fast extraction of text](/slides/java/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
-#### **Extracting Text from a Slide**
+## **Extracting Text from a Slide**
 Aspose.Slides for Java provides the SlidesUtil class to extract the text from a slide in presentation. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation, use the GetAllTextBoxes overloaded static method exposed by the PresentationScanner class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Text-ExtractTextFromSlide-ExtractTextFromSlide.java" >}}
 
 
-#### **Extracting Text from the Whole Presentation**
+## **Extracting Text from the Whole Presentation**
 To scan the text from the whole presentation, use the **GetAllTextFrames** static method exposed by the PresentationScanner class. It takes two parameters:
 
 1. First, a Presentation object that represents the PPTX presentation the text is being extracted from.
@@ -31,7 +31,7 @@ To scan the text from the whole presentation, use the **GetAllTextFrames** stati
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Text-ExtractTextFromPresentation-ExtractTextFromPresentation.java" >}}
 
 
-#### **Categorized and fast extraction of text**
+## **Categorized and fast extraction of text**
 The new static method getPresentationText has been added to Presentation class.
 PresentationText getPresentationText(InputStream stream, int mode)
 

@@ -18,7 +18,7 @@ In this simple application, we will create a PowerPoint presentation having **H
 - Finally, write the presentation to desired file format using the Presentation object
 
 The implementation of above steps is demonstrated below in an example.
-#### **C#**
+### **C#**
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-SampleApplication.cs" >}}
-#### **C++**
+### **C++**
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-VisualBasic-SampleApplication.vb" >}}

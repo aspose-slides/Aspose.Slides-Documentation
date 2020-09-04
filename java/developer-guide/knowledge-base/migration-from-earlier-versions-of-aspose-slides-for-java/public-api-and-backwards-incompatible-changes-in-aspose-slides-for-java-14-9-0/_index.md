@@ -11,7 +11,7 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Added Methods for Replacing Image to PPImage, IPPImage**
+### **Added Methods for Replacing Image to PPImage, IPPImage**
 New methods added:
 
 - IPPImage.replaceImage(byte[] newImageData)
@@ -36,7 +36,7 @@ presentation.getImages().get_Item(1).replaceImage(
 presentation.save("presentation_out.pptx", SaveFormat.Pptx);
 
 ```
-#### **Added Methods for Saving Slides Keeping Page Numbers**
+### **Added Methods for Saving Slides Keeping Page Numbers**
 The following methods have been added:
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
@@ -64,9 +64,9 @@ int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
 presentation.save(outFileName, slides, SaveFormat.Pdf);
 
 ```
-#### **Added the SmartArtLayoutType.Custom Enum Value**
+### **Added the SmartArtLayoutType.Custom Enum Value**
 This type of SmartArt layout represents diagram with custom template. Custom diagrams only can be loaded from presentation file and can't be created via method ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
-#### **Added the SmartArtShape Class and ISmartArtShape Interface**
+### **Added the SmartArtShape Class and ISmartArtShape Interface**
 The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.SmartArt.ISmartArtShape) add access to individual shapes inside SmartArt diagram. SmartArtShape can be used to change FillFormat, LineFormat, adding Hyperlinks etc.
 
 {{% alert color="primary" %}} 
@@ -98,7 +98,7 @@ for (ISmartArtShape shape : node.getShapes())
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-#### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
+### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
 The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes inside SmartArt diagram. Collection contains shapes associated with SmartArtNode. Property SmartArtNode.Shapes returns collections of all shapes associated with the node.
 
 {{% alert color="primary" %}} 

@@ -18,13 +18,13 @@ Every Aspose license carries a one-year subscription for free upgrades to any ne
 If you want to test **Aspose.Slides** without evaluation version limitations, request a 30-day temporary license. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) for more information.
 
 {{% /alert %}} 
-### **Evaluation Version Limitation**
+## **Evaluation Version Limitation**
 Evaluation version of Aspose.Slides (without a license specified) provides full product functionality except that when you save your presentations using Aspose.Slides, an Evaluation Watermark is injected at the center of each slide as shown in the figure below:
 
 |![todo:image_alt_text](http://i.imgur.com/mk7c8lo.png)|
 | :- |
 |**Figure: Evaluation Watermark**|
-### **Setting a License**
+## **Setting a License**
 The license is a plain text XML file that contains details such as the product name, number of developers it is licensed to, subscription expiry date and so on. The file is digitally signed, so do not modify the file; even the inadvertent addition of an extra line break into the file will invalidate it.
 
 You need to set a license before utilizing **Aspose.Slides** if you want to avoid its evaluation limitation. You are only required to set a license once per application or process.
@@ -35,7 +35,7 @@ The license can be loaded from a stream or file in the following locations:
 1. The folder that contains the Aspose.Slides.jar.
 
 Use the [License](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/License).setLicense method to license the component. Often the easiest way to set a license is to put the license file in the same folder as Aspose.Slides.jar and specify just the file name without path as shown in the following example:
-#### **Example 1**
+### **Example 1**
 In this example Aspose.Slides will attempt to find the license file in the folder that contain the JARs of your application.
 
 **Java**
@@ -47,7 +47,7 @@ In this example Aspose.Slides will attempt to find the license file in the folde
 license.setLicense("Aspose.Slides.Java.lic");
 
 ```
-#### **Example 2**
+### **Example 2**
 Initializes a license from a stream.
 
 **Java**
@@ -59,7 +59,7 @@ Initializes a license from a stream.
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ```
-#### **Setting a License in PHP Using PHP/Java Bridge**
+### **Setting a License in PHP Using PHP/Java Bridge**
 Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slides for Java**. It is because of the fact that PHP developers actually use the API of **Aspose.Slides for Java** in PHP. **PHP/Java Bridge** provides an interface to the PHP developers that makes it possible to use Java classes in PHP syntax.
 
 [**PHP**]()
@@ -114,7 +114,7 @@ Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slid
 ?>
 
 ```
-### **Validate the License**
+## **Validate the License**
 It is possible to validate if the license has been set properly or not. The [License](https://apireference.aspose.com/java/slides/com.aspose.slides/License) class has the isLicensed field that will return true if license has been properly set.
 
 **Java**

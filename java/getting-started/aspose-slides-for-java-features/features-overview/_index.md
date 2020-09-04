@@ -5,7 +5,7 @@ weight: 10
 url: /java/features-overview/
 ---
 
-### **Supported Platforms**
+## **Supported Platforms**
 Aspose.Slides for Java supports the most popular development and deployment platforms.
 
 |**Feature**|**Description**|
@@ -13,7 +13,7 @@ Aspose.Slides for Java supports the most popular development and deployment plat
 |Desktop Applications|Aspose.Slides for Java can be used to develop Windows Forms applications|
 |Enterprise Web Applications|Using Aspose.Slides for Java helps to build Web applications targeting. Support for using Aspose.Slides for Java with PHP is also provided.|
 |Linux/Unix|Aspose.Slides for Java is a platform independent API and can work in a Linux and Unix environment.|
-### **File Formats and Conversions**
+## **File Formats and Conversions**
 Aspose.Slides for Java supports most of the Microsoft PowerPoint document formats and exports them to popular formats used widely by organizations.
 
 |**Feature**|**Description**|
@@ -26,14 +26,14 @@ Aspose.Slides for Java supports most of the Microsoft PowerPoint document format
 |[Tagged Image File Format (TIFF)](/slides/java/tagged-image-file-format-28tiff-29/)|The presentation file formats supported by Aspose.Slides for Java can also be exported to Tagged Image File Format (TIFF).|
 |[ODP to PPTX Conversion](/slides/java/accessing-opendocument-presentation/)|Aspose.Slides for Java supports loading Accessing OpenDocument Presentation (ODP) and converting then to PPTX.|
 |[Presentation To HTML Conversion]()|Aspose.Slides for Java supports the conversion of PresentationEx to HTML format.|
-### **Presentation Rendering**
+## **Presentation Rendering**
 Aspose .Slides for Java supports high fidelity rendering of slides in the presentations to various graphics formats:
 
 |**Feature**|**Description**|
 | :- | :- |
 |Supported Image Formats|Using Aspose.Slides for Java, you will be able to render not only presentation slides, but also images on slides, to popular supported graphics formats like TIFF, PNG, BMP, JPEG, GIF and metafiles.|
 |SVG Format|Aspose.Slides for Java provides a built-in method to export presentation slides to Scalable Vector Graphics (SVG) format.|
-### **Content Features**
+## **Content Features**
 Aspose.Slides for Java enables you to access, modify or create almost all the possible contents of presentations.
 
 |**Feature**|**Description**|
@@ -66,7 +66,7 @@ Aspose.Slides for Java enables you to access, modify or create almost all the po
 |Text Scanning|Text in a presentation can be scanned at the presentation or slide level through the built-in scanning methods.|
 |Animations|Animations can be applied to shapes.|
 |Slide Shows|Slide shows and slide transitions are supported.|
-### **Formatting Features**
+## **Formatting Features**
 It is possible to format text and shapes on slides in a presentation document using Aspose.Slides for Java.
 
 |**Feature**|**Description**|

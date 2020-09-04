@@ -11,7 +11,7 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Added the Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap(), and setOverlap(byte) Mehtods**
+### **Added the Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap(), and setOverlap(byte) Mehtods**
 The Aspose.Slides.Charts.IChartSeries.getOverlap() gets how much bars and columns should overlap on 2D charts (in a range from -100 to 100).
 This method is not only for specific series but for all series of the parent series group - this is projection of the appropriate group property.
 
@@ -33,7 +33,7 @@ if (series.get_Item(0).getOverlap() == 0) {
 }
 
 ```
-#### **Added the ShapeThumbnailBounds.Appearance Enum Value**
+### **Added the ShapeThumbnailBounds.Appearance Enum Value**
 This method of creating shape thumbnails allows developers to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by the slide bounds.
 
 ``` java

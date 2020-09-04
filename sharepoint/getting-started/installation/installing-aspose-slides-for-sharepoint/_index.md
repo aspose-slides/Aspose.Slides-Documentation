@@ -15,7 +15,7 @@ Aspose.Slides for SharePoint is downloaded as the Aspose.Slides.SharePoint.zip a
 - **Setup.exe.config**: The setup configuration file.
 
 {{% /alert %}} 
-### **Installation Process**
+## **Installation Process**
 Before running the installation, the setup program checks that:
 
 - WSS 3.0 or MOSS 2007 is installed.
@@ -25,7 +25,7 @@ Before running the installation, the setup program checks that:
 - WSS Timer service is started.
 
 The WSS Administration and Timer services are needed because some setup actions rely on a timer job to propagate to all servers in the server farm. 
-#### **Running the Installation**
+### **Running the Installation**
 To install Aspose.Slides for SharePoint: 
 
 1. Unpack Aspose.Slides.SharePoint zip to the local drive on the MOSS 7.0 or WSS 3.0 Server.

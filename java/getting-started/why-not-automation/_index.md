@@ -22,7 +22,7 @@ Second question that typically follows next is **Why should we use Aspose produc
 This question cannot be answered as easily. The shortest answer we could give is that there are many reasons with the top one being that **Microsoft itself strongly recommends against Office Automation from software solutions:** ( [http://support.microsoft.com/default.aspx?scidkbEN-USq257757kb2](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757) ) 
 
 {{% /alert %}} 
-#### **Overview**
+## **Overview**
 As stated above, there are several reasons why Aspose components are a better alternative to automation. Some of the key reasons are: 
 
 - Security
@@ -32,7 +32,7 @@ As stated above, there are several reasons why Aspose components are a better al
 - Features
 
 Below is a better elaboration on each of the key points. Also be sure to visit the **Additional Information** section which provides link to independent user evaluations. 
-#### **Security**
+## **Security**
 The following is a direct quote from the above referenced Microsoft [Article](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757) : 
 
 
@@ -40,7 +40,7 @@ The following is a direct quote from the above referenced Microsoft [Article](ht
 
 
 Aspose products are very secure. Aspose components do not pose a potential risk to vital system resources. Furthermore, when a document is opened by an Aspose component, macros are not automatically run. Aspose components were built with the goal of allowing developers to create, manipulate and save Office files. None of the risks associated with the Microsoft Office package are inherent to Aspose components. 
-#### **Stability**
+## **Stability**
 The following is a direct quote from the above referenced Microsoft [Article](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757) : 
 
 
@@ -48,7 +48,7 @@ The following is a direct quote from the above referenced Microsoft [Article](ht
 
 
 Aspose components have been thoroughly tested and are extremely stable. Aspose components are used by [Companies](http://www.aspose.com/Corporate/Aspose/Customerlist.html) such as: **IBM** , **Hilton** , **Reader's Digest** , **Bank of America** and many many more. 
-#### **Scalability/Speed**
+## **Scalability/Speed**
 The following is a direct quote from the above referenced Microsoft [Article](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757) : 
 
 
@@ -56,27 +56,27 @@ The following is a direct quote from the above referenced Microsoft [Article](ht
 
 
 Aspose components are highly scalable and lightning fast. Office applications were not designed to be simultaneously used by 100s and 1000s of users. However, Aspose components are designed for just that. Our components perform flawlessly whether on a single server, powering a single application or on a load balanced Web Form powering an enterprise wide application. 
-#### **Price**
+## **Price**
 When an application utilizes Microsoft Office Automation, a copy of Microsoft Office must be purchased for each machine that runs the application. There are many times that an application may need to create or manipulate an office file but does not require the user to have Microsoft Office. Aspose offers a very [Cost Effective](https://purchase.aspose.com/) and royalty free redistribution license that will allow deployment to an unlimited number of users with no licensing worries. 
 
 
 When creating web based applications it is important to know that Microsoft Office Automation components are not priced nor licensed for server side solutions ( [http://support.microsoft.com/default.aspx?scidkbEN-USq243006kb2](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q243006) ); therefore, there is no good, licensing solution for deploying web applications that utilize the Microsoft Office components. Aspose offers a very Cost Effective solution for server based applications as well. 
-#### **Features**
+## **Features**
 Aspose components provide everything needed for managing Office files plus much more. They are designed with the philosophy of allowing developers to accomplish the greatest results with the least amount of work. Unlike Office Automation, Aspose components provide many powerful and time saving functions. For instance, [Aspose.Cells](https://products.aspose.com/cells/java) offers developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/java) offers a similar feature that allows developers to populate a Word (that is Mail Merge) document. [Every Component](https://products.aspose.com/total/java) in the Aspose family offers their own set of unique and powerful features. 
 
 
 The best part of purchasing an Aspose component (or component suites like [Aspose.Total](http://www.aspose.com/categories/java-components/aspose.total-for-java/default.aspx) ) is having access to our development teams. Our development teams realize that if there is a feature that your company needs, more than likely other companies will need it as well. While not every feature request can be added, our teams try to be very open-minded and flexible when providing assistance. That mindset is what has helped Aspose components to become as powerful as they are. If there are additional features that you need from Office Automation objects, your chances of having them added are very, very low. 
-#### **Conclusion**
+## **Conclusion**
 {{% alert color="primary" %}} 
 
 While this article has covered many of the key points why Aspose components are a better choice than Office Automation, there are many, many more. This article primarily addresses only the most key points. All of the different Aspose components offer a risk free, no obligation [Evaluation Version](https://downloads.aspose.com/slides/java) . We encourage you to take advantage of that [Evaluation](https://downloads.aspose.com/slides/java) in order to better see what Aspose can do for your applications. 
 
 {{% /alert %}} 
-#### **Additional Information**
+## **Additional Information**
 **Aspose Vs. Office Components** 
 
 [http://www.aspose.com/forums/ShowPost.aspx?PostID11020](http://www.aspose.com/forums/ShowPost.aspx?PostID=11020)
-#### **References**
+## **References**
 **Considerations for Server-Side Automation of Office** 
 
 [http://support.microsoft.com/default.aspx?scidkbEN-USq257757](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757)

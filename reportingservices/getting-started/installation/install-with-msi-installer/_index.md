@@ -5,7 +5,7 @@ weight: 20
 url: /reportingservices/install-with-msi-installer/
 ---
 
-#### **Installation**
+## **Installation**
 You can install Aspose.Slides for Reporting Services by using an MSI installer. 
 
 Run ***Aspose.Slides.ReportingServices.msi*** and follow the steps offered by the installer. The installer will copy the assembly and other files to the specified directory and install the product on the default instance of Reporting Services. You do not need to copy or modify any files manually unless you want to ad d special configuration parameters. 

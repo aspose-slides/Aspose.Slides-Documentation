@@ -5,12 +5,12 @@ weight: 20
 url: /cpp/presentationml-pptx-xml/
 ---
 
-#### **About PresentationML**
+## **About PresentationML**
 PresentationML is a name for a family of XML-based formats for presentation documents. Office OpenXML (OOXML) is the XML-based format introduced in Microsoft Office 2007 applications. Office OpenXML is a container format for several specialized XML-based markup languages. PresentationML is the markup language used by Microsoft Office PowerPoint 2007 to store its documents. 
-#### **PresentationML in Aspose.Slides for C++**
+## **PresentationML in Aspose.Slides for C++**
 OOXML PresentationML documents come as PPTX files which are zipped XML packages following the [OOXML ECMA-376](http://www.ecma-international.org/publications/standards/Ecma-376.htm) specifications. Aspose.Slides for C++ extensively supports creating, reading, manipulating and writing PresentationML documents. In addition, Aspose.Slides for C++ is capable of exporting PresentationML documents to different widely used document formats like PDF, TIFF and XPS. This is possible because Aspose.Slides for C++ was designed with the aim to comprehensively handle presentation documents and PresentationML basically holds the internal presentation of documents as zipped XML package. 
 
-#### **PresentationML is Open, Why Use Aspose.Slides for C++**
+## **PresentationML is Open, Why Use Aspose.Slides for C++**
 Since PresentationML is XML based, it is quite possible to build applications for processing and generating of PresentationML documents by using XML classes without relying on the third party class libraries such as Aspose.Slides for C++. However, there are several advantages of using Aspose.Slides for C++ over XML classes while working with PresentationML documents. 
 
 The OOXML specification is too long to several thousands of pages. It means, in order to properly handle the PresentationML documents, you will have to spend a lot of time and effort to understand the format of such documents. On the other hand, while using Aspose.Slides for C++, you simply have to use the relevant classes and their respective methods / properties for performing operations which seem quite complex if performed via XML classes. 
@@ -24,7 +24,7 @@ The following are some of the features which are even unavailable when dealing w
 - Applying protection on shapes
 
 Let us take an example of a PresentationML document having single slide with one text box containing “Hello World” text. In order to read the text through XML classes, you will have to write a program that can parse this simple text from the following fragment: 
-#### **Example**
+## **Example**
 
 
 ``` cpp

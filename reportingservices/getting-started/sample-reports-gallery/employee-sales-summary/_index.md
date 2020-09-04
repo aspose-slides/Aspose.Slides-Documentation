@@ -5,7 +5,7 @@ weight: 30
 url: /reportingservices/employee-sales-summary/
 ---
 
-#### **Features:**
+## **Features:**
 PPT, charts, images, textboxes, tables. 
 
 ![todo:image_alt_text](employee-sales-summary_1.png)

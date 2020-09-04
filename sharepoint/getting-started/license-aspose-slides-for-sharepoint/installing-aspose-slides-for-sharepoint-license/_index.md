@@ -15,7 +15,7 @@ The license is a ZIP archive containing a regular SharePoint solution package. T
 - readme.txt – License installation instructions.
 
 {{% /alert %}} 
-#### **Deploying the License**
+## **Deploying the License**
 License installation is performed from the server console via **stsadm.exe**.
 
 {{% alert color="primary" %}} 
@@ -55,5 +55,5 @@ Perform following steps to deploy the Aspose.Slides for SharePoint license:
 You get a warning when running the deployment step if Windows SharePoint Services Administration service is not running. **stsadm.exe** relies on this service and Windows SharePoint Timer Service to replicate solution data across the farm. If these services are not running on you server farm, you may need to deploy the license at each server. 
 
 {{% /alert %}} 
-#### **Test the License**
+## **Test the License**
 To test that the license has been installed correctly, convert any document into a new format. If there's no evaluation watermark in the document, the license activated successfully. 

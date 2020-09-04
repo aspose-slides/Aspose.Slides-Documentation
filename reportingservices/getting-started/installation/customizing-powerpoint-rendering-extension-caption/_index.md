@@ -10,11 +10,11 @@ url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
 This section demonstrates how to customize Aspose.Slides for Reporting Services rendering options captions. 
 
 {{% /alert %}} 
-#### **Example**
+## **Example**
 On installation of the Aspose.Slides for Reporting Services, four more export options are added in the drop down menu of the export options as shown by the following figure: 
 
 ![todo:image_alt_text](customizing-powerpoint-rendering-extension-caption_1.png)
-#### **Steps to modify the captions text**
+## **Steps to modify the captions text**
 The default captions of these extensions can be changed by overriding the default names. The following steps explain how to update the caption “ **PPT – PowerPoint** **Presentation via** **Aspose.Slides** ” to “ **PowerPoint 97 – 2003 format(PPT)** ”. 
 
 

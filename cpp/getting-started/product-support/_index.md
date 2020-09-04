@@ -5,7 +5,7 @@ weight: 90
 url: /cpp/product-support/
 ---
 
-#### **Technical support**
+## **Technical support**
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation.
 If you need help with Aspose.Slides for C++, consider the following:
 
@@ -17,7 +17,7 @@ If you need help with Aspose.Slides for C++, consider the following:
 - Have a look through the forums, this documentation and API Reference before reporting the issue; maybe your question was already answered.
 - When reporting an issue, please include the original document and possibly a fragment of your code that causes the problem. If you need to attach multiple files, zip them into one. It is safe to attach your documents in Aspose.Forums since only you and Aspose developers will have access to the attached files.
 - Please try to report one issue per thread. If you have another issue, report it in a separate thread.
-#### **Resources**
+## **Resources**
 This table lists important Aspose.Slides for C++ technical resources.
 
 |**Resource**|**Description**|

@@ -19,7 +19,7 @@ The process of rendering consist of two parts: 
 
 1. Render report to RPL using Reporting Service Web Service. More information regarding Reporting Service Web Service can be found [here](http://technet.microsoft.com/en-us/library/ms152787.aspx).
 1. Render RPL to Powerpoint using Aspose.Slides for Reporting service for ReportViewer. The assembly is located in ﻿﻿﻿﻿﻿{Aspose.Slides for Reporting Services home directory}\bin\RV2010  
-###### **Here is the steps to implement export to Powerpoint:**
+## **Here is the steps to implement export to Powerpoint:**
  1) Create web service proxy as described [here](http://technet.microsoft.com/en-us/library/ms155134.aspx) and add it to your solution.
 
  2) Add reference to Aspose.Slides.ReportingServices.dll for ReportViewer 2010.

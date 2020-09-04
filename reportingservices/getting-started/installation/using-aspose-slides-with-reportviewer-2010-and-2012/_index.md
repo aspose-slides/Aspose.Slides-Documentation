@@ -20,7 +20,7 @@ RplRenderer class renders [Report Page Layout (RPL) Binary Stream Format](http:/
 RplRenderer uses [soft page breaks](http://msdn.microsoft.com/en-us/library/dd255244.aspx) to control page size use InteractiveHeight and InteractiveWidth RDL tags. 
 
 {{% /alert %}} 
-#### **Sample Code**
+## **Sample Code**
 This code will show how to export report from ReportViewer 2010/2012 to PPT/PPTX using RplRenderer. Execute RenderToPpt method to render current report to PPT.
 
 [**C#**]()
@@ -245,7 +245,7 @@ namespace Slides.ReportViewer2010
 
 
 ```
-#### **Using from Windows Forms**
+## **Using from Windows Forms**
 Optionally you can add Export buttons to TollStripPanel of ReportViewer by adding next code to Form's constructor:
 
 [**C#**]()

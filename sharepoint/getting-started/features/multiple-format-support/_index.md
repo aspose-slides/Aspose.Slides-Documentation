@@ -10,7 +10,7 @@ url: /sharepoint/multiple-format-support/
 With Aspose.Slides for SharePoint, you can convert documents between many popular office document formats from within a SharePoint document library. Conversions are done with high fidelity and precision. 
 
 {{% /alert %}} 
-### **Supported Input Formats**
+## **Supported Input Formats**
 Aspose.Slides for SharePoint supports the following input formats: 
 
 - PPT – Microsoft PowerPoint Presentation 97 - 2003
@@ -25,7 +25,7 @@ Aspose.Slides for SharePoint supports the following input formats:
 To generate documents, Aspose.Slides for SharePoint relies on a built-in version of [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), the Aspose's only PowerPoint documents processing component.
 
 {{% /alert %}}
-### **Supported Output Formats**
+## **Supported Output Formats**
 The following output formats are supported by Aspose.Slides for SharePoint: 
 
 - PDF – Portable Document Format

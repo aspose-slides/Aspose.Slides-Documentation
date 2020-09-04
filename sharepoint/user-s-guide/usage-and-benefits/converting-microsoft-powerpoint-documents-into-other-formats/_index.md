@@ -14,7 +14,7 @@ When Aspose.Slides for SharePoint is installed on the SharePoint server, it adds
 ![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
 
 {{% /alert %}} 
-### **Converting a Presentation**
+## **Converting a Presentation**
 To convert a Microsoft PowerPoint document from a SharePoint document library: 
 
 1. Select a Microsoft PowerPoint document in a document library.

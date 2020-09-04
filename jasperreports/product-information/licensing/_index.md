@@ -16,14 +16,14 @@ The license is available for download from the order page after the order has be
 Download the license to your computer and copy it to the appropriate folder (for example your application folder or **JasperReports\lib**).
 
 {{% /alert %}} 
-### **Evaluation License Limitations**
+## **Evaluation License Limitations**
 The evaluation version of Aspose.Slides has the same features as the full version, but adds a watermark to the spreadsheet to let readers know that the evaluation version was used. To get rid of the watermark, buy and apply a license.
 
 |<p>**In evaluation mode, Aspose.Slides injects a watermark.** </p><p>![todo:image_alt_text](licensing_1.png)</p>|<p>**When a license is applied, there is no watermark** </p><p>![todo:image_alt_text](licensing_2.png)</p>|
 | :- | :- |
-### **Applying a License**
+## **Applying a License**
 There are several ways to apply a license, depending on whether you're working on JasperReports, or JasperServer.
-#### **Applying a License for JasperReports**
+### **Applying a License for JasperReports**
 - Use a direct setLicense method call similar to Aspose.Slides for Java.
 
 **Java**
@@ -81,7 +81,7 @@ There are several ways to apply a license, depending on whether you're working o
 
 
 ```
-#### **Applying a License on JasperServer**
+### **Applying a License on JasperServer**
 - Set the exporter parameter in the applicationContext.xml.
 
 ``` xml

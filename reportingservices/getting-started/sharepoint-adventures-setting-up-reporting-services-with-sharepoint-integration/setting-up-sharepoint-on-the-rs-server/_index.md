@@ -12,7 +12,7 @@ So, we need to do what we did for the SharePoint WFE. First thing is to go throu
 For the setup, we choose Server Farm and a complete install to match my SharePoint Box, as we do not want a standalone install for SharePoint. 
 
 {{% /alert %}} 
-#### **SharePoint Configuration**
+### **SharePoint Configuration**
 In the SharePoint Configuration Wizard, we want to connect to an existing farm. 
 
 ![todo:image_alt_text](setting-up-sharepoint-on-the-rs-server_1.png)

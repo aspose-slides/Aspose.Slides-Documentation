@@ -10,7 +10,7 @@ url: /java/replacing-images-inside-presentation-image-collection/
 Aspose.Slides for Java makes it possible to replace images in slide shapes. This article explains how to replace an image added to the presentation image collection using different approaches.
 
 {{% /alert %}} 
-#### **Replacing Image inside Presentation Image Collection**
+## **Replacing Image inside Presentation Image Collection**
 Aspose.Slides for Java provides a simple API methods for replacing the images inside presentation image collection. Please follow the steps below:
 
 1. Load the presentation file with image inside it using the Presentation class.

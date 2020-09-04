@@ -14,7 +14,7 @@ We sometimes hear this question:
 This question is easy to answer: **features and functionality**.
 
 {{% /alert %}} 
-#### **What is Open XML SDK?**
+## **What is Open XML SDK?**
 According to the [MSDN Library](http://msdn.microsoft.com/en-us/library/bb448854.aspx), Open XML SDK is defined as: 
 
 The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open 
@@ -24,7 +24,7 @@ XML packages, so that you can perform complex operations with just a few lines o
 OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to 
 
 extract XML, loading that XML into a DOM tree and working with XML elements and attributes directly, Open XML SDK provides classes to do that.
-#### **What is Aspose.Slides?**
+## **What is Aspose.Slides?**
 Aspose.Slides is a class library that allows your application to perform the following presentation processing tasks:
 
 - Programming with a **Presentation** object model.
@@ -35,7 +35,7 @@ Aspose.Slides is a class library that allows your application to perform the fol
 - Availability of extensive control for Managing the text formatting on TextFrames, Paragraphs and Portions levels.
 
 For more details about the features supported, please visit [Aspose.Slides Features](/slides/java/product-overview/).
-#### **Compare Open XML SDK and Aspose.Slides**
+## **Compare Open XML SDK and Aspose.Slides**
 {{% alert color="primary" %}} 
 
 The following table compares Open XML SDK and Aspose.Slides features.
@@ -51,7 +51,7 @@ The following table compares Open XML SDK and Aspose.Slides features.
 |Low-level direct and full access to the underlying XML elements and attributes such as relationship identifiers, list identifiers of an OOXML document.|Yes|No|
 |<p>Rendering:</p><p>- Render presentations to PDF, PDF Notes, XPS, TIFF images.</p><p>- Render slide thumbnails to PNG, JPEG, BMP, SVG and TIFF.</p><p>- Specify image resolution, quality, compression and other options. </p>|No|Yes |
 |Supported platforms|Windows, .NET|Windows, Linux,UNIX, MAC, Java, PHP, Mono|
-#### **Conclusion**
+## **Conclusion**
 {{% alert color="primary" %}} 
 
 Open XML SDK and Aspose.Slides do not compete head to head because they address quite different needs and audiences. Open XML SDK is a class library to provide a strong-typed way to work with OOXML documents. Aspose.Slides is a very useful presentations processing library that provides great support for nearly all Microsoft PowerPoint file formats.

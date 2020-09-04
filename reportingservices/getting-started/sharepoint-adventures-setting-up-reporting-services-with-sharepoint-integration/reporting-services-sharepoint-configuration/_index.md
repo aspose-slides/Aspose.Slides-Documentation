@@ -23,9 +23,9 @@ We want to go to the Central Administrator Web site and then into General Applic
 Click on " **Reporting Services Integration** . 
 
 {{% /alert %}} 
-#### **Web Service URL**
+## **Web Service URL**
 We will provide the URL for the Report Server that we found in the Reporting Services Configuration Manager. 
-#### **Authentication Mode**
+## **Authentication Mode**
 We will also select an Authentication Mode. The following MSDN link goes through in detail what these are. 
 [Security Overview for Reporting Services in SharePoint Integrated Mode](http://msdn.microsoft.com/en-us/library/bb283324.aspx) 
 
@@ -37,7 +37,7 @@ You will also want to use Trusted Authentication if you have configured your Cla
 
 
 **Figure 18**: Setting Reporting Services Integration credentials
-#### **Activate Feature**
+## **Activate Feature**
 This gives you an option of activating the Reporting Services on all Site collections, or you can choose which ones you want to activate it on. This just really means which sites will be able to use Reporting Services. 
 When it is done, you should see the following figure. 
 

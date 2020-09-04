@@ -5,7 +5,7 @@ weight: 10
 url: /java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
-#### **About updating OLE objects automatically**
+## **About updating OLE objects automatically**
 One of t he most frequent question s asked by the Aspose.Slides customers is how to create or change editable charts or any other OLE objects and have them automatically updated when opening the presentation. Unfortunately PowerPoint does not support any automatic macros, which are available in Excel and Word. The only ones available are the Auto_Open and Auto_Close macros. However, those only run automatically from an add-in. This short technical tip shows how to achieve that. 
 
 First, there are available several freeware add-ins that add the Auto_Open macro feature to PowerPoint for example [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) and [Event Generator](http://officeone.mvps.org/eventgen/eventgen.html) . 

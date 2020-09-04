@@ -10,7 +10,7 @@ url: /reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepo
 This article explains how to integrate Aspose.Slides for Reporting Services manually in SSRS 2012 SharePoint integration concept. 
 
 {{% /alert %}} 
-### **Integrating Aspose.Slides with SSRS 2012 in SharePoint Integration Mode**
+## **Integrating Aspose.Slides with SSRS 2012 in SharePoint Integration Mode**
 The following steps show how to manually install Aspose.Slides for Reporting Services to integrate with with SSRS 2013 in SharePoint integration mode. The manual installation uses the DLL instead of the MSI installer. We recommend you install with the MSI installer because it performs all necessary installation and configuration automatically. However, if you fail to install with the MSI installer then the following helps you set up Aspose.Slides. 
 
 1. Copy the **Aspose.Slides.ReportingServices.dll** from the **Universal** directory to the **SharePonit RS** bin directory.

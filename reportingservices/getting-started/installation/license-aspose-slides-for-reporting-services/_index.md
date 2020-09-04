@@ -5,7 +5,7 @@ weight: 70
 url: /reportingservices/license-aspose-slides-for-reporting-services/
 ---
 
-#### **License support**
+## **License support**
 Aspose.Slides for Reporting Services is available for free, time unlimited evaluation from the [download page](http://www.aspose.com/Downloads/Aspose.Slides.Reporting.Services/Default.aspx). The evaluation and licensed versions of the product is the same download. 
 
 When you are happy with the evaluation version, you can [purchase a license](http://www.aspose.com/Purchase/Aspose.Slides.Reporting.Services/Default.aspx). Make sure you understand and agree to the subscription terms. 

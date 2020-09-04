@@ -16,7 +16,7 @@ This article explains how to create different types of charts:
 - [Remove Table Borders](/slides/cpp/creating-a-table-from-scratch-in-slide/).
 
 {{% /alert %}} 
-#### **Creating Table from Scratch**
+## **Creating Table from Scratch**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
 - Create an instance of Presentation class
@@ -29,7 +29,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 - Access the Text Frame of a Cell
 - Add some text to the Text Frame
 - Savethe modified presentation as a PPTX file
-#### **Example**
+### **Example**
 [**C#**]()
 
 ``` cpp
@@ -181,7 +181,7 @@ End Using
 ![todo:image_alt_text](creating-a-table-from-scratch-in-slide_1.png)
 
 **Figure**: Table added to the slide
-#### **Removing Table Cells Border**
+### **Removing Table Cells Border**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. In order to remove the borders from table cells, please follow the steps below:
 
 - Create an instance of Presentation class
@@ -191,7 +191,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 - Add a Table to the slide using AddTable method exposed by IShapes object
 - Iterate through each Cell to clear the Top, Bottom, Right, Left Borders
 - Savethe modified presentation as a PPTX file
-#### **Example**
+### **Example**
 [**C#**]()
 
 ``` cpp

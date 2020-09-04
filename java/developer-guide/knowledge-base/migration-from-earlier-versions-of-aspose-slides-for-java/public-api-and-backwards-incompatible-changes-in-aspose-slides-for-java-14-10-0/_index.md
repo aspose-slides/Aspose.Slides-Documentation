@@ -11,11 +11,11 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **com.aspose.slides.FieldType.getFooter() method has been added**
+### **com.aspose.slides.FieldType.getFooter() method has been added**
 getFooter() method returns footer field type. It has been added for the implementation of the possibility to create fields of this type and for valid presentation serialization.
-#### **Element com.aspose.slides.ShapeElementFillSource.Own has been deleted**
+### **Element com.aspose.slides.ShapeElementFillSource.Own has been deleted**
 Element ShapeElementFillSource.Own has been deleted as duplicated. Use ShapeElementFillSource.Shape instead of ShapeElementFillSource.Own.
-#### **Methods for chart data points, categories removing have been added**
+### **Methods for chart data points, categories removing have been added**
 **The following methods, which allow to remove chart data point from a chart data point collection have been added:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
@@ -48,9 +48,9 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-#### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**
+### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**
 The methods getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() and corresponding set methods have been removed. They were marked as obsolete long time ago.
-#### **Un-useful and obsolete constructors have been removed**
+### **Un-useful and obsolete constructors have been removed**
 The following constructors have been removed:
 
 com.aspose.slides.AlphaBiLevel(float)

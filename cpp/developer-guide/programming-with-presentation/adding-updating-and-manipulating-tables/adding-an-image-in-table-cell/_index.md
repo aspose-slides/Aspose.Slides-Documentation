@@ -10,7 +10,7 @@ url: /cpp/adding-an-image-in-table-cell/
 Aspose.Slides for C++ also facilitates developers to add images to table cells. In this topic, we will explain that how developers can add an image to a cell of a table using Aspose.Slides for C++.
 
 {{% /alert %}} 
-#### **Adding Image inside a Table Cell**
+## **Adding Image inside a Table Cell**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. To add image in a table cell while creating a new table, please follow the steps below:
 
 - Create an instance of Presentation class

@@ -15,11 +15,11 @@ This page describes how to create extension for Aspose.Slides for RS.
 {{% /alert %}} 
 
 The Custom Extension feature gives you the option to add extra elements or update existing elements during report export.
-### **How to Create an Extension Assembly**
+## **How to Create an Extension Assembly**
 1. Create a .NET project and add areference to Aspose.Slides.ReportingServices.dll.
 1. Add a class and inherit it from Aspose.Slides.ReportingServices.Extension.RenderingExtensionBase.
 1. Override the class' virtual methods to add custom functionality.
-#### **Example**
+### **Example**
 Suppose we want to add a note with some text, a logo and update the company name for every report exported with Aspose.Slides for RS.
 
 For that purpose we add the following class:
@@ -96,7 +96,7 @@ Build it and you will get extension assembly. We are ready to integrate the exte
 {{% /alert %}} 
 
 [Visual studio project of RenderingExtensionDemo.zip](attachments/10289195/10452998.zip)
-#### **Integrating the Extension**
+### **Integrating the Extension**
 Suppose that your assembly is called **TestSlidesRenderingExtension.dll**:
 
 - Copy the assembly to the ReportingService **bin** directory next to the Aspose.Slides.ReportingServices.dll. (For example: c:\Program Files\Microsoft SQL Server\MSRS10_50\Reporting Services\ReportServer\bin)

@@ -10,7 +10,7 @@ url: /cpp/exporting-presentations-to-html-with-externally-linked-images/
 This article describes an advanced technique that allows controlling which resources are embedded into the resulting HTML file and which are saved externally and referenced from the HTML file.
 
 {{% /alert %}} 
-#### **Background**
+## **Background**
 The default HTML export behavior is to embed any resource into the HTML file. Such approach results in a single HTML file that is easy to view and distribute. All necessary resources are base64-encoded inside. But such approach has two drawbacks:
 
 - The size of output is significantly larger because of the base64 encoding.* It is difficult to replace the images contained in the file.
