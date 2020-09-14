@@ -1,5 +1,6 @@
 ---
 title: Aspose.Slides for .NET
+second_title: "Aspose.Slides Documentation"
 type: docs
 weight: 10
 url: /net/

@@ -1,5 +1,6 @@
 ---
 title: Aspose.Slides for SharePoint
+second_title: Aspose.Slides Documentation
 type: docs
 weight: 60
 url: /sharepoint/

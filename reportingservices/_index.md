@@ -1,5 +1,6 @@
 ---
 title: Aspose.Slides for Reporting Services
+second_title: Aspose.Slides Documentation
 type: docs
 weight: 50
 url: /reportingservices/

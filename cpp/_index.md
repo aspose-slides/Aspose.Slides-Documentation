@@ -1,5 +1,6 @@
 ---
 title: Aspose.Slides for C++
+second_title: Aspose.Slides Documentation
 type: docs
 weight: 30
 url: /cpp/

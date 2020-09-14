@@ -1,5 +1,6 @@
 ---
 title: Aspose.Slides for JasperReports
+second_title: Aspose.Slides Documentation
 type: docs
 weight: 70
 url: /jasperreports/
