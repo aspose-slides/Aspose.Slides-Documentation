@@ -9,7 +9,7 @@ is_root: true
 
 {{% alert color="primary" %}} 
 
-![Aspose.Slides for Java Product Logo](home_1)
+![Aspose.Slides for Java Product Logo](home_1.png)
 
 **Welcome to Aspose.Slides for Java!**
 
