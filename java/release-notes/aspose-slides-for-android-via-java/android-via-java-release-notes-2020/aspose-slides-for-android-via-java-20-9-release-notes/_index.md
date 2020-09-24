@@ -145,7 +145,7 @@ public interface ISvgShapeAndTextFormattingController extends ISvgShapeFormattin
 
 The code snippet below shows how to use [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) interface:
 ```java
-public void SaveSlideToSVG()
+public void SaveSlideToSVG() throws Exception
 {
     Presentation pres = new Presentation(path + "presentation.pptx");
     try {
