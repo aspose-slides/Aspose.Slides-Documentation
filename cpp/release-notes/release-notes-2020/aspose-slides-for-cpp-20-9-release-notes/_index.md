@@ -11,7 +11,7 @@ This page contains release notes for Aspose.Slides for C++ 20.9.
 
 {{% /alert %}} 
 
-## **Supported platforms**
+## **Supported Platforms**
 - Aspose.Slides for C++ for Windows (Microsoft Visual C++).
 - Aspose.Slides for C++ for Linux (Clang).
 
@@ -30,9 +30,7 @@ This page contains release notes for Aspose.Slides for C++ 20.9.
 ## **Public API Changes**
 ### **IBulletFormatEffectiveData::get_FillFormat() method has been added**
 
-A new method [**get_FillFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a8aa5cc6d18b708e3cd90ad802390f29c) has been added to [**IBulletFormatEffectiveData**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data) interface.
-
-Using this method allows to get an effective value of paragraph bullet fill.
+A new [**get_FillFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a8aa5cc6d18b708e3cd90ad802390f29c) method has been added to [**IBulletFormatEffectiveData**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data) interface. Using this method allows to get an effective value of paragraph bullet fill.
 
 Method declaration:
 
@@ -91,12 +89,10 @@ for (auto para : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
 }
 ```
 
-Existed methods [**IBulletFormatEffectiveData::get_Color()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a362dd8d288f4c657388cfa56255842d1) and [**IBulletFormatEffectiveData::get_Picture()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a03dcf46923359bfbc1905e2d9c9ea430) are marked as obsolete and will be removed after Aspose.Slides 21.9 release. It is recommended to use [**IBulletFormatEffectiveData::get_FillFormat::get_SolidFillColor()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_fill_format_effective_data#ae2257c0c167d98ab313c8b3d9469a977) and [**IBulletFormatEffectiveData::get_FillFormat::get_PictureFillFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_fill_format_effective_data#a12f2907055761c5b0afbf4c85625023b) instead as they return the same data accordingly.
+Existing [**IBulletFormatEffectiveData::get_Color()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a362dd8d288f4c657388cfa56255842d1) and [**IBulletFormatEffectiveData::get_Picture()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a03dcf46923359bfbc1905e2d9c9ea430) methods have been marked as obsolete and will be removed since Aspose.Slides 21.9 release. It is recommended to use [**IBulletFormatEffectiveData::get_FillFormat::get_SolidFillColor()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_fill_format_effective_data#ae2257c0c167d98ab313c8b3d9469a977) and [**IBulletFormatEffectiveData::get_FillFormat::get_PictureFillFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_fill_format_effective_data#a12f2907055761c5b0afbf4c85625023b) methods instead, as they return the same data accordingly.
 
 ### **IBulletFormat::GetEffective() method has been added**
-A new method [**GetEffective()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format#ab93fdb2ad6484ab6f13fde4fcbe21de9) has been added to [**IBulletFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format) interface and [**BulletFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.bullet_format) class.
-
-It allows to get an effective value of bullet formatting properties.
+A new [**GetEffective()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format#ab93fdb2ad6484ab6f13fde4fcbe21de9) method has been added to [**IBulletFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format) interface and [**BulletFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.bullet_format) class. It allows to get an effective value of bullet formatting properties.
 
 Method declaration:
 
@@ -107,7 +103,7 @@ Method declaration:
 virtual System::SharedPtr<IBulletFormatEffectiveData> GetEffective() = 0;
 ```
 
-The code snippet below demonstrates retrieving some bullet's effective data:
+The code snippet below demonstrates retrieving some of the bullet's effective data:
 
 ```cpp
 using namespace System;
@@ -125,7 +121,7 @@ if (effectiveBulletFormat->get_Type() == BulletType::Numbered)
 }
 ```
 
-Please note that existed way of getting bullet's effective properties via [**IParagraph::CreateParagraphFormatEffective()::get_Bullet()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph_format_effective_data#aba5ac6274658001b4805192b3066dd45) is also correct and still actual.
+Please note that an existing way of getting bullet's effective properties via [**IParagraph::CreateParagraphFormatEffective()::get_Bullet()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph_format_effective_data#aba5ac6274658001b4805192b3066dd45) is also valid and still works.
 
 ### **Supporting for Id attribute generating for the individual tspan in SVG has been added**
 The [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_shape_and_text_formatting_controller) interface, [**ISvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_t_span/) interface and [**SvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.svg_t_span/) class have been added for tspan Id attribute manipulation in SVG.
