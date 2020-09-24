@@ -123,7 +123,7 @@ if (effectiveBulletFormat->get_Type() == BulletType::Numbered)
 
 Please note that an existing way of getting bullet's effective properties via [**IParagraph::CreateParagraphFormatEffective()::get_Bullet()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph_format_effective_data#aba5ac6274658001b4805192b3066dd45) is also valid and still works.
 
-### **Supporting for Id attribute generating for the individual tspan in SVG has been added**
+### **Support for Id attribute generation for the individual tspan in SVG has been added**
 The [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_shape_and_text_formatting_controller) interface, [**ISvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_t_span/) interface and [**SvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.svg_t_span/) class have been added for tspan Id attribute manipulation in SVG.
 
 **ISvgShapeAndTextFormattingController** declaration:
