@@ -188,7 +188,7 @@ A code sample demonstrating **IInput** usage is available here: [Aspose.Slides.E
 
 ### IOutputFile interface has been added ###
 **IOutputFile** interface and implementing it **OutputFile** class have been added to Aspose.Slides.Export.Web namespace.
-They represent an output file used by [IOutputSaver](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputsaver-interface-has-been-added-) 
+They represent an output file used by [IOutputSaver](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputsaver-interface-has-been-added) 
 during [IWebDocument](/slides/net/aspose-slides-for-net-20-9-release-notes/#iwebdocument-interface-has-been-added) processing.
 
 IOutputFile declaration:
@@ -274,8 +274,8 @@ public interface IOutput
 
 A code sample demonstrating **IOutput** usage is available here: [Aspose.Slides.Export.Web members application example](/slides/net/aspose-slides-for-net-20-9-release-notes/#asposeslidesexportweb-members-application-example).
 
-See also [IOutputFile](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputfile-interface-has-been-added-), 
-[TemplateContext](/slides/net/aspose-slides-for-net-20-9-release-notes/#templatecontext-class-has-been-added-).
+See also [IOutputFile](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputfile-interface-has-been-added), 
+[TemplateContext](/slides/net/aspose-slides-for-net-20-9-release-notes/#templatecontext-class-has-been-added).
 
 ### IOutputSaver interface has been added ###
 **IOutputSaver** interface has been added to Aspose.Slides.Export.Web namespace.
@@ -299,7 +299,7 @@ public interface IOutputSaver
 
 A code sample demonstrating **IOutputSaver** usage is available here: [Aspose.Slides.Export.Web members application example](/slides/net/aspose-slides-for-net-20-9-release-notes/#asposeslidesexportweb-members-application-example).
 
-See also [IOutputFile](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputfile-interface-has-been-added-).
+See also [IOutputFile](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputfile-interface-has-been-added).
 
 
 ### IStorage interface has been added ###
@@ -479,9 +479,9 @@ public interface IWebDocument
 
 A code sample demonstrating **IWebDocument** usage is available here: [Aspose.Slides.Export.Web members application example](/slides/net/aspose-slides-for-net-20-9-release-notes/#asposeslidesexportweb-members-application-example).
 
-See also [IInput](/slides/net/aspose-slides-for-net-20-9-release-notes/#iinput-interface-has-been-added-), 
-[IOutput](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutput-interface-has-been-added-), 
-[IStorage](/slides/net/aspose-slides-for-net-20-9-release-notes/#istorage-interface-has-been-added-).
+See also [IInput](/slides/net/aspose-slides-for-net-20-9-release-notes/#iinput-interface-has-been-added), 
+[IOutput](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutput-interface-has-been-added), 
+[IStorage](/slides/net/aspose-slides-for-net-20-9-release-notes/#istorage-interface-has-been-added).
 
 ### IWebDocumentOptions interface has been added ###
 **IWebDocumentOptions** interface and implementing it **WebDocumentOptions** class have been added to Aspose.Slides.Export.Web namespace.
@@ -514,12 +514,12 @@ public interface IWebDocumentOptions
 
 A code sample demonstrating **IWebDocumentOptions** usage is available here: [Aspose.Slides.Export.Web members application example](/slides/net/aspose-slides-for-net-20-9-release-notes/#asposeslidesexportweb-members-application-example).
 
-See also [ITemplateEngine](/slides/net/aspose-slides-for-net-20-9-release-notes/#itemplateengine-interface-has-been-added-), 
-[IOutputSaver](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputsaver-interface-has-been-added-).
+See also [ITemplateEngine](/slides/net/aspose-slides-for-net-20-9-release-notes/#itemplateengine-interface-has-been-added), 
+[IOutputSaver](/slides/net/aspose-slides-for-net-20-9-release-notes/#ioutputsaver-interface-has-been-added).
 
 ### TemplateContext class has been added ###
 **TemplateContext** class has been added to Aspose.Slides.Export.Web namespace.
-It represents a model object interface for [ITemplateEngine](/slides/net/aspose-slides-for-net-20-9-release-notes/#itemplateengine-interface-has-been-added-).
+It represents a model object interface for [ITemplateEngine](/slides/net/aspose-slides-for-net-20-9-release-notes/#itemplateengine-interface-has-been-added).
 
 TemplateContext declaration:
 
