@@ -19,7 +19,6 @@ This page contains release notes for [Aspose.Slides for .NET 20.10](https://www.
 |SLIDESNET-41409|Support for representing Autoshape text as curve|Feature|
 |SLIDESNET-35920|WordArt effects editing API|Feature|
 |SLIDESNET-42099|Make IChartData.SetRange() method workable for all chart types|Enhancement|
-|SLIDESNET-36951|Create user manual for using WordArt API|Enhancement|
 |SLIDESNET-42185|ODP 1.3 files created in LibreOffice 7.0 are not supported |Bug|
 |SLIDESNET-42183|Conversion from PPT to PPTX generates xml with invalid characters|Bug|
 |SLIDESNET-42176|Exception: An entry with the same key already exists seen while cloning a password protected PPTX file|Bug|
