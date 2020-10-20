@@ -1,10 +1,9 @@
 ---
 title: OLE
 type: docs
-weight: 230
+weight: 232
 url: /net/ole/
 ---
-
 
 
 OLE stands for Object Linking & Embedding . It's a Microsoft technology that allows objects created in one application to be embedded in another application. For example, you can create a chart in an Excel Worksheet and then embed that chart object into your PowerPoint slide. After the chart object is embedded, you just double click the object and the chart object will be opened in editable form as you see in MS Excel. Aspose.Slides for .NET supports adding OLE Objects to the slides in the form of OLE Object Frames . In this topic, we will work with OLE Object Frames to see that how can we add and access these objects to and from slides using Aspose.Slides for .NET. This article explains different examples of working with Ole frames:

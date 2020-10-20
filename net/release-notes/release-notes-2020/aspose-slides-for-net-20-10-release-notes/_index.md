@@ -79,6 +79,11 @@ This page contains release notes for [Aspose.Slides for .NET 20.10](https://www.
 ### WordArt API support has been added
 WordArt API support has been added. WordArt is a special feature that allows users to give special effects to the text such as curved text, 3D text, color gradients, and more.
 
+{{% alert color="primary" %}} 
+Find more about **[WordArt](/slides/net/wordart)** support.
+{{% /alert %}} 
+
+
 ### IRenderingOptions interface and RenderingOptions class have been added
 **IRenderingOptions** interface and implementing it **RenderingOptions** class have been added. Their purpose is to aggregate options used during presentation or slide rendering.
 
