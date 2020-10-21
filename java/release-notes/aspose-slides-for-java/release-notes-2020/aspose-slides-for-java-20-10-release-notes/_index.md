@@ -266,5 +266,5 @@ WordArt API allows to add effects to the text such as 3D effect, curved text, co
 WordArt support has been added to this version.
 
 {{% alert color="primary" %}} 
-Find more about **[WordArt](/java/working-with-wordart/)** support.
+Find more about **[WordArt](/slides/java/working-with-wordart/)** support.
 {{% /alert %}} 
