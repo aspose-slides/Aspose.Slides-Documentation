@@ -21,15 +21,19 @@ Moreover, now it’s possible to create shapes with 3D effects via Slides public
 In Aspose.Slides API, to make 
 a shape become a PowerPoint 3D shape use [IShape.ThreeDFormat](https://apireference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) property, 
 which inherits the features of [IThreeDFormat](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat) interface:
-- BevelBottom and BevelTop: set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
-- Camera: is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
+- [BevelBottom](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) 
+and [BevelTop](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
+- [Camera](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
 shapes as with the 3D model in PowerPoint.
-- ContourColor and ContourWidth: set contour properties to make the shape look like 3D PowerPoint shape.
-- Depth, ExtrusionColor and ExtrusionHeight: are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
+- [ContourColor](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) 
+and [ContourWidth](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): set contour properties to make the shape look like 3D PowerPoint shape.
+- [Depth](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth), 
+[ExtrusionColor](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) 
+and [ExtrusionHeight](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
 by setting its depth or extrusing it.
-- LightRig: can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
+- [LightRig](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
 in relation to the #D shape and choose the light type.
-- Material: setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
+- [Material](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
 Metal, Plastic, Powder, Matte, etc.  
 
 All 3D features can be applied to both shapes and text. Let us see how to access the properties mentioned above and then look on them in details step by step:
@@ -62,7 +66,7 @@ It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more inte
 
 ![todo:image_alt_text](img_02_01.png)
 
-In Aspose.Slides API 3D shape rotation can be managed using IThreeDFormat.Camera property:
+In Aspose.Slides API 3D shape rotation can be managed using [IThreeDFormat.Camera](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) property:
 
 ``` csharp
 IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
@@ -72,8 +76,8 @@ pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
 ```
 
 ## 3D Depth and Extrusion
-To bring the third dimension to your shape and make it a 3D shape, use IThreeDFormat.ExtrusionHeight 
-and IThreeDFormat.ExtrusionColor.Color properties:
+To bring the third dimension to your shape and make it a 3D shape, use [IThreeDFormat.ExtrusionHeight](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) 
+and [IThreeDFormat.ExtrusionColor.Color](https://apireference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) properties:
 
 ``` csharp
 IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
