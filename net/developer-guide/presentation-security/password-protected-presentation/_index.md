@@ -8,8 +8,8 @@ description: "Lock PowerPoint presentation. Password protected PowerPoint with A
 ---
 
 
-# **About Password Protection**
-## **What is Presentation Password Protection**
+## **About Password Protection**
+### **What is Presentation Password Protection**
 Password protection on presentation is when we set a password on a presentation to allow operating with it only for authorized users. This means, that only users, who know the password set on the presentation, can operate with it. Password protected presentation is also called locked presentation. Password protection can be set to prohibit:
 
 - Modify.
@@ -22,7 +22,7 @@ Password protection on presentation is when we set a password on a presentation 
 - Open.
 
   Presentation can be password protected from opening. In this case, its protected from modifying too. To open presentation, it is required to enter the password.
-## **Presentation Password Protection in Aspose.Slides**
+### **Presentation Password Protection in Aspose.Slides**
 In [**Aspose.Slides**](https://products.aspose.com/slides/net) password protection from modifying can be divided on two types:
 
 - **Encryption** 
@@ -61,7 +61,7 @@ this behavior and make document properties available even for locked presentatio
 For that, [**EncryptDocumentProperties**](https://apireference.aspose.com/net/slides/aspose.slides/iprotectionmanager/properties/encryptdocumentproperties) property needs to be set true. 
 
 
-# **Lock Presentation**
+## **Lock Presentation**
 To lock PowerPoint (or OpenOffice) presentation means to create password protected presentation. To create password protected presentation you just need to set a password to presentation. Password protection is a feature used in both PowerPoint and OpenOffice presentation formats. While password is being set to presentation, this presentation is encrypted with the password. So, to encrypt (password protect) presentation do the following:
 
 
@@ -75,15 +75,15 @@ You may take a look at demo app, demonstrating presentation lock feature in Aspo
 [](https://products.aspose.app/slides/lock)
 
 [![todo:image_alt_text](slides-lock.png)](https://products.aspose.app/slides/lock)
-# **Open Locked Presentation**
+## **Open Locked Presentation**
 To open password protected presentation, use overloaded constructors of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class. Pass [**LoadOptions** ](https://apireference.aspose.com/net/slides/aspose.slides/loadoptions)class object to set the access password to open password protected presentation.
 
 
-# **Get Document Properties in Locked Presentation**
+## **Get Document Properties in Locked Presentation**
 When presentation is locked (password protected), the document properties become also prohibited. Aspose.Slides offers a mechanism for password protecting a presentation, but still being able to access the document properties in PowerPoint. The [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class exposes the [**EncryptDocumentProperties**](https://apireference.aspose.com/net/slides/aspose.slides/protectionmanager/properties/encryptdocumentproperties) property that takes a Boolean value to allow or disallow access to the document properties in password protected presentation. By default, its value is set to true.
 
 
-# **Unlock Presentation**
+## **Unlock Presentation**
 To unlock PowerPoint (or OpenOffice) presentation, you need to open password protected presentation and then encrypt it. To open password protected presentation, use Presentation constructor with LoadOp[LoadOptions ](https://apireference.aspose.com/net/slides/aspose.slides/loadoptions)set with a presentation password. To unlock or encrypt presentation, call [**RemoveEncryption** ](https://apireference.aspose.com/net/slides/aspose.slides/iprotectionmanager/methods/removeencryption)method by [**ProtectionManager**](https://apireference.aspose.com/net/slides/aspose.slides/iprotectionmanager):
 
 
@@ -94,11 +94,11 @@ To try presentation unlock feature alive, you may try free online app [**Aspose.
 
 [![todo:image_alt_text](slides-unlock.png)](https://products.aspose.app/slides/unlock)
 
-# **Set Write Protection to Presentation**
+## **Set Write Protection to Presentation**
 To make a read only PowerPoint (or OpenOffice) presentation, you need to set write protection on it. For that use [**SetWriteProtection** ](https://apireference.aspose.com/net/slides/aspose.slides/iprotectionmanager/methods/setwriteprotection)method from [**ProtectionManager**](https://apireference.aspose.com/net/slides/aspose.slides/iprotectionmanager), with presentation password pass into it:
 
 
-# **Remove Write Protection from Presentation**
+## **Remove Write Protection from Presentation**
 Aspose.Slides for .NET provides a facility for accessing write protected presentation through the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class. The [**IsWriteProtected**](https://apireference.aspose.com/net/slides/aspose.slides/iprotectionmanager/properties/iswriteprotected) property 
 identifies whether a presentation is write protected or not. 
 Then if it is write protected, the protection can be removed using the 

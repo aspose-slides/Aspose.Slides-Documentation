@@ -1,7 +1,7 @@
 ---
 title: Slide Transition
 type: docs
-weight: 30
+weight: 80
 url: /net/slide-transition/
 keywords: "PowerPoint slide transition, morph transition"
 description: "PowerPoint slide transition, PowerPoint morph transition with Aspose.Slides."
@@ -47,7 +47,7 @@ The following code snippet shows you how to set morph transition to slide and ch
 
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Transitions-SetTransitionMorphType-SetTransitionMorphType.cs" >}}
-## **Setting Transition Effects**
+## **Set Transition Effects**
 Aspose.Slides for .NET supports setting the transition effects like, from black, from left, from right etc. In order to set the Transition Effect. Please follow the steps below:
 
 - Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class.

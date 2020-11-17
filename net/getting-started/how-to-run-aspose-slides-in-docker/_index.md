@@ -7,7 +7,7 @@ keywords: "Running Aspose.Slides in Docker container, Aspose Docker, Aspose.Slid
 description: "Run Aspose.Slides in a Docker container for Linux, Windows Server and any OS. "
 ---
 
-# **Supported OS**
+## **Supported OS**
 Aspose.Slides can run inside docker containers using .NET Core platform. In general, all container types (OS types) which are supported by .NET Core platform, are also supported by Aspose.Slides. However, the gdi or [libgdiplus ](https://github.com/mono/libgdiplus)should be available and correctly setup inside the container.
 
 To use Docker, you must first install it into your system. Find how to install Docker on Windows or Mac by the following links:
@@ -24,7 +24,7 @@ It's also possible to run Docker on Linux and Windows Server by the following in
 
 Although it is possible to run Linux containers on Windows, it is preferable to run them natively on Linux (even a Linux installed manually on a VM using VirtualBox).
 
-# **Install and configure Docker on Linux (apt-get libgdiplus)**
+## **Install and configure Docker on Linux (apt-get libgdiplus)**
 - OS: Ubuntu 18.04.
 - Dockerfile: Dockerfile-Ubuntu18_04_apt_get_libgdiplus
 
@@ -211,7 +211,7 @@ To override the default command of the container on a run, we could use the foll
 ``` 
 
 So instead of netcore.linux.tests.sh the /bin/bash will be executed and will provide an active terminal session of a container from which it can be run (./build/netcore.linux.tests.sh). This approach can be useful for troubleshooting scenarios.
-# **Install and configure Docker on Linux (make install libgdiplus)**
+## **Install and configure Docker on Linux (make install libgdiplus)**
 - OS: Ubuntu 18.04.
 - Dockerfile: Dockerfile-Ubuntu18_04_make_libgdiplus
 
@@ -268,7 +268,7 @@ $ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.too
 ``` 
 
 
-# **Install and configure Docker on Windows Server Core**
+## **Install and configure Docker on Windows Server Core**
 - OS: Ubuntu 18.04.
 - Dockerfile: Dockerfile*WinServerCore*
 

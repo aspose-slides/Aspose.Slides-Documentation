@@ -1,8 +1,7 @@
 ---
 title: Print Presentation
 type: docs
-weight: 20
-url: /net/print-presentation/
+url: /net/print-the-presentation/
 ---
 
 Aspose.Slides for .NET provides four overloads methods for printing of the presentations. These methods are flexible enough to print the presentation to the default printer or to any of the available printer with customized settings. You only need to select the appropriate print method according to the requirement.

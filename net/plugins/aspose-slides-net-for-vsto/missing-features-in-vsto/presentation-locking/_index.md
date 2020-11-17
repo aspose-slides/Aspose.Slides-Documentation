@@ -5,7 +5,7 @@ weight: 110
 url: /net/presentation-locking/
 ---
 
-# **Presentation Locking**
+## **Presentation Locking**
 A common use for **Aspose.Slides** is to create, update and save Microsoft PowerPoint 2007 (PPTX) presentations as part of an automated workflow. Users of the application that uses Aspose.Slides this way get access to the output presentations. Protecting them from editing is a common concern. It is important that auto-generated presentations retain their original formatting and content.
 
 This explains how presentations and slides are constructed and how Aspose.Slides for .NET can apply protection to, and then remove it from a presentation. This feature is unique to Aspose.Slides and, at the time of writing, is not available in Microsoft PowerPoint. It gives developers a way of controlling how the presentations their applications create are used.

@@ -5,18 +5,18 @@ weight: 30
 url: /net/aspose-slides-for-openxml/
 ---
 
-# **What is OpenXML?**
+## **What is OpenXML?**
 OpenXML SDK is a .NET SDK from Microsoft in order to process Microsoft Office 2007 and above file formats. These file formats are basically zipped packages and the Open XML SDK for Office simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The classes in the Open XML SDK encapsulate many common tasks that developers perform on Open XML packages, so that you can perform complex operations with lines of code.
 
 Once you have installed the Open XML SDK 2.5, open your existing project or application in Visual Studio, or create a new project or application. Then, in your project or application, add references to the following components:
 
 - DocumentFormat.OpenXml
 - WindowsBase
-# **Aspose.Slides for .NET**
+## **Aspose.Slides for .NET**
 Aspose.Slides for .NET is a unique PowerPoint® management component that enables .NET applications to read, write and manipulate PowerPoint documents without using Microsoft PowerPoint.
 
 Aspose.Slides for .NET is the first and only .NET component that provides functionality to manage PowerPoint documents within your own applications. As with all Aspose .NET components, Aspose.Slides is written in managed C#, incredibly priced and lightning fast.
-# **Aspose.Slides for OpenXML**
+## **Aspose.Slides for OpenXML**
 ## **Introduction**
 The developers looking for file format libraries may need to walk through the features provided by the libraries available on the market. Mainly, two factors are considered when choosing an option:
 
@@ -73,7 +73,7 @@ Please follow these simple steps to get started
 - Download/Clone the source code.
 - Open Visual Studio 2010 and Choose File > Open Project.
 - Browse to the latest source code that you have downloaded and Open the .sln file.
-# **Sample Code Examples**
+## **Sample Code Examples**
 This section includes the following topics
 
 - [Code Comparison for common features with OpenXML](/slides/net/code-comparison-for-common-features-with-openxml/)

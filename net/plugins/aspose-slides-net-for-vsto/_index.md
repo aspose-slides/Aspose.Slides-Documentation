@@ -5,13 +5,13 @@ weight: 20
 url: /net/aspose-slides-net-for-vsto/
 ---
 
-# **What is VSTO?**
+## **What is VSTO?**
 VSTO, or Visual Studio Tools for Office, or Microsoft Visual Studio Tools is part of Microsoft's Visual Studio .NET tools suite and supports the Microsoft .NET Framework. It is used by developers to write code connecting Microsoft Office Word, Excel and Outlook applications. Developers using VSTO can employ C# or Visual Basic languages. It is an alternative to Visual Basic for Applications, or VBA.
-# **Aspose.Slides for .NET**
+## **Aspose.Slides for .NET**
 Aspose.Slides for .NET is a unique PowerPoint® management component that enables .NET applications to read, write and manipulate PowerPoint documents without using Microsoft PowerPoint.
 
 Aspose.Slides for .NET is the first and only .NET component that provides functionality to manage PowerPoint documents within your own applications. As with all Aspose .NET components, Aspose.Slides is written in managed C#, incredibly priced and lightning fast.
-# **Aspose.Slides for VSTO**
+## **Aspose.Slides for VSTO**
 ## **Introduction**
 The developers looking for file format libraries may need to walk through the features provided by the libraries available on the market. Mainly, two factors are considered when choosing an option:
 
@@ -68,7 +68,7 @@ Please follow these simple steps to get started
 - Download/Clone the source code.
 - Open Visual Studio 2010 and Choose File > Open Project.
 - Browse to the latest source code that you have downloaded and Open the .sln file.
-# **Sample Code Examples**
+## **Sample Code Examples**
 This section includes the following topics
 
 - [Code Comparison for common features with VSTO](/slides/net/code-comparison-for-common-features-with-vsto/)

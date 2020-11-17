@@ -5,7 +5,7 @@ weight: 150
 url: /net/aspose-slides-for-xamarin/
 ---
 
-# **Overview**
+## **Overview**
 Xamarin is a framework for cross-platform mobile development using .NET C#. Xamarin is having tools and libraries that extend the possibilities of the .NET platform and allow building applications for any mobile OS: Android, iOS and Windows. For development in Xamarin, programmers can use their usual environment including C#, Visual Studio, 3-rd party libraries.
 
 Aspose.Slides API can work in Xamarin platform. For that, the Aspose.Slides .NET package includes a separate dll for Xamarin. Aspose.Slides for Xamarin supports most features available in .NET version:
@@ -21,7 +21,7 @@ The full features comparison is available in this topic below.
 In Aspose.Slides for Xamarin API the classes, namespaces, logic and behaviour are as close as possible to the .NET version. You may migrate your Aspose.Slides .NET applications to Xamarin with the minimal costs.
 
 
-# **Quick Example**
+## **Quick Example**
 Aspose.Slides for Xamarin can be used to build and use your C# application using Slides for Android. Below is a simple example of Android via Xamarin application that uses Aspose.Slides to display presentation slides and adding a new shape on the slide by touch. Full sources of the example are available on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Let’s start from creating a Xamarin Android App:
@@ -469,7 +469,7 @@ By each click on the presentation slide, an ellipse of a random color is added:
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 
-# **Supported Features**
+## **Supported Features**
 
 |**FEATURES** |**Aspose.Slides for .NET**  |**Aspose.Slides for Xamarin**|
 | :- | :- | :- |

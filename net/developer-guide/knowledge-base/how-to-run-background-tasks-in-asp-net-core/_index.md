@@ -5,7 +5,7 @@ weight: 50
 url: /net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
-# **Overview**
+## **Overview**
 File processing (e.g. exporting presentation to PDF) is a typical server-side task. Simple file processing inside the request handler (when the client is waiting while the server is doing the job) has the following disadvantages:
 
 - *Poor UI*. The page freezes and user has to wait for the result. The page reload will cancel the task.
@@ -24,7 +24,7 @@ So, the typical background processing solution includes the following parts:
 4. API for storing/getting the result.
 
 
-# **Background Task Example**
+## **Background Task Example**
 To demonstrate this approach, let's consider the [**example ASP.NET Core 3.1 web application**](https://wiki.lutsk.dynabic.com/download/Aspose%20Slides/slidesnet/Discussion%20on%20Russian/Issues/Platform%20specific/How%20to%20run%20Background%20Tasks%20in%20ASP.NET%20Core/WebHome/BackgroundJobDemo.zip?rev=1.1). The web app contains a web page, where user can upload presentation, press "Export to PDF" button, then the presentation will be uploaded and converted to PDF format by a background worker.
 ## **Web App**
 Example web app (*BackgroundJobDemo* project) includes:
@@ -66,7 +66,7 @@ To run demo app with Amazon Web Services:
    1. S3 bucket,
    1. DynamoDB table.
 1. Connect web app to the created services with AddAws extension method (SQS queue URL, S3 bucket name, DynamoDB table name and AWS region) from Startup.ConfigureServices. 
-# **References**
+## **References**
 - ASP.NET Core Performance Best Practices <https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices>
 - Upload files in ASP.NET Core <https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads>
 - Real-time ASP.NET with SignalR <https://dotnet.microsoft.com/apps/aspnet/signalr>
