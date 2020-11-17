@@ -48,7 +48,7 @@ using (Presentation pres = new Presentation())
     shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.Material = MaterialPresetType.Powder; 
+    shape.ThreeDFormat.Material = MaterialPresetType.Flat; 
     shape.ThreeDFormat.ExtrusionHeight = 100;
     shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
     
