@@ -55,31 +55,9 @@ to export and rasterize shapes and text with 3D effects.
 In the previous versions, 
 Slides shapes with 3D effects applied, had been rendered flat. But, now it’s possible to 
 render shapes with a **full-fledged 3D**.
-Moreover, now it’s possible to create shapes with 3D effects via Slides public API:
-``` csharp 
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.TextFrame.Text = "3D";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
-    
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.Material = MaterialPresetType.Powder; 
-    shape.ThreeDFormat.ExtrusionHeight = 100;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
-    
-    pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
-    pres.Save("sandbox_3d.pptx", SaveFormat.Pptx);
-}
-```
+Moreover, now it’s possible to create shapes with 3D effects via Slides public API
 
-The rendered thumbnail looks like that:
-
-![todo:image_alt_text](img_01_01.png)
-
+Find more about **[3D Presentation](/slides/net/3d-presentation)**.
 
 ### **IBulletFormatEffectiveData.FillFormat property has been added** ###
 A new **FillFormat** property has been added to **IBulletFormatEffectiveData** interface. Using this property allows to get an effective value of paragraph bullet fill.

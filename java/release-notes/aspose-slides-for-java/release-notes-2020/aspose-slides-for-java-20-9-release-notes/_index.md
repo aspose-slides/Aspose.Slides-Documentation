@@ -32,6 +32,12 @@ This page contains release notes for [Aspose.Slides for Java 20.9](https://repos
 |SLIDESJAVA-35838|Rotated text is not displayed correctly in resulted PDF|Bug|
 
 ## **Public API Changes**
+### **3D Support has been added**
+We have created **own cross-platform 3D engine** in Aspose.Slides 20.9. Now it possible to create 
+3D presentations, 3D models, improve 2D shapes to 3D shapes.
+
+Find more about **[3D Presentation](/slides/java/3d-presentation)**.
+
 ### **IBulletFormatEffectiveData.getFillFormat() method has been added**
 
 A new [**getFillFormat()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) method 
