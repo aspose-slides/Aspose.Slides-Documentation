@@ -62,7 +62,7 @@ The rendered thumbnail looks like that:
 ![todo:image_alt_text](img_01_01.png)
 
 ## 3D Rotation
-It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more interactivity. To rotate 3В shape in PowerPoint, you usually use the following menu:
+It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more interactivity. To rotate 3D shape in PowerPoint, you usually use the following menu:
 
 ![todo:image_alt_text](img_02_01.png)
 

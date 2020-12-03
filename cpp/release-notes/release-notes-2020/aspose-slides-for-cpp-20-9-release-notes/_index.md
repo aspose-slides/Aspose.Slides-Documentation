@@ -28,6 +28,12 @@ This page contains release notes for Aspose.Slides for C++ 20.9.
 |SLIDESCPP-2583|Improve thumbnails rendering quality (20.9)|Enhancement|
 
 ## **Public API Changes**
+
+### **3D Support has been added**
+We are announcing our **own cross-platform 3D engine** in Aspose.Slides 20.9 for creating 3D models.
+
+Find more about **[3D Presentation](/slides/cpp/3d-presentation)**.
+
 ### **IBulletFormatEffectiveData::get_FillFormat() method has been added**
 
 A new [**get_FillFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data#a8aa5cc6d18b708e3cd90ad802390f29c) method has been added to [**IBulletFormatEffectiveData**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_bullet_format_effective_data) interface. Using this method allows to get an effective value of paragraph bullet fill.
