@@ -33,7 +33,7 @@ public interface IInk extends IGraphicalObject
 ```
 
 ### PDF Import
-PDF Import feature has been added. This feature allows importing a PDF document into **[Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation). A new **[SlideCollection.addFromPdf()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-)** method creates slides from the PDF document and adds them to the end of the collection:
+PDF Import feature has been added. This feature allows importing a PDF document into **[Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)**. A new **[SlideCollection.addFromPdf()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-)** method creates slides from the PDF document and adds them to the end of the collection:
 
 ```java
 Presentation pres = new Presentation();
