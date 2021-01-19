@@ -6,15 +6,86 @@ url: /net/custom-shape/
 ---
 
 # Customization of the Shape Geometry (Shape Points Editing)
-  * [Add Custom Points to the Shape](#add-custom-points-to-the-shape-)
-  * [Remove Points From the Shape](#remove-points-from-the-shape-)
+* [Overview](#overview)
+* [Examples and use-cases](#examples-and-use-cases)
+## Overview 
+Customization of the shape geometry assumes editing points of an existing shape. 
+
+![overview_image](custom_shape_0.png)
+
+To provide the mentioned functionality *GeometryPath* class and *IGeometryPath* interface have been added. *GeometryPath* instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
+
+To retrieve *GeometryPath* from the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) instance has been added method *IGeometryShape.GetGeometryPaths()*. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of *IGeometryPath* objects. 
+
+To set *GeometryPath* to the shape has been added two methods: 
+*IGeometryShape.SetGeometryPath(IGeometryPath geometryPath)* for solid shapes and *IGeometryShape.SetGeometryPaths(IGeometryPath[] geometryPaths)* for composite shapes.
+
+IGeometryPath provides methods for adding segments of various types:
+
+**Adds line** to the end of the path
+``` csharp
+void LineTo(PointF point);
+void LineTo(float x, float y);
+```
+**Adds line** to the specified place of the path:
+``` csharp    
+void LineTo(PointF point, uint index)
+void LineTo(float x, float y, uint index);
+```
+**Adds cubic Bezier curve** at the end the path:
+``` csharp
+void CubicBezierTo(PointF point1, PointF point2, PointF point3);
+void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
+```
+**Adds cubic Bezier curve** to the specified place of the path:
+``` csharp
+void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
+   void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
+```
+**Adds quadratic Bezier curve** at the end the path:
+``` csharp
+void QuadraticBezierTo(PointF point1, PointF point2);
+void QuadraticBezierTo(float x1, float y1, float x2, float y2);
+```
+**Adds quadratic Bezier curve** to the specified place of the path:
+``` csharp
+void QuadraticBezierTo(PointF point1, PointF point2, uint index);
+void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
+```
+**Appends the specified arc** to the path:
+``` csharp
+    void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
+```
+**Closes the current figure** of this path:
+``` csharp
+    void CloseFigure();
+```
+**Sets next point position**:
+``` csharp
+void MoveTo(PointF point);
+void MoveTo(float x, float y);
+```
+**Removes path segment** at the specified index:
+``` csharp
+void RemoveAt(int index);
+```
+Properties *GeometryPath.Stroke* and *GeometryPath.FillMode* set an appearance of the geometry path.
+
+Property *GeometryPath.PathData* returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) as an array of path segments.
+
+
+*To provide more options of shape geometry customization has been added class **ShapeUtil**. Methods of this class allow to convert GeometryPath to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
+
+# Examples and use-cases
+  * [Add Custom Points to the Shape](#add-custom-points-to-the-shape)
+  * [Remove Points From the Shape](#remove-points-from-the-shape)
   * [Create Custom Shape](#create-custom-shape)
   * [Create Composite Custom Shape](#create-composite-custom-shape)
-  * [Conversion of GeometryPath to GrpahicsPath (System.Drawing.Drawing2D)](#-onversion-of-geometrypath-to-grpahicspath--systemdrawingdrawing2d-)
+  * [Conversion of GeometryPath to GrpahicsPath (System.Drawing.Drawing2D)](#conversion-of-geometrypath-to-grpahicspath-((system.drawing.drawing2d/)))
   
 ## Add Custom Points to the Shape
 - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class of type [ShapeType.Rectangle](https://apireference.aspose.com/slides/net/aspose.slides/shapetype)
-- Retrieve an instance of the [GeometryPath]() class from the shape
+- Retrieve an instance of the GeometryPath class from the shape
 - Add a new point between two top points of the path 
 - Add a new point between two bottom points of the path
 - Apply the path to the shape 
