@@ -68,3 +68,129 @@ To retrieve GeometryPath from the IGeometryShape instance IGeometryShape.GetGeom
 
 To set GeometryPath to the shape has been added two methods: 
 IGeometryShape.SetGeometryPath(IGeometryPath geometryPath) for solid shapes and SetGeometryPaths(IGeometryPath[] geometryPaths) for composite shapes.
+
+### **IOutput.BindResource method has been added** ###
+
+**BindResource** method has been added to Aspose.Slides.Export.Web.IOutput interface.
+
+Method declaration:
+``` csharp
+/// <summary>
+/// Binds resource to output file.
+/// </summary>
+/// <param name="outputFile">Output file.</param>
+/// <param name="obj">Resource object.</param>
+void BindResource(IOutputFile outputFile, object obj);
+``` 
+
+### **Return type of all IOutput.Add method overloads has been changed** ###
+
+Return type of all **Add** method overloads in Aspose.Slides.Export.Web.**IOutput** interface has been changed from void to **IOutputFile**. All these methods now return **IOutputFile** object that has been created during adding to output.
+
+New declaration of all Add methods:
+
+``` csharp
+/// <summary>
+/// Adds an output element for the context object.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="templateKey">The key of the template used for context object transformation before output.</param>
+/// <param name="contextObject">Context object.</param>
+/// <returns><see cref="IOutputFile"/> object for the context object.</returns>
+IOutputFile Add<TContextObject>(string path, string templateKey, TContextObject contextObject);
+
+/// <summary>
+/// Adds an output element for the image.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="image">Image to output.</param>
+/// <returns><see cref="IOutputFile"/> object for the image.</returns>
+IOutputFile Add(string path, IPPImage image);
+
+/// <summary>
+/// Adds an output element for the image.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="image">Image to output.</param>
+/// <returns><see cref="IOutputFile"/> object for the image.</returns>
+IOutputFile Add(string path, Image image);
+
+/// <summary>
+/// Adds an output element for the font.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="font">Font to output.</param>
+/// <param name="fontStyle">Font style.</param>
+/// <returns><see cref="IOutputFile"/> object for the font.</returns>
+IOutputFile Add(string path, IFontData font, FontStyle fontStyle);
+
+/// <summary>
+/// Adds an output element for the video.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="video">Video to output.</param>
+/// <returns><see cref="IOutputFile"/> object for the video.</returns>
+IOutputFile Add(string path, IVideo video);
+
+/// <summary>
+/// Adds an output element for the text content.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="textContent">Content to output.</param>
+/// <returns><see cref="IOutputFile"/> object for the text content.</returns>
+IOutputFile Add(string path, string textContent);
+```
+
+### **Two IOutput.Add method overloads have been added** ###
+
+Two **Add** method overload has been added to Aspose.Slides.Export.Web.**IOutput**. 
+
+Methods declaration:
+
+``` csharp
+/// <summary>
+/// Adds an output element for the text content.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="textContent">Content to output.</param>
+/// <returns>IOutputFile for the text content.</returns>
+IOutputFile Add(string path, string textContent);
+
+/// <summary>
+/// Adds an output element for the image.
+/// </summary>
+/// <param name="path">Output path.</param>
+/// <param name="image">Image to output.</param>
+/// <returns><see cref="IOutputFile"/> object for the image.</returns>
+IOutputFile Add(string path, Image image);
+```
+
+First overload adds an output element for the text content. It can be used to add custom javascript, css, html files to your document output.
+Second overload adds an output element for the image. It can be used to add arbitrary image to your document output.
+
+Methods usage example (adding hello world html page with presentation first slide preview):
+
+``` csharp
+Presentation pres = new Presentation();
+WebDocumentOptions options = new WebDocumentOptions();
+WebDocument document = new WebDocument(options);
+
+string htmlContent = "<html><head><title>Sample page</title></head><body><h1>Just a sample page. Hello world!</h1><br/><img src="thumbnail.png"/></body></html>";
+Bitmap thumbnail = pres.Slides[0].GetThumbnail();
+
+document.Output.Add("index.html", htmlContent);
+document.Output.Add("thumbnail.png", thumbnail);
+
+document.Save();
+```
+
+### **Two IOutput.Add method overloads have been removed** ###
+
+Two **Add** method overloads have been removed from Aspose.Slides.Web.Export.**IOutput** interface.
+
+Removed methods signatures:
+
+``` csharp
+void Add(string path, IOutputFile outputFile);
+void Add(string path, IOutputFile outputFile, object obj);
+```
