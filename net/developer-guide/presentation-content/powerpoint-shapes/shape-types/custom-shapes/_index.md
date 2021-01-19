@@ -81,7 +81,7 @@ Property *GeometryPath.PathData* returns the geometry path of [GeometryShape](ht
   * [Remove Points From the Shape](#remove-points-from-the-shape)
   * [Create Custom Shape](#create-custom-shape)
   * [Create Composite Custom Shape](#create-composite-custom-shape)
-  * [Conversion of GeometryPath to GrpahicsPath (System.Drawing.Drawing2D)](#conversion-of-geometrypath-to-grpahicspath-((system.drawing.drawing2d/)))
+  * [Conversion of GeometryPath to GrpahicsPath (System.Drawing.Drawing2D)](#conversion-of-geometrypath-to-grpahicspath-systemdrawingdrawing2d)
   
 ## Add Custom Points to the Shape
 - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class of type [ShapeType.Rectangle](https://apireference.aspose.com/slides/net/aspose.slides/shapetype)
