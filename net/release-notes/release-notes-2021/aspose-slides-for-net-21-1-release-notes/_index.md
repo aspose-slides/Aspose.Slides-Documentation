@@ -13,7 +13,6 @@ This page contains release notes for [ Aspose.Slides for .NET 21.1](https://www
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|Key|Summary|Category
 |SLIDESNET-42347|Missing libgdiplus library when using Aspose.Slides on Linux|Investigation|
 |SLIDESNET-42306|Possible memory leak investigation in API|Investigation|
 |SLIDESNET-42166|High memory/time consumption when saving a presentation|Investigation|
@@ -35,5 +34,35 @@ This page contains release notes for [ Aspose.Slides for .NET 21.1](https://www
 
 ## **Public API Changes**
 
+### **Support of the shape points editing has been added** ###
 
+Support of the shape points editing has been added. New classes, interfaces, enums, and **GeometryShape **methods have been added.
 
+**New classes:**
+- PathSegment
+- GeometryPath
+- ShapeUtil
+
+**New interfaces:**
+- IPathSegment
+- IGeometryPath
+
+**New enums:**
+- PathFillModeType
+- PathCommandType
+
+**Public methods have been added to the GeometryShape class and its descendants:**  
+- IGeometryPath[] GetGeometryPaths()
+- void SetGeometryPath(IGeometryPath geometryPath)
+- void SetGeometryPaths(IGeometryPath[] geometryPaths)
+
+#### **Feature description:** ####
+
+Customization of the shape geometry assumes editing points of an existing shape. 
+
+To provide the mentioned functionality GeometryPath class and IGeometryPath interface have been added. GeometryPath instance represents a geometry path of the IGeometryShape object. 
+
+To retrieve GeometryPath from the IGeometryShape instance IGeometryShape.GetGeometryPaths method has been added. Please note that shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of IGeometryPath objects. 
+
+To set GeometryPath to the shape has been added two methods: 
+IGeometryShape.SetGeometryPath(IGeometryPath geometryPath) for solid shapes and SetGeometryPaths(IGeometryPath[] geometryPaths) for composite shapes.
