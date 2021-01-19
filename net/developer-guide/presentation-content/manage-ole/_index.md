@@ -11,9 +11,9 @@ For example, you can create a chart in an Excel Worksheet and then embed that ch
 
 Aspose.Slides for .NET supports inserting OLE Objects into the slide as OLE Object Frames . In this topic, we will work with OLE Object Frames to see how these objects can be added and manipulated via Aspose.Slides for .NET. This article explains different examples of working with OLE Object Frames:
 
-- Adding an OLE Object Frame to a Slide.
-- Accessing an OLE Object Frame from a Slide.
-- Changing an OLE Object data from a Slide.
+- [Adding an OLE Object Frame to a Slide](#add-ole-object-frame-to-a-slide).
+- [Accessing an OLE Object Frame from a Slide](#access-ole-object-frame).
+- [Changing an OLE Object data from a Slide](#change-ole-object-data).
 ## **Add OLE Object Frame to a Slide**
 Suppose, you have created a Microsoft Excel Chart in an Excel file and want to embed that chart object in a slide as an OLE Object Frame using Aspose.Slides for .NET. It can be done with the following steps:
 
