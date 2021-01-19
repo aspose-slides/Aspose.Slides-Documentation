@@ -60,6 +60,8 @@ Support of the shape points editing has been added. New classes, interfaces, enu
 
 Customization of the shape geometry assumes editing points of an existing shape. 
 
+![Edit shape points](1_editPoints_PP.png)
+
 To provide the mentioned functionality GeometryPath class and IGeometryPath interface have been added. GeometryPath instance represents a geometry path of the IGeometryShape object. 
 
 To retrieve GeometryPath from the IGeometryShape instance IGeometryShape.GetGeometryPaths method has been added. Please note that shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of IGeometryPath objects. 
