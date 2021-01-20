@@ -66,7 +66,7 @@ To provide the mentioned functionality [GeometryPath](https://apireference.aspos
 
 To retrieve [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) from the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) instance [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) method has been added. Please note that shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) objects. 
 
-To set [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to the shape has been added two methods: 
+To set [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to the shape two methods have been added: 
 IGeometryShape.SetGeometryPath(IGeometryPath geometryPath) for solid shapes and SetGeometryPaths(IGeometryPath[] geometryPaths) for composite shapes.
 
 ### **IOutput.BindResource method has been added** ###
@@ -143,7 +143,7 @@ IOutputFile Add(string path, string textContent);
 
 ### **Two IOutput.Add method overloads have been added** ###
 
-Two **Add** method overload has been added to [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput). 
+Two **Add** method overloads have been added to [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput). 
 
 Methods declaration:
 
