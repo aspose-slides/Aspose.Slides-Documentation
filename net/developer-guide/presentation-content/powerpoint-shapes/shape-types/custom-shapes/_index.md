@@ -29,7 +29,7 @@ void LineTo(float x, float y);
 ```
 **Adds line** to the specified place of the path:
 ``` csharp    
-void LineTo(PointF point, uint index)
+void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
 **Adds cubic Bezier curve** at the end the path:
@@ -40,7 +40,7 @@ void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 **Adds cubic Bezier curve** to the specified place of the path:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-   void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
+void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
 **Adds quadratic Bezier curve** at the end the path:
 ``` csharp
@@ -54,11 +54,11 @@ void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
 **Appends the specified arc** to the path:
 ``` csharp
-    void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
+void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
 **Closes the current figure** of this path:
 ``` csharp
-    void CloseFigure();
+void CloseFigure();
 ```
 **Sets next point position**:
 ``` csharp
