@@ -56,7 +56,7 @@ Support of the shape points editing has been added. New classes, interfaces, enu
 - void [IGeometryShape.SetGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath)
 - void [IGeometryShape.SetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths)
 
-#### **Feature description:** ####
+Feature description:
 
 Customization of the shape geometry assumes editing points of an existing shape. 
 
@@ -69,7 +69,7 @@ To retrieve [GeometryPath](https://apireference.aspose.com/slides/net/aspose.sli
 To set [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to the shape has been added two methods: 
 IGeometryShape.SetGeometryPath(IGeometryPath geometryPath) for solid shapes and SetGeometryPaths(IGeometryPath[] geometryPaths) for composite shapes.
 
-### **[IOutput.BindResource](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput/methods/bindresource) method has been added** ###
+### **IOutput.BindResource method has been added** ###
 
 **[BindResource](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput/methods/bindresource)** method has been added to [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) interface.
 
@@ -83,7 +83,7 @@ Method declaration:
 void BindResource(IOutputFile outputFile, object obj);
 ``` 
 
-### **Return type of all [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput).Add method overloads has been changed** ###
+### **Return type of all IOutput.Add method overloads has been changed** ###
 
 Return type of all **Add** method overloads in [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) interface has been changed from void to **[IOutputFile](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutputfile)**. All these methods now return **[IOutputFile](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutputfile)** object that has been created during adding to output.
 
@@ -141,7 +141,7 @@ IOutputFile Add(string path, IVideo video);
 IOutputFile Add(string path, string textContent);
 ```
 
-### **Two [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput).Add method overloads have been added** ###
+### **Two IOutput.Add method overloads have been added** ###
 
 Two **Add** method overload has been added to [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput). 
 
@@ -165,8 +165,9 @@ IOutputFile Add(string path, string textContent);
 IOutputFile Add(string path, Image image);
 ```
 
-First overload adds an output element for the text content. It can be used to add custom javascript, css, html files to your document output.
-Second overload adds an output element for the image. It can be used to add arbitrary image to your document output.
+The first method overload adds an output element for the text content. 
+It can be used to add custom javascript, css, html files to your document output.
+The second method overload adds an output element for the image. It can be used to add arbitrary image to your document output.
 
 Methods usage example (adding hello world html page with presentation first slide preview):
 
@@ -184,7 +185,7 @@ document.Output.Add("thumbnail.png", thumbnail);
 document.Save();
 ```
 
-### **Two [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput).Add method overloads have been removed** ###
+### **Two IOutput.Add method overloads have been removed** ###
 
 Two **Add** method overloads have been removed from [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) interface.
 
