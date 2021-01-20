@@ -36,25 +36,25 @@ This page contains release notes for [ Aspose.Slides for .NET 21.1](https://www
 
 ### **Support of the shape points editing has been added** ###
 
-Support of the shape points editing has been added. New classes, interfaces, enums, and **GeometryShape **methods have been added.
+Support of the shape points editing has been added. New classes, interfaces, enums, and **[GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape)** methods have been added.
 
 **New classes:**
-- PathSegment
-- GeometryPath
-- ShapeUtil
+- [PathSegment](https://apireference.aspose.com/slides/net/aspose.slides/pathsegment)
+- [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath)
+- [ShapeUtil](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil)
 
 **New interfaces:**
-- IPathSegment
-- IGeometryPath
+- [IPathSegment](https://apireference.aspose.com/slides/net/aspose.slides/ipathsegment)
+- [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath)
 
 **New enums:**
-- PathFillModeType
-- PathCommandType
+- [PathFillModeType](https://apireference.aspose.com/slides/net/aspose.slides/pathfillmodetype)
+- [PathCommandType](https://apireference.aspose.com/slides/net/aspose.slides/pathcommandtype)
 
 **Public methods have been added to the GeometryShape class and its descendants:**  
-- IGeometryPath[] GetGeometryPaths()
-- void SetGeometryPath(IGeometryPath geometryPath)
-- void SetGeometryPaths(IGeometryPath[] geometryPaths)
+- IGeometryPath[] [GeometryShape.GetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape/methods/getgeometrypaths)()
+- void [IGeometryShape.SetGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath)
+- void [IGeometryShape.SetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths)
 
 #### **Feature description:** ####
 
@@ -62,16 +62,16 @@ Customization of the shape geometry assumes editing points of an existing shape.
 
 ![Edit shape points](1_editPoints_PP.png)
 
-To provide the mentioned functionality GeometryPath class and IGeometryPath interface have been added. GeometryPath instance represents a geometry path of the IGeometryShape object. 
+To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class and [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
 
-To retrieve GeometryPath from the IGeometryShape instance IGeometryShape.GetGeometryPaths method has been added. Please note that shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of IGeometryPath objects. 
+To retrieve [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) from the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) instance [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) method has been added. Please note that shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) objects. 
 
-To set GeometryPath to the shape has been added two methods: 
+To set [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to the shape has been added two methods: 
 IGeometryShape.SetGeometryPath(IGeometryPath geometryPath) for solid shapes and SetGeometryPaths(IGeometryPath[] geometryPaths) for composite shapes.
 
-### **IOutput.BindResource method has been added** ###
+### **[IOutput.BindResource](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput/methods/bindresource) method has been added** ###
 
-**BindResource** method has been added to Aspose.Slides.Export.Web.IOutput interface.
+**[BindResource](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput/methods/bindresource)** method has been added to [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) interface.
 
 Method declaration:
 ``` csharp
@@ -83,11 +83,11 @@ Method declaration:
 void BindResource(IOutputFile outputFile, object obj);
 ``` 
 
-### **Return type of all IOutput.Add method overloads has been changed** ###
+### **Return type of all [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput).Add method overloads has been changed** ###
 
-Return type of all **Add** method overloads in Aspose.Slides.Export.Web.**IOutput** interface has been changed from void to **IOutputFile**. All these methods now return **IOutputFile** object that has been created during adding to output.
+Return type of all **Add** method overloads in [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) interface has been changed from void to **[IOutputFile](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutputfile)**. All these methods now return **[IOutputFile](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutputfile)** object that has been created during adding to output.
 
-New declaration of all Add methods:
+New declaration of all IOutput.Add methods:
 
 ``` csharp
 /// <summary>
@@ -141,9 +141,9 @@ IOutputFile Add(string path, IVideo video);
 IOutputFile Add(string path, string textContent);
 ```
 
-### **Two IOutput.Add method overloads have been added** ###
+### **Two [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput).Add method overloads have been added** ###
 
-Two **Add** method overload has been added to Aspose.Slides.Export.Web.**IOutput**. 
+Two **Add** method overload has been added to [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput). 
 
 Methods declaration:
 
@@ -184,9 +184,9 @@ document.Output.Add("thumbnail.png", thumbnail);
 document.Save();
 ```
 
-### **Two IOutput.Add method overloads have been removed** ###
+### **Two [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput).Add method overloads have been removed** ###
 
-Two **Add** method overloads have been removed from Aspose.Slides.Web.Export.**IOutput** interface.
+Two **Add** method overloads have been removed from [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) interface.
 
 Removed methods signatures:
 
