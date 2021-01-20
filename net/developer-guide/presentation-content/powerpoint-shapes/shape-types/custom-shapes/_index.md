@@ -13,14 +13,14 @@ Customization of the shape geometry assumes editing points of an existing shape.
 
 ![overview_image](custom_shape_0.png)
 
-To provide the mentioned functionality *GeometryPath* class and *IGeometryPath* interface have been added. *GeometryPath* instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
+To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class and *IGeometryPath* interface have been added. [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
 
-To retrieve *GeometryPath* from the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) instance has been added method *IGeometryShape.GetGeometryPaths()*. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of *IGeometryPath* objects. 
+To retrieve [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) from the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) instance has been added method [IGeometryShape.GetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths). Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) objects. 
 
-To set *GeometryPath* to the shape has been added two methods: 
-*IGeometryShape.SetGeometryPath(IGeometryPath geometryPath)* for solid shapes and *IGeometryShape.SetGeometryPaths(IGeometryPath[] geometryPaths)* for composite shapes.
+To set [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to the shape has been added two methods: 
+[IGeometryShape.SetGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) for solid shapes and [IGeometryShape.SetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) for composite shapes.
 
-IGeometryPath provides methods for adding segments of various types:
+[IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) provides methods for adding segments of various types:
 
 **Adds line** to the end of the path
 ``` csharp
@@ -69,9 +69,9 @@ void MoveTo(float x, float y);
 ``` csharp
 void RemoveAt(int index);
 ```
-Properties *GeometryPath.Stroke* and *GeometryPath.FillMode* set an appearance of the geometry path.
+Properties [IGeometryPath.Stroke](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) and [IGeometryPath.FillMode](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) set an appearance of the geometry path.
 
-Property *GeometryPath.PathData* returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) as an array of path segments.
+Property [IGeometryPath.PathData](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) as an array of path segments.
 
 
 *To provide more options of shape geometry customization has been added class **ShapeUtil**. Methods of this class allow to convert GeometryPath to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
