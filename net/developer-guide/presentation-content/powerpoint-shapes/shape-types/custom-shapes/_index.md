@@ -11,7 +11,7 @@ Customization of the shape geometry assumes editing points of an existing shape.
 
 ![overview_image](custom_shape_0.png)
 
-To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class and *IGeometryPath* interface have been added. [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
+To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class and [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
 
 To retrieve [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) from the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) instance [IGeometryShape.GetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) method has been added. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) objects. 
 
@@ -72,12 +72,12 @@ Properties [IGeometryPath.Stroke](https://apireference.aspose.com/slides/net/asp
 Property [IGeometryPath.PathData](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) as an array of path segments.
 
 
-*To provide more options of shape geometry customization **ShapeUtil** class has been added. Methods of this class allow to convert GeometryPath to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
+*To provide more options of shape geometry customization [ShapeUtil](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil) class has been added. Methods of this class allow to convert [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
 
 # Examples and Use Cases
 ## Add Custom Points to Shape
 - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class of type [ShapeType.Rectangle](https://apireference.aspose.com/slides/net/aspose.slides/shapetype)
-- Retrieve an instance of the GeometryPath class from the shape.
+- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
 - Add a new point between two top points of the path.
 - Add a new point between two bottom points of the path.
 - Apply the path to the shape.
@@ -99,7 +99,7 @@ using (Presentation pres = new Presentation())
 ##  Remove Points from Shape
 
 - Create an instance of [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class of type [ShapeType.Heart](https://apireference.aspose.com/slides/net/aspose.slides/shapetype).
-- Retrieve an instance of the [GeometryPath]() class from the shape.
+- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
 - Remove segment of the path.
 - Apply the path to the shape.
   
@@ -118,7 +118,7 @@ using (Presentation pres = new Presentation())
 ##  Create Custom Shape
 
 - Calculate points of the shape.
-- Create an instance of the [GeometryPath]() class. 
+- Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class. 
 - Fill the path with the points.
 - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class. 
 - Apply the path to the shape.
@@ -165,8 +165,8 @@ using (Presentation pres = new Presentation())
 ## Create Composite Custom Shape
 
   - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class.
-  - Create first instance of the [GeometryPath]() class.
-  - Create second instance of the [GeometryPath]() class.
+  - Create first instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class.
+  - Create second instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class.
   - Apply the paths to the shape.
 
 ``` csharp
@@ -197,7 +197,7 @@ using (Presentation pres = new Presentation())
 
 - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class.
 - Create an instance of the [GrpahicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) class  of the [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) namespace.
-- Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [ShapePath]() instance using [ShapeUtil]().
+- Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance using [ShapeUtil](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil).
 - Apply the paths to the shape.
   
 ``` csharp
