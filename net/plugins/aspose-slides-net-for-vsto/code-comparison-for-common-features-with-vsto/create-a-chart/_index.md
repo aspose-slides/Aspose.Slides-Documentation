@@ -6,7 +6,7 @@ url: /net/create-a-chart/
 ---
 
 The code examples below describe the process of adding a simple 3D clustered column chart using VSTO. You create a presentation instance, add a default chart to it. Then use Microsoft Excel workbook to access and modify chart data along with setting chart properties. Lastly, save the presentation.
-### **VSTO**
+## **VSTO**
 Using VSTO, the following steps are performed:
 
 1. Create an instance of a Microsoft PowerPoint presentation.
@@ -288,7 +288,7 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 	}
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 Using Aspose.Slides for .NET, the following steps are performed:
 
 1. Create an instance of a Microsoft PowerPoint presentation.

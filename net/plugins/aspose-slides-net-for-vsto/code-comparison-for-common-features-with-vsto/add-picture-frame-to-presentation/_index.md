@@ -5,7 +5,7 @@ weight: 50
 url: /net/add-picture-frame-to-presentation/
 ---
 
-### **VSTO**
+## **VSTO**
 Below is the code for adding picture in VSTO presentation:
 
 ``` csharp
@@ -19,7 +19,7 @@ Below is the code for adding picture in VSTO presentation:
  Microsoft.Office.Core.MsoTriState.msoCTrue, 0, 0);
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 To add a simple picture frame to your slide, please follow the steps below:
 
 1. Create an instance of the Presentation class.
@@ -55,9 +55,9 @@ The above steps are implemented in the example given below.
   sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
 ``` 
-### **Download Running Code**
+## **Download Running Code**
 - [Codeplex](https://asposevsto.codeplex.com/releases/view/616670)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)
-### **Download Sample Code**
+## **Download Sample Code**
 - [Codeplex](https://asposevsto.codeplex.com/SourceControl/latest#Aspose.Slides Vs VSTO Slides/Add Picture Frame/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Code%20Comparison%20of%20Common%20Features/Add%20Picture%20Frame)

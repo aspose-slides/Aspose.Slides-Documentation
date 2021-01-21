@@ -11,7 +11,7 @@ Both methods follow these steps:
 - Search the text.
 - Replace the text.
 - Write the presentation.
-### **VSTO**
+## **VSTO**
 ``` csharp
 
  private void findReplaceText(string strToFind, string strToReplaceWith)
@@ -71,7 +71,7 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 	}
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 ``` csharp
 
  private static void findReplaceText(string strToFind, string strToReplaceWith)

@@ -5,7 +5,7 @@ weight: 140
 url: /net/setting-background-color-of-master-slide/
 ---
 
-### **VSTO**
+## **VSTO**
 ``` csharp
 
  PowerPoint.Presentation presentation =
@@ -15,7 +15,7 @@ url: /net/setting-background-color-of-master-slide/
             presentation.SlideMaster.Background.Fill.ForeColor.RGB = -654262273;
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 ``` csharp
 
  //Instantiate the Presentation class that represents the presentation file
