@@ -12,7 +12,7 @@ A common use for Aspose.Slides is to create, update and save Microsoft PowerPoin
 This article explains how [presentations and slides are constructed](/slides/net/applying-protection-to-presentation/) and how Aspose.Slides for .NET can [apply protection to](/slides/net/applying-protection-to-presentation/), and then [remove it from](/slides/net/applying-protection-to-presentation/) a presentation. This feature is unique to Aspose.Slides and, at the time of writing, is not available in Microsoft PowerPoint. It gives developers a way of controlling how the presentations their applications create are used.
 
 {{% /alert %}} 
-### **Composition of a Slide**
+## **Composition of a Slide**
 A PPTX slide is composed of a number of components like auto shapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors and the various other elements available to build up a presentation.
 
 In Aspose.Slides for .NET, each element on a slide is turned into a Shape object. In other words, each element on the slide is either a Shape object or an object derived from the Shape object.
@@ -26,9 +26,9 @@ The structure of PPTX is complex so unlike PPT, where a generic lock can be used
 - PictureFrameLock locks picture frames.
 
 Any action performed on all Shape objects in a Presentation object is applied to the whole presentation.
-### **Applying and Removing Protection**
+## **Applying and Removing Protection**
 Applying protection ensures that a presentation cannot be edited. It is a useful technique for protecting a presentation's content.
-#### **Applying Protection to PPTX Shapes**
+### **Applying Protection to PPTX Shapes**
 Aspose.Slides for .NET provides the Shape class to handle a shape on the slide.
 
 As mentioned earlier, each shape class has an associated shape lock class for protection. This article focuses on the NoSelect, NoMove and NoResize locks. These locks ensure that shapes cannot be selected (through mouse clicks or other selection methods), and it cannot be moved or resized.
@@ -36,7 +36,7 @@ As mentioned earlier, each shape class has an associated shape lock class for pr
 The code samples that follow apply protection to all shapes types in a presentation.
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Presentations-Saving-ApplyProtection-ApplyProtection.cs" >}}
-#### **Removing Protection**
+### **Removing Protection**
 Protection applied using Aspose.Slides for .NET can only be removed with Aspose.Slides for .NET. To unlock a shape, set the value of the applied lock to false. The code sample that follows shows how to unlock shapes in a locked presentation.
 
 

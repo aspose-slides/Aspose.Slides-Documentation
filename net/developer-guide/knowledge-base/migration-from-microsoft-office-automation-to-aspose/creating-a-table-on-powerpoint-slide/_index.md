@@ -10,7 +10,7 @@ url: /net/creating-a-table-on-powerpoint-slide/
 Tables are widely used to display data on presentation slides. This article shows how to create a 15 x 15 table with a font size of 10 programmatically using first [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) and then [Aspose.Slides for .NET](/slides/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
-### **Creating Tables**
+## **Creating Tables**
 #### **VSTO 2008 Example**
 The following steps add a table to a Microsoft PowerPoint slide using VSTO:
 
@@ -23,7 +23,7 @@ The following steps add a table to a Microsoft PowerPoint slide using VSTO:
 
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateTableUsingVSTO-CreateTableUsingVSTO.cs" >}}
-#### **Aspose.Slides for .NET Example**
+### **Aspose.Slides for .NET Example**
 The following steps add a table to a Microsoft PowerPoint slide using Aspose.Slides:
 
 1. Create a presentation.

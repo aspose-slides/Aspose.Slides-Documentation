@@ -5,7 +5,7 @@ weight: 100
 url: /net/product-support/
 ---
 
-#### **Technical support**
+## **Technical support**
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation.
 If you need help with Aspose.Slides for .NET, consider the following:* The main avenue for support is the Aspose. Forums. Post your question in the Aspose.Slides forum and it will be answered within a few hours. The questions are answered directly by the Aspose.Slides support team.
 
@@ -15,7 +15,7 @@ If you need help with Aspose.Slides for .NET, consider the following:* The main 
 - Have a look through the forums, this documentation and API Reference before reporting the issue; maybe your question was already answered.
 - When reporting an issue, please include the original document and possibly a fragment of your code that causes the problem. If you need to attach multiple files, zip them into one. It is safe to attach your documents in Aspose.Forums since only you and Aspose developers will have access to the attached files.
 - Please try to report one issue per thread. If you have another issue, report it in a separate thread.
-#### **Resources**
+## **Resources**
 This table lists important Aspose.Slides for .NET technical resources.
 
 |**Resource**|**Description**|
