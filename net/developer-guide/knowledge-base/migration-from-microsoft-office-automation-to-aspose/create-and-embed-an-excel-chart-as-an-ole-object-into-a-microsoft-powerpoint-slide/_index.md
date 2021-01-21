@@ -10,9 +10,9 @@ url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powe
  Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for .NET](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
-### **Creating and Embedding an Excel Chart**
+## **Creating and Embedding an Excel Chart**
 The two code examples below are long and detailed because the task they're describing is involved. You create a Microsoft Excel workbook, create a chart and then create the Microsoft PowerPoint presentation that you'll embed the chart into. OLE objects contain links to the original document so a user that double-clicks the embedded file will launch the file and it's application.
-#### **VSTO Example**
+## **VSTO Example**
 Using VSTO, the following steps are performed:
 
 1. Create an instance of the Microsoft Excel ApplicationClass object.
@@ -40,7 +40,7 @@ Using VSTO, the following steps are performed:
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-UseCopyPaste.cs" >}}
 
 
-#### **Aspose.Slides for .NET Example**
+## **Aspose.Slides for .NET Example**
 Using Aspose.Slides for .NET, the following steps are performed:
 
 1. Create a workbook using Aspose.Cells for .NET.

@@ -10,9 +10,9 @@ url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
  Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
-### **Creating a Chart**
+## **Creating a Chart**
 The code examples below describe the process of adding a simple 3D clustered column chart using VSTO. You create a presentation instance, add a default chart to it. Then use Microsoft Excel workbook to access and modify chart data along with setting chart properties. Lastly, save the presentation.
-#### **VSTO Example**
+## **VSTO Example**
 Using VSTO, the following steps are performed:
 
 1. Create an instance of a Microsoft PowerPoint presentation.
@@ -43,7 +43,7 @@ Using VSTO, the following steps are performed:
 
 
 
-#### **Aspose.Slides for .NET Example**
+## **Aspose.Slides for .NET Example**
 Using Aspose.Slides for .NET, the following steps are performed:
 
 1. Create an instance of a Microsoft PowerPoint presentation.
@@ -67,7 +67,7 @@ Using Aspose.Slides for .NET, the following steps are performed:
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Charts-CreateChart-CreateChart.cs" >}}
 
 {{% alert color="primary" %}} 
-#### **Resources**
+## **Resources**
 The projects and files used in this article can be downloaded from our website:
 
 - [Download the VSTO generated presentation](http://docs.aspose.com:8082/docs/download/attachments/87523560/VSTOSampleChart.pptx).

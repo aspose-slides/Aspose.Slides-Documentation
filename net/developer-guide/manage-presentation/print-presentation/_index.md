@@ -27,7 +27,7 @@ In the example given below, we have called the Print method with the printer nam
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-SpecificPrinterPrinting-SpecificPrinterPrinting.cs" >}}
 
 ## **Set Print Options Dynamically**
-Aspose.Slides provides support for setting the print presentation dynamically with options involving setting Margin, Print copies and also provide an option to preview print setting dialog. To setup printer settings use an instance of [**System.Drawing.Printing.PrinterSettings**](https://apireference.aspose.com/cpp/slides/class/system.drawing.printing.printer_settings/) class. Perform the following steps in order to print the presentation, set print option like Margin, Print copies and also you can set print option dynamically.
+Aspose.Slides provides support for setting the print presentation dynamically with options involving setting Margin, Print copies and also provide an option to preview print setting dialog. To setup printer settings use an instance of [**System.Drawing.Printing.PrinterSettings**](https://apireference.aspose.com/slides/net/aspose.slides.presentation/print/methods/1) class. Perform the following steps in order to print the presentation, set print option like Margin, Print copies and also you can set print option dynamically.
 
 1. Create an instance of [**Presentation**](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class to load a presentation that is to be printed
 1. Instantiate printer setting object to represent print settings.

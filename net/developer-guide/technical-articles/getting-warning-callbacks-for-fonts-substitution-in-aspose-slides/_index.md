@@ -10,7 +10,7 @@ url: /net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 Aspose.Slides for .NET makes it possible to get warning callbacks for fonts substitution in case the used font is not available on machine during rendering process. The warning callbacks are helpful in debugging the issues of missing or inaccessible fonts during rendering process.
 
 {{% /alert %}} 
-#### **Getting Warning Callbacks for Fonts substitution**
+## **Getting Warning Callbacks for Fonts substitution**
 Aspose.Slides for .NET provides a simple API methods to get the Warning Callbacks during rendering process. All you need is to follow the steps below to configure the Warning Callbacks on your end.:
 
 1. Create a custom Callback class to receive the callbacks.
