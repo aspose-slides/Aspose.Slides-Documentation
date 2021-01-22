@@ -20,10 +20,12 @@ The code example below shows how to convert the first slide of presentation to a
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
     // Convert the first slide of the presentation to a Bitmap object
-    Bitmap bmp = pres.Slides[0].GetThumbnail();
+    using (Bitmap bmp = pres.Slides[0].GetThumbnail())
+    {
 
-    // Save the image in PNG format
-    bmp.Save("Slide_0.png", ImageFormat.Png);
+        // Save the image in PNG format
+        bmp.Save("Slide_0.png", ImageFormat.Png);
+    }
 }
 ```
 ## **Convert Slide to Image with Custom Size**
