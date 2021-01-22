@@ -5,16 +5,19 @@ weight: 100
 url: /net/convert-slide-to-image/
 ---
 
-Using Aspose.Slides for .NET, you have the ability to convert presentation slides to any graphic image format that .NET supports, such as PNG, BMP, JPEG, GIF, etc.
-This functionality is provided by the ability of Aspose.Slides for .NET to convert a slide to a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=dotnet-plat-ext-5.0) object using the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method of the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface and its overloads.
-To set additional conditions for conversion and convertible slide objects you can use special conversion options [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions).
+You can convert presentation slides to any graphic image format that .NET supports, such as PNG, BMP, JPEG, GIF, etc., by using Aspose.Slides for .NET.
+Please use the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method of the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface to convert a slide to a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=dotnet-plat-ext-5.0) object.
+Also, you can use [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) or [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interfaces to set additional options for conversion and convertible slide objects.
+These interfaces and their properties are described below in specialized sections of this article.
 
 ## **Convert a Slide to a Bitmap**
-The following code example shows how to convert first slide of a presentation to PNG image:
+
+The code example below shows how to convert the first slide of a presentation to a PNG image.
+
 ``` csharp 
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
-    // Convert first slide of the presentation to a Bitmap object
+    // Convert the first slide of the presentation to a Bitmap object
     Bitmap bmp = pres.Slides[0].GetThumbnail();
 
     // Save the image in PNG format
@@ -38,13 +41,13 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 
 ## **Convert a Slide with Notes and Comments to an Image**
 
-Two interfaces are used to control the rendering of presentation slides to images: [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions).
+There are two interfaces [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions), used to control the rendering of presentation slides to images.
 Both of these interfaces include the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface, which can be used to include notes and comments of a slide in an exporting image.
-Also, using this interface, you can control the position in which notes and comments will be displayed in image.
-The following example demonstrates the use of the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface using the [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interface.
+Also, you can control the position in which notes and comments will be displayed in the image using this interface.
+The following example demonstrates the usage of the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface using the [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interface.
 (An example of using the ITiffOptions interface will be provided below.)  
 *Note* that when converting a slide to an image, the [NotesPositions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/properties/notesposition) property cannot be set to [BottomFull](https://apireference.aspose.com/slides/net/aspose.slides.export/notespositions) to indicate the location of the notes.
-This is due to the fact that the text of the note can be quite large and it physically cannot fit into the specified image size.
+This is since the text of the note can be quite large and it physically cannot fit into the specified image size.
 
 ``` csharp 
 using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
@@ -64,7 +67,7 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
     // Set the color of comments area
     options.NotesCommentsLayouting.CommentsAreaColor = Color.AntiqueWhite;
                 
-    // Convert first slide of the presentation to a Bitmap object
+    // Convert the first slide of the presentation to a Bitmap object
     Bitmap bmp = pres.Slides[0].GetThumbnail(options, 2f, 2f);
 
     // Save the image in GIF format
@@ -72,7 +75,7 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
 }
 ```
 
-## **Convert a slide to a Image using ITiffOptions options**
+## **Convert a slide to an Image using ITiffOptions options**
 
 [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) allows for more complete control over the resulting image file.
 Using this interface, you can specify the size, resolution, color palette, etc. the resulting image. 
