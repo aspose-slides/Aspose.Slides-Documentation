@@ -36,10 +36,11 @@ The following example demonstrates this capability using one of the
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
     // Convert the first slide of the presentation to a Bitmap with the specified size
-    Bitmap bmp = pres.Slides[0].GetThumbnail(new Size(1820, 1040));
-
-    // Save the image in JPEG format
-    bmp.Save("Slide_0.jpg", ImageFormat.jpg);
+    using (Bitmap bmp = pres.Slides[0].GetThumbnail(new Size(1820, 1040)))
+    {
+        // Save the image in JPEG format
+        bmp.Save("Slide_0.jpg", ImageFormat.Jpeg);
+    }
 }
 ```
 
@@ -115,11 +116,12 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
     options.DpiY = 300;
 
     // Convert slide to a Bitmap object
-    Bitmap bmp = slide.GetThumbnail(options);
-
-    // Save the image in BMP format
-    bmp.Save("PresentationNotesComments.bmp", ImageFormat.Bmp);
-}
+    using (Bitmap bmp = slide.GetThumbnail(options))
+    {
+        // Save the image in BMP format
+        bmp.Save("PresentationNotesComments.bmp", ImageFormat.Tiff);
+    }
+}  
 ```
 
 ## **Convert Presentation to Image Array**
@@ -141,14 +143,15 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
             continue;
 
         // Convert slide to a Bitmap object
-        Bitmap bmp = pres.Slides[i].GetThumbnail(2f, 2f);
+        using (Bitmap bmp = pres.Slides[i].GetThumbnail(2f, 2f))
+        {
+            // Create file name for an image
+            string outputFilePath = Path.Combine(outputDir, "Slide_" + i + ".jpg");
 
-        // Create file name for an image
-        string outputFilePath = Path.Combine(outputDir, "Slide_" + i + ".jpg");
-
-        // Save the image in PNG format
-        bmp.Save(outputFilePath, ImageFormat.Png);
+            // Save the image in PNG format
+            bmp.Save(outputFilePath, ImageFormat.Png);
+        }
     }
-}
+} 
 ```
   
