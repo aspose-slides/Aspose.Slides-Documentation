@@ -5,7 +5,7 @@ weight: 20
 url: /java/working-with-slides-in-apache-poi-and-aspose-slides/
 ---
 
-###### **This section includes the following topics:**
+## **This section includes the following topics:**
 - [Add Background to Slides using Apache POI and Aspose.Slides](/slides/java/add-background-to-slides-using-apache-poi-and-aspose-slides-html/)
 - [Add Images in Slides using Apache POI and Aspose.Slides](/slides/java/add-images-in-slides-using-apache-poi-and-aspose-slides-html/)
 - [Convert Presentation Slides to Image using Apache POI and Aspose.Slides](/slides/java/convert-presentation-slides-to-image-using-apache-poi-and-aspose-slides-html/)

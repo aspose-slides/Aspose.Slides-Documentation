@@ -40,7 +40,7 @@ This page contains release notes for [Aspose.Slides for Java 20.6](https://repos
 |SLIDESJAVA-36940|Can't extract all text from slides|Bug|
 |SLIDESJAVA-36566|Text failed to extract in generated presentation|Bug|
 |SLIDESJAVA-35246|getAllTextBoxes not getting text from table|Bug|
-# **Public API Changes**
+## **Public API Changes**
 ### **New methods setRecoverWorkbookFromChartCache and getRecoverWorkbookFromChartCache have been added to SpreadsheetOptions**
 
 

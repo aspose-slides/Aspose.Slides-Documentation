@@ -44,7 +44,7 @@ dependencies {
 
     ...
 
-    compile (group: 'com.aspose', name: 'aspose-slides', version: '18.9', classifier: 'android.via.java')
+    compile (group: 'com.aspose', name: 'aspose-slides', version: 'XX.XX', classifier: 'android.via.java')
 
 }
 
@@ -70,7 +70,7 @@ This article gives you an idea of getting started with Aspose.Slides for Android
 
 
 
-1. Copy aspose-slides-18.9-android.via.java.jar into your project’s libs/folder
+1. Copy aspose-slides-XX.XX-android.via.java.jar into your project’s libs/folder
 
 ![todo:image_alt_text](install-aspose-slides-for-android-via-java_1.png)
 

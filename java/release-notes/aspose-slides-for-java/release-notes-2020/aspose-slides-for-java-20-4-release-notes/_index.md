@@ -165,7 +165,7 @@ New methods [**getSpreadsheetOptions()**](https://apireference.aspose.com/slides
 public ISpreadsheetOptions getSpreadsheetOptions();
 public void setSpreadsheetOptions(ISpreadsheetOptions value);
 ```
-##### **Example**
+#### **Example**
 -----
 The example below demonstrates how to use the spreadsheet options for a chart formulas:
 
