@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for Java 20.2 Release Notes
 type: docs
-weight: 20
+weight: 110
 url: /java/aspose-slides-for-java-20-2-release-notes/
 ---
 
