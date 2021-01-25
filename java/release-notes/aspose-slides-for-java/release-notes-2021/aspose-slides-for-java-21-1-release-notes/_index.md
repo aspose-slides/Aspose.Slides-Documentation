@@ -51,13 +51,13 @@ Support of the shape points editing has been added. New classes, interfaces, enu
 - void [IGeometryShape.setGeometryPath()](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-)
 - void [IGeometryShape.setGeometryPaths()](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-)
 
-Feature description:
+**Feature description:**
 
 Customization of the shape geometry assumes editing points of an existing shape. 
 
 ![Edit shape points](1_editPoints_PP.png)
 
-To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
+To provide the abovementioned functionality [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
 
 To retrieve [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) from the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) instance [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) method has been added. Please note that shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) objects. 
 
