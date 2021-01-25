@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for Android via Java 20.11 Release Notes
 type: docs
-weight: 100
+weight: 20
 url: /java/aspose-slides-for-android-via-java-20-11-release-notes/
 ---
 
