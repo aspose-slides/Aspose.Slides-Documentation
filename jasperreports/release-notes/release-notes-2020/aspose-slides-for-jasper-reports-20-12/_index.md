@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for Jasper Reports 20.12
 type: docs
-weight: 110
+weight: 10
 url: /jasperreports/aspose-slides-for-jasper-reports-20-12/
 ---
 
