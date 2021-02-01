@@ -1,7 +1,7 @@
 ---
 title: Removing Slide Notes and Add NotesStyle
 type: docs
-weight: 70
+weight: 80
 url: /java/removing-slide-notes-and-add-notesstyle/
 ---
 

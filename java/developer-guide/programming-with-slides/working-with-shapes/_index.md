@@ -1,7 +1,7 @@
 ---
 title: Working with Shapes
 type: docs
-weight: 120
+weight: 130
 url: /java/working-with-shapes/
 ---
 

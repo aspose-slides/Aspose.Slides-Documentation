@@ -1,7 +1,7 @@
 ---
 title: Rendering a Slide
 type: docs
-weight: 80
+weight: 90
 url: /java/rendering-a-slide/
 ---
 
