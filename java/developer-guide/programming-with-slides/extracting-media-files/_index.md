@@ -1,7 +1,7 @@
 ---
 title: Extracting media files
 type: docs
-weight: 50
+weight: 60
 url: /java/extracting-media-files/
 ---
 

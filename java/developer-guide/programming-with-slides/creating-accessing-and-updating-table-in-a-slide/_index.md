@@ -1,7 +1,7 @@
 ---
 title: Creating, Accessing and Updating Table in a Slide
 type: docs
-weight: 40
+weight: 50
 url: /java/creating-accessing-and-updating-table-in-a-slide/
 ---
 
