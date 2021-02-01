@@ -1,7 +1,7 @@
 ---
 title: Working with Charts
 type: docs
-weight: 100
+weight: 110
 url: /java/working-with-charts/
 ---
 

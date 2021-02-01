@@ -1,7 +1,7 @@
 ---
 title: Managing Header and Footers
 type: docs
-weight: 60
+weight: 70
 url: /java/managing-header-and-footers/
 ---
 
