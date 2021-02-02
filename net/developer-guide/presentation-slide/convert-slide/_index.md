@@ -126,7 +126,7 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
 }  
 ```
 
-## **Convert Presentation to Image Array**
+## **Convert Presentation to Set of Images**
 
 In some cases, it is necessary to convert the entire presentation into a set of images, 
 the same as PowerPoint allows. The following example demonstrates this possibility:
