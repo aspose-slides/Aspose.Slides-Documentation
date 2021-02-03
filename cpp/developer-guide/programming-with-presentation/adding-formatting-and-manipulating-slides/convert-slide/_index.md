@@ -45,9 +45,9 @@ bmp->Save(u"Slide_0.jpg", ImageFormat::get_Jpeg());
 ## **Convert Slide with Notes and Comments to Image**
 
 There are two interfaces [ITiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) and [IRenderingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options), used to control the rendering of presentation slides to images.
-Both of these interfaces include the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface, which can be used to include notes and comments of a slide in an exporting image.
+Both of these interfaces include the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface, which can be used to include notes and comments of a slide in an exported image.
 Using this interface, you can also control the position in which notes and comments will be displayed in the image.
-The following example demonstrates the usage of the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface using the [IRenderingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) interface.
+The following example demonstrates the usage of the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface with the [IRenderingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) interface.
 An example of ITiffOptions interface usage will be provided below. 
 
 {{% alert title="Note" color="dark" %}} 
