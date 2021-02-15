@@ -212,40 +212,7 @@ ObjectData property of the OleObjectFrame class represents [Object Linking and E
 {{% /alert %}} 
   
 
-
-## **Add OLE Object Frame to Slide**
-Suppose, you have created a **Microsoft Excel Chart** in an Excel file and want to embed that chart object in a slide as an **OLE Object Frame** using Aspose.Slides for Java. Then you can do that using the steps below:
-
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Open the Excel file containing Microsoft Excel Chart object and save it to MemoryStream.
-- Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
-- Write the modified presentation as a PPTX file.
-
-In the example given below, a **Microsoft Excel Chart** object in an Excel file is added to a slide as an **OLE Object Frame** using Aspose.Slides for Java.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-AddingAnOLEObjectFrameToASlide-AddingAnOLEObjectFrameToASlide.java" >}}
-
-
-The above code snippet adds an**OLE Object Frame** to a slide as shown below in the figure:
-
-|![todo:image_alt_text](http://i.imgur.com/xCIIi5m.jpg)|
-| :- |
-|**Figure: Microsoft Excel Chart object added to a slide**|
-
-
-## **Access OLE Object Frame from Slide**
-If an OLE object is already embedded in a slide, you can access that object easily using Aspose.Slides for Java. Please follow the steps below to find or access an OLE object from a slide:
-
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Access the OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
-- Once the OLE Object Frame is accessed, you can perform any operation on it.
-
-In the example given below, an **OLE Object Frame** (that is a **Microsoft Excel Chart** object embedded in a slide) is accessed and then all of its **Object Data** is written to an Excel file.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-AccessingAnOLEObjectFrameFromASlide-AccessingAnOLEObjectFrameFromASlide.java" >}}
-## **Set File Type for an Embedding Object**
+## **Set File Type for Embedded Object**
 Using Aspose.Slides for Java you can set file type for an embedding object. For this purpose, new methods **addOleObjectFrame** and **insertOleObjectFrame** have been added into **IShapeCollection**.
 
 These methods allow to get **IOleEmbeddedDataInfo** object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects.

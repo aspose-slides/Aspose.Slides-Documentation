@@ -5,16 +5,13 @@ weight: 10
 url: /java/rectangle/
 ---
 
-
-
-## **Overview**
 {{% alert color="primary" %}} 
 
 Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is **Rectangle**. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for Java.
 
 {{% /alert %}} 
 
-## **Add Simple Rectangle to Slide**
+## **Add Rectangle to Slide**
 To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
 - Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.

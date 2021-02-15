@@ -5,7 +5,6 @@ weight: 50
 url: /java/manage-media/
 ---
 
-## **Export Media File to HTML**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java now supports exporting the media files to HTML. Public class 
@@ -19,7 +18,7 @@ fileName: The name of the HTML file
 baseUri: The base URI which will be used to generate links
 
 {{% /alert %}} 
-### **Export Media File**
+## **Export Media File to HTML**
 In the example given below, we have exported the media files to HTML.
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Media-ExportingMediaFilesIntoHtmlFile-ExportingMediaFilesIntoHtmlFile.java" >}}

@@ -46,19 +46,6 @@ Aspose.Slides for Java provides an API for setting automatic fill color for char
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingAutomaticSeriesFillColor-SettingAutomaticSeriesFillColor.java" >}}
 
-## **Clear Data of Chart Series**
-Aspose.Slides for Java provides a simple API to clear specific chart series **DataPoints** data. To clear specific chart series **DataPoints** data, please follow the steps below:
-
-- Create an instance of Presentation class and load the desired presentation.
-- Obtain the reference of a slide by using its Index
-- Obtain the reference of a chart by using its Index
-- Iterate through all the **DataPoints** of chart and set **XValue** and **YValue** to null.
-- Remove all **DataPoints** of specific chart series
-- Write the modified presentation to a PPTX file
-
-Sample code is given below.
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ClearSpecificChartSeriesDataPointsData-ClearSpecificChartSeriesDataPointsData.java" >}}
 
 ## **Set InvertIfNegative Property of Chart Series**
 The Aspose.Slides for Java lets developers allow to set inverts. **IChartDataPoint.InvertIfNegative** and **ChartDataPoint.InvertIfNegative** properties have been added. This Specifies the data point shall invert its colors if the value is negative. Sample code is given below.
@@ -110,3 +97,17 @@ Aspose.Slides for Java provides support for changing color of categories in a se
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ChangeColorOfCategories-ChangeColorOfCategories.java" >}}
 
+
+## **Clear Data of Chart Series**
+Aspose.Slides for Java provides a simple API to clear specific chart series **DataPoints** data. To clear specific chart series **DataPoints** data, please follow the steps below:
+
+- Create an instance of Presentation class and load the desired presentation.
+- Obtain the reference of a slide by using its Index
+- Obtain the reference of a chart by using its Index
+- Iterate through all the **DataPoints** of chart and set **XValue** and **YValue** to null.
+- Remove all **DataPoints** of specific chart series
+- Write the modified presentation to a PPTX file
+
+Sample code is given below.
+
+{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ClearSpecificChartSeriesDataPointsData-ClearSpecificChartSeriesDataPointsData.java" >}}

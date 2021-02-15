@@ -7,7 +7,7 @@ keywords: "PowerPoint background in Java"
 description: "PowerPoint background in Java"
 ---
 
-## **Overview**
+
 {{% alert color="primary" %}} 
 
 In this topic, we will see that how can we set the background color of a slide. We know that Aspose.Slides for Java may contain two types of slides: **Master Slide** & **Normal Slide**. It is possible to change the background colors of both types of slides, which will be explained in this topic.

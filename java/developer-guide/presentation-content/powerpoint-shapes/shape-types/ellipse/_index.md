@@ -5,7 +5,7 @@ weight: 10
 url: /java/ellipse/
 ---
 
-## **Overview**
+
 {{% alert color="primary" %}} 
 
 In this topic, we will introduce developers about adding ellipse shapes to their slides using Aspose.Slides for Java. Aspose.Slides for Java provides an easier set of APIs to draw different kinds of shapes with just a few lines of code.

@@ -5,6 +5,21 @@ url: /java/chart-plot-area/
 ---
 
 
+## **Set Layout Mode for Plot Area**
+Aspose.Slides for Java provides a simple API to set the layout mode of the chart plot area. Property **LayoutTargetType** has been added to **ChartPlotArea** and **IChartPlotArea** classes. If the layout of the plot area defined manually this property specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside (including axis and axis labels). There are two possible values which are defined in **LayoutTargetType** enum.
+
+- **LayoutTargetType.Inner** - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
+- **LayoutTargetType.Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
+
+Sample code is given below.
+
+{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SetLayoutMode-SetLayoutMode.java" >}}
+
+
+
+You can apply color to data points in the chart using Aspose.Slides for Java. [**IChartDataPointLevelsManager**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevelsManager) and **[IChartDataPointLevel](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel)** classes have been added to get access to properties of data point levels. This article demonstrates how you can access and apply color to data points in a chart.
+
+
 ## **Set Invert Fill Color for Plot Area**
 Aspose.Slides for Java provides a simple API for setting invert fill color for chart series inside plot area:
 
@@ -30,17 +45,3 @@ Aspose.Slides for Java provides a simple API for . 
 1. Gets actual height of the chart element.
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-GetWidthHeightFromChartPlotArea-GetWidthHeightFromChartPlotArea.java" >}}
-
-## **Set Layout Mode for Plot Area**
-Aspose.Slides for Java provides a simple API to set the layout mode of the chart plot area. Property **LayoutTargetType** has been added to **ChartPlotArea** and **IChartPlotArea** classes. If the layout of the plot area defined manually this property specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside (including axis and axis labels). There are two possible values which are defined in **LayoutTargetType** enum.
-
-- **LayoutTargetType.Inner** - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
-- **LayoutTargetType.Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
-
-Sample code is given below.
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SetLayoutMode-SetLayoutMode.java" >}}
-
-
-
-You can apply color to data points in the chart using Aspose.Slides for Java. [**IChartDataPointLevelsManager**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevelsManager) and **[IChartDataPointLevel](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel)** classes have been added to get access to properties of data point levels. This article demonstrates how you can access and apply color to data points in a chart.

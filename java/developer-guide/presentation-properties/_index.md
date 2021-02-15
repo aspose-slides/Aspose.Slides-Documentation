@@ -16,7 +16,7 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 
 {{% /alert %}} 
 
-## **Manage Document Properties using MS PowerPoint**
+## **Document Properties in PowerPoint**
 Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007 as shown below:
 
 {{% alert color="primary" %}} 
@@ -61,6 +61,17 @@ This example modifies the built-in properties of the presentation that can be vi
 |**Built-in document properties after modification**|** |
 | :- | :- |
 |![todo:image_alt_text](http://i.imgur.com/zz1N9de.jpg)| |
+
+## **Add Custom Document Properties**
+Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+
+
+{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-AddingCustomDocumentProperties-AddingCustomDocumentProperties.java" >}}
+
+|**Custom Document Properties Added**|** |
+| :- | :- |
+|![todo:image_alt_text](http://i.imgur.com/HdKcxI9.png)| |
+
 ## **Access and Modify Custom Properties**
 Aspose.Slides for Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
@@ -78,20 +89,6 @@ This example modifies the custom properties of the [PPTX ](https://wiki.fileform
 | :- | :- |
 |![todo:image_alt_text](http://i.imgur.com/Tofu0CL.jpg)| |
 
-## **Check if Presentation is Modified or Created**
-Aspose.Slides for Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-CheckPresentationModified-CheckPresentationModified.java" >}}
-
-## **Add Custom Document Properties**
-Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
-
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-AddingCustomDocumentProperties-AddingCustomDocumentProperties.java" >}}
-
-|**Custom Document Properties Added**|** |
-| :- | :- |
-|![todo:image_alt_text](http://i.imgur.com/HdKcxI9.png)| |
 ## **Advanced Document Properties**
 {{% alert color="primary" %}} 
 
@@ -120,3 +117,10 @@ A new template can be created from scratch and then used to update multiple pres
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-CreateNewTemplateAndUpdateMultiplePresentations-CreateNewTemplateAndUpdateMultiplePresentations.java" >}}
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-UpdateOtherPresentationsusingPresentationPropertiesAsTemplate-updateByTemplate.java" >}}
+
+
+## **Check if Presentation is Modified or Created**
+Aspose.Slides for Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
+
+{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-CheckPresentationModified-CheckPresentationModified.java" >}}
+

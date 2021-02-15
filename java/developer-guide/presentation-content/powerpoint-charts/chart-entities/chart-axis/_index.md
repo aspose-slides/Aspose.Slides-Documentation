@@ -4,10 +4,14 @@ type: docs
 url: /java/chart-axis/
 ---
 
-## **Switch Data Over Axis**
-A new property has been added which Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa. Below sample example is given.
+## **Set Type of Axis**
+New methods **getCategoryAxisType()** and **setCategoryAxisType()** have been added to [IAxis](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IAxis) and [Axis](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Axis) classes. Below are the properties to determine category axis type.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SwitchChartRowColumns-SwitchChartRowColumns.java" >}}
+- CategoryAxisType.Text - category axis type is Text
+- CategoryAxisType.Date - category axis type is DateTime
+  However, the CategoryAxisType.Auto is not supported at the moment.
+
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ChangeTypeOfChartsCategoryAxis-ChangeTypeOfChartsCategoryAxis.java" >}}
 
 
 ## **Set Date Format of Axis**
@@ -32,16 +36,6 @@ Aspose.Slides for Java provides a simple API for setting rotation angle for char
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingRotationAngle-SettingRotationAngle.java" >}}
 
-## **Set Type of Axis**
-New methods **getCategoryAxisType()** and **setCategoryAxisType()** have been added to [IAxis](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IAxis) and [Axis](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Axis) classes. Below are the properties to determine category axis type.
-
-- CategoryAxisType.Text - category axis type is Text
-- CategoryAxisType.Date - category axis type is DateTime
-  However, the CategoryAxisType.Auto is not supported at the moment.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ChangeTypeOfChartsCategoryAxis-ChangeTypeOfChartsCategoryAxis.java" >}}
-
-
 ## **Get Actual Max Value of Vertical Axis**
 Aspose.Slides for Java provides a simple API for getting value of vertical axis. 
 
@@ -56,3 +50,8 @@ Aspose.Slides for Java provides a simple API for getting value of vertical axis.
 1. Get actual minor unit scale of the axis.
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-GetValuesAndUnitScaleFromAxis-GetValuesAndUnitScaleFromAxis.java" >}}
+
+## **Switch Data Over Axis**
+A new property has been added which Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa. Below sample example is given.
+
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SwitchChartRowColumns-SwitchChartRowColumns.java" >}}
