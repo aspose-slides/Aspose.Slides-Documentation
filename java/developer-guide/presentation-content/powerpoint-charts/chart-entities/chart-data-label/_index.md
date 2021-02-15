@@ -4,13 +4,25 @@ type: docs
 url: /java/chart-data-label/
 ---
 
+## **Set Workbook Cell as Label**
+Aspose.Slides for Java provides a simple API for getting value from WorkBook Cell used as DataLabel:
+
+1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Obtain a slide's reference by its index.
+1. Add a chart with default data along with the Bubble type.
+1. Accessing the chart series.
+1. Setting Workbook cell as data label.
+1. Save the presentation to a PPTX file.
+
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-UsingWorkBookChartCellAsDataLabel-UsingWorkBookChartCellAsDatalabel.java" >}}
+
 
 ## **Set Data Precision in Label**
 Aspose.Slides for Java provides a simple API for setting precision of data in chart data label. Below sample example is given. 
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SupportForPrecisionOfData-SupportForPrecisionOfData.java" >}}
 
-## **Set Label Distance**
+## **Set Distance to Label**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java now supports setting the label's distance from category axis. In this topic, we will see with example how to set the label distance from axis in Aspose.Slides.
@@ -49,16 +61,4 @@ In the example given below, we have set the percentage as label.
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-DisplayingPercentageAsLabels-DisplayingPercentageAsLabels.java" >}}
 
-
-## **Set Workbook Cell as Data Label**
-Aspose.Slides for Java provides a simple API for getting value from WorkBook Cell used as DataLabel:
-
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the Bubble type.
-1. Accessing the chart series.
-1. Setting Workbook cell as data label.
-1. Save the presentation to a PPTX file.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-UsingWorkBookChartCellAsDataLabel-UsingWorkBookChartCellAsDatalabel.java" >}}
 

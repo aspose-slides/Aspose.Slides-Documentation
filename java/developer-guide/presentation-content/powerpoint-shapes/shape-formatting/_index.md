@@ -179,7 +179,7 @@ In the example given below, we will create three rectangles with each of the Joi
 
 
 
-## **Apply 3D Bevel Effects on Shape**
+## **Apply 3D Bevel Effects to Shape**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java supports adding 3D bevel effects to a shape. This could be done by setting **ThreeDFormat** properties of a shape programatically. In this topic, we will see with example how to set the 3D Bevel Effects to a shape in Aspose.Slides.

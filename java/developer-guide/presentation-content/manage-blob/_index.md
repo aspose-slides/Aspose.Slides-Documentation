@@ -15,7 +15,7 @@ Aspose.Slides for Java provides a facility to Export large files (audio and vide
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Properties-ExportingBlobIntoPresentation-ExportingBlobIntoPresentation.java" >}}
 
-## **Add Image as BLOB in Presentation**
+## **Add Image as BLOB to Presentation**
 Aspose.Slides for Java added a new method to [**IImageCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/IImageCollection) interface and [**ImageCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/ImageCollection) class to support adding a large images as streams to treat them as BLOBs.
 
 This example demonstrates how to include the large BLOB (image) and prevent a high memory consumption.

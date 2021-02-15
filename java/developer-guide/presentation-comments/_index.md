@@ -8,7 +8,7 @@ description: "Add PowerPoint comments and reply presentation comments in Java."
 ---
 
 
-## **Comment Reply**
+## **Add Comment Reply**
 New methods **getParentComment** and **setParentComment** have been added to **IComment** interface and **Comment** class in Aspose.Slides for Java. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
 
 The code snippet below shows a sample of adding some comments and some replies to them:

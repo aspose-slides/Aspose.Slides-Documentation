@@ -40,7 +40,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
 
 
 
-## **Set Text's Font Properties**
+## **Set Text Font Properties**
 {{% alert color="primary" %}} 
 
 As mentioned in **Managing Font Related Properties**, a [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.

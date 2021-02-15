@@ -34,17 +34,6 @@ In the example given below, we have added a **Video Frame** into the slide.
 | :- |
 |**Figure: Playing video in the slide**|
 
-## **Set Image to Video Frame**
-To set image on a video frame, please follow the steps below:
-
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add the Video Frame (containing the video file name) into the slide.
-- Set image for videoframe.
-- Write the modified presentation as a PPTX file.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-SettingImageOnAVideoFrame-SettingImageOnAVideoFrame.java" >}}
-
 ## **Add Embedded Video Frame to Slide**
 {{% alert color="primary" %}} 
 
@@ -82,6 +71,17 @@ In order To add video from YouTube with Aspose.Slides, please use following code
 1. Save presentation as a PPTX file
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-AddingVideoFrameWithVideoFromWebSource-AddingVideoFrameWithVideoFromWebSource.java" >}}
+
+## **Set Image to Video Frame**
+To set image on a video frame, please follow the steps below:
+
+- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Obtain the reference of a slide by using its Index.
+- Add the Video Frame (containing the video file name) into the slide.
+- Set image for videoframe.
+- Write the modified presentation as a PPTX file.
+
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-SettingImageOnAVideoFrame-SettingImageOnAVideoFrame.java" >}}
 
 
 ## **Extract Video from Slide**

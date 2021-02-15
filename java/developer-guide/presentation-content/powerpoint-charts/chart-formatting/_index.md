@@ -47,6 +47,35 @@ The above code snipped will create a chart like the one shown below.
 |**Figure: Formatted chart added to the slide**|
 
 
+## **Set Font Properties for Chart**
+ Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart. 
+
+- Instantiate Presentation class object.
+- Add chart on the slide.
+- Set font height.
+- Save modified presentation.
+
+ Below sample example is given.
+
+
+
+{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-FontPropertiesForChart-FontPropertiesForChart.java" >}}
+
+
+## **Set Font Properties for Chart Data Table**
+Aspose.Slides for Java provides support for changing color of categories in a series color. 
+
+1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Add chart on the slide.
+1. set chart table.
+1. Set font height.
+1. Save modified presentation.
+
+ Below sample example is given. 
+
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingFontPropertiesForTable-SettingFontPropertiesForTable.java" >}}
+
+
 
 ## **Set Number Format for Chart Data Cell**
 {{% alert color="primary" %}} 
@@ -121,21 +150,8 @@ The above code snippet create a chart like the one shown below.
 | :- | :- |
 
 
-## **Hide Information from Chart**
-This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Java you can hide **Title, Vertical Axis, Horizontal Axis, Legend** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-HideInformationFromChart-HideInformationFromChart.java" >}}
-
-
-## **Get Chart Image**
-Aspose.Slides for Java provides support for extracting image of specific chart. Below sample example is given. 
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-GetChartImage-GetChartImage.java" >}}
-
-
-
-## **Set Chart Area Rounded Borders**
+## **Set Chart Rounded Borders**
 Aspose.Slides for Java provides support for setting chart area. **IChart.HasRoundedCorners** and **Chart.HasRoundedCorners** properties have been added in Aspose.Slides. 
 
 1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
@@ -150,31 +166,17 @@ Aspose.Slides for Java provides support for setting chart area. **IChart.HasRou
 
 
 
-## **Set Font Properties for Chart Data Table**
-Aspose.Slides for Java provides support for changing color of categories in a series color. 
-
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
-1. Add chart on the slide.
-1. set chart table.
-1. Set font height.
-1. Save modified presentation.
-
- Below sample example is given. 
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingFontPropertiesForTable-SettingFontPropertiesForTable.java" >}}
 
 
-## **Set Font Properties for Chart**
- Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart. 
+## **Get Chart Image**
+Aspose.Slides for Java provides support for extracting image of specific chart. Below sample example is given. 
 
-- Instantiate Presentation class object.
-- Add chart on the slide.
-- Set font height.
-- Save modified presentation.
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-GetChartImage-GetChartImage.java" >}}
 
- Below sample example is given.
+## **Hide Information from Chart**
+This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Java you can hide **Title, Vertical Axis, Horizontal Axis, Legend** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 
+{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-HideInformationFromChart-HideInformationFromChart.java" >}}
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-FontPropertiesForChart-FontPropertiesForChart.java" >}}
 

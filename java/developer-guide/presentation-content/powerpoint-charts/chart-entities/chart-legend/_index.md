@@ -5,6 +5,21 @@ url: /java/chart-legend/
 ---
 
 
+## **Set Font Size for Individual Legend**
+The Aspose.Slides for Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
+
+- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Creating the default chart.
+- Access legend entry.
+- Set the Font Size.
+- Set minimum axis value.
+- Set maximum axis value.
+- Write presentation to disk.
+
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-FontPropertiesForInvidualLegend-FontPropertiesForInvidualLegend.java" >}}
+
+
+
 ## **Set Custom Location and Size for Legend**
 {{% alert color="primary" %}} 
 
@@ -36,21 +51,4 @@ The Aspose.Slides for Java lets developers allow to set font size of legend. Pl
 - Write presentation to disk.
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-FontSizeLegend-FontSizeLegend.java" >}}
-
-
-## **Set Font Size for Individual Legend**
-The Aspose.Slides for Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
-
-- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
-- Creating the default chart.
-- Access legend entry.
-- Set the Font Size.
-- Set minimum axis value.
-- Set maximum axis value.
-- Write presentation to disk.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-FontPropertiesForInvidualLegend-FontPropertiesForInvidualLegend.java" >}}
-
-
-
 

@@ -7,7 +7,6 @@ keywords: "PowerPoint PPT Viewer"
 description: "PowerPoint PPT Viewer in Java"
 ---
 
-## **Overview**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java is used to create presentation files containing slides. These slides can be viewed by opening presentation files using Microsoft PowerPoint. But sometimes, developers may need to view slides as images using their favorite image viewer. In such cases, Aspose.Slides for Java help you generate thumbnail images of the slides. How to use this feature is described in this article.
@@ -25,7 +24,7 @@ To generate the thumbnail of any desired slide using Aspose.Slides for Java:
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Rendering-GenerateThumbnailFromSlide-GenerateThumbnailFromSlide.java" >}}
 
 
-## **Generate Thumbnail from Slide with User Defined Dimensions**
+## **Generate Thumbnail with User Defined Dimensions**
 To generate the thumbnail of any desired slide using Aspose.Slides for Java:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
@@ -36,7 +35,7 @@ To generate the thumbnail of any desired slide using Aspose.Slides for Java:
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Rendering-GenerateThumbnailFromSlideWithUserDefinedDimensions-GenerateThumbnailFromSlideWithUserDefinedDimensions.java" >}}
 
-## **Generate Thumbnail from Slide in Notes Slides View**
+## **Generate Thumbnail in Notes Slides View**
 To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for Java:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
@@ -46,7 +45,7 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Rendering-GenerateThumbnailFromSlideInNotesSlidesView-GenerateThumbnailFromSlideInNotesSlidesView.java" >}}
 
-## **Generate Thumbnail of User Defined Window from Slide**
+## **Generate Thumbnail of User Defined Window**
 To generate the thumbnail of a user defined Window inside a desired slide using Aspose.Slides for Java, please follow the steps below:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation file.

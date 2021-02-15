@@ -6,7 +6,6 @@ url: /java/Line/
 ---
 
 
-## **Overview**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java supports adding different kinds of shapes to the slides. In this topic, we will start working with shapes by adding lines to the slides. Using Aspose.Slides for Java, developers can not only create simple lines, but some fancy lines can also be drawn on the slides.
