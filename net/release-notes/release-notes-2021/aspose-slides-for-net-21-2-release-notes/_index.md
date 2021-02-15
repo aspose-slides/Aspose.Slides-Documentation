@@ -7,7 +7,7 @@ url: /net/aspose-slides-for-net-21-2-release-notes/
 
 {{% alert color="primary" %}} 
 
-This page contains release notes for [ Aspose.Slides for .NET 21.2](https://www.nuget.org/packages/Aspose.Slides.NET/)
+This page contains release notes for [Aspose.Slides for .NET 21.2](https://www.nuget.org/packages/Aspose.Slides.NET/)
 
 {{% /alert %}} 
 
@@ -37,10 +37,10 @@ This page contains release notes for [ Aspose.Slides for .NET 21.2](https://www
 
 ## **Public API Changes**
 
-### **Obsolete methods were removed** ###
+### **Obsolete methods have been removed** ###
 
-**IShapeCollection.AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData)** was removed. Use method **AddOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** instead.
-**IShapeCollection.InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData)** was removed. Use method **InsertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** instead.
+**IShapeCollection.AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData)** has been removed. Use **AddOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** method instead.
+**IShapeCollection.InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData)** has been removed. Use **InsertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** method instead.
 
-**ShapeCollection.AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData)** was removed. Use method **AddOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** instead.
-**ShapeCollection.InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData)** was removed. Use method **InsertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** instead.
+**ShapeCollection.AddOleObjectFrame(float x, float y, float width, float height, string className, byte[] objectData)** has been removed. Use **AddOleObjectFrame(float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** method instead.
+**ShapeCollection.InsertOleObjectFrame(int index, float x, float y, float width, float height, string className, byte[] objectData)** has been removed. Use **InsertOleObjectFrame(int index, float x, float y, float width, float height, IOleEmbeddedDataInfo dataInfo)** method instead.
