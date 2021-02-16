@@ -33,7 +33,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.2](https://www.n
 |SLIDESNET-42115|Aspose blocks fonts resources|Bug|<https://docs.aspose.com/slides/net/custom-font/>
 |SLIDESNET-42035|Created time is not correctly set in document properties|Bug|<https://docs.aspose.com/slides/net/presentation-properties/>
 |SLIDESNET-41561|PptxReadException on using NetStandard with 4.7|Bug|
-|SLIDESNET-40863|Exception on loading ppt|Bug|<https://docs.aspose.com/slides/net/open-presentation//>
+|SLIDESNET-40863|Exception on loading ppt|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
 
 ## **Public API Changes**
 
