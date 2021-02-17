@@ -1,4 +1,4 @@
-6---
+---
 title: 3D Presentation
 type: docs
 weight: 45
