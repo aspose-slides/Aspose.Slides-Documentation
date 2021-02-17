@@ -1,7 +1,7 @@
 ---
-title: Aspose.Slides for CPP 21.1 Release Notes
+title: Aspose.Slides for C++ 21.1 Release Notes
 type: docs
-weight: 100
+weight: 200
 url: /cpp/aspose-slides-for-cpp-21-1-release-notes/
 ---
 
