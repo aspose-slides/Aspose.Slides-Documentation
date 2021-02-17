@@ -30,7 +30,8 @@ The following example shows how to convert a presentation into a PDF document us
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Conversion-ConvertingPresentationToPDFUsingDefaultOptions-ConvertingPresentationToPDFUsingDefaultOptions.java" >}}
 
 ## **Convert PPT(X) to PDF using Custom Options**
-The following example shows how to convert a presentation into a PDF document with customized options as provided by the [PdfOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level and PDF standard. You can also include comments in generated PDF by using [PdfOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/PdfOptions)** **class and [**INotesCommentsLayoutingOptions** ](https://apireference.aspose.com/java/slides/com.aspose.slides/INotesCommentsLayoutingOptions) interface.
+The following example shows how to convert a presentation into a PDF document with customized options as provided by the [PdfOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level and PDF standard. You can also include comments in generated PDF by 
+using [PdfOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/PdfOptions)** **class and [**INotesCommentsLayoutingOptions** ](https://apireference.aspose.com/java/slides/com.aspose.slides/INotesCommentsLayoutingOptions) interface.
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Conversion-ConvertingPresentationToPDFUsingCustomOptions-ConvertingPresentationToPDFUsingCustomOptions.java" >}}
 
