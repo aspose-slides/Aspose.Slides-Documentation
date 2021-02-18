@@ -7,11 +7,15 @@ url: /cpp/copying-paragraph-and-portion-in-pptx/
 
 {{% alert color="primary" %}} 
 
-In order to format presentation text we need to format that on **Paragraph** and **Portion** level. There are some text properties that can be set on Paragraph level and some are set on Portion level. If there is a paragraph or portion in a text that we need to copy to newly added paragraphs or portions, we need to copy all properties of the respective paragraph or portion to the newly added paragraph or portion.
+In order to format presentation text we need to format it on **Paragraph** and **Portion** level. 
+Some text properties that can be set on Paragraph level and some - on Portion level. 
+If there is a paragraph or portion in the text that we need to copy to the newly added paragraphs or portions, we need to copy all properties of the respective paragraph or portion to the newly added paragraph or portion.
 
 {{% /alert %}} 
-## **Copying a Paragraph**
-The properties of the **Paragraph** can be accessed in **ParagraphFormat** instance of **Paragraph** class. We need to copy all the properties of the source paragraph to the target paragraph. In the following example, the **CopyParagraph** method is shared that takes a paragraph to be copied as an argument. It copies all the properties of the source paragraph to a temporary paragraph and return the same. The target paragraph gets the copied values.
+
+## **Copy Paragraph**
+Paragraph properties can be accessed through **ParagraphFormat** instance of **Paragraph** class. 
+We need to copy all the properties of the source paragraph to the target paragraph. In the following example, the **CopyParagraph** method is shared that takes a paragraph to be copied as an argument. It copies all the properties of the source paragraph to a temporary paragraph and return the same. The target paragraph gets the copied values.
 
 ``` cpp
 SharedPtr<Paragraph> CopyParagraph(SharedPtr<IParagraph> par)
@@ -48,8 +52,9 @@ SharedPtr<Paragraph> CopyParagraph(SharedPtr<IParagraph> par)
 }
 ```
 
-## **Copying a Portion**
-The properties of the **Portion** can be accessed in **PortionFormat** instance of **Portion** class. We need to copy all the properties of the source portion to the target portion. In the following example, the **CopyPortion** method is shared that takes a portion to be copied as an argument. It copies all the properties of the source portion to a temporary portion and return the same. The target portion gets the copied values.
+## **Copy Portion**
+Portion properties can be accessed through **PortionFormat** instance of **Portion** class. 
+We need to copy all the properties of the source portion to the target portion. In the following example, the **CopyPortion** method is shared that takes a portion to be copied as an argument. It copies all the properties of the source portion to a temporary portion and return the same. The target portion gets the copied values.
 
 ``` cpp
 SharedPtr<Portion> CopyPortion(SharedPtr<IPortion> por)
