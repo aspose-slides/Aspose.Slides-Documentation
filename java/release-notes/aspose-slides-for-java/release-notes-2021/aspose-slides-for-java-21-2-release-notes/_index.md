@@ -16,6 +16,7 @@ This page contains release notes for [Aspose.Slides for Java 21.2](https://repo
 |SLIDESNET-41752|How get/update end points of shape|Enhancement| 
 |SLIDESNET-42329|Improper image rendering using Aspose.Slides|Enhancement| 
 |SLIDESNET-42348|Saving PPTX as PDF does not retain accessibility features|Feature|
+|SLIDESJAVA-38216|[Use Aspose.Slides for Net 21.2 features](/slides/net/aspose-slides-for-net-21-2-release-notes/)|Enhancement|
 |SLIDESJAVA-38459|Generating slide thumbnail never complete|Bug| 
 |SLIDESJAVA-38462|FontsLoaders throws OOME on loading system fonts folders in MacOS|Bug| 
 |SLIDESJAVA-38460|An illegal reflective access operation has occurred for thumbnails|Investigation| 
