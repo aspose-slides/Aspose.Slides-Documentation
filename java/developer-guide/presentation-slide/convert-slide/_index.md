@@ -1,7 +1,7 @@
 ---
 title: Convert Slide
 type: docs
-weight: 25
+weight: 35
 url: /java/convert-slide/
 ---
 
@@ -165,15 +165,3 @@ try {
     if (pres != null) pres.dispose();
 } 
 ```
-
-## **Generating a Thumbnail of User Defined Window from a Slide**
-
-To generate the thumbnail of a user defined Window inside a desired slide using Aspose.Slides for Java, please follow the steps below:
-
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation file.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale.
-1. Get the desired window image inside the generate slide thumbnail using [BufferedImage.getSubImage()](http://docs.oracle.com/javase/6/docs/api/java/awt/image/BufferedImage.html#getSubimage%28int,%20int,%20int,%20int%29) method.
-1. Save the thumbnail image in any desired image format.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Rendering-GeneratingThumbnailOfUserDefinedWindowFromSlide-GeneratingThumbnailOfUserDefinedWindowFromSlide.java" >}}

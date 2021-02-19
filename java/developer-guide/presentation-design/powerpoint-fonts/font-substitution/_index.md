@@ -35,17 +35,17 @@ To replace the fonts by setting some rules of replacement, following steps are u
 1. Generate the slide image to observe the effect.
 
 ## **Replace Fonts Explicitly**
-To replace the fonts using explicit replacement following steps are used:
+To replace the fonts using explicit replacement, following steps are used:
 
-- Load the desired presentation.
-- Load the font that is to replace inside the presentation.
-- Load the replacing font.
-- Replace the fonts.
-- Write the modified presentation as a PPTX file.
+1. Load the desired presentation.
+1. Load the font that is to replace inside the presentation.
+1. Load the replacing font.
+1. Replace the fonts.
+1. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-ReplaceFontsExplicitly-ReplaceFontsExplicitly.cs" >}}
+{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Text-ReplacingFontsExplicitlyInsidePresentation-ReplacingFontsExplicitlyInsidePresentation.java" >}}
 
 ## **Rule Based Font Substitution**
 To replace the fonts by setting some rules of replacement following steps are used:
@@ -56,11 +56,6 @@ To replace the fonts by setting some rules of replacement following steps are us
 - Add rule for replacement.
 - Add the rule to presentation font replacement rule collection.
 - Generate the slide image to observe the effect.
-
-The implementation of the above steps is given below.
-
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-RuleBasedFontsReplacement-RuleBasedFontsReplacement.cs" >}}
-
 
 ## **Specify Fonts Used With Presentation**
 A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
