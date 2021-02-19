@@ -1,15 +1,10 @@
+
 ---
 title: Convert Slide
 type: docs
-weight: 25
+weight: 40
 url: /java/convert-slide/
 ---
-
-{{% alert color="primary" %}} 
-
-Conversion of slides to JPEG, GIF, PNG and TIFF is powered by Aspose.Imaging export module.
-
-{{% /alert %}} 
 
 You can convert presentation slides to any graphic image format that Java supports, such as PNG, BMP, JPEG, GIF, etc., 
 by using Aspose.Slides API for Java.
@@ -143,6 +138,9 @@ In some cases, it is necessary to convert the entire presentation into a set of 
 the same as PowerPoint allows. The following example demonstrates this possibility:
 
 ``` java 
+// Path to output directory
+String outputDir = "D:/PresentationImages";
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Render presentation to images array slide by slide
@@ -177,3 +175,4 @@ To generate the thumbnail of a user defined Window inside a desired slide using 
 1. Save the thumbnail image in any desired image format.
 
 {{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Rendering-GeneratingThumbnailOfUserDefinedWindowFromSlide-GeneratingThumbnailOfUserDefinedWindowFromSlide.java" >}}
+
