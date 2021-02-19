@@ -87,7 +87,6 @@ In PowerPoint, Depth of the shape is set via:
 
 ![todo:image_alt_text](img_02_02.png)
 
-
 ## 3D Gradient
 3D gradient can bring more volume to PowerPoint 3D shape:
 
@@ -186,6 +185,7 @@ Here is the result:
 
 ![todo:image_alt_text](img_02_05.png)
 
+ 
  
 ## Not Supported - Coming Soon
 The following PowerPoint 3D features are not supported yet: 

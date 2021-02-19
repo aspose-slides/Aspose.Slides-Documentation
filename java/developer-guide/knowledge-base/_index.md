@@ -1,7 +1,7 @@
 ---
 title: Knowledge Base
 type: docs
-weight: 80
+weight: 280
 url: /java/knowledge-base/
 ---
 
