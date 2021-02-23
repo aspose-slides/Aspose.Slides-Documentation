@@ -98,7 +98,7 @@ Now Aspose.Slides for .NET support for rendering a shape as svg. WriteAsSvg met
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-ExportShapeToSVG-ExportShapeToSVG.cs" >}}
 
 ## **Shapes Alignment**
-Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.AlignShape()](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enum defines possible alignment options.
+Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.AlignShape()](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration  defines possible alignment options.
 
 ### Example 1
 
@@ -122,7 +122,7 @@ using (Presentation pres = new Presentation("example.pptx"))
 
 ### Example 2
 
-In this example shown how to align entire collection of shapes relative to the very bottom shape in the collection.
+The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
