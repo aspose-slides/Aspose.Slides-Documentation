@@ -89,10 +89,10 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
     if (oleObjectFrame != null)
     {
         // Get embedded file data
-        byte[] data = oleObjectFrame.EmbeddedFileData;
+        byte[] data = oleObjectFrame.EmbeddedDataInfo.EmbeddedFileData;
 
         // Get embedded file extention
-        string fileExtention = oleObjectFrame.EmbeddedFileExtension;
+        string fileExtention = oleObjectFrame.EmbeddedDataInfo.EmbeddedFileExtension;
 
         // Create path for saving the extracted file
         string extractedPath = dataDir + "excelFromOLE_out" + fileExtention;
@@ -142,7 +142,7 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 
     if (ole != null)
     {
-        using (System.IO.MemoryStream msln = new System.IO.MemoryStream(ole.ObjectData))
+        using (System.IO.MemoryStream msln = new System.IO.MemoryStream(ole.EmbeddedDataInfo.EmbeddedFileData))
         {
             // Reading object data in Workbook
             Aspose.Cells.Workbook Wb = new Aspose.Cells.Workbook(msln);
@@ -162,7 +162,8 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 
                 // Changing Ole frame object data
                 msout.Position = 0;
-                ole.ObjectData = msout.ToArray();
+                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(File.ReadAllBytes(dataDir + "book1.xlsx")/*msout.ToArray()*/, ole.EmbeddedDataInfo.EmbeddedFileExtension);
+                ole.SetEmbeddedData(newData);
             }
         }
     }
@@ -171,9 +172,4 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 }
 ```
 
-{{% alert color="primary" %}} 
-
-ObjectData property of the OleObjectFrame class represents [Object Linking and Embedding (OLE) Data Structures](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/85583d21-c1cf-4afe-a35f-d6701c5fbb6f) in general, but not file data itself. So please take into account the referenced documentation article when using this property.
-
-{{% /alert %}} 
   
