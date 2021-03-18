@@ -96,3 +96,39 @@ Below sample code is given.
 Now Aspose.Slides for .NET support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-ExportShapeToSVG-ExportShapeToSVG.cs" >}}
+
+## **Shapes Alignment**
+Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.AlignShape()](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration  defines possible alignment options.
+
+### Example 1
+
+Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
+
+``` csharp
+using (Presentation pres = new Presentation("example.pptx"))
+{
+     ISlide slide = pres.Slides[0];
+     IShape shape1 = slide.Shapes[1];
+     IShape shape2 = slide.Shapes[2];
+     IShape shape3 = slide.Shapes[4];
+     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
+     {
+          slide.Shapes.IndexOf(shape1),
+          slide.Shapes.IndexOf(shape2),
+          slide.Shapes.IndexOf(shape3)
+     });
+}
+```
+
+### Example 2
+
+The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
+
+``` csharp
+using (Presentation pres = new Presentation("example.pptx"))
+{
+    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
+}
+```
+
+
