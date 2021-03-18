@@ -21,7 +21,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.3](https://www.n
 |SLIDESNET-42454|Labels are not correctly rendered when exported to PNG|Bug|<https://docs.aspose.com/slides/java/powerpoint-charts/>
 |SLIDESNET-42425|Opening ODP/OTP file is taking too much time|Bug|<https://docs.aspose.com/slides/net/convert-openoffice-odp/>
 |SLIDESNET-42420|Slideshow prompts for "Repair" or shows "can't read" message when opened|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
-|SLIDESNET-42418|Exception when saving PPT file to PPT|Bug|<https://docs.aspose.com/slides/net/extract-text-from-presentation/><https://docs.aspose.com/slides/net/save-presentation/>
+|SLIDESNET-42418|Exception when saving PPT file to PPT|Bug|<https://docs.aspose.com/slides/net/extract-text-from-presentation/>  <https://docs.aspose.com/slides/net/save-presentation/>
 |SLIDESNET-42416|Shapes rendered incorrectly using dockerized application|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-jpg/>
 |SLIDESNET-42408|Aspose.Slides giving true for two unequal layout slides|Bug|<https://docs.aspose.com/slides/net/compare-slides/>
 |SLIDESNET-42404|Aspose.Slides aborts on files with .EMF content|Bug|<https://docs.aspose.com/slides/net/convert-presentation/#presentation-to-pdf-conversion>
