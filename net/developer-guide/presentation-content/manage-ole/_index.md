@@ -70,7 +70,7 @@ If an OLE object is already embedded in a slide, you can access that object easi
 1. Access OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
 1. Once OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then all of its Object Data is written to an Excel file.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
 
 ``` csharp 
 // The path to the documents directory.
@@ -119,7 +119,7 @@ modify its data. Please follow the steps below to find how to modify an OLE obje
 1. Save the updated Workbook in streams.
 1. Change the OLE object data from stream data.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its Object Data is modified to change the chart data.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
 
 ``` csharp 
 // The path to the documents directory.
