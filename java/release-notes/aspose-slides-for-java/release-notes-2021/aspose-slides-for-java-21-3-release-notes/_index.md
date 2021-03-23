@@ -13,10 +13,7 @@ This page contains release notes for [Aspose.Slides for Java 21.3](https://repo
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-42322|Failed to validate PDF/A file after export from presentation document|Enhancement|https://docs.aspose.com/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/|
-|SLIDESNET-42178|Support for Fonts substitution controller|Feature|https://docs.aspose.com/slides/java/font-substitution/|
 |SLIDESJAVA-38220|[Use Aspose.Slides for Net 21.3 features](/slides/net/aspose-slides-for-net-21-3-release-notes/)|Enhancement| |
-|SLIDESJAVA-38467|PPTX to PDF - Memory usage problem|Investigation|https://docs.aspose.com/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/|
 |SLIDESJAVA-38466|Labels are not correctly rendered when exported to PNG|Bug|https://docs.aspose.com/slides/java/convert-slide/#convert-slide-to-bitmap|
 |SLIDESJAVA-38435|Aspose.Slides giving true for two unequal layout slides|Bug|https://docs.aspose.com/slides/java/compare-slides/|
 |SLIDESJAVA-38432|NoSuchMethodError while generating thumbnail|Bug|https://docs.aspose.com/slides/java/convert-slide/#convert-slide-to-bitmap|
