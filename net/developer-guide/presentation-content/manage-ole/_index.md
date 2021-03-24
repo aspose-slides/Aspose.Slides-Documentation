@@ -89,10 +89,10 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
     if (oleObjectFrame != null)
     {
         // Get embedded file data
-        byte[] data = oleObjectFrame.EmbeddedDataInfo.EmbeddedFileData;
+        byte[] data = oleObjectFrame.EmbeddedData.EmbeddedFileData;
 
         // Get embedded file extention
-        string fileExtention = oleObjectFrame.EmbeddedDataInfo.EmbeddedFileExtension;
+        string fileExtention = oleObjectFrame.EmbeddedData.EmbeddedFileExtension;
 
         // Create path for saving the extracted file
         string extractedPath = dataDir + "excelFromOLE_out" + fileExtention;
@@ -136,18 +136,18 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
     {
         if (shape is OleObjectFrame)
         {
-            ole = (OleObjectFrame) shape;
+            ole = (OleObjectFrame)shape;
         }
     }
 
     if (ole != null)
     {
-        using (System.IO.MemoryStream msln = new System.IO.MemoryStream(ole.EmbeddedDataInfo.EmbeddedFileData))
+        using (MemoryStream msln = new MemoryStream(ole.EmbeddedData.EmbeddedFileData))
         {
             // Reading object data in Workbook
-            Aspose.Cells.Workbook Wb = new Aspose.Cells.Workbook(msln);
+            Workbook Wb = new Workbook(msln);
 
-            using (System.IO.MemoryStream msout = new System.IO.MemoryStream())
+            using (MemoryStream msout = new MemoryStream())
             {
                 // Modifying the workbook data
                 Wb.Worksheets[0].Cells[0, 4].PutValue("E");
@@ -155,14 +155,11 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
                 Wb.Worksheets[0].Cells[2, 4].PutValue(14);
                 Wb.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                Aspose.Cells.OoxmlSaveOptions so1 =
-                    new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
-
+                OoxmlSaveOptions so1 = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 Wb.Save(msout, so1);
 
                 // Changing Ole frame object data
-                msout.Position = 0;
-                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(File.ReadAllBytes(dataDir + "book1.xlsx")/*msout.ToArray()*/, ole.EmbeddedDataInfo.EmbeddedFileExtension);
+                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.ToArray(), ole.EmbeddedData.EmbeddedFileExtension);
                 ole.SetEmbeddedData(newData);
             }
         }
