@@ -108,7 +108,7 @@ To remove borders of the table cells, please follow the steps below:
 ## **Identify Merge Table Cell**
 Aspose.Slides for Java has provided the simplest API to identify merge table cells in an easiest way. To identify merge cells in table, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the the table from first slide.
 - Iterate through row and columns of table to find out merge cells.
 - Print Message if cells are merged.

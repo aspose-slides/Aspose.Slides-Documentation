@@ -122,7 +122,7 @@ The above code snippet aligns the text paragraph to the center as shown below:
 ## **Edit Paragraph Run Properties**
 This page will illustrate that how we can manage end paragraph run properties. We will see how developers can use this feature of Aspose.Slides for Java. Please follow the steps below to manage the End paragraph Run Properties using Aspose.Slides for Java:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Position.
 1. Add a Rectangle shape in the slide.
 1. Add a TextFrame with two Paragraphs in the Rectangle.

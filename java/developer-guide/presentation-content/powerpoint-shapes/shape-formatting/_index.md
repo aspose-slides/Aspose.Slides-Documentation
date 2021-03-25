@@ -112,7 +112,7 @@ To fill a shape with some solid color using Aspose.Slides for Java, please follo
 ## **StretchOff Property**
 The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom has been added to IPictureFillFormat interface and PictureFillFormat class respectively. These properties specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
 
-- Create an instance of [Presentation class](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its index.
 - Add an AutoShape of Rectangle type.
 - Create Image.

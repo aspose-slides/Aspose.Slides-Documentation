@@ -6,7 +6,7 @@ url: /java/presentation-localization/
 ---
 
 ## **Change Language of Presentation**
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Rectangle type to the slide.
 - Add some text to the TextFrame.

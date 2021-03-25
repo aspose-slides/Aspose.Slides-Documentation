@@ -39,7 +39,7 @@ Aspose.Slides for Java allows developers to add new Layout slides in presentatio
 ## **Set Footer Visibility inside Slide**
 Aspose.Slides for Java provides the feature for Setting footer visibility inside slide. To set footer in a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide by its reference index.
 1. Set Footer visible by making slide footer placeholder visible.
 1. Set date-time placeholder visible by using SetDateTime method.
@@ -51,7 +51,7 @@ Aspose.Slides for Java provides the feature for Setting footer visibility inside
 ## **Set Child Footer Visibility inside Slide**
 Aspose.Slides for Java provides the feature for Setting footer visibility inside slide. To set footer and child footer inside a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the master slide by using its index.
 1. Set Footer and child footer visibility by making master slide and all child footer placeholder visible.
 1. Set text to master slide and all child footer placeholder by using SetFooterAndChildFootersText method.

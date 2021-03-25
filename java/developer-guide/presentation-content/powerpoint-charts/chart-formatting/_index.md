@@ -65,7 +65,7 @@ The above code snipped will create a chart like the one shown below.
 ## **Set Font Properties for Chart Data Table**
 Aspose.Slides for Java provides support for changing color of categories in a series color. 
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. set chart table.
 1. Set font height.
@@ -154,7 +154,7 @@ The above code snippet create a chart like the one shown below.
 ## **Set Chart Rounded Borders**
 Aspose.Slides for Java provides support for setting chart area. **IChart.HasRoundedCorners** and **Chart.HasRoundedCorners** properties have been added in Aspose.Slides. 
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Set fill type and fill color of chart
 1. Set round corner property True.

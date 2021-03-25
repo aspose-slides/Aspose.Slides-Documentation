@@ -74,7 +74,7 @@ Use the **ParentSeriesGroup** property to access the parent series group, and th
 ## **Change Color of Chart Series**
 Aspose.Slides for Java provides support for changing series color. 
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Access specific series of chart.
 1. Set fill type and fill color.
@@ -87,7 +87,7 @@ Aspose.Slides for Java provides support for changing series color. 
 ## **Change Category Color of Chart Series**
 Aspose.Slides for Java provides support for changing color of categories in a series color. 
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Access specific series of chart.
 1. Set fill type and fill color.
