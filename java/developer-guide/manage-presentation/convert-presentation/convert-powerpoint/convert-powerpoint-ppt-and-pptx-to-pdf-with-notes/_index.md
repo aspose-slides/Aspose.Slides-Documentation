@@ -7,12 +7,41 @@ keywords: "convert powerpoint to pdf notes in java"
 description: "Convert PowerPoint to PDF notes in Java"
 ---
 
-## **Convert PPT(X) to PDF Notes**
-The following example shows how to convert presentation to a PDF notes document with custom slide size. Where each inch equals 72 pixels.
+## **Convert PowerPoint to PDF with Custom Slide Size**
+The following example shows how to convert a presentation to a PDF notes document with custom slide size. Where each inch equals 72.
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Conversion-SaveToPDFNotesWithCustomSlideSize-SaveToPDFNotesWithCustomSlideSize.java" >}}
+```java
+// Instantiate a Presentation object that represents a presentation file
+Presentation presIn = new Presentation("SelectedSlides.pptx");
+Presentation presOut = new Presentation();
+try {
+    ISlide slide = presIn.getSlides().get_Item(0);
+    presOut.getSlides().insertClone(0, slide);
+    
+    // Setting Slide Type and Size
+    presOut.getSlideSize().setSize(612F, 792F,SlideSizeScaleType.EnsureFit);
+        
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
 
-## **Convert PPT(X) in Notes Slide View to PDF**
-The Save method exposed by [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for Java is a two-line process. You simply need to open the presentation and save it out to PDF notes.
+    presOut.save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (presIn != null) presIn.dispose();
+    if (presOut != null) presOut.dispose();
+}
+```
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Conversion-ConvertingPresentationInNotesSlideViewToPDF-ConvertingPresentationInNotesSlideViewToPDF.java" >}}
+## **Convert PowerPoint to PDF in Notes Slide View**
+The [**Save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method exposed by [**Presentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. The code snippets below update the sample presentation to PDF in Notes Slide view.
+
+```java
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
+
+    pres.save(resourcesOutputPath+"PDF-Notes.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
