@@ -130,3 +130,17 @@ Please follow the steps below:
 - Write the modified presentation as a PPTX file.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FillFormatSmartArtShapeNode-FillFormatSmartArtShapeNode.cpp" >}}
+
+
+## **Generate Thumbnail of SmartArt Child Node**
+Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
+
+1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class that represents the PPTX file.
+1. Add SmartArt.
+1. Obtain the reference of a node by using its Index
+1. Get the thumbnail image.
+1. Save the thumbnail image in any desired image format.
+
+The example below generating a thumbnail of SmartArt child node
+
+{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSmartArtChildNoteThumbnail-CreateSmartArtChildNoteThumbnail.cpp" >}}
