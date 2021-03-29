@@ -51,16 +51,3 @@ This method for creating thumbnails of shapes allows developers to generate a th
 The example below create a thumbnail with generating a thumbnail with user defined scaling factor.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateBoundsShapeThumbnail-CreateBoundsShapeThumbnail.cpp" >}}
-
-## **Generate Thumbnail of SmartArt Child Node**
-Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
-
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class that represents the PPTX file.
-1. Add SmartArt.
-1. Obtain the reference of a node by using its Index
-1. Get the thumbnail image.
-1. Save the thumbnail image in any desired image format.
-
-The example below generating a thumbnail of SmartArt child node
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSmartArtChildNoteThumbnail-CreateSmartArtChildNoteThumbnail.cpp" >}}

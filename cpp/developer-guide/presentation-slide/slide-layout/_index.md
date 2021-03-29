@@ -37,7 +37,7 @@ To set footer in a slide using its index position in the slides collection of th
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-HeaderFooterManager-HeaderFooterManager.cpp" >}}
 
-## **Set Footer Visibility inside Slide**
+## **Set Child Footer Visibility inside Slide**
 To set footer and child footer a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
 1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.

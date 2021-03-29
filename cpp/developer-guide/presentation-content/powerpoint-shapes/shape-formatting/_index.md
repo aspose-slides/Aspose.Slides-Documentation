@@ -22,7 +22,7 @@ In the example given below, we have selected an AutoShape of Rectangle type whos
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FormatLines-FormatLines.cpp" >}}
 
 
-### **Format Join Style**
+## **Format Join Style**
 Join Style is the style of the outer corners of the shape. They are of three types.
 
 - Mitter
@@ -101,7 +101,7 @@ Aspose.Slides for C++ now supports adding 3D bevel effects to a shape. This coul
    In the example given below, we have applied 3D bevel effects on a shape.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ApplyBevelEffects-ApplyBevelEffects.cpp" >}}
-### **Adding 3D Rotation Effect**
+## **Adding 3D Rotation Effect**
 Aspose.Slides for C++ now supports adding 3D Rotation effects to a shape. This could be done by setting ThreeDFormat properties of a shape programatically. In this topic, we will see with example how to set the 3D Rotation Effects to a shape in Aspose.Slides. In order to set the ThreeDFormat properties. Please follow the steps below:
 
 1. Create an instance of [Presentation class](http://www.aspose.com/api/net/slides/aspose.slides/).

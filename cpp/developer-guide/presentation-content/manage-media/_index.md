@@ -6,7 +6,7 @@ url: /cpp/manage-media/
 ---
 
 ## **Export Media File to HTML**
-In order to export media files to HTML. Please follow the steps below:
+In order to export media filAspose.Slides for C++ provides a simple API for managing chart data formaes to HTML. Please follow the steps below:
 
 1. Create an instance of Presentation class.
 1. Get reference of the slide.
