@@ -71,7 +71,7 @@ try {
 ```
 
 ## **Set Size and Type of Slide**
-[SlideSize.getType](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://apireference.aspose.com/net/slides/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
+[SlideSize.getType](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#setSize-float-float-int-) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```java
 // Instantiate Presentation objects that represent presentation files

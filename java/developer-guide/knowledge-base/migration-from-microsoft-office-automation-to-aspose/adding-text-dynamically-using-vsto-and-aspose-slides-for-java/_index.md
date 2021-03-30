@@ -29,7 +29,7 @@ The code snippets below results in a presentation with a plain slide and a strin
 ## **Aspose.Slides for Java Example**
 The code snippets below use Aspose.Slides to create a presentation with a plain slide and a string of text on it.
 
-**The presentation as created using Aspose.Slides for .NET** 
+**The presentation as created using Aspose.Slides for Java** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_2.png)
 

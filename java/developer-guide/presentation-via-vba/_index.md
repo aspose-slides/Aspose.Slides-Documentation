@@ -12,12 +12,9 @@ Aspose.Slides for Java allows developers to manage VBA macros in a presentation.
 
 {{% /alert %}} 
 
-The [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class' previous **getVbaProject()** method has been replaced. Now instead of the raw bytes of the [**getVbaProject()**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getVbaProject--) method representation of VBA project, the new [IVbaProject](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IVbaProject) interface implementation has been added.
-
+The [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class previous **getVbaProject()** method has been replaced. Now instead of the raw bytes of the [**getVbaProject()**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getVbaProject--) method representation of VBA project, the new [IVbaProject](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IVbaProject) interface implementation has been added.
 Use [IVbaProject](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IVbaProject) to manage VBA embedded in a presentation. You can add new project references, edit existing modules and create new ones.
-
 Also, you can create a new VBA project using the [VbaProject](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/VbaProject) class which implements the [IVbaProject](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IVbaProject) interface.
-
 The following example shows how to create a simple VBA project. It contains one module and adds two required references to the libraries.
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.

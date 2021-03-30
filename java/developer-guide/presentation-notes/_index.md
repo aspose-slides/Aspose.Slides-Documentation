@@ -60,7 +60,7 @@ try {
 ```
 
 ## **Add NotesStyle**
-[NotesStyle](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) property has been added to [IMasterNotesSlide](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://apireference.aspose.com/slides/java/com.aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
+[getNotesStyle](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://apireference.aspose.com/slides/java/com.aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
 ```java
 // Instantiate a Presentation object that represents a presentation file
