@@ -93,5 +93,34 @@ Below is the sample code is given.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
 
+## **Shapes Alignment**
+Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.AlignShapes()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) enumeration  defines possible alignment options.
 
+### Example 1
 
+Source code below aligns shapes with indices 1, 2 and 4 along the top border of the slide. 
+
+``` cpp
+SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"example.pptx");
+
+SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+SharedPtr<IShape> shape1 = slide->get_Shapes()->idx_get(1);
+SharedPtr<IShape> shape2 = slide->get_Shapes()->idx_get(2);
+SharedPtr<IShape> shape3 = slide->get_Shapes()->idx_get(4);
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, pres->get_Slides()->idx_get(0), 
+System::MakeArray<int32_t>(
+    {
+        slide->get_Shapes()->IndexOf(shape1),
+        slide->get_Shapes()->IndexOf(shape2),
+        slide->get_Shapes()->IndexOf(shape3)
+    }));
+```
+
+### Example 2
+
+The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
+
+``` cpp
+SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
+```
