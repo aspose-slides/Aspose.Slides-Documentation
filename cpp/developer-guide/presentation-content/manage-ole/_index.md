@@ -174,7 +174,7 @@ void ChangeOLEObjectData()
 ```
 
 ## **Set File Type for Embedded Object**
-Using Aspose.Slides for C++ you can set file type for an embedding object. For this purpose, new methods **addOleObjectFrame** and **insertOleObjectFrame** have been added into **IShapeCollection**.
+Using Aspose.Slides for C++ you can set file type for an embedding object. For this purpose, new **addOleObjectFrame** and **insertOleObjectFrame** methods have been added into **IShapeCollection**.
 
 These methods allow to get **IOleEmbeddedDataInfo** object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects.
 
@@ -186,9 +186,9 @@ The following example shows how to set file type for an embedding object:
 ## **Extract Embedded Files from OLE Object**
 Aspose.Slides for C++ supports extracting embedded files from OLE Object. In order to extract embedded files, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/cpp/slides/class/aspose.slides.presentation/) class and Load a presentation contains OLE Object
-- Loop through all the shapes in a presentation and access the OLE Object Frame shape
-- Access the data of the Embedded file from OLE Object Frame and write it to disk
+- Create an instance of [Presentation](https://apireference.aspose.com/cpp/slides/class/aspose.slides.presentation/) class and Load a presentation containing OLE Object.
+- Loop through all the shapes in a presentation and access the OLE Object Frame shape.
+- Access the data of the Embedded file from OLE Object Frame and write it to disk.
 
 The implementation of the above steps is demonstrated in the example below.
 
