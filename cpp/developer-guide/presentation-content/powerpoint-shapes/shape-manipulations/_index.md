@@ -94,9 +94,9 @@ Below is the sample code is given.
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
 
 ## **Shapes Alignment**
-Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.AlignShapes()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) enumeration  defines possible alignment options.
+Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, an overloaded [SlidesUtil.AlignShapes()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) method has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) enumeration  defines possible alignment options.
 
-### Example 1
+**Example 1**
 
 Source code below aligns shapes with indices 1, 2 and 4 along the top border of the slide. 
 
@@ -116,7 +116,7 @@ System::MakeArray<int32_t>(
     }));
 ```
 
-### Example 2
+**Example 2**
 
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
