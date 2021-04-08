@@ -11,7 +11,7 @@ Qt is a C++ based cross-platform application development framework which is wide
 
 ## Using Aspose.Slides for C++ within Qt Creator
 
-For using Aspose.Slides for C++ in your Qt application download the latest version of the API from the [downloads](https://downloads.aspose.com/slides/cpp) section. Once the API is downloaded, you can use integrate the C++ library within Qt Creator or you can use with Visual Studio.
+In order to use Aspose.Slides for C++ in your Qt application download the latest version of the API from the [downloads](https://downloads.aspose.com/slides/cpp) section. Once the API is downloaded, you can integrate the C++ library within Qt Creator or Visual Studio.
 
 In order to integrate and use Aspose.Slides for C++ library within a Qt Console Application developed in Qt Creator, please follow the steps given below:
 
@@ -19,7 +19,7 @@ In order to integrate and use Aspose.Slides for C++ library within a Qt Console 
 
 ![qt_console_application](Qt-Console-Application.png)
 
-- Select the QMake option from the *Build System* dropdown.
+- Select the QMake option from the *Build System* dropdown list.
 
 ![qt_console_application_qmake](Qt-Console-Application-QMake.png)
 
@@ -32,7 +32,7 @@ In order to integrate and use Aspose.Slides for C++ library within a Qt Console 
 
 ![qt_add_library](Qt_Add_Library.png)
 
-- Select the External Library option and browse paths to include and lib folders one by one.
+- Select the External Library option and browse paths to include lib folders one by one.
 
 ![todo:image_alt_text](Qt-Add-External-Library.png)
 
@@ -50,7 +50,7 @@ Note: See the [full demo project](https://github.com/aspose-slides/Aspose.Slides
 
 ## Using Aspose.Slides for C++ in Qt Applications within Visual Studio
 
-For developing a Qt application using Visual Studio, you require to install [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123). Once you have the installation, download the latest version of the API from the [downloads](https://downloads.aspose.com/slides/cpp) section and follow the steps given below:
+In order to develop a Qt application using Visual Studio, you need to install [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123). Once you have the installation, download the latest version of the API from the [downloads](https://downloads.aspose.com/slides/cpp) section and follow the steps given below:
 
 - Open Microsoft Visual Studio and create a new *Qt Console Application*.
 
