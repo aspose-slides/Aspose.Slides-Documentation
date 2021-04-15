@@ -52,14 +52,220 @@ This page contains release notes for [Aspose.Slides for .NET 21.4](https://www.n
 |SLIDESNET-39946|Pptx to Thumbnail not properly converted|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-35673|Shape content does not change in scaled shape thumbnail|Bug|<https://docs.aspose.com/slides/net/create-shape-thumbnails/>
 
-== Public API Changes ==
+## Public API Changes ##
 
-=== IAudioFrame.PlayAcrossSlides and IAudioFrame.RewindAudio properties have been added ===
+### IAudioFrame.PlayAcrossSlides and IAudioFrame.RewindAudio properties have been added ###
 
-=== InClickSequence value has been added to AudioPlayModePreset enumeration ===
+New properties **PlayAcrossSlides** and **RewindAudio** have been added to the **IAudioFrame** interface and **AudioFrame** class.
 
-=== InClickSequence value has been added to VideoPlayModePreset enumeration ===
+The **PlayAcrossSlides** property allows determining whether audio is playing across the slides.
 
-=== IOleObjectFrame.SetEmbeddedData method and IOleObjectFrame.EmbeddedData property have been added ===
+Property declaration:
+``` csharp
+/// <summary>
+/// Determines whether audio is playing across the slides.
+/// Read/write <see cref="bool"/>.
+/// </summary>
+bool PlayAcrossSlides { get; set; }
+```
 
-=== New overloadings for the SlideUtil.AlignShapes method have been added ===
+The **RewindAudio** property allows determining whether audio is automatically rewinded to start after playing.
+
+Property declaration:
+
+``` csharp
+/// <summary>
+/// Determines whether audio is automatically rewinded to start after playing.
+/// Read/write <see cref="bool"/>.
+/// </summary>
+bool RewindAudio { get; set; }
+```
+
+The code snippet below demonstrates adding the **AudioFrame** and changing its properties:
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+
+    // Add Audio Frame
+    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameLinked(50, 50, 100, 100, "sampleaudio.wav");
+
+    // Set Audio to play across the slides
+    audioFrame.PlayAcrossSlides = true;
+
+    // Set Audio to automatically rewind to start after playing
+    audioFrame.RewindAudio = true;
+
+    pres.Save("AudioFrame_out.pptx", SaveFormat.Pptx);
+}
+```
+
+### InClickSequence value has been added to AudioPlayModePreset enumeration ###
+
+**InClickSequence** value has been added to **AudioPlayModePreset** enumeration. It represents In Click Sequence audio start play mode. 
+
+The code snippet below demonstrates adding the AudioFrame and changing its play mode: 
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+
+    // Add Audio Frame
+    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameLinked(50, 50, 100, 100, "sampleaudio.wav");
+
+    // Set audio play mode to In Click Sequence
+    audioFrame.PlayMode = AudioPlayModePreset.InClickSequence;
+
+    pres.Save("AudioFrame_out.pptx", SaveFormat.Pptx);
+}
+```
+
+### InClickSequence value has been added to VideoPlayModePreset enumeration ###
+
+**InClickSequence** value has been added to **VideoPlayModePreset** enumeration.
+It represents In Click Sequence video start play mode.
+
+The code snippet below demonstrates adding the **VideoFrame** and changing its play mode:
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+
+    // Add Video Frame
+    IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(50, 50, 200, 150, "samplevideo.wmv");
+
+    // Set video play mode to In Click Sequence
+    videoFrame.PlayMode = VideoPlayModePreset.InClickSequence;
+
+    pres.Save("VideoFrame_out.pptx", SaveFormat.Pptx);
+}
+```
+
+### IOleObjectFrame.SetEmbeddedData method and IOleObjectFrame.EmbeddedData property have been added ###
+
+A new method **SetEmbeddedData** and a new property **EmbeddedData** have been added to the **IOleObjectFrame** interface and **OleObjectFrame** class.
+
+These method and property allow to get, set and change an embedded data and its type of OLE object.
+
+Property declaration:
+
+``` csharp
+/// <summary>
+/// Gets information about OLE embedded data.
+/// Read only <see cref="IOleEmbeddedDataInfo"/>.
+/// </summary>
+IOleEmbeddedDataInfo EmbeddedData { get; }
+```
+
+Method declaration:
+
+``` csharp
+/// <summary>
+/// Sets information about OLE embedded data.
+/// </summary>
+/// <remarks>
+/// This method changes the properties of the object to reflect the new data and 
+/// sets the IsObjectLink flag to false, indicating that the OLE object is embedded.
+/// </remarks>
+/// <param name="embeddedData">Embedded data <see cref="IOleEmbeddedDataInfo"/></param>
+/// <exception cref="ArgumentNullException">When embeddedData parameter is null.</exception>
+void SetEmbeddedData(IOleEmbeddedDataInfo embeddedData);
+```
+
+The code snippet below demonstrates getting and changing OLE embedded data in existing OLE object:
+
+``` csharp
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    OleObjectFrame oleFrame = null;
+
+    // Get first slide of a presentation
+    ISlide slide = pres.Slides[0];
+
+    // Traversing all shapes for OLE frame
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is OleObjectFrame)
+        {
+            oleFrame = (OleObjectFrame)shape;
+        }
+    }
+
+    if (oleFrame != null)
+    {
+        // Create a file name with type of an embedded data
+        string embeddedFile = "EmbeddedData." + oleFrame.EmbeddedData.EmbeddedFileExtension;
+
+        // Save embedded data to a file
+        File.WriteAllBytes(embeddedFile, oleFrame.EmbeddedData.EmbeddedFileData);
+
+        // Create new data for embedding in OLE object
+        byte[] data = File.ReadAllBytes("book1.xlsx");
+        IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(data, "xlsx");
+        
+        // Change embedding data in OleObjectFrame
+        oleFrame.SetEmbeddedData(newData);
+    }
+
+    pres.Save("OleEdit_out.pptx", SaveFormat.Pptx);
+}
+```
+
+Please note that properties **ObjectData**, **EmbeddedFileExtension** and **EmbeddedFileData** of **IOleObjectFrame** interface marked as obsolete now so please use **IOleObjectFrame.SetEmbeddedData** method and **IOleObjectFrame.EmbeddedData** property instead of them. These obsolete properties will be removed after the release of version 21.11.
+
+### New overloadings for the SlideUtil.AlignShapes method have been added ###
+
+Method **SlideUtil.AlignShapes** (ShapesAlignmentType alignmentType, bool alignToSlide, IBaseSlide slide) has been added. 
+
+This overloading allows aligning all shapes within **IBaseSlide**. 
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+   ISlide slide = pres.Slides[0];
+   IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 100);
+   IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 100, 100);
+   IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
+   SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, true, pres.Slides[0]);
+   pres.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+Method **SlideUtil.AlignShapes** (ShapesAlignmentType alignmentType, bool alignToSlide, IGroupShape shapes) has been added. 
+
+This overloading allows aligning all shapes within **IGroupShape**. 
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+   ISlide slide = pres.Slides[0];
+   IGroupShape groupShape = slide.Shapes.AddGroupShape(); 
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 350, 50, 50, 50);
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 150, 50, 50);
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 550, 250, 50, 50);
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 650, 350, 50, 50);
+   SlideUtil.AlignShapes(ShapesAlignmentType.AlignLeft, false, groupShape);
+   pres.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+Method **SlideUtil.AlignShapes** (ShapesAlignmentType alignmentType, bool alignToSlide, IGroupShape shapes, int[] shapeIndexes) has been added. 
+
+This overloading allows aligning shapes with specified indexes within **IGroupShape**. 
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+   ISlide slide = pres.Slides[0];
+   IGroupShape groupShape = slide.Shapes.AddGroupShape(); 
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 350, 50, 50, 50);
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 150, 50, 50);
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 550, 250, 50, 50);
+   groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 650, 350, 50, 50);
+   SlideUtil.AlignShapes(ShapesAlignmentType.AlignLeft, false, groupShape, new int[] { 0, 2 });
+   pres.Save("output.pptx", SaveFormat.Pptx);
+}
+```
