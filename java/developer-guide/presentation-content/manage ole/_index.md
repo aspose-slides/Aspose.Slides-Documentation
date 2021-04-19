@@ -33,9 +33,6 @@ In the example given below, a Microsoft Excel Chart object in an Excel file is a
 constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly 
 interpret the file type and, choose the right application to open this OLE object.
 ``` java 
-// The path to the documents directory.
-String dataDir = RunExamples.getDataDir_Shapes();
-
 // Instantiate Prseetation class that represents the PPTX
 Presentation pres = new Presentation();
 try
@@ -44,7 +41,7 @@ try
     ISlide sld = pres.getSlides().get_Item(0);
 
 	// Load an cel file to stream
-	FileInputStream fs = new FileInputStream(dataDir + "book1.xlsx");
+	FileInputStream fs = new FileInputStream("book1.xlsx");
 	ByteArrayOutputStream mstream = new ByteArrayOutputStream();
 	byte[] buf = new byte[4096];
 
@@ -66,7 +63,7 @@ try
 			dataInfo);
 
 	//Write the PPTX to disk
-	pres.save(dataDir + "OleEmbed_out.pptx", SaveFormat.Pptx);
+	pres.save("OleEmbed_out.pptx", SaveFormat.Pptx);
 } 
 finally 
 {
@@ -81,16 +78,12 @@ If an OLE object is already embedded in a slide, you can access that object easi
 1. Access OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
 1. Once OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then all of its Object Data is written to an Excel file.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
 
 ``` java 
-// The path to the documents directory.
-String dataDir = RunExamples.getDataDir_Shapes();
-
 // Load the PPTX to Presentation object
-Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.pptx");
-try
-{
+Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx");
+try {
     // Access the first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
@@ -98,17 +91,17 @@ try
     OleObjectFrame oleObjectFrame = (OleObjectFrame) sld.getShapes().get_Item(0);
 
     // Read the OLE Object and write it to disk
-    if (oleObjectFrame != null)
-    {
+    if (oleObjectFrame != null) {
         // Get embedded file data
-        byte[] data = oleObjectFrame.getEmbeddedFileData();
+        byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
 
         // Get embedded file extention
-        String fileExtention = oleObjectFrame.getEmbeddedFileExtension();
+        String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
 
         // Create path for saving the extracted file
-        String extractedPath = dataDir + "excelFromOLE_out" + fileExtention;
+        String extractedPath = "excelFromOLE_out" + fileExtention;
 
+        // Save extracted data
         // Save extracted data
         FileOutputStream fstr = new FileOutputStream(extractedPath);
         try {
@@ -117,9 +110,8 @@ try
             fstr.close();
         }
     }
-}
-finally
-{
+} catch (IOException e) {
+} finally {
     if (pres != null) pres.dispose();
 }
 ```
@@ -137,98 +129,54 @@ modify its data. Please follow the steps below to find how to modify an OLE obje
 1. Save the updated Workbook in streams.
 1. Change the OLE object data from stream data.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its Object Data is modified to change the chart data.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
 
 ``` java 
-// The path to the documents directory.
-String dataDir = RunExamples.getDataDir_Shapes();
-
-Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx");
-try
-{
+Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
+try {
     ISlide slide = pres.getSlides().get_Item(0);
 
     OleObjectFrame ole = null;
 
     // Traversing all shapes for Ole frame
-    for (IShape shape : slide.getShapes())
-    {
-        if (shape instanceof OleObjectFrame)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof OleObjectFrame) {
             ole = (OleObjectFrame) shape;
         }
     }
 
-    if (ole != null)
-    {
-        // Reading object data in Workbook
-        Workbook Wb;
-
-        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getObjectData());
-        try
-        {
-            Wb = new Workbook(msln);
+    if (ole != null) {
+        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getEmbeddedData().getEmbeddedFileData());
+        try {
+            // Reading object data in Workbook
+            Workbook Wb = new Workbook(msln);
 
             ByteArrayOutputStream msout = new ByteArrayOutputStream();
-            try
-            {
+            try {
                 // Modifying the workbook data
                 Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
                 Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
                 Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
                 Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
 
-                OoxmlSaveOptions so1 =
-                        new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
-
+                OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
                 Wb.save(msout, so1);
 
                 // Changing Ole frame object data
-                ole.setObjectData(msout.toByteArray());
-            }
-            finally
-            {
+                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
+                ole.setEmbeddedData(newData);
+            } finally {
                 if (msout != null) msout.close();
             }
-        }
-        finally
-        {
+        } finally {
             if (msln != null) msln.close();
         }
     }
 
-    pres.save(dataDir + "OleEdit_out.pptx", SaveFormat.Pptx);
-}
-finally
-{
+    pres.save("OleEdit_out.pptx", SaveFormat.Pptx);
+} catch (Exception e) {
+} finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-
-ObjectData property of the OleObjectFrame class represents [Object Linking and Embedding (OLE) Data Structures](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/85583d21-c1cf-4afe-a35f-d6701c5fbb6f) in general, but not file data itself. So please take into account the referenced documentation article when using this property.
-
-{{% /alert %}} 
-  
-
-## **Set File Type for Embedded Object**
-Using Aspose.Slides for Java you can set file type for an embedding object. For this purpose, new methods **addOleObjectFrame** and **insertOleObjectFrame** have been added into **IShapeCollection**.
-
-These methods allow to get **IOleEmbeddedDataInfo** object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects.
-
-The following example shows how to set file type for an embedding object:
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-SetFileTypeForAnEmbeddingObject-SetFileTypeForAnEmbeddingObject.java" >}}
-
-
-## **Extract Embedded Files from OLE Object**
-Aspose.Slides for Java supports extracting embedded files from OLE Object. In order to extract embedded files, please follow the steps below:
-
-- Create an instance of [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/presentation) class and Load a presentation contains OLE Object
-- Loop through all the shapes in a presentation and access the OLE Object Frame shape
-- Access the data of the Embedded file from OLE Object Frame and write it to disk
-
-The implementation of the above steps is demonstrated in the example below.
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-ExtractEmbeddedFileDataFromOLEObject-ExtractEmbeddedFileDataFromOLEObject.java" >}}
