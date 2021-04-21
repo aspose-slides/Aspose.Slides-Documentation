@@ -163,6 +163,14 @@ The code examples that follow how to update a chart.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-ExistingChart-ExistingChart.cs" >}}
 
+#### Refreshing Charts to Show Edited Data
+
+After you save a chart, you might make changes to the data from which the chart was created.
+
+Aspose.Slides for .NET automatically updates the chart to reflect the changed data.
+
+
+
 
 Setting Data Range for Chart
 
