@@ -49,7 +49,7 @@ Sample code used to create a scatter chart with different series of markers:
 Sample code used to create a pie chart:
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-PieChart-PieChart.cs" >}}
-## **Creating Tree Map Chart**s
+## **Creating Tree Map Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.TreeMap).
@@ -62,7 +62,7 @@ Sample code used to create a pie chart:
 Sample code used to create a chart:
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-TreeMapChart-TreeMapChart.cs" >}}
-## **Creating Stock Chart**s
+## **Creating Stock Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
@@ -99,15 +99,7 @@ The following code is used to create a chart.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-FunnelChart-FunnelChart.cs" >}}
 
-
-
-## Creating Fusion Charts
-
-
-
-
-
-## **Creating Sunburst Chart**s
+## **Creating Sunburst Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.sunburst).
@@ -116,7 +108,7 @@ The following code is used to create a chart.
 The following code is used to create a chart.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-SunburstChart-SunburstChart.cs" >}}
-## **Creating Histogram Chart**s
+## **Creating Histogram Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.Histogram).
@@ -156,7 +148,7 @@ Code sample used to update a chart:
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-ExistingChart-ExistingChart.cs" >}}
 
-## Setting Data Range for Charts
+## **Setting Data Range for Charts**
 
 To set the data range for a chart, do this:
 
