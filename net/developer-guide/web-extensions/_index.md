@@ -299,3 +299,110 @@ using (Presentation pres = new Presentation("table.pptx"))
 	}
 </table>
 ```
+
+Note, that the custom table template was added with the same “table” key, as the standard table. Thus, it is possible to replace a certain default template without rewriting it. We may also use the templates from the default structure with the same keys. For example, we use a standard paragraph template in the table template. It is also possible to replace it by the key.
+We should also use index.html to include the reference on custom table CSS styles into it: 
+
+``` html
+<!DOCTYPE html>    
+    
+<html     
+    xmlns="http://www.w3.org/1999/xhtml"    
+    xmlns:svg="http://www.w3.org/2000/svg"    
+    xmlns:xlink="http://www.w3.org/1999/xlink">    
+<head>    
+     ...
+    <link rel="stylesheet" type="text/css" href="table-custom-style.css" />
+    ...
+</head>    
+<body>    
+    ...
+</body>
+</html>
+```
+
+## Create Project from Scratch: Animated Slides Transitions
+
+WebExtensions allows exporting presentations with animated slide transitions. For that, you just need to set true to AnimateTransitions property in WebDocumentOptions:
+
+``` csharp
+WebDocumentOptions options = new WebDocumentOptions
+{
+    // ... other options
+    AnimateTransitions = true
+};
+```
+
+Let us create a new project, which uses Aspose.Slides and Aspose.Slides.WebExtensions for creating HTML-viewer for PDF with a smooth animated page transitions. For that, we need to use the PDF import feature of Aspose.Slides.
+
+Let us create a PdfToPresentationToHtml project and include the Aspose.Slides.WebExtensions nuget package (Aspose.Slides package will be also included as the dependency):
+[screen2]
+
+We will start from importing the PDF document, which should be animated and exported into an HTML presentation:
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    pres.Slides.RemoveAt(0);
+    pres.Slides.AddFromPdf("sample.pdf");
+}
+```
+
+Now we may set up the animated slide transitions (each slide is the imported PDF page). We use 9 slides in the sample PDF document. Let us add slide transitions into each of it, to demonstrate it while viewing HTML:
+
+``` csharp
+pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
+pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
+pres.Slides[2].SlideShowTransition.Type = TransitionType.Cover;
+pres.Slides[3].SlideShowTransition.Type = TransitionType.Dissolve;
+pres.Slides[4].SlideShowTransition.Type = TransitionType.Switch;
+pres.Slides[5].SlideShowTransition.Type = TransitionType.Pan;
+pres.Slides[6].SlideShowTransition.Type = TransitionType.Ferris;
+pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
+pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
+```
+
+Finally, let us export to HTML by using WebDocument with the AnimateTransitions property set to true:
+
+``` csharp
+WebDocumentOptions options = new WebDocumentOptions
+{
+    TemplateEngine = new RazorTemplateEngine(),
+    OutputSaver = new FileOutputSaver(),
+    AnimateTransitions = true
+};
+
+WebDocument document = pres.ToSinglePageWebDocument(options, "templates\\single-page", "animated-pdf");
+document.Save();
+```
+
+Full source code example:
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    pres.Slides.RemoveAt(0);
+    pres.Slides.AddFromPdf("sample.pdf");
+
+    pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
+    pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
+    pres.Slides[2].SlideShowTransition.Type = TransitionType.Cover;
+    pres.Slides[3].SlideShowTransition.Type = TransitionType.Dissolve;
+    pres.Slides[4].SlideShowTransition.Type = TransitionType.Switch;
+    pres.Slides[5].SlideShowTransition.Type = TransitionType.Pan;
+    pres.Slides[6].SlideShowTransition.Type = TransitionType.Ferris;
+    pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
+    pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
+
+    WebDocumentOptions options = new WebDocumentOptions
+    {
+        TemplateEngine = new RazorTemplateEngine(),
+        OutputSaver = new FileOutputSaver(),
+        AnimateTransitions = true
+    };
+
+    WebDocument document = pres.ToSinglePageWebDocument(options, "templates\\single-page", "animated-pdf");
+    document.Save();
+}
+```
+
+That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples), and the sample project - here [zip].
