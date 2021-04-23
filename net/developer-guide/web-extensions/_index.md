@@ -173,10 +173,7 @@ Find how the common part is binded for all the templates in PresentationExtensio
 
 It is possible to modify any element in the template of the common model. For example, you would like to change the table formatting styles, but remain all the other styles of single page the same.
 
-By default, Templates\common\table.html [ссылка] is used, and the table has the same appearance as the table in PowerPoint:
-[screen1]
-
-Let us change table formatting by using custom CSS styles:
+By default, Templates\common\table.html [ссылка] is used, and the table has the same appearance as the table in PowerPoint. Let us change table formatting by using custom CSS styles:
 ``` css
 .custom-table {
     border: 1px solid black;
@@ -336,7 +333,7 @@ WebDocumentOptions options = new WebDocumentOptions
 Let us create a new project, which uses Aspose.Slides and Aspose.Slides.WebExtensions for creating HTML-viewer for PDF with a smooth animated page transitions. For that, we need to use the PDF import feature of Aspose.Slides.
 
 Let us create a PdfToPresentationToHtml project and include the Aspose.Slides.WebExtensions nuget package (Aspose.Slides package will be also included as the dependency):
-[screen2]
+![NuGet Package](screen.png)
 
 We will start from importing the PDF document, which should be animated and exported into an HTML presentation:
 
@@ -405,4 +402,4 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples), and the sample project - here [zip].
+That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples), and the sample project - here [zip](sample.zip).
