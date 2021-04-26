@@ -16,7 +16,7 @@ The new WebExtensions version provides unlimited options and methods for configu
 * save .html, .css, .js files into the folders with the customized hierarchy, including the files of one type in the different folders. For example, export slides to the folder based on the section name.
 * CSS and JS files are saved into separate folders by default, but you can add them to an HTML file. Images and embedded fonts are also saved into separate files. However, they may be included into HTML (in base64 format). You can save some part of the resources to the files and embed other resources into HTML as base64.
 
-You may find examples of HTML export in the Aspose.Slides.WebExtensions project, published on GitHub. It contains two projects: "Examples\SinglePageApp" and "Examples\MultiPageApp". The other examples we used in this article can also be found in the GitHub repo.
+You can find examples of HTML export in the Aspose.Slides.WebExtensions project, published on GitHub. It contains two projects: "Examples\SinglePageApp" and "Examples\MultiPageApp". The other examples we used in this article can also be found in the GitHub repo.
 
 ## Templates
 
