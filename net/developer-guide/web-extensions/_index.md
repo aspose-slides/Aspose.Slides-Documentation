@@ -8,20 +8,20 @@ url: /net/web-extensions/
 
 ## Introduction
 
-With a new version of WebExtensions system for exporting HTML PowerPoint presentations, it's possible to flexibly customize HTML exporting settings and get any result you need. In the previous Aspose.Slides API versions, the presentation document exported to HTML is represented as an SVG markup with the combinated with an HTML. Each slide is exported as an SVG container. The new WebExtensions version allows to export the whole presentation into an HTML with a set of CSS classes and Javascript animations without using SVG.
+With a new version of WebExtensions system for exporting HTML PowerPoint presentations, you can now flexibly customize HTML exporting settings to get any result you need. In the previous Aspose.Slides API versions, the presentation document exported to HTML was represented as an SVG markup with the combinated with an HTML. Each slide was exported as an SVG container. The new WebExtensions version allows you to export the whole presentation into an HTML with a set of CSS classes and Javascript animations without using SVG.
 
-The new WebExtensions version provides the unlimited possibilities to configure the resulting export. Here are some use cases of HTML-documents, generated with WebExtensions, based on different requirements:
+The new WebExtensions version provides unlimited options and methods for configuring the resulting export. Here are some use cases of HTML-documents generated with WebExtensions (based on different requirements):
 * using custom CSS styles, animations or override the markup for a certain type of a shape.
-* override the document structure,e.g. using custom navigation between pages.
+* override the document structure, e.g. using custom navigation between pages.
 * save .html, .css, .js files into the folders with the customized hierarchy, including the files of one type in the different folders. For example, export slides to the folder based on the section name.
-* CSS and JS files are saved into separate folders by default, but it's possible to include them to an HTML file. Images and embedded fonts are also saved into separate files, however they may be included into HTML (in base64 format). It's possible to save some part of resources to the files and to embed other resources into HTML as base64.
+* CSS and JS files are saved into separate folders by default, but you can add them to an HTML file. Images and embedded fonts are also saved into separate files. However, they may be included into HTML (in base64 format). You can save some part of the resources to the files and embed other resources into HTML as base64.
 
-You may find examples on HTML export in Aspose.Slides.WebExtensions project, published on GitHub. It includes two projects: "Examples\SinglePageApp" and "Examples\MultiPageApp". The examples used in the article further can be also found in the GitHub repo.
+You may find examples of HTML export in the Aspose.Slides.WebExtensions project, published on GitHub. It contains two projects: "Examples\SinglePageApp" and "Examples\MultiPageApp". The other examples we used in this article can also be found in the GitHub repo.
 
 ## Templates
 
-In order to extend the possibilities of HTML export further, it is advised to use the ASP.NET Razor template system. The instance of Presentation class (Aspose.Slides API) can be used together with a set of templates to get an HTML-document as the export result.
-Let us demonstrate the approach of using Aspose.Slides and WebExtensions. In the example we will export text from presentation to HTML. First, let's create the template:
+To further extend the capabilities of HTML export, we recommend you use the ASP.NET Razor template system. The instance of Presentation class (Aspose.Slides API) can be used together with a set of templates to get an HTML document as the export result.
+We can demonstrate the approach of using Aspose.Slides and WebExtensions. In this example, we will export text from presentation to HTML. First, let's create the template:
 
 ``` html
 <!DOCTYPE html>
@@ -40,9 +40,9 @@ Let us demonstrate the approach of using Aspose.Slides and WebExtensions. In the
 </body>
 </html>
 ```
-This template will be saved on disk as "shape-template-hello-world.html" to use it in the next step.
+This template will be saved on disk as "shape-template-hello-world.html" that will be used in the next step.
 
-In this template, we are iterating text frames in presentation shapes to display the text. Let us generate the HTML file using WebDocument, and export Presentation into the file: 
+In this template, we are iterating text frames in presentation shapes to display the text. Let's generate the HTML file using WebDocument and then export the Presentation into the file: 
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -73,7 +73,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-For example, we want to include CSS styles into the export in order to change text color to red. Let us add the CSS template:
+For example, we want to include CSS styles into the export to change the text color to red. Let's add the CSS template:
 
 ``` css
 .text {
@@ -101,7 +101,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Lets us add the reference on the styles to the template and class "text":
+Let's add the reference on the styles to the template and class "text":
 ``` html
 <!DOCTYPE html>
 <head>
@@ -114,10 +114,10 @@ Lets us add the reference on the styles to the template and class "text":
 ## Default Templates
 
 WebExtensions include two sets of basic templates for exporting presentations:
-* single page: all presentation content is exported into one HTML file. All other resources (images, fonts, styles, etc) are exported into separate files.
-* multi page: each presentation slide is exported into a separate HTML file. The default logic for exporting resources is the same as in single page. 
+* single page: all presentation content is exported into one HTML file. All other resources (images, fonts, styles, etc.) are exported into separate files.
+* multi-page: each presentation slide is exported into a separate HTML file. The default logic for exporting resources is the same as in a single page. 
 
-PresentationExtensions class can be used to simplify presentation export using templates. PresentationExtensions class includes a set of extension-methods for Presentation class. To export presentation into a single page, just include Aspose.Slides.WebExtensions namespace and call two methods. First method, ToSinglePageWebDocument, creates WebDocument instance and second one - saves HTML-document: 
+PresentationExtensions class can be used to simplify presentation export using templates. PresentationExtensions class includes a set of extension methods for Presentation class. To export a presentation into a single page, just include Aspose.Slides.WebExtensions namespace and call two methods. The first method, ToSinglePageWebDocument, creates a WebDocument instance. The second method saves the HTML-document: 
 
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
@@ -139,9 +139,9 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-In WebExtensions, each template used for markup generation is binded to a key. The key can be used in templates. For example, in @Include directive you may insert a certain template to another one by the key.
+In WebExtensions, each template used for markup generation is bound to a key. The key can be used in templates. For example, in the @Include directive, you can insert a certain template to another one by the key.
 
-Let us demonstrate it in the example of text portion template usage inside the paragraph template. You can find the example in Aspose.Slides.WebExtensions project: [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). In order to draw each portion in paragraph, they are being iterated using @foreach directive of Razor Engine:
+We can demonstrate the procedure in the example of text portion template usage inside the paragraph template. You can find the example in the Aspose.Slides.WebExtensions project: [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). To draw each portion in paragraph, they are iterated using the @foreach directive of Razor Engine:
 
 ``` html
 @foreach (Portion portion in contextObject.Portions) 
@@ -153,27 +153,27 @@ Let us demonstrate it in the example of text portion template usage inside the p
 }
 ```
 
-Portion has its own template [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html), and the model is generated for it, which will be included to the output paragraph.html template then:
+Portion has its own template [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html) and the model is generated for it, which will be added to the output paragraph.html template then:
 ``` html
 @Raw(Include("portion", subModel).ToString().Replace(Environment.NewLine, ""));
 ```
 
-For each shape type is used its own template, which is included into a set of common templates from Aspose.Slides.WebExtensions project. Templates are united in ToSinglePageWebDocument and ToMultiPageWebDocument methods to get the final result. Here are common templates, used in both single and multi page:
+For each shape type is used its own template, which is added to a set of common templates from Aspose.Slides.WebExtensions project. Templates are united in ToSinglePageWebDocument and ToMultiPageWebDocument methods to get the final result. These are common templates used in both single and multi-page:
 
 -templates
 +-common
   ¦ +-scripts: javascript scripts for slide transition animations, as instance.
   ¦ +-styles: common CSS styles.
-  +-multi-page: index, menu, slide templates for the multi page output.
-  +-single-page: index, slide templates for single page output.
+  +-multi-page: index, menu, slide templates for the multi-page output.
+  +-single-page: index, slide templates for single-page output.
 
-Find how the common part is binded for all the templates in PresentationExtensions.AddCommonInputOutput method, [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
+Find how the common part is bound for all the templates in PresentationExtensions.AddCommonInputOutput method [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
 
 ## Default Template Customization
 
-It is possible to modify any element in the template of the common model. For example, you would like to change the table formatting styles, but remain all the other styles of single page the same.
+You can modify any element in the template of the common model. For example, you may decide to change the table formatting styles but want all the other styles of the single page to stay unchanged
 
-By default, Templates\common\table.html [ссылка] is used, and the table has the same appearance as the table in PowerPoint. Let us change table formatting by using custom CSS styles:
+By default, Templates\common\table.html [ссылка] is used, and the table has the same appearance as the table in PowerPoint. Let's change the table formatting by using custom CSS styles:
 ``` css
 .custom-table {
     border: 1px solid black;
@@ -182,7 +182,7 @@ By default, Templates\common\table.html [ссылка] is used, and the table ha
 .custom-table tr:nth-child(odd) {background: #ffb380}
 ```
 
-We should create the same structure of input templates and output files, as it is generated while calling PresentationExtensions.ToSinglePageWebDocument method. Let us add ExportCustomTableStyles_AddCommonStructure method for that. The difference between this method and ToSinglePageWebDocument method is that we do not need add the standard template for the table and the main index page (it will be replaced in order to include the reference on the custom table styles):
+We can create the same structure of input templates and output files (as it is generated) while calling PresentationExtensions.ToSinglePageWebDocument method. Let's add the ExportCustomTableStyles_AddCommonStructure method for that. The difference between this method and ToSinglePageWebDocument method — we do not need to add the standard template for the table and the main index page (it will be replaced to include the reference on the custom table styles):
 
 ``` csharp
 private static void ExportCustomTableStyles_AddCommonStructure(
@@ -212,7 +212,7 @@ private static void ExportCustomTableStyles_AddCommonStructure(
 }
 ```
 
-Let us add a custom template instead:
+Let's add a custom template instead:
 
 ``` csharp
 using (Presentation pres = new Presentation("table.pptx"))
@@ -297,8 +297,8 @@ using (Presentation pres = new Presentation("table.pptx"))
 </table>
 ```
 
-Note, that the custom table template was added with the same “table” key, as the standard table. Thus, it is possible to replace a certain default template without rewriting it. We may also use the templates from the default structure with the same keys. For example, we use a standard paragraph template in the table template. It is also possible to replace it by the key.
-We should also use index.html to include the reference on custom table CSS styles into it: 
+**Note** that the custom table template was added with the same “table” key as the standard table. Thus, you can replace a certain default template without rewriting it. You can also use the templates from the default structure with the same keys. For example, you may use a standard paragraph template in the table template; you may also replace it with the key.
+You can also use index.html to include the reference on custom table CSS styles into it: 
 
 ``` html
 <!DOCTYPE html>    
@@ -320,7 +320,7 @@ We should also use index.html to include the reference on custom table CSS style
 
 ## Create Project from Scratch: Animated Slides Transitions
 
-WebExtensions allows exporting presentations with animated slide transitions. For that, you just need to set true to AnimateTransitions property in WebDocumentOptions:
+WebExtensions allows you to export presentations with animated slide transitions — you just need to set the AnimateTransitions property in WebDocumentOptions to true:
 
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
@@ -330,12 +330,12 @@ WebDocumentOptions options = new WebDocumentOptions
 };
 ```
 
-Let us create a new project, which uses Aspose.Slides and Aspose.Slides.WebExtensions for creating HTML-viewer for PDF with a smooth animated page transitions. For that, we need to use the PDF import feature of Aspose.Slides.
+Let's create a new project that uses Aspose.Slides and Aspose.Slides.WebExtensions for creating HTML-viewer for PDF with smooth animated page transitions. Here, we need to use the PDF import feature of Aspose.Slides.
 
-Let us create a PdfToPresentationToHtml project and include the Aspose.Slides.WebExtensions nuget package (Aspose.Slides package will be also included as the dependency):
+Let's create a PdfToPresentationToHtml project and include the Aspose.Slides.WebExtensions nuget package (Aspose.Slides package will be also included as the dependency):
 ![NuGet Package](screen.png)
 
-We will start from importing the PDF document, which should be animated and exported into an HTML presentation:
+We will start by importing the PDF document, which will be animated and exported into an HTML presentation:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -345,7 +345,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Now we may set up the animated slide transitions (each slide is the imported PDF page). We use 9 slides in the sample PDF document. Let us add slide transitions into each of it, to demonstrate it while viewing HTML:
+Now, we can set up the animated slide transitions (each slide is the imported PDF page). We used 9 slides in the sample PDF document. Let's add slide transitions into each of them (to demonstrate it while viewing HTML):
 
 ``` csharp
 pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
@@ -359,7 +359,7 @@ pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
 pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
 ```
 
-Finally, let us export to HTML by using WebDocument with the AnimateTransitions property set to true:
+Finally, let's export it to HTML by using WebDocument with the AnimateTransitions property set to true:
 
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
@@ -402,4 +402,4 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples), and the sample project - here [zip](https://github.com/aspose-slides/Aspose.Slides-Documentation/raw/web-extensions/net/developer-guide/web-extensions/sample.zip).
+That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples) and the sample project [here (zip)](https://github.com/aspose-slides/Aspose.Slides-Documentation/raw/web-extensions/net/developer-guide/web-extensions/sample.zip).
