@@ -14,4 +14,14 @@ Using Aspose.Slides for Java, developers can now get the rectangular coordinates
 ## **Get Rectangular Coordinates of Paragraph**
 Using **GetRect()** method developers can get paragraph bounds rectangle.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-GettingRectangularCoordinatesOfParagraph-GettingRectangularCoordinatesOfParagraph.java" >}}
+```java
+Presentation pres = new Presentation("HelloWorld.pptx");
+try {
+    IAutoShape shape = (IAutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ITextFrame textFrame = shape.getTextFrame();
+    Rectangle2D.Float rect = textFrame.getParagraphs().get_Item(0).getRect();
+    System.out.println("X: " + rect.x + " Y: " + rect.y + " Width: " + rect.width + " Height: " + rect.height);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```

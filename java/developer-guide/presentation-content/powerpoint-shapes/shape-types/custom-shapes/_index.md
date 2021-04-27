@@ -5,7 +5,10 @@ weight: 10
 url: /java/custom-shape/
 ---
 
-## Shape Geometry Customization
+# Shape Geometry Customization (Shape Points Editing)
+
+## Overview
+
 Customization of the shape geometry assumes editing points of an existing shape. 
 
 ![overview_image](custom_shape_0.png)
@@ -73,8 +76,10 @@ Method [IGeometryPath.getPathData](https://apireference.aspose.com/slides/java/c
 
 *To provide more options of shape geometry customization [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) class has been added. Methods of this class allow to convert [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
 
+# Examples and Use Cases
 
 ## Add Custom Points to Shape
+
 - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class of type [ShapeType.Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle)
 - Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
 - Add a new point between two top points of the path.

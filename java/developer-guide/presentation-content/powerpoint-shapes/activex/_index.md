@@ -13,17 +13,33 @@ ActiveX control are used in presentations. Aspose.Slides for Java lets you add a
 {{% /alert %}} 
 
 ## **Add Media Player ActiveX Control to Slide**
-In order to add a Media Player ActiveX control, please perform following steps:
+To add ActiveX Media Player control, please perform following steps:
 
 1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate empty presentation instance.
 1. Access the target slide in [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation).
-1. Add the Media Player ActiveX control using AddControl method exposed by [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
+1. Add the Media Player ActiveX control using [addControl](https://apireference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
 1. Save the presentation to a PPTX file.
 
 The above steps are implemented in the code examples given below.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-ActiveXControls-AddingMediaPlayerActiveXControlInSlides-AddingMediaPlayerActiveXControlInSlides.java" >}}
+```java
+// Create empty presentation instance
+Presentation pres = new Presentation();
+try {
+    // Adding the Media Player ActiveX control
+    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
+
+    // Access the Media Player ActiveX control and set the video path
+    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
+
+    // Save the Presentation
+    pres.save("Output.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
 ## **Modify ActiveX Control**
 {{% alert color="primary" %}} 
 
@@ -36,7 +52,7 @@ To manage a simple ActiveX control like a text box and simple command button on 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with ActiveX controls in it.
 1. Obtain a slide reference by its index.
 1. Access the ActiveX controls in the slide by accessing the [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
-1. Access the TextBox1 ActiveX control using the [ControlEx](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControl) object.
+1. Access the TextBox1 ActiveX control using the [IControl](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControl) object.
 1. Change the different properties of the TextBox1 ActiveX control including text, font, font height and frame position.
 1. Access the second access control called CommandButton1.
 1. Change the button caption, font and position.
@@ -45,19 +61,111 @@ To manage a simple ActiveX control like a text box and simple command button on 
 
 The above steps are implemented in the code examples given below.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-ActiveXControls-ModifyingActiveXControlsInSlide-ModifyingActiveXControlsInSlide.java" >}}
-
-|![todo:image_alt_text](http://i.imgur.com/IWdejot.png)|
-| :- |
-|**Figure: The source ActiveX controls**|
-
-
-|![todo:image_alt_text](http://i.imgur.com/wN63XDe.png)|
-| :- |
-|**Figure: Modified ActiveX controls**|
+```java
+// Accessing the presentation with ActiveX controls
+Presentation pres = new Presentation("ActiveX.pptm");
+try {
+    // Accessing the first slide in presentation
+    ISlide slide = pres.getSlides().get_Item(0);
+    
+    // changing TextBox text
+    IControl control = slide.getControls().get_Item(0);
+    
+    if (control.getName() == "TextBox1" && control.getProperties() != null) {
+        String newText = "Changed text";
+        control.getProperties().set_Item("Value", newText);
+    
+        // Changing substitute image. PowerPoint will replace this image during activeX activation, 
+        // so sometime it's OK to leave image unchanged.
+        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
+                BufferedImage.TYPE_INT_ARGB);
+    
+        java.awt.Graphics graphics = image.getGraphics();
+        graphics.setColor(SystemColor.window);
+        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
+    
+        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
+        graphics.setColor(SystemColor.windowText);
+        graphics.setFont(font);
+        graphics.drawString(newText, 10, 20);
+    
+        graphics.setColor(SystemColor.controlShadow);
+        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
+        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
+    
+        graphics.setColor(SystemColor.controlDkShadow);
+        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
+        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
+    
+        graphics.setColor(SystemColor.controlHighlight);
+        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
+        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
+    
+        graphics.setColor(SystemColor.controlLtHighlight);
+        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
+        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
+    
+        graphics.dispose();
+        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(image));
+    }
+    
+    // Changing Button caption
+    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
+    
+    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
+        String newCaption = "Show MessageBox";
+        control.getProperties().set_Item("Caption", newCaption);
+        // Changing substitute
+        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
+                BufferedImage.TYPE_INT_ARGB);
+        java.awt.Graphics graphics = image.getGraphics();
+        graphics.setColor(SystemColor.control);
+        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
+    
+        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
+        graphics.setColor(SystemColor.windowText);
+        graphics.setFont(font);
+        FontMetrics metrics = graphics.getFontMetrics(font);
+        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
+    
+        graphics.setColor(SystemColor.controlLtHighlight);
+        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
+        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
+    
+        graphics.setColor(SystemColor.controlHighlight);
+        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
+        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
+    
+        graphics.setColor(SystemColor.controlShadow);
+        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
+        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
+    
+        graphics.setColor(SystemColor.controlDkShadow);
+        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
+        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
+    
+        graphics.dispose();
+        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(image));
+    }
+    
+    // moving 100 points down
+    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
+        IShapeFrame frame = ctl.getFrame();
+        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
+                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
+    }
+    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
+    
+    // removing controls
+    pres.getSlides().get_Item(0).getControls().clear();
+    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 
 ## **Link Video with Media Player ActiveX Control**
-To manage a Media Player ActiveX control, please perform following steps:
+To clone ActiveX Media Player control, please perform following steps:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the sample presentation with Media Player ActiveX controls in it.
 1. Create an instance of target [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate empty presentation instance.
@@ -69,14 +177,26 @@ To manage a Media Player ActiveX control, please perform following steps:
 
 The above steps are implemented in the code examples given below.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-ActiveXControls-LinkingVideoWithMediaPlayerActiveXControl-LinkingVideoWithMediaPlayerActiveXControl.java" >}}
-
-|![todo:image_alt_text](http://i.imgur.com/h2K0cAM.png)|
-| :- |
-|**Figure: The source ActiveX controls**|
-
-
-|![todo:image_alt_text](http://i.imgur.com/FrKHGmB.png)|
-| :- |
-|**Figure: Modified ActiveX controls**|
+```java
+// Accessing the presentation with ActiveX controls
+Presentation pres = new Presentation("template.pptx");
+try {
+    // Create empty presentation instance
+    Presentation newPptx = new Presentation();
+    
+    // Remove default slide
+    newPptx.getSlides().removeAt(0);
+    
+    // Clone slide with Media Player ActiveX Control
+    newPptx.getSlides().insertClone(0, pres.getSlides().get_Item(0));
+    
+    // Access the Media Player ActiveX control and set the video path
+    newPptx.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
+    
+    // Save the Presentation
+    newPptx.save("Output.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 
