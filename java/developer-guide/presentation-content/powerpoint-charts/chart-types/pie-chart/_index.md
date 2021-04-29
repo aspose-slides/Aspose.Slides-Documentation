@@ -4,29 +4,40 @@ type: docs
 url: /java/pie-chart/
 ---
 
-## **Set Second Plot Options in Pie Chart**
-{{% alert color="primary" %}} 
+## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
+Aspose.Slides for Java now supports, second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to Specify these options using Aspose.Slides. In order to specify the properties. Please follow the steps below:
 
-Aspose.Slides for Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to specify these options using Aspose.Slides.
-
-{{% /alert %}} 
-
-In order to specify the properties, please follow the steps below:
-
-1. Instantiate [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) object.
+1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Specify the second plot options of chart.
 1. Write presentation to disk.
 
 In the example given below, we have set different properties of Pie of Pie chart.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SecondPlotOptionsForPieOfPieAndBarOfPieChart-SecondPlotOptionsForPieOfPieAndBarOfPieChart.java" >}}
+```java
+// Create an instance of Presentation class
+Presentation pres = new Presentation();
+try {
+    // Add chart on slide
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.PieOfPie, 50, 50, 500, 400);
+    
+    // Set different properties
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(PieSplitType.ByPercentage);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
+    
+    // Write presentation to disk
+    pres.save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 
+## **Set Automatic Pie Chart Slice Colors**
+Aspose.Slides for Java provides a simple API for setting automatic pie chart slide colors. The sample code applies setting the above said properties.
 
-## **Set Slice Color in Pie Chart**
-`      `Aspose.Slides for Java provides a simple API for setting automatic pie chart slice colors. The sample code applies setting the above said properties.
-
-1. Create an instance of the Presentation class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Set chart Title.
@@ -36,36 +47,51 @@ In the example given below, we have set different properties of Pie of Pie chart
 1. Delete default generated series and categories.
 1. Add new categories.
 1. Add new series.
-1. Write the modified presentation to a PPTX file.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingAutomicPieChartSliceColors-SettingAutomicPieChartSliceColors.java" >}}
+Write the modified presentation to a PPTX file.
 
-## **Set Sector Color in Pie Chart**
-{{% alert color="primary" %}} 
+```java
+// Create an instance of Presentation class
+Presentation pres = new Presentation();
+try {
+    // Add chart with default data
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
 
-Aspose.Slides for Java lets developers add custom charts to their slides from scratch. This article explains how to create a pie chart and set different colors for its sectors.
+    // Setting chart Title
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
 
-{{% /alert %}} 
+    // Set first series to Show Values
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
 
-Aspose.Slides for Java provides an API for creating and filling pie charts in an easy way. To create a chart on a slide:
+    // Setting the index of chart data sheet
+    int defaultWorksheetIndex = 0;
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type ([ChartType.Pie](http://www.aspose.com/api/java/slides/com.aspose.slides/constants/ChartType)).
-1. Access the chart data [IChartDataWorkbook](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IChartDataWorkbook).
-1. Clear the default series and categories.
-1. Add new series and categories.
-1. Add new chart data for the chart series.
-1. Add new points for charts and add custom colors for the pie chart's sectors.
-1. Set labels for series.
-1. Set leader lines for series labels.
-1. Set the rotation angle for pie chart slides.
-1. Write the modified presentation to a PPTX file
+    // Getting the chart data worksheet
+    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-SettingPieChartSectorColors-SettingPieChartSectorColors.java" >}}
+    // Delete default generated series and categories
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
 
-The above code snippet create a chart like the one shown below.
+    // Adding new categories
+    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
 
-|![todo:image_alt_text](http://i.imgur.com/qSbb9f1.png)|
-| :- |
-|**Figure: Pie chart added to the slide**|
+    // Adding new series
+    IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+
+    // Now populating series data
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
+
+    series.getParentSeriesGroup().setColorVaried(true);
+    pres.save("Pie.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```

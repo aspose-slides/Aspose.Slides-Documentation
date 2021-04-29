@@ -9,7 +9,7 @@ Animation is one of the most important parts of the presentations that make them
 
 Here we will apply the PathFootball effect (one of more than 150 available effects) on a TextBox that will be activated on clicking the bevel shape (some sort of button). To apply such animation effect, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides//java/com.aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type.
 - Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of [Bevel](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Bevel) type (clicking on which, animations will take effect).
