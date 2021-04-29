@@ -1,20 +1,9 @@
----
-title: Create Chart
-type: docs
-weight: 10
-url: /java/create-chart/
----
-
-{{% alert color="primary" %}} 
-
+## **Create Chart**
 Aspose.Slides for Java allows developers to create custom charts from slides. Aspose.Slides for Java creates charts independently of Aspose.Cells. 
 
-{{% /alert %}} 
-
-
-## **Create Chart**
-
 Aspose.Slides for Java has simple APIs that allow you to create different types of charts, update charts, and perform other tasks involving charts. 
+
+
 
 ## **Creating Normal Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
