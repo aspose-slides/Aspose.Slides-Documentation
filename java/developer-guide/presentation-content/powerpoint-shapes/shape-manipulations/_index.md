@@ -1,4 +1,3 @@
-
 ---
 title: Shape Manipulations
 type: docs
@@ -93,7 +92,7 @@ try {
     // Add autoshape of rectangle type
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    
+
     String altText = "User Defined";
     int iCount = sld.getShapes().size();
     for (int i = 0; i < iCount; i++)
@@ -191,17 +190,17 @@ Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Getting unique shape identifier in slide scope
     long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-    
+
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 ## **Set Alternative Text for Shape**
-Aspose.Slides for Java allows developers to set AlternateText of any shape. 
-Shapes in a presentation could be distinguished by the [AlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) method. 
-[setAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint. 
-By using this method, you can tag a shape and can perform different operations as Removing a shape, 
+Aspose.Slides for Java allows developers to set AlternateText of any shape.
+Shapes in a presentation could be distinguished by the [AlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) method.
+[setAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
+By using this method, you can tag a shape and can perform different operations as Removing a shape,
 Hiding a shape or Reordering shapes on a slide.
 To set the AlternateText of a shape, please follow the steps below:
 
@@ -255,7 +254,7 @@ try {
         for (IShape shape : layoutSlide.getShapes())
         {
             IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();       
+            ILineFormat lineFormats = shape.getLineFormat();
         }
     }
 } finally {
@@ -286,7 +285,7 @@ Aspose.Slides allows to align shapes either relative to the slide margins or rel
 
 **Example 1**
 
-Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
+Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide.
 
 ```java
 Presentation pres = new Presentation("example.pptx");
@@ -311,7 +310,7 @@ try {
 
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
-``` csharp
+```java
 Presentation pres = new Presentation("example.pptx");
 try {
     SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));

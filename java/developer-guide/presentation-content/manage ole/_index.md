@@ -32,6 +32,7 @@ In the example given below, a Microsoft Excel Chart object in an Excel file is a
 **Note** that [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/java/com.aspose.slides/IOleEmbeddedDataInfo) 
 constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly 
 interpret the file type and, choose the right application to open this OLE object.
+
 ``` java 
 // Instantiate Prseetation class that represents the PPTX
 Presentation pres = new Presentation();
@@ -43,7 +44,9 @@ try {
     FileInputStream fs = new FileInputStream("book1.xlsx");
     ByteArrayOutputStream mstream = new ByteArrayOutputStream();
     byte[] buf = new byte[4096];
-    while (true) {
+
+    while (true)
+    {
         int bytesRead = fs.read(buf, 0, buf.length);
         if (bytesRead <= 0)
             break;
@@ -68,6 +71,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
 ## **Access OLE Object Frame**
 If an OLE object is already embedded in a slide, you can access that object easily using Aspose.Slides for Java. Please follow the steps below to find or access an OLE object from a slide:
 
@@ -76,7 +80,7 @@ If an OLE object is already embedded in a slide, you can access that object easi
 1. Access OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
 1. Once OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then all of its Object Data is written to an Excel file.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
 
 ``` java 
 // Load the PPTX to Presentation object
@@ -91,18 +95,21 @@ try {
     // Read the OLE Object and write it to disk
     if (oleObjectFrame != null) {
         // Get embedded file data
-        byte[] data = oleObjectFrame.getEmbeddedFileData();
+        byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
 
         // Get embedded file extention
-        String fileExtention = oleObjectFrame.getEmbeddedFileExtension();
+        String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
 
         // Create path for saving the extracted file
         String extractedPath = "excelFromOLE_out" + fileExtention;
 
         // Save extracted data
         FileOutputStream fstr = new FileOutputStream(extractedPath);
-        fstr.write(data, 0, data.length);
-        fstr.close();
+        try {
+            fstr.write(data, 0, data.length);
+        } finally {
+            fstr.close();
+        }
     }
 } catch (IOException e) {
 } finally {
@@ -123,29 +130,28 @@ modify its data. Please follow the steps below to find how to modify an OLE obje
 1. Save the updated Workbook in streams.
 1. Change the OLE object data from stream data.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its Object Data is modified to change the chart data.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
 
 ``` java 
 Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-
     OleObjectFrame ole = null;
 
     // Traversing all shapes for Ole frame
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof OleObjectFrame) {
+    for (IShape shape : slide.getShapes()) 
+    {
+        if (shape instanceof OleObjectFrame) 
+        {
             ole = (OleObjectFrame) shape;
         }
     }
 
     if (ole != null) {
-        // Reading object data in Workbook
-        Workbook Wb;
-
-        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getObjectData());
+        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getEmbeddedData().getEmbeddedFileData());
         try {
-            Wb = new Workbook(msln);
+            // Reading object data in Workbook
+            Workbook Wb = new Workbook(msln);
 
             ByteArrayOutputStream msout = new ByteArrayOutputStream();
             try {
@@ -155,13 +161,12 @@ try {
                 Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
                 Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
 
-                OoxmlSaveOptions so1 =
-                        new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
-
+                OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
                 Wb.save(msout, so1);
 
                 // Changing Ole frame object data
-                ole.setObjectData(msout.toByteArray());
+                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
+                ole.setEmbeddedData(newData);
             } finally {
                 if (msout != null) msout.close();
             }
@@ -177,75 +182,3 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-
-ObjectData property of the OleObjectFrame class represents [Object Linking and Embedding (OLE) Data Structures](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/85583d21-c1cf-4afe-a35f-d6701c5fbb6f) in general, but not file data itself. So please take into account the referenced documentation article when using this property.
-
-{{% /alert %}} 
-  
-
-## **Set File Type for Embedded Object**
-Using Aspose.Slides for Java you can set file type for an embedding object. For this purpose, new methods [**addOleObjectFrame**](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) and [**insertOleObjectFrame**](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#insertOleObjectFrame-int-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) have been added into [**IShapeCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
-
-These methods allow to get [**IOleEmbeddedDataInfo**](https://apireference.aspose.com/slides/java/com.aspose.slides/IOleEmbeddedDataInfo) object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects.
-
-The following example shows how to set file type for an embedding object:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // Add known Ole objects
-    byte[] fileBytes = Files.readAllBytes(Paths.get("test.zip"));
-
-    // Create Ole embedded file info
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileBytes, "zip");
-
-    // Create OLE object
-    IOleObjectFrame oleFrame = pres.getSlides().get_Item(0).getShapes().addOleObjectFrame(150, 20, 50, 50, dataInfo);
-    oleFrame.setObjectIcon(true);
-
-    pres.save("SetFileTypeForAnEmbeddingObject.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Extract Embedded Files from OLE Object**
-Aspose.Slides for Java supports extracting embedded files from OLE Object. In order to extract embedded files, please follow the steps below:
-
-- Create an instance of [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/presentation) class and Load a presentation contains OLE Object
-- Loop through all the shapes in a presentation and access the OLE Object Frame shape
-- Access the data of the Embedded file from OLE Object Frame and write it to disk
-
-The implementation of the above steps is demonstrated in the example below.
-
-```java
-Presentation pres = new Presentation("TestOlePresentation.pptx");
-try {
-    int objectnum = 0;
-    for (ISlide sld : pres.getSlides())
-    {
-        for (IShape shape : sld.getShapes())
-        {
-            if (shape instanceof OleObjectFrame)
-            {
-                objectnum++;
-                OleObjectFrame oleFrame = (OleObjectFrame) shape;
-                byte[] data = oleFrame.getEmbeddedFileData();
-                String fileExtention = oleFrame.getEmbeddedFileExtension();
-
-                String extractedPath = "ExtractedObject_out" + objectnum + fileExtention;
-
-
-                FileOutputStream outputStream = new FileOutputStream(extractedPath);
-                outputStream.write(data);
-                outputStream.close();
-            }
-        }
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```

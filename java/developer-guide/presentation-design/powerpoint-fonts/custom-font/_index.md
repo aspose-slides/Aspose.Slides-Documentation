@@ -9,7 +9,7 @@ url: /java/custom-font/
 
 Aspose.Slides let you load fonts for rendering in presentations without even installing them. This article shows how to load fonts from custom directories without installing them.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 ## **Load Custom Fonts from .TTF**
 Please follow the steps below to loading Fonts from external directories by using Aspose.Slides for Java API:
@@ -37,7 +37,7 @@ try {
     // Clear Font Cachce
     FontsLoader.clearCache();
 }
-``` 
+```
 
 ## **Get Custom Fonts Folder**
 A new method has been added that returns folders where font files are searched. Those are folders that have been added with [loadExternalFonts](https://apireference.aspose.com/slides/java/com.aspose.slides/FontsLoader#loadExternalFonts-java.lang.String:A-) method as well as system font folders.

@@ -70,7 +70,7 @@ If an OLE object is already embedded in a slide, you can access that object easi
 1. Access OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
 1. Once OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then all of its Object Data is written to an Excel file.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
 
 ``` csharp 
 // The path to the documents directory.
@@ -89,10 +89,10 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
     if (oleObjectFrame != null)
     {
         // Get embedded file data
-        byte[] data = oleObjectFrame.EmbeddedFileData;
+        byte[] data = oleObjectFrame.EmbeddedData.EmbeddedFileData;
 
         // Get embedded file extention
-        string fileExtention = oleObjectFrame.EmbeddedFileExtension;
+        string fileExtention = oleObjectFrame.EmbeddedData.EmbeddedFileExtension;
 
         // Create path for saving the extracted file
         string extractedPath = dataDir + "excelFromOLE_out" + fileExtention;
@@ -119,7 +119,7 @@ modify its data. Please follow the steps below to find how to modify an OLE obje
 1. Save the updated Workbook in streams.
 1. Change the OLE object data from stream data.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its Object Data is modified to change the chart data.
+In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
 
 ``` csharp 
 // The path to the documents directory.
@@ -136,18 +136,18 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
     {
         if (shape is OleObjectFrame)
         {
-            ole = (OleObjectFrame) shape;
+            ole = (OleObjectFrame)shape;
         }
     }
 
     if (ole != null)
     {
-        using (System.IO.MemoryStream msln = new System.IO.MemoryStream(ole.ObjectData))
+        using (MemoryStream msln = new MemoryStream(ole.EmbeddedData.EmbeddedFileData))
         {
             // Reading object data in Workbook
-            Aspose.Cells.Workbook Wb = new Aspose.Cells.Workbook(msln);
+            Workbook Wb = new Workbook(msln);
 
-            using (System.IO.MemoryStream msout = new System.IO.MemoryStream())
+            using (MemoryStream msout = new MemoryStream())
             {
                 // Modifying the workbook data
                 Wb.Worksheets[0].Cells[0, 4].PutValue("E");
@@ -155,14 +155,12 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
                 Wb.Worksheets[0].Cells[2, 4].PutValue(14);
                 Wb.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                Aspose.Cells.OoxmlSaveOptions so1 =
-                    new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
-
+                OoxmlSaveOptions so1 = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 Wb.Save(msout, so1);
 
                 // Changing Ole frame object data
-                msout.Position = 0;
-                ole.ObjectData = msout.ToArray();
+                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.ToArray(), ole.EmbeddedData.EmbeddedFileExtension);
+                ole.SetEmbeddedData(newData);
             }
         }
     }
@@ -171,9 +169,4 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 }
 ```
 
-{{% alert color="primary" %}} 
-
-ObjectData property of the OleObjectFrame class represents [Object Linking and Embedding (OLE) Data Structures](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/85583d21-c1cf-4afe-a35f-d6701c5fbb6f) in general, but not file data itself. So please take into account the referenced documentation article when using this property.
-
-{{% /alert %}} 
   
