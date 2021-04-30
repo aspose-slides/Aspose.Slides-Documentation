@@ -232,7 +232,7 @@ Aspose.Slides for .NET allows you to extract the files embedded in slides as OLE
 
 This sample code shows you how to extract a file embedded in a slide as an OLE object:
 
-```c++
+```c#
 
 ```
 
