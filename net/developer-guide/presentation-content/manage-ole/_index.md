@@ -5,27 +5,27 @@ weight: 232
 url: /net/manage-ole/
 ---
 
-OLE stands for Object Linking & Embedding. It's a Microsoft technology that allows objects created in one application to be embedded in another application. 
+OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
-For example, you can create a chart in an Excel Worksheet and then embed that chart object into your PowerPoint slide. After the chart object is embedded, you just double click the object and the chart object will be opened in editable form as you see in MS Excel. 
+Consider a chart created in an MS Excel. The chart is then placed inside a PowerPoint slide. That chart is considered an OLE object. 
 
-Aspose.Slides for .NET supports inserting OLE Objects into the slide as OLE Object Frames. 
-In this topic, we will work with OLE Object Frames to see how these objects can be added and manipulated via 
-Aspose.Slides for .NET. This article explains different examples of working with OLE Object Frames.
+- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets open in its associated application (Excel), or you are asked to select an application for object opening or editing. 
+- An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app. 
 
-## **Add OLE Object Frame to Slide**
-Suppose, you have created a Microsoft Excel Chart in an Excel file and want to embed that chart object in a slide as an OLE Object Frame using Aspose.Slides for .NET. It can be done with the following steps:
+Aspose.Slides for .NET allows you to insert OLE Objects into slides as OLE Object Frames. In this topic, we will show you how to work with OLE Object Frames. You will learn how to add and manipulate OLE objects. 
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+## **Adding OLE Object Frames to Slides**
+Assuming you created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for .NET, you can do it this way:
+
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its index.
-1. Open the Excel file containing Microsoft Excel Chart object and save it to MemoryStream.
+1. Open the Excel file containing the Excel chart object and save it to MemoryStream.
 1. Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
 1. Write the modified presentation as a PPTX file.
 
-In the example given below, a Microsoft Excel Chart object in an Excel file is added to a slide as an OLE Object Frame using Aspose.Slides for .NET.  
-**Note** that [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo) 
-constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly 
-interpret the file type and, choose the right application to open this OLE object.
+In the example below, we added a chart from an Excel file to a slide as an OLE Object Frame using Aspose.Slides for .NET.  
+**Note** that the [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+
 ``` csharp 
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Shapes();
@@ -62,15 +62,20 @@ using (Presentation pres = new Presentation())
     pres.Save(dataDir + "OleEmbed_out.pptx", SaveFormat.Pptx);
 }
 ```
-## **Access OLE Object Frame**
-If an OLE object is already embedded in a slide, you can access that object easily using Aspose.Slides for .NET. Please follow the steps below to find or access an OLE object from a slide:
+## **Accessing OLE Object Frames**
+If an OLE object is already embedded in a slide, you can find or access that object easily using Aspose.Slides for .NET this way:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the[Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+
 1. Obtain the reference of a slide by using its index.
-1. Access OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
-1. Once OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
+1. Access OLE Object Frame shape.
+
+   In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *typecasted* that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
+
+1. Once the OLE Object Frame is accessed, you can perform any operation on it.
+
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
 
 ``` csharp 
 // The path to the documents directory.
@@ -106,20 +111,28 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
 }
 ```
 
-## **Change OLE Object Data**
-If an OLE object is already embedded in a slide, you can access that object easily using Aspose.Slides for .NET and can 
-modify its data. Please follow the steps below to find how to modify an OLE object data from a slide:
+## **Changing OLE Object Data**
+If an OLE object is already embedded in a slide, you can easily access that object using Aspose.Slides for .NET and modify its data this way:
 
 1. Open the desired presentation with embedded OLE Object by creating an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+
 1. Obtain the reference of a slide by using its Index.
-1. Access the OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
+
+1. Access the OLE Object Frame shape.
+
+   In our example, we used the previously created PPTX, which has only one shape on the first slide. We then *typecasted* that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
+
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
+
 1. Create the Workbook object and access the OLE Data.
+
 1. Access the desired Worksheet and amend the data.
+
 1. Save the updated Workbook in streams.
+
 1. Change the OLE object data from stream data.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
+In the example below, an OLE Object Frame (that is an Excel chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
 
 ``` csharp 
 // The path to the documents directory.
@@ -170,3 +183,68 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 ```
 
   
+
+## Embedding Other File Types in Slides
+
+Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, they get directed to select an appropriate program to open the object. 
+
+This sample code shows you how to embed HTML and ZIP in a slide:
+
+```c#
+using (Presentation pres = new Presentation())
+{
+  ISlide slide = pres.Slides[0];
+  
+  byte[] htmlBytes = File.ReadAllBytes("embedOle.html");
+  IOleEmbeddedDataInfo dataInfoHtml = new OleEmbeddedDataInfo(htmlBytes, "html");
+  IOleObjectFrame oleFrameHtml = slide.Shapes.AddOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
+  oleFrameHtml.IsObjectIcon = true;
+
+  byte[] zipBytes = File.ReadAllBytes("embedOle.zip");
+  IOleEmbeddedDataInfo dataInfoZip = new OleEmbeddedDataInfo(zipBytes, "zip");
+  IOleObjectFrame oleFrameZip = slide.Shapes.AddOleObjectFrame(150, 220, 50, 50, dataInfoZip);
+  oleFrameZip.IsObjectIcon = true;
+
+  pres.Save("embeddedOle.pptx", SaveFormat.Pptx);
+}
+```
+
+ 
+
+## Setting File Types for Embedded Object
+
+
+
+
+
+
+
+
+
+## Extracting Embedded Files
+
+Aspose.Slides for .NET allows you to extract the files embedded in slides as OLE objects this way:
+
+1. Create an instance of the Presentation class.
+2.  Load the presentation containing the OLE object you intend to extract. 
+3. Loop through all the shapes in the presentation and access the OLE Object Frame shape.
+4. Access the embedded file's data from the OLE Object Frame and write it to disk. 
+
+This sample code shows you how to extract a file embedded in a slide as an OLE object:
+
+```c++
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
