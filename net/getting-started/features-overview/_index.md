@@ -20,9 +20,9 @@ Aspose.Slides for .NET supports most PowerPoint document formats. It also lets y
 | :- | :- |
 |[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|Aspose.Slides for .NET provides the fastest processing for this presentation document format.|
 |[PPT to PPTX conversion](/slides/net/convert-ppt-to-pptx/)|Aspose.Slides for .NET supports conversion of PPT to PPTX.|
-|[Portable Document Format (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|The supported file formats can be exported to Adobe Portable Document Format (PDF) documents with a single method.|
-|[XML Parser Specification (XPS)](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)|All of the supported file formats can be exported to XML Parser Specification (XPS) documents with a single method.|
-|[Tagged Image File Format (TIFF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff/)|The presentation file formats supported by Aspose.Slides for .NET can also be exported to Tagged Image File Format (TIFF).|
+|[Portable Document Format (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|You can export all supported file formats to Adobe Portable Document Format (PDF) documents with a single method.|
+|[XML Parser Specification (XPS)](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)|You can export all supported file formats to XML Parser Specification (XPS) documents with a single method.|
+|[Tagged Image File Format (TIFF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff/)|You can export all supported presentation file formats to Tagged Image File Format (TIFF).|
 |[PPTX To HTML Conversion](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NET supports the conversion of PresentationEx to HTML format.|
 ## **Rendering and Printing**
 Aspose.Slides for .NET supports high fidelity rendering of slides in the presentation documents to various graphics formats. Go through the details below:
@@ -33,7 +33,7 @@ Aspose.Slides for .NET supports high fidelity rendering of slides in the present
 |SVG Format|Aspose.Slides for .NET also provides built-in methods that allow you to export presentation slides to Scalable Vector Graphics (SVG) formats.|
 |Presentation Printing|The latest versions of Aspose.Slides for .NET provide built-in print methods with different options.|
 ## **Content Features**
-Aspose.Slides for .NET allows you to access, modify, or create almost all the items or contents of presentation documents.
+Aspose.Slides for .NET allows you to access, modify, or create almost all the items or contents of presentation documents. Go through the details below:
 
 |**Feature**|**Description**|
 | :- | :- |
@@ -47,30 +47,30 @@ Aspose.Slides for .NET allows you to access, modify, or create almost all the it
 |Finding a Shape|You can also find a particular shape from a slide using the alternative text associated with the shape|
 |Backgrounds|Aspose.Slides for .NET allows you to work with backgrounds associated with a master or normal slide in a presentation|
 |Text Boxes|Text boxes can be created from scratch. You can access existing text boxes. You also get to modify their texts without losing the original text format|
-|Rectangle Shapes|Rectangle shapes can be created or modified with Aspose.Slides for .NET|
-|Poly Line Shapes|Poly line shapes can also be created or modified with Aspose.Slides for .NET|
-|Ellipse Shapes|Ellipse shapes are also created or modified with Aspose.Slides for .NET|
+|Rectangle Shapes|You can create or modify rectangle shapes with Aspose.Slides for .NET|
+|Poly Line Shapes|You can create or modify poly line shapes with Aspose.Slides for .NET|
+|Ellipse Shapes|You can create or modify Ellipse shapes with Aspose.Slides for .NET|
 |Group Shapes| Aspose.Slides for .NET supports group shapes                 |
 |Auto Shapes|Aspose.Slides for .NET supports auto shapes|
-|SmartArt|Support for SmartArt shapes available in MS PowerPoint|
-|Charts|Support for MSO Charts supported by PowerPoint|
+|SmartArt|Aspose.Slides for .NET provides support for SmartArt shapes in MS PowerPoint|
+|Charts|Aspose.Slides for .NET provides support for MSO Charts in PowerPoint|
 |Shapes Serialization| Aspose.Slides for .NET supports a large number of shapes. When Aspose.Slides for .NET lacks support for a shape, you can use a serialization method through which you get to serialize that shape from an existing slide. This way, you get to use the shape further as per your requirements |
-|Picture Frames|Pictures can be managed in picture frames using Aspose.Slides for .NET|
-|Audio Frames|Audio files can be linked or embedded on slides in audio frames with Aspose.Slides for .NET|
-|Video Frames| Video files are handled in video frames. Aspose.Slides for .NET also provides support for linked and embedded videos |
-|OLE Frame|OLE Objects are managed in OLE frames with Aspose.Slides for .NET|
+|Picture Frames|You can manage pictures in picture frames with Aspose.Slides for .NET|
+|Audio Frames|You can link or embed audio files in audio frames on slides with Aspose.Slides for .NET|
+|Video Frames| You get to handle video files in video frames. Aspose.Slides for .NET also provides support for linked and embedded videos |
+|OLE Frame|You get to manage OLE Objects in OLE frames with Aspose.Slides for .NET|
 |Tables|Aspose.Slides for .NET supports tables in slides|
 |ActiveX Controls|Support for ActiveX controls|
 |VBA Macros|Support for managing VBA macros inside presentations.|
-|Text Frame|The text associated with any shape can be accessed through the text frame associated with that shape|
-|Text Scanning|Text in a presentation can be scanned at the presentation or slide level through the built-in scanning methods|
-|Animations|Animations can be applied on shapes|
+|Text Frame|You get to access the text with any shape through the text frame associated with that shape|
+|Text Scanning|You get to scan text in a presentation at the presentation or slide level through built-in scanning methods.|
+|Animations|You get to apply animations on shapes|
 |Slide Shows|Aspose.Slides for .NET supports slide shows and slide transitions|
 ## **Formatting Features**
-With Aspose.Slides for .NET, you can format texts and shapes on slides in presentations.
+With Aspose.Slides for .NET, you can format texts and shapes on slides in presentations. Go through the details below:
 
 |**Feature**|**Description**|
 | :- | :- |
-|Text Formatting|<p>In Aspose.Slides for .NET, the text is managed through text frames associated with the shapes. Hence, the text can be formatted using the paragraphs and portions associated with the text frames. These text elements can be formatted through Aspose.Slides for .NET.</p><p>- Font Type</p><p>- Font Size</p><p>- Font Color</p><p>- Font Shades</p><p>- Paragraph Alignment</p><p>- Paragraph Bulleting</p><p>- Paragraph Orientation</p>|
-|Shape Formatting|<p>In Aspose.Slides for .NET, the basic element of a slide is shape. These Shape elements can be formatted using Aspose.Slides for .NET:</p><p>- Position</p><p>- Size</p><p>- Line</p><p>- Fill (including Pattern, Gradient, Solid)</p><p>- Text</p><p>- Image</p>|
+|Text Formatting|<p>In Aspose.Slides for .NET, you can manage texts through the text frames associated with the shapes. Hence, you get to format texts using the paragraphs and portions associated with the text frames. These text elements can be formatted through Aspose.Slides for .NET.</p><p>- Font Type</p><p>- Font Size</p><p>- Font Color</p><p>- Font Shades</p><p>- Paragraph Alignment</p><p>- Paragraph Bulleting</p><p>- Paragraph Orientation</p>|
+|Shape Formatting|<p>In Aspose.Slides for .NET, the basic element of a slide is a shape. You can format these shape elements with Aspose.Slides for .NET:</p><p>- Position</p><p>- Size</p><p>- Line</p><p>- Fill (including Pattern, Gradient, Solid)</p><p>- Text</p><p>- Image</p>|
 

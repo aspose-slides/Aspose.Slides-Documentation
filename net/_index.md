@@ -17,7 +17,7 @@ Aspose.Slides for .NET is a Microsoft PowerPoint® management API that enables .
 
 Aspose.Slides for .NET is the first and only component that provides functionalities required to manage PowerPoint® documents. 
 
-Aspose.Slides for .NET offers a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
+Aspose.Slides for .NET offers a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and different formats, and many other capabilities. 
 
 {{% /alert %}} 
 
