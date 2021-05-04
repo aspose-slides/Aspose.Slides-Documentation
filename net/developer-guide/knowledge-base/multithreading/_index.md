@@ -7,8 +7,9 @@ url: /net/multithreading/
 
 {{% alert color="primary" %}} 
 
-Despite the fact that parallel work with presentation(s) is possible (except for parsing/loading/cloning) and most of the times everything looks right, there’s a small chance to get incorrect result using the the library in multiple threads.
+While parallel work with presentations is possible (besides parsing/loading/cloning) and everything goes wells (most times), there is a small chance you might get incorrect results when you use the library in multiple threads.
 
-We strongly recommend not to use a single Presentation instance in multi-threading environment, because it can lead to rare but unpredictable artifacts which are not easy to detect. 
+We strongly recommend that you do **not** use a single Presentation instance in a multi-threading environment because it might result in unpredictable errors or failures that are not easily detected. 
 
-Loading, saving and cloning an instance of a Presentation class in multiple threads is not thread safe and not supported. As an alternative solution you can try to parallel your task using several separated single-threaded processes handling entire presentation inside a single process.
+It is **not** safe to load, save, and/or clone an instance of a presentation class in multiple threads. Such operations are **not** supported.  If you need to perform such tasks, you have to parallel the operations using several single-threaded processes—and each of these processes should use its own presentation instance. 
+
