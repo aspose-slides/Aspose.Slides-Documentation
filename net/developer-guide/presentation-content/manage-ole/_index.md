@@ -7,18 +7,18 @@ url: /net/manage-ole/
 
 OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
-Consider a chart created in an MS Excel. The chart is then placed inside a PowerPoint slide. That chart is considered an OLE object. 
+Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
-- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets open in its associated application (Excel), or you are asked to select an application for object opening or editing. 
+- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
 - An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app. 
 
 Aspose.Slides for .NET allows you to insert OLE Objects into slides as OLE Object Frames. In this topic, we will show you how to work with OLE Object Frames. You will learn how to add and manipulate OLE objects. 
 
 ## **Adding OLE Object Frames to Slides**
-Assuming you created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for .NET, you can do it this way:
+Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for .NET, you can do it this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
-1. Obtain the reference of a slide by using its index.
+1. Obtain the reference of the slide by using its index.
 1. Open the Excel file containing the Excel chart object and save it to MemoryStream.
 1. Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
 1. Write the modified presentation as a PPTX file.
@@ -30,13 +30,13 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Shapes();
 
-// Instantiate Prseetation class that represents the PPTX
+// Instantiate the Presentation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
     // Access the first slide
     ISlide sld = pres.Slides[0];
 
-    // Load an cel file to stream
+    // Load an excel file to stream
     MemoryStream mstream = new MemoryStream();
     using (FileStream fs = new FileStream(dataDir + "book1.xlsx", FileMode.Open, FileAccess.Read))
     {
@@ -51,7 +51,7 @@ using (Presentation pres = new Presentation())
         }
     }
 
-    // Create data object for embedding
+    // Create a data object for embedding
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.ToArray(), "xlsx");
 
     // Add an Ole Object Frame shape
@@ -65,17 +65,17 @@ using (Presentation pres = new Presentation())
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily using Aspose.Slides for .NET this way:
 
-1. Create an instance of the[Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 
-1. Obtain the reference of a slide by using its index.
+1. Obtain the reference of the slide by using its index.
 
-1. Access OLE Object Frame shape.
+1. Access the OLE Object Frame shape.
 
    In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *typecasted* that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
 
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed and then its file data is written to an Excel file.
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file.
 
 ``` csharp 
 // The path to the documents directory.
@@ -99,7 +99,7 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
         // Get embedded file extention
         string fileExtention = oleObjectFrame.EmbeddedData.EmbeddedFileExtension;
 
-        // Create path for saving the extracted file
+        // Create a path to save the extracted file
         string extractedPath = dataDir + "excelFromOLE_out" + fileExtention;
 
         // Save extracted data
@@ -112,11 +112,11 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
 ```
 
 ## **Changing OLE Object Data**
-If an OLE object is already embedded in a slide, you can easily access that object using Aspose.Slides for .NET and modify its data this way:
+If an OLE object is already embedded in a slide, you can easily access that object with Aspose.Slides for .NET and modify its data this way:
 
-1. Open the desired presentation with embedded OLE Object by creating an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 
-1. Obtain the reference of a slide by using its Index.
+1. Obtain the reference of the slide by using its Index.
 
 1. Access the OLE Object Frame shape.
 
@@ -132,7 +132,7 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 
 1. Change the OLE object data from stream data.
 
-In the example below, an OLE Object Frame (that is an Excel chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data.
 
 ``` csharp 
 // The path to the documents directory.
