@@ -112,6 +112,7 @@ using (Presentation pres = new Presentation(dataDir + "AccessingOLEObjectFrame.p
 ```
 
 ## **Changing OLE Object Data**
+
 If an OLE object is already embedded in a slide, you can easily access that object with Aspose.Slides for .NET and modify its data this way:
 
 1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
@@ -182,11 +183,9 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 }
 ```
 
-  
-
 ## Embedding Other File Types in Slides
 
-Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, this object will be run by registered program or they get directed to select an appropriate program to open the object. 
+Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object. 
 
 This sample code shows you how to embed HTML and ZIP in a slide:
 
@@ -209,17 +208,26 @@ using (Presentation pres = new Presentation())
 }
 ```
 
- 
+## Setting File Types for Embedded Objects
 
-## Setting File Types for Embedded Object
+When working on presentations, you may need to replace old OLE objects with new ones. Or you may need to replace an unsupported OLE object with a supported one. 
 
+Aspose.Slides for .NET allows you to set the file type for an embedded object. This way, you get to change the OLE frame data or its extension. 
 
+This sample code shows you how to set the file type for an embedded OLE object:
 
-
-
-
-
-
+```c#
+using (Presentation pres = new Presentation("embeddedOle.pptx"))
+{
+    ISlide slide = pres.Slides[0];
+    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
+    Console.WriteLine($"Current embedded data extension is: {oleObjectFrame.EmbeddedData.EmbeddedFileExtension}");
+   
+    oleObjectFrame.SetEmbeddedData(new OleEmbeddedDataInfo(File.ReadAllBytes("embedOle.zip"), "zip"));
+   
+    pres.Save("embeddedChanged.pptx", SaveFormat.Pptx);
+}
+```
 
 ## Extracting Embedded Files
 
@@ -252,16 +260,6 @@ using (Presentation pres = new Presentation("embeddedOle.pptx"))
     }
 }
 ```
-
-
-
-
-
-
-
-
-
-
 
 
 
