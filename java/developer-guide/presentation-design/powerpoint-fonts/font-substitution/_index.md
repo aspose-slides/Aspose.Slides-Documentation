@@ -6,47 +6,6 @@ url: /java/font-substitution/
 ---
 
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides now allow replacing any given font in presentation with the new font. It allows replacing the font both explicitly or by setting font replacement rules. In this article, we will see the examples of explicit font substitution as well as rule-based font substitution.
-
-{{% /alert %}} 
-
-## **Replace Fonts Explicitly inside Presentation**
-To replace the fonts using explicit replacement, following steps are used:
-
-1. Load the desired presentation.
-1. Load the font that is to replace inside the presentation.
-1. Load the replacing font.
-1. Replace the fonts.
-1. Write the modified presentation as a PPTX file.
-
-The implementation of the above steps is given below.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Text-ReplacingFontsExplicitlyInsidePresentation-ReplacingFontsExplicitlyInsidePresentation.java" >}}
-## **Rule Based Fonts Replacement inside Presentation**
-To replace the fonts by setting some rules of replacement, following steps are used:
-
-1. Load the desired presentation.
-1. Load the font that is to replace inside the presentation.
-1. Load the replacing font.
-1. Add a rule for replacement.
-1. Add the rule to presentation font replacement rule collection.
-1. Generate the slide image to observe the effect.
-
-## **Replace Fonts Explicitly**
-To replace the fonts using explicit replacement, following steps are used:
-
-1. Load the desired presentation.
-1. Load the font that is to replace inside the presentation.
-1. Load the replacing font.
-1. Replace the fonts.
-1. Write the modified presentation as a PPTX file.
-
-The implementation of the above steps is given below.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Text-ReplacingFontsExplicitlyInsidePresentation-ReplacingFontsExplicitlyInsidePresentation.java" >}}
-
 ## **Rule Based Font Substitution**
 To replace the fonts by setting some rules of replacement following steps are used:
 
@@ -57,14 +16,36 @@ To replace the fonts by setting some rules of replacement following steps are us
 - Add the rule to presentation font replacement rule collection.
 - Generate the slide image to observe the effect.
 
-## **Specify Fonts Used With Presentation**
-A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
+The implementation of the above steps is given below.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Text-ManagingEmbeddedFonts-ManagingEmbeddedFonts.java" >}}
-
-
-## **Get Fonts Folder**
-A new property has been added that returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Text-GetFontsFolders-GetFontsFolders.java" >}}
+```java
+// Load presentation
+Presentation pres = new Presentation("Fonts.pptx");
+try {
+    // Load source font to be replaced
+    IFontData sourceFont = new FontData("SomeRareFont");
+    
+    // Load the replacing font
+    IFontData destFont = new FontData("Arial");
+    
+    // Add font rule for font replacement
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+    
+    // Add rule to font substitute rules collection
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
+    
+    // Add font rule collection to rule list
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
+    
+    // Arial font will be used instead of SomeRareFont when inaccessible
+    BufferedImage image = pres.getSlides().get_Item(0).getThumbnail(1f, 1f);
+    
+    // Save the image to disk in JPEG format
+    ImageIO.write(image, "PNG", new File("Thumbnail_out.jpg"));
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 

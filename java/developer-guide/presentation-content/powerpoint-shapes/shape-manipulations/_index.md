@@ -92,7 +92,7 @@ try {
     // Add autoshape of rectangle type
     sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
     sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    
+
     String altText = "User Defined";
     int iCount = sld.getShapes().size();
     for (int i = 0; i < iCount; i++)
@@ -106,42 +106,6 @@ try {
 
     // Save presentation to disk
     pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Rotate Shape**
-{{% alert color="primary" %}} 
-
-This topic is also the part of the series of the topics about formatting shapes. In this topic, we will discuss that how can developers rotate their shapes using Aspose.Slides for Java.
-
-{{% /alert %}} 
-
-Rotating a shape using Aspose.Slides for Java is as easy as ABC. To rotate a shape added to the slide, please follow the steps below:
-
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add a Shape to the slide.
-- Rotate the Shape to some degrees.
-- Write the modified presentation as a PPTX file.
-  In the example given below, we have rotated a rectangle shape to 90 degrees for the demonstration purpose.
-
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add AutoShape of rectangle type
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // Rotate the shape to 90 degree
-    shp.setRotation(90);
-
-    // Write the PPTX file to disk
-    pres.save("RectShpRot.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -219,24 +183,24 @@ try {
 ```
 
 ## **Get Interop Shape ID**
-Aspose.Slides for Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interfaces and [Shape](https://apireference.aspose.com/slides/java/com.aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
+Aspose.Slides for Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interfaces and [Shape](https://apireference.aspose.com/slides/java/com.aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Getting unique shape identifier in slide scope
     long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-    
+
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 ## **Set Alternative Text for Shape**
-Aspose.Slides for Java allows developers to set AlternateText of any shape. 
-Shapes in a presentation could be distinguished by the [AlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) method. 
-[setAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint. 
-By using this method, you can tag a shape and can perform different operations as Removing a shape, 
+Aspose.Slides for Java allows developers to set AlternateText of any shape.
+Shapes in a presentation could be distinguished by the [AlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) method.
+[setAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
+By using this method, you can tag a shape and can perform different operations as Removing a shape,
 Hiding a shape or Reordering shapes on a slide.
 To set the AlternateText of a shape, please follow the steps below:
 
@@ -290,7 +254,7 @@ try {
         for (IShape shape : layoutSlide.getShapes())
         {
             IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();       
+            ILineFormat lineFormats = shape.getLineFormat();
         }
     }
 } finally {
@@ -299,7 +263,7 @@ try {
 ```
 
 ## **Render Shape as SVG**
-Now Aspose.Slides for Java support for rendering a shape as svg. Method [writeAsSvg](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://apireference.aspose.com/slides/java/com.aspose.slides/Shape) class and [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
+Now Aspose.Slides for Java support for rendering a shape as svg. Method [writeAsSvg](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://apireference.aspose.com/slides/java/com.aspose.slides/Shape) class and [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```java
 Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
@@ -319,8 +283,9 @@ try {
 ## **Shapes Alignment**
 Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.alignShape()](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType) enumeration defines possible alignment options.
 
-#### Example 1
-Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
+**Example 1**
+
+Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide.
 
 ```java
 Presentation pres = new Presentation("example.pptx");
@@ -341,10 +306,11 @@ try {
 }
 ```
 
-#### Example 2
+**Example 2**
+
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
-``` csharp
+```java
 Presentation pres = new Presentation("example.pptx");
 try {
     SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));

@@ -154,6 +154,7 @@ try {
 
         // Convert slide to a Bitmap object
         BufferedImage bmp = pres.getSlides().get_Item(i).getThumbnail(2f, 2f);
+		
         // Create file name for an image
         String outputFilePath = outputDir + "Slide_" + i + ".jpg";
 

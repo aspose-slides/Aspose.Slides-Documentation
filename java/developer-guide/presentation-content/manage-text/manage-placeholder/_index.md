@@ -5,41 +5,77 @@ weight: 10
 url: /java/manage-placeholder/
 ---
 
-## **Change Text in Placeholder**
-{{% alert color="primary" %}} 
-
-Using Aspose.Slides for Java, developers can also find and modify a specific **Placeholder** present in a slide. In this topic, we are going to demonstrate with the help of an example that how the text contained inside a **Placeholder** can be replaced or modified using Aspose.Slides for Java.
-
-{{% /alert %}} 
-
-The following two steps will be used to modify text in Placeholder.
+## **Change Text in a Placeholder**
+Using [Aspose.Slides for Java](/slides/java/), developers can also find and modify a specific Placeholder present in a slide. In this topic, we are going to demonstrate with the help of an example that how the text contained inside a Placeholder can be replaced or modified using Aspose.Slides for Java. The following two steps will be used to modify text in Placeholder.
 
 Step 1: Create a Slide Containing a Placeholder
-First of all, create a presentation file with a slide containing a **Placeholder**. You can even create this presentation using MS PowerPoint. This is just the demonstration of replacing text in a Placeholder, so you can create this presentation by yourself. This presentation will be used in next step and the text in its **Placeholder** will be replaced. The slide containing the text in a **Placeholder** is shown below:
 
-|![todo:image_alt_text](http://i.imgur.com/ugVf6QJ.jpg)|
-| :- |
-|**Figure: Slide with a Placeholder containing some text**|
+First of all, create a presentation file with a slide containing a Placeholder. You can create this presentation either MS PowerPoint. This is just the demonstration of replacing text in a Placeholder, so, you can create this presentation by yourself. This presentation will be used in the next step and the text in its Placeholder will be replaced.
+
 Step 2: Replace Text of the Placeholder
-To replace the text of a **Placeholder**, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-1. Obtain the reference of a slide by using its Index.
-1. Iterate through the Shapes and find the Placeholder shapes.
-1. Typecast the Placeholder shape to AutoShape and change the text using the TextFrame associated with the AutoShape.
-1. Write the modified presentation as a PPTX file.
+To replace the text of a Placeholder, please follow the steps below:
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Text-ReplacingTextInAPlaceholder-ReplacingTextInAPlaceholder.java" >}}
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Obtain the reference of a slide by using its Index.
+- Iterate through the Shapes and find the Placeholder shapes.
+- Typecast the Placeholder shape to [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+- Write the modified presentation as a PPTX file.
 
-The above code snippet replaces the text of the **Placeholder** to **This is Placeholder** as shown below:
+```java
+// Instantiate Presentation class that represents PPTX
+Presentation pres = new Presentation("ReplacingText.pptx");
+try {
 
-|![todo:image_alt_text](http://i.imgur.com/sa1gmft.png)|
-| :- |
-|**Figure: Placeholders with replaced text**|
-## **Set Prompt Text in Placeholder**
+    // Access first slide
+    ISlide sld = pres.getSlides().get_Item(0);
+
+    // Iterate through shapes to find the placeholder
+    for (IShape shp : sld.getShapes()) 
+    {
+        if (shp.getPlaceholder() != null) {
+            // Change the text of each placeholder
+            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        }
+    }
+
+    // Save the PPTX to Disk
+    pres.save("output_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Set Prompt Text in a Placeholder**
 As we know that Standard and pre-built layouts contain placeholders with default text like **Click to add a title** or **Click to add subtitle**. Using Aspose.Slides you can add prompt text manually by accessing the default placeholders.
 
 The code snippet below shows how to use this feature:
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Text-AddCustomPromptText-AddCustomPromptText.java" >}}
+```java
+Presentation pres = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getSlide().getShapes()) // iterate through the slide
+    {
+        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
+        {
+            String text = "";
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) //PowerPoint displays "Click to add title". 
+            {
+                text = "Add Title";
+            }
+            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) //add subtitle.
+            {
+                text = "Add Subtitle";
+            }
 
+            ((IAutoShape)shape).getTextFrame().setText(text);
+            System.out.println("Placeholder with text: " + text);
+        }
+    }
+
+    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```

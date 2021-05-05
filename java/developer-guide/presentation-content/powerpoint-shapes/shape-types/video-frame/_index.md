@@ -5,100 +5,164 @@ weight: 10
 url: /java/video-frame/
 ---
 
-## **Add Video Frame to Slide**
-{{% alert color="primary" %}} 
+## **Create Embedded Video Frame**
+Developers can also add and play video files in slides to enrich their presentations. Aspose.Slides for Java supports addition of Video Frames into slides—and this means you get to add videos to your presentations. In this topic, we will describe operations to add video frames to slides using examples and simple steps.
 
-Developers can also add and play video files in the slides to enrich their presentations. Aspose.Slides for Java supports Add **Video Frames** to the slides that make it possible for developers to add videos to their presentations. This topic will help developers to follow the simple steps with examples for Add video frames in their slides.
+To add a Video Frame in a slide using Aspose.Slides for Java, do this:
 
-{{% /alert %}} 
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Obtain the reference of a slide by using its Index.
+1. [Add the Video Frame](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) (containing the video file name) into the slide.
+1. Write the modified presentation as a PPTX file.
 
-To add a **Video Frame** in a slide using Aspose.Slides for Java, please follow the steps below:
+In the example below, we added a Video Frame to the slide.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add the Video Frame (containing the video file name) into the slide.
-- Write the modified presentation as a PPTX file.
+```java
+// Instantiate Presentation class that represents the PPTX
+Presentation pres = new Presentation();
+try {
+    // Get the first slide
+    ISlide sld = pres.getSlides().get_Item(0);
+    
+    // Embed video inside presentation
+    IVideo vid = pres.getVideos().addVideo(new FileInputStream(new File("Wildlife.mp4")));
 
-In the example given below, we have added a **Video Frame** into the slide.
+    // Add Video Frame
+    IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 350, vid);
 
+    // Set video to Video Frame
+    vf.setEmbeddedVideo(vid);
 
+    // Set Play Mode and Volume of the Video
+    vf.setPlayMode(VideoPlayModePreset.Auto);
+    vf.setVolume(AudioVolumeMode.Loud);
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-AddingVideoFramesToSlides-AddingVideoFramesToSlides.java" >}}
+    // Write the PPTX file to disk
+    pres.save("VideoFrame.pptx", SaveFormat.Pptx);
+} catch (Exception e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 
-|![todo:image_alt_text](http://i.imgur.com/1xW1eHt.jpg)|
-| :- |
-|**Figure: Video Frame added into the slide**|
-**Video Frame** appears on the slide as a media player. To play this video file, you can right click on the shape and select Preview as shown below in the figure:
+## **Create Video Frame with Video from Web Source**
+PowerPoint 2010 and newer versions support YouTube videos. To play such videos in PowerPoint, verify that your [environment meet the requirements](https://support.office.com/en-us/article/Requirements-for-using-the-PowerPoint-YouTube-feature-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-US&rs=en-US&ad=US) for embedding videos from web sources.
 
-|![todo:image_alt_text](http://i.imgur.com/JNtlePA.jpg)|
-| :- |
-|**Figure: Playing video in the slide**|
+To add video from YouTube with Aspose.Slides, do this:
 
-## **Add Embedded Video Frame to Slide**
-{{% alert color="primary" %}} 
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Obtain the reference of a slide by using its Index.
+1. [Add the Video Frame](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addVideoFrame-float-float-float-float-java.lang.String-) by passing video URL.
+1. Set Image for Video Frame.
+1. Save presentation as a PPTX file.
 
-Developers can also embed and play video files in the slides to enrich their presentations. Aspose.Slides for Java supports Add **Embedded Video Frames** to the slides that make it possible for developers to add videos to their presentations. This topic will help developers to follow the simple steps with examples for Add video frames in their slides.
+This sample code shows you how to add a video from YouTube to a slide:
 
-{{% /alert %}} 
+```java
+// Instantiate Presentation class that represents the PPTX
+Presentation pres = new Presentation();
+try {
+    addVideoFromYouTube(pres, "Tj75Arhq5ho");
+    pres.save("out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+```java
+private static void addVideoFromYouTube(Presentation pres, String videoID)
+{
+    // add videoFrame
+    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
+            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
 
-To add an **Embedded Video Frame** in a slide using Aspose.Slides for Java, please follow the steps below:
+    // load thumbnail
+    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
+    URL url;
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add the Video Frame (containing the video file name) into the slide.
-- Add the video to be embedded inside presentation Video collection using **Video**.
-- Set embedded video to Video frame* Write the modified presentation as a PPTX file.
+    try {
+        url = new URL(thumbnailUri);
+        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
+    } catch (MalformedURLException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+```
 
-In the example given below, we have added a **Video Frame** into the slide.
+## **Create Video Frame**
+Developers can also embed and play video files in slides to enrich their presentations. Aspose.Slides for Java supports addition of Embedded Video Frames to slides—and this means you get to add videos to your presentations. 
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-AddingAnEmbeddedVideoFrameToSlide-AddingAnEmbeddedVideoFrameToSlide.java" >}}
+To add an Embedded Video Frame in a slide using Aspose.Slides for Java, do this:
 
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Obtain the reference of a slide by using its Index.
+1. [Add the Video Frame](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addVideoFrame-float-float-float-float-java.lang.String-) (containing the video file name) into the slide.
+1. Add the video to be embedded inside presentation Video collection using Video.
+1. Set embedded video to Video frame.
+1. Write the modified presentation as a PPTX file.
 
-**Video Frame** appears on the slide as a media player and video gets embedded in presentation. To play this video file, you can right click on the shape and select Preview as shown below in the figure:
+In the example below, we added a Video Frame to the slide.
 
-|![todo:image_alt_text](http://i.imgur.com/Rvy1rAK.png)|
-| :- |
-|**Figure: Playing video in the slide**|
+```java
+// Instantiate Presentation class that represents the PPTX
+Presentation pres = new Presentation();
+try {
+    // Get the first slide
+    ISlide sld = pres.getSlides().get_Item(0);
 
-## **Add Video Frame from Web Source**
-PowerPoint 2010 and newer versions support YouTube videos. To play these videos in PowerPoint make sure your [environment meet requirements](https://support.office.com/en-us/article/Requirements-for-using-the-PowerPoint-YouTube-feature-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-US&rs=en-US&ad=US) for embedding videos from web source.
-In order To add video from YouTube with Aspose.Slides, please use following code snippet:
+    // Add Video Frame
+    IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "Wildlife.mp4");
 
-1. Create an instance of Presentation class
-1. Obtain the reference of a slide by using its Index
-1. Add the Video Frame by passing video URL
-1. Set Image for Video Frame
-1. Save presentation as a PPTX file
+    // Set Play Mode and Volume of the Video
+    vf.setPlayMode(VideoPlayModePreset.Auto);
+    vf.setVolume(AudioVolumeMode.Loud);
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-AddingVideoFrameWithVideoFromWebSource-AddingVideoFrameWithVideoFromWebSource.java" >}}
+    // Write the PPTX file to disk
+    pres.save("VideoFrame.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 
-## **Set Image to Video Frame**
-To set image on a video frame, please follow the steps below:
+## **Extract Video From Slide**
+Aspose.Slides for Java supports extraction of videos from slides. To extract a video from a slide, do this:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add the Video Frame (containing the video file name) into the slide.
-- Set image for videoframe.
-- Write the modified presentation as a PPTX file.
+- Load a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) containing a video.
+- Loop through all the slides of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation).
+- Search for Video Frame.
+- Save the Video to disk.
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-SettingImageOnAVideoFrame-SettingImageOnAVideoFrame.java" >}}
+In the example given below, we saved the video file from a slide.
 
+```java
+Presentation pres = new Presentation("VideoSample.pptx");
+try {
+    for (ISlide slide : pres.getSlides()) 
+    {
+        for (IShape shape : slide.getShapes()) 
+        {
+            if (shape instanceof VideoFrame) 
+            {
+                IVideoFrame vf = (IVideoFrame) shape;
+                String type = vf.getEmbeddedVideo().getContentType();
+                int ss = type.lastIndexOf('-');
+                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-## **Extract Video from Slide**
-{{% alert color="primary" %}} 
+                //Get File Extension
+                int charIndex = type.indexOf("/");
+                type = type.substring(charIndex + 1);
 
-Aspose.Slides for Java supports extracting video from the slide. In this topic, we will see with an example how to extract the video using Aspose.Slides.
-
-{{% /alert %}} 
-
-In order to extract the video, please follow the steps below:
-
-- Load a Presentation containing a video
-- Loop through all the slides of Presentation
-- Search for Video Frame
-- Save the Video to disk
-
-In the example given below, we have saved the video file from a slide.
-
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slides-examples-Slides-Media-ExtractingVideoFromASlide-ExtractingVideoFromASlide.java" >}}
-
+                FileOutputStream fop = new FileOutputStream("testing2." + type);
+                fop.write(buffer);
+                fop.flush();
+                fop.close();
+            }
+        }
+    }
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
