@@ -5,7 +5,11 @@ weight: 232
 url: /net/manage-ole/
 ---
 
+{{% alert color="primary" %}} 
+
 OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
+
+{{% /alert %}} 
 
 Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
