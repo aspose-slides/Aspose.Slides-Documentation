@@ -71,7 +71,7 @@ If an OLE object is already embedded in a slide, you can find or access that obj
 
 1. Access the OLE Object Frame shape.
 
-   In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *typecasted* that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
+   In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe). This was the desired OLE Object Frame to be accessed.
 
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
@@ -120,7 +120,7 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 
 1. Access the OLE Object Frame shape.
 
-   In our example, we used the previously created PPTX, which has only one shape on the first slide. We then *typecasted* that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
+   In our example, we used the previously created PPTX, which has only one shape on the first slide. We then *cast* that object as an [OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe). This was the desired OLE Object Frame to be accessed.
 
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
@@ -186,7 +186,7 @@ using (Presentation pres = new Presentation(dataDir + "ChangeOLEObjectData.pptx"
 
 ## Embedding Other File Types in Slides
 
-Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, they get directed to select an appropriate program to open the object. 
+Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, this object will be run by registered program or they get directed to select an appropriate program to open the object. 
 
 This sample code shows you how to embed HTML and ZIP in a slide:
 
@@ -225,15 +225,32 @@ using (Presentation pres = new Presentation())
 
 Aspose.Slides for .NET allows you to extract the files embedded in slides as OLE objects this way:
 
-1. Create an instance of the Presentation class.
-2.  Load the presentation containing the OLE object you intend to extract. 
-3. Loop through all the shapes in the presentation and access the OLE Object Frame shape.
-4. Access the embedded file's data from the OLE Object Frame and write it to disk. 
+1. Create an instance of the Presentation class containing the OLE object you intend to extract.
+2. Loop through all the shapes in the presentation and access the OLE Object Frame shape.
+3. Access the embedded file's data from the OLE Object Frame and write it to disk. 
 
 This sample code shows you how to extract a file embedded in a slide as an OLE object:
 
 ```c#
+using (Presentation pres = new Presentation("embeddedOle.pptx"))
+{
+    ISlide slide = pres.Slides[0];
 
+    for (var index = 0; index < slide.Shapes.Count; index++)
+    {
+        IShape shape = slide.Shapes[index];
+        
+        IOleObjectFrame oleFrame = shape as IOleObjectFrame;
+        
+        if (oleFrame != null)
+        {
+            byte[] data = oleFrame.EmbeddedData.EmbeddedFileData;
+            string extension = oleFrame.EmbeddedData.EmbeddedFileExtension;
+            
+            File.WriteAllBytes($"oleFrame{index}{extension}", data);
+        }
+    }
+}
 ```
 
 
