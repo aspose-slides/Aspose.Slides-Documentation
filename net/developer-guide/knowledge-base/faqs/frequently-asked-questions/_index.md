@@ -48,9 +48,25 @@ In general, Aspose.Slides for .NET can easily handle presentation files around 3
 #### **Q: When I clone a slide, the notes associated with the slide are ignored?**
 **A**: Notes associated with a slide cannot be cloned as it is prohibited by the PPT documentation. You can add notes associated with a slide using the following code:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Notes-AddNotesAssociatedWithSlide-AddNotesAssociatedWithSlide.cs" >}}
+```c#
+//Check if source slide has notes
+if (srcSlide.Notes != null)
+{
+    //Create notes page in terget slide
+    targetSlide.AddNotes();
+
+    //Add each paragraph from the source notes page to the target slide notes
+    for (int j = 0; j < srcSlide.Notes.Paragraphs.Count; j++)
+        targetSlide.Notes.Paragraphs.Add(new Paragraph(srcSlide.Notes.Paragraphs[j]));
+
+    //Remove the default paragraph that is created on creation of the notes page
+    targetSlide.Notes.Paragraphs.RemoveAt(0);
+}
+```
+
 #### **Q: Why are internal hyperlinks lost when slides are cloned ?**
 **A**: There is no way to preserve internal links when slides are cloned. The reason being there can be different numbers of slides in the new presentation and their order can be different from the source presentation. So cloning the slide in target presentation may not point to desired slide link. That is why all internal hyperlinks should be reset after slides cloning if necessary.
+
 ### **Working with Presentations**
 #### **Q: When I open a PPT file with slides created with Aspose.Slide and then press F5 for the presentation mode, I only see the first slide.**
 The rest of the slides are not shown in this mode. If I open the presentation settings (strg-c strg-s) then the fields slide from and to are set to 1 and 1.

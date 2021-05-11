@@ -10,15 +10,60 @@ Using Aspose.Slides for .NET, developers can not only create PowerPoint presenta
 
 Aspose.Slides for .NET provides Presentation class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation.In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of Presentation class. After the file is opened, we get the total number of slides present in the presentation to print on the screen. The following example shows how to Open a Presentation.
 
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_PresentationOpening();
+
+// Opening the presentation file by passing the file path to the constructor of Presentation class
+Presentation pres = new Presentation(dataDir + "OpenPresentation.pptx");
+
+// Printing the total number of slides present in the presentation
+System.Console.WriteLine(pres.Slides.Count.ToString());
+```
 
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Opening-OpenPresentation-OpenPresentation.cs" >}}
+
 ## **Open Large Presentation**
 Aspose.Slides for .NET provides facility to open very large presentations using Presentation class. Now you can load large presentations lets say presentation size is 2 Gb, you can easily open that with these sample codes provided below.
 
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_PresentationOpening();
+
+ const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
+
+ LoadOptions loadOptions = new LoadOptions
+     {
+ BlobManagementOptions =
+ {
+// let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
+// the Presentation's instance lifetime, but we don't need to load it into memory or copy into
+// thetemporary file
+PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+         }
+      };
+
+using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
+    {
+// the huge presentation is loaded and ready to use, but the memory consumption is still low.
+
+// make any changes to the presentation.
+pres.Slides[0].Name = "Very large presentation";
+
+// presentation will be saved to the other file, the memory consumptions still low during saving.
+pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+
+// can't do that! IO exception will be thrown, because the file is locked while pres objects will
+// not be disposed
+File.Delete(pathToVeryLargePresentationFile);
+      }
+
+// it's ok to do it here, the source file is not locked by pres object
+File.Delete(pathToVeryLargePresentationFile);
+       }
+```
 
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Opening-OpenVeryLargePresentation-OpenVeryLargePresentation.cs" >}}
 
 
 ## **Load Presentation**
@@ -26,6 +71,47 @@ New IResourceLoadingCallback interface has been added. This callback interface i
 
 The code snippet below shows how to use IResourceLoadingCallback interface:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Presentations-Opening-LoadPresentation-LoadPresentation.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_PresentationOpening();
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Presentations-Opening-LoadPresentation-IResourceLoadingCallback.cs" >}}
+LoadOptions opts = new LoadOptions();
+opts.ResourceLoadingCallback = new ImageLoadingHandler();
+Presentation presentation = new Presentation(dataDir + "presentation.pptx", opts);
+```
+
+
+
+```c#
+public class ImageLoadingHandler : IResourceLoadingCallback
+{
+    // The path to the documents directory.
+    string dataDir = RunExamples.GetDataDir_PresentationOpening();
+    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+    {
+        if (args.OriginalUri.EndsWith(".jpg"))
+        {
+            try // load substitute image
+            {
+                byte[] imageBytes = File.ReadAllBytes(Path.Combine(dataDir, "aspose-logo.jpg"));
+                args.SetData(imageBytes);
+                return ResourceLoadingAction.UserProvided;
+            }
+            catch (Exception)
+            {
+                return ResourceLoadingAction.Skip;
+            }
+        }
+        else if (args.OriginalUri.EndsWith(".png"))
+        {
+            // set substitute url
+            args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
+            return ResourceLoadingAction.Default;
+        }
+
+        // skip all other images
+        return ResourceLoadingAction.Skip;
+    }
+}
+```
+

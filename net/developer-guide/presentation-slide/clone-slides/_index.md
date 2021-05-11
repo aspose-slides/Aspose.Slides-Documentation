@@ -25,7 +25,26 @@ If you want to clone a slide and then use it within the same presentation file a
 
 In the example given below, we have cloned a slide (lying at the first position – zero index – of the presentation) to the end of the presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-CloneWithinSamePresentationToEnd-CloneWithinSamePresentationToEnd.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
+
+// Instantiate Presentation class that represents a presentation file
+using (Presentation pres = new Presentation(dataDir + "CloneWithinSamePresentationToEnd.pptx"))
+{
+
+    // Clone the desired slide to the end of the collection of slides in the same presentation
+    ISlideCollection slds = pres.Slides;
+
+    slds.AddClone(pres.Slides[0]);
+
+    // Write the modified presentation to disk
+    pres.Save(dataDir + "Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
+
+}
+```
+
+
 ## **Clone at Another Position with in Presentation**
 If you want to clone a slide and then use it within the same presentation file but at a different position, use the [InsertClone](https://apireference.aspose.com/net/slides/aspose.slides.ishapecollection/insertclone/methods/1) method:
 
@@ -36,7 +55,27 @@ If you want to clone a slide and then use it within the same presentation file b
 
 In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-CloneWithInSamePresentation-CloneWithInSamePresentation.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
+
+// Instantiate Presentation class that represents a presentation file
+using (Presentation pres = new Presentation(dataDir + "CloneWithInSamePresentation.pptx"))
+{
+
+    // Clone the desired slide to the end of the collection of slides in the same presentation
+    ISlideCollection slds = pres.Slides;
+
+    // Clone the desired slide to the specified index in the same presentation
+    slds.InsertClone(2, pres.Slides[1]);
+
+    // Write the modified presentation to disk
+    pres.Save(dataDir + "Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
+
+}
+```
+
+
 ## **Clone at End in another Presentation**
 If you need to clone a slide from one presentation and use it in another presentation file, at the end of the existing slides:
 
@@ -48,7 +87,28 @@ If you need to clone a slide from one presentation and use it in another present
 
 In the example given below, we have cloned a slide (from the first index of the source presentation) to the end of the destination presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-CloneAtEndOfAnother-CloneAtEndOfAnother.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
+
+// Instantiate Presentation class to load the source presentation file
+using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pptx"))
+{
+    // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
+    using (Presentation destPres = new Presentation())
+    {
+        // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
+        ISlideCollection slds = destPres.Slides;
+
+        slds.AddClone(srcPres.Slides[0]);
+
+        // Write the destination presentation to disk
+        destPres.Save(dataDir + "Aspose2_out.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+
 ## **Clone at Another Position in another Presentation**
 If you need to clone a slide from one presentation and use it in another presentation file, at a specific position:
 
@@ -60,7 +120,28 @@ If you need to clone a slide from one presentation and use it in another present
 
 In the example given below, we have cloned a slide (from the zero index of the source presentation) to index 1 (position 2) of the destination presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-CloneAtEndOfAnother-CloneAtEndOfAnother.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
+
+// Instantiate Presentation class to load the source presentation file
+using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pptx"))
+{
+    // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
+    using (Presentation destPres = new Presentation())
+    {
+        // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
+        ISlideCollection slds = destPres.Slides;
+
+        slds.AddClone(srcPres.Slides[0]);
+
+        // Write the destination presentation to disk
+        destPres.Save(dataDir + "Aspose2_out.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+
 ## **Clone at specific position in another Presentation**
 If you need to clone a slide with a master slide from one presentation from and use it in another presentation, you need to clone the desired master slide from source presentation to destination presentation first. Then you need to use that master slide for cloning slide with master slide. The **AddClone(ISlide, IMasterSlide)** expects a master slide from destination presentation rather than from source presentation. In order to clone the slide with a master, please follow the steps below:
 
@@ -75,4 +156,42 @@ If you need to clone a slide with a master slide from one presentation from and 
 
 In the example given below, we have cloned a slide with a master (lying at the zero index of the source presentation) to the end of the destination presentation using a master from source slide.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-CloneToAnotherPresentationWithMaster-CloneToAnotherPresentationWithMaster.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
+
+// Instantiate Presentation class to load the source presentation file
+
+using (Presentation srcPres = new Presentation(dataDir + "CloneToAnotherPresentationWithMaster.pptx"))
+{
+    // Instantiate Presentation class for destination presentation (where slide is to be cloned)
+    using (Presentation destPres = new Presentation())
+    {
+
+        // Instantiate ISlide from the collection of slides in source presentation along with
+        // Master slide
+        ISlide SourceSlide = srcPres.Slides[0];
+        IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
+
+        // Clone the desired master slide from the source presentation to the collection of masters in the
+        // Destination presentation
+        IMasterSlideCollection masters = destPres.Masters;
+        IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
+
+        // Clone the desired master slide from the source presentation to the collection of masters in the
+        // Destination presentation
+        IMasterSlide iSlide = masters.AddClone(SourceMaster);
+
+        // Clone the desired slide from the source presentation with the desired master to the end of the
+        // Collection of slides in the destination presentation
+        ISlideCollection slds = destPres.Slides;
+        slds.AddClone(SourceSlide, iSlide, true);
+      
+        // Clone the desired master slide from the source presentation to the collection of masters in the // Destination presentation
+        // Save the destination presentation to disk
+        destPres.Save(dataDir + "CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
+
+    }
+}
+```
+

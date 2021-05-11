@@ -25,13 +25,82 @@ To generate an SVG image from any desired slide with Aspose.Slides.PPTX for .NET
 - Get the SVG image in a memory stream.
 - Save the memory stream to file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-CreateSlidesSVGImage-CreateSlidesSVGImage.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
+
+// Instantiate a Presentation class that represents the presentation file
+
+using (Presentation pres = new Presentation(dataDir + "CreateSlidesSVGImage.pptx"))
+{
+
+    // Access the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Create a memory stream object
+    MemoryStream SvgStream = new MemoryStream();
+
+    // Generate SVG image of slide and save in memory stream
+    sld.WriteAsSvg(SvgStream);
+    SvgStream.Position = 0;
+
+    // Save memory stream to file
+    using (Stream fileStream = System.IO.File.OpenWrite(dataDir + "Aspose_out.svg"))
+    {
+        byte[] buffer = new byte[8 * 1024];
+        int len;
+        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)
+        {
+            fileStream.Write(buffer, 0, len);
+        }
+
+    }
+    SvgStream.Close();
+}
+```
+
+
 ## **Generate SVG with Custom Shape IDS**
 Aspose.Slides for .NET can be used to generate [SVG ](https://wiki.fileformat.com/page-description-language/svg/)from slide with custom shape ID. For that, use ID property from [ISvgShape](https://apireference.aspose.com/net/slides/aspose.slides.export/isvgshape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-GeneratingSVGWithCustomShapeIDS-GeneratingSVGWithCustomShapeIDS.cs" >}}
+```c#
+string dataDir = RunExamples.GetDataDir_Conversion();
+using (Presentation pres = new Presentation(dataDir+"pptxFileName.pptx"))
+{
+    using (FileStream stream = new FileStream(outputPath, FileMode.OpenOrCreate))
+    {
+        SVGOptions svgOptions = new SVGOptions
+        {
+            ShapeFormattingController = new CustomSvgShapeFormattingController()
+        };
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-CustomSvgShapeFormattingController-CustomSvgShapeFormattingController.cs" >}}
+        pres.Slides[0].WriteAsSvg(stream, svgOptions);
+    }
+}
+```
+
+
+
+```c#
+class CustomSvgShapeFormattingController : ISvgShapeFormattingController
+
+{
+  private int m_shapeIndex;
+
+  public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+  {
+      m_shapeIndex = shapeStartIndex;
+  }
+
+  public void FormatShape(ISvgShape svgShape, IShape shape)
+  {
+      svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
+  }
+
+}
+```
+
+
 ## **Create Slides Thumbnail Image**
 Aspose.Slides for .NET help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 
@@ -40,14 +109,62 @@ Aspose.Slides for .NET help you generate thumbnail images of the slides. To gene
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Thumbnail-ThumbnailFromSlide-ThumbnailFromSlide.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Thumbnail();
+
+// Instantiate a Presentation class that represents the presentation file
+using (Presentation pres = new Presentation(dataDir + "ThumbnailFromSlide.pptx"))
+{
+
+    // Access the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Create a full scale image
+    Bitmap bmp = sld.GetThumbnail(1f, 1f);
+
+    // Save the image to disk in JPEG format
+    bmp.Save(dataDir + "Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+}
+```
+
+
 ## **Create Thumbnail with User Defined Dimensions**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
 1. Obtain the reference of any desired slide by using its ID or index.
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Thumbnail-ThumbnailWithUserDefinedDimensions-ThumbnailWithUserDefinedDimensions.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Thumbnail();
+
+// Instantiate a Presentation class that represents the presentation file
+using (Presentation pres = new Presentation(dataDir + "ThumbnailWithUserDefinedDimensions.pptx"))
+{
+
+    // Access the first slide
+    ISlide sld = pres.Slides[0];
+
+    // User defined dimension
+    int desiredX = 1200;
+    int desiredY = 800;
+
+    // Getting scaled value  of X and Y
+    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
+    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
+
+
+    // Create a full scale image
+    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
+
+    // Save the image to disk in JPEG format
+    bmp.Save(dataDir + "Thumbnail2_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+}
+```
+
+
 ## **Create Thumbnail from Slide in Notes Slides View**
 To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for .NET:
 
@@ -58,4 +175,29 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Thumbnail-ThumbnailFromSlideInNotes-ThumbnailFromSlideInNotes.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Thumbnail();
+
+// Instantiate a Presentation class that represents the presentation file
+using (Presentation pres = new Presentation(dataDir + "ThumbnailFromSlideInNotes.pptx"))
+{
+    // Access the first slide
+    ISlide sld = pres.Slides[0];
+
+    // User defined dimension
+    int desiredX = 1200;
+    int desiredY = 800;
+
+    // Getting scaled value  of X and Y
+    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
+    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
+
+   
+    // Create a full scale image                
+    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
+    // Save the image to disk in JPEG format
+    bmp.Save(dataDir + "Notes_tnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+}
+```
+

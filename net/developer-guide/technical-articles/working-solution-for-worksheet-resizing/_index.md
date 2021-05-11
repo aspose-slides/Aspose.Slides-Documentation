@@ -24,25 +24,262 @@ In this approach, we will learn how to set the Ole frame size of the embedded Ex
 ## **Example**
 Suppose, we have defined a template excel sheet and and desire to add that to presentation as Ole frame. In this scenario, the size of the OLE Object Frame will be calculated first based on cumulative rows height and columns widths of participating workbook's rows and columns respectively. Then we will set the size of Ole frame to that calculated value. In order to avoid the red **Embedded Object** message for Ole frame in PowerPoint we will also get the image of desired portions of rows and columns in Workbook and set that as Ole frame image. 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeOLEFrameToWorksheetRowsColumns-ResizeOLEFrameToWorksheetRowsColumns.cs" >}}
+```c#
+WorkbookDesigner workbookDesigner = new WorkbookDesigner();
+workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeOLEFrameToWorksheetRowsColumns-SetOLEAccordingToSelectedRowsCloumns.cs" >}}
+Presentation presentation = new Presentation("AsposeTest.ppt");
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeOLEFrameToWorksheetRowsColumns-AddOLEFrame.cs" >}}
+Slide slide = presentation.Slides[0];
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeOLEFrameToWorksheetRowsColumns-ScaleImage.cs" >}}
+AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+
+String fileName = "AsposeTest_Ole.ppt";
+presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+```
+
+```c#
+private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int32 startRow, Int32 endRow, Int32 startCol,Int32 endCol, Int32 dataSheetIdx)
+{
+    Worksheet work = workbook.Worksheets[dataSheetIdx];
+
+    double actualHeight = 0, actualWidth = 0;
+
+    for (int i = startRow; i <= endRow; i++)
+        actualHeight += work.Cells.GetRowHeightInch(i);
+
+    for (int i = startCol; i <= endCol; i++)
+        actualWidth += work.Cells.GetColumnWidthInch(i);
+    //Setting new Row and Column Height
+
+    return new Size((int)(Math.Round(actualWidth, 2) * 576), (int)(Math.Round(actualHeight, 2) * 576));
+
+}
+```
+
+```c#
+private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
+    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
+    Presentation presentation, WorkbookDesigner workbookDesigner,
+    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
+{
+    String tempFileName = Path.GetTempFileName();
+    if (startRow == 0)
+    {
+        startRow++;
+        endRow++;
+    }
+
+    //Setting active sheet index of workbook
+    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+
+    //Getting Workbook and selected worksheet  
+    Workbook workbook = workbookDesigner.Workbook;
+    Worksheet work = workbook.Worksheets[dataSheetIdx];
+
+    //Setting Ole Size according to selected rows and columns
+    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
+    OleWidth = SlideOleSize.Width;
+    OleHeight = SlideOleSize.Height;
+
+    //Set Ole Size in Workbook
+    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
+
+    workbook.Worksheets[0].IsGridlinesVisible = false;
+
+    //Setting Image Options to take the worksheet Image
+    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
+    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
+    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
+
+    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
+    String ext = ".bmp";
+    render.ToImage(0, tempFileName + ext);
+    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
+    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
+    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
+
+    //Adding Image to slide picture collection
+    Picture pic = new Picture(presentation, newTempFileName);
+    int picId = presentation.Pictures.Add(pic);
+
+    //Saving worbook to stream and copying in byte array
+    Stream mstream = workbook.SaveToStream();
+    byte[] chartOleData = new byte[mstream.Length];
+    mstream.Position = 0;
+    mstream.Read(chartOleData, 0, chartOleData.Length);
+
+    //Adding Ole Object frame
+    OleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),Convert.ToInt32(OleHeight), "Excel.Sheet.8", chartOleData);
+
+    //Setting ole frame Imnae and Alternative Text property    
+    oleObjectFrame.PictureId = picId;
+    oleObjectFrame.AlternativeText = "image" + picId;
+}
+```
+
+```c#
+private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
+{
+    if (outputWidth == 0 && outputHeight == 0)
+    {
+        outputWidth = image.Width;
+        outputHeight = image.Height;
+    }
+    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
+    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+    Graphics graphics = Graphics.FromImage(outputImage);
+    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
+    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
+    graphics.Dispose();
+
+    return outputImage;
+}
+```
+
+
 ## **Scale worksheet's row height and column width according to Ole Frame size**
 In this approach, we will learn how to scale the heights of participating rows and width of participating column in accordance with custom set ole frame size
 ## **Example**
 Suppose, we have defined a template excel sheet and and desire to add that to presentation as Ole frame. In this scenario, we will set the size of Ole frame and scale the size of rows and columns participating in Ole Frame area. We will then save the workbook in stream to save changes and convert that to byte array for adding it in Ole frame. In order to avoid the red **Embedded Object** message for Ole frame in PowerPoint we will also get the image of desired portions of rows and columns in Workbook and set that as Ole frame image. 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeWorksheetRowColumnAccordingToOLEFrame-ResizeWorksheetRowColumnAccordingToOLEFrame.cs" >}}
+```c#
+WorkbookDesigner workbookDesigner = new WorkbookDesigner();
+workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeWorksheetRowColumnAccordingToOLEFrame-SetOLEAccordingToCustomHeighWidth.cs" >}}
+Presentation presentation = new Presentation("AsposeTest.ppt");
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeWorksheetRowColumnAccordingToOLEFrame-AddOLEFrame.cs" >}}
+Slide slide = presentation.Slides[0];
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-ResizeWorksheetRowColumnAccordingToOLEFrame-ScaleImage.cs" >}}
+AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+
+String fileName = "AsposeTest_Ole.ppt";
+presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+```
+
+```c#
+private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 startRow,
+                    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
+{
+    Worksheet work = workbook.Worksheets[dataSheetIdx];
+
+    double actualHeight = 0, actualWidth = 0;
+
+    double newHeight = slideHeight;
+    double newWidth = slideWidth;
+    double tem = 0;
+    double newTem = 0;
+
+    for (int i = startRow; i <= endRow; i++)
+        actualHeight += work.Cells.GetRowHeightInch(i);
+
+    for (int i = startCol; i <= endCol; i++)
+        actualWidth += work.Cells.GetColumnWidthInch(i);
+    ///Setting new Row and Column Height
+
+    for (int i = startRow; i <= endRow; i++)
+    {
+        tem = work.Cells.GetRowHeightInch(i);
+        newTem = (tem / actualHeight) * newHeight;
+        work.Cells.SetRowHeightInch(i, newTem);
+    }
+
+    for (int i = startCol; i <= endCol; i++)
+    {
+        tem = work.Cells.GetColumnWidthInch(i);
+        newTem = (tem / actualWidth) * newWidth;
+        work.Cells.SetColumnWidthInch(i, newTem);
+
+    }
+
+}
+```
+
+```c#
+private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
+Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
+Presentation presentation, WorkbookDesigner workbookDesigner,
+Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
+{
+    String tempFileName = Path.GetTempFileName();
+    if (startRow == 0)
+    {
+        startRow++;
+        endRow++;
+    }
+
+    //Setting active sheet index of workbook
+    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+
+    //Getting Workbook and selected worksheet  
+    Workbook workbook = workbookDesigner.Workbook;
+    Worksheet work = workbook.Worksheets[dataSheetIdx];
+
+    //Scaling rows height and coluumns width according to custom Ole size
+    double height = OleHeight / 576f;
+    double width = OleWidth / 576f;
+
+    SetOleAccordingToCustomHeighWidth(workbook, startRow, endRow, startCol, endCol, width, height, dataSheetIdx);
+
+    //Set Ole Size in Workbook
+    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
+
+    workbook.Worksheets[0].IsGridlinesVisible = false;
+
+    //Setting Image Options to take the worksheet Image
+    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
+    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
+    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
+
+    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
+    String ext = ".bmp";
+    render.ToImage(0, tempFileName + ext);
+    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
+    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
+    image.Save(newTempFileName, ImageFormat.Bmp);
+
+    //Adding Image to slide picture collection
+    Picture pic = new Picture(presentation, newTempFileName);
+    int picId = presentation.Pictures.Add(pic);
+
+    //Saving worbook to stream and copying in byte array
+    Stream mstream = workbook.SaveToStream();
+    byte[] chartOleData = new byte[mstream.Length];
+    mstream.Position = 0;
+    mstream.Read(chartOleData, 0, chartOleData.Length);
+
+    //Adding Ole Object frame
+    OleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
+  Convert.ToInt32(OleHeight), "Excel.Sheet.8", chartOleData);
+
+    //Setting ole frame Imnae and Alternative Text property    
+    oleObjectFrame.PictureId = picId;
+    oleObjectFrame.AlternativeText = "image" + picId;
+}
+```
+
+```c#
+private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
+{
+    if (outputWidth == 0 && outputHeight == 0)
+    {
+        outputWidth = image.Width;
+        outputHeight = image.Height;
+    }
+    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
+    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+    Graphics graphics = Graphics.FromImage(outputImage);
+    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
+    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
+    graphics.Dispose();
+
+    return outputImage;
+}
+```
+
+
 ## **Conclusion**
 
 

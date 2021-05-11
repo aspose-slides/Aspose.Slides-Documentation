@@ -20,4 +20,25 @@ Aspose.Slides for .NET provides a simple API methods for replacing the images in
 1. In third approach replace the image with already added image in presentation image collection.
 1. Write the modified presentation as a PPTX file.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Presentations-Images-ReplaceImage-ReplaceImage.cs" >}}
+```c#
+//Instantiate the presentation
+Presentation presentation = new Presentation("presentation.pptx");
+
+//the first way
+byte[] data = File.ReadAllBytes("image0.jpeg");
+IPPImage oldImage = presentation.Images[0];
+oldImage.ReplaceImage(data);
+
+//the second way
+Image newImage = Image.FromFile("image1.png");
+oldImage = presentation.Images[1];
+oldImage.ReplaceImage(newImage);
+
+//the third way
+oldImage = presentation.Images[2];
+oldImage.ReplaceImage(presentation.Images[3]);
+
+//Save the presentation
+presentation.Save("c:\\Presentations\\TestSmart.pptx", SaveFormat.Pptx);
+```
+

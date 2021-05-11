@@ -18,7 +18,31 @@ We know that Aspose.Slides for .NET may contain two types of slides: Master Slid
 1. Set the Background Color of the Master Slide of the presentation to any desired color using the [SolidFillColor.Color](https://apireference.aspose.com/net/slides/aspose.slides/fillformat/properties/solidfillcolor) property exposed by [FillFormat](https://apireference.aspose.com/net/slides/aspose.slides/fillformat) object.
 1. Write the modified presentation as a presentation file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Background-SetSlideBackgroundMaster-SetSlideBackgroundMaster.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Background();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate the Presentation class that represents the presentation file
+using (Presentation pres = new Presentation())
+{
+
+    // Set the background color of the Master ISlide to Forest Green
+    pres.Masters[0].Background.Type = BackgroundType.OwnBackground;
+    pres.Masters[0].Background.FillFormat.FillType = FillType.Solid;
+    pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
+
+    // Write the presentation to disk
+    pres.Save(dataDir + "SetSlideBackgroundMaster_out.pptx", SaveFormat.Pptx);
+
+}
+```
+
+
 ## **Set Background Color to Normal Slide**
 A Normal Slide is the one which inherits its format settings from the master slide. If you want to modify its background settings, you would have to modify the slide settings. Please follow the steps below to perform this task:
 
@@ -28,7 +52,28 @@ A Normal Slide is the one which inherits its format settings from the master sli
 - Set the Background Color of the Normal Slide of the presentation to any desired color using the **SolidFillColor.Color** property exposed by FillFormat object.
 - Write the modified presentation as a presentation file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Background-SetSlideBackgroundNormal-SetSlideBackgroundNormal.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Background();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate the Presentation class that represents the presentation file
+using (Presentation pres = new Presentation())
+{
+
+    // Set the background color of the first ISlide to Blue
+    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
+    pres.Slides[0].Background.FillFormat.FillType = FillType.Solid;
+    pres.Slides[0].Background.FillFormat.SolidFillColor.Color = Color.Blue;
+    pres.Save(dataDir + "ContentBG_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## Set Gradient Background Color to Slide
 **Gradient** is a graphic effect consisting of a gradual change in color. It is great for creating depth and highlights to sections of the images. It is possible to apply gradient effect on the background of a slide using Aspose.Slides for .NET that will be explained in the remaining discussion of this topic.
 
@@ -40,7 +85,25 @@ To apply the simple gradient effect on the background of a slide using Aspose.Sl
 - Apply any desired gradient effect from the available options provided by GradientFormatEx object.
 - Write the modified presentation file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Background-SetBackgroundToGradient-SetBackgroundToGradient.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Background();
+
+// Instantiate the Presentation class that represents the presentation file
+using (Presentation pres = new Presentation(dataDir + "SetBackgroundToGradient.pptx"))
+{
+
+    // Apply Gradiant effect to the Background
+    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
+    pres.Slides[0].Background.FillFormat.FillType = FillType.Gradient;
+    pres.Slides[0].Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
+
+    //Write the presentation to disk
+    pres.Save(dataDir + "ContentBG_Grad_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## Set Image as Background to Slide
 Sometimes, developers may need to use an image as the background of the slide. To fulfill such development needs, Aspose.Slides for .NET also allows filling the slide background with any image.
 
@@ -53,7 +116,33 @@ To use an image as the background of a slide using Aspose.Slides for .NET, pleas
 1. Instantiate Image class with an image that can be used as source picture for the Slide Background using PictureFillFormat.Picture.Image.
 1. Write the modified presentation file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Background-SetImageAsBackground-SetImageAsBackground.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Background();
+
+// Instantiate the Presentation class that represents the presentation file
+using (Presentation pres = new Presentation(dataDir + "SetImageAsBackground.pptx"))
+{
+
+    // Set the background with Image
+    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
+    pres.Slides[0].Background.FillFormat.FillType = FillType.Picture;
+    pres.Slides[0].Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+
+    // Set the picture
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir + "Tulips.jpg");
+
+    // Add image to presentation's images collection
+    IPPImage imgx = pres.Images.AddImage(img);
+
+    pres.Slides[0].Background.FillFormat.PictureFillFormat.Picture.Image = imgx;
+
+    // Write the presentation to disk
+    pres.Save(dataDir + "ContentBG_Img_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **Get Effective Background Values of Slide**
 **Aspose.Slides.IBackgroundEffectiveData** interface and its implementation by **Aspose.Slides.BackgroundEffectiveData** class have been added. They represent effective background of slide and contain information about effective fill format and effective effect format.
 
@@ -61,4 +150,19 @@ To use an image as the background of a slide using Aspose.Slides for .NET, pleas
 
 The following code snippet shows how to get effective background values of slide.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Background-GetBackgroundEffectiveValues-GetBackgroundEffectiveValues.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Background();
+
+// Instantiate the Presentation class that represents the presentation file
+Presentation pres = new Presentation(dataDir + "SamplePresentation.pptx");
+
+IBackgroundEffectiveData effBackground = pres.Slides[0].CreateBackgroundEffective();
+
+if (effBackground.FillFormat.FillType == FillType.Solid)
+    Console.WriteLine("Fill color: " + effBackground.FillFormat.SolidFillColor);
+else
+    Console.WriteLine("Fill type: " + effBackground.FillFormat.FillType);
+
+```
+
