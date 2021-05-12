@@ -81,7 +81,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
  && update-alternatives ~-~-install /usr/bin/c++ c++ /usr/bin/g++-6 30
 ```
 
-2. Installing the msttcorefonts package. By default, the msttcorefonts package EULA isn't accepted: 
+2. Installing the msttcorefonts package (by default, the msttcorefonts package EULA isn't accepted): 
 
 ```
 ARG accept_msttcorefonts_eula=false
@@ -105,7 +105,7 @@ CMD ./build_sample.sh
 
 ## Building and Running an Image
 
-1. [Install Docker](https://docs.docker.com/engine/install/) on a host system;
+1. [Install Docker](https://docs.docker.com/engine/install/) on a host system.
 
 2. Build an image. 
 
@@ -115,8 +115,10 @@ CMD ./build_sample.sh
 docker build -t aspose-slides-ubuntu-16.04 .
 ```
 
-3. Download and unzip [Aspose.Slides for C++ YY.M Linux](https://downloads.aspose.com/slides/cpp);
-4. Share the folder with Aspose.Slides for C++ to Docker can use it (For Windows: Settings -> Resources -> File Sharing);
+3. Download and unzip [Aspose.Slides for C++ YY.M Linux](https://downloads.aspose.com/slides/cpp).
+4. Share the folder with Aspose.Slides for C++ to allow Docker use it: 
+   - In Windows, right-click the Docker icon on your taskbar. Select Settings.
+   - Go through Resources > File Sharing. 
 5. Run the image as a container through either of these methods:
 
 * Method A: create and execute a named container:
