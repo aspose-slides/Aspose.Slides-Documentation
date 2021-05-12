@@ -14,7 +14,27 @@ Aspose.Slides for .NET now supports, second plot options for Pie of Pie or Bar o
 
 In the example given below, we have set different properties of Pie of Pie chart.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-SecondPlotOptionsforCharts-SecondPlotOptionsforCharts.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Charts();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+// Add chart on slide
+IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
+     
+// Set different properties
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
+chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
+chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+
+// Write presentation to disk
+presentation.Save(dataDir + "SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+```
+
+
 
 
 ## **Set Automatic Pie Chart Slice Colors**
@@ -32,4 +52,57 @@ Aspose.Slides for .NET provides a simple API for setting automatic pie chart sli
 1. Add new series.
 
 Write the modified presentation to a PPTX file.
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-SettingAutomicPieChartSliceColors-SettingAutomicPieChartSliceColors.cs" >}}
+
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Charts();
+// Instantiate Presentation class that represents PPTX file
+using (Presentation presentation = new Presentation())
+{
+  // Instantiate Presentation class that represents PPTX file
+ Presentation presentation = new Presentation();
+
+ // Access first slide
+ ISlide slides = presentation.Slides[0];
+
+ // Add chart with default data
+ IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+
+ // Setting chart Title
+ chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+ chart.ChartTitle.Height = 20;
+ chart.HasTitle = true;
+
+ // Set first series to Show Values
+ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+ // Setting the index of chart data sheet
+ int defaultWorksheetIndex = 0;
+
+ // Getting the chart data worksheet
+ IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+
+ // Delete default generated series and categories
+ chart.ChartData.Series.Clear();
+ chart.ChartData.Categories.Clear();
+
+ // Adding new categories
+ chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
+ chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
+ chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
+
+ // Adding new series
+ IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
+
+ // Now populating series data
+ series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
+ series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
+ series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+            
+ series.ParentSeriesGroup.IsColorVaried = true;
+ presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+         }
+}
+```
+

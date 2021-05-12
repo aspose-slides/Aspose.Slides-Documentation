@@ -22,10 +22,64 @@ To replace the text of a Placeholder, please follow the steps below:
 - Typecast the Placeholder shape to AutoShape and change the text using the TextFrame associated with the AutoShape.
 - Write the modified presentation as a [PPTX ](https://wiki.fileformat.com/presentation/pptx/)file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-ReplacingText-ReplacingText.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
+using (Presentation pres = new Presentation(dataDir + "ReplacingText.pptx"))
+{
+
+    // Access first slide
+    ISlide sld = pres.Slides[0];
+
+    // Iterate through shapes to find the placeholder
+    foreach (IShape shp in sld.Shapes)
+        if (shp.Placeholder != null)
+        {
+            // Change the text of each placeholder
+            ((IAutoShape)shp).TextFrame.Text = "This is Placeholder";
+        }
+
+    // Save the PPTX to Disk
+    pres.Save(dataDir + "output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+}
+```
+
+
 ## **Set Prompt Text in a Placeholder**
 As we know that Standard and pre-built layouts contain placeholders with default text like **Click to add a title** or **Click to add subtitle**. Using Aspose.Slides you can add prompt text manually by accessing the default placeholders.
 
 The code snippet below shows how to use this feature:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-AddCustomPromptText-AddCustomPromptText.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+using (Presentation pres = new Presentation(dataDir + "Presentation2.pptx"))
+{
+    ISlide slide = pres.Slides[0];
+    foreach (IShape shape in slide.Slide.Shapes) // iterate through the slide
+    {
+        if (shape.Placeholder != null && shape is AutoShape)
+        {
+            string text = "";
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) //PowerPoint displays "Click to add title". 
+            {
+                text = "Add Title";
+            }
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) //add subtitle.
+            {
+                text = "Add Subtitle";
+            }
+
+            ((IAutoShape)shape).TextFrame.Text = text;
+
+            Console.WriteLine($"Placeholder with text: {text}");
+        }
+    }
+
+    pres.Save(dataDir + "Placeholders_PromptText.pptx", SaveFormat.Pptx);
+}
+```
+

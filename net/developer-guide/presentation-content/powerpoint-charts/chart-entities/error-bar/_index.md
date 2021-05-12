@@ -14,7 +14,35 @@ Aspose.Slides for .NET provides a simple API for managing error bar values. The 
 1. Setting bars values and format.
 1. Write the modified presentation to a PPTX file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-AddErrorBars-AddErrorBars.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Charts();
+
+// Creating empty presentation
+using (Presentation presentation = new Presentation())
+{
+    // Creating a bubble chart
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
+
+    // Adding Error bars and setting its format
+    IErrorBarsFormat errBarX = chart.ChartData.Series[0].ErrorBarsXFormat;
+    IErrorBarsFormat errBarY = chart.ChartData.Series[0].ErrorBarsYFormat;
+    errBarX.IsVisible = true;
+    errBarY.IsVisible = true;
+    errBarX.ValueType = ErrorBarValueType.Fixed;
+    errBarX.Value = 0.1f;
+    errBarY.ValueType = ErrorBarValueType.Percentage;
+    errBarY.Value = 5;
+    errBarX.Type = ErrorBarType.Plus;
+    errBarY.Format.Line.Width = 2;
+    errBarX.HasEndCap = true;
+
+    // Saving presentation
+    presentation.Save(dataDir + "ErrorBars_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **Add Custom Error Bar Value**
 Aspose.Slides for .NET provides a simple API for managing custom error bar values. The sample code applies when the **IErrorBarsFormat.ValueType** property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
@@ -27,4 +55,43 @@ Aspose.Slides for .NET provides a simple API for managing custom error bar value
 1. Setting bars values and format.
 1. Write the modified presentation to a PPTX file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-AddCustomError-AddCustomError.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Charts();
+
+// Creating empty presentation
+using (Presentation presentation = new Presentation())
+{
+    // Creating a bubble chart
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
+
+    // Adding custom Error bars and setting its format
+    IChartSeries series = chart.ChartData.Series[0];
+    IErrorBarsFormat errBarX = series.ErrorBarsXFormat;
+    IErrorBarsFormat errBarY = series.ErrorBarsYFormat;
+    errBarX.IsVisible = true;
+    errBarY.IsVisible = true;
+    errBarX.ValueType = ErrorBarValueType.Custom;
+    errBarY.ValueType = ErrorBarValueType.Custom;
+
+    // Accessing chart series data point and setting error bars values for individual point
+    IChartDataPointCollection points = series.DataPoints;
+    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
+    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
+    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYPlusValues = DataSourceType.DoubleLiterals;
+    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYMinusValues = DataSourceType.DoubleLiterals;
+
+    // Setting error bars for chart series points
+    for (int i = 0; i < points.Count; i++)
+    {
+        points[i].ErrorBarsCustomValues.XMinus.AsLiteralDouble = i + 1;
+        points[i].ErrorBarsCustomValues.XPlus.AsLiteralDouble = i + 1;
+        points[i].ErrorBarsCustomValues.YMinus.AsLiteralDouble = i + 1;
+        points[i].ErrorBarsCustomValues.YPlus.AsLiteralDouble = i + 1;
+    }
+
+    // Saving presentation
+    presentation.Save(dataDir + "ErrorBarsCustomValues_out.pptx", SaveFormat.Pptx);
+    
+```
+
