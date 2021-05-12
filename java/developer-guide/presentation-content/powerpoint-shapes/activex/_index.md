@@ -8,20 +8,20 @@ url: /java/activex/
 
 {{% alert color="primary" %}} 
 
-ActiveX control are used in presentations. Aspose.Slides for Java lets you add and manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. The support for adding Media Player ActiveX control has been added in Aspose.Slides. Remember, ActiveX controls are not shapes and are not part of the presentation's [IShapeCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IShapeCollection) but the separate [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection). This article shows how to work with them.
+ActiveX controls are used in presentations. Aspose.Slides for Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IShapeCollection). They are part of the separate [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection) instead. In this topic, we will show you how to work with them. 
 
 {{% /alert %}} 
 
-## **Add Media Player ActiveX Control to Slide**
-To add ActiveX Media Player control, please perform following steps:
+## **Adding Media Player ActiveX Control to Slide**
+To add an ActiveX Media Player control, do this:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate empty presentation instance.
+1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate an empty presentation instance.
 1. Access the target slide in [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation).
-1. Add the Media Player ActiveX control using [addControl](https://apireference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
+1. Add the Media Player ActiveX control using the [addControl](https://apireference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
-1. Save the presentation to a PPTX file.
+1. Save the presentation as a PPTX file.
 
-The above steps are implemented in the code examples given below.
+This sample code, based on the steps above, shows to how to add Media Player ActiveX Control to a slide:
 
 ```java
 // Create empty presentation instance
@@ -40,26 +40,26 @@ try {
 }
 ```
 
-## **Modify ActiveX Control**
+## **Modifying ActiveX Control**
 {{% alert color="primary" %}} 
 
-ActiveX control are used in presentations. Aspose.Slides for Java lets you manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. From Aspose.Slides for Java 7.1.0, the component supports managing ActiveX controls. At the moment, you can access already added ActiveX control in your presentation and modify or delete it by using its various properties. Remember, ActiveX controls are not shapes and are not part of the presentation's IShapeCollection but the separate IControlCollection. This article shows how to work with them.
+Aspose.Slides for Java 7.1.0 and newer versions are equipped with components for managing ActiveX controls. You can access the already added ActiveX control in your presentation and modify or delete it through its properties.
 
 {{% /alert %}} 
 
-To manage a simple ActiveX control like a text box and simple command button on a slide:
+To manage a simple ActiveX control like a text box and simple command button on a slide, do this:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with ActiveX controls in it.
 1. Obtain a slide reference by its index.
 1. Access the ActiveX controls in the slide by accessing the [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
 1. Access the TextBox1 ActiveX control using the [IControl](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControl) object.
-1. Change the different properties of the TextBox1 ActiveX control including text, font, font height and frame position.
+1. Change the properties of the TextBox1 ActiveX control that include text, font, font height, and frame position.
 1. Access the second access control called CommandButton1.
-1. Change the button caption, font and position.
+1. Change the button caption, font, and position.
 1. Shift the position of the ActiveX controls frames.
 1. Write the modified presentation to a PPTX file.
 
-The above steps are implemented in the code examples given below.
+This sample code, based on the steps above, shows how to manage a simple ActiveX control: 
 
 ```java
 // Accessing the presentation with ActiveX controls
@@ -165,17 +165,17 @@ try {
 ```
 
 ## **Link Video with Media Player ActiveX Control**
-To clone ActiveX Media Player control, please perform following steps:
+To clone ActiveX Media Player control, do this:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the sample presentation with Media Player ActiveX controls in it.
-1. Create an instance of target [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate empty presentation instance.
+1. Create an instance of the target [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate an empty presentation instance.
 1. Clone the slide with Media Player ActiveX control in template presentation to target [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation).
-1. Access the cloned slide in target [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation).
+1. Access the cloned slide in the target [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation).
 1. Access the ActiveX controls in the slide by accessing the [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
 1. Save the presentation to a PPTX file.
 
-The above steps are implemented in the code examples given below.
+This sample code is based on the steps above:  
 
 ```java
 // Accessing the presentation with ActiveX controls

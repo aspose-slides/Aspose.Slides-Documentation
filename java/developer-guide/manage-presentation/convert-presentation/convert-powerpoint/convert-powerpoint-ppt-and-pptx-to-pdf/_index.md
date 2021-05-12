@@ -63,7 +63,7 @@ Aspose.Slides allows you to convert PPT(X) presentations to PDF document without
 | :- | :- |
 
 ## **Convert PowerPoint to PDF with Default Options**
-The following example shows you how to convert a PowerPoint PPT, PPTX, and OpenOffice ODP document into a PDF document using the default options. The default options create a PDF document at the maximum quality levels
+The following example shows you how to convert a PowerPoint PPT, PPTX, or OpenOffice ODP document to a PDF document using the default options. The default options create a PDF document at the maximum quality levels
 
 ```java
 // Instantiate a Presentation object that represents a PPT file
@@ -77,7 +77,7 @@ try {
 ```
 
 ## **Convert PowerPoint to PDF with Custom Options**
-The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfTextCompression) enumeration and sets PDF standard.
+The following example shows you how to convert PowerPoint PPT, PPTX or OpenOffice ODP doc into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfTextCompression) enumeration, and sets the PDF standard.
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file
@@ -106,13 +106,13 @@ try {
 ```
 
 ## **Convert PowerPoint to PDF with Hidden Slides Included**
-The following example shows how to convert a PowerPoint PPT, PPTX and OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. You can also include comments in generated HTML by using [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. 
+The following example shows you how to convert a PowerPoint PPT, PPTX or OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. You can also include comments in generated HTML by using [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. 
 It sets the ShowHiddenSlides property to generate PDF with hidden slides. 
 Methods [**getShowHiddenSlides**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions#getShowHiddenSlides--) and [**setShowHiddenSlides**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions#setShowHiddenSlides-boolean-) have been added to [**IHtmlOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IHtmlOptions), [**IPdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPdfOptions), [**ISwfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISwfOptions), 
 [**ITiffOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ITiffOptions), [**IXpsOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IXpsOptions) interfaces and [**HtmlOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/HtmlOptions), 
 [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions), [**SwfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/SwfOptions), [**TiffOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/TiffOptions), [**XpsOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/XpsOptions) classes. 
 This property specifies whether the exported document should include hidden slides or not. 
-Default value is **"false"**.
+The Default value is **"false"**.
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file
@@ -132,7 +132,7 @@ try {
 ```
 
 ## **Convert PowerPoint to Password Protected PDF**
-The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class.
+The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class:
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file
@@ -153,7 +153,7 @@ try {
 ```
 
 ## **Convert Selected Slides of PowerPoint to PDF**
-The following example shows you how to convert a specific presentation slide to a PDF document with custom options.
+The following example shows you how to convert a specific presentation slide to a PDF document with custom options:
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file
@@ -200,7 +200,7 @@ try {
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
-The following example shows you how to convert a presentation to a PDF notes document.
+The following example shows you how to convert a presentation to a PDF notes document:
 
 ```java
 // Instantiate a Presentation object that represents a presentation file

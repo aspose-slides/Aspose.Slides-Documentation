@@ -13,13 +13,13 @@ is_root: true
 
 **Welcome to Aspose.Slides for Android via Java**
 
-Aspose.Slides for Android via Java is a Microsoft PowerPoint® management API that enables Android applications to read and write PowerPoint® documents without Microsoft PowerPoint®. Aspose.Slides for Android via Java is the first and only component that provides the functionality to manage PowerPoint® documents in Android platforms. Aspose.Slides for Android provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides.
+Aspose.Slides for Android via Java is a Microsoft PowerPoint® management API that enables Android applications to read and write PowerPoint® documents without Microsoft PowerPoint®. Aspose.Slides for Android via Java is the first and only component that provides the functionalities required to manage PowerPoint® documents on Android platforms. Aspose.Slides for Android offers many key features that allow you to add, modify, and manipulate text, shapes, tables & animations, audios, and videos in slides.
 
 {{% /alert %}} 
 
 ## **Aspose.Slides for Android via Java Resources**
 
-Following are the links to some useful resources you may need to accomplish your tasks:
+These are links to useful resources you may need to do your work:
 
 - [Aspose.Slides for Java Online Documentation](/slides/java/)
 - [Aspose.Slides for Android via Java Features](/slides/androidjava/getting-started/aspose-slides-for-android-via-java-features)
