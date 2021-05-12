@@ -7,11 +7,11 @@ keywords: "Running Aspose.Slides for C++ in Docker container, Aspose Docker, Asp
 description: "Run Aspose.Slides for C++ in a Docker container for Linux. "
 ---
 
-Aspose.Slides for C++ can run inside docker containers. To run Aspose.Slides for C++ in Linux environment you can use the following docker file.
+Aspose.Slides for C++ can run inside docker containers. To run Aspose.Slides for C++ in a Linux environment, you can use a docker file. 
 
-## Dockerfile description
+## Dockerfile Description
 
-For example, the docker file to use Aspose.Slides for C++ with Ubuntu 16.04: 
+For example, you can use this docker file for Aspose.Slides for C++ with Ubuntu 16.04: 
 
 ```
 FROM ubuntu:16.04
@@ -52,9 +52,9 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
-The file contains three main parts:
+The file contains three main parts (procedures):
 
-1. Installing the required tools to run Aspose.Slides for C++;
+1. Installing the tools required to run Aspose.Slides for C++:
 
 ```
 FROM ubuntu:16.04
@@ -81,7 +81,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
  && update-alternatives ~-~-install /usr/bin/c++ c++ /usr/bin/g++-6 30
 ```
 
-2. Installing the msttcorefonts package. By default the msttcorefonts package EULA isn't accepted.  
+2. Installing the msttcorefonts package. By default, the msttcorefonts package EULA isn't accepted: 
 
 ```
 ARG accept_msttcorefonts_eula=false
@@ -94,7 +94,7 @@ RUN apt-get install -y msttcorefonts \
  && fc-cache -f -v
 ```
 
-3. Declaring /slides-cpp folder as a mounting point to provide access to slides-cpp sources folder on the host machine. As well as building and running examples.
+3. Declaring the /slides-cpp folder as a mounting point to provide access to the slides-cpp sources folder on the host machine; Building and running examples:
 
 ``` cpp
 VOLUME /slides-cpp
@@ -103,32 +103,35 @@ WORKDIR /slides-cpp/sample/
 CMD ./build_sample.sh
 ```
 
-## Build and run an image
+## Building and Running an Image
 
 1. [Install Docker](https://docs.docker.com/engine/install/) on a host system;
-2. Build an image. A terminal working directory should contain a file Dockerfile with the above content. 
+
+2. Build an image. 
+
+   A terminal working directory should contain a file Dockerfile with the content above. 
 
 ```
 docker build -t aspose-slides-ubuntu-16.04 .
 ```
 
 3. Download and unzip [Aspose.Slides for C++ YY.M Linux](https://downloads.aspose.com/slides/cpp);
-4. Share the folder with Aspose.Slides for C++ to Docker can use it(For Windows: Settings -> Resources -> File Sharing);
-5. Run the image as a container via one of following ways:
+4. Share the folder with Aspose.Slides for C++ to Docker can use it (For Windows: Settings -> Resources -> File Sharing);
+5. Run the image as a container through either of these methods:
 
-* Create and execute a named container:
+* Method A: create and execute a named container:
 
 ```
 docker run --name slides-cpp-ubuntu -v d:\aspose-slides-cpp-linux-20.6:/slides-cpp aspose-slides-ubuntu-16.04
 ```
 
-For second and subsequent launches you need to use:
+For the second and subsequent launches, you have to use:
 
 ```
 docker start slides-cpp-ubuntu -i
 ```
 
-* Create and execute an unnamed temporary container:
+* Method B: create and execute an unnamed temporary container:
 
 ```
 docker run --rm -v d:\aspose-slides-cpp-linux-20.6:/slides-cpp aspose-slides-ubuntu-16.04
