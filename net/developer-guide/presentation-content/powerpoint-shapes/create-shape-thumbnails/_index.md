@@ -22,7 +22,23 @@ To generate a shape thumbnail from any slide using Aspose.Slides for .NET:
 
 The example below generating shape thumbnail.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-CreateShapeThumbnail-CreateShapeThumbnail.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Instantiate a Presentation class that represents the presentation file
+using (Presentation presentation = new Presentation(dataDir + "HelloWorld.pptx"))
+{
+    // Create a full scale image
+    using (Bitmap bitmap = presentation.Slides[0].Shapes[0].GetThumbnail())
+    {
+        // Save the image to disk in PNG format
+        bitmap.Save(dataDir + "Shape_thumbnail_out.png", ImageFormat.Png);
+    }
+}
+```
+
+
 ## **Generate User Defined Scaling Factor Thumbnail**
 To generate the shape thumbnail of any slide shape using Aspose.Slides for .NET:
 
@@ -33,7 +49,23 @@ To generate the shape thumbnail of any slide shape using Aspose.Slides for .NET:
 
 The example below generate a thumbnail with generating a thumbnail with user defined scaling factor.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-CreateScalingFactorThumbnail-CreateScalingFactorThumbnail.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Instantiate a Presentation class that represents the presentation file
+using (Presentation p = new Presentation(dataDir + "HelloWorld.pptx"))
+{
+    // Create a full scale image
+    using (Bitmap bitmap = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Shape, 1, 1))
+    {
+        // Save the image to disk in PNG format
+        bitmap.Save(dataDir + "Scaling Factor Thumbnail_out.png", ImageFormat.Png);
+    }
+}
+```
+
+
 ## **Create Bounds Shape's Appearance Thumbnail**
 This method for creating thumbnails of shapes allows developers to generate a thumbnail in the bounds of the shape's appearance. It takes into account all the shape effects. The generated shape thumbnail is restricted by the slide bounds. To generate a thumbnail of any slide shape in bound of its appearance, use following sample code:
 
@@ -44,4 +76,19 @@ This method for creating thumbnails of shapes allows developers to generate a th
 
 The example below create a thumbnail with generating a thumbnail with user defined scaling factor.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-CreateBoundsShapeThumbnail-CreateBoundsShapeThumbnail.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Instantiate a Presentation class that represents the presentation file
+using (Presentation presentation = new Presentation(dataDir + "HelloWorld.pptx"))
+{
+    // Create a Appearance bound shape image
+    using (Bitmap bitmap = presentation.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1))
+    {
+        // Save the image to disk in PNG format
+        bitmap.Save(dataDir + "Shape_thumbnail_Bound_Shape_out.png", ImageFormat.Png);
+    }
+}
+```
+
