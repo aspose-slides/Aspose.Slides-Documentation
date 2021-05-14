@@ -136,7 +136,7 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 
 You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
 
-You can remove the write protection from a presentation by using the RemoveWriteProtection method. This sample code shows you to remove the write protection from a presentation:
+You can remove the write protection from a presentation by using the [RemoveWriteProtection](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removewriteprotection) method. This sample code shows you to remove the write protection from a presentation:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
