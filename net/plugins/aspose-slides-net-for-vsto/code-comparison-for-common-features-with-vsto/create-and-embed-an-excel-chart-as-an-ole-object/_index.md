@@ -6,7 +6,7 @@ url: /net/create-and-embed-an-excel-chart-as-an-ole-object/
 ---
 
 The two code examples below are long and detailed because the task they're describing is involved. You create a Microsoft Excel workbook, create a chart and then create the Microsoft PowerPoint presentation that you'll embed the chart into. OLE objects contain links to the original document so a user that double-clicks the embedded file will launch the file and it's application.
-### **VSTO**
+## **VSTO**
 Using VSTO, the following steps are performed:
 
 1. Create an instance of the Microsoft Excel ApplicationClass object.
@@ -400,7 +400,7 @@ private void ThisAddIn_Startup(object sender, System.EventArgs e)
 }
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 Using Aspose.Slides for .NET, the following steps are performed:
 
 1. Create a workbook using Aspose.Cells for .NET.

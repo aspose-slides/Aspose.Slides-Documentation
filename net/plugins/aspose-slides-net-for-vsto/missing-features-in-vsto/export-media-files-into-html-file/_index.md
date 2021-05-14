@@ -13,7 +13,7 @@ In order to export media files to HTML. Please follow the steps below:
 - Write the presentation as a PPTX file
 
 In the example given below, we have exported the media files to HTML.
-#### **Example**
+## **Example**
 ``` 
 
  //Loading a presentation
@@ -47,11 +47,11 @@ using (Presentation pres = new Presentation("example.pptx"))
 }
 
 ``` 
-#### **Download Running Example**
+## **Download Running Example**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Export media files into html/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Export%20media%20files%20into%20html)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode)
-#### **Download Sample Code**
+## **Download Sample Code**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)

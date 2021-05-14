@@ -5,7 +5,7 @@ weight: 130
 url: /net/re-sizing-shapes-on-slide/
 ---
 
-#### **Resizing Shapes on Slide**
+## **Resizing Shapes on Slide**
 One of the most frequent questions asked by the Aspose.Slides for .NET customers is how to resize shapes so that when Slide size is changed the data does not cut off. This short technical tip shows how to achieve that. 
 
 To avoid shapes disorientation, each shape on the slide needs to be updated according to new slide size.

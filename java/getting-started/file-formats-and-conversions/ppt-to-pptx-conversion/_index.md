@@ -38,6 +38,7 @@ The following features are supported for conversion:
 - Textures and pictures fill styles for autoshapes may sometimes not be converted.
 - Converting placeholders.
 - Converting text in text frames and text holders. However, bullets, alignment and tabulations are not fully supported.
+
 ## **Unsupported Features**
 The following features are not yet supported when converting from PPT to PPTX:
 

@@ -6,7 +6,7 @@ url: /net/aspose-slides-for-xamarin/
 ---
 
 ## **Overview**
-Xamarin is a framework for cross-platform mobile development using .NET C#. Xamarin is having tools and libraries that extend the possibilities of the .NET platform and allow building applications for any mobile OS: Android, iOS and Windows. For development in Xamarin, programmers can use their usual environment including C#, Visual Studio, 3-rd party libraries.
+Xamarin is a framework for cross-platform mobile development using .NET C#. Xamarin is having tools and libraries that extend the possibilities of the .NET platform and allow building applications for any mobile OS: Android, iOS and Windows. For development in Xamarin, programmers can use their usual environment including C#, Visual Studio and 3rd party libraries.
 
 Aspose.Slides API can work in Xamarin platform. For that, the Aspose.Slides .NET package includes a separate dll for Xamarin. Aspose.Slides for Xamarin supports most features available in .NET version:
 
@@ -479,11 +479,11 @@ By each click on the presentation slide, an ellipse of a random color is added:
 |PowerPoint 2007 formats open/save |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2010 extensions support |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2013 extensions support |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016 features support |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
-|PowerPoint 2019 features support |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063) |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
+|PowerPoint 2016 features support |restricted|restricted|
+|PowerPoint 2019 features support |restricted |restricted|
 |PPT 2 PPTX conversion |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX 2 PPT conversion |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX in PPT |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-35794)|[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
+|PPTX in PPT |restricted|restricted|
 |Themes processing |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Macros processing |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Document properties processing |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -497,11 +497,11 @@ By each click on the presentation slide, an ellipse of a random color is added:
 |XPS |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF |{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP |[restricted](https://wiki.lutsk.dynabic.com/Aspose%20Slides/slides/Product%20Family%20Vision%20and%20Roadmap/) |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
-|SWF |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-36065) |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
+|ODP |restricted |restricted|
+|SWF |restricted|restricted|
 |SVG |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Import formats:** | | |
-|HTML |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-34636)|[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
+|HTML |restricted|restricted|
 |ODP |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Master slides features:** | | |
@@ -533,7 +533,7 @@ By each click on the presentation slide, an ellipse of a random color is added:
 |SmartArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Legacy diagram |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX objects |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-35108)|[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
+|OLE, ActiveX objects |restricted|restricted|
 |Video frames |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Audio frames |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Connectors |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -542,7 +542,7 @@ By each click on the presentation slide, an ellipse of a random color is added:
 |Create group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ungroup existing group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Shape effects features:** | | |
-|2D effects |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40180) |[restricted](https://issue.lutsk.dynabic.com/issues/SLIDESNET-40063)|
+|2D effects |restricted|restricted|
 |3D effects |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Text features:** | | |
 |Paragraphs formatting |{{< emoticons/tick >}}|{{< emoticons/tick >}}|

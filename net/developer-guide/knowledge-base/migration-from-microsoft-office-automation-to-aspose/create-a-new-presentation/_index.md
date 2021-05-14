@@ -16,9 +16,9 @@ Aspose.Slides for .NET is a component that can be used to manipulate Microsoft P
 - Deployment is easy since Aspose.Slides is contained in a single DLL.
 
 {{% /alert %}} 
-### **Creating a Presentation**
+## **Creating a Presentation**
 Below are two code examples that illustrate how VSTO and Aspose.Slides for .NET can be used to achieve the same goal. The first example is [VSTO](/slides/net/create-a-new-presentation/); [the second example](/slides/net/create-a-new-presentation/) uses Aspose.Slides.
-#### **VSTO Example**
+### **VSTO Example**
 **The VSTO output** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
@@ -26,7 +26,7 @@ Below are two code examples that illustrate how VSTO and Aspose.Slides for .NET 
 
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddVSTOPresentation-AddVSTOPresentation.cs" >}}
-#### **Aspose.Slides for .NET Example**
+### **Aspose.Slides for .NET Example**
 **The output from Aspose.Slides** 
 
 ![todo:image_alt_text](create-a-new-presentation_2.png)

@@ -17,9 +17,9 @@ To use Docker, you must first install it into your system. Find how to install 
 
 It's also possible to run Docker on Linux and Windows Server by the following instructions:  
 
-- [Install and configure Docker on Linux (apt-get libgdiplus) ](/slides/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/)
-- [Install and configure Docker on Linux (make install libgdiplus)   ](/slides/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-make-install-libgdiplus/) 
-- [Install and configure Docker on Windows Server Core ](/slides/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-windows-server-core/)  
+- [Install and configure Docker on Linux (apt-get libgdiplus) ](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
+- [Install and configure Docker on Linux (make install libgdiplus)   ](#install-and-configure-docker-on-linux-make-install-libgdiplus) 
+- [Install and configure Docker on Windows Server Core ](#install-and-configure-docker-on-windows-server-core)  
 - Install and configure Docker on Windows Server Nano is not Supported. Unfortunately, Windows Server Nano doesn't contain the graphic sub-system on board. It does not contain gdiplus.dll required by System.Drawing.Common library and can't be used with Aspose.Slides library.
 
 Although it is possible to run Linux containers on Windows, it is preferable to run them natively on Linux (even a Linux installed manually on a VM using VirtualBox).

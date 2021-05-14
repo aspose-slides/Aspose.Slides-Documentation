@@ -12,7 +12,7 @@ Both methods follow these steps:
 - Add a text box.
 - Set some text.
 - Write the presentation.
-### **VSTO**
+## **VSTO**
 ``` csharp
 
  private void AddTextBox()
@@ -64,7 +64,7 @@ Both methods follow these steps:
 }
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 ``` csharp
 
  static void AddTextBox()

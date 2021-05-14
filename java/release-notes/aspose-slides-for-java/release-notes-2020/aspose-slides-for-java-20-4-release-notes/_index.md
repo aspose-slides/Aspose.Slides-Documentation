@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for Java 20.4 Release Notes
 type: docs
-weight: 40
+weight: 90
 url: /java/aspose-slides-for-java-20-4-release-notes/
 ---
 
@@ -165,7 +165,7 @@ New methods [**getSpreadsheetOptions()**](https://apireference.aspose.com/slides
 public ISpreadsheetOptions getSpreadsheetOptions();
 public void setSpreadsheetOptions(ISpreadsheetOptions value);
 ```
-##### **Example**
+#### **Example**
 -----
 The example below demonstrates how to use the spreadsheet options for a chart formulas:
 

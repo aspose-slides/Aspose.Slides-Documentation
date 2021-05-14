@@ -1,7 +1,7 @@
 ---
 title: Release Notes - 2017
 type: docs
-weight: 40
+weight: 240
 url: /jasperreports/release-notes-2017/
 ---
 

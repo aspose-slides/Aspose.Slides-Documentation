@@ -11,7 +11,7 @@ In order to get the file format. Please follow the steps below:
 - Get information about the presentation
 
 In the example given below, we have got the file format.
-##### **Example**
+## **Example**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";

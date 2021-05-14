@@ -13,7 +13,7 @@ Aspose.Slides for .NET allows developers to add new Layout slides in presentatio
 - Add a new Layout slide if the desired layout is unavailable
 - Add an empty slide with newly added Layout slide
 - Finally, write the presentation file using the Presentation object.
-#### **Example**
+## **Example**
 ``` csharp
 
  //Instantiate Presentation class that represents the presentation file
@@ -118,11 +118,11 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 
 ``` 
-#### **Download Running Example**
+## **Download Running Example**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Adding Layout Slides/)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/Aspose.Slides%20Vs%20VSTO%20Presentations/Aspose.Slides%20Features%20missing%20in%20VSTO/Adding%20Layout%20Slides)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d/view/SourceCode#content)
-#### **Download Sample Code**
+## **Download Sample Code**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/releases/view/620001)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-78d1d03d#content)
