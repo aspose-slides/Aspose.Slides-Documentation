@@ -7,18 +7,37 @@ url: /net/metered-licensing/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides allows developers to apply metered key. It is a new licensing mechanism. The new licensing mechanism will be used along with existing licensing method. Those customers who want to be billed based on the usage of the API features can use the metered licensing. For more details, please refer to [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) section.
+Aspose.Slides allows developers to apply metered keys. It is a new licensing mechanism. The new licensing mechanism can be used alongside existing licensing methods. If you prefer to be billed based on your usage API features, you can use the metered licensing. For more details, please refer to [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) section.
 
 {{% /alert %}} 
 ## **Metered Licensing**
-Here are the simple steps to use the Metered class.
+To use the Metered class, do this:
 
 1. Create an instance of Metered class.
 1. Pass public & private keys to SetMeteredKey method.
-1. Do processing (perform task).
-1. call method GetConsumptionQuantity of the Metered class.
-1. It will return the amount/quantity of API requests that you have consumed so far.
+1. Do some processing (perform tasks).
+1. Call the GetConsumptionQuantity method of the Metered class.
 
-Following is the sample code demonstrating how to set metered public and private key.
+   You should see the amount/quantity of API requests you have consumed so far.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-ApplyLicense-MeteredLicensing-MeteredLicensing.cs" >}}
+This sample code shows you how to set metered public and private keys:
+
+```c#
+ // Create an instance of CAD Metered class
+            Aspose.Slides.Metered metered = new Aspose.Slides.Metered();
+
+            // Access the setMeteredKey property and pass public and private keys as parameters
+            metered.SetMeteredKey("*****", "*****");
+
+            // Get metered data amount before calling API
+            decimal amountbefore = Aspose.Slides.Metered.GetConsumptionQuantity();
+
+            // Display information
+            Console.WriteLine("Amount Consumed Before: " + amountbefore.ToString());
+            // Get metered data amount After calling API
+            decimal amountafter = Aspose.Slides.Metered.GetConsumptionQuantity();
+
+            // Display information
+            Console.WriteLine("Amount Consumed After: " + amountafter.ToString());
+```
+

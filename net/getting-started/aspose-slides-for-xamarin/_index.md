@@ -6,29 +6,31 @@ url: /net/aspose-slides-for-xamarin/
 ---
 
 ## **Overview**
-Xamarin is a framework for cross-platform mobile development using .NET C#. Xamarin is having tools and libraries that extend the possibilities of the .NET platform and allow building applications for any mobile OS: Android, iOS and Windows. For development in Xamarin, programmers can use their usual environment including C#, Visual Studio and 3rd party libraries.
+Xamarin is a framework used for cross-platform mobile development in .NET C#. Xamarin has tools and libraries that extend the possibilities of the .NET platform. It allows developers to build applications for any operating system (Android, iOS, and Windows). For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
 
-Aspose.Slides API can work in Xamarin platform. For that, the Aspose.Slides .NET package includes a separate dll for Xamarin. Aspose.Slides for Xamarin supports most features available in .NET version:
+Aspose.Slides API can work on the Xamarin platform. To achieve this, the Aspose.Slides .NET package adds a separate DLL for Xamarin. Aspose.Slides for Xamarin supports most of the features available in the .NET version:
 
-- presentation conversion and viewing.
-- presentation content editing: text, shapes, charts, SmartArt, audio/video, fonts, etc.
-- animation, 2D effects, WordArt, etc.
-- metadata and document properties.
+- converting and viewing presentations.
+- editing contents in presentations: text, shapes, charts, SmartArt, audio/video, fonts, etc.
+- handling/dealing with animation, 2D effects, WordArt, etc.
+- handling/dealing with metadata and document properties.
 - printing, cloning, merging, comparing, splitting, etc.
 
-The full features comparison is available in this topic below.
+We provided a comparison of the full features in another section close to the bottom of this page.
 
-In Aspose.Slides for Xamarin API the classes, namespaces, logic and behaviour are as close as possible to the .NET version. You may migrate your Aspose.Slides .NET applications to Xamarin with the minimal costs.
+In Aspose.Slides for Xamarin API, the classes, namespaces, logic, and behavior are as similar as possible to the .NET version. You can migrate your Aspose.Slides .NET applications to Xamarin with minimal costs.
 
 
 ## **Quick Example**
-Aspose.Slides for Xamarin can be used to build and use your C# application using Slides for Android. Below is a simple example of Android via Xamarin application that uses Aspose.Slides to display presentation slides and adding a new shape on the slide by touch. Full sources of the example are available on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+You can use Aspose.Slides for Xamarin to build and utilize your C# application through Slides for Android.
 
-Let’s start from creating a Xamarin Android App:
+We are providing an example of Android via Xamarin application that uses Aspose.Slides to display presentation slides and adds a new shape on the slide on touch. You can find the full source of the examples on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+
+Let’s start by creating a Xamarin Android App:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-First, we create a content layout that will contain an image view and Prev, Next buttons:
+First, we create a content layout that will contain an image view, Prev, and Next buttons:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
@@ -115,11 +117,11 @@ First, we create a content layout that will contain an image view and Prev, Next
 
 </LinearLayout>
 
-``` 
+```
 
 
 
-Then we will reference the "Aspose.Slides.Droid.dll" library, include sample presentation ("HelloWorld.pptx") into Xamarin application Assets and add it’s initialization into MainActivity:
+Here, we reference the "Aspose.Slides.Droid.dll" library that includes a sample presentation ("HelloWorld.pptx") into Xamarin application Assets and adds its initialization to MainActivity:
 
 **C# - MainActivity.cs - Initialization**
 ``` csharp
@@ -184,11 +186,11 @@ public class MainActivity : AppCompatActivity
 
 }
 
-``` 
+```
 
 
 
-Let’s add displaying Prev and Next slide on buttons click:
+Let’s add the function to display the Prev and Next slides on the tapping of buttons:
 
 **C# - MainActivity.cs - Display slides on Prev and Next button click**
 ``` csharp
@@ -405,13 +407,14 @@ public class MainActivity : AppCompatActivity
 
 }
 
-``` 
+```
 
 
 
-Finally, let’s implement adding an ellipse shape by touch on the slide:
+Finally, let’s implement a function to add an ellipse shape on a touch on the slide:
 
 **C# - MainActivity.cs - Add ellipse by slide click**
+
 ``` csharp
 
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
@@ -460,11 +463,11 @@ Finally, let’s implement adding an ellipse shape by touch on the slide:
 
 }
 
-``` 
+```
 
 
 
-By each click on the presentation slide, an ellipse of a random color is added:
+Each click on the presentation slide causes a random colored ellipse to be added:
 
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
@@ -505,26 +508,26 @@ By each click on the presentation slide, an ellipse of a random color is added:
 |ODP |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Master slides features:** | | |
-|Access all existing master slide |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Create/remove master slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Clone master slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Accessing all existing master slide |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/removing master slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning master slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Layout slides features:** | | |
-|Access all existing layout slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Create/remove layout slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Clone layout slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Accessing all existing layout slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/removing layout slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning layout slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Slide features:** | | |
-|Access all existing slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Create/remove slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Clone slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Export slides to images |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Create/edit/remove slide sections |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Accessing all existing slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/removing slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Exporting slides to images |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/editing/removing slide sections |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Notes slides features**: | | |
-|Access all existing notes slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Accessing all existing notes slides |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Shape features:** | | |
-|Access all slide shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Add new shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Clone shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Export separate shapes to images |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Accessing all slide shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Adding new shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Exporting separate shapes to images |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Supported shape types:** | | |
 |All predefined shape types |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Picture frames |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -538,9 +541,9 @@ By each click on the presentation slide, an ellipse of a random color is added:
 |Audio frames |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Connectors |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Group shape features:** | | |
-|Access group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Create group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Ungroup existing group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Accessing group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Ungrouping existing group shapes |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Shape effects features:** | | |
 |2D effects |restricted|restricted|
 |3D effects |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
