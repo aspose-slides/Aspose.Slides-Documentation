@@ -10,7 +10,7 @@ A slide zoom can help you make your presentation more dynamic. It allows you to 
 
 With a slide zoom, you get to deeply examine several information parts while feeling like you were on a single canvas. 
 
-![overview_image](overview.png)
+![overview_image](Overview.png)
 
 To allow you use zoom objects, Aspose.Slides provides the [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) enumeration, the [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) interface, and some methods in the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
 
