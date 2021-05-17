@@ -25,7 +25,26 @@ Follow these simple steps to use the Metered class:
 
 This sample code shows you how to set metered public and private keys:
 
-{{< gist "aspose-slides" "a1b0b7f99c2b44d84c6d" "Examples-src-main-java-com-aspose-slide-examples-ApplyLicense-MeteredLicensing-MeteredLicensing.java" >}}
+```java
+com.aspose.slides.Metered metered=new com.aspose.slides.Metered();
+try {
+    // Access the setMeteredKey property and pass public and private keys as parameters
+    metered.setMeteredKey("<valid pablic key>", "<valid private key>");
+
+    // Get consumed qantity value before accessing API
+    double quantityOld = com.aspose.slides.Metered.getConsumptionQuantity();
+    System.out.println("Consumption quantity" + quantityOld);
+
+
+    // Get consumed qantity value after accessing API
+    double quantity = com.aspose.slides.Metered.getConsumptionQuantity();
+    System.out.println("Consumption quantity" + quantity);
+
+
+} catch (Exception ex) {
+    ex.printStackTrace();
+}
+```
 
 
 
