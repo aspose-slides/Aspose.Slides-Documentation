@@ -6,8 +6,12 @@ url: /net/image/
 ---
 
 
-## **Add EMZ Image to Images collection**
-Aspose.Slides for .NET provides a facility to embed EMZ file inside a presentation images collection. An example is given below that shows how to add EMZ image to images collection.
+## **Adding EMZ Images to Images Collection**
+Aspose.Slides for .NET allows you to embed EMZ (Windows Compressed Enhanced Metafile) files in a presentation images collection. 
+
+EMZ files are compressed image files commonly used in Microsoft Office programs. They typically contain  EMF (Enhanced Metafile) files. Normally, you can decompress an EMZ file and get an EMF file from it. 
+
+This sample code shows you how to add an EMZ image to the images collection:
 
 ``` csharp 
 using (Presentation pres = new Presentation())
@@ -26,14 +30,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Inserting/adding SVG into a presentation**
-Any image can be inserted/added into the presentation using the [AddPictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) method belonging to the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
+## **Inserting/Adding SVG into Presentations**
+You can add or insert any image into a presentation by using the [AddPictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
+
 To create an image object based on SVG image, you can do it this way:
+
 1. Create SvgImage object to insert it to ImageShapeCollection
 2. Create PPImage object from ISvgImage
 3. Create PictureFrame object using IPPImage interface
 
-The above steps are implemented in the example given below.
+This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ``` csharp 
 // The path to the documents directory
 string dataDir = @"D:\Documents\";
@@ -64,13 +70,16 @@ using (var p = new Presentation())
 }
 ```
 
-## **Converting SVG to a set of shapes**
-Converting an SVG to a set of shapes follows the PowerPoint functionality when working with SVG images:
+## **Converting SVG to a Set of Shapes**
+Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint functionality used to work with SVG images:
 
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-This functionality is provided using the [AddGroupShape](https://apireference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) method of the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface, passing in an object of type [ISvgImage](https://apireference.aspose.com/slides/net/aspose.slides/isvgimage). Below is an example of using this method:
+The functionality is provided through the [AddGroupShape](https://apireference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) method of the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface, passing in an object of type [ISvgImage](https://apireference.aspose.com/slides/net/aspose.slides/isvgimage). 
+
+This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
+
 ``` csharp 
 // The path to the documents directory
 string dataDir = @"D:\Documents\";
@@ -93,7 +102,7 @@ using (IPresentation presentation = new Presentation())
     // Get slide size
     SizeF slideSize = presentation.SlideSize.Size;
 
-    // Convert SVG image to group of shapes scaling it to silde size
+    // Convert SVG image to group of shapes scaling it to slide size
     presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
 
     // Save presentation in PPTX format
@@ -101,8 +110,10 @@ using (IPresentation presentation = new Presentation())
 }
 ```
 
-## **Add Images as EMF in Slides**
-Aspose.Slides for .NET provides a facility that generates EMF image of excel sheet and add the image as EMF in slides with the help of Aspose.Cells. The sample code is implemented in the example given below.
+## **Adding Images as EMF in Slides**
+Aspose.Slides for .NET allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
+
+This sample code shows you how to perform the described task:
 
 ``` csharp 
 using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
