@@ -229,3 +229,22 @@ using (Presentation pres = new Presentation())
     pres.Save("pres.ppt", SaveFormat.Ppt, pptOptions);
 }
 ```
+
+### Aspose.Slides.Export.Web.* interfaces will be removed ###
+
+The following interfaces will be removed from Aspose.Slides.Export.Web namespace:
+* [IInput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/iinput) (please use [Input](https://apireference.aspose.com/slides/net/aspose.slides.export.web/input) instead)
+* [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) (please use [Output](https://apireference.aspose.com/slides/net/aspose.slides.export.web/output) instead)
+* [IStorage](https://apireference.aspose.com/slides/net/aspose.slides.export.web/istorage) (please use [Storage](https://apireference.aspose.com/slides/net/aspose.slides.export.web/storage) instead)
+* [ITemplateEngine](https://apireference.aspose.com/slides/net/aspose.slides.export.web/itemplateengine) (please use [TemplateEngine](https://apireference.aspose.com/slides/net/aspose.slides.export.web/templateengine) instead)
+* [IWebDocument](https://apireference.aspose.com/slides/net/aspose.slides.export.web/iwebdocument) (please use [WebDocument](https://apireference.aspose.com/slides/net/aspose.slides.export.web/webdocument) instead)
+* [IWebDocumentOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.web/iwebdocumentoptions) (please use [WebDocumentOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.web/webdocumentoptions) instead)
+
+[ITemplateEngine](https://apireference.aspose.com/slides/net/aspose.slides.export.web/itemplateengine) method 
+``` csharp
+string Compile<TModel>(string key, TModel model);
+```
+will be replaced with:
+``` csharp
+string Compile(string key, object model);
+```
