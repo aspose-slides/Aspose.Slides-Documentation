@@ -1,8 +1,8 @@
 ---
-title: Manage OLE
+title: Manage Zoom
 type: docs
 weight: 232
-url: /net/manage-ole/
+url: /net/manage-zoom/
 ---
 
 ## **Overview**
