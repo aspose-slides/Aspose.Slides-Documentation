@@ -44,15 +44,15 @@ This page contains release notes for [Aspose.Slides for .NET 21.5](https://www.n
 
 The main article about Zoom: [Manage Zoom](https://docs.aspose.com/slides/net/manage-zoom/)
 
-When you create a zoom-in PowerPoint, you can jump to and from specific slides, sections, and portions of your presentation in an order you decide while you're presenting:
+When you create a Zoom transition in PowerPoint, you can jump to and from specific slides, sections, and portions of your presentation in an order you decide while you're presenting:
 
 ![Zoom in PowerPoint](1619798273734-617.png)
 
-In Aspose.Slides, to provide the same Zoom object, enum [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype), interface [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) and some additional new methods in [IShapeCollection ](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) have been added.
+In Aspose.Slides, to provide the same functionality a new enum [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype), new interface [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) and some new additional methods in [IShapeCollection ](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) have been added.
 
-== [ZoomImageType Enum](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) ==
+#### [ZoomImageType Enum](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) ####
 
-The [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) determines whether the Zoom object is using the slide preview or a cover image.
+The [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) determines whether the Zoom object will use the slide preview or a cover image.
 
 Below is the definition of the [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) enum: 
 
@@ -148,7 +148,7 @@ IZoomFrame InsertZoomFrame(int index, float x, float y, float width, float heigh
 
 #### Example ####
 
-The example below demonstrates how to create [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) object with custom image and specified image frame:
+The example below demonstrates how to create [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) object with a custom image and specified image frame:
 
 ``` csharp
 using (Presentation pres = new Presentation())
