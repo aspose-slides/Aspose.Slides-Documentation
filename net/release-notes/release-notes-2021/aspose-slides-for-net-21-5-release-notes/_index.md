@@ -16,7 +16,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.5](https://www.n
 |SLIDESNET-40747|Support for reading autofit scale values|Feature|<https://docs.aspose.com/slides/net/shape-effective-properties/>
 |SLIDESNET-42551|Custom PPT root directory entry object class GUID (CLSID)|Enhancement|<https://docs.aspose.com/slides/net/save-presentation/#save-presentation-to-file>
 |SLIDESNET-42549|Size of the generated PDF in Aspose.Slides is much larger than in PowerPoint|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-42546|Animation is broken after loading and saving PPT file|Bug|<https://docs.aspose.com/slides/net/save-presentation/ https://docs.aspose.com/slides/net/powerpoint-animation/>
+|SLIDESNET-42546|Animation becomes broken after loading and saving PPT file|Bug|<https://docs.aspose.com/slides/net/save-presentation/ https://docs.aspose.com/slides/net/powerpoint-animation/>
 |SLIDESNET-42543|Table borders are incorrect in cloned slide|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
 |SLIDESNET-42535|External URL from paragraph portion is incorrect|Bug|<https://docs.aspose.com/slides/net/manage-hyperlinks/>
 |SLIDESNET-42525|Unknown load format for presentations|Bug|<https://docs.aspose.com/slides/net/presentation-format/>
@@ -36,25 +36,25 @@ This page contains release notes for [Aspose.Slides for .NET 21.5](https://www.n
 
 ## Public API Changes ##
 
-### .NETStandard 2.0 Support is obsolete ###
+### .NET Standard 2.0 Support is obsolete ###
 
-.NETStandard 2.0 Support is obsolete and will be replaced with .NETStandard 2.1 starting from 21.6 version of Aspose.Slides for .NET.
+Support for .NET Standard 2.0 is obsolete. It will be replaced with support for .NET Standard 2.1 starting from version 21.6 of Aspose.Slides for .NET.
 
 ### Zoom support has been added ###
 
-The main article about Zoom: [Manage Zoom](https://docs.aspose.com/slides/net/manage-zoom/)
+The main article on Zoom: [Manage Zoom](https://docs.aspose.com/slides/net/manage-zoom/)
 
-When you create a Zoom transition in PowerPoint, you can jump to and from specific slides, sections, and portions of your presentation in an order you decide while you're presenting:
+When you create a Zoom transition in PowerPoint, you can jump to (and from) specific slides, sections, and portions of your presentation in any order you prefer when presenting:
 
 ![Zoom in PowerPoint](1619798273734-617.png)
 
-In Aspose.Slides, to provide the same functionality a new enum [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype), new interface [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) and some new additional methods in [IShapeCollection ](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) have been added.
+In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype), a new interface [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe), and some new additional methods in [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection).
 
 #### [ZoomImageType Enum](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) ####
 
-The [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) determines whether the Zoom object will use the slide preview or a cover image.
+The [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) determines whether the Zoom object uses the slide preview or a cover image.
 
-Below is the definition of the [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) enum: 
+This is the [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) enum definition: 
 
 ``` csharp
 public enum ZoomImageType
@@ -69,13 +69,13 @@ public enum ZoomImageType
     /// </summary>
     Cover = 2
 }
-``` csharp
+​``` csharp
 
 #### [IZoomFrame Interface](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) ####
 
 The [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) interface with the [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/zoomframe) implementation class has been added:
 
-``` csharp
+​``` csharp
 public interface IZoomFrame : IGraphicalObject
 {
     /// <summary>
@@ -122,7 +122,7 @@ public interface IZoomFrame : IGraphicalObject
 
 #### New methods in [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface have been added ####
 
-Next new methods create [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) objects:
+These new methods create [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) objects:
 
 ``` csharp
 /// <summary>
@@ -136,19 +136,19 @@ IZoomFrame AddZoomFrame(float x, float y, float width, float height, ISlide slid
 IZoomFrame AddZoomFrame(float x, float y, float width, float height, ISlide slide, IPPImage image);
 
 /// <summary>
-/// Creates a new Zoom object and inserts it to a collection at the specified index.
+/// Creates a new Zoom object and inserts it into a collection at the specified index.
 /// </summary>
 IZoomFrame InsertZoomFrame(int index, float x, float y, float width, float height, ISlide slide);
 
 /// <summary>
-/// Creates a new Zoom object and inserts it to a collection at the specified index.
+/// Creates a new Zoom object and inserts it into a collection at the specified index.
 /// </summary>
 IZoomFrame InsertZoomFrame(int index, float x, float y, float width, float height, ISlide slide, IPPImage image);
 ```
 
 #### Example ####
 
-The example below demonstrates how to create [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) object with a custom image and specified image frame:
+This example shows you how to create a [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) object with a custom image and specified image frame:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -175,9 +175,9 @@ using (Presentation pres = new Presentation())
 
 ### [IHyperlinkManager SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method has been added ###
 
-New method [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) has been added to the [IHyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager) interface and [HyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/hyperlinkmanager) class.
+A new method, [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick), has been added to the [IHyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager) interface and [HyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/hyperlinkmanager) class.
 
-The [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set macro hyperlink on a click for a shape.
+The [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink on a click for a shape.
 
 Method declaration:
 
@@ -189,7 +189,7 @@ Method declaration:
 /// <returns>Hyperlink object <see cref="IHyperlink"/></returns>
 ```
 
-The code snippet below demonstrates how the [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set macro hyperlink click on a shape:
+This code snippet shows you how the [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink click on a shape:
 
 ``` csharp
 using (Presentation presentation = new Presentation())
@@ -201,22 +201,22 @@ using (Presentation presentation = new Presentation())
 
 ### [IPptOptions RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property has been added ###
 
-New property [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) has been added to the [IPptOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions) interface and [PptOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/pptoptions) class.
+A new property, [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid), has been added to the [IPptOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions) interface and [PptOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/pptoptions) class.
 
-The [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property represents the object class GUID (CLSID) that is stored in the root directory entry. Can be used for COM activation of the document's application.
+The [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property represents the object class GUID (CLSID) that is stored in the root directory entry. It can be used for COM activation of the document's application.
 
 Property declaration:
 
 ``` csharp
 /// <summary>
-/// Represents the object class GUID (CLSID) that is stored in the root directory entry. Can be used for COM
+/// Represents the object class GUID (CLSID) that is stored in the root directory entry. It can be used for COM.
 /// activation of the document's application.
 /// The default value is '64818D11-4F9B-11CF-86EA-00AA00B929E8' that corresponds to 'Microsoft Powerpoint.Slide.8'.
 /// </summary>       
 Guid RootDirectoryClsid { get; set; }
 ```
 
-The code snippet below demonstrates how custom [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) can be set:
+This code snippet shows you how the custom [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) can be set:
 
 ``` csharp
 using (Presentation pres = new Presentation())
