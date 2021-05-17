@@ -13,50 +13,33 @@ Aspose.Slides for C++ makes it possible to replace the images added in slide sha
 ## **Replacing Image inside Presentation Image Collection**
 Aspose.Slides for C++ provides a simple API methods for replacing the images inside presentation image collection. Please follow the steps below:
 
-1. Load the presentation file with image inside it using [Presentation]() class.
-1. Load an image from file in byte array.
-1. Replace the target image with new image in byte array
-1. In second approach load the image in Image object and replace the target image with loaded image.
-1. In third approach replace the image with already added image in presentation image collection.
+1. Load the presentation file with an image inside it using the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Load an image from a file in a byte array.
+1. Replace the target image with the new image in the byte array.
+1. In the second approach load the image in an [Image](https://apireference.aspose.com/slides/cpp/class/system.drawing.image) object and replace the target image with the loaded image.
+1. In the third approach replace the image with the already added image in the presentation image collection.
 1. Write the modified presentation as a PPTX file.
 
-**C#**
-
 ``` cpp
+// Instantiate the presentation
+SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"presentation.pptx");
 
- //Instantiate the presentation
+// The first way
+ArrayPtr<uint8_t> data = ReadAllBytes(u"image0.jpeg");
+SharedPtr<IPPImage> oldImage = presentation->get_Images()->idx_get(0);
+oldImage->ReplaceImage(data);
 
-Presentation presentation = new Presentation("presentation.pptx");
+// The second way
+SharedPtr<Image> newImage = Image::FromFile(u"image1.png");
+oldImage = presentation->get_Images()->idx_get(1);
+oldImage->ReplaceImage(newImage);
 
-//the first way
+// The third way
+oldImage = presentation->get_Images()->idx_get(2);
+oldImage->ReplaceImage(presentation->get_Images()->idx_get(3));
 
-byte[] data = File.ReadAllBytes("image0.jpeg");
-
-IPPImage oldImage = presentation.Images[0];
-
-oldImage.ReplaceImage(data);
-
-//the second way
-
-Image newImage = Image.FromFile("image1.png");
-
-oldImage = presentation.Images[1];
-
-oldImage.ReplaceImage(newImage);
-
-//the third way
-
-oldImage = presentation.Images[2];
-
-oldImage.ReplaceImage(presentation.Images[3]);
-
-//Save the presentation
-
-pres.Save("c:\\Presentations\\TestSmart.pptx", SaveFormat.Pptx);
-
-}
-
-
+// Save the presentation
+presentation->Save(u"c:\\Presentations\\TestSmart.pptx", SaveFormat::Pptx);
 ```
 
 
