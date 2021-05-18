@@ -69,13 +69,13 @@ public enum ZoomImageType
     /// </summary>
     Cover = 2
 }
-​``` csharp
+```
 
 #### [IZoomFrame Interface](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) ####
 
 The [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) interface with the [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/zoomframe) implementation class has been added:
 
-​``` csharp
+``` csharp
 public interface IZoomFrame : IGraphicalObject
 {
     /// <summary>
