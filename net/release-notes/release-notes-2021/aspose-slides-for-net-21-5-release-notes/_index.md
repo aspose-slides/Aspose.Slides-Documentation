@@ -188,6 +188,7 @@ Method declaration:
 /// </summary>
 /// <param name="macroName">Name of the macro</param>
 /// <returns>Hyperlink object <see cref="IHyperlink"/></returns>
+IHyperlink SetMacroHyperlinkClick(string macroName);
 ```
 
 This code snippet shows you how the [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink click on a shape:
