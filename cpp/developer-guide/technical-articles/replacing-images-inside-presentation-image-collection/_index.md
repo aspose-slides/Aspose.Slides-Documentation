@@ -7,58 +7,43 @@ url: /cpp/replacing-images-inside-presentation-image-collection/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for C++ makes it possible to replace the images added in slide shapes. This article explains how to replace the image added in presentation image collection using different approaches.
+Aspose.Slides for C++ allows you to replace the images added in slide shapes. In this article, you will learn how to replace the image added in presentation image collection through different approaches.
 
 {{% /alert %}} 
-## **Replacing Image inside Presentation Image Collection**
-Aspose.Slides for C++ provides a simple API methods for replacing the images inside presentation image collection. Please follow the steps below:
+## **Replacing the Image inside a Presentation Image Collection**
+Aspose.Slides for C++ provides a simple API method that allows you to replace the image inside a presentation image collection this way:
 
-1. Load the presentation file with image inside it using [Presentation]() class.
-1. Load an image from file in byte array.
-1. Replace the target image with new image in byte array
-1. In second approach load the image in Image object and replace the target image with loaded image.
-1. In third approach replace the image with already added image in presentation image collection.
+1. Load the presentation file with an image inside it using the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Load an image from a file in a byte array.
+1. Use one of these approaches:
+   - First approach: Replace the target image with the new image in the byte array.
+   - Second approach: Load the image in an [Image](https://apireference.aspose.com/slides/cpp/class/system.drawing.image) object and replace the target image with the loaded image.
+   - Third approach: Replace the image with the already added image in the presentation image collection.
 1. Write the modified presentation as a PPTX file.
 
-**C#**
+This sample code shows you how to replace the image in a presentation image collection:
 
 ``` cpp
+// Instantiate the presentation
+SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"presentation.pptx");
 
- //Instantiate the presentation
+// The first approach
+ArrayPtr<uint8_t> data = ReadAllBytes(u"image0.jpeg");
+SharedPtr<IPPImage> oldImage = presentation->get_Images()->idx_get(0);
+oldImage->ReplaceImage(data);
 
-Presentation presentation = new Presentation("presentation.pptx");
+// The second approach
+SharedPtr<Image> newImage = Image::FromFile(u"image1.png");
+oldImage = presentation->get_Images()->idx_get(1);
+oldImage->ReplaceImage(newImage);
 
-//the first way
+// The third approach
+oldImage = presentation->get_Images()->idx_get(2);
+oldImage->ReplaceImage(presentation->get_Images()->idx_get(3));
 
-byte[] data = File.ReadAllBytes("image0.jpeg");
-
-IPPImage oldImage = presentation.Images[0];
-
-oldImage.ReplaceImage(data);
-
-//the second way
-
-Image newImage = Image.FromFile("image1.png");
-
-oldImage = presentation.Images[1];
-
-oldImage.ReplaceImage(newImage);
-
-//the third way
-
-oldImage = presentation.Images[2];
-
-oldImage.ReplaceImage(presentation.Images[3]);
-
-//Save the presentation
-
-pres.Save("c:\\Presentations\\TestSmart.pptx", SaveFormat.Pptx);
-
-}
-
-
+// Save the presentation
+presentation->Save(u"c:\\Presentations\\TestSmart.pptx", SaveFormat::Pptx);
 ```
-
 
 
 
