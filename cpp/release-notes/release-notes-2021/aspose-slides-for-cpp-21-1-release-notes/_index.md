@@ -24,7 +24,7 @@ This page contains release notes for Aspose.Slides for C++ 21.1.
 ## Other Improvements and Changes
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2667|Use Aspose.Slides for .NET 21.1 features|Enhancement|
+|SLIDESCPP-2667|[Use Aspose.Slides for .NET 21.1 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-1-release-notes/)|Enhancement|
 |SLIDESCPP-2660|Possible memory leak investigation in API|Investigation|
 
 ## Public API Changes

@@ -26,7 +26,7 @@ This page contains release notes for Aspose.Slides for C++ 21.2.
 ## Other Improvements and Changes
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2688|Use Aspose.Slides for .NET 21.2 features|Enhancement|
+|SLIDESCPP-2688|[Use Aspose.Slides for .NET 21.2 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-2-release-notes/)|Enhancement|
 |SLIDESCPP-2738|Slide::GetThumbnail() - permission denied|Bug|
 
 

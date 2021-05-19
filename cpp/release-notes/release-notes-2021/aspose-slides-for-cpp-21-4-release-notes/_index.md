@@ -30,7 +30,7 @@ This page contains release notes for Aspose.Slides for C++ 21.4.
 ## Other Improvements and Changes
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2690|Use Aspose.Slides for .NET 21.4 features|Enhancement|
+|SLIDESCPP-2690|[Use Aspose.Slides for .NET 21.4 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-4-release-notes/)|Enhancement|
 |SLIDESCPP-2822|Saving to disk is super slow|Investigation|
 
 ## Public API Changes ##
