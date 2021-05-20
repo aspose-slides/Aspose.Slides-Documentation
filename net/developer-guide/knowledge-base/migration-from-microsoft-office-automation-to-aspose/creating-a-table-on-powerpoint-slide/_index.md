@@ -69,35 +69,35 @@ The following steps add a table to a Microsoft PowerPoint slide using Aspose.Sli
 1. Write the presentation to disk.
 
 ```c#
- Presentation pres = new Presentation();
+Presentation pres = new Presentation();
 
-            //Access first slide
-            ISlide sld = pres.Slides[0];
+//Access first slide
+ISlide sld = pres.Slides[0];
 
-            //Define columns with widths and rows with heights
-            double[] dblCols = { 50, 50, 50 };
-            double[] dblRows = { 50, 30, 30, 30, 30 };
+//Define columns with widths and rows with heights
+double[] dblCols = { 50, 50, 50 };
+double[] dblRows = { 50, 30, 30, 30, 30 };
 
-            //Add a table
-            Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
+//Add a table
+Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-            //Set border format for each cell
-            foreach (IRow row in tbl.Rows)
-            {
-                foreach (ICell cell in row)
-                {
+//Set border format for each cell
+foreach (IRow row in tbl.Rows)
+{
+	foreach (ICell cell in row)
+	{
 
-                    //Get text frame of each cell
-                    ITextFrame tf = cell.TextFrame;
-                    //Add some text
-                    tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-                    //Set font size of 10
-                    tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
-                    tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
-                }
-            }
+		//Get text frame of each cell
+		ITextFrame tf = cell.TextFrame;
+		//Add some text
+		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
+		//Set font size of 10
+		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
+		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
+	}
+}
 
-            //Write the presentation to the disk
-            pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+//Write the presentation to the disk
+pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
 ```
 

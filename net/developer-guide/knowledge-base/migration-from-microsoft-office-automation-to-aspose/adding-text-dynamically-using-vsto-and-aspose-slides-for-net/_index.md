@@ -27,33 +27,33 @@ The code snippets below results in a presentation with a plain slide and a strin
 
 ```c#
 //Note: PowerPoint is a namespace which has been defined above like this
-            //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+//using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-            //Create a presentation
-            PowerPoint.Presentation pres = Globals.ThisAddIn.Application
-                .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
+//Create a presentation
+PowerPoint.Presentation pres = Globals.ThisAddIn.Application
+	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-            //Get the blank slide layout
-            PowerPoint.CustomLayout layout = pres.SlideMaster.
-                CustomLayouts[7];
+//Get the blank slide layout
+PowerPoint.CustomLayout layout = pres.SlideMaster.
+	CustomLayouts[7];
 
-            //Add a blank slide
-            PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
+//Add a blank slide
+PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-            //Add a text
-            PowerPoint.Shape shp = sld.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 150, 100, 400, 100);
+//Add a text
+PowerPoint.Shape shp = sld.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 150, 100, 400, 100);
 
-            //Set a text
-            PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
-            txtRange.Text = "Text added dynamically";
-            txtRange.Font.Name = "Arial";
-            txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoTrue;
-            txtRange.Font.Size = 32;
+//Set a text
+PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
+txtRange.Text = "Text added dynamically";
+txtRange.Font.Name = "Arial";
+txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoTrue;
+txtRange.Font.Size = 32;
 
-            //Write the output to disk
-            pres.SaveAs("c:\\outVSTO.ppt",
-                PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
-                Microsoft.Office.Core.MsoTriState.msoFalse);
+//Write the output to disk
+pres.SaveAs("c:\\outVSTO.ppt",
+	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
+	Microsoft.Office.Core.MsoTriState.msoFalse);
 
 ```
 

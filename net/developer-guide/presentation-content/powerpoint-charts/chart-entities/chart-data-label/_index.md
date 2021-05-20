@@ -9,17 +9,16 @@ Aspose.Slides for .NET provides a simple API for setting precision of data in ch
 
 ```c#
 // The path to the documents directory.
-    string dataDir = RunExamples.GetDataDir_Charts();
+string dataDir = RunExamples.GetDataDir_Charts();
 
-    using (Presentation pres = new Presentation())
-    {
+using (Presentation pres = new Presentation())
+{
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
 	chart.HasDataTable = true;
 	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
 
 	pres.Save(dataDir + "PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
-
-  			}
+}
 ```
 
 

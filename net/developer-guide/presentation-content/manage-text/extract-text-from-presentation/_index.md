@@ -65,33 +65,33 @@ To scan the text from the whole presentation, use the
 
 ```c#
  // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Text();
+string dataDir = RunExamples.GetDataDir_Text();
 
-            //Instatiate Presentation class that represents a PPTX file
-            Presentation pptxPresentation = new Presentation(dataDir + "demo.pptx");
+//Instatiate Presentation class that represents a PPTX file
+Presentation pptxPresentation = new Presentation(dataDir + "demo.pptx");
 
-            //Get an Array of ITextFrame objects from all slides in the PPTX
-            ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+//Get an Array of ITextFrame objects from all slides in the PPTX
+ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
 
-            //Loop through the Array of TextFrames
-            for (int i = 0; i < textFramesPPTX.Length; i++)
+//Loop through the Array of TextFrames
+for (int i = 0; i < textFramesPPTX.Length; i++)
 
-                //Loop through paragraphs in current ITextFrame
-                foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
+	//Loop through paragraphs in current ITextFrame
+	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
 
-                    //Loop through portions in the current IParagraph
-                    foreach (IPortion port in para.Portions)
-                    {
-                        //Display text in the current portion
-                        Console.WriteLine(port.Text);
+		//Loop through portions in the current IParagraph
+		foreach (IPortion port in para.Portions)
+		{
+			//Display text in the current portion
+			Console.WriteLine(port.Text);
 
-                        //Display font height of the text
-                        Console.WriteLine(port.PortionFormat.FontHeight);
+			//Display font height of the text
+			Console.WriteLine(port.PortionFormat.FontHeight);
 
-                        //Display font name of the text
-                        if (port.PortionFormat.LatinFont != null)
-                            Console.WriteLine(port.PortionFormat.LatinFont.FontName);
-                    }
+			//Display font name of the text
+			if (port.PortionFormat.LatinFont != null)
+				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
+		}
 ```
 
 
@@ -124,11 +124,11 @@ The new API can be used like this:
 
 ```c#
 PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
-            Console.WriteLine(text1.SlidesText[0].Text);
-            Console.WriteLine(text1.SlidesText[0].LayoutText);
-            Console.WriteLine(text1.SlidesText[0].MasterText);
-            Console.WriteLine(text1.SlidesText[0].NotesText);
-            PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
+Console.WriteLine(text1.SlidesText[0].Text);
+Console.WriteLine(text1.SlidesText[0].LayoutText);
+Console.WriteLine(text1.SlidesText[0].MasterText);
+Console.WriteLine(text1.SlidesText[0].NotesText);
+PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
 ```
 
 

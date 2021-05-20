@@ -132,8 +132,9 @@ using (Presentation presentation = new Presentation(dataDir+"presentation.ppt"))
     }
     headerFooterManager.SetFooterText("Footer text"); // Method SetFooterText is used for setting text to slide footer placeholder.
     headerFooterManager.SetDateTimeText("Date and time text"); // Method SetDateTimeText is used for setting text to slide date-time placeholder.
+
+	presentation.Save(dataDir+"Presentation.ppt",SaveFormat.ppt);
 }
-presentation.Save(dataDir+"Presentation.ppt",SaveFormat.ppt);
 ```
 
 
@@ -182,8 +183,6 @@ ISlide slide = presentation.Slides[0];
 // Set the slide size of generated presentations to that of source
 presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used for set slide size with scale content to ensure fit
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used for set slide size with maximize size of content
-
-          
            
 // Save Presentation to disk
 auxPresentation.Save(dataDir + "Set_Size&Type_out.pptx", SaveFormat.Pptx);

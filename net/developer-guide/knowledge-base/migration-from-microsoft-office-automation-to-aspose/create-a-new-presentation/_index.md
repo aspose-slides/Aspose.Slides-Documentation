@@ -26,30 +26,30 @@ Below are two code examples that illustrate how VSTO and Aspose.Slides for .NET 
 
 
 ```c#
-  //Note: PowerPoint is a namespace which has been defined above like this
-            //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+//Note: PowerPoint is a namespace which has been defined above like this
+//using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-            //Create a presentation
-            PowerPoint.Presentation pres = Globals.ThisAddIn.Application
-                .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
+//Create a presentation
+PowerPoint.Presentation pres = Globals.ThisAddIn.Application
+	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-            //Get the title slide layout
-            PowerPoint.CustomLayout layout = pres.SlideMaster.
-                CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
+//Get the title slide layout
+PowerPoint.CustomLayout layout = pres.SlideMaster.
+	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-            //Add a title slide.
-            PowerPoint.Slide slide = pres.Slides.AddSlide(1, layout);
+//Add a title slide.
+PowerPoint.Slide slide = pres.Slides.AddSlide(1, layout);
 
-            //Set the title text
-            slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
+//Set the title text
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-            //Set the sub title text
-            slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
+//Set the sub title text
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-            //Write the output to disk
-            pres.SaveAs("c:\\outVSTO.ppt",
-                PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
-                Microsoft.Office.Core.MsoTriState.msoFalse);
+//Write the output to disk
+pres.SaveAs("c:\\outVSTO.ppt",
+	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
+	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 

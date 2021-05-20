@@ -20,6 +20,6 @@ pres.Sections.AppendEmptySection("Last empty section");
 pres.Sections.AddSection("First empty", pres.Slides[0]);
 pres.Sections[0].Name = "New section name";
 pres.Save(path+"resultsection1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
-}
+
 ```
 

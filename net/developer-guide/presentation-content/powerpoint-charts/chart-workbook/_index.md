@@ -12,27 +12,27 @@ A new property has been added to set chart data from workbook. Now Aspose.Slide
 ```c#
 Presentation pres = new Presentation(dataDir+"Test.pptx");
 
-   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
-   chart.ChartData.ChartDataWorkbook.Clear(0);
+IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
+chart.ChartData.ChartDataWorkbook.Clear(0);
 
-   Workbook workbook = null;
-   try
-   {
-       workbook = new Aspose.Cells.Workbook("a1.xlsx");
-   }
-   catch (Exception ex)
-   {
-       Console.Write(ex);
-   }
-   MemoryStream mem = new MemoryStream();
-   workbook.Save(mem, Aspose.Cells.SaveFormat.Xlsx);
+Workbook workbook = null;
+try
+{
+	workbook = new Aspose.Cells.Workbook("a1.xlsx");
+}
+catch (Exception ex)
+{
+	Console.Write(ex);
+}
+MemoryStream mem = new MemoryStream();
+workbook.Save(mem, Aspose.Cells.SaveFormat.Xlsx);
 
-   chart.ChartData.WriteWorkbookStream(mem);
+chart.ChartData.WriteWorkbookStream(mem);
 
-   chart.ChartData.SetRange("Sheet1!$A$1:$B$9");
-   IChartSeries series = chart.ChartData.Series[0];
-   series.ParentSeriesGroup.IsColorVaried = true;
-   pres.Save(dataDir+"response2.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+chart.ChartData.SetRange("Sheet1!$A$1:$B$9");
+IChartSeries series = chart.ChartData.Series[0];
+series.ParentSeriesGroup.IsColorVaried = true;
+pres.Save(dataDir+"response2.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -49,8 +49,6 @@ Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cel
 ```c#
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Charts();
-
-
 
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
@@ -76,7 +74,6 @@ using (Presentation pres = new Presentation(dataDir + "chart2.pptx"))
     series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
 
     pres.Save(path + "resultchart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
 }
 ```
 
@@ -94,19 +91,18 @@ Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cel
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Charts();
 
-using (Presentation pres = new Presentation(dataDir+"pres.pptx"))
-           {
-ISlide slide = pres.Slides[1];
-IChart chart = (IChart)slide.Shapes[0];
-ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
-if (sourceType == ChartDataSourceType.ExternalWorkbook)
+using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
 {
-string path = chart.ChartData.ExternalWorkbookPath;
- }
+	ISlide slide = pres.Slides[1];
+	IChart chart = (IChart)slide.Shapes[0];
+	ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
+	if (sourceType == ChartDataSourceType.ExternalWorkbook)
+	{
+		string path = chart.ChartData.ExternalWorkbookPath;
+	}
 }
-    // Saving presentation
-    pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
-}
+// Saving presentation
+pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -184,18 +180,17 @@ The **updateChartData** parameter defines whether an excel workbook will be loa
 
 ```c#
  // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Charts();
+string dataDir = RunExamples.GetDataDir_Charts();
 
-            using (Presentation pres = new Presentation())
-            {
-                IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
-                IChartData chartData = chart.ChartData;
+using (Presentation pres = new Presentation())
+{
+	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
+	IChartData chartData = chart.ChartData;
 
-                (chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
+	(chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
 
-
-                pres.Save(dataDir + "SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
-            }
+	pres.Save(dataDir + "SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+}
 ```
 
 

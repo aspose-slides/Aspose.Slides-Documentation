@@ -36,7 +36,7 @@ foreach (ISlide slide in presentation.Slides)
 ```c#
 class HandleFontsWarnings : IWarningCallback
 {
-    public ReturnAction warning(IWarningInfo warning)
+    public ReturnAction Warning(IWarningInfo warning)
     {
         Console.WriteLine(warning.WarningType); // 1 - WarningType.DataLoss
         Console.WriteLine(warning.Description); // "Font will be substituted from X to Y"

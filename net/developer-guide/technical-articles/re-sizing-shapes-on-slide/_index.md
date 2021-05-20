@@ -12,38 +12,38 @@ To avoid shapes disorientation, each shape on the slide needs to be updated acco
 
 ```c#
  //Load a presentation
-            Presentation presentation = new Presentation(@"D:\TestResize.ppt");
+Presentation presentation = new Presentation(@"D:\TestResize.ppt");
 
-            //Old slide size
-            float currentHeight = presentation.SlideSize.Size.Height;
-            float currentWidth = presentation.SlideSize.Size.Width;
+//Old slide size
+float currentHeight = presentation.SlideSize.Size.Height;
+float currentWidth = presentation.SlideSize.Size.Width;
 
-            //Changing slide size
-            presentation.SlideSize.Type = SlideSizeType.A4Paper;
+//Changing slide size
+presentation.SlideSize.Type = SlideSizeType.A4Paper;
 
-            //New slide size
-            float newHeight = presentation.SlideSize.Size.Height;
-            float newWidth = presentation.SlideSize.Size.Width;
+//New slide size
+float newHeight = presentation.SlideSize.Size.Height;
+float newWidth = presentation.SlideSize.Size.Width;
 
-            float ratioHeight = newHeight / currentHeight;
-            float ratioWidth = newWidth / currentWidth;
+float ratioHeight = newHeight / currentHeight;
+float ratioWidth = newWidth / currentWidth;
 
-            foreach (ISlide slide in presentation.Slides)
-            {
-                foreach (IShape shape in slide.Shapes)
-                {
-                    //Resize position
-                    shape.Height = shape.Height * ratioHeight;
-                    shape.Width = shape.Width * ratioWidth;
+foreach (ISlide slide in presentation.Slides)
+{
+	foreach (IShape shape in slide.Shapes)
+	{
+		//Resize position
+		shape.Height = shape.Height * ratioHeight;
+		shape.Width = shape.Width * ratioWidth;
 
-                    //Resize shape size if required 
-                    shape.Y = shape.Y * ratioHeight;
-                    shape.X = shape.X * ratioWidth;
+		//Resize shape size if required 
+		shape.Y = shape.Y * ratioHeight;
+		shape.X = shape.X * ratioWidth;
 
-                }
-            }
+	}
+}
 
-            presentation.Save("Resize.pptx", SaveFormat.Pptx);
+presentation.Save("Resize.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}} 

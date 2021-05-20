@@ -25,9 +25,6 @@ using (Presentation pres = new Presentation(dataDir+"test0.pptx"))
     shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-EN";
 
     pres.Save(dataDir+"test1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
-           
-}
-          
 }
 ```
 

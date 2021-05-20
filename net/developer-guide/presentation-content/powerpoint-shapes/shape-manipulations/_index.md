@@ -66,21 +66,22 @@ The example below adds a group shape to a slide.
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Shapes();
+string dataDir = RunExamples.GetDataDir_Shapes();
 
-            // Instantiate Presentation class
-            using (Presentation srcPres = new Presentation(dataDir + "Source Frame.pptx"))
-            {
-                IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-                ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-                ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-                IShapeCollection destShapes = destSlide.Shapes;
-                destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-                destShapes.AddClone(sourceShapes[2]);                 
-                destShapes.InsertClone(0, sourceShapes[0], 50, 150);
+// Instantiate Presentation class
+using (Presentation srcPres = new Presentation(dataDir + "Source Frame.pptx"))
+{
+	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
+	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
+	IShapeCollection destShapes = destSlide.Shapes;
+	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
+	destShapes.AddClone(sourceShapes[2]);                 
+	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
-                // Write the PPTX file to disk
-                srcPres.Save(dataDir + "CloneShape_out.pptx", SaveFormat.Pptx);
+	// Write the PPTX file to disk
+	srcPres.Save(dataDir + "CloneShape_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -150,11 +151,11 @@ String alttext = "User Defined";
 int iCount = sld.Shapes.Count;
 for (int i = 0; i < iCount; i++)
 {
-        AutoShape ashp = (AutoShape)sld.Shapes[i];
-        if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-        {
-            ashp.Hidden = true;
-        }
+	AutoShape ashp = (AutoShape)sld.Shapes[i];
+	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
+	{
+		ashp.Hidden = true;
+	}
 }
 
 // Save presentation to disk
@@ -200,13 +201,15 @@ Aspose.Slides for .NET allows developers to get a unique shape identifier in sl
 ```c#
 public static void Run()
 {
-    // The path to the documents directory.
-    string dataDir = RunExamples.GetDataDir_Shapes();
+	// The path to the documents directory.
+	string dataDir = RunExamples.GetDataDir_Shapes();
 
-    using (Presentation presentation = new Presentation("Presentation.pptx"))
- {
-    // Getting unique shape identifier in slide scope
-    long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
+	using (Presentation presentation = new Presentation("Presentation.pptx"))
+	{
+		// Getting unique shape identifier in slide scope
+		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
+	}
+}
 ```
 
 
@@ -266,17 +269,17 @@ pres.Save(dataDir + "Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 Below sample code is given.
 
 ```c#
-  // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_PresentationProperties();
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_PresentationProperties();
 
-            using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
-            {
-                foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-                {
-                    IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-                    ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-                }
-            }
+using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
+{
+	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
+	{
+		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
+		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
+	}
+}
 ```
 
 
@@ -288,7 +291,6 @@ Now Aspose.Slides for .NET support for rendering a shape as svg. WriteAsSvg met
 ```c#
 public static void Run()
 {
-	
 	string outSvgFileName = "SingleShape.svg";
 	string dataDir = RunExamples.GetDataDir_Conversion();
 	using (Presentation pres = new Presentation(dataDir+ "TestExportShapeToSvg.pptx"))
@@ -296,14 +298,8 @@ public static void Run()
 		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
 		{
 			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-
-			
 		}
-	
-		
 	}
-
-
 }
 ```
 
@@ -319,16 +315,16 @@ Source code below aligns shapes with indices 1,2 and 4 along the top border of t
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+	ISlide slide = pres.Slides[0];
+	IShape shape1 = slide.Shapes[1];
+	IShape shape2 = slide.Shapes[2];
+	IShape shape3 = slide.Shapes[4];
+	SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
+	{
+		slide.Shapes.IndexOf(shape1),
+		slide.Shapes.IndexOf(shape2),
+		slide.Shapes.IndexOf(shape3)
+	});
 }
 ```
 

@@ -40,19 +40,17 @@ The following code sample shows how to get effective properties for the camera.
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Shapes();
+string dataDir = RunExamples.GetDataDir_Shapes();
 
-            using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
-            {
-                IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+{
+	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
-                Console.WriteLine("= Effective camera properties =");
-                Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-                Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-                Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-
-                
-            }
+	Console.WriteLine("= Effective camera properties =");
+	Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
+	Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
+	Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
+}
 ```
 
 
@@ -62,19 +60,17 @@ Aspose.Slides for .NET allows developers to get effective properties of Light R
 The following code sample shows how to get effective properties for the Light Rig.
 
 ```c#
- // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Shapes();
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
 
-            using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
-            {
-                IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+{
+	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
-                Console.WriteLine("= Effective light rig properties =");
-                Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-                Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-
-
-            }
+	Console.WriteLine("= Effective light rig properties =");
+	Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
+	Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
+}
 ```
 
 
@@ -85,19 +81,17 @@ The following code sample shows how to get effective properties for the Bevel Sh
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Shapes();
+string dataDir = RunExamples.GetDataDir_Shapes();
 
-            using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
-            {
-                IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+{
+	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
-                Console.WriteLine("= Effective shape's top face relief properties =");
-                Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-                Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-                Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-
-
-            }
+	Console.WriteLine("= Effective shape's top face relief properties =");
+	Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
+	Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
+	Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
+}
 ```
 
 
@@ -109,25 +103,24 @@ The following code sample shows how to get effective text frame formatting prope
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Text();
-            using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
-            {
-                IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
+string dataDir = RunExamples.GetDataDir_Text();
+using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+{
+	IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
 
-                ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-                ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.GetEffective();
+	ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
+	ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.GetEffective();
 
 
-                Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-                Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-                Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-                Console.WriteLine("Margins");
-                Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-                Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-                Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-                Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-
-            }
+	Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
+	Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
+	Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
+	Console.WriteLine("Margins");
+	Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
+	Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
+	Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
+	Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
+}
 ```
 
 
@@ -158,7 +151,6 @@ using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
         Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
         Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
     }
-
 }
 
 ```
@@ -223,22 +215,21 @@ So finally **CellFormatEffectiveData** properties always used to draw the table.
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Tables();
+string dataDir = RunExamples.GetDataDir_Tables();
 
-            using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
-            {
-                ITable tbl = pres.Slides[0].Shapes[0] as ITable;
-                ITableFormatEffectiveData tableFormatEffective = tbl.TableFormat.GetEffective();
-                IRowFormatEffectiveData rowFormatEffective = tbl.Rows[0].RowFormat.GetEffective();
-                IColumnFormatEffectiveData columnFormatEffective = tbl.Columns[0].ColumnFormat.GetEffective();
-                ICellFormatEffectiveData cellFormatEffective = tbl[0, 0].CellFormat.GetEffective();
+using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
+{
+	ITable tbl = pres.Slides[0].Shapes[0] as ITable;
+	ITableFormatEffectiveData tableFormatEffective = tbl.TableFormat.GetEffective();
+	IRowFormatEffectiveData rowFormatEffective = tbl.Rows[0].RowFormat.GetEffective();
+	IColumnFormatEffectiveData columnFormatEffective = tbl.Columns[0].ColumnFormat.GetEffective();
+	ICellFormatEffectiveData cellFormatEffective = tbl[0, 0].CellFormat.GetEffective();
 
-                IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.FillFormat;
-                IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.FillFormat;
-                IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.FillFormat;
-                IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.FillFormat;
-               
-            }
+	IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.FillFormat;
+	IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.FillFormat;
+	IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.FillFormat;
+	IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.FillFormat;
+}
 ```
 
 

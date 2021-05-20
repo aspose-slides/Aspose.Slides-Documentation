@@ -317,23 +317,23 @@ In the example given below, we set the RotationAngle property.
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Text();
+string dataDir = RunExamples.GetDataDir_Text();
 
-            // Create an instance of Presentation class
-            Presentation presentation = new Presentation();
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
 
-            IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
 
-            IChartSeries series = chart.ChartData.Series[0];
+IChartSeries series = chart.ChartData.Series[0];
 
-            series.Labels.DefaultDataLabelFormat.ShowValue = true;
-            series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 65;
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 65;
 
-            chart.HasTitle = true;
-            chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
 
-            // Save Presentation
-            presentation.Save(dataDir + "textframe-rotation_out.pptx", SaveFormat.Pptx);
+// Save Presentation
+presentation.Save(dataDir + "textframe-rotation_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -349,26 +349,26 @@ Aspose.Slides for .NET lets developers to set the properties of ParagraphFormat 
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Text();
+string dataDir = RunExamples.GetDataDir_Text();
 
-            // Create an instance of Presentation class
-            Presentation presentation = new Presentation(dataDir + "Fonts.pptx");
+// Create an instance of Presentation class
+Presentation presentation = new Presentation(dataDir + "Fonts.pptx");
 
-            // Obtain a slide's reference by its index
-            ISlide sld = presentation.Slides[0];
+// Obtain a slide's reference by its index
+ISlide sld = presentation.Slides[0];
 
-            // Access the TextFrame
-            ITextFrame tf1 = ((IAutoShape)sld.Shapes[0]).TextFrame;
+// Access the TextFrame
+ITextFrame tf1 = ((IAutoShape)sld.Shapes[0]).TextFrame;
 
-            // Access the Paragraph
-            IParagraph para1 = tf1.Paragraphs[0];
+// Access the Paragraph
+IParagraph para1 = tf1.Paragraphs[0];
 
-            // Set properties of Paragraph
-            para1.ParagraphFormat.SpaceWithin = 80;
-            para1.ParagraphFormat.SpaceBefore = 40;
-            para1.ParagraphFormat.SpaceAfter = 40;
-            // Save Presentation
-            presentation.Save(dataDir + "LineSpacing_out.pptx", SaveFormat.Pptx);
+// Set properties of Paragraph
+para1.ParagraphFormat.SpaceWithin = 80;
+para1.ParagraphFormat.SpaceBefore = 40;
+para1.ParagraphFormat.SpaceAfter = 40;
+// Save Presentation
+presentation.Save(dataDir + "LineSpacing_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -416,7 +416,6 @@ portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
 // Save Presentation
 presentation.Save(dataDir + "formatText_out.pptx", SaveFormat.Pptx); 
-        }
 ```
 
 

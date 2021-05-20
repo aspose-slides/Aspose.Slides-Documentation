@@ -330,10 +330,9 @@ Sample code used to create a chart:
 ```c#
 public static void Run()
 {
-
-       
-string dataDir = RunExamples.GetDataDir_Charts();
-         using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	string dataDir = RunExamples.GetDataDir_Charts();
+    
+	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	{
 		IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.Treemap, 50, 50, 500, 400);
 		chart.ChartData.Categories.Clear();
@@ -383,7 +382,6 @@ string dataDir = RunExamples.GetDataDir_Charts();
 
 		pres.Save("Treemap.pptx", SaveFormat.Pptx);
 	}
-
 }
 ```
 
@@ -525,7 +523,6 @@ The following code is used to create a chart.
 
 ```c#
 public static void Run()
-
 {
 	string dataDir = RunExamples.GetDataDir_Charts();
 	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
@@ -555,8 +552,7 @@ public static void Run()
 		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B6", 500));
 
 		pres.Save(dataDir+"Funnel.pptx", SaveFormat.Pptx);
-       }
-
+	}
 }
 ```
 
@@ -623,7 +619,6 @@ public static void Run()
 
 		pres.Save("Sunburst.pptx", SaveFormat.Pptx);
 	}
-
 }
 ```
 
@@ -641,9 +636,7 @@ The following code is used to create a chart.
 
 ```c#
 public static void Run()
-
 {
-
 	string dataDir = RunExamples.GetDataDir_Charts();
 	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	{
@@ -667,7 +660,6 @@ public static void Run()
 
 		pres.Save(dataDir+"Histogram.pptx", SaveFormat.Pptx);
 	}
-
 }
 ```
 
@@ -882,7 +874,6 @@ using (Presentation pres = new Presentation())
 
     pres.Save(dataDir + "DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 }
-
 ```
 
 

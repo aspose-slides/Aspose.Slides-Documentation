@@ -29,10 +29,10 @@ using (Presentation pres = new Presentation(dataDir+"test.Pptx"))
     double y = chart.PlotArea.ActualY;
     double w = chart.PlotArea.ActualWidth;
     double h = chart.PlotArea.ActualHeight;
+	
+	// Save presentation with chart
+	pres.Save(dataDir + "Chart_out.pptx", SaveFormat.Pptx);
 }
-            
-// Save presentation with chart
-pres.Save(dataDir + "Chart_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -59,7 +59,6 @@ using (Presentation presentation = new Presentation())
     chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 
     presentation.Save(dataDir + "SetLayoutMode_outer.pptx", SaveFormat.Pptx);
-   
 }
 ```
 

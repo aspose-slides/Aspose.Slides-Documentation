@@ -206,7 +206,6 @@ string dataDir = RunExamples.GetDataDir_Charts();
 
 using (Presentation pres = new Presentation())
 {               
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.TextFormat.PortionFormat.FontHeight = 20;
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -330,6 +329,5 @@ using (Presentation presentation = new Presentation())
 
 	presentation.Save(dataDir + "out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
-		}	
 ```
 

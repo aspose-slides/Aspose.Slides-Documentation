@@ -130,10 +130,9 @@ using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pp
     // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
     using (Presentation destPres = new Presentation())
     {
-        // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
         ISlideCollection slds = destPres.Slides;
 
-        slds.AddClone(srcPres.Slides[0]);
+        slds.InsertClone(2, srcPres.Slides[0]);
 
         // Write the destination presentation to disk
         destPres.Save(dataDir + "Aspose2_out.pptx", SaveFormat.Pptx);

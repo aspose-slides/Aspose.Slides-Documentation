@@ -83,20 +83,18 @@ using (Presentation pres = new Presentation(dataDir+"pptxFileName.pptx"))
 
 ```c#
 class CustomSvgShapeFormattingController : ISvgShapeFormattingController
-
 {
-  private int m_shapeIndex;
+	private int m_shapeIndex;
+	
+	public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+	{
+		m_shapeIndex = shapeStartIndex;
+	}
 
-  public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
-  {
-      m_shapeIndex = shapeStartIndex;
-  }
-
-  public void FormatShape(ISvgShape svgShape, IShape shape)
-  {
-      svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
-  }
-
+	public void FormatShape(ISvgShape svgShape, IShape shape)
+	{
+		svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
+	}
 }
 ```
 

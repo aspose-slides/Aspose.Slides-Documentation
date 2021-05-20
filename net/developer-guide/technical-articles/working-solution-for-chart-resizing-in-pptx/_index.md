@@ -31,24 +31,24 @@ Suppose, we have defined a template and desire to create the presentations based
 
 ```c#
 //define chart size with window 
-            chart.SizeWithWindow = true;
+chart.SizeWithWindow = true;
 
-            //set window width of the workbook in inches (divided by 72 as PowerPoint uses 
-            //72 pixels / inch)
-            wb.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+//set window width of the workbook in inches (divided by 72 as PowerPoint uses 
+//72 pixels / inch)
+wb.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
 
-            //set window height of the workbook in inches
-            wb.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+//set window height of the workbook in inches
+wb.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
 
-            //Instantiate MemoryStream
-            MemoryStream ms = wb.SaveToStream();
+//Instantiate MemoryStream
+MemoryStream ms = wb.SaveToStream();
 
-            //Create an OLE Object Frame with embedded Excel
-            Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
-                            slide.Shapes[2].X,
-                            slide.Shapes[2].Y,
-                            slide.Shapes[2].Width,
-                            slide.Shapes[2].Height, "Excel.Sheet.8", ms.ToArray());
+//Create an OLE Object Frame with embedded Excel
+Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
+				slide.Shapes[2].X,
+				slide.Shapes[2].Y,
+				slide.Shapes[2].Width,
+				slide.Shapes[2].Height, "Excel.Sheet.8", ms.ToArray());
 ```
 
 **Scenario 2** 
@@ -58,29 +58,29 @@ Let us say, we want to create a presentation from scratch and desire an OLE Obje
 
 ```c#
  //Our desired height
-            int desiredHeight = 288;//4 inch (4 * 72)
+int desiredHeight = 288;//4 inch (4 * 72)
 
-            //Our desired width
-            int desiredWidth = 684;//9.5 inch (9.5 * 72)
+//Our desired width
+int desiredWidth = 684;//9.5 inch (9.5 * 72)
 
-            //define chart size with window
-            chart.SizeWithWindow = true;
+//define chart size with window
+chart.SizeWithWindow = true;
 
-            //set window width of the workbook in inches
-            wb.Worksheets.WindowWidthInch = desiredWidth / 72f;
+//set window width of the workbook in inches
+wb.Worksheets.WindowWidthInch = desiredWidth / 72f;
 
-            //set window height of the workbook in inches
-            wb.Worksheets.WindowHeightInch = desiredHeight / 72f;
+//set window height of the workbook in inches
+wb.Worksheets.WindowHeightInch = desiredHeight / 72f;
 
-            //Instantiate MemoryStream
-            MemoryStream ms = wb.SaveToStream();
+//Instantiate MemoryStream
+MemoryStream ms = wb.SaveToStream();
 
-            //Create an OLE Object Frame with embedded Excel
-            Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
-                                        36,
-                                        72,
-                                        desiredWidth,
-                                        desiredHeight, "Excel.Sheet.8", ms.ToArray());
+//Create an OLE Object Frame with embedded Excel
+Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
+							36,
+							72,
+							desiredWidth,
+							desiredHeight, "Excel.Sheet.8", ms.ToArray());
 ```
 
 
@@ -94,26 +94,26 @@ Suppose, we have defined a template and desire to create the presentations based
 
 ```c#
 //define chart size without window 
-            chart.SizeWithWindow = false;
+chart.SizeWithWindow = false;
 
-            //set chart width in pixels (Multiply by 96 as Excel uses 96 pixels per inch)    
-            chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
+//set chart width in pixels (Multiply by 96 as Excel uses 96 pixels per inch)    
+chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
 
-            //set chart height in pixels
-            chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
+//set chart height in pixels
+chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
 
-            //Define chart print size
-            chart.PrintSize = PrintSizeType.Custom;
+//Define chart print size
+chart.PrintSize = PrintSizeType.Custom;
 
-            //Instantiate MemoryStream
-            MemoryStream ms = wb.SaveToStream();
+//Instantiate MemoryStream
+MemoryStream ms = wb.SaveToStream();
 
-            //Create an OLE Object Frame with embedded Excel
-            Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
-                            slide.Shapes[2].X,
-                            slide.Shapes[2].Y,
-                            slide.Shapes[2].Width,
-                            slide.Shapes[2].Height, "Excel.Sheet.8", ms.ToArray());
+//Create an OLE Object Frame with embedded Excel
+Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
+				slide.Shapes[2].X,
+				slide.Shapes[2].Y,
+				slide.Shapes[2].Width,
+				slide.Shapes[2].Height, "Excel.Sheet.8", ms.ToArray());
 
 ```
 
@@ -126,29 +126,29 @@ Let us say, we want to create a presentation from scratch and desire an OLE Obje
 
 ```c#
  //Our desired height
-            int desiredHeight = 288;//4 inch (4 * 576)
+int desiredHeight = 288;//4 inch (4 * 576)
 
-            //Our desired width
-            int desiredWidth = 684;//9.5 inch (9.5 * 576)
+//Our desired width
+int desiredWidth = 684;//9.5 inch (9.5 * 576)
 
-            //define chart size without window 
-            chart.SizeWithWindow = false;
+//define chart size without window 
+chart.SizeWithWindow = false;
 
-            //set chart width in pixels    
-            chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
+//set chart width in pixels    
+chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
 
-            //set chart height in pixels    
-            chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
+//set chart height in pixels    
+chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
 
-            //Instantiate MemoryStream
-            MemoryStream ms = wb.SaveToStream();
+//Instantiate MemoryStream
+MemoryStream ms = wb.SaveToStream();
 
-            //Create an OLE Object Frame with embedded Excel
-            Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
-                                        36,
-                                        72,
-                                        desiredWidth,
-                                        desiredHeight, "Excel.Sheet.8", ms.ToArray());
+//Create an OLE Object Frame with embedded Excel
+Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
+							36,
+							72,
+							desiredWidth,
+							desiredHeight, "Excel.Sheet.8", ms.ToArray());
 ```
 
 

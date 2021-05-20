@@ -17,7 +17,6 @@ Aspose.Slides for .NET has provided the simplest API to identify merge table cel
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Tables();
 
-
 using (Presentation pres = new Presentation(dataDir + "SomePresentationWithTable.pptx"))
 {
     ITable table = pres.Slides[0].Shapes[0] as ITable; // assuming that Slide#0.Shape#0 is a table
@@ -34,7 +33,6 @@ using (Presentation pres = new Presentation(dataDir + "SomePresentationWithTable
 
             }
         }
-
     }
 }
 ```
@@ -64,8 +62,7 @@ if (!IsExists)
 // Instantiate Presentation class that represents PPTX file
 using (Presentation pres = new Presentation())
 {
-
-    // Access first slide
+   // Access first slide
     Slide sld = (Slide)pres.Slides[0];
 
     // Define columns with widths and rows with heights
@@ -99,7 +96,7 @@ using (Presentation pres = new Presentation())
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2) then table will be numbered and look like this:
 
 ```c#
-/ The path to the documents directory.
+// The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Tables();
 
 // Instantiate Presentation class that represents PPTX file
@@ -145,6 +142,7 @@ using (Presentation presentation = new Presentation())
     tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
 
     presentation.Save(dataDir + "MergeCells_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 

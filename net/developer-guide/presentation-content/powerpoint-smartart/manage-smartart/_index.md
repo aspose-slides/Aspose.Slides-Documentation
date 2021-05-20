@@ -14,19 +14,18 @@ string dataDir = RunExamples.GetDataDir_Text();
 
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
-ISlide slide = presentation.Slides[0];
-ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
+	ISlide slide = pres.Slides[0];
+	ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
 
-ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
-foreach (ISmartArtNode smartArtNode in smartArtNodes)
-{
-    foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
-    {
-        if (nodeShape.TextFrame != null)
-            Console.WriteLine(nodeShape.TextFrame.Text);
-    }
-}
-}
+	ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
+	foreach (ISmartArtNode smartArtNode in smartArtNodes)
+	{
+		foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
+		{
+			if (nodeShape.TextFrame != null)
+				Console.WriteLine(nodeShape.TextFrame.Text);
+		}
+	}
 }
 ```
 
@@ -139,18 +138,15 @@ The following code is used to create a chart.
 
 ```c#
 public static void Run()
-	 {
-	
+{
 	// The path to the documents directory.
 	string dataDir = RunExamples.GetDataDir_Charts();
-		using (Presentation pres = new Presentation(dataDir+"test.pptx"))
-		{
-			ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-
-			pres.Save(dataDir+"OrganizationChart.pptx", SaveFormat.Pptx);
-		}			
-
-	}
+	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	{
+		ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+		pres.Save(dataDir+"OrganizationChart.pptx", SaveFormat.Pptx);
+	}			
+}
 ```
 
 

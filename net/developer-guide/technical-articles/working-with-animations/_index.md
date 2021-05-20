@@ -66,9 +66,9 @@ pptPresentation.Write(dataDir+"animatedPres.ppt");
 In a presentation, animation effects can be applied on more than one shape, their order may also be controlled using **AnimationOrder** property exposed by **AnimationSettings** object. In the above example, we created two shapes with animation effects. They will appear in the order in which they were created. That is, rectangle shape with animation will be activated first and the ellipse shape will be activated subsequently. This can be changed on adding the following lines before writing the presentation to disk. 
 
 ```c#
- //Setting the animation order
-            ellipseAnimation.AnimationOrder = 1;
-            rectangleAnimation.AnimationOrder = 2;
+//Setting the animation order
+ellipseAnimation.AnimationOrder = 1;
+rectangleAnimation.AnimationOrder = 2;
 
 ```
 

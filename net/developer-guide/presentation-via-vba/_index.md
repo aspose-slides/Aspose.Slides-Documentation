@@ -47,7 +47,7 @@ using (Presentation presentation = new Presentation())
             
     // Save Presentation
     presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
-          }
+}
 ```
 
 
@@ -85,18 +85,18 @@ The implementation of the above steps is demonstrated in the example below.
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_VBA();
+string dataDir = RunExamples.GetDataDir_VBA();
 
-            using (Presentation pres = new Presentation(dataDir + "VBA.pptm"))
-            {
-                if (pres.VbaProject != null) // check if Presentation contains VBA Project
-                {
-                    foreach (IVbaModule module in pres.VbaProject.Modules)
-                    {
-                        Console.WriteLine(module.Name);
-                        Console.WriteLine(module.SourceCode);
-                    }
-                }
-            }
+using (Presentation pres = new Presentation(dataDir + "VBA.pptm"))
+{
+	if (pres.VbaProject != null) // check if Presentation contains VBA Project
+	{
+		foreach (IVbaModule module in pres.VbaProject.Modules)
+		{
+			Console.WriteLine(module.Name);
+			Console.WriteLine(module.SourceCode);
+		}
+	}
+}
 ```
 

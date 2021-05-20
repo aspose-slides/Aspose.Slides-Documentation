@@ -53,15 +53,11 @@ string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 600, 400);
-
 	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[1];
-
+	
 	point.Explosion = 30;
-
 	point.Format.Fill.FillType = FillType.Solid;
-
 	point.Format.Fill.SolidFillColor.Color = Color.Blue;
-
 
 	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
 }
@@ -84,17 +80,14 @@ Below sample example is given. 
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
-
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-
 	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[0];
-
+	
 	point.Format.Fill.FillType = FillType.Solid;
-
 	point.Format.Fill.SolidFillColor.Color = Color.Blue;
-	pres.Save(dataDir + "output.pptx", SaveFormat.Pptx);
 
+	pres.Save(dataDir + "output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -198,8 +191,6 @@ using (Presentation pres = new Presentation())
 
 	pres.Save(dataDir+"", SaveFormat.Pptx);
 }
-
-		}
 ```
 
 
@@ -218,24 +209,24 @@ Sample code is given below.
 
 ```c#
  // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Charts();
+string dataDir = RunExamples.GetDataDir_Charts();
 
-            using (Presentation pres = new Presentation(dataDir + "TestChart.pptx"))
-            {
-                ISlide sl = pres.Slides[0];
+using (Presentation pres = new Presentation(dataDir + "TestChart.pptx"))
+{
+	ISlide sl = pres.Slides[0];
 
-                IChart chart = (IChart)sl.Shapes[0];
+	IChart chart = (IChart)sl.Shapes[0];
 
-                foreach (IChartDataPoint dataPoint in chart.ChartData.Series[0].DataPoints)
-                {
-                    dataPoint.XValue.AsCell.Value = null;
-                    dataPoint.YValue.AsCell.Value = null;
-                }
+	foreach (IChartDataPoint dataPoint in chart.ChartData.Series[0].DataPoints)
+	{
+		dataPoint.XValue.AsCell.Value = null;
+		dataPoint.YValue.AsCell.Value = null;
+	}
 
-                chart.ChartData.Series[0].DataPoints.Clear();
+	chart.ChartData.Series[0].DataPoints.Clear();
 
-                pres.Save(dataDir + "ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
-            }
+	pres.Save(dataDir + "ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+}
 ```
 
 

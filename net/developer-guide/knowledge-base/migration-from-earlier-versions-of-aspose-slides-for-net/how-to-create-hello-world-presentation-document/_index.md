@@ -15,33 +15,33 @@ In order to use the legacy code developed with Aspose.Slides for .NET versions e
 ## **Legacy Aspose.Slides for .NET approach**
 ```c#
 //Instantiate a Presentation object that represents a PPT file
-            Presentation pres = new Presentation();
+Presentation pres = new Presentation();
 
-            //Create a License object
-            License license = new License();
+//Create a License object
+License license = new License();
 
-            //Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
-            license.SetLicense("Aspose.Slides.lic");
+//Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
+license.SetLicense("Aspose.Slides.lic");
 
-            //Adding an empty slide to the presentation and getting the reference of
-            //that empty slide
-            Slide slide = pres.AddEmptySlide();
+//Adding an empty slide to the presentation and getting the reference of
+//that empty slide
+Slide slide = pres.AddEmptySlide();
 
-            //Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
-            Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
+//Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
+Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-            //Hiding the lines of rectangle
-            rect.LineFormat.ShowLines = false;
+//Hiding the lines of rectangle
+rect.LineFormat.ShowLines = false;
 
-            //Adding a text frame to the rectangle with "Hello World" as a default text
-            rect.AddTextFrame("Hello World");
+//Adding a text frame to the rectangle with "Hello World" as a default text
+rect.AddTextFrame("Hello World");
 
-            //Removing the first slide of the presentation which is always added by
-            //Aspose.Slides for .NET by default while creating the presentation
-            pres.Slides.RemoveAt(0);
+//Removing the first slide of the presentation which is always added by
+//Aspose.Slides for .NET by default while creating the presentation
+pres.Slides.RemoveAt(0);
 
-            //Writing the presentation as a PPT file
-            pres.Write("C:\\hello.ppt");
+//Writing the presentation as a PPT file
+pres.Write("C:\\hello.ppt");
 ```
 
 

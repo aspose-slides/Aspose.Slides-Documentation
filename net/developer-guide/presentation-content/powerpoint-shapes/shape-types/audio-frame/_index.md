@@ -60,22 +60,22 @@ Aspose.Slides for .NET allows developers to extract the sound that is used in sl
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Slides_Presentations_Media();
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Media();
 
-            string presName = dataDir + "AudioSlide.pptx";
-           
-            // Instantiate Presentation class that represents the presentation file
-            Presentation pres = new Presentation(presName);
+string presName = dataDir + "AudioSlide.pptx";
 
-            // Access the desired slide
-            ISlide slide = pres.Slides[0];
+// Instantiate Presentation class that represents the presentation file
+Presentation pres = new Presentation(presName);
 
-            // Get the slideshow transition effects for slide
-            ISlideShowTransition transition = slide.SlideShowTransition;
+// Access the desired slide
+ISlide slide = pres.Slides[0];
 
-            //Extract sound in byte array
-            byte[] audio = transition.Sound.BinaryData;
+// Get the slideshow transition effects for slide
+ISlideShowTransition transition = slide.SlideShowTransition;
 
-            System.Console.WriteLine("Length: " + audio.Length);
+//Extract sound in byte array
+byte[] audio = transition.Sound.BinaryData;
+
+System.Console.WriteLine("Length: " + audio.Length);
 ```
 

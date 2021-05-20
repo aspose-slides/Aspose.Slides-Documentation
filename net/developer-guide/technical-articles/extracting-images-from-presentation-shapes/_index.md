@@ -108,8 +108,6 @@ public static void Run() {
             ifImageFound = false;
         }
     }
-
-
 }
 
 public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType)
@@ -143,8 +141,6 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
 
     }
     return Format;
-
-
 }
 ```
 

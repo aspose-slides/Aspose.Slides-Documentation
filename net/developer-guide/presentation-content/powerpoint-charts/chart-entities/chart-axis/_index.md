@@ -24,18 +24,17 @@ string dataDir = RunExamples.GetDataDir_Charts();
 
 using (Presentation pres = new Presentation())
 {
-Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
-chart.ValidateChartLayout();
+	Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
+	chart.ValidateChartLayout();
 
-double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
-double minValue = chart.Axes.VerticalAxis.ActualMinValue;
+	double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
+	double minValue = chart.Axes.VerticalAxis.ActualMinValue;
 
-double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
- double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
-}
-
-    // Saving presentation
-    presentation.Save(dataDir + "ErrorBars_out.pptx", SaveFormat.Pptx);
+	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
+	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
+	
+	// Saving presentation
+	presentation.Save(dataDir + "ErrorBars_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -52,13 +51,14 @@ string dataDir = RunExamples.GetDataDir_Charts();
 // Creating empty presentation
 using (Presentation pres = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-    //Switching rows and columns
-    chart.ChartData.SwitchRowColumn();
-           
-    // Saving presentation
-     pres.Save(dataDir + "SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+	//Switching rows and columns
+	chart.ChartData.SwitchRowColumn();
+		   
+	// Saving presentation
+	 pres.Save(dataDir + "SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+ }
 ```
 
 
@@ -146,7 +146,6 @@ using (Presentation pres = new Presentation())
 	chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
 
 	pres.Save(dataDir + "AsposeScatterChart.pptx", SaveFormat.Pptx);
-
 }
 ```
 
@@ -162,7 +161,6 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
 	chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
 	pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
-
 }
 ```
 

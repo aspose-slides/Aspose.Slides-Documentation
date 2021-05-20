@@ -9,29 +9,30 @@ url: /net/manage-rows-and-columns/
 Aspose.Slides for .NET provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/net/slides/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
 
 ```c#
- // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Tables();
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Tables();
 
-            // Instantiate Presentation class that represents PPTX
-            Presentation pres = new Presentation(dataDir + "table.pptx");
+// Instantiate Presentation class that represents PPTX
+Presentation pres = new Presentation(dataDir + "table.pptx");
 
-            // Access the first slide
-            ISlide sld = pres.Slides[0];
+// Access the first slide
+ISlide sld = pres.Slides[0];
 
-            // Initialize null TableEx
-            ITable tbl = null;
+// Initialize null TableEx
+ITable tbl = null;
 
-            // Iterate through the shapes and set a reference to the table found
-            foreach (IShape shp in sld.Shapes)
-            {
-                if (shp is ITable) {
-                tbl = (ITable)shp;
-            }
-        }
+// Iterate through the shapes and set a reference to the table found
+foreach (IShape shp in sld.Shapes)
+{
+    if (shp is ITable)
+    {
+        tbl = (ITable)shp;
+    }
+}
 
-       
-           //Set the first row of a table as header with a special formatting.
-           tbl.FirstRow = true;
+
+//Set the first row of a table as header with a special formatting.
+tbl.FirstRow = true;
 ```
 
 
@@ -95,8 +96,6 @@ using (Presentation presentation = new Presentation(dataDir+"Test.pptx"))
 
     // Write PPTX to Disk
     presentation.Save(dataDir + "table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-}
 }
 ```
 

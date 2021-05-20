@@ -349,8 +349,6 @@ using (Presentation pres = new Presentation())
 
     //Writing the presentation as a PPTX file
     pres.Save(dataDir + "MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
-            
 }
 ```
 
@@ -371,40 +369,40 @@ Aspose.Slides for .NET provides a simple API to manage paragraphs with custom nu
 
 ```c#
  // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Text();
+string dataDir = RunExamples.GetDataDir_Text();
 
-            using (var presentation = new Presentation())
-            {
-                var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+using (var presentation = new Presentation())
+{
+	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-                // Accessing the text frame of created autoshape
-                ITextFrame textFrame = shape.TextFrame;
+	// Accessing the text frame of created autoshape
+	ITextFrame textFrame = shape.TextFrame;
 
-                // Removing the default exisiting paragraph
-                textFrame.Paragraphs.RemoveAt(0);
+	// Removing the default exisiting paragraph
+	textFrame.Paragraphs.RemoveAt(0);
 
-                // First list
-                var paragraph1 = new Paragraph { Text = "bullet 2" };
-                paragraph1.ParagraphFormat.Depth = 4; 
-                paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
-                paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-                textFrame.Paragraphs.Add(paragraph1);
+	// First list
+	var paragraph1 = new Paragraph { Text = "bullet 2" };
+	paragraph1.ParagraphFormat.Depth = 4; 
+	paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
+	paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+	textFrame.Paragraphs.Add(paragraph1);
 
-                var paragraph2 = new Paragraph { Text = "bullet 3" };
-                paragraph2.ParagraphFormat.Depth = 4;
-                paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
-                paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
-                textFrame.Paragraphs.Add(paragraph2);
+	var paragraph2 = new Paragraph { Text = "bullet 3" };
+	paragraph2.ParagraphFormat.Depth = 4;
+	paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
+	paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
+	textFrame.Paragraphs.Add(paragraph2);
 
-                
-                var paragraph5 = new Paragraph { Text = "bullet 7" };
-                paragraph5.ParagraphFormat.Depth = 4;
-                paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
-                paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-                textFrame.Paragraphs.Add(paragraph5);
+	
+	var paragraph5 = new Paragraph { Text = "bullet 7" };
+	paragraph5.ParagraphFormat.Depth = 4;
+	paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
+	paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+	textFrame.Paragraphs.Add(paragraph5);
 
-                presentation.Save(dataDir + "SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
-            }
+	presentation.Save(dataDir + "SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -424,60 +422,60 @@ This page will illustrate how we can manage paragraph indent. We will see how de
 The implementation of the above steps is given below.
 
 ```c#
- // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Text();
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
 
-            // Create directory if it is not already present.
-            bool IsExists = System.IO.Directory.Exists(dataDir);
-            if (!IsExists)
-                System.IO.Directory.CreateDirectory(dataDir);
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+	System.IO.Directory.CreateDirectory(dataDir);
 
-            // Instantiate Presentation Class
-            Presentation pres = new Presentation();
+// Instantiate Presentation Class
+Presentation pres = new Presentation();
 
-            // Get first slide
-            ISlide sld = pres.Slides[0];
+// Get first slide
+ISlide sld = pres.Slides[0];
 
-            // Add a Rectangle Shape
-            IAutoShape rect = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
+// Add a Rectangle Shape
+IAutoShape rect = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
 
-            // Add TextFrame to the Rectangle
-            ITextFrame tf = rect.AddTextFrame("This is first line \rThis is second line \rThis is third line");
+// Add TextFrame to the Rectangle
+ITextFrame tf = rect.AddTextFrame("This is first line \rThis is second line \rThis is third line");
 
-            // Set the text to fit the shape
-            tf.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+// Set the text to fit the shape
+tf.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-            // Hide the lines of the Rectangle
-            rect.LineFormat.FillFormat.FillType = FillType.Solid;
+// Hide the lines of the Rectangle
+rect.LineFormat.FillFormat.FillType = FillType.Solid;
 
-            // Get first Paragraph in the TextFrame and set its Indent
-            IParagraph para1 = tf.Paragraphs[0];
-            // Setting paragraph bullet style and symbol
-            para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-            para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-            para1.ParagraphFormat.Alignment = TextAlignment.Left;
+// Get first Paragraph in the TextFrame and set its Indent
+IParagraph para1 = tf.Paragraphs[0];
+// Setting paragraph bullet style and symbol
+para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
+para1.ParagraphFormat.Alignment = TextAlignment.Left;
 
-            para1.ParagraphFormat.Depth = 2;
-            para1.ParagraphFormat.Indent = 30;
+para1.ParagraphFormat.Depth = 2;
+para1.ParagraphFormat.Indent = 30;
 
-            // Get second Paragraph in the TextFrame and set its Indent
-            IParagraph para2 = tf.Paragraphs[1];
-            para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-            para2.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-            para2.ParagraphFormat.Alignment = TextAlignment.Left;
-            para2.ParagraphFormat.Depth = 2;
-            para2.ParagraphFormat.Indent = 40;
+// Get second Paragraph in the TextFrame and set its Indent
+IParagraph para2 = tf.Paragraphs[1];
+para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+para2.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
+para2.ParagraphFormat.Alignment = TextAlignment.Left;
+para2.ParagraphFormat.Depth = 2;
+para2.ParagraphFormat.Indent = 40;
 
-            // Get third Paragraph in the TextFrame and set its Indent
-            IParagraph para3 = tf.Paragraphs[2];
-            para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-            para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-            para3.ParagraphFormat.Alignment = TextAlignment.Left;
-            para3.ParagraphFormat.Depth = 2;
-            para3.ParagraphFormat.Indent = 50;
+// Get third Paragraph in the TextFrame and set its Indent
+IParagraph para3 = tf.Paragraphs[2];
+para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
+para3.ParagraphFormat.Alignment = TextAlignment.Left;
+para3.ParagraphFormat.Depth = 2;
+para3.ParagraphFormat.Indent = 50;
 
-            //Write the Presentation to disk
-            pres.Save(dataDir + "InOutDent_out.pptx", SaveFormat.Pptx);
+//Write the Presentation to disk
+pres.Save(dataDir + "InOutDent_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -498,24 +496,23 @@ The implementation of the above steps is given below.
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Text();
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
-        {
- IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+{
+	IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 
- Paragraph para1 = new Paragraph();
- para1.Portions.Add(new Portion("Sample text"));
+	Paragraph para1 = new Paragraph();
+	para1.Portions.Add(new Portion("Sample text"));
 
- Paragraph para2 = new Paragraph();
- para2.Portions.Add(new Portion("Sample text 2"));
- PortionFormat endParagraphPortionFormat = new PortionFormat();
- endParagraphPortionFormat.FontHeight = 48;
- endParagraphPortionFormat.LatinFont = new FontData("Times New Roman");
- para2.EndParagraphPortionFormat = endParagraphPortionFormat;
+	Paragraph para2 = new Paragraph();
+	para2.Portions.Add(new Portion("Sample text 2"));
+	PortionFormat endParagraphPortionFormat = new PortionFormat();
+	endParagraphPortionFormat.FontHeight = 48;
+	endParagraphPortionFormat.LatinFont = new FontData("Times New Roman");
+	para2.EndParagraphPortionFormat = endParagraphPortionFormat;
 
- shape.TextFrame.Paragraphs.Add(para1);
- shape.TextFrame.Paragraphs.Add(para2);
+	shape.TextFrame.Paragraphs.Add(para1);
+	shape.TextFrame.Paragraphs.Add(para2);
 
-pres.Save(dataDir+"pres.pptx", SaveFormat.Pptx);
-}
+	pres.Save(dataDir+"pres.pptx", SaveFormat.Pptx);
 }
 ```
 

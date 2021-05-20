@@ -30,37 +30,35 @@ Aspose.Slides for .NET provides facility to open very large presentations usingÂ
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_PresentationOpening();
 
- const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
+const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
 
- LoadOptions loadOptions = new LoadOptions
-     {
- BlobManagementOptions =
- {
-// let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
-// the Presentation's instance lifetime, but we don't need to load it into memory or copy into
-// thetemporary file
-PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-         }
-      };
+LoadOptions loadOptions = new LoadOptions
+{
+    BlobManagementOptions = {
+        // let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
+        // the Presentation's instance lifetime, but we don't need to load it into memory or copy into
+        // thetemporary file
+        PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+    }
+};
 
 using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
-    {
-// the huge presentation is loaded and ready to use, but the memory consumption is still low.
+{
+    // the huge presentation is loaded and ready to use, but the memory consumption is still low.
 
-// make any changes to the presentation.
-pres.Slides[0].Name = "Very large presentation";
+    // make any changes to the presentation.
+    pres.Slides[0].Name = "Very large presentation";
 
-// presentation will be saved to the other file, the memory consumptions still low during saving.
-pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // presentation will be saved to the other file, the memory consumptions still low during saving.
+    pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
 
-// can't do that! IO exception will be thrown, because the file is locked while pres objects will
-// not be disposed
-File.Delete(pathToVeryLargePresentationFile);
-      }
+    // can't do that! IO exception will be thrown, because the file is locked while pres objects will
+    // not be disposed
+    File.Delete(pathToVeryLargePresentationFile);
+}
 
 // it's ok to do it here, the source file is not locked by pres object
 File.Delete(pathToVeryLargePresentationFile);
-       }
 ```
 
 

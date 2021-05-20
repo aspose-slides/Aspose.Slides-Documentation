@@ -50,7 +50,6 @@ try
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message + "\nPlease set printer name as string parameter to the Presentation Print method");
-           
 }
 ```
 
@@ -72,15 +71,13 @@ In the example given below, we have called the Print method with no parameters.
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Rendering();
 using (Presentation pres = new Presentation())
-       {
-PrinterSettings printerSettings = new PrinterSettings();
-printerSettings.Copies = 2;
-printerSettings.DefaultPageSettings.Landscape = true;
-printerSettings.DefaultPageSettings.Margins.Left = 10;
-   //...etc
-pres.Print(printerSettings);
-}
-           
+{
+	PrinterSettings printerSettings = new PrinterSettings();
+	printerSettings.Copies = 2;
+	printerSettings.DefaultPageSettings.Landscape = true;
+	printerSettings.DefaultPageSettings.Margins.Left = 10;
+	   //...etc
+	pres.Print(printerSettings);
 }
 ```
 

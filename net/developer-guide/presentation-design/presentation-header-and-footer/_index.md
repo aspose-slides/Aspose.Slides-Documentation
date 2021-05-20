@@ -19,24 +19,24 @@ Notes of some specific slide could be updated as shown in the example below:
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
 
-            // Load Presentation
-            Presentation pres = new Presentation(dataDir + "headerTest.pptx");
+// Load Presentation
+Presentation pres = new Presentation(dataDir + "headerTest.pptx");
 
-            // Setting Footer
-            pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-            pres.HeaderFooterManager.SetAllFootersVisibility(true);
+// Setting Footer
+pres.HeaderFooterManager.SetAllFootersText("My Footer text");
+pres.HeaderFooterManager.SetAllFootersVisibility(true);
 
-            // Access and Update Header
-            IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-            if (null != masterNotesSlide)
-            {
-                UpdateHeaderFooterText(masterNotesSlide);
-            }
+// Access and Update Header
+IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
+if (null != masterNotesSlide)
+{
+	UpdateHeaderFooterText(masterNotesSlide);
+}
 
-            // Save presentation
-            pres.Save(dataDir + "HeaderFooterJava.pptx", SaveFormat.Pptx);
+// Save presentation
+pres.Save(dataDir + "HeaderFooterJava.pptx", SaveFormat.Pptx);
 ```
 
 

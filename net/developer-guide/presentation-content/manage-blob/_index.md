@@ -28,7 +28,6 @@ using (Presentation pres = new Presentation())
         pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
     }
 }
-        }
 ```
 
 
@@ -41,49 +40,46 @@ string dataDir = RunExamples.GetDataDir_Conversion();
 const string hugePresentationWithAudiosAndVideosFile = @"c:\bin\aspose\Tasks\020, 38595\orig\Large  Video File Test1.pptx";
 
 LoadOptions loadOptions = new LoadOptions
-    {
-BlobManagementOptions =
-        {
-// lock the source file and don't load it into memory
-PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-        }
-      };
+{
+	BlobManagementOptions = {
+		// lock the source file and don't load it into memory
+		PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+	}
+};
 
 // create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
 using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions))
-    {
-// let's save each video to a file. to prevent memory usage we need a buffer which will be used
-// to exchange tha data from the presentation's video stream to a stream for newly created video file.
-byte[] buffer = new byte[8 * 1024];
-
-// iterate through the videos
-for (var index = 0; index < pres.Videos.Count; index++)
-        {
-IVideo video = pres.Videos[index];
-
-// open the presentation video stream. Please note that we intentionally avoid accessing properties
-// like video.BinaryData - this property returns a byte array containing full video, and that means
-// this bytes will be loaded into memory. We will use video.GetStream, which will return Stream and
-// that allows us to not load the whole video into memory.
-using (Stream presVideoStream = video.GetStream())
 {
-    using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
-    {
-        int bytesRead;
-        while ((bytesRead = presVideoStream.Read(buffer, 0, buffer.Length)) > 0)
-        {
-            outputFileStream.Write(buffer, 0, bytesRead);
-        }
-     }
-  }
+	// let's save each video to a file. to prevent memory usage we need a buffer which will be used
+	// to exchange tha data from the presentation's video stream to a stream for newly created video file.
+	byte[] buffer = new byte[8 * 1024];
 
-// memory consumption will stay low no matter what size the videos or presentation is.
-        }
+	// iterate through the videos
+	for (var index = 0; index < pres.Videos.Count; index++)
+	{
+		IVideo video = pres.Videos[index];
 
-// do the same for audios if needed.
-     }
-    
-     }
+		// open the presentation video stream. Please note that we intentionally avoid accessing properties
+		// like video.BinaryData - this property returns a byte array containing full video, and that means
+		// this bytes will be loaded into memory. We will use video.GetStream, which will return Stream and
+		// that allows us to not load the whole video into memory.
+		using (Stream presVideoStream = video.GetStream())
+		{
+			using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
+			{
+				int bytesRead;
+				while ((bytesRead = presVideoStream.Read(buffer, 0, buffer.Length)) > 0)
+				{
+					outputFileStream.Write(buffer, 0, bytesRead);
+				}
+			}
+		}
+
+		// memory consumption will stay low no matter what size the videos or presentation is.
+	}
+
+	// do the same for audios if needed.
+}
 ```
 
 
@@ -95,25 +91,25 @@ This example demonstrates how to include the large BLOB (image) and prevent high
 
 ```c#
 // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_PresentationSaving();
+string dataDir = RunExamples.GetDataDir_PresentationSaving();
 
-            string pathToLargeImage = dataDir + "large_image.jpg";
+string pathToLargeImage = dataDir + "large_image.jpg";
 
-            // create a new presentation which will contain this image
-            using (Presentation pres = new Presentation())
-            {
-                using (FileStream fileStream = new FileStream(pathToLargeImage, FileMode.Open))
-                {
-                    // let's add the image to the presentation - we choose KeepLocked behavior, because we not
-                    // have an intent to access the "largeImage.png" file.
-                    IPPImage img = pres.Images.AddImage(fileStream, LoadingStreamBehavior.KeepLocked);
-                    pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
+// create a new presentation which will contain this image
+using (Presentation pres = new Presentation())
+{
+	using (FileStream fileStream = new FileStream(pathToLargeImage, FileMode.Open))
+	{
+		// let's add the image to the presentation - we choose KeepLocked behavior, because we not
+		// have an intent to access the "largeImage.png" file.
+		IPPImage img = pres.Images.AddImage(fileStream, LoadingStreamBehavior.KeepLocked);
+		pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
-                    // save the presentation. Despite that the output presentation will be
-                    // large, the memory consumption will be low the whole lifetime of the pres object
-                    pres.Save(dataDir + "presentationWithLargeImage.pptx", SaveFormat.Pptx);
-                }
-            }
+		// save the presentation. Despite that the output presentation will be
+		// large, the memory consumption will be low the whole lifetime of the pres object
+		pres.Save(dataDir + "presentationWithLargeImage.pptx", SaveFormat.Pptx);
+	}
+}
 
 ```
 

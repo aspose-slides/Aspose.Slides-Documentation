@@ -12,9 +12,7 @@ string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 100, 100, 400, 300);
-
 	chart.ChartData.SeriesGroups[0].BubbleSizeScale = 150;
-
 	pres.Save(dataDir+"Result.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
@@ -32,9 +30,7 @@ string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
-
     chart.ChartData.SeriesGroups[0].BubbleSizeRepresentation = BubbleSizeRepresentationType.Width;
-
     pres.Save(dataDir+ "Presentation_BubbleSizeRepresentation.pptx", SaveFormat.Pptx);
 }
 ```

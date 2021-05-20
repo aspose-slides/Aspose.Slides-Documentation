@@ -19,11 +19,10 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
     double y = chart.PlotArea.ActualY;
     double w = chart.PlotArea.ActualWidth;
     double h = chart.PlotArea.ActualHeight;
+	
+	// Saving presentation
+	pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
 }
-          
-
-// Saving presentation
-pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -36,7 +35,7 @@ Aspose.Slides for .NET provides a simple API for getting these properties. Prop
 string dataDir = RunExamples.GetDataDir_Charts();
 
 // Creating empty presentation
-     using (Presentation pres = new Presentation())
+using (Presentation pres = new Presentation())
 {
    Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
    chart.ValidateChartLayout();
@@ -45,7 +44,6 @@ string dataDir = RunExamples.GetDataDir_Charts();
    double y = chart.PlotArea.ActualY;
    double w = chart.PlotArea.ActualWidth;
    double h = chart.PlotArea.ActualHeight;
-}
 }
 ```
 

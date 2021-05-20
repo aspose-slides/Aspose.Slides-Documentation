@@ -84,7 +84,5 @@ while (categoryIndex < 15)
 	categoryIndex++;
 }
 pres.Save(dataDir+"chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
-		}
 ```
 

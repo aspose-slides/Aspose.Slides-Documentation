@@ -189,15 +189,13 @@ Use new CSS styles file to change the resulting styles of the HTML file while PP
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Conversion();
 using (Presentation pres = new Presentation("pres.pptx"))
-         {
-CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-HtmlOptions options = new HtmlOptions
-          {
-HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
-};
-
-pres.Save("pres.html", SaveFormat.Html, options);
-}
+{
+	CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
+	HtmlOptions options = new HtmlOptions
+	{
+		HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
+	};
+	pres.Save("pres.html", SaveFormat.Html, options);
 }
 ```
 
@@ -222,11 +220,12 @@ using (Presentation pres = new Presentation(dataDir+"pres.pptx"))
 
     HtmlOptions htmlOptionsEmbed = new HtmlOptions
     {
-        //                    HtmlFormatter = HtmlFormatter.CreateCustomFormatter(embedFontsController)
+        //HtmlFormatter = HtmlFormatter.CreateCustomFormatter(embedFontsController)
         HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
     };
 
     pres.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
+}
 ```
 
 
@@ -302,7 +301,7 @@ using (Presentation pres = new Presentation(dataDir + "Media File.pptx"))
     const string fileName = "ExportMediaFiles_out.html";
     const string baseUri = "http://www.example.com/";
 
-VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
+	VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
 
     // Setting HTML options
     HtmlOptions htmlOptions = new HtmlOptions(controller);

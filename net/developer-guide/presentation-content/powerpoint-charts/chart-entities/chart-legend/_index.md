@@ -59,13 +59,9 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
 	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-
 	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-
 	chart.Axes.VerticalAxis.MinValue = -5;
-
 	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-
 	chart.Axes.VerticalAxis.MaxValue = 10;
 
 	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
@@ -87,22 +83,17 @@ The Aspose.Slides for .NET lets developers allow to set font size of individual 
 ```c#
 string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation(dataDir+"test.pptx"))
-       {
-            IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-
+{
+	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
 
 	tf.PortionFormat.FontBold = NullableBool.True;
-
 	tf.PortionFormat.FontHeight = 20;
-
 	tf.PortionFormat.FontItalic = NullableBool.True;
-
 	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-
 	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
 
+	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
 }
 ```
 
