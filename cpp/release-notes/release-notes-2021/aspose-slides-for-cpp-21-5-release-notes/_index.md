@@ -27,7 +27,7 @@ This page contains release notes for Aspose.Slides for C++ 21.5.
 ## Other Improvements and Changes
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2700|Use Aspose.Slides for .NET 21.5 features|Enhancement|
+|SLIDESCPP-2700|[Use Aspose.Slides for .NET 21.5 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-5-release-notes/)|Enhancement|
 |SLIDESCPP-2895|Improve performance of the font caching mechanism|Enhancement|
 
 ## Public API Changes ##
