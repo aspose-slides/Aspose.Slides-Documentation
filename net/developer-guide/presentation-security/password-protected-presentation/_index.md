@@ -164,7 +164,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## Checking Whether a Presentation is Encrypted
+## Checking whether a Presentation is Encrypted
 
 Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
 
@@ -190,9 +190,21 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
+## **Validating or Confirming that a Specific Password has been used to Protect a Presentation**
 
+You may want to check and confirm that a specific password has been used to protect a presentation document. Aspose.Slides provides the means for you to validate a password. 
 
+This sample code shows you how to validate a password:
 
+```c#
+using (IPresentation pres = new Presentation("pres.pptx"))
+{
+    // check if "pass" is matched with
+    bool isWriteProtected = pres.ProtectionManager.CheckWriteProtection("my_password");
+}
+```
+
+It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 
 
 {{% alert color="primary" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
