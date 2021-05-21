@@ -13,6 +13,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.5](https://www.n
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
+|SLIDESNET-42479|Running a macro by clicking a button|Feature|<https://docs.aspose.com/slides/net/manage-hyperlinks/>
 |SLIDESNET-40842|Support for Zoom for PowerPoint|Feature|<https://docs.aspose.com/slides/net/manage-zoom/>
 |SLIDESNET-40747|Support for reading autofit scale values|Feature|<https://docs.aspose.com/slides/net/shape-effective-properties/>
 |SLIDESNET-42551|Custom PPT root directory entry object class GUID (CLSID)|Enhancement|<https://docs.aspose.com/slides/net/save-presentation/#save-presentation-to-file>
