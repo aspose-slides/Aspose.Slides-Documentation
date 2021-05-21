@@ -6,15 +6,45 @@ url: /net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **About updating OLE objects automatically**
-One of t he most frequent question s asked by the Aspose.Slides for .NET customers is how to create or change editable charts or any other OLE objects and have them automatically updated when opening the presentation. Unfortunately PowerPoint does not support any automatic macros, which are available in Excel and Word. The only ones available are the Auto_Open and Auto_Close macros. However, those only run automatically from an add-in. This short technical tip shows how to achieve that. 
+One of the most frequent questions asked by the Aspose.Slides for .NET customers is how to create or change editable charts or any other OLE objects and have them automatically updated when opening the presentation. Unfortunately PowerPoint does not support any automatic macros, which are available in Excel and Word. The only ones available are the Auto_Open and Auto_Close macros. However, those only run automatically from an add-in. This short technical tip shows how to achieve that. 
 
 First, there are available several freeware add-ins that add the Auto_Open macro feature to PowerPoint for example [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) and [Event Generator](http://officeone.mvps.org/eventgen/eventgen.html) . 
 
 After installing such Add-in, just add Auto_Open() macro (OnPresentationOpen() in case of "Event Generator") to your template presentation as shown below: 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-UpdateOLEObject-UpdateOLEObject.cs" >}}
+```c#
+public void Auto_Open()
+{
+    Shape oShape;
+    Slide oSlide;
+    object oGraph;
 
+    // Loop through each slide in the presentation.
+    foreach (var oSlide in ActivePresentation.Slides)
+    {
 
+        // Loop through all the shapes on the current slide.
+        foreach (var oShape in oSlide.Shapes)
+        {
+
+            // Check whether the shape is an OLE object.
+            if (oShape.Type == msoEmbeddedOLEObject)
+            {
+
+                // Found an OLE object; obtain object reference, and then update.
+                oObject = oShape.OLEFormat.Object;
+                oObject.Application.Update();
+
+                // Now, quit out of the OLE server program. This frees
+                // memory, and prevents any problems. Also, set oObject equal
+                // to Nothing to release the object.
+                oObject.Application.Quit();
+                oObject = null;
+            }
+        }
+    }
+}
+```
 
 
 

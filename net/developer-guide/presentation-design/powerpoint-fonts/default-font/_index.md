@@ -17,4 +17,26 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 
 The implementation of the above is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-DefaultFonts-DefaultFonts.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Use load options to define the default regualr and asian fonts// Use load options to define the default regualr and asian fonts
+LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
+loadOptions.DefaultRegularFont = "Wingdings";
+loadOptions.DefaultAsianFont = "Wingdings";
+
+// Load the presentation
+using (Presentation pptx = new Presentation(dataDir + "DefaultFonts.pptx", loadOptions))
+{
+    // Generate slide thumbnail
+    pptx.Slides[0].GetThumbnail(1, 1).Save(dataDir + "output_out.png", ImageFormat.Png);
+
+    // Generate PDF
+    pptx.Save(dataDir + "output_out.pdf", SaveFormat.Pdf);
+
+    // Generate XPS
+    pptx.Save(dataDir + "output_out.xps", SaveFormat.Xps);
+}
+```
+

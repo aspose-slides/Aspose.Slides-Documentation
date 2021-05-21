@@ -17,7 +17,38 @@ Aspose.Slides for .NET allows developers to add audio files in their slides. The
 
 In the example given below, we have added an Embedded Audio Frame into the slide.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-AddAudioFrame-AddAudioFrame.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Prseetation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Load the wav sound file to stram
+    FileStream fstr = new FileStream(dataDir+ "sampleaudio.wav", FileMode.Open, FileAccess.Read);
+
+    // Add Audio Frame
+    IAudioFrame af = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
+
+    // Set Play Mode and Volume of the Audio
+    af.PlayMode = AudioPlayModePreset.Auto;
+    af.Volume = AudioVolumeMode.Loud;
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **Extract Audio**
 Aspose.Slides for .NET allows developers to extract the sound that is used in slide show transitions associated with slides. To extract the audio, please follow the steps below:
@@ -27,4 +58,24 @@ Aspose.Slides for .NET allows developers to extract the sound that is used in sl
 - Access the slideshow transitions for slide
 - Extract the sound in byte data
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Media-ExtractAudio-ExtractAudio.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Media();
+
+string presName = dataDir + "AudioSlide.pptx";
+
+// Instantiate Presentation class that represents the presentation file
+Presentation pres = new Presentation(presName);
+
+// Access the desired slide
+ISlide slide = pres.Slides[0];
+
+// Get the slideshow transition effects for slide
+ISlideShowTransition transition = slide.SlideShowTransition;
+
+//Extract sound in byte array
+byte[] audio = transition.Sound.BinaryData;
+
+System.Console.WriteLine("Length: " + audio.Length);
+```
+

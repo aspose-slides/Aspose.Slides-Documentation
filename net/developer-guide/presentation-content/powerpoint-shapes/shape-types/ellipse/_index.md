@@ -16,7 +16,31 @@ In this topic, we will introduce developers about adding ellipse shapes to their
 
 In the example given below, we have added an ellipse to the first slide.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-SimpleEllipse-SimpleEllipse.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Prseetation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Add autoshape of ellipse type
+    sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "EllipseShp1_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **Create Formatted Ellipse**
 To add a better formatted ellipse to a slide, please follow the steps below:
@@ -32,4 +56,36 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-FormattedEllipse-FormattedEllipse.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Prseetation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Add autoshape of ellipse type
+    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
+
+    // Apply some formatting to ellipse shape
+    shp.FillFormat.FillType = FillType.Solid;
+    shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
+
+    // Apply some formatting to the line of Ellipse
+    shp.LineFormat.FillFormat.FillType = FillType.Solid;
+    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    shp.LineFormat.Width = 5;
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "EllipseShp2_out.pptx", SaveFormat.Pptx);
+}
+```
+

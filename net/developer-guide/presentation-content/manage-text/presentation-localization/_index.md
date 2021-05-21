@@ -14,4 +14,17 @@ url: /net/presentation-localization/
 
 The implementation of the above steps is demonstrated below in an example.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-SettingPresentationLanguageAndShapeText-SettingPresentationLanguageAndShapeText.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+using (Presentation pres = new Presentation(dataDir+"test0.pptx"))
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
+    shape.AddTextFrame("Text to apply spellcheck language");
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-EN";
+
+    pres.Save(dataDir+"test1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
+}
+```
+

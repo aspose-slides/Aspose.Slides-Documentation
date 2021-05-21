@@ -15,4 +15,17 @@ In order to specify the size of the hole in a doughnut chart. Please follow the 
 
 In the example given below, we have set the size of the hole in a doughnut chart.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-DoughnutChartHole-DoughnutChartHole.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Charts();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
+chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
+
+// Write presentation to disk
+presentation.Save(dataDir + "DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
+```
+

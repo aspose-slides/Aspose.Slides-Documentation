@@ -14,7 +14,18 @@ Printing of the presentation to the default printer is quite simple in Aspose.Sl
 
 In the example given below, we have call the Print method with no parameters.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-DefaultPrinterPrinting-DefaultPrinterPrinting.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Rendering();
+
+// Load the presentation
+Presentation presentation = new Presentation(dataDir + "Print.ppt");
+
+// Call the print method to print whole presentation to the default printer
+presentation.Print();
+```
+
+
 
 ## **Print to Specific Printer**
 Printing of the presentation to the specific printer requires the name of the printer as a parameter to the [**Print**](https://apireference.aspose.com/net/slides/aspose.slides.ipresentation/print/methods/1) method of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation). Perform the following steps in order to print the presentation to the desired printer:
@@ -24,7 +35,25 @@ Printing of the presentation to the specific printer requires the name of the pr
 
 In the example given below, we have called the Print method with the printer name as a string parameter to the Print method.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-SpecificPrinterPrinting-SpecificPrinterPrinting.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Rendering();
+try
+{
+    // Load the presentation
+    Presentation presentation = new Presentation(dataDir + "Print.ppt");
+
+    // Call the print method to print whole presentation to the desired printer
+    presentation.Print("Please set your printer name here");
+
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message + "\nPlease set printer name as string parameter to the Presentation Print method");
+}
+```
+
+
 
 ## **Set Print Options Dynamically**
 Aspose.Slides provides support for setting the print presentation dynamically with options involving setting Margin, Print copies and also provide an option to preview print setting dialog. To setup printer settings use an instance of [**System.Drawing.Printing.PrinterSettings**](https://apireference.aspose.com/slides/net/aspose.slides.presentation/print/methods/1) class. Perform the following steps in order to print the presentation, set print option like Margin, Print copies and also you can set print option dynamically.
@@ -38,4 +67,17 @@ Aspose.Slides provides support for setting the print presentation dynamically wi
 
 In the example given below, we have called the Print method with no parameters.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-PrintPreview-PrintPreview.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Rendering();
+using (Presentation pres = new Presentation())
+{
+	PrinterSettings printerSettings = new PrinterSettings();
+	printerSettings.Copies = 2;
+	printerSettings.DefaultPageSettings.Landscape = true;
+	printerSettings.DefaultPageSettings.Margins.Left = 10;
+	   //...etc
+	pres.Print(printerSettings);
+}
+```
+

@@ -11,7 +11,18 @@ Using Aspose.Slides for .NET, developers can now get the rectangular coordinates
 ## **Get Rectangular Coordinates of Paragraph**
 The new method **GetRect()** has been added. It allows to get paragraph bounds rectangle.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Opening-GetRectangularCoordinatesofParagraph-GetRectangularCoordinatesofParagraph.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_PresentationOpening();
+
+// Instantiate a Presentation object that represents a presentation file
+using (Presentation presentation = new Presentation(dataDir + "Shapes.pptx"))
+{
+    IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+        var textFrame = (ITextFrame)shape.TextFrame;
+        RectangleF rect = ((Paragraph)textFrame.Paragraphs[0]).GetRect();
+}
+```
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 

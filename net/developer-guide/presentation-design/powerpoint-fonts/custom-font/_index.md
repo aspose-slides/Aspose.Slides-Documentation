@@ -30,13 +30,39 @@ using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx
 
 // Clear Font Cachce
 FontsLoader.ClearCache();
-``` 
+```
 
 ## **Get Custom Fonts Folder**
 A new property has been added that returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-GetFontsFolders-GetFontsFolders.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+//The following line shall return folders where font files are searched.
+//Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+string[] fontFolders = FontsLoader.GetFontFolders();
+
+```
+
+
 ## **Specify Custom Fonts Used With Presentation**
 A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-SpecifyFontsUsedWithPresentation-SpecifyFontsUsedWithPresentation.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
+byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts", "global\\fonts" };
+loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
+using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
+{
+    //work with the presentation
+    //CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
+}
+```
+

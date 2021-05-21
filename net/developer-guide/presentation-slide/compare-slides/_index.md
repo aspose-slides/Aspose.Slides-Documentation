@@ -10,4 +10,22 @@ Equals method has been added to [IBaseSlide](https://apireference.aspose.com/net
 
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Layout-CheckSlidesComparison-CheckSlidesComparison.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
+using (Presentation presentation1 = new Presentation(daraDir + "AccessSlides.pptx"))
+using (Presentation presentation2 = new Presentation(dataDir + "HelloWorld.pptx"))
+{
+    for (int i = 0; i < presentation1.Masters.Count; i++)
+    {
+        for (int j = 0; j < presentation2.Masters.Count; j++)
+        {
+            if (presentation1.Masters[i].Equals(presentation2.Masters[j]))
+                Console.WriteLine(string.Format("SomePresentation1 MasterSlide#{0} is equal to SomePresentation2 MasterSlide#{1}", i, j));
+        }
+
+        
+    }
+}
+```
+

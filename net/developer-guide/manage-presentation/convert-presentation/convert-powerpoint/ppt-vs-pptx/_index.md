@@ -25,9 +25,17 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 
 {{% /alert %}} 
 
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Conversion();
 
+// Instantiate a Presentation object that represents a PPTX file
+Presentation pres = new Presentation(dataDir + "PPTtoPPTX.ppt");
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-PPTtoPPTX-PPTtoPPTX.cs" >}}
+// Saving the PPTX presentation to PPTX format
+pres.Save(dataDir + "PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+```
+
 {{% alert color="primary" %}} 
 Read more [**How to Convert Presentations PPT to PPTX**.](/slides/net/convert-ppt-to-pptx/)
 {{% /alert %}} 

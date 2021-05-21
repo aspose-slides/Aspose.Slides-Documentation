@@ -26,7 +26,41 @@ To add a simple picture frame to your slide, please follow the steps below:
 
 The above steps are implemented in the example given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-PictureFrameFormatting-PictureFrameFormatting.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Presentation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Instantiate the ImageEx class
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir+ "aspose-logo.jpg");
+    IPPImage imgx = pres.Images.AddImage(img);
+
+    // Add Picture Frame with height and width equivalent of Picture
+    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+
+    // Apply some formatting to PictureFrameEx
+    pf.LineFormat.FillFormat.FillType = FillType.Solid;
+    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    pf.LineFormat.Width = 20;
+    pf.Rotation = 45;
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **Create Picture Frame with Relative Scale**
 The picture frame that we created in the above section were simple as well as well formatted. We can also control the relative scaling of image added in picture frame as well. In order to control the relative scaling of the image in a picture frame, please follow the steps below:
 
@@ -39,7 +73,31 @@ The picture frame that we created in the above section were simple as well as we
 
 The above steps are implemented in the example given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-AddRelativeScaleHeightPictureFrame-AddRelativeScaleHeightPictureFrame.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Instantiate presentation object
+using (Presentation presentation = new Presentation())
+{
+
+    // Load Image to be added in presentaiton image collection
+    Image img = new Bitmap(dataDir + "aspose-logo.jpg");
+    IPPImage image = presentation.Images.AddImage(img);
+
+    // Add picture frame to slide
+    IPictureFrame pf = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+
+    // Setting relative scale width and height
+    pf.RelativeScaleHeight = 0.8f;
+    pf.RelativeScaleWidth = 1.35f;
+
+    // Save presentation
+    presentation.Save(dataDir + "Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Picture Frame Formatting**
@@ -60,7 +118,41 @@ The picture frame that we created in the above section is simple. We can also co
 
 The above steps are implemented in the example given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-PictureFrameFormatting-PictureFrameFormatting.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Presentation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Instantiate the ImageEx class
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir+ "aspose-logo.jpg");
+    IPPImage imgx = pres.Images.AddImage(img);
+
+    // Add Picture Frame with height and width equivalent of Picture
+    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+
+    // Apply some formatting to PictureFrameEx
+    pf.LineFormat.FillFormat.FillType = FillType.Solid;
+    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    pf.LineFormat.Width = 20;
+    pf.Rotation = 45;
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **Add StretchOff Property**
 The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom has been added to IPictureFillFormat interface and PictureFillFormat class respectively. These properties specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
@@ -77,4 +169,31 @@ The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and Stre
 
 The above steps are implemented in the example given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-AddStretchOffsetForImageFill-AddStretchOffsetForImageFill.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Prseetation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Instantiate the ImageEx class
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir+ "aspose-logo.jpg");
+    IPPImage imgx = pres.Images.AddImage(img);
+
+    // Add Picture Frame with height and width equivalent of Picture
+    sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "AddStretchOffsetForImageFill_out.pptx", SaveFormat.Pptx);
+}
+```
+

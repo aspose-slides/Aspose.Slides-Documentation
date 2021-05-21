@@ -11,6 +11,7 @@ Aspose.Slides for .NET allows you to embed EMZ (Windows Compressed Enhanced Met
 
 EMZ files are compressed image files commonly used in Microsoft Office programs. They typically contain  EMF (Enhanced Metafile) files. Normally, you can decompress an EMZ file and get an EMF file from it. 
 
+
 This sample code shows you how to add an EMZ image to the images collection:
 
 ``` csharp 

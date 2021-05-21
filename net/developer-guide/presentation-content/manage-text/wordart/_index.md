@@ -114,8 +114,8 @@ portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
 portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
 portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
 portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
-```  
- 
+```
+
 Set glow effect to the text, to make it shine:
 
 ``` csharp 
@@ -123,7 +123,7 @@ portion.PortionFormat.EffectFormat.EnableGlowEffect();
 portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
 portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
 portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
-```  
+```
 
 Here is the result:
 
@@ -243,7 +243,47 @@ The implementation of the above steps is given below.
 
 
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-ShadowEffects-ShadowEffects.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate a PPTX class
+using (Presentation pres = new Presentation())
+{
+
+    // Get reference of the slide
+    ISlide sld = pres.Slides[0];
+
+    // Add an AutoShape of Rectangle type
+    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+
+
+    // Add TextFrame to the Rectangle
+    ashp.AddTextFrame("Aspose TextBox");
+
+    // Disable shape fill in case we want to get shadow of text
+    ashp.FillFormat.FillType = FillType.NoFill;
+
+    // Add outer shadow and set all necessary parameters
+    ashp.EffectFormat.EnableOuterShadowEffect();
+    IOuterShadow shadow = ashp.EffectFormat.OuterShadowEffect;
+    shadow.BlurRadius = 4.0;
+    shadow.Direction = 45;
+    shadow.Distance = 3;
+    shadow.RectangleAlign = RectangleAlignment.TopLeft;
+    shadow.ShadowColor.PresetColor = PresetColor.Black;
+
+    //Write the presentation to disk
+    pres.Save(dataDir + "pres_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **Apply Inner Shadow to WordArt**
 Aspose.Slides for .NET could be used to apply WordArt Effects on Text. Every WordArt effect has a scheme, for example Accent1, Accent3. In this topic, we will see with examples for how to work with WordArt in Aspose.Slides. In order to apply the scheme of any WordArt. Please follow the steps below:
 
@@ -258,4 +298,42 @@ Aspose.Slides for .NET could be used to apply WordArt Effects on Text. Every W
 
 In the example given below, we have added a connector between two shapes.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-ApplyOuterShadow-ApplyOuterShadow.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+            
+// Get reference of a slide
+ISlide slide = presentation.Slides[0];
+
+// Add an AutoShape of Rectangle type
+IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
+ashp.FillFormat.FillType = FillType.NoFill;
+
+// Add TextFrame to the Rectangle
+ashp.AddTextFrame("Aspose TextBox");
+IPortion port = ashp.TextFrame.Paragraphs[0].Portions[0];
+IPortionFormat pf = port.PortionFormat;
+pf.FontHeight = 50;
+
+// Enable InnerShadowEffect    
+IEffectFormat ef = pf.EffectFormat;
+ef.EnableInnerShadowEffect();
+
+// Set all necessary parameters
+ef.InnerShadowEffect.BlurRadius = 8.0;
+ef.InnerShadowEffect.Direction = 90.0F;
+ef.InnerShadowEffect.Distance = 6.0;
+ef.InnerShadowEffect.ShadowColor.B = 189;
+
+// Set ColorType as Scheme
+ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
+
+// Set Scheme Color
+ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
+
+// Save Presentation
+presentation.Save(dataDir + "WordArt_out.pptx", SaveFormat.Pptx);
+```
+

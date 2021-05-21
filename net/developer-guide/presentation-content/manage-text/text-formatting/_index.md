@@ -12,7 +12,19 @@ It allows to highlight text part with background color using text sample, simila
 
 The code snippet below shows how to use this feature:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-HighlightText-HighlightText.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+Presentation presentation = new Presentation(dataDir +"SomePresentation.pptx");
+((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // highlighting all words 'important'
+((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("to", Color.Violet, new TextHighlightingOptions()
+{
+    WholeWordsOnly = true
+}); // highlighting all separate 'the' occurrences
+presentation.Save(dataDir+ "SomePresentation-out2.pptx", SaveFormat.Pptx);
+```
+
+
 
 
 ## **Highlight Text using Regular Expression**
@@ -23,7 +35,16 @@ It allows to highlight text part with background color using regex, similar to T
 
 The code snippet below shows how to use this feature:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-HighlightTextusingRegex-HighlightTextUsingRegx.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+Presentation presentation = new Presentation(dataDir + "SomePresentation.pptx");
+TextHighlightingOptions options = new TextHighlightingOptions();
+((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Blue, options); // highlighting all words with 10 symbols or longer
+presentation.Save(dataDir+ "SomePresentation-out.pptx", SaveFormat.Pptx);
+```
+
+
 
 
 ## **Align Text Paragraphs**
@@ -38,7 +59,39 @@ Text formatting is one of the key elements while creating any kind of documents 
 
 The implementation of the above steps is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-ParagraphsAlignment-ParagraphsAlignment.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Instantiate a Presentation object that represents a PPTX file
+using (Presentation pres = new Presentation(dataDir + "ParagraphsAlignment.pptx"))
+{
+
+    // Accessing first slide
+    ISlide slide = pres.Slides[0];
+
+    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
+    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
+
+    // Change the text in both placeholders
+    tf1.Text = "Center Align by Aspose";
+    tf2.Text = "Center Align by Aspose";
+
+    // Getting the first paragraph of the placeholders
+    IParagraph para1 = tf1.Paragraphs[0];
+    IParagraph para2 = tf2.Paragraphs[0];
+
+    // Aligning the text paragraph to center
+    para1.ParagraphFormat.Alignment = TextAlignment.Center;
+    para2.ParagraphFormat.Alignment = TextAlignment.Center;
+
+    //Writing the presentation as a PPTX file
+    pres.Save(dataDir + "Centeralign_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **Set Transparency for Text**
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides for .NET. In order to set the transparency to text. Please follow the steps below:
 
@@ -49,7 +102,27 @@ This article demonstrates how to set transparency property to any text shape us
 
 The implementation of the above steps is given below.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-SetTransparencyOfTextInShadow-SetTransparencyOfTextInShadow.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+using (Presentation pres = new Presentation(dataDir+ "transparency.pptx"))
+{
+    IAutoShape shape = (IAutoShape)pres.Slides[0].Shapes[0];
+    IEffectFormat effects = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.EffectFormat;
+
+    IOuterShadow outerShadowEffect = effects.OuterShadowEffect;
+
+    Color shadowColor = outerShadowEffect.ShadowColor.Color;
+    Console.WriteLine($"{shadowColor} - transparency is: {((float)shadowColor.A / byte.MaxValue) * 100}");
+
+    // set transparency to zero percent
+    outerShadowEffect.ShadowColor.Color = Color.FromArgb(255, shadowColor);
+
+    pres.Save(dataDir+"transparency-2.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Manage Paragraph's Font Properties**
@@ -69,7 +142,57 @@ Presentations usually contain both text and images. The text can be formatted in
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-FontProperties-FontProperties.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Instantiate a Presentation object that represents a PPTX file// Instantiate a Presentation object that represents a PPTX file
+using (Presentation pres = new Presentation(dataDir + "FontProperties.pptx"))
+{
+
+    // Accessing a slide using its slide position
+    ISlide slide = pres.Slides[0];
+
+    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
+    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
+
+    // Accessing the first Paragraph
+    IParagraph para1 = tf1.Paragraphs[0];
+    IParagraph para2 = tf2.Paragraphs[0];
+
+    // Accessing the first portion
+    IPortion port1 = para1.Portions[0];
+    IPortion port2 = para2.Portions[0];
+
+    // Define new fonts
+    FontData fd1 = new FontData("Elephant");
+    FontData fd2 = new FontData("Castellar");
+
+    // Assign new fonts to portion
+    port1.PortionFormat.LatinFont = fd1;
+    port2.PortionFormat.LatinFont = fd2;
+
+    // Set font to Bold
+    port1.PortionFormat.FontBold = NullableBool.True;
+    port2.PortionFormat.FontBold = NullableBool.True;
+
+    // Set font to Italic
+    port1.PortionFormat.FontItalic = NullableBool.True;
+    port2.PortionFormat.FontItalic = NullableBool.True;
+
+    // Set font color
+    port1.PortionFormat.FillFormat.FillType = FillType.Solid;
+    port1.PortionFormat.FillFormat.SolidFillColor.Color = Color.Purple;
+    port2.PortionFormat.FillFormat.FillType = FillType.Solid;
+    port2.PortionFormat.FillFormat.SolidFillColor.Color = Color.Peru;
+
+    //Write the PPTX to disk
+    pres.Save(dataDir + "WelcomeFont_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **Manage Font Family of Text**
 As mentioned in Managing Font Related Properties a Portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for .NET to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
 
@@ -86,7 +209,55 @@ As mentioned in Managing Font Related Properties a Portion is used to hold text 
 
 The implementation of the above steps is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-SetTextFontProperties-SetTextFontProperties.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Instantiate Presentation
+using (Presentation presentation = new Presentation())
+{
+   
+    // Get first slide
+    ISlide sld = presentation.Slides[0];
+
+    // Add an AutoShape of Rectangle type
+    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
+
+    // Remove any fill style associated with the AutoShape
+    ashp.FillFormat.FillType = FillType.NoFill;
+
+    // Access the TextFrame associated with the AutoShape
+    ITextFrame tf = ashp.TextFrame;
+    tf.Text = "Aspose TextBox";
+
+    // Access the Portion associated with the TextFrame
+    IPortion port = tf.Paragraphs[0].Portions[0];
+
+    // Set the Font for the Portion
+    port.PortionFormat.LatinFont = new FontData("Times New Roman");
+
+    // Set Bold property of the Font
+    port.PortionFormat.FontBold = NullableBool.True;
+
+    // Set Italic property of the Font
+    port.PortionFormat.FontItalic = NullableBool.True;
+
+    // Set Underline property of the Font
+    port.PortionFormat.FontUnderline = TextUnderlineType.Single;
+
+    // Set the Height of the Font
+    port.PortionFormat.FontHeight = 25;
+
+    // Set the color of the Font
+    port.PortionFormat.FillFormat.FillType = FillType.Solid;
+    port.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+    // Write the PPTX to disk 
+    presentation.Save(dataDir + "SetTextFontProperties_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Set Text Rotation**
@@ -99,7 +270,41 @@ Aspose.Slides for .NET allows developers to rotate the text. Text could be set t
 - Rotate the text.
 - Save file to disk.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-RotatingText-RotatingText.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+// Get the first slide 
+ISlide slide = presentation.Slides[0];
+
+// Add an AutoShape of Rectangle type
+IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+
+// Add TextFrame to the Rectangle
+ashp.AddTextFrame(" ");
+ashp.FillFormat.FillType = FillType.NoFill;
+
+// Accessing the text frame
+ITextFrame txtFrame = ashp.TextFrame;
+txtFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
+
+// Create the Paragraph object for text frame
+IParagraph para = txtFrame.Paragraphs[0];
+
+// Create Portion object for paragraph
+IPortion portion = para.Portions[0];
+portion.Text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.";
+portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+// Save Presentation
+presentation.Save(dataDir + "RotateText_out.pptx", SaveFormat.Pptx);
+```
+
+
 ## **Set Custom Rotation Angle for TextFrame**
 Aspose.Slides for .NET now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle property, Please follow the steps below:
 
@@ -110,7 +315,28 @@ Aspose.Slides for .NET now supports, Setting custom rotation angle for textframe
 
 In the example given below, we set the RotationAngle property.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-CustomRotationAngleTextframe-CustomRotationAngleTextframe.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+IChartSeries series = chart.ChartData.Series[0];
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 65;
+
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
+
+// Save Presentation
+presentation.Save(dataDir + "textframe-rotation_out.pptx", SaveFormat.Pptx);
+```
+
+
 ## **Line Spacing of Paragraph**
 Aspose.Slides for .NET lets developers to set the properties of ParagraphFormat to deal with line spacing of the paragraph. The properties SpaceAfter, SpaceBefore and SpaceWithin could be set for different line spacing. This article explains how to set these properties of ParagraphFormat. Aspose.Slides for .NET provides a simple API for setting properties of ParagraphFormat:
 
@@ -121,7 +347,31 @@ Aspose.Slides for .NET lets developers to set the properties of ParagraphFormat 
 - Set properties of Paragraph.
 - Save the presentation to disk.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-LineSpacing-LineSpacing.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation(dataDir + "Fonts.pptx");
+
+// Obtain a slide's reference by its index
+ISlide sld = presentation.Slides[0];
+
+// Access the TextFrame
+ITextFrame tf1 = ((IAutoShape)sld.Shapes[0]).TextFrame;
+
+// Access the Paragraph
+IParagraph para1 = tf1.Paragraphs[0];
+
+// Set properties of Paragraph
+para1.ParagraphFormat.SpaceWithin = 80;
+para1.ParagraphFormat.SpaceBefore = 40;
+para1.ParagraphFormat.SpaceAfter = 40;
+// Save Presentation
+presentation.Save(dataDir + "LineSpacing_out.pptx", SaveFormat.Pptx);
+```
+
+
 
 
 ## **Set the AutofitType Property for TextFrame**
@@ -134,7 +384,41 @@ In this topic, we will explore the different formatting properties of text frame
 - Set the AutofitType of the TextFrame.
 - Save file to disk.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-SetAutofitOftextframe-SetAutofitOftextframe.cs" >}}
+```
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+// Access the first slide 
+ISlide slide = presentation.Slides[0];
+
+// Add an AutoShape of Rectangle type
+IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+
+// Add TextFrame to the Rectangle
+ashp.AddTextFrame(" ");
+ashp.FillFormat.FillType = FillType.NoFill;
+
+// Accessing the text frame
+ITextFrame txtFrame = ashp.TextFrame;
+txtFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+
+// Create the Paragraph object for text frame
+IParagraph para = txtFrame.Paragraphs[0];
+
+// Create Portion object for paragraph
+IPortion portion = para.Portions[0];
+portion.Text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.";
+portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+// Save Presentation
+presentation.Save(dataDir + "formatText_out.pptx", SaveFormat.Pptx); 
+```
+
+
 ## **Set Anchor of TextFrame**
 Aspose.Slides for .NET allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. TextAnchorType could be set to Top, Center, Bottom, Justified or Distributed. To set Anchor of any TextFrame, please follow the steps below:
 
@@ -145,7 +429,41 @@ Aspose.Slides for .NET allows developers to Anchor of any TextFrame. TextAnchorT
 - Set TextAnchorType of the TextFrame.
 - Save file to disk.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+// Get the first slide 
+ISlide slide = presentation.Slides[0];
+
+// Add an AutoShape of Rectangle type
+IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+
+// Add TextFrame to the Rectangle
+ashp.AddTextFrame(" ");
+ashp.FillFormat.FillType = FillType.NoFill;
+
+// Accessing the text frame
+ITextFrame txtFrame = ashp.TextFrame;
+txtFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
+
+// Create the Paragraph object for text frame
+IParagraph para = txtFrame.Paragraphs[0];
+
+// Create Portion object for paragraph
+IPortion portion = para.Portions[0];
+portion.Text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.";
+portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+// Save Presentation
+presentation.Save(dataDir + "AnchorText_out.pptx", SaveFormat.Pptx);
+```
+
+
 
 ## **Set Text Tabulation**
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
