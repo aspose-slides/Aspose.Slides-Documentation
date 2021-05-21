@@ -24,13 +24,13 @@ In this approach, we will learn how to set the Ole frame size of the embedded Ex
 ## **Example**
 Suppose, we have defined a template excel sheet and and desire to add that to presentation as Ole frame. In this scenario, the size of the OLE Object Frame will be calculated first based on cumulative rows height and columns widths of participating workbook's rows and columns respectively. Then we will set the size of Ole frame to that calculated value. In order to avoid the red **Embedded Object** message for Ole frame in PowerPoint we will also get the image of desired portions of rows and columns in Workbook and set that as Ole frame image. 
 
-```c#
+```csharp
 WorkbookDesigner workbookDesigner = new WorkbookDesigner();
 workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
 
 Presentation presentation = new Presentation("AsposeTest.ppt");
 
-Slide slide = presentation.Slides[0];
+Slide slide = (Slide)presentation.Slides[0];
 
 AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
 
@@ -38,7 +38,7 @@ String fileName = "AsposeTest_Ole.ppt";
 presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
 ```
 
-```c#
+```csharp
 private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int32 startRow, Int32 endRow, Int32 startCol,Int32 endCol, Int32 dataSheetIdx)
 {
     Worksheet work = workbook.Worksheets[dataSheetIdx];
@@ -53,11 +53,9 @@ private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int3
     //Setting new Row and Column Height
 
     return new Size((int)(Math.Round(actualWidth, 2) * 576), (int)(Math.Round(actualHeight, 2) * 576));
-
 }
 ```
-
-```c#
+```csharp
 private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
     Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
     Presentation presentation, WorkbookDesigner workbookDesigner,
@@ -100,8 +98,7 @@ private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32
     image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
 
     //Adding Image to slide picture collection
-    Picture pic = new Picture(presentation, newTempFileName);
-    int picId = presentation.Pictures.Add(pic);
+    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
 
     //Saving worbook to stream and copying in byte array
     Stream mstream = workbook.SaveToStream();
@@ -110,15 +107,17 @@ private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32
     mstream.Read(chartOleData, 0, chartOleData.Length);
 
     //Adding Ole Object frame
-    OleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),Convert.ToInt32(OleHeight), "Excel.Sheet.8", chartOleData);
+    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
+    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
+        Convert.ToInt32(OleHeight), dataInfo);
 
     //Setting ole frame Imnae and Alternative Text property    
-    oleObjectFrame.PictureId = picId;
-    oleObjectFrame.AlternativeText = "image" + picId;
+    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+    oleObjectFrame.AlternativeText = "image" + ppImage;
 }
 ```
 
-```c#
+```csharp
 private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
 {
     if (outputWidth == 0 && outputHeight == 0)
@@ -144,13 +143,13 @@ In this approach, we will learn how to scale the heights of participating rows a
 ## **Example**
 Suppose, we have defined a template excel sheet and and desire to add that to presentation as Ole frame. In this scenario, we will set the size of Ole frame and scale the size of rows and columns participating in Ole Frame area. We will then save the workbook in stream to save changes and convert that to byte array for adding it in Ole frame. In order to avoid the red **Embedded Object** message for Ole frame in PowerPoint we will also get the image of desired portions of rows and columns in Workbook and set that as Ole frame image. 
 
-```c#
+```csharp
 WorkbookDesigner workbookDesigner = new WorkbookDesigner();
 workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
 
 Presentation presentation = new Presentation("AsposeTest.ppt");
 
-Slide slide = presentation.Slides[0];
+Slide slide = (Slide)presentation.Slides[0];
 
 AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
 
@@ -158,9 +157,9 @@ String fileName = "AsposeTest_Ole.ppt";
 presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
 ```
 
-```c#
+```csharp
 private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 startRow,
-                    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
+    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
 {
     Worksheet work = workbook.Worksheets[dataSheetIdx];
 
@@ -192,15 +191,15 @@ private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 s
         work.Cells.SetColumnWidthInch(i, newTem);
 
     }
-
 }
+
 ```
 
-```c#
+```csharp
 private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-Presentation presentation, WorkbookDesigner workbookDesigner,
-Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
+    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
+    Presentation presentation, WorkbookDesigner workbookDesigner,
+    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
 {
     String tempFileName = Path.GetTempFileName();
     if (startRow == 0)
@@ -216,11 +215,10 @@ Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
     Workbook workbook = workbookDesigner.Workbook;
     Worksheet work = workbook.Worksheets[dataSheetIdx];
 
-    //Scaling rows height and coluumns width according to custom Ole size
-    double height = OleHeight / 576f;
-    double width = OleWidth / 576f;
-
-    SetOleAccordingToCustomHeighWidth(workbook, startRow, endRow, startCol, endCol, width, height, dataSheetIdx);
+    //Setting Ole Size according to selected rows and columns
+    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
+    OleWidth = SlideOleSize.Width;
+    OleHeight = SlideOleSize.Height;
 
     //Set Ole Size in Workbook
     workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
@@ -237,11 +235,10 @@ Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
     render.ToImage(0, tempFileName + ext);
     Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
     String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, ImageFormat.Bmp);
+    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
 
     //Adding Image to slide picture collection
-    Picture pic = new Picture(presentation, newTempFileName);
-    int picId = presentation.Pictures.Add(pic);
+    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
 
     //Saving worbook to stream and copying in byte array
     Stream mstream = workbook.SaveToStream();
@@ -250,16 +247,17 @@ Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
     mstream.Read(chartOleData, 0, chartOleData.Length);
 
     //Adding Ole Object frame
-    OleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-  Convert.ToInt32(OleHeight), "Excel.Sheet.8", chartOleData);
+    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
+    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
+        Convert.ToInt32(OleHeight), dataInfo);
 
     //Setting ole frame Imnae and Alternative Text property    
-    oleObjectFrame.PictureId = picId;
-    oleObjectFrame.AlternativeText = "image" + picId;
+    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+    oleObjectFrame.AlternativeText = "image" + ppImage;
 }
 ```
 
-```c#
+```csharp
 private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
 {
     if (outputWidth == 0 && outputHeight == 0)
