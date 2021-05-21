@@ -82,26 +82,21 @@ Aspose.Slides for .NET provides a facility to render comments of presentations o
 ```c#
 // The path to the documents directory.
 string dataDir = RunExamples.GetDataDir_Rendering();
- Presentation pres = new Presentation(dataDir+"test.pptx");
+Presentation pres = new Presentation(dataDir + "test.pptx");
 Bitmap bmp = new Bitmap(740, 960);
-        
-NotesCommentsLayoutingOptions opts = new NotesCommentsLayoutingOptions();
-opts.CommentsAreaColor = Color.Red;
 
-opts.CommentsAreaWidth = 200;
-opts.CommentsPosition = CommentsPositions.Right;
-opts.NotesPosition = NotesPositions.BottomTruncated;
-         
+IRenderingOptions opts = new RenderingOptions();
+opts.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
+opts.NotesCommentsLayouting.CommentsAreaColor = Color.Red;
+opts.NotesCommentsLayouting.CommentsAreaWidth = 200;
+opts.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
+
 using (Graphics graphics = Graphics.FromImage(bmp))
 {
-    pres.Slides[0].RenderToGraphics(opts, graphics);
+	pres.Slides[0].RenderToGraphics(opts, graphics);
 }
-bmp.Save(dataDir+"OutPresBitmap.png", ImageFormat.Png);
+bmp.Save(dataDir + "OutPresBitmap.png", ImageFormat.Png);
 System.Diagnostics.Process.Start("OutPresBitmap.png");
- 
-}
-
-}
 ```
 
 

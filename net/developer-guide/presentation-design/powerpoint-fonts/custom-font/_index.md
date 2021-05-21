@@ -56,10 +56,10 @@ string dataDir = RunExamples.GetDataDir_Text();
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
-ILoadOptions loadOptions = new LoadOptions();
+LoadOptions loadOptions = new LoadOptions();
 loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts", "global\\fonts" };
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
-using (IPresentation presentation = CreatePresentation("MyPresentation.pptx", loadOptions))
+using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
     //work with the presentation
     //CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation

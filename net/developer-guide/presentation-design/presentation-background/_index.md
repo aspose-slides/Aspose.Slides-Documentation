@@ -157,7 +157,7 @@ string dataDir = RunExamples.GetDataDir_Slides_Presentations_Background();
 // Instantiate the Presentation class that represents the presentation file
 Presentation pres = new Presentation(dataDir + "SamplePresentation.pptx");
 
-IBackgroundEffectiveData effBackground = pres.Slides[0].CreateBackgroundEffective();
+IBackgroundEffectiveData effBackground = pres.Slides[0].Background.GetEffective();
 
 if (effBackground.FillFormat.FillType == FillType.Solid)
     Console.WriteLine("Fill color: " + effBackground.FillFormat.SolidFillColor);

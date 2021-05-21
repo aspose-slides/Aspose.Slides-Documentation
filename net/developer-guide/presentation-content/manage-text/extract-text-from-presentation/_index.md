@@ -31,10 +31,10 @@ ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptx
 
 //Loop through the Array of TextFrames
 for (int i = 0; i < textFramesPPTX.Length; i++)
-
+{
 	//Loop through paragraphs in current ITextFrame
 	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
-
+	{
 		//Loop through portions in the current IParagraph
 		foreach (IPortion port in para.Portions)
 		{
@@ -123,12 +123,11 @@ There is also a SlideText class which implements the ISlideText interface.
 The new API can be used like this:
 
 ```c#
-PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
+IPresentationText text1 = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
 Console.WriteLine(text1.SlidesText[0].Text);
 Console.WriteLine(text1.SlidesText[0].LayoutText);
 Console.WriteLine(text1.SlidesText[0].MasterText);
 Console.WriteLine(text1.SlidesText[0].NotesText);
-PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
 ```
 
 

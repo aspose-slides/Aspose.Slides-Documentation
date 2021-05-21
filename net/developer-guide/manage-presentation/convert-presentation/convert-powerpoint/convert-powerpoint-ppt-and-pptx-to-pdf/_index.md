@@ -252,7 +252,11 @@ string dataDir = RunExamples.GetDataDir_Conversion();
 // Instantiate a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation(dataDir + "NotesFile.pptx"))
 {
-    // Save the presentation to PDF notes
-    presentation.Save(dataDir + "Pdf_Notes_out.tiff", SaveFormat.PdfNotes);
+	PdfOptions pdfOptions = new PdfOptions();
+	INotesCommentsLayoutingOptions options = pdfOptions.NotesCommentsLayouting;
+	options.NotesPosition = NotesPositions.BottomFull;
+
+	// Save the presentation to PDF notes
+	presentation.Save(dataDir + "Pdf_Notes_out.tiff", SaveFormat.Pdf, pdfOptions);
 }
 ```

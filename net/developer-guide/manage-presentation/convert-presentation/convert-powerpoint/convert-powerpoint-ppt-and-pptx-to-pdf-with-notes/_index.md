@@ -23,8 +23,12 @@ auxPresentation.Slides.InsertClone(0, slide);
 
 // Setting Slide Type and Size 
 //auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height,SlideSizeScaleType.EnsureFit);
-auxPresentation.SlideSize.SetSize(612F, 792F,SlideSizeScaleType.EnsureFit);
-auxPresentation.Save(dataDir + "PDFnotes_out.pdf", SaveFormat.PdfNotes);
+auxPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
+
+PdfOptions pdfOptions = new PdfOptions();
+pdfOptions.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomFull;
+
+auxPresentation.Save(dataDir + "PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
