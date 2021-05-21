@@ -19,7 +19,7 @@ float currentHeight = presentation.SlideSize.Size.Height;
 float currentWidth = presentation.SlideSize.Size.Width;
 
 //Changing slide size
-presentation.SlideSize.Type = SlideSizeType.A4Paper;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
 //New slide size
 float newHeight = presentation.SlideSize.Size.Height;
@@ -62,7 +62,7 @@ float currentHeight = presentation.SlideSize.Size.Height;
 float currentWidth = presentation.SlideSize.Size.Width;
 
 //Changing slide size
-presentation.SlideSize.Type = SlideSizeType.A4Paper;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 //presentation.SlideSize.Orientation = SlideOrienation.Portrait;
 
 //New slide size
