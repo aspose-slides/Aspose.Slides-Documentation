@@ -202,71 +202,71 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 ![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
 
-```c#
+```csharp
 //Create empty presentation
 using (Presentation pres = new Presentation())
 {
 
-	//Accessing first slide
-	ISlide slide = pres.Slides[0];
+    //Accessing first slide
+    ISlide slide = pres.Slides[0];
 
-	//Addding default chart
-	IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
+    //Addding default chart
+    IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
 
-	//Getting Chart data
-	IChartData chartData = ppChart.ChartData;
+    //Getting Chart data
+    IChartData chartData = ppChart.ChartData;
 
-	//Removing Extra default series
-	chartData.Series.RemoveAt(1);
-	chartData.Series.RemoveAt(1);
+    //Removing Extra default series
+    chartData.Series.RemoveAt(1);
+    chartData.Series.RemoveAt(1);
 
-	//Modifying chart categories names
-	chartData.Categories[0].AsCell.Value = "Bikes";
-	chartData.Categories[1].AsCell.Value = "Accessories";
-	chartData.Categories[2].AsCell.Value = "Repairs";
-	chartData.Categories[3].AsCell.Value = "Clothing";
+    //Modifying chart categories names
+    chartData.Categories[0].AsCell.Value = "Bikes";
+    chartData.Categories[1].AsCell.Value = "Accessories";
+    chartData.Categories[2].AsCell.Value = "Repairs";
+    chartData.Categories[3].AsCell.Value = "Clothing";
 
-	//Setting the index of chart data sheet
-	int defaultWorksheetIndex = 0;
-
-
-	//Getting the chart data worksheet
-	IChartDataCellFactory fact = ppChart.ChartData.ChartDataCellFactory;
-
-	//Modifying chart series values for first category
-	chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 1000));
-	chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 2500));
-	chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 4000));
-	chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 4, 1, 3000));
-
-	//Setting Chart title
-	ppChart.HasTitle = true;
-	ppChart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
-	IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
-	format.FontItalic = NullableBool.True;
-	format.FontHeight = 18;
-	format.FillFormat.FillType = FillType.Solid;
-	format.FillFormat.SolidFillColor.Color = Color.Black;
+    //Setting the index of chart data sheet
+    int defaultWorksheetIndex = 0;
 
 
-	////Setting Axis values
-	ppChart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	ppChart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	ppChart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
-	ppChart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
+    //Getting the chart data worksheet
+    IChartDataWorkbook fact = ppChart.ChartData.ChartDataWorkbook;
 
-	ppChart.Axes.VerticalAxis.MaxValue = 4000.0F;
-	ppChart.Axes.VerticalAxis.MinValue = 0.0F;
-	ppChart.Axes.VerticalAxis.MajorUnit = 2000.0F;
-	ppChart.Axes.VerticalAxis.MinorUnit = 1000.0F;
-	ppChart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+    //Modifying chart series values for first category
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 1000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 2500));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 4000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 4, 1, 3000));
 
-	//Setting Chart rotation
-	ppChart.Rotation3D.RotationX = 15;
-	ppChart.Rotation3D.RotationY = 20;
+    //Setting Chart title
+    ppChart.HasTitle = true;
+    ppChart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
+    IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
+    format.FontItalic = NullableBool.True;
+    format.FontHeight = 18;
+    format.FillFormat.FillType = FillType.Solid;
+    format.FillFormat.SolidFillColor.Color = Color.Black;
 
-	//Saving Presentation
-	pres.Save("c:\\data\\AsposeSampleChart.pptx", SaveFormat.Pptx);
+
+    ////Setting Axis values
+    ppChart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+    ppChart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+    ppChart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+    ppChart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
+
+    ppChart.Axes.VerticalAxis.MaxValue = 4000.0F;
+    ppChart.Axes.VerticalAxis.MinValue = 0.0F;
+    ppChart.Axes.VerticalAxis.MajorUnit = 2000.0F;
+    ppChart.Axes.VerticalAxis.MinorUnit = 1000.0F;
+    ppChart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+
+    //Setting Chart rotation
+    ppChart.Rotation3D.RotationX = 15;
+    ppChart.Rotation3D.RotationY = 20;
+
+    //Saving Presentation
+    pres.Save("AsposeSampleChart.pptx", SaveFormat.Pptx);
 }
 ```
 
