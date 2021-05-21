@@ -7,7 +7,7 @@ keywords: "PPT and PPTX to PDF"
 description: "Convert PPT to PDF and PPTX to PDF. Convert PowerPoint to PDF document with Aspose.Slides."
 ---
 
-# **How to convert PPT to PDF online**
+## How to Convert PPT to PDF Online
 You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/) to convert PPT or PPTX files to PDF quickly.
 
 Go through these steps:
@@ -23,22 +23,54 @@ Go through these steps:
 5. Click **DOWNLOAD NOW**. 
 
    Your browser now saves the converted file. 
+   
+   
 
 ## PowerPoint to PDF Conversion in .NET
 
-[**Aspose.Slides** ](https://products.aspose.com/slides/net)allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method. The [**Presentation**](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class exposes the [**Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/net/slides/aspose.slides.export/pdfoptions) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
+[**Aspose.Slides** ](https://products.aspose.com/slides/net)allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
 
-**Note**: Aspose.Slides for .NET directly writes the information about API and Version Number in output documents. For example, upon rendering Document to PDF, Aspose.Slides for .NET populates the Application field with the value 'Aspose.Slides' and the PDF Producer field with a value, e.g. 'Aspose.Slides v 17.10'. Please note that you cannot instruct Aspose.Slides for .NET to change or remove this information from output Documents.
+To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method. The [**Presentation**](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class exposes the [**Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/net/slides/aspose.slides.export/pdfoptions) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
+
+**Note**: Aspose.Slides for .NET directly writes the information about API and Version Number in output documents. For example, when rendering Document to PDF, Aspose.Slides for .NET populates the Application field with the value 'Aspose.Slides' and the PDF Producer field with a value, e.g. 'Aspose.Slides v 17.10'. Please note that you cannot instruct Aspose.Slides for .NET to change or remove this information from output Documents.
 
 {{% alert color="primary" %}} 
 
-Try **free online demo apps** to test [**PPT to PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), [**PPTX to PDF**](https://products.aspose.app/slides/conversion/pptx-to-pdf), [**ODP to PDF** ](https://products.aspose.app/slides/conversion/odp-to-pdf)feature by Aspose.
+You can try our **free online demo apps** to test the [**PPT to PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), [**PPTX to PDF**](https://products.aspose.app/slides/conversion/pptx-to-pdf), [**ODP to PDF** ](https://products.aspose.app/slides/conversion/odp-to-pdf)features by Aspose.
 
 {{% /alert %}} 
 
-Aspose.Slides for .NET exports the presentation documents to PDF and makes it similar to the original presentation document. Aspose.Slides can render most elements in a presentation while converting it to PDF:
+## Accessibility and Compliance Standards for PDF
 
-- Images, Text Boxes and other Shapes
+With Aspose.Slides, you can use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html).
+
+When converting a PPT document to PDF, Aspose.Slides allows you to export a PPT document to the PDF format using any of these compliance standards: **PDF/A1a**, **PDF/A1b**, and **PDF/UA**. 
+
+This sample code shows you how to specify your preferred PDF compliance standard when converting PPT to PDF:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
+    {
+        Compliance = PdfCompliance.PdfA1a
+    });
+   
+    pres.Save("pres-a1b-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
+    {
+        Compliance = PdfCompliance.PdfA1b
+    });
+   
+    pres.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
+   {
+        Compliance = PdfCompliance.PdfUa
+    });
+}
+```
+
+Aspose.Slides for .NET typically exports the presentation documents to PDF and makes it as similar as possible to the original presentation document. Aspose.Slides renders most elements in a presentation when converting it to PDF:
+
+- Images, Text Boxes, and other Shapes
 - Text and Formatting
 - Paragraphs and Formatting
 - Hyperlinks
@@ -46,7 +78,9 @@ Aspose.Slides for .NET exports the presentation documents to PDF and makes it si
 - Bullets
 - Tables
 
-Furthermore, you can customize the presentation to PDF export with different options explained in this topic.
+## **PPT to PDF Conversion Process Options**
+
+Aspose.Slides for .NET allows you to customize the presentation to PDF export with different options explained in this topic.
 
 With Aspose.Slides, you can use these options for PPT(X) to PDF conversion in a flexible way:
 
@@ -82,7 +116,7 @@ presentation.Save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 
 
 
-## **Convert PowerPoint to PDF with Custom Options**
+## Convert PowerPoint to PDF with Custom Options
 The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/net/slides/aspose.slides.export/pdfoptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression** ](https://apireference.aspose.com/net/slides/aspose.slides.export/pdftextcompression)enumeration and sets PDF standard.
 
 ```c#

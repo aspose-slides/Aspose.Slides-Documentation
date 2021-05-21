@@ -6,175 +6,144 @@ url: /net/image/
 ---
 
 
-## **Create SVG Into Slide**
-Now Aspose.Slides for .NET allows you to add Svg image into presentation image collection. The implementation is demonstrated in the example below.
+## **Adding EMZ Images to Images Collection**
+Aspose.Slides for .NET allows you to embed EMZ (Windows Compressed Enhanced Metafile) files in a presentation images collection. 
 
-```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationProperties();
-using (var p = new Presentation())
-         {
-var svgContent = File.ReadAllText(svgPath);
-var emfImage = p.Images.AddFromSvg(svgContent);
-p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, emfImage.Width, emfImage.Height, emfImage);
-p.Save(outPptxPath, SaveFormat.Pptx);
-
-           
-}
-```
+EMZ files are compressed image files commonly used in Microsoft Office programs. They typically contain  EMF (Enhanced Metafile) files. Normally, you can decompress an EMZ file and get an EMF file from it. 
 
 
+This sample code shows you how to add an EMZ image to the images collection:
 
+``` csharp 
+using (Presentation pres = new Presentation())
+{ 
+    ISlide slide = pres.Slides[0];
 
-## **Add EMZ Image to Images collection**
-Aspose.Slides for .NET provides a facility to embed EMZ file inside a presentation images collection. An example is given below that shows how to add EMZ image to images collection.
-
-```c#
-// The path to the documents directory.
- string dataDir = RunExamples.GetDataDir_PresentationProperties();
- Presentation p = new Presentation();
-    ISlide s = p.Slides[0];
-    // byte[] buffer=new byte();
-   String imagePath=@"C:\Aspose Data\emf files\";
-   byte[] data = GetCompressedData(imagePath + "2.emz");
-  if (s != null)
-        {
-   if (s.Shapes != null)
-          {
-   IPPImage imgx = p.Images.AddImage(data);
-
-   var m = s.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, p.SlideSize.Size.Width, p.SlideSize.Size.Height , imgx);
-   p.Save("C:\\Asopse Data\\Saved.pptx", SaveFormat.Pptx);
-          }
-          }
-         }
-        
-
-//private byte[] GetCompressedData(string fileNameZip, byte[] buffer)
-private static byte[] GetCompressedData(string fileNameZip)
+    if (slide != null)
     {
-byte[] bufferZip = null;
-/*  byte[] buffer = null;
-FileStream f1 = new FileStream(fileName, FileMode.Open);
-byte[] buffer=f1.
-using (FileStream f = new FileStream(fileNameZip, FileMode.Create))
-        {
- buffer = new byte[f.Length];
- using (var gz = new GZipStream(f, CompressionMode.Compress, false))
- {
-     gz.Write(buffer, 0, buffer.Length);
- }
-        }
-    */
-using (FileStream f = new FileStream(fileNameZip, FileMode.Open))
-        {
- bufferZip = new byte[f.Length];
- f.Read(bufferZip, 0, (int)f.Length);
-        }
+        byte[] bufferData = File.ReadAllBytes("image.emz");
 
-return bufferZip;
-        }
-```
+        IPPImage imgx = pres.Images.AddImage(bufferData);
+        slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height , imgx);
 
-
-
-## **Create an Image From SVG Object**
-Aspose.Slides for .NET added new [**AddImage** ](https://apireference.aspose.com/net/slides/aspose.slides/imagecollection/methods/addimage/index)method to **[IImageCollection **interface**](https://apireference.aspose.com/net/slides/aspose.slides/iimagecollection)** and [**ImageCollection class**](https://apireference.aspose.com/net/slides/aspose.slides/imagecollection)**.** These methods provide the ability to insert SVG fragments to the presentation image collection.
-
-The code sample below shows how to insert SVG fragments to the presentation image collection.
-
-```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-string svgPath = dataDir + "sample.svg";
-string outPptxPath = dataDir + "presentation.pptx";
-using (var p = new Presentation())
-{
-    string svgContent = File.ReadAllText(svgPath);
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, ppImage.Width, ppImage.Height, ppImage);
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
-```
-
-The following code shows how to insert SVG fragments to the presentation image collection from an external resource.
-
-
-
-```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-string outPptxPath = dataDir + "presentation_external.pptx";
-
-using (var p = new Presentation())
-{
-    string svgContent = File.ReadAllText(new Uri(new Uri(dataDir), "image1.svg").AbsolutePath);
-    ISvgImage svgImage = new SvgImage(svgContent, new ExternalResourceResolver(), dataDir);
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, ppImage.Width, ppImage.Height, ppImage);
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
-```
-
-
-## **Convert SVG Images Into Group Shape**
-New [**AddGroupShape** ](https://apireference.aspose.com/net/slides/aspose.slides/shapecollection/methods/addgroupshape)method has been added to **[IShapeCollection](https://apireference.aspose.com/net/slides/aspose.slides/ishapecollection) interface** and [**ShapeCollection** ](https://apireference.aspose.com/net/slides/aspose.slides/shapecollection)**class** in Aspose.Slides for .NET. This method allows to convert [**SvgImage**](https://apireference.aspose.com/net/slides/aspose.slides/svgimage) object that represents SVG data into a group of shapes.
-
-The code sample below shows how to convert SVG images into a group of shapes.
-
-```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-
-using (Presentation pres = new Presentation(dataDir+ "image.pptx"))
-{
-    PictureFrame pFrame = pres.Slides[0].Shapes[0] as PictureFrame;
-    ISvgImage svgImage = pFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
-    {
-        // Convert svg image into group of shapes
-        IGroupShape groupShape = pres.Slides[0].Shapes.AddGroupShape(svgImage, pFrame.Frame.X, pFrame.Frame.Y,
-            pFrame.Frame.Width, pFrame.Frame.Height);
-        // remove source svg image from presentation
-        pres.Slides[0].Shapes.Remove(pFrame);
+        pres.Save("Presentation_Saved.pptx", SaveFormat.Pptx);
     }
-
-    pres.Save(dataDir + "image_group.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Inserting/Adding SVG into Presentations**
+You can add or insert any image into a presentation by using the [AddPictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
 
+To create an image object based on SVG image, you can do it this way:
 
-## **Add Images as EMF in Slides**
-Aspose.Slides for .NET provides a facility that generates EMF image of excel sheet and add the image as EMF in slides with the help of Aspose.Cells. The sample code is implemented in the example given below.
+1. Create SvgImage object to insert it to ImageShapeCollection
+2. Create PPImage object from ISvgImage
+3. Create PictureFrame object using IPPImage interface
 
-```c#
-Workbook book = new Workbook(dataDir + "chart.xlsx");
-Worksheet sheet = book.Worksheets[0];
-Aspose.Cells.Rendering.ImageOrPrintOptions options = new Aspose.Cells.Rendering.ImageOrPrintOptions();
-options.HorizontalResolution = 200;
-options.VerticalResolution = 200;
-options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+This sample code shows you how to implement the steps above to add an SVG image into a presentation:
+``` csharp 
+// The path to the documents directory
+string dataDir = @"D:\Documents\";
 
-//Save the workbook to stream
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-pres.Slides.RemoveAt(0);
+// Source SVG file name
+string svgFileName = dataDir + "sample.svg";
 
-String EmfSheetName="";
-for (int j = 0; j < sr.PageCount; j++)
+// Output presentation file name
+string outPptxPath = dataDir + "presentation.pptx";
+
+// Create new presentation
+using (var p = new Presentation())
 {
+    // Read SVG file content
+    string svgContent = File.ReadAllText(svgFileName);
 
-    EmfSheetName=dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-    sr.ToImage(j, EmfSheetName);
- 
-    var bytes = File.ReadAllBytes(EmfSheetName);
-    var emfImage = pres.Images.AddImage(bytes);
-    ISlide slide= pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-    var m = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
+    // Create SvgImage object
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    // Create PPImage object
+    IPPImage ppImage = p.Images.AddImage(svgImage);
+
+    // Creates a new PictureFrame 
+    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
+
+    // Save presentation in PPTX format
+    p.Save(outPptxPath, SaveFormat.Pptx);
 }
-    
-pres.Save(dataDir+"Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
+## **Converting SVG to a Set of Shapes**
+Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint functionality used to work with SVG images:
+
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+The functionality is provided by one of the overloads of the [AddGroupShape](https://apireference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) method of the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface that takes an [ISvgImage](https://apireference.aspose.com/slides/net/aspose.slides/isvgimage) object as the first argument.
+
+This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
+
+``` csharp 
+// The path to the documents directory
+string dataDir = @"D:\Documents\";
+
+// Source SVG file name
+string svgFileName = dataDir + "sample.svg";
+
+// Output presentation file name
+string outPptxPath = dataDir + "presentation.pptx";
+
+// Create new presentation
+using (IPresentation presentation = new Presentation())
+{
+    // Read SVG file content
+    string svgContent = File.ReadAllText(svgFileName);
+
+    // Create SvgImage object
+    ISvgImage svgImage = new SvgImage(svgContent);
+
+    // Get slide size
+    SizeF slideSize = presentation.SlideSize.Size;
+
+    // Convert SVG image to group of shapes scaling it to slide size
+    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
+
+    // Save presentation in PPTX format
+    presentation.Save(outPptxPath, SaveFormat.Pptx);
+}
+```
+
+## **Adding Images as EMF in Slides**
+Aspose.Slides for .NET allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
+
+This sample code shows you how to perform the described task:
+
+``` csharp 
+using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
+{
+    Worksheet sheet = book.Worksheets[0];
+    ImageOrPrintOptions options = new ImageOrPrintOptions();
+    options.HorizontalResolution = 200;
+    options.VerticalResolution = 200;
+    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+
+    //Save the workbook to stream
+    SheetRender sr = new SheetRender(sheet, options);
+    using (Presentation pres = new Presentation())
+    {
+        pres.Slides.RemoveAt(0);
+
+        String EmfSheetName = "";
+        for (int j = 0; j < sr.PageCount; j++)
+        {
+            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
+            sr.ToImage(j, EmfSheetName);
+
+            var bytes = File.ReadAllBytes(EmfSheetName);
+            var emfImage = pres.Images.AddImage(bytes);
+            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
+            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
+        }
+
+        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    }
+}
+```
