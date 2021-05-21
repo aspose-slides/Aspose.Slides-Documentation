@@ -7,24 +7,21 @@ url: /net/set-caption-to-ole-icon/
 
 A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon. The code snippet below shows a sample of creating Excel object and setting its caption.
 
-```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-string oleSourceFile = dataDir +"ExcelObject.xlsx";
-string oleIconFile = dataDir + "Image.png";
-
+```csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage image = null;
     ISlide slide = pres.Slides[0];
 
     // Add Ole objects
-    byte[] allbytes = File.ReadAllBytes(oleSourceFile);
-    IOleObjectFrame oof = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, "Excel.Sheet.12", allbytes);
+    byte[] allbytes = File.ReadAllBytes("oleSourceFile.bin");
+    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(allbytes, "xls");
+    
+    IOleObjectFrame oof = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
     oof.IsObjectIcon = true;
 
     // Add image object
-    byte[] imgBuf = File.ReadAllBytes(oleIconFile);
+    byte[] imgBuf = File.ReadAllBytes("oleIconFile.ico");
     using (MemoryStream ms = new MemoryStream(imgBuf))
     {
         image = pres.Images.AddImage(new Bitmap(ms));
