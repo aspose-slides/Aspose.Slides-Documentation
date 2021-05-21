@@ -115,7 +115,7 @@ using (PresentationEx pres = new PresentationEx())
 
 
 ## **New Aspose.Slides for .NET 13.x approach**
-```c#
+``` csharp
 //Instantiate Presentation class that represents PPTX file//Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation();
 
@@ -139,7 +139,7 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 int defaultWorksheetIndex = 0;
 
 //Getting the chart data worksheet
-IChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
+IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
 //Delete default generated series and categories
 chart.ChartData.Series.Clear();
@@ -273,7 +273,7 @@ using (PresentationEx pres = new PresentationEx())
 
 
 ## **New Aspose.Slides for .NET 13.x approach**
-```c#
+``` csharp
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -285,7 +285,7 @@ IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400
 int defaultWorksheetIndex = 0;
 
 //Accessing the chart data worksheet
-IChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
+IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
 //Delete demo series
 chart.ChartData.Series.Clear();
@@ -331,4 +331,5 @@ series.Marker.Symbol = MarkerStyleType.Circle;
 
 pres.Save("AsposeScatterChart.pptx", SaveFormat.Pptx);
 ```
+
 
