@@ -48,19 +48,27 @@ In general, Aspose.Slides for .NET can easily handle presentation files around 3
 #### **Q: When I clone a slide, the notes associated with the slide are ignored?**
 **A**: Notes associated with a slide cannot be cloned as it is prohibited by the PPT documentation. You can add notes associated with a slide using the following code:
 
-```c#
-//Check if source slide has notes
-if (srcSlide.Notes != null)
+```csharp
+using (Presentation pres = new Presentation("pres.pptx"))
 {
-    //Create notes page in terget slide
-    targetSlide.AddNotes();
+    ISlide srcSlide = pres.Slides[0];
+    ISlide targetSlide = pres.Slides.AddEmptySlide(srcSlide.LayoutSlide);
+    
+    //Check if source slide has notes
+    if (srcSlide.NotesSlideManager.NotesSlide != null)
+    {
+        //Create notes page in target slide
+        INotesSlide notes = targetSlide.NotesSlideManager.AddNotesSlide();
 
-    //Add each paragraph from the source notes page to the target slide notes
-    for (int j = 0; j < srcSlide.Notes.Paragraphs.Count; j++)
-        targetSlide.Notes.Paragraphs.Add(new Paragraph(srcSlide.Notes.Paragraphs[j]));
+        //Add each paragraph from the source notes page to the target slide notes
+        for (int j = 0; j < srcSlide.NotesSlideManager.NotesSlide.NotesTextFrame.Paragraphs.Count; j++)
+            notes.NotesTextFrame.Paragraphs.Add(new Paragraph((Paragraph)srcSlide.NotesSlideManager.NotesSlide.NotesTextFrame.Paragraphs[j]));
 
-    //Remove the default paragraph that is created on creation of the notes page
-    targetSlide.Notes.Paragraphs.RemoveAt(0);
+        //Remove the default paragraph that is created on creation of the notes page
+        notes.NotesTextFrame.Paragraphs.RemoveAt(0);
+    }
+    
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 
