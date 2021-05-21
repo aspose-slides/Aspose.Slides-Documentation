@@ -76,28 +76,26 @@ pres.Write("HeadFoot.ppt");
 
 
 ## **New Aspose.Slides for .NET 13.x approach**
-```c#
-Presentation sourcePres = new Presentation();
+``` csharp
+using (Presentation sourcePres = new Presentation())
+{
+    //Setting Header Footer visibility properties
+    sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-//Setting Header Footer visibility properties
-sourcePres.UpdateSlideNumberFields = true;
+    //Update the Date Time Fields
+    sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-//Update the Date Time Fields
-sourcePres.UpdateDateTimeFields = true;
+    //Show date time placeholder
+    sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-//Show date time placeholder
-sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
+    //Show the footer place holder
+    sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
+    
+    //Set the  header footer visibility on Title Slide
+    sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-//Show the footer place holder
-sourcePres.HeaderFooterManager.IsFooterVisible = true;
-
-//Show Slide Number
-sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
-
-//Set the  header footer visibility on Title Slide
-sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
-
-//Write the presentation to the disk
-sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
+    //Write the presentation to the disk
+    sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
+}
 ```
 
