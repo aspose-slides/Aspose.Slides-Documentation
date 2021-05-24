@@ -42,7 +42,24 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 
 An example is given below shows how can you access **ViewProperties.NormalViewProperties** properties for a presentation.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Views-ManagePresenetationNormalViewState-ManagePresenetationNormalViewState.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Slides_Views();
+
+using (Presentation pres = new Presentation())
+{
+    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
+    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+
+    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
+    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
+    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+
+    pres.Save(dataDir+ "presentation_normal_view_state.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Set Default Zoom Value**
@@ -56,7 +73,21 @@ In order to set the view properties. Please follow the steps below:
 
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-SetZoom-SetZoom.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Rendering();
+
+// Instantiate a Presentation object that represents a presentation file
+using (Presentation presentation = new Presentation())
+{
+    // Setting View Properties of Presentation
+
+    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Zoom value in percentages for slide view
+    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Zoom value in percentages for notes view 
+
+    presentation.Save(dataDir + "Zoom_out.pptx", SaveFormat.Pptx);
+}
+```
 
 
 
@@ -69,4 +100,19 @@ In order to set the view properties. Please follow the steps below:
 
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Rendering-Printing-SetZoom-SetZoom.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Rendering();
+
+// Instantiate a Presentation object that represents a presentation file
+using (Presentation presentation = new Presentation())
+{
+    // Setting View Properties of Presentation
+
+    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Zoom value in percentages for slide view
+    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Zoom value in percentages for notes view 
+
+    presentation.Save(dataDir + "Zoom_out.pptx", SaveFormat.Pptx);
+}
+```
+

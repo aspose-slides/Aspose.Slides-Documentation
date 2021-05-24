@@ -19,5 +19,6 @@ This page contains release notes for Aspose.Slides for C++ 21.3.
 ## New Features and Enhancements
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2689|Use Aspose.Slides for .NET 21.3 features|Enhancement|
+|SLIDESCPP-2689|[Use Aspose.Slides for .NET 21.3 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-3-release-notes/)|Enhancement|
 |SLIDESCPP-2821|Split the aspose.slides.cpp nuget package into 2 different ones|Enhancement|
+

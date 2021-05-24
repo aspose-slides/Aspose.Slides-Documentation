@@ -16,7 +16,14 @@ Let’s start with adding a new Sunburst chart to the presentation:
 
 
 
-{{< gist "aspose-com-gists" "3b16a6c14d909756ef521e46bb23a002" "Add-Sunburst-Chart-for-Data-Points-Example-with-Aspose-Slides.cs" >}}
+```c#
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
+    // ...
+}
+```
+
 {{% alert color="primary" title="See also" %}} 
 - [**Creating Sunburst Chart**](/slides/net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
@@ -43,7 +50,10 @@ Show value of "Leaf 4" data point:
 
 
 
-{{< gist "aspose-com-gists" "737f4707d1e0545a77766028e90f0c58" "Show-Data-Point-Value-with-Aspose-Slides.cs" >}}
+```c#
+IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
+```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 ## **Set Data Point Label and Color**
@@ -51,7 +61,14 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
 
 
 
-{{< gist "aspose-com-gists" "9250993b9a0512bd2236060210247828" "Set-Data-Point-Label-and-Color-with-Aspose-Slides.cs" >}}
+```c#
+IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
+branch1Label.DataLabelFormat.ShowCategoryName = false;
+branch1Label.DataLabelFormat.ShowSeriesName = true;
+
+branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
+```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 ## **Set Data Point Branch Color**
@@ -62,7 +79,6 @@ Change color of "Steam 4" branch:
 {{< gist "aspose-com-gists" "aa2689da77eb5d49daee2ddf24c8b7e" "Set-Data-Point-Branch-Color-with-Aspose-Slides.cs" >}}
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
-
 
 
 

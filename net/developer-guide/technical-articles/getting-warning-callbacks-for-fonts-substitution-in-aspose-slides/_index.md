@@ -18,12 +18,32 @@ Aspose.Slides for .NET provides a simple API methods to get the Warning Callback
 1. Load the presentation file that is using a font for text inside that is unavailable on your target machine.
 1. Generate the slide thumbnail to see the effect.
 
+```c#
+//Setting Warning Callbacks
+LoadOptions lo = new LoadOptions();
+lo.WarningCallback = new HandleFontsWarnings();
 
+//Instantiate the presentation
+Presentation presentation = new Presentation("1.ppt", lo);
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-FontSubstitution-FontSubstitution.cs" >}}
+//Generating slide thumbnail
+foreach (ISlide slide in presentation.Slides)
+{
+    Image image = slide.GetThumbnail();
+}
+```
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-FontSubstitution-FontsWarning.cs" >}}
-
+```c#
+class HandleFontsWarnings : IWarningCallback
+{
+    public ReturnAction Warning(IWarningInfo warning)
+    {
+        Console.WriteLine(warning.WarningType); // 1 - WarningType.DataLoss
+        Console.WriteLine(warning.Description); // "Font will be substituted from X to Y"
+        return ReturnAction.Continue;
+    }
+}
+```
 
 
 

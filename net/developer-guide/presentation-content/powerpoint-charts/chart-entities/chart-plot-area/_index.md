@@ -16,7 +16,26 @@ Aspose.Slides for .NET provides a simple API for . 
 1. Gets actual width of the chart element.
 1. Gets actual height of the chart element.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-GetWidthHeightFromChartPlotArea-GetWidthHeightFromChartPlotArea.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Charts();
+
+using (Presentation pres = new Presentation(dataDir+"test.Pptx"))
+{
+    Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
+    chart.ValidateChartLayout();
+
+    double x = chart.PlotArea.ActualX;
+    double y = chart.PlotArea.ActualY;
+    double w = chart.PlotArea.ActualWidth;
+    double h = chart.PlotArea.ActualHeight;
+	
+	// Save presentation with chart
+	pres.Save(dataDir + "Chart_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Set Layout Mode of Chart Plot Area**
@@ -27,5 +46,19 @@ Aspose.Slides for .NET provides a simple API to set the layout mode of the chart
 
 Sample code is given below.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Charts-SetLayoutMode-SetLayoutMode.cs" >}}
+```c#
+string dataDir = RunExamples.GetDataDir_Charts();
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+    chart.PlotArea.AsILayoutable.X = 0.2f;
+    chart.PlotArea.AsILayoutable.Y = 0.2f;
+    chart.PlotArea.AsILayoutable.Width = 0.7f;
+    chart.PlotArea.AsILayoutable.Height = 0.7f;
+    chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
+
+    presentation.Save(dataDir + "SetLayoutMode_outer.pptx", SaveFormat.Pptx);
+}
+```
 

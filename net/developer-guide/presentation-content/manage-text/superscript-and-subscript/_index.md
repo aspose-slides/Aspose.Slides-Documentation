@@ -27,5 +27,53 @@ This property returns or sets the superscript or subscript text (value from -100
 
 The implementation of the above steps is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-AddingSuperscriptAndSubscriptTextInTextFrame-AddingSuperscriptAndSubscriptTextInTextFrame.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+using (Presentation presentation = new Presentation(dataDir+"test.pptx"))
+{
+    // Get slide
+    ISlide slide = presentation.Slides[0];
+
+    // Create text box
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ITextFrame textFrame = shape.TextFrame;
+    textFrame.Paragraphs.Clear();
+
+    // Create paragraph for superscript text
+    IParagraph superPar = new Paragraph();
+
+    // Create portion with usual text
+    IPortion portion1 = new Portion();
+    portion1.Text = "SlideTitle";
+    superPar.Portions.Add(portion1);
+
+    // Create portion with superscript text
+    IPortion superPortion = new Portion();
+    superPortion.PortionFormat.Escapement = 30;
+    superPortion.Text = "TM";
+    superPar.Portions.Add(superPortion);
+
+    // Create paragraph for subscript text
+    IParagraph paragraph2 = new Paragraph();
+
+    // Create portion with usual text
+    IPortion portion2 = new Portion();
+    portion2.Text = "a";
+    paragraph2.Portions.Add(portion2);
+
+    // Create portion with subscript text
+    IPortion subPortion = new Portion();
+    subPortion.PortionFormat.Escapement = -25;
+    subPortion.Text = "i";
+    paragraph2.Portions.Add(subPortion);
+
+    // Add paragraphs to text box
+    textFrame.Paragraphs.Add(superPar);
+    textFrame.Paragraphs.Add(paragraph2);
+
+    presentation.Save(dataDir+"TestOut.pptx", SaveFormat.Pptx);
+    System.Diagnostics.Process.Start(dataDir + "TestOut.pptx");
+ } 
+```
 

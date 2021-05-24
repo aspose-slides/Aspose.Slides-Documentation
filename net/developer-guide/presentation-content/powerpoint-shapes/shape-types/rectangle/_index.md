@@ -16,7 +16,31 @@ Like previous topics, this one is also about adding a shape and this time the sh
 
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-SimpleRectangle-SimpleRectangle.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Prseetation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Add autoshape of rectangle type
+    sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir+ "RectShp1_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **Create Formatted Rectangle**
 To add a formatted rectangle to a slide, please follow the steps below:
 
@@ -30,4 +54,36 @@ To add a formatted rectangle to a slide, please follow the steps below:
 1. Write the modified presentation as PPTX file.
    The above steps are implemented in the example given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-FormattedRectangle-FormattedRectangle.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Shapes();
+
+// Create directory if it is not already present.
+bool IsExists = System.IO.Directory.Exists(dataDir);
+if (!IsExists)
+    System.IO.Directory.CreateDirectory(dataDir);
+
+// Instantiate Prseetation class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+
+    // Get the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Add autoshape of rectangle type
+    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
+
+    // Apply some formatting to rectangle shape
+    shp.FillFormat.FillType = FillType.Solid;
+    shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
+
+    // Apply some formatting to the line of rectangle
+    shp.LineFormat.FillFormat.FillType = FillType.Solid;
+    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    shp.LineFormat.Width = 5;
+
+    //Write the PPTX file to disk
+    pres.Save(dataDir + "RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+}
+```
+

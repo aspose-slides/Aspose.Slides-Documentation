@@ -8,7 +8,28 @@ url: /net/manage-smartart/
 ## **Get Text from SmartArt**
 Now TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively. This property allows you to get all text from SmartArt if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-GetTextFromSmartArtNode-GetTextFromSmartArtNode.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_Text();
+
+using (Presentation pres = new Presentation("Presentation.pptx"))
+{
+	ISlide slide = pres.Slides[0];
+	ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
+
+	ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
+	foreach (ISmartArtNode smartArtNode in smartArtNodes)
+	{
+		foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
+		{
+			if (nodeShape.TextFrame != null)
+				Console.WriteLine(nodeShape.TextFrame.Text);
+		}
+	}
+}
+```
+
+
 
 ## **Change Layout Type of SmartArt**
 In order to change the layout type of SmartArt. Please follow the steps below:
@@ -20,7 +41,24 @@ In order to change the layout type of SmartArt. Please follow the steps below:
 - Write the presentation as a PPTX file.
   In the example given below, we have added a connector between two shapes.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-SmartArts-ChangeSmartArtLayout-ChangeSmartArtLayout.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_SmartArts();
+
+using (Presentation presentation = new Presentation())
+{
+    // Add SmartArt BasicProcess 
+    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+
+    // Change LayoutType to BasicProcess
+    smart.Layout = SmartArtLayoutType.BasicProcess;
+
+    // Saving Presentation
+    presentation.Save(dataDir + "ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **Check Hidden Property of SmartArt**
 Please note Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of SmartArt. Please follow the steps below:
@@ -33,7 +71,31 @@ Please note Method com.aspose.slides.ISmartArtNode.isHidden() returns true if th
 
 In the example given below, we have added a connector between two shapes.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-SmartArts-CheckSmartArtHiddenProperty-CheckSmartArtHiddenProperty.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_SmartArts();
+
+using (Presentation presentation = new Presentation())
+{
+    // Add SmartArt BasicProcess 
+    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+
+    // Add node on SmartArt 
+    ISmartArtNode node = smart.AllNodes.AddNode();
+
+    // Check isHidden property
+    bool hidden = node.IsHidden; // Returns true
+
+    if (hidden)
+    {
+        // Do some actions or notifications
+    }
+    // Saving Presentation
+    presentation.Save(dataDir + "CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **Get or Set Organization Chart Type**
 Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
@@ -44,7 +106,24 @@ Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganiz
 - Write the presentation as a PPTX file.
   In the example given below, we have added a connector between two shapes.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-SmartArts-OrganizeChartLayoutType-OrganizeChartLayoutType.cs" >}}
+```c#
+// The path to the documents directory.
+string dataDir = RunExamples.GetDataDir_SmartArts();
+
+using (Presentation presentation = new Presentation())
+{
+    // Add SmartArt BasicProcess 
+    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+
+    // Get or Set the organization chart type 
+    smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
+
+    // Saving Presentation
+    presentation.Save(dataDir + "OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Create Picture Organization Chart**
@@ -57,8 +136,18 @@ Aspose.Slides for .NET provides a simple API for creating and PictureOrganizati
 
 The following code is used to create a chart.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-OrganizationChart-OrganizationChart.cs" >}}
-
+```c#
+public static void Run()
+{
+	// The path to the documents directory.
+	string dataDir = RunExamples.GetDataDir_Charts();
+	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	{
+		ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+		pres.Save(dataDir+"OrganizationChart.pptx", SaveFormat.Pptx);
+	}			
+}
+```
 
 
 
