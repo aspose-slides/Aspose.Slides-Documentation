@@ -48,8 +48,8 @@ When you import **Aspose.Slides Examples** project into IDE, Maven automatically
 ### **mvn install**
 Download the [aspose.slides](http://maven.aspose.com/repository/simple/ext-release-local/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
 
-``` java
- mvn install:install-file
+```
+mvn install:install-file
     -Dfile=c:\aspose.slides-version.jar
     -DgroupId=com.aspose
     -DartifactId=aspose-slides
@@ -62,7 +62,7 @@ Now, the **aspose.slides** jar is copied to your Maven local repository.
 ### **pom.xml**
 After installed, just declares the **aspose.slides** coordinate in pom.xml. Add following repository in repositories tab and dependency in dependencies tab.
 
-``` java
+``` xml
 <repository>
     <id>aspose-maven-repository</id>
     <url>http://repository.aspose.com/repo/</url>
@@ -73,7 +73,7 @@ After installed, just declares the **aspose.slides** coordinate in pom.xml. Add 
     <artifactId>aspose-slides</artifactId>
     <version>18.6</version>
     <classifier>jdk16</classifier>
- </dependency>
+</dependency>
 ```
 
 ### **Done**
