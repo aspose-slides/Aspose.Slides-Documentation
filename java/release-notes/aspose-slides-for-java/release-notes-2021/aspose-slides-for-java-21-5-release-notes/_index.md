@@ -49,7 +49,7 @@ When you create a Zoom transition in PowerPoint, you can jump to (and from) spec
 
 In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://apireference.aspose.com/slides/java/com.aspose.slides/ZoomImageType), a new interface [IZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IZoomFrame), and some new additional methods in [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
 
-#### [ZoomImageType](https://apireference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) Enum ####
+#### ZoomImageType Enum ####
 
 The [ZoomImageType](https://apireference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) determines whether the Zoom object uses the slide preview or a cover image.
 
@@ -71,7 +71,7 @@ public final class ZoomImageType
 }
 ```
 
-#### [IZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) Interface ####
+#### IZoomFrame Interface ####
 
 The [IZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) interface with the [ZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ZoomFrame) implementation class has been added:
 
@@ -126,7 +126,7 @@ public interface IZoomFrame
 }
 ```
 
-#### New methods in [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface have been added ####
+#### New methods in IShapeCollection interface have been added ####
 
 These new methods create [ZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ZoomFrame) objects:
 
@@ -183,7 +183,7 @@ try {
 }
 ```
 
-### [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) [setMacroHyperlinkClick](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method has been added ###
+### IHyperlinkManager.setMacroHyperlinkClick method has been added ###
 
 A new method, [setMacroHyperlinkClick](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-), has been added to the [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) interface and [HyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/HyperlinkManager) class.
 
@@ -210,7 +210,7 @@ try {
 }
 ```
 
-### New methods [setRootDirectoryClsid](https://apireference.aspose.com/slides/java/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://apireference.aspose.com/slides/java/com.aspose.slides/IPptOptions#getRootDirectoryClsid--) have been added to [IPptOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IPptOptions) interface and  [PptOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/PptOptions) class ###
+### New methods setRootDirectoryClsid and getRootDirectoryClsid have been added to IPptOptions interface and PptOptions class ###
 
 New methods, [setRootDirectoryClsid](https://apireference.aspose.com/slides/java/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://apireference.aspose.com/slides/java/com.aspose.slides/IPptOptions#getRootDirectoryClsid--), have been added to the [IPptOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IPptOptions) interface and [PptOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/PptOptions) class.
 
