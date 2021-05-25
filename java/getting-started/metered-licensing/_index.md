@@ -35,8 +35,6 @@ try {
     // Get consumed qantity value after accessing API
     double quantity = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Consumption quantity" + quantity);
-
-
 } catch (Exception ex) {
     ex.printStackTrace();
 }

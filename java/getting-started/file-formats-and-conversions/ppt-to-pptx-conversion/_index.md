@@ -20,7 +20,6 @@ Aspose.Slides for Java provides partial support for converting the PPT file form
 
 
 
-
 **After conversion to PPTX**
 
 ![todo:image_alt_text](ppt-to-pptx-conversion_2.png)
@@ -33,20 +32,13 @@ The following features are supported for conversion:
 - Converting the structure of masters, layouts and slides.
 - Converting charts.
 - Group shapes.
-- Converting autoshapes including rectangles and ellipses. However, it is possible that autoshapes may have wrong adjustments values.
-- Shapes with custom geometry may sometimes not be converted.
-- Textures and pictures fill styles for autoshapes may sometimes not be converted.
+- Converting autoshapes including rectangles and ellipses. 
+- Shapes with custom geometry.
+- Textures and pictures fill styles for autoshapes.
 - Converting placeholders.
-- Converting text in text frames and text holders. However, bullets, alignment and tabulations are not fully supported.
-
-## **Unsupported Features**
-The following features are not yet supported when converting from PPT to PPTX:
-
-- Slide with notes as reading notes is not implemented in PPTX. When a PPT presentation has notes it can't be saved as PPTX yet.
 - Converting lines and polylines.
 - Line and fill formats.
 - Gradient fill styles.
 - OLE frames, tables, video and audio frames, etc.
-- Animation and other slideshow properties are ignored.
-
-New or missing features will be added in future releases of Aspose.Slides for Java.
+- Animation and slideshow properties.
+- Converting text in text frames and text holders.
