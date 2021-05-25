@@ -17,8 +17,13 @@ description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML and other
 - [Convert ODP to PDF with Notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
 - [Convert ODP to TIFF with Notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 
+For example, if you need to convert ODP to PDF, it can be done this way:
 
 
-For example, if you need to convert ODP to PDF, just modify the [example ](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)in the following way:
 
-
+```csharp
+using (Presentation pres = new Presentation("pres.odp"))
+{
+    pres.Save("pres.pdf", SaveFormat.Pdf);
+}
+```
