@@ -56,7 +56,14 @@ using (Presentation presentation = new Presentation())
 ### **Saving Presentations with Predefined View Type**
 Aspose.Slides for .NET provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://apireference.aspose.com/net/slides/aspose.slides/viewproperties) class. The [LastView](https://apireference.aspose.com/net/slides/aspose.slides/viewproperties/properties/lastview) property is used to set the view type by using the [ViewType](https://apireference.aspose.com/net/slides/aspose.slides/viewtype) enumerator.
 
-{{< gist "aspose-slides" "53249e5573Convert SVG Images Into Groud2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Saving-SaveAsPredefinedViewType-SaveAsPredefinedViewType.cs" >}}
+```csharp
+using (Presentation pres = new Presentation())
+{
+    pres.ViewProperties.LastView = ViewType.SlideMasterView;
+    pres.Save("pres-will-open-SlideMasterView.pptx", SaveFormat.Pptx);
+}
+```
+
 ### **Saving Presentations to Strict Open XML Spreadsheet Format**
 Aspose.Slides allows you to save the presentation in Strict Open XML format. For that purpose, it provides the [**Aspose.Slides.Export.PptxOptions**](https://apireference.aspose.com/net/slides/aspose.slides.export/pptxoptions) class where you can set the Conformance property, while saving the presentation file. If you set its value as Conformance.Iso29500_2008_Strict, then the output presentation file will be saved in Strict Open XML format.
 

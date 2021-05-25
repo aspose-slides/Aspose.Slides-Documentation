@@ -72,11 +72,24 @@ branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 ## **Set Data Point Branch Color**
-Change color of "Steam 4" branch:
 
+Change color of "Stem 4" branch:
 
+```csharp
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
+    
+    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
 
-{{< gist "aspose-com-gists" "aa2689da77eb5d49daee2ddf24c8b7e" "Set-Data-Point-Branch-Color-with-Aspose-Slides.cs" >}}
+    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
+    
+    stem4branch.Format.Fill.FillType = FillType.Solid;
+    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
+      
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
+```
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
 
