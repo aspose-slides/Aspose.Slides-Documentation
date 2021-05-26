@@ -8,201 +8,224 @@ description: "Lock PowerPoint presentation. Password protected PowerPoint in Jav
 ---
 
 ## **About Password Protection**
-### **What is Presentation Password Protection**
-Password protection on presentation is when we set a password on a presentation to allow operating with it only for authorized users. This means, that only users, who know the password set on the presentation, can operate with it. Password protected presentation is also called locked presentation. Password protection can be set to prohibit:
+### **How does password protection for presentation work?**
+When you password protect a presentation, it means you are setting a password that enforces certain restrictions on the presentation. To remove the restrictions, the password has to be entered. A password-protected presentation is considered a locked presentation.
 
-- Modify.
+Typically, you can set a password to enforce these restrictions on a presentation:
 
-  If presentation is password protected from modifying, you have two options: a) enter the password while opening to allow modifying presentation; b) open it in read-only mode, without entering the password.
-  Read only mode means, that you can open presentation to view it, however you can not make any changes into it. Note, that all the content of presentation will be still available: hyperlinks, animations, effects, etc. In read only mode its not possible to copy paste the content of presentation. You can not save presentation in this mode too.
+- **Modification**
 
-  Actually, you can edit the presentation, however you can not save these changes into this presentation. If you want to save changes made to presentation - you will need to enter the password. Otherwise, it is possible to save the changes by saving presentation as a new one, with a different file name.
-  Protecting presentation from modifying is useful when you need to work on it in collaboration with others.
-- Open.
+  If you want only certain users to modify your presentation, you can set a modification restriction. The restriction here prevents people from modifying, changing, or copying things in your presentation (unless they provide the password). 
 
-  Presentation can be password protected from opening. In this case, its protected from modifying too. To open presentation, it is required to enter the password.
+  However, in this case, even without the password, a user will be able to access your document and open it. In this read-only mode, the user can view the contents or things—hyperlinks, animations, effects, and others—inside your presentation, but they cannot copy items or save the presentation. 
+
+- **Opening**
+
+  If you want only certain users to open your presentation, you can set an opening restriction. The restriction here prevents people from even viewing the contents of your presentation (unless they provide the password).
+
+  Technically, the opening restriction also prevents users from modifying your presentations: When people cannot open a presentation, they cannot make modify or make changes to it. 
   
-### **Presentation Password Protection in Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/java) password protection from modifying can be divided on two types:
+  **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
 
-- **Encryption** 
-  Presentation is encrypted with the password provided, it can not be modifies without setting a password.
-- **Write Protection** 
-  Presentation is not encrypted with password, but its just marked as *"do not modify"* presentation. This is done to notify users, that this presentation should not be changed. Actually, such presentation can be modified, but to save the changes you will have to create a new presentation with a different file name.
+## How to Password Protect a Presentation
 
+1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
 
+   ![todo:image_alt_text](slides-lock.png)
 
-[**Aspose.Slides**](https://products.aspose.com/slides/java) supports password protection for both PowerPoint (PPTX, PPT) and OpenOffice (ODP) presentation formats. 
-In [Aspose.Slides](https://products.aspose.com/slides/java), presentation password 
-protection feature is represented by 
-[**IProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager). Each [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) object 
-has [**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/ProtectionManager) 
-property to refer its methods:
+2. Click **Drop or upload your files**.
 
-- [**encrypt**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#encrypt-java.lang.String-) 
-  Under the cover of password protection process, presentation is actually encrypted with the password. Encryption algorithm implemented by Aspose.Slides is used to do that, and you only need to pass the password into Encrypt method.
-- [**removeEncryption**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) 
-  To decrypt presentation, you need to call RemoveEncryption method with no parameters. Note, that before that you will have to enter password to load this presentation. See more: [Unlock Presentation](/slides/java/password-protected-presentation/#unlock-presentation).
-- [**setWriteProtection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) 
-  This method is used to set write protection to presentation, and to do that you need to pass presentation password into the method.
-- [**removeWriteProtection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) 
-  To remove write protection, just call this method with no parameters.
+3. Select the file you want to password protect on your computer. 
 
+4. Input your preferred password for edit protection; Input your preferred password for view protection. 
 
+5. If you want users to see your presentation as the final copy, tick the **Mark as final** checkbox.
 
-[**isEncrypted**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isEncrypted--) property is 
-used to check if presentation is encrypted, 
-[**isWriteProtected**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isWriteProtected--) - to check is its write protected.
+6. Click **PROTECT NOW.** 
 
-Note that, when presentation is password protected - its document properties are 
-password protected by default too. With Aspose.Slides, its possible to change 
-this behavior and make document properties available even for locked presentation.
-For that, [**getEncryptDocumentProperties**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) property needs to be set true. 
+7. Click **DOWNLOAD NOW.**
 
+### **Password Protection for Presentations in Aspose.Slides**
+**Supported formats**
 
-## **Lock Presentation**
-To lock PowerPoint (or OpenOffice) presentation means to create password protected presentation. To create password protected presentation you just need to set a password to presentation. Password protection is a feature used in both PowerPoint and OpenOffice presentation formats. While password is being set to presentation, this presentation is encrypted with the password. So, to encrypt (password protect) presentation do the following:
+Aspose.Slides supports password protection, encryption, and similar operations for presentations in these formats: 
+
+- PPTX and PPT - Microsoft PowerPoint Presentation 
+- ODP - OpenDocument Presentation 
+- OTP -  OpenDocument Presentation Template 
+
+**Supported operations**
+
+Aspose.Slides allows you to use password protection on presentations to prevent modifications in these ways:
+
+- Encrypting a presentation
+- Setting a write protection to a presentation
+
+**Other operations**
+
+Aspose.Slides allows you to perform other tasks involving password protection and encryption in these ways:
+
+- Decrypting a presentation; opening an encrypted presentation
+- Removing encryption; disabling password protection
+- Removing write protection from a presentation
+- Getting the properties of an encrypted presentation
+- Checking whether a presentation is encrypted
+- Checking whether a presentation is password protected.
+
+## Encrypting a Presentation
+
+You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
+
+To encrypt or password protect a presentation, you have to use the encrypt method (from [IProtectionManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation. 
+
+This sample code shows you how to encrypt a presentation:
 
 ```java
-// Opening the presentation file
-Presentation pres = new Presentation("demoWriteProtected.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    // ....do some work here.....
-	
-    // Setting Password
-    pres.getProtectionManager().encrypt("pass");
-    
-    // Save your presentation to a file
-    pres.save("demoPass.pptx", SaveFormat.Pptx);
+    presentation.getProtectionManager().encrypt("123123");
+    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    if (presentation != null) presentation.dispose();
 }
 ```
 
-[**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getProtectionManager--) contains [**encrypt**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#encrypt-java.lang.String-) method which sets a password for the presentation. Simply pass the password to the [**encrypt**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#encrypt-java.lang.String-) method and then use [save](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method exposed by the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) to save the presentation.
+## Setting Write Protection to a Presentation 
 
-You may take a look at demo app, demonstrating presentation lock feature in Aspose.Slides. For that, visit [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) online app:
+You can add a mark stating “Do not modify” to a presentation. This way, you get to tell users that you do not want them to make changes to the presentation.  
 
-[](https://products.aspose.app/slides/lock)
+**Note** that the write protection process does not encrypt the presentation. Therefore, users—if they actually want to—can modify the presentation, but to save the changes, they will have to create a presentation with a different name. 
 
-[![todo:image_alt_text](slides-lock.png)](https://products.aspose.app/slides/lock)
-## **Open Locked Presentation**
-To open password protected presentation, use overloaded constructors of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. Pass [**LoadOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/LoadOptions) class object to set the access password to open password protected presentation.
+To set a write protection, you have to use the [setWriteProtection](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) method. This sample code shows you how to set a write protection to a presentation:
 
 ```java
-// Creating instance of load options to set the presentation access password
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    presentation.getProtectionManager().setWriteProtection("123123");
+    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+## Decrypting a Presentation; Opening an Encrypted Presentation
+
+Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [removeEncryption](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) method with no parameters. You will then have to enter the correct password to load the presentation. 
+
+This sample code shows you how to decrypt a presentation: 
+
+```java
 LoadOptions loadOptions = new LoadOptions();
-
-// Setting the access password
-loadOptions.setPassword("password");
-
-// Opening the presentation file by passing the file path and load
-// options to the constructor of Presentation class
-Presentation pres = new Presentation("demoPassDocument.pptx", loadOptions);
+loadOptions.setPassword("123123");
+Presentation presentation = new Presentation("pres.pptx", loadOptions);
 try {
-    // ....do some work here.....
+    // work with decrypted presentation
 } finally {
-    pres.dispose();
+    if (presentation != null) presentation.dispose();
+}
 }
 ```
 
-## **Get Document Properties in Locked Presentation**
-When presentation is locked (password protected), the document properties become also prohibited. Aspose.Slides offers a mechanism for password protecting a presentation, but still being able to access the document properties in PowerPoint. The [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [**setEncryptDocumentProperties**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setEncryptDocumentProperties-boolean-) method that takes a Boolean value to allow or disallow access to the document properties in password protected presentation. By default, its value is set to true.
+## Removing Encryption; Disabling Password Protection
+
+You can remove the encryption or password protection on a presentation. This way, users become able to access or modify the presentation without restrictions. 
+
+To remove encryption or password protection, you have to call the [removeEncryption](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) method. This sample code shows you to remove encryption from a presentation:
 
 ```java
-// Opening the presentation file
-Presentation pres = new Presentation("demoWriteProtected.pptx");
-try {
-    // ....do some work here.....
-
-    // Setting access to document properties in password protected mode
-    pres.getProtectionManager().setEncryptDocumentProperties(false);
-
-    // Setting Password
-    pres.getProtectionManager().encrypt("pass");
-
-    // Save your presentation to a file
-    pres.save("demoPassDocument.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Unlock Presentation**
-To unlock PowerPoint (or OpenOffice) presentation, you need to open password protected presentation and then encrypt it. To open password protected presentation, use [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) constructor with [LoadOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/LoadOptions) set with a presentation password. To unlock or encrypt presentation, call [**removeEncryption**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) method by [**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager):
-
-```java
-// Creating instance of load options to set the presentation access password
 LoadOptions loadOptions = new LoadOptions();
-
-// Setting the access password
-loadOptions.setPassword("password");
-
-// Opening the presentation file
-Presentation pres = new Presentation("demoWriteProtected.pptx", loadOptions);
+loadOptions.setPassword("123123");
+Presentation presentation = new Presentation("pres.pptx", loadOptions);
 try {
-    // Removing Encryption
-    pres.getProtectionManager().removeEncryption();
-
-    // Save your presentation to a file
-    pres.save("demoUnProtected.pptx", SaveFormat.Pptx);
+    presentation.getProtectionManager().removeEncryption();
+    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    if (presentation != null) presentation.dispose();
 }
 ```
 
-To try presentation unlock feature alive, you may try free online app [**Aspose.Slides Unlock**](https://products.aspose.app/slides/unlock):
+## Removing Write Protection from a Presentation
 
-[](https://products.aspose.app/slides/unlock)
+You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
 
-[![todo:image_alt_text](slides-unlock.png)](https://products.aspose.app/slides/unlock)
-
-## **Set Write Protection to Presentation**
-To make a read only PowerPoint (or OpenOffice) presentation, you need to set write protection on it. For that use [**setWriteProtection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) method from [**ProtectionManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager), with presentation password pass into it:
+You can remove the write protection from a presentation by using the [removeWriteProtection](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) method. This sample code shows you to remove the write protection from a presentation:
 
 ```java
-// Opening the presentation file
-Presentation pres = new Presentation("demoWriteProtected.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    // ....do some work here.....
-
-    // Setting Write protection Password
-    pres.getProtectionManager().setWriteProtection("test");
-
-    // Save your presentation to a file
-    pres.save("demoWriteProtected.pptx", SaveFormat.Pptx);
+    presentation.getProtectionManager().removeWriteProtection();
+    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Remove Write Protection from Presentation**
-Aspose.Slides for Java provides a facility for accessing write protected presentation through the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. The [**isWriteProtected**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isWriteProtected--) property 
-identifies whether a presentation is write protected or not. 
-Then if it is write protected, the protection can be removed using the [**removeWriteProtection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) method.
+## Getting the Properties of an Encrypted Presentation
+
+Typically, users struggle to get the document properties of an encrypted or password-protected presentation. Aspose.Slides, however, offers a mechanism that allows you to password protect a presentation while retaining the means for users to access the properties of that presentation.
+
+**Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
+
+If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [encryptDocumentProperties](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ```java
-// Creating instance of load options to set the presentation access password
-LoadOptions loadOptions = new LoadOptions();
-
-// Setting the access password
-loadOptions.setPassword("password");
-
-// Opening the presentation file
-Presentation pres = new Presentation("demoWriteProtected.pptx", loadOptions);
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    // Checking if presentation is write protected
-    if (pres.getProtectionManager().isWriteProtected())
-        // Removing Write protection
-        pres.getProtectionManager().removeWriteProtection();
-    
-    // Saving presentation
-    pres.save("newDemo.pptx", SaveFormat.Pptx);
+    presentation.getProtectionManager().setEncryptDocumentProperties(true);
+    presentation.getProtectionManager().encrypt("123123");
 } finally {
-    pres.dispose();
+    if (presentation != null) presentation.dispose();
 }
 ```
+
+## Checking whether a Presentation is Encrypted
+
+Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [isEncrypted](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isEncrypted--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
+
+This sample code shows you how to check whether a presentation is encrypted:
+
+```java
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+## Checking whether a Presentation is Write Protected
+
+Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [isWriteProtected](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isWriteProtected--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
+
+This sample code shows you how to check whether a presentation is write-protected:
+
+```java
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+## **Validating or Confirming that a Specific Password has been used to Protect a Presentation**
+
+You may want to check and confirm that a specific password has been used to protect a presentation document. Aspose.Slides provides the means for you to validate a password. 
+
+This sample code shows you how to validate a password:
+
+```java
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    // check if "pass" is matched with
+    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 
 
 {{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/java/digital-signature-in-powerpoint/)
+- [Digital Signature in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
