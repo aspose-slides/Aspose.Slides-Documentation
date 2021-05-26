@@ -7,7 +7,9 @@ keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF"
 description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML and other formats with Aspose.Slides."
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/net) allows to convert OpenOffice ODP presentation to many types. The API to convert ODP to other types is the same as for PowerPoint types. You may use the following examples to convert ODP, just changing the source file on the ODP presentation file:
+[**Aspose.Slides API**](https://products.aspose.com/slides/net) allows you to convert OpenOffice ODP presentations to many formats. The API used to convert ODP files to other document formats is the same one used for PowerPoint (PPT and PPTX) conversion operations. 
+
+These examples show you how to convert ODP documents to other formats (just change the source ODP file):
 
 - [Convert ODP to HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)
 - [Convert ODP to PDF](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
@@ -17,8 +19,12 @@ description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML and other
 - [Convert ODP to PDF with Notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
 - [Convert ODP to TIFF with Notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 
+For example, if you need to convert an ODP presentation to PDF, it can be done this way:
 
-
-For example, if you need to convert ODP to PDF, just modify the [example ](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)in the following way:
-
+```csharp
+using (Presentation pres = new Presentation("pres.odp"))
+{
+    pres.Save("pres.pdf", SaveFormat.Pdf);
+}
+```
 
