@@ -5,74 +5,42 @@ weight: 50
 url: /net/render-slide-as-svg-image/
 ---
 
-**Aspose.Slides for .NET** is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as **SVG** images in their favorite image viewer. In such cases, Aspose.Slides for .NET lets you export an individual slide to an **SVG** image.
+SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 
 
-To generate an **SVG** image from any desired slide with **Aspose.Slides.Pptx** for .NET, please follow the steps below:
+SVG is one of the few formats for images that meets very high standards in these terms: scalability, interactivity, performance, accessibility, programmability, and others. For these reasons, it is commonly used in web development. 
 
-- Create an instance of the **Presentation** class.
-- Obtain the desired slide's reference by using its ID or index(here we are using slide index 2).
-- Get the SVG image in a memory stream.
-- Save the memory stream to file.
+You may want to use SVG files in these scenarios:
+
+- when you plan to print your presentation in a very large format. SVG images can scale up to any resolution or level. You get to resize SVG images as many times as necessary without sacrificing quality.
+- when you intend to use charts and graphs from your slides in different mediums or platforms. Most readers can interpret SVG files. 
+- when you need to use the smallest possible sizes of images. SVG files are generally smaller than their high-resolution equivalents in other formats, especially those formats based on bitmap (JPEG or PNG).
+
+Aspose.Slides for .NET allows you to export slides in your presentations as **SVG** images. To generate an SVG image from any, do this:
+
+- Create an instance of the Presentation class.
+- Iterate through all the slides in the presentation.
+- Write every slide to its own SVG file through FileStream.
+
+{{% alert color="primary" %}} 
+
+You may want to try out our [free web application](https://products.aspose.app/slides/conversion/ppt-to-svg) in which we implemented the PPT to SVG conversion function from Aspose.Slides for .NET.
+
+{{% /alert %}} 
+
+This sample code in C# shows you how to convert PPT to SVG using Aspose.Slides:
 
 ``` csharp
-
- string FilePath = @"..\..\..\Sample Files\";
-
-string srcFileName = FilePath + "Conversion.pptx";
-
-string destFileName = FilePath + "Creating Slide SVG Image.svg";
-
-//Instantiate a Presentation class that represents the presentation file
-
-using (Presentation pres = new Presentation(srcFileName))
-
+using (Presentation pres = new Presentation("pres.pptx"))
 {
-
-    //Access the second slide
-
-    ISlide sld = pres.Slides[1];
-
-    //Create a memory stream object
-
-    MemoryStream SvgStream = new MemoryStream();
-
-    //Generate SVG image of slide and save in memory stream
-
-    sld.WriteAsSvg(SvgStream);
-
-    SvgStream.Position = 0;
-
-    //Save memory stream to file
-
-    using (Stream fileStream = System.IO.File.OpenWrite(destFileName))
-
+    for (var index = 0; index < pres.Slides.Count; index++)
     {
+        ISlide slide = pres.Slides[index];
 
-        byte[] buffer = new byte[8 * 1024];
-
-        int len;
-
-        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)
-
+        using (FileStream fileStream = new FileStream($"side-{index}.svg", FileMode.Create, FileAccess.Write))
         {
-
-            fileStream.Write(buffer, 0, len);
-
+            slide.WriteAsSvg(fileStream);   
         }
-
     }
-
-    SvgStream.Close();
-
 }
+```
 
-``` 
-
-Below is the result of code:
-
-![todo:image_alt_text](/download/thumbnails/9113703/1609792700)
-## **Download Sample Code**
-- [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Creating%20Slide%20SVG%20Image%20%28Aspose.Slides%29.zip)
