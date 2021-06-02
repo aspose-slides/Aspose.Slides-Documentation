@@ -1,8 +1,8 @@
 ---
-title: Render Slide As SVG Image
+title: Render a Slide as an SVG Image
 type: docs
 weight: 50
-url: /net/render-slide-as-svg-image/
+url: /net/render-a-slide-as-an-svg-image/
 ---
 
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 
