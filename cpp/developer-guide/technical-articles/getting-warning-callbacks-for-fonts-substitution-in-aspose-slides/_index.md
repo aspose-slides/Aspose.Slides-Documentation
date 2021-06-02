@@ -7,62 +7,52 @@ url: /cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for C++ makes it possible to get warning callbacks for fonts substitution in case the used font is not available on machine during rendering process. The warning callbacks are helpful in debugging the issues of missing or inaccessible fonts during rendering process.
+Aspose.Slides for C++ makes it possible to get warning callbacks for fonts substitution in case the used font is not available on a machine during the rendering process. The warning callbacks are helpful when debugging issues of missing or inaccessible fonts during the rendering process.
 
 {{% /alert %}} 
 ## **Getting Warning Callbacks for Fonts substitution**
-Aspose.Slides for C++ provides a simple API methods to get the Warning Callbacks during rendering process. All you need is to follow the steps below to configure the Warning Callbacks on your end.:
+Aspose.Slides for C++ provides a simple API methods to get the Warning Callbacks during the rendering process. All you need is to follow the steps below to configure the Warning Callbacks on your end:
 
 1. Create a custom Callback class to receive the callbacks.
-1. Set the Warning Callbacks using using LoadOptions class
+1. Set the Warning Callbacks using [LoadOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.load_options) class.
 1. Load the presentation file that is using a font for text inside that is unavailable on your target machine.
 1. Generate the slide thumbnail to see the effect.
 
-[**C#**]()
-
 ``` cpp
-
- class HandleFontsWarnings : Aspose.Slides.Warnings.IWarningCallback
-
+class HandleFontsWarnings : public Warnings::IWarningCallback
 {
-
-    public int warning(IWarningInfo warning)
-
+public:
+    Warnings::ReturnAction Warning(SharedPtr<Warnings::IWarningInfo> warning) override
     {
+        if (warning->get_WarningType() == Warnings::WarningType::CompatibilityIssue)
+        {
+            return Warnings::ReturnAction::Continue;
+        }
 
-        Console.WriteLine(warning.getWarningType()); // 1 - WarningType.DataLoss
+        // 1 - WarningType.DataLoss
+        Console::WriteLine(System::ObjectExt::ToString(warning->get_WarningType()));
+        // "Font will be substituted from X to Y"
+        Console::WriteLine(warning->get_Description());
 
-        Console.WriteLine(warning.getDescription()); // "Font will be substituted from X to Y"
-
-        return ReturnAction.Continue;
-
+        return Warnings::ReturnAction::Continue;
     }
-
-}
-
-//Setting Warning Callbacks
-
-LoadOptions lo = new LoadOptions();
-
-lo.WarningCallback=new HandleFontsWarnings();
-
-//Instantiate the presentation
-
-Presentation presentation = new Presentation(path+"1.ppt", lo);
-
-//Generating slide thumbnail
-
-foreach(ISlide slide in presentation.Slides)
-
+};
+        
+void Run()
 {
+    String dataDir = GetDataPath();
 
-	Image image = slide.getThumbnail();
+    // Setting Warning Callbacks
+    SharedPtr<LoadOptions> options = System::MakeObject<LoadOptions>();
+    options->set_WarningCallback(System::MakeObject<HandleFontsWarnings>());
 
+    // Instantiate the presentation
+    SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(dataDir + u"presentation.pptx", options);
+
+    // Generating slide thumbnails
+    for (auto slide : presentation->get_Slides())
+    {
+        SharedPtr<System::Drawing::Image> image = slide->GetThumbnail();
+    }
 }
-
-
 ```
-
-
-
-
