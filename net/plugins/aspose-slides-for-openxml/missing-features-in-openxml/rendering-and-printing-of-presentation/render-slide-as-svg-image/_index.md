@@ -36,7 +36,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
     {
         ISlide slide = pres.Slides[index];
 
-        using (FileStream fileStream = new FileStream($"side-{index}.svg", FileMode.Create, FileAccess.Write))
+        using (FileStream fileStream = new FileStream($"slide-{index}.svg", FileMode.Create, FileAccess.Write))
         {
             slide.WriteAsSvg(fileStream);   
         }
