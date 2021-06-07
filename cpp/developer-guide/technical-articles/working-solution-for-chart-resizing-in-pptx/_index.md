@@ -40,7 +40,9 @@ System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<A
 
     return outputStream;
 }
+```
 
+``` cpp
 // define chart size with window 
 chart->SetSizeWithWindow(true);
 
