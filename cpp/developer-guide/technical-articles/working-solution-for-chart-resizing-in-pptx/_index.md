@@ -35,7 +35,7 @@ Suppose, we have defined a template and desire to create the presentations based
 ``` cpp
 System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
 {
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
+    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
     auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
 
     return outputStream;
