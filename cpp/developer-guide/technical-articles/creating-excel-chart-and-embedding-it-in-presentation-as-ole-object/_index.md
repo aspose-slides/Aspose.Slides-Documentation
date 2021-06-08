@@ -158,4 +158,4 @@ By using Aspose.Cells for C++ along with Aspose.Slides for C++, we can create an
 
 {{% /alert %}} 
 ## **Related Sections**
-[Working Solution for Chart Resizing](https://docs.aspose.com/display/slidescpp/Working+Solution+for+Chart+Resizing+in+PPTX)
+[Working Solution for Chart Resizing](https://docs.aspose.com/slides/cpp/working-solution-for-chart-resizing-in-pptx/)
