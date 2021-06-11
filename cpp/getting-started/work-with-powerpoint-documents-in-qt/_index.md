@@ -24,7 +24,7 @@ In order to integrate and use Aspose.Slides for C++ library within a Qt Console 
 ![qt_console_application_qmake](Qt-Console-Application-QMake.png)
 
 - Select the appropriate kit and finish the wizard.
-- Copy aspose-slides-cpp-21.02 folder from the extracted package of Aspose.Slides for C++ into the root of the project.
+- Copy aspose-slides-cpp-21.6 folder from the extracted package of Aspose.Slides for C++ into the root of the project.
 
 ![lib_files](Aspose.Slides-Lib-Files.png)
 
