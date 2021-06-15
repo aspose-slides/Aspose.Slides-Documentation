@@ -18,8 +18,8 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install software-properties-common -y \
  && add-apt-repository ppa:ubuntu-toolchain-r/test \
- && apt-get update && apt-get upgrade libstdc++6 -y ~-~-no-install-recommends\
- && apt-get install -y ~-~-no-install-recommends  \
+ && apt-get update && apt-get upgrade libstdc++6 -y --no-install-recommends\
+ && apt-get install -y --no-install-recommends  \
     unzip \
     cmake \
     make \
@@ -28,19 +28,19 @@ RUN apt-get update && apt-get install software-properties-common -y \
     g++-6 \
     fontconfig \
     libglu1-mesa \ 
- && update-alternatives ~-~-install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
- && update-alternatives ~-~-install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
- && update-alternatives ~-~-install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
- && update-alternatives ~-~-install /usr/bin/c++ c++ /usr/bin/clang++-3.9 40 \
- && update-alternatives ~-~-install /usr/bin/gcc gcc /usr/bin/gcc-6 30 \
- && update-alternatives ~-~-install /usr/bin/g++ g++ /usr/bin/g++-6 30 \
- && update-alternatives ~-~-install /usr/bin/cc  cc  /usr/bin/gcc-6 30 \
- && update-alternatives ~-~-install /usr/bin/c++ c++ /usr/bin/g++-6 30
+ && update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
+ && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
+ && update-alternatives --install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
+ && update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-3.9 40 \
+ && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 30 \
+ && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 30 \
+ && update-alternatives --install /usr/bin/cc  cc  /usr/bin/gcc-6 30 \
+ && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-6 30
 
 ARG accept_msttcorefonts_eula=false
 
 ARG DEBIAN_FRONTEND=teletype
-RUN apt-get install -y ~-~-no-install-recommends apt-transport-https debconf-utils
+RUN apt-get install -y --no-install-recommends apt-transport-https debconf-utils
 RUN echo msttcorefonts msttcorefonts/accepted-mscorefonts-eula select $accept_msttcorefonts_eula | \
     debconf-set-selections
 RUN apt-get install -y msttcorefonts \
@@ -61,8 +61,8 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install software-properties-common -y \
  && add-apt-repository ppa:ubuntu-toolchain-r/test \
- && apt-get update && apt-get upgrade libstdc++6 -y ~-~-no-install-recommends\
- && apt-get install -y ~-~-no-install-recommends  \
+ && apt-get update && apt-get upgrade libstdc++6 -y --no-install-recommends\
+ && apt-get install -y --no-install-recommends  \
     unzip \
     cmake \
     make \
@@ -71,14 +71,14 @@ RUN apt-get update && apt-get install software-properties-common -y \
     g++-6 \
     fontconfig \
     libglu1-mesa \ 
- && update-alternatives ~-~-install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
- && update-alternatives ~-~-install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
- && update-alternatives ~-~-install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
- && update-alternatives ~-~-install /usr/bin/c++ c++ /usr/bin/clang++-3.9 40 \
- && update-alternatives ~-~-install /usr/bin/gcc gcc /usr/bin/gcc-6 30 \
- && update-alternatives ~-~-install /usr/bin/g++ g++ /usr/bin/g++-6 30 \
- && update-alternatives ~-~-install /usr/bin/cc  cc  /usr/bin/gcc-6 30 \
- && update-alternatives ~-~-install /usr/bin/c++ c++ /usr/bin/g++-6 30
+ && update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.9 30 \
+ && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.9 30 \
+ && update-alternatives --install /usr/bin/cc  cc  /usr/bin/clang-3.9 40 \
+ && update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-3.9 40 \
+ && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 30 \
+ && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 30 \
+ && update-alternatives --install /usr/bin/cc  cc  /usr/bin/gcc-6 30 \
+ && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-6 30
 ```
 
 2. Installing the msttcorefonts package (by default, the msttcorefonts package EULA isn't accepted): 
@@ -87,7 +87,7 @@ RUN apt-get update && apt-get install software-properties-common -y \
 ARG accept_msttcorefonts_eula=false
 
 ARG DEBIAN_FRONTEND=teletype
-RUN apt-get install -y ~-~-no-install-recommends apt-transport-https debconf-utils
+RUN apt-get install -y --no-install-recommends apt-transport-https debconf-utils
 RUN echo msttcorefonts msttcorefonts/accepted-mscorefonts-eula select $accept_msttcorefonts_eula | \
     debconf-set-selections
 RUN apt-get install -y msttcorefonts \
@@ -144,7 +144,7 @@ You will see the build and execution of the sample project:
 ```
 -- The CXX compiler identification is Clang 3.9.1
 -- Check for working CXX compiler: /usr/bin/clang++
--- Check for working CXX compiler: /usr/bin/clang++ ~-~- works
+-- Check for working CXX compiler: /usr/bin/clang++ -- works
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
