@@ -130,6 +130,7 @@ try {
     }
     
     pres.save("output.pptx", SaveFormat.Pptx);
+} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
