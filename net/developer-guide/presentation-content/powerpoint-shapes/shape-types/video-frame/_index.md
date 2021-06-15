@@ -49,6 +49,15 @@ using (Presentation pres = new Presentation())
     pres.Save(dataDir + "VideoFrame_out.pptx", SaveFormat.Pptx);
 }
 ```
+It is possible to add a video passing path to the video file directly into AddVideoFrame method:
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    ISlide sld = pres.Slides[0];
+    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, "video1.avi");
+}
+```
 
 
 ## **Create Video Frame with Video from Web Source**
@@ -89,51 +98,6 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
     }
 }
 ```
-
-
-## **Create Video Frame**
-Developers can also embed and play video files in the slides to enrich their presentations. Aspose.Slides for .NET supports adding Embedded Video Frames to the slides that make it possible for developers to add videos to their presentations. This topic will help developers to follow the simple steps with examples for adding video frames in their slides.
-
-To add an Embedded Video Frame in a slide using Aspose.Slides for .NET, please follow the steps below:
-
-1. Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class
-1. Obtain the reference of a slide by using its Index
-1. Add the Video Frame (containing the video file name) into the slide
-1. Add the video to be embedded inside presentation Video collection using Video
-1. Set embedded video to Video frame
-1. Write the modified presentation as a PPTX file
-
-In the example given below, we have added a Video Frame into the slide.
-
-```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
-// Instantiate PrseetationEx class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
-
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Add Video Frame
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, dataDir+ "video1.avi");
-
-    // Set Play Mode and Volume of the Video
-    vf.PlayMode = VideoPlayModePreset.Auto;
-    vf.Volume = AudioVolumeMode.Loud;
-
-    //Write the PPTX file to disk
-    pres.Save(dataDir + "VideoFrame_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
 
 ## **Extract Video From Slide**
 Aspose.Slides for .NET supports extracting video from the slide. In order to extract the video. Please follow the steps below:
