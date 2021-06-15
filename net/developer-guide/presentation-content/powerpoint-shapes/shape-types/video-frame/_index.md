@@ -14,7 +14,7 @@ Developers can also add and play video files in the slides to enrich their prese
 1. Add the Video Frame (containing the video file name) into the slide.
 1. Write the modified presentation as a PPTX file.
 
-In the example given below, we have added a Video Frame into the slide.
+In the example below, we added a Video Frame into the slide.
 
 ```c#
 // The path to the documents directory.
@@ -63,13 +63,15 @@ using (Presentation pres = new Presentation())
 ## **Create Video Frame with Video from Web Source**
 PowerPoint 2010 and newer versions support YouTube videos. To play these videos in PowerPoint make sure your [environment meet requirements ](https://support.office.com/en-us/article/Requirements-for-using-the-PowerPoint-YouTube-feature-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-US&rs=en-US&ad=US)for embedding videos from web source.
 
-In order To add video from YouTube with Aspose.Slides, please use following code snippet:
+Follow these steps:
 
 1. Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class
 1. Obtain the reference of a slide by using its Index
 1. Add the Video Frame by passing video URL
 1. Set Image for Video Frame
 1. Save presentation as a PPTX file
+
+This sample code shows you how to to add a video from YouTube to your presentation using Aspose.Slides:
 
 ```c#
 public static void Run()
