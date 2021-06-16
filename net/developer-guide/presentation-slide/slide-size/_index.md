@@ -35,7 +35,11 @@ If you prefer to use a special slide size for your presentations, we strongly re
  This sample code shows you how to change the slide size in a presentation in C# using Aspose.Slides:
 
 ```c#
-Please provide the code for changing the slide size to the 16:9 aspect ratio—and delete this text.
+using (Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx"))
+{
+    pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
+    pres.Save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## Specifying Custom Slide Sizes in Presentations
@@ -45,7 +49,11 @@ If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you 
 This sample code shows you how to use Aspose.Slides for .NET to specify a custom slide size for a presentation in C#:
 
 ```c#
-Please provide the code for selecting a different size (width and height). For example, you can use the numbers for A4 paper (width - 10.833 in / 27.517 cm, height - 7.5 in / 19.05 cm)
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 paper size
+    pres.Save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## Dealing With Issues When Changing the Size of Slides in Presentations
