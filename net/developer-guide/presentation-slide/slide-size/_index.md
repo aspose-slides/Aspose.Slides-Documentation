@@ -8,7 +8,7 @@ url: /net/slide-size/
 
 ## Slide Sizes in PowerPoint Presentations
 
- Aspose.Slides for .NET allows you to change the slide size or aspect ratio in PowerPoint presentations. If you plan to print your presentation or display its slides on a screen, you have to pay attention to its slide size or aspect ratio. 
+Aspose.Slides for .NET allows you to change the slide size or aspect ratio in PowerPoint presentations. If you plan to print your presentation or display its slides on a screen, you have to pay attention to its slide size or aspect ratio. 
 
 These are the most common slide sizes and aspect ratios:
 
@@ -26,7 +26,7 @@ If you prefer to use a special slide size for your presentations, we strongly re
 
 {{% alert color="primary" %}} 
 
- When you use Aspose.Slides to create a presentation, all the slides in the presentation automatically get the standard or 4:3 aspect ratio.
+ When you use Aspose.Slides to create a presentation, all the slides in the presentation automatically get the standard size or 4:3 aspect ratio.
 
 {{% /alert %}} 
 
@@ -44,7 +44,7 @@ using (Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx"))
 
 ## Specifying Custom Slide Sizes in Presentations
 
-If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you may need to use a specific or unique slide size. For example, if you plan to print full-size slides from your presentation on a custom page layout or if you intend to display your presentation on certain screen types, you are likely to benefit from using a custom size setting for your presentation. 
+If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you may decide to use a specific or unique slide size. For example, if you plan to print full-size slides from your presentation on a custom page layout or if you intend to display your presentation on certain screen types, you are likely to benefit from using a custom size setting for your presentation. 
 
 This sample code shows you how to use Aspose.Slides for .NET to specify a custom slide size for a presentation in C#:
 
