@@ -1,7 +1,7 @@
 ---
 title: Slide Master
 type: docs
-weight: 70
+weight: 80
 url: /net/slide-master/
 keywords: "PPT master slide, slide master PowerPoint"
 description: "Add or edit slide master PowerPoint, PPT master slide with Aspose.Slides."

@@ -1,7 +1,7 @@
 ---
 title: Slide Transition
 type: docs
-weight: 80
+weight: 90
 url: /net/slide-transition/
 keywords: "PowerPoint slide transition, morph transition"
 description: "PowerPoint slide transition, PowerPoint morph transition with Aspose.Slides."
@@ -160,5 +160,4 @@ presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
 // Write the presentation to disk
 presentation.Save(dataDir + "SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 ```
-
 
