@@ -43,7 +43,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.6](https://www.n
 
 ## Support of Presentation to XAML export ##
 
-o support the Presentation to XAML export new API members have been added:
+To support the Presentation to XAML export new API members have been added.
 
 IXamlOptions interface and XamlOptions class. IXamlOptions definition:
 
@@ -83,7 +83,7 @@ public interface IXamlOptions : ISaveOptions
 }
 ```
 
-To export Presentation to XAML a new method added to the Presentation class;
+To export the Presentation to XAML a new Save method overload added to the Presentation class:
 
 ``` csharp
 public void Save(IXamlOptions options);
@@ -114,7 +114,7 @@ Property declaration:
 IShape TargetShape { get; }
 ```
 
-Code sample below demonstrates output information of all animated shapes in main sequence for all slides in the presentation.
+The code sample below demonstrates output information of all animated shapes in the main sequence for all slides in the presentation.
 
 ``` csharp
 using (Presentation pres = new Presentation("SomePresentation.pptx"))
@@ -148,7 +148,7 @@ string Compile(string key, object model);
 
 ## Storage.ContainsKey method has been added ##
 
-Aspose.Slides.Export.Web.Storage.ContainsKey method has been added. It allows to check if some value with certain key was added to the storage.
+Aspose.Slides.Export.Web.Storage.ContainsKey method has been added. It allows checking if some value with a certain key was added to the storage.
 
 Method declaration:
 
