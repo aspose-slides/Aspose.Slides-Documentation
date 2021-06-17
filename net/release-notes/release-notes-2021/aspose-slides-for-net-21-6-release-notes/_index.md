@@ -13,10 +13,10 @@ This page contains release notes for [Aspose.Slides for .NET 21.6](https://www.n
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-42514|Support of Cylinder column shape for 3-D Column and 3-D Bar Charts|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>
-|SLIDESNET-42447|Support of 3-D Bar Chart|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>
-|SLIDESNET-37955|Support of 3D Transforms for thumbnails|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>
-|SLIDESNET-30675|Support of Presentation to XAML export|Feature|
+|SLIDESNET-42514|Support for Cylinder column shape for 3-D Column and 3-D Bar Charts|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>
+|SLIDESNET-42447|Support for 3-D Bar Chart|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>
+|SLIDESNET-37955|Support for 3D Transforms for thumbnails|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>
+|SLIDESNET-30675|Support for Presentation to XAML export|Feature|
 |SLIDESNET-42623|Loading presentation throws PptxReadException|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
 |SLIDESNET-42598|Copying Slide with Chart runs into Deadlock|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
 |SLIDESNET-42586|PPTX update chart values produces bad output file|Bug|<https://docs.aspose.com/slides/net/chart-workbook/>
@@ -43,7 +43,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.6](https://www.n
 
 ## Support of Presentation to XAML export ##
 
-To support the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to XAML export new API members have been added.
+To support [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) export to XAML, we added new API members.
 
 [IXamlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) interface and [XamlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions) class. IXamlOptions definition:
 
@@ -83,13 +83,13 @@ public interface IXamlOptions : ISaveOptions
 }
 ```
 
-To export the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to XAML a new Save method overload added to the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class:
+For [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) export to XAML, a new Save method overload got added to the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class:
 
 ``` csharp
 public void Save(IXamlOptions options);
 ```
 
-The code sample below demonstrates the export of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to the set of XAML files:
+This code sample demonstrates the exporting of a [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to a set of XAML files:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -98,9 +98,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-XAML files will be saved in new created folder "pres".
+The XAML files get saved in a newly created folder—"pres".
 
-[IXamlOutputSaver](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloutputsaver) interface allows define your own output saving service. Below is the [IXamlOutputSaver](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloutputsaver) definition:
+The [IXamlOutputSaver](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloutputsaver) interface allows you to define your own output-saving service. [IXamlOutputSaver](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloutputsaver) definition:
 
 ``` csharp
 /// <summary>
@@ -119,7 +119,7 @@ public interface IXamlOutputSaver
 
 ## IEffect.TargetShape property has been added ##
 
-[Aspose.Slides.Animation.IEffect.TargetShape](https://apireference.aspose.com/slides/net/aspose.slides.animation/ieffect/properties/targetshape) property has been added. It returns the shape that is affected by this effect.
+The [Aspose.Slides.Animation.IEffect.TargetShape](https://apireference.aspose.com/slides/net/aspose.slides.animation/ieffect/properties/targetshape) property has been added. It returns the shape affected by the effect.
 
 Property declaration:
 
@@ -131,7 +131,7 @@ Property declaration:
 IShape TargetShape { get; }
 ```
 
-The code sample below demonstrates output information of all animated shapes in the main sequence for all slides in the presentation.
+This code sample demonstrates the output of information for all animated shapes in the main sequence for all slides in a presentation.
 
 ``` csharp
 using (Presentation pres = new Presentation("SomePresentation.pptx"))
@@ -144,7 +144,7 @@ using (Presentation pres = new Presentation("SomePresentation.pptx"))
 
 ## Aspose.Slides.Export.Web.* interfaces were removed ##
 
-The following interfaces were removed from Aspose.Slides.Export.Web namespace:
+These interfaces were removed from the Aspose.Slides.Export.Web namespace:
 
 * IInput (please use [Input](https://apireference.aspose.com/slides/net/aspose.slides.export.web/input) instead)
 * IOutput (please use [Output](https://apireference.aspose.com/slides/net/aspose.slides.export.web/output) instead)
@@ -157,7 +157,7 @@ The following interfaces were removed from Aspose.Slides.Export.Web namespace:
 string Compile<TModel>(string key, TModel model);
 ```
 
-Was replaced with:
+Was replaced with
 
 ``` csharp
 string Compile(string key, object model);
@@ -165,7 +165,7 @@ string Compile(string key, object model);
 
 ## Storage.ContainsKey method has been added ##
 
-[Aspose.Slides.Export.Web.Storage.ContainsKey](https://apireference.aspose.com/slides/net/aspose.slides.export.web/storage/methods/containskey) method has been added. It allows checking if some value with a certain key was added to the storage.
+The [Aspose.Slides.Export.Web.Storage.ContainsKey](https://apireference.aspose.com/slides/net/aspose.slides.export.web/storage/methods/containskey) method has been added. It allows you to check whether some value with a certain key was added to the storage.
 
 Method declaration:
 
@@ -181,7 +181,7 @@ public bool ContainsKey(string key)
 }
 ```
 
-Sample code (an example of Aspose.Slides.WebExtensions template) demonstrating new method usage:
+A sample code—an example of Aspose.Slides.WebExtensions template—that shows you how to use the new method:
 
 ``` javascript
 @model TemplateContext<AutoShape>
@@ -210,9 +210,9 @@ Sample code (an example of Aspose.Slides.WebExtensions template) demonstrating n
 
 ## WebDocumentOptions.AnimateShapes property has been added ##
 
-[Aspose.Slides.Export.Web.WebDocumentOptions.AnimateShapes](https://apireference.aspose.com/slides/net/aspose.slides.export.web/webdocumentoptions/properties/animateshapes) property has been added. If the property set to true exported HTML results will contain shape animations.
+The [Aspose.Slides.Export.Web.WebDocumentOptions.AnimateShapes](https://apireference.aspose.com/slides/net/aspose.slides.export.web/webdocumentoptions/properties/animateshapes) property has been added. When the property is set to true, shape animations get added to exported HTML results. 
 
-The code sample below demonstrates how the property can be used within the project based on Aspose.Slides.WebExtensions. 
+This code sample demonstrates how the property can be used in a project based on Aspose.Slides.WebExtensions:
 
 ``` csharp
 using (Presentation pres = new Presentation(@"SomePresentation.pptx"))
