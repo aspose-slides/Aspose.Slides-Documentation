@@ -43,9 +43,9 @@ This page contains release notes for [Aspose.Slides for .NET 21.6](https://www.n
 
 ## Support of Presentation to XAML export ##
 
-To support the Presentation to XAML export new API members have been added.
+To support the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to XAML export new API members have been added.
 
-IXamlOptions interface and XamlOptions class. IXamlOptions definition:
+[IXamlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) interface and [XamlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions) class. IXamlOptions definition:
 
 ``` csharp
 /// <summary>
@@ -83,13 +83,13 @@ public interface IXamlOptions : ISaveOptions
 }
 ```
 
-To export the Presentation to XAML a new Save method overload added to the Presentation class:
+To export the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to XAML a new Save method overload added to the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class:
 
 ``` csharp
 public void Save(IXamlOptions options);
 ```
 
-The code sample below demonstrates the export of Presentation to the set of XAML files:
+The code sample below demonstrates the export of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to the set of XAML files:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -99,6 +99,35 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 XAML files will be saved in new created folder "pres".
+
+IOutputSaver interface allows define your own output saving service. Below is the IOutputSaver definition:
+
+``` csharp
+/// <summary>
+/// Represents an output saving service. 
+/// </summary>
+public interface IOutputSaver
+{
+    /// <summary>
+    /// Saves the output file to the given path.
+    /// </summary>
+    /// <param name="path">Path to save the file to.</param>
+    /// <param name="outputFile">Output file.</param>
+    /// <example>Saving into the <see cref="System.IO.FileStream"/> implementation example:
+    /// <code>
+    /// [C#]
+    /// public void Save(string path, IOutputFile outputFile)
+    /// {
+    ///     using (FileStream stream = new FileStream(path, FileMode.Create))
+    ///     {
+    ///         outputFile.Write(stream);
+    ///     }
+    /// }
+    /// </code>
+    /// </example>
+    void Save(string path, IOutputFile outputFile);
+}
+```
 
 ## IEffect.TargetShape property has been added ##
 
