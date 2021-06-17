@@ -1,7 +1,7 @@
 ---
 title: Slide Section
 type: docs
-weight: 90
+weight: 100
 url: /net/slide-section/
 ---
 
