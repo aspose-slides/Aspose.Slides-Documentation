@@ -18,7 +18,7 @@ This page contains release notes for [Aspose.Slides for Android via Java 21.6](
 
 ## Public API Changes ##
 
-## Support of Presentation to XAML export ##
+### Support of Presentation to XAML export ###
 
 To support [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) export to XAML, we added new API members.
 
@@ -108,7 +108,7 @@ public interface IXamlOutputSaver
 }
 ```
 
-## IEffect.getTargetShape() method has been added ##
+### IEffect.getTargetShape() method has been added ###
 
 The [IEffect.getTargetShape()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTargetShape--) method has been added. It returns the shape affected by the effect.
 
