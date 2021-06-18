@@ -21,20 +21,28 @@ To add a section that will house slides in a presentation, Aspose.Slides for .NE
 This sample code shows you to create a section in a presentation in C#:
 
 ```c#
-Provide a better code if possible--and delete this text
+using (Presentation pres = new Presentation())
+{
+    ISlide defaultSlide = pres.Slides[0];
+    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
-Presentation pres = new Presentation(path+"Presentation1.pptx");
-ISection section = pres.Sections[2];
-pres.Sections.ReorderSectionWithSlides(section, 0);
-pres.Sections.RemoveSectionWithSlides(pres.Sections[0]);
-pres.Sections.AppendEmptySection("Last empty section");
-pres.Sections.AddSection("First empty", pres.Slides[0]);
-pres.Sections[0].Name = "New section name";
-pres.Save(path+"resultsection1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
-
+    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
+    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 will be ended at newSlide2 and after it section2 will start   
+    
+    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
+    
+    pres.Sections.ReorderSectionWithSlides(section2, 0);
+    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
+    
+    pres.Sections.RemoveSectionWithSlides(section2);
+    
+    pres.Sections.AppendEmptySection("Last empty section");
+    
+    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+}
 ```
 
 ## Changing the Names of Sections
@@ -45,13 +53,9 @@ This sample code shows you how to change the name of a section in a presentation
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
-
 {
-
    ISection section = pres.Sections[0];
-
    section.Name = "My section";
-
 }
 ```
 
