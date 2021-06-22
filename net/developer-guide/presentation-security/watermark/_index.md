@@ -1,7 +1,7 @@
 ---
 title: Watermark
 type: docs
-weight: 30
+weight: 40
 url: /net/watermark/
 keywords: "watermark in presentation"
 description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in ppt presentation or remove watermark. Insert image watermark or text watermark."
@@ -38,7 +38,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
 
 }
 
-``` 
+```
 
 
 
@@ -68,7 +68,7 @@ object and then add watermark into it with
 
 }
 
-``` 
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -86,7 +86,7 @@ IPortion watermarkPortion = watermarkTextFrame.Paragraphs[0].Portions[0];
 
 watermarkPortion.PortionFormat.FontHeight = 52;
 
-``` 
+```
 
 
 ### **Set Text Watermark Transparency**
@@ -102,7 +102,7 @@ watermarkPortion.PortionFormat.FillFormat.FillType = FillType.Solid;
 
 watermarkPortion.PortionFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.FromArgb(alpha, red, green, blue);
 
-``` 
+```
 
 
 ### **Center Text Watermark**
@@ -130,7 +130,7 @@ float y = center.Y - height / 2;
 
 IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, x, y, width, height);
 
-``` 
+```
 
 
 ## **Image Watermark**
@@ -153,7 +153,7 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-``` 
+```
 
 
 
@@ -175,7 +175,7 @@ watermarkShape.ShapeLock.PositionLocked = true;
 
 watermarkShape.ShapeLock.GroupingLocked = true;
 
-``` 
+```
 
 
 
@@ -190,7 +190,7 @@ In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.Reorder
 
  slide.Shapes.Reorder(slide.Shapes.Count - 1, watermarkShape);
 
-``` 
+```
 
 
 ## **Set Watermark Rotation**
@@ -224,7 +224,7 @@ private int calculateRotation(float height, float width)
 
 }
 
-``` 
+```
 
 
 ## **Set Name to Watermark**
@@ -236,7 +236,7 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
  watermarkShape.Name = "watermark";
 
-``` 
+```
 
 
 ## **Remove Watermark**
@@ -260,7 +260,7 @@ To remove watermark shape and its child controls from slide, use [AutoShape.Name
 
 }
 
-``` 
+```
 
 
 ## **Live Example**
