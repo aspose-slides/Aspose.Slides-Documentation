@@ -5,9 +5,9 @@ weight: 50
 url: /java/shape-animation/
 ---
 
-Animations are important parts of presentations that make them more attractive and meaningful. Aspose.Slides for Java allows developers to apply different kinds of animation effects to different kinds of shapes. In this topic, we will show you how to apply animation effects to shapes.
+Animation is one of the most important parts of the presentations that make them more attractive and meaningful. Aspose.Slides for Java also allows developers to apply different kinds of animation effects on different kinds of shapes. In this topic, we will show how to apply animation effects on shapes.
 
-Here, we will apply the PathFootball effect—one of the 150+ available effects—on a TextBox that will be activated when the bevel shape (some sort of button) gets clicked:
+Here we will apply the PathFootball effect (one of more than 150 available effects) on a TextBox that will be activated on clicking the bevel shape (some sort of button). To apply such animation effect, please follow the steps below:
 
 - Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.

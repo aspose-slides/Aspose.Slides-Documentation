@@ -1,3 +1,10 @@
+---
+title: Create Chart
+type: docs
+weight: 10
+url: /java/create-chart/
+---
+
 ## **Create Chart**
 Aspose.Slides for Java allows developers to create custom charts from slides. Aspose.Slides for Java creates charts independently of Aspose.Cells. 
 

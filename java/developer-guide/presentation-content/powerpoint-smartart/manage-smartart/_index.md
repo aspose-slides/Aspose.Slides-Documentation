@@ -28,35 +28,6 @@ try {
 }
 ```
 
-## **Change Text of SmartArt**
-In order to change text on SmartArt node. Please follow the steps below:
-
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
-- Add SmartArt on slide.
-- Obtain the reference of a node by using its Index.
-- Set text on node.
-- Write the presentation as a PPTX file.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    ISmartArt smartArt = (ISmartArt)slide.getShapes().get_Item(0);
-
-    ISmartArtNodeCollection smartArtNodes = smartArt.getAllNodes();
-    for (ISmartArtNode smartArtNode : smartArtNodes)
-    {
-        for (ISmartArtShape nodeShape : smartArtNode.getShapes())
-        {
-            if (nodeShape.getTextFrame() != null)
-                nodeShape.getTextFrame().setText("Test");
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
 ## **Change Layout Type of SmartArt**
 In order to change the layout type of [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/SmartArt). Please follow the steps below:
 
@@ -137,6 +108,26 @@ try {
 
     // Saving Presentation
     pres.save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Create Picture Organization Chart**
+Aspose.Slides for Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Obtain a slide's reference by its index.
+1. Add a chart with default data along with the desired type (ChartType.PictureOrganizationChart).
+1. Write the modified presentation to a PPTX file
+
+The following code is used to create a chart.
+
+```java
+Presentation pres = new Presentation("test.pptx");
+try {
+    ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
+    pres.save("OrganizationChart.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }

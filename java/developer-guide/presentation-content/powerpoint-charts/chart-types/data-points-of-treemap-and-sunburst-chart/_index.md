@@ -2,8 +2,9 @@
 title: Data Points of Treemap and Sunburst Chart
 type: docs
 url: /java/data-points-of-treemap-and-sunburst-chart/
-keywords: "Sunburst graph"
-description: "Sunburst Graph, Sunburst Diagram, Sunburst Chart, Radial Chart, Radial Graph or Multi Level Pie Chart with Aspose.Slides."
+weight: 40
+keywords: "Sunburst graph in Aspose.Slides for Java"
+description: "Sunburst Graph, Sunburst Diagram, Sunburst Chart, Radial Chart, Radial Graph or Multi Level Pie Chart with Aspose.Slides for Java."
 ---
 
 Among other types of PowerPoint charts, there are two "hierarchical" types - **Treemap** and **Sunburst** chart (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph or Multi Level Pie Chart). These charts display hierarchical data organized as a tree - from leaves to the top of the branch. Leaves are defined by the series data points, and each subsequent nested grouping level defined by the corresponding category. Aspose.Slides for Java allows to format data points of Sunburst Chart and Treemap in Java.
@@ -74,16 +75,21 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 Change color of "Steam 4" branch:
 
 ```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
+    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
 
-IFormat steam4Format = dataPoints.get_Item(9).getDataPointLevels().get_Item(1).getFormat();
-steam4Format.getFill().setFillType(FillType.Solid);
-steam4Format.getFill().getSolidFillColor().setColor(new Color(0, 176, 240, 255));
+    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
+
+    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
+    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
