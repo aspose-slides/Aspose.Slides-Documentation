@@ -56,16 +56,16 @@ It returns effective value of text frame format for the TextFrame object. Return
 #### **Interface com.aspose.slides.ITextFrameFormatEffectiveData has been added**
 Represents effective values (formatting values with inheritance applied) of text frame format. It contains the following methods:
 
-- `ITextStyleEffectiveData getTextStyle()` — Returns effective text's style.
-- `double getMarginLeft()` — Returns the left margin (points) in a TextFrame.
-- `double getMarginRight()` — Returns the right margin (points) in a TextFrame.
-- `double getMarginTop()` — Returns the top margin (points) in a TextFrame.
-- `double getMarginBottom()` — Returns the bottom margin (points) in a TextFrame.
-- `boolean getWrapText()` — Returns if text is wrapped at TextFrame's margins.
-- `byte getAnchoringType()` — Returns vertical anchor text in a TextFrame.
-- `boolean getCenterText()` — Returns if text should be centered in box horizontally.
-- `byte getTextVerticalType()` — Returns text orientation.
-- `byte getAutofitType()` — Returns text autofit mode.
+- `ITextStyleEffectiveData getTextStyle()` - Returns effective text's style.
+- `double getMarginLeft()` - Returns the left margin (points) in a TextFrame.
+- `double getMarginRight()` - Returns the right margin (points) in a TextFrame.
+- `double getMarginTop()` - Returns the top margin (points) in a TextFrame.
+- `double getMarginBottom()` - Returns the bottom margin (points) in a TextFrame.
+- `boolean getWrapText()` - Returns if text is wrapped at TextFrame's margins.
+- `byte getAnchoringType()` - Returns vertical anchor text in a TextFrame.
+- `boolean getCenterText()` - Returns if text should be centered in box horizontally.
+- `byte getTextVerticalType()` - Returns text orientation.
+- `byte getAutofitType()` - Returns text autofit mode.
 
 Code example:
 
@@ -87,8 +87,8 @@ try{
 #### **Interface com.aspose.slides.ITextStyleEffectiveData has been added**
 Represents effective values (formatting values with inheritance applied) of text style. It contains the following methods:
 
-- `IParagraphFormatEffectiveData getLevel(int index)` — Returns level of effective style.
-- `IParagraphFormatEffectiveData getDefaultParagraphFormat()` — Returns effective default paragraph properties.
+- `IParagraphFormatEffectiveData getLevel(int index)` - Returns level of effective style.
+- `IParagraphFormatEffectiveData getDefaultParagraphFormat()` - Returns effective default paragraph properties.
 
 Code example:
 

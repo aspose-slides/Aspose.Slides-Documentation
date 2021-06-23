@@ -109,7 +109,7 @@ try {
 }
 ```
 
-The XAML files get saved in a newly created folder—"pres".
+The XAML files get saved in a newly created folder "pres".
 
 The [IXamlOutputSaver](https://apireference.aspose.com/slides/java/com.aspose.slides/IXamlOutputSaver) interface allows you to define your own output-saving service. [IXamlOutputSaver](https://apireference.aspose.com/slides/java/com.aspose.slides/IXamlOutputSaver) definition:
 
