@@ -8,9 +8,9 @@ url: /java/managing-tags-and-custom-data
 
 ## Data Storage in Presentation Files
 
-PPTX files items with the .pptx extension are stored in the PresentationML format, which is part of the Office Open XML specification. The Office Open XML format defines the structure for data contained in presentations. 
+PPTX files—items with the .pptx extension—are stored in the PresentationML format, which is part of the Office Open XML specification. The Office Open XML format defines the structure for data contained in presentations. 
 
-With a *slide* being one of the elements in presentations, a *slide part* contains the content of a single slide. A slide part is allowed to have explicit relationships to many parts such as User Defined Tags defined by ISO/IEC 29500. 
+With a *slide* being one of the elements in presentations, a *slide part* contains the content of a single slide. A slide part is allowed to have explicit relationships to many parts—such as User Defined Tags—defined by ISO/IEC 29500. 
 
 Custom data (specific to a presentation) or user can exist as tags ([ITagCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ITagCollection)) and CustomXmlParts ([ICustomXmlPartCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)). 
 

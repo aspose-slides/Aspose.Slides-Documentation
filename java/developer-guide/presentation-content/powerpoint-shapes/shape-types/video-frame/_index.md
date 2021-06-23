@@ -6,7 +6,7 @@ url: /java/video-frame/
 ---
 
 ## **Create Embedded Video Frame**
-Developers can also add and play video files in slides to enrich their presentations. Aspose.Slides for Java supports addition of Video Frames into slides and this means you get to add videos to your presentations. In this topic, we will describe operations to add video frames to slides using examples and simple steps.
+Developers can also add and play video files in slides to enrich their presentations. Aspose.Slides for Java supports addition of Video Frames into slides—and this means you get to add videos to your presentations. In this topic, we will describe operations to add video frames to slides using examples and simple steps.
 
 To add a Video Frame in a slide using Aspose.Slides for Java, do this:
 
@@ -92,7 +92,7 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 ```
 
 ## **Create Video Frame**
-Developers can also embed and play video files in slides to enrich their presentations. Aspose.Slides for Java supports addition of Embedded Video Frames to slides and this means you get to add videos to your presentations. 
+Developers can also embed and play video files in slides to enrich their presentations. Aspose.Slides for Java supports addition of Embedded Video Frames to slides—and this means you get to add videos to your presentations. 
 
 To add an Embedded Video Frame in a slide using Aspose.Slides for Java, do this:
 

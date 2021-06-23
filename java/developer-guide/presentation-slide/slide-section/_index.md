@@ -9,10 +9,10 @@ With Aspose.Slides for Java, you can organize a PowerPoint Presentation into sec
 
 You may want to create sections and use them to organize or divide slides in a presentation into logical parts in these situations:
 
-- When you are working on a large presentation with other people or a team and you need to assign certain slides to a colleague or some team members. 
-- When you are dealing with a presentation that contains many slides and you are struggling to manage or edit its contents at once.
+- When you are working on a large presentation with other people or a team—and you need to assign certain slides to a colleague or some team members. 
+- When you are dealing with a presentation that contains many slides—and you are struggling to manage or edit its contents at once.
 
-Ideally, you should create a section that houses similar slides the slides have something in common or they can exist in a group based on a rule and give the section a name that describes the slides inside it. 
+Ideally, you should create a section that houses similar slides—the slides have something in common or they can exist in a group based on a rule—and give the section a name that describes the slides inside it. 
 
 ## Creating Sections in Presentations
 

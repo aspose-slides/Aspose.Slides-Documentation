@@ -13,7 +13,7 @@ Aspose provides unlimited free technical support for all its products. The suppo
 
 When you need help with Aspose.Slides for Android via Java, consider the following:
 
-- The main avenue for support is the Aspose.Forums. Post your question in the Aspose.Slides forum and it will be answered within a few hours. Aspose.Slides support team directly answers questions posted on the forum.
+- The main avenue for support is the Aspose.Forums. Post your question in the Aspose.Slides forum—and it will be answered within a few hours. Aspose.Slides support team directly answers questions posted on the forum.
 - Please note that Aspose does not provide technical support over the phone. Phone support is only available for sales and purchase questions.
 - When expecting a reply in the forums, please be patient and make evaluations for time zone differences.
 
