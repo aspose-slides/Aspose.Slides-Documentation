@@ -15,7 +15,7 @@ After you select the **Always Open Read-Only** option for a presentation, when u
 
 The Read-Only recommendation is a simple yet effective deterrent that discourages editing because users have to perform a task to remove it before they are allowed to edit a presentation. If you do not want users to make changes to a presentation and want to tell them about this in a polite way, then the Read-Only recommendation may a good option for you. 
 
-> If a presentation with the **Read-Only** protection gets opened in an older Microsoft PowerPoint application which does not support the recently introduced function the **Read-Only** recommendation gets ignored (the presentation is opened normally).
+> If a presentation with the **Read-Only** protection gets opened in an older Microsoft PowerPoint application—which does not support the recently introduced function—the **Read-Only** recommendation gets ignored (the presentation is opened normally).
 
 Aspose.Slides for Java allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in Java using Aspose.Slides:
 
@@ -31,6 +31,6 @@ try {
 
 {{% alert color="primary" %}} 
 
-**Note**: The **Read-Only** recommendation is simply meant to discourage editing or stop users from making accidental changes to a PowerPoint presentation. If a motivated person who knows what they are doing decides to edit your presentation, they can easily remove the Read-Only setting. If you seriously need to prevent unauthorized editing, you are better off using [more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/java/password-protected-presentation/). 
+**Note**: The **Read-Only** recommendation is simply meant to discourage editing or stop users from making accidental changes to a PowerPoint presentation. If a motivated person—who knows what they are doing—decides to edit your presentation, they can easily remove the Read-Only setting. If you seriously need to prevent unauthorized editing, you are better off using [more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/java/password-protected-presentation/). 
 
 {{% /alert %}} 
