@@ -14,7 +14,7 @@ OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and
 Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
 - An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
-- An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app. 
+- An OLE object may display actual contents for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app. 
 
 Aspose.Slides for Java allows you to insert OLE Objects into slides as OLE Object Frames. In this topic, we will show you how to work with OLE Object Frames. You will learn how to add and manipulate OLE objects. 
 
@@ -78,7 +78,7 @@ If an OLE object is already embedded in a slide, you can find or access that obj
    In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame). This was the desired OLE Object Frame to be accessed.
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
-In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file.
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed and then its file data gets written to an Excel file.
 
 ``` java 
 // Load the PPTX to Presentation object
@@ -130,7 +130,7 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 1. Save the updated Workbook in streams.
 1. Change the OLE object data from stream data.
 
-In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data.
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
 
 ``` java 
 Presentation pres = new Presentation("ChangeOLEObjectData.pptx");

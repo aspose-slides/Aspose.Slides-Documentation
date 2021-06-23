@@ -17,7 +17,7 @@ Typically, you can set a password to enforce these restrictions on a presentatio
 
   If you want only certain users to modify your presentation, you can set a modification restriction. The restriction here prevents people from modifying, changing, or copying things in your presentation (unless they provide the password). 
 
-  However, in this case, even without the password, a user will be able to access your document and open it. In this read-only mode, the user can view the contents or things—hyperlinks, animations, effects, and others—inside your presentation, but they cannot copy items or save the presentation. 
+  However, in this case, even without the password, a user will be able to access your document and open it. In this read-only mode, the user can view the contents or things hyperlinks, animations, effects, and others inside your presentation, but they cannot copy items or save the presentation. 
 
 - **Opening**
 
@@ -94,7 +94,7 @@ try {
 
 You can add a mark stating “Do not modify” to a presentation. This way, you get to tell users that you do not want them to make changes to the presentation.  
 
-**Note** that the write protection process does not encrypt the presentation. Therefore, users—if they actually want to—can modify the presentation, but to save the changes, they will have to create a presentation with a different name. 
+**Note** that the write protection process does not encrypt the presentation. Therefore, users if they actually want to can modify the presentation, but to save the changes, they will have to create a presentation with a different name. 
 
 To set a write protection, you have to use the [setWriteProtection](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) method. This sample code shows you how to set a write protection to a presentation:
 
@@ -146,7 +146,7 @@ try {
 
 ## Removing Write Protection from a Presentation
 
-You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
+You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like and they get no warnings when they perform such tasks.
 
 You can remove the write protection from a presentation by using the [removeWriteProtection](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) method. This sample code shows you to remove the write protection from a presentation:
 

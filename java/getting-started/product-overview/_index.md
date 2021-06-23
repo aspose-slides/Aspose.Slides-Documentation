@@ -19,7 +19,7 @@ Aspose.Slides for Java offers a lot of key features such as managing text, shape
 ## **Product Description**
 Aspose.Slides for Java not only lets you open PowerPoint files from different sources, but it also allows you to save your presentations in a variety of ways. For example, you can save your presentations in PPT; you can also save your slides as images. 
 
-Aspose.Slides for Java gives you almost all the features you may or may not find in Microsoft PowerPoint. Given the versatility of Aspose.Slides for Java, besides tables and different kinds of shapes, you can also add different kinds of frames—text, audio, and video frames—to your slides. 
+Aspose.Slides for Java gives you almost all the features you may or may not find in Microsoft PowerPoint. Given the versatility of Aspose.Slides for Java, besides tables and different kinds of shapes, you can also add different kinds of frames text, audio, and video frames to your slides. 
 
 Aspose.Slides for Java also provides fully featured demos and working examples for developers to get a better understanding of the API.
 
