@@ -11,7 +11,7 @@ All Aspose .NET components require the Full Trust permission set because they so
 
 {{% /alert %}} 
 
-Internet Service Providers, which host multiple applications from different companies, mostly enforce the Medium Trust security level. In .NET 2.0 case, such a security level applies the following constraints: 
+Internet Service Providers, which host multiple applications from different companies, mostly enforce the Medium Trust security level. In a .NET 2.0 case, such a security level applies these constraints: 
 
 - OleDbPermission is not available. This means you cannot use the ADO.NET managed OLE DB data provider to access databases.
 - EventLogPermission is not available. This means you cannot access the Windows event log.

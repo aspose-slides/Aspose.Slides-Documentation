@@ -6,17 +6,22 @@ url: /net/how-to-run-examples/
 ---
 
 ## **Software Requirements**
-Please check and confirm that your setup meets these requirements before downloading and running the examples:
+Before you download and run the examples, please check and confirm that your setup meets these requirements: 
 
-1. Visual Studio 2010 or higher
+- Visual Studio 2010 or higher.
+- NuGet Package Manager installed in Visual Studio. Verify that the latest NuGet API version is installed in Visual Studio. 
 
-1. NuGet Package Manager installed in Visual Studio. Verify that the latest NuGet API version is installed in Visual Studio. For instructions on installing NuGet package manager, go to this page: http://docs.nuget.org/ndocs/guides/install-nuget>
+For instructions on installing the NuGet package manager, go to this page: http://docs.nuget.org/ndocs/guides/install-nuget
 
-1. Go to Tools->Options->NuGet Package Manager->Package Sources and confirm that the **nuget.org** option is checked
+1. Go through **Tools** > **Options** > **NuGet Package Manager**.
 
-1. The example project uses the NuGet Automatic Package Restore feature. Therefore, you need to have an active internet connection. 
+1. Expand **NuGet Package Manager** (by double-clicking on it) and then select **Package Sources**. 
 
-   If you do not have an active internet connection on the machine where you intend to execute examples, please check [Installation](/slides/net/installation/) and (manually) add a reference to Aspose.Slides.dll in the example project.
+1. Check and confirm that the nuget.org parameter is selected. 
+
+   The example project uses the NuGet Automatic Package Restore feature, so you need to have an active internet connection. 
+
+   If you do not have an active internet connection on the machine where you intend to execute examples, please check [Installation](https://docs.aspose.com/slides/net/installation/) and (manually) add a reference to Aspose.Slides.dll in the example project.
 ## **Download from GitHub**
 All Aspose.Slides for .NET examples are hosted on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET).
 
@@ -32,7 +37,7 @@ There is a C# Visual Studio solution file. The projects are created in Visual St
 
    On the first run, the dependencies are automatically downloaded via NuGet.
 
-The **Data** folder at the root folder of **Examples** contains input files used in the C# examples used. You have to download the **Data** folder alongside the examples project.
+The **Data** folder at the root folder of **Examples** contains input files used in the C# examples. You have to download the **Data** folder alongside the examples project.
 
 3. Open the RunExamples.cs file. All the examples are called from here.
 

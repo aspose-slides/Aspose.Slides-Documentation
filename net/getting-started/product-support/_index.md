@@ -29,7 +29,7 @@ When you experience an issue with Aspose.Slides for .NET, follow these guideline
 
 - When reporting an issue, please include the original document and (if possible) a fragment of your code pertaining to the problem. If you need to attach multiple files, put them in a ZIP package. 
 
-  You can safely attach your documents in Aspose.Forums because only you and Aspose developers have access to the attached files.
+  You can safely attach your documents in Aspose.Forums because **only** you and Aspose developers have access to the attached files.
 
 - Create and use one thread for a specific issue. If you experience another issue, you have to create another thread to report it. 
 
@@ -40,6 +40,6 @@ This table list useful Aspose.Slides for .NET technical resources.
 | :- | :- |
 |[Aspose.Slides for .NET home page](https://products.aspose.com/slides/net)|Product home page.|
 |[Aspose.Slides blog](https://blog.aspose.com/category/aspose-products/aspose-slides-product-family/)|Check this section regularly for information on new releases and useful tips on Aspose.Slides.|
-|[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides from here. We often release new versions.|
+|[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides from this page. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides)|Post your questions and issues here for a speedy resolution.|
 |[Aspose.Slides for .NET product documentation](/slides/net/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|

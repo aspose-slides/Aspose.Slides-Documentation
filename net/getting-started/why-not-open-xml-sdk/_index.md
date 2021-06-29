@@ -10,12 +10,14 @@ Sometimes, we get this question: *Why should we use Aspose products rather than 
 
 We find it easy to answer this question in terms of features and functionalities. 
 
-According to the [MSDN Library](http://msdn.microsoft.com/en-us/library/bb448854.aspx), Open XML SDK is defined this way: The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree, and working with XML elements and attributes directly, Open XML SDK provides classes to do that.
+According to the [MSDN Library](http://msdn.microsoft.com/en-us/library/bb448854.aspx), Open XML SDK is defined this way: 
+
+> "The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree, and working with XML elements and attributes directly, Open XML SDK provides classes to do that."
 
 ## **What is Aspose.Slides?**
 Aspose.Slides is a class library that allows applications to perform these presentation processing tasks: 
 
-- Programming with a **Presentation** object model.
+- Programming with a presentation object model.
 
 - High quality conversions involving all the popular supported PowerPoint presentation formats, including conversion to PDF, XPS, TIFF and printing.
 
@@ -23,11 +25,11 @@ Aspose.Slides is a class library that allows applications to perform these prese
 
 - Building presentations from scratch or by combining elements from one or multiple documents.
 
-- Adding animations, Ole Frames, Tables, creating and managing charts.
+- Adding animations, OLE Frames, tables, creating and managing charts.
 
 - Controlling (extensive control) and managing the text formatting on TextFrames, Paragraphs and Portions levels. 
 
-  For more details on the supported features, please see the [Aspose.Slides Features](/slides/net/product-overview/) page.
+  For more details on the available features, please see the [Aspose.Slides Features](/slides/net/product-overview/) page.
 ## **Comparing Open XML SDK with Aspose.Slides**
 This table compares Open XML SDK capabilities and features with Aspose.Slides.
 
@@ -42,7 +44,13 @@ This table compares Open XML SDK capabilities and features with Aspose.Slides.
 |Supported platforms|Windows, .NET|Windows, Linux, Java, .NET, Mono|
 
 ## **Conclusion**
-Open XML SDK and Aspose.Slides do not compete directly because they address considerably different needs, and they target different audiences. Open XML SDK is a class library that provides a strong-typed way for working with OOXML documents while Aspose.Slides is an incredibly useful presentations processing library that provides great support for almost all Microsoft PowerPoint file formats. 
+Open XML SDK and Aspose.Slides do not compete directly because they address considerably different needs, and they target different audiences. 
+
+{{% alert color="primary" %}} 
+
+Open XML SDK is a class library that provides a strong-typed way for working with OOXML documents while Aspose.Slides is an incredibly useful presentations processing library that provides great support for almost all Microsoft PowerPoint file formats. 
+
+{{% /alert %}} 
 
 If your workflow is a basic programming operation on a PPTX document, then Open XML SDK might be a good choice. With Open XML SDK, you should be comfortable performing simple tasks like generating a simple PPTX document or removing comments, headers/footers, extracting images or others. Certain tasks can be performed with Open XML SDK but cannot be performed with Aspose.Slides. For example, if you need to directly access the XML elements and attributes of an OOXML document, then you should use Open XML SDK. 
 

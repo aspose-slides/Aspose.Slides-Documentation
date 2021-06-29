@@ -6,7 +6,7 @@ url: /net/aspose-slides-for-xamarin/
 ---
 
 ## **Overview**
-Xamarin is a framework used for cross-platform mobile development in .NET C#. Xamarin has tools and libraries that extend the possibilities of the .NET platform. It allows developers to build applications for any operating system (Android, iOS, and Windows). For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
+Xamarin is a framework used for cross-platform mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for any operating system (Android, iOS, and Windows). For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
 
 Aspose.Slides API can work on the Xamarin platform. To achieve this, the Aspose.Slides .NET package adds a separate DLL for Xamarin. Aspose.Slides for Xamarin supports most of the features available in the .NET version:
 
@@ -124,6 +124,7 @@ First, we create a content layout that will contain an image view, Prev, and Nex
 Here, we reference the "Aspose.Slides.Droid.dll" library that includes a sample presentation ("HelloWorld.pptx") into Xamarin application Assets and adds its initialization to MainActivity:
 
 **C# - MainActivity.cs - Initialization**
+
 ``` csharp
 
  [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
@@ -193,6 +194,7 @@ public class MainActivity : AppCompatActivity
 Let’s add the function to display the Prev and Next slides on the tapping of buttons:
 
 **C# - MainActivity.cs - Display slides on Prev and Next button click**
+
 ``` csharp
 
  [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
