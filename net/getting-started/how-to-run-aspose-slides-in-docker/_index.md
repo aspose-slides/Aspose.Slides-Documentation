@@ -8,7 +8,7 @@ description: "Run Aspose.Slides in a Docker container for Linux, Windows Server 
 ---
 
 ## **Supported OS**
-Aspose.Slides can run inside docker containers using .NET Core platform. In general, Aspose.Slides supports all container types (OS) types that the .NET Core platform supports. However, the gdi or [libgdiplus ](https://github.com/mono/libgdiplus)has to be available and correctly set up on the containers involved.
+Aspose.Slides can run inside docker containers using .NET Core platform. In general, Aspose.Slides supports all container types (OS) types that the .NET Core platform supports. However, the GDI or [libgdiplus ](https://github.com/mono/libgdiplus) has to be available and correctly set up on the containers involved.
 
 To use Docker, you have to first install it on your system. To learn how to install Docker on Windows or Mac, use these links:
 
