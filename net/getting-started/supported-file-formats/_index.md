@@ -33,7 +33,7 @@ This table contains the file formats Aspose.Slides for .NET can load and save:
 |[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint presentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint slideShow 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[ODP](https://docs.fileformat.com/presentation/odp/)|Open document presentation (read-only access)|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[ODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument presentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument Presentation Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[TIFF](https://docs.fileformat.com/image/tiff/)|Saves the document as a Single or Multi-Page TIFF Image| |{{< emoticons/tick >}}| |
 |[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format Plus Extensions| |{{< emoticons/tick >}}| |
@@ -46,6 +46,7 @@ This table contains the file formats Aspose.Slides for .NET can load and save:
 |[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics (An XML-based vector image format)| |{{< emoticons/tick >}}| |
 |[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
 |[HTML](https://docs.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|XAML Format| |{{< emoticons/tick >}}| |
 
 
 
