@@ -41,6 +41,7 @@ Aspose.Slides for .NET supports .NET and Mono frameworks:
 - .NET Framework 4.6.2
 - .NET Framework 4.7
 - .NET Framework 4.7.2
+- .NET 5
 - .NET Core
 - COM Interop support (COM, C++, VBScript)
 ### **Mono Framework**
