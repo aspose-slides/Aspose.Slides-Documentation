@@ -46,11 +46,8 @@ This code snippet is used to set a license file:
 ``` csharp
 
  //Instantiate an instance of license and set the license file through its path
-
 Aspose.Slides.License license = new Aspose.Slides.License();
-
 license.SetLicense("Aspose.Slides.lic");
-
 
 ```
 
@@ -63,52 +60,10 @@ This code snippet is used to apply a license from a stream:
 **C#**
 
 ``` csharp
-
  //Instantiate an instance of license and set the license through a stream
-
 Aspose.Slides.License license = new Aspose.Slides.License();
-
 license.SetLicense(myStream);
-
 ```
-
-
-### **Checking Whether Aspose.Slides License Has Been Applied**
-You can check whether Aspose.Slides license has been properly applied in your application. This procedure is useful when you're unsure whether the license has been set, and it helps you avoid license-related issues. 
-
-This code snippet is used to check the license:
-
-**C#**
-
-``` csharp
-
- //Instantiate an instance of license and set the license through a stream
-
-Aspose.Slides.License license = new Aspose.Slides.License();
-
-//Setting License
-
-license.SetLicense("Aspose.Slides.lic");
-
-//Reset the applied license
-
-license.ResetLicense();
-
-//Get status if license is applied or not
-
-bool isLicensed = license.IsLicensed();
-
-if(!isLicensed)
-
-{
-
-    license.SetLicense("Aspose.Slides.lic");
-
-    Debug.Assert(!license.IsLicensed());
-
-}
-```
-
 
 ### **Embedding a Resource**
 You can apply a license by [using a file or stream](/slides/net/licensing/). You can package the license with your application (to avoid losing it) this way: add the license as an embedded resource into one of the assemblies that calls the component's DLL (included in Aspose.Slides). 
@@ -132,14 +87,10 @@ This code snippet is used to set the license:
 ``` csharp
 
  //Instantiate the License class
-
 Aspose.Slides.License license = new Aspose.Slides.License();
 
 //Pass only the name of the license file embedded in the assembly
-
 license.SetLicense("Aspose.Slides.lic");
-
-
 
 ```
 
