@@ -38,85 +38,46 @@ First, we create a content layout that will contain an image view, Prev, and Nex
 
 **XML - content_main.xml - Create content layout**
 ``` 
-
  <LinearLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
-
     android:orientation=    "vertical"
-
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
-
     tools:showIn="@layout/activity_main">
-
     <LinearLayout
-
         android:orientation="horizontal"
-
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
-
         android:layout_weight="1"
-
         android:id="@+id/linearLayout1">
-
         <ImageView
-
             android:src="@android:drawable/ic_menu_gallery"
-
             android:layout_width="match_parent"
-
             android:layout_height="match_parent"
-
             android:id="@+id/imageView"
-
             android:scaleType="fitCenter" />
-
     </LinearLayout>
 
     <LinearLayout
-
         android:orientation="horizontal"
-
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
-
         android:layout_weight="10"
-
         android:id="@+id/linearLayout2">
-
         <Button
-
             android:text="Prev"
-
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
-
             android:id="@+id/buttonPrev" />
-
         <Button
-
             android:text="Next"
-
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
-
             android:id="@+id/buttonNext"/>
-
     </LinearLayout>
-
 </LinearLayout>
-
 ```
 
 
@@ -126,87 +87,49 @@ Here, we reference the "Aspose.Slides.Droid.dll" library that includes a sample 
 **C# - MainActivity.cs - Initialization**
 
 ``` csharp
-
- [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-
+[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
-
 {
-
     private Aspose.Slides.Presentation presentation;
 
-
-
     protected override void OnCreate(Bundle savedInstanceState)
-
     {
-
         base.OnCreate(savedInstanceState);
-
         SetContentView(Resource.Layout.activity_main);
-
     }
 
-
-
     protected override void OnResume()
-
     {
-
         if (presentation == null)
-
         {
-
             using (Stream input = Assets.Open("HelloWorld.pptx"))
-
             {
-
                 presentation = new Aspose.Slides.Presentation(input);
-
             }
-
         }
-
     }
 
     protected override void OnPause()
-
     {
-
         if (presentation != null)
-
         {
-
             presentation.Dispose();
-
             presentation = null;
-
         }
-
     }
-
 }
-
 ```
-
-
 
 Let’s add the function to display the Prev and Next slides on the tapping of buttons:
 
 **C# - MainActivity.cs - Display slides on Prev and Next button click**
 
 ``` csharp
-
- [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-
+[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
-
 {
-
     private Button buttonNext;
-
     private Button buttonPrev;
-
     ImageView imageView;
 
     private Aspose.Slides.Presentation presentation;
@@ -214,197 +137,118 @@ public class MainActivity : AppCompatActivity
     private int currentSlideNumber;
 
     protected override void OnCreate(Bundle savedInstanceState)
-
     {
-
         base.OnCreate(savedInstanceState);
-
         SetContentView(Resource.Layout.activity_main);
-
     }
 
-
-
     protected override void OnResume()
-
     {
-
         base.OnResume();
-
         LoadPresentation();
-
         currentSlideNumber = 0;
-
         if (buttonNext == null)
-
         {
-
             buttonNext = FindViewById<Button>(Resource.Id.buttonNext);
-
         }
 
         if (buttonPrev == null)
-
         {
-
             buttonPrev = FindViewById<Button>(Resource.Id.buttonPrev);
-
         }
 
         if(imageView == null)
-
         {
-
             imageView= FindViewById<ImageView>(Resource.Id.imageView);
-
         }
 
         buttonNext.Click += ButtonNext_Click;
-
         buttonPrev.Click += ButtonPrev_Click;
-
         RefreshButtonsStatus();
-
         ShowSlide(currentSlideNumber);
-
     }
 
     private void ButtonNext_Click(object sender, System.EventArgs e)
-
     {
-
         if (currentSlideNumber > (presentation.Slides.Count - 1))
-
         {
-
             return;
-
         }
 
         ShowSlide(++currentSlideNumber);
-
         RefreshButtonsStatus();
-
     }
 
     private void ButtonPrev_Click(object sender, System.EventArgs e)
-
     {
-
         if (currentSlideNumber == 0)
-
         {
-
             return;
-
         }
 
         ShowSlide(--currentSlideNumber);
-
         RefreshButtonsStatus();
-
     }
 
     protected override void OnPause()
-
     {
-
         base.OnPause();
-
         if (buttonNext != null)
-
         {
-
             buttonNext.Dispose();
-
             buttonNext = null;
-
         }
 
         if (buttonPrev != null)
-
         {
-
             buttonPrev.Dispose();
-
             buttonPrev = null;
-
         }
 
         if(imageView != null)
-
         {
-
             imageView.Dispose();
-
             imageView = null;
-
         }
 
         DisposePresentation();
-
     }
 
     private void RefreshButtonsStatus()
-
     {
-
         buttonNext.Enabled = currentSlideNumber < (presentation.Slides.Count - 1);
-
         buttonPrev.Enabled = currentSlideNumber > 0;
-
     }
 
     private void ShowSlide(int slideNumber)
-
     {
-
         Aspose.Slides.Drawing.Xamarin.Size size = presentation.SlideSize.Size.ToSize();
-
         Aspose.Slides.Drawing.Xamarin.Bitmap bitmap = presentation.Slides[slideNumber].GetThumbnail(size);
-
         imageView.SetImageBitmap(bitmap.ToNativeBitmap());
-
     }
 
     private void LoadPresentation()
-
     {
-
         if(presentation != null)
-
         {
-
             return;
-
         }
 
         using (Stream input = Assets.Open("HelloWorld.pptx"))
-
         {
-
             presentation = new Aspose.Slides.Presentation(input);
-
         }
-
     }
 
     private void DisposePresentation()
-
     {
-
         if(presentation == null)
-
         {
-
             return;
-
         }
-
+        
         presentation.Dispose();
-
         presentation = null;
-
     }
 
 }
@@ -418,56 +262,34 @@ Finally, let’s implement a function to add an ellipse shape on a touch on the 
 **C# - MainActivity.cs - Add ellipse by slide click**
 
 ``` csharp
-
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
-
 {
-
     int[] location = new int[2];
-
     imageView.GetLocationOnScreen(location);
-
     int x = (int)e.Event.GetX();
-
     int y = (int)e.Event.GetY();
-
     int posX = x - location[0];
-
     int posY = y - location[0];
-
+    
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
-
     float coeffY = (float)presSize.Height / imageView.Height;
-
     int presPosX = (int)(posX * coeffX);
-
     int presPosY = (int)(posY * coeffY);
-
     int width = presSize.Width / 50;
 
     int height = width;
-
     Aspose.Slides.IAutoShape ellipse = presentation.Slides[currentSlideNumber].Shapes.AddAutoShape(Aspose.Slides.ShapeType.Ellipse, presPosX, presPosY, width, height);
-
     ellipse.FillFormat.FillType = Aspose.Slides.FillType.Solid;
 
-
-
     Random random = new Random();
-
     Aspose.Slides.Drawing.Xamarin.Color slidesColor = Aspose.Slides.Drawing.Xamarin.Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
-
     ellipse.FillFormat.SolidFillColor.Color = slidesColor;
-
     ShowSlide(currentSlideNumber);
-
 }
 
 ```
-
-
 
 Each click on the presentation slide causes a random colored ellipse to be added:
 
