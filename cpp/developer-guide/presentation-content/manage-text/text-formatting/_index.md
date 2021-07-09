@@ -111,6 +111,41 @@ Aspose.Slides for C++ allows developers to rotate the text. Text could be set to
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
 
+## **Line Spacing of Paragraph**
+Aspose.Slides for C++ lets developers to set the values of ParagraphFormat to deal with line spacing of the paragraph. The methods set_SpaceAfter(), set_SpaceBefore() and Set_SpaceWithin() could be use for different line spacing. Aspose.Slides for C++ provides a simple API for setting values of ParagraphFormat:
+
+- Load a presentation with an AutoShape having some text in it.
+- Obtain a slide's reference by its index.
+- Access the TextFrame.
+- Access the Paragraph.
+- Set values of Paragraph.
+- Save the presentation to disk.
+
+``` cpp
+// The path to the documents directory.
+System::String dataDir = GetDataPath();
+
+// Create an instance of Presentation class
+auto presentation = System::MakeObject<Presentation>(dataDir + u"Fonts.pptx");
+
+// Obtain a slide's reference by its index
+auto sld = presentation->get_Slides()->idx_get(0);
+
+// Access the TextFrame
+auto tf1 = (System::DynamicCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
+
+// Access the Paragraph
+auto para = tf1->get_Paragraphs()->idx_get(0);
+
+// Set properties of Paragraph
+para->get_ParagraphFormat()->set_SpaceWithin(80.0f);
+para->get_ParagraphFormat()->set_SpaceBefore(40.0f);
+para->get_ParagraphFormat()->set_SpaceAfter(40.0f);
+
+// Save Presentation
+presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
+```
+
 
 ## **Set AutofitType Property of Text Frame**
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for C++ allows developers to set AutofitType property of any text frame. AutofitType could be set to Normal or Shape. If set to Normal then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to shape, then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
