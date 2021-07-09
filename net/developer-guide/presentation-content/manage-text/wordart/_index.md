@@ -5,19 +5,30 @@ weight: 231
 url: /net/wordart/
 ---
 
-## **WordArt API**
-WordArt is any kind of effect that changes the visual appearance of the text. Here are some of the effects, that can be applied to the text as a WordArt: 
-shadows, outlines, colors, gradients, curved style, 3D effects and others. Skewing, bending, stretching the shape of the text can be also called a WordArt.
-WordArt effects are not a limited list of effects, but an approach of modifying regular text to make it more attractive for users.
+## **About WordArt?**
+WordArt or Word Art is a feature that allows you to apply effects to texts to make them stand out. With WordArt, for example, you can outline a text or fill it with a color (or gradient), add 3D effects to it, etc. You also get to skew, bend, and stretch the shape of a text. 
 
-Microsoft has added support of WordArt as a text modifying feature to Office products, giving a life to it for all PowerPoint presentation formats.
+{{% alert color="primary" %}} 
 
-Aspose.Slides API supports WordArt since 20.10 version. In PowerPoint, you usually choose one of the predefined WordArt templates, which is a set of effects 
-applied to the text or its shapes.
-In Aspose.Slides, it is possible to create your own WordArt programmatically, combining any effects altogether. Let us create a new WordArt with Aspose.Slides for .NET, 
-comparing each step with the same step in PowerPoint.We will start with the simplest example and move to the most complicated way of displaying text.
+WordArt allows you to treat a text as you would a graphical object. In general, WordArt consists of effects or special modifications made to texts to make them more attractive or noticeable. 
 
-First, let's create a simple text:
+{{% /alert %}} 
+
+**WordArt in Microsoft PowerPoint**
+
+To use WordArt in Microsoft PowerPoint, you have to select one of the predefined WordArt templates. A WordArt template is a set of effects that gets applied to a text or its shape. 
+
+**WordArt in Aspose.Slides**
+
+In Aspose.Slides for .NET 20.10, we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for .NET releases. 
+
+With Aspose.Slides for .NET, you can easily create your own WordArt template (one effect or combination of effects) in C# and apply it to texts. 
+
+## Creating a Simple WordArt Template and Applying It to a Text
+
+**Using Aspose.Slides** 
+
+First, we create a simple text using this C# code: 
 
 ``` csharp 
 using (Presentation pres = new Presentation())
@@ -30,7 +41,7 @@ using (Presentation pres = new Presentation())
     portion.Text = "Aspose.Slides";
 }
 ```
-Set text font height bigger to make the future effect more visible:
+Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ``` csharp 
 FontData fontData = new FontData("Arial Black");
@@ -38,18 +49,21 @@ portion.PortionFormat.LatinFont = fontData;
 portion.PortionFormat.FontHeight = 36;
 ```
 
-This is how WordArt effects menu looks in PowerPoint:
+**Using Microsoft PowerPoint**
+
+Go to the WordArt effects menu in Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
+From the menu on the right, you can choose a predefined WordArt effect. From the menu on the left, you can specify the settings for a new WordArt. 
 
-On the right, its possible to choose a ready-made WordArt effect. On the left side you can set settings for creating a new WordArt effect. 
-WordArt API in Aspose.Slides is not a set of ready-made solutions, but a way to create your own WordArt. 
-Therefore, you need to operate the low-lever part of the PowerPoint "WordArt Styles" menu:
+These are some of the available parameters or options:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-Let us set the “SmallGrid” pattern color to the text and a 1-width black text border:
+**Using Aspose.Slides**
+
+Here, we apply the SmallGrid pattern color to the text and add a 1-width black text border using this code:
 
 ``` csharp 
 portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
@@ -61,19 +75,23 @@ portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
 ```
 
-Here is a resulting text:
+The resulting text:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-Now let's take a look on the effects that can be applied to the text via PowerPoint UI:
+## Applying Other WordArt Effects
+
+**Using Microsoft PowerPoint**
+
+From the program’s interface, you can apply these effects to a text, text block, shape, or similar element:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-On the low level, the effect above may be applied to text, text block, shape or other element. For example, Shadow, Reflection and Glow effects are applied to the text. 
-3D Format and 3D Rotation effects are applied to the text block. Soft Edges property is usually applied to a Shape object 
-(Note: it has an effect when none of the 3D Format properties are set).
+For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D Format and 3D Rotation effects can be applied to a text block; Soft Edges property can be applied to a Shape Object (it still has an effect when no 3D Format property is set). 
 
-Let us set the properties that relate to the text only. Set shadow effect to the text:
+### Applying Shadow Effects
+
+Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in C#:
 
 ``` csharp 
 portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
@@ -89,18 +107,27 @@ portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.
 ```
 
 Aspose.Slides API supports three types of shadows: OuterShadow, InnerShadow, and PresetShadow. 
-With PresetShadow you may set shadow for the text, using preset values. In PowerPoint you usually use one type of shadow only, 
-however in Aspsoe.Slides API it is possible to set two types of shadows at once: InnerShadow and PresetShadow. 
 
-Here is an example:
+ With PresetShadow, you can apply a shadow for a text (using preset values). 
+
+**Using Microsoft PowerPoint**
+
+In PowerPoint, you can use one type of shadow. Here’s an example:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-Note, if OuterShadow and PresetShadow are set together, only OuterShadow effect will be applied. 
-While using OuterShadow and InnerShadow simultaneously, the effect applied will depend on the version of PowerPoint. 
-For PowerPoint 2013 the effect will double, for 2007 - OuterShadow will be applied.
+**Using Aspose.Slides**
 
-Let's try to add display to the text:
+Aspose.Slides actually allows you to apply two types of shadows at once: InnerShadow and PresetShadow.
+
+**Notes:**
+
+- When OuterShadow and PresetShadow are used together, only the OuterShadow effect gets applied. 
+- If OuterShadow and InnerShadow get used simultaneously, the resulting or applied effect depends on the PowerPoint version. For instance, in PowerPoint 2013, the effect gets doubled. But in PowerPoint 2007, the OuterShadow effect gets applied. 
+
+### Applying Display to Texts
+
+We add display to the text through this code sample in C#:
 
 ``` csharp 
 portion.PortionFormat.EffectFormat.EnableReflectionEffect();
@@ -116,7 +143,9 @@ portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
 portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
 ```
 
-Set glow effect to the text, to make it shine:
+### Applying Glow Effect to Texts
+
+We apply the glow effect to the text to make it shine or stand out using this code:
 
 ``` csharp 
 portion.PortionFormat.EffectFormat.EnableGlowEffect();
@@ -125,25 +154,44 @@ portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTran
 portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
 ```
 
-Here is the result:
+The result of the operation:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-You may change the parameters of shadow, display and glow in your way. Note, that the effect properties are set on each text portion separately.
+{{% alert color="primary" %}} 
 
-Let's set Transform property, that is inherent in the entire block of text:
+You can change the parameters for shadow, display, and glow. The effects’ properties get set on each portion of the text separately. 
+
+{{% /alert %}} 
+
+### Using Transformations in WordArt
+
+We use the Transform property (inherent in the entire block of text) through this code:
 ``` csharp 
 textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
 ```
 
-The result is the following:
+The result:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-Both PowerPoint and Aspose.Slides API have a number of predefined transformation types. 
-In PowerPoint, you may see them via such menu: Format-> TextEffect-> Transform. In Aspose.Slides, you may use TextShapeType enum to choose them.
+{{% alert color="primary" %}} 
 
-Let's move on to 3D effects for the text and its shape. Let's set a 3D effect to the text shape:
+Both Microsoft PowerPoint and Aspose.Slides for .NET provide a certain number of predefined transformation types. 
+
+{{% /alert %}} 
+
+**Using PowerPoint**
+
+To access predefined transformation types, go through: **Format** -> **TextEffect** -> **Transform**
+
+**Using Aspose.Slides**
+
+To select a transformation type, use the TextShapeType enum. 
+
+### Applying 3D effects to Texts and Shapes
+
+We set a 3D effect to a text shape using this sample code:
 
 ``` csharp 
 autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
@@ -171,11 +219,11 @@ autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-The resulting effect will look like the following:
+The resulting text and its shape:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-Now let's apply 3D effect to the text:
+We apply a 3D effect to the text with this C# code:
 
 ``` csharp 
 textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
@@ -203,45 +251,41 @@ textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-Now, the resulting WordArt will look this way:
+The result of the operation:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-Note, that 3D effects have some specific rules how they are applied to the text and its shapes, as well as the way they affect each other with other effects.
-For example, there is a scene for the text and the shape containing it. 
-3D effect contains object 3D representation and the scene on which this object is placed.  
-If the scene is set for both the figure and the text, 
-the figure scene will have a higher priority (i.e. the text scene will be ignored). 
-If the figure does not have its own scene, 
-but have 3D representation - the text scene will be used. Otherwise (when the shape has no 3D effect at all), the shape will be flat and the 
-3D effect will only be applied to the text. Please note that the scene is related to the ThreeDFormat.getLightRig() 
-and ThreeDFormat.getCamera() methods.
+{{% alert color="primary" %}} 
 
+The application of 3D effects to texts or their shapes and interactions between effects are based on certain rules. 
 
+Consider a scene for a text and the shape containing that text. The 3D effect contains 3D object representation and the scene on which the object got placed. 
 
-Aspose.Slides for .NET provides 
-[**IOuterShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/ioutershadow) and
- [**IInnerShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/iinnershadow) classes 
- in order to apply shadow effects on the text carried by TextFrame. These classes are available in the [**Aspose.Slides.Effects**](https://apireference.aspose.com/net/slides/aspose.slides.effects/) namespace and provides a number of properties for handling the shadow effects.
-## **Apply Outer Shadow to WordArt**
-Please follow the steps below to apply shadow effects on the text in a [PPTX](https://wiki.fileformat.com/presentation/pptx/) presentation using Aspose.Slides for .NET :
+- When the scene is set for both the figure and the text, the figure scene gets the higher priority—the text scene is ignored. 
+- When the figure lacks its own scene but has 3D representation, the text scene is used. 
+- Otherwise—when the shape originally has no 3D effect—the shape is flat and the 3D effect only gets applied to the text. 
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Rectangle type to the slide.
-- Access the TextFrame associated with the AutoShape.
-- Set the FillType of the AutoShape to NoFill.
-- Instantiate OuterShadow class
-- Set the BlurRadius of the shadow.
-- Set the Direction of the shadow
-- Set the Distance of the shadow.
-- Set the RectanglelAlign to TopLeft.
-- Set the PresetColor of the shadow to Black.
-- Write the presentation as a PPTX file.
+ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFormat.getCamera() methods.
 
-The implementation of the above steps is given below.
+{{% /alert %}} 
 
+## **Apply Outer Shadow Effects to Texts**
+Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
+1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+2. Obtain the reference of a slide by using its index.
+3. Add an AutoShape of Rectangle type to the slide.
+4. Access the TextFrame associated with the AutoShape.
+5. Set the FillType of the AutoShape to NoFill.
+6. Instantiate OuterShadow class
+7. Set the BlurRadius of the shadow.
+8. Set the Direction of the shadow
+9. Set the Distance of the shadow.
+10. Set the RectanglelAlign to TopLeft.
+11. Set the PresetColor of the shadow to Black.
+12. Write the presentation as a PPTX file.
+
+This sample code in C#—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```c#
 // The path to the documents directory.
@@ -284,19 +328,19 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Apply Inner Shadow to WordArt**
-Aspose.Slides for .NET could be used to apply WordArt Effects on Text. Every WordArt effect has a scheme, for example Accent1, Accent3. In this topic, we will see with examples for how to work with WordArt in Aspose.Slides. In order to apply the scheme of any WordArt. Please follow the steps below:
+## **Apply Inner Shadow Effect to Shapes**
+Go through these steps:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
-- Get reference of a slide.
-- Add an AutoShape of Rectangle type.
-- Enable InnerShadowEffect.
-- Set all necessary parameters.
-- Set ColorType as Scheme.
-- Set Scheme Color.
-- Write the presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+2. Get a reference of the slide.
+3. Add an AutoShape of the Rectangle type.
+4. Enable InnerShadowEffect.
+5. Set all the necessary parameters.
+6. Set the ColorType as Scheme.
+7. Set the Scheme Color.
+8. Write the presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
 
-In the example given below, we have added a connector between two shapes.
+This sample code (based on the steps above) shows you how to add a connector between two shapes in C#:
 
 ```c#
 // The path to the documents directory.
