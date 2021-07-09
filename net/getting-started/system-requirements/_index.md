@@ -6,9 +6,9 @@ url: /net/system-requirements/
 ---
 
 ## **Overview**
-Aspose.Slides for .NET does not need Microsoft PowerPoint installed, as Aspose.Slides itself is a Microsoft PowerPoint document creation, conversion, page layout and rendering engine.
+Aspose.Slides for .NET does not require Microsoft PowerPoint to be installed because Aspose.Slides is an independent Microsoft PowerPoint document creation, conversion, page layout, and rendering engine.
 ## **Supported Operating Systems**
-Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET or Mono framework is installed including, but not limited to:
+Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET or Mono framework is installed including (but not limited to):
 ### **Windows**
 - Microsoft Windows 2000 Server ( x64, x86)
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -18,13 +18,13 @@ Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET
 - Microsoft Windows 8, 8.1 ( x64, x86)
 - Microsoft Windows 10 ( x64, x86)
 - Microsoft Azure
- 
+
 ### **Linux**
-- Linux (Ubuntu, OpenSUSE, CentOS and others)
+- Linux (Ubuntu, OpenSUSE, CentOS, and others)
 ### **Mac**
 - Mac OS X
 ## **Supported Frameworks**
-Aspose.Slides for .NET supports .NET and Mono frameworks as follows:
+Aspose.Slides for .NET supports .NET and Mono frameworks:
 ### **.NET Frameworks**
 - .NET Framework 2.0
 - .NET Framework 3.5
@@ -41,12 +41,13 @@ Aspose.Slides for .NET supports .NET and Mono frameworks as follows:
 - .NET Framework 4.6.2
 - .NET Framework 4.7
 - .NET Framework 4.7.2
+- .NET 5
 - .NET Core
 - COM Interop support (COM, C++, VBScript)
 ### **Mono Framework**
 - MONO Support in MAC and Linux platforms
 ## **Development Environments**
-Aspose.Slides for .NET can be used to develop applications in any development environment that targets the .NET platform, but the following environments are explicitly supported:
+Aspose.Slides for .NET can be used to develop applications in any development environment that targets the .NET platform, but these environments are explicitly supported:
 
 - Microsoft Visual Studio 2005
 - Microsoft Visual Studio 2008
