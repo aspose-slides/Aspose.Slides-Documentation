@@ -143,4 +143,33 @@ The [Save](https://apireference.aspose.com/cpp/slides/class/aspose.slides.prese
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ConvertNotesSlideViewToPDF-ConvertNotesSlideViewToPDF.cpp" >}}
 
+## **Convert Presentation to Set of Images**
 
+In some cases, it is necessary to convert the entire presentation into a set of images, 
+the same as PowerPoint allows. The following example demonstrates this possibility:
+
+``` cpp 
+// Path to output directory
+System::String outputDir = u"D:\\PresentationImages";
+
+auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
+
+// Render presentation to images array slide by slide
+for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
+{
+    // Control hidden slides (do not render hidden slides)
+    if (pres->get_Slides()->idx_get(i)->get_Hidden())
+    {
+        continue;
+    }
+
+    // Convert slide to a Bitmap object
+    auto bmp = pres->get_Slides()->idx_get(i)->GetThumbnail(2.f, 2.f);
+
+    // Create file name for an image
+    auto outputFilePath = Path::Combine(outputDir, String(u"Slide_") + i + u".jpg");
+
+    // Save the image in PNG format
+    bmp->Save(outputFilePath, ImageFormat::get_Png());
+}
+```
