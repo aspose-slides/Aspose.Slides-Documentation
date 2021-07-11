@@ -9,7 +9,7 @@ description: "PowerPoint presentation background design with Aspose.Slides."
 
 ## Overview
 In this topic, we will see that how can we set the background color of a slide. We know that Aspose.Slides for .NET may contain two types of slides: **Master Slide** & **Normal Slide**. It is possible to change the background colors of both types of slides, which will be explained in this topic.
-## **Set Background Color to Master Slide**
+## **Setting Background Color for Master Slides**
 We know that Aspose.Slides for .NET may contain two types of slides: Master Slide & Normal Slide. It is possible to change the background colors of both types of slides. Master Slide is like a template that contains all formatting settings, which are applied on all other normal slides contained inside the presentation. It means that if you change the background color of the master slide, all normal slides in the presentation would receive the same background color settings. Please follow the steps below to change the background color of the master slide:
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
@@ -43,7 +43,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Set Background Color to Normal Slide**
+## **Setting Background Color to Normal Slides**
 A Normal Slide is the one which inherits its format settings from the master slide. If you want to modify its background settings, you would have to modify the slide settings. Please follow the steps below to perform this task:
 
 - Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
@@ -74,7 +74,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## Set Gradient Background Color to Slide
+## Setting Gradient Background Color for Slides
 **Gradient** is a graphic effect consisting of a gradual change in color. It is great for creating depth and highlights to sections of the images. It is possible to apply gradient effect on the background of a slide using Aspose.Slides for .NET that will be explained in the remaining discussion of this topic.
 
 To apply the simple gradient effect on the background of a slide using Aspose.Slides for .NET, please follow the steps below:
@@ -104,7 +104,7 @@ using (Presentation pres = new Presentation(dataDir + "SetBackgroundToGradient.p
 ```
 
 
-## Set Image as Background to Slide
+## Setting Images as Background for Slides
 Sometimes, developers may need to use an image as the background of the slide. To fulfill such development needs, Aspose.Slides for .NET also allows filling the slide background with any image.
 
 To use an image as the background of a slide using Aspose.Slides for .NET, please follow the steps below:
@@ -143,7 +143,7 @@ using (Presentation pres = new Presentation(dataDir + "SetImageAsBackground.pptx
 ```
 
 
-## **Get Effective Background Values of Slide**
+## **Getting Effective Background Values of Slides**
 **Aspose.Slides.IBackgroundEffectiveData** interface and its implementation by **Aspose.Slides.BackgroundEffectiveData** class have been added. They represent effective background of slide and contain information about effective fill format and effective effect format.
 
 **CreateBackgroundEffective** method has been added to **IBaseSlide** interface and **BaseSlide** class. This method allows to get effective values for slides background.
