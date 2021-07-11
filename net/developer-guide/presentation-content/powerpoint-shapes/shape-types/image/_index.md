@@ -5,8 +5,64 @@ weight: 10
 url: /net/image/
 ---
 
+## Images in Slides In Presentations
+
+Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other locations onto slides. Similarly, Aspose.Slides allows you to add images to slides in your presentations through different procedures. 
+
+{{% alert color="primary" %}} 
+
+**Note:** If you want to add an image as a frame and use formatting options on it, see [*Picture Frame*](https://docs.aspose.com/slides/net/picture-frame/). 
+
+{{% /alert %}} 
+
+Aspose.Slides supports operations with images in these widely-used formats: JPEG, PNG, ~~more formats~~
+
+## Adding Images Stored Locally to Slides
+
+~~Explanation~~.
+
+You can add one or several images on your computer onto a slide in a presentation. This sample code in C# shows you how to add an image to a slide:
+
+```c#
+
+```
+
+
+
+## Adding Images From the Web to Slides
+
+~~Explanation~~.
+
+If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
+
+This sample code shows you how to add an image from the web to a slide in C#:
+
+```c#
+
+```
+
+ 
+
+## Adding Images to Slide Masters
+
+ A slide master is the top slide that stores and controls information (theme, layout, etc.) about all slides under it. So, when you add an image to a slide master, that image appears on every slide under that slide master. 
+
+This C# sample code shows you how to add an image to a slide master:
+
+```c#
+
+```
+
+ 
+
+## Adding Images as Slide Background
+
+You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *Setting Images as Backgrounds for Slides*. ~~Insert link.~~ 
+
+
 
 ## **Adding EMZ Images to Images Collection**
+
 Aspose.Slides for .NET allows you to embed EMZ (Windows Compressed Enhanced Metafile) files in a presentation images collection. 
 
 EMZ files are compressed image files commonly used in Microsoft Office programs. They typically contain  EMF (Enhanced Metafile) files. Normally, you can decompress an EMZ file and get an EMF file from it. 
@@ -31,7 +87,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Inserting/Adding SVG into Presentations**
+## **Adding SVG to Presentations**
 You can add or insert any image into a presentation by using the [AddPictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
