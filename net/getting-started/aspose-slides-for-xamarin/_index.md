@@ -6,9 +6,15 @@ url: /net/aspose-slides-for-xamarin/
 ---
 
 ## **Overview**
-Xamarin is a framework used for cross-platform mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for any operating system (Android, iOS, and Windows). For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
+Xamarin is a framework used for mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for the **Android** operating system. 
 
-Aspose.Slides API can work on the Xamarin platform. To achieve this, the Aspose.Slides .NET package adds a separate DLL for Xamarin. Aspose.Slides for Xamarin supports most of the features available in the .NET version:
+{{% alert color="primary" %}} 
+
+For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
+
+{{% /alert %}}
+
+Aspose.Slides API works on the Xamarin platform. To achieve this, the Aspose.Slides .NET package adds a separate DLL for Xamarin. Aspose.Slides for Xamarin supports most of the features available in the .NET version:
 
 - converting and viewing presentations.
 - editing contents in presentations: text, shapes, charts, SmartArt, audio/video, fonts, etc.
