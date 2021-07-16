@@ -24,7 +24,14 @@ Aspose.Slides supports operations with images in these widely-used formats: JPEG
 You can add one or several images on your computer onto a slide in a presentation. This sample code in C# shows you how to add an image to a slide:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -38,7 +45,21 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in C#:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
 
+    byte[] imageData;
+    using (WebClient webClient = new WebClient()) 
+    {
+        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
+    }
+    
+    IPPImage image = pres.Images.AddImage(imageData);
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
  
@@ -50,7 +71,16 @@ This sample code shows you how to add an image from the web to a slide in C#:
 This C# sample code shows you how to add an image to a slide master:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
+    
+    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
  
