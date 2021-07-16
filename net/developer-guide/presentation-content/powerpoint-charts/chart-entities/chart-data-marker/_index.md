@@ -17,9 +17,6 @@ The markers can be set on chart data points inside particular series. In order t
 In the example given below, we have set the chart marker options on data points level.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -41,11 +38,11 @@ chart.ChartData.Series.Clear();
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
             
 // Set the picture
-System.Drawing.Image image1 = (System.Drawing.Image)new Bitmap(dataDir + "aspose-logo.jpg");
+System.Drawing.Image image1 = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
 IPPImage imgx1 = presentation.Images.AddImage(image1);
 
 // Set the picture
-System.Drawing.Image image2 = (System.Drawing.Image)new Bitmap(dataDir + "Tulips.jpg");
+System.Drawing.Image image2 = (System.Drawing.Image)new Bitmap("Tulips.jpg");
 IPPImage imgx2 = presentation.Images.AddImage(image2);
 
 // Take first chart series
@@ -72,6 +69,6 @@ point.Marker.Format.Fill.PictureFillFormat.Picture.Image = imgx2;
 series.Marker.Size = 15;
 
 // Write presentation to disk
-presentation.Save(dataDir + "MarkOptions_out.pptx", SaveFormat.Pptx);
+presentation.Save("MarkOptions_out.pptx", SaveFormat.Pptx);
 ```
 

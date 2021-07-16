@@ -8,16 +8,13 @@ url: /net/chart-data-label/
 Aspose.Slides for .NET provides a simple API for setting precision of data in chart data label. Below sample example is given. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
 	chart.HasDataTable = true;
 	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
 
-	pres.Save(dataDir + "PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
+	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -36,9 +33,6 @@ Aspose.Slides for .NET supports displaying the percentage as labels. In this top
 In the example given below, we have set the percentage as label.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -81,13 +75,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
         lbl.DataLabelFormat.ShowLegendKey = false;
         lbl.DataLabelFormat.ShowCategoryName = false;
         lbl.DataLabelFormat.ShowBubbleSize = false;
-
     }
-
 }
 
 // Save presentation with chart
-presentation.Save(dataDir + "DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
+presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -106,9 +98,6 @@ In order to set the percentage sign with chart data labels. Please follow the st
 - Write the presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -166,7 +155,7 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTy
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
 // Write presentation to disk
-presentation.Save(dataDir + "SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -183,9 +172,6 @@ In order to set the Label Distance. Please follow the steps below:
 In the example given below, we have set the label distance from category axis.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 Presentation presentation = new Presentation();
 
 // Get reference of the slide
@@ -198,6 +184,6 @@ IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
 // Write the presentation file to disk
-presentation.Save(dataDir + "SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 

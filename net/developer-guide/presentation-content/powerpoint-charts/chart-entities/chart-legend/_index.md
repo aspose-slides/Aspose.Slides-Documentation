@@ -16,9 +16,6 @@ In order to set the legend properties. Please follow the steps below:
 In the example given below, we have set the position and size for Chart legend.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -35,7 +32,7 @@ chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
 // Write presentation to disk
-presentation.Save(dataDir + "Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -51,10 +48,7 @@ The Aspose.Slides for .NET lets developers allow to set font size of legend. Pl
 - Write presentation to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
@@ -64,7 +58,7 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 	chart.Axes.VerticalAxis.MaxValue = 10;
 
-	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
+	pres.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -81,8 +75,7 @@ The Aspose.Slides for .NET lets developers allow to set font size of individual 
 - Write presentation to disk.
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
@@ -93,7 +86,7 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
 	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
+	pres.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 

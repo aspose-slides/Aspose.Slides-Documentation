@@ -19,9 +19,6 @@ Aspose.Slides for .NET provides a simple API for getting value of vertical axis.
 1. Get actual minor unit scale of the axis.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation pres = new Presentation())
 {
 	Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
@@ -34,7 +31,7 @@ using (Presentation pres = new Presentation())
 	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
 	
 	// Saving presentation
-	presentation.Save(dataDir + "ErrorBars_out.pptx", SaveFormat.Pptx);
+	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -45,9 +42,6 @@ using (Presentation pres = new Presentation())
 A new property has been added which Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa. Below sample example is given.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Creating empty presentation
 using (Presentation pres = new Presentation())
 {
@@ -57,7 +51,7 @@ using (Presentation pres = new Presentation())
 	chart.ChartData.SwitchRowColumn();
 		   
 	// Saving presentation
-	 pres.Save(dataDir + "SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
  }
 ```
 
@@ -66,17 +60,14 @@ using (Presentation pres = new Presentation())
 **CategoryAxisType** can be changed to Date or Text.However, **CategoryAxisType.Auto** is not supported at the moment. New property **CategoryAxisType** has been added to **IAxis** and Axis classes which specifies type of category axis.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation presentation = new Presentation(dataDir + "ExistingChart.pptx"))
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes[0] as IChart;
     chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
     chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
     chart.Axes.HorizontalAxis.MajorUnit = 1;
     chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
-    presentation.Save(dataDir + "ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
+    presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -86,8 +77,6 @@ using (Presentation presentation = new Presentation(dataDir + "ExistingChart.ppt
 Aspose.Slides for .NET provides a simple API for setting date format for category axis value. Below sample example is given. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Area, 50, 50, 450, 300);
@@ -111,7 +100,7 @@ using (Presentation pres = new Presentation())
 	chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
 	chart.Axes.HorizontalAxis.IsNumberFormatLinkedToSource = false;
 	chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
-	pres.Save(dataDir+"test.pptx", SaveFormat.Pptx);
+	pres.Save("test.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -121,15 +110,13 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET provides a simple API for setting rotation angle for chart axis title. Below sample example is given. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
 	chart.Axes.VerticalAxis.HasTitle = true;
              chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
 
-	pres.Save(dataDir + "test.pptx", SaveFormat.Pptx);
+	pres.Save("test.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -139,13 +126,12 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET provides a simple API for setting Position axis in category or Value axis. Below sample example is given. 
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
 	chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
 
-	pres.Save(dataDir + "AsposeScatterChart.pptx", SaveFormat.Pptx);
+	pres.Save("AsposeScatterChart.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -155,12 +141,11 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET provides support for showing Display unit label on chart value axis. Below sample example is given. 
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
 	chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
-	pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
+	pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 

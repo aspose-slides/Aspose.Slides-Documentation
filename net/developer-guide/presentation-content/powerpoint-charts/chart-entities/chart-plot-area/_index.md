@@ -17,10 +17,7 @@ Aspose.Slides for .NET provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation pres = new Presentation(dataDir+"test.Pptx"))
+using (Presentation pres = new Presentation("test.Pptx"))
 {
     Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
     chart.ValidateChartLayout();
@@ -31,7 +28,7 @@ using (Presentation pres = new Presentation(dataDir+"test.Pptx"))
     double h = chart.PlotArea.ActualHeight;
 	
 	// Save presentation with chart
-	pres.Save(dataDir + "Chart_out.pptx", SaveFormat.Pptx);
+	pres.Save("Chart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -47,7 +44,6 @@ Aspose.Slides for .NET provides a simple API to set the layout mode of the chart
 Sample code is given below.
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -58,7 +54,7 @@ using (Presentation presentation = new Presentation())
     chart.PlotArea.AsILayoutable.Height = 0.7f;
     chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 
-    presentation.Save(dataDir + "SetLayoutMode_outer.pptx", SaveFormat.Pptx);
+    presentation.Save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
 }
 ```
 

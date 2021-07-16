@@ -47,16 +47,13 @@ Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cel
 1. Save the presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
 // Instantiate Presentation class that represents a presentation file 
 
-using (Presentation pres = new Presentation(dataDir + "chart2.pptx"))
+using (Presentation pres = new Presentation("chart2.pptx"))
 {
     ISlide slide = pres.Slides[0];
 
@@ -73,7 +70,7 @@ using (Presentation pres = new Presentation(dataDir + "chart2.pptx"))
     series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
     series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
 
-    pres.Save(path + "resultchart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("resultchart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -88,10 +85,7 @@ Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cel
 1. If Source Type is equal to external workbook the get chart external data source workbook path.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
+using (Presentation pres = new Presentation("pres.pptx"))
 {
 	ISlide slide = pres.Slides[1];
 	IChart chart = (IChart)slide.Shapes[0];
@@ -102,7 +96,7 @@ using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
 	}
 }
 // Saving presentation
-pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
+pres.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -118,11 +112,9 @@ This article demonstrates how to create an external workbook from scratch using 
 The implementation is demonstrated below in an example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir + "presentation.pptx"))
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
-    string externalWbPath = dataDir + "externalWorkbook1.xlsx";
+    string externalWbPath = "externalWorkbook1.xlsx";
 
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600);
 
@@ -137,7 +129,7 @@ using (Presentation pres = new Presentation(dataDir + "presentation.pptx"))
 
     chart.ChartData.SetExternalWorkbook(externalWbPath);
 
-    pres.Save(dataDir + "Presentation_with_externalWbPath.pptx", SaveFormat.Pptx);
+    pres.Save("Presentation_with_externalWbPath.pptx", SaveFormat.Pptx);
 }
 ```
 

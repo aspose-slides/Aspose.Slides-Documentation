@@ -21,14 +21,6 @@ Aspose.Slides for .NET provides a simple API for managing different chart Trend 
 The following code is used to create a chart with Trend Lines.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Creating empty presentation
 Presentation pres = new Presentation();
 
@@ -70,7 +62,7 @@ tredLinePower.TrendlineType = TrendlineType.Power;
 tredLinePower.Backward = 1;
 
 // Saving presentation
-pres.Save(dataDir + "ChartTrendLines_out.pptx", SaveFormat.Pptx);
+pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -88,16 +80,13 @@ Aspose.Slides for .NET provides a simple API to add custom lines in a chart. To 
 The following code is used to create a chart with Custom Lines.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-    pres.Save(dataDir + "AddCustomLines.pptx", SaveFormat.Pptx);
+    pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 }
 ```
 

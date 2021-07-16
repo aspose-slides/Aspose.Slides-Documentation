@@ -14,9 +14,6 @@ Aspose.Slides for .NET provides a simple API for setting these properties. This 
 1. Write the modified presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
            
@@ -62,6 +59,6 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 series.ParentSeriesGroup.Overlap = 100;         
 
 // Write presentation to disk
-presentation.Save(dataDir + "Rotation3D_out.pptx", SaveFormat.Pptx);
+presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
 

@@ -17,11 +17,8 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart series.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Instantiate Presentation class that represents a presentation file 
-using (Presentation presentation = new Presentation(dataDir + "ExistingChart.pptx"))
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Get reference of the chart object
     var slide = presentation.Slides[0] as Slide;
@@ -49,7 +46,7 @@ using (Presentation presentation = new Presentation(dataDir + "ExistingChart.ppt
     EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     // Write the modified presentation to disk 
-    presentation.Save(dataDir + "AnimatingSeries_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -65,9 +62,7 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart category.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation presentation = new Presentation(dataDir + "ExistingChart.pptx"))
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Get reference of the chart object
     var slide = presentation.Slides[0] as Slide;
@@ -92,7 +87,7 @@ using (Presentation presentation = new Presentation(dataDir + "ExistingChart.ppt
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     // Write the presentation file to disk
-    presentation.Save(dataDir + "AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -108,11 +103,8 @@ If you want to animate series elements, write the code according to the steps li
 In the example given below, we have animated series' elements.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Load a presentation
-using (Presentation presentation = new Presentation(dataDir + "ExistingChart.pptx"))
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Get reference of the chart object
     var slide = presentation.Slides[0] as Slide;
@@ -138,7 +130,7 @@ using (Presentation presentation = new Presentation(dataDir + "ExistingChart.ppt
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     // Write the presentation file to disk 
-    presentation.Save(dataDir + "AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -153,9 +145,7 @@ If you want to animate categories elements, write the code according to the step
 In the example given below, we have animated categories elements.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation presentation = new Presentation(dataDir + "ExistingChart.pptx"))
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Get reference of the chart object
     var slide = presentation.Slides[0] as Slide;
@@ -180,7 +170,7 @@ using (Presentation presentation = new Presentation(dataDir + "ExistingChart.ppt
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     // Write the presentation file to disk
-    presentation.Save(dataDir + "AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 }
 ```
 

@@ -15,9 +15,6 @@ Aspose.Slides for .NET provides a simple API for managing error bar values. The 
 1. Write the modified presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Creating empty presentation
 using (Presentation presentation = new Presentation())
 {
@@ -38,7 +35,7 @@ using (Presentation presentation = new Presentation())
     errBarX.HasEndCap = true;
 
     // Saving presentation
-    presentation.Save(dataDir + "ErrorBars_out.pptx", SaveFormat.Pptx);
+    presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -56,9 +53,6 @@ Aspose.Slides for .NET provides a simple API for managing custom error bar value
 1. Write the modified presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Creating empty presentation
 using (Presentation presentation = new Presentation())
 {
@@ -91,7 +85,7 @@ using (Presentation presentation = new Presentation())
     }
 
     // Saving presentation
-    presentation.Save(dataDir + "ErrorBarsCustomValues_out.pptx", SaveFormat.Pptx);
+    presentation.Save("ErrorBarsCustomValues_out.pptx", SaveFormat.Pptx);
 }
 ```
 
