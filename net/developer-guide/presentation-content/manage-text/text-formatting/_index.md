@@ -13,15 +13,13 @@ It allows to highlight text part with background color using text sample, simila
 The code snippet below shows how to use this feature:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-Presentation presentation = new Presentation(dataDir +"SomePresentation.pptx");
+Presentation presentation = new Presentation("SomePresentation.pptx");
 ((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // highlighting all words 'important'
 ((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("to", Color.Violet, new TextHighlightingOptions()
 {
     WholeWordsOnly = true
 }); // highlighting all separate 'the' occurrences
-presentation.Save(dataDir+ "SomePresentation-out2.pptx", SaveFormat.Pptx);
+presentation.Save("SomePresentation-out2.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -36,12 +34,10 @@ It allows to highlight text part with background color using regex, similar to T
 The code snippet below shows how to use this feature:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-Presentation presentation = new Presentation(dataDir + "SomePresentation.pptx");
+Presentation presentation = new Presentation("SomePresentation.pptx");
 TextHighlightingOptions options = new TextHighlightingOptions();
 ((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Blue, options); // highlighting all words with 10 symbols or longer
-presentation.Save(dataDir+ "SomePresentation-out.pptx", SaveFormat.Pptx);
+presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -60,11 +56,8 @@ Text formatting is one of the key elements while creating any kind of documents 
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Instantiate a Presentation object that represents a PPTX file
-using (Presentation pres = new Presentation(dataDir + "ParagraphsAlignment.pptx"))
+using (Presentation pres = new Presentation("ParagraphsAlignment.pptx"))
 {
 
     // Accessing first slide
@@ -87,7 +80,7 @@ using (Presentation pres = new Presentation(dataDir + "ParagraphsAlignment.pptx"
     para2.ParagraphFormat.Alignment = TextAlignment.Center;
 
     //Writing the presentation as a PPTX file
-    pres.Save(dataDir + "Centeralign_out.pptx", SaveFormat.Pptx);
+    pres.Save("Centeralign_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -103,9 +96,7 @@ This article demonstrates how to set transparency property to any text shape us
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-using (Presentation pres = new Presentation(dataDir+ "transparency.pptx"))
+using (Presentation pres = new Presentation("transparency.pptx"))
 {
     IAutoShape shape = (IAutoShape)pres.Slides[0].Shapes[0];
     IEffectFormat effects = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.EffectFormat;
@@ -118,7 +109,7 @@ using (Presentation pres = new Presentation(dataDir+ "transparency.pptx"))
     // set transparency to zero percent
     outerShadowEffect.ShadowColor.Color = Color.FromArgb(255, shadowColor);
 
-    pres.Save(dataDir+"transparency-2.pptx", SaveFormat.Pptx);
+    pres.Save("transparency-2.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -143,11 +134,8 @@ Presentations usually contain both text and images. The text can be formatted in
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Instantiate a Presentation object that represents a PPTX file// Instantiate a Presentation object that represents a PPTX file
-using (Presentation pres = new Presentation(dataDir + "FontProperties.pptx"))
+using (Presentation pres = new Presentation("FontProperties.pptx"))
 {
 
     // Accessing a slide using its slide position
@@ -188,7 +176,7 @@ using (Presentation pres = new Presentation(dataDir + "FontProperties.pptx"))
     port2.PortionFormat.FillFormat.SolidFillColor.Color = Color.Peru;
 
     //Write the PPTX to disk
-    pres.Save(dataDir + "WelcomeFont_out.pptx", SaveFormat.Pptx);
+    pres.Save("WelcomeFont_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -210,9 +198,6 @@ As mentioned in Managing Font Related Properties a Portion is used to hold text 
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Instantiate Presentation
 using (Presentation presentation = new Presentation())
 {
@@ -253,7 +238,7 @@ using (Presentation presentation = new Presentation())
     port.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
     // Write the PPTX to disk 
-    presentation.Save(dataDir + "SetTextFontProperties_out.pptx", SaveFormat.Pptx);
+    presentation.Save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -271,9 +256,6 @@ Aspose.Slides for .NET allows developers to rotate the text. Text could be set t
 - Save file to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -301,7 +283,7 @@ portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
 // Save Presentation
-presentation.Save(dataDir + "RotateText_out.pptx", SaveFormat.Pptx);
+presentation.Save("RotateText_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -316,9 +298,6 @@ Aspose.Slides for .NET now supports, Setting custom rotation angle for textframe
 In the example given below, we set the RotationAngle property.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -333,7 +312,7 @@ chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
 
 // Save Presentation
-presentation.Save(dataDir + "textframe-rotation_out.pptx", SaveFormat.Pptx);
+presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -348,11 +327,8 @@ Aspose.Slides for .NET lets developers to set the properties of ParagraphFormat 
 - Save the presentation to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Create an instance of Presentation class
-Presentation presentation = new Presentation(dataDir + "Fonts.pptx");
+Presentation presentation = new Presentation("Fonts.pptx");
 
 // Obtain a slide's reference by its index
 ISlide sld = presentation.Slides[0];
@@ -368,7 +344,7 @@ para1.ParagraphFormat.SpaceWithin = 80;
 para1.ParagraphFormat.SpaceBefore = 40;
 para1.ParagraphFormat.SpaceAfter = 40;
 // Save Presentation
-presentation.Save(dataDir + "LineSpacing_out.pptx", SaveFormat.Pptx);
+presentation.Save("LineSpacing_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -384,10 +360,7 @@ In this topic, we will explore the different formatting properties of text frame
 - Set the AutofitType of the TextFrame.
 - Save file to disk.
 
-```
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
+```c#
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -415,7 +388,7 @@ portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
 // Save Presentation
-presentation.Save(dataDir + "formatText_out.pptx", SaveFormat.Pptx); 
+presentation.Save("formatText_out.pptx", SaveFormat.Pptx); 
 ```
 
 
@@ -430,9 +403,6 @@ Aspose.Slides for .NET allows developers to Anchor of any TextFrame. TextAnchorT
 - Save file to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -460,7 +430,7 @@ portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
 // Save Presentation
-presentation.Save(dataDir + "AnchorText_out.pptx", SaveFormat.Pptx);
+presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
 ```
 
 

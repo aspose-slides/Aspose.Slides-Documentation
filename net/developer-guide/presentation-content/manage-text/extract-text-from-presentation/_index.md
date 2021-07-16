@@ -20,11 +20,8 @@ use the [GetAllTextBoxes](https://apireference.aspose.com/slides/net/aspose.slid
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 //Instatiate Presentation class that represents a PPTX file
-Presentation pptxPresentation = new Presentation(dataDir + "demo.pptx");
+Presentation pptxPresentation = new Presentation("demo.pptx");
 
 //Get an Array of ITextFrame objects from all slides in the PPTX
 ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
@@ -64,11 +61,8 @@ To scan the text from the whole presentation, use the
    The method returns an array of TextFrame objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
 
 ```c#
- // The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 //Instatiate Presentation class that represents a PPTX file
-Presentation pptxPresentation = new Presentation(dataDir + "demo.pptx");
+Presentation pptxPresentation = new Presentation("demo.pptx");
 
 //Get an Array of ITextFrame objects from all slides in the PPTX
 ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);

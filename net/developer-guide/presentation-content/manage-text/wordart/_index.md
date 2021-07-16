@@ -244,14 +244,6 @@ The implementation of the above steps is given below.
 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate a PPTX class
 using (Presentation pres = new Presentation())
 {
@@ -279,7 +271,7 @@ using (Presentation pres = new Presentation())
     shadow.ShadowColor.PresetColor = PresetColor.Black;
 
     //Write the presentation to disk
-    pres.Save(dataDir + "pres_out.pptx", SaveFormat.Pptx);
+    pres.Save("pres_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -299,8 +291,6 @@ Aspose.Slides for .NET could be used to apply WordArt Effects on Text. Every W
 In the example given below, we have added a connector between two shapes.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
             
@@ -334,6 +324,6 @@ ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
 ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
 
 // Save Presentation
-presentation.Save(dataDir + "WordArt_out.pptx", SaveFormat.Pptx);
+presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
 ```
 
