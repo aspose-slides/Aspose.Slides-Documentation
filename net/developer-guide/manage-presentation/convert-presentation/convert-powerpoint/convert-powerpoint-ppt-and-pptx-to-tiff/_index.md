@@ -14,14 +14,11 @@ TIFF format is known by its flexibility to accommodate multipage images and data
 The [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class exposes **ImageSize** property enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation(dataDir + "DemoFile.pptx"))
+using (Presentation presentation = new Presentation("DemoFile.pptx"))
 {
     // Saving the presentation to TIFF document
-    presentation.Save(dataDir + "Tiffoutput_out.tiff", SaveFormat.Tiff);
+    presentation.Save("Tiffoutput_out.tiff", SaveFormat.Tiff);
 }
 ```
 
@@ -32,11 +29,8 @@ using (Presentation presentation = new Presentation(dataDir + "DemoFile.pptx"))
 The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a Presentation file
-using (Presentation pres = new Presentation(dataDir + "Convert_Tiff_Custom.pptx"))
+using (Presentation pres = new Presentation("Convert_Tiff_Custom.pptx"))
 {
     // Instantiate the TiffOptions class
     TiffOptions opts = new TiffOptions();
@@ -66,7 +60,7 @@ using (Presentation pres = new Presentation(dataDir + "Convert_Tiff_Custom.pptx"
     opts.ImageSize = new Size(1728, 1078);
 
     // Save the presentation to TIFF with specified image size
-    pres.Save(dataDir + "TiffWithCustomSize_out.tiff", SaveFormat.Tiff, opts);
+    pres.Save("TiffWithCustomSize_out.tiff", SaveFormat.Tiff, opts);
 }
 ```
 
@@ -77,11 +71,8 @@ using (Presentation pres = new Presentation(dataDir + "Convert_Tiff_Custom.pptx"
 The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class. You can also include comments in generated HTML by using [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class and **INotesCommentsLayoutingOptions** interface.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a Presentation file
-using (Presentation presentation = new Presentation(dataDir + "DemoFile.pptx"))
+using (Presentation presentation = new Presentation("DemoFile.pptx"))
 {
     TiffOptions options = new TiffOptions();
    
@@ -96,7 +87,7 @@ using (Presentation presentation = new Presentation(dataDir + "DemoFile.pptx"))
     */
 
     // Save the presentation to TIFF with specified image size
-    presentation.Save(dataDir + "Tiff_With_Custom_Image_Pixel_Format_out.tiff", SaveFormat.Tiff, options);
+    presentation.Save("Tiff_With_Custom_Image_Pixel_Format_out.tiff", SaveFormat.Tiff, options);
 }
 ```
 

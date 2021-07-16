@@ -32,14 +32,11 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/net) the [**Save**](h
 The following example shows how to convert a presentation into XPS document without using options provided by [XPSOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/xpsoptions).
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "Convert_XPS.pptx"))
+using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 {
     // Saving the presentation to XPS document
-    pres.Save(dataDir + "XPS_Output_Without_XPSOption_out.xps", SaveFormat.Xps);
+    pres.Save("XPS_Output_Without_XPSOption_out.xps", SaveFormat.Xps);
 }
 ```
 
@@ -50,11 +47,8 @@ using (Presentation pres = new Presentation(dataDir + "Convert_XPS.pptx"))
 The following example shows how to convert a presentation into XPS document using options provided by [XPSOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/xpsoptions).
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "Convert_XPS_Options.pptx"))
+using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 {
     // Instantiate the TiffOptions class
     XpsOptions opts = new XpsOptions();
@@ -63,7 +57,7 @@ using (Presentation pres = new Presentation(dataDir + "Convert_XPS_Options.pptx"
     opts.SaveMetafilesAsPng = true;
 
     // Save the presentation to XPS document
-    pres.Save(dataDir + "XPS_With_Options_out.xps", SaveFormat.Xps, opts);
+    pres.Save("XPS_With_Options_out.xps", SaveFormat.Xps, opts);
 }
 ```
 

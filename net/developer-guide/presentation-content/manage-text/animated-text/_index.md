@@ -35,8 +35,7 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for .NET allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir + "Test.pptx"))
+using (Presentation pres = new Presentation("Test.pptx"))
 {
 	ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 	IAutoShape autoShape = (IAutoShape)pres.Slides[0].Shapes[1];

@@ -38,11 +38,8 @@ To remove hyperlinks from a presentation on the presentation level:
 1. Write the modified presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Transitions();
-
 // Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "BetterSlideTransitions.pptx"))
+using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 {
 
     // Apply circle type transition on slide 1
@@ -70,7 +67,7 @@ using (Presentation pres = new Presentation(dataDir + "BetterSlideTransitions.pp
     pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
 
     // Write the presentation to disk
-    pres.Save(dataDir + "SampleTransition_out.pptx", SaveFormat.Pptx);
+    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -84,8 +81,6 @@ It allows to get or set the source of hyperlink color, which could be obtained e
 The code snippet below shows a sample of adding two hyperlinks with different colors to the same slide:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Hyperlink();
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -99,7 +94,7 @@ using (Presentation presentation = new Presentation())
     shape2.AddTextFrame("This is a sample of usual hyperlink.");
     shape2.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
 
-    presentation.Save(dataDir+"presentation-out-hyperlink.pptx", SaveFormat.Pptx);
+    presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -118,9 +113,6 @@ using (Presentation presentation = new Presentation())
 The code snippet below shows adding a hyperlink to the slide and editing its tooltip later:
 
 ```c#
-/ The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Hyperlink();
-
 using (Presentation presentation = new Presentation())
 {
     
@@ -130,7 +122,7 @@ using (Presentation presentation = new Presentation())
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
 
-    presentation.Save(dataDir+"presentation-out.pptx", SaveFormat.Pptx);
+    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 }
 ```
 

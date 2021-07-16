@@ -80,9 +80,7 @@ using (Presentation pres = new Presentation("PowerPoint-Presentation.pptx"))
 Aspose.Slides for .NET provides a facility to render comments of presentations or slide when converting those into images.  An example is given below that shows how to render comments of presentation into an image.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Rendering();
-Presentation pres = new Presentation(dataDir + "test.pptx");
+Presentation pres = new Presentation("test.pptx");
 Bitmap bmp = new Bitmap(740, 960);
 
 IRenderingOptions opts = new RenderingOptions();
@@ -95,7 +93,7 @@ using (Graphics graphics = Graphics.FromImage(bmp))
 {
 	pres.Slides[0].RenderToGraphics(opts, graphics);
 }
-bmp.Save(dataDir + "OutPresBitmap.png", ImageFormat.Png);
+bmp.Save("OutPresBitmap.png", ImageFormat.Png);
 System.Diagnostics.Process.Start("OutPresBitmap.png");
 ```
 
