@@ -159,7 +159,35 @@ To create a bullet list that contains items on different levels—additional lis
 This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in C#:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 300, 300);
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Paragraphs.Clear();
+    
+    Paragraph paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Depth = 0;
+    paragraph.Text = "My text Depth 0";
+    textFrame.Paragraphs.Add(paragraph);
+    
+    Paragraph paragraph2 = new Paragraph();
+    paragraph2.ParagraphFormat.Depth = 0;
+    paragraph2.Text = "My text Depth 1";
+    textFrame.Paragraphs.Add(paragraph2);
+    
+    Paragraph paragraph3 = new Paragraph();
+    paragraph3.ParagraphFormat.Depth = 2;
+    paragraph3.Text = "My text Depth 2";
+    textFrame.Paragraphs.Add(paragraph3);
+    
+    Paragraph paragraph4 = new Paragraph();
+    paragraph4.ParagraphFormat.Depth = 3;
+    paragraph4.Text = "My text Depth 3";
+    textFrame.Paragraphs.Add(paragraph4);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
  
