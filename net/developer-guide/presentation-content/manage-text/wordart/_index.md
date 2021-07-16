@@ -288,15 +288,6 @@ Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspo
 This sample code in C#—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
-// Instantiate a PPTX class
 using (Presentation pres = new Presentation())
 {
 
@@ -305,7 +296,6 @@ using (Presentation pres = new Presentation())
 
     // Add an AutoShape of Rectangle type
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
 
     // Add TextFrame to the Rectangle
     ashp.AddTextFrame("Aspose TextBox");
@@ -323,7 +313,7 @@ using (Presentation pres = new Presentation())
     shadow.ShadowColor.PresetColor = PresetColor.Black;
 
     //Write the presentation to disk
-    pres.Save(dataDir + "pres_out.pptx", SaveFormat.Pptx);
+    pres.Save("pres_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -343,41 +333,39 @@ Go through these steps:
 This sample code (based on the steps above) shows you how to add a connector between two shapes in C#:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
-            
-// Get reference of a slide
-ISlide slide = presentation.Slides[0];
+using(Presentation presentation = new Presentation())
+{
+    // Get reference of a slide
+    ISlide slide = presentation.Slides[0];
 
-// Add an AutoShape of Rectangle type
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-ashp.FillFormat.FillType = FillType.NoFill;
+    // Add an AutoShape of Rectangle type
+    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
+    ashp.FillFormat.FillType = FillType.NoFill;
 
-// Add TextFrame to the Rectangle
-ashp.AddTextFrame("Aspose TextBox");
-IPortion port = ashp.TextFrame.Paragraphs[0].Portions[0];
-IPortionFormat pf = port.PortionFormat;
-pf.FontHeight = 50;
+    // Add TextFrame to the Rectangle
+    ashp.AddTextFrame("Aspose TextBox");
+    IPortion port = ashp.TextFrame.Paragraphs[0].Portions[0];
+    IPortionFormat pf = port.PortionFormat;
+    pf.FontHeight = 50;
 
-// Enable InnerShadowEffect    
-IEffectFormat ef = pf.EffectFormat;
-ef.EnableInnerShadowEffect();
+    // Enable InnerShadowEffect    
+    IEffectFormat ef = pf.EffectFormat;
+    ef.EnableInnerShadowEffect();
 
-// Set all necessary parameters
-ef.InnerShadowEffect.BlurRadius = 8.0;
-ef.InnerShadowEffect.Direction = 90.0F;
-ef.InnerShadowEffect.Distance = 6.0;
-ef.InnerShadowEffect.ShadowColor.B = 189;
+    // Set all necessary parameters
+    ef.InnerShadowEffect.BlurRadius = 8.0;
+    ef.InnerShadowEffect.Direction = 90.0F;
+    ef.InnerShadowEffect.Distance = 6.0;
+    ef.InnerShadowEffect.ShadowColor.B = 189;
 
-// Set ColorType as Scheme
-ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
+    // Set ColorType as Scheme
+    ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
 
-// Set Scheme Color
-ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
+    // Set Scheme Color
+    ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
 
-// Save Presentation
-presentation.Save(dataDir + "WordArt_out.pptx", SaveFormat.Pptx);
+    // Save Presentation
+    presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
+}
 ```
 
