@@ -197,7 +197,27 @@ using (Presentation pres = new Presentation())
  This C# code shows you how to create a numbered list in a slide:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Paragraphs.Clear();
+    
+    Paragraph paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+    paragraph.Text = "My text 1";
+    textFrame.Paragraphs.Add(paragraph);
+    
+    Paragraph paragraph2 = new Paragraph();
+    paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+    paragraph2.Text = "My text 2";
+    textFrame.Paragraphs.Add(paragraph2);
+    
+    // ...
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
 
