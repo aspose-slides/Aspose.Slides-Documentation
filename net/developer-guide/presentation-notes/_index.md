@@ -33,11 +33,8 @@ presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pp
 Notes of all the slides of a presentation could be removed as shown in the example below:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Notes();
-
 // Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Removing notes of all slides
 INotesSlideManager mgr = null;
@@ -47,7 +44,7 @@ for (int i = 0; i < presentation.Slides.Count; i++)
     mgr.RemoveNotesSlide();
 }
 // Save presentation to disk
-presentation.Save(dataDir + "RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
+presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -55,16 +52,8 @@ presentation.Save(dataDir + "RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx
 NotesStyle property has been added to [IMasterNotesSlide](https://apireference.aspose.com/net/slides/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://apireference.aspose.com/net/slides/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx"))
+using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
     IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
 
@@ -79,7 +68,7 @@ using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx
     }
 
     // Save the PPTX file to the Disk
-    presentation.Save(dataDir + "AddNotesSlideWithNotesStyle_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    presentation.Save("AddNotesSlideWithNotesStyle_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 }
 ```

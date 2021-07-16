@@ -20,14 +20,6 @@ Using Aspose.Slides for .NET developers can add different kinds of shapes to the
 In the example given below, we have selected an AutoShape of Rectangle type whose lines are formatted using Aspose.Slides for .NET .
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -52,7 +44,7 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "RectShpLn_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -67,14 +59,6 @@ Join Style is the style of the outer corners of the shape. They are of three typ
 In the example given below, we will create three rectangles with each of the Join Style mentioned above and show the resulting output of the code.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-	System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -119,7 +103,7 @@ using (Presentation pres = new Presentation())
 	((IAutoShape)shp3).TextFrame.Text = "This is Round Join Style";
 
 	//Write the PPTX file to disk
-	pres.Save(dataDir + "RectShpLnJoin_out.pptx", SaveFormat.Pptx);
+	pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -137,14 +121,6 @@ Aspose.Slides for .NET supports different features while filling shapes in slide
 In the example given below, we have selected the ellipse shape for the demonstration purpose.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX// Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -167,7 +143,7 @@ using (Presentation pres = new Presentation())
     shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "EllipseShpGrad_out.pptx", SaveFormat.Pptx);
+    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -187,14 +163,6 @@ This topic covers about patterns that can also be used by developers to fill the
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -216,7 +184,7 @@ using (Presentation pres = new Presentation())
     shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "RectShpPatt_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -236,14 +204,6 @@ In our previous topics, we have discussed about using pre-defined gradient and p
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate PrseetationEx class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -262,12 +222,12 @@ using (Presentation pres = new Presentation())
     shp.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
     // Set the picture
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir + "Tulips.jpg");
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("Tulips.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
     shp.FillFormat.PictureFillFormat.Picture.Image = imgx;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "RectShpPic_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -284,9 +244,6 @@ In this topic, we will discuss that how can developers fill their shapes with so
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.                    
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -303,7 +260,7 @@ shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
 //Write the PPTX file to disk
-presentation.Save(dataDir + "RectShpSolid_out.pptx", SaveFormat.Pptx);
+presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -320,14 +277,6 @@ Aspose.Slides for .NET allows developers to you rotate shapes as well in this to
 In the example given below, we have rotated a rectangle shape to 90 degrees for the demonstration purpose.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate PrseetationEx class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -342,7 +291,7 @@ using (Presentation pres = new Presentation())
     shp.Rotation = 90;
 
     // Write the PPTX file to disk
-    pres.Save(dataDir + "RectShpRot_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -357,9 +306,6 @@ Aspose.Slides for .NET now supports adding 3D bevel effects to a shape. This cou
    In the example given below, we have applied 3D bevel effects on a shape.
 
 ```c#
-// The path to the documents directory.                    
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 ISlide slide = pres.Slides[0];
@@ -383,7 +329,7 @@ shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
 shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
 // Write the presentation as a PPTX file
-pres.Save(dataDir + "Bavel_out.pptx", SaveFormat.Pptx);
+pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -397,9 +343,6 @@ Aspose.Slides for .NET now supports adding 3D Rotation effects to a shape. This 
    In the example given below, we have applied 3D Rotation effects on a shape.
 
 ```c#
-// The path to the documents directory.                    
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
@@ -416,6 +359,6 @@ autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
 autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
           
-pres.Save(dataDir + "Rotation_out.pptx", SaveFormat.Pptx);
+pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
 ```
 

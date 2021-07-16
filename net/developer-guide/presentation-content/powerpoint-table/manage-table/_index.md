@@ -20,9 +20,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation();
 
@@ -65,7 +62,7 @@ tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
 // Save PPTX to Disk
-pres.Save(dataDir + "table.pptx", SaveFormat.Pptx);
+pres.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -81,11 +78,8 @@ To access a table that already exists in a slide, please follow the steps below:
 - Save the modified presentation as a PPT file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
-using (Presentation pres = new Presentation(dataDir + "UpdateExistingTable.pptx"))
+using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
 
     // Access the first slide
@@ -103,7 +97,7 @@ using (Presentation pres = new Presentation(dataDir + "UpdateExistingTable.pptx"
     tbl[0, 1].TextFrame.Text = "New";
 
     //Write the PPTX to Disk
-    pres.Save(dataDir + "table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -122,9 +116,6 @@ Aspose.Slides for .NET has provided the simplest API to work with tables in an e
 - Save the presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -159,7 +150,7 @@ cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
 // Save Presentation
-presentation.Save(dataDir +  "Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -176,8 +167,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
@@ -201,7 +190,7 @@ textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.SetTextFormat(textFrameFormat);
 
 
-presentation.Save(path + "result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -217,9 +206,6 @@ In a standard table numeration of cells is straightforward and zero-based. The f
 |(0, 3)|(1, 3)|(2, 3)|(3, 3)|
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -258,7 +244,7 @@ using (Presentation pres = new Presentation())
     }
 
     //Write PPTX to Disk
-    pres.Save(dataDir + "StandardTables_out.pptx", SaveFormat.Pptx);
+    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -269,10 +255,7 @@ using (Presentation pres = new Presentation())
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. You can lock aspect ratio of table using **ShapeLock.AspectRatioLocked** property. Below code example shows how to use this property.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
-using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
+using (Presentation pres = new Presentation("pres.pptx"))
 {
     ITable table = (ITable)pres.Slides[0].Shapes[0];
     Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
@@ -281,7 +264,7 @@ using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
 
     Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
 
-    pres.Save(dataDir + "pres-out.pptx", SaveFormat.Pptx);
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 

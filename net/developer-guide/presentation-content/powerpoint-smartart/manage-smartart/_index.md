@@ -9,9 +9,6 @@ url: /net/manage-smartart/
 Now TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively. This property allows you to get all text from SmartArt if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
 	ISlide slide = pres.Slides[0];
@@ -42,9 +39,6 @@ In order to change the layout type of SmartArt. Please follow the steps below:
   In the example given below, we have added a connector between two shapes.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 using (Presentation presentation = new Presentation())
 {
     // Add SmartArt BasicProcess 
@@ -54,7 +48,7 @@ using (Presentation presentation = new Presentation())
     smart.Layout = SmartArtLayoutType.BasicProcess;
 
     // Saving Presentation
-    presentation.Save(dataDir + "ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
+    presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -72,9 +66,6 @@ Please note Method com.aspose.slides.ISmartArtNode.isHidden() returns true if th
 In the example given below, we have added a connector between two shapes.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 using (Presentation presentation = new Presentation())
 {
     // Add SmartArt BasicProcess 
@@ -91,7 +82,7 @@ using (Presentation presentation = new Presentation())
         // Do some actions or notifications
     }
     // Saving Presentation
-    presentation.Save(dataDir + "CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
+    presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -107,9 +98,6 @@ Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganiz
   In the example given below, we have added a connector between two shapes.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 using (Presentation presentation = new Presentation())
 {
     // Add SmartArt BasicProcess 
@@ -119,7 +107,7 @@ using (Presentation presentation = new Presentation())
     smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
     // Saving Presentation
-    presentation.Save(dataDir + "OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
+    presentation.Save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -139,12 +127,10 @@ The following code is used to create a chart.
 ```c#
 public static void Run()
 {
-	// The path to the documents directory.
-	string dataDir = RunExamples.GetDataDir_Charts();
-	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	using (Presentation pres = new Presentation("test.pptx"))
 	{
 		ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-		pres.Save(dataDir+"OrganizationChart.pptx", SaveFormat.Pptx);
+		pres.Save("OrganizationChart.pptx", SaveFormat.Pptx);
 	}			
 }
 ```

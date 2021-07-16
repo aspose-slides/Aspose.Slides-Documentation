@@ -36,11 +36,8 @@ As mentioned earlier, each shape class has an associated shape lock class for pr
 The code samples that follow apply protection to all shapes types in a presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-
 //Instatiate Presentation class that represents a PPTX file
-Presentation pTemplate = new Presentation(dataDir + "RectPicFrame.pptx");//Instatiate Presentation class that represents a PPTX file
+Presentation pTemplate = new Presentation("RectPicFrame.pptx");
            
 
 //ISlide object for accessing the slides in the presentation
@@ -116,7 +113,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 //Saving the presentation file
-pTemplate.Save(dataDir + "ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 

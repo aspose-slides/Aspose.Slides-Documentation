@@ -19,14 +19,6 @@ Here we will apply the PathFootball effect (one of more than 150 available effec
 - Write the presentation to the disk as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate PrseetationEx class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -61,7 +53,7 @@ using (Presentation pres = new Presentation())
     motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
     //Write the presentation as PPTX to disk
-    pres.Save(dataDir + "AnimExample_out.pptx", SaveFormat.Pptx);
+    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
 }
 ```
 

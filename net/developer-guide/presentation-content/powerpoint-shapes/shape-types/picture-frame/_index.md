@@ -27,14 +27,6 @@ To add a simple picture frame to your slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Presentation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -43,7 +35,7 @@ using (Presentation pres = new Presentation())
     ISlide sld = pres.Slides[0];
 
     // Instantiate the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir+ "aspose-logo.jpg");
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
 
     // Add Picture Frame with height and width equivalent of Picture
@@ -56,7 +48,7 @@ using (Presentation pres = new Presentation())
     pf.Rotation = 45;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -74,15 +66,12 @@ The picture frame that we created in the above section were simple as well as we
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate presentation object
 using (Presentation presentation = new Presentation())
 {
 
     // Load Image to be added in presentaiton image collection
-    Image img = new Bitmap(dataDir + "aspose-logo.jpg");
+    Image img = new Bitmap("aspose-logo.jpg");
     IPPImage image = presentation.Images.AddImage(img);
 
     // Add picture frame to slide
@@ -93,7 +82,7 @@ using (Presentation presentation = new Presentation())
     pf.RelativeScaleWidth = 1.35f;
 
     // Save presentation
-    presentation.Save(dataDir + "Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
+    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -119,14 +108,6 @@ The picture frame that we created in the above section is simple. We can also co
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Presentation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -135,7 +116,7 @@ using (Presentation pres = new Presentation())
     ISlide sld = pres.Slides[0];
 
     // Instantiate the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir+ "aspose-logo.jpg");
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
 
     // Add Picture Frame with height and width equivalent of Picture
@@ -148,7 +129,7 @@ using (Presentation pres = new Presentation())
     pf.Rotation = 45;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -170,14 +151,6 @@ The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and Stre
 The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -186,14 +159,14 @@ using (Presentation pres = new Presentation())
     ISlide sld = pres.Slides[0];
 
     // Instantiate the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir+ "aspose-logo.jpg");
+    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
 
     // Add Picture Frame with height and width equivalent of Picture
     sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "AddStretchOffsetForImageFill_out.pptx", SaveFormat.Pptx);
+    pres.Save("AddStretchOffsetForImageFill_out.pptx", SaveFormat.Pptx);
 }
 ```
 

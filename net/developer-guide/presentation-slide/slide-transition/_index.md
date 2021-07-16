@@ -15,11 +15,8 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 1. Write the modified presentation file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Transitions();
-
 // Instantiate Presentation class to load the source presentation file
-using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx"))
+using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
     // Apply circle type transition on slide 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
@@ -28,7 +25,7 @@ using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
     // Write the presentation to disk
-    presentation.Save(dataDir + "SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -43,11 +40,8 @@ In the above section, we just applied a simple transition effect on the slide. N
 1. Write the modified presentation as a presentation file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Transitions();
-
 // Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "BetterSlideTransitions.pptx"))
+using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 {
 
     // Apply circle type transition on slide 1
@@ -75,7 +69,7 @@ using (Presentation pres = new Presentation(dataDir + "BetterSlideTransitions.pp
     pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
 
     // Write the presentation to disk
-    pres.Save(dataDir + "SampleTransition_out.pptx", SaveFormat.Pptx);
+    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -88,9 +82,6 @@ The following code snippet shows you how to add a clone of the slide with some t
 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Transitions();
-
 using (Presentation presentation = new Presentation())
 {
     AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -105,7 +96,7 @@ using (Presentation presentation = new Presentation())
 
     presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
 
-    presentation.Save(dataDir+"presentation-out.pptx", SaveFormat.Pptx);
+    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 }
 
 ```
@@ -123,14 +114,11 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Transitions();
-
-using (Presentation presentation = new Presentation(dataDir + "presentation.pptx"))
+using (Presentation presentation = new Presentation("presentation.pptx"))
 {
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
     ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save(dataDir + "presentation-out.pptx", SaveFormat.Pptx);
+    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -147,17 +135,14 @@ Aspose.Slides for .NET supports setting the transition effects like, from black,
 In the example given below, we have set the transition effects.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Transitions();
-
 // Create an instance of Presentation class
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Set effect
 presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
 ((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
 
 // Write the presentation to disk
-presentation.Save(dataDir + "SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 ```
 

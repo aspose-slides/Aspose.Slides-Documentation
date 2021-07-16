@@ -9,10 +9,7 @@ url: /net/flash/
 Aspose.Slides for .NET provides a facility for extracting flash objects from presentation. You can access the flash control by name and extract it from presentation and including store SWF object data.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationProperties();
-
-using (Presentation pres = new Presentation(dataDir+"withFlash.pptm"))
+using (Presentation pres = new Presentation("withFlash.pptm"))
 {
     IControlCollection controls = pres.Slides[0].Controls;
     Control flashControl = null;

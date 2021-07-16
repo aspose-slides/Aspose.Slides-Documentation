@@ -28,14 +28,6 @@ Aspose.Slides for .Net has simple APIs that allow you to create different types 
 Sample code used to create a normal chart:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation();
 
@@ -116,7 +108,7 @@ lbl.DataLabelFormat.ShowSeriesName = true;
 lbl.DataLabelFormat.Separator = "/";
             
 // Save presentation with chart
-pres.Save(dataDir + "AsposeChart_out.pptx", SaveFormat.Pptx);
+pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -124,14 +116,6 @@ pres.Save(dataDir + "AsposeChart_out.pptx", SaveFormat.Pptx);
 Sample code used to create a scatter chart with different series of markers:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -187,7 +171,7 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Circle;
 
-pres.Save(dataDir + "AsposeChart_out.pptx", SaveFormat.Pptx);
+pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -208,9 +192,6 @@ pres.Save(dataDir + "AsposeChart_out.pptx", SaveFormat.Pptx);
 Sample code used to create a pie chart:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Instantiate Presentation class that represents PPTX file
 Presentation presentation = new Presentation();
 
@@ -311,7 +292,7 @@ series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
 // Save presentation with chart
-presentation.Save(dataDir + "PieChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -330,9 +311,7 @@ Sample code used to create a chart:
 ```c#
 public static void Run()
 {
-	string dataDir = RunExamples.GetDataDir_Charts();
-    
-	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	using (Presentation pres = new Presentation("test.pptx"))
 	{
 		IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.Treemap, 50, 50, 500, 400);
 		chart.ChartData.Categories.Clear();
@@ -400,8 +379,7 @@ public static void Run()
 Sample code used to create a chart:
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
+using (Presentation pres = new Presentation("Test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
 
@@ -448,7 +426,7 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 		ser.Format.Line.FillFormat.FillType = FillType.NoFill;
 	}
 
-	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
+	pres.Save("output.pptx", SaveFormat.Pptx);
 }
 
 		}
@@ -470,9 +448,7 @@ The following code is used to create a chart.
 ```c#
 public static void Run()
 {
-	string dataDir = RunExamples.GetDataDir_Charts();
-
-	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	using (Presentation pres = new Presentation("test.pptx"))
 	{
 		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
 		chart.ChartData.Categories.Clear();
@@ -507,8 +483,6 @@ public static void Run()
 
 		pres.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 	}
-
-
 }
 ```
 
@@ -524,8 +498,7 @@ The following code is used to create a chart.
 ```c#
 public static void Run()
 {
-	string dataDir = RunExamples.GetDataDir_Charts();
-	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	using (Presentation pres = new Presentation("test.pptx"))
 	{
 		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
 		chart.ChartData.Categories.Clear();
@@ -551,7 +524,7 @@ public static void Run()
 		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B5", 400));
 		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B6", 500));
 
-		pres.Save(dataDir+"Funnel.pptx", SaveFormat.Pptx);
+		pres.Save("Funnel.pptx", SaveFormat.Pptx);
 	}
 }
 ```
@@ -569,9 +542,7 @@ The following code is used to create a chart.
 ```c#
 public static void Run()
 {
-
-	string dataDir = RunExamples.GetDataDir_Charts();
-	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	using (Presentation pres = new Presentation("test.pptx"))
 	{
 		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 50, 50, 500, 400);
 		chart.ChartData.Categories.Clear();
@@ -616,7 +587,6 @@ public static void Run()
 		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D7", 4));
 		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D8", 3));
 
-
 		pres.Save("Sunburst.pptx", SaveFormat.Pptx);
 	}
 }
@@ -637,8 +607,7 @@ The following code is used to create a chart.
 ```c#
 public static void Run()
 {
-	string dataDir = RunExamples.GetDataDir_Charts();
-	using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+	using (Presentation pres = new Presentation("test.pptx"))
 	{
 		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Histogram, 50, 50, 500, 400);
 		chart.ChartData.Categories.Clear();
@@ -658,7 +627,7 @@ public static void Run()
 
 		chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
 
-		pres.Save(dataDir+"Histogram.pptx", SaveFormat.Pptx);
+		pres.Save("Histogram.pptx", SaveFormat.Pptx);
 	}
 }
 ```
@@ -677,9 +646,6 @@ public static void Run()
 The following code is used to create a chart.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 Presentation pres = new Presentation();
 ISlide slide = pres.Slides[0];
 
@@ -721,7 +687,7 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D8", 70));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D9", 80));
 // Save presentation with chart
-pres.Save(dataDir+"AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -739,11 +705,8 @@ To update a chart, do this:
 Code sample used to update a chart:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Instantiate Presentation class that represents PPTX file// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation(dataDir + "ExistingChart.pptx");
+Presentation pres = new Presentation("ExistingChart.pptx");
 
 // Access first slideMarker
 ISlide sld = pres.Slides[0];
@@ -796,7 +759,7 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 chart.Type = ChartType.ClusteredCylinder;
 
 // Save presentation with chart
-pres.Save(dataDir + "AsposeChartModified_out.pptx", SaveFormat.Pptx);
+pres.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -814,17 +777,14 @@ To set the data range for a chart, do this:
 Code sample used to set data range for a chart:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Instantiate Presentation class that represents PPTX file
-Presentation presentation = new Presentation(dataDir + "ExistingChart.pptx");
+Presentation presentation = new Presentation("ExistingChart.pptx");
 
 // Access first slideMarker and add chart with default data
 ISlide slide = presentation.Slides[0];
 IChart chart = (IChart)slide.Shapes[0];
 chart.ChartData.SetRange("Sheet1!A1:B4");
-presentation.Save(dataDir + "SetDataRange_out.pptx", SaveFormat.Pptx);
+presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -834,10 +794,6 @@ Aspose.Slides for .NET has a simple API that can help you set the chart series m
 Code sample used to set a chart series marker automatically:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -872,7 +828,7 @@ using (Presentation pres = new Presentation())
     chart.HasLegend = true;
     chart.Legend.Overlay = false;
 
-    pres.Save(dataDir + "DefaultMarkersInChart.pptx", SaveFormat.Pptx);
+    pres.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 }
 ```
 

@@ -23,17 +23,14 @@ To generate a shape thumbnail from any slide using Aspose.Slides for .NET:
 The example below generating shape thumbnail.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate a Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation(dataDir + "HelloWorld.pptx"))
+using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
     // Create a full scale image
     using (Bitmap bitmap = presentation.Slides[0].Shapes[0].GetThumbnail())
     {
         // Save the image to disk in PNG format
-        bitmap.Save(dataDir + "Shape_thumbnail_out.png", ImageFormat.Png);
+        bitmap.Save("Shape_thumbnail_out.png", ImageFormat.Png);
     }
 }
 ```
@@ -50,17 +47,14 @@ To generate the shape thumbnail of any slide shape using Aspose.Slides for .NET:
 The example below generate a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate a Presentation class that represents the presentation file
-using (Presentation p = new Presentation(dataDir + "HelloWorld.pptx"))
+using (Presentation p = new Presentation("HelloWorld.pptx"))
 {
     // Create a full scale image
     using (Bitmap bitmap = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Shape, 1, 1))
     {
         // Save the image to disk in PNG format
-        bitmap.Save(dataDir + "Scaling Factor Thumbnail_out.png", ImageFormat.Png);
+        bitmap.Save("Scaling Factor Thumbnail_out.png", ImageFormat.Png);
     }
 }
 ```
@@ -77,17 +71,14 @@ This method for creating thumbnails of shapes allows developers to generate a th
 The example below create a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate a Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation(dataDir + "HelloWorld.pptx"))
+using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
     // Create a Appearance bound shape image
     using (Bitmap bitmap = presentation.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1))
     {
         // Save the image to disk in PNG format
-        bitmap.Save(dataDir + "Shape_thumbnail_Bound_Shape_out.png", ImageFormat.Png);
+        bitmap.Save("Shape_thumbnail_Bound_Shape_out.png", ImageFormat.Png);
     }
 }
 ```

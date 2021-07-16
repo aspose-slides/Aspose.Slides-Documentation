@@ -9,13 +9,10 @@ url: /net/export-chart/
 Aspose.Slides for .NET provides support for extracting image of specific chart. Below sample example is given. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 	Image img = chart.GetThumbnail();
-	img.Save(dataDir+"image.png", ImageFormat.Png);
+	img.Save("image.png", ImageFormat.Png);
 }
 ```

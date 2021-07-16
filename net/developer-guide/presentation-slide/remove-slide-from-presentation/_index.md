@@ -19,11 +19,8 @@ To remove a slide using its reference, please follow the steps below:
 1. Write the modified presentation file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "RemoveSlideUsingReference.pptx"))
+using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
 {
 
     // Accessing a slide using its index in the slides collection
@@ -33,7 +30,7 @@ using (Presentation pres = new Presentation(dataDir + "RemoveSlideUsingReference
     pres.Slides.Remove(slide);
 
     //Writing the presentation file
-    pres.Save(dataDir + "modified_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("modified_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -46,19 +43,15 @@ To remove a slide using its index position in the slides collection of the prese
 1. Write the modified presentation file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "RemoveSlideUsingIndex.pptx"))
+using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
 {
 
     // Removing a slide using its slide index
     pres.Slides.RemoveAt(0);
 
     // Writing the presentation file
-    pres.Save(dataDir + "modified_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
+    pres.Save("modified_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 

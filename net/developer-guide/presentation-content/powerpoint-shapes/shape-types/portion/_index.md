@@ -9,9 +9,7 @@ url: /net/portion/
 **GetCoordinates()** method has been added to IPortion and Portion class which allows retrieving the coordinates of the beginning of the portion:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationOpening();
-using (Presentation presentation = new Presentation(dataDir + "Shapes.pptx"))
+using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
     IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var textFrame = (ITextFrame)shape.TextFrame;

@@ -17,14 +17,6 @@ Like previous topics, this one is also about adding a shape and this time the sh
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -36,7 +28,7 @@ using (Presentation pres = new Presentation())
     sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
     //Write the PPTX file to disk
-    pres.Save(dataDir+ "RectShp1_out.pptx", SaveFormat.Pptx);
+    pres.Save("RectShp1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -55,14 +47,6 @@ To add a formatted rectangle to a slide, please follow the steps below:
    The above steps are implemented in the example given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -83,7 +67,7 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.Width = 5;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 

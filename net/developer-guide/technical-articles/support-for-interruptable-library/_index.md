@@ -13,15 +13,12 @@ Code snippet below demonstrates interruption of running task.
 ```c#
 public static void Run()
 {
-
-    string dataDir = RunExamples.GetDataDir_PresentationProperties();
-
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
     {
         LoadOptions options = new LoadOptions { InterruptionToken = token };
-        using (Presentation presentation = new Presentation(dataDir + "pres.pptx", options))
+        using (Presentation presentation = new Presentation("pres.pptx", options))
         {
-            presentation.Save(dataDir + "pres.ppt", SaveFormat.Ppt);
+            presentation.Save("pres.ppt", SaveFormat.Ppt);
         }
     };
 

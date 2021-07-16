@@ -13,16 +13,8 @@ After setting the alternative text of any desired shape, you can then open that 
 ```c#
 public static void Run()
 {
-    // The path to the documents directory.
-    string dataDir = RunExamples.GetDataDir_Shapes();
-
-    // Create directory if it is not already present.
-    bool IsExists = System.IO.Directory.Exists(dataDir);
-    if (!IsExists)
-        System.IO.Directory.CreateDirectory(dataDir);
-
     // Instantiate a Presentation class that represents the presentation file
-    using (Presentation p = new Presentation(dataDir + "FindingShapeInSlide.pptx"))
+    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
     {
 
         ISlide slide = p.Slides[0];
@@ -65,11 +57,8 @@ To clone a shape to a slide using Aspose.Slides for .NET:
 The example below adds a group shape to a slide.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Presentation class
-using (Presentation srcPres = new Presentation(dataDir + "Source Frame.pptx"))
+using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 {
 	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
 	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
@@ -80,7 +69,7 @@ using (Presentation srcPres = new Presentation(dataDir + "Source Frame.pptx"))
 	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 	// Write the PPTX file to disk
-	srcPres.Save(dataDir + "CloneShape_out.pptx", SaveFormat.Pptx);
+	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -96,9 +85,6 @@ Aspose.Slides for .NET allows developers to remove any shape. To remove the shap
 1. Save file to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Create Presentation object
 Presentation pres = new Presentation();
 
@@ -120,7 +106,7 @@ for (int i = 0; i < iCount; i++)
 }
 
 // Save presentation to disk
-pres.Save(dataDir + "RemoveShape_out.pptx", SaveFormat.Pptx);
+pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -135,9 +121,6 @@ Aspose.Slides for .NET allows developers to hide any shape. To hide the shape fr
 1. Save file to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 
@@ -159,7 +142,7 @@ for (int i = 0; i < iCount; i++)
 }
 
 // Save presentation to disk
-pres.Save(dataDir + "Hiding_Shapes_out.pptx", SaveFormat.Pptx);
+pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -176,10 +159,7 @@ Aspose.Slides for .NET allows developers to reorder the shapes. Reordering the s
 1. Save file to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-Presentation presentation1 = new Presentation(dataDir + "HelloWorld.pptx");
+Presentation presentation1 = new Presentation("HelloWorld.pptx");
 ISlide slide = presentation1.Slides[0];
 IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
 shp3.FillFormat.FillType = FillType.NoFill;
@@ -191,7 +171,7 @@ IPortion portion = para.Portions[0];
 portion.Text="Watermark Text Watermark Text Watermark Text";
 shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
 slide.Shapes.Reorder(2, shp3);
-presentation1.Save(dataDir + "Reshape_out.pptx", SaveFormat.Pptx);
+presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -201,9 +181,6 @@ Aspose.Slides for .NET allows developers to get a unique shape identifier in sl
 ```c#
 public static void Run()
 {
-	// The path to the documents directory.
-	string dataDir = RunExamples.GetDataDir_Shapes();
-
 	using (Presentation presentation = new Presentation("Presentation.pptx"))
 	{
 		// Getting unique shape identifier in slide scope
@@ -231,9 +208,6 @@ To set the AlternateText of a shape, please follow the steps below:
 1. Save file to disk.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 
@@ -257,7 +231,7 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 }
 
 // Save presentation to disk
-pres.Save(dataDir + "Set_AlternativeText_out.pptx", SaveFormat.Pptx);
+pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -269,10 +243,7 @@ pres.Save(dataDir + "Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 Below sample code is given.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationProperties();
-
-using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
+using (Presentation pres = new Presentation("pres.pptx"))
 {
 	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
 	{
@@ -292,8 +263,7 @@ Now Aspose.Slides for .NET support for rendering a shape as svg. WriteAsSvg met
 public static void Run()
 {
 	string outSvgFileName = "SingleShape.svg";
-	string dataDir = RunExamples.GetDataDir_Conversion();
-	using (Presentation pres = new Presentation(dataDir+ "TestExportShapeToSvg.pptx"))
+	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
 	{
 		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
 		{

@@ -19,11 +19,8 @@ Aspose.Slides also offer to add Layout slides in presentation. There are cases w
 In the example given below, we have added Layout Slides to Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-
 // Instantiate Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx"))
+using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
     // Try to search by layout slide type
     IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
@@ -73,7 +70,7 @@ using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
     // Save presentation    
-    presentation.Save(dataDir + "AddLayoutSlides_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -84,11 +81,8 @@ using (Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx
 [SlideSize.Type](https://apireference.aspose.com/net/slides/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://apireference.aspose.com/net/slides/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-
 // Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+Presentation presentation = new Presentation("AccessSlides.pptx");
 Presentation auxPresentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -99,7 +93,7 @@ auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type,SlideSizeScaleType
 auxPresentation.Slides.InsertClone(0, slide);
 auxPresentation.Slides.RemoveAt(0);
 // Save Presentation to disk
-auxPresentation.Save(dataDir + "Set_Size&Type_out.pptx", SaveFormat.Pptx);
+auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -113,9 +107,7 @@ To set footer in a slide using its index position in the slides collection of th
 1. Write the modified presentation file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-using (Presentation presentation = new Presentation(dataDir+"presentation.ppt"))
+using (Presentation presentation = new Presentation("presentation.ppt"))
 {
     IBaseSlideHeaderFooterManager headerFooterManager = presentation.Slides[0].HeaderFooterManager;
     if (!headerFooterManager.IsFooterVisible) // Property IsFooterVisible is used for indicating that a slide footer placeholder is not present.
@@ -133,7 +125,7 @@ using (Presentation presentation = new Presentation(dataDir+"presentation.ppt"))
     headerFooterManager.SetFooterText("Footer text"); // Method SetFooterText is used for setting text to slide footer placeholder.
     headerFooterManager.SetDateTimeText("Date and time text"); // Method SetDateTimeText is used for setting text to slide date-time placeholder.
 
-	presentation.Save(dataDir+"Presentation.ppt",SaveFormat.ppt);
+	presentation.Save("Presentation.ppt",SaveFormat.ppt);
 }
 ```
 
@@ -150,9 +142,7 @@ To set footer and child footer a slide using its index position in the slides co
 1. Write the modified presentation file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-using (Presentation presentation = new Presentation(dataDir+"presentation.ppt"))
+using (Presentation presentation = new Presentation("presentation.ppt"))
 {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
     headerFooterManager.SetFooterAndChildFootersVisibility(true); // Method SetFooterAndChildFootersVisibility is used for making a master slide and all child footer placeholders visible.
@@ -171,11 +161,8 @@ using (Presentation presentation = new Presentation(dataDir+"presentation.ppt"))
 You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://apireference.aspose.com/net/slides/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://apireference.aspose.com/net/slides/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-
 // Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+Presentation presentation = new Presentation("AccessSlides.pptx");
 Presentation auxPresentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -185,7 +172,7 @@ presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Metho
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used for set slide size with maximize size of content
            
 // Save Presentation to disk
-auxPresentation.Save(dataDir + "Set_Size&Type_out.pptx", SaveFormat.Pptx);
+auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -194,9 +181,6 @@ auxPresentation.Save(dataDir + "Set_Size&Type_out.pptx", SaveFormat.Pptx);
 Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://apireference.aspose.com/net/slides/aspose.slides/slidesize/properties/type) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-
 // Instantiate a Presentation object that represents a presentation file 
 Presentation presentation = new Presentation();
 
@@ -208,6 +192,6 @@ PdfOptions opts = new  PdfOptions();
 opts.SufficientResolution = 600;
 
 // Save presentation to disk
-presentation.Save(dataDir + "SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
+presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
 ```
 

@@ -145,13 +145,12 @@ The implementation is demonstrated below in an example.
 
 ```c#
 // The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
     IChartData chartData = chart.ChartData;
                     
-    chartData.SetExternalWorkbook(dataDir+ "externalWorkbook.xlsx");
+    chartData.SetExternalWorkbook("externalWorkbook.xlsx");
                   
 
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
@@ -162,7 +161,7 @@ using (Presentation pres = new Presentation())
     chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A2"));
     chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A3"));
     chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A4"));
-    pres.Save(dataDir + "Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+    pres.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -171,9 +170,6 @@ The **SetExternalWorkbook(System::String workbookPath, bool updateChartData)** m
 The **updateChartData** parameter defines whether an excel workbook will be loaded or not. If the value is ***false*** only the workbook path will be updated. Chart data will not be loaded and updated from the target workbook. This is useful when the target workbook does not yet exist or is not available. If the value is **true** chart data will be updated from the target workbook as the **SetExternalWorkbook(System::String)** method does.
 
 ```c#
- // The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -181,7 +177,7 @@ using (Presentation pres = new Presentation())
 
 	(chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
 
-	pres.Save(dataDir + "SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+	pres.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -192,16 +188,14 @@ Using Aspose.Slides for .NET, Chart data in external workbooks can be edited the
 The implementation is demonstrated below in an example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir + "presentation.pptx"))
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
     ChartData chartData = (ChartData)chart.ChartData;
                    
 
     chartData.Series[0].DataPoints[0].Value.AsCell.Value = 100;
-    pres.Save(dataDir + "presentation_out.pptx", SaveFormat.Pptx);
+    pres.Save("presentation_out.pptx", SaveFormat.Pptx);
 }
 ```
 

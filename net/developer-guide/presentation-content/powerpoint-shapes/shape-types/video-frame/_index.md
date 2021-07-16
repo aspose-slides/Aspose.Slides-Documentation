@@ -17,14 +17,6 @@ Developers can also add and play video files in the slides to enrich their prese
 In the example below, we added a Video Frame into the slide.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-string videoDir = RunExamples.GetDataDir_Video();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
 // Instantiate Presentation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -33,7 +25,7 @@ using (Presentation pres = new Presentation())
     ISlide sld = pres.Slides[0];
 
     // Embedd vide inside presentation
-    IVideo vid = pres.Videos.AddVideo(new FileStream(videoDir + "Wildlife.mp4", FileMode.Open));
+    IVideo vid = pres.Videos.AddVideo(new FileStream("Wildlife.mp4", FileMode.Open));
 
     // Add Video Frame
     IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 350, vid);
@@ -46,7 +38,7 @@ using (Presentation pres = new Presentation())
     vf.Volume = AudioVolumeMode.Loud;
 
     // Write the PPTX file to disk
-    pres.Save(dataDir + "VideoFrame_out.pptx", SaveFormat.Pptx);
+    pres.Save("VideoFrame_out.pptx", SaveFormat.Pptx);
 }
 ```
 It is possible to add a video passing path to the video file directly into AddVideoFrame method:
@@ -76,13 +68,10 @@ This sample code shows you how to to add a video from YouTube to your presentati
 ```c#
 public static void Run()
 {
-    // The path to the documents directory.
-    string dataDir = RunExamples.GetDataDir_Shapes();
-
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.Save(dataDir + "AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
+        pres.Save("AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
     }
 }
 
@@ -111,11 +100,8 @@ Aspose.Slides for .NET supports extracting video from the slide. In order to ext
   In the example given below, we have saved the video file from a slide.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Media();
-
 // Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "Video.pptx");
+Presentation presentation = new Presentation("Video.pptx");
 
 foreach (ISlide slide in presentation.Slides)
 {
@@ -128,7 +114,7 @@ foreach (ISlide slide in presentation.Slides)
             int ss = type.LastIndexOf('/');
             type = type.Remove(0, type.LastIndexOf('/') + 1);
             Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-            using (FileStream stream = new FileStream(dataDir + "NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
+            using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
             {                                                     
                 stream.Write(buffer, 0, buffer.Length);
             }

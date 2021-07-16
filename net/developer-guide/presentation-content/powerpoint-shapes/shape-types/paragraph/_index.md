@@ -12,11 +12,8 @@ Using Aspose.Slides for .NET, developers can now get the rectangular coordinates
 The new method **GetRect()** has been added. It allows to get paragraph bounds rectangle.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationOpening();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation(dataDir + "Shapes.pptx"))
+using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
     IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
         var textFrame = (ITextFrame)shape.TextFrame;

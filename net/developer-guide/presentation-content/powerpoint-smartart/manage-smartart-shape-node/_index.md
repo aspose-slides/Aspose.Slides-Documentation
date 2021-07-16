@@ -18,11 +18,8 @@ Aspose.Slides for .NET has provided the simplest API to manage the SmartArt shap
 - Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-// Load the desired the presentation// Load the desired the presentation
-Presentation pres = new Presentation(dataDir+ "AddNodes.pptx");
+// Load the desired the presentation
+Presentation pres = new Presentation("AddNodes.pptx");
 
 // Traverse through every shape inside first slide
 foreach (IShape shape in pres.Slides[0].Shapes)
@@ -51,7 +48,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 }
 
 // Saving Presentation
-pres.Save(dataDir + "AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -67,14 +64,6 @@ In the following sample code we have explained how to add the child nodes belong
 - Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Creating a presentation instance
 Presentation pres = new Presentation();
 
@@ -94,7 +83,7 @@ SmartArtNode chNode = (SmartArtNode)((SmartArtNodeCollection)node.ChildNodes).Ad
 chNode.TextFrame.Text = "Sample Text Added";
 
 // Save Presentation
-pres.Save(dataDir + "AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -116,11 +105,8 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 - Access and display information like SmartArt Node position, level and Text.
 
   ```c#
-  // The path to the documents directory.
-  string dataDir = RunExamples.GetDataDir_SmartArts();
-  
   // Load the desired the presentation
-   Presentation pres = new Presentation(dataDir + "AccessSmartArt.pptx");
+   Presentation pres = new Presentation("AccessSmartArt.pptx");
   
   // Traverse through every shape inside first slide
   foreach (IShape shape in pres.Slides[0].Shapes)
@@ -161,11 +147,8 @@ The following sample code will help to access the child nodes belonging to respe
 - Access and display information like Child Node position, level and Text.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 // Load the desired the presentation
-Presentation pres = new Presentation(dataDir+ "AccessChildNodes.pptx");
+Presentation pres = new Presentation("AccessChildNodes.pptx");
 
 // Traverse through every shape inside first slide
 foreach (IShape shape in pres.Slides[0].Shapes)
@@ -213,14 +196,6 @@ In this example, we will learn to access the child nodes at some particular posi
 - Access and display information like Child Node position, level and Text.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate the presentation
 Presentation pres = new Presentation();
 
@@ -256,11 +231,8 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 - Now, remove the selected node using RemoveNode() method* Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 // Load the desired the presentation
-using (Presentation pres = new Presentation(dataDir+ "RemoveNode.pptx"))
+using (Presentation pres = new Presentation("RemoveNode.pptx"))
 {
 
     // Traverse through every shape inside first slide
@@ -286,7 +258,7 @@ using (Presentation pres = new Presentation(dataDir+ "RemoveNode.pptx"))
     }
 
     // Save Presentation
-    pres.Save(dataDir + "RemoveSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("RemoveSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -305,11 +277,8 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 - Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 // Load the desired the presentation             
-Presentation pres = new Presentation(dataDir + "RemoveNodeSpecificPosition.pptx");
+Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
 // Traverse through every shape inside first slide
 foreach (IShape shape in pres.Slides[0].Shapes)
@@ -336,7 +305,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 }
 
 // Save Presentation
-pres.Save(dataDir + "RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -345,10 +314,8 @@ pres.Save(dataDir + "RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Expor
 Now Aspose.Slides for .NET support for setting SmartArtShape X and Y properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes.
 
 ```c#
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 // Load the desired the presentation
-Presentation pres = new Presentation(dataDir + "AccessChildNodes.pptx");
+Presentation pres = new Presentation("AccessChildNodes.pptx");
 
 {
 	ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
@@ -374,7 +341,7 @@ Presentation pres = new Presentation(dataDir + "AccessChildNodes.pptx");
 	shape = node.Shapes[1];
 	shape.Rotation = 90;
 
-	pres.Save(dataDir + "SmartArt.pptx", SaveFormat.Pptx);
+	pres.Save("SmartArt.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -392,11 +359,8 @@ In the following sample code we will investigate how to identify Assistant Nodes
 - Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 // Creating a presentation instance
-using (Presentation pres = new Presentation(dataDir+ "AssistantNode.pptx"))
+using (Presentation pres = new Presentation("AssistantNode.pptx"))
 {
     // Traverse through every shape inside first slide
     foreach (IShape shape in pres.Slides[0].Shapes)
@@ -421,7 +385,7 @@ using (Presentation pres = new Presentation(dataDir+ "AssistantNode.pptx"))
         }
     }
     // Save Presentation
-    pres.Save(dataDir + "ChangeAssitantNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("ChangeAssitantNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -439,9 +403,6 @@ Please follow the steps below:
 - Write the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 using (Presentation presentation = new Presentation())
 {
     // Accessing the slide
@@ -460,7 +421,7 @@ using (Presentation presentation = new Presentation())
     }
 
     // Saving Presentation
-    presentation.Save(dataDir + "FillFormat_SmartArt_ShapeNode_out.pptx", SaveFormat.Pptx);
+    presentation.Save("FillFormat_SmartArt_ShapeNode_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -478,9 +439,6 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 The example below generating a thumbnail of SmartArt child node
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Presentation class that represents the PPTX file 
 Presentation pres = new Presentation();
 
@@ -494,7 +452,7 @@ ISmartArtNode node = smart.Nodes[1];
 Bitmap bmp = node.Shapes[0].GetThumbnail();
 
 // Save thumbnail
-bmp.Save(dataDir + "SmartArt_ChildNote_Thumbnail_out.jpeg", ImageFormat.Jpeg);
+bmp.Save("SmartArt_ChildNote_Thumbnail_out.jpeg", ImageFormat.Jpeg);
 ```
 
 

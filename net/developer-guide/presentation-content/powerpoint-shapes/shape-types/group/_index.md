@@ -17,9 +17,6 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Prseetation class 
 using (Presentation pres = new Presentation())
 {
@@ -42,7 +39,7 @@ using (Presentation pres = new Presentation())
     groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
 
     // Write the PPTX file to disk 
-    pres.Save(dataDir + "GroupShape_out.pptx", SaveFormat.Pptx);
+    pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -60,11 +57,8 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation(dataDir + "AltText.pptx");
+Presentation pres = new Presentation("AltText.pptx");
 
 // Get the first slide
 ISlide sld = pres.Slides[0];

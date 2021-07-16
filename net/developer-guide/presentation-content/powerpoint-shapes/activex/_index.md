@@ -24,11 +24,8 @@ To manage a simple ActiveX control like a text box and simple command button on 
 The code snippet below updates the ActiveX controls on the presentation slides to the slide as shown below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_ActiveX();
-
 // Accessing the presentation with  ActiveX controls
-Presentation presentation = new Presentation(dataDir + "ActiveX.pptm");
+Presentation presentation = new Presentation("ActiveX.pptm");
 
 // Accessing the first slide in presentation
 ISlide slide = presentation.Slides[0];
@@ -123,14 +120,14 @@ foreach (Control ctl in slide.Controls)
 }
 
 // Save the presentation with Edited ActiveX Controls
-presentation.Save(dataDir + "withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 
 
 // Now removing controls
 slide.Controls.Clear();
 
 // Saving the presentation with cleared ActiveX controls
-presentation.Save(dataDir + "withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
 
@@ -146,12 +143,8 @@ To add ActiveX Media Player control, please perform following steps:
 1. Save the presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_ActiveX();
-string dataVideo = RunExamples.GetDataDir_Video();
-
 // Instantiate Presentation class that represents PPTX file
-Presentation presentation = new Presentation(dataDir + "template.pptx");
+Presentation presentation = new Presentation("template.pptx");
 
 // Create empty presentation instance
 Presentation newPresentation = new Presentation();
@@ -163,9 +156,9 @@ newPresentation.Slides.RemoveAt(0);
 newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
 
 // Access the Media Player ActiveX control and set the video path
-newPresentation.Slides[0].Controls[0].Properties["URL"] = dataVideo + "Wildlife.mp4";
+newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
 
 // Save the Presentation
-newPresentation.Save(dataDir + "LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 

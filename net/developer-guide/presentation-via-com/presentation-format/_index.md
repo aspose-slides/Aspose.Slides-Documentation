@@ -15,9 +15,7 @@ In order to get presentation format. Please follow the steps below:
 In the example given below, we have got the presentation format:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationOpening();
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(dataDir + "HelloWorld.pptx");
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("HelloWorld.pptx");
 switch (info.LoadFormat)
 {
     case LoadFormat.Pptx:

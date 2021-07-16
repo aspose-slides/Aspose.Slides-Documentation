@@ -17,14 +17,6 @@ In this topic, we will introduce developers about adding ellipse shapes to their
 In the example given below, we have added an ellipse to the first slide.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -36,7 +28,7 @@ using (Presentation pres = new Presentation())
     sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "EllipseShp1_out.pptx", SaveFormat.Pptx);
+    pres.Save("EllipseShp1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -57,14 +49,6 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -85,7 +69,7 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.Width = 5;
 
     //Write the PPTX file to disk
-    pres.Save(dataDir + "EllipseShp2_out.pptx", SaveFormat.Pptx);
+    pres.Save("EllipseShp2_out.pptx", SaveFormat.Pptx);
 }
 ```
 
