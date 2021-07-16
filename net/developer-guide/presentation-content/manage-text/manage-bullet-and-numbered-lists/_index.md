@@ -101,7 +101,7 @@ To create a picture bullet, go through these steps:
 4. Access the TextFrame of the added shape.
 5. Remove the default paragraph in the TextFrame.
 6. Create the first paragraph instance using Paragraph class.
-7. Load Image from disk in IPPImage.
+7. Load Image from disk and add it to Presentation.Images, than use IPPImage instance that was returned from AddImage method.
 8. Set the bullet type to Picture and then set the image.
 9. Set the Paragraph Text.
 10. Set the Paragraph Indent to set the bullet.
@@ -114,7 +114,28 @@ To create a picture bullet, go through these steps:
  This C# code shows you to create a picture bullet in a slide:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Paragraphs.Clear();
+    
+    
+    Paragraph paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
+    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    paragraph.ParagraphFormat.Bullet.Picture.Image = image;
+    paragraph.ParagraphFormat.Indent = 15;
+    paragraph.ParagraphFormat.Bullet.Height = 100;
+    paragraph.Text = "My text";
 
+    textFrame.Paragraphs.Add(paragraph);
+    
+    // ...
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
  
