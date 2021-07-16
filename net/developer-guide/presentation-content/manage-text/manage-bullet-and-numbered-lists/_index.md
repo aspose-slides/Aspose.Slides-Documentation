@@ -55,7 +55,28 @@ To create a bullet list, through these steps:
 This sample code in C#—an implementation of the steps above—shows you to create a bullet list in a slide:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Paragraphs.Clear();
+    
+    Paragraph paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+    paragraph.ParagraphFormat.Bullet.Char = '*';
+    paragraph.ParagraphFormat.Indent = 15;
+    paragraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
+    paragraph.ParagraphFormat.Bullet.Color.Color = Color.Red;
+    paragraph.ParagraphFormat.Bullet.Height = 100;
+    paragraph.Text = "My text";
 
+    textFrame.Paragraphs.Add(paragraph);
+    
+    // ...
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
  
