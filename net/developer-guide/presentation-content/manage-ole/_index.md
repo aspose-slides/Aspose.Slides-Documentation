@@ -242,7 +242,18 @@ If you want to use a specific image and text as elements in the preview, you can
 This C# code shows you how to set the icon image and title for an embedded object: 
 
 ```c#
+using (Presentation pres = new Presentation("embeddedOle.pptx"))
+{
+    ISlide slide = pres.Slides[0];
+    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
 
+    IPPImage oleImage = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    oleObjectFrame.SubstitutePictureTitle = "My title";
+    oleObjectFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+    oleObjectFrame.IsObjectIcon = false;
+
+    pres.Save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
+}
 ```
 
 
