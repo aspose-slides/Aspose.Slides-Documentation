@@ -87,7 +87,7 @@ using (Presentation pres = new Presentation())
 
 ## Adding Images as Slide Background
 
-You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *Setting Images as Backgrounds for Slides*. ~~Insert link.~~ 
+You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/net/presentation-background/#setting-images-as-background-for-slides)*.
 
 
 
