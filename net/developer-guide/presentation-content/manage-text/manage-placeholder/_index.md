@@ -23,11 +23,8 @@ To replace the text of a Placeholder, please follow the steps below:
 - Write the modified presentation as a [PPTX ](https://wiki.fileformat.com/presentation/pptx/)file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
-using (Presentation pres = new Presentation(dataDir + "ReplacingText.pptx"))
+using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
     // Access first slide
@@ -42,7 +39,7 @@ using (Presentation pres = new Presentation(dataDir + "ReplacingText.pptx"))
         }
 
     // Save the PPTX to Disk
-    pres.Save(dataDir + "output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -53,10 +50,7 @@ As we know that Standard and pre-built layouts contain placeholders with default
 The code snippet below shows how to use this feature:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-using (Presentation pres = new Presentation(dataDir + "Presentation2.pptx"))
+using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
     foreach (IShape shape in slide.Slide.Shapes) // iterate through the slide
@@ -79,7 +73,7 @@ using (Presentation pres = new Presentation(dataDir + "Presentation2.pptx"))
         }
     }
 
-    pres.Save(dataDir + "Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    pres.Save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
 }
 ```
 

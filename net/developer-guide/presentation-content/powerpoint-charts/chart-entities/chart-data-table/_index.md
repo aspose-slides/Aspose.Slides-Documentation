@@ -16,8 +16,7 @@ Aspose.Slides for .NET provides support for changing color of categories in a se
  Below sample example is given. 
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
@@ -26,7 +25,7 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
 	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
 
-	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
+	pres.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 

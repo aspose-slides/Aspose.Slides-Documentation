@@ -13,10 +13,6 @@ The following example includes these steps:
 1. With [Presentation.Save()](https://apireference.aspose.com/net/slides/aspose.slides.presentation/save/methods/4) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```c#
-
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Create new instance of a rules collection
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
@@ -38,13 +34,13 @@ foreach (IFontFallBackRule fallBackRule in rulesList)
 if (rulesList.Count > 0)
 	rulesList.Remove(rulesList[0]);
 
-using (Presentation pres = new Presentation(dataDir + "input.pptx"))
+using (Presentation pres = new Presentation("input.pptx"))
 {
 	//Assigning a prepared rules list for using
 	pres.FontsManager.FontFallBackRulesCollection = rulesList;
 
 	// Rendering of thumbnail with using of initialized rules collection and saving to PNG
-	pres.Slides[0].GetThumbnail(1f, 1f).Save(dataDir + "Slide_0.png", ImageFormat.Png);
+	pres.Slides[0].GetThumbnail(1f, 1f).Save("Slide_0.png", ImageFormat.Png);
 }
 ```
 

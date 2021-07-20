@@ -16,10 +16,7 @@ then those values are called **local** values. At any level, **local** values co
 The following example shows how to get effective values.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
     IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
 
@@ -39,10 +36,7 @@ Aspose.Slides for .NET allows developers to get effective properties of the cam
 The following code sample shows how to get effective properties for the camera.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
@@ -60,10 +54,7 @@ Aspose.Slides for .NET allows developers to get effective properties of Light R
 The following code sample shows how to get effective properties for the Light Rig.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
@@ -80,10 +71,7 @@ Aspose.Slides for .NET allows developers to get effective properties of Bevel S
 The following code sample shows how to get effective properties for the Bevel Shape.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
@@ -102,9 +90,7 @@ Using Aspose.Slides for .NET, you can get effective properties of Text Frame. F
 The following code sample shows how to get effective text frame formatting properties.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
 
@@ -131,11 +117,7 @@ Using Aspose.Slides for .NET, you can get effective properties of Text Style. F
 The following code sample shows how to get effective text style properties.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-
-using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
     IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
 
@@ -160,9 +142,6 @@ using (Presentation pres = new Presentation(dataDir + "Presentation1.pptx"))
 Using Aspose.Slides for .NET, you can get effective properties of Font Height . Here is the code demonstrating the portion's effective font height value changing after setting local font height values on different presentation structure levels. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 using (Presentation pres = new Presentation())
 {
     IAutoShape newShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
@@ -203,7 +182,7 @@ using (Presentation pres = new Presentation())
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
-    pres.Save(dataDir + "SetLocalFontHeightValues.pptx",SaveFormat.Pptx);
+    pres.Save("SetLocalFontHeightValues.pptx",SaveFormat.Pptx);
 }
 ```
 
@@ -214,10 +193,7 @@ Using Aspose.Slides for .NET, you can get effective fill formatting for differen
 So finally **CellFormatEffectiveData** properties always used to draw the table. The following code sample shows how to get effective fill formatting for different table logic parts.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
-using (Presentation pres = new Presentation(dataDir + "pres.pptx"))
+using (Presentation pres = new Presentation("pres.pptx"))
 {
 	ITable tbl = pres.Slides[0].Shapes[0] as ITable;
 	ITableFormatEffectiveData tableFormatEffective = tbl.TableFormat.GetEffective();

@@ -9,9 +9,7 @@ url: /net/chart-calculations/
 Aspose.Slides for .NET provides a simple API for getting these properties. This will help you to Calculates actual values of chart elements. The actual values include position of elements that implement IActualLayout interface (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+using (Presentation pres = new Presentation("test.pptx"))
 {
     Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
     chart.ValidateChartLayout();
@@ -21,7 +19,7 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
     double h = chart.PlotArea.ActualHeight;
 	
 	// Saving presentation
-	pres.Save(dataDir + "Result.pptx", SaveFormat.Pptx);
+	pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -31,9 +29,6 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 Aspose.Slides for .NET provides a simple API for getting these properties. Properties of IActualLayout provide information about actual position of parent chart element. It is necessary to call method IChart.ValidateChartLayout() previously to fill properties with actual values.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Creating empty presentation
 using (Presentation pres = new Presentation())
 {
@@ -53,9 +48,6 @@ using (Presentation pres = new Presentation())
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for .NET you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -93,7 +85,7 @@ using (Presentation pres = new Presentation())
     series.Format.Line.FillFormat.SolidFillColor.Color = Color.Purple;
     series.Format.Line.DashStyle = LineDashStyle.Solid;
 
-    pres.Save(dataDir + "HideInformationFromChart.pptx", SaveFormat.Pptx);
+    pres.Save("HideInformationFromChart.pptx", SaveFormat.Pptx);
 }
 ```
 

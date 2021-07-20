@@ -14,10 +14,7 @@ Aspose.Slides for .NET has provided the simplest API to identify merge table cel
 - Print Message if cells are merged.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
-using (Presentation pres = new Presentation(dataDir + "SomePresentationWithTable.pptx"))
+using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 {
     ITable table = pres.Slides[0].Shapes[0] as ITable; // assuming that Slide#0.Shape#0 is a table
     for (int i = 0; i < table.Rows.Count; i++)
@@ -51,14 +48,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Presentation class that represents PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -85,7 +74,7 @@ using (Presentation pres = new Presentation())
         }
 
     //Write PPTX to Disk
-    pres.Save(dataDir + "table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -96,9 +85,6 @@ using (Presentation pres = new Presentation())
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2) then table will be numbered and look like this:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -141,7 +127,7 @@ using (Presentation presentation = new Presentation())
     // Merging cells (1, 2) x (2, 2)
     tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
 
-    presentation.Save(dataDir + "MergeCells_out.pptx", SaveFormat.Pptx);
+    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -150,9 +136,6 @@ using (Presentation presentation = new Presentation())
 Let's continue merging cells. Now we merge (1, 1) and (1, 2). As a result we have table with large merged cell in the middle:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -201,7 +184,7 @@ using (Presentation presentation = new Presentation())
     table.MergeCells(table[1, 1], table[1, 2], true);
 
     //Write PPTX to Disk
-    presentation.Save(dataDir + "MergeCells1_out.pptx", SaveFormat.Pptx);
+    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -211,9 +194,6 @@ using (Presentation presentation = new Presentation())
 We could see in previous example when table cells are merged then numeration of other cells is not changed.Now let's return to our normal table (without merged cells) and try to split cell (1, 1). The result is strange enough but that is the way MS PowerPoint and Aspose.Slides for .NET numerate table cells.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -261,7 +241,7 @@ using (Presentation presentation = new Presentation())
     table[1, 1].SplitByWidth(table[2, 1].Width / 2);
 
     //Write PPTX to Disk
-    presentation.Save(dataDir + "CellSplit_out.pptx", SaveFormat.Pptx);
+    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -282,9 +262,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class object
 Presentation presentation = new Presentation();
 
@@ -299,7 +276,7 @@ double[] dblRows = { 100, 100, 100, 100, 90 };
 ITable tbl = islide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
 // Creating a Bitmap Image object to hold the image file
-Bitmap image = new Bitmap(dataDir + "aspose-logo.jpg");
+Bitmap image = new Bitmap("aspose-logo.jpg");
 
 // Create an IPPImage object using the bitmap object
 IPPImage imgx1 = presentation.Images.AddImage(image);
@@ -310,6 +287,6 @@ tbl[0, 0].FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch
 tbl[0, 0].FillFormat.PictureFillFormat.Picture.Image = imgx1;
 
 // Save PPTX to Disk
-presentation.Save(dataDir + "Image_In_TableCell_out.pptx", SaveFormat.Pptx);
+presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
 ```
 

@@ -11,11 +11,8 @@ Using Aspose.Slides for .NET, developers can not only create PowerPoint presenta
 Aspose.Slides for .NET provides Presentation class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation.In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of Presentation class. After the file is opened, we get the total number of slides present in the presentation to print on the screen. The following example shows how to Open a Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationOpening();
-
 // Opening the presentation file by passing the file path to the constructor of Presentation class
-Presentation pres = new Presentation(dataDir + "OpenPresentation.pptx");
+Presentation pres = new Presentation("OpenPresentation.pptx");
 
 // Printing the total number of slides present in the presentation
 System.Console.WriteLine(pres.Slides.Count.ToString());
@@ -27,9 +24,6 @@ System.Console.WriteLine(pres.Slides.Count.ToString());
 Aspose.Slides for .NET provides facility to open very large presentations using Presentation class. Now you can load large presentations lets say presentation size is 2 Gb, you can easily open that with these sample codes provided below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationOpening();
-
 const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions
@@ -70,28 +64,21 @@ New IResourceLoadingCallback interface has been added. This callback interface i
 The code snippet below shows how to use IResourceLoadingCallback interface:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationOpening();
-
 LoadOptions opts = new LoadOptions();
 opts.ResourceLoadingCallback = new ImageLoadingHandler();
-Presentation presentation = new Presentation(dataDir + "presentation.pptx", opts);
+Presentation presentation = new Presentation("presentation.pptx", opts);
 ```
-
-
 
 ```c#
 public class ImageLoadingHandler : IResourceLoadingCallback
 {
-    // The path to the documents directory.
-    string dataDir = RunExamples.GetDataDir_PresentationOpening();
     public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
     {
         if (args.OriginalUri.EndsWith(".jpg"))
         {
             try // load substitute image
             {
-                byte[] imageBytes = File.ReadAllBytes(Path.Combine(dataDir, "aspose-logo.jpg"));
+                byte[] imageBytes = File.ReadAllBytes("c:\\aspose-logo.jpg");
                 args.SetData(imageBytes);
                 return ResourceLoadingAction.UserProvided;
             }

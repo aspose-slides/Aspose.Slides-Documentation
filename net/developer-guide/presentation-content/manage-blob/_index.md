@@ -9,8 +9,6 @@ url: /net/manage-blob/
 [Aspose.Slides](/slides/net/) for .NET provides a facility to add large files (video file in that case) and prevent a high memory consumption. An example is given below that shows how to add Blob in presentations.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
 const string pathToVeryLargeVideo = "veryLargeVideo.avi";
 
 // create a new presentation which will contain this video
@@ -35,9 +33,7 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET provides a facility to Export large files (audio and video file in that case). We want to extract these files from the presentation and do not want to load this presentation into memory to keep our memory consumption low. Here is an example is given below how we can export blob from presentations.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-const string hugePresentationWithAudiosAndVideosFile = @"c:\bin\aspose\Tasks\020, 38595\orig\Large  Video File Test1.pptx";
+const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
 
 LoadOptions loadOptions = new LoadOptions
 {
@@ -90,10 +86,7 @@ Aspose.Slides for .NET added a new method to [**IImageCollection**](https://apir
 This example demonstrates how to include the large BLOB (image) and prevent high memory consumption.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-
-string pathToLargeImage = dataDir + "large_image.jpg";
+string pathToLargeImage = "large_image.jpg";
 
 // create a new presentation which will contain this image
 using (Presentation pres = new Presentation())
@@ -107,7 +100,7 @@ using (Presentation pres = new Presentation())
 
 		// save the presentation. Despite that the output presentation will be
 		// large, the memory consumption will be low the whole lifetime of the pres object
-		pres.Save(dataDir + "presentationWithLargeImage.pptx", SaveFormat.Pptx);
+		pres.Save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
 	}
 }
 

@@ -22,14 +22,6 @@ Please follow the steps below to add TextFrame having 3 paragraphs and 3 portion
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -88,7 +80,7 @@ using (Presentation pres = new Presentation())
         }
 
     //Write PPTX to Disk
-    pres.Save(dataDir + "multiParaPort_out.pptx", SaveFormat.Pptx);
+    pres.Save("multiParaPort_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -117,14 +109,6 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Creating a presenation instance
 using (Presentation pres = new Presentation())
 {
@@ -191,7 +175,7 @@ using (Presentation pres = new Presentation())
 
 
     //Writing the presentation as a PPTX file
-    pres.Save(dataDir + "Bullet_out.pptx", SaveFormat.Pptx);
+    pres.Save("Bullet_out.pptx", SaveFormat.Pptx);
 
 }
 ```
@@ -219,16 +203,13 @@ This topic is also the part of the topic series of managing text in paragraphs. 
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 Presentation presentation = new Presentation();
 
 // Accessing the first slide
 ISlide slide = presentation.Slides[0];
 
 // Instantiate the image for bullets
-Image image = new Bitmap(dataDir + "bullets.png");
+Image image = new Bitmap("bullets.png");
 IPPImage ippxImage = presentation.Images.AddImage(image);
 
 // Adding and accessing Autoshape
@@ -255,9 +236,9 @@ paragraph.ParagraphFormat.Bullet.Height = 100;
 textFrame.Paragraphs.Add(paragraph);
 
 // Writing the presentation as a PPTX file
-presentation.Save(dataDir + "ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
+presentation.Save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 // Writing the presentation as a PPT file
-presentation.Save(dataDir + "ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
+presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 ```
 
 
@@ -277,14 +258,6 @@ This topic is also the part of the topic series of managing text in paragraphs. 
 - Save the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Creating a presenation instance
 using (Presentation pres = new Presentation())
 {
@@ -348,7 +321,7 @@ using (Presentation pres = new Presentation())
     text.Paragraphs.Add(para4);
 
     //Writing the presentation as a PPTX file
-    pres.Save(dataDir + "MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -368,9 +341,6 @@ Aspose.Slides for .NET provides a simple API to manage paragraphs with custom nu
 - Save the presentation.
 
 ```c#
- // The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 using (var presentation = new Presentation())
 {
 	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
@@ -401,7 +371,7 @@ using (var presentation = new Presentation())
 	paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
 	textFrame.Paragraphs.Add(paragraph5);
 
-	presentation.Save(dataDir + "SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+	presentation.Save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -422,14 +392,6 @@ This page will illustrate how we can manage paragraph indent. We will see how de
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-	System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate Presentation Class
 Presentation pres = new Presentation();
 
@@ -475,7 +437,7 @@ para3.ParagraphFormat.Depth = 2;
 para3.ParagraphFormat.Indent = 50;
 
 //Write the Presentation to disk
-pres.Save(dataDir + "InOutDent_out.pptx", SaveFormat.Pptx);
+pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -493,9 +455,7 @@ This page will illustrate how we can manage end paragraph run properties. We wil
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
+using (Presentation pres = new Presentation("Test.pptx"))
 {
 	IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
 
@@ -512,7 +472,7 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 	shape.TextFrame.Paragraphs.Add(para1);
 	shape.TextFrame.Paragraphs.Add(para2);
 
-	pres.Save(dataDir+"pres.pptx", SaveFormat.Pptx);
+	pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -533,9 +493,6 @@ This topic is also part of a series of topics about managing text paragraphs. As
 - Save the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Create Empty presentation instance// Create Empty presentation instance
 using (Presentation pres = new Presentation())
 {
@@ -554,13 +511,13 @@ using (Presentation pres = new Presentation())
     ashape.TextFrame.Paragraphs.Clear();
 
     // Loading the HTML file using stream reader
-    TextReader tr = new StreamReader(dataDir + "file.html");
+    TextReader tr = new StreamReader("file.html");
 
     // Adding text from HTML stream reader in text frame
     ashape.TextFrame.Paragraphs.AddFromHtml(tr.ReadToEnd());
 
     // Saving Presentation
-    pres.Save(dataDir + "output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -577,11 +534,8 @@ Please follow the steps below to see how to export the paragraph text to HTML us
   The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Load the presentation file
-using (Presentation pres = new Presentation(dataDir + "ExportingHTMLText.pptx"))
+using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 {
 
     // Acesss the default first slide of presentation
@@ -593,7 +547,7 @@ using (Presentation pres = new Presentation(dataDir + "ExportingHTMLText.pptx"))
     // Accessing the added shape
     IAutoShape ashape = (IAutoShape)slide.Shapes[index];
 
-    StreamWriter sw = new StreamWriter(dataDir + "output_out.html", false, Encoding.UTF8);
+    StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
 
     //Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
     sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));

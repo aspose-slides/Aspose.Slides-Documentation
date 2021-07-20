@@ -18,11 +18,8 @@ description: "Header and footer in PowerPoint with Aspose.Slides."
 Notes of some specific slide could be updated as shown in the example below:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Layout();
-
 // Load Presentation
-Presentation pres = new Presentation(dataDir + "headerTest.pptx");
+Presentation pres = new Presentation("headerTest.pptx");
 
 // Setting Footer
 pres.HeaderFooterManager.SetAllFootersText("My Footer text");
@@ -36,7 +33,7 @@ if (null != masterNotesSlide)
 }
 
 // Save presentation
-pres.Save(dataDir + "HeaderFooterJava.pptx", SaveFormat.Pptx);
+pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -77,8 +74,7 @@ Aspose.Slides for .NET supports Header and Footer in Handout and notes slides. P
 Code Snippet provided in the below Example.
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Notes();
-using (Presentation presentation = new Presentation(dataDir + "presentation.pptx"))
+using (Presentation presentation = new Presentation("presentation.pptx"))
 {
 	// Change Header and Footer settings for notes master and all notes slides
 	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
@@ -117,7 +113,7 @@ using (Presentation presentation = new Presentation(dataDir + "presentation.pptx
 		headerFooterManager.SetFooterText("New footer text"); // set text to notes slide Footer placeholder
 		headerFooterManager.SetDateTimeText("New date and time text"); // set text to notes slide Date-time placeholder
 	}
-	presentation.Save(dataDir + "testresult.pptx",SaveFormat.Pptx);
+	presentation.Save("testresult.pptx",SaveFormat.Pptx);
 }
 		
  }

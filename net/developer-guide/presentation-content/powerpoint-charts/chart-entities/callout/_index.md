@@ -8,16 +8,13 @@ url: /net/callout/
 New property **ShowLabelAsDataCallout** has been added to **DataLabelFormat** class and **IDataLabelFormat** interface, which determines either specified chart's data label will be displayed as data callout or as data label. In the example given below, we have set the Callouts.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowLabelAsDataCallout = true;
     chart.ChartData.Series[0].Labels[2].DataLabelFormat.ShowLabelAsDataCallout = false;
-    presentation.Save(dataDir + "DisplayChartLabels_out.pptx", SaveFormat.Pptx);
+    presentation.Save("DisplayChartLabels_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -27,8 +24,7 @@ using (Presentation presentation = new Presentation())
 Aspose.Slides for .NET provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
-Presentation pres = new Presentation(dataDir+"testc.pptx");
+Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
 IChart chart = slide.Shapes.AddChart(ChartType.Doughnut, 10, 10, 500, 500, false);
 IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
@@ -83,6 +79,6 @@ while (categoryIndex < 15)
 	}
 	categoryIndex++;
 }
-pres.Save(dataDir+"chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 

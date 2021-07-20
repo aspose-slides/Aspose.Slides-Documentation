@@ -15,9 +15,6 @@ Aspose.Slides for .NET now supports, second plot options for Pie of Pie or Bar o
 In the example given below, we have set different properties of Pie of Pie chart.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -31,7 +28,7 @@ chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.Pi
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
 
 // Write presentation to disk
-presentation.Save(dataDir + "SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -54,8 +51,6 @@ Aspose.Slides for .NET provides a simple API for setting automatic pie chart sli
 Write the modified presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 // Instantiate Presentation class that represents PPTX file
 using (Presentation presentation = new Presentation())
 {

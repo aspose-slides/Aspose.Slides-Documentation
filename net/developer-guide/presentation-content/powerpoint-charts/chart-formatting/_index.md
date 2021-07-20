@@ -41,14 +41,6 @@ Aspose.Slides for .NET provides a simple API for managing different chart entiti
 1. Write the modified presentation to a PPTX file
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiating presentation// Instantiating presentation
 Presentation pres = new Presentation();
 
@@ -185,7 +177,7 @@ chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
 // Save Presentation
-pres.Save(dataDir + "FormattedChart_out.pptx", SaveFormat.Pptx);
+pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -201,15 +193,12 @@ Aspose.Slides for .NET provides support for setting the font related properties 
 Below sample example is given.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation pres = new Presentation())
 {               
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.TextFormat.PortionFormat.FontHeight = 20;
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save(dataDir + "FontPropertiesForChart.pptx", SaveFormat.Pptx);
+    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -230,14 +219,6 @@ Aspose.Slides for .NET provides a simple API for managing chart data format:
 1. Save the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate the presentation// Instantiate the presentation
 Presentation pres = new Presentation();
 
@@ -263,7 +244,7 @@ foreach (ChartSeries ser in series)
 }
 
 // Saving presentation
-pres.Save(dataDir + "PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
 The possible preset number format values along with their preset index and that can be used are given below:
@@ -318,7 +299,6 @@ Aspose.Slides for .NET provides support for setting chart area. **IChart.HasRou
  Below sample example is given. 
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation presentation = new Presentation())
 {
 	ISlide slide = presentation.Slides[0];
@@ -327,7 +307,7 @@ using (Presentation presentation = new Presentation())
 	chart.LineFormat.Style = LineStyle.Single;
 	chart.HasRoundedCorners = true;
 
-	presentation.Save(dataDir + "out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 

@@ -17,14 +17,6 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate PresentationEx class that represents the PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -35,7 +27,7 @@ using (Presentation pres = new Presentation())
     sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
     //Write the PPTX to Disk
-    pres.Save(dataDir + "LineShape1_out.pptx", SaveFormat.Pptx);
+    pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -54,14 +46,6 @@ Aspose.Slides for .NET also allows developers to configure some properties of th
 - Write the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Shapes();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate PresentationEx class that represents the PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -88,7 +72,7 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
 
     //Write the PPTX to Disk
-    pres.Save(dataDir + "LineShape2_out.pptx", SaveFormat.Pptx);
+    pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
 }
 ```
 

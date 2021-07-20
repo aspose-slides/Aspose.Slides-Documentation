@@ -26,14 +26,11 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 {{% /alert %}} 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation(dataDir + "PPTtoPPTX.ppt");
+Presentation pres = new Presentation("PPTtoPPTX.ppt");
 
 // Saving the PPTX presentation to PPTX format
-pres.Save(dataDir + "PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}} 

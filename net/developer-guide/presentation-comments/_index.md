@@ -14,9 +14,6 @@ Slide comment is like an annotation in PDF file or a note that one can attach wi
 In Aspose.Slides for .NET, the presentation slide comment are associated with a particular author. The [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class holds the collection of authors in [**ICommentAuthorCollection** ](https://apireference.aspose.com/net/slides/aspose.slides/icommentauthorcollection/properties/index)that are responsible for adding slide comments. For each author, there is a collection of comments in [**ICommentCollection**](https://apireference.aspose.com/net/slides/aspose.slides/icommentcollection). The [**IComment**](https://apireference.aspose.com/net/slides/aspose.slides/icomment) class includes information like an author who added slide comment, time of creation, slide where a comment is added, the position of slide comment on the selected slide and the comment text. The [**CommentAuthor**](https://apireference.aspose.com/net/slides/aspose.slides/commentauthor) class includes the author's name, his initials and list of associated comments. In the following example, we have added the code snippet for adding the slide comments.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Comments();
-
 // Instantiate Presentation class
 using (Presentation presentation = new Presentation())
 {
@@ -46,7 +43,7 @@ using (Presentation presentation = new Presentation())
     // Accessin the comment at index 0 for slide 1
     String str = Comments[0].Text;
 
-    presentation.Save(dataDir + "Comments_out.pptx", SaveFormat.Pptx);
+    presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.GetLength(0) > 0)
     {
@@ -63,11 +60,8 @@ using (Presentation presentation = new Presentation())
 In the following example, we will learn how to access the existing slide comments and can even modify the comments as well.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Comments();
-
 // Instantiate Presentation class
-using (Presentation presentation = new Presentation(dataDir + "Comments1.pptx"))
+using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
     foreach (var commentAuthor in presentation.CommentAuthors)
     {
@@ -88,9 +82,6 @@ A new property [**ParentComment**](https://apireference.aspose.com/net/slides/a
 The code snippet below shows a sample of adding some comments and some replies to them:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_Comments();
-
 using (Presentation pres = new Presentation())
 {
     // Add comment
@@ -132,12 +123,12 @@ using (Presentation pres = new Presentation())
         Console.WriteLine();
     }
 
-    pres.Save(dataDir + "parent_comment.pptx",SaveFormat.Pptx);
+    pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
     // Remove comment1 and all its replies
     comment1.Remove();
 
-    pres.Save(dataDir + "remove_comment.pptx", SaveFormat.Pptx);
+    pres.Save("remove_comment.pptx", SaveFormat.Pptx);
 }
 ```
 

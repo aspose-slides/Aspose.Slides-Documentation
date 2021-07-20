@@ -26,11 +26,8 @@ If you want to clone a slide and then use it within the same presentation file a
 In the example given below, we have cloned a slide (lying at the first position – zero index – of the presentation) to the end of the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "CloneWithinSamePresentationToEnd.pptx"))
+using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
 {
 
     // Clone the desired slide to the end of the collection of slides in the same presentation
@@ -39,7 +36,7 @@ using (Presentation pres = new Presentation(dataDir + "CloneWithinSamePresentati
     slds.AddClone(pres.Slides[0]);
 
     // Write the modified presentation to disk
-    pres.Save(dataDir + "Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
+    pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 
 }
 ```
@@ -56,11 +53,8 @@ If you want to clone a slide and then use it within the same presentation file b
 In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation(dataDir + "CloneWithInSamePresentation.pptx"))
+using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
 
     // Clone the desired slide to the end of the collection of slides in the same presentation
@@ -70,7 +64,7 @@ using (Presentation pres = new Presentation(dataDir + "CloneWithInSamePresentati
     slds.InsertClone(2, pres.Slides[1]);
 
     // Write the modified presentation to disk
-    pres.Save(dataDir + "Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
+    pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 
 }
 ```
@@ -88,11 +82,8 @@ If you need to clone a slide from one presentation and use it in another present
 In the example given below, we have cloned a slide (from the first index of the source presentation) to the end of the destination presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate Presentation class to load the source presentation file
-using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pptx"))
+using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
     // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
     using (Presentation destPres = new Presentation())
@@ -103,7 +94,7 @@ using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pp
         slds.AddClone(srcPres.Slides[0]);
 
         // Write the destination presentation to disk
-        destPres.Save(dataDir + "Aspose2_out.pptx", SaveFormat.Pptx);
+        destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
@@ -121,11 +112,8 @@ If you need to clone a slide from one presentation and use it in another present
 In the example given below, we have cloned a slide (from the zero index of the source presentation) to index 1 (position 2) of the destination presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate Presentation class to load the source presentation file
-using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pptx"))
+using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
     // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
     using (Presentation destPres = new Presentation())
@@ -135,7 +123,7 @@ using (Presentation srcPres = new Presentation(dataDir + "CloneAtEndOfAnother.pp
         slds.InsertClone(2, srcPres.Slides[0]);
 
         // Write the destination presentation to disk
-        destPres.Save(dataDir + "Aspose2_out.pptx", SaveFormat.Pptx);
+        destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
@@ -156,12 +144,9 @@ If you need to clone a slide with a master slide from one presentation from and 
 In the example given below, we have cloned a slide with a master (lying at the zero index of the source presentation) to the end of the destination presentation using a master from source slide.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate Presentation class to load the source presentation file
 
-using (Presentation srcPres = new Presentation(dataDir + "CloneToAnotherPresentationWithMaster.pptx"))
+using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
 {
     // Instantiate Presentation class for destination presentation (where slide is to be cloned)
     using (Presentation destPres = new Presentation())
@@ -188,7 +173,7 @@ using (Presentation srcPres = new Presentation(dataDir + "CloneToAnotherPresenta
       
         // Clone the desired master slide from the source presentation to the collection of masters in the // Destination presentation
         // Save the destination presentation to disk
-        destPres.Save(dataDir + "CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
+        destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
     }
 }

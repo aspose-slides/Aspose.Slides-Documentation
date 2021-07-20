@@ -14,13 +14,6 @@ Aspose.Slides for .NET now facilitates to add custom SmartArt shapes in their sl
 - Write the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
 // Instantiate the presentation
 using (Presentation pres = new Presentation())
 {
@@ -32,7 +25,7 @@ using (Presentation pres = new Presentation())
     ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
 
     // Saving presentation
-    pres.Save(dataDir + "SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -42,11 +35,8 @@ using (Presentation pres = new Presentation())
 The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a SmartArt shape. If shape is of SmartArt type then we will typecast that to SmartArt instance.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
 // Load the desired the presentation
-using (Presentation pres = new Presentation(dataDir + "AccessSmartArtShape.pptx"))
+using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 {
 
     // Traverse through every shape inside first slide
@@ -76,10 +66,7 @@ The following sample code will help to access the SmartArt shape with particular
 - Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-using (Presentation presentation = new Presentation(dataDir + "AccessSmartArtShape.pptx"))
+using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
     // Traverse through every shape inside first slide
     foreach (IShape shape in presentation.Slides[0].Shapes)
@@ -114,10 +101,7 @@ The following sample code will help to access the SmartArt shape with particular
 - Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-using (Presentation presentation = new Presentation(dataDir + "AccessSmartArtShape.pptx"))
+using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
     // Traverse through every shape inside first slide
     foreach (IShape shape in presentation.Slides[0].Shapes)
@@ -138,7 +122,7 @@ using (Presentation presentation = new Presentation(dataDir + "AccessSmartArtSha
     }
 
     // Saving Presentation
-    presentation.Save(dataDir + "ChangeSmartArtStyle_out.pptx", SaveFormat.Pptx);
+    presentation.Save("ChangeSmartArtStyle_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -156,10 +140,7 @@ In this example, we will learn to change the color style for any SmartArt shape.
 - Save the Presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_SmartArts();
-
-using (Presentation presentation = new Presentation(dataDir + "AccessSmartArtShape.pptx"))
+using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
     // Traverse through every shape inside first slide
     foreach (IShape shape in presentation.Slides[0].Shapes)
@@ -180,7 +161,7 @@ using (Presentation presentation = new Presentation(dataDir + "AccessSmartArtSha
     }
 
     // Saving Presentation
-    presentation.Save(dataDir + "ChangeSmartArtColorStyle_out.pptx", SaveFormat.Pptx);
+    presentation.Save("ChangeSmartArtColorStyle_out.pptx", SaveFormat.Pptx);
 }
 ```
 

@@ -15,11 +15,8 @@ Printing of the presentation to the default printer is quite simple in Aspose.Sl
 In the example given below, we have call the Print method with no parameters.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Rendering();
-
 // Load the presentation
-Presentation presentation = new Presentation(dataDir + "Print.ppt");
+Presentation presentation = new Presentation("Print.ppt");
 
 // Call the print method to print whole presentation to the default printer
 presentation.Print();
@@ -36,12 +33,10 @@ Printing of the presentation to the specific printer requires the name of the pr
 In the example given below, we have called the Print method with the printer name as a string parameter to the Print method.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Rendering();
 try
 {
     // Load the presentation
-    Presentation presentation = new Presentation(dataDir + "Print.ppt");
+    Presentation presentation = new Presentation("Print.ppt");
 
     // Call the print method to print whole presentation to the desired printer
     presentation.Print("Please set your printer name here");
@@ -68,8 +63,6 @@ Aspose.Slides provides support for setting the print presentation dynamically wi
 In the example given below, we have called the Print method with no parameters.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Rendering();
 using (Presentation pres = new Presentation())
 {
 	PrinterSettings printerSettings = new PrinterSettings();

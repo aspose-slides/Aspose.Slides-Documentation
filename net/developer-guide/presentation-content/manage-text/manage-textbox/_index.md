@@ -17,14 +17,6 @@ Using Aspose.Slides for .NET, developers can create TextBox on a Slide in the Pr
 The implementation of the above steps is demonstrated below in an example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-            
 // Instantiate PresentationEx// Instantiate PresentationEx
 using (Presentation pres = new Presentation())
 {
@@ -51,7 +43,7 @@ using (Presentation pres = new Presentation())
     portion.Text = "Aspose TextBox";
 
     // Save the presentation to disk
-    pres.Save(dataDir + "TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -62,8 +54,6 @@ Using Aspose.Slides for .NET, developers can add column in text boxes on a Slide
 The implementation is demonstrated below in an example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
 using (Presentation presentation = new Presentation())
 {
 	// Get the first slide of presentation
@@ -99,10 +89,7 @@ Using Aspose.Slides for .NET, developers can add columns in text frames on a Sli
 The implementation is demonstrated below in an example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-string outPptxFileName = dataDir + "ColumnsTest.pptx";
+string outPptxFileName = "ColumnsTest.pptx";
 using (Presentation pres = new Presentation())
 {
     IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
@@ -110,15 +97,15 @@ using (Presentation pres = new Presentation())
 
     format.ColumnCount = 2;
     shape1.TextFrame.Text = "All these columns are limited to be within a single text container -- " +
-                              "you can add or delete text and the new or remaining text automatically adjusts " +
-                              "itself to flow within the container. You cannot have text flow from one container " +
-                              "to other though -- we told you PowerPoint's column options for text are limited!";
+                                "you can add or delete text and the new or remaining text automatically adjusts " +
+                                "itself to flow within the container. You cannot have text flow from one container " +
+                                "to other though -- we told you PowerPoint's column options for text are limited!";
     pres.Save(outPptxFileName, SaveFormat.Pptx);
 
     using (Presentation test = new Presentation(outPptxFileName))
     {
-        Assert.AreEqual(2, ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Assert.AreEqual(double.NaN, ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
+        Debug.Assert(double.NaN == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
     }
 
     format.ColumnSpacing = 20;
@@ -126,8 +113,8 @@ using (Presentation pres = new Presentation())
 
     using (Presentation test = new Presentation(outPptxFileName))
     {
-        Assert.AreEqual(2, ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Assert.AreEqual(20, ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
+        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
     }
 
     format.ColumnCount = 3;
@@ -136,10 +123,9 @@ using (Presentation pres = new Presentation())
 
     using (Presentation test = new Presentation(outPptxFileName))
     {
-        Assert.AreEqual(3, ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Assert.AreEqual(15, ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
+        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
     }
-
 }
 ```
 
@@ -159,14 +145,6 @@ In this topic, we will create a TextBox with a Hyperlink. You will have to insta
 The implementation of the above steps is demonstrated below in an example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate a Presentation class that represents a PPTX
 Presentation pptxPresentation = new Presentation();
 
@@ -191,6 +169,6 @@ ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
 IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
 HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
 // Save the PPTX Presentation
-pptxPresentation.Save(dataDir + "hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 

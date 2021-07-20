@@ -14,9 +14,6 @@ Aspose.Slides for .NET provides a simple API interface to set chart series overl
 1. Write the modified presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 using (Presentation presentation = new Presentation())
 {
     // Adding chart
@@ -29,7 +26,7 @@ using (Presentation presentation = new Presentation())
     }
 
     // Write the presentation file to disk
-    presentation.Save(dataDir + "SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+    presentation.Save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -47,10 +44,7 @@ Aspose.Slides for .NET provides support for changing series color. 
 Below sample example is given. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation pres = new Presentation(dataDir+"test.pptx"))
+using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 600, 400);
 	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[1];
@@ -59,7 +53,7 @@ using (Presentation pres = new Presentation(dataDir+"test.pptx"))
 	point.Format.Fill.FillType = FillType.Solid;
 	point.Format.Fill.SolidFillColor.Color = Color.Blue;
 
-	pres.Save(dataDir+"output.pptx", SaveFormat.Pptx);
+	pres.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -77,8 +71,6 @@ Aspose.Slides for .NET provides support for changing color of categories in a se
 Below sample example is given. 
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -87,7 +79,7 @@ using (Presentation pres = new Presentation())
 	point.Format.Fill.FillType = FillType.Solid;
 	point.Format.Fill.SolidFillColor.Color = Color.Blue;
 
-	pres.Save(dataDir + "output.pptx", SaveFormat.Pptx);
+	pres.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -104,8 +96,6 @@ Aspose.Slides for .NET provides a simple API for setting automatic fill color fo
 1. Save the presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation presentation = new Presentation())
 {
     // Creating a clustered column chart
@@ -118,7 +108,7 @@ using (Presentation presentation = new Presentation())
     }
 
     // Write the presentation file to disk
-    presentation.Save(dataDir + "AutoFillSeries_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -134,8 +124,6 @@ Aspose.Slides for .NET provides a simple API for setting invert fill color for c
 1. Save the presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
 Color inverColor = Color.Red;
 using (Presentation pres = new Presentation())
 {
@@ -161,7 +149,7 @@ using (Presentation pres = new Presentation())
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = seriesColor;
     series.InvertedSolidFillColor.Color = inverColor;
-    pres.Save(dataDir + "SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);               
+    pres.Save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);               
 }
 ```
 
@@ -172,7 +160,6 @@ using (Presentation pres = new Presentation())
 The Aspose.Slides for .NET lets developers allow to set inverts. **IChartDataPoint.InvertIfNegative** and **ChartDataPoint.InvertIfNegative** properties have been added. This Specifies the data point shall invert its colors if the value is negative. Sample code is given below.
 
 ```c#
-string dataDir = RunExamples.GetDataDir_Charts();
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
@@ -189,7 +176,7 @@ using (Presentation pres = new Presentation())
 
 	series[0].DataPoints[2].InvertIfNegative = true;
 
-	pres.Save(dataDir+"", SaveFormat.Pptx);
+	pres.Save("out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -208,10 +195,7 @@ Aspose.Slides for .NET provides a simple API to clear specific chart series **Da
 Sample code is given below.
 
 ```c#
- // The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
-using (Presentation pres = new Presentation(dataDir + "TestChart.pptx"))
+using (Presentation pres = new Presentation("TestChart.pptx"))
 {
 	ISlide sl = pres.Slides[0];
 
@@ -225,7 +209,7 @@ using (Presentation pres = new Presentation(dataDir + "TestChart.pptx"))
 
 	chart.ChartData.Series[0].DataPoints.Clear();
 
-	pres.Save(dataDir + "ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+	pres.Save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -242,9 +226,6 @@ Aspose.Slides for .NET provides a simple API for setting **GapWidth** property. 
 1. Write the modified presentation to a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Charts();
-
 // Creating empty presentation 
 Presentation presentation = new Presentation();
 
@@ -284,6 +265,6 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 series.ParentSeriesGroup.GapWidth = 50;
 
 // Save presentation with chart
-presentation.Save(dataDir + "GapWidth_out.pptx", SaveFormat.Pptx);
+presentation.Save("GapWidth_out.pptx", SaveFormat.Pptx);
 ```
 

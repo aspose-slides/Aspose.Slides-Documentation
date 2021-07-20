@@ -16,9 +16,6 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation())
 {
@@ -27,7 +24,7 @@ using (Presentation presentation = new Presentation())
 
     // Add an autoshape of type line
     slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    presentation.Save(dataDir + "NewPresentation_out.pptx", SaveFormat.Pptx);
+    presentation.Save("NewPresentation_out.pptx", SaveFormat.Pptx);
 }
 ```
 

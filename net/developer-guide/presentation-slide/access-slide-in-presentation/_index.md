@@ -16,11 +16,8 @@ Aspose.Slides for .NET provides a [Presentation](https://apireference.aspose.com
 [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://apireference.aspose.com/net/slides/aspose.slides/islidecollection) collection (that is a collection of [ISlide](https://apireference.aspose.com/net/slides/aspose.slides/islide) objects). All of these slides can be accessed from this Slides collection using a slide index as shown below in the example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Create an instance of Presentation class
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Obtain a slide's reference by its index
 ISlide slide = presentation.Slides[0];
@@ -31,11 +28,8 @@ ISlide slide = presentation.Slides[0];
 Every slide in the presentation has a unique ID associated with it. The [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class exposes the [GetSlideById(id)](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/getslidebyid) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [GetSlideById(id)](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/getslidebyid) method as shown below in the example.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Create an instance of Presentation class
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Getting Slide ID
 uint id = presentation.Slides[0].SlideId;
@@ -57,11 +51,8 @@ If you create a presentation using MS PowerPoint, you would have experienced tha
 The example given below moves the slide (that was at position 1 to the second position and the slide that was at the second position, is moved to the first position and so on). In this way, all slides are adjusted automatically by Aspose.Slides for .NET.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Slides_Presentations_CRUD();
-
 // Instantiate Presentation class to load the source presentation file
-using (Presentation pres = new Presentation(dataDir + "ChangePosition.pptx"))
+using (Presentation pres = new Presentation("ChangePosition.pptx"))
 {
     // Get the slide whose position is to be changed
     ISlide sld = pres.Slides[0];
@@ -70,7 +61,7 @@ using (Presentation pres = new Presentation(dataDir + "ChangePosition.pptx"))
     sld.SlideNumber = 2;
 
     // Write the presentation to disk
-    pres.Save(dataDir + "Aspose_out.pptx", SaveFormat.Pptx);
+    pres.Save("Aspose_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -88,11 +79,8 @@ Aspose.Slides for .NET now supports, setting the Slide Number. In this topic, we
 In the example given below, we have get and set the slide number.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Rendering();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation(dataDir + "HelloWorld.pptx"))
+using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
     // Get the slide number
     int firstSlideNumber = presentation.FirstSlideNumber;
@@ -100,7 +88,7 @@ using (Presentation presentation = new Presentation(dataDir + "HelloWorld.pptx")
     // Set the slide number
     presentation.FirstSlideNumber=10;
 
-    presentation.Save(dataDir + "Set_Slide_Number_out.pptx", SaveFormat.Pptx);
+    presentation.Save("Set_Slide_Number_out.pptx", SaveFormat.Pptx);
 }
 ```
 

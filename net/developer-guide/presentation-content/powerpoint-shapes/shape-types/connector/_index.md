@@ -18,9 +18,6 @@ In order to add a connector shape for joining two shapes. Please follow the step
    In the example given below, we have added a connector between two shapes.
 
 ```c#
-// The path to the documents directory.                    
-string dataDir = RunExamples.GetDataDir_Shapes();
-            
 // Instantiate Presentation class that represents the PPTX file
 using (Presentation input = new Presentation())
 {                
@@ -44,7 +41,7 @@ using (Presentation input = new Presentation())
     connector.Reroute();
 
     // Saving presenation
-    input.Save(dataDir + "Connecting shapes using connectors_out.pptx", SaveFormat.Pptx);
+    input.Save("Connecting shapes using connectors_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -68,9 +65,6 @@ In order to add a connector shape for joining two shapes. Please follow the step
 In the example given below, we have added a connector between two shapes.
 
 ```c#
-// The path to the documents directory.                    
-string dataDir = RunExamples.GetDataDir_Shapes();
-
 // Instantiate Presentation class that represents the PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -101,7 +95,7 @@ using (Presentation presentation = new Presentation())
     }
 
     // Save presentation
-    presentation.Save(dataDir + "Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -119,10 +113,7 @@ In order to calculate the angle for connector line, please follow the steps belo
 ```c#
 public static void Run()
 {
-    // The path to the documents directory.
-    string dataDir = RunExamples.GetDataDir_Shapes();
-
-    Presentation pres = new Presentation(dataDir + "ConnectorLineAngle.pptx");
+    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
     Slide slide = (Slide)pres.Slides[0];
     Shape shape;
     for (int i = 0; i < slide.Shapes.Count; i++)

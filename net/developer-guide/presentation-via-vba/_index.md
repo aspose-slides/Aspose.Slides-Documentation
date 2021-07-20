@@ -84,10 +84,7 @@ Aspose.Slides for .NET supports extracting VBA Macros from the slide. In order t
 The implementation of the above steps is demonstrated in the example below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_VBA();
-
-using (Presentation pres = new Presentation(dataDir + "VBA.pptm"))
+using (Presentation pres = new Presentation("VBA.pptm"))
 {
 	if (pres.VbaProject != null) // check if Presentation contains VBA Project
 	{

@@ -17,11 +17,8 @@ To replace the fonts using explicit replacement following steps are used:
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-           
 // Load presentation
-Presentation presentation = new Presentation(dataDir + "Fonts.pptx");
+Presentation presentation = new Presentation("Fonts.pptx");
 
 // Load source font to be replaced
 IFontData sourceFont = new FontData("Arial");
@@ -33,6 +30,6 @@ IFontData destFont = new FontData("Times New Roman");
 presentation.FontsManager.ReplaceFont(sourceFont, destFont);
 
 // Save the presentation
-presentation.Save(dataDir + "UpdatedFont_out.pptx", SaveFormat.Pptx);
+presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 ```
 

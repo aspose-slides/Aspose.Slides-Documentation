@@ -12,21 +12,13 @@ The [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/pres
 Save a presentation to files by calling the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method. Simply pass the file name and save format to the [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method. The examples that follow show how to save a presentation with Aspose.Slides for .NET using C#.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 // Instantiate a Presentation object that represents a PPT file
 Presentation presentation= new Presentation();
 
 //...do some work here...
 
 // Save your presentation to a file
-presentation.Save(dataDir + "Saved_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Saved_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -34,9 +26,6 @@ presentation.Save(dataDir + "Saved_out.pptx", Aspose.Slides.Export.SaveFormat.Pp
 It is possible to save a presentation to a stream by passing an output stream to the  [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class Save method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_PresentationSaving();
-
 // Instantiate a Presentation object that represents a PPT file
 using (Presentation presentation = new Presentation())
 {
@@ -46,7 +35,7 @@ using (Presentation presentation = new Presentation())
     // Add text to shape
     shape.TextFrame.Text = "This demo shows how to Create PowerPoint file and save it to Stream.";
 
-    FileStream toStream = new FileStream(dataDir + "Save_As_Stream_out.pptx", FileMode.Create);
+    FileStream toStream = new FileStream("Save_As_Stream_out.pptx", FileMode.Create);
     presentation.Save(toStream, Aspose.Slides.Export.SaveFormat.Pptx);
     toStream.Close();
 }
@@ -96,14 +85,11 @@ New [**IProgressCallback** ](https://apireference.aspose.com/net/slides/aspose.s
 The following code snippets below shows how to use IProgressCallback interface:
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
-using (Presentation presentation = new Presentation(dataDir + "ConvertToPDF.pptx"))
+using (Presentation presentation = new Presentation("ConvertToPDF.pptx"))
 {
     ISaveOptions saveOptions = new PdfOptions();
     saveOptions.ProgressCallback = new ExportProgressHandler();
-    presentation.Save(dataDir + "ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.Save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
 }
 
 ```

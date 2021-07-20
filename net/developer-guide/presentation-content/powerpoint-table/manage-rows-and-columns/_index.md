@@ -9,11 +9,8 @@ url: /net/manage-rows-and-columns/
 Aspose.Slides for .NET provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/net/slides/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Instantiate Presentation class that represents PPTX
-Presentation pres = new Presentation(dataDir + "table.pptx");
+Presentation pres = new Presentation("table.pptx");
 
 // Access the first slide
 ISlide sld = pres.Slides[0];
@@ -51,11 +48,8 @@ Aspose.Slides for .NET has provided the simplest API to work with tables in an e
 - Save the presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
  // Instantiate presentationentation class that representationents PPTX file
-using (Presentation presentation = new Presentation(dataDir+"Test.pptx"))
+using (Presentation presentation = new Presentation("Test.pptx"))
 {
     // Access first slide
     ISlide sld = presentation.Slides[0];
@@ -95,7 +89,7 @@ using (Presentation presentation = new Presentation(dataDir+"Test.pptx"))
     
 
     // Write PPTX to Disk
-    presentation.Save(dataDir + "table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
@@ -114,14 +108,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Write the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
-// Create directory if it is not already present.
-bool IsExists = System.IO.Directory.Exists(dataDir);
-if (!IsExists)
-    System.IO.Directory.CreateDirectory(dataDir);
-
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -131,7 +117,7 @@ double[] rowHeight = { 30, 50, 30 };
 ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
 table.Rows.RemoveAt(1, false);
 table.Columns.RemoveAt(1, false);
-pres.Save(dataDir + "TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -148,9 +134,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
            
@@ -174,7 +157,7 @@ TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Rows[1].SetTextFormat(textFrameFormat);
 
-presentation.Save(path + "result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
@@ -191,9 +174,6 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Tables();
-
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
            
@@ -217,7 +197,7 @@ TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Columns[1].SetTextFormat(textFrameFormat);
 
-pres.Save(path + "result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ```
 

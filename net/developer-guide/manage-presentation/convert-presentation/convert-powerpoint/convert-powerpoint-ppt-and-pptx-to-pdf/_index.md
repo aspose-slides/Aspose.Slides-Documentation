@@ -214,11 +214,8 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 The following example shows you how to convert a presentation to a PDF notes document with custom slide size. Here, each inch equals 72.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "SelectedSlides.pptx");
+Presentation presentation = new Presentation("SelectedSlides.pptx");
 Presentation auxPresentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -236,7 +233,7 @@ options.NotesPosition = NotesPositions.BottomFull;
 
 
 
-auxPresentation.Save(dataDir + "PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
@@ -246,17 +243,14 @@ auxPresentation.Save(dataDir + "PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
 The [**Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method exposed by [**Presentation**](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for .NET is a two-line process. First, you open the presentation. Second, you save it out to PDF notes. The code snippet below updates the sample presentation to PDF in Notes Slide view.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Conversion();
-
 // Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation(dataDir + "NotesFile.pptx"))
+using (Presentation presentation = new Presentation("NotesFile.pptx"))
 {
 	PdfOptions pdfOptions = new PdfOptions();
 	INotesCommentsLayoutingOptions options = pdfOptions.NotesCommentsLayouting;
 	options.NotesPosition = NotesPositions.BottomFull;
 
 	// Save the presentation to PDF notes
-	presentation.Save(dataDir + "Pdf_Notes_out.tiff", SaveFormat.Pdf, pdfOptions);
+	presentation.Save("Pdf_Notes_out.tiff", SaveFormat.Pdf, pdfOptions);
 }
 ```

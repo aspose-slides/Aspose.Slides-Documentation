@@ -28,9 +28,7 @@ This property returns or sets the superscript or subscript text (value from -100
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-using (Presentation presentation = new Presentation(dataDir+"test.pptx"))
+using (Presentation presentation = new Presentation("test.pptx"))
 {
     // Get slide
     ISlide slide = presentation.Slides[0];
@@ -72,8 +70,8 @@ using (Presentation presentation = new Presentation(dataDir+"test.pptx"))
     textFrame.Paragraphs.Add(superPar);
     textFrame.Paragraphs.Add(paragraph2);
 
-    presentation.Save(dataDir+"TestOut.pptx", SaveFormat.Pptx);
-    System.Diagnostics.Process.Start(dataDir + "TestOut.pptx");
+    presentation.Save("TestOut.pptx", SaveFormat.Pptx);
+    System.Diagnostics.Process.Start("TestOut.pptx");
  } 
 ```
 

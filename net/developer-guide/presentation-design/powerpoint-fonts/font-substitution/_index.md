@@ -18,11 +18,8 @@ To replace the fonts by setting some rules of replacement following steps are us
 The implementation of the above steps is given below.
 
 ```c#
-// The path to the documents directory.
-string dataDir = RunExamples.GetDataDir_Text();
-
 // Load presentation
-Presentation presentation = new Presentation(dataDir + "Fonts.pptx");
+Presentation presentation = new Presentation("Fonts.pptx");
 
 // Load source font to be replaced
 IFontData sourceFont = new FontData("SomeRareFont");
@@ -44,6 +41,6 @@ presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 Bitmap bmp = presentation.Slides[0].GetThumbnail(1f, 1f);
 
 // Save the image to disk in JPEG format
-bmp.Save(dataDir + "Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+bmp.Save("Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 ```
 
