@@ -272,10 +272,6 @@ Consider a scene for a text and the shape containing that text. The 3D effect co
 ## **Apply Outer Shadow Effects to Texts**
 Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
-<<<<<<< HEAD
-```c#
-// Instantiate a PPTX class
-=======
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
@@ -292,7 +288,6 @@ Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspo
 This sample code in C#—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```c#
->>>>>>> master
 using (Presentation pres = new Presentation())
 {
 
@@ -338,18 +333,10 @@ Go through these steps:
 This sample code (based on the steps above) shows you how to add a connector between two shapes in C#:
 
 ```c#
-<<<<<<< HEAD
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
-            
-// Get reference of a slide
-ISlide slide = presentation.Slides[0];
-=======
 using(Presentation presentation = new Presentation())
 {
     // Get reference of a slide
     ISlide slide = presentation.Slides[0];
->>>>>>> master
 
     // Add an AutoShape of Rectangle type
     IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
@@ -377,13 +364,8 @@ using(Presentation presentation = new Presentation())
     // Set Scheme Color
     ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
 
-<<<<<<< HEAD
-// Save Presentation
-presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
-=======
     // Save Presentation
     presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
 }
->>>>>>> master
 ```
 
