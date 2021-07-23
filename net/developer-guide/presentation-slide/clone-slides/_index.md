@@ -188,7 +188,18 @@ With Aspose.Slides for .NET, you can clone a slide from one section of a present
 This C# code shows you how to clone a slide and insert the cloned slide into a specified section:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+    slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 150, 100, 100); // to clone
+    
+    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+    ISection section = pres.Sections.AddSection("Section2", slide2);
 
+    pres.Slides.AddClone(slide, section);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
 
