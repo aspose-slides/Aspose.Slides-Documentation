@@ -18,16 +18,17 @@ The [PresentationInfo](https://apireference.aspose.com/slides/net/aspose.slides/
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
-This C# code shows you how to check and confirm that a presentation is in a specific format:
+You can check a presentation's format without loading the presentation. See this sample code:
 
 ```c#
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
+Console.WriteLine(info.LoadFormat); // PPTX
 
-```
+IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
+Console.WriteLine(info2.LoadFormat); // PPT
 
-You can also check a presentation's format without loading the presentation. See this sample code:
-
-```c#
-
+IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
+Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
 # Getting the Properties of a Presentation
@@ -37,7 +38,12 @@ You can also check a presentation's format without loading the presentation. See
 This sample code in C# shows you how to get a presentation’s properties (information about the presentation):
 
 ```c#
-
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
+IDocumentProperties props = info.ReadDocumentProperties();
+Console.WriteLine(props.CreatedTime);
+Console.WriteLine(props.Subject);
+Console.WriteLine(props.Title);
+// .. 
 ```
 
 # Updating the Properties of a Presentation
@@ -47,7 +53,11 @@ Aspose.Slides provides the [PresentationInfoUpdateDocumentProperties](https://ap
 This sample code shows you how to edit the properties for a presentation in C#:
 
 ```c#
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 
+IDocumentProperties props = info.ReadDocumentProperties();
+props.Title = "My title";
+info.UpdateDocumentProperties(props);
 ```
 
 # Useful Links
