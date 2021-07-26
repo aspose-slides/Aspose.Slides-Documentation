@@ -15,7 +15,7 @@ Cloning is the process of making an exact copy or replica of something. Aspose.S
 - Clone at a specific position in another Presentation.
 
 In Aspose.Slides for .NET, (a collection of [ISlide](https://apireference.aspose.com/net/slides/aspose.slides/islide) objects) exposed by the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) object provides the [AddClone](https://apireference.aspose.com/net/slides/aspose.slides/islidecollection/methods/addclone/index) and [InsertClone](https://apireference.aspose.com/net/slides/aspose.slides.ishapecollection/insertclone/methods/1) methods to perform the above types of slide cloning
-## **Clone at End within a Presentation**
+## **Clone at End Within a Presentation**
 If you want to clone a slide and then use it within the same presentation file at the end of the existing slides, use the [AddClone](https://apireference.aspose.com/net/slides/aspose.slides/islidecollection/methods/addclone/index) method according to the steps listed below:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
@@ -42,7 +42,7 @@ using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pp
 ```
 
 
-## **Clone at Another Position with in Presentation**
+## **Clone at Another Position Within Presentation**
 If you want to clone a slide and then use it within the same presentation file but at a different position, use the [InsertClone](https://apireference.aspose.com/net/slides/aspose.slides.ishapecollection/insertclone/methods/1) method:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
@@ -70,7 +70,7 @@ using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 ```
 
 
-## **Clone at End in another Presentation**
+## **Clone at End in Another Presentation**
 If you need to clone a slide from one presentation and use it in another presentation file, at the end of the existing slides:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class containing the presentation the slide will be cloned from.
@@ -100,7 +100,7 @@ using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 ```
 
 
-## **Clone at Another Position in another Presentation**
+## **Clone at Another Position in Another Presentation**
 If you need to clone a slide from one presentation and use it in another presentation file, at a specific position:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class containing the source presentation the slide will be cloned from.
@@ -129,7 +129,7 @@ using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 ```
 
 
-## **Clone at specific position in another Presentation**
+## **Clone at Specific Position in Another Presentation**
 If you need to clone a slide with a master slide from one presentation from and use it in another presentation, you need to clone the desired master slide from source presentation to destination presentation first. Then you need to use that master slide for cloning slide with master slide. The **AddClone(ISlide, IMasterSlide)** expects a master slide from destination presentation rather than from source presentation. In order to clone the slide with a master, please follow the steps below:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class containing the source presentation the slide will be cloned from.
@@ -178,4 +178,29 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
     }
 }
 ```
+
+
+
+## Clone at End in Specified Section
+
+With Aspose.Slides for .NET, you can clone a slide from one section of a presentation and insert that slide into another section in the same presentation. In this case, you have to use the [AddClone](https://apireference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) method from the [ISlideCollection](https://apireference.aspose.com/slides/net/aspose.slides/islidecollection) Interface. 
+
+This C# code shows you how to clone a slide and insert the cloned slide into a specified section:
+
+```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+    slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 150, 100, 100); // to clone
+    
+    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+    ISection section = pres.Sections.AddSection("Section2", slide2);
+
+    pres.Slides.AddClone(slide, section);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
