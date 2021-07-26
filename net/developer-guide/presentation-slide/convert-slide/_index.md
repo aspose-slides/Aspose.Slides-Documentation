@@ -11,12 +11,7 @@ To convert a slide to an image, convert the slide to a Bitmap first—use the [G
 
 ## About Bitmap and Other Image Formats
 
-In general, a bitmap is a memory organization or image file format for storing digital images (rasters mostly). Bitmap is one of the oldest and purest formats for digital images. Bitmap is the base platform for many other file types or formats used to store digital images.  
-
-In .NET, a [bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. BMP is Microsoft's preferred format for bitmap images in Windows. However, you may have to work with other image formats.
-
-- A **bitmap** is a true image since it renders every pixel individually. It takes up a lot of space, so it is rarely used directly in applications or on the web.
-- **PNG** (Portable Network Graphics) is a raster graphics file format based on a bitmap image. PNG is widely accepted. It is often used in different applications and on the web. 
+In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. You may use an instance of this class to save images in various formats (BMP, JPG, PNG, etc.)
 
 ## **Converting Slides to Bitmap and Saving the Images in PNG**
 
