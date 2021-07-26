@@ -235,6 +235,32 @@ try {
 }
 ```
 
+## Setting Icon Images and Titles for Embedded Objects
+
+After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what users see before they access or open the OLE object. 
+
+If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Java. 
+
+This Java code shows you how to set the icon image and title for an embedded object: 
+
+```java
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+    IOleObjectFrame oleObjectFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+    IPPImage oleImage = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+    oleObjectFrame.setSubstitutePictureTitle("My title");
+    oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+    oleObjectFrame.setObjectIcon(false);
+
+    pres.save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
 ## Extracting Embedded Files
 
 Aspose.Slides for Java allows you to extract the files embedded in slides as OLE objects this way:
