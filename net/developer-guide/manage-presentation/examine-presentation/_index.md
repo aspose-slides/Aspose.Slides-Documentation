@@ -14,7 +14,7 @@ The [PresentationInfo](https://apireference.aspose.com/slides/net/aspose.slides/
 
 {{% /alert %}} 
 
-## Checking a Presentation Format
+## **Checking a Presentation Format**
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
@@ -31,7 +31,7 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
-## Getting the Properties of a Presentation
+## **Getting the Properties of a Presentation**
 
 This sample code in C# shows you how to get a presentation’s properties (information about the presentation):
 
@@ -44,7 +44,7 @@ Console.WriteLine(props.Title);
 // .. 
 ```
 
-## Updating the Properties of a Presentation
+## **Updating the Properties of a Presentation**
 
 Aspose.Slides provides the [PresentationInfoUpdateDocumentProperties](https://apireference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) method that allows you to make changes to a presentation’s properties.
 
@@ -58,7 +58,7 @@ props.Title = "My title";
 info.UpdateDocumentProperties(props);
 ```
 
-### Useful Links
+### **Useful Links**
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 
