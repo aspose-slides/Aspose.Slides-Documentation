@@ -226,7 +226,7 @@ using (Presentation pres = new Presentation("embeddedOle.pptx"))
 
 ## Setting Icon Images and Titles for Embedded Objects
 
-After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what user see before they access or open the OLE object. 
+After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what users see before they access or open the OLE object. 
 
 If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for .NET. 
 
@@ -280,5 +280,4 @@ using (Presentation pres = new Presentation("embeddedOle.pptx"))
     }
 }
 ```
-
 
