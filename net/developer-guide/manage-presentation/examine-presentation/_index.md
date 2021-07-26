@@ -8,7 +8,7 @@ url: /net/examine-presentation/
 
 Aspose.Slides for .NET allows you to examine a presentation to find out its properties and understand its behavior. 
 
-{{% alert color="primary" %}} 
+{{% alert title="TIP" color="green" %}} 
 
 The [PresentationInfo](https://apireference.aspose.com/slides/net/aspose.slides/presentationinfo) class contains most of the properties and methods needed for operations here. 
 
@@ -32,8 +32,6 @@ Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
 # Getting the Properties of a Presentation
-
-~~Explanation.~~ 
 
 This sample code in C# shows you how to get a presentation’s properties (information about the presentation):
 
