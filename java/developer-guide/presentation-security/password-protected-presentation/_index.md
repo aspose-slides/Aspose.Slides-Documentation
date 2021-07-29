@@ -27,7 +27,7 @@ Typically, you can set a password to enforce these restrictions on a presentatio
   
   **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
 
-## How to Password Protect a Presentation
+## **How to Password Protect a Presentation**
 
 1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
 
@@ -72,7 +72,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 - Checking whether a presentation is encrypted
 - Checking whether a presentation is password protected.
 
-## Encrypting a Presentation
+## **Encrypting a Presentation**
 
 You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
 
@@ -90,7 +90,7 @@ try {
 }
 ```
 
-## Setting Write Protection to a Presentation 
+## **Setting Write Protection to a Presentation**
 
 You can add a mark stating “Do not modify” to a presentation. This way, you get to tell users that you do not want them to make changes to the presentation.  
 
@@ -108,7 +108,7 @@ try {
 }
 ```
 
-## Decrypting a Presentation; Opening an Encrypted Presentation
+## **Decrypting a Presentation; Opening an Encrypted Presentation**
 
 Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [removeEncryption](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) method with no parameters. You will then have to enter the correct password to load the presentation. 
 
@@ -126,7 +126,7 @@ try {
 }
 ```
 
-## Removing Encryption; Disabling Password Protection
+## **Removing Encryption; Disabling Password Protection**
 
 You can remove the encryption or password protection on a presentation. This way, users become able to access or modify the presentation without restrictions. 
 
@@ -144,7 +144,7 @@ try {
 }
 ```
 
-## Removing Write Protection from a Presentation
+## **Removing Write Protection from a Presentation**
 
 You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
 
@@ -160,7 +160,7 @@ try {
 }
 ```
 
-## Getting the Properties of an Encrypted Presentation
+## **Getting the Properties of an Encrypted Presentation**
 
 Typically, users struggle to get the document properties of an encrypted or password-protected presentation. Aspose.Slides, however, offers a mechanism that allows you to password protect a presentation while retaining the means for users to access the properties of that presentation.
 
@@ -178,7 +178,7 @@ try {
 }
 ```
 
-## Checking whether a Presentation is Encrypted
+## **Checking whether a Presentation is Encrypted**
 
 Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [isEncrypted](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isEncrypted--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
 
@@ -193,7 +193,7 @@ try {
 }
 ```
 
-## Checking whether a Presentation is Write Protected
+## **Checking whether a Presentation is Write Protected**
 
 Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [isWriteProtected](https://apireference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#isWriteProtected--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
 
