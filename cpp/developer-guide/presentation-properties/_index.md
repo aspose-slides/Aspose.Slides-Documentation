@@ -7,7 +7,7 @@ url: /cpp/presentation-properties/
 
 
 ## **Access Presentation Properties**
-As we have described earlier that Aspose.Slides for C++ supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for C++ API. Aspose.Slides for C++ provides a class [IDocumentProperties](http://www.aspose.com/api/net/slides/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through [Presentation.DocumentProperties](http://www.aspose.com/api/net/slides/aspose.slides/presentation/properties/documentproperties) property. Developers can use [IDocumentProperties](http://www.aspose.com/api/net/slides/aspose.slides/idocumentproperties/properties/index) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
+As we have described earlier that Aspose.Slides for C++ supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for C++ API. Aspose.Slides for C++ provides a class [IDocumentProperties](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) that represents the document properties associated with a presentation file through [Presentation::get_DocumentProperties()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) method. Developers can use [get_DocumentProperties()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#a40a03eb17a9904ff80063f6df714c402) method exposed by **Presentation** object to access the document properties of the presentation files as described below:
 
 {{% alert color="primary" %}} 
 
@@ -36,7 +36,27 @@ Modifying the built-in properties of presentation files is as easy as that of ac
 ## **Add Custom Presentation Properties**
 Aspose.Slides for C++ also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-CSharp-Presentations-Properties-AddCustomDocumentProperties-AddCustomDocumentProperties.cs" >}}
+``` cpp
+// Instantiate the Presentation class
+auto presentation = System::MakeObject<Presentation>();
+
+// Getting Document Properties
+auto documentProperties = presentation->get_DocumentProperties();
+
+// Adding Custom properties
+documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
+documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
+documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
+
+// Getting property name at particular index
+String getPropertyName = documentProperties->GetCustomPropertyName(2);
+
+// Removing selected property
+documentProperties->RemoveCustomProperty(getPropertyName);
+
+// Saving presentation
+presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
+```
 
 ## **Access and Modify Custom Presentation Properties**
 Aspose.Slides for C++ also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
@@ -47,5 +67,12 @@ Aspose.Slides for C++ also allows developers to access the values of custom prop
 ## **Check if Presentation is Modified or Created**
 Aspose.Slides for C++ provides a facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-CSharp-Presentations-Properties-CheckPresentationCreatedorModifed-CheckPresentationCreatedorModifed.cs" >}}
+``` cpp
+auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"props.pptx");
+
+auto props = info->ReadDocumentProperties();
+
+String app = props->get_NameOfApplication();
+String ver = props->get_AppVersion();
+```
 
