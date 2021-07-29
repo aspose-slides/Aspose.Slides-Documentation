@@ -1,7 +1,7 @@
 ---
 title: Merge Presentation
 type: docs
-weight: 60
+weight: 40
 url: /java/merge-presentation/
 keywords: "Merge PPT, combine PowerPoint"
 description: "Merge PPT and combine PowerPoint presentations with Aspose.Slides API."
@@ -81,5 +81,6 @@ To merge presentation slide into a presentation section, it is possible to use 
 ``` 
 
 It is possible to ask questions, share ideas in the [**Aspose.Slides forum**](https://forum.aspose.com/c/slides).
+
 ## **See also**
 - [Clone Slides](/slides/java/clone-slides/)
