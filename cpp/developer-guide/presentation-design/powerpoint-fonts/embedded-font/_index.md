@@ -6,7 +6,7 @@ url: /cpp/embedded-font/
 ---
 
 ## **Get or Remove Embedded Fonts from Presentation**
-Now, you can also work with embedded fonts. FontsManger class now offer, GetEmbeddedFonts() method that returns a list of embedded fonts inside the presentation. You can also remove any embedded font inside presentation if that is required by using RemoveEmbeddedFont() method exposed by FontsManager class. The implementation of the above steps is given below.
+Now, you can also work with embedded fonts. FontsManger class now offers, GetEmbeddedFonts() method that returns a list of embedded fonts inside the presentation. You can also remove any embedded font inside presentation if that is required by using RemoveEmbeddedFont() method exposed by FontsManager class. The implementation of the above steps is given below.
 
 ```c#
 // Instantiate a Presentation object that represents a presentation file
