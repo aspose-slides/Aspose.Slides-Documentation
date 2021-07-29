@@ -24,7 +24,7 @@ auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), st
 
 It is also possible to [Remove()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule#abd87e889a55b4a62174ddd14f1b1476e) fallback font or [AddFallBackFonts()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule#a9bac44ca199a76c6cd004146cb02cd79) into existing [FontFallBackRule](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) object.
 
-[FontFallBackRulesCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection)can be used to organize a list of [FontFallBackRule](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
+[FontFallBackRulesCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) can be used to organize a list of [FontFallBackRule](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
 
 {{% alert color="primary" title="See also" %}} 
 - [Create Fallback Fonts Collection](/slides/cpp/create-fallback-fonts-collection/)
