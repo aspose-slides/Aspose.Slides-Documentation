@@ -1,7 +1,7 @@
 ---
 title: PowerPoint Shapes
 type: docs
-weight: 30
+weight: 90
 url: /net/powerpoint-shapes/
 ---
 

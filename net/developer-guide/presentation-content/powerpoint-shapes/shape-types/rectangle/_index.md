@@ -1,7 +1,7 @@
 ---
 title: Rectangle
 type: docs
-weight: 10
+weight: 80
 url: /net/rectangle/
 ---
 

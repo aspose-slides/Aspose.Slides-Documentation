@@ -1,7 +1,7 @@
 ---
 title: Manage OLE
 type: docs
-weight: 232
+weight: 40
 url: /net/manage-ole/
 ---
 
