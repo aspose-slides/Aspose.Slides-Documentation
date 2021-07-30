@@ -7,11 +7,11 @@ url: /net/convert-slide/
 
 Aspose.Slides for .NET allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others. 
 
-To convert a slide to an image, convert the slide to a Bitmap first—use the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method from the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface. Then you can use [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) or [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interfaces to set additional options for conversion and convertible slide objects.
+To convert a slide to an image, convert the slide to a Bitmap first by using the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method from the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface. Then you can use [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) or [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interfaces to set additional options for conversion and convertible slide objects.
 
 ## About Bitmap and Other Image Formats
 
-In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. You may use an instance of this class to save images in various formats (BMP, JPG, PNG, etc.)
+In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.)
 
 ## **Converting Slides to Bitmap and Saving the Images in PNG**
 
@@ -29,7 +29,7 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
     }
 }
 ```
-{{% alert title="TIP" color="green" %}} 
+{{% alert title="TIP" color="primary" %}} 
 
 You can convert a slide to a bitmap object and then use the object directly somewhere. Or you can convert a slide to a bitmap and then save the image in JPEG or any other format you prefer. 
 
@@ -37,7 +37,7 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image with a certain size. Through one of the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method overloads, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image with a certain size. Using one of the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method overloads, you can convert a slide to an image with specific dimensions (length and width). 
 
 This sample code demonstrates the proposed conversion in C#:
 
@@ -59,7 +59,7 @@ Some slides contain notes and comments.
 
 Aspose.Slides provides two interfaces— [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
-{{% alert title="TIP" color="green" %}} 
+{{% alert title="TIP" color="primary" %}} 
 
 With the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface, you get to specify your preferred position for notes and comments in the resulting image. 
 
@@ -93,7 +93,7 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
 }
 ```
 
-{{% alert title="NOTE" color="green" %}} 
+{{% alert title="NOTE" color="primary" %}} 
 
 In any slide to image conversion process, the [NotesPositions](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/properties/notesposition) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size. 
 
