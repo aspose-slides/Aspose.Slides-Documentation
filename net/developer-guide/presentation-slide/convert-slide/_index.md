@@ -37,7 +37,7 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image with a certain size. Using one of the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method overloads, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using one of the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method overloads, you can convert a slide to an image with specific dimensions (length and width). 
 
 This sample code demonstrates the proposed conversion in C#:
 
