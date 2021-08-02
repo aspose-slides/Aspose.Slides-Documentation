@@ -9,13 +9,13 @@ url: /net/image/
 
 Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other locations onto slides. Similarly, Aspose.Slides allows you to add images to slides in your presentations through different procedures. 
 
-{{% alert color="primary" %}} 
+{{% alert title="NOTE" color="primary" %}} 
 
-**Note:** If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [*Picture Frame*](https://docs.aspose.com/slides/net/picture-frame/). 
+If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [*Picture Frame*](https://docs.aspose.com/slides/net/picture-frame/). 
 
 {{% /alert %}} 
 
-Aspose.Slides supports operations with images in these widely-used formats: JPEG, PNG, BMP, GIF, and others. 
+Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, BMP, GIF, and others. 
 
 ## **Adding Images Stored Locally to Slides**
 

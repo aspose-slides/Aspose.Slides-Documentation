@@ -9,7 +9,7 @@ Aspose.Slides for .NET allows you to convert slides (in presentations) to images
 
 To convert a slide to an image, convert the slide to a Bitmap first by using the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method from the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface. Then you can use [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) or [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interfaces to set additional options for conversion and convertible slide objects.
 
-## About Bitmap and Other Image Formats
+## **About Bitmap and Other Image Formats**
 
 In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.)
 
@@ -99,7 +99,7 @@ In any slide to image conversion process, the [NotesPositions](https://apirefere
 
 {{% /alert %}} 
 
-## **Converting Slides to Images Using ITiffOptions **
+## **Converting Slides to Images Using ITiffOptions**
 
 The [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
 
