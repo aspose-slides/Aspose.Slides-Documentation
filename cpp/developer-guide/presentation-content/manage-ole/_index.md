@@ -180,8 +180,37 @@ These methods allow to get **IOleEmbeddedDataInfo** object as a parameter so now
 
 The following example shows how to set file type for an embedding object:
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetFileTypeForAnEmbeddingObject-SetFileTypeForAnEmbeddingObject.cpp" >}}
+``` cpp
+auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
+auto slide = pres->get_Slides()->idx_get(0);
+auto oleObjectFrame = System::DynamicCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
+Console::WriteLine(u"Current embedded data extension is: {0}", oleObjectFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
 
+oleObjectFrame->SetEmbeddedData(System::MakeObject<OleEmbeddedDataInfo>(File::ReadAllBytes(u"embedOle.zip"), u"zip"));
+
+pres->Save(u"embeddedChanged.pptx", SaveFormat::Pptx);
+```
+
+## Setting Icon Images and Titles for Embedded Objects
+
+After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what users see before they access or open the OLE object. 
+
+If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for C++. 
+
+This C++ code shows you how to set the icon image and title for an embedded object: 
+
+``` cpp
+auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
+auto slide = pres->get_Slides()->idx_get(0);
+auto oleObjectFrame = System::DynamicCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
+
+auto oleImage = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
+oleObjectFrame->set_SubstitutePictureTitle(u"My title");
+oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleObjectFrame->set_IsObjectIcon(false);
+
+pres->Save(u"embeddedOle-newImage.pptx", SaveFormat::Pptx);
+```
 
 ## **Extract Embedded Files from OLE Object**
 Aspose.Slides for C++ supports extracting embedded files from OLE Object. In order to extract embedded files, please follow the steps below:
@@ -192,6 +221,23 @@ Aspose.Slides for C++ supports extracting embedded files from OLE Object. In ord
 
 The implementation of the above steps is demonstrated in the example below.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ExtractEmbeddedFileDataFromOLEObject-ExtractEmbeddedFileDataFromOLEObject.cpp" >}}
+``` cpp
+auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
+auto slide = pres->get_Slides()->idx_get(0);
 
+for (int32_t index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto shape = slide->get_Shapes()->idx_get(index);
+
+    auto oleFrame = System::DynamicCast_noexcept<IOleObjectFrame>(shape);
+
+    if (oleFrame != nullptr)
+    {
+        auto data = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+        String extension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+
+        File::WriteAllBytes(String::Format(u"oleFrame{0}{1}", index, extension), data);
+    }
+}
+```
 
