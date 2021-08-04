@@ -65,13 +65,15 @@ These are some of the available parameters or options:
 Here, we apply the SmallGrid pattern color to the text and add a 1-width black text border using this code:
 
 ``` cpp 
-portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
-portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
+auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
+fillFormat->set_FillType(FillType::Pattern);
+fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
+fillFormat->get_PatternFormat()->get_BackColor()->set_Color(Color::get_White());
+fillFormat->get_PatternFormat()->set_PatternStyle(PatternStyle::SmallGrid);
 
-portion->get_PortionFormat()->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-portion->get_PortionFormat()->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+auto lineFillFormat = portion->get_PortionFormat()->get_LineFormat()->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
 The resulting text:
@@ -93,16 +95,19 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in C++:
 
 ``` cpp 
-portion->get_PortionFormat()->get_EffectFormat()->EnableOuterShadowEffect();
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->get_ShadowColor()->set_Color(Color::get_Black());
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_ScaleHorizontal(100);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_ScaleVertical(65);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_BlurRadius(4.73);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_Direction(230.0f);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_Distance(2);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_SkewHorizontal(30);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->set_SkewVertical(0);
-portion->get_PortionFormat()->get_EffectFormat()->get_OuterShadowEffect()->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
+auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
+effectFormat->EnableOuterShadowEffect();
+
+auto outerShadowEffect = effectFormat->get_OuterShadowEffect();
+outerShadowEffect->get_ShadowColor()->set_Color(Color::get_Black());
+outerShadowEffect->set_ScaleHorizontal(100);
+outerShadowEffect->set_ScaleVertical(65);
+outerShadowEffect->set_BlurRadius(4.73);
+outerShadowEffect->set_Direction(230.0f);
+outerShadowEffect->set_Distance(2);
+outerShadowEffect->set_SkewHorizontal(30);
+outerShadowEffect->set_SkewVertical(0);
+outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
 Aspose.Slides API supports three types of shadows: OuterShadow, InnerShadow, and PresetShadow. 
@@ -129,17 +134,20 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 We add display to the text through this code sample in C++:
 
 ``` cpp 
-portion->get_PortionFormat()->get_EffectFormat()->EnableReflectionEffect();
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_BlurRadius(0.5);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_Distance(4.72);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_StartPosAlpha(0.f);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_EndPosAlpha(60.f);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_Direction(90.0f);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_ScaleHorizontal(100);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_ScaleVertical(-100);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_StartReflectionOpacity(60.f);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_EndReflectionOpacity(0.9f);
-portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_RectangleAlign(RectangleAlignment::BottomLeft);
+auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
+effectFormat->EnableReflectionEffect();
+
+auto reflectionEffect = effectFormat->get_ReflectionEffect();
+reflectionEffect->set_BlurRadius(0.5);
+reflectionEffect->set_Distance(4.72);
+reflectionEffect->set_StartPosAlpha(0.f);
+reflectionEffect->set_EndPosAlpha(60.f);
+reflectionEffect->set_Direction(90.0f);
+reflectionEffect->set_ScaleHorizontal(100);
+reflectionEffect->set_ScaleVertical(-100);
+reflectionEffect->set_StartReflectionOpacity(60.f);
+reflectionEffect->set_EndReflectionOpacity(0.9f);
+reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
 ### Applying Glow Effect to Texts
@@ -147,10 +155,13 @@ portion->get_PortionFormat()->get_EffectFormat()->get_ReflectionEffect()->set_Re
 We apply the glow effect to the text to make it shine or stand out using this code:
 
 ``` cpp 
-portion->get_PortionFormat()->get_EffectFormat()->EnableGlowEffect();
-portion->get_PortionFormat()->get_EffectFormat()->get_GlowEffect()->get_Color()->set_R(255);
-portion->get_PortionFormat()->get_EffectFormat()->get_GlowEffect()->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
-portion->get_PortionFormat()->get_EffectFormat()->get_GlowEffect()->set_Radius(7);
+auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
+effectFormat->EnableGlowEffect();
+
+auto glowEffect = effectFormat->get_GlowEffect();
+glowEffect->get_Color()->set_R(255);
+glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.54f);
+glowEffect->set_Radius(7);
 ```
 
 The result of the operation:
@@ -194,29 +205,31 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ``` cpp 
-autoShape->get_ThreeDFormat()->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
-autoShape->get_ThreeDFormat()->get_BevelBottom()->set_Height(10.5);
-autoShape->get_ThreeDFormat()->get_BevelBottom()->set_Width(10.5);
+auto threeDFormat = autoShape->get_ThreeDFormat();
 
-autoShape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
-autoShape->get_ThreeDFormat()->get_BevelTop()->set_Height(12.5);
-autoShape->get_ThreeDFormat()->get_BevelTop()->set_Width(11);
+threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
+threeDFormat->get_BevelBottom()->set_Height(10.5);
+threeDFormat->get_BevelBottom()->set_Width(10.5);
 
-autoShape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(Color::get_Orange());
-autoShape->get_ThreeDFormat()->set_ExtrusionHeight(6);
+threeDFormat->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
+threeDFormat->get_BevelTop()->set_Height(12.5);
+threeDFormat->get_BevelTop()->set_Width(11);
 
-autoShape->get_ThreeDFormat()->get_ContourColor()->set_Color(Color::get_DarkRed());
-autoShape->get_ThreeDFormat()->set_ContourWidth(1.5);
+threeDFormat->get_ExtrusionColor()->set_Color(Color::get_Orange());
+threeDFormat->set_ExtrusionHeight(6);
 
-autoShape->get_ThreeDFormat()->set_Depth(3);
+threeDFormat->get_ContourColor()->set_Color(Color::get_DarkRed());
+threeDFormat->set_ContourWidth(1.5);
 
-autoShape->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
+threeDFormat->set_Depth(3);
 
-autoShape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-autoShape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
-autoShape->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
+threeDFormat->set_Material(MaterialPresetType::Plastic);
 
-autoShape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+threeDFormat->get_LightRig()->set_Direction(LightingDirection::Top);
+threeDFormat->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
+threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
+
+threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
 The resulting text and its shape:
@@ -226,29 +239,31 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this C++ code:
 
 ``` cpp 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_BevelBottom()->set_Height(3.5);
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_BevelBottom()->set_Width(3.5);
+auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_BevelTop()->set_Height(4);
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_BevelTop()->set_Width(4);
+threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
+threeDFormat->get_BevelBottom()->set_Height(3.5);
+threeDFormat->get_BevelBottom()->set_Width(3.5);
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(Color::get_Orange());
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_ExtrusionHeight(6);
+threeDFormat->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
+threeDFormat->get_BevelTop()->set_Height(4);
+threeDFormat->get_BevelTop()->set_Width(4);
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_ContourColor()->set_Color(Color::get_DarkRed());
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_ContourWidth(1.5);
+threeDFormat->get_ExtrusionColor()->set_Color(Color::get_Orange());
+threeDFormat->set_ExtrusionHeight(6);
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_Depth(3);
+threeDFormat->get_ContourColor()->set_Color(Color::get_DarkRed());
+threeDFormat->set_ContourWidth(1.5);
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
+threeDFormat->set_Depth(3);
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
+threeDFormat->set_Material(MaterialPresetType::Plastic);
 
-textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+threeDFormat->get_LightRig()->set_Direction(LightingDirection::Top);
+threeDFormat->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
+threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
+
+threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
 The result of the operation:
@@ -303,7 +318,7 @@ ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
 // Add outer shadow and set all necessary parameters
 ashp->get_EffectFormat()->EnableOuterShadowEffect();
-System::SharedPtr<IOuterShadow> shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
+auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
 shadow->set_BlurRadius(4.0);
 shadow->set_Direction(45.0f);
 shadow->set_Distance(3);
@@ -349,16 +364,17 @@ auto ef = pf->get_EffectFormat();
 ef->EnableInnerShadowEffect();
 
 // Set all necessary parameters
-ef->get_InnerShadowEffect()->set_BlurRadius(8.0);
-ef->get_InnerShadowEffect()->set_Direction(90.0F);
-ef->get_InnerShadowEffect()->set_Distance(6.0);
-ef->get_InnerShadowEffect()->get_ShadowColor()->set_B(189);
+auto shadow = ef->get_InnerShadowEffect();
+shadow->set_BlurRadius(8.0);
+shadow->set_Direction(90.0F);
+shadow->set_Distance(6.0);
+shadow->get_ShadowColor()->set_B(189);
 
 // Set ColorType as Scheme
-ef->get_InnerShadowEffect()->get_ShadowColor()->set_ColorType(ColorType::Scheme);
+shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
 
 // Set Scheme Color
-ef->get_InnerShadowEffect()->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
+shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
 
 // Save Presentation
 presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
