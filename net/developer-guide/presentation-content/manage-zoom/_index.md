@@ -1,7 +1,7 @@
 ---
 title: Manage Zoom
 type: docs
-weight: 232
+weight: 60
 url: /net/manage-zoom/
 ---
 
