@@ -38,7 +38,7 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 
 ## **.NET CancellationToken and Interruptable Library**
 
-In case you have [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) and need to use it with Slides Interruptable Library, you can wrap Presentation processing and interrupt [InterruptionToken](https://apireference.aspose.com/slides/net/aspose.slides/interruptiontoken) if [cancellationToken.IsCancellationRequested](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested0 is set:
+In case you have [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) and need to use it with Slides Interruptable Library, you can wrap Presentation processing and interrupt [InterruptionToken](https://apireference.aspose.com/slides/net/aspose.slides/interruptiontoken) if [cancellationToken.IsCancellationRequested](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) is set:
 
 ``` csharp
 public static void Main()
