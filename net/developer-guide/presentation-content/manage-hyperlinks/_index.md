@@ -5,14 +5,20 @@ weight: 20
 url: /net/manage-hyperlinks/
 ---
 
+A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
 
-## **Add Hyperlink in Presentation**
-To add a hyperlink in a presentation on the presentation level:
+* Links to websites inside texts, shapes, or media
+* Links to files inside texts, shapes, or media
+* Links to slides
+* Links to emails
 
-1. Create an instance of the Presentation class and access the desired presentation.
-1. Add an AutoShape of Rectangle type using [AddAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/shapecollection/methods/addautoshape) method exposed by Shapes object.
-1. Add hyperlink.
-1. Save the presentation as a PPTX file.
+Aspose.Slides for .NET allows you to perform many tasks involving hyperlinks in presentations. 
+
+## **Adding URL Hyperlinks**
+
+### **Adding URL Hyperlinks to Texts**
+
+This C# code shows you how to add a website hyperlink to a text:
 
 ```c#
 using (Presentation presentation = new Presentation())
@@ -27,58 +33,143 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **Adding URL Hyperlinks to Shapes or Frames**
 
-
-## **Remove Hyperlink from Presentation**
-To remove hyperlinks from a presentation on the presentation level:
-
-1. Create an instance of the Presentation class and access the desired presentation.
-1. Remove the hyperlinks in the presentation on the presentation level by accessing [IPresentation.HyperlinkQueries](https://apireference.aspose.com/net/slides/aspose.slides/ipresentation/properties/hyperlinkqueries) and calling the [RemoveAllHyperlinks()](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks) method.
-1. Apply a slide transition effect on a slide.
-1. Write the modified presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+This sample code in C# shows you how to add a website hyperlink to a :
 
 ```c#
-// Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+
+```
+
+
+
+### **Adding URL Hyperlinks to Media**
+
+Aspose.Slides allows you to add hyperlinks to images, audio, and video files. 
+
+This sample code shows you how to add a hyperlink to an image:
+
+```c#
+
+```
+
+ 
+
+This sample code shows you how to add a hyperlink to an audio file:
+
+```c#
+
+```
+
+ 
+
+This sample code shows you how to add a hyperlink to a video:
+
+```
+
+```
+
+
+
+## **Adding File Hyperlinks**
+
+### **Adding File Links to Texts**
+
+ 
+
+### **Adding File Links to Media**
+
+ 
+
+### **Adding File Links to Shapes and Frames**
+
+ 
+
+{{%  alert  title="TIP"  color="primary"  %}} 
+
+You may want to see *[Manage OLE](https://docs.aspose.com/slides/net/manage-ole/)*.
+
+{{% /alert %}}
+
+
+
+
+
+
+
+## **Adding Slide Hyperlinks**
+
+
+
+
+
+
+
+
+
+
+
+## **Using Hyperlinks to Create Table of Contents**
+
+Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
+
+This sample code shows you how to create a table of contents with hyperlinks:
+
+```c#
+using (var presentation = new Presentation())
 {
+    var firstSlide = presentation.Slides[0];
+    var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-    // Apply circle type transition on slide 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var contentTable = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+    contentTable.FillFormat.FillType = FillType.NoFill;
+    contentTable.LineFormat.FillFormat.FillType = FillType.NoFill;
+    contentTable.TextFrame.Paragraphs.Clear();
 
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    paragraph.Text = "Title of slide 2 .......... ";
 
-    // Set the transition time of 3 seconds
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
+    var linkPortion = new Portion();
+    linkPortion.Text = "Page 2";
+    linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
 
-    // Apply comb type transition on slide 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
+    paragraph.Portions.Add(linkPortion);
+    contentTable.TextFrame.Paragraphs.Add(paragraph);
 
-
-    // Set the transition time of 5 seconds
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Apply zoom type transition on slide 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Set the transition time of 7 seconds
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Write the presentation to disk
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 
-## **Set Hyperlink Color**
-A new property [ColorSource](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink/properties/colorsource) has been added to [IHyperlink](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink) interface and Hyperlink class.
+## **Adding Email Hyperlinks**
 
-It allows to get or set the source of hyperlink color, which could be obtained either from slide/presentation styles or corresponding PortionFormat properties. This is a new feature of PowerPoint 2019 and any changes made to this property will take affect only in PowerPoint 2019 or higher versions.
+~~Confirm that we support this function—find out it works similarly to the addition of URL hyperlinks to texts.~~  
 
-The code snippet below shows a sample of adding two hyperlinks with different colors to the same slide:
+ 
+
+
+
+
+
+## **Getting the Details in Hyperlinks**
+
+
+
+
+
+
+
+## **Formatting Hyperlinks**
+~~What other formatting options?~~
+
+### **Color**
+
+With the [ColorSource](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink/properties/colorsource) property in the [IHyperlink](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
+
+This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
 ```c#
 using (Presentation presentation = new Presentation())
@@ -97,6 +188,34 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+
+## **Removing Hyperlinks in Presentations**
+
+### **Removing Hyperlinks from Texts**
+
+This C# code shows you how to remove the hyperlink from a text in a presentation slide:
+
+```c#
+
+```
+
+ 
+
+### **Removing Hyperlinks from Shapes or Frames**
+
+This C# code shows you how to remove the hyperlink from a shape in a presentation slide: 
+
+ 
+
+### **Removing Hyperlinks from Media**
+
+ 
+
+
+
+
 
 
 
