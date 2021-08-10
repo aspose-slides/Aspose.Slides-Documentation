@@ -18,29 +18,76 @@ Aspose.Slides for .NET allows developers to add audio files in their slides. The
 In the example given below, we have added an Embedded Audio Frame into the slide.
 
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// Instantiate Presentation class that represents the presentation file
 using (Presentation pres = new Presentation())
 {
 
     // Get the first slide
     ISlide sld = pres.Slides[0];
 
-    // Load the wav sound file to stram
+    // Load the wav sound file to stream
     FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
 
     // Add Audio Frame
-    IAudioFrame af = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
+    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
 
     // Set Play Mode and Volume of the Audio
-    af.PlayMode = AudioPlayModePreset.Auto;
-    af.Volume = AudioVolumeMode.Loud;
+    audioFrame.PlayMode = AudioPlayModePreset.Auto;
+    audioFrame.Volume = AudioVolumeMode.Loud;
 
-    //Write the PPTX file to disk
+    // Write the PPTX file to disk
     pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Change Audio Frame properties**
+Aspose.Slides for .NET allows developers to change the Audio Frames properties. 
 
+The following picture shows the PowerPoint Audio Options panel. 
+
+![example1_image](audio_frame_0.png)
+
+The correspondences between the PowerPoint Audio Options and the [AudioFrame](https://apireference.aspose.com/net/slides/aspose.slides/audioframe) properties are as follows:
+- Audio Options **Start** drop-down list matches the [AudioFrame.PlayMode](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
+- Audio Options **Volume** matches the [AudioFrame.Volume](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume)  property 
+- Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides)  property 
+- Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode)  property 
+- Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing ](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing)  property 
+- Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) property 
+
+To change the Audio Frame properties, please follow the steps below:
+- [Сreate](#create-audio-frame) or get the Audio Frame 
+- Set new values to the Audio Frame properties you need 
+- Save the modified PPTX file
+
+``` csharp 
+using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+{
+    // Get the AudioFrame shape
+    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
+
+    // Change Play mode to play on click
+    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+
+    // Set Volume to Low
+    audioFrame.Volume = AudioVolumeMode.Low;
+
+    // Set audio to play across slides
+    audioFrame.PlayAcrossSlides = true;
+
+    // Set audio to not loop
+    audioFrame.PlayLoopMode = false;
+
+    // Hide AudioFrame during the slide show
+    audioFrame.HideAtShowing = true;
+
+    // Rewind audio to start after playing
+    audioFrame.RewindAudio = true;
+
+    // Save the PPTX file to disk
+    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **Extract Audio**
 Aspose.Slides for .NET allows developers to extract the sound that is used in slide show transitions associated with slides. To extract the audio, please follow the steps below:
