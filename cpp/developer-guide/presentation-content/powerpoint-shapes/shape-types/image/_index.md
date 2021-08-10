@@ -6,28 +6,72 @@ url: /cpp/image/
 ---
 
 
-## **Adding EMZ Images to Images Collection**
-Aspose.Slides for C++ allows you to embed EMZ (Windows Compressed Enhanced Metafile) files in a presentation images collection. 
+## **Images in Slides In Presentations**
 
-EMZ files are compressed image files commonly used in Microsoft Office programs. They typically contain  EMF (Enhanced Metafile) files. Normally, you can decompress an EMZ file and get an EMF file from it. 
+Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other locations onto slides. Similarly, Aspose.Slides allows you to add images to slides in your presentations through different procedures. 
 
+{{% alert title="NOTE" color="primary" %}} 
 
-This sample code shows you how to add an EMZ image to the images collection:
+If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [*Picture Frame*](https://docs.aspose.com/slides/cpp/picture-frame/). 
 
-``` cpp 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+{{% /alert %}} 
 
-if (slide != nullptr)
+Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, BMP, GIF, and others. 
+
+## **Adding Images Stored Locally to Slides**
+
+You can add one or several images on your computer onto a slide in a presentation. This sample code in C++ shows you how to add an image to a slide:
+
+```C++
+using (Presentation pres = new Presentation())
 {
-    System::ArrayPtr<uint8_t> bufferData = File::ReadAllBytes(u"image.emz");
+    ISlide slide = pres.Slides[0];
+    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
     
-    System::SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bufferData);
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, pres->get_SlideSize()->get_Size().get_Width(), pres->get_SlideSize()->get_Size().get_Height(), imgx);
-    
-    pres->Save(u"Presentation_Saved.pptx", SaveFormat::Pptx);
+    pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **Adding Images From the Web to Slides**
+
+If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
+
+This sample code shows you how to add an image from the web to a slide in C++:
+
+``` cpp
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+    
+auto webClient = System::MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
+
+auto image = pres->get_Images()->AddImage(imageData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
+```
+
+## **Adding Images to Slide Masters**
+
+A slide master is the top slide that stores and controls information (theme, layout, etc.) about all slides under it. So, when you add an image to a slide master, that image appears on every slide under that slide master. 
+
+This C++ sample code shows you how to add an image to a slide master:
+
+``` cpp
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
+
+auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
+masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
+```
+
+## **Adding Images as Slide Background**
+
+You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/cpp/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Inserting/Adding SVG into Presentations**
 You can add or insert any image into a presentation by using the [AddPictureFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
