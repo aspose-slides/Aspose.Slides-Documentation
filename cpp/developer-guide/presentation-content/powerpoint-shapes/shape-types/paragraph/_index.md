@@ -1,7 +1,7 @@
 ---
 title: Paragraph
 type: docs
-weight: 10
+weight: 60
 url: /cpp/paragraph/
 ---
 

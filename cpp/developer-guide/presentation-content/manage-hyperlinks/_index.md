@@ -1,7 +1,7 @@
 ---
 title: Manage Hyperlinks
 type: docs
-weight: 70
+weight: 20
 url: /cpp/manage-hyperlinks/
 ---
 

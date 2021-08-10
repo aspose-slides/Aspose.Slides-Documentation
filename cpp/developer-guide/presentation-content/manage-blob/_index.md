@@ -1,7 +1,7 @@
 ---
 title: Manage Blob
 type: docs
-weight: 80
+weight: 10
 url: /cpp/manage-blob/
 ---
 
