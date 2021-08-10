@@ -1,7 +1,7 @@
 ---
 title: Custom Shape
 type: docs
-weight: 10
+weight: 20
 url: /cpp/custom-shape/
 ---
 
