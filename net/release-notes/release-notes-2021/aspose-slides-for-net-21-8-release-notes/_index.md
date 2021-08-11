@@ -50,3 +50,15 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |SLIDESNET-35188|Improve chart rendering in generated thumbnails|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-34870|Image reflection effect is lost when exporting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf>
 |SLIDESNET-34428|Arcs and arrow lines are missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
+
+## Public API Changes ##
+
+### Support of Presentation to animated GIF export ###
+
+### Method IChartDataWorkbook.CalculateFormulas() has been added ###
+
+The method IChartDataWorkbook.CalulateFormulas() has been added. The method implements an explicit formulas calculation within the workbook. The calculation performers in two steps:
+- check for unsupported formulas within the entire workbook. If found, the CellUnsupportedDataException will be thrown. Values will not be updated. 
+- if the unsupported formulas check was passed, formulas will be calculated for the workbook, and cells values will be updated.
+
+Cell's formula reset on setting the value (and vice versa) has been removed.
