@@ -131,7 +131,7 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
     using (Bitmap bmp = slide.GetThumbnail(options))
     {
         // Save the image in BMP format
-        bmp.Save("PresentationNotesComments.bmp", ImageFormat.Tiff);
+        bmp.Save("PresentationNotesComments.tiff", ImageFormat.Tiff);
     }
 }  
 ```
@@ -161,8 +161,8 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
             // Create file name for an image
             string outputFilePath = Path.Combine(outputDir, "Slide_" + i + ".jpg");
 
-            // Save the image in PNG format
-            bmp.Save(outputFilePath, ImageFormat.Png);
+            // Save the image in JPEG format
+            bmp.Save(outputFilePath, ImageFormat.Jpeg);
         }
     }
 } 
