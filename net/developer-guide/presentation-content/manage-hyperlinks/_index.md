@@ -35,10 +35,18 @@ using (Presentation presentation = new Presentation())
 
 ### **Adding URL Hyperlinks to Shapes or Frames**
 
-This sample code in C# shows you how to add a website hyperlink to a :
+This sample code in C# shows you how to add a website hyperlink to a shape:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+    
+    shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
 
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -50,7 +58,18 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 This sample code shows you how to add a hyperlink to an image:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    // add image to presentation
+    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    // create picture frame on slide 1 based on previously added image
+    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
+    pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+    pictureFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
 ```
 
  
@@ -58,15 +77,33 @@ This sample code shows you how to add a hyperlink to an image:
 This sample code shows you how to add a hyperlink to an audio file:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
+    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(10, 10, 100, 100, audio);
 
+    audioFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+    audioFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
 ```
 
  
 
 This sample code shows you how to add a hyperlink to a video:
 
-```
+``` csharp
+using (Presentation pres = new Presentation())
+{
+    IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
+    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 100, 100, video);
 
+    videoFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+    videoFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -198,7 +235,26 @@ using (Presentation presentation = new Presentation())
 This C# code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```c#
-
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    ISlide slide = pres.Slides[0];
+    foreach (IShape shape in slide.Shapes)
+    {
+        IAutoShape autoShape = shape as IAutoShape;
+        if (autoShape != null)
+        {
+            foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
+            {
+                foreach (IPortion portion in paragraph.Portions)
+                {
+                    portion.PortionFormat.HyperlinkManager.RemoveHyperlinkClick();
+                }
+            }
+        }
+    }
+    
+    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+}
 ```
 
  
@@ -207,7 +263,18 @@ This C# code shows you how to remove the hyperlink from a text in a presentation
 
 This C# code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
- 
+``` csharp
+using (Presentation pres = new Presentation("demo.pptx"))
+{
+    ISlide slide = pres.Slides[0];
+    foreach (IShape shape in slide.Shapes)
+    {
+        shape.HyperlinkManager.RemoveHyperlinkClick();
+    }
+    
+    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+}
+```
 
 ### **Removing Hyperlinks from Media**
 
