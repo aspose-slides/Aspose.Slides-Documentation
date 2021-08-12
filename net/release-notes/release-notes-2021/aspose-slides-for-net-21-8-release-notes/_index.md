@@ -55,6 +55,24 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 
 ### Support of Presentation to animated GIF export ###
 
+Support of Presentation to animated GIF export has been added. Using this new functionality it is now possible to export Presentation into animated GIF with slides changes, including animated transitions:
+
+``` csharp
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
+    {
+        FrameSize = new Size(180, 135), // the size of the resulted GIF  
+        DefaultDelay = 2500, // how long each slide will be showed until it will be changed to the next one
+        TransitionFps = 12 // increase FPS to better transition animation quality
+    });
+}
+```
+
+Export result:
+
+[animated GIF](pres.gif)
+
 ### Method IChartDataWorkbook.CalculateFormulas() has been added ###
 
 The method IChartDataWorkbook.CalulateFormulas() has been added. The method implements an explicit formulas calculation within the workbook. The calculation performers in two steps:
