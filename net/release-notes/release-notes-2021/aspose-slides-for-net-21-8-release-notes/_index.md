@@ -55,7 +55,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 
 ### Support of Presentation to animated GIF export ###
 
-Support of Presentation to animated GIF export has been added. Using this new functionality it is now possible to export Presentation into animated GIF with slides changes, including animated transitions:
+Support of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) into animated GIF with slides changes, including animated transitions:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -73,9 +73,9 @@ Export result:
 
 ![animated GIF](pres.gif)
 
-### Method IChartDataWorkbook.CalculateFormulas() has been added ###
+### IChartDataWorkbook.CalculateFormulas and ChartDataWorkbook.CalculateFormulas methods have been added ###
 
-The method IChartDataWorkbook.CalulateFormulas() has been added. The method implements an explicit formulas calculation within the workbook. The calculation performers in two steps:
+[IChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
 - check for unsupported formulas within the entire workbook. If found, the CellUnsupportedDataException will be thrown. Values will not be updated. 
 - if the unsupported formulas check was passed, formulas will be calculated for the workbook, and cells values will be updated.
 
