@@ -71,7 +71,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 Export result:
 
-[animated GIF](pres.gif)
+![animated GIF](pres.gif)
 
 ### Method IChartDataWorkbook.CalculateFormulas() has been added ###
 
