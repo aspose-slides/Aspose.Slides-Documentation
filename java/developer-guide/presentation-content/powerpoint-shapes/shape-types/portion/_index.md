@@ -1,7 +1,7 @@
 ---
 title: Portion
 type: docs
-weight: 10
+weight: 70
 url: /java/portion/
 ---
 

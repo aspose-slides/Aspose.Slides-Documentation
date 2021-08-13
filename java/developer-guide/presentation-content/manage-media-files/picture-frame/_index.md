@@ -5,27 +5,22 @@ weight: 10
 url: /java/picture-frame/
 ---
 
-{{% alert color="primary" %}} 
 
+## **Create Picture Frame**
 Picture frame is also one of the shapes offered by Aspose.Slides for Java. Adding picture frame to a slide is bit trickier than simple shapes. A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
-
-{{% /alert %}} 
-
 This article explains how picture frames can be used in different ways:
 
 - Adding Simple Picture Frames to Slides.
 - Controlling Picture Frame Formatting.
 - Adding Picture Frame with Relative Scale.
 
-## **Create Picture Frame**
-
 To add a simple picture frame to your slide, please follow the steps below:
 
 - Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its index.
-- Create an [IPPImage](https://apireference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the Shape.
+- Create an Image object by adding an image to the Images collection associated with the Presentation object that will be used to fill the Shape.
 - Calculate the width and height of the image.
-- Create a PictureFrame according to the width and height of the image by using the [addPictureFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) method exposed by the [IShapesCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object associated with the referenced slide.
+- Create a PictureFrame according to the width and height of the image by using the AddPictureFrame method exposed by the Shapes object associated with the referenced slide.
 - Add a picture frame (containing the picture) to the slide.
 - Write the modified presentation as a PPTX file.
 
