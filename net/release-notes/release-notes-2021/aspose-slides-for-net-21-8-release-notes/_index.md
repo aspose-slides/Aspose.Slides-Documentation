@@ -3,6 +3,7 @@ title: Aspose.Slides for .NET 21.8 Release Notes
 type: docs
 weight: 10
 url: /net/aspose-slides-for-net-21-8-release-notes/
+
 ---
 
 {{% alert color="primary" %}} 
@@ -11,12 +12,13 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 
 {{% /alert %}} 
 
-|**Key**|**Summary**|**Category**|**Related Documentation**|
-| :- | :- | :- | :- |
+| **Key** | **Summary** | **Category** | **Related Documentation** |
+| :------ | :---------- | :----------- | :------------------------ |
+
 |SLIDESNET-42670|Using the same animation type on the same shape|Investigation|<https://docs.aspose.com/slides/net/shape-animation/>
 |SLIDESNET-42646|ChartData.GetRange method throws "Chart data doesn?t have workbook reference" exception|Investigation|<https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/methods/getrange>
 |SLIDESNET-42636|Slide.GetThumbnail method fails in docker|Investigation|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
-|SLIDESNET-42741|Support of Presentation to animated GIF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-animated-gif/>
+|SLIDESNET-42741|Support for converting presentations to animated GIF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-animated-gif/>
 |SLIDESNET-36751|Support for PowerPoint like scaling - Ensure Fit & Maximize|Feature|<https://docs.aspose.com/slides/net/slide-size/>
 |SLIDESNET-34416|Support for monotype fonts in Aspose.Slides during rendering presentation|Feature|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|<https://docs.aspose.com/slides/net/chart-worksheet-formulas>
@@ -55,7 +57,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 
 ### Support of Presentation to animated GIF export ###
 
-Support of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) into animated GIF with slides changes, including animated transitions:
+We implemented support for converting [presentations](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export. Using this new functionality, you can export a [presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) into an animated GIF with slides changes and even animated transitions:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -73,10 +75,13 @@ Export result:
 
 ![animated GIF](pres.gif)
 
+
+
 ### IChartDataWorkbook.CalculateFormulas and ChartDataWorkbook.CalculateFormulas methods have been added ###
 
-[IChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
-- check for unsupported formulas within the entire workbook. If found, the CellUnsupportedDataException will be thrown. Values will not be updated. 
-- if the unsupported formulas check was passed, formulas will be calculated for the workbook, and cells values will be updated.
+[IChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. With these methods, you can perform calculations with explicit formulas within a workbook. The operation is executed in two steps:
 
-Cell's formula reset on setting the value (and vice versa) has been removed.
+- Check for unsupported formulas within the entire workbook: If unsupported formulas are found, CellUnsupportedDataException will be thrown and values will not be updated. 
+- Formula calculations and updating: If unsupported formulas are not found, the formulas will be calculated for the workbook and cells values will be updated.
+
+Cells and their formulas **no** longer reset when new values are set. Value too are **no** longer recalculated when new formulas are set. 
