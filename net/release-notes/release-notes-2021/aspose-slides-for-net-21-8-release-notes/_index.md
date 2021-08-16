@@ -16,7 +16,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |SLIDESNET-42670|Using the same animation type on the same shape|Investigation|<https://docs.aspose.com/slides/net/shape-animation/>
 |SLIDESNET-42646|ChartData.GetRange method throws "Chart data doesn?t have workbook reference" exception|Investigation|<https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/methods/getrange>
 |SLIDESNET-42636|Slide.GetThumbnail method fails in docker|Investigation|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
-|SLIDESNET-42741|Support of Presentation to animated GIF export|Feature|
+|SLIDESNET-42741|Support of Presentation to animated GIF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-animated-gif/>
 |SLIDESNET-36751|Support for PowerPoint like scaling - Ensure Fit & Maximize|Feature|<https://docs.aspose.com/slides/net/slide-size/>
 |SLIDESNET-34416|Support for monotype fonts in Aspose.Slides during rendering presentation|Feature|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|<https://docs.aspose.com/slides/net/chart-worksheet-formulas>
