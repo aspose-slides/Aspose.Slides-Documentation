@@ -10,7 +10,7 @@ WordArt or Word Art is a feature that allows you to apply effects to texts to ma
 
 {{% alert color="primary" %}} 
 
-WordArt allows you to treat a text as you would a graphical object. In general, WordArt consists of effects or special modifications made to texts to make them more attractive or noticeable. 
+WordArt allows you to treat a text as you would a graphical object. WordArt consists of effects or special modifications made to texts to make them more attractive or noticeable. 
 
 {{% /alert %}} 
 
@@ -265,7 +265,7 @@ Consider a scene for a text and the shape containing that text. The 3D effect co
 - When the figure lacks its own scene but has 3D representation, the text scene is used. 
 - Otherwise—when the shape originally has no 3D effect—the shape is flat and the 3D effect only gets applied to the text. 
 
- These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFormat.getCamera() methods.
+The descriptions are connected to the [ThreeDFormat.LightRig](https://apireference.aspose.com/slides/net/aspose.slides/threedformat/properties/lightrig) and [ThreeDFormat.Camera](https://apireference.aspose.com/slides/net/aspose.slides/threedformat/properties/camera) properties.
 
 {{% /alert %}} 
 
