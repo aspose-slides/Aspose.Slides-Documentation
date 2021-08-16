@@ -5,36 +5,100 @@ weight: 10
 url: /java/image/
 ---
 
-## **Adding EMZ Images to Images Collection**
-Aspose.Slides for Java allows you to embed EMZ (Windows Compressed Enhanced Metafile) files in a presentation images collection. 
+## **Images in Slides In Presentations**
 
-EMZ files are compressed image files commonly used in Microsoft Office programs. They typically contain  EMF (Enhanced Metafile) files. Normally, you can decompress an EMZ file and get an EMF file from it. 
+Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other locations onto slides. Similarly, Aspose.Slides allows you to add images to slides in your presentations through different procedures. 
 
+{{% alert title="NOTE" color="primary" %}} 
 
-This sample code shows you how to add an EMZ image to the images collection:
+If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [*Picture Frame*](https://docs.aspose.com/slides/java/picture-frame/). 
 
-```java 
-// Instantiate Presentation class that represents PPTX file
+{{% /alert %}} 
+
+Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, GIF, and others. 
+
+## **Adding Images Stored Locally to Slides**
+
+You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
+
+```java
 Presentation pres = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+	ISlide slide = pres.getSlides().get_Item(0);
+	IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
-    byte[] imageFile = Files.readAllBytes(Paths.get("image.emz"));
-
-    IPPImage image = pres.getImages().addImage(imageFile);
-
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-            (float) pres.getSlideSize().getSize().getWidth(), 
-			(float) pres.getSlideSize().getSize().getHeight(), 
-			image);
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+	pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+	if (pres != null) pres.dispose();
 }
 ```
 
-## **Inserting/Adding SVG into Presentations**
+## **Adding Images From the Web to Slides**
+
+If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
+
+This sample code shows you how to add an image from the web to a slide in Java:
+
+```java
+Presentation pres = new Presentation();
+try {
+	ISlide slide = pres.getSlides().get_Item(0);
+
+	URL imageUrl = new URL("[REPLACE WITH URL]");
+	URLConnection connection = imageUrl.openConnection();
+	InputStream inputStream = connection.getInputStream();
+
+	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+	try {
+		byte[] buffer = new byte[1024];
+		int read;
+
+		while ((read = inputStream.read(buffer, 0, buffer.length)) != -1)
+			outputStream.write(buffer, 0, read);
+
+		outputStream.flush();
+
+		IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
+		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+	} finally {
+		if (inputStream != null) inputStream.close();
+		outputStream.close();
+	}
+
+	pres.save("pres.pptx", SaveFormat.Pptx);
+} catch(IOException e) {
+} finally {
+	if (pres != null) pres.dispose();
+}
+```
+
+## **Adding Images to Slide Masters**
+
+A slide master is the top slide that stores and controls information (theme, layout, etc.) about all slides under it. So, when you add an image to a slide master, that image appears on every slide under that slide master. 
+
+This Java sample code shows you how to add an image to a slide master:
+
+```java
+Presentation pres = new Presentation();
+try {
+	ISlide slide = pres.getSlides().get_Item(0);
+	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
+
+	IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+
+	pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+	if (pres != null) pres.dispose();
+}
+```
+
+## **Adding Images as Slide Background**
+
+You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
+
+## **Adding SVG to Presentations**
 You can add or insert any image into a presentation by using the [addPictureFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
