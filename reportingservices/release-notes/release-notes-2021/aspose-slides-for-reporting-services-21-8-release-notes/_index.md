@@ -13,7 +13,7 @@ This page contains release notes for Aspose.Slides for Reporting Services 21.8
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESRS-|[Use Aspose.Slides for .NET 21.8 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-8-release-notes/)|Feature|
+|SLIDESRS-33653|[Use Aspose.Slides for .NET 21.8 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-8-release-notes/)|Feature|
 
 
 
