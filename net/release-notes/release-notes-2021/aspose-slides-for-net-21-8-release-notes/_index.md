@@ -53,6 +53,26 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 
 ## Public API Changes ##
 
+### Packaging Changes ###
+
+Starting from Aspose Slides for .NET 21.9 Release installation packages layout will be changed.
+
+Aspose Slides for .NET NuGet package will contain the following assemblies:
+* .NETFramework 2.0
+* .NETFramework 4.0
+* .NETStandard 2.0
+* .NET 5
+* MonoAndroid 9.0
+
+MSI and zip package available at [Aspose Downloads](https://downloads.aspose.com/slides/net) will contain:
+* .NETFramework 2.0
+* .NETFramework 3.5 (+ClientProfile)
+* .NETFramework 4.0 (+ClientProfile)
+* .NETStandard 2.0
+* .NETStandard 2.1
+* .NET 5
+* MonoAndroid 9.0
+
 ### Support of Presentation to animated GIF export ###
 
 Support of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) into animated GIF with slides changes, including animated transitions:
