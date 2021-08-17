@@ -53,6 +53,26 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 
 ## Public API Changes ##
 
+### Packaging Changes ###
+
+Starting with Aspose Slides for .NET 21.9, we will change the release installation packages layout. 
+
+Aspose Slides for .NET NuGet package will contain these assemblies:
+* .NETFramework 2.0
+* .NETFramework 4.0
+* .NETStandard 2.0
+* .NET 5
+* MonoAndroid 9.0
+
+The MSI and zip packages at [Aspose Downloads](https://downloads.aspose.com/slides/net) will contain
+* .NETFramework 2.0
+* .NETFramework 3.5 (+ClientProfile)
+* .NETFramework 4.0 (+ClientProfile)
+* .NETStandard 2.0
+* .NETStandard 2.1
+* .NET 5
+* MonoAndroid 9.0
+
 ### Support of Presentation to animated GIF export ###
 
 Support of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) into animated GIF with slides changes, including animated transitions:
@@ -76,6 +96,7 @@ Export result:
 ### IChartDataWorkbook.CalculateFormulas and ChartDataWorkbook.CalculateFormulas methods have been added ###
 
 [IChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
+
 - check for unsupported formulas within the entire workbook. If found, the CellUnsupportedDataException will be thrown. Values will not be updated. 
 - if the unsupported formulas check was passed, formulas will be calculated for the workbook, and cells values will be updated.
 
