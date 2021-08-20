@@ -5,18 +5,20 @@ url: /net/chart-axis/
 ---
 
 
-## **Get Actual Max Value of Vertical Axis on Chart**
-Aspose.Slides for .NET provides a simple API for getting value of vertical axis. 
+## **Getting the Max Values on the Vertical Axis on Charts**
+Aspose.Slides for .NET allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
-1. Access first slide.
-1. Add chart with default data.
-1. Get actual maximum value on the axis.
-1. Get actual minimum value on the axis.
-1. Get actual major unit of the axis.
-1. Get actual minor unit of the axis.
-1. Get actual major unit scale of the axis.
-1. Get actual minor unit scale of the axis.
+1. Access the first slide.
+1. Add a chart with default data.
+1. Get the actual maximum value on the axis.
+1. Get the actual minimum value on the axis.
+1. Get the actual major unit of the axis.
+1. Get the actual minor unit of the axis.
+1. Get the actual major unit scale of the axis.
+1. Get the actual minor unit scale of the axis.
+
+This sample code—an implementation of the steps above—shows you how to get the required values in C#:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -30,34 +32,54 @@ using (Presentation pres = new Presentation())
 	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
 	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
 	
-	// Saving presentation
+	// Saves the presentation
 	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
+## **Swapping the Data between Axes**
+Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
-
-## **Switch Data Over Axis**
-A new property has been added which Swap the data over the axis. Data being charted on the X axis will move to the Y axis and vice versa. Below sample example is given.
+This C# code shows you how to perform the data swap task between axes on a chart:
 
 ```c#
-// Creating empty presentation
+// Creates empty presentation
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	//Switching rows and columns
+	//Switches rows and columns
 	chart.ChartData.SwitchRowColumn();
 		   
-	// Saving presentation
+	// Saves presentation
 	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
  }
 ```
 
 
-## **Change Category Axis**
-**CategoryAxisType** can be changed to Date or Text.However, **CategoryAxisType.Auto** is not supported at the moment. New property **CategoryAxisType** has been added to **IAxis** and Axis classes which specifies type of category axis.
+
+## **Disabling the Vertical Axis for Line Charts**
+
+This C# code shows you how to hide the vertical axis for a line chart:
+
+```c#
+
+```
+
+
+
+## **Disabling the Horizontal Axis for Line Charts**
+
+This code shows you how to hide the horizontal axis for a line chart:
+
+```c#
+
+```
+
+## **Changing Category Axis**
+
+Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in C# demonstrates the operation: 
 
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
@@ -73,8 +95,8 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 
 
-## **Set Date Format for Category Axis Value**
-Aspose.Slides for .NET provides a simple API for setting date format for category axis value. Below sample example is given. 
+## **Setting the Date Format for Category Axis Value**
+Aspose.Slides for .NET allows you to set the date format for a category axis value. The operation is demonstrated in this C# code:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -106,8 +128,8 @@ using (Presentation pres = new Presentation())
 
 
 
-## **Set Rotation Angle for Chart Axis Title**
-Aspose.Slides for .NET provides a simple API for setting rotation angle for chart axis title. Below sample example is given. 
+## **Setting the Rotation Angle for Chart Axis Title**
+Aspose.Slides for .NET allows you to set the rotation angle for a chart axis title. This C# code demonstrates the operation:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -122,8 +144,8 @@ using (Presentation pres = new Presentation())
 
 
 
-## **Set Position Axis in Category or Value Axis**
-Aspose.Slides for .NET provides a simple API for setting Position axis in category or Value axis. Below sample example is given. 
+## **Setting the Position Axis in a Category or Value Axis**
+Aspose.Slides for .NET allows you to set the position axis in a category or value axis. This C# code shows how to perform the task:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -137,8 +159,8 @@ using (Presentation pres = new Presentation())
 
 
 
-## **Show Display Unit label on Chart Value Axis**
-Aspose.Slides for .NET provides support for showing Display unit label on chart value axis. Below sample example is given. 
+## **Enabling the Display Unit label on Chart Value Axis**
+Aspose.Slides for .NET allows you to configure a chart to show a unit label on its chart value axis. This C# code demonstrates the operation:
 
 ```c#
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
