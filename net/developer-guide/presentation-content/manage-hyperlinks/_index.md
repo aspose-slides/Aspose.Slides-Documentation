@@ -266,7 +266,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 This C# code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
 ``` csharp
-using (Presentation pres = new Presentation("demo.pptx")){    ISlide slide = pres.Slides[0];    foreach (IShape shape in slide.Shapes)    {        shape.HyperlinkManager.RemoveHyperlinkClick();    }        pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);}
+using (Presentation pres = new Presentation("demo.pptx")) 
+{ 
+   ISlide slide = pres.Slides[0]; 
+   foreach (IShape shape in slide.Shapes) 
+     { 
+       shape.HyperlinkManager.RemoveHyperlinkClick(); 
+     } 
+   pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx); 
+}
 ```
 
 ### **Removing Hyperlinks from Media**
@@ -293,7 +301,20 @@ using (Presentation pres = new Presentation("demo.pptx")){    ISlide slide = pre
 The code snippet below shows adding a hyperlink to the slide and editing its tooltip later:
 
 ```c#
-using (Presentation presentation = new Presentation()){        IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    shape1.AddTextFrame("Aspose: File Format APIs");    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);}
+using (Presentation presentation = new Presentation())
+{   
+   IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
+    
+   shape1.AddTextFrame("Aspose: File Format APIs");
+    
+   shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+    
+    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+    
+    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
+    
+ presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
