@@ -57,8 +57,6 @@ using (Presentation pres = new Presentation())
  }
 ```
 
-
-
 ## **Disabling the Vertical Axis for Line Charts**
 
 This C# code shows you how to hide the vertical axis for a line chart:
@@ -72,8 +70,6 @@ using (Presentation pres = new Presentation())
     pres.Save("chart.pptx", SaveFormat.Pptx);
 }
 ```
-
-
 
 ## **Disabling the Horizontal Axis for Line Charts**
 
@@ -104,8 +100,6 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 }
 ```
-
-
 
 ## **Setting the Date Format for Category Axis Value**
 Aspose.Slides for .NET allows you to set the date format for a category axis value. The operation is demonstrated in this C# code:
@@ -138,8 +132,6 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-
 ## **Setting the Rotation Angle for Chart Axis Title**
 Aspose.Slides for .NET allows you to set the rotation angle for a chart axis title. This C# code demonstrates the operation:
 
@@ -154,8 +146,6 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-
 ## **Setting the Position Axis in a Category or Value Axis**
 Aspose.Slides for .NET allows you to set the position axis in a category or value axis. This C# code shows how to perform the task:
 
@@ -169,8 +159,6 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-
 ## **Enabling the Display Unit label on Chart Value Axis**
 Aspose.Slides for .NET allows you to configure a chart to show a unit label on its chart value axis. This C# code demonstrates the operation:
 
@@ -182,4 +170,3 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 	pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
-
