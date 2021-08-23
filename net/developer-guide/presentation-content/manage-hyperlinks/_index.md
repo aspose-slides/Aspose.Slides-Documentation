@@ -9,9 +9,7 @@ url: /net/manage-hyperlinks/
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
 
 * Links to websites inside texts, shapes, or media
-* Links to files inside texts, shapes, or media
 * Links to slides
-* Links to emails
 
 Aspose.Slides for .NET allows you to perform many tasks involving hyperlinks in presentations. 
 
@@ -50,20 +48,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-
 ### **Adding URL Hyperlinks to Media**
 
 Aspose.Slides allows you to add hyperlinks to images, audio, and video files. 
 
-This sample code shows you how to add a hyperlink to an image:
+This sample code shows you how to add a hyperlink to an **image**:
 
 ```c#
 using (Presentation pres = new Presentation())
 {
-    // add image to presentation
+    // Adds image to presentation
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // create picture frame on slide 1 based on previously added image
+    // Creates picture frame on slide 1 based on previously added image
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -73,9 +69,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
- 
-
-This sample code shows you how to add a hyperlink to an audio file:
+ This sample code shows you how to add a hyperlink to an **audio file**:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -90,9 +84,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
- 
-
-This sample code shows you how to add a hyperlink to a video:
+ This sample code shows you how to add a hyperlink to a **video**:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -107,29 +99,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
- 
-
-{{%  alert  title="TIP"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="primary"  %}} 
 
 You may want to see *[Manage OLE](https://docs.aspose.com/slides/net/manage-ole/)*.
 
 {{% /alert %}}
-
-
-
-
-
-
-
-## **Adding Slide Hyperlinks**
-
-
-
-
-
-
-
-
 
 
 
@@ -168,27 +142,7 @@ using (var presentation = new Presentation())
 
 
 
-## **Adding Email Hyperlinks**
-
-~~Confirm that we support this function—find out it works similarly to the addition of URL hyperlinks to texts.~~  
-
- 
-
-
-
-
-
-## **Getting the Details in Hyperlinks**
-
-
-
-
-
-
-
 ## **Formatting Hyperlinks**
-
-~~What other formatting options?~~
 
 ### **Color**
 
@@ -245,8 +199,6 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
- 
-
 ### **Removing Hyperlinks from Shapes or Frames**
 
 This C# code shows you how to remove the hyperlink from a shape in a presentation slide: 
@@ -263,20 +215,11 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-### **Removing Hyperlinks from Media**
-
- 
-
-
-
-
-
-
 
 
 ## **Mutable Hyperlink**
 
-[Hyperlink](https://apireference.aspose.com/net/slides/aspose.slides/hyperlink) class changed to be mutable. Now it is possible to change values of the following properties which were read-only before:
+The [Hyperlink](https://apireference.aspose.com/net/slides/aspose.slides/hyperlink) class is mutable. With this class, you can change the values for these properties:
 
 - [IHyperlink.TargetFrame](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink/properties/tooltip)
@@ -284,7 +227,7 @@ using (Presentation pres = new Presentation("demo.pptx"))
 - [IHyperlink.HighlightClick](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink/properties/highlightclick)
 - [IHyperlink.StopSoundOnClick](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-The code snippet below shows adding a hyperlink to the slide and editing its tooltip later:
+The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
 ```c#
 using (Presentation presentation = new Presentation())
@@ -308,13 +251,13 @@ using (Presentation presentation = new Presentation())
 
 ## **Supported Properties in IHyperlinkQueries**
 
-The IHyperlinkQueries class can be accessed from the presentation, slide and text frame that the hyperlink is defined for.
+You can access IHyperlinkQueries from a presentation, slide, or text for which the hyperlink is defined. 
 
 - [IPresentation.HyperlinkQueries](https://apireference.aspose.com/net/slides/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://apireference.aspose.com/net/slides/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://apireference.aspose.com/net/slides/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-The IHyperlinkQueries class supports the following methods and properties.
+The IHyperlinkQueries class supports these methods and properties: 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://apireference.aspose.com/net/slides/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
