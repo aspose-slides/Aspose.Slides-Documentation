@@ -64,7 +64,13 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to hide the vertical axis for a line chart:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
+    chart.Axes.VerticalAxis.IsVisible = false; 
+    
+    pres.Save("chart.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -74,7 +80,13 @@ This C# code shows you how to hide the vertical axis for a line chart:
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
+    chart.Axes.HorizontalAxis.IsVisible = false; 
+    
+    pres.Save("chart.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Changing Category Axis**
