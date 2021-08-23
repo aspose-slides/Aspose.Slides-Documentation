@@ -13,9 +13,7 @@ Aspose.Slides for .NET is used to create presentation files, complete with slide
 ## **Live Example**
 You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
 
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
+![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
 
 ## **Generate SVG Image from Slide**
 To generate an SVG image from any desired slide with Aspose.Slides.PPTX for .NET, please follow the steps below:
