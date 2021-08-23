@@ -97,7 +97,8 @@ Export result:
 
 [IChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. With these methods, you can perform calculations with explicit formulas within a workbook. The operation is executed in two steps:
 
-- Check for unsupported formulas within the entire workbook: If unsupported formulas are found, CellUnsupportedDataException will be thrown and values will not be updated. 
-- Formula calculations and updating: If unsupported formulas are not found, the formulas will be calculated for the workbook and cells values will be updated.
+- **Check for unsupported formulas within the entire workbook:** If unsupported formulas are found, CellUnsupportedDataException will be thrown—and values will not be updated. 
+- **Formula calculations and updating:** If unsupported formulas are not found, the formulas will be calculated for the workbook—and cells values will be updated.
 
-Cells and their formulas **no** longer reset when new values are set. Value too are **no** longer recalculated when new formulas are set. 
+Cells and their formulas **no** longer reset when new values are set. Values too are **no** longer recalculated when new formulas are set. 
+
