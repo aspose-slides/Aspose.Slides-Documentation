@@ -25,7 +25,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |SLIDESNET-42699|Font getting changed on cloning slide|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
 |SLIDESNET-42697|Repair message appears after conversion ODP to PPTX|Bug|<https://docs.aspose.com/slides/net/convert-odp-to-pptx/>
 |SLIDESNET-42696|Regression: PPTX to PDF/Image throws System.Runtime.InteropServices.ExternalException: A generic error occurred in GDI+.|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-42680|Equations in EMF image are not getting saving to PNG properly|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
+|SLIDESNET-42680|Equations in EMF image are not getting saved to PNG properly|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-42673|Chart is missing while converting presentation to PDF|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>
 |SLIDESNET-42669|PPTX to PDF, content size reduced|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
 |SLIDESNET-42664|Text is improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
