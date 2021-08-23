@@ -107,20 +107,6 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-
-## **Adding File Hyperlinks**
-
-### **Adding File Links to Texts**
-
- 
-
-### **Adding File Links to Media**
-
- 
-
-### **Adding File Links to Shapes and Frames**
-
  
 
 {{%  alert  title="TIP"  color="primary"  %}} 
