@@ -3,7 +3,8 @@ title: Manage Hyperlinks
 type: docs
 weight: 20
 url: /net/manage-hyperlinks/
-
+keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, .NET, C#"
+description: "How to add hyperlink to a PowerPoint Presentation in C# or .NET"
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
