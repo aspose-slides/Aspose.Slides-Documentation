@@ -2,6 +2,8 @@
 title: Chart Axis
 type: docs
 url: /net/chart-axis/
+keywords: "PowerPoint Chart Axis, Presentation Charts, C#, .NET, Manipulate Chart Axis, Chart data"
+description: "How to edit PowerPoint chart axis in C# or .NET"
 ---
 
 
