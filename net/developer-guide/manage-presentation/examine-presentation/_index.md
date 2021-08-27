@@ -3,12 +3,13 @@ title: Examine Presentation
 type: docs
 weight: 30
 url: /net/examine-presentation/
-
+keywords: "Check PowerPoint, PPTX, PPT, Check Presentation, PowerPoint Properties, Presentation Properties, C#, Csharp, .NET"
+description: "Check and get PowerPoint Presentation Properties in C# or .NET"
 ---
 
 Aspose.Slides for .NET allows you to examine a presentation to find out its properties and understand its behavior. 
 
-{{% alert title="TIP" color="dark" %}} 
+{{% alert title="Info" color="info" %}} 
 
 The [PresentationInfo](https://apireference.aspose.com/slides/net/aspose.slides/presentationinfo) class contains most of the properties and methods needed for operations here. 
 

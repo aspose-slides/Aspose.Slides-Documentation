@@ -3,6 +3,8 @@ title: Create Presentation
 type: docs
 weight: 10
 url: /net/create-presentation/
+keywords: "Create PowerPoint, PPTX, PPT, Create Presentation, Initialize Presentation, C#, .NET"
+description: "Open PowerPoint Presentation in C# or .NET"
 ---
 
 ## **Create PowerPoint Presentation**

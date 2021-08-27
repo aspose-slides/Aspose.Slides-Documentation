@@ -3,6 +3,8 @@ title: Print Presentation
 type: docs
 weight: 50
 url: /net/print-presentation/
+keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, C#, Csharp, .NET, Printer, Print Options"
+description: "Print PowerPoint Presentation in C# or .NET"
 ---
 ## Overview
 Aspose.Slides for .NET provides four overloads methods for the printing of the presentations. These methods are flexible enough to print the presentation to the default printer or to any of the available printers with customized settings. You only need to select the appropriate print method according to the requirement.

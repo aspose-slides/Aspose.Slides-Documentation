@@ -3,8 +3,8 @@ title: Convert PPT to PPTX
 type: docs
 weight: 20
 url: /net/convert-ppt-to-pptx/
-keywords: "PowerPoint PPT to PPTX"
-description: "Convert PowerPoint PPT to PPTX with Aspose.Slides."
+keywords: "Convert PowerPoint Presentation, PPT to PPTX, C#, Csharp, .NET, Aspose.Slides"
+description: "Convert PowerPoint PPT to PPTX in C# or .NET"
 ---
 
 ## **About PPT to PPTX Conversion**

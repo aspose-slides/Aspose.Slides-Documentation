@@ -3,11 +3,14 @@ title: Save Presentation
 type: docs
 weight: 70
 url: /net/save-presentation/
+keywords: "Save PowerPoint, PPT, PPTX, Save Presentation, file, stream, C#, Csharp, .NET"
+description: "Save PowerPoint Presentation as file or stream in C# or .NET"
 ---
 
 ## **Save Presentation**
 Opening a Presentation described how to use the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class to open a presentation. This article explains how to create and save presentations.
 The [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for .NET, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
+
 ### **Saving Presentation to Files**
 Save a presentation to files by calling the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method. Simply pass the file name and save format to the [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method. The examples that follow show how to save a presentation with Aspose.Slides for .NET using C#.
 
