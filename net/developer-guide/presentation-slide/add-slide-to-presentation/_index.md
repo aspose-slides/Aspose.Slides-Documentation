@@ -3,6 +3,8 @@ title: Add Slide to Presentation
 type: docs
 weight: 10
 url: /net/add-slide-to-presentation/
+keywords: "Add slide to presentation, C#, Csharp, .NET, Aspose.Slides"
+description: "Add slide to presentation in C# or .NET"
 ---
 
 ## **Add Slide to Presentation**

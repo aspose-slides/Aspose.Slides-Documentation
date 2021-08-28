@@ -3,6 +3,8 @@ title: Convert Slide
 type: docs
 weight: 41
 url: /net/convert-slide/
+keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, C#, Csharp, .NET, Aspose.Slides"
+description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in C# or .NET"
 ---
 
 Aspose.Slides for .NET allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others. 
