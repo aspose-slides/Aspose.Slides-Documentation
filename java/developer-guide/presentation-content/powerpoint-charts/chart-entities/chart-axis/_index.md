@@ -35,7 +35,7 @@ try {
 	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
 
 	// Saves the presentation
-	pres.save("ErrorBars_out.pptx", SaveFormat.Pptx);
+	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
