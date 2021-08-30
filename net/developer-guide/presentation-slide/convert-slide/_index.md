@@ -7,7 +7,7 @@ url: /net/convert-slide/
 
 Aspose.Slides for .NET allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others. 
 
-To convert a slide to an image, convert the slide to a Bitmap first by using the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method from the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface. Then you can use [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) or [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interfaces to set additional options for conversion and convertible slide objects.
+To convert a slide to an image, convert the slide to a Bitmap first by using the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method, or render the slide to a Graphics object by using the [RenderToGraphics](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/rendertographics/index) method from the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide) interface. Then you can use [ITiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/itiffoptions) or [IRenderingOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) interfaces to set additional options for conversion and convertible slide objects.
 
 ## **About Bitmap and Other Image Formats**
 
@@ -23,12 +23,34 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
     // Convert the first slide of the presentation to a Bitmap object
     using (Bitmap bmp = pres.Slides[0].GetThumbnail())
     {
-
         // Save the image in PNG format
         bmp.Save("Slide_0.png", ImageFormat.Png);
     }
 }
 ```
+
+This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/rendertographics/index) method:
+
+``` csharp 
+using (Presentation pres = new Presentation("Presentation.pptx"))
+{
+    // Get the presentation slide size
+    Size slideSize = pres.SlideSize.Size.ToSize();
+
+    // Create Bitmap with the slide size
+    using (Bitmap slideImage = new Bitmap(slideSize.Width, slideSize.Height))
+    {
+        // Render the first slide to the Graphics object
+        using (Graphics graphics = Graphics.FromImage(slideImage))
+        {
+            pres.Slides[0].RenderToGraphics(new RenderingOptions(), graphics);
+        }
+
+        slideImage.Save("Slide_0.png", ImageFormat.Png);
+    }
+}
+```
+
 {{% alert title="TIP" color="primary" %}} 
 
 You can convert a slide to a bitmap object and then use the object directly somewhere. Or you can convert a slide to a bitmap and then save the image in JPEG or any other format you prefer. 
@@ -37,7 +59,7 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using one of the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) method overloads, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using one of the [GetThumbnail](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/getthumbnail/index) or [RenderToGraphics](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/rendertographics/index) method overloads, you can convert a slide to an image with specific dimensions (length and width). 
 
 This sample code demonstrates the proposed conversion in C#:
 
@@ -49,6 +71,32 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
     {
         // Save the image in JPEG format
         bmp.Save("Slide_0.jpg", ImageFormat.Jpeg);
+    }
+}
+```
+
+This C# code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/rendertographics/index) method:
+
+``` csharp 
+using (Presentation pres = new Presentation("Presentation.pptx"))
+{
+    Size slideSize = new Size(1820, 1040);
+
+    // Create Bitmap with the specified size (slide size + fields)
+    using (Bitmap slideImage = new Bitmap(slideSize.Width + 50, slideSize.Height + 50))
+    {
+        using (Graphics graphics = Graphics.FromImage(slideImage))
+        {
+            // Fill and translate Graphics to create the frame around the slide
+            graphics.Clear(Color.Red);
+            graphics.TranslateTransform(25f, 25f);
+
+            // Render the first slide to Graphics
+            pres.Slides[0].RenderToGraphics(new RenderingOptions(), graphics, slideSize);
+        }
+
+        // Save the image in JPEG format
+        slideImage.Save("FramedSlide_0.jpg", ImageFormat.Jpeg);
     }
 }
 ```
@@ -90,6 +138,35 @@ using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
 
     // Save the image in GIF format
     bmp.Save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+}
+```
+
+This sample code shows you the conversion process for a slide with notes using the [RenderToGraphics](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/rendertographics/index) method:
+
+``` csharp 
+using (Presentation pres = new Presentation("PresentationNotes.pptx"))
+{
+    // Get the presentation notes size
+    Size notesSize = pres.NotesSize.Size.ToSize();
+
+    // Create the rendering options
+    IRenderingOptions options = new RenderingOptions();
+
+    // Set the position of the notes
+    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
+
+    // Create Bitmap with the notes size
+    using (Bitmap slideImage = new Bitmap(notesSize.Width, notesSize.Height))
+    {
+        // Render the first slide to Graphics
+        using (Graphics graphics = Graphics.FromImage(slideImage))
+        {
+            pres.Slides[0].RenderToGraphics(options, graphics, notesSize);
+        }
+
+        // Save the image in PNG format
+        slideImage.Save("Slide_Notes_0.png", ImageFormat.Png);
+    }
 }
 ```
 
