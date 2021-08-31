@@ -3,6 +3,8 @@ title: Clone Slides
 type: docs
 weight: 40
 url: /net/clone-slides/
+keywords: "Clone slide, Copy slide, Save slide copy, PowerPoint, Presentation, C#, Csharp, .NET, Aspose.Slides"
+description: "Clone PowerPoint slide in C# or .NET"
 ---
 
 ## **Clone Slides in Presentation**

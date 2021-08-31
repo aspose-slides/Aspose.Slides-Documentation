@@ -3,8 +3,8 @@ title: Slide Transition
 type: docs
 weight: 90
 url: /net/slide-transition/
-keywords: "PowerPoint slide transition, morph transition"
-description: "PowerPoint slide transition, PowerPoint morph transition with Aspose.Slides."
+keywords: "Add slide transition, PowerPoint slide transition, morph transition, advanced slide transition, transition effects, C#, Csharp, .NET, Aspose.Slides"
+description: " Add PowerPoint slide transition and transition effects in C# or .NET "
 ---
 
 ## **Add Slide Transition**

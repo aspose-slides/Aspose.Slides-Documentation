@@ -3,6 +3,8 @@ title: Remove Slide from Presentation
 type: docs
 weight: 30
 url: /net/remove-slide-from-presentation/
+keywords: "Remove slide, Delete slide, PowerPoint, Presentation, C#, Csharp, .NET, Aspose.Slides"
+description: "Remove slide from PowerPoint by reference or index in C# or .NET"
 ---
 
 ## Overview

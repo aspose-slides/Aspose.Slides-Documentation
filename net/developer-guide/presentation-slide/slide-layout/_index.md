@@ -3,6 +3,8 @@ title: Slide Layout
 type: docs
 weight: 60
 url: /net/slide-layout/
+keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, C#, Csharp, .NET, Aspose.Slides"
+description: "Set PowerPoint slide size and options in C# or .NET"
 ---
 
 

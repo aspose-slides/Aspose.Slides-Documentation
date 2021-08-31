@@ -3,8 +3,8 @@ title: Slide Master
 type: docs
 weight: 80
 url: /net/slide-master/
-keywords: "PPT master slide, slide master PowerPoint"
-description: "Add or edit slide master PowerPoint, PPT master slide with Aspose.Slides."
+keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, C#, Csharp, .NET, Aspose.Slides"
+description: "Add or edit slide master in PowerPoint presentation in C# or .NET"
 ---
 
 
