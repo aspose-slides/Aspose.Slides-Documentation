@@ -3,8 +3,8 @@ title: Convert Powerpoint PPT and PPTX to JPG
 type: docs
 weight: 60
 url: /net/convert-powerpoint-ppt-and-pptx-to-jpg/
-keywords: "Convert PowerPoint to JPG, "
-description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG, with Aspose.Slides API."
+keywords: "Convert PowerPoint Presentation, JPG, JPEG, PowerPoint to JPG, PowerPoint to JPEG, PPT to JPG, PPTX to JPG, PPT to JPEG, PPTX to JPEG, C#, Csharp, .NET, Aspose.Slides"
+description: "Convert PowerPoint to JPG in C# or .NET. Save slide as JPG image"
 ---
 
 ## **About PowerPoint to JPG Conversion**

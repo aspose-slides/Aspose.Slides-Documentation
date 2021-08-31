@@ -3,8 +3,8 @@ title: Convert PowerPoint PPT and PPTX to PDF with Notes
 type: docs
 weight: 50
 url: /net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/
-keywords: "convert powerpoint to pdf with notes"
-description: "Convert PowerPoint to PDF with notes. Convert PPT and PPTX to PDF with notes in Aspose.Slides."
+keywords: "convert PowerPoint, Presentation, PowerPoint to PDF, notes, c#, csharp, .NET, Aspose.Slides"
+description: "Convert PowerPoint to PDF with notes with C# or .NET"
 ---
 
 The [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method exposed by Presentation class can be used to convert PowerPoint PPT or PPTX presentation to PDF with notes. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for .NET is a two-line process. You simply open the presentation and save it out to PDF notes. The code snippets below update the sample presentation to PDF in Notes Slide view:
@@ -27,5 +27,4 @@ pdfOptions.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomFull;
 
 auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
 ```
-
 
