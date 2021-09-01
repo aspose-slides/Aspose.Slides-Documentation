@@ -3,8 +3,8 @@ title: Merge Presentation
 type: docs
 weight: 40
 url: /net/merge-presentation/
-keywords: "Merge PPT, combine PowerPoint"
-description: "Merge PPT and combine PowerPoint presentations with Aspose.Slides API."
+keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, C#, Csharp, .NET"
+description: "Merge or combine PowerPoint Presentation in C# or .NET"
 ---
 
 

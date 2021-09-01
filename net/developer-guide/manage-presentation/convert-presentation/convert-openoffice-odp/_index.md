@@ -3,7 +3,7 @@ title: Convert OpenOffice ODP
 type: docs
 weight: 10
 url: /net/convert-openoffice-odp/
-keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF"
+keywords: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to XPS, ODP to HTML, ODP to TIFF"
 description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML and other formats with Aspose.Slides."
 ---
 

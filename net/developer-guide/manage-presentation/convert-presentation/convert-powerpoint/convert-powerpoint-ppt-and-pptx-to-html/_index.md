@@ -3,8 +3,8 @@ title: Convert Powerpoint PPT and PPTX to HTML
 type: docs
 weight: 30
 url: /net/convert-powerpoint-ppt-and-pptx-to-html/
-keywords: "convert pptx to html, ppt to html, powerpoint to html, save pptx as html"
-description: "Convert PowerPoint to HTML of any format: PPTX to HTML, PPT to HTML. Save PPTX to HTML and use PowerPoint HTML export."
+keywords: "Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, C#, Csharp, .NET, Aspose.Slides, HTML export"
+description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as HTML"
 ---
 
 ## **About PowerPoint to HTML Conversion**
@@ -335,5 +335,4 @@ using (Presentation pres = new Presentation("Media File.pptx"))
     pres.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
 }
 ```
-
 

@@ -3,7 +3,8 @@ title: Slide Size
 type: docs
 weight: 70
 url: /net/slide-size/
-
+keywords: "Set slide, edit slide size, PowerPoint Presentation, custom slide size, resolve slide problems, C#, Csharp, .NET, Aspose.Slides"
+descriptions: "Set and edit slide size or aspect ratio in PowerPoint in C# or .NET"
 ---
 
 ## Slide Sizes in PowerPoint Presentations

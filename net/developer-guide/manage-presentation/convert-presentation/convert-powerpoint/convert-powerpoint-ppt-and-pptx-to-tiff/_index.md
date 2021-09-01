@@ -3,8 +3,8 @@ title: Convert PowerPoint PPT and PPTX to TIFF
 type: docs
 weight: 90
 url: /net/convert-powerpoint-ppt-and-pptx-to-tiff/
-keywords: "PowerPoint PPT and PPTX to TIFF"
-description: "Convert PowerPoint PPT and PPTX to TIFF with Aspose.Slides API."
+keywords: "Convert PowerPoint Presentation, PowerPoint to TIFF, PPT to TIFF, PPTX to TIFF, C#, Csharp, .NET, Aspose.Slides"
+description: "Convert PowerPoint presentation to TIFF in C# or .NET."
 ---
 
 
