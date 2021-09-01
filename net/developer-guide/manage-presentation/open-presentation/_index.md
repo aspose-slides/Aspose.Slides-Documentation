@@ -59,11 +59,7 @@ File.Delete(pathToVeryLargePresentationFile);
 
 
 
-{{% alert color="info" title="Info" %}} 
-
-When you have to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/net/manage-blob/) to reduce memory consumption.
-
-{{% /alert %}} 
+{{% alert color="info" title="Info" %}}When you have to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/net/manage-blob/) to reduce memory consumption.{{%/alert %}} 
 
 
 ## **Load Presentation**
