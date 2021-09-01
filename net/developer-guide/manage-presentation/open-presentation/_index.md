@@ -57,7 +57,11 @@ using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loa
 File.Delete(pathToVeryLargePresentationFile);
 ```
 
+{{% alert color="info" title="Info" %}} 
 
+If you need to create a presentation that contains large objects (video, audio, big images, etc.) you can use the [Blob facility]({{< ref "/slides/net/manage-blob/" >}}) to decrease memory consumption.
+
+{{% /alert %}} 
 
 
 ## **Load Presentation**
