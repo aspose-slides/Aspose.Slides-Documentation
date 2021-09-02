@@ -16,15 +16,16 @@ description: "Aspose.Slides for .NET, Aspose Slides, Aspose PowerPoint, Aspose P
 Aspose.Slides for .NET is a Microsoft PowerPoint® management API that enables .NET applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. Aspose.Slides for .NET is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for .NET provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 
 {{% /alert %}}
- 
-Following are the links to some useful resources you may need to accomplish your tasks.
+
+These are links to some useful resources:
 
 - [Aspose.Slides for .NET Online Documentation](/slides/net/)
 - [Aspose.Slides for .NET Features](/slides/net/features-overview)
 - [Aspose.Slides for .NET Limitations](/slides/net/known-issues)
 - [Aspose.Slides for .NET Release Notes](/slides/net/release-notes)
 - [Aspose.Slides for .NET Product Page](https://products.aspose.com/slides/net)
-- [Install Aspose.Slides for .NET NuGet Package](https://www.nuget.org/packages/Aspose.Slides.NET/)
+- [Download Aspose.Slides for .NET NuGet Package](https://www.nuget.org/packages/Aspose.Slides.NET/)
+- [Install Aspose.Slides for .NET](https://docs.aspose.com/slides/net/installation/)
 - [Aspose.Slides for .NET API Reference Guide](https://apireference.aspose.com/net/slides)
 - [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Aspose.Slides for .NET Free Support Forum](https://forum.aspose.com/c/slides)
@@ -40,12 +41,12 @@ Aspose.Slides for Java is a Microsoft PowerPoint® management API that enables J
 
 {{% /alert %}}
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+These are links to useful resources:
 
 - [Aspose.Slides for Java Online Documentation](/slides/java/)
 - [Aspose.Slides for Java Features](/slides/java/features-overview)
 - [Aspose.Slides for Java Limitations](/slides/java/known-issues)
-- [Aspose.Slides for Java Release Notes](/slides/java/release-notes)
+- [Aspose.Slides for Java Release Notes](https://docs.aspose.com/slides/java/aspose-slides-for-java/)
 - [Aspose.Slides for Java Product Page](https://products.aspose.com/slides/java)
 - [Download Aspose.Slides for Java](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides)
 - [Install Aspose.Slides for Java from Maven Repository](/slides/java/installation)
@@ -64,13 +65,14 @@ Aspose.Slides for C++ is a Microsoft PowerPoint® management API that enables C+
 
 {{% /alert %}} 
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+These are links to useful resources:
 
 - [Aspose.Slides for C++ Online Documentation](/slides/cpp/)
 - [Aspose.Slides for C++ Features](/slides/cpp/features-overview)
 - [Aspose.Slides for C++ Release Notes](/slides/cpp/release-notes)
 - [Aspose.Slides for C++ Product Page](https://products.aspose.com/slides/cpp)
-- [Install Aspose.Slides for C++ NuGet Package](https://www.nuget.org/packages/Aspose.Slides.CPP/)
+- [Download Aspose.Slides for C++ NuGet Package](https://www.nuget.org/packages/Aspose.Slides.CPP/)
+- [Install Aspose.Slides for C++](https://www.nuget.org/packages/Aspose.Slides.CPP/)
 - [Aspose.Slides for C++ API Reference Guide](https://apireference.aspose.com/cpp/slides)
 - [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-C)
 - [Aspose.Slides for C++ Free Support Forum](https://forum.aspose.com/c/slides)
@@ -86,14 +88,14 @@ Aspose.Slides for Android via Java is a Microsoft PowerPoint® management API th
 
 {{% /alert %}} 
 
-Following are the links to some useful resources you may need to accomplish your tasks:
+These are links to useful resources:
 
 - [Aspose.Slides for Java Online Documentation](/slides/java)
-- [Aspose.Slides for Android via Java Features](/slides/java/aspose-slides-for-android-via-java-features)
-- [Aspose.Slides for Android via Java Release Notes](/slides/java/aspose-slides-for-android-via-java)
+- [Aspose.Slides for Android via Java Features](https://docs.aspose.com/slides/androidjava/aspose-slides-for-android-via-java-features/)
+- [Aspose.Slides for Android via Java Release Notes](https://docs.aspose.com/slides/androidjava/aspose-slides-for-android-via-java/)
 - [Aspose.Slides for Android via Java Product Page](https://products.aspose.com/slides/android-java)
 - [Download Aspose.Slides for Android via Java](http://maven.aspose.com/repository/simple/ext-release-local/com/aspose/aspose-slides/)
-- [Install Aspose.Slides for Android via Java](/slides/java/install-aspose-slides-for-android-via-java) 
+- [Install Aspose.Slides for Android via Java](https://docs.aspose.com/slides/androidjava/install-aspose-slides-for-android-via-java/)
 - [Aspose.Slides for Android via Java API Reference Guide](https://apireference.aspose.com/java/slides)
 - [Aspose.Slides for Android via Java Free Support Forum](https://forum.aspose.com/c/slides)
 - [Aspose.Slides for Android via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
@@ -108,7 +110,7 @@ Aspose.Slides for Reporting Services is the only solution on the market that mak
 
 {{% /alert %}} 
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+These are links to useful resources:
 
 - [Aspose.Slides for Reporting Services Online Documentation](/slides/reportingservices/)
 - [Aspose.Slides for Reporting Services Features](/slides/reportingservices/features)
@@ -128,7 +130,7 @@ Aspose.Slides for SharePoint is a flexible solution that makes it possible to co
 
 {{% /alert %}} 
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+These are links to useful resources:
 
 - [Aspose.Slides for SharePoint Online Documentation](/slides/sharepoint)
 - [Aspose.Slides for SharePoint Features](/slides/sharepoint/features)
@@ -148,7 +150,7 @@ Aspose.Slides for JasperReports is a library specially designed and developed fo
 
 {{% /alert %}} 
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+These are links to useful resources: 
 
 - [Aspose.Slides for JasperReports Online Documentation](/slides/jasperreports/)
 - [Aspose.Slides for JasperReports Features](/slides/jasperreports/features)
@@ -157,5 +159,4 @@ Following are the links to some useful resources you may need to accomplish your
 - [Download Aspose.Slides for JasperReports](https://downloads.aspose.com/slides/jasperreports)
 - [Aspose.Slides for JasperReports Free Support Forum](https://forum.aspose.com/c/slides)
 - [Aspose.Slides for JasperReports Paid Support Helpdesk](https://helpdesk.aspose.com/)
-
 
