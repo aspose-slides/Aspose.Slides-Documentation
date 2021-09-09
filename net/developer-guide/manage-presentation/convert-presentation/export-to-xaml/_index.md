@@ -9,7 +9,7 @@ description: "Export or convert PowerPoint presentation to XAML"
 
 # Exporting Presentations to XAML
 
-{{% title="Info" alert color="info" %}} 
+{{% alert title="Info" color="info" %}} 
 
 In [Aspose.Slides 21.6](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML. 
 
