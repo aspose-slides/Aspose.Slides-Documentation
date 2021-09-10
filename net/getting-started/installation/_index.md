@@ -93,7 +93,7 @@ To install mono-libgdiplus separately on your mac, see [this article](https://do
 
 3. Go through **Project** > **Manage NuGet Packages...**
 
-   ![Path to NuGet mac](Path to NuGet mac.png)
+   ![path-to-NuGet-macOS](path-to-NuGet-macOS.png)
 
 4. Type *Aspose.Slides* into the text field. 
 
