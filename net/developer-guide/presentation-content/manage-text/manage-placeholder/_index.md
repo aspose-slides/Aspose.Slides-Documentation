@@ -3,6 +3,8 @@ title: Manage Placeholder
 type: docs
 weight: 10
 url: /net/manage-placeholder/
+keywords: "Placeholder, Placeholder text, Prompt text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Change Placeholder text and prompt text in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Change Text in a Placeholder**

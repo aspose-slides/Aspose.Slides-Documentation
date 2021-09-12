@@ -3,6 +3,8 @@ title: Video Frame
 type: docs
 weight: 10
 url: /net/video-frame/
+keywords: "Add video, create video frame, extract video, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add Video frame to PowerPoint presentation in C# or .NET"
 ---
 
 

@@ -3,6 +3,8 @@ title: Image
 type: docs
 weight: 10
 url: /net/image/
+keywords: "Add image, Add picture, PowerPoint presentation, EMF, SVG, C#, Csharp, Aspose.Slides for .NET"
+description: "Add image to PowerPoint slide or presentation in C# or .NET"
 ---
 
 ## **Images in Slides In Presentations**

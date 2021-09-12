@@ -3,6 +3,8 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /net/picture-frame/
+keywords: "Add picture frame, create picture frame, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add picture frame to PowerPoint presentation in C# or .NET"
 ---
 
 

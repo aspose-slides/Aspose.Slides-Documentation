@@ -3,6 +3,8 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /net/manage-textbox/
+keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, C#, Csharp, Aspose.Slides for .NET"
+description: "Add textbox or text frame to PowerPoint presentations in C# or ,NET"
 ---
 
 ## **Create TextBox on Slide**

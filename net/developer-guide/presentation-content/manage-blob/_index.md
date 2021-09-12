@@ -3,6 +3,8 @@ title: Manage Blob
 type: docs
 weight: 10
 url: /net/manage-blob/
+keywords: "Add blob, Export blob, Add image as blob, PowerPoint Presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add blob to PowerPoint presentation in C# or .NET. Export blob. Add Image as blob"
 ---
 
 ## **Add Blob in Presentation**
