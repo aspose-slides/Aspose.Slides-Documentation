@@ -7,15 +7,17 @@ url: /net/manage-blob/
 
 ### **About BLOB**
 
-**BLOB** (**Binary Large Object**) is usually a large item—a large photo, presentation, document, or media—saved in binary formats. With BLOB, you can reduce memory consumption when dealing with large files in different operations. 
+**BLOB** (**Binary Large Object**) is usually a large item—a large photo, presentation, document, or media—saved in binary formats. 
+
+Aspose.Slides for .NET allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
 
 # **Use BLOB to Reduce Memory Consumption**
 
-### **Add Large File as a BLOB to Presentation**
+### **Add Large File through BLOB to a Presentation**
 
-[Aspose.Slides](/slides/net/) for .NET allows you to add large files (in this case, a large video file) as BLOBs to reduce memory consumption.
+[Aspose.Slides](/slides/net/) for .NET allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
-This C# shows you how to add a large video file as a BLOB to a presentation:
+This C# shows you how to add a large video file through the BLOB process to a presentation:
 
 ```c#
 const string pathToVeryLargeVideo = "veryLargeVideo.avi";
@@ -38,10 +40,10 @@ using (Presentation pres = new Presentation())
 ```
 
 
-### **Export Large File as a BLOB from Presentation**
-Aspose.Slides for .NET allows you to export large files (in this case, an audio or video file) as BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file as a BLOB, you get to keep memory consumption low. 
+### **Export Large File Through BLOB from Presentation**
+Aspose.Slides for .NET allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low. 
 
-This code in C# shows you how to export a BLOB from a presentation:
+This code in C# demonstrates the described operation:
 
 ```c#
 const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
@@ -92,7 +94,7 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 ### **Add Image as BLOB in Presentation**
 With methods from the [**IImageCollection**](https://apireference.aspose.com/net/slides/aspose.slides/iimagecollection) interface and [**ImageCollection** ](https://apireference.aspose.com/net/slides/aspose.slides/imagecollection)class, you can add a large image as a stream to get it treated as a BLOB. 
 
-This C# code shows you how to use a BLOB for a large image:
+This C# code shows you how to add a large image through the BLOB process:
 
 ```c#
 string pathToLargeImage = "large_image.jpg";
@@ -131,7 +133,7 @@ But this method consumes around 1.6 GB of temporary memory.
 
 ### **Load a Large Presentation as BLOB**
 
-With BLOB, you can load up a large presentation while using little memory. This C# code describes the implementation where BLOB is used to load up a large presentation file (large.pptx):
+Through the process involving a BLOB, you can load up a large presentation while using little memory. This C# code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```c#
 LoadOptions loadOptions = new LoadOptions
@@ -151,7 +153,7 @@ using (Presentation pres = new Presentation("large.pptx", loadOptions))
 
 #### **Change the Folder for Temporary Files**
 
-When BLOB is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
+When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
 
 ```c#
 LoadOptions loadOptions = new LoadOptions
