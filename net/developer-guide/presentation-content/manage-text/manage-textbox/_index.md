@@ -5,7 +5,7 @@ weight: 20
 url: /net/manage-textbox/
 ---
 
-Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides provides the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface that allows you to add a shape containing some text.
+Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for .NET provides the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface that allows you to add a shape containing some text.
 
 {{% alert title="Info" color="info" %}}
 
@@ -99,7 +99,7 @@ using (Presentation presentation = new Presentation())
 
 
 ## **Add Column In Text Frame**
-Aspose.Slides provides the [ColumnCount](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
+Aspose.Slides for .NET provides the [ColumnCount](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
 
  This C# code shows you how to add a column inside a text frame:
 
@@ -144,8 +144,6 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-
 ## **Add Text Box with Hyperlink** 
 You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
 
@@ -156,7 +154,7 @@ You can insert a link inside a text box. When the text box is clicked, users are
 3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
 4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
 5. Instantiate the `IHyperlinkManager` class. 
-6. Assign the `IHyperlinkManager` object to the `HLinkClick` property associated with your preferred portion of the `TextFrame`. 
+6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/shape/properties/hyperlinkclick) property associated with your preferred portion of the `TextFrame`. 
 7. Finally, write the PPTX file through the `Presentation` object. 
 
 This C# code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
