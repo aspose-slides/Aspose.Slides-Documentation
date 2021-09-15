@@ -9,13 +9,13 @@ Texts on slides typically exist in text boxes or shapes. Therefore, to add a tex
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides also provides the [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape) interface that allows you to add shapes to slides. However, the shapes added through the `IShape` interface cannot hold text. Only shapes added through the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface can contain text. 
+Aspose.Slides also provides the [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape) interface that allows you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. But shapes added through the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface may contain text. 
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe), which is a property under `IAutoShape`. 
+Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) section on this page. 
 
 {{% /alert %}}
 
@@ -25,7 +25,7 @@ To create a textbox on a slide, go through these steps:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an [IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape) with [ShapeType](https://apireference.aspose.com/net/slides/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
+3. Add an [IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/net/slides/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
 4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 
@@ -144,7 +144,40 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Update Text**
+
+Aspose.Slides allows you to change or update the text contained in a text box or all the texts contained in a presentation. 
+
+This C# code demonstrates an operation where all the texts in a presentation are updated or changed:
+
+```c#
+using(Presentation pres = new Presentation("text.pptx"))
+{
+   foreach (ISlide slide in pres.Slides)
+   {
+       foreach (IShape shape in slide.Shapes)
+       {
+           if (shape is IAutoShape autoShape) //Checks if shape supports text frame (IAutoShape). 
+           {
+              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Iterates through paragraphs in text frame
+               {
+                   foreach (IPortion portion in paragraph.Portions) //Iterates through each portion in paragraph
+                   {
+                       portion.Text = portion.Text.Replace("years", "months"); //Changes text
+                       portion.PortionFormat.FontBold = NullableBool.True; //Changes formatting
+                   }
+               }
+           }
+       }
+   }
+  
+   //Saves modified presentation
+   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+}
+```
+
 ## **Add Text Box with Hyperlink** 
+
 You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
 
  To add a text box containing a link, go through these steps:
