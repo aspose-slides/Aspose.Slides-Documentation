@@ -111,3 +111,11 @@ class ExportProgressHandler : IProgressCallback
 }
 ```
 
+
+
+{{% alert title="Info" color="info" %}}
+
+Using its own API, Aspose developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) that allows users to split their presentations into multiple files. Essentially, the app saves selected slides from a given presentation as new PowerPoint (PPTX or PPT) files. 
+
+{{% /alert %}}
+
