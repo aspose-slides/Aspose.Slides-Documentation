@@ -23,7 +23,7 @@ Aspose.Slides for .NET offers a lot of key features such as managing text, shape
 
 ## Aspose.Slides for .NET Resources
 
-These are links to useful resources you may need to do your work:
+These are links to useful resources:
 
 - [Aspose.Slides for .NET Online Documentation](/slides/net/)
 - [Aspose.Slides for .NET Features](/slides/net/features-overview/)
@@ -32,6 +32,7 @@ These are links to useful resources you may need to do your work:
 - [Aspose.Slides for .NET Product Page](https://products.aspose.com/slides/net)
 - [Install Aspose.Slides for .NET NuGet Package](https://www.nuget.org/packages/Aspose.Slides.NET/)
 - [Aspose.Slides for .NET API Reference Guide](https://apireference.aspose.com/net/slides)
-- [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
+- [Download Examples from a GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Aspose.Slides for .NET Free Support Forum](https://forum.aspose.com/c/slides)
 - [Aspose.Slides for .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
+
