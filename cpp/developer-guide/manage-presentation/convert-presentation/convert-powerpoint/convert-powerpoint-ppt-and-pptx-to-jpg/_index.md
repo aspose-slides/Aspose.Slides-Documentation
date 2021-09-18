@@ -35,9 +35,15 @@ for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
     bmp->Save(outputFilePath, ImageFormat::get_Png());
 }
 ```
-  
+
+{{% alert  title="Tip" color="primary" %}} 
+
+To see how Aspose.Slides API handles PPT/PPTX to JPG conversion, you may want to try [**Aspose.Slides Converter**](https://products.aspose.app/slides/conversion).
+
+{{% /alert %}} 
 
 ## **Render Comments when Saving Presentation into Image**
+
 Aspose.Slides for C++ provides a facility to render comments of presentations or slide when converting those into images.  An example is given below that shows how to render comments of presentation into an image.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RenderComments-RenderComments.cpp" >}}
