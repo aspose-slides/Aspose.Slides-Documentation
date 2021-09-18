@@ -28,7 +28,14 @@ try {
 }
 ```
 
+{{% alert color="primary" %}} 
+
+Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor)
+
+{{% /alert %}} 
+
 ## **Highlight Text using Regular Expression**
+
 Method [highlightRegex](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) has been added to [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) interface and [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) class.
 
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
