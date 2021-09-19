@@ -32,6 +32,20 @@ Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cel
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Charts-DataSourceTypePropertyAdded-DataSourceTypePropertyAdded.cs" >}}
 
+### **Manage Worksheets**
+
+To get access to the worksheet collection the [**IChartDataWorkbook.Worksheets**]() property used.
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
+   IChartDataWorkbook wb =  chart.ChartData.ChartDataWorkbook;
+   for (int i = 0; i < wb.Worksheets.Count; i++)
+      Console.WriteLine(wb.Worksheets[i].Name);
+}
+```
+
 
 ## **External Workbook**
 {{% alert color="primary" %}} 
