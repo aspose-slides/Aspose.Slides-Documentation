@@ -4,44 +4,51 @@ type: docs
 url: /net/chart-series/
 ---
 
+A series is a row or column of numbers plotted in a chart.
+
+![chart-series-powerpoint](chart-series-powerpoint.png)
+
 ## **Set Chart Series Overlap**
-Aspose.Slides for .NET provides a simple API interface to set chart series overlap. The **Aspose.Slides.Charts.IChartSeries.Overlap** property specifies how much bars and columns should overlap on 2D charts (in a range from -100 to 100). This property is not only for the referred series but for all series of the parent series group: this is projection of the appropriate group property. Therefore, this property is read-only. Use the **ParentSeriesGroup** property to access the parent series group, and then access the **ParentSeriesGroup.Overlap** read/write property to change the value.
+
+With the [IChartSeriesOverlap](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
+
+Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred value for `Overlap`. 
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Add a clustered column chart on a slide.
 1. Access the first chart series.
-1. Access the selected serie's **ParentSeriesGroup** and set the chart series overlap value.
+1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
 1. Write the modified presentation to a PPTX file.
+
+This C# code shows you how to set the overlap for a chart series:
 
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Adding chart
+    // Adds chart
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
     IChartSeriesCollection series = chart.ChartData.Series;
     if (series[0].Overlap == 0)
     {
-        // Setting series overlap
+        // Sets series overlap
         series[0].ParentSeriesGroup.Overlap = -30;
     }
 
-    // Write the presentation file to disk
+    // Writes the presentation file to disk
     presentation.Save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-
-
 ## **Change Series Color**
-Aspose.Slides for .NET provides support for changing series color. 
+Aspose.Slides for .NET allows you to change a series' color this way:
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Add chart on the slide.
-1. Access specific series of chart.
-1. Set fill type and fill color.
-1. Save modified presentation.
+1. Access the series whose color you want to change. 
+1. Set your preferred fill type and fill color.
+1. Save the modified presentation.
 
-Below sample example is given. 
+This C# code shows you how to change a series' color:
 
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
@@ -57,18 +64,16 @@ using (Presentation pres = new Presentation("test.pptx"))
 }
 ```
 
-
-
 ## **Change Color of Categories in Series**
-Aspose.Slides for .NET provides support for changing color of categories in a series color. 
+Aspose.Slides for .NET allows you to change a series category's color this way:
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Add chart on the slide.
-1. Access specific series of chart.
-1. Set fill type and fill color.
-1. Save modified presentation.
+1. Access the series category whose color you want to change.
+1. Set your preferred fill type and fill color.
+1. Save the modified presentation.
 
-Below sample example is given. 
+This code in C# shows you how to change a series category's color:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -84,44 +89,44 @@ using (Presentation pres = new Presentation())
 ```
 
 
-
-
-## **Set Chart Series Fill Colors**
-Aspose.Slides for .NET provides a simple API for setting automatic fill color for chart series inside plot area:
+## **Set Chart Series Fill Color**
+Aspose.Slides for .NET allows you to set the automatic fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
-1. Accessing the chart series and setting the fill color to Automatic.
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn` in our example).
+1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
+
+This C# code shows you how to set the automatic fill color for a chart series:
 
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Creating a clustered column chart
+    // Creates a clustered column chart
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // Setting series fill format to automatic
+    // Sets series fill format to automatic
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
         chart.ChartData.Series[i].GetAutomaticSeriesColor();
     }
 
-    // Write the presentation file to disk
+    // Writes the presentation file to disk
     presentation.Save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-
-
 ## **Set Chart Series Invert Fill Colors**
-Aspose.Slides for .NET provides a simple API for setting invert fill color for chart series inside plot area:
+Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
-1. Accessing the chart series and setting the fill color to invert.
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn` in our example).
+1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
+
+This C# code demonstrates the operation:
 
 ```c#
 Color inverColor = Color.Red;
@@ -133,13 +138,13 @@ using (Presentation pres = new Presentation())
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Adding new series and categories
+    // Adds new series and categories
     chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
 
-    // Take first chart series and populating series data.
+    // Takes the first chart series and populates its series data.
     IChartSeries series = chart.ChartData.Series[0];
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
@@ -154,10 +159,10 @@ using (Presentation pres = new Presentation())
 ```
 
 
+## **Set Series to Invert When Value is Negative**
+Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
 
-
-## **Set Invert If Negative Property for Individual Series**
-The Aspose.Slides for .NET lets developers allow to set inverts. **IChartDataPoint.InvertIfNegative** and **ChartDataPoint.InvertIfNegative** properties have been added. This Specifies the data point shall invert its colors if the value is negative. Sample code is given below.
+This C# code demonstrates the operation:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -180,19 +185,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Clear Specific Data Points' Data**
+Aspose.Slides for .NET allows you to clear the `DataPoints` data for a specific chart series this way:
 
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+2. Obtain the reference of a slide through its index.
+3. Obtain the reference of a chart through its index.
+4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
+5. Clear all`DataPoints` for specific chart series.
+6. Write the modified presentation to a PPTX file.
 
-## **Clear Specific Chart Series Data Points Data**
-Aspose.Slides for .NET provides a simple API to clear specific chart series **DataPoints** data. To clear specific chart series **DataPoints** data, please follow the steps below:
-
-- Create an instance of Presentation class and load the desired presentation.
-- Obtain the reference of a slide by using its Index
-- Obtain the reference of a chart by using its Index
-- Iterate through all the **DataPoints** of chart and set **XValue** and **YValue** to null.
-- Remove all **DataPoints** of specific chart series
-- Write the modified presentation to a PPTX file
-
-Sample code is given below.
+This C# code demonstrates the operation:
 
 ```c#
 using (Presentation pres = new Presentation("TestChart.pptx"))
@@ -213,47 +216,47 @@ using (Presentation pres = new Presentation("TestChart.pptx"))
 }
 ```
 
-
-
-## **Set GapWidth Property of Chart Series**
-Aspose.Slides for .NET provides a simple API for setting **GapWidth** property. The sample code applies setting the **GapWidth** property.
+## **Set Series Gap Width**
+Aspose.Slides for .NET allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Access any chart series.
-1. Set GapWidth property.
+1. Set the `GapWidth` property.
 1. Write the modified presentation to a PPTX file.
 
+This code in C# shows you how to set a series' Gap Width:
+
 ```c#
-// Creating empty presentation 
+// Creates empty presentation 
 Presentation presentation = new Presentation();
 
-// Access first slide
+// Accesses the presentation's first slide
 ISlide slide = presentation.Slides[0];
 
-// Add chart with default data
+// Adds a chart with default data
 IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 0, 0, 500, 500);
 
-// Setting the index of chart data sheet
+// Sets the index of the chart data sheet
 int defaultWorksheetIndex = 0;
 
-// Getting the chart data worksheet
+// Gets the chart data worksheet
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-// Add series
+// Adds series
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-// Add Catrgories
+// Adds Categories
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-// Take second chart series
+// Takes the second chart series
 IChartSeries series = chart.ChartData.Series[1];
 
-// Now populating series data
+// Populates the series data
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -261,10 +264,9 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-// Set GapWidth value
+// Sets GapWidth value
 series.ParentSeriesGroup.GapWidth = 50;
 
-// Save presentation with chart
+// Saves presentation to disk
 presentation.Save("GapWidth_out.pptx", SaveFormat.Pptx);
 ```
-
