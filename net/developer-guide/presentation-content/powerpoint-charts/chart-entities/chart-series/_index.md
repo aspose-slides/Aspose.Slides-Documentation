@@ -64,7 +64,7 @@ using (Presentation pres = new Presentation("test.pptx"))
 }
 ```
 
-## **Change Color of Categories in Series**
+## **Change Series Category's**
 Aspose.Slides for .NET allows you to change a series category's color this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
@@ -88,13 +88,29 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Change Series' Name** 
+
+Aspose.Slides for .NET allows you to update or change a series name in its chart data and legend. 
+
+This C# code shows you how to change a series' name through `ChartDataWorkbook`:
+
+```c#
+//Please insert code based on ChartDataWorkbook - chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1).Value = "New Series Name 1";
+```
+
+This C# code shows you how to change a series name through `Series`:
+
+```c#
+//Please insert code based on Series - chart.ChartData.Series[0].Name.AsCells[0].Value = "New Series Name 2";
+```
 
 ## **Set Chart Series Fill Color**
+
 Aspose.Slides for .NET allows you to set the automatic fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn` in our example).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
 1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
 
@@ -122,7 +138,7 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn` in our example).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
 1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
 
