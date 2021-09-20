@@ -64,7 +64,7 @@ using (Presentation pres = new Presentation("test.pptx"))
 }
 ```
 
-## **Change Series Category's**
+## **Change Series Category's Color**
 Aspose.Slides for .NET allows you to change a series category's color this way:
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
