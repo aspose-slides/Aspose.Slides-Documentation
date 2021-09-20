@@ -90,15 +90,22 @@ using (Presentation pres = new Presentation())
 
 ## **Change Series' Name** 
 
+By default, the legend names for a chart are the contents of cells above each column or row of data. 
+
+In our example (sample image), 
+
+* the columns are *Series 1, Series 2,* and *Series 3*;
+* the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
+
 Aspose.Slides for .NET allows you to update or change a series name in its chart data and legend. 
 
-This C# code shows you how to change a series' name through `ChartDataWorkbook`:
+This C# code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```c#
 //Please insert code based on ChartDataWorkbook - chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1).Value = "New Series Name 1";
 ```
 
-This C# code shows you how to change a series name through `Series`:
+This C# code shows you how to change a series name in its legend through`Series`:
 
 ```c#
 //Please insert code based on Series - chart.ChartData.Series[0].Name.AsCells[0].Value = "New Series Name 2";
