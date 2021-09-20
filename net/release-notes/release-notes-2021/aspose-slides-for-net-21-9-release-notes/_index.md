@@ -47,7 +47,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.9](https://www.n
 |SLIDESNET-36693|Table cells fill type returns NotDefined|Bug|<https://docs.aspose.com/slides/net/manage-table/>
 |SLIDESNET-36688|Animation sequence changed after portion text changed|Bug|<https://docs.aspose.com/slides/net/powerpoint-animation/>
 |SLIDESNET-35869|System exception is thrown on exporting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-34170|Wrong text rendering in thumbnails and Pdf|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf>
+|SLIDESNET-34170|Wrong text rendering in thumbnails and Pdf|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf>
 
 ## Public API Changes ##
 
