@@ -121,7 +121,7 @@ public interface IAccessiblePVIObject<T> where T : class
 
 Currently, all effect types from the [Aspose.Slides.Effects](https://apireference.aspose.com/slides/net/aspose.slides.effects) namespace implement the [IAccessiblePVIObject](https://apireference.aspose.com/slides/net/aspose.slides.iaccessiblepviobject/1) interface—and this means you can get effective values for effects with styled colors resolved.
 
-This code demonstrates an operation where we added a picture for a slide background and also added [Duotone](https://apireference.aspose.com/slides/net/aspose.slides.effects/duotone) effect with styled colors and then we got the effective duotone colors with which the background will be rendered:
+This code demonstrates an operation where we added a picture for a slide background, added [Duotone](https://apireference.aspose.com/slides/net/aspose.slides.effects/duotone) effect with styled colors, and then we got the effective duotone colors with which the background will be rendered:
 
 ``` csharp
 

@@ -18,4 +18,4 @@ This page contains release notes for Aspose.Slides for Reporting Services 21.9
 
 ### Power BI Reporting Services support added ###
 
-Aspose.Slides for Reporting Services is now support Power BI Reporting Services.
+Aspose.Slides for Reporting Services now supports Power BI Reporting Services.
