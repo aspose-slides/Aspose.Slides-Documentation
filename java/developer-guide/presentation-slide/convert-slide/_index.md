@@ -60,7 +60,7 @@ try {
 		if (graphics != null) graphics.dispose();
 	}
 
-	ImageIO.write(slideImage, "png", new File("Slide_0.png"));
+	ImageIO.write(slideImage, "PNG", new File("Slide_0.png"));
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -85,7 +85,7 @@ try {
     BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1820, 1040));
 	
 	// Saves the image in the JPEG format
-	ImageIO.write(bmp, "PNG", new File("Slide_0.jpg"));
+	ImageIO.write(bmp, "JPG", new File("Slide_0.jpg"));
 } catch (Exception e) {
 } finally {
     if (pres != null) pres.dispose();
@@ -115,7 +115,7 @@ try {
 	}
 
 	// Saves the image in the JPEG format
-	ImageIO.write(slideImage, "png", new File("FramedSlide_0.jpg"));
+	ImageIO.write(slideImage, "JPG", new File("FramedSlide_0.jpg"));
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -189,7 +189,7 @@ try {
 	}
 
 	// Saves the image in PNG format
-	ImageIO.write(slideImage, "png", new File("Slide_Notes_0.png"));
+	ImageIO.write(slideImage, "PNG", new File("Slide_Notes_0.png"));
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -267,7 +267,7 @@ try {
         BufferedImage bmp = pres.getSlides().get_Item(i).getThumbnail(2f, 2f);
 
         // Save the image in PNG format
-        ImageIO.write(bmp, "PNG", new File("Slide_" + i + ".jpg"));
+        ImageIO.write(bmp, "PNG", new File("Slide_" + i + ".png"));
     }
 } catch (Exception e) {
 } finally {
