@@ -53,11 +53,11 @@ This page contains release notes for [Aspose.Slides for .NET 21.9](https://www.n
 
 ### HTML5 Export Support ###
 
-HTML5 Export support added in Slides (enhanced customizable version of HTML5 Support). 
+We implemented support for HTML5 Export in Slides (enhanced customizable version of HTML5 Support). 
 
-The new Html5 value has been added to [SaveFormat](https://apireference.aspose.com/slides/net/aspose.slides.export/saveformat) enumerations. This value represents HTML5 format for exporting.
+The new Html5 value has been added to [SaveFormat](https://apireference.aspose.com/slides/net/aspose.slides.export/saveformat) enumerations. This value represents the HTML5 format for exporting.
 
-The code snippet below demonstrates saving presentation in HTML5 format:
+The code snippet below demonstrates the saving presentation in HTML5 operation:
 
 ``` csharp
 using (Presentation presentation = new Presentation("SomePresentation.pptx"))
@@ -66,7 +66,7 @@ using (Presentation presentation = new Presentation("SomePresentation.pptx"))
 }
 ```
 
-It is also possible to export a presentation in HTML5 with slides transitions animations and shapes animations using [Html5Options](https://apireference.aspose.com/slides/net/aspose.slides.export/html5options) configuration:
+Using the [Html5Options](https://apireference.aspose.com/slides/net/aspose.slides.export/html5options) configuration, you can export a presentation containing slides transitions, animations, and shapes animations to HTML5:
 
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
@@ -81,7 +81,7 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 ### Access to the ChartDataWorksheetCollection has been added ###
 
-[IChartDataWorksheetCollection](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworksheetcollection) interface, [ChartDataWorksheetCollection](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworksheetcollection) class and [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/properties/worksheets) property have been added to provide access to the worksheets:
+To provide access to worksheets, we added the [IChartDataWorksheetCollection](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworksheetcollection) interface, [ChartDataWorksheetCollection](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworksheetcollection) class, and [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/properties/worksheets) property. 
 
 ``` csharp
 
@@ -100,9 +100,7 @@ using (Presentation pres = new Presentation())
 
 ### IAccessiblePVIObject interface has been added ###
 
-[IAccessiblePVIObject](https://apireference.aspose.com/slides/net/aspose.slides.iaccessiblepviobject/1) interface has been added to [Aspose.Slides](https://apireference.aspose.com/slides/net/aspose.slides) namespace.
-
-It represents a type that can be a source of an effective version of its data.
+[IAccessiblePVIObject](https://apireference.aspose.com/slides/net/aspose.slides.iaccessiblepviobject/1) interface has been added to [Aspose.Slides](https://apireference.aspose.com/slides/net/aspose.slides) namespace. It represents a type that can be a source of an effective version of its data.
 
 [IAccessiblePVIObject](https://apireference.aspose.com/slides/net/aspose.slides.iaccessiblepviobject/1) declaration:
 
@@ -121,9 +119,9 @@ public interface IAccessiblePVIObject<T> where T : class
 }
 ```
 
-Currently all effect types from [Aspose.Slides.Effects](https://apireference.aspose.com/slides/net/aspose.slides.effects) namespace implements [IAccessiblePVIObject](https://apireference.aspose.com/slides/net/aspose.slides.iaccessiblepviobject/1) interface, so it is possible to get an effective data for effects with styled colors resolved.
+Currently, all effect types from the [Aspose.Slides.Effects](https://apireference.aspose.com/slides/net/aspose.slides.effects) namespace implement the [IAccessiblePVIObject](https://apireference.aspose.com/slides/net/aspose.slides.iaccessiblepviobject/1) interface—and this means you can get effective values for effects with styled colors resolved.
 
-The following code sample demonstrating adding picture for slide background, adding a [Duotone](https://apireference.aspose.com/slides/net/aspose.slides.effects/duotone) effect with styled colors and getting effective duotone colors with which the background will be rendered:
+This code demonstrates an operation where we added a picture for a slide background and also added [Duotone](https://apireference.aspose.com/slides/net/aspose.slides.effects/duotone) effect with styled colors and then we got the effective duotone colors with which the background will be rendered:
 
 ``` csharp
 
