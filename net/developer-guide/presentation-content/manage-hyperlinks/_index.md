@@ -14,6 +14,12 @@ A hyperlink is a reference to an object or data or a place in something. These a
 
 Aspose.Slides for .NET allows you to perform many tasks involving hyperlinks in presentations. 
 
+{{% alert color="primary" %}} 
+
+You may want to check out Aspose simple, [free online PowerPoint editor.](https://products.aspose.app/slides/editor)
+
+{{% /alert %}} 
+
 ## **Adding URL Hyperlinks**
 
 ### **Adding URL Hyperlinks to Texts**

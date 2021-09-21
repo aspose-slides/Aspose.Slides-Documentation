@@ -12,8 +12,13 @@ New HighlightText method has been added to ITextFrame and TextFrame classes. It 
 
 The code snippet below shows how to use this feature:
 
-
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightText-HighlightText.cpp" >}}
+
+{{% alert color="primary" %}} 
+
+Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor)
+
+{{% /alert %}} 
 
 ## **Highlight Text using Regular Expression**
 New HighlightRegex method has been added to ITextFrame and TextFrame classes. It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
