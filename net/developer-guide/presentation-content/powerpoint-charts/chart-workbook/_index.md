@@ -99,11 +99,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 pres.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-
-
 ### **Manage Worksheets**
 
-To get access to the worksheet collection the [**IChartDataWorkbook.Worksheets**]() property used.
+To gain access to a worksheet collection, use the [**IChartDataWorkbook.Worksheets**]() property. See the C# code below. 
 
 ``` csharp
 using (Presentation pres = new Presentation())
