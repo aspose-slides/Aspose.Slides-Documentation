@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 21.9 Release Notes
+title: Aspose.Slides for Java 21.9 Release Notes
 type: docs
 weight: 40
 url: /java/aspose-slides-for-java-21-9-release-notes/
