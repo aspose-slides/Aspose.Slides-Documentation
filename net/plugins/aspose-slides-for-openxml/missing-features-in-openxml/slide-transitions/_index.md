@@ -10,7 +10,7 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 - Create an instance of Presentation class
 - Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for .NET through **TransitionType** enum
 - Write the modified presentation file.
-##### **Example**
+## **Example**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";

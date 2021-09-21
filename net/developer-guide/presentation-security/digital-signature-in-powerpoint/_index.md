@@ -27,7 +27,22 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Open PFX file and pass PFX password to [**DigitalSignature** ](https://apireference.aspose.com/net/slides/aspose.slides/digitalsignature)object.
 1. Add created signature to the presentation object.
 
-{{< gist "aspose-com-gists" "111e222692fbbcd3b6015105d871a492" "Add-Digital-Signature-to-Presentation-with-Aspose-Slides.cs" >}}
+```c#
+using (Presentation pres = new Presentation())
+{
+    // Create DigitalSignature object with PFX file and PFX password 
+    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
+
+    // Comment new digital signature
+    signature.Comments = "Aspose.Slides digital signing test.";
+
+    // Add digital signature to presentation
+    pres.DigitalSignatures.Add(signature);
+
+    // Save presentation
+    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
+}
+```
 
 
 
@@ -35,4 +50,29 @@ Now its possible to check if the presentation was digitally signed and has not 
 
 
 
-{{< gist "aspose-com-gists" "de2e7e1e2401abf9a906b3b7fedaf8d8" "Check-Digitally-Signed-Presentation-with-Aspose-Slides.cs" >}}
+```c#
+// Open presentation
+using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
+{
+    if (pres.DigitalSignatures.Count > 0)
+    {
+        bool allSignaturesAreValid = true;
+
+        Console.WriteLine("Signatures used to sign the presentation: ");
+
+        // Check if all digital signatures are valid
+        foreach (DigitalSignature signature in pres.DigitalSignatures)
+        {
+            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
+                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
+            allSignaturesAreValid &= signature.IsValid;
+        }
+
+        if (allSignaturesAreValid)
+            Console.WriteLine("Presentation is genuine, all signatures are valid.");
+        else
+            Console.WriteLine("Presentation has been modified since signing.");
+    }
+}
+```
+

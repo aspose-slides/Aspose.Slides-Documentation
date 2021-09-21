@@ -6,7 +6,7 @@ url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 The code samples below create a presentation with a slide, add an image with a picture frame and applies animation to it.
-### **VSTO**
+## **VSTO**
 Using VSTO, take the following steps:
 
 1. Create a presentation.
@@ -44,7 +44,7 @@ pres.SaveAs("VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 Microsoft.Office.Core.MsoTriState.msoFalse);
 
 ``` 
-### **Aspose.Slides**
+## **Aspose.Slides**
 Using Aspose.Slides for .NET, perform the following steps:
 
 1. Create a presentation.

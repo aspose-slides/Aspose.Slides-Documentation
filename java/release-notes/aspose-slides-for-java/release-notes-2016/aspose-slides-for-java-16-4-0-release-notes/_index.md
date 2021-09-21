@@ -129,7 +129,7 @@ for (IParagraph paragraph : textFrame.getParagraphs()){
 ```
 
 #### **getRect() method has been added to IParagraph and Paragraph**
-The new method пetRect() has been added. It allows to get paragraph bounds rectangle.
+The new method getRect() has been added. It allows to get paragraph bounds rectangle.
 ``` java
 AutoShape shape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 TextFrame textFrame = (TextFrame)shape.getTextFrame();

@@ -64,7 +64,7 @@ Is it possible to change these values?
 ## **Formatting and Images**
 ### **Q: How can I set the color of a table's border?**
 **A**: You can change the border for all borders in a table or just border around whole table. For changing all borders, please check the Table.SetBorders function. For border of table, you should iterate cell and change color of external borders.
-### **Q: What measure does Aspose.Slides for .NET use to place pictures? Is it point?**
+### **Q: What measure does Aspose.Slides for Java use to place pictures? Is it point?**
 **A**: It's pixels and resolution of slides is 576 pixels per inch.
 ### **Q: What is default DPI of the slide in PDF and images generated using Aspose.Slides for Java?**
 **A**: By default, Aspose.Slides generate the PDF and Slide thumbnails with DPI 72. The default DPI for MS PowerPoint is 96. Aspose.Slides does offer to generate the slide thumbnails with varying DPIs.

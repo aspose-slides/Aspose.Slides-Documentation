@@ -19,7 +19,35 @@ Aspose.Slides for .NET provides the Aspose.Slides.Util namespace which includes 
 use the [GetAllTextBoxes](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/getalltextboxes) overloaded static method exposed by the SlideUtil class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-ExtractTextFromSlide-ExtractTextFromSlide.cs" >}}
+```c#
+//Instatiate Presentation class that represents a PPTX file
+Presentation pptxPresentation = new Presentation("demo.pptx");
+
+//Get an Array of ITextFrame objects from all slides in the PPTX
+ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+
+//Loop through the Array of TextFrames
+for (int i = 0; i < textFramesPPTX.Length; i++)
+{
+	//Loop through paragraphs in current ITextFrame
+	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
+	{
+		//Loop through portions in the current IParagraph
+		foreach (IPortion port in para.Portions)
+		{
+			//Display text in the current portion
+			Console.WriteLine(port.Text);
+
+			//Display font height of the text
+			Console.WriteLine(port.PortionFormat.FontHeight);
+
+			//Display font name of the text
+			if (port.PortionFormat.LatinFont != null)
+				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
+		}
+	}
+}
+```
 
 
 
@@ -32,7 +60,33 @@ To scan the text from the whole presentation, use the
 1. Second, a Boolean value determining whether the master slide is to be included when the text is scanned from the presentation.
    The method returns an array of TextFrame objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-ExtractTextFromPresentation-ExtractTextFromPresentation.cs" >}}
+```c#
+//Instatiate Presentation class that represents a PPTX file
+Presentation pptxPresentation = new Presentation("demo.pptx");
+
+//Get an Array of ITextFrame objects from all slides in the PPTX
+ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+
+//Loop through the Array of TextFrames
+for (int i = 0; i < textFramesPPTX.Length; i++)
+
+	//Loop through paragraphs in current ITextFrame
+	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
+
+		//Loop through portions in the current IParagraph
+		foreach (IPortion port in para.Portions)
+		{
+			//Display text in the current portion
+			Console.WriteLine(port.Text);
+
+			//Display font height of the text
+			Console.WriteLine(port.PortionFormat.FontHeight);
+
+			//Display font name of the text
+			if (port.PortionFormat.LatinFont != null)
+				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
+		}
+```
 
 
 
@@ -43,7 +97,7 @@ The new static method GetPresentationText has been added to Presentation class. 
 ``` csharp
 PresentationText GetPresentationText(Stream stream)
 PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
-``` 
+```
 
 The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
 Unarranged - The raw text with no respect to position on the slide
@@ -62,8 +116,13 @@ There is also a SlideText class which implements the ISlideText interface.
 
 The new API can be used like this:
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-ExtractText-ExtractText.cs" >}}
-
+```c#
+IPresentationText text1 = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
+Console.WriteLine(text1.SlidesText[0].Text);
+Console.WriteLine(text1.SlidesText[0].LayoutText);
+Console.WriteLine(text1.SlidesText[0].MasterText);
+Console.WriteLine(text1.SlidesText[0].NotesText);
+```
 
 
 

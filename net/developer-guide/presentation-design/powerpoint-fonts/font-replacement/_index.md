@@ -16,4 +16,20 @@ To replace the fonts using explicit replacement following steps are used:
 
 The implementation of the above steps is given below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Text-ReplaceFontsExplicitly-ReplaceFontsExplicitly.cs" >}}
+```c#
+// Load presentation
+Presentation presentation = new Presentation("Fonts.pptx");
+
+// Load source font to be replaced
+IFontData sourceFont = new FontData("Arial");
+
+// Load the replacing font
+IFontData destFont = new FontData("Times New Roman");
+
+// Replace the fonts
+presentation.FontsManager.ReplaceFont(sourceFont, destFont);
+
+// Save the presentation
+presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
+```
+

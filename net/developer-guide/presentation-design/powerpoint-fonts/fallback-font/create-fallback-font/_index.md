@@ -7,9 +7,19 @@ url: /net/create-fallback-font/
 
 Aspose.Slides supports [IFontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/iFontFallBackRule) interface and [FontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) class to specify the rules to apply a fallback font. [FontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
 
+```c#
+uint startUnicodeIndex = 0x0B80;
+uint endUnicodeIndex = 0x0BFF;
+
+IFontFallBackRule firstRule = new FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
+IFontFallBackRule secondRule = new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic");
 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-SetFontFallBack-SetFontFallBack.cs" >}}
+//Using multiple ways you can add fonts list:
+string[] fontNames = new string[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" };
+
+IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
+```
 
 
 

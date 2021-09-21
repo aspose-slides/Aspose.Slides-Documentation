@@ -3,69 +3,106 @@ title: Installation
 type: docs
 weight: 70
 url: /net/installation/
+keywords: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, macOS, .NET"
+description: "Install Aspose.Slides for .NET in Windows or macOS"
 ---
 
-## **Installing Aspose.Slides for .NET through NuGet**
-NuGet is the easiest way to download and install Aspose APIs for .NET. Open Microsoft Visual Studio and NuGet package manager. Search "aspose" to find the desired Aspose API. Click on "Install", the selected API will be downloaded and referenced in your project.
+## **Windows**
+NuGet provides the easiest path to downloading and installing Aspose APIs for .NET on PCs. 
+
+### **Option One: Install or Update Aspose.Slides from the NuGet Package Manager**
+
+1. Open Microsoft Visual Studio. 
+2. Create a simple console app. Or you can open your preferred project. 
+3. Go through **Tools** > **NuGet package manager**.
+4. Under **Browse**, type *Aspose.Slides* into the text field. 
 
 ![todo:image_alt_text](installation_1.png)
-## **Install or Update Aspose.Slides using the Package Manager Console**
-You can follow the steps below to reference the [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.NET/) using the package manager console:
+
+3. Click **Aspose.Slides.NET** and then click **Install**. 
+   * If you want to update Aspose.Slides—which means you already have it installed—click **Update** instead. 
+
+The selected API gets downloaded and referenced in your project.
+
+### **Option 2: Install or Update Aspose.Slides Through the Package Manager Console**
+
+To reference the [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.NET/) using the package manager console, do this:
 
 1. Open your solution/project in Visual Studio.
-1. Select Tools -> Library Package Manager -> Package Manager Console from the menu to open package manager console.
+
+1. Go through **Tools** > **Library Package Manager** > **Package Manager Console**. 
+
+   The Package Manager Console opens. 
 
 ![todo:image_alt_text](installation_2.png)
 
-Type the command “**Install-Package Aspose.Slides.NET**” and press enter to install latest full release into your application. Alternatively you can add the "**-prerelease**" suffix to the command in order to specify that the latest release including hot fixes is to be installed as well.
+4. Type this command: `Install-Package Aspose.Slides.NET` 
+
+5. Hit the Enter button. 
+
+   The latest full release gets installed into your application. 
+
+   * Alternatively, you can add the `-prerelease` suffix to the command to specify that the latest release (including hotfixes) must be installed as well.
 
 ![todo:image_alt_text](installation_3.png)
 
-You will see that the "Installing Aspose.Slides.NET" tip appears down the bottom of the window indicating that the download is process. 
+​	The **Installing Aspose.Slides.NET** tip appears around the bottom of the window. 
 
 ![todo:image_alt_text](installation_4.png)
 
-Once downloaded you will see the following confirmation messages. If you are not familiar with the [Aspose EULA](http://www.aspose.com/corporate/purchase/end-user-license-agreement.aspx) then it is a good idea to read the license referenced in the URL. 
+Once the download reaches completion, you should see some confirmation messages. 
+
+If you are not familiar with [Aspose EULA](http://www.aspose.com/corporate/purchase/end-user-license-agreement.aspx), then you may want to read the license referenced in the URL. 
 
 ![todo:image_alt_text](installation_5.png)
 
-You should now find that Aspose.Slides has successfully been added and referenced in your application for you.
+In your application, you should see that Aspose.Slides has been successfully added and referenced. 
 
 ![todo:image_alt_text](installation_6.png)
 
-In the package manager console, you can also use the command “**Update-Package Aspose.Slides.NET**” and press enter to check for any updates to the Aspose.Slides package and install them if present. You can also add the "-prerelease" suffix to update latest release.
-## **Considerations When Running on a Shared Server Environment**
-All Aspose .NET components are recommended to run with Full Trust permission set. This is because Aspose .NET component sometimes need to access registry settings and files located in places other than the virtual directory e.g. for reading fonts etc. Furthermore, Aspose.NET components are based on core .NET system classes, some of which also require Full Trust permission to run in some cases.
+In the Package Manager Console, you can run the `Update-Package Aspose.Slides.NET` command to check for updates to the Aspose.Slides package. Updates (if found) get installed automatically. You can also use the `-prerelease` suffix to update the latest release.
+#### **Considerations When Running on a Shared Server Environment**
+We strongly recommend you run all Aspose .NET components with the **Full Trust** permission set because Aspose components sometimes need to access registry settings and files located in places other than the virtual directory—for example, when Aspose components need to read fonts. 
 
-Internet Service Providers hosting multiple applications from different companies mostly enforce Medium Trust security level. In the case of .NET 2.0, such a security level may set the following constraints which could affect the ability of Aspose.Words to perform properly.
+Furthermore, Aspose.NET components are based on the core .NET system classes—and some of these classes also require Full Trust permission for their operations in some cases.
+
+Internet Service Providers, which host multiple applications from different companies, mostly enforce the Medium Trust security level. In .NET 2.0 case, such a security level may result in constraints that can affect Aspose.Slides' ability to perform properly:
 
 - **RegistryPermission** is not available. This means you cannot access the registry, which is required to enumerate installed fonts when rendering documents.
-- **FileIOPermission** is restricted. This means you can only access files in your application’s virtual directory hierarchy. This potentially means fonts cannot be read during export.
+- **FileIOPermission** is restricted. This means you can only access files in your application’s virtual directory hierarchy. This also potentially means fonts cannot be read during export operations. 
 
-For these reasons specified above, it is recommended that Aspose.Slides is run on Full Trust permissions. You may find that some features of library will work when performing different tasks in Medium trust while some won't (rendering for example) which may due to calls to GDI+ image processing.
-## **System Requirements**
-Aspose.Slides for .NET does not need Microsoft PowerPoint installed, as Aspose.Slides itself is a Microsoft PowerPoint document creation, conversion, page layout and rendering engine.
-### **Operating system**
-- Microsoft Windows desktop (2000, 2003, XP, Vista, 7, 2008,2010)
-- Linux
-- Mac OS X
-### **Supported Platforms**
-Aspose.Slides for .NET supports
+For the reasons above, we strongly recommend that you run Aspose.Slides on **Full Trust** permissions. If you use **Medium trust,** you might experience inconsistencies—some of the library features work when you perform some tasks while others (rendering, for example) might not work. 
 
-- Window forms
-- Web forms
-- Visual Studio 2005
-- Visual Studio 2008
-- Visual Studio 2010
-- Visual Studio 2012
-- Visual Studio 2013
-- Visual Studio 2015
-- Visual Studio 2017
-- Visual Studio 2019
-### **Supported Frameworks**
-Aspose.Slides for .NET supports:
+## **macOS**
 
-- .NET Framework version 2.0 or higher
-- .NET Core
-- COM Interop support (COM, C++, VBScript)
-- MONO Support in MAC and UNiX platforms
+NuGet provides the easiest path to downloading and installing Aspose.Slides for .NET on macs. 
+
+### **Install prerequisite**
+
+The `System.Drawing` namespace operates differently in macOS, so you have to install mono-libgdiplus. 
+
+> In .NET 5 and previous versions, the [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/) NuGet package works on Windows, Linux, and macOS. However, there are some platform differences. On Linux and macOS, the GDI+ functionality is implemented by the [libgdiplus)](https://www.mono-project.com/docs/gui/libgdiplus/) library. This library is not installed by default in most Linux distributions and doesn't support all the functionality of GDI+ on Windows and macOS. There are also platforms where libgdiplus is not available at all. To use types from the System.Drawing.Common package on Linux and macOS, you must install libgdiplus separately. For more information, see [Install .NET on Linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux) or [Install .NET on macOS](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus).
+
+To install mono-libgdiplus separately on your mac, see [this article](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus) from .NET documentation. 
+
+### **Install Aspose.Slides**
+
+1. Open Visual Studio. 
+
+2. Create a simple console app. Or you can open your preferred project. 
+
+3. Go through **Project** > **Manage NuGet Packages...**
+
+   ![path-to-NuGet-macOS](path-to-NuGet-macOS.png)
+
+4. Type *Aspose.Slides* into the text field. 
+
+5. Click **Aspose.Slides for .NET** and then click **Add Package.** 
+
+6. Add a simple code snippet.
+
+   * You can copy the code on [this page](https://docs.aspose.com/slides/net/create-presentation/).
+
+7. Run the app.
+
+8. Open your project's *folder/bin/Debug/presentation_file_name*

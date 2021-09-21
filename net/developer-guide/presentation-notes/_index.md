@@ -16,13 +16,60 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic
 ## **Remove Notes from Slide**
 Notes of some specific slide could be removed as shown in the example below:
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Notes-RemoveNotesAtSpecificSlide-RemoveNotesAtSpecificSlide.cs" >}}
+```c#
+// Instantiate a Presentation object that represents a presentation file 
+Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+
+// Removing notes of first slide
+INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
+mgr.RemoveNotesSlide();
+
+// Save presentation to disk
+presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
+```
+
+
 ## **Remove Notes from All Slides**
 Notes of all the slides of a presentation could be removed as shown in the example below:
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-Notes-RemoveNotesFromAllSlides-RemoveNotesFromAllSlides.cs" >}}
+```c#
+// Instantiate a Presentation object that represents a presentation file 
+Presentation presentation = new Presentation("AccessSlides.pptx");
+
+// Removing notes of all slides
+INotesSlideManager mgr = null;
+for (int i = 0; i < presentation.Slides.Count; i++)
+{
+    mgr = presentation.Slides[i].NotesSlideManager;
+    mgr.RemoveNotesSlide();
+}
+// Save presentation to disk
+presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
+```
+
+
 ## **Add NotesStyle**
 NotesStyle property has been added to [IMasterNotesSlide](https://apireference.aspose.com/net/slides/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://apireference.aspose.com/net/slides/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-CRUD-AddNotesSlideWithNotesStyle-AddNotesSlideWithNotesStyle.cs" >}}
+```c#
+// Instantiate Presentation class that represents the presentation file
+using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+{
+    IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+    if (notesMaster != null)
+    {
+        // Get MasterNotesSlide text style
+        ITextStyle notesStyle = notesMaster.NotesStyle;
+
+        //Set symbol bullet for the first level paragraphs
+        IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
+        paragraphFormat.Bullet.Type = BulletType.Symbol;
+    }
+
+    // Save the PPTX file to the Disk
+    presentation.Save("AddNotesSlideWithNotesStyle_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+}
+```
 

@@ -13,7 +13,7 @@ In order to export media files to HTML. Please follow the steps below:
 - Write the presentation as a PPTX file
 
 In the example given below, we have exported the media files to HTML.
-##### **Example**
+## **Example**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";

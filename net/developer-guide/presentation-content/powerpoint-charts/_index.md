@@ -1,8 +1,7 @@
 ---
 title: PowerPoint Charts
 type: docs
-weight: 20
+weight: 70
 url: /net/powerpoint-charts/
 ---
-
 

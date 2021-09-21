@@ -3,8 +3,8 @@ title: Convert PPT to PPTX
 type: docs
 weight: 20
 url: /net/convert-ppt-to-pptx/
-keywords: "PowerPoint PPT to PPTX"
-description: "Convert PowerPoint PPT to PPTX with Aspose.Slides."
+keywords: "Convert PowerPoint Presentation, PPT to PPTX, C#, Csharp, .NET, Aspose.Slides"
+description: "Convert PowerPoint PPT to PPTX in C# or .NET"
 ---
 
 ## **About PPT to PPTX Conversion**
@@ -33,9 +33,15 @@ Find other live [**Aspose.Slides Conversion**](https://products.aspose.app/slide
 ## **Convert PPT to PPTX**
 To convert a PPT to PPTX simply pass the file name and save format to the [**Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method of [**Presentation**](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class. The code sample below converts a Presentation from PPT to PPTX using default options.
 
+```c#
+// Instantiate a Presentation object that represents a PPTX file
+Presentation pres = new Presentation("PPTtoPPTX.ppt");
+
+// Saving the PPTX presentation to PPTX format
+pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+```
 
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Conversion-PPTtoPPTX-PPTtoPPTX.cs" >}}
 
 Read more about [**PPT vs PPTX**](/slides/net/ppt-vs-pptx/) presentation formats and how [**Aspose.Slides supports PPT to PPTX conversion**](/slides/net/convert-ppt-to-pptx/).
 

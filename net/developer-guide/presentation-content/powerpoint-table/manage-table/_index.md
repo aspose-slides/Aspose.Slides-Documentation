@@ -19,7 +19,53 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Add some text to the Text Frame.
 - Save the modified presentation as a PPTX file.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Tables-CreateATableFromScratchInASlide-CreateATableFromScratchInASlide.cs" >}}
+```c#
+// Instantiate Presentation class that represents PPTX file
+Presentation pres = new Presentation();
+
+// Access first slide
+ISlide sld = pres.Slides[0];
+
+// Define columns with widths and rows with heights
+double[] dblCols = { 50, 50, 50 };
+double[] dblRows = { 50, 30, 30, 30, 30 };
+
+// Add table shape to slide
+ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+
+// Set border format for each cell
+for (int row = 0; row < tbl.Rows.Count; row++)
+{
+	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
+	{
+		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+		tbl.Rows[row][cell].CellFormat.BorderTop.Width = 5;
+
+		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.FillType = (FillType.Solid);
+		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.SolidFillColor.Color= Color.Red;
+		tbl.Rows[row][cell].CellFormat.BorderBottom.Width =5;
+
+		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.SolidFillColor.Color =Color.Red;
+		tbl.Rows[row][cell].CellFormat.BorderLeft.Width = 5;
+
+		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
+	}
+}
+// Merge cells 1 & 2 of row 1
+tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
+
+// Add text to the merged cell
+tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
+
+// Save PPTX to Disk
+pres.Save("table.pptx", SaveFormat.Pptx);
+```
+
+
 
 ## **Access Existing Table**
 To access a table that already exists in a slide, please follow the steps below:
@@ -31,7 +77,31 @@ To access a table that already exists in a slide, please follow the steps below:
 - After the Table is found, you can use ITable object to control the table. For example, in our case, we have added a new row in the desired table.
 - Save the modified presentation as a PPT file.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Tables-UpdateExistingTable-UpdateExistingTable.cs" >}}
+```c#
+// Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
+using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
+{
+
+    // Access the first slide
+    ISlide sld = pres.Slides[0];
+
+    // Initialize null TableEx
+    ITable tbl = null;
+
+    // Iterate through the shapes and set a reference to the table found
+    foreach (IShape shp in sld.Shapes)
+        if (shp is ITable)
+            tbl = (ITable)shp;
+
+    // Set the text of the first column of second row
+    tbl[0, 1].TextFrame.Text = "New";
+
+    //Write the PPTX to Disk
+    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+}
+```
+
+
 
 
 ## **Align Text in Table**
@@ -45,7 +115,45 @@ Aspose.Slides for .NET has provided the simplest API to work with tables in an e
 - Align text vertically.
 - Save the presentation as a PPTX file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Tables-VerticallyAlignText-VerticallyAlignText.cs" >}}
+```c#
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+
+// Get the first slide 
+ISlide slide = presentation.Slides[0];
+
+// Define columns with widths and rows with heights
+double[] dblCols = { 120, 120, 120, 120 };
+double[] dblRows = { 100, 100, 100, 100 };
+
+// Add table shape to slide
+ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+tbl[1, 0].TextFrame.Text = "10";
+tbl[2, 0].TextFrame.Text = "20";
+tbl[3, 0].TextFrame.Text = "30";
+
+// Accessing the text frame
+ITextFrame txtFrame = tbl[0, 0].TextFrame;
+
+// Create the Paragraph object for text frame
+IParagraph paragraph = txtFrame.Paragraphs[0];
+
+// Create Portion object for paragraph
+IPortion portion = paragraph.Portions[0];
+portion.Text = "Text here";
+portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+// Aligning the text vertically
+ICell cell = tbl[0, 0];
+cell.TextAnchorType = TextAnchorType.Center;
+cell.TextVerticalType = TextVerticalType.Vertical270;
+
+// Save Presentation
+presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+```
+
+
 
 ## **Set Text Formatting on Table Level**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells, please follow the steps below:
@@ -58,7 +166,34 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Set Table Cells Vertical Type.
 - Save the modified presentation as a PPTX file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Tables-SetTextFormattingInsideTable-SetTextFormattingInsideTable.cs" >}}
+```c#
+// Create an instance of Presentation class
+Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
+ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
+
+// setting table cells' font height
+PortionFormat portionFormat = new PortionFormat();
+portionFormat.FontHeight = 25;
+someTable.SetTextFormat(portionFormat);
+
+// setting table cells' text alignment and right margin in one call
+ParagraphFormat paragraphFormat = new ParagraphFormat();
+paragraphFormat.Alignment = TextAlignment.Right;
+paragraphFormat.MarginRight = 20;
+someTable.SetTextFormat(paragraphFormat);
+
+// setting table cells' text vertical type
+TextFrameFormat textFrameFormat = new TextFrameFormat();
+textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
+someTable.SetTextFormat(textFrameFormat);
+
+
+presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+```
+
+
 
 
 ## **Numbering in Standard Table**
@@ -70,10 +205,66 @@ In a standard table numeration of cells is straightforward and zero-based. The f
 |(0, 2)|(1, 2)|(2, 2)|(3, 2)|
 |(0, 3)|(1, 3)|(2, 3)|(3, 3)|
 
+```c#
+// Instantiate Presentation class that represents PPTX file
+using (Presentation pres = new Presentation())
+{
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Tables-StandardTables-StandardTables.cs" >}}
+    // Access first slide
+    ISlide sld = pres.Slides[0];
+
+    // Define columns with widths and rows with heights
+    double[] dblCols = { 70, 70, 70, 70 };
+    double[] dblRows = { 70, 70, 70, 70 };
+
+    // Add table shape to slide
+    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+
+    // Set border format for each cell
+    foreach (IRow row in tbl.Rows)
+    {
+        foreach (ICell cell in row)
+        {
+			cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+			cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+			cell.CellFormat.BorderTop.Width = 5;
+
+			cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+			cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+			cell.CellFormat.BorderBottom.Width = 5;
+
+			cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+			cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+			cell.CellFormat.BorderLeft.Width = 5;
+
+			cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+			cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+			cell.CellFormat.BorderRight.Width = 5;
+        }
+    }
+
+    //Write PPTX to Disk
+    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
+
 
 ## **Lock Aspect Ratio of Table**
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. You can lock aspect ratio of table using **ShapeLock.AspectRatioLocked** property. Below code example shows how to use this property.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Tables-LockAspectRatio-LockAspectRatio.cs" >}}
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    ITable table = (ITable)pres.Slides[0].Shapes[0];
+    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+
+    table.ShapeLock.AspectRatioLocked = !table.ShapeLock.AspectRatioLocked; // invert
+
+    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
+```
+
