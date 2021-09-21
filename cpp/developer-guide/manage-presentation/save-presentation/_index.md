@@ -7,9 +7,11 @@ url: /cpp/save-presentation/
 
 {{% alert title="Info" color="info" %}}
 
-To learn how to open or load presentations, see the [*Open Presentation*](https://docs.aspose.com/slides/cpp/open-presentation/) article. This article explains how to create and save presentations.
+To learn how to open or load presentations, see the [*Open Presentation*](https://docs.aspose.com/slides/cpp/open-presentation/) article. 
 
 {{% /alert %}}
+
+The article here explains how to save presentations.
 
 The [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for C++, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
 
