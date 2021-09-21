@@ -8,7 +8,7 @@ url: /cpp/examine-presentation/
 
 Aspose.Slides for C++ allows you to examine a presentation to find out its properties and understand its behavior. 
 
-{{% alert title="TIP" color="dark" %}} 
+{{% alert title="Info" color="info" %}}
 
 The [PresentationInfo](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) class contains most of the methods needed for operations here. 
 
