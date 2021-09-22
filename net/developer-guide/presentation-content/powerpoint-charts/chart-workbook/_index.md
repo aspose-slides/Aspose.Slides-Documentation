@@ -101,7 +101,7 @@ pres.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **Manage Worksheets**
 
-To gain access to a worksheet collection, use the [**IChartDataWorkbook.Worksheets**]() property. See the C# code below. 
+To gain access to a worksheet collection, use the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property. See the C# code below. 
 
 ``` csharp
 using (Presentation pres = new Presentation())
