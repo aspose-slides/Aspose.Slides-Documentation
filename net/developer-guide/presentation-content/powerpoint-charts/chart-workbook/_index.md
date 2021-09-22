@@ -99,7 +99,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
 pres.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
+### **Manage Worksheets**
 
+To gain access to a worksheet collection, use the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property. See the C# code below. 
+
+``` csharp
+using (Presentation pres = new Presentation())
+{
+   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
+   IChartDataWorkbook wb =  chart.ChartData.ChartDataWorkbook;
+   for (int i = 0; i < wb.Worksheets.Count; i++)
+      Console.WriteLine(wb.Worksheets[i].Name);
+}
+```
 
 
 ## **External Workbook**
