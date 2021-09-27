@@ -156,6 +156,6 @@ Download source code for **Create Layout Slides** from any of the below mentione
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding Layout Slides to Presentation](https://docs.aspose.com/slides/java/slide-layout/#adding-a-layout-slide-to-the-presentation).
+For more details, visit [Adding Layout Slides to Presentation](/slides/java/slide-layout/#adding-a-layout-slide-to-the-presentation).
 
 {{% /alert %}}

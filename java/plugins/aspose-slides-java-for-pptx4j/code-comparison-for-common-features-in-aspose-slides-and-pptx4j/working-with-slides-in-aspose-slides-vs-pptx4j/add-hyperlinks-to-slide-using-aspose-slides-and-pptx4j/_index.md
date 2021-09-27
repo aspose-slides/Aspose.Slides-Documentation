@@ -535,7 +535,7 @@ Download source code for **Add Hyperlinks to Slide** from any of the below menti
 
 For more details, visit:
 
-- [Managing the Hyperlinks in Presentation](https://docs.aspose.com/slides/java/manage-hyperlinks/)
+- [Managing the Hyperlinks in Presentation](/slides/java/manage-hyperlinks/)
 - [Creating TextBox with Hyperlink](http://www.aspose.com/docs/display/slidesjava/Creating+TextBox+with+Hyperlink)
 
 {{% /alert %}}

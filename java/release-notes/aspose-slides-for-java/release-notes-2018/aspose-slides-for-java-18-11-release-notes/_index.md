@@ -12,7 +12,7 @@ url: /java/aspose-slides-for-java-18-11-release-notes/
 |SLIDESJAVA-36732|RCA for sample failing in 16.11 but working in 17.12|Investigation|
 |SLIDESJAVA-37295|Exception on adding sections|Investigation|
 |SLIDESJAVA-37272|Support for setting callout shape for series data label|Feature|
-|SLIDESJAVA-37135|[Use Aspose.Slides for Net 18.11 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-18-11-release-notes/)|Feature|
+|SLIDESJAVA-37135|[Use Aspose.Slides for Net 18.11 features](/slides/net/aspose-slides-for-net-18-11-release-notes/)|Feature|
 |SLIDESNET-40224|Add support for Strict Open XML format|Feature|
 |SLIDESNET-40512|Support for setting callout shape for series data label|Feature|
 |SLIDESNET-40518|Support to get effects by text-box paragraphs|Feature|

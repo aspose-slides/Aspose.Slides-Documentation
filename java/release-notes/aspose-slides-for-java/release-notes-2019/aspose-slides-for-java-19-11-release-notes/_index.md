@@ -13,7 +13,7 @@ This page contains release notes for [Aspose.Slides for Java 19.11](https://rep
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESJAVA-37450|[Use Aspose.Slides for .NET 19.11 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.11+Release+Notes)|Feature|
+|SLIDESJAVA-37450|[Use Aspose.Slides for .NET 19.11 features](/display/slidesnet/Aspose.Slides+for+.NET+19.11+Release+Notes)|Feature|
 |SLIDESNET-39130|[Improve handling of embedded OLE objects in Presentation](/slides/java/adding-frame-to-the-slide/#addingframetotheslide-extractembeddedfilesfromoleobject)|Feature|
 |SLIDESNET-41340|Chart become image on cloning shape|Enhancement|
 |SLIDESNET-41401|Text get overlapped in generated shape thumbnail|Enhancement|

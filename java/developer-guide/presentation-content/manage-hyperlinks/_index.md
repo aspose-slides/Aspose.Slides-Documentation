@@ -123,7 +123,7 @@ try {
 
 {{%  alert  title="Tip"  color="primary"  %}} 
 
-You may want to see *[Manage OLE](https://docs.aspose.com/slides/java/manage-ole/)*.
+You may want to see *[Manage OLE](/slides/java/manage-ole/)*.
 
 {{% /alert %}}
 

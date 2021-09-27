@@ -18,7 +18,7 @@ This page contains release notes for Aspose.Slides for C++ 20.1
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2173|[Use Aspose.Slides for .NET 20.1 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-20-1-release-notes/)|Feature|
+|SLIDESCPP-2173|[Use Aspose.Slides for .NET 20.1 features](/slides/net/aspose-slides-for-net-20-1-release-notes/)|Feature|
 |SLIDESNET-41387|Changing default font when saving presentation|Feature|
 |SLIDESNET-41601|Support of SHA1/1K checksum type for ODP/OTP presentations|Enhancement|
 |SLIDESNET-41605|Support of SHA1 key generation algorithm for ODP/OTP presentations|Enhancement|

@@ -80,6 +80,6 @@ while (partIterator.hasNext()) {
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Converting Presentation to HTML](https://docs.aspose.com/slides/java/convert-presentation/#converting-presentation-to-html).
+For more details, visit [Converting Presentation to HTML](/slides/java/convert-presentation/#converting-presentation-to-html).
 
 {{% /alert %}}

@@ -7,5 +7,5 @@ url: /jasperreports/aspose-slides-for-jasper-reports-18-8-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESJR-33283|[Use Aspose.Slides for Java 18.8 features](https://docs.aspose.com/slides/java/aspose-slides-for-java-18-8-release-notes/)|Feature|
+|SLIDESJR-33283|[Use Aspose.Slides for Java 18.8 features](/slides/java/aspose-slides-for-java-18-8-release-notes/)|Feature|
 

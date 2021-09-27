@@ -27,7 +27,7 @@ Aspose.Slides for Java provides support for almost all the features supported by
 In addition to the basic tasks related to creating, reading and writing PPT document files, there are several features that are provided by Aspose.Slides for Java:
 
 - Import other Microsoft Office file formats as [OLE objects into PPT documents]().
-- [Export PPT documents to PDF](https://docs.aspose.com/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- [Export PPT documents to PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 - Export slides in the PPT documents to SVG formats.
 - Render slides to any image format supported by the Java Framework.
 - Set the size of slides in PPT documents.
