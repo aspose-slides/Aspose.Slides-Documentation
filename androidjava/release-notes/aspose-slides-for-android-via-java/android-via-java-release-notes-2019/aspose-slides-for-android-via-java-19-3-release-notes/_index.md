@@ -16,7 +16,7 @@ This page contains release notes for Aspose.Slides for Andriod via Java 19.3
 |SLIDESNET-40600|Support for Text Highlighter feature|Feature|
 |SLIDESNET-40794|Change the color of hyperlink text throughout a presentation|Feature|
 |SLIDESNET-40799|Restricting local file system access when opening a document|Feature|
-|SLIDESJAVA-37442|[Use Aspose.Slides for NET 19.3 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-3-release-notes/)|Feature|
+|SLIDESJAVA-37442|[Use Aspose.Slides for NET 19.3 features](/slides/net/aspose-slides-for-net-19-3-release-notes/)|Feature|
 |SLIDESNET-40925|Add encoding meta tag when saving into HTML|Enhancement|
 |SLIDESNET-40612|Setting for removing width and height attributes of SVG tag when saving as HTML|Enhancement|
 |SLIDESNET-39845|Aspose.Slides for .NET compliance with FIPS compliant algorithms|Enhancement|
