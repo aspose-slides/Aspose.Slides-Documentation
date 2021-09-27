@@ -20,7 +20,7 @@ Aspose.Slides for Java supports presentation file formats including PPT, PPS, PO
 - Aspose.Slides Java for IntelliJ IDEA (Maven) is an **IntelliJ IDEA Plugin** which lets you create maven projects (i,e created project contains Aspose.Slides for Java API maven dependency) and download source code examples of the API  for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
 - This plugin helps you to work with [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) inside your favorite IntelliJ IDEA. 
 
-![todo:image_alt_text](http://i.imgur.com/KWKGljg.png)
+![todo:image_alt_text](https://i.imgur.com/KWKGljg.png)
 
 
 **WIZARDS**:
@@ -29,7 +29,7 @@ The plugin contains two wizards-----
 `       `**Wizard 1:** Aspose.Slides Maven Project
 
 - Plugin's **Aspose Maven Project Wizard** lets developers to create [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) Maven project.
-- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](http://maven.aspose.com/artifactory/webapp/home.html?0) and gets added in the pom.xml.
+- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/) and gets added in the pom.xml.
 - The created project will always contain most recent available version Maven Dependency for [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
 - The wizard steps also present with the option for downloading [Source Code Examples for using Aspose.Slides for Java API](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples)
 
@@ -61,7 +61,7 @@ To download IntellliJ IDEA
 1. Select your running OS
 1. Click on UE or CE download.
 ### **Downloading Aspose.Slides Java for IntelliJ IDEA plugin (Maven)**
-- The plugin can be directly downloaded from the [JetBrains plugin hosting URL](https://goo.gl/Oz4xJG) - on IntelliJ IDEA Plugin Repository
+- The plugin can be directly downloaded from the [JetBrains plugin hosting URL](https://plugins.jetbrains.com/plugin/7944-aspose-slides-java-for-intellij-idea-maven/) - on IntelliJ IDEA Plugin Repository
   and later can be installed using the IDE option:
   - Goto **File** > **Settings**...>**Plugins**
   - Select "**Install plugin from Disk"**
@@ -84,7 +84,7 @@ Please check [the video](https://youtu.be/PLIwxTs1USc) below to see Aspose.Slide
 
 **Please use any of the following project's issues tracker:**
 
-- [CodePlex](https://asposeslidesjavaintellij.codeplex.com/workitem/list/basic)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaintellij)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/issues)
 ### **Extend and Contribute**
 **Aspose.Slides Java for IntelliJ IDEA (Maven)** plugin is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it.

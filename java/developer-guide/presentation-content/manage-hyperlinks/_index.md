@@ -244,11 +244,11 @@ try {
 
 The [Hyperlink](https://apireference.aspose.com/slides/java/com.aspose.slides/Hyperlink) class is mutable. With this class, you can change the values for these properties:
 
-- [IHyperlink.setTargetFrame(String value)](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [IHyperlink.setTargetFrame(String value)](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
+- [IHyperlink.setTooltip(String value)](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
+- [IHyperlink.setHistory(boolean value)](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHistory-boolean-)
+- [IHyperlink.setHighlightClick(boolean value)](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
+- [IHyperlink.setStopSoundOnClick(boolean value)](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
@@ -271,16 +271,16 @@ try {
 
 ## **Supported Properties in IHyperlinkQueries**
 
-You can access [IHyperlinkQueries](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlinkQueries) from a presentation, slide, or text for which the hyperlink is defined. 
+You can access [IHyperlinkQueries](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) from a presentation, slide, or text for which the hyperlink is defined. 
 
-- [IPresentation.getHyperlinkQueries()](https://apireference.aspose.com/java/slides/com.aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://apireference.aspose.com/java/slides/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://apireference.aspose.com/java/slides/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [IPresentation.getHyperlinkQueries()](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
+- [IBaseSlide.getHyperlinkQueries()](https://apireference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
+- [ITextFrame.getHyperlinkQueries()](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-The [IHyperlinkQueries](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlinkQueries) class supports these methods and properties: 
+The [IHyperlinkQueries](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) class supports these methods and properties: 
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://apireference.aspose.com/java/slides/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [IHyperlinkQueries.getHyperlinkClicks()](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
+- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
+- [IHyperlinkQueries.getAnyHyperlinks()](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
+- [IHyperlinkQueries.removeAllHyperlinks()](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 

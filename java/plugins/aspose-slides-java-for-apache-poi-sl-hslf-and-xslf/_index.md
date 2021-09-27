@@ -18,7 +18,7 @@ HSLF provides a way to read, create or modify PowerPoint presentations. In parti
 
 Whilst HSLF and XSLF provide similar features, there is not a common interface across the two of them at this time.
 
-Read more at [poi.apache.org](http://poi.apache.org/spreadsheet/index.html)
+Read more at [poi.apache.org](http://poi.apache.org/components/spreadsheet/index.html)
 ### **Aspose.Slides for Java**
 Aspose.Slides for Java is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
 
@@ -48,7 +48,7 @@ This project is helpful for developers who want to compare Apache POI HSLF and X
 ### **Download Examples from social coding websites**
 You can directly include the source code of **Aspose.Slides Java for Apache POI** in your own project, Following releases of running examples are available to download on all of the below mentioned social coding sites:
 ### **CodePlex**
-- [Aspose.Slides Java for Apache POI SL - v 1.0](https://asposeslidesjavaapachepoi.codeplex.com/releases/view/618722)
+- [Aspose.Slides Java for Apache POI SL - v 1.0](https://archive.codeplex.com/?p=asposeslidesjavaapachepoi)
 -----
 ### **GitHub**
 - [Aspose.Slides Java for Apache POI SL - v 1.0](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Apache_POI-v1.0.0)
@@ -98,14 +98,14 @@ This is why we offer free support. Anyone who uses our product, whether they hav
 
 You can log any issues or suggestions related to Aspose.Slides Java for Apache POI HSLF and XSLF using any of the following platforms:
 
-- [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/workitem/list/basic)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaapachepoi)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/issues)
 ### **Extend and Contribute**
 Aspose.Slides Java for Apache POI (HSLF + XSLF) is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it.
 ### **Source Code**
 You can get the latest source code from one of the following locations
 
-- [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/SourceControl/latest)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaapachepoi)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_for_Apache_POI)
 ### **How to configure the source code**
 Please follow these simple steps in order to open and extend the source code while using:
@@ -132,14 +132,14 @@ This section includes the following topics
 
 - [Code Comparison for Common Features in Aspose.Slides and Apache POI - HSLF and XSLF](/slides/java/code-comparison-for-common-features-in-aspose-slides-and-apache-poi-hslf-and-xslf/)
   - [Working with Presentation using Apache POI and Aspose.Slides](/slides/java/working-with-presentation-using-apache-poi-and-aspose-slides/)
-    - [Add Slides to Presentation using Apache POI and Aspose.Slides](/slides/java/add-slides-to-presentation-using-apache-poi-and-aspose-slides/)
+    - [Add Slides to Presentation using Apache POI and Aspose.Slides](https://docs.aspose.com/slides/java/slides-poi/add-slides-to-presentation/)
     - [Count Number of Slides using Apache POI and Aspose.Slides](/slides/java/count-number-of-slides-using-apache-poi-and-aspose-slides/)
     - [Create New Presentation using Apache POI and Aspose.Slides](/slides/java/create-new-presentation-using-apache-poi-and-aspose-slides/)
     - [Delete Slides from Presentation using Apache POI and Aspose.Slides](/slides/java/delete-slides-from-presentation-using-apache-poi-and-aspose-slides/)
     - [Open and Save Presentation using Apache POI and Aspose.Slides](/slides/java/open-and-save-presentation-using-apache-poi-and-aspose-slides/)
   - [Working with Slides in Apache POI and Aspose.Slides](/slides/java/working-with-slides-in-apache-poi-and-aspose-slides/)
     - [Add Background to Slides using Apache POI and Aspose.Slides](/slides/java/add-background-to-slides-using-apache-poi-and-aspose-slides/)
-    - [Add Images in Slides using Apache POI and Aspose.Slides](/slides/java/add-images-in-slides-using-apache-poi-and-aspose-slides/)
+    - [Add Images in Slides using Apache POI and Aspose.Slides](https://docs.aspose.com/slides/java/slides-poi/add-images-in-slides/)
     - [Convert Presentation Slides to Image using Apache POI and Aspose.Slides](/slides/java/convert-presentation-slides-to-image-using-apache-poi-and-aspose-slides/)
     - [Create Slides with Different Layouts using Apache POI and Aspose.Slides](/slides/java/create-slides-with-different-layouts-using-apache-poi-and-aspose-slides/)
     - [Move Slide to New Position using Apache POI and Aspose.Slides](/slides/java/move-slide-to-new-position-using-apache-poi-and-aspose-slides/)
@@ -149,7 +149,7 @@ This section includes the following topics
     - [Insert Auto Shapes in Presentation using Apache POI and Aspose.Slides](/slides/java/insert-auto-shapes-in-presentation-using-apache-poi-and-aspose-slides/)
   - [Working with Header and Footer using Apache POI and Aspose.Slides](/slides/java/working-with-header-and-footer-using-apache-poi-and-aspose-slides/)
     - [Create Presentation Header Footer using Apache POI and Aspose.Slides](/slides/java/create-presentation-header-footer-using-apache-poi-and-aspose-slides/)
-    - [Extract Header Footer from Presentation using Apache POI and Aspose.Slides](/slides/java/extract-header-footer-from-presentation-using-apache-poi-and-aspose-slides/)
+    - [Extract Header Footer from Presentation using Apache POI and Aspose.Slides](https://docs.aspose.com/slides/java/slides-poi/extract-header-footer-from-presentation/)
   - [Working with Tables in Apache POI and Aspose.Slides](/slides/java/working-with-tables-in-apache-poi-and-aspose-slides/)
     - [Create Table using Apache POI and Aspose.Slides](/slides/java/create-table-using-apache-poi-and-aspose-slides/)
   - [Working with Text using Apache POI and Aspose.Slides](/slides/java/working-with-text-using-apache-poi-and-aspose-slides/)

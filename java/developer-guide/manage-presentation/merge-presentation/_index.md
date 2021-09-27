@@ -80,7 +80,7 @@ To merge presentation slide into a presentation section, it is possible to use 
  mergedPresentation.getSlides().addClone(presentation3.getSlides().get_Item(0), section);
 ``` 
 
-It is possible to ask questions, share ideas in the [**Aspose.Slides forum**](https://forum.aspose.com/c/slides).
+It is possible to ask questions, share ideas in the [**Aspose.Slides forum**](https://forum.aspose.com/c/slides/11).
 
 ## **See also**
 - [Clone Slides](/slides/java/clone-slides/)

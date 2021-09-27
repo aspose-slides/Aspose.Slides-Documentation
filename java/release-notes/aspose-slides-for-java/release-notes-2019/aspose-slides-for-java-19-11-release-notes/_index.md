@@ -35,7 +35,7 @@ This page contains release notes for [Aspose.Slides for Java 19.11](https://rep
 ### **Obsolete methods addFromSvg have been deleted**
 Methods **IPPImage addFromSvg(String svgContent)** and **IPPImage addFromSvg(String svgContent, IExternalResourceResolver externalResResolver, String baseUri)** have been removed from **ImageCollection** class and corresponding **IImageCollection** interface.
 
-Please use method [**addImage(ISvgImage svgImage)**](https://apireference.aspose.com/java/slides/com.aspose.slides/ImageCollection#addImage-com.aspose.slides.ISvgImage-) instead.
+Please use method [**addImage(ISvgImage svgImage)**](https://apireference.aspose.com/slides/java/com.aspose.slides/ImageCollection#addImage-com.aspose.slides.ISvgImage-) instead.
 
 
 

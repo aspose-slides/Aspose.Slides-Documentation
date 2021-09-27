@@ -38,7 +38,7 @@ Aspose.Slides Java for Jython is a project that demonstrates / provides the Aspo
 
 Following releases of running examples are available to download on all of the below mentioned social coding sites:
 
-- [CodePlex](https://asposeslidesjavajython.codeplex.com/releases/view/620122)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavajython)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Jython-v1.0)
 
 **Download Aspose.Slides for Java component**
@@ -131,12 +131,12 @@ This is why we offer free support. Anyone who uses our product, whether they hav
 
 You can log any issues or suggestions related to Aspose.Slides Java for Jython using any of the following platforms:
 
-- [CodePlex](https://asposewordsjavajython.codeplex.com/workitem/list/basic)
-- [Github](https://github.com/asposewords/Aspose_Words_Java/issues)
+- [CodePlex](https://archive.codeplex.com/?p=asposewordsjavajython)
+- [Github](https://github.com/aspose-words/Aspose.Words-for-Java/issues)
 ### **Extend and Contribute**
 Aspose.Slides Java for Jython is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it.
 ### **Source Code**
 You can get the latest source code from one of the following locations
 
-- [CodePlex](https://asposeslidesjavajython.codeplex.com/SourceControl/latest)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavajython)
 - [Github](https://github.com/aspose-slides/Aspose_Words_Java)

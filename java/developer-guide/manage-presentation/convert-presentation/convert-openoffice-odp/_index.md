@@ -14,6 +14,6 @@ description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML in Java"
 - [Convert ODP to TIFF](/slides/java/convert-powerpoint-ppt-and-pptx-to-tiff/)
 - [Convert ODP to SWF Flash](/slides/java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
 - [Convert ODP to XPS](/slides/java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Convert ODP to PDF with Notes](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
+- [Convert ODP to PDF with Notes](https://docs.aspose.com/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
 - [Convert ODP to TIFF with Notes](/slides/java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 

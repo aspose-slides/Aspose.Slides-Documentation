@@ -31,7 +31,7 @@ Project Aspose.Slides Java for Ruby shows how different tasks can be performed u
 ### **Download Required Libraries**
 Download required libraries mentioned below. These are the required for executing Aspose.Slides Java for Ruby examples.
 
-- [Aspose.Slides for Java Component](http://www.aspose.com/community/files/72/java-components/aspose.slides-for-java/)
+- [Aspose.Slides for Java Component](https://downloads.aspose.com/total)
 ### **Download Examples from Social Coding Sites**
 Following releases of running examples are available to download on below mentioned social coding sites:
 
@@ -51,7 +51,7 @@ It is very simple and easy to install Aspose.Slides Java for Ruby gem, please fo
 ```
 
 1. Download required Aspose.Slides for Java Component from following link.
-   <http://www.aspose.com/community/files/72/java-components/aspose.slides-for-java/default.aspx>
+   <https://downloads.aspose.com/total>
 1. Create "jars" folder at root of the Aspose.Slides Java for Ruby gem and copy downloaded component into it.
 ### **Using**
 Include the required files for working with the helloworld example.

@@ -7,9 +7,9 @@ url: /java/licensing/
 
 {{% alert color="primary" %}} 
 
-You can download an evaluation version of **Aspose.Slides for Java** from [its download page](http://maven.aspose.com/repository/simple/ext-release-local/com/aspose/aspose-slides/). The evaluation version provides absolutely the same functionalities as the licensed version of the product. Furthermore, the evaluation version simply becomes licensed after you purchase a license and add a couple of lines of code to apply the license.
+You can download an evaluation version of **Aspose.Slides for Java** from [its download page](https://repository.aspose.com/repo/com/aspose/aspose-slides/). The evaluation version provides absolutely the same functionalities as the licensed version of the product. Furthermore, the evaluation version simply becomes licensed after you purchase a license and add a couple of lines of code to apply the license.
 
-Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/default.aspx) at the Aspose website. We strongly recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
+Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy) at the Aspose website. We strongly recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
 
 Every Aspose license carries a one-year subscription for free upgrades to new versions or fixes that come out within the subscription period. Technical support is free and unlimited and provided both to users with licensed products and evaluation versions.
 
@@ -88,7 +88,7 @@ Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slid
 ```
 
 ## **Validating a License**
-To check whether a license has been properly set, you can validate it. The [License](https://apireference.aspose.com/java/slides/com.aspose.slides/License) class has the [isLicensed](https://apireference.aspose.com/slides/java/com.aspose.slides/License#isLicensed--) method that will return true if the license has been properly set.
+To check whether a license has been properly set, you can validate it. The [License](https://apireference.aspose.com/slides/java/com.aspose.slides/License) class has the [isLicensed](https://apireference.aspose.com/slides/java/com.aspose.slides/License#isLicensed--) method that will return true if the license has been properly set.
 
 ``` java
 License license = new License();

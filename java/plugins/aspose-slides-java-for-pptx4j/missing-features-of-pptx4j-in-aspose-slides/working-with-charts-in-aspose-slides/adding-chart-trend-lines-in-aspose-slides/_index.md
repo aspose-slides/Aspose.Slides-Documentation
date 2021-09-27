@@ -93,10 +93,10 @@ pres.save(dataDir + "AsposeChartTrendLines.pptx", SaveFormat.Pptx);
 ```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 
 {{% alert color="primary" %}} 
 

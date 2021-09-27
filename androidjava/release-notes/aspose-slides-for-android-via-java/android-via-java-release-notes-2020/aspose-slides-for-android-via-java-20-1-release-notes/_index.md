@@ -16,8 +16,8 @@ url: /androidjava/aspose-slides-for-android-via-java-20-1-release-notes/
 |SLIDESANDROID-235|Use [Aspose.Slides for Java 20.1](/slides/java/aspose-slides-for-java-20-1-release-notes/) features|Feature|
 ## **Public API Changes**
 ### **ISaveOptions.setDefaultRegularFont and ISaveOptions.getDefaultRegularFont methods have been added**
-A new methods [**setDefaultRegularFont()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/ISaveOptions#setDefaultRegularFont-java.lang.String-) and [**getDefaultRegularFont()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) have been added to [**ISaveOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/ISaveOptions) interface and [**SaveOptions**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/SaveOptions) abstract class.
-It allows to get or set the default font used instead of all missing fonts during saving presentations to different formats without reloading the presentations with different [LoadOptions](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/LoadOptions).
+A new methods [**setDefaultRegularFont()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/ISaveOptions#setDefaultRegularFont-java.lang.String-) and [**getDefaultRegularFont()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) have been added to [**ISaveOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions) interface and [**SaveOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SaveOptions) abstract class.
+It allows to get or set the default font used instead of all missing fonts during saving presentations to different formats without reloading the presentations with different [LoadOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions).
 
 The code snippet below demonstrates saving presentation to HTML and PDF with different default regular font.
 

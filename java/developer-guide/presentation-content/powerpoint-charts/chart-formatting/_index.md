@@ -10,7 +10,7 @@ Aspose.Slides for Java lets developers add custom charts to their slides from sc
 
 Aspose.Slides for Java provides a simple API for managing different chart entities and formatting them using custom values:
 
-1. Create an instance of the [**Presentation**](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [**Presentation**](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (in this example we will use ChartType.LineWithMarkers).
 1. Access the chart Value Axis and set the following properties:
@@ -201,7 +201,7 @@ try {
 ## **Set Font Properties for Chart**
 Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
 
-- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class object.
+- Instantiate [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class object.
 - Add chart on the slide.
 - Set font height.
 - Save modified presentation.

@@ -44,11 +44,11 @@ pres->Save(u"fromPdfDocument.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### IInk interface has been added
-**[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink/)** 
-interface and Ink implementer class have been added. They represent an **[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink/)** 
+**[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)** 
+interface and Ink implementer class have been added. They represent an **[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)** 
 graphical element.
 
-**[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink/)**  declaration:
+**[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)**  declaration:
 
 ```cpp
 /// <summary>

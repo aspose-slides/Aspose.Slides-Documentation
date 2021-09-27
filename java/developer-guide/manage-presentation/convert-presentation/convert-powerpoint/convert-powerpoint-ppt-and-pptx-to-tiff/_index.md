@@ -10,14 +10,14 @@ description: "Convert PowerPoint PPT(X) to TIFF in Java"
 ## **Convert PPT(X) to TIFF**
 {{% alert color="primary" %}} 
 
-TIFF format is known for its flexibility to accommodate multipage images and data. Keeping in view the importance and popularity of [TIFF ](https://wiki.fileformat.com/image/tiff/)format, Aspose.Slides for Java provides the support for converting presentations into TIFF document.
+TIFF format is known for its flexibility to accommodate multipage images and data. Keeping in view the importance and popularity of [TIFF ](https://docs.fileformat.com/image/tiff/)format, Aspose.Slides for Java provides the support for converting presentations into TIFF document.
 
 {{% /alert %}} 
 
-The [**Save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/tiffoptions) class exposes [**ImageSize** ](https://apireference.aspose.com/java/slides/com.aspose.slides/TiffOptions#setImageSize-java.awt.Dimension-)property enabling the developer to define the size of the image if required.
+The [**Save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions) class exposes [**ImageSize** ](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions#setImageSize-java.awt.Dimension-)property enabling the developer to define the size of the image if required.
 
 ## **Convert PPT(X) to TIFF with Default Size**
-The following example shows how to convert a presentation into a [TIFF](https://wiki.fileformat.com/image/tiff/) document with default options.
+The following example shows how to convert a presentation into a [TIFF](https://docs.fileformat.com/image/tiff/) document with default options.
 
 ```java
 // Instantiate a Presentation object that represents a presentation file
@@ -31,7 +31,7 @@ try {
 ```
 
 ## **Convert PPT(X) to TIFF with Custom Size**
-The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/TiffOptions) class.
+The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions) class.
 
 ```java
 // Instantiate a Presentation object that represents a Presentation file
@@ -69,7 +69,7 @@ try {
 ```
 
 ## **Convert PPT(X) to TIFF with Custom Image Pixel Format**
-The following example shows how to convert a presentation into a TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/TiffOptions) class. You can also include comments in generated TIFF by using [**TiffOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/TiffOptions) class.
+The following example shows how to convert a presentation into a TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions) class. You can also include comments in generated TIFF by using [**TiffOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions) class.
 
 ```java
 // Instantiate a Presentation object that represents a Presentation file

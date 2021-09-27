@@ -25,18 +25,18 @@ This page contains release notes for [Aspose.Slides for .NET 21.6](https://www.n
 |SLIDESNET-42578|IParagraph.GetRect returns incorrect position or width for list items|Bug|<https://docs.aspose.com/slides/net/manage-paragraph/>
 |SLIDESNET-42568|PPTX to JPEG: Wrong fonts used in the output file|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-jpg/>
 |SLIDESNET-42563|Animations getting damaged when PPT file is saved|Bug|<https://docs.aspose.com/slides/net/save-presentation/ https://docs.aspose.com/slides/net/powerpoint-animation/>
-|SLIDESNET-42561|PPTX to PDF: Unwanted shape in output file|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
+|SLIDESNET-42561|PPTX to PDF: Unwanted shape in output file|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/////>
 |SLIDESNET-42554|Creating thumbnail of chart thows ArgumentException|Bug|<https://docs.aspose.com/slides/net/create-shape-thumbnails/>
 |SLIDESNET-42550|Calculated paragraph height is incorrect|Bug|<https://docs.aspose.com/slides/net/manage-paragraph/>
 |SLIDESNET-41563|Image rotation is missing in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
 |SLIDESNET-41008|The effects lost in generated PNG|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-jpg/>
-|SLIDESNET-39925|Pptx to pdf not properly converted|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf>
-|SLIDESNET-39365|Missing shape shadow and bevel when converting to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
+|SLIDESNET-39925|Pptx to pdf not properly converted|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf////>
+|SLIDESNET-39365|Missing shape shadow and bevel when converting to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf////>
 |SLIDESNET-38555|Incorrect font size in notes page|Bug|<https://docs.aspose.com/slides/net/shape-effective-properties/>
 |SLIDESNET-36944|3D object is missing in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
 |SLIDESNET-36385|3D effects are missing for shapes in exported PDF|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
 |SLIDESNET-34958|The pentagon shape is improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
-|SLIDESNET-34632|The border for the shapes are improperly around the shape in exported XPS|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/>
+|SLIDESNET-34632|The border for the shapes are improperly around the shape in exported XPS|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/>
 |SLIDESNET-32336|Wrong shape direction on thumbnail|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
 
 ## Public API Changes ##

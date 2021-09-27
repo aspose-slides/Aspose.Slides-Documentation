@@ -52,7 +52,7 @@ The presentation may contain more than one digital signatures. After the digital
 
 
 To sign a presentation or check the authenticity of presentation signatures, Aspose.Slides API provides [**IDigitalSignature**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature) interface, 
-[**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) interface and[ ](https://apireference.aspose.com/net/slides/aspose.slides/ipresentation/properties/digitalsignatures)[**IPresentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation)**.[getDigitalSignatures()](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getDigitalSignatures--)** method. Currently, digital signatures are supported for PPTX format only.
+[**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) interface and[ ](https://apireference.aspose.com/slides/net/aspose.slides/ipresentation/properties/digitalsignatures)[**IPresentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation)**.[getDigitalSignatures()](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getDigitalSignatures--)** method. Currently, digital signatures are supported for PPTX format only.
 
 
 ### **Add Digital Signature from PFX Certificate**

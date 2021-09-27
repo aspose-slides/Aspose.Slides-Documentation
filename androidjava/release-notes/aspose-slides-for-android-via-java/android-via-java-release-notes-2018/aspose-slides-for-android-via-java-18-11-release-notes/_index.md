@@ -14,7 +14,7 @@ url: /androidjava/aspose-slides-for-android-via-java-18-11-release-notes/
 |SLIDESANDROID-77|[Use Aspose.Slides for Java 18.11 features](/slides/java/aspose-slides-for-java-18-11-release-notes/)|Feature|
 |SLIDESANDROID-118|Add support of Tiff format for Android|Feature|
 |SLIDESJAVA-37272|Support for setting callout shape for series data label|Feature|
-|SLIDESJAVA-37135|[Use Aspose.Slides for Net 18.11 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+18.11+Release+Notes)|Feature|
+|SLIDESJAVA-37135|[Use Aspose.Slides for Net 18.11 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-18-11-release-notes/)|Feature|
 |SLIDESNET-40224|Add support for Strict Open XML format|Feature|
 |SLIDESNET-40512|Support for setting callout shape for series data label|Feature|
 |SLIDESNET-40518|Support to get effects by text-box paragraphs|Feature|

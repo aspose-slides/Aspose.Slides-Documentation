@@ -19,7 +19,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |SLIDESNET-42741|Support for converting presentations to animated GIF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-animated-gif/>
 |SLIDESNET-36751|Support for PowerPoint like scaling - Ensure Fit & Maximize|Feature|<https://docs.aspose.com/slides/net/slide-size/>
 |SLIDESNET-34416|Support for monotype fonts in Aspose.Slides during rendering presentation|Feature|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
-|SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|<https://docs.aspose.com/slides/net/chart-worksheet-formulas>
+|SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|<https://docs.aspose.com/slides/net/chart-worksheet-formulas/>
 |SLIDESNET-42552|Implement 'OR' function for spreadsheet formulas of charts|Enhancement|<https://docs.aspose.com/slides/net/chart-worksheet-formulas/#predefined-functions>
 |SLIDESNET-42722|Presentation.GetThumbnails throws ExternalException|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-42699|Font getting changed on cloning slide|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
@@ -44,12 +44,12 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |SLIDESNET-37485|Shadow and mirroring effects are lost in generated thumbanil|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-37117|KeyNotFoundException on presentation save|Bug|<https://docs.aspose.com/slides/net/save-presentation/>
 |SLIDESNET-36636|Font gets bigger when pptx exported to thumbnail and PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-36386|Glow effects for shapes are missing in exporte PDF |Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf>
+|SLIDESNET-36386|Glow effects for shapes are missing in exporte PDF |Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
 |SLIDESNET-35729|Slide notes text failed to add for PPT presentation|Bug|<https://docs.aspose.com/slides/net/presentation-notes/>
 |SLIDESNET-35564|Text improperly rendered in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-35188|Improve chart rendering in generated thumbnails|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
-|SLIDESNET-34870|Image reflection effect is lost when exporting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf>
-|SLIDESNET-34428|Arcs and arrow lines are missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
+|SLIDESNET-34870|Image reflection effect is lost when exporting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
+|SLIDESNET-34428|Arcs and arrow lines are missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf//>
 
 ## Public API Changes ##
 

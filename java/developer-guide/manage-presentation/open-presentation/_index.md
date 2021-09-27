@@ -13,7 +13,7 @@ Using Aspose.Slides for Java, developers can not only create PowerPoint presenta
 {{% /alert %}} 
 
 ## **Open Presentation**
-Aspose.Slides for Java provides [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/Presentation) class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to create its object based on an existing presentation. In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. After the file is opened, we get the total number of slides present in the presentation to print on the screen.
+Aspose.Slides for Java provides [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to create its object based on an existing presentation. In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. After the file is opened, we get the total number of slides present in the presentation to print on the screen.
 
 ```java
 // Opening the presentation file by passing the file path to the constructor of Presentation class
@@ -27,7 +27,7 @@ try {
 ```
 
 ## **Open Password Protected Presentation**
-Aspose.Slides for Java provides a facility to open password-protected presentation using [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/Presentation) class. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation. In the example given below, we are accessing the password-protected presentation. We will use [LoadOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/LoadOptionsOptions) class object to set the access password and then will use [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/Presentation) class to open a presentation.
+Aspose.Slides for Java provides a facility to open password-protected presentation using [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation. In the example given below, we are accessing the password-protected presentation. We will use [LoadOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/LoadOptionsOptions) class object to set the access password and then will use [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation.
 
 ```java
 // Creating instance of load options to set the presentation access password
@@ -48,7 +48,7 @@ try {
 ```
 
 ## **Open Large Presentation**
-Aspose.Slides for Java provides a facility to open very large presentations using [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/Presentation) class. Now you can load large presentations lets say presentation size is 2 Gb, you can easily open that with these sample codes provided below.
+Aspose.Slides for Java provides a facility to open very large presentations using [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. Now you can load large presentations lets say presentation size is 2 Gb, you can easily open that with these sample codes provided below.
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
@@ -70,7 +70,7 @@ try {
 ```
 
 ## **Load Presentation**
-New [**IResourceLoadingCallback**](https://apireference.aspose.com/java/slides/com.aspose.slides/IResourceLoadingCallback) interface has been added. 
+New [**IResourceLoadingCallback**](https://apireference.aspose.com/slides/java/com.aspose.slides/IResourceLoadingCallback) interface has been added. 
 This callback interface is used to manage external resources loading and has one method.
 
 The code snippet below shows how to use IResourceLoadingCallback interface:

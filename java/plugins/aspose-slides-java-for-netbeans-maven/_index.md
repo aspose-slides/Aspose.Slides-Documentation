@@ -20,7 +20,7 @@ The NetBeans Team actively support the product and seek feature suggestions from
 - Aspose.Slides Java (Maven) for NetBeans is a Plugin for **NetBeans IDE** by **Aspose.** The Plugin intended for developers using Maven platform for Java developments and want to use [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) in their projects. The Plugin lets you create maven projects for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) and also download [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) of the API. 
 - The plugin provides following features to work with [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) within **NetBeans IDE** comfortably: 
 
-![todo:image_alt_text](http://i.imgur.com/KWKGljg.png)
+![todo:image_alt_text](https://i.imgur.com/KWKGljg.png)
 
 
 **WIZARDS**:
@@ -29,7 +29,7 @@ The plugin contains two wizards -----
 **       ****Aspose.Slides Maven Project (wizard)**
 
 - This New Project wizard lets developers to create **Maven** project for using [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) from **New Project -> Maven-> Aspose.Slides Maven Project.**
-- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](http://maven.aspose.com/artifactory/webapp/home.html?0) and gets added in the pom.xml.
+- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo) and gets added in the pom.xml.
 - The created project will always contain most recent available version **Maven** Dependency for [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
 - The wizard steps also presents with the option for downloading [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
 
@@ -56,7 +56,7 @@ You should have NetBeans IDE preinstalled before you download **Aspose.Slides Ja
 
 To download NetBeans IDE,
 
-1. Navigate to: <https://netbeans.org/downloads>
+1. Navigate to: <https://netbeans.apache.org//downloads>
 1. Click Download to download NetBeans IDE appropriate bundle. 
 
 Download only Java EE / SE supported NetBeans download bundle of the current latest release i.e. **NetBeans IDE 8.1**.
@@ -101,7 +101,7 @@ Please follow [**GitHub Issues Tracker**](https://github.com/aspose-slides/Aspo
 Aspose.Slides Java (Maven) for NetBeans is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it. Developers can also learn from it to make their own plugins.
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose.Slides%20Java%20\(Maven\)%20for%20NetBeans)
-- [CodePlex](https://asposeslidesjavanetbeans.codeplex.com/)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavanetbeans)
 #### **How to configure source code of Aspose.Slides Java (Maven) for NetBeans**
 Below simple steps will smoothly lead to successful configuration of  **"Aspose.Slides Java (Maven) for NetBeans"** plugin  source code in NetBeans IDE
 
