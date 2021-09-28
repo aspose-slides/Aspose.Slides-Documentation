@@ -45,13 +45,14 @@ If you don't like the **Object Changed** message then you can also replace that 
 
 To achieve this, you can add these few lines of code in your application after adding **OleObjectFrame** to your slide. 
 #### **Example**
+``` csharp 
+//Adding the picture to presentation and getting the related picture object
+IPPImage picObject = pres.Images.AddImage(File.ReadAllBytes("C:\\demo.png"));
 
-
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Shapes-AddOLEObjectFrameWithPicture-AddOLEObjectFrameWithPicture.cs" >}}
-
-
-
-
+//Assigning the picture object of newly added picture to the Picture Format of 
+//OleObjectFrame where oof represents an OleObjectFrame
+oof.SubstitutePictureFormat.Picture.Image = picObject;
+```
 
 After adding above lines in your application, the resulting slide containing **OleObjectFrame** would look like this: 
 

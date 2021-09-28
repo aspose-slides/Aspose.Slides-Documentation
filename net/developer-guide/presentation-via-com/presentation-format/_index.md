@@ -14,6 +14,20 @@ In order to get presentation format. Please follow the steps below:
 
 In the example given below, we have got the presentation format:
 
+```c#
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("HelloWorld.pptx");
+switch (info.LoadFormat)
+{
+    case LoadFormat.Pptx:
+        {
+            break;
+        }
+
+    case LoadFormat.Unknown:
+        {
+            break;
+        }
+}
+```
 
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Opening-GetFileFormat-GetFileFormat.cs" >}}

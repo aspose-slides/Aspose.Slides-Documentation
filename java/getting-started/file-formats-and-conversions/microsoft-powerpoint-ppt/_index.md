@@ -10,6 +10,7 @@ url: /java/microsoft-powerpoint-ppt/
 [PPT](http://en.wikipedia.org/wiki/Microsoft_PowerPoint) is the presentation document file format that can be created, read, manipulated and written by different versions of Microsoft PowerPoint. This is the binary format for presentation documents developed by Microsoft.
 
 {{% /alert %}} 
+
 ## **PPT in Aspose.Slides for Java**
 Aspose.Slides for Java can read PPT files created by the software listed below.
 
@@ -19,6 +20,7 @@ Aspose.Slides for Java can read PPT files created by the software listed below.
 - Microsoft PowerPoint 2003
 
 Similarly, PPT files created by Aspose.Slides for Java can be read by the above set of software.
+
 ## **Comprehensive Support for PPT**
 Aspose.Slides for Java provides support for almost all the features supported by the PPT document file format. It not only covers the basic and advanced features provided by different Microsoft PowerPoint versions for PPT document manipulations, but also features that are not even supported by Microsoft PowerPoint. The main advantage of using the Aspose.Slides for Java API library is the ease of use for handling such features.
 

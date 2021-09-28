@@ -13,14 +13,21 @@ Each [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/pr
 
 Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 
+```c#
+using (Presentation presentation = new Presentation())
+{
+	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
 
+	userRulesList.Add(new FontFallBackRule(0x0B80, 0x0BFF, "Vijaya"));
+	userRulesList.Add(new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic"));
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Text-FallBackRulesCollection-FallBackRulesCollection.cs" >}}
-
-
+	presentation.FontsManager.FontFallBackRulesCollection = userRulesList;
+}
+```
 
 After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.
 
 {{% alert color="primary" %}} 
 Read more how to [Render Presentation with Fallback Font](/slides/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
+

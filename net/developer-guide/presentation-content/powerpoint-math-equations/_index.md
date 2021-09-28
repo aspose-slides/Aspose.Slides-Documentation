@@ -1,7 +1,7 @@
 ---
 title: PowerPoint Math Equations
 type: docs
-weight: 60
+weight: 80
 url: /net/powerpoint-math-equations/
 keywords: " PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
 description: "PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
@@ -53,7 +53,7 @@ To add a mathematical expression on the slide, first, add a shape that will con
 
 }
 
-``` 
+```
 
 
 After creating, the shape will already contain one paragraph with a mathematical portion by default. The [**MathPortion** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathportion)class is a portion that contains a mathematical text inside. To access mathematical content inside [**MathPortion**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathportion), refer to the [**MathParagraph** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph)variable:
@@ -62,7 +62,7 @@ After creating, the shape will already contain one paragraph with a mathematical
 
  var mathParagraph = (mathShape.TextFrame.Paragraphs[0].Portions[0] as MathPortion).MathParagraph;
 
-``` 
+```
 
 
 The [**MathParagraph** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph)class allows to read, add, edit and delete math blocks ([**MathBlock**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/mathblock)), that consist of a combination of mathematical elements. For example, create a fraction and place it in the presentation:
@@ -73,7 +73,7 @@ The [**MathParagraph** ](https://apireference.aspose.com/slides/net/aspose.sli
 
 mathParagraph.Add(new MathBlock(fraction));
 
-``` 
+```
 
 
 Each mathematical element is represented by some class that implements the [**IMathElement** ](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement)interface. This interface provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
@@ -92,7 +92,7 @@ Each mathematical element is represented by some class that implements the [**I
 
     .Join(new MathematicalText("b").SetSuperscript("2"));
 
-``` 
+```
 
 
 
@@ -136,7 +136,7 @@ The full source code sample:
 
 }
 
-``` 
+```
 
 
 ## **Mathematical Element Types**
@@ -188,7 +188,7 @@ is created using a combination of [**MathFunction** ](https://apireference.aspos
 
 var mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
 
-``` 
+```
 
 
 ### **MathSubscriptElement, MathSuperscriptElement, MathRightSubSuperscriptElement, MathLeftSubSuperscriptElement classes**
@@ -253,7 +253,7 @@ IMathElement element2 = new MathematicalText("y");
 
 IMathBlock block = element1.Join(element2);
 
-``` 
+```
 ### **Divide method**
 - [Divide(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/divide/methods/2)
 - [Divide(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/divide)
@@ -268,7 +268,7 @@ Creates a fraction of the specified type with this numerator and specified denom
 
 IMathFraction fraction = numerator.Divide("y", MathFractionTypes.Linear);
 
-``` 
+```
 ### **Enclose method**
 - [Enclose()](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/enclose)
 - [Enclose(Char, Char)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/enclose/methods/1)
@@ -293,7 +293,7 @@ IMathDelimiter Enclose();
 
 IMathDelimiter Enclose(char beginningCharacter, char endingCharacter);
 
-``` 
+```
 
 
 For example:
@@ -304,7 +304,7 @@ For example:
 
 IMathDelimiter delimiter2 = new MathematicalText("elem1").Join("elem2").Enclose();
 
-``` 
+```
 ### **Function method**
 - [Function(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/function/methods/1)
 - [Function(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/function)
@@ -325,7 +325,7 @@ IMathFunction Function(IMathElement functionArgument);
 
 IMathFunction Function(string functionArgument);
 
-``` 
+```
 
 
 For example:
@@ -334,7 +334,7 @@ For example:
 
  IMathFunction func = new MathematicalText("sin").Function("x");
 
-``` 
+```
 ### **AsArgumentOfFunction method**
 - [AsArgumentOfFunction(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/4)
 - [AsArgumentOfFunction(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/asargumentoffunction)
@@ -362,7 +362,7 @@ var func3 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfOneArg
 
 var func4 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3")
 
-``` 
+```
 ### **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft methods**
 - [SetSubscript(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setsubscript/methods/1)
 - [SetSubscript(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setsubscript)
@@ -381,7 +381,7 @@ Example:
 
  var script = new MathematicalText("y").SetSubSuperscriptOnTheLeft("2x", "3z");
 
-``` 
+```
 ### **Radical method**
 - [Radical(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/radical/methods/1)
 - [Radical(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/radical)
@@ -394,7 +394,7 @@ Example:
 
  var radical = new MathematicalText("x").Radical("3");
 
-``` 
+```
 ### **SetUpperLimit and SetLowerLimit methods**
 - [SetUpperLimit(String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/setupperlimit/methods/1)
 - [SetUpperLimit(IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/setupperlimit)
@@ -413,7 +413,7 @@ Such expressions can be created through a combination of classes [MathFunction ]
 
  var mathExpression = MathText.Create("lim").SetLowerLimit("x→∞").Function("x");
 
-``` 
+```
 ### **Nary and Integral methods**
 - [Nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/nary)
 - [Nary(MathNaryOperatorTypes, String, String)](https://apireference.aspose.com/slides/net/aspose.slides.mathtext.imathelement/nary/methods/1)
@@ -433,7 +433,7 @@ Example:
 
 IMathNaryOperator integral = baseArg.Integral(MathIntegralTypes.Simple, "0", "1");
 
-``` 
+```
 ### **ToMathArray method**
 [**ToMathArray**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/tomatharray) puts elements in a vertical array. If this operation is called for a **MathBlock** instance, all child elements will be placed in the returned array.
 
@@ -443,7 +443,7 @@ Example:
 
  var arrayFunction = new MathematicalText("x").Join("y").ToMathArray();
 
-``` 
+```
 ### **Formatting operations: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
 - [**Accent**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/accent) method sets an accent mark (a character on the top of the element).
 - [**Overbar**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/overbar) and [**Underbar**](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/underbar) methods set a bar on the top or bottom.
@@ -465,4 +465,4 @@ var borderBox = new MathematicalText("x+y+z").ToBorderBox();
 
 var boxedOperator = new MathematicalText(":=").ToBox();
 
-``` 
+```

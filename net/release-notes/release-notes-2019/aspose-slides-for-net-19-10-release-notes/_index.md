@@ -13,8 +13,8 @@ This page contains release notes for [Aspose.Slides for .NET 19.10](https://www
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESNET-40805|[Font Fallback in Aspose.Slides](/slides/net/managing-fonts/#managingfonts-setfontfallback)|Feature|
-|SLIDESNET-40689|[Support for accessing prompt text from slides shapes placeholders](/slides/net/adding-and-formatting-text/#addingandformattingtext-setprompttextinaplaceholder)|Feature|
+|SLIDESNET-40805|[Font Fallback in Aspose.Slides](https://docs.aspose.com/slides/net/fallback-font/)|Feature|
+|SLIDESNET-40689|[Support for setting prompt text in slides shapes placeholders](https://docs.aspose.com/slides/net/manage-placeholder/#set-prompt-text-in-a-placeholder)|Feature|
 |SLIDESNET-41393|After conversion to PDF/A an image is rendered with blur|Feature|
 |SLIDESNET-41099|High memory consumption during a document saving|Enhancement|
 |SLIDESNET-41426|Read animation using Aspose.Slides|Enhancement|
@@ -79,7 +79,7 @@ IFontFallBackRule secondRule = new FontFallBackRule (0x3040, 0x309F, "MS Mincho,
 //Also the fonts list can be added in several ways:
 string[] fontNames = new string[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial"};
 IFontFallBackRule thirdRule = new FontFallBackRule (0x1F300, 0x1F64F, fontNames);
-``` 
+```
 
 It is possible to specify several rules and add them into [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection). Then you may assign this fallback font fules collection into an appropriate field of **FontsManager** object.
 
@@ -95,7 +95,7 @@ using (Presentation presentation = new Presentation())
 
     presentation.FontsManager.FontFallBackRulesCollection = userRulesList;
 }
-``` 
+```
 
 Note: The ranges of several rules can overlap. In this case, the fonts from overlapped rules will be merged and places in order the rules were added into the list.
 
@@ -103,7 +103,7 @@ You can automatically retrieve a new linked instance directly from the **FontsMa
 
 ``` csharp
 IFontFallBackRulesCollection userRulesList = presentation.FontsManager.FontFallBackRulesCollection;
-``` 
+```
 
 This can be used to **change existing FontsManager settings**, as shown in the next example.
 
@@ -118,7 +118,7 @@ using (Presentation presentation = new Presentation("MyPresentation.pptx"))
 }
 
 
-``` 
+```
 #### **IFontsManager.FontFallBackRulesCollection property added**
 [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection) property has been added to [**IFontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager) interface and [**FontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/fontsmanager) class. It allows to get and set a collection of [**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) objects to control the rules of using fallback fonts.
 
@@ -148,7 +148,7 @@ using (Presentation pres = new Presentation(path + "input.pptx"))
     // Rendering of thumbnail with new rules and saving to PNG
     pres.Slides[0].GetThumbnail(1f, 1f).Save(path + "Slide_0_Another.png", ImageFormat.Png);
 }
-``` 
+```
 
 #### **IFontFallBackRulesCollection, IFontFallBackRule interfaces and FontFallBackRulesCollection, FontFallBackRule classed added**
 [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/fontfallbackrulescollection) (implementes [**IFontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontfallbackrulescollection)) represents an object for managing a collection of **FontFallBackRule** objects.
@@ -190,7 +190,7 @@ void RenderingWithFallBack()
         pres.Slides[0].GetThumbnail(1f, 1f).Save(path + "Slide_0.png", ImageFormat.Png);
     }
 }
-``` 
+```
 
 #### **Equals and GetHashCode methods were overridden for Aspose.Slides.Effects classes**
 Equals and GetHashCode methods were overridden for Aspose.Slides.Effects classes, now objects of these classes are compared by their semantic value.
@@ -244,10 +244,9 @@ Aspose.Slides.Effects.SoftEdge
 Aspose.Slides.Effects.SoftEdgeEffectiveData
 Aspose.Slides.Effects.Tint
 Aspose.Slides.Effects.TintEffectiveData
-``` 
+```
 
 #### **Equals and GetHashCode methods were overridden for GradientStopEffectiveData**
 Equals and GetHashCode methods were overridden for Aspose.Slides.**GradientStopEffectiveData** class, 
 now objects of this class are compared by their semantic value.
-
 

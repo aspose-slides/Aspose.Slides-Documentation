@@ -1,7 +1,7 @@
 ---
 title: Custom Shape
 type: docs
-weight: 10
+weight: 20
 url: /net/custom-shape/
 ---
 
@@ -81,7 +81,6 @@ Property [IGeometryPath.PathData](https://apireference.aspose.com/slides/net/asp
 - Add a new point between two top points of the path.
 - Add a new point between two bottom points of the path.
 - Apply the path to the shape.
-  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -102,7 +101,6 @@ using (Presentation pres = new Presentation())
 - Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
 - Remove segment of the path.
 - Apply the path to the shape.
-  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -199,7 +197,6 @@ using (Presentation pres = new Presentation())
 - Create an instance of the [GrpahicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) class  of the [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) namespace.
 - Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance using [ShapeUtil](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil).
 - Apply the paths to the shape.
-  
 ``` csharp
 using (Presentation pres = new Presentation())
 {

@@ -1,36 +1,31 @@
 ---
 title: Create Presentation
 type: docs
-weight: 20
+weight: 10
 url: /java/create-presentation/
 ---
 
 ## **Create PowerPoint Presentation**
-{{% alert color="primary" %}} 
+To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
-In this simple application, we will create a PowerPoint presentation having **Hello World** text at a specified position of the slide.
+1. Create an instance of Presentation class.
+1. Obtain the reference of a slide by using its Index.
+1. Add an AutoShape of Line type using addAutoShape method exposed by Shapes object.
+1. Write the modified presentation as a PPTX file.
 
-{{% /alert %}} 
+In the example given below, we have added a line to the first slide of the presentation.
 
-Please follow the steps below to create a PowerPoint presentation having Hello World text at a specified position of the slide.
+```java
+// Instantiate a Presentation object that represents a presentation file
+Presentation pres = new Presentation();
+try {
+    // Get the first slide
+    ISlide slide = pres.getSlides().get_Item(0);
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/presentation) class.
-1. Obtain the reference of the first slide in the presentation which is created on instantiating the Presentation.
-1. Add an [AutoShape](https://apireference.aspose.com/java/slides/com.aspose.slides/AutoShape) with ShapeType as Rectangle at a specified position of the slide.
-1. Add a [TextFrame ](https://apireference.aspose.com/java/slides/com.aspose.slides/TextFrame)to the AutoShape containing Hello World as default text.
-1. Change the Text Color to Black as it is white by default and is not visible on the slide with a white background.
-1. Change the Line Color of the shape to white in order to hide the shape border.
-1. Remove the default Fill Format of the shape.
-1. Finally, write the presentation to the desired file format using the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) object.
-   The implementation of the above steps is demonstrated below in an example.
-
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-CreateAPresentation-CreateAPresentation.java" >}}
-
-|**The above code snippet produces a PowerPoint presentation that contains only one slide having the Hello World text as shown below:**|** |
-| :- | :- |
-|![todo:image_alt_text](http://i.imgur.com/0fbYGsj.jpg)| |
-
-
-
-
-
+    // Add an autoshape of type line
+    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
+    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```

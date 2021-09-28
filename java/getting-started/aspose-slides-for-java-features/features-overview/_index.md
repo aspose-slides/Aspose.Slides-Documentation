@@ -25,7 +25,7 @@ Aspose.Slides for Java supports most of the Microsoft PowerPoint document format
 |[XML Parser Specification (XPS)](/slides/java/xml-parser-specification-28xps-29/)|All of the supported file formats can be exported to XML Parser Specification (XPS) documents with a single method.|
 |[Tagged Image File Format (TIFF)](/slides/java/tagged-image-file-format-28tiff-29/)|The presentation file formats supported by Aspose.Slides for Java can also be exported to Tagged Image File Format (TIFF).|
 |[ODP to PPTX Conversion](/slides/java/accessing-opendocument-presentation/)|Aspose.Slides for Java supports loading Accessing OpenDocument Presentation (ODP) and converting then to PPTX.|
-|[Presentation To HTML Conversion]()|Aspose.Slides for Java supports the conversion of PresentationEx to HTML format.|
+|[Presentation To HTML Conversion](/slides/java/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for Java supports the conversion of PresentationEx to HTML format.|
 ## **Presentation Rendering**
 Aspose .Slides for Java supports high fidelity rendering of slides in the presentations to various graphics formats:
 

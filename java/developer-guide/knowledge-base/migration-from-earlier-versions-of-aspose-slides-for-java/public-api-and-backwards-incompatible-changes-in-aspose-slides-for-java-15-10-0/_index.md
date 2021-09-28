@@ -37,7 +37,7 @@ To add a series animation to the chart the following code may be used:
 
  Presentation pres = new Presentation(inFileName);
 
-try{
+try {
 
 	ISlide slide = pres.getSlides().get_Item(0);
 
@@ -75,7 +75,7 @@ try{
 
 	pres.save(outFileName, SaveFormat.Pptx);
 
-}finally{
+} finally {
 
 	if(pres != null) pres.dispose();
 

@@ -1,10 +1,10 @@
 ---
 title: Merge Presentation
 type: docs
-weight: 60
+weight: 40
 url: /net/merge-presentation/
-keywords: "Merge PPT, combine PowerPoint"
-description: "Merge PPT and combine PowerPoint presentations with Aspose.Slides API."
+keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, C#, Csharp, .NET"
+description: "Merge or combine PowerPoint Presentation in C# or .NET"
 ---
 
 
@@ -15,7 +15,7 @@ Free [**Aspose.Slides Merger**](https://products.aspose.app/slides/merger) onl
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
- 
+
 ## **About Presentation Merge**
 
 [**Aspose.Slides**](https://products.aspose.com/slides/net) provides a simple and effective interface to merge PPT, PPTX and ODP presentations. The API allows to merge PPT to PPT, PPTX to PPTX, PPTX to ODP or combine PowerPoint presentations in other ways. Both PowerPoint and OpenOffice do not allow to merge PowerPoint and OpenOffice presentations straight away. Users are forced to do it manually, or use third-party solutions. With VBA it is possible to duplicate or copy slides into the same presentation. However, you can’t merge presentations or slides into a new presentation, or change merge process in a flexible way. Aspose.Slides merges presentations with all their shapes, styles, text formatting, comments, animations, smart arts, etc. with no quality and data loss.
@@ -51,7 +51,7 @@ To merge presentation slides with their own styles, just pass slide object into
 
  mergedPresentation.Slides.AddClone(slide);
 
-``` 
+```
 
 
 ## **Merge Presentation with Slide Master**
@@ -63,7 +63,7 @@ Note, that Slide Layout of the Slide Master, that should be applied to slides, i
 
  mergedPresentation.Slides.AddClone(slide, masterSlide, true);
 
-``` 
+```
 
 If you want to define other Slide Layout, you should use [**AddClone (ISlide, ILayoutSlide)** ](https://apireference.aspose.com/net/slides/aspose.slides.islidecollection/addclone/methods/1)method.
 
@@ -76,7 +76,7 @@ index from source presentation and pass into [**AddClone (ISlide)**](https://ap
 
  mergedPresentation.Slides.AddClone(presentation3.Slides[0], masterSlide, true);
 
-``` 
+```
 
 
 ## **Merge Presentation with Slide Layout**
@@ -86,7 +86,7 @@ To merge presentation sides, applying a new slide layout to them - you should u
 
  mergedPresentation.Slides.AddClone(presentation3.Slides[0], masterSlide, true);
 
-``` 
+```
 
 
 ## **Merge Slide to Presentation Section**
@@ -96,7 +96,7 @@ To merge presentation slide into a presentation section, it is possible to use 
 
  mergedPresentation.Slides.AddClone(presentation3.Slides[0], section1);
 
-``` 
+```
 
 
 

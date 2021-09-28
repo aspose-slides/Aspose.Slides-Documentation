@@ -27,7 +27,27 @@ Using VSTO 2008, take the following steps:
 
 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddPictureFramesWithAnimationUsingVSTO-AddPictureFramesWithAnimationUsingVSTO.cs" >}}
+```c#
+//Creating empty presentation
+PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
+
+//Add a blank slide
+PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
+
+//Add Picture Frame
+PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
+Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
+Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
+
+//Applying animation on picture frame
+PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
+
+//Saving Presentation
+pres.SaveAs("d:\\ VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
+Microsoft.Office.Core.MsoTriState.msoFalse);
+```
+
+
 ### **Aspose.Slides for .NET Example**
 Using Aspose.Slides for .NET, perform the following steps:
 
@@ -44,4 +64,25 @@ Using Aspose.Slides for .NET, perform the following steps:
 
 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Slides-Animations-AddPictureFramesWithAnimation-AddPictureFramesWithAnimation.cs" >}}
+```c#
+//Creating empty presentation
+Presentation pres = new Presentation();
+
+//Accessing the First slide
+ISlide slide = pres.Slides[0];
+
+//Adding the picture object to pictures collection of the presentation
+System.Drawing.Image pic = (System.Drawing.Image)new Bitmap("C:\\Data\\aspose.jpg");
+
+IPPImage imgx = pres.Images.AddImage(pic);
+
+//Add Picture Frame with height and width equivalent of Picture
+IPictureFrame PicFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+
+//Applying animation on picture frame
+//PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;
+
+//Saving Presentation
+pres.Save("c:\\data\\AsposeAnim.ppt", SaveFormat.Ppt);
+```
+

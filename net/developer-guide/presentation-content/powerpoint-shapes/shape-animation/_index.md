@@ -18,4 +18,42 @@ Here we will apply the PathFootball effect (one of more than 150 available effec
 - Add commands to the Path for moving.
 - Write the presentation to the disk as a PPTX file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Shapes-AnimationsOnShapes-AnimationsOnShapes.cs" >}}
+```c#
+// Instantiate PrseetationEx class that represents the PPTX
+using (Presentation pres = new Presentation())
+{
+    ISlide sld = pres.Slides[0];
+
+    // Now create effect "PathFootball" for existing shape from scratch.
+    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
+
+    ashp.AddTextFrame("Animated TextBox");
+
+    // Add PathFootBall animation effect
+    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
+                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
+
+    // Create some kind of "button".
+    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
+
+    // Create sequence of effects for this button.
+    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
+
+    // Create custom user path. Our object will be moved only after "button" click.
+    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // Created path is empty so we should add commands for moving.
+    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
+
+    PointF[] pts = new PointF[1];
+    pts[0] = new PointF(0.076f, 0.59f);
+    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
+    pts[0] = new PointF(-0.076f, -0.59f);
+    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
+    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
+
+    //Write the presentation as PPTX to disk
+    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
+}
+```
+

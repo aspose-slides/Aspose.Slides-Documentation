@@ -35,13 +35,172 @@ As mentioned earlier, each shape class has an associated shape lock class for pr
 
 The code samples that follow apply protection to all shapes types in a presentation.
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Presentations-Saving-ApplyProtection-ApplyProtection.cs" >}}
+```c#
+//Instatiate Presentation class that represents a PPTX file
+Presentation pTemplate = new Presentation("RectPicFrame.pptx");
+           
+
+//ISlide object for accessing the slides in the presentation
+ISlide slide = pTemplate.Slides[0];
+
+//IShape object for holding temporary shapes
+IShape shape;
+
+//Traversing through all the slides in the presentation
+for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
+{
+    slide = pTemplate.Slides[slideCount];
+
+    //Travesing through all the shapes in the slides
+    for (int count = 0; count < slide.Shapes.Count; count++)
+    {
+        shape = slide.Shapes[count];
+
+        //if shape is autoshape
+        if (shape is IAutoShape)
+        {
+            //Type casting to Auto shape and  getting auto shape lock
+            IAutoShape Ashp = shape as IAutoShape;
+            IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
+
+            //Applying shapes locks
+            AutoShapeLock.PositionLocked = true;
+            AutoShapeLock.SelectLocked = true;
+            AutoShapeLock.SizeLocked = true;
+        }
+
+        //if shape is group shape
+        else if (shape is IGroupShape)
+        {
+            //Type casting to group shape and  getting group shape lock
+            IGroupShape Group = shape as IGroupShape;
+            IGroupShapeLock groupShapeLock = Group.ShapeLock;
+
+            //Applying shapes locks
+            groupShapeLock.GroupingLocked = true;
+            groupShapeLock.PositionLocked = true;
+            groupShapeLock.SelectLocked = true;
+            groupShapeLock.SizeLocked = true;
+        }
+
+        //if shape is a connector
+        else if (shape is IConnector)
+        {
+            //Type casting to connector shape and  getting connector shape lock
+            IConnector Conn = shape as IConnector;
+            IConnectorLock ConnLock = Conn.ShapeLock;
+
+            //Applying shapes locks
+            ConnLock.PositionMove = true;
+            ConnLock.SelectLocked = true;
+            ConnLock.SizeLocked = true;
+        }
+
+        //if shape is picture frame
+        else if (shape is IPictureFrame)
+        {
+            //Type casting to pitcture frame shape and  getting picture frame shape lock
+            IPictureFrame Pic = shape as IPictureFrame;
+            IPictureFrameLock PicLock = Pic.ShapeLock;
+
+            //Applying shapes locks
+            PicLock.PositionLocked = true;
+            PicLock.SelectLocked = true;
+            PicLock.SizeLocked = true;
+        }
+    }
+
+
+}
+//Saving the presentation file
+pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+```
+
+
 ### **Removing Protection**
 Protection applied using Aspose.Slides for .NET can only be removed with Aspose.Slides for .NET. To unlock a shape, set the value of the applied lock to false. The code sample that follows shows how to unlock shapes in a locked presentation.
 
+```c#
+//Open the desired presentation
+Presentation pTemplate = new Presentation("ProtectedSample.pptx");
+
+//ISlide object for accessing the slides in the presentation
+ISlide slide = pTemplate.Slides[0];
+
+//IShape object for holding temporary shapes
+IShape shape;
+
+//Traversing through all the slides in presentation
+for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
+{
+    slide = pTemplate.Slides[slideCount];
+
+    //Travesing through all the shapes in the slides
+    for (int count = 0; count < slide.Shapes.Count; count++)
+    {
+        shape = slide.Shapes[count];
+
+        //if shape is autoshape
+        if (shape is IAutoShape)
+        {
+            //Type casting to Auto shape and  getting auto shape lock
+            IAutoShape Ashp = shape as AutoShape;
+            IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
+
+            //Applying shapes locks
+            AutoShapeLock.PositionLocked = false;
+            AutoShapeLock.SelectLocked = false;
+            AutoShapeLock.SizeLocked = false;
+        }
+
+        //if shape is group shape
+        else if (shape is IGroupShape)
+        {
+            //Type casting to group shape and  getting group shape lock
+            IGroupShape Group = shape as IGroupShape;
+            IGroupShapeLock groupShapeLock = Group.ShapeLock;
+
+            //Applying shapes locks
+            groupShapeLock.GroupingLocked = false;
+            groupShapeLock.PositionLocked = false;
+            groupShapeLock.SelectLocked = false;
+            groupShapeLock.SizeLocked = false;
+        }
+
+        //if shape is Connector shape
+        else if (shape is IConnector)
+        {
+            //Type casting to connector shape and  getting connector shape lock
+            IConnector Conn = shape as IConnector;
+            IConnectorLock ConnLock = Conn.ShapeLock;
+
+            //Applying shapes locks
+            ConnLock.PositionMove = false;
+            ConnLock.SelectLocked = false;
+            ConnLock.SizeLocked = false;
+        }
+
+        //if shape is picture frame
+        else if (shape is IPictureFrame)
+        {
+            //Type casting to pitcture frame shape and  getting picture frame shape lock
+            IPictureFrame Pic = shape as IPictureFrame;
+            IPictureFrameLock PicLock = Pic.ShapeLock;
+
+            //Applying shapes locks
+            PicLock.PositionLocked = false;
+            PicLock.SelectLocked = false;
+            PicLock.SizeLocked = false;
+        }
+    }
+
+}
+//Saving the presentation file
+pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+```
 
 
-{{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-Presentations-Saving-RemoveProtection-RemoveProtection.cs" >}}
+
 ### **Summary**
 {{% alert color="primary" %}} 
 
