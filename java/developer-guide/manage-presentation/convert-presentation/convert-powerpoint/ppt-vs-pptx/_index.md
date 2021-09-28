@@ -9,9 +9,9 @@ description: "Read about PPT vs PPTX differences in Aspose.Slides."
 
 
 ## **What is PPT?**
-[**PPT**](https://wiki.fileformat.com/presentation/ppt/) is a binary file format, i.e. it is impossible to view its content without special tools. The first PowerPoint 97-2003 versions worked with PPT file format, however its expandability is limited. 
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) is a binary file format, i.e. it is impossible to view its content without special tools. The first PowerPoint 97-2003 versions worked with PPT file format, however its expandability is limited. 
 ## **What is PPTX?**
-[**PPTX**](https://wiki.fileformat.com/presentation/pptx/) is a new presentation file format, based on the Office Open XML (ISO 29500:2008-2016, ECMA-376) standard. PPTX is an archived set of XML and media files. PPTX format is easily expandable. For example, it is easy to add support for a new chart type or shape type, without changing PPTX format in every new PowerPoint version. PPTX format is used starting from PowerPoint 2007.
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) is a new presentation file format, based on the Office Open XML (ISO 29500:2008-2016, ECMA-376) standard. PPTX is an archived set of XML and media files. PPTX format is easily expandable. For example, it is easy to add support for a new chart type or shape type, without changing PPTX format in every new PowerPoint version. PPTX format is used starting from PowerPoint 2007.
 ## **PPT vs PPTX**
 Although PPTX provides much broader functionality, PPT remains quite popular. The necessity to convert from PPT to PPTX and vice versa is highy demanded.
 

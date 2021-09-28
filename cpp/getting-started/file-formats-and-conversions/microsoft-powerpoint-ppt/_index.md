@@ -6,7 +6,7 @@ url: /cpp/microsoft-powerpoint-ppt/
 ---
 
 ## **About PPT**
-[PPT](http://en.wikipedia.org/wiki/Microsoft_PowerPoint) is the presentation document file format that can be created, read, manipulated and written by different versions of Microsoft PowerPoint. This is the binary format for presentation documents developed by Microsoft. 
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) is the presentation document file format that can be created, read, manipulated and written by different versions of Microsoft PowerPoint. This is the binary format for presentation documents developed by Microsoft. 
 ## **PPT in Aspose.Slides for C++**
 Aspose.Slides for C++ can read PPT files created by the software listed below. 
 

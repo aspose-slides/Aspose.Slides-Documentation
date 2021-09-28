@@ -15,7 +15,7 @@ Aspose.Slides for JasperReports is a library specially designed and developed fo
 {{% /alert %}} 
 
 ## **Product Description**
-[JasperReports](http://jasperforge.org/sf/projects/jasperreports) and JasperServer do not have built-in abilities to export reports as Microsoft PowerPoint presentations, but Aspose.Slides for JasperReports, gives you access to two additional export formats: 
+JasperReports and JasperServer do not have built-in abilities to export reports as Microsoft PowerPoint presentations, but Aspose.Slides for JasperReports, gives you access to two additional export formats: 
 
 - PPT – PowerPoint Presentation via Aspose.Slides
 - PPS - PowerPoint Show via Aspose.Slides

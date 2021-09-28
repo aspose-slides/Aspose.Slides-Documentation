@@ -215,7 +215,7 @@ pres->Save(u"embeddedOle-newImage.pptx", SaveFormat::Pptx);
 ## **Extract Embedded Files from OLE Object**
 Aspose.Slides for C++ supports extracting embedded files from OLE Object. In order to extract embedded files, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/cpp/slides/class/aspose.slides.presentation/) class and Load a presentation containing OLE Object.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and Load a presentation containing OLE Object.
 - Loop through all the shapes in a presentation and access the OLE Object Frame shape.
 - Access the data of the Embedded file from OLE Object Frame and write it to disk.
 

@@ -13,7 +13,7 @@ This page contains release notes for Aspose.Slides for CPP 19.5
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1787|[Use Aspose.Slides for .NET 19.5 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.5+Release+Notes)|Feature|
+|SLIDESCPP-1787|[Use Aspose.Slides for .NET 19.5 features](/slides/net/aspose-slides-for-net-19-5-release-notes/)|Feature|
 |SLIDESCPP-1830|Improve thumbnails rendering quality (v19.5)|Feature|
 |SLIDESNET-40727|Support for Convert SVG images to shapes|Feature|
 |SLIDESNET-40870|Support for comments replies in Aspose.Slides|Feature|

@@ -7,7 +7,7 @@ url: /jasperreports/ppt-pptx-pdf-and-html-export/
 
 {{% alert color="primary" %}} 
 
-[JasperReports](http://jasperforge.org/sf/projects/jasperreports) and JasperServer do not have built-in abilities to export reports as Microsoft PowerPoint presentations, but with Aspose.Slides for JasperReports, you get access to additional export formats:
+JasperReports and JasperServer do not have built-in abilities to export reports as Microsoft PowerPoint presentations, but with Aspose.Slides for JasperReports, you get access to additional export formats:
 
 - Microsoft PowerPoint Presentation (PPT)
 - Microsoft PowerPoint Presentation (PPTX)

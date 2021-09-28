@@ -104,7 +104,7 @@ textFrame3dFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveCon
 ```
 
 ### **IPresentation::GetThumbnails(), ISlide::GetThumbnail() and ISlide::RenderToGraphics() methods have been overloaded**
-New methods overloads were added to [**IPresentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation/) and [**ISlide**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide/) interfaces.
+New methods overloads were added to [**IPresentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation) and [**ISlide**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interfaces.
 
 **IPresentation** methods overloads:
 ```cpp
@@ -173,10 +173,10 @@ virtual void RenderToGraphics(SharedPtr<Export::IRenderingOptions> options, Shar
 virtual void RenderToGraphics(SharedPtr<Export::IRenderingOptions> options, SharedPtr<Drawing::Graphics> graphics, Drawing::Size renderingSize) = 0;
 ```
 
-All of these overloads use [**IRenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options/) as an argument and come instead of according old methods with [**INotesCommentsLayoutingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options/) argument. Old methods are marked as obsolete and will be removed after release of Aspose.Slides 21.4.
+All of these overloads use [**IRenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) as an argument and come instead of according old methods with [**INotesCommentsLayoutingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) argument. Old methods are marked as obsolete and will be removed after release of Aspose.Slides 21.4.
 
 ### **IRenderingOptions interface and RenderingOptions class have been added**
-[**IRenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options/) interface and implementing it [**RenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.rendering_options/) class have been added. Their purpose is to aggregate options used during presentation or slide rendering.
+[**IRenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options/) interface and implementing it [**RenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.rendering_options) class have been added. Their purpose is to aggregate options used during presentation or slide rendering.
 
 **IRenderingOptions** declaration:
 
@@ -194,7 +194,7 @@ public:
 };
 ```
 
-As can be seen from the declaration, **IRenderingOptions** inherits [**ISaveOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options) what makes [**set_WarningCallback()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a7fb7ae56380f4f8c67cac4e95ce8faa2), [**set_ProgressCallback()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a3d763a3b05ecc02bea0e7365fc81006f) and [**set_DefaultRegularFont()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a9df129ea6e65c8196e08173799a10492) methods available to specify in **RenderingOptions** class instance together with [**NotesCommentsLayoutingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.notes_comments_layouting_options/).
+As can be seen from the declaration, **IRenderingOptions** inherits [**ISaveOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options) what makes [**set_WarningCallback()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a7fb7ae56380f4f8c67cac4e95ce8faa2), [**set_ProgressCallback()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a3d763a3b05ecc02bea0e7365fc81006f) and [**set_DefaultRegularFont()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a9df129ea6e65c8196e08173799a10492) methods available to specify in **RenderingOptions** class instance together with [**NotesCommentsLayoutingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.notes_comments_layouting_options).
 
 The following code sample demonstrates one of the possible use cases (getting slide thumbnails with different default font and slide's notes shown):
 
@@ -320,7 +320,7 @@ shadowEffect->set_SkewVertical(0);
 shadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Note that the Aspose.Slides API provides three types of shadows: [**OuterShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.outer_shadow/), [**InnerShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.inner_shadow/), and [**PresetShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.preset_shadow/). PresetShadow is the fastest way to set the desired shadow for text using preset values. These values ​​can be seen when writing code (Intellisense). Unlike PowerPoint, through the API it is possible to set two types of shadows at once InnerShadow and PresetShadow. This is how it will look:
+Note that the Aspose.Slides API provides three types of shadows: [**OuterShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.outer_shadow), [**InnerShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.inner_shadow), and [**PresetShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.preset_shadow). PresetShadow is the fastest way to set the desired shadow for text using preset values. These values ​​can be seen when writing code (Intellisense). Unlike PowerPoint, through the API it is possible to set two types of shadows at once InnerShadow and PresetShadow. This is how it will look:
 
 ![todo:image_alt_text](aspose-slides-for-cpp-20-10-release-notes-6.png)
 

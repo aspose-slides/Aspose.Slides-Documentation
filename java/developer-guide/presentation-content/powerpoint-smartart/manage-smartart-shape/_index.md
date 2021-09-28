@@ -31,7 +31,7 @@ try {
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/A7PUdeV.png)|
+|![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
 |**Figure: SmartArt shape added to the slide**|
 
@@ -132,7 +132,7 @@ try {
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/63ZwK41.png)|
+|![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
 | :- |
 |**Figure: SmartArt shape with changed Style**|
 
@@ -177,6 +177,6 @@ try {
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/v2Hwocs.png)|
+|![todo:image_alt_text](https://i.imgur.com/v2Hwocs.png)|
 | :- |
 |**Figure: SmartArt shape with changed Color Style**|

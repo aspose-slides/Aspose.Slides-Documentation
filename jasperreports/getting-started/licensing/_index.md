@@ -9,7 +9,7 @@ url: /jasperreports/licensing/
 
 Aspose.Slides for JasperReports is available as a free time unlimited evaluation from the [download page](https://downloads.aspose.com/slides/jasperreport). The evaluation and licensed versions of the product is the same download.
 
-When you are happy with the evaluation, [buy a license](https://purchase.aspose.com/default.aspx). Make sure you understand and agree to the subscription terms.
+When you are happy with the evaluation, [buy a license](https://purchase.aspose.com/buy). Make sure you understand and agree to the subscription terms.
 
 The license is available for download from the order page after the order has been paid for. The license is a clear text, digitally signed XML file which contains information such as the client name, the purchased product and the license type. Do not modify the content of the license file in any way: doing so invalidates the license.
 

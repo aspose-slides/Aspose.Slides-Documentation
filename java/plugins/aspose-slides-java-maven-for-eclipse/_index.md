@@ -18,7 +18,7 @@ The Eclipse IDE can be extended with additional software components. Eclipse cal
 - Aspose.Slides Java (Maven) for Eclipse is a Plugin for **Eclipse IDE** by **Aspose.** This Plugin is intended for developers using Maven platform for Java developments and want to use [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) in their projects. The Plugin lets you create maven projects for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) and also download [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) of the API.
 - The plugin provides following features to work with [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) within **Eclipse IDE** comfortably: 
 
-![todo:image_alt_text](http://i.imgur.com/KWKGljg.png)
+![todo:image_alt_text](https://i.imgur.com/KWKGljg.png)
 
 
 **WIZARDS**:
@@ -27,7 +27,7 @@ The plugin contains two wizards -----
 **       ****Aspose.Slides Maven Project (wizard)**
 
 - This New Project wizard lets developers to create **Maven** project for using [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) from **New -> Project -> Maven-> Aspose.Slides Maven Project.**
-- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](http://maven.aspose.com/artifactory/webapp/home.html?0) and gets added in the pom.xml.
+- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo) and gets added in the pom.xml.
 - The created project will always contain most recent available version **Maven** Dependency for [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
 - The wizard steps also presents with the option for downloading [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
 
@@ -52,13 +52,13 @@ You will need to first install Eclipse IDE before downloading the Aspose.Slides 
 
 To download Eclipse IDE
 
-1. Goto [https://eclipse.org](https://eclipse.org/).
+1. Goto [https://eclipse.org](https://www.eclipse.org/).
 1. Download and install the recommended Eclipse IDE for Java SE / EE developers.
 ### **Download Aspose.Slides Java (Maven) for Eclipse**
 Following are three recommended methods for the successful downloading and installation of Aspose.Slides Java (Maven) for Eclipse plugin:
 
 - Drag and drop installation from [Eclipse Marketplace](https://marketplace.eclipse.org/content/asposeslides-java-maven-eclipse) to your Eclipse workspace.
-- Or download the plugin jar from [Downloads](https://asposeslidesjavaeclipse.codeplex.com/releases/view/620651) and copy it into /**dropins** folder of Eclipse installation and restart the IDE.
+- Or download the plugin jar from [Downloads](https://archive.codeplex.com/?p=asposeslidesjavaeclipse) and copy it into /**dropins** folder of Eclipse installation and restart the IDE.
 - Or goto **Help** > **Install New Software...** > Enter following update site url in **Work with**:
   [http://cdn.aspose.com/marketplace/eclipse/java/maven/asposeslides](http://cdn.aspose.com/marketplace/eclipse/java/maven/asposeslides/)
   Then select "Aspose.Slides Java (Maven) for Eclipse" and **Finish**. Accept License Agreement and Install the plugin.
@@ -92,7 +92,7 @@ Please follow [**GitHub Issues Tracker**](https://github.com/aspose-slides/Aspos
 Aspose.Slides Java (Maven) for Eclipse is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it. Developers can also learn from it to make their own plugins.
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_Maven_for_Eclipse)
-- [CodePlex](https://asposeslidesjavaeclipse.codeplex.com/)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaeclipse)
 #### **How to configure source code of Aspose.Slides Java (Maven) for Eclipse**
 Below simple steps will smoothly lead to successful configuration of **Aspose.Slides Java (Maven) for Eclipse** plugin source code in Eclipse IDE
 

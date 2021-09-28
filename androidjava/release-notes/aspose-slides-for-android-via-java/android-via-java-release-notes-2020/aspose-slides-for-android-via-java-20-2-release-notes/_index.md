@@ -17,8 +17,8 @@ This page contains release notes for Aspose.Slides for Android via Java 20.2
 ## **Public API Changes**
 -----
 ### **Get Text Location in a Table Cell**
-Method [**IPortion.getRect()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPortion#getRect--) has been added. This method extends and actually replaces method [IPortion.getCoordinates()](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPortion#getCoordinates--) which is marked as obsolete now.
-Methods [IPortion.getRect()](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPortion#getRect--) and [IParagraph.getRect()](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IParagraph#getRect--) can be applied to text within table cells.
+Method [**IPortion.getRect()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getRect--) has been added. This method extends and actually replaces method [IPortion.getCoordinates()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) which is marked as obsolete now.
+Methods [IPortion.getRect()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPortion/IPortion#getRect--) and [IParagraph.getRect()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#getRect--) can be applied to text within table cells.
 
 The following example shows how those properties work.
 Let's say we have a table with some text inside and simple AutoShape nearby.
@@ -65,7 +65,7 @@ double x = tbl.getX() + cell.getOffsetX();
 double y = tbl.getY() + cell.getOffsetY();
 ```
 
- 2) In the next step we're using [IParagrap.getRect()](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IParagraph#getRect--) and [IPortion.getRect()](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPortion#getRect--) methods in order to add frame to portions and paragraphs.
+ 2) In the next step we're using [IParagrap.getRect()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#getRect--) and [IPortion.getRect()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPortion/IPortion#getRect--) methods in order to add frame to portions and paragraphs.
 
 ``` java
 for (IParagraph para : cell.getTextFrame().getParagraphs())

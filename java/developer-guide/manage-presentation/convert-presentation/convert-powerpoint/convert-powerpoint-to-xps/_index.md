@@ -43,8 +43,8 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/java) for Java, you ca
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 
-- Default settings (without [**XPSOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/xpsoptions))
-- Custom settings (with [**XPSOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/xpsoptions))
+- Default settings (without [**XPSOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/xpsoptions))
+- Custom settings (with [**XPSOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/xpsoptions))
 
 ### **Converting Presentations to XPS Using Default Settings**
 

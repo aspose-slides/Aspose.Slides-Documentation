@@ -187,7 +187,7 @@ try {
 ```
 
 ## **Clone at End in Specified Section**
-If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) method exposed by the [**ISlideCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISlideCollection) interface. Aspose.Slides for Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
+If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) method exposed by the [**ISlideCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) interface. Aspose.Slides for Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
 
 The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
 

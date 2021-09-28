@@ -341,7 +341,7 @@ Let's consider an expression: 
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-Such expressions can be created through a combination of classes [MathFunction ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_function)and [MathLimit](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_limit/), and operations of the [IMathElement ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.i_math_element)as follows:
+Such expressions can be created through a combination of classes [MathFunction ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_function)and [MathLimit](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_limit), and operations of the [IMathElement ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.math_text.i_math_element)as follows:
 
 ``` cpp
 auto mathExpression = System::MakeObject<MathematicalText>(u"lim")->SetLowerLimit(u"x→∞")->Function(u"x");

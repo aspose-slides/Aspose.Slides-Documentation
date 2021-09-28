@@ -15,7 +15,7 @@ This page contains release notes for [Aspose.Slides for Java 21.7](https://repo
 | :- | :- | :- | :- |
 |SLIDESNET-36922|Support for all LoadFormats supported by Aspose.Slides is missing in LoadFormat enum|Enhancement|https://docs.aspose.com/slides/net/get-the-file-format-of-presentation/|
 |SLIDESNET-37744|Support for editing points for curve shapes|Feature|https://docs.aspose.com/slides/net/custom-shape/|
-|SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|https://docs.aspose.com/slides/net/chart-worksheet-formulas|
+|SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|https://docs.aspose.com/slides/net/chart-worksheet-formulas/|
 |SLIDESJAVA-33775|Reflection is missing for the text in generated PDF|Bug|https://docs.aspose.com/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/|
 |SLIDESJAVA-38563|IllegalAccessError: superclass access check failed|Bug|https://docs.aspose.com/slides/java/open-presentation/|
 |SLIDESJAVA-38236|[Use Aspose.Slides for Net 21.7 features](/slides/net/aspose-slides-for-net-21-7-release-notes/)|Enhancement||

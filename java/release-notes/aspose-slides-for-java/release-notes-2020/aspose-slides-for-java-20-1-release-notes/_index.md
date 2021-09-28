@@ -37,8 +37,8 @@ This page contains release notes for [Aspose.Slides for Java 20.1](https://repo
 |SLIDESJAVA-35835|Shape gradient colors changed after saving|Bug|
 ## **Public API Changes**
 ### **ISaveOptions.setDefaultRegularFont and ISaveOptions.getDefaultRegularFont methods have been added**
-A new methods [**setDefaultRegularFont()**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISaveOptions#setDefaultRegularFont-java.lang.String-) and [**getDefaultRegularFont()**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) have been added to [**ISaveOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISaveOptions) interface and [**SaveOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/SaveOptions) abstract class.
-It allows to get or set the default font used instead of all missing fonts during saving presentations to different formats without reloading the presentations with different [LoadOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/LoadOptions).
+A new methods [**setDefaultRegularFont()**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#setDefaultRegularFont-java.lang.String-) and [**getDefaultRegularFont()**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) have been added to [**ISaveOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions) interface and [**SaveOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/SaveOptions) abstract class.
+It allows to get or set the default font used instead of all missing fonts during saving presentations to different formats without reloading the presentations with different [LoadOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/LoadOptions).
 
 The code snippet below demonstrates saving presentation to HTML and PDF with different default regular font.
 

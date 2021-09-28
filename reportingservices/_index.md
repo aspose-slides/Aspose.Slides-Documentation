@@ -26,5 +26,5 @@ Following are the links to some useful resources you may need to accomplish your
 - [Aspose.Slides for Reporting Services Release Notes](/slides/reportingservices/release-notes/)
 - [Aspose.Slides for Reporting Services Product Page](https://products.aspose.com/slides/reporting-services)
 - [Download Aspose.Slides for Reporting Services](https://downloads.aspose.com/slides/reportingservices)
-- [Aspose.Slides for Reporting Services Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for Reporting Services Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Reporting Services Paid Support Helpdesk](https://helpdesk.aspose.com/)

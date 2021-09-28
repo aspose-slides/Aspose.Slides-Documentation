@@ -13,7 +13,7 @@ Aspose provides unlimited free technical support for all its products. The suppo
 
 If you need help with Aspose.Slides for JasperReports, consider the following:
 
-- The main avenue for support is the [**Aspose.Forum**](https://forum.aspose.com/c/slides). Post your question in the Aspose.Slides forum and it will be answered within a few hours. The questions are answered directly by the Aspose.Slides support team.
+- The main avenue for support is the [**Aspose.Forum**](https://forum.aspose.com/c/slides/11). Post your question in the Aspose.Slides forum and it will be answered within a few hours. The questions are answered directly by the Aspose.Slides support team.
 - Please note, Aspose does not provide technical support over the phone. Phone support is only available for sales and purchase questions.
 - When expecting a reply in the forums, please allow for time zone differences.
 

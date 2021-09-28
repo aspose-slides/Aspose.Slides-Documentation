@@ -147,15 +147,15 @@ presentationMLPackage.save(new java.io.File(dataPath + "Pptx4j-New Presentation.
 Download running examples for **Create Layout Slides** from any of the below mentioned social coding sites:
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 ## **Download Source Code**
 Download source code for **Create Layout Slides** from any of the below mentioned social coding sites:
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding Layout Slides to Presentation](http://www.aspose.com/docs/display/slidesjava/Adding+Layout+Slides+to+Presentation).
+For more details, visit [Adding Layout Slides to Presentation](/slides/java/slide-layout/#adding-a-layout-slide-to-the-presentation).
 
 {{% /alert %}}

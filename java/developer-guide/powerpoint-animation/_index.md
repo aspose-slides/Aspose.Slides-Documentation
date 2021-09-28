@@ -20,7 +20,7 @@ In Aspose.Slides for Java, various animations effects can be applied on the shap
 
 
 ## **Animation Effects**
-Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType** ](https://apireference.aspose.com/net/slides/aspose.slides.animation/effecttype)enumeration.
+Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType** ](https://apireference.aspose.com/slides/net/aspose.slides.animation/effecttype)enumeration.
 
 Additionally, these animation effects can be used in combination with them:
 

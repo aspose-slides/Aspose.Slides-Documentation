@@ -17,7 +17,7 @@ This page contains release notes for [Aspose.Slides for Java 21.8](https://repo
 |SLIDESNET-42552|Implement 'OR' function for spreadsheet formulas of charts|Enhancement|https://docs.aspose.com/slides/net/chart-worksheet-formulas/#predefined-functions|
 |SLIDESNET-42741|Support of Presentation to animated GIF export|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-animated-gif/|
 |SLIDESNET-36751|Support for PowerPoint like scaling - Ensure Fit & Maximize|Feature|https://docs.aspose.com/slides/net/slide-size/|
-|SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|https://docs.aspose.com/slides/net/chart-worksheet-formulas|
+|SLIDESNET-42553|Using cached values for spreadsheet formulas|Enhancement|https://docs.aspose.com/slides/net/chart-worksheet-formulas/|
 |SLIDESJAVA-34434|Slide notes failed to add for PPT presentation|Bug|https://docs.aspose.com/slides/java/presentation-notes/|
 |SLIDESJAVA-35168|KeyNotFoundException on presentation save|Bug|https://docs.aspose.com/slides/java/save-presentation/|
 |SLIDESJAVA-36988|Table missing in generated thumbnail|Bug|https://docs.aspose.com/slides/java/convert-powerpoint-ppt-and-pptx-to-jpg/|

@@ -348,7 +348,7 @@ In this article we will further investigate features of SmartArt shapes added in
 
 We will use the following source SmartArt shape for our investigation in different sections of this article.
 
-|![todo:image_alt_text](http://i.imgur.com/FItwczY.png)|
+|![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
 |**Figure: Source SmartArt shape in slide**|
 
@@ -396,7 +396,7 @@ try {
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/qpAl4rN.png)|
+|![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
 |**Figure: Assistant Nodes Changed in SmartArt shape inside slide**|
 

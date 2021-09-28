@@ -524,18 +524,18 @@ private static String getColumnData() {
 Download running examples for **Add Hyperlinks to Slide** from any of the below mentioned social coding sites:
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 ## **Download Source Code**
 Download source code for **Add Hyperlinks to Slide** from any of the below mentioned social coding sites:
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 
 {{% alert color="primary" %}} 
 
 For more details, visit:
 
-- [Managing the Hyperlinks in Presentation](http://www.aspose.com/docs/display/slidesjava/Managing+the+Hyperlinks+in+Presentation)
+- [Managing the Hyperlinks in Presentation](/slides/java/manage-hyperlinks/)
 - [Creating TextBox with Hyperlink](http://www.aspose.com/docs/display/slidesjava/Creating+TextBox+with+Hyperlink)
 
 {{% /alert %}}

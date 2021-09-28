@@ -73,13 +73,13 @@ while (partIterator.hasNext()) {
 {{< /highlight >}}
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/releases)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [CodePlex](https://asposeslidesjavapptx4j.codeplex.com/)
+- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Converting Presentation to HTML](http://www.aspose.com/docs/display/slidesjava/Converting+Presentation+to+HTML).
+For more details, visit [Converting Presentation to HTML](/slides/java/convert-presentation/#converting-presentation-to-html).
 
 {{% /alert %}}

@@ -1,4 +1,4 @@
----
+l---
 title: Why Not Automation
 type: docs
 weight: 50
@@ -16,7 +16,7 @@ The short simple answer is **NO**. Aspose and Aspose components are totally ind
 
 - Why should we use Aspose products rather than utilizing Microsoft Office Automation?
 
-The shortest answer we could give is that there are many reasons with the top one being that *Microsoft itself strongly recommends against Office Automation from software solutions: ([Microsoft Article](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757))
+The shortest answer we could give is that there are many reasons with the top one being that *Microsoft itself strongly recommends against Office Automation from software solutions: ([Microsoft Article](https://support.microsoft.com/?scid=kb;EN-US;q257757))
 ## **Overview**
 As stated above, there are several reasons why Aspose components are a better alternative to automation. Some of the key reasons are:
 
@@ -45,7 +45,7 @@ The following is a direct quote from the above referenced [Microsoft Article](h
 
 Aspose components are highly scalable and lightening fast. Office applications were not designed to be simultaneously used by 100s and 1000s of users. However, Aspose components are designed for just that. Our components are a true C++ solution and perform flawlessly whether on a single server, powering a single application or on a load balanced Web Form powering an enterprise wide application.
 ## **Price**
-When an application utilizes Microsoft Office Automation, a copy of Microsoft Office must be purchased for each machine that runs the application. There are many times that an application may need to create or manipulate an office file but does not require the user to have Microsoft Office. Aspose offers a very [Cost Effective](https://purchase.aspose.com/) and royalty free redistribution license that will allow deployment to an unlimited number of users with no licensing worries.When creating web based applications it is important to know that Microsoft Office Automation components are not priced nor licensed for server side solutions ( [http://support.microsoft.com/default.aspx?scidkbEN-USq243006kb2](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q243006)); therefore, there is no good, licensing solution for deploying web applications that utilize the Microsoft Office components. Aspose offers a very [Cost Effective](https://purchase.aspose.com/) solution for server based applications as well.
+When an application utilizes Microsoft Office Automation, a copy of Microsoft Office must be purchased for each machine that runs the application. There are many times that an application may need to create or manipulate an office file but does not require the user to have Microsoft Office. Aspose offers a very [Cost Effective](https://purchase.aspose.com/) and royalty free redistribution license that will allow deployment to an unlimited number of users with no licensing worries.When creating web based applications it is important to know that Microsoft Office Automation components are not priced nor licensed for server side solutions ( [https://support.microsoft.com/?scidkbEN-USq243006kb2](https://support.microsoft.com/?scid=kb;EN-US;q243006)); therefore, there is no good, licensing solution for deploying web applications that utilize the Microsoft Office components. Aspose offers a very [Cost Effective](https://purchase.aspose.com/) solution for server based applications as well.
 ## **Features**
 Aspose components provide everything needed for managing Office files plus much more. They are designed with the philosophy of allowing developers to accomplish the greatest results with the least amount of work. Unlike Office Automation, Aspose components provide many powerful and time saving functions. For instance, [Aspose.Cells](https://products.aspose.com/cells/cpp) offers developers the ability to import data from a **DataTable**or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/net) offers a similar feature that allows developers to populate a Word (that is Mail Merge) document directly from any C++ data object. [Every Component](https://products.aspose.com/total/cpp) in the Aspose family offers their own set of unique and powerful features.The best part of purchasing an Aspose component is having access to our development teams. Our development teams realize that if there is a feature that your company needs, more than likely other companies will need it as well. While not every feature request can be added, our teams try to be very open-minded and flexible when providing assistance. That mind set is what has helped Aspose components to become as powerful as they are. If there are additional features that you need from Office Automation objects, your chances of having them added are very, very low.
 ## **Conclusion**
@@ -57,5 +57,5 @@ While this article has covered many of the key points why Aspose components are 
 ## **Additional Information**
 - [Aspose Vs. Office Components](https://msdn.microsoft.com/en-us/vstudio/aa497339.aspx)
 ## **References**
-- [Considerations for Server-Side Automation of Office](http://support.microsoft.com/default.aspx?scidkbEN-USq257757)
-- [Licensing the Office 2000 Web Components and Office Server Extensions](http://support.microsoft.com/default.aspx?scidkbEN-USq243006)
+- [Considerations for Server-Side Automation of Office](https://support.microsoft.com/?scidkbEN-USq257757)
+- [Licensing the Office 2000 Web Components and Office Server Extensions](https://support.microsoft.com/?scidkbEN-USq243006)

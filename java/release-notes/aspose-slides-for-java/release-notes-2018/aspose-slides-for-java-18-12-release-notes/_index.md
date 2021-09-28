@@ -8,7 +8,7 @@ url: /java/aspose-slides-for-java-18-12-release-notes/
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
 |SLIDESJAVA-36712|Slow performance when exporting presentation to PDF|Feature|
-|SLIDESJAVA-37135|[Use Aspose.Slides for Net 18.12 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+18.12+Release+Notes)|Feature|
+|SLIDESJAVA-37135|[Use Aspose.Slides for Net 18.12 features](/slides/net/aspose-slides-for-net-18-12-release-notes/)|Feature|
 |SLIDESJAVA-36722|Text is not exported to PDF|Bug|
 |SLIDESJAVA-36887|Exception on loading presentation|Bug|
 |SLIDESJAVA-36888|Exception on loading presentation|Bug|
