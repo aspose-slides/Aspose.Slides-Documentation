@@ -7,7 +7,15 @@ url: /net/picture-frame/
 
 
 ## **Create Picture Frame**
-Picture frame is also one of the shapes offered by Aspose.Slides for .NET. Adding picture frame to a slide is bit trickier than simple shapes. A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
+Picture frame is also one of the shapes offered by Aspose.Slides for .NET. Adding picture frame to a slide is bit trickier than simple shapes. 
+
+{{% alert  title="Tip" color="primary" %}} 
+
+Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
+
+{{% /alert %}} 
+
+A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
 This article explains how picture frames can be used in different ways:
 
 - Adding Simple Picture Frames to Slides.
@@ -16,7 +24,7 @@ This article explains how picture frames can be used in different ways:
 
 To add a simple picture frame to your slide, please follow the steps below:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class. 
 - Obtain the reference of a slide by using its index.
 - Create an Image object by adding an image to the Images collection associated with the Presentation object that will be used to fill the Shape.
 - Calculate the width and height of the image.
