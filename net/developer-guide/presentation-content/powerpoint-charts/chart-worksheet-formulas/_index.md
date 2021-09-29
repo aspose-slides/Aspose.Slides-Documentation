@@ -42,7 +42,7 @@ The following functionality is supported for formulas in Aspose.Slides:
 
 Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - **IChartDataCell.Value** property it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the **CellUnsupportedDataException** for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
 ## **Add Chart Spreadsheet Formula to Presentation**
-First, add a chart to the first slide of a new presentation with 
+First, add a chart with some sample data to the first slide of a new presentation with 
 [IShapeCollection.Shapes.AddChart](https://apireference.aspose.com/net/slides/aspose.slides.ishapecollection/addchart/methods/1). 
 The worksheet of the chart is automatically created and can be accessed with 
 [**Chart.ChartData.ChartDataWorkbook**](https://apireference.aspose.com/net/slides/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property:
@@ -51,7 +51,7 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 ``` csharp
 
- using (var presentation = new Presentation())
+using (var presentation = new Presentation())
 
 {
 
@@ -63,7 +63,7 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 }
 
-``` 
+```
 
 
 
@@ -75,22 +75,22 @@ of the **Object** type, which means you can set any value to the property:
 
 ``` csharp
 
- workbook.GetCell(0, "F2").Value = -2.5;
+workbook.GetCell(0, "F2").Value = -2.5;
 
 workbook.GetCell(0, "G3").Value = 6.3;
 
 workbook.GetCell(0, "H4").Value = 3;
 
-``` 
+```
 
 
 
 Now to write formula to the cell, you can use the 
 [**IChartDataCell.Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property:
 
-
-
-
+``` csharp
+workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
+```
 
 *Note*: [**IChartDataCell.Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property is used to set A1-style cell references. 
 
@@ -98,21 +98,22 @@ Now to write formula to the cell, you can use the
 
 To set the [R1C1Formula](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) cell reference, you can use the [**IChartDataCell.R1C1Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) property:
 
+``` csharp
+workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
+```
 
-
-
-
-Then if you try to read the values from the cells B2 and C2, they will be calculated:
+Then use the [**IChartDataWorkbook.CalculateFormulas**](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) method to calculate all formulas within the workbook and update corresponding cells values:
 
 
 
 ``` csharp
+workbook.CalculateFormulas();
 
- object value1 = cell1.Value; // 7.8
+object value1 = workbook.GetCell(0, "B2"); // 7.8
 
-object value2 = cell2.Value; // 2.1
+object value2 = workbook.GetCell(0, "C2"); // 2.1
 
-``` 
+```
 
 
 ## **Logical Constants**
@@ -236,5 +237,4 @@ There are predefined functions, that can be used in the formulas to simplify the
 - MAX
 - SUM
 - VLOOKUP
-
 
