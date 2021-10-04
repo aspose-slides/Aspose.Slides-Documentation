@@ -1,8 +1,8 @@
 ---
-title: Convert PowerPoint PPT and PPTX to PDF with Notes
+title: Convert PowerPoint to PDF with Notes
 type: docs
 weight: 50
-url: /net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/
+url: /net/convert-powerpoint-to-pdf-with-notes
 keywords: "convert PowerPoint, Presentation, PowerPoint to PDF, notes, c#, csharp, .NET, Aspose.Slides"
 description: "Convert PowerPoint to PDF with notes with C# or .NET"
 ---

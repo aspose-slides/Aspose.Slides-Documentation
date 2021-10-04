@@ -1,8 +1,8 @@
 ---
-title: Convert Powerpoint PPT and PPTX to HTML
+title: Convert PowerPoint to HTML
 type: docs
 weight: 30
-url: /net/convert-powerpoint-ppt-and-pptx-to-html/
+url: /net/convert-powerpoint-to-html
 keywords: "Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, C#, Csharp, .NET, Aspose.Slides, HTML export"
 description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as HTML"
 ---
