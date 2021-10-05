@@ -54,7 +54,16 @@ Aspose.Slides provides the [**AddClone (ISlide)**](https://apireference.aspose.c
 This C# code shows you how to merge presentations:
 
 ```c#
+using (Presentation pres1 = new Presentation("pres1.pptx"),
+    pres2 = new Presentation("pres2.pptx"))
+{
+    foreach (ISlide slide in pres2.Slides)
+    {
+        pres1.Slides.AddClone(slide);
+    }
 
+    pres1.Save("combined.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Merge Presentations with Slide Master**
@@ -64,7 +73,16 @@ Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https:
 This code in C# demonstrates the described operation:
 
 ```c#
+using (Presentation pres1 = new Presentation("pres1.pptx"),
+    pres2 = new Presentation("pres2.pptx"))
+{
+    foreach (ISlide slide in pres2.Slides)
+    {
+        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+    }
 
+    pres1.Save("combined.pptx", SaveFormat.Pptx);
+}
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -80,7 +98,16 @@ If you want the slides in the output presentation to have a different slide layo
 This C# code shows you how to select and combine specific slides from different presentations to get one output presentation:
 
 ```c#
+using (Presentation pres1 = new Presentation("pres1.pptx"),
+    pres2 = new Presentation("pres2.pptx"))
+{
+    foreach (ISlide slide in pres2.Slides)
+    {
+        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
+    }
 
+    pres1.Save("combined.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Merge Presentations With Slide Layout**
@@ -88,7 +115,16 @@ This C# code shows you how to select and combine specific slides from different 
 This C# code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```c#
+using (Presentation pres1 = new Presentation("pres1.pptx"),
+    pres2 = new Presentation("pres2.pptx"))
+{
+    foreach (ISlide slide in pres2.Slides)
+    {
+        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
+    }
 
+    pres1.Save("combined.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Merge Presentations With Different Slide Sizes**
@@ -123,7 +159,17 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 This C# code shows you how to merge a specific slide to a section in a presentation:
 
 ```c#
+using (Presentation pres1 = new Presentation("pres1.pptx"),
+    pres2 = new Presentation("pres2.pptx"))
+{
+    for (var index = 0; index < pres2.Slides.Count; index++)
+    {
+        ISlide slide = pres2.Slides[index];
+        pres1.Slides.AddClone(slide, pres1.Sections[0]);
+    }
 
+    pres1.Save("combined.pptx", SaveFormat.Pptx);
+}
 ```
 
 The slide is added at the end of the section. 
