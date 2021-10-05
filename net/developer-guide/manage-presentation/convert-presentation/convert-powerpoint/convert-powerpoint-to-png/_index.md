@@ -27,7 +27,14 @@ Go through these steps:
 This C# code shows you how to convert a PowerPoint presentation to PNG:
 
 ```c#
-
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    for (var index = 0; index < pres.Slides.Count; index++)
+    {
+        ISlide slide = pres.Slides[index];
+        slide.GetThumbnail().Save($"slide_{index}.png", ImageFormat.Png);
+    }
+}
 ```
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
@@ -37,7 +44,16 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in C# demonstrates the described operation:
 
 ```c#
-
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    float scaleX = 2f;
+    float scaleY = 2f;
+    for (var index = 0; index < pres.Slides.Count; index++)
+    {
+        ISlide slide = pres.Slides[index];
+        slide.GetThumbnail(scaleX, scaleY).Save($"slide_{index}.png", ImageFormat.Png); 
+    }
+}
 ```
 
 ## **Convert PowerPoint to PNG With Custom Size**
@@ -47,6 +63,14 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```c#
-
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Size size = new Size(960, 720);
+    for (var index = 0; index < pres.Slides.Count; index++)
+    {
+        ISlide slide = pres.Slides[index];
+        slide.GetThumbnail(size).Save($"slide_{index}.png", ImageFormat.Png);
+    }
+}
 ```
 
