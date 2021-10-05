@@ -7,9 +7,14 @@ keywords: "PowerPoint PPT and PPTX to TIFF"
 description: "Convert PowerPoint PPT and PPTX to TIFF with Aspose.Slides API."
 ---
 
-
-
 TIFF format is known by its flexibility to accommodate multipage images and data. Keeping in view the importance and popularity of TIFF format, Aspose.Slides for C++ provides the support for converting presentations into TIFF document.
+
+{{% alert  title="Tip" color="primary" %}} 
+
+You may want to check out Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+
+{{% /alert %}} 
+
 ## **Convert Powerpoint to TIFF with default size**
 The [Save](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class exposes **set_ImageSize()** method enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
 

@@ -18,9 +18,8 @@ using (Presentation presentation = new Presentation("NotesFile.pptx"))
 }
 ```
 
+{{% alert  title="Tip" color="primary" %}} 
 
+You may want to check out Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 
-
-
-
-
+{{% /alert %}} 

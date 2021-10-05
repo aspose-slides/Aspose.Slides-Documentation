@@ -16,6 +16,12 @@ TIFF format is known for its flexibility to accommodate multipage images and dat
 
 The [**Save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions) class exposes [**ImageSize** ](https://apireference.aspose.com/slides/java/com.aspose.slides/tiffoptions#setImageSize-java.awt.Dimension-)property enabling the developer to define the size of the image if required.
 
+{{% alert  title="Tip" color="primary" %}} 
+
+You may want to check out Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+
+{{% /alert %}} 
+
 ## **Convert PPT(X) to TIFF with Default Size**
 The following example shows how to convert a presentation into a [TIFF](https://docs.fileformat.com/image/tiff/) document with default options.
 
