@@ -102,13 +102,28 @@ Aspose.Slides for .NET allows you to update or change a series name in its chart
 This C# code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```c#
-//Please insert code based on ChartDataWorkbook - chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1).Value = "New Series Name 1";
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    
+    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
+    seriesCell.Value = "New name";
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
 This C# code shows you how to change a series name in its legend through`Series`:
 
 ```c#
-//Please insert code based on Series - chart.ChartData.Series[0].Name.AsCells[0].Value = "New Series Name 2";
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IChartSeries series = chart.ChartData.Series[0];
+    
+    IStringChartValue name = series.Name;
+    name.AsCells[0].Value = "New name";   
+}
 ```
 
 ## **Set Chart Series Fill Color**
