@@ -43,13 +43,13 @@ try {
 // Method to set Header/Footer Text
 public static void updateHeaderFooterText(IBaseSlide master)
 {
-    foreach (IShape shape in master.Shapes)
+    for (IShape shape : master.getShapes())
     {
-        if (shape.Placeholder != null)
+        if (shape.getPlaceholder() != null)
         {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
+            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
             {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
+                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
             }
         }
     }
