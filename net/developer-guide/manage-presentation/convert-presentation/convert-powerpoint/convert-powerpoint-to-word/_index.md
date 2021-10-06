@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint to Word
+title: Convert PowerPoint PPT and PPTX to DOC and DOCX
 type: docs
 weight: 110
 url: /net/convert-powerpoint-to-word
@@ -7,63 +7,42 @@ keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to
 description: "Convert PowerPoint Presentation to Word in C# or .NET "
 ---
 
-If you plan to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). 
-
-* When compared to Microsoft PowerPoint, the Microsoft Word app is more equipped with tools or functionalities for content. 
-* Besides the editing functions in Word, you may also benefit from enhanced collaboration, printing, and sharing features. 
+If you intend to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). For example, compared to the Microsoft Presentation app, the Microsoft Word app is more equipped with tools or functionalities that allow you to improve and manipulate content for different purposes. 
 
 {{% alert color="primary" %}} 
 
-You may want to try out our [**Presentation to Word Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) to see what you could gain from working with textual content from slides. 
+You can try out our [**Presentation to Word online converter**](https://products.aspose.app/slides/conversion/ppt-to-word). This way, you get to see what you could gain from working with textual content from slides. 
 
 {{% /alert %}} 
 
-### **Aspose.Slides and Aspose.Words**
+Besides the numerous functions you get to use in a Word editor, you may also benefit from enhanced collaboration, printing, and sharing features. If necessary, you can easily transform your presentation into a poster or brochure (webpage or printed).
 
-To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) and [Aspose.Words for .NET](https://products.aspose.com/words/net/).
+As a standalone API, [**Aspose.Slides**](https://products.aspose.app/slides) for .NET provides functions that allow you to extract texts from presentations. To convert PPT to DOC or DOCX, you will have to use Aspose.Slides with another API. 
 
-As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for .NET provides functions that allow you to extract texts from presentations. 
+**Extracting the Text**
 
-[Aspose.Words](https://docs.aspose.com/words/net/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
+You can start by using the [**GetAllTextFrames** ](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/getalltextframes)method from the [**SlideUtil** ](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil)class to extract the required text from an entire presentation. After the extraction, you can write the text into a DOC/DOCX document.
 
-## **Convert PowerPoint to Word**
+{{% alert color="primary" %}} 
 
-1. Add these namespaces to your program.cs file:
+See [**Extracting Text from the Presentation**](/slides/net/extracting-text-from-the-presentation/)**.**
 
-   ```c#
-   using System;
-   using System.Drawing.Imaging;
-   using System.IO;
-   using Aspose.Slides;
-   using Aspose.Words;
-   using SkiaSharp;
-   ```
+{{% /alert %}} 
 
-2. Use this code snippet to convert the PowerPoint to Word:
+**Creating the Word Document**
 
-   ```c#
-   using var presentation = new Presentation();
-   var doc = new Document();
-   var builder = new DocumentBuilder(doc);
-   foreach (var slide in presentation.Slides)
-   {
-      // generates and inserts slide image
-      using var bitmap = slide.GetThumbnail(1, 1);
-      using var stream = new MemoryStream();
-      bitmap.Save(stream, ImageFormat.Png);
-      stream.Seek(0, SeekOrigin.Begin);
-      using var skBitmap = SKBitmap.Decode(stream);
-      builder.InsertImage(skBitmap);
-   
-      // inserts slide's texts
-      foreach (var shape in slide.Shapes)
-      {
-         if (shape is AutoShape autoShape)
-         {
-            builder.Writeln(autoShape.TextFrame.Text);
-         }
-      }
-   
-      builder.InsertBreak(BreakType.PageBreak);
-   }
-   ```
+After extracting the text from a presentation, you can use Aspose.Slides together with another API ([Aspose.Words](https://products.aspose.com/words/net), for example) to create the Word (DOC or DOCX) file. This sample code demonstrates the projected operation:
+
+```c#
+using(Presentation presentation = new Presentation("pres.pptx"))
+using (var stream = new MemoryStream())
+{
+    presentation.Save(stream, SaveFormat.Html);
+    stream.Flush();
+    stream.Seek(0, SeekOrigin.Begin);
+
+    var doc = new Aspose.Words.Document(stream);
+    doc.Save("pres.docx", Aspose.Words.SaveFormat.Docx);
+}
+```
+
