@@ -13,4 +13,4 @@ This page contains release notes for Aspose.Slides for Reporting Services 21.10
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESRS-|[Use Aspose.Slides for .NET 21.10 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-10-release-notes/)|Feature|
+|SLIDESRS-33659|[Use Aspose.Slides for .NET 21.10 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-10-release-notes/)|Feature|
