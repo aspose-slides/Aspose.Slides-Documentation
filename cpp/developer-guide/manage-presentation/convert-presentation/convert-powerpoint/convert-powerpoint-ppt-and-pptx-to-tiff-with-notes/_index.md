@@ -19,3 +19,9 @@ auto presentation = System::MakeObject<Presentation>(dataDir + u"NotesFile.pptx"
 // Saving the presentation to TIFF notes
 presentation->Save(dataDir + u"Notes_In_Tiff_out.tiff", SaveFormat::Tiff);
 ```
+
+{{% alert title="Tip" color="primary" %}}
+
+You may want to check out Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+
+{{% /alert %}}
