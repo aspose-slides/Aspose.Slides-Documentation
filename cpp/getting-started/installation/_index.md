@@ -39,7 +39,7 @@ To reference the [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slide
 4. Type this command: `Install-Package Aspose.Slides.Cpp` 
 > If you want to install the x86 version, use the Aspose.Slides.Cpp.x86 package: `Install-Package Aspose.Slides.Cpp.x86`
 
-5. Hit the Enter button. 
+5. Press the Enter key.
 
    The latest full release gets installed into your application. 
 
