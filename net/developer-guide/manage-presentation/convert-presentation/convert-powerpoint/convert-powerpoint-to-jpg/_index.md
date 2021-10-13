@@ -1,16 +1,14 @@
 ---
-title: Convert Powerpoint PPT and PPTX to JPG
+title: Convert Powerpoint PPT to JPG
 type: docs
 weight: 60
-url: /net/convert-powerpoint-ppt-and-pptx-to-jpg/
+url: /net/convert-powerpoint-to-jpg/
 keywords: "Convert PowerPoint Presentation, JPG, JPEG, PowerPoint to JPG, PowerPoint to JPEG, PPT to JPG, PPTX to JPG, PPT to JPEG, PPTX to JPEG, C#, Csharp, .NET, Aspose.Slides"
 description: "Convert PowerPoint to JPG in C# or .NET. Save slide as JPG image"
 ---
 
 ## **About PowerPoint to JPG Conversion**
 With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net) you can convert PowerPoint PPT or PPTX presentation to JPG image. It is also possible to convert PPT/PPTX to BMP, PNG or SVG. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
-
-
 
 {{% alert color="primary" %}} 
 
@@ -44,10 +42,6 @@ using (Presentation pres = new Presentation("PowerPoint-Presentation.ppt"))
 	}
 }
 ```
-
-
-
-
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* for it. To do that, pass *ScaleX* and *ScaleY* values into [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://apireference.aspose.com/net/slides/aspose.slides.islide/getthumbnail/methods/6) method:
@@ -96,8 +90,6 @@ using (Graphics graphics = Graphics.FromImage(bmp))
 bmp.Save("OutPresBitmap.png", ImageFormat.Png);
 System.Diagnostics.Process.Start("OutPresBitmap.png");
 ```
-
-
 
 
 ## **See also**

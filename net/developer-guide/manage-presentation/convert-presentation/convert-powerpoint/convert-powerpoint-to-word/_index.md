@@ -2,7 +2,7 @@
 title: Convert PowerPoint to Word
 type: docs
 weight: 110
-url: /net/convert-powerpoint-ppt-and-pptx-to-doc-and-docx/
+url: /net/convert-powerpoint-to-word/
 keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to DOCX, PPT to DOC, PPTX to DOC, PPT to DOCX, C#, Csharp, .NET, Aspose.Slides"
 description: "Convert PowerPoint Presentation to Word in C# or .NET "
 ---
