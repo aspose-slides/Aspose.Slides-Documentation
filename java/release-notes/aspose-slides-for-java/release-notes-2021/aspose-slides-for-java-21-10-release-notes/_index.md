@@ -16,6 +16,7 @@ This page contains release notes for [Aspose.Slides for Java 21.10](https://rep
 |SLIDESNET-42515|Support of Full Pyramid column shape for 3-D Column and 3-D Bar Charts|Feature|https://docs.aspose.com/slides/net/powerpoint-charts/|
 |SLIDESNET-41114|Converting PPTX to HTML with transitions|Feature||
 |SLIDESNET-40217|Convert ppt to html with links|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-html/|
+|SLIDESJAVA-38248|[Use Aspose.Slides for Net 21.10 features](/slides/net/aspose-slides-for-net-21-10-release-notes/)|Enhancement||
 |SLIDESJAVA-35828|Animation effect gets corrupt on changing paragraph text|Bug|https://docs.aspose.com/slides/java/manage-paragraph/|
 |SLIDESJAVA-33403|Wrong TextAnchoring type returned for TextFrame text|Bug|https://docs.aspose.com/slides/java/text-formatting/|
 |SLIDESJAVA-35675|Placeholder Type not detecting in Ppt file|Bug|https://docs.aspose.com/slides/java/manage-placeholder/|
