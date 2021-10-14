@@ -3,35 +3,60 @@ title: Installation
 type: docs
 weight: 70
 url: /cpp/installation/
+keywords: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, C++"
+description: "Install Aspose.Slides for C++ in Windows"
 ---
 
-## **Installing Aspose.Slides for C++**
-### **Using Nuget Package Manager**
-1. In Nuget Package Manager, search for Aspose.Slides. 
-   1. Here is the [Link to NuGet Package Aspose.Slides.Cpp](https://www.nuget.org/packages/Aspose.Slides.Cpp).
-1. Select Aspose.Slides.Cpp package in search results.
-1. Press the Add button to install the package
+## **Windows**
+NuGet provides the easiest path to downloading and installing Aspose APIs for C++ on PCs. 
+
+### **Option One: Install or Update Aspose.Slides for C++ from the NuGet Package Manager**
+
+1. Open Microsoft Visual Studio. 
+2. Create a simple console app. Or you can open your preferred project. 
+3. Go through **Tools** > **NuGet package manager**.
+4. Under **Browse**, type *Aspose.Slides.Cpp* into the text field. 
+
+![todo:image_alt_text](installation_1.png)
+
+3. Click on the version you need **Aspose.Slides.Cpp** and then click **Install**. 
+   * If you want to update Aspose.Slides—which means you already have it installed—click **Update** instead. 
+
+The selected API gets downloaded and referenced in your project.
+
+### **Option 2: Install or Update Aspose.Slides Through the Package Manager Console**
+
+To reference the [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.Cpp/) using the package manager console, do this:
+
+1. Open your solution/project in Visual Studio.
+
+1. Go through **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
+
+   The Package Manager Console opens. 
+
+![todo:image_alt_text](installation_2.png)
+
+4. Type this command: `Install-Package Aspose.Slides.Cpp` 
+> If you want to install the x86 version, use the Aspose.Slides.Cpp.x86 package: `Install-Package Aspose.Slides.Cpp.x86`
+
+5. Press the Enter key.
+
+   The latest full release gets installed into your application. 
+
+   * Alternatively, you can add the `-prerelease` suffix to the command to specify that the latest release (including hotfixes) must be installed as well.
+
+![todo:image_alt_text](installation_3.png)
+
+​	Once the download reaches completion, you should see some confirmation messages.  
+
+![todo:image_alt_text](installation_4.png)
+
+If you are not familiar with [Aspose EULA](http://www.aspose.com/corporate/purchase/end-user-license-agreement.aspx), then you may want to read the license referenced in the URL. 
+
+In the Package Manager Console, you can run the `Update-Package Aspose.Slides.Cpp` command to check for updates to the Aspose.Slides package. Updates (if found) get installed automatically. You can also use the `-prerelease` suffix to update the latest release.
 
 
-
-You can also download ZIP package from the Aspose.Slides for C++ [download page](https://downloads.aspose.com/slides/cpp). The archive also contains the offline API documentation.
-### **Using Include and lib Folders**
-1. Download the latest files.
+### Using Include and lib Folders
+1. [Download](https://downloads.aspose.com/slides/cpp) the latest Aspose.Slides for C++ version.
 1. Unzip the folder to the production environment.
-1. To use Aspose.Slides for C++, reference Include and lib folders in your project.
-## **System Requirements**
-### **Operating Systems**
-Aspose.Slides for C++ is a native C++ library. Aspose.Slides for C++ supports 64-bit operating systems:
-
-- Microsoft Windows desktop (XP, Vista, 7, 8, 10) and server operating systems (2003, 2008, 2012), etc.
-- OS Ubuntu 16.04 or later.
-### **Development Environments**
-You can use Aspose.Slides for C++ to develop applications in any development environment that support C++, but the following environments are explicitly supported:
-
-- Microsoft Visual Studio 2017 or later.
-- Clang 3.9; libstdc++6
-### **Supported Platforms**
-- Aspose.Slides for C++ for Windows (Microsoft Visual C++).
-- Aspose.Slides for C++ for Linux (Clang).
-
-
+1. To use Aspose.Slides for C++, reference Include and lib folders in your project
