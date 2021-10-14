@@ -128,15 +128,15 @@ watermarkShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(P
 
 
 ## **Lock Watermark from Editing**
-If its needed to prevent watermark from editing, use [**AutoShape::get_ShapeLock()** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.shape#aba36ed351187f820ac853732d459568f)method on the shape, that wraps its. With this method you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
+If its needed to prevent watermark from editing, use [**AutoShape::get_AutoShapeLock()** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.auto_shape#a3493d7814106e74ef2213707f64135a8)method on the shape, that wraps its. With this method you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
 
 ``` cpp
 // Lock Shapes from modifying
-watermarkShape->get_ShapeLock()->set_SelectLocked(true);
-watermarkShape->get_ShapeLock()->set_SizeLocked(true);
-watermarkShape->get_ShapeLock()->set_TextLocked(true);
-watermarkShape->get_ShapeLock()->set_PositionLocked(true);
-watermarkShape->get_ShapeLock()->set_GroupingLocked(true);
+watermarkShape->get_AutoShapeLock()->set_SelectLocked(true);
+watermarkShape->get_AutoShapeLock()->set_SizeLocked(true);
+watermarkShape->get_AutoShapeLock()->set_TextLocked(true);
+watermarkShape->get_AutoShapeLock()->set_PositionLocked(true);
+watermarkShape->get_AutoShapeLock()->set_GroupingLocked(true);
 ```
 
 
