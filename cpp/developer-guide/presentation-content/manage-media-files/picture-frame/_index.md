@@ -71,6 +71,12 @@ The above steps are implemented in the example given below.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PictureFrameFormatting-PictureFrameFormatting.cpp" >}}
 
+{{% alert title="Tip" color="primary" %}}
+
+Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
+
+{{% /alert %}}
+
 
 ## **Add StretchOff Property**
 The methods get(set)_StretchOffsetLeft(), get(set)_StretchOffsetTop(), get(set)_StretchOffsetRight() and get(set)_StretchOffsetBottom() has been added to IPictureFillFormat interface and PictureFillFormat class respectively. These methods specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.

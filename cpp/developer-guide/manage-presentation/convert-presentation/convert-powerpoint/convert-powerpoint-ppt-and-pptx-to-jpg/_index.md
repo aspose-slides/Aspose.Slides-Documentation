@@ -47,3 +47,9 @@ To see how Aspose.Slides API handles PPT/PPTX to JPG conversion, you may want to
 Aspose.Slides for C++ provides a facility to render comments of presentations or slide when converting those into images.  An example is given below that shows how to render comments of presentation into an image.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RenderComments-RenderComments.cpp" >}}
+
+{{% alert title="Tip" color="primary" %}}
+
+Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+
+{{% /alert %}}

@@ -102,7 +102,14 @@ try {
 }
 ```
 
+{{% alert title="Tip" color="primary" %}}
+
+Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+
+{{% /alert %}}
+
 ## **See also**
+
 See other options to convert PPT/PPTX into image, like:
 
 - [PPT/PPTX to SVG conversion](/slides/java/presentation-viewer/)
