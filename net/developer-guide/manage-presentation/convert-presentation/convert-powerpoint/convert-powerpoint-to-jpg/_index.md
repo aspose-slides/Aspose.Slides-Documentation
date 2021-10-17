@@ -12,7 +12,7 @@ With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net) you 
 
 {{% alert color="primary" %}} 
 
-To see how Aspose.Slides API converts PPT/PPTX to JPG, you may try [**Aspose.Slides Converter** ](https://products.aspose.app/slides/conversion)online free app:
+To see how Aspose.Slides converts PowerPoint to JPG, you may want to try these free online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) and [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 
 [![todo:image_alt_text](ppt-to-jpg.png)](https://products.aspose.app/slides/conversion)
 
