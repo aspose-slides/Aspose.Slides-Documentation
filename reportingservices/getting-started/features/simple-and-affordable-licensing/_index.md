@@ -15,7 +15,7 @@ Aspose.Slides for Reporting Services evaluation and paid versions is the same do
 Make sure to take advantage of the Aspose.Slides for Reporting Services evaluation as it does not have a time limit and free technical support for evaluation users is provided. 
 
 
-Evaluation mode injects watermarks into exported reports. When you [purchase a license](http://www.aspose.com/Purchase/Aspose.Slides.Reporting.Services/Default.aspx), simply copy the license to the appropriate folder and Aspose.Slides for Reporting Services will start to work in the licensed mode. 
+Evaluation mode injects watermarks into exported reports. When you [purchase a license](https://purchase.aspose.com/buy), simply copy the license to the appropriate folder and Aspose.Slides for Reporting Services will start to work in the licensed mode. 
 ## **Server Subscription**
 Server subscription provides following features:
 

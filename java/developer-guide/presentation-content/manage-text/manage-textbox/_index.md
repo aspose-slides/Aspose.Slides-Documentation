@@ -6,177 +6,238 @@ url: /java/manage-textbox/
 ---
 
 
-## **Create TextBox on Slide**
-Using Aspose.Slides for Java, developers can create TextBox on a [Slide](https://apireference.aspose.com/slides/java/com.aspose.slides/Slide) in the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation). All you have to do is to add an AutoShape of [Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) type and call the [addTextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape#addTextFrame-java.lang.String-) method exposed by [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape) object. Please follow the steps below to create TextBox by using Aspose.Slides for Java API:
+Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Java provides the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) interface that allows you to add a shape containing some text.
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of the first slide in the presentation which is created on the instantiation of Presentation.
-- Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) with [ShapeType](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType) as Rectangle at a specified position of the slide and obtain the reference of that newly added [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) object.
-- Add a [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) to the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) containing TextBox as default text.
-- Finally, write the PPTX file using the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) object.
+{{% alert title="Info" color="info" %}}
 
-The implementation of the above steps is demonstrated below in an example.
+Aspose.Slides also provides the [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interface that allows you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. But shapes added through the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) interface may contain text. 
+
+{{% /alert %}}
+
+{{% alert title="Note" color="warning" %}} 
+
+Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/java/manage-textbox/#update-text) section on this page. 
+
+{{% /alert %}}
+
+## **Create Text Box on Slide**
+
+To create a textbox on a slide, go through these steps:
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. 
+2. Obtain a reference for the first slide in the newly created presentation. 
+3. Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) object with [ShapeType](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setShapeType-int-) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
+4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
+5. Finally, write the PPTX file through the `Presentation` object. 
+
+This Java code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```java
-// Instantiate Presentation
+// Instantiates Presentation
 Presentation pres = new Presentation();
 try {
-    // Get the first slide
+    // Gets the first slide in the presentation
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Add an AutoShape of Rectangle type
+    // Adds an AutoShape with type set as Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
+    // Adds TextFrame to the Rectangle
+    ashp.addTextFrame(" ");
 
-    // Accessing the text frame
+    // Accesses the text frame
     ITextFrame txtFrame = ashp.getTextFrame();
 
-    // Create the Paragraph object for text frame
+    // Creates the Paragraph object for text frame
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Create Portion object for paragraph
+    // Creates a Portion object for paragraph
     IPortion portion = para.getPortions().get_Item(0);
 
-    // Set Text
+    // Sets Text
     portion.setText("Aspose TextBox");
 
-    // Save the presentation to disk
+    // Saves the presentation to disk
     pres.save("TextBox_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Add Column In TextBoxes**
-Using Aspose.Slides for Java, developers can add column in text boxes on a [Slide](https://apireference.aspose.com/slides/java/com.aspose.slides/Slide) in the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation), methods [setColumnCount](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-), [getColumnCount](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getColumnCount--), [setColumnSpacing](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) and [getColumnSpacing](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getColumnSpacing--) have been added to [ITextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class respectively. These properties specify the number of columns in the textbox and set an amount of spacing in points between columns.
 
-The implementation is demonstrated below in an example.
+## **Add Column In Text Box**
+Aspose.Slides provides the [ColumnCount](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) properties (from the [ITextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
+
+This code in Java demonstrates the described operation: 
 
 ```java
 Presentation pres = new Presentation();
 try {
-    // Get the first slide of presentation
+    // Gets the first slide in the presentation
     ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Add an AutoShape of Rectangle type
+
+    // Add an AutoShape with type set as Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    
+
     // Add TextFrame to the Rectangle
     aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
             "you can add or delete text and the new or remaining text automatically adjusts " +
             "itself to flow within the container. You cannot have text flow from one container " +
             "to other though -- we told you PowerPoint's column options for text are limited!");
-    
-    // Get text format of TextFrame
+
+    // Gets the text format of TextFrame
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-    
-    // Specify number of columns in TextFrame
+
+    // Specifies the number of columns in TextFrame
     format.setColumnCount(3);
-    
-    // Specify spacing between columns
+
+    // Specifies the spacing between columns
     format.setColumnSpacing(10);
-    
-    // Save created presentation
+
+    // Saves the presentation
     pres.save("ColumnCount.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Add Columns In Text Frame**
-Using Aspose.Slides for Java, developers can add columns in text frames on a [Slide](https://apireference.aspose.com/slides/java/com.aspose.slides/Slide) in the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation). Methods [getColumnCount](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getColumnCount--) and [setColumnCount](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) have been added to [ITextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface. This property specifies the number of columns in the text frame.
 
-The implementation is demonstrated below in an example.
+## **Add Column In Text Frame**
+Aspose.Slides for Java provides the [ColumnCount](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) property (from the [ITextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
+
+This Java code shows you how to add a column inside a text frame:
 
 ```java
+String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
     IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
     TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
 
     format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-    pres.save("output_column1.pptx", SaveFormat.Pptx);
+    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
+            "you can add or delete text - and the new or remaining text automatically adjusts " +
+            "itself to stay within the container. You cannot have text spill over from one container " +
+            "to other, though -- because PowerPoint's column options for text are limited!");
+    pres.save(outPptxFileName, SaveFormat.Pptx);
 
-    Presentation test1 = new Presentation("output_column1.pptx");
+    Presentation test = new Presentation(outPptxFileName);
     try {
-        Assert.assertEquals(2, ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertEquals(Double.NaN, ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().getTextFrameFormat().getColumnSpacing());
+        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
+        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        Assert.assertTrue(Double.NaN == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+    } finally {
+        if (test != null) test.dispose();
+    }
+
+    format.setColumnSpacing(20);
+    pres.save(outPptxFileName, SaveFormat.Pptx);
+
+    Presentation test1 = new Presentation(outPptxFileName);
+    try {
+        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
+        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        Assert.assertTrue(20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test1 != null) test1.dispose();
     }
 
-    format.setColumnSpacing(20);
-    pres.save("output_column2.pptx", SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation("output_column2.pptx");
-    try {
-        Assert.assertEquals(2, ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertEquals(20, ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
-    }
-
     format.setColumnCount(3);
     format.setColumnSpacing(15);
-    pres.save("output_column3.pptx", SaveFormat.Pptx);
+    pres.save(outPptxFileName, SaveFormat.Pptx);
 
-    Presentation test3 = new Presentation("output_column3.pptx");
+    Presentation test2 = new Presentation(outPptxFileName);
     try {
-        Assert.assertEquals(3, ((AutoShape)test3.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertEquals(15, ((AutoShape)test3.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().getTextFrameFormat().getColumnSpacing());
+        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
+        Assert.assertTrue(3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        Assert.assertTrue(15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
-        if (test3 != null) test3.dispose();
+        if (test2 != null) test2.dispose();
     }
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Create TextBox with Hyperlink**
-In this topic, we will create a TextBox with a Hyperlink. You will have to instantiate [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) class and assign it to the desired portion of the TextFrame associated with the TextBox. Please follow the steps below to create a TextBox with Hyperlink by using Aspose.Slides for Java API:
+## **Update Text**
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of the first slide in the presentation which is created on instantiation of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) with ShapeType as [Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) at a specified position of the slide and obtain the reference of that newly added [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) object.
-- Add a [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) to the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) containing TextBox as default text.
-- Instantiate the [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) class.
-- Assign the [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) object to the HyperlinkClick property associated with the desired portion of the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) using [setExternalHyperlinkClick](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager#setExternalHyperlinkClick-java.lang.String-) method.
-- Finally, write the PPTX file using the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) object.
+Aspose.Slides allows you to change or update the text contained in a text box or all the texts contained in a presentation. 
 
-The implementation of the above steps is demonstrated below in an example.
+This Java code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```java
-// Instantiate a Presentation class that represents a PPTX
+Presentation pres = new Presentation("text.pptx");
+try {
+    for (ISlide slide : pres.getSlides())
+    {
+        for (IShape shape : slide.getShapes())
+        {
+            if (shape instanceof IAutoShape) //Checks if shape supports text frame (IAutoShape). 
+            {
+                IAutoShape autoShape = (IAutoShape)shape; 
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Iterates through paragraphs in text frame
+                {
+                    for (IPortion portion : paragraph.getPortions()) //Iterates through each portion in paragraph
+                    {
+                        portion.setText(portion.getText().replace("years", "months")); //Changes text
+                        portion.getPortionFormat().setFontBold(NullableBool.True); //Changes formatting
+                    }
+                }
+            }
+        }
+    }
+
+    //Saves modified presentation
+    pres.save("text-changed.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Add Text Box with Hyperlink** 
+
+You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
+
+ To add a text box containing a link, go through these steps:
+
+1. Create an instance of the `Presentation` class. 
+2. Obtain a reference for the first slide in the newly created presentation. 
+3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
+4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
+5. Instantiate the `IHyperlinkManager` class. 
+6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://apireference.aspose.com/slides/java/com.aspose.slides/Shape#getHyperlinkClick--) property associated with your preferred portion of the `TextFrame`. 
+7. Finally, write the PPTX file through the `Presentation` object. 
+
+This Java code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
+
+```java
+// Instantiates a Presentation class that represents a PPTX
 Presentation pres = new Presentation();
 try {
-    // Get first slide
+    // Gets the first slide in the presentation
     ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Add an AutoShape of Rectangle Type
-    IShape pptxShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-    
-    // Cast the shape to AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-    
-    // Access ITextFrame associated with the AutoShape
+
+    // Adds an AutoShape object with type set as Rectangle
+    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+
+    // Casts the shape to AutoShape
+    IAutoShape pptxAutoShape = (IAutoShape)shape;
+
+    // Accesses the ITextFrame property associated with the AutoShape
     pptxAutoShape.addTextFrame("");
-    
-    ITextFrame ITextFrame = pptxAutoShape.getTextFrame();
-    
-    // Add some text to the frame
-    ITextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    
-    // Set Hyperlink for the portion text
-    IHyperlinkManager HypMan = ITextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    HypMan.setExternalHyperlinkClick("http://www.aspose.com");
-    // Save the PPTX Presentation
-    pres.save("hLinkPPTX_out.pptx", SaveFormat.Pptx);
+
+    ITextFrame textFrame = pptxAutoShape.getTextFrame();
+
+    // Adds some text to the frame
+    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
+
+    // Sets the Hyperlink for the portion text
+    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
+            getPortionFormat().getHyperlinkManager();
+    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
+
+    // Saves the PPTX Presentation
+    pres.save("hLink_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }

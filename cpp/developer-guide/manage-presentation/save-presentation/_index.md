@@ -5,8 +5,14 @@ weight: 70
 url: /cpp/save-presentation/
 ---
 
+{{% alert title="Info" color="info" %}}
 
-[Opening a Presentation]() described how to use the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class to open a presentation. This article explains how to create and save presentations.
+To learn how to open or load presentations, see the [*Open Presentation*](https://docs.aspose.com/slides/cpp/open-presentation/) article. 
+
+{{% /alert %}}
+
+The article here explains how to save presentations.
+
 The [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for C++, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
 
 ## **Save Presentation to File**
@@ -41,3 +47,8 @@ The following code snippets below shows how to use IProgressCallback interface:
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-CovertToPDFWithProgressUpdate-ExportProgressHandler.cpp" >}}
 
+{{% alert title="Info" color="info" %}}
+
+Using its own API, Aspose developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) that allows users to split their presentations into multiple files. Essentially, the app saves selected slides from a given presentation as new PowerPoint (PPTX or PPT) files. 
+
+{{% /alert %}}

@@ -6,7 +6,7 @@ url: /java/how-to-run-the-examples/
 ---
 
 ## **Download from GitHub**
-All examples of Aspose.Slides for Java are hosted on [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). You can either clone the repository using your favorite Github client or download the ZIP file from [here](https://github.com/aspose-slides/Aspose.Slides-for-Java/archive/master.zip).
+All examples of Aspose.Slides for Java are hosted on [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). You can either clone the repository using your favorite Github client or download the ZIP file from [here](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
 
 Extract the contents of ZIP file to any folder on your computer. All examples are located in the **Examples** folder.
 
@@ -43,10 +43,10 @@ It will open the project and download the dependencies automatically. From the P
 ![todo:image_alt_text](NetBeans_Run_Example.png)
 
 ## **Adding Aspose.Slides Library into Maven Local Repository**
-When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](http://maven.aspose.com/repository/simple/ext-release-local/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
+When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://repository.aspose.com/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
 
 ### **mvn install**
-Download the [aspose.slides](http://maven.aspose.com/repository/simple/ext-release-local/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
+Download the [aspose.slides](https://repository.aspose.com/repo/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
 
 ```
 mvn install:install-file

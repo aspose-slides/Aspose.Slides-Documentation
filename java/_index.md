@@ -19,16 +19,16 @@ Aspose.Slides for Java is a Microsoft PowerPoint® management API that enables J
 
 ## **Aspose.Slides for Java Resources**
 
-Following are the links to some useful resources you may need to accomplish your tasks.
+These are links to useful resources:
 
 - [Aspose.Slides for Java Online Documentation](/slides/java/)
 - [Aspose.Slides for Java Features](/slides/java/features-overview/)
 - [Aspose.Slides for Java Limitations](/slides/java/known-issues/)
-- [Aspose.Slides for Java Release Notes](/slides/java/release-notes/)
+- [Aspose.Slides for Java Release Notes](/slides/java/aspose-slides-for-java/)
 - [Aspose.Slides for Java Product Page](https://products.aspose.com/slides/java)
 - [Download Aspose.Slides for Java](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides)
-- [Install Aspose.Slides for Java from Maven Repository](/slides/java/installation/)
-- [Aspose.Slides for Java API Reference Guide](https://apireference.aspose.com/java/slides)
-- [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Aspose.Slides for Java Free Support Forum](https://forum.aspose.com/c/slides)
+- [Install Aspose.Slides for Java from Maven Repository](https://repository.aspose.com/repo/com/aspose/)
+- [Aspose.Slides for Java API Reference Guide](https://apireference.aspose.com/slides/java)
+- [Download Examples from a GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-Java)
+- [Aspose.Slides for Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Java Paid Support Helpdesk](https://helpdesk.aspose.com/)

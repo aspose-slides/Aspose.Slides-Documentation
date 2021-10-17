@@ -7,7 +7,15 @@ url: /java/picture-frame/
 
 
 ## **Create Picture Frame**
-Picture frame is also one of the shapes offered by Aspose.Slides for Java. Adding picture frame to a slide is bit trickier than simple shapes. A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
+Picture frame is also one of the shapes offered by Aspose.Slides for Java. Adding picture frame to a slide is bit trickier than simple shapes. 
+
+{{% alert  title="Tip" color="primary" %}} 
+
+Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
+
+{{% /alert %}}
+
+A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
 This article explains how picture frames can be used in different ways:
 
 - Adding Simple Picture Frames to Slides.

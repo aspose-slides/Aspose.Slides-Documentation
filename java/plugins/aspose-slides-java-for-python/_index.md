@@ -8,7 +8,7 @@ url: /java/aspose-slides-java-for-python/
 ## **JPype**
 JPype is an effort to allow python programs full access to java class libraries. This is achieved not through re-implementing Python, as Jython/JPython has done, but rather through interfacing at the native level in both Virtual Machines.
 
-Read more at [readthedocs.org](http://jpype.readthedocs.org/en/latest/userguide.html)
+Read more at [readthedocs.org](https://jpype.readthedocs.io/en/latest/userguide.html)
 ## **Aspose.Slides for Java**
 Aspose.Slides for Java is a unique PowerPoint management component that enables Java based applications to read, write and manipulate PowerPoint documents without using Microsoft PowerPoint.
 

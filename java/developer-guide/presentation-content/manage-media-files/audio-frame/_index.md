@@ -22,25 +22,25 @@ This Java shows you how to add an embedded audio frame into a slide:
 // Instantiate Presentation class that represents the presentation file
 Presentation pres = new Presentation();
 try {
-	// Get the first slide
-	ISlide sld = pres.getSlides().get_Item(0);
+    // Get the first slide
+    ISlide sld = pres.getSlides().get_Item(0);
 
-	// Load the wav sound file to stream
-	FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+    // Load the wav sound file to stream
+    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
 
-	// Add Audio Frame
-	IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-	fstr.close();
-	
-	// Set Play Mode and Volume of the Audio
-	audioFrame.setPlayMode(AudioPlayModePreset.Auto);
-	audioFrame.setVolume(AudioVolumeMode.Loud);
+    // Add Audio Frame
+    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
+    fstr.close();
+    
+    // Set Play Mode and Volume of the Audio
+    audioFrame.setPlayMode(AudioPlayModePreset.Auto);
+    audioFrame.setVolume(AudioVolumeMode.Loud);
 
-	// Write the PPTX file to disk
-	pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
+    // Write the PPTX file to disk
+    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
-	if (pres != null) pres.dispose();
+    if (pres != null) pres.dispose();
 }
 ```
 
@@ -70,31 +70,31 @@ This sample code demonstrates the operation:
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-	// Get the AudioFrame shape
-	AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    // Get the AudioFrame shape
+    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
-	// Change Play mode to play on click
-	audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+    // Change Play mode to play on click
+    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
 
-	// Set Volume to Low
-	audioFrame.setVolume(AudioVolumeMode.Low);
+    // Set Volume to Low
+    audioFrame.setVolume(AudioVolumeMode.Low);
 
-	// Set audio to play across slides
-	audioFrame.setPlayAcrossSlides(true);
+    // Set audio to play across slides
+    audioFrame.setPlayAcrossSlides(true);
 
-	// Set audio to not loop
-	audioFrame.setPlayLoopMode(false);
+    // Set audio to not loop
+    audioFrame.setPlayLoopMode(false);
 
-	// Hide AudioFrame during the slide show
-	audioFrame.setHideAtShowing(true);
+    // Hide AudioFrame during the slide show
+    audioFrame.setHideAtShowing(true);
 
-	// Rewind audio to start after playing
-	audioFrame.setRewindAudio(true);
+    // Rewind audio to start after playing
+    audioFrame.setRewindAudio(true);
 
-	// Save the PPTX file to disk
-	pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk
+    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    if (pres != null) pres.dispose();
 }
 ```
 

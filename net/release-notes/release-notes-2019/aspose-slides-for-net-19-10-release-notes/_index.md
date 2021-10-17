@@ -65,7 +65,7 @@ This page contains release notes for [Aspose.Slides for .NET 19.10](https://www
 ### **Introducing new API for FontFallBack functionality**
 **Fallback font** is used when the font specified for text is present in the system, but this font doesn't contain a necessary glyph. In this case, fallback font allows using one of the specified fallback fonts for the glyph replacement. It differs, from [**font subsitution**](/slides/net/manipulating-text/#manipulatingtext-managingfontsinsidepresentation), which can be used to dynamically substitute the font of the whole document, if the specified font can’t be found.
 
-In order to use fallback font functionality, you need to set the rules how fallback fonts should be used. For that, you can use [**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) type and initialize it’s object with the Unicode range and fallback font name, or even a list of names.
+In order to use fallback font functionality, you need to set the rules how fallback fonts should be used. For that, you can use [**FontFallBackRule**](https://apireference.aspose.com/slides/net/aspose.slides/FontFallBackRule) type and initialize it’s object with the Unicode range and fallback font name, or even a list of names.
 
 Here is an example:
 
@@ -81,9 +81,9 @@ string[] fontNames = new string[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial"};
 IFontFallBackRule thirdRule = new FontFallBackRule (0x1F300, 0x1F64F, fontNames);
 ```
 
-It is possible to specify several rules and add them into [**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection). Then you may assign this fallback font fules collection into an appropriate field of **FontsManager** object.
+It is possible to specify several rules and add them into [**FontFallBackRulesCollection**](https://apireference.aspose.com/slides/net/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection). Then you may assign this fallback font fules collection into an appropriate field of **FontsManager** object.
 
-Each presentation has FontsManager object, implementing [**IFontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager)**,** which defines the main logic of fonts rendering:
+Each presentation has FontsManager object, implementing [**IFontsManager**](https://apireference.aspose.com/slides/net/aspose.slides/ifontsmanager)**,** which defines the main logic of fonts rendering:
 
 ``` csharp
 using (Presentation presentation = new Presentation())
@@ -120,7 +120,7 @@ using (Presentation presentation = new Presentation("MyPresentation.pptx"))
 
 ```
 #### **IFontsManager.FontFallBackRulesCollection property added**
-[**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection) property has been added to [**IFontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/ifontsmanager) interface and [**FontsManager**](https://apireference.aspose.com/net/slides/aspose.slides/fontsmanager) class. It allows to get and set a collection of [**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) objects to control the rules of using fallback fonts.
+[**FontFallBackRulesCollection**](https://apireference.aspose.com/slides/net/aspose.slides/ifontsmanager/properties/fontfallbackrulescollection) property has been added to [**IFontsManager**](https://apireference.aspose.com/slides/net/aspose.slides/ifontsmanager) interface and [**FontsManager**](https://apireference.aspose.com/slides/net/aspose.slides/fontsmanager) class. It allows to get and set a collection of [**FontFallBackRule**](https://apireference.aspose.com/slides/net/aspose.slides/FontFallBackRule) objects to control the rules of using fallback fonts.
 
 **FontFallBackRulesCollection** can be used in the following way:
 
@@ -151,9 +151,9 @@ using (Presentation pres = new Presentation(path + "input.pptx"))
 ```
 
 #### **IFontFallBackRulesCollection, IFontFallBackRule interfaces and FontFallBackRulesCollection, FontFallBackRule classed added**
-[**FontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/fontfallbackrulescollection) (implementes [**IFontFallBackRulesCollection**](https://apireference.aspose.com/net/slides/aspose.slides/ifontfallbackrulescollection)) represents an object for managing a collection of **FontFallBackRule** objects.
+[**FontFallBackRulesCollection**](https://apireference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) (implementes [**IFontFallBackRulesCollection**](https://apireference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection)) represents an object for managing a collection of **FontFallBackRule** objects.
 
-[**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) (implementes [**IFontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/iFontFallBackRule)) represents an association between the specified Unicode range and list of fonts, that may contain proper glyphs for font fallback replacement.
+[**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) (implementes [**IFontFallBackRule**](https://apireference.aspose.com/slides/net/aspose.slides/iFontFallBackRule)) represents an association between the specified Unicode range and list of fonts, that may contain proper glyphs for font fallback replacement.
 
 Below is an example:
 

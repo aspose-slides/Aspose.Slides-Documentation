@@ -62,7 +62,7 @@ bool isPasswordCorrect = info->CheckPassword(u"my_password");
 ### get_KeepTextFlat() and set_KeepTextFlat() methods have been added to ITextFrameFormat interface
 New methods **[get_KeepTextFlat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ae4cb35f31bd5b1e1e589ca3ec62b59bd)** 
 and **[set_KeepTextFlat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#abcb0a0243ca69aa29704fe4072577651)**
-have been added to **[ITextFrameFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format/)** interface.
+have been added to **[ITextFrameFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)** interface.
 
 Using this property allows to keep text out of 3D scene entirely.
 

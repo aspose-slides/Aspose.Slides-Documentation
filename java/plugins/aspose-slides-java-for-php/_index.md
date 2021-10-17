@@ -187,7 +187,7 @@ Please follow below simple steps to configure PHP/Java Bridge on Windows Platfor
 
 3. Install Apache Tomcat 8.0. You can download it here
 
-4.Download [JavaBridge.war](http://sourceforge.net/projects/php-java-bridge/files/Binary%20package/php-java-bridge_6.2.1/JavaBridgeTemplate621.war/download). Copy this file to tomcat webapps directory.
+4.Download [JavaBridge.war](https://sourceforge.net/projects/php-java-bridge/files/Binary%20package/php-java-bridge_6.2.1/JavaBridgeTemplate621.war/download). Copy this file to tomcat webapps directory.
 (ex: C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps )
 
 5. Restart tomcat apache service.

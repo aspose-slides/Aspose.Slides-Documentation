@@ -12,7 +12,7 @@ Please make sure you meet the following requirements before downloading and runn
 ## **Download from GitHub**
 All examples of Aspose.Slides for C++ are hosted on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C).
 
-- You can either clone the repository using your favorite GitHub client or download the ZIP file from [here](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/master.zip).
+- You can either clone the repository using your favorite GitHub client or download the ZIP file from [here](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/refs/heads/master.zip).
 - Extract the contents of ZIP file to any folder on your computer. All the examples are located in the **Examples** folder.
 - There is a C++ Visual Studio solution file.
 - The projects are created in Visual Studio 2015, but the solution files are compatible with Visual Studio 2015 and higher.

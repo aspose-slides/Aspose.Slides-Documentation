@@ -16,15 +16,15 @@ This page contains release notes for Aspose.Slides for C++ 20.2
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2206|Use [Aspose.Slides for .NET 20.2](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+20.2+Release+Notes) features|Enhancement|
+|SLIDESCPP-2206|Use [Aspose.Slides for .NET 20.2](https://docs.aspose.com/slides/net/aspose-slides-for-net-20-2-release-notes/) features|Enhancement|
 |SLIDESNET-41674|Extremely slow PPT to PDF Conversion|Enhancement|
 |SLIDESNET-40977|Support for getting size of paragaph and portion inside table cell text frame|Feature|
 |SLIDESNET-36546|Update custom document properties directly on the source document|Feature|
 |SLIDESCPP-2232|Fix getting remote images with using WebRequest class|Enhancement|
 ## **Public API Changes**
 ### **IPortion::GetRect() method has been added**
-[IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) method has been added. This method extends and actually replaces method [IPortion::GetCoordinates()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#aceaf0a7e3ddb126cbdf402a0e40224b2).
-[IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_paragraph/#a56f6e0026bbb81aa948bb0b000b8cf08) methods can be applied to text within table cells.
+[IPortion::GetRect()](#a9e2fd8b58529d493b40835b8463838a9) method has been added. This method extends and actually replaces method [IPortion::GetCoordinates()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_portion#aceaf0a7e3ddb126cbdf402a0e40224b2).
+[IPortion::GetRect()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_portion#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph#a56f6e0026bbb81aa948bb0b000b8cf08) methods can be applied to text within table cells.
 
 The following example shows how those properties work.
 Let's say we have a table with some text inside and simple AutoShape nearby.
@@ -74,7 +74,7 @@ double y = tbl->get_Y() + cell->get_OffsetY();
 ```
 
 
-2) In the next step we're using [IPortion::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_portion/#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_paragraph/#a56f6e0026bbb81aa948bb0b000b8cf08) methods in order to add frame to portions and paragraphs.
+2) In the next step we're using [IPortion::GetRect()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_portion#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph#a56f6e0026bbb81aa948bb0b000b8cf08) methods in order to add frame to portions and paragraphs.
 
 ```cpp
  {

@@ -270,7 +270,6 @@ pres.Save(FileName,Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
 ## **Download Sample Code**
-- [CodePlex](https://asposeopenxml.codeplex.com/releases/view/615920)
+- [CodePlex](https://archive.codeplex.com/?p=asposeopenxml)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/Aspose.Slides%20Vs%20OpenXML/Adding%20Slide%20to%20Presentation%20\(Aspose.Slides\).zip/download)
-- [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Adding%20Slide%20to%20Presentation%20\(Aspose.Slides\).zip)
+- [Sourceforge](https://sourceforge.net/projects/asposeopenxml/files/)

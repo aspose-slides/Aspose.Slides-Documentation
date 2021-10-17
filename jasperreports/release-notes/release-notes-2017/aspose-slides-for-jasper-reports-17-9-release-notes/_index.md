@@ -7,5 +7,5 @@ url: /jasperreports/aspose-slides-for-jasper-reports-17-9-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESJR-33263|[Use Aspose.Slides for Java 17.9 features](https://docs.aspose.com/display/slidesjava/Aspose.Slides+for+Java+17.9+Release+Notes)|Feature|
+|SLIDESJR-33263|[Use Aspose.Slides for Java 17.9 features](/slides/java/aspose-slides-for-java-17-9-release-notes/)|Feature|
 

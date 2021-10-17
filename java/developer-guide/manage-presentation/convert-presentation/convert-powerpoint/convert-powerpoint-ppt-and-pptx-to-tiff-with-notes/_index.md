@@ -35,6 +35,8 @@ The above code snippets update the sample presentation to TIFF images in Notes S
 | :- | :- |
 |![todo:image_alt_text](http://i.imgur.com/A3ttT2y.png)| |
 
+{{% alert title="Tip" color="primary" %}}
 
+You may want to check out Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 
-
+{{% /alert %}}

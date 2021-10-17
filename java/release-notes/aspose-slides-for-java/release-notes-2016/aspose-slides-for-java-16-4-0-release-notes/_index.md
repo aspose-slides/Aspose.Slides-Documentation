@@ -10,7 +10,7 @@ url: /java/aspose-slides-for-java-16-4-0-release-notes/
 |SLIDESJAVA-35179 |Compare performance of Aspose.Slides for Java and Aspose.Slides for Net |Investigation |
 |SLIDESJAVA-34410 |Issue of Aspose.Slides for Java latest version with Maven Repository |Investigation |
 |SLIDESJAVA-34009 |StackOverflow exception when using Aspose.Slides in MyEclipse enviornment |Investigation |
-|SLIDESJAVA-33823 |[PPT to SWF conversion](http://www.aspose.com/docs/display/slidesjava/Converting+Presentation+to+SWF)|Feature |
+|SLIDESJAVA-33823 |PPT to SWF conversion|Feature |
 |SLIDESJAVA-34863 |Support for reading password protected file in read only mode |Feature |
 |SLIDESJAVA-34376 |Support for Label Distance from chart Axis |Feature |
 |SLIDESJAVA-33331 |PPTX: Get an OleObjectFrameEx Type/Extension? |Feature |
@@ -268,4 +268,4 @@ try {
 It represents alignment of text distributed along the whole element.
 
 #### **Aspose.Slides for Java 16.4.0 depends on Bouncy Castle API**
-Aspose.Slides for Java 16.4.0 depends on [Bouncy Castle API](http://www.bouncycastle.org/java.html). The library can be downloaded from [Maven repository](http://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on/1.52). It is also included into the release package <ZIP>\lib\3rd_party\bcprov-jdk15on-1.52.jar.
+Aspose.Slides for Java 16.4.0 depends on [Bouncy Castle API](https://www.bouncycastle.org/java.html). The library can be downloaded from [Maven repository](https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on/1.52). It is also included into the release package <ZIP>\lib\3rd_party\bcprov-jdk15on-1.52.jar.

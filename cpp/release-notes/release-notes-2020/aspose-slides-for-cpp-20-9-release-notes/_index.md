@@ -1,4 +1,4 @@
----
+a---
 title: Aspose.Slides for CPP 20.9 Release Notes
 type: docs
 weight: 90
@@ -32,7 +32,7 @@ This page contains release notes for Aspose.Slides for C++ 20.9.
 ### **3D Support has been added**
 We are announcing our **own cross-platform 3D engine** in Aspose.Slides 20.9 for creating 3D models.
 
-Find more about **[3D Presentation](/slides/cpp/3d-presentation)**.
+Find more about **[3D Presentation](/slides/cpp/3d-presentation/)**.
 
 ### **IBulletFormatEffectiveData::get_FillFormat() method has been added**
 
@@ -130,7 +130,7 @@ if (effectiveBulletFormat->get_Type() == BulletType::Numbered)
 Please note that an existing way of getting bullet's effective properties via [**IParagraph::CreateParagraphFormatEffective()::get_Bullet()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph_format_effective_data#aba5ac6274658001b4805192b3066dd45) is also valid and still works.
 
 ### **Support for Id attribute generation for the individual tspan in SVG has been added**
-The [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_shape_and_text_formatting_controller) interface, [**ISvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_t_span/) interface and [**SvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.svg_t_span/) class have been added for tspan Id attribute manipulation in SVG.
+The [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_shape_and_text_formatting_controller) interface, [**ISvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_svg_t_span) interface and [**SvgTSpan**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.svg_t_span) class have been added for tspan Id attribute manipulation in SVG.
 
 **ISvgShapeAndTextFormattingController** declaration:
 

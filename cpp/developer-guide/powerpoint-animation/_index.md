@@ -25,13 +25,13 @@ Aspose.Slides supports **150+ animation effects**, including basic animation ef
 Additionally, these animation effects can be used in combination with them:
 
 - [ColorEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.color_effect/t)
-- [CommandEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.command_effect/)
-- [FilterEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.filter_effect/)
-- [MotionEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.motion_effect/)
-- [PropertyEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.property_effect/)
-- [RotationEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.rotation_effect/)
-- [ScaleEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.scale_effect/)
-- [SetEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.set_effect/)
+- [CommandEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.command_effect)
+- [FilterEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.filter_effect)
+- [MotionEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.motion_effect)
+- [PropertyEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.property_effect)
+- [RotationEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.rotation_effect)
+- [ScaleEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.scale_effect)
+- [SetEffect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.set_effect)
 
 ## **Custom Animation**
 It is possible to create your own **custom animations** in Aspose.Slides. 
@@ -39,12 +39,12 @@ This can be achieved if you combine several behaviours together into a new custo
 
 [**Behavior**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.behavior) is a building unit of any PowerPoint animation effect. All animation effects are actually a set of behaviours composed into one strategy. You can combine behaviours into a custom animation once and reuse it in other presentations. If you add a new behaviour into a standard PowerPoint animation effect - it will be another custom animation. For example, you can add repeat behaviour to an animation to make it repeat a few times.
 
-[**Animation Point**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.point/) is a point where behaviour should be applied.
+[**Animation Point**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.point) is a point where behaviour should be applied.
 
 ## **Animation Time Line**
-[**Sequence**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence/) is a collection of animation effects, applied on a concrete shape.
+[**Sequence**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence) is a collection of animation effects, applied on a concrete shape.
 
-[**AnimationTimeLine**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.animation_time_line/) is a set of Sequences used in a concrete slide. It is an animation engine represented since PowerPoint 2002. In previous Powerpoint versions, it was challenging to add animation effects to presentation, which could be achieved only with different workarounds. Timeline comes to replace on old AnimationSettings class and provide more clear object model for PowerPoint animation. One slide can have only one animation timeline.
+[**AnimationTimeLine**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.animation_time_line) is a set of Sequences used in a concrete slide. It is an animation engine represented since PowerPoint 2002. In previous Powerpoint versions, it was challenging to add animation effects to presentation, which could be achieved only with different workarounds. Timeline comes to replace on old AnimationSettings class and provide more clear object model for PowerPoint animation. One slide can have only one animation timeline.
 ## **Interactive Animation**
 [**EffectTriggerType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) allows to define user actions (e.g. button click), that will make a certain animation start. Triggers have been added into the latest PowerPoint version only.
 

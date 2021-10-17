@@ -253,9 +253,6 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-
-
-
 ## **Render Shape as SVG**
 Now Aspose.Slides for .NET support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
@@ -273,34 +270,39 @@ public static void Run()
 }
 ```
 
+## Align Shape
 
+Through the [SlidesUtil.AlignShape()](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) overloaded method, you can 
 
-## **Shapes Alignment**
-Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, overloaded method [SlidesUtil.AlignShape()](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration  defines possible alignment options.
+* align shapes relative to a slide's margins. See Example 1. 
+* align shapes relative to each other. See Example 2. 
+
+The [ShapesAlignmentType](https://apireference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration defines the available alignment options.
 
 ### Example 1
 
+This C# code shows you how to align shapes with indices 1,2 and 4 along the border at the top of a slide:
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
 
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
-	ISlide slide = pres.Slides[0];
-	IShape shape1 = slide.Shapes[1];
-	IShape shape2 = slide.Shapes[2];
-	IShape shape3 = slide.Shapes[4];
-	SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-	{
-		slide.Shapes.IndexOf(shape1),
-		slide.Shapes.IndexOf(shape2),
-		slide.Shapes.IndexOf(shape3)
-	});
+     ISlide slide = pres.Slides[0];
+     IShape shape1 = slide.Shapes[1];
+     IShape shape2 = slide.Shapes[2];
+     IShape shape3 = slide.Shapes[4];
+     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
+     {
+          slide.Shapes.IndexOf(shape1),
+          slide.Shapes.IndexOf(shape2),
+          slide.Shapes.IndexOf(shape3)
+     });
 }
 ```
 
 ### Example 2
 
-The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
+This C# code shows you how to align an entire collection of shapes relative to the bottom shape in the collection:
 
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
@@ -308,4 +310,3 @@ using (Presentation pres = new Presentation("example.pptx"))
     SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
 }
 ```
-

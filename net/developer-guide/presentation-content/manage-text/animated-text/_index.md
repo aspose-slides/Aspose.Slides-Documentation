@@ -9,7 +9,7 @@ description: "Add animated text and effects to PowerPoint presentation in C# or 
 
 ## Adding Animation Effects to Paragraphs
 
-We added the [**AddEffect()**](https://apireference.aspose.com/net/slides/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://apireference.aspose.com/net/slides/aspose.slides.animation/sequence) and [**ISequence**](https://apireference.aspose.com/net/slides/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
+We added the [**AddEffect()**](https://apireference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://apireference.aspose.com/slides/net/aspose.slides.animation/sequence) and [**ISequence**](https://apireference.aspose.com/slides/net/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))

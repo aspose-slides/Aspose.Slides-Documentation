@@ -42,4 +42,4 @@ puts "Done with simple transition, please check the output file."
 ## **Download Running Code**
 Download **Managing Slides Transitions (Aspose.Slides)** from any of the below mentioned social coding sites:
 
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_for_Ruby/lib/asposeslidesjava/Slides/transitions.rb)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_Java_for_Ruby/lib/asposeslidesjava/Slides/transitions.rb)
