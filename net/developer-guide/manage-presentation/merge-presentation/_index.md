@@ -9,7 +9,7 @@ description: "Merge or combine PowerPoint Presentation in C# or .NET"
 
 {{% alert  title="Tip" color="primary" %}} 
 
-You may want to check out [Aspose free online Merger service](https://products.aspose.app/slides/merger), which allows people to merge presentations. It provides support for merging PowerPoint presentations in the same format (PPT to PPT, PPTX to PPTX, etc.) and for merging presentations in different format (PPT to PPTX, PPTX to ODP, etc.).
+You may want to check out **Aspose free online** [Merger app](https://products.aspose.app/slides/merger). It allows people to merge PowerPoint presentations in the same format (PPT to PPT, PPTX to PPTX, etc.) and merge presentations in different formats (PPT to PPTX, PPTX to ODP, etc.).
 
 [![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
 
@@ -28,15 +28,19 @@ Most presentation programs (PowerPoint or OpenOffice) lack functions that allow 
 
 **See also**
 
-You may want to see [Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
 
 {{% /alert %}}
+
+### **What Can Be Merged**
 
 With Aspose.Slides, you can merge 
 
 * entire presentations. All the slides from the presentations end up in one presentation
 * specific slides. Selected slides end up in one presentation
 * presentations in one format (PPT to PPT, PPTX to PPTX, etc) and in different formats (PPT to PPTX, PPTX to ODP, etc) to one another. 
+
+### **Merging Options**
 
 You can apply options that determine whether
 
