@@ -138,7 +138,14 @@ try {
 }
 ```
 
+{{% alert title="Tip" color="primary" %}}
+
+Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
+
+{{% /alert %}}
+
 ## **Add StretchOff Property**
+
 The methods [getStretchOffsetLeft](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#getStretchOffsetLeft--), [setStretchOffsetLeft](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [getStretchOffsetTop](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#getStretchOffsetTop--), [setStretchOffsetTop](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop-float-), [getStretchOffsetRight](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#getStretchOffsetRight--), [setStretchOffsetRight](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight-float-), [getStretchOffsetBottom](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#getStretchOffsetBottom--) and [setStretchOffsetBottom](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) have been added to [IPictureFillFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) interface and [PictureFillFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/PictureFillFormat) class respectively. These properties specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
 
 - Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.

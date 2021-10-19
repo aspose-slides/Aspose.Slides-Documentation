@@ -173,3 +173,9 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 The slide is added at the end of the section. 
+
+{{% alert title="Tip" color="primary" %}}
+
+Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+
+{{% /alert %}}
