@@ -38,7 +38,7 @@ for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
 
 {{% alert  title="Tip" color="primary" %}} 
 
-To see how Aspose.Slides API handles PPT/PPTX to JPG conversion, you may want to try [**Aspose.Slides Converter**](https://products.aspose.app/slides/conversion).
+To see how Aspose.Slides converts PowerPoint to JPG, you may want to try these free online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) and [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 
 {{% /alert %}} 
 
