@@ -13,9 +13,9 @@ Aspose.Slides for .NET allows you to import presentations from PDFs. Essentially
 
 Go through these steps:
 
-1. Instantiate an object of the presentation class. In our example, `pres` is the object. 
+1. Instantiate an object of the presentation class. 
 2. Call the [AddFromPdf](https://apireference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) method and pass the PDF file. 
-3. Use the [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file as a presentation.
+3. Use the [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file in the PowerPoint format.
 
 This C# code demonstrates the PDF to PowerPoint process:
 
