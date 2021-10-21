@@ -2,6 +2,8 @@
 title: Trend Line
 type: docs
 url: /net/trend-line/
+keywords: "Trend line, custom line PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add trend line and custom line to PowerPoint presentations in C# or .NET"
 ---
 
 ## **Add Trend Line**

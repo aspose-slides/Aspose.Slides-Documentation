@@ -3,6 +3,8 @@ title: Connector
 type: docs
 weight: 10
 url: /net/connector/
+keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Connect PowerPoint shapes in C# or .NET"
 ---
 
 ## **Connect Shapes Using Connectors**

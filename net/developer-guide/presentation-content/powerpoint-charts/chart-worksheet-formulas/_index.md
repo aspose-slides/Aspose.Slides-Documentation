@@ -3,8 +3,8 @@ title: Chart Worksheet Formulas
 type: docs
 weight: 70
 url: /net/chart-worksheet-formulas/
-keywords: "powerpoint equations, powerpoint spreadsheet formulas"
-description: "PowerPoint Equations and Spreadsheet Formulas"
+keywords: "Chart spreadsheet, chart formula, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Chart spreadsheet and formula in PowerPoint presentation in C# or .NET"
 ---
 
 

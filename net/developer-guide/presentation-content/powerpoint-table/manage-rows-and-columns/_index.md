@@ -3,6 +3,8 @@ title: Manage Rows and Columns
 type: docs
 weight: 20
 url: /net/manage-rows-and-columns/
+keywords: "Table, table rows and columns, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Manage table rows and columns in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Set First Row as Header**

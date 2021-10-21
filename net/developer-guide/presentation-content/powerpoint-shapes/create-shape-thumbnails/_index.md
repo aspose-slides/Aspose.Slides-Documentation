@@ -3,6 +3,8 @@ title: Create Shape Thumbnails
 type: docs
 weight: 60
 url: /net/create-shape-thumbnails/
+keywords: "Shape thumbnail. PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Shape thumbnail in PowerPoint presentation in C# or .NET"
 ---
 
 Aspose.Slides for .NET is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for .NET helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.

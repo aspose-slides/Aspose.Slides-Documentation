@@ -3,6 +3,8 @@ title: Shape Formatting
 type: docs
 weight: 20
 url: /net/shape-formatting/
+keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Format shape in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Format Lines**

@@ -2,6 +2,8 @@
 title: Chart Legend
 type: docs
 url: /net/chart-legend/
+keywords: "Chart legend, legend font size, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Set positioning and font size for chart legend in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Legend Positioning**

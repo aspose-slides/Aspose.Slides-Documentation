@@ -3,6 +3,8 @@ title: Manage Cells
 type: docs
 weight: 30
 url: /net/manage-cells/
+keywords: "Table, merged cells, split cells, image in table cell, C#, Csharp, Aspose.Slides for .NET"
+description: "Table cells in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Identify Merged Table Cell**

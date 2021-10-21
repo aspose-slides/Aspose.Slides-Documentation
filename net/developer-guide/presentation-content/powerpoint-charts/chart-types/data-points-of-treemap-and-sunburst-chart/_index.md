@@ -2,8 +2,8 @@
 title: Data Points of Treemap and Sunburst Chart
 type: docs
 url: /net/data-points-of-treemap-and-sunburst-chart/
-keywords: "Sunburst graph"
-description: "Sunburst Graph, Sunburst Diagram, Sunburst Chart, Radial Chart, Radial Graph or Multi Level Pie Chart with Aspose.Slides."
+keywords: "Sunburst chart, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add sunburst chart in PowerPoint presentation in C# or .NET"
 ---
 
 Among other types of PowerPoint charts, there are two "hierarchical" types - **Treemap** and **Sunburst** chart (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph or Multi Level Pie Chart). These charts display hierarchical data organized as a tree - from leaves to the top of the branch. Leaves are defined by the series data points, and each subsequent nested grouping level defined by the corresponding category. Aspose.Slides for .NET allows to format data points of Sunburst Chart and Treemap in C#.

@@ -2,6 +2,8 @@
 title: Error Bar
 type: docs
 url: /net/error-bar/
+keywords: "Error bar, error bar values PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add error bar to PowerPoint presentations in C# or .NET"
 ---
 
 ## **Add Error Bar**

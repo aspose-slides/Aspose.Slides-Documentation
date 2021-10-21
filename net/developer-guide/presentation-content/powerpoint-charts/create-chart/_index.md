@@ -3,6 +3,8 @@ title: Create Chart
 type: docs
 weight: 10
 url: /net/create-chart/
+keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create chart in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Create Chart**

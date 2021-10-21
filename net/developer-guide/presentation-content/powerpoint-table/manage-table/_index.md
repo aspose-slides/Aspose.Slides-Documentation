@@ -3,6 +3,8 @@ title: Manage Table
 type: docs
 weight: 10
 url: /net/manage-table/
+keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create and manage table in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Create Table from Scratch**

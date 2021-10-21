@@ -3,6 +3,8 @@ title: Paragraph
 type: docs
 weight: 60
 url: /net/paragraph/
+keywords: "Paragraph, portion, paragraph coordinate, portion coordinate, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Paragraph and portion in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Get Paragraph and Portion Coordinates in TextFrame**

@@ -2,6 +2,8 @@
 title: Chart Plot Area
 type: docs
 url: /net/chart-plot-area/
+keywords: "Chart Plot Area PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Get width, height of chart plot area. Set layout mode. PowerPoint presentation in C# or .NET"
 ---
 
 ## **Get Width, Height of Chart Plot Area**

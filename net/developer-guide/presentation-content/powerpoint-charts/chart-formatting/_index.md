@@ -3,6 +3,8 @@ title: Chart Formatting
 type: docs
 weight: 60
 url: /net/chart-formatting/
+keywords: "Chart entities, chart properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Format chart entities in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Format Chart Entities**

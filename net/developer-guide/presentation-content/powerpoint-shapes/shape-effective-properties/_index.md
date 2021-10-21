@@ -3,6 +3,8 @@ title: Shape Effective Properties
 type: docs
 weight: 40
 url: /net/shape-effective-properties/
+keywords: "Shape properties, Camera properties, light rig, bevel shape, text frame, text style, font height value, fill format for table, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Get effective shape properties in PowerPoint presentations in C# or .NET"
 ---
 
 In this topic, we will discuss **effective** and **local** properties. When we set values directly at these levels

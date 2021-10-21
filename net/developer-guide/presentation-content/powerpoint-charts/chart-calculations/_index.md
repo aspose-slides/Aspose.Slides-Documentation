@@ -3,6 +3,8 @@ title: Chart Calculations
 type: docs
 weight: 50
 url: /net/chart-calculations/
+keywords: "Chart calculations, chart elements, element position, chart values C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint chart calculations and values in C# or .NET"
 ---
 
 ## **Calculate Actual Values of Chart Elements**

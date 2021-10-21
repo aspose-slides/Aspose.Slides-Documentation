@@ -3,6 +3,8 @@ title: Animated Charts
 type: docs
 weight: 80
 url: /net/animated-charts/
+keywords: "Charts, Chart Series, Animation PowerPoint Presentation, PPTX, PPT, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint charts series and animations in C# or .NET"
 ---
 
 Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://apireference.aspose.com/net/slides/aspose.slides.animation/isequence/methods/addeffect)method and two enums [**EffectChartMajorGroupingType** ](https://apireference.aspose.com/net/slides/aspose.slides.animation/effectchartmajorgroupingtype)and [**EffectChartMinorGroupingType**](https://apireference.aspose.com/net/slides/aspose.slides.animation/effectchartminorgroupingtype).

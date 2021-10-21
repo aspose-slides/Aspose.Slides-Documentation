@@ -2,6 +2,8 @@
 title: Chart Series
 type: docs
 url: /net/chart-series/
+keywords: "Chart series, series color, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Chart series in PowerPoint presentations in C# or .NET"
 ---
 
 A series is a row or column of numbers plotted in a chart.

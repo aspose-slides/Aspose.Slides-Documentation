@@ -3,6 +3,8 @@ title: Manage SmartArt Shape
 type: docs
 weight: 20
 url: /net/manage-smartart-shape/
+keywords: "SmartArt shape, SmartArt shape style, SmartArt shape color style, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Manage SmartArt in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Create SmartArt Shape**

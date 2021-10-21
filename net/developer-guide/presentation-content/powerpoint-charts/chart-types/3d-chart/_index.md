@@ -2,6 +2,8 @@
 title: 3D Chart
 type: docs
 url: /net/3d-chart/
+keywords: "3d chart, rotationX, rotationY, depthpercent, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Set rotationX, rotationY, and depthpercents for 3D chart in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**
