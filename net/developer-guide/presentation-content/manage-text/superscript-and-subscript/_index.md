@@ -3,6 +3,8 @@ title: Superscript and Subscript
 type: docs
 weight: 70
 url: /net/superscript-and-subscript/
+keywords: "Super script, Sub script, Add superscript text, Add subscript text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add superscript and subscript text to PowerPoint presentations in C# or .NET"
 ---
 
 ## **Manage Super Script and Sub Script Text**

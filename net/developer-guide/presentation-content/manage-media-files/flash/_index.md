@@ -3,6 +3,8 @@ title: Flash
 type: docs
 weight: 10
 url: /net/flash/
+keywords: "Extract flash, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Extract flash object from PowerPoint presentation in C# or .NET"
 ---
 
 ## **Extract Flash Objects from Presentation**

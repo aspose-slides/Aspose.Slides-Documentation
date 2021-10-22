@@ -3,10 +3,9 @@ title: Exporting Math Equations
 type: docs
 weight: 30
 url: /net/exporting-math-equations/
-
+keywords: "Export math equations, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Export PowerPoint math equations in C# or .NET"
 ---
-
-# Exporting Math Equations from Presentations
 
 Aspose.Slides for .NET allows you to export math equations from presentations. For example, you may need to extract the mathematical equations on slides (from a specific presentation) and use them in another program or platform. 
 

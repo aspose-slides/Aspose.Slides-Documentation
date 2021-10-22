@@ -3,6 +3,8 @@ title: Line
 type: docs
 weight: 50
 url: /net/Line/
+keywords: "Line, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add line in PowerPoint presentation in C# or .NET"
 ---
 
 Aspose.Slides for .NET supports adding different kinds of shapes to the slides. In this topic, we will start working with shapes by adding lines to the slides. Using Aspose.Slides for .NET, developers can not only create simple lines , but some fancy lines can also be drawn on the slides.

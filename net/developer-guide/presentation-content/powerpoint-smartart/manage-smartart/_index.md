@@ -3,6 +3,8 @@ title: Manage SmartArt
 type: docs
 weight: 10
 url: /net/manage-smartart/
+keywords: "SmartArt, text from SmartArt, Organization type chart, Picture organization chart, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "SmartArt and organization type chart in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Get Text from SmartArt**

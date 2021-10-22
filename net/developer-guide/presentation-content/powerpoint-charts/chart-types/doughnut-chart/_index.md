@@ -3,6 +3,8 @@ title: Doughnut Chart
 type: docs
 weight: 30
 url: /net/doughnut-chart/
+keywords: "Doughnut chart, center gap, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Specify center gap in doughnut chart in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Specify Center Gap in Doughnut Chart**

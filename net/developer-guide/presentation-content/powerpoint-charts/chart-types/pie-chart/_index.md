@@ -2,6 +2,8 @@
 title: Pie Chart
 type: docs
 url: /net/pie-chart/
+keywords: "Pie chart, plot options, slice colors, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Pie chart plot options and slice colors in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**

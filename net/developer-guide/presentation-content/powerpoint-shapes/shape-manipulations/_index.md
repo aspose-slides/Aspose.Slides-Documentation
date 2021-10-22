@@ -3,6 +3,8 @@ title: Shape Manipulations
 type: docs
 weight: 30
 url: /net/shape-manipulations/
+keywords: "PowerPoint shape, shape on slide, find shape, clone shape, remove shape, hide shape, change shape order, get interlop shape ID, shape alternative text, shape layout formats, shape as SVG, align shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Manipulate PowerPoint shapes in C# or .NET"
 ---
 
 ## **Find Shape in Slide**

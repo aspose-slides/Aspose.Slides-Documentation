@@ -3,6 +3,8 @@ title: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /net/manage-smartart-shape-node/
+keywords: "SmartArt node, SmartArt child node, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Smart node and child node in PowerPoint presentations in C# or .NET"
 ---
 
 

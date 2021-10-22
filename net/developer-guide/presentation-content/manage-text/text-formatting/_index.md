@@ -3,6 +3,8 @@ title: Text Formatting
 type: docs
 weight: 40
 url: /net/text-formatting/
+keywords: "Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation, C#, Csharp, Aspose.Slides for .NET"
+description: "Manage and manipulate text and text frame properties in C# or .NET"
 ---
 
 ## **Highlight Text**

@@ -2,6 +2,8 @@
 title: Chart Data Marker
 type: docs
 url: /net/chart-data-marker/
+keywords: "Chart marker options, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Set chart marker options in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Set Chart Marker Options**

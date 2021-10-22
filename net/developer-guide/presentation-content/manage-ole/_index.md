@@ -3,9 +3,11 @@ title: Manage OLE
 type: docs
 weight: 40
 url: /net/manage-ole/
+keywords: "Add OLE, Add object, Embed object Object Linking & Embedding, OLE Object Frame, Embed OLE, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET "
+description: "Add OLE object to PowerPoint presentation in C# or .NET"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert title="Info" color="info" %}}
 
 OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 

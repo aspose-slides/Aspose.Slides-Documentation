@@ -3,8 +3,8 @@ title: Animated Text
 type: docs
 weight: 50
 url: /net/animated-text/
-keywords: "Animated text in PowerPoint"
-description: "Animated text in PowerPoint presentation with Aspose.Slides"
+keywords: "Animated text, Animation effects, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add animated text and effects to PowerPoint presentation in C# or .NET"
 ---
 
 ## Adding Animation Effects to Paragraphs

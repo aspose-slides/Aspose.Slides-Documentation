@@ -3,7 +3,8 @@ title: Manage Bullet and Numbered Lists
 type: docs
 weight: 60
 url: /net/manage-bullet-and-numbered-lists
-
+keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create bullet and numbered lists in PowerPoint presentation in C# or .NET"
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for .NET** also allows you to use bullets and numbers in slides in your presentations. 

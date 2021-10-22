@@ -3,6 +3,8 @@ title: Chart Workbook
 type: docs
 weight: 70
 url: /net/chart-workbook/
+keywords: "Chart workbook, chart data, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Chart workbook in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Chart Workbook**

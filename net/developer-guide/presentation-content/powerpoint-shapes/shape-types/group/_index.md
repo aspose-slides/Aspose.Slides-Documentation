@@ -3,6 +3,8 @@ title: Group
 type: docs
 weight: 40
 url: /net/group/
+keywords: "Group shape, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add group shape to PowerPoint presentation in C# or .NET"
 ---
 
 ## **Add Group Shape**

@@ -3,6 +3,8 @@ title: Manage Paragraph
 type: docs
 weight: 30
 url: /net/manage-paragraph/
+keywords: "Add paragraphs, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create and manage Paragraph, its text, its indent, and properties in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Multiple Paragraphs having Multiple Portions**

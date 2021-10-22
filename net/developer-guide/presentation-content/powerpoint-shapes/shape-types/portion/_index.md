@@ -3,6 +3,8 @@ title: Portion
 type: docs
 weight: 70
 url: /net/portion/
+keywords: "Portion, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Get portion in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Get Position Coordinates of Portion**

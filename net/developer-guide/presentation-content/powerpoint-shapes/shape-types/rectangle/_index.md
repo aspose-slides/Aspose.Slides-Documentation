@@ -3,6 +3,8 @@ title: Rectangle
 type: docs
 weight: 80
 url: /net/rectangle/
+keywords: "Create rectangle, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create rectangle in PowerPoint presentation in C# or .NET"
 ---
 
 

@@ -3,6 +3,8 @@ title: Export Chart
 type: docs
 weight: 90
 url: /net/export-chart/
+keywords: "Chart, chart image, extract chart image,s PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Get chart images in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Get Chart Image**

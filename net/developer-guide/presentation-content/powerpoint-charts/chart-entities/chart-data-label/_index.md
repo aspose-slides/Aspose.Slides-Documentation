@@ -2,6 +2,8 @@
 title: Chart Data Label
 type: docs
 url: /net/chart-data-label/
+keywords: "Chart data label,label distance, C#, Csharp, Aspose.Slides for .NET"
+description: "Set PowerPoint chart data label and distance in C# or .NET"
 ---
 
 ## **Set Precision of Data in Chart Data Labels**

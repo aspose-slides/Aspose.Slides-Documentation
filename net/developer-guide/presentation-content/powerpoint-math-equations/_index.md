@@ -3,8 +3,8 @@ title: PowerPoint Math Equations
 type: docs
 weight: 80
 url: /net/powerpoint-math-equations/
-keywords: " PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
-description: "PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
+keywords: " PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint Math Equations, Math Symbols, Formula, and Math Text in C# or .NET"
 ---
 
 ## **Overview**
