@@ -2,7 +2,7 @@
 title: Convert PowerPoint PPT and PPTX to Animated GIF
 type: docs
 weight: 65
-url: /java/convert-powerpoint-ppt-and-pptx-to-animated-gif/
+url: /java/convert-powerpoint-to-animated-gif/
 keywords: "Convert PowerPoint to animated GIF, PPT to GIF, PPTX to GIF"
 description: "Convert PowerPoint to animated GIF: PPT to GIF, PPTX to GIF, with Aspose.Slides API."
 ---

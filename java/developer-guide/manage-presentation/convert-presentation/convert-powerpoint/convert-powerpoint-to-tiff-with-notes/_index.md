@@ -2,7 +2,7 @@
 title: Convert PowerPoint PPT and PPTX to TIFF with Notes
 type: docs
 weight: 100
-url: /java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/
+url: /java/convert-powerpoint-to-tiff-with-notes/
 keywords: "Convert PowerPoint to TIFF with notes"
 description: "Convert PowerPoint to TIFF with notes in Aspose.Slides."
 ---

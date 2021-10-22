@@ -2,7 +2,7 @@
 title: Convert PowerPoint PPT(X) to SWF Flash
 type: docs
 weight: 80
-url: /java/convert-powerpoint-ppt-and-pptx-to-swf-flash/
+url: /java/convert-powerpoint-to-swf-flash/
 keywords: "PPT, PPTX to SWF"
 description: "Convert PowerPoint PPT, PPTX to SWF in Java"
 ---

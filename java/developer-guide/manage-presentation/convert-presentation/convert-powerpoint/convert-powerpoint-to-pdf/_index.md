@@ -2,7 +2,7 @@
 title: Convert PowerPoint PPT(X) to PDF
 type: docs
 weight: 40
-url: /java/convert-powerpoint-ppt-and-pptx-to-pdf/
+url: /java/convert-powerpoint-to-pdf/
 keywords: "PPT and PPTX to PDF in Java"
 description: "Convert PPT to PDF and PPTX to PDF. Convert PowerPoint to PDF document in Java."
 ---
