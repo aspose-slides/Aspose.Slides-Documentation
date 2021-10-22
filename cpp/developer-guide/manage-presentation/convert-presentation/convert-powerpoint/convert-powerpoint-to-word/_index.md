@@ -1,8 +1,8 @@
 ---
-title: Convert PowerPoint PPT and PPTX to DOC and DOCX
+title: Convert PowerPoint to Word
 type: docs
 weight: 110
-url: /cpp/convert-powerpoint-ppt-and-pptx-to-doc-and-docx/
+url: /cpp/convert-powerpoint-to-word/
 ---
 
 If you intend to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). For example, compared to the Microsoft Presentation app, the Microsoft Word app is more equipped with tools or functionalities that allow you to improve and manipulate content for different purposes. 

@@ -1,8 +1,8 @@
 ---
-title: Convert PowerPoint PPT and PPTX to PDF with Notes
+title: Convert PowerPoint to PDF with Notes
 type: docs
 weight: 50
-url: /cpp/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/
+url: /cpp/convert-powerpoint-to-pdf-with-notes/
 keywords: "convert powerpoint to pdf with notes"
 description: "Convert PowerPoint to PDF with notes. Convert PPT and PPTX to PDF with notes in Aspose.Slides."
 ---

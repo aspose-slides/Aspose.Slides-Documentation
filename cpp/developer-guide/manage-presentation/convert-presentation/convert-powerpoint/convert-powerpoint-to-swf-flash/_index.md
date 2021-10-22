@@ -1,8 +1,8 @@
 ---
-title: Convert PowerPoint PPT and PPTX to SWF Flash
+title: Convert PowerPoint to SWF Flash
 type: docs
 weight: 80
-url: /cpp/convert-powerpoint-ppt-and-pptx-to-swf-flash/
+url: /cpp/convert-powerpoint-to-swf-flash/
 keywords: "PPT, PPTX to SWF"
 description: "Convert PowerPoint PPT, PPTX to SWF Flash format with Aspose.Slides API."
 ---
