@@ -1,7 +1,7 @@
 ---
 title: Animated Text
 type: docs
-weight: 50
+weight: 60
 url: /net/animated-text/
 keywords: "Animated text in PowerPoint"
 description: "Animated text in PowerPoint presentation with Aspose.Slides"

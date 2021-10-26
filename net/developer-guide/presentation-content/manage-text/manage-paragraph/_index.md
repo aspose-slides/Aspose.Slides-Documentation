@@ -1,7 +1,7 @@
 ---
 title: Manage Paragraph
 type: docs
-weight: 30
+weight: 40
 url: /net/manage-paragraph/
 ---
 

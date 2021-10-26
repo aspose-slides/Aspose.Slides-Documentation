@@ -1,7 +1,7 @@
 ---
 title: WordArt
 type: docs
-weight: 231
+weight: 110
 url: /net/wordart/
 ---
 

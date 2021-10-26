@@ -1,7 +1,7 @@
 ---
 title: Presentation Localization
 type: docs
-weight: 90
+weight: 100
 url: /net/presentation-localization/
 ---
 ## **Change Language for Presentation and Shape's Text**

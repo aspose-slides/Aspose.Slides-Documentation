@@ -1,7 +1,7 @@
 ---
 title: Manage Bullet and Numbered Lists
 type: docs
-weight: 60
+weight: 70
 url: /net/manage-bullet-and-numbered-lists
 
 ---
