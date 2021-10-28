@@ -204,8 +204,6 @@ for (int32_t i = 0; i < slide->get_Shapes()->get_Count(); i++)
 
 
 ## **Live Example**
-To see alive how watermark feature works in Aspose.Slides, try [**Aspose.Slides Watermark** ](https://products.aspose.app/slides/watermark)online free demo:
+You may want to check out **Aspose.Slides** **free** [**Add Watermark** ](https://products.aspose.app/slides/watermark) and [**Remove Watermark**](https://products.aspose.app/slides/watermark/remove-watermark) online tools. 
 
-[](https://products.aspose.app/slides/watermark)
-
-[![todo:image_alt_text](slides-watermark.png)](https://products.aspose.app/slides/watermark)
+![todo:image_alt_text](slides-watermark.png)
