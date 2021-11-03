@@ -58,7 +58,14 @@ try {
 }
 ```
 
+{{% alert color="primary" %}} 
+
+You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), which a free web app used to remove macros from PowerPoint, Excel, and Word documents. 
+
+{{% /alert %}} 
+
 ## **Remove VBA Macros from Presentation**
+
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java allows developers to remove VBA macros in a presentation. All you have to do is to add a VBA using the [IVbaProject](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IVbaProject) interface associated with the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class using the [Presentation.getVbaProject()](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/presentation/methods/getVbaProject\(\)/) method.
@@ -112,5 +119,4 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-
 
