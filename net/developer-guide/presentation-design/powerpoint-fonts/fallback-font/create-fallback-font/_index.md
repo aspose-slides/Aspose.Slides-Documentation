@@ -3,6 +3,8 @@ title: Create Fallback Font
 type: docs
 weight: 10
 url: /net/create-fallback-font/
+keywords: "Fonts, fallback font, PowerPoint presentation C#, Csharp, Aspose.Slides for .NET"
+description: "Fallback font in PowerPoint in C# or .NET"
 ---
 
 Aspose.Slides supports [IFontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/iFontFallBackRule) interface and [FontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) class to specify the rules to apply a fallback font. [FontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:

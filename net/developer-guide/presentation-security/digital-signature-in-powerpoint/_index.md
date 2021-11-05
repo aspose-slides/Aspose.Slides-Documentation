@@ -3,8 +3,8 @@ title: Digital Signature in PowerPoint
 type: docs
 weight: 10
 url: /net/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority"
-description: "Add digital signature certificate, certificate authority into PowerPoint presentation with Aspose.Slides."
+keywords: "Digital signature certificate, certificate authority, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add digital signature or certificate in PowerPoint. Certificate authority in C# or .NET"
 ---
 
 

@@ -3,8 +3,8 @@ title: Presentation Background
 type: docs
 weight: 20
 url: /net/presentation-background/
-keywords: "PowerPoint presentation background"
-description: "PowerPoint presentation background design with Aspose.Slides."
+keywords: "PowerPoint background, set background, C#, Csharp, Aspose.Slides for .NET"
+description: "Set background in PowerPoint presentation in C# or .NET"
 ---
 
 ## Overview

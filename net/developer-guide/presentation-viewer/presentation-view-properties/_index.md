@@ -2,6 +2,8 @@
 title: Presentation View Properties
 type: docs
 url: /net/presentation-view-properties/
+keywords: "PowerPoint viewer, viewer properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint presentation viewer properties in C# or .NET"
 ---
 
 {{% alert color="primary" %}} 

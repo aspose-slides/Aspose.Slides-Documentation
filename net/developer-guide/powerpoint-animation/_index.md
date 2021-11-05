@@ -3,8 +3,8 @@ title: PowerPoint Animation
 type: docs
 weight: 150
 url: /net/powerpoint-animation/
-keywords: "PowerPoint animation"
-description: "PowerPoint animation, PowerPoint slide animation with Aspose.Slides."
+keywords: "Animation, animation effects, PowerPoint animation, animation timeline, interactive animation, shape animation, animated chart, animated text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint presentation animation and effects in C# or .NET"
 ---
 
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.

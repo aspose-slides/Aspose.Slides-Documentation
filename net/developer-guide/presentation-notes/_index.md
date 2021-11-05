@@ -3,8 +3,8 @@ title: Presentation Notes
 type: docs
 weight: 110
 url: /net/presentation-notes/
-keywords: "PowerPoint presentation speaker notes"
-description: "PowerPoint presentation notes, speaker notes with Aspose.Slides"
+keywords: "Notes, PowerPoint notes, add notes, remove notes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add and remove notes in PowerPoint presentations in C# or .NET"
 ---
 
 

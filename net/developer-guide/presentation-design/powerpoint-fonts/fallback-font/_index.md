@@ -3,6 +3,8 @@ title: Fallback Font
 type: docs
 weight: 50
 url: /net/fallback-font/
+keywords: "Fallback font, font, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint fallback font in C# or .NET"
 ---
 
 ## **Fallback Font**
@@ -15,7 +17,6 @@ To get familiar with these features, use the following links:
 - [Create Fallback Font](/slides/net/create-fallback-font)
 - [Create Fallback Fonts Collection](/slides/net/create-fallback-fonts-collection)
 - [Render Presentation with Fallback Font](/slides/net/render-presentation-with-fallback-font)
-
 
 
 
