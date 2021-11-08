@@ -3,6 +3,8 @@ title: New HTML Export System - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /net/web-extensions/
+keywords: "Export PowerPoint HTML, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint HTML export in C# or .NET"
 ---
 
 

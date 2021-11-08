@@ -3,8 +3,8 @@ title: Watermark
 type: docs
 weight: 40
 url: /net/watermark/
-keywords: "watermark in presentation"
-description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in ppt presentation or remove watermark. Insert image watermark or text watermark."
+keywords: "Watermark, add watermark, text watermark, image watermark, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add text and image watermark to PowerPoint presentation in C# or .NET"
 ---
 
 

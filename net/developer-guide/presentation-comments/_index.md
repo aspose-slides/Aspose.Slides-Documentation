@@ -3,8 +3,8 @@ title: Presentation Comments
 type: docs
 weight: 100
 url: /net/presentation-comments/
-keywords: "PowerPoint presentation comments"
-description: "Add PowerPoint comments and reply presentation comments with Aspose.Slides."
+keywords: "Comments, PowerPoint comments, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add comments and replies in PowerPoint presentation in C# or .NET"
 ---
 
 

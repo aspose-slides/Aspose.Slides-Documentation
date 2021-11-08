@@ -3,8 +3,8 @@ title: Presentation Viewer
 type: docs
 weight: 50
 url: /net/presentation-viewer/
-keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer with Aspose.Slides API."
+keywords: "View PowerPoint presentation, view ppt, view PPTX, C#, Csharp, Aspose.Slides for .NET"
+description: "View PowerPoint presentation in C# or .NET "
 ---
 
 

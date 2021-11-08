@@ -3,6 +3,8 @@ title: Presentation Properties
 type: docs
 weight: 70
 url: /net/presentation-properties/
+keywords: "PowerPoint properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint presentation properties in C# or .NET"
 ---
 
 

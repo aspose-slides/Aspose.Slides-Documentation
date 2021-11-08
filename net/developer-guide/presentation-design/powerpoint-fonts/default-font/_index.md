@@ -3,6 +3,8 @@ title: Default Font
 type: docs
 weight: 30
 url: /net/default-font/
+keywords: "Fonts, default fonts, render presentation PowerPoint presentation C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint default fonts in C# or .NET"
 ---
 
 ## **Using Default Fonts for Rendering Presentation**

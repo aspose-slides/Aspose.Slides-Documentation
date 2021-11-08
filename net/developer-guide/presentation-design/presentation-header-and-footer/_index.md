@@ -3,8 +3,8 @@ title: Presentation Header and Footer
 type: docs
 weight: 140
 url: /net/presentation-header-and-footer/
-keywords: "Header and footer in PowerPoint"
-description: "Header and footer in PowerPoint with Aspose.Slides."
+keywords: "Header, footer, set header, set footer, set headed and footer, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint header and footer in C# or .NET"
 ---
 
 {{% alert color="primary" %}} 

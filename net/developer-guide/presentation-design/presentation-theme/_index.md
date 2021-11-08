@@ -3,8 +3,8 @@ title: Presentation Theme
 type: docs
 weight: 10
 url: /net/presentation-theme/
-keywords: "PowerPoint PPT presentation design"
-description: "Create PowerPoint design, PPT presentation design with Aspose.Slides API."
+keywords: "Theme, PowerPoint theme, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint presentation theme in C# or .NET"
 ---
 
 ## **About Presentation Design**
@@ -89,7 +89,7 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/net) to choose the app
 
 }
 
-``` 
+```
 
 
 
@@ -103,7 +103,7 @@ In the example above, we have set a reference on *Accent4* color, taken from the
 
 Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
 
-``` 
+```
 
 
 
@@ -117,7 +117,7 @@ We can check that color matches the one defined as *Accent4* for the presentat
 
 Console.WriteLine($"{themeAccent4.Name} - from theme");
 
-``` 
+```
 
 
 
@@ -137,7 +137,7 @@ otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
 pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 
-``` 
+```
 
 
 
@@ -183,7 +183,7 @@ shape.TextFrame.Paragraphs.Add(paragraph);
 
 portion.PortionFormat.LatinFont = new FontData("+mn-lt");
 
-``` 
+```
 
 
 
@@ -197,7 +197,7 @@ Now lets check that the same font is set for Body Latin:
 
 Console.WriteLine($"Theme Body Latin font is: {pres.MasterTheme.FontScheme.Minor.LatinFont}");
 
-``` 
+```
 
 
 
@@ -209,7 +209,7 @@ It is possible to change the presentation theme font, which will be updated for 
 
  pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
-``` 
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -239,7 +239,7 @@ On the images above you can see, that to design the Background Style in PowerPoi
 
 }
 
-``` 
+```
 
 The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/net/slides/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property.
 
@@ -251,7 +251,7 @@ To define which background should be used for presentation, set the needed prese
 
  pres.Masters[0].Background.StyleIndex = 2;
 
-``` 
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -310,7 +310,7 @@ So, the effects you can use in PowerPoint are strictly limited. While, in Aspos
 
 }
 
-``` 
+```
 
 
 

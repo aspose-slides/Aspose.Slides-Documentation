@@ -3,6 +3,8 @@ title: Create Fallback Fonts Collection
 type: docs
 weight: 20
 url: /net/create-fallback-fonts-collection/
+keywords: "Fallback fonts collection, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Fallback fonts collection in PowerPoint in C# or .NET"
 ---
 
 Instances of [FontFallBackRule](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://apireference.aspose.com/net/slides/aspose.slides/fontfallbackrulescollection), that implements [IFontFallBackRulesCollection](https://apireference.aspose.com/net/slides/aspose.slides/ifontfallbackrulescollection) interface. It is possible to add or remove rules from the collection.

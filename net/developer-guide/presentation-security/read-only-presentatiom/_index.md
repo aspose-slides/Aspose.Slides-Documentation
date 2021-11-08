@@ -3,7 +3,8 @@ title: Read Only Presentation
 type: docs
 weight: 30
 url: /net/read-only-presentation/
-
+keywords: "Read-only setting, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Read-only PowerPoint presentation in C# or .NET"
 ---
 
 In PowerPoint 2019, Microsoft introduced the **Always Open Read-Only** setting as one of the options users can use to protect their presentations. You may want to use this Read-Only setting to protect a presentation when
