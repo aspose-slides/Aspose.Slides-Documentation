@@ -27,7 +27,7 @@ This page contains release notes for[ Aspose.Slides for C++ 19.11](https://www.
 ### **Obsolete methods AddFromSvg() have been deleted**
 Methods **System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent)** and
 
-**System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent, System::SharedPtr<Import::IExternalResourceResolver> externalResResolver, System::String baseUri)**
+`System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent, System::SharedPtr<Import::IExternalResourceResolver> externalResResolver, System::String baseUri)`
 
 have been removed from **ImageCollection** class and corresponding **IImageCollection** interface.
 
