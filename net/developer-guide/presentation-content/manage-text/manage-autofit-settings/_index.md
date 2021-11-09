@@ -35,20 +35,20 @@ This C# code shows you how to specify that a text must always fit into its box:
 
 ```c#
  using (Presentation pres = new Presentation())
-            {
-                ISlide slide = pres.Slides[0];
-                IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
-                Portion portion = new Portion("lorem ipsum...");
-                portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-                portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-                autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
+    Portion portion = new Portion("lorem ipsum...");
+    portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+    autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
 
-                ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
-                textFrameFormat.AutofitType = TextAutofitType.Shape;
+    ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
+    textFrameFormat.AutofitType = TextAutofitType.Shape;
 
-                pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
-            }
+    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+}
 ```
 
 If the text becomes longer or bigger, the textbox will be automatically resized (increase in height) to ensure all the text fits into it. If the text becomes shorter, the reverse occurs. 
@@ -63,20 +63,20 @@ This C# code shows you how to specify that a textbox must always retain its dime
 
 ```c#
 using (Presentation pres = new Presentation())
-            {
-                ISlide slide = pres.Slides[0];
-                IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
-                Portion portion = new Portion("lorem ipsum...");
-                portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-                portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-                autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
+    Portion portion = new Portion("lorem ipsum...");
+    portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+    autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
 
-                ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
-                textFrameFormat.AutofitType = TextAutofitType.None;
+    ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
+    textFrameFormat.AutofitType = TextAutofitType.None;
 
-                pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
-            }
+    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+}
 ```
 
 When the text becomes too long for its box, it spills out. 
@@ -91,20 +91,20 @@ This C# code shows you how to specify that a text must be shrunk on overflow:
 
 ```c#
 using (Presentation pres = new Presentation())
-            {
-                ISlide slide = pres.Slides[0];
-                IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
-                Portion portion = new Portion("lorem ipsum...");
-                portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-                portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-                autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
+    Portion portion = new Portion("lorem ipsum...");
+    portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+    autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
 
-                ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
-                textFrameFormat.AutofitType = TextAutofitType .Normal;
+    ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
+    textFrameFormat.AutofitType = TextAutofitType .Normal;
 
-                pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
-            }
+    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+}
 ```
 
 {{% alert title="Info" color="info" %}}
@@ -121,20 +121,20 @@ This C# code shows you how to use the Wrap Text setting:
 
 ```c#
 using (Presentation pres = new Presentation())
-            {
-                ISlide slide = pres.Slides[0];
-                IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
+{
+    ISlide slide = pres.Slides[0];
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
-                Portion portion = new Portion("lorem ipsum...");
-                portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-                portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-                autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
+    Portion portion = new Portion("lorem ipsum...");
+    portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+    autoShape.TextFrame.Paragraphs[0].Portions.Add(portion);
 
-                ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
-                textFrameFormat.WrapText = NullableBool.True;
+    ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
+    textFrameFormat.WrapText = NullableBool.True;
 
-                pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
-            }
+    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+}
 ```
 
 {{% alert title="Note" color="warning" %}} 
