@@ -24,7 +24,7 @@ Following are the links to some useful resources you may need to accomplish your
 - [Aspose.Slides for SharePoint Online Documentation](/slides/sharepoint/)
 - [Aspose.Slides for SharePoint Features](/slides/sharepoint/features/)
 - [Aspose.Slides for SharePoint Release Notes](/slides/sharepoint/release-notes/)
-- [Aspose.Slides for SharePoint Product Page](https://products.aspose.com/slides/sharepoint)
+- [Aspose.Slides for SharePoint Product Page](https://products.aspose.com/slides/sharepoint/)
 - [Download Aspose.Slides for SharePoint](https://downloads.aspose.com/slides/sharepoint)
 - [Aspose.Slides for SharePoint Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for SharePoint Paid Support Helpdesk](https://helpdesk.aspose.com/)

@@ -14,7 +14,7 @@ Aspose provides unlimited free technical support for all its products. The suppo
 
 When you need help with Aspose.Slides for .NET, consider the following:
 
-- The main avenue for support is the [Aspose.Forums](https://forum.aspose.com/c/slides/). Post your question in the Aspose.Slides forum—and it will be answered within a few hours. Aspose.Slides support team directly answers questions posted on the forum.
+- The main avenue for support is the [Aspose.Forums](https://forum.aspose.com/c/slides/11). Post your question in the Aspose.Slides forum—and it will be answered within a few hours. Aspose.Slides support team directly answers questions posted on the forum.
 - Please note that Aspose does not provide technical support over the phone. Phone support is only available for sales and purchase questions.
 - When expecting a reply in the forums, please be patient and make evaluations for time zone differences.
 
@@ -41,5 +41,5 @@ This table list useful Aspose.Slides for .NET technical resources.
 |[Aspose.Slides for .NET home page](https://products.aspose.com/slides/net/)|Product home page.|
 |[Aspose.Slides blog](https://blog.aspose.com/category/aspose-products/aspose-slides-product-family/)|Check this section regularly for information on new releases and useful tips on Aspose.Slides.|
 |[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides from this page. We often release new versions.|
-|[Aspose.Slides support forum](https://forum.aspose.com/c/slides)|Post your questions and issues here for a speedy resolution.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
 |[Aspose.Slides for .NET product documentation](/slides/net/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|

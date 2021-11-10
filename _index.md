@@ -52,7 +52,7 @@ These are links to useful resources:
 - [Install Aspose.Slides for Java from Maven Repository](/slides/java/installation/)
 - [Aspose.Slides for Java API Reference Guide](https://apireference.aspose.com/java/slides)
 - [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Aspose.Slides for Java Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
 ## Aspose.Slides for C++
@@ -75,7 +75,7 @@ These are links to useful resources:
 - [Install Aspose.Slides for C++](https://www.nuget.org/packages/Aspose.Slides.CPP/)
 - [Aspose.Slides for C++ API Reference Guide](https://products.aspose.com/slides/cpp/)
 - [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-C)
-- [Aspose.Slides for C++ Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for C++ Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for C++ Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
 ## Aspose.Slides for Android via Java
@@ -97,7 +97,7 @@ These are links to useful resources:
 - [Download Aspose.Slides for Android via Java](https://repository.aspose.com/repo/com/aspose/aspose-slides/)
 - [Install Aspose.Slides for Android via Java](/slides/androidjava/install-aspose-slides-for-android-via-java/)
 - [Aspose.Slides for Android via Java API Reference Guide](https://apireference.aspose.com/java/slides)
-- [Aspose.Slides for Android via Java Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for Android via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Android via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
 ## Aspose.Slides for Reporting Services
@@ -117,7 +117,7 @@ These are links to useful resources:
 - [Aspose.Slides for Reporting Services Release Notes](/slides/reportingservices/release-notes/)
 - [Aspose.Slides for Reporting Services Product Page](https://products.aspose.com/slides/reporting-services/)
 - [Download Aspose.Slides for Reporting Services](https://downloads.aspose.com/slides/reportingservices)
-- [Aspose.Slides for Reporting Services Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for Reporting Services Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Reporting Services Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
 ## Aspose.Slides for SharePoint
@@ -132,12 +132,12 @@ Aspose.Slides for SharePoint is a flexible solution that makes it possible to co
 
 These are links to useful resources:
 
-- [Aspose.Slides for SharePoint Online Documentation](/slides/sharepoint)
+- [Aspose.Slides for SharePoint Online Documentation](/slides/sharepoint/)
 - [Aspose.Slides for SharePoint Features](/slides/sharepoint/features/)
 - [Aspose.Slides for SharePoint Release Notes](/slides/sharepoint/release-notes/)
 - [Aspose.Slides for SharePoint Product Page](https://products.aspose.com/slides/sharepoint/)
 - [Download Aspose.Slides for SharePoint](https://downloads.aspose.com/slides/sharepoint)
-- [Aspose.Slides for SharePoint Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for SharePoint Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for SharePoint Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
 ## Aspose.Slides for JasperReports
@@ -157,6 +157,6 @@ These are links to useful resources:
 - [Aspose.Slides for JasperReports Release Notes](/slides/jasperreports/release-notes/)
 - [Aspose.Slides for JasperReports Product Page](https://products.aspose.com/slides/jasperreports/)
 - [Download Aspose.Slides for JasperReports](https://downloads.aspose.com/slides/jasperreports)
-- [Aspose.Slides for JasperReports Free Support Forum](https://forum.aspose.com/c/slides)
+- [Aspose.Slides for JasperReports Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for JasperReports Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
