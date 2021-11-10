@@ -31,7 +31,7 @@ If you want the text in a box to always fit into that box after changes are made
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-This C# code shows you how to specify that a text must always fit into its box:
+This C# code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```c#
  using (Presentation pres = new Presentation())
@@ -55,11 +55,11 @@ If the text becomes longer or bigger, the textbox will be automatically resized 
 
 ## **Do Not Autofit**
 
-If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not autofit** option. To specify this setting, set the [AutofitType](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) property (from the [TextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat) class) to `None`. 
+If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [AutofitType](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) property (from the [TextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat) class) to `None`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-This C# code shows you how to specify that a textbox must always retain its dimensions:
+This C# code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -87,7 +87,7 @@ If a text becomes too long for its box, through the **Shrink text on overflow** 
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-This C# code shows you how to specify that a text must be shrunk on overflow:
+This C# code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -117,7 +117,7 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat/properties/wraptext) property (from the [TextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat) class) to `true`. 
 
-This C# code shows you how to use the Wrap Text setting:
+This C# code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```c#
 using (Presentation pres = new Presentation())
