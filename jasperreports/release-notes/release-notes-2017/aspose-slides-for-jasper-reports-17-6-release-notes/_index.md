@@ -7,7 +7,7 @@ url: /jasperreports/aspose-slides-for-jasper-reports-17-6-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESJR-33259|[Use Aspose.Slides for Java 17.6 features](https://docs.aspose.com/display/slidesjava/Aspose.Slides+for+java+17.6+Release+Notes)|Feature|
+|SLIDESJR-33259|[Use Aspose.Slides for Java 17.6 features](/slides/java/aspose-slides-for-java-17-6-release-notes/)|Feature|
 |SLIDESJR-33260|Add support of JasperReports Server Web Services|Feature|
 ## **Public API Changes**
 

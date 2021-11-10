@@ -100,13 +100,13 @@ For now Aspose.Slides for C++ is built for Windows MSVS 2015 x64 (Release|Debug)
 ## **Technical support**
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation. If you need help with Aspose.Slides for C++, consider the following:
 
-- The main avenue for support is the [Aspose. Forums](http://www.aspose.com/community/forums/default.aspx). Post your question in the [Aspose.Slides forum](http://www.aspose.com/community/forums/aspose.slides-product-family/109/showforum.aspx) and it will be answered within a few hours. The questions are answered directly by the Aspose.Slides support team.
+- The main avenue for support is the [Aspose. Forums](https://forum.aspose.com/). Post your question in the [Aspose.Slides forum](https://forum.aspose.com/c/slides/11) and it will be answered within a few hours. The questions are answered directly by the Aspose.Slides support team.
 - Please note, Aspose does not provide technical support over the phone. Phone support is only available for sales and purchase questions.
 - When expecting a reply in the forums, please allow for time zone differences.
 
 If you have an issue with Aspose.Slides for C++, follow these simple steps to make sure it is resolved in the most efficient way:
 
-- Make sure you use the latest Aspose.Slides for C++ version before reporting the issue, see [Aspose.Slides download](http://www.aspose.com/downloads/slides/net) to find out about the latest version.
+- Make sure you use the latest Aspose.Slides for C++ version before reporting the issue, see [Aspose.Slides download](https://downloads.aspose.com/slides/cpp) to find out about the latest version.
 - Have a look through the forums, this documentation and API Reference before reporting the issue; maybe your question was already answered.
 - When reporting an issue, please include the original document and possibly a fragment of your code that causes the problem. If you need to attach multiple files, zip them into one. It is safe to attach your documents in Aspose.Forums since only you and Aspose developers will have access to the attached files.
 - Please try to report one issue per thread. If you have another issue, report it in a separate thread.
