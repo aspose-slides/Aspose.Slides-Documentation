@@ -8,7 +8,7 @@ description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as 
 ---
 
 ## **About PowerPoint to HTML Conversion**
-[**Aspose.Slides for .NET** ](https://products.aspose.com/slides/net)provides support for converting a PowerPoint presentation to HTML. With Aspose.Slides API you may set up the conversion process to enhance the resulting HTML. Both PPT to HTML and PPTX to HTML conversions are available.
+[**Aspose.Slides for .NET** ](https://products.aspose.com/slides/net/)provides support for converting a PowerPoint presentation to HTML. With Aspose.Slides API you may set up the conversion process to enhance the resulting HTML. Both PPT to HTML and PPTX to HTML conversions are available.
 
 There are many ways to convert PPT(X) to HTML. You could use PowerPoint native tools or online web tools to do that, however, they will cover only the basic scenarios to convert PPT(X) to HTML. If you need to built-in an HTML result to your website or integrate it into an enterprise-level solution - you would rather need to have more flexibility in PPT(X) to HTML conversion.
 

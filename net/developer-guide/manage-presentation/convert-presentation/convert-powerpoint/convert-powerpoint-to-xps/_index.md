@@ -39,7 +39,7 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/net) for .NET, you can use the [**Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method exposed by the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class to convert the entire presentation into an XPS document. 
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) for .NET, you can use the [**Save**](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method exposed by the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class to convert the entire presentation into an XPS document. 
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 

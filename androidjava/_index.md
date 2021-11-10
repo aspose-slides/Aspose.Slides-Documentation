@@ -24,7 +24,7 @@ These are links to useful resources you may need to do your work:
 - [Aspose.Slides for Java Online Documentation](/slides/java/)
 - [Aspose.Slides for Android via Java Features](https://docs.aspose.com/slides/androidjava/aspose-slides-for-android-via-java-features/)
 - [Aspose.Slides for Android via Java Release Notes](/slides/androidjava/aspose-slides-for-android-via-java)
-- [Aspose.Slides for Android via Java Product Page](https://products.aspose.com/slides/android-java)
+- [Aspose.Slides for Android via Java Product Page](https://products.aspose.com/slides/android-java/)
 - [Download Aspose.Slides for Android via Java](https://repository.aspose.com/repo/com/aspose/aspose-slides/)
 - [Install Aspose.Slides for Android via Java](/slides/androidjava/install-aspose-slides-for-android-via-java) 
 - [Aspose.Slides for Android via Java API Reference Guide](https://apireference.aspose.com/slides/androidjava)

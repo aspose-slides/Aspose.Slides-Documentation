@@ -57,17 +57,17 @@ Read more about [Creating Sunburst Chart](/slides/java/creating-and-updating-cha
 
 If there is a need to format data points of the chart, we should use the following:
 
-[**IChartDataPointLevelsManager**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevelsManager)**, [IChartDataPointLevel](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel)** 
-classes and [**IChartDataPoint**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPoint)**.
-[getDataPointLevels()](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPoint#getDataPointLevels--)** 
+[**IChartDataPointLevelsManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager)**, [IChartDataPointLevel](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel)** 
+classes and [**IChartDataPoint**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint)**.
+[getDataPointLevels()](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--)** 
 method provide access to format data points of Treemap and Sunburst charts. 
-[**IChartDataPointLevelsManager**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevelsManager) 
+[**IChartDataPointLevelsManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager) 
 is used for accessing multi-level categories - it represents the container of 
-[**IChartDataPointLevel**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel) 
-objects. Basically it is a wrapper for [**IChartCategoryLevelsManager**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartCategoryLevelsManager) 
-with the properties added specifically for data points. [**IChartDataPointLevel**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel) 
-class has two methods: [**getFormat()**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel#getFormat--) 
-and [**getLabel()**](https://apireference.aspose.com/java/slides/com.aspose.slides/IChartDataPointLevel#getLabel--) 
+[**IChartDataPointLevel**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) 
+objects. Basically it is a wrapper for [**IChartCategoryLevelsManager**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartCategoryLevelsManager) 
+with the properties added specifically for data points. [**IChartDataPointLevel**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) 
+class has two methods: [**getFormat()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getFormat--) 
+and [**getLabel()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getLabel--) 
 which provide access to corresponding settings.
 ### **Show Data Point Value**
 Show value of "Leaf 4" data point:
@@ -105,11 +105,11 @@ steam4Format.getFill().getSolidFillColor().setColor(new Color(0, 176, 240, 255))
 ![todo:image_alt_text](aspose-slides-for-java-19-12-release-notes_4)
 
 ###  **getAccessPermissions() and setAccessPermissions() methods have been added to IPdfOptions interface and PdfOptions class**
- [**getAccessPermissions()**](https://apireference.aspose.com/java/slides/com.aspose.slides/IPdfOptions#getAccessPermissions--) 
- and [**setAccessPermissions()**](https://apireference.aspose.com/java/slides/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) 
- methods have been added to [**IPdfOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/IPdfOptions) 
- interface and [**PdfOptions**](https://apireference.aspose.com/java/slides/com.aspose.slides/PdfOptions) class. 
- All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/java/slides/com.aspose.slides/PdfAccessPermissions) class. 
+ [**getAccessPermissions()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPdfOptions#getAccessPermissions--) 
+ and [**setAccessPermissions()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) 
+ methods have been added to [**IPdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPdfOptions) 
+ interface and [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. 
+ All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfAccessPermissions) class. 
  These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
 
 ##### **Example**
@@ -129,8 +129,8 @@ try {
 
 
 ### **ISlideCollection.addClone() method has been added**
-[**addClone()**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) method has been added to [**ISlideCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/ISlideCollection) 
-interface and [**SlideCollection**](https://apireference.aspose.com/java/slides/com.aspose.slides/SlideCollection) class. 
+[**addClone()**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) method has been added to [**ISlideCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) 
+interface and [**SlideCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideCollection) class. 
 This method allows adding a slide clone into a specified section.
 
 Method declaration:

@@ -27,7 +27,7 @@ try {
 ```
 
 ## **Open Password Protected Presentation**
-Aspose.Slides for Java provides a facility to open password-protected presentation using [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation. In the example given below, we are accessing the password-protected presentation. We will use [LoadOptions](https://apireference.aspose.com/java/slides/com.aspose.slides/LoadOptionsOptions) class object to set the access password and then will use [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation.
+Aspose.Slides for Java provides a facility to open password-protected presentation using [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation. In the example given below, we are accessing the password-protected presentation. We will use [LoadOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/LoadOptionsOptions) class object to set the access password and then will use [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation.
 
 ```java
 // Creating instance of load options to set the presentation access password

@@ -28,7 +28,7 @@ Go through these steps:
 
 ## PowerPoint to PDF Conversion in Java
 
-[**Aspose.Slides**](https://products.aspose.com/slides/java) allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
+[**Aspose.Slides**](https://products.aspose.com/slides/java/) allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
 
 To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. The [**Presentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [**save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
 

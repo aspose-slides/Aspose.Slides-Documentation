@@ -8,7 +8,7 @@ description: "Convert PowerPoint to JPG in C# or .NET. Save slide as JPG image"
 ---
 
 ## **About PowerPoint to JPG Conversion**
-With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net) you can convert PowerPoint PPT or PPTX presentation to JPG image. It is also possible to convert PPT/PPTX to BMP, PNG or SVG. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
+With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net/) you can convert PowerPoint PPT or PPTX presentation to JPG image. It is also possible to convert PPT/PPTX to BMP, PNG or SVG. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
 
 {{% alert color="primary" %}} 
 

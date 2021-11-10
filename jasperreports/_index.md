@@ -24,7 +24,7 @@ Following are the links to some useful resources you may need to accomplish your
 - [Aspose.Slides for JasperReports Online Documentation](/slides/jasperreports/)
 - [Aspose.Slides for JasperReports Features](/slides/jasperreports/features/)
 - [Aspose.Slides for JasperReports Release Notes](/slides/jasperreports/release-notes/)
-- [Aspose.Slides for JasperReports Product Page](https://products.aspose.com/slides/jasperreports)
+- [Aspose.Slides for JasperReports Product Page](https://products.aspose.com/slides/jasperreports/)
 - [Download Aspose.Slides for JasperReports](https://downloads.aspose.com/slides/jasperreports)
 - [Aspose.Slides for JasperReports Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for JasperReports Paid Support Helpdesk](https://helpdesk.aspose.com/)

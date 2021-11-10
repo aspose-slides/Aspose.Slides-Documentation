@@ -91,7 +91,7 @@ Unlike Office Automation, Aspose components provide many powerful and time-savin
 
 {{% /alert %}} 
 
-For instance, [Aspose.Cells](https://products.aspose.com/cells/net) gives developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/net) provides a similar feature that allows developers to populate a Word (that is, Mail Merge) document directly from any .NET data object. [Every component](https://products.aspose.com/total/net) in the Aspose family offers their own set of unique and powerful features. 
+For instance, [Aspose.Cells](https://products.aspose.com/cells/net/) gives developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/net/) provides a similar feature that allows developers to populate a Word (that is, Mail Merge) document directly from any .NET data object. [Every component](https://products.aspose.com/total/net/) in the Aspose family offers their own set of unique and powerful features. 
 
 The best part of purchasing an Aspose component is getting access to our development teams. For example, if you use Office Automation objects and need certain features, the chances of you getting those features to be added are very, very low. However, things are different with Aspose components. 
 

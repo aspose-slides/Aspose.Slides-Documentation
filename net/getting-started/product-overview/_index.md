@@ -120,7 +120,7 @@ This table lists important Aspose.Slides for .NET technical resources.
 
 |**Resource**|**Description**|
 | :- | :- |
-|[Aspose.Slides for .NET home page](https://products.aspose.com/slides/net)|Product home page.|
+|[Aspose.Slides for .NET home page](https://products.aspose.com/slides/net/)|Product home page.|
 |[Aspose.Slide blog](https://blog.aspose.com/category/aspose-products/aspose-slides-product-family/)|Check this page regularly for information on new releases and useful tips on Aspose.Slides.|
 |[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides here. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides)|Post your questions and issues here for a speedy resolution.|
