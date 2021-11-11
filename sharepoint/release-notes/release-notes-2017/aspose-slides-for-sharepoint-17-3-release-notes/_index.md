@@ -7,5 +7,5 @@ url: /sharepoint/aspose-slides-for-sharepoint-17-3-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESSP-33229|[Use Aspose.Slides for .NET 17.3 feature](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+17.3+Release+Notes)|Feature|
+|SLIDESSP-33229|[Use Aspose.Slides for .NET 17.3 feature](/slides/net/aspose-slides-for-net-17-3-release-notes/)|Feature|
 
