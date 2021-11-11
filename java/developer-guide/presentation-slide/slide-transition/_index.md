@@ -20,7 +20,7 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 ## **Add Slide Transition**
 To create a simple slide transition effect, follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for Java through TransitionType enum
 1. Write the modified presentation file.
 
@@ -44,7 +44,7 @@ try {
 ## **Add Advanced Slide Transition**
 In the above section, we just applied a simple transition effect on the slide. Now, to make that simple transition effect even better and controlled, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for Java
 1. You can also set the transition to Advance On Click, after a specific time period or both.
 1. If the slide transition is enabled to Advance On Click, the transition will only advance when someone will click the mouse. Moreover, if the Advance After Time property is set, the transition will advance automatically after the specified advance time will be passed.
@@ -144,7 +144,7 @@ Aspose.Slides for Java supports setting the transition effects like, from black,
 - Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Get the reference of the slide.
 - Setting the transition effect.
-- Write the presentation as a [PPTX ](https://wiki.fileformat.com/presentation/pptx/)file.
+- Write the presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
 
 In the example given below, we have set the transition effects.
 

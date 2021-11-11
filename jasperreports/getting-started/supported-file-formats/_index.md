@@ -28,7 +28,7 @@ The following table indicates the file formats that Aspose.Slides for JasperRepo
 |[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint slideShow 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint presentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint slideShow 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PDF](https://wiki.fileformat.com/view/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
-|[HTML](https://wiki.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}| |
 
 

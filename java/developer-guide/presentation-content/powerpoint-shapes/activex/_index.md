@@ -15,8 +15,8 @@ ActiveX controls are used in presentations. Aspose.Slides for Java allows you to
 ## **Adding Media Player ActiveX Control to Slide**
 To add an ActiveX Media Player control, do this:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and generate an empty presentation instance.
-1. Access the target slide in [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation).
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and generate an empty presentation instance.
+1. Access the target slide in [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation).
 1. Add the Media Player ActiveX control using the [addControl](https://apireference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
 1. Save the presentation as a PPTX file.
@@ -49,7 +49,7 @@ Aspose.Slides for Java 7.1.0 and newer versions are equipped with components for
 
 To manage a simple ActiveX control like a text box and simple command button on a slide, do this:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with ActiveX controls in it.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with ActiveX controls in it.
 1. Obtain a slide reference by its index.
 1. Access the ActiveX controls in the slide by accessing the [IControlCollection](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControlCollection).
 1. Access the TextBox1 ActiveX control using the [IControl](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IControl) object.

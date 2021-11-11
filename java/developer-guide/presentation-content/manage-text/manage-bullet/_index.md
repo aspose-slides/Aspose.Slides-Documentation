@@ -8,7 +8,7 @@ url: /java/manage-bullet/
 ## **Create Bullet**
 This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for Java:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides//java/com.aspose.slides/islide) object.
 1. Add an [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentationText) in selected slide.
 1. Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) of the added shape.
@@ -78,7 +78,7 @@ try {
 ## **Create Picture Bullet**
 This topic is also the part of the topic series of managing text in paragraphs. This page will illustrate how we can manage paragraph picture bullets. Picture bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph picture bullets using Aspose.Slides for Java:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class
 - Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides//java/com.aspose.slides/islide) object
 - Add an autoshape in selected slide
 - Access the [TextFrame](https://apireference.aspose.com/slides//java/com.aspose.slides/textframe) of the added shape
@@ -139,7 +139,7 @@ try {
 ## **Create Multilevel Bullet**
 This topic is also the part of the topic series of managing text in paragraphs. This page will illustrate that how we can manage paragraphs with multilevel bullets. Please follow the steps below to manage the multilevel bullets using Aspose.Slides for Java:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides//java/com.aspose.slides/islide) object.
 - Add an autoshape in selected slide.
 - Access the [TextFrame](https://apireference.aspose.com/slides//java/com.aspose.slides/textframe) of the added shape.
@@ -229,7 +229,7 @@ try {
 ## **Create Custom Numbered List**
 Aspose.Slides for Java provides a simple API to manage paragraphs with custom numbers formatting. For this purpose, [**setNumberedBulletStartWith**](https://apireference.aspose.com/slides/java/com.aspose.slides/IBulletFormat#setNumberedBulletStartWith-short-) method has been added to [**IBulletFormat**](https://apireference.aspose.com/slides/java/com.aspose.slides/IBulletFormat). To add a custom number list in a paragraph, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides//java/com.aspose.slides/islide) object.
 - Add an autoshape in selected slide.
 - Access the [TextFrame](https://apireference.aspose.com/slides//java/com.aspose.slides/textframe) of the added shape.

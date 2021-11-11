@@ -56,7 +56,7 @@ using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))
 
 
 ## **Generate SVG with Custom Shape IDS**
-Aspose.Slides for .NET can be used to generate [SVG ](https://wiki.fileformat.com/page-description-language/svg/)from slide with custom shape ID. For that, use ID property from [ISvgShape](https://apireference.aspose.com/net/slides/aspose.slides.export/isvgshape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
+Aspose.Slides for .NET can be used to generate [SVG ](https://docs.fileformat.com/page-description-language/svg/)from slide with custom shape ID. For that, use ID property from [ISvgShape](https://apireference.aspose.com/net/slides/aspose.slides.export/isvgshape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```c#
 using (Presentation pres = new Presentation("pptxFileName.pptx"))

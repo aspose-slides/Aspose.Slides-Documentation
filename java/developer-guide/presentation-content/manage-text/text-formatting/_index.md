@@ -140,7 +140,7 @@ Presentations usually contain both text and images. The text can be formatted in
    1. Set the font to bold.
    1. Set the font to italic.
 1. Set the font color using the [getFillFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#getFillFormat--) exposed by the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion) object.
-1. Write the modified presentation to a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+1. Write the modified presentation to a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
 

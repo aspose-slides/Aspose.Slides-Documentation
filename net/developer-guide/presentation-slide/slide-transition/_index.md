@@ -130,7 +130,7 @@ Aspose.Slides for .NET supports setting the transition effects like, from black,
 - Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class.
 - Get the reference of the slide.
 - Setting the transition effect.
-- Write the presentation as a [PPTX ](https://wiki.fileformat.com/presentation/pptx/)file.
+- Write the presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
 
 In the example given below, we have set the transition effects.
 

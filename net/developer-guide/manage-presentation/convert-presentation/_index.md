@@ -17,7 +17,7 @@ Read more [**How to Convert PPT to PPTX**](/slides/net/convert-ppt-to-pptx/).
 ### **About PDF**
 The [Portable Document Format](http://en.wikipedia.org/wiki/PDF_Format) is a file format that was created by Adobe System for exchange of documents between different organizations. The purpose of this format was to make it possible that contents of the documents may be represented in such a way that their visual appearance is not dependent of the platform on which it is being viewed.
 ### **PDF in Aspose.Slides for .NET**
-[PDF ](https://wiki.fileformat.com/view/pdf)is a file format that was created by Adobe System for exchange of documents between different organizations. The purpose of this format was to make it possible that the visual appearance of the document contents is not dependent of the platform on which it is being viewed. 
+[PDF ](https://docs.fileformat.com/pdf/)is a file format that was created by Adobe System for exchange of documents between different organizations. The purpose of this format was to make it possible that the visual appearance of the document contents is not dependent of the platform on which it is being viewed. 
 
 Any presentation document that can be loaded into Aspose.Slides for .NET can be converted to PDF document. You can export the presentation documents to PDF directly using Aspose.Slides for .NET component only. You do not need any other third party libraries or Aspose.PDF component for this purpose. 
 

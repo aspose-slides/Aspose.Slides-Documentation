@@ -14,7 +14,7 @@ Presentations usually contain both text and images. The text can be formatted in
 
 To manage font properties of a paragraph using Aspose.Slides for Java:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain a slide's reference by using its index.
 1. Access the [Placeholder](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Placeholder) shapes in the slide and typecast them to [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape).
 1. Get the [Paragraph](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Paragraph) from the [TextFrame](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/TextFrame) exposed by [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape).
@@ -97,7 +97,7 @@ As mentioned in **Managing Font Related Properties**, a [Portion](http://www.asp
 
 To create a textbox and set font properties of the text in it:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its index.
 1. Add an [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape) of the type **Rectangle** to the slide.
 1. Remove the fill style associated with the [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape).

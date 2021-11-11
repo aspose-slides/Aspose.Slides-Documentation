@@ -22,7 +22,7 @@ To replace the text of a Placeholder, please follow the steps below:
 - Obtain the reference of a slide by using its Index.
 - Iterate through the Shapes and find the Placeholder shapes.
 - Typecast the Placeholder shape to AutoShape and change the text using the TextFrame associated with the AutoShape.
-- Write the modified presentation as a [PPTX ](https://wiki.fileformat.com/presentation/pptx/)file.
+- Write the modified presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
 
 ```c#
 // Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
