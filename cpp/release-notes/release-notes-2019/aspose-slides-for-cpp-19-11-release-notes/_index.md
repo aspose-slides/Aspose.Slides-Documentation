@@ -18,7 +18,7 @@ This page contains release notes for[ Aspose.Slides for C++ 19.11](https://www.
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1821|[Use Aspose.Slides for .NET 19.11 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.11+Release+Notes)|Feature|
+|SLIDESCPP-1821|[Use Aspose.Slides for .NET 19.11 features](/slides/net/aspose-slides-for-net-19-11-release-notes/)|Feature|
 |SLIDESNET-39130|[Improve handling of embedded OLE objects in Presentation](/slides/cpp/shape-manipulations/#shapemanipulations-extractembeddedfilesfromoleobject)|Feature|
 |SLIDESNET-41401|Text get overlapped in generated shape thumbnail|Enhancement|
 |SLIDESNET-41340|Chart become image on cloning shape|Enhancement|

@@ -16,7 +16,7 @@ JasperReports and JasperServer do not have built-in abilities to export reports 
 
 {{% /alert %}} 
 
-To create documents in these formats, Aspose.Slides for JasperReports relies on a built-in version of [Aspose.Slides for Java](http://www.aspose.com/categories/java-components/aspose.slides-for-java/default.aspx), the market leading presentation-processing library from Aspose. Microsoft PowerPoint is not used to generate the documents.
+To create documents in these formats, Aspose.Slides for JasperReports relies on a built-in version of [Aspose.Slides for Java](https://products.aspose.com/slides/java/), the market leading presentation-processing library from Aspose. Microsoft PowerPoint is not used to generate the documents.
 
 
 

@@ -16,7 +16,7 @@ Aspose.Slides is a class library that allows your application to perform the fol
 - Ability to build presentations from scratch or by combining from one or multiple documents.
 - Support for adding animations, Ole Frames, Tables, creating and managing charts.
 - Availability of extensive control for Managing the text formatting on TextFrames, Paragraphs and Portions levels.
-  For more details about the features supported, please visit [Aspose.Slides Features](https://docs.aspose.com/display/slidesnet/Product+Overview).
+  For more details about the features supported, please visit [Aspose.Slides Features](/slides/net/product-overview/).
 ## **Compare Open XML SDK and Aspose.Slides**
 The following table compares Open XML SDK and Aspose.Slides features.
 

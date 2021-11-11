@@ -15,7 +15,7 @@ url: /androidjava/aspose-slides-for-android-via-java-18-9-release-notes/
 |SLIDESANDROID-100|Implement LinearGradientBrush for Android|Feature|
 |SLIDESANDROID-114|Add support of Metafiles for Android|Feature|
 |SLIDESANDROID-73|[Use Aspose.Slides for Java 18.9 features](/slides/java/aspose-slides-for-java-18-9-release-notes/)|Improvement|
-|SLIDESJAVA-37133|[Use Aspose.Slides for Net 18.9 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+18.9+Release+Notes)|Improvement|
+|SLIDESJAVA-37133|[Use Aspose.Slides for Net 18.9 features](/slides/net/aspose-slides-for-net-18-9-release-notes/)|Improvement|
 |SLIDESNET-40448|The performance issue regarding GetThumbnail method|Improvement|
 |SLIDESANDROID-14|Converting PPTX to HTML|Feature|
 |SLIDESANDROID-15|Support for Presentation to HTML is unavailable in Aspose.Slides for Android|Feature|

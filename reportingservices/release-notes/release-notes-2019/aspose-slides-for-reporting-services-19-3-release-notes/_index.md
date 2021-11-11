@@ -13,5 +13,5 @@ This page contains release notes for Aspose.Slides for Reporting Services 19.3
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESRS-33582|[Use Aspose.Slides for .NET 19.3 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.3+Release+Notes)|Feature|
+|SLIDESRS-33582|[Use Aspose.Slides for .NET 19.3 features](/slides/net/aspose-slides-for-net-19-3-release-notes/)|Feature|
 

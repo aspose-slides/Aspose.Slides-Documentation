@@ -13,7 +13,7 @@ This page contains release notes for Aspose.Slides for Java 19.2
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESJAVA-37441|[Use Aspose.Slides for .NET 19.2 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.2+Release+Notes)|Feature|
+|SLIDESJAVA-37441|[Use Aspose.Slides for .NET 19.2 features](/slides/net/aspose-slides-for-net-19-10-release-notes/)|Feature|
 |SLIDESNET-40633|Support for Morph Transition feature|Feature|
 |SLIDESNET-40783|Support for setting Transparency property for shadow effects|Feature|
 |SLIDESJAVA-37371|Performance and memory leak issue with Aspose.Slides|Investigation|

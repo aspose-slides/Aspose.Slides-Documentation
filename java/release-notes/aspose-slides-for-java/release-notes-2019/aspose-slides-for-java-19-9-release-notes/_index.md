@@ -13,7 +13,7 @@ This page contains release notes for Aspose.Slides for Java 19.9
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESJAVA-37448|[Use Aspose.Slides for .NET 19.9 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.9+Release+Notes)|Feature|
+|SLIDESJAVA-37448|[Use Aspose.Slides for .NET 19.9 features](/slides/net/aspose-slides-for-net-19-9-release-notes/)|Feature|
 |SLIDESJAVA-37723|PPTX not properly converted to PDF|Bug|
 |SLIDESJAVA-37728|PPT: A fatal error has been detected|Bug|
 |SLIDESJAVA-36589|PackageUnsupportedFormatException on converting presentation to HTML|Bug|

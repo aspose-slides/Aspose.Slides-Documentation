@@ -13,7 +13,7 @@ This page contains release notes for [Aspose.Slides for Java 19.10](https://rep
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESJAVA-37449|[Use Aspose.Slides for .NET 19.10 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.10+Release+Notes)|Feature|
+|SLIDESJAVA-37449|[Use Aspose.Slides for .NET 19.10 features](/slides/net/aspose-slides-for-net-19-10-release-notes/)|Feature|
 |SLIDESNET-40689|[Support for accessing prompt text from slides shapes placeholders](/slides/java/creating-a-textbox/#creatingatextbox-setprompttextinaplaceholder)|Feature|
 |SLIDESNET-41393|After conversion to PDF/A an image is rendered with blur|Enhancement|
 |SLIDESJAVA-37760|Out of memory error during slides conversion to PDF on AWS Lambda|Bug|

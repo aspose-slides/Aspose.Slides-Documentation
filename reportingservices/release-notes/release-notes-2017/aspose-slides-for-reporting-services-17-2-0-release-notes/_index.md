@@ -7,5 +7,5 @@ url: /reportingservices/aspose-slides-for-reporting-services-17-2-0-release-note
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESRS-33520|[Use Aspose.Slides for .NET 17.2 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+17.2.0+Release+Notes)|Feature|
+|SLIDESRS-33520|[Use Aspose.Slides for .NET 17.2 features](/slides/net/aspose-slides-for-net-17-2-0-release-notes/)|Feature|
 

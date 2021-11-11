@@ -36,6 +36,6 @@ pres.save("AsposeConvert.pdf", SaveFormat.Pdf);
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Converting Presentation to PDF](http://www.aspose.com/docs/display/slidesjava/Converting+Presentation+to+PDF).
+For more details, visit [Converting Presentation to PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 
 {{% /alert %}}

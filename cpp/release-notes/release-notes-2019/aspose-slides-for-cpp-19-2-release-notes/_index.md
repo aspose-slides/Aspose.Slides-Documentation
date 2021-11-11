@@ -15,7 +15,7 @@ This page contains release notes for Aspose.Slides for CPP 19.2
 | :- | :- | :- |
 |SLIDESCPP-1441|Implement Multi-page Tiff format support|Feature|
 |SLIDESCPP-1615|Improve thumbnails rendering quality (v19.2)|Feature|
-|SLIDESCPP-1705|[Use Aspose.Slides for .NET 19.2 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.2+Release+Notes)|Feature|
+|SLIDESCPP-1705|[Use Aspose.Slides for .NET 19.2 features](/slides/net/aspose-slides-for-net-19-2-release-notes/)|Feature|
 |SLIDESNET-40633|Support for Morph Transition feature|Feature|
 |SLIDESNET-40783|Support for setting Transparency property for shadow effects|Feature|
 ## **Public API Changes**

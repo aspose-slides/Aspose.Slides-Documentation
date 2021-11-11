@@ -25,7 +25,7 @@ This page contains release notes for Aspose.Slides for C++ 20.4
 |SLIDESCPP-1716|Implement Tiff pixel format support|Enhancement|
 |SLIDESCPP-1715|Implement Tiff compression types support|Enhancement|
 |SLIDESCPP-1714|Implement DPI handling for Tiff format|Enhancement|
-|SLIDESCPP-2208|[Use Aspose.Slides for .NET 20.4 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+20.4+Release+Notes)|Enhancement|
+|SLIDESCPP-2208|[Use Aspose.Slides for .NET 20.4 features](/slides/net/aspose-slides-for-net-20-4-release-notes/)|Enhancement|
 ## **Public API Changes**
 -----
 ### **Fodp value has been added to LoadFormat and SaveFormat enumerations**

@@ -18,7 +18,7 @@ This page contains release notes for Aspose.Slides for CPP 19.9
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1819|[Use Aspose.Slides for .NET 19.9 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.9+Release+Notes)|Feature|
+|SLIDESCPP-1819|[Use Aspose.Slides for .NET 19.9 features](/slides/net/aspose-slides-for-net-19-9-release-notes/)|Feature|
 |SLIDESCPP-2009|Decryption of encrypted ODP and OTP presentation formats|Feature|
 ## **Public API Changes**
 

@@ -8,7 +8,7 @@ url: /java/aspose-slides-for-java-18-8-release-notes/
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
 |SLIDESJAVA-37312|Exception on using Fonts|Investigation|
-|SLIDESJAVA-37132|[Use Aspose.Slides for Net 18.8 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+18.8+Release+Notes)|Feature|
+|SLIDESJAVA-37132|[Use Aspose.Slides for Net 18.8 features](/slides/net/aspose-slides-for-net-18-8-release-notes/)|Feature|
 |SLIDESNET-40224|Add support for Strict Open XML format|Feature|
 |SLIDESNET-34155|Add support for Strict Open XML format|Feature|
 |SLIDESNET-40189|Rendering of Metafiles ignores fonts loaded with FontsLoader|Feature|

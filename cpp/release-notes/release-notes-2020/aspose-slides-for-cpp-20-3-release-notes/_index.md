@@ -16,7 +16,7 @@ This page contains release notes for Aspose.Slides for C++ 20.3
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2207|Use [Aspose.Slides for .NET 20.3](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+20.3+Release+Notes) features|Enhancement|
+|SLIDESCPP-2207|Use [Aspose.Slides for .NET 20.3](/slides/net/aspose-slides-for-net-20-3-release-notes/) features|Enhancement|
 |SLIDESNET-41551|Keep the sequence of numbered list that has NumberedBulletStartWith|Enhancement|
 |SLIDESCPP-2309|Improve thumbnails rendering quality (20.3)|Enhancement|
 |SLIDESCPP-2207|Use Aspose.Slides for .NET 20.3 features|Enhancement|
