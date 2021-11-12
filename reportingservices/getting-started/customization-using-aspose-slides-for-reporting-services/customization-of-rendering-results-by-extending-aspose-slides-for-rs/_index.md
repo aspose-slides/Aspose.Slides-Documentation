@@ -145,6 +145,6 @@ Update the Aspose.Slides rendering extension config sections of **rsreportserver
 ```
 
 If you want to use the extension for every output type supported by Aspose.Slides, add the same config to extensions with the names ASPPTX, ASPPT, ASPPS, ASPPSX.
-The content of the Extension tag is an assembly-qualified name of the type. (See <http://msdn.microsoft.com/en-us/library/system.type.assemblyqualifiedname.aspx>)
+The content of the Extension tag is an assembly-qualified name of the type. (See <https://docs.microsoft.com/en-us/dotnet/api/system.type.assemblyqualifiedname>)
 
 Now restart Reporting Services and export the report. You get something like [this presentation](attachments/10289195/10452997.pptx) from the Company Sales SQL2008R2 report of the Adventureworks samples.
