@@ -23,7 +23,7 @@ Aspose.Slides for .NET allows you to insert OLE Objects into slides as OLE Objec
 ## **Adding OLE Object Frames to Slides**
 Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for .NET, you can do it this way:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of the slide by using its index.
 1. Open the Excel file containing the Excel chart object and save it to MemoryStream.
 1. Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
@@ -68,7 +68,7 @@ using (Presentation pres = new Presentation())
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily using Aspose.Slides for .NET this way:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the `Presentation` class.
 
 1. Obtain the reference of the slide by using its index.
 
@@ -115,7 +115,7 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 
 If an OLE object is already embedded in a slide, you can easily access that object with Aspose.Slides for .NET and modify its data this way:
 
-1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Open the desired presentation with the embedded OLE Object by creating an instance of the `Presentation` class.
 
 1. Obtain the reference of the slide by using its Index.
 

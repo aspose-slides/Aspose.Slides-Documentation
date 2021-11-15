@@ -50,7 +50,7 @@ These are links to useful resources:
 - [Aspose.Slides for Java Product Page](https://products.aspose.com/slides/java/)
 - [Download Aspose.Slides for Java](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides)
 - [Install Aspose.Slides for Java from Maven Repository](/slides/java/installation/)
-- [Aspose.Slides for Java API Reference Guide](https://apireference.aspose.com/java/slides)
+- [Aspose.Slides for Java API Reference Guide](https://apireference.aspose.com/slides/java)
 - [Download Examples at GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [Aspose.Slides for Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
@@ -96,7 +96,7 @@ These are links to useful resources:
 - [Aspose.Slides for Android via Java Product Page](https://products.aspose.com/slides/android-java/)
 - [Download Aspose.Slides for Android via Java](https://repository.aspose.com/repo/com/aspose/aspose-slides/)
 - [Install Aspose.Slides for Android via Java](/slides/androidjava/install-aspose-slides-for-android-via-java/)
-- [Aspose.Slides for Android via Java API Reference Guide](https://apireference.aspose.com/java/slides)
+- [Aspose.Slides for Android via Java API Reference Guide](https://apireference.aspose.com/slides/java)
 - [Aspose.Slides for Android via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Android via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 

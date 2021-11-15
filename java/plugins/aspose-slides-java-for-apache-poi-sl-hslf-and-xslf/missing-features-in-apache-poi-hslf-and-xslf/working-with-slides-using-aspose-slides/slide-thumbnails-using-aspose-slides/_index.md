@@ -39,7 +39,7 @@ ImageIO.write(image,"jpeg",new File(dataDir + "AsposeThumbnail.jpg"));
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Apache_POI-v1.0.0)
 ## **Download Sample Code**
 - [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/SourceControl/latest#src/main/java/com/aspose/slides/examples/asposefeatures/slides/slidethumbnails/AsposeThumbnail.java)
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/slides/slidethumbnails/AsposeThumbnail.java)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/slides/slidethumbnails/AsposeThumbnail.java)
 
 {{% alert color="primary" %}} 
 

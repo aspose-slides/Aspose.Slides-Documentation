@@ -40,7 +40,7 @@ tbl.FirstRow = true;
 ## **Clone Row or Column of Table**
 Aspose.Slides for .NET has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -100,7 +100,7 @@ using (Presentation presentation = new Presentation("Test.pptx"))
 ## **Remove Row or Column from Table**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -127,7 +127,7 @@ pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ## **Set Text Formatting on Table Row Level**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells on row level, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set first row Cells Font Height.
@@ -167,7 +167,7 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ## **Set Text Formatting on Table Column Level**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells on Column level, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set first Column Cells Font Height.

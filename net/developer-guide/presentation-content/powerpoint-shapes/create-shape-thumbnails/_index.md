@@ -17,7 +17,7 @@ This article explains how to generate slide thumbnails in different ways:
 ## **Generate Shape Thumbnail from Slide**
 To generate a shape thumbnail from any slide using Aspose.Slides for .NET:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
 1. Get the shape thumbnail image of the referenced slide on default scale.
 1. Save the thumbnail image to any desired image format.
@@ -41,7 +41,7 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ## **Generate User Defined Scaling Factor Thumbnail**
 To generate the shape thumbnail of any slide shape using Aspose.Slides for .NET:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the `Presentation` class.
 1. Obtain the reference of any slide using its ID or index.
 1. Get the thumbnail image of the referenced slide with shape bounds.
 1. Save the thumbnail image in any desired image format.
@@ -65,7 +65,7 @@ using (Presentation p = new Presentation("HelloWorld.pptx"))
 ## **Create Bounds Shape's Appearance Thumbnail**
 This method for creating thumbnails of shapes allows developers to generate a thumbnail in the bounds of the shape's appearance. It takes into account all the shape effects. The generated shape thumbnail is restricted by the slide bounds. To generate a thumbnail of any slide shape in bound of its appearance, use following sample code:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the `Presentation` class.
 1. Obtain the reference of any slide using its ID or index.
 1. Get the thumbnail image of the referenced slide with shape bounds as appearance.
 1. Save the thumbnail image in any desired image format.

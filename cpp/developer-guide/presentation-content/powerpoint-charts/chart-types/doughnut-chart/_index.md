@@ -8,7 +8,7 @@ url: /cpp/doughnut-chart/
 ## **Specify Center Gap in Doughnut Chart**
 In order to specify the size of the hole in a doughnut chart. Please follow the steps below:
 
-- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Instantiate [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Add doughnut chart on the slide.
 - Specify the size of the hole in a doughnut chart.
 - Write presentation to disk.

@@ -9,7 +9,7 @@ description: "Set positioning and font size for chart legend in PowerPoint prese
 ## **Legend Positioning**
 In order to set the legend properties. Please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Get reference of the slide.
 - Adding a chart on slide.
 - Setting the properties of legend.
@@ -42,7 +42,7 @@ presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 ## **Set Font Size of Legend**
 The Aspose.Slides for .NET lets developers allow to set font size of legend. Please follow the steps below: 
 
-- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Instantiate `Presentation` class.
 - Creating the default chart.
 - Set the Font Size.
 - Set minimum axis value.
@@ -68,7 +68,7 @@ using (Presentation pres = new Presentation("test.pptx"))
 ## **Set Font Size of Individual Legend**
 The Aspose.Slides for .NET lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
-- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Instantiate `Presentation` class.
 - Creating the default chart.
 - Access legend entry.
 - Set the Font Size.

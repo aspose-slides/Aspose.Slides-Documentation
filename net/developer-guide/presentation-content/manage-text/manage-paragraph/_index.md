@@ -92,7 +92,7 @@ using (Presentation pres = new Presentation())
 ## **Paragraph Bullets in PPTX**
 This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for .NET. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for .NET:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Access the desired slide in slide collection using ISlide object.
 - Add an autoshape in a selected slide.
 - Access the TextFrame of the added shape.

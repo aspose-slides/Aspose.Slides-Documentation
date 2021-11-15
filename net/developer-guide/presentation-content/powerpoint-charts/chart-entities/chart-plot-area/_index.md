@@ -9,7 +9,7 @@ description: "Get width, height of chart plot area. Set layout mode. PowerPoint 
 ## **Get Width, Height of Chart Plot Area**
 Aspose.Slides for .NET provides a simple API for . 
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Call method IChart.ValidateChartLayout() before to get actual values.

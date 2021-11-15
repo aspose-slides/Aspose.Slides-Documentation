@@ -50,4 +50,4 @@ puts "Document has been created, please check the output file."
 ## **Download Running Code**
 Download **Adding Slides to Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
 
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_for_Ruby/lib/asposeslidesjava/Slides/addslides.rb)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_Java_for_Ruby/lib/asposeslidesjava/Slides/addslides.rb)

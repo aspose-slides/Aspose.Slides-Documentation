@@ -10,7 +10,7 @@ description: "Table cells in PowerPoint presentations in C# or .NET"
 ## **Identify Merged Table Cell**
 Aspose.Slides for .NET has provided the simplest API to identify merge table cells in an easiest way. To identify merge cells in table, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the the table from first slide.
 - Iterate through row and columns of table to find out merge cells.
 - Print Message if cells are merged.
@@ -41,7 +41,7 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 ## **Remove Table Cells Border**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove the borders from table cells, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -252,7 +252,7 @@ using (Presentation presentation = new Presentation())
 ## **Add Image Inside Table Cell**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To add image in a table cell while creating a new table, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
