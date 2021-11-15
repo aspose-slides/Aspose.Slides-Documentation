@@ -32,7 +32,7 @@ The following table indicates the file formats that Aspose.Slides for SharePoint
 |[POTX](https://docs.fileformat.com/Presentation/POTX/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[TIFF](https://docs.fileformat.com/image/tiff/)|Saves the document as Single or Multi-Page TIFF Image| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf//)|Portable Document Format| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
 |[XPS](https://docs.fileformat.com/page-description-language/xps/)|XPS Documents| |{{< emoticons/tick >}}| |
 |[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics (An XML-based vector image format)| |{{< emoticons/tick >}}| |
 |[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |

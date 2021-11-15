@@ -139,4 +139,4 @@ Aspose.Slides Java for Jython is open source and its source code is available on
 You can get the latest source code from one of the following locations
 
 - [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavajython)
-- [Github](https://github.com/aspose-slides/Aspose_Words_Java)
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java)

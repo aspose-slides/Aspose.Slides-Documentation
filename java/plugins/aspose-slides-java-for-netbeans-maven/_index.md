@@ -56,7 +56,7 @@ You should have NetBeans IDE preinstalled before you download **Aspose.Slides Ja
 
 To download NetBeans IDE,
 
-1. Navigate to: <https://netbeans.apache.org//downloads>
+1. Navigate to: <https://netbeans.apache.org/download/index.html>
 1. Click Download to download NetBeans IDE appropriate bundle. 
 
 Download only Java EE / SE supported NetBeans download bundle of the current latest release i.e. **NetBeans IDE 8.1**.
