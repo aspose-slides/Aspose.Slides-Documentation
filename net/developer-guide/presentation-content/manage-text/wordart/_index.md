@@ -1,7 +1,7 @@
 ---
 title: WordArt
 type: docs
-weight: 231
+weight: 110
 url: /net/wordart/
 keywords: "WordArt, Word Art, Create WordArt, WordArt template, WordArt effects, Shadow effects, Display effects, Glow effects, WordArt transformations, 3D effects, Outer shadow effects, Inner Shadow effects, C#, Csharp, Aspose.Slides for .NET"
 description: "Add, manipulate, and manage WordArt and effects in PowerPoint presentations in C# or Aspose.Slides for .NET"

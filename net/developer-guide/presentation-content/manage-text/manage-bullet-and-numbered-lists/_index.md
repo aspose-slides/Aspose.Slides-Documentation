@@ -1,7 +1,7 @@
 ---
 title: Manage Bullet and Numbered Lists
 type: docs
-weight: 60
+weight: 70
 url: /net/manage-bullet-and-numbered-lists
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Create bullet and numbered lists in PowerPoint presentation in C# or .NET"
