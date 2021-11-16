@@ -13,12 +13,12 @@ NetBeans IDE lets you quickly and easily develop Java desktop, mobile, and web a
 
 The NetBeans Team actively support the product and seek feature suggestions from the wider community. Every release is preceded by a time for Community testing and feedback.
 ### **Aspose.Slides for Java**
-[Aspose.Slides for Java ](http://www.aspose.com/java/powerpoint-component.aspx)is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
+[Aspose.Slides for Java ](https://products.aspose.com/slides/java/)is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
 
-[Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) is the first and only Java component that provides functionality to manage PowerPoint documents within your own applications. As with all Aspose Java components, Aspose.Slides for Java is written in pure Java, incredibly priced and lightning fast.
+[Aspose.Slides for Java](https://products.aspose.com/slides/java/) is the first and only Java component that provides functionality to manage PowerPoint documents within your own applications. As with all Aspose Java components, Aspose.Slides for Java is written in pure Java, incredibly priced and lightning fast.
 ### **Aspose.Slides Java (Maven) for NetBeans**
-- Aspose.Slides Java (Maven) for NetBeans is a Plugin for **NetBeans IDE** by **Aspose.** The Plugin intended for developers using Maven platform for Java developments and want to use [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) in their projects. The Plugin lets you create maven projects for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) and also download [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) of the API. 
-- The plugin provides following features to work with [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) within **NetBeans IDE** comfortably: 
+- Aspose.Slides Java (Maven) for NetBeans is a Plugin for **NetBeans IDE** by **Aspose.** The Plugin intended for developers using Maven platform for Java developments and want to use [Aspose.Slides for Java](https://products.aspose.com/slides/java/) in their projects. The Plugin lets you create maven projects for using [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) and also download [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) of the API. 
+- The plugin provides following features to work with [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) within **NetBeans IDE** comfortably: 
 
 ![todo:image_alt_text](https://i.imgur.com/KWKGljg.png)
 
@@ -28,17 +28,17 @@ The plugin contains two wizards -----
 
 **       ****Aspose.Slides Maven Project (wizard)**
 
-- This New Project wizard lets developers to create **Maven** project for using [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) from **New Project -> Maven-> Aspose.Slides Maven Project.**
-- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo) and gets added in the pom.xml.
-- The created project will always contain most recent available version **Maven** Dependency for [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
-- The wizard steps also presents with the option for downloading [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
+- This New Project wizard lets developers to create **Maven** project for using [Aspose.Slides for Java](https://products.aspose.com/slides/java/) from **New Project -> Maven-> Aspose.Slides Maven Project.**
+- The reference of [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo) and gets added in the pom.xml.
+- The created project will always contain most recent available version **Maven** Dependency for [Aspose.Slides for Java API](https://products.aspose.com/slides/java/).
+- The wizard steps also presents with the option for downloading [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) for using [Aspose.Slides for Java API](https://products.aspose.com/slides/java/).
 
 **       ****Aspose.Slides Code Example (wizard)**
 
-- This New File wizard lets you copy the downloaded [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) into your project for using [Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) from **New File -> Java -> Aspose.Slides Code Example.** 
+- This New File wizard lets you copy the downloaded [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) into your project for using [Aspose.Slides for Java](https://products.aspose.com/slides/java/) from **New File -> Java -> Aspose.Slides Code Example.** 
 - Available samples are displayed in tree format from where the user can select them categorically.
 - All the examples within the selected category will get copied to the project's "**com.aspose.slides.examples**" package folder along with the required resources within "**src/main/resources**" folder needed to run the examples.
-- [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) are meant for demonstrating the various of the API.
+- [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) of [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) are meant for demonstrating the various of the API.
 - The wizard will also look for and updates for newly available [Code Examples](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples) from [Aspose.Slides for Java examples repository.](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples)
 ## **System Requirements and Supported Platforms**
 ### **System Requirements**

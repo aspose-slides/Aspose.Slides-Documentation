@@ -13,13 +13,13 @@ You’ll need to take the time to understand JAXB, and the Open XML file structu
 
 Read more at [docx4java.org](https://www.docx4java.org/trac/docx4j)
 ### **Aspose.Slides for Java**
-[Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
+[Aspose.Slides for Java](https://products.aspose.com/slides/java/) is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
 
 Aspose.Slides for Java is the first and only Java component that provides functionality to manage PowerPoint documents within your own applications.
 
 As with all Aspose Java components, Aspose.Slides for Java is written in pure Java, incredibly priced and lightning fast.
 
-Read more at [aspose.com](http://www.aspose.com/java/powerpoint-component.aspx)
+Read more at [aspose.com](https://products.aspose.com/slides/java/)
 ### **Aspose.Slides Java for pptx4j**
 Project Aspose.Slides for pptx4j shows how different tasks can be performed using Aspose.Slides Java APIs in comparison with pptx4j. The project also covers the features that are only available in Aspose.Slides APIs but not in pptx4j for dealing with presentations.
 

@@ -11,14 +11,14 @@ url: /java/aspose-slides-java-for-intellij-idea-maven_slides-java/
 
 In a 2010 **Infoworld** report, IntelliJ received the highest test center score out of the four top Java programming tools: Eclipse, IntelliJ IDEA, NetBeans and Oracle JDeveloper.
 ### **Aspose.Slides for Java**
-[Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) is a unique PowerPoint management component that enables Java based applications to read, write and manipulate PowerPoint documents without using Microsoft PowerPoint.
+[Aspose.Slides for Java](https://products.aspose.com/slides/java/) is a unique PowerPoint management component that enables Java based applications to read, write and manipulate PowerPoint documents without using Microsoft PowerPoint.
 
 One can generate, modify, copy, convert, render and print presentations without installing Microsoft PowerPoint.
 
 Aspose.Slides for Java supports presentation file formats including PPT, PPS, POT, PresentationML (OOXML, PPTX) and Open Document Presentations (ODP).
 ### **Aspose.Slides Java for IntelliJ IDEA - Maven**
-- Aspose.Slides Java for IntelliJ IDEA (Maven) is an **IntelliJ IDEA Plugin** which lets you create maven projects (i,e created project contains Aspose.Slides for Java API maven dependency) and download source code examples of the API  for using [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
-- This plugin helps you to work with [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) inside your favorite IntelliJ IDEA. 
+- Aspose.Slides Java for IntelliJ IDEA (Maven) is an **IntelliJ IDEA Plugin** which lets you create maven projects (i,e created project contains Aspose.Slides for Java API maven dependency) and download source code examples of the API  for using [Aspose.Slides for Java API](https://products.aspose.com/slides/java/).
+- This plugin helps you to work with [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) inside your favorite IntelliJ IDEA. 
 
 ![todo:image_alt_text](https://i.imgur.com/KWKGljg.png)
 
@@ -28,9 +28,9 @@ The plugin contains two wizards-----
 
 `       `**Wizard 1:** Aspose.Slides Maven Project
 
-- Plugin's **Aspose Maven Project Wizard** lets developers to create [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) Maven project.
-- The reference of [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/) and gets added in the pom.xml.
-- The created project will always contain most recent available version Maven Dependency for [Aspose.Slides for Java API](http://www.aspose.com/java/powerpoint-component.aspx).
+- Plugin's **Aspose Maven Project Wizard** lets developers to create [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) Maven project.
+- The reference of [Aspose.Slides for Java API](https://products.aspose.com/slides/java/) maven dependency is automatically fetched from [Aspose Cloud Maven Repository](https://repository.aspose.com/webapp/) and gets added in the pom.xml.
+- The created project will always contain most recent available version Maven Dependency for [Aspose.Slides for Java API](https://products.aspose.com/slides/java/).
 - The wizard steps also present with the option for downloading [Source Code Examples for using Aspose.Slides for Java API](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Examples)
 
 `       `**Wizard 2:** Aspose.Slides Examples
