@@ -34,7 +34,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.11](https://www.
 |SLIDESNET-42748|Chinese characters in SVG is incorrect when converting slide to PNG|Bug|<https://docs.aspose.com/slides/net/convert-slide/#converting-slides-to-bitmap-and-saving-the-images-in-png>
 |SLIDESNET-42726|Chart data labels are cut when converting slide from PPTX to JPEG|Bug|<https://docs.aspose.com/slides/net/export-chart/>
 |SLIDESNET-42711|Shadow alignment doesn't fit text after converting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42662|Incorrect formatting of images after resaving presentation|Bug|
+|SLIDESNET-42662|Incorrect formatting of images after resaving presentation|Bug|<https://docs.aspose.com/slides/net/save-presentation/>
 |SLIDESNET-42652|Removing section throws ArgumentOutOfRangeException|Bug|<https://docs.aspose.com/slides/net/slide-section/>
 |SLIDESNET-40788|Pptx not properly converted to pdf|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
 
