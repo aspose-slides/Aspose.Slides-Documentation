@@ -40,19 +40,19 @@ This page contains release notes for [Aspose.Slides for .NET 21.11](https://www.
 
 ## Public API Changes ##
 
-### Modern Comments Support has been added ###
+### Modern Comments are now supported ###
 
-We implemented support for PowerPoint Modern Comments.
+We implemented support for PowerPoint **Modern Comments**.
 
-[ModernComment](https://apireference.aspose.com/slides/net/aspose.slides/moderncomment) class has been added to represent Modern Comment. [AddModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods have been added to [CommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection). Using these methods a Modern Comment can be added to a slide.
+For modern comments, we added the [ModernComment](https://apireference.aspose.com/slides/net/aspose.slides/moderncomment) class. We added the [AddModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods to [CommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection). Using these methods, you can add a modern comment to a slide.
 
-The code snippet below demonstrates adding a new Modern Comment to the slide:
+This code snippet demonstrates the addition of a modern comment to a slide:
 
 ``` csharp
 using (Presentation pres = new Presentation())
 {
      ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
-     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
+     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
  
      pres.Save("pres.pptx", SaveFormat.Pptx);
 }
@@ -60,11 +60,11 @@ using (Presentation pres = new Presentation())
 
 ### Obsolete enumeration SlideOrienation has been removed ###
 
-Obsolete enumeration SlideOrienation has been removed. Use [SlideOrientation](https://apireference.aspose.com/slides/net/aspose.slides/slideorientation) enumeration instead.
+Obsolete enumeration `SlideOrienation` has been removed. Use the [SlideOrientation](https://apireference.aspose.com/slides/net/aspose.slides/slideorientation) enumeration instead.
 
 ### IMathElement.GetChildren has been added ###
 
-[GetChildren](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/getchildren) method has been added to [IMathElement](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement) interface.
+[GetChildren](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/getchildren) method has been added to the [IMathElement](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement) interface.
 
 Method declaration:
 
