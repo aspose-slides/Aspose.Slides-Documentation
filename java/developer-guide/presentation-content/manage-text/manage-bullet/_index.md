@@ -84,7 +84,7 @@ This topic is also the part of the topic series of managing text in paragraphs. 
 - Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape
 - Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe)
 - Create the first paragraph instance using Paragraph class
-- Load Image from disc in [IPPImage](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IPPImage)
+- Load Image from disc in [IPPImage](https://apireference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage)
 - Set the bullet type to Picture and the set the image
 - Set the Paragraph Text
 - Set the Paragraph Indent to set the bullet

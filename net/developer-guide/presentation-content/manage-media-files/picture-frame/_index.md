@@ -26,7 +26,7 @@ This article explains how picture frames can be used in different ways:
 
 To add a simple picture frame to your slide, please follow the steps below:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class. 
+- Create an instance of [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class. 
 - Obtain the reference of a slide by using its index.
 - Create an Image object by adding an image to the Images collection associated with the Presentation object that will be used to fill the Shape.
 - Calculate the width and height of the image.
@@ -66,10 +66,10 @@ using (Presentation pres = new Presentation())
 ## **Create Picture Frame with Relative Scale**
 The picture frame that we created in the above section were simple as well as well formatted. We can also control the relative scaling of image added in picture frame as well. In order to control the relative scaling of the image in a picture frame, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class[](http://www.aspose.com/api/net/slides/aspose.slides/).
 - Obtain the reference of a slide by using its index.
 - Add an image to the presentation image collection.
-- Create an [IPPImage](https://apireference.aspose.com/net/slides/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
+- Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
 - Set the relative width and height of the image in the picture frame.
 - Write the modified presentation as a PPTX file.
 

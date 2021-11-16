@@ -13,7 +13,7 @@ These examples show you how to convert ODP documents to other formats (just chan
 
 - [Convert ODP to HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)
 - [Convert ODP to PDF](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Convert ODP to TIFF](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff/)
+- [Convert ODP to TIFF](/slides/net/convert-powerpoint-to-tiff/)
 - [Convert ODP to SWF Flash](/slides/net/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
 - [Convert ODP to XPS](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
 - [Convert ODP to PDF with Notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)

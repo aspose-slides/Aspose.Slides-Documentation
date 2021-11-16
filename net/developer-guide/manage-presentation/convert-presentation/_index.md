@@ -39,5 +39,5 @@ The [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) which is kn
 ### **Convert Presentation to TIFF with Aspose.Slides**
 Any document that can be loaded in Aspose.Slide for .NET can also be converted to TIFF document directly by Aspose.Slides for .NET eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for .NET in [this topic](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff/).
 {{% alert color="primary" %}} 
-Read more [**How to Convert Presentation to TIFF**.](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff/)
+Read more [**How to Convert Presentation to TIFF**.](/slides/net/convert-powerpoint-to-tiff/)
 {{% /alert %}}

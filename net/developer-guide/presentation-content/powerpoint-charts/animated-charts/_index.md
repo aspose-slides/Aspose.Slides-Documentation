@@ -7,7 +7,7 @@ keywords: "Charts, Chart Series, Animation PowerPoint Presentation, PPTX, PPT, C
 description: "PowerPoint charts series and animations in C# or .NET"
 ---
 
-Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://apireference.aspose.com/net/slides/aspose.slides.animation/isequence/methods/addeffect)method and two enums [**EffectChartMajorGroupingType** ](https://apireference.aspose.com/net/slides/aspose.slides.animation/effectchartmajorgroupingtype)and [**EffectChartMinorGroupingType**](https://apireference.aspose.com/net/slides/aspose.slides.animation/effectchartminorgroupingtype).
+Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://apireference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect)method and two enums [**EffectChartMajorGroupingType** ](https://apireference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype)and [**EffectChartMinorGroupingType**](https://apireference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
 ## **Chart Series Animation**
 If you want to animate a chart series, write the code according to the steps listed below:
 

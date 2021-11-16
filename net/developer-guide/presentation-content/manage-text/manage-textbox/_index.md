@@ -25,9 +25,9 @@ Therefore, when dealing with a shape to which you want to add text, you may want
 
 To create a textbox on a slide, go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class. 
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an [IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/net/slides/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
+3. Add an [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
 4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 

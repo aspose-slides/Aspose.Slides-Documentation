@@ -11,7 +11,7 @@ description: "Create and manage Paragraph, its text, its indent, and properties 
 An ITextFame object can have one or more Paragraphs (every paragraph is created through a carriage return), that is a collection of IParagraph objects. Furthermore, an IParagraph object can have one or more Portions (a collection of IPortion objects. An IPortion object manages text and its formatting properties. So, it means that IParagraph object has capacity to handle text with different formatting properties through its underlying IPortion objects.
 Please follow the steps below to add TextFrame having 3 paragraphs and 3 portions for each paragraph using Aspose.Slides for .NET :
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an IAutoShape of Rectangle type to the slide.
 - Access the ITextFrame associated with the IAutoShape.
@@ -186,7 +186,7 @@ using (Presentation pres = new Presentation())
 ## **Paragraph Picture Bullets in PPTX**
 This topic is also the part of the topic series of managing text in paragraphs. This page will illustrate how we can manage paragraph picture bullets. Picture bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for .NET. Please follow the steps below to manage the paragraph picture bullets using Aspose.Slides for .NET:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Access the desired slide in slide collection using ISlide object.
 - Add an autoshape in a selected slide.
 - Access the TextFrame of the added shape.
@@ -247,7 +247,7 @@ presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 ## **Multilevel Bullets**
 This topic is also the part of the topic series of managing text in paragraphs. This page will illustrate that how we can manage paragraphs with multilevel bullets. Please follow the steps below to manage the multilevel bullets using Aspose.Slides for .NET:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class.
+- Create an instance of [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class.
 - Access the desired slide in slide collection using ISlide object.
 - Add an autoshape in selected slide.
 - Access the TextFrame of the added shape.
@@ -331,7 +331,7 @@ using (Presentation pres = new Presentation())
 ## **Paragraph with Custom Numbered List**
 Aspose.Slides for .NET provides a simple API to manage paragraphs with custom numbers formatting. For this purpose, **NumberedBulletStartWith** property has been added to **IBulletFormat.** To add a custom number list in a paragraph, please follow the steps below:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class.
+- Create an instance of [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class.
 - Access the desired slide in slide collection using ISlide object.
 - Add an autoshape in selected slide.
 - Access the TextFrame of the added shape.
@@ -383,7 +383,7 @@ using (var presentation = new Presentation())
 ## **Paragraph Indent**
 This page will illustrate how we can manage paragraph indent. We will see how developers can use this feature of Aspose.Slides for .NET. Please follow the steps below to manage the paragraph indent using Aspose.Slides for .NET:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its Position.
 1. Add a Rectangle shape in the slide.
 1. Add a TextFrame with three Paragraphs in the Rectangle.
@@ -446,7 +446,7 @@ pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
 ## **End Paragraph Run Properties for Paragraph**
 This page will illustrate how we can manage end paragraph run properties. We will see how developers can use this feature of Aspose.Slides for .NET. Please follow the steps below to manage the End paragraph Run Properties using Aspose.Slides for .NET:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its Position.
 1. Add a Rectangle shape in the slide.
 1. Add a TextFrame with two Paragraphs in the Rectangle.
@@ -484,7 +484,7 @@ using (Presentation pres = new Presentation("Test.pptx"))
 ## **Import HTML Text in Paragraphs**
 This topic is also part of a series of topics about managing text paragraphs. Aspose.Slides for .NET has enhanced support for adding HTML text or saving paragraphs text to HTML. This article shows how to manage paragraphs to use HTML data and shows how developers can use this small yet powerful feature. To manage paragraph bullets using Aspose.Slides for .NET:
 
-- Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+- Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Access the desired slide in slide collection using the ISlide object.
 - Add an autoshape to the selected slide.
 - Add and access the ITextFrame of the added shape.
@@ -527,7 +527,7 @@ using (Presentation pres = new Presentation())
 ## **Export Paragraphs Text to HTML**
 Please follow the steps below to see how to export the paragraph text to HTML using Aspose.Slides for .NET:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class and load the desired presentation.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class and load the desired presentation.
 - Access the desired slide into the slide collection using ISlide object.
 - Access the desired shape for which text need to be exported to HTML.
 - Access the TextFrame of the accessed shape.

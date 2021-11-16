@@ -239,8 +239,6 @@ public static void ApplyThemeToPresentation(string presentationFile, string outp
 
 ``` 
 ## **Download Running Code Example**
-- [CodePlex](https://archive.codeplex.com/?p=asposeopenxml)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **Sample Code**
-- [CodePlex](https://archive.codeplex.com/?p=asposeopenxml)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Apply%20Theme%20to%20Presentation)

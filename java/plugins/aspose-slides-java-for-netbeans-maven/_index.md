@@ -76,7 +76,7 @@ Download only Java EE / SE supported NetBeans download bundle of the current lat
 ## **Using the Plugin**
 [Using Aspose.Slides for NetBeans - Maven](/slides/java/installing-and-using-aspose-slides-for-netbeans-maven/#using)
 ### **How to apply Aspose License?**
-This Plugin uses an evaluation version of Aspose.Slides. Once you are happy with your evaluation, you can purchase a license at the [Aspose website](http://www.aspose.com/purchase/default.aspx).
+This Plugin uses an evaluation version of Aspose.Slides. Once you are happy with your evaluation, you can purchase a license at the [Aspose website](https://purchase.aspose.com/buy).
 To remove evaluation message and feature limitations, product license should be applied. You will receive a license file after you have purchased the product. Please follow the steps below to apply the license
 
 - Make sure the license file is named as **Aspose.Slides.Java.lic**
@@ -101,7 +101,6 @@ Please follow [**GitHub Issues Tracker**](https://github.com/aspose-slides/Aspo
 Aspose.Slides Java (Maven) for NetBeans is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it. Developers can also learn from it to make their own plugins.
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose.Slides%20Java%20\(Maven\)%20for%20NetBeans)
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavanetbeans)
 #### **How to configure source code of Aspose.Slides Java (Maven) for NetBeans**
 Below simple steps will smoothly lead to successful configuration of  **"Aspose.Slides Java (Maven) for NetBeans"** plugin  source code in NetBeans IDE
 

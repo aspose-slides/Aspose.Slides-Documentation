@@ -58,7 +58,7 @@ To download Eclipse IDE
 Following are three recommended methods for the successful downloading and installation of Aspose.Slides Java (Maven) for Eclipse plugin:
 
 - Drag and drop installation from [Eclipse Marketplace](https://marketplace.eclipse.org/content/asposeslides-java-maven-eclipse) to your Eclipse workspace.
-- Or download the plugin jar from [Downloads](https://archive.codeplex.com/?p=asposeslidesjavaeclipse) and copy it into /**dropins** folder of Eclipse installation and restart the IDE.
+- copy it into /**dropins** folder of Eclipse installation and restart the IDE.
 - Or goto **Help** > **Install New Software...** > Enter following update site url in **Work with**:
   [http://cdn.aspose.com/marketplace/eclipse/java/maven/asposeslides](http://cdn.aspose.com/marketplace/eclipse/java/maven/asposeslides/)
   Then select "Aspose.Slides Java (Maven) for Eclipse" and **Finish**. Accept License Agreement and Install the plugin.
@@ -67,7 +67,7 @@ Following are three recommended methods for the successful downloading and insta
 ## **Using the Plugin**
 [Using Aspose.Slides Java (Maven) for Eclipse](/slides/java/installing-and-using-aspose-slides-java-maven-for-eclipse/#using)
 ### **How to apply Aspose License?**
-This Plugin uses an evaluation version of Aspose.Slides. Once you are happy with your evaluation, you can purchase a license at the [Aspose website](http://www.aspose.com/purchase/default.aspx).
+This Plugin uses an evaluation version of Aspose.Slides. Once you are happy with your evaluation, you can purchase a license at the [Aspose website](https://purchase.aspose.com/buy).
 To remove evaluation message and feature limitations, product license should be applied. You will receive a license file after you have purchased the product. Please follow the steps below to apply the license
 
 - Make sure the license file is named as **Aspose.Slides.Java.lic**
@@ -92,7 +92,6 @@ Please follow [**GitHub Issues Tracker**](https://github.com/aspose-slides/Aspos
 Aspose.Slides Java (Maven) for Eclipse is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it. Developers can also learn from it to make their own plugins.
 
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_Maven_for_Eclipse)
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaeclipse)
 #### **How to configure source code of Aspose.Slides Java (Maven) for Eclipse**
 Below simple steps will smoothly lead to successful configuration of **Aspose.Slides Java (Maven) for Eclipse** plugin source code in Eclipse IDE
 

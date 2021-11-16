@@ -83,8 +83,6 @@ Please check [the video](https://youtu.be/PLIwxTs1USc) below to see Aspose.Slide
 - Have any improvement suggestion or like to make any feature request
 
 **Please use any of the following project's issues tracker:**
-
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaintellij)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/issues)
 ### **Extend and Contribute**
 **Aspose.Slides Java for IntelliJ IDEA (Maven)** plugin is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it.

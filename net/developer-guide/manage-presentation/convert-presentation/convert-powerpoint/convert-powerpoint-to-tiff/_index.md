@@ -18,7 +18,7 @@ You may want to check out Aspose [FREE PowerPoint to Poster converter](https://p
 {{% /alert %}}
 
 ## **Convert PowerPoint to TIFF with default size**
-The [Save](https://apireference.aspose.com/net/slides/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class exposes **ImageSize** property enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
+The [Save](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/tiffoptions) class exposes **ImageSize** property enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
 
 ```c#
 // Instantiate a Presentation object that represents a presentation file
@@ -33,7 +33,7 @@ using (Presentation presentation = new Presentation("DemoFile.pptx"))
 
 ## **Convert PowerPoint to TIFF with custom size**
 
-The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class. 
+The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/tiffoptions) class. 
 
 ```c#
 // Instantiate a Presentation object that represents a Presentation file
@@ -75,7 +75,7 @@ using (Presentation pres = new Presentation("Convert_Tiff_Custom.pptx"))
 
 
 ## **Convert PowerPoint to TIFF with custom Image Pixel Format**
-The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class. You can also include comments in generated HTML by using [TiffOptions](https://apireference.aspose.com/net/slides/aspose.slides.export/tiffoptions) class and **INotesCommentsLayoutingOptions** interface.
+The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/tiffoptions) class. You can also include comments in generated HTML by using [TiffOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/tiffoptions) class and **INotesCommentsLayoutingOptions** interface.
 
 ```c#
 // Instantiate a Presentation object that represents a Presentation file

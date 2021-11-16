@@ -16,14 +16,14 @@ To manage font properties of a paragraph using Aspose.Slides for Java:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain a slide's reference by using its index.
-1. Access the [Placeholder](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Placeholder) shapes in the slide and typecast them to [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape).
-1. Get the [Paragraph](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Paragraph) from the [TextFrame](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/TextFrame) exposed by [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape).
+1. Access the [Placeholder](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Placeholder) shapes in the slide and typecast them to [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
+1. Get the [Paragraph](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Paragraph) from the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame) exposed by [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
 1. Justify the paragraph.
-1. Access a [Paragraph](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Paragraph)'s text [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion).
-1. Define the font using [FontData](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/FontData) and set the **Font** of the text [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion) accordingly.
+1. Access a [Paragraph](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Paragraph)'s text [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
+1. Define the font using [FontData](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/FontData) and set the **Font** of the text [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion) accordingly.
    1. Set the font to bold.
    1. Set the font to italic.
-1. Set the font color using the [FillFormat](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/FillFormat) exposed by the [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion) object.
+1. Set the font color using the [FillFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/FillFormat) exposed by the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion) object.
 1. Save the modified presentation to a PPTX file.
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides. The screenshots that follow show the input file and how the code snippets change it. The code changes the font, the color, and the font style.
@@ -91,7 +91,7 @@ try {
 ## **Set Text Font Properties**
 {{% alert color="primary" %}} 
 
-As mentioned in **Managing Font Related Properties**, a [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
+As mentioned in **Managing Font Related Properties**, a [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
 
 {{% /alert %}} 
 
@@ -99,13 +99,13 @@ To create a textbox and set font properties of the text in it:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its index.
-1. Add an [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape) of the type **Rectangle** to the slide.
-1. Remove the fill style associated with the [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape).
-1. Access the of the [AutoShape](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/AutoShape)'s [TextFrame](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/TextFrame).
-1. Add some text to the [TextFrame](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/TextFrame).
-1. Access the [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion) object associated with the [TextFrame](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/TextFrame).
-1. Define the font to be used for the [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion).
-1. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the [Portion](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Portion) object.
+1. Add an [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape) of the type **Rectangle** to the slide.
+1. Remove the fill style associated with the [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape).
+1. Access the of the [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/AutoShape)'s [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
+1. Add some text to the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
+1. Access the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion) object associated with the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame).
+1. Define the font to be used for the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion).
+1. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/Portion) object.
 1. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.

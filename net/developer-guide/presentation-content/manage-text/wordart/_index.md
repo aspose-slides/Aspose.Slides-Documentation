@@ -272,9 +272,9 @@ The descriptions are connected to the [ThreeDFormat.LightRig](https://apireferen
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
+Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/slides/net/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/slides/net/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -323,7 +323,7 @@ using (Presentation pres = new Presentation())
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.

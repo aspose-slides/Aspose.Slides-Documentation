@@ -11,11 +11,11 @@ description: "Add audio to PowerPoint presentation in C# or .NET"
 Aspose.Slides for .NET allows you to add audio files to slides. Audio files are embedded in slides as audio frames. 
 To add an audio file in a slide using Aspose.Slides for .NET, please follow these steps:
 
-1. Create an instance of the [Presentation ](https://apireference.aspose.com/net/slides/aspose.slides/presentation)class.
+1. Create an instance of the [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class.
 2. Obtain the reference of a slide by using its Index.
 3. Open the audio file stream to be embedded in the slide.
 4. Add the embedded audio Frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://apireference.aspose.com/net/slides/aspose.slides/audioplaymodepreset) and Volume exposed by [IAudioFrame](https://apireference.aspose.com/net/slides/aspose.slides/audioframe) object.
+5. Set [PlayMode](https://apireference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) and Volume exposed by [IAudioFrame](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) object.
 6. Write the modified presentation as a PPTX file.
 
 This C# shows you how to add an embedded audio frame into a slide:
@@ -50,7 +50,7 @@ This is the Audio Options pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-These are the correspondences between PowerPoint Audio Options and [AudioFrame](https://apireference.aspose.com/net/slides/aspose.slides/audioframe) properties:
+These are the correspondences between PowerPoint Audio Options and [AudioFrame](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) properties:
 - Audio Options **Start** drop-down list matches the [AudioFrame.PlayMode](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
 - Audio Options **Volume** matches the [AudioFrame.Volume](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume)  property 
 - Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides)  property 

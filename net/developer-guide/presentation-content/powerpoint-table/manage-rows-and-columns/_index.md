@@ -8,7 +8,7 @@ description: "Manage table rows and columns in PowerPoint presentations in C# or
 ---
 
 ## **Set First Row as Header**
-Aspose.Slides for .NET provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/net/slides/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
+Aspose.Slides for .NET provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/slides/net/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
 
 ```c#
 // Instantiate Presentation class that represents PPTX

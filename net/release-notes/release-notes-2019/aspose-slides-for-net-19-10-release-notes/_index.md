@@ -153,7 +153,7 @@ using (Presentation pres = new Presentation(path + "input.pptx"))
 #### **IFontFallBackRulesCollection, IFontFallBackRule interfaces and FontFallBackRulesCollection, FontFallBackRule classed added**
 [**FontFallBackRulesCollection**](https://apireference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) (implementes [**IFontFallBackRulesCollection**](https://apireference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection)) represents an object for managing a collection of **FontFallBackRule** objects.
 
-[**FontFallBackRule**](https://apireference.aspose.com/net/slides/aspose.slides/FontFallBackRule) (implementes [**IFontFallBackRule**](https://apireference.aspose.com/slides/net/aspose.slides/iFontFallBackRule)) represents an association between the specified Unicode range and list of fonts, that may contain proper glyphs for font fallback replacement.
+[**FontFallBackRule**](https://apireference.aspose.com/slides/net/aspose.slides/FontFallBackRule) (implementes [**IFontFallBackRule**](https://apireference.aspose.com/slides/net/aspose.slides/iFontFallBackRule)) represents an association between the specified Unicode range and list of fonts, that may contain proper glyphs for font fallback replacement.
 
 Below is an example:
 

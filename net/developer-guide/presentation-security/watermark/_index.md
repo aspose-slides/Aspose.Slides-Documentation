@@ -11,7 +11,7 @@ description: "Add text and image watermark to PowerPoint presentation in C# or .
 ## **About Watermark**
 **Watermark** in presentation is a text or image stamp, used upon a slide or all presentation slides. Usually, watermark is used to indicate that the presentation is a draft (e.g. "Draft" watermark); that it contains confidential information (e.g. "Confidential" watermak); specify which company it belongs to (e.g. "Company name" watermark); identify presentation author, etc. Watermark helps to prevent presentation copyrights violation, indicating that the presentation should not be copied. Watermarks are used with both PowerPoint and OpenOffice presentation formats. In Aspose.Slides you can add watermark to PowerPoint PPT, PPTX and OpenOffice ODP file formats.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/net/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame** ](https://apireference.aspose.com/net/slides/aspose.slides/textframe)class and to add image watermark - [**PictureFrame**](https://apireference.aspose.com/net/slides/aspose.slides/pictureframe/). PictureFrame implements [IShape ](https://apireference.aspose.com/net/slides/aspose.slides/ishape)interface and can use all the power of flexible settings of shape object. TextFrame is not a shape and its settings are limited. Therefore, it is advised to wrap TextFrame into [IShape ](https://apireference.aspose.com/net/slides/aspose.slides/ishape)object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame** ](https://apireference.aspose.com/slides/net/aspose.slides/textframe)class and to add image watermark - [**PictureFrame**](https://apireference.aspose.com/slides/net/aspose.slides/pictureframe/). PictureFrame implements [IShape ](https://apireference.aspose.com/slides/net/aspose.slides/ishape)interface and can use all the power of flexible settings of shape object. TextFrame is not a shape and its settings are limited. Therefore, it is advised to wrap TextFrame into [IShape ](https://apireference.aspose.com/slides/net/aspose.slides/ishape)object.
 
 There are two ways watermark can be applied: to a single slide and to all presentation slides. Slide Master is used to apply watermark to all presentation slides - watermark is added into Slide Master, completely designed there and applied to all slides without modifying a permission to modify watermark on slides.
 
@@ -22,7 +22,7 @@ You can set the name of watermark, so in future, if you want to delete the water
 You can design watermark in any way however there are usually attend common features within watermarks, like: center alignment, rotation, front position, etc. We will consider how to use them in the examples below.
 ## **Text Watermark**
 ### **Add Text Watermark to Slide**
-To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://apireference.aspose.com/net/slides/aspose.slides/textframe) type. This type is not inherited from [IShape](https://apireference.aspose.com/net/slides/aspose.slides/ishape/), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://apireference.aspose.com/net/slides/aspose.slides/textframe) object into [IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/) object. To add watermark into the shape, use [**AddTextFrame**](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/methods/addtextframe) method with watermark text passed into it:
+To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://apireference.aspose.com/slides/net/aspose.slides/textframe) type. This type is not inherited from [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape/), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) object into [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/) object. To add watermark into the shape, use [**AddTextFrame**](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) method with watermark text passed into it:
 
 ``` csharp
 
@@ -48,11 +48,11 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
 
 ### **Add Text Watermark to Presentation**
 If you want to add watermark in presentation (means, all slides at once), 
-add it into [**MasterSlide**](https://apireference.aspose.com/net/slides/aspose.slides/masterslide/). 
+add it into [**MasterSlide**](https://apireference.aspose.com/slides/net/aspose.slides/masterslide/). 
 All the other logic is the same as in adding watermark into a single slide - create an 
-[IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/) 
+[IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/) 
 object and then add watermark into it with
- [**AddTextFrame**](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape/methods/addtextframe) method:
+ [**AddTextFrame**](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) method:
 
 ``` csharp
 
@@ -159,7 +159,7 @@ watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.St
 
 
 ## **Lock Watermark from Editing**
-If its needed to prevent watermark from editing, use [**AutoShape.ShapeLock** ](https://apireference.aspose.com/net/slides/aspose.slides/autoshape/properties/shapelock)property on the shape, that wraps its. With this property you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
+If its needed to prevent watermark from editing, use [**AutoShape.ShapeLock** ](https://apireference.aspose.com/slides/net/aspose.slides/autoshape/properties/shapelock)property on the shape, that wraps its. With this property you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
 
 ``` csharp
 
@@ -184,7 +184,7 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 {{% /alert %}}
 
 ## **Bring Watermark to Front**
-In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.Reorder** ](https://apireference.aspose.com/net/slides/aspose.slides.slidecollection/reorder/methods/1)method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
+In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.Reorder** ](https://apireference.aspose.com/slides/net/aspose.slides.slidecollection/reorder/methods/1)method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
 
 ``` csharp
 
@@ -228,7 +228,7 @@ private int calculateRotation(float height, float width)
 
 
 ## **Set Name to Watermark**
-Aspose.Slides allows to set the name of shape. By shape name you can access it in future to modify or delete. To set the name of watermark parent shape - set it into [**AutoShape.Name**](https://apireference.aspose.com/net/slides/aspose.slides/ishape/properties/name) property:
+Aspose.Slides allows to set the name of shape. By shape name you can access it in future to modify or delete. To set the name of watermark parent shape - set it into [**AutoShape.Name**](https://apireference.aspose.com/slides/net/aspose.slides/ishape/properties/name) property:
 
 
 
@@ -240,7 +240,7 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
 
 ## **Remove Watermark**
-To remove watermark shape and its child controls from slide, use [AutoShape.Name](https://apireference.aspose.com/net/slides/aspose.slides/ishape/properties/name) property to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.Remove**](https://apireference.aspose.com/net/cells/aspose.cells.drawing/shapecollection/methods/remove) method:
+To remove watermark shape and its child controls from slide, use [AutoShape.Name](https://apireference.aspose.com/slides/net/aspose.slides/ishape/properties/name) property to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.Remove**](https://apireference.aspose.com/net/cells/aspose.cells.drawing/shapecollection/methods/remove) method:
 
 ``` csharp
 
