@@ -1,0 +1,30 @@
+---
+title: Convert PowerPoint to PDF with Notes
+type: docs
+weight: 50
+url: /pythonnet/convert-powerpoint-to-pdf-with-notes/
+keywords: "convert PowerPoint, Presentation, PowerPoint to PDF, notes, Python, Aspose.Slides"
+description: "Convert PowerPoint to PDF with notes with Python"
+---
+
+The [Save](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/save/index) method exposed by Presentation class can be used to convert PowerPoint PPT or PPTX presentation to PDF with notes. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for Python via .NET is a two-line process. You simply open the presentation and save it out to PDF notes. The code snippets below update the sample presentation to PDF in Notes Slide view:
+
+```py
+// Instantiate a Presentation object that represents a presentation file 
+Presentation presentation = new Presentation("SelectedSlides.pptx");
+Presentation auxPresentation = new Presentation();
+
+ISlide slide = presentation.Slides[0];
+
+auxPresentation.Slides.InsertClone(0, slide);
+
+// Setting Slide Type and Size 
+//auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height,SlideSizeScaleType.EnsureFit);
+auxPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
+
+PdfOptions pdfOptions = new PdfOptions();
+pdfOptions.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomFull;
+
+auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
