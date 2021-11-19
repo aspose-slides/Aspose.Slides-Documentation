@@ -11,31 +11,14 @@ Aspose.Slides for Java does not require having Microsoft PowerPoint installed an
 
 {{% /alert %}} 
 
-## **System Requirements**
-
-### **Operating Systems**
-Aspose.Slides for Java supports any operating system that runs the Java runtime including, but not limited:
-
-- Microsoft Windows desktop and server operating systems
-- Linux (Ubuntu, openSUSE, CentOS and others)
-- Unix
-- Mac OS X
-
-### **Java Versions**
-Aspose.Slides for Java supports the following Java versions:
-
-- J2SE 6.0 (1.6)
-- J2SE 7.0 (1.7)
-- J2SE 8.0 (1.8)
-- JDK9
-- JDK10
-- JDK11
-
+## **Installing and configuring Java**
+Java is a popular programming language that allows you run programs on many platforms. The following link provides complete information on installing and configuring Java on all operating systems: https://java.com/.
 
 ## **Installing Aspose.Slides for Java from Maven Repository**
 Aspose hosts all Java APIs on [Maven repository](https://repository.aspose.com/repo/com/aspose/). You can easily use [Aspose.Slides for Java](https://repository.aspose.com/repo/com/aspose/aspose-slides/) API directly in your Maven Projects with simple configurations.
+
 ### **Specify Maven Repository Configuration**
-First, you need to specify Aspose Maven Repository configuration / location in your Maven pom.xml as follows:
+First, you need to specify Aspose Maven Repository configuration/location in your Maven pom.xml as follows:
 
 ``` xml
 <repositories>
@@ -54,13 +37,13 @@ Then define Aspose.Slides for Java API dependency in your pom.xml as follows:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-slides</artifactId>
-        <version>20.1</version>
+        <version>21.10</version>
         <classifier>jdk16</classifier>
     </dependency>
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-slides</artifactId>
-        <version>20.1</version>
+        <version>21.10</version>
         <classifier>javadoc</classifier>
     </dependency>
 </dependencies>
