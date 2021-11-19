@@ -18,7 +18,7 @@ This page contains release notes for Aspose.Slides for CPP 19.8
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1818|[Use Aspose.Slides for .NET 19.8 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.8+Release+Notes)|Feature|
+|SLIDESCPP-1818|[Use Aspose.Slides for .NET 19.8 features](/slides/net/aspose-slides-for-net-19-8-release-notes/)|Feature|
 |SLIDESNET-36682|Hiding master shapes from slide|Feature|
 |SLIDESNET-34498|Property for setting layout mode of chart plot area|Feature|
 |SLIDESNET-41048|Embedding HTML and ZIP files|Feature|

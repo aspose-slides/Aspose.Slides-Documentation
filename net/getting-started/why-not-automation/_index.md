@@ -20,7 +20,7 @@ Aspose and Aspose components are totally independent and are not affiliated with
 
 For one, there are many [benefits you enjoy when you use Aspose.Slides](https://docs.aspose.com/slides/net/product-overview/). 
 
-For another, Microsoft itself strongly **advises against** the use of Office Automation from software solutions. See [this article](https://support.microsoft.com/en-us/topic/considerations-for-server-side-automation-of-office-48bcfe93-8a89-47f1-0bce-017433ad79e2). 
+For another, Microsoft itself strongly **advises against** the use of Office Automation from software solutions. 
 
 ## **Overview**
 As we stated earlier, there are several reasons Aspose components are a better alternative to automation. Some of the key reasons are:
@@ -33,7 +33,7 @@ As we stated earlier, there are several reasons Aspose components are a better a
 
 We expanded on the key reasons in the paragraphs below. 
 ## **Security**
-This text is a direct quote from the previously referenced [Microsoft Article](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757) : 
+The following is a direct quote from a Microsoft Article: 
 
 > "Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."
 
@@ -59,7 +59,7 @@ Aspose components have been thoroughly tested and confirmed to be very stable. A
 {{% /alert %}} 
 
 ## **Scalability/Speed**
-This text is a direct quote from the previously referenced [Microsoft Article](http://support.microsoft.com/default.aspx?scid=kb;EN-US;q257757) :
+The following is a direct quote from a Microsoft Article: 
 
 > "Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more then one instance of any Office Application at the same time need to consider Pooling or Serializing Access to the Office Application for avoiding potential Deadlocks or Data Corruption”.
 
@@ -91,7 +91,7 @@ Unlike Office Automation, Aspose components provide many powerful and time-savin
 
 {{% /alert %}} 
 
-For instance, [Aspose.Cells](https://products.aspose.com/cells/net) gives developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/net) provides a similar feature that allows developers to populate a Word (that is, Mail Merge) document directly from any .NET data object. [Every component](https://products.aspose.com/total/net) in the Aspose family offers their own set of unique and powerful features. 
+For instance, [Aspose.Cells](https://products.aspose.com/cells/net/) gives developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/net/) provides a similar feature that allows developers to populate a Word (that is, Mail Merge) document directly from any .NET data object. [Every component](https://products.aspose.com/total/net/) in the Aspose family offers their own set of unique and powerful features. 
 
 The best part of purchasing an Aspose component is getting access to our development teams. For example, if you use Office Automation objects and need certain features, the chances of you getting those features to be added are very, very low. However, things are different with Aspose components. 
 

@@ -11,7 +11,7 @@ description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in p
 ## **About Watermark**
 **Watermark** in presentation is a text or image stamp, used upon a slide or all presentation slides. Usually, watermark is used to indicate that the presentation is a draft (e.g. "Draft" watermark); that it contains confidential information (e.g. "Confidential" watermak); specify which company it belongs to (e.g. "Company name" watermark); identify presentation author, etc. Watermark helps to prevent presentation copyrights violation, indicating that the presentation should not be copied. Watermarks are used with both PowerPoint and OpenOffice presentation formats. In Aspose.Slides you can add watermark to PowerPoint PPT, PPTX and OpenOffice ODP file formats.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/java) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://apireference.aspose.com/slides/java/com.aspose.slides/PictureFrame/). [PictureFrame]((https://apireference.aspose.com/slides/java/com.aspose.slides/PictureFrame/)) implements [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) into [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/java/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://apireference.aspose.com/slides/java/com.aspose.slides/PictureFrame/). [PictureFrame]((https://apireference.aspose.com/slides/java/com.aspose.slides/PictureFrame/)) implements [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) into [IShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape) object.
 
 There are two ways watermark can be applied: to a single slide and to all presentation slides. Slide Master is used to apply watermark to all presentation slides - watermark is added into Slide Master, completely designed there and applied to all slides without modifying a permission to modify watermark on slides.
 
@@ -37,7 +37,7 @@ try {
 } finally {
     if (presentation != null) presentation.dispose();
 }
-``` 
+```
 
 
 
@@ -63,7 +63,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-``` 
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -79,7 +79,7 @@ IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPo
 watermarkPortion.getPortionFormat().setFontBold(NullableBool.True);
 
 watermarkPortion.getPortionFormat().setFontHeight(52);
-``` 
+```
 
 
 ### **Set Text Watermark Transparency**
@@ -93,7 +93,7 @@ IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPo
 watermarkPortion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
 
 watermarkPortion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(red, green, blue, alpha));
-``` 
+```
 
 
 ### **Center Text Watermark**
@@ -117,7 +117,7 @@ float y = (float) center.getY() - height / 2;
 
 
 IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, x, y, width, height);
-``` 
+```
 
 
 ## **Image Watermark**
@@ -136,7 +136,7 @@ watermarkShape.getFillFormat().setFillType(FillType.Picture);
 watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-``` 
+```
 
 
 
@@ -156,7 +156,7 @@ watermarkShape.getShapeLock().setTextLocked(true);
 watermarkShape.getShapeLock().setPositionLocked(true);
 
 watermarkShape.getShapeLock().setGroupingLocked(true);
-``` 
+```
 
 {{% alert color="primary" title="See also" %}} 
 - [How to Lock Shapes from Editing](/slides/java/presentation-locking/)
@@ -167,7 +167,7 @@ In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.reorder
 
 ```java
 slide.getShapes().reorder(slide.getShapes().size() - 1, watermarkShape);
-``` 
+```
 
 
 ## **Set Watermark Rotation**
@@ -196,7 +196,7 @@ private int calculateRotation(float height, float width)
     
     return (int) rotation;
 }
-``` 
+```
 
 
 ## **Set Name to Watermark**
@@ -206,7 +206,7 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
 ```java
 watermarkShape.setName("watermark");
-``` 
+```
 
 
 ## **Remove Watermark**
@@ -222,12 +222,10 @@ for (int i = 0; i < slide.getShapes().size(); i++)
         slide.getShapes().remove(watermarkShape);
     }
 }
-``` 
+```
 
 
 ## **Live Example**
-To see alive how watermark feature works in Aspose.Slides, try [**Aspose.Slides Watermark**](https://products.aspose.app/slides/watermark) online free demo:
+You may want to check out **Aspose.Slides** **free** [**Add Watermark** ](https://products.aspose.app/slides/watermark) and [**Remove Watermark**](https://products.aspose.app/slides/watermark/remove-watermark) online tools. 
 
-[](https://products.aspose.app/slides/watermark)
-
-[![todo:image_alt_text](slides-watermark.png)](https://products.aspose.app/slides/watermark)
+![todo:image_alt_text](slides-watermark.png)

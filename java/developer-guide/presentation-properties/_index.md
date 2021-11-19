@@ -41,7 +41,7 @@ Working with Document Properties Using Aspose.Slides for Java
 
 As we have described earlier that Aspose.Slides for Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Java API. Aspose.Slides for Java provides a class [IDocumentProperties](https://apireference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
-Developers can use **IDocumentProperties** property exposed by [Presentation](https://apireference.aspose.com/java/slides/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
+Developers can use **IDocumentProperties** property exposed by [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
 ## **Access Built-in Properties**
 These properties as exposed by [IDocumentProperties](https://apireference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**

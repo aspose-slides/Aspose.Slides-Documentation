@@ -32,10 +32,8 @@ slds.insertClone(2, pres.getSlides().get_Item(1));
 ```
 ## **Download Running Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 
 {{% alert color="primary" %}} 
 

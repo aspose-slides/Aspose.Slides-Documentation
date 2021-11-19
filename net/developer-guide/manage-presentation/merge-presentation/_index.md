@@ -24,7 +24,7 @@ When you merge one presentation to another, you are effectively combining their 
 
 Most presentation programs (PowerPoint or OpenOffice) lack functions that allow users to combine presentations in such manner. 
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net) , however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data. 
+[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) , however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data. 
 
 **See also**
 
@@ -53,7 +53,7 @@ The `AddClone` method returns an `ISlide` object, which is a clone of the source
 
 ## **Merge Presentations** 
 
-Aspose.Slides provides the [**AddClone (ISlide)**](https://apireference.aspose.com/net/slides/aspose.slides/islidecollection/methods/addclone) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
+Aspose.Slides provides the [**AddClone (ISlide)**](https://apireference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
 
 This C# code shows you how to merge presentations:
 
@@ -72,7 +72,7 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 
 ## **Merge Presentations with Slide Master**
 
-Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https://apireference.aspose.com/net/slides/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https://apireference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
 
 This code in C# demonstrates the described operation:
 
@@ -95,7 +95,7 @@ The slide layout for the slide master is determined automatically. When an appro
 
 {{% /alert %}}
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://apireference.aspose.com/net/slides/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
+If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://apireference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
 
 ## **Merge Specific Slides From Presentations**
 

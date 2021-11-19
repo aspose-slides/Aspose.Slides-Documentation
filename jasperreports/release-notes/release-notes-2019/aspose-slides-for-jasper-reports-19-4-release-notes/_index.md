@@ -13,5 +13,5 @@ This page contains release notes for Aspose.Slides for Jasper Reports 19.4
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESJR-33314|[Use Aspose.Slides for Java 19.4 features](https://docs.aspose.com/display/slidesjava/Aspose.Slides+for+Java+19.4+Release+Notes)|Feature|
+|SLIDESJR-33314|[Use Aspose.Slides for Java 19.4 features](/slides/java/aspose-slides-for-java-19-4-release-notes/)|Feature|
 

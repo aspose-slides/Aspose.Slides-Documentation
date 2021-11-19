@@ -7,7 +7,7 @@ url: /java/tagged-image-file-format-tiff/
 
 ## **About TIFF**
 
-The [Tagged Image File Format](http://en.wikipedia.org/wiki/Tagged_Image_File_Format) which is known for storing multiple images in one document was originally created by Aldus. This format is widely supported by scanning, faxing and other image manipulation applications.
+The [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) which is known for storing multiple images in one document was originally created by Aldus. This format is widely supported by scanning, faxing and other image manipulation applications.
 
 ## **TIFF in Aspose.Slides for Java**
 

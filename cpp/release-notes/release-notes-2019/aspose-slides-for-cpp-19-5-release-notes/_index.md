@@ -217,7 +217,7 @@ New **AddImage()** method has been added to **IImageCollection** and **ImageColl
 }
 ```
 
-**Pay attention** that methods IPPImage::AddFromSvg(System::String) and IPPImage::AddFromSvg(System::String, System::SharedPtr<Import::IExternalResourceResolver>, System::String) are marked as obsolete and will be deleted from API since version 19.10.
+**Pay attention** that methods `IPPImage::AddFromSvg(System::String)` and `IPPImage::AddFromSvg(System::String, System::SharedPtr<Import::IExternalResourceResolver>, System::String)` are marked as obsolete and will be deleted from API since version 19.10.
 
 New **get_SvgImage()** and **set_SvgImage()** methods have been added to **IPPImage** and **PPImage** classes.
 

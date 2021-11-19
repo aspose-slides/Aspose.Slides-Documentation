@@ -8,12 +8,12 @@ url: /net/aspose-slides-for-net-16-4-0-release-notes/
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
 |SLIDESNET-36656 |Slides 15.6 performance regression |Investigation |
-|SLIDESNET-26393 |[Export to SWF format](http://www.aspose.com/docs/display/slidesnet/Converting+a+Presentation#ConvertingaPresentation-ConvertingPresentationtoSWF)|Feature |
+|SLIDESNET-26393 |[Export to SWF format](/slides/net/convert-powerpoint-to-swf-flash/)|Feature |
 |SLIDESNET-37227 |Add image in table cell without FillMode |Enhancement |
 |SLIDESNET-37088 |Support for the property of Show axis without labeling |Enhancement |
 |SLIDESNET-36934 |Getting Series data Item text for automatic chart labels |Enhancement |
-|SLIDESNET-36910 |[Save as SWF](http://www.aspose.com/docs/display/slidesnet/Converting+a+Presentation#ConvertingaPresentation-ConvertingPresentationtoSWF)|Enhancement |
-|SLIDESNET-36886 |[Support to get the X and Y coordinates of Paragraphs and Portions](http://www.aspose.com/docs/display/slidesnet/Getting+Paragraph+and+Portion+coordinates+in+a+TextFrame)|Enhancement |
+|SLIDESNET-36910 |Save as SWF)|Enhancement |
+|SLIDESNET-36886 |[Support to get the X and Y coordinates of Paragraphs and Portions](/slides/net/paragraph/#get-paragraph-and-portion-coordinates-in-textframe)|Enhancement |
 |SLIDESNET-36740 |PPTX: Get an OleObjectFrame Type/Extension? |Enhancement |
 |SLIDESNET-34480 |Support for showing/hiding chart legends enteries |Enhancement |
 |SLIDESNET-37241 |Add support of all known BehaviorProperties |Enhancement |

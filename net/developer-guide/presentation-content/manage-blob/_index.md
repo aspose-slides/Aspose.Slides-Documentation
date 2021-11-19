@@ -94,7 +94,7 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://apireference.aspose.com/net/slides/aspose.slides/iimagecollection) interface and [**ImageCollection** ](https://apireference.aspose.com/net/slides/aspose.slides/imagecollection)class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**IImageCollection**](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) interface and [**ImageCollection** ](https://apireference.aspose.com/slides/net/aspose.slides/imagecollection)class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This C# code shows you how to add a large image through the BLOB process:
 

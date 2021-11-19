@@ -13,11 +13,11 @@ This page demonstrates how to export report from ReportViewer 2010/2012 to Power
 
 {{% /alert %}} 
 
-RplRenderer class renders [Report Page Layout (RPL) Binary Stream Format](http://msdn.microsoft.com/en-us/library/ee301773.aspx) to PowerPoint presentation. 
+RplRenderer class renders [Report Page Layout (RPL) Binary Stream Format](https://docs.microsoft.com/en-us/openspecs/sql_server_protocols/ms-rpl/9c4ff7ba-f6da-4092-9670-aa0e54e73887) to PowerPoint presentation. 
 
 {{% alert color="primary" %}} 
 
-RplRenderer uses [soft page breaks](http://msdn.microsoft.com/en-us/library/dd255244.aspx) to control page size use InteractiveHeight and InteractiveWidth RDL tags. 
+RplRenderer uses [soft page breaks](https://docs.microsoft.com/en-us/sql/reporting-services/report-design/rendering-behaviors-report-builder-and-ssrs) to control page size use InteractiveHeight and InteractiveWidth RDL tags. 
 
 {{% /alert %}} 
 ## **Sample Code**

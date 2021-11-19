@@ -19,7 +19,7 @@ url: /java/aspose-slides-for-java-16-4-0-release-notes/
 |SLIDESNET-37227 |Add image in table cell without fillmode |Enhancement |
 |SLIDESNET-37088 |Support for the property of Show axis without labelling |Enhancement |
 |SLIDESNET-36934 |Getting Series data Item text for automatic chart labels |Feature |
-|SLIDESNET-36886 |[Support to get the X and Y coordinates of Paragraphs and Portions](http://www.aspose.com/docs/display/slidesjava/Getting+Paragraph+and+Portion+coordinates+in+a+TextFrame)|Feature |
+|SLIDESNET-36886 |[Support to get the X and Y coordinates of Paragraphs and Portions](/slides/java/paragraph/#get-paragraph-and-portion-coordinates-in-textframe)|Feature |
 |SLIDESNET-34480 |Support for showing/hiding chart legends enteries |Feature |
 |SLIDESNET-37241 |Add support of all known BehaviorProperties |Enhancement |
 |SLIDESJAVA-35427 |Investigate problem with hanging build #346 |Bug |

@@ -2,135 +2,186 @@
 title: Chart Series
 type: docs
 url: /java/chart-series/
+keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Chart series in PowerPoint presentations in Java"
 ---
 
+A series is a row or column of numbers plotted in a chart.
+
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Set Chart Series Overlap**
-Aspose.Slides for Java provides a simple API interface to set chart series overlap. The [**IChartSeries.getOverlap**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getOverlap--) method specifies how much bars and columns should overlap on 2D charts (in a range from -100 to 100). This method is not only for the referred series but for all series of the parent series group: this is projection of the appropriate group property. Therefore, this property is read-only. Use the [**getParentSeriesGroup**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getParentSeriesGroup--) method to access the parent series group, and then access the [**ParentSeriesGroup.getOverlap**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeriesGroup#getOverlap--) or [**ParentSeriesGroup.setOverlap**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeriesGroup#setOverlap-byte-) method to change or read the value.
+
+With the [IChartSeriesOverlap](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
+
+Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred value for `Overlap`. 
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Add a clustered column chart on a slide.
 1. Access the first chart series.
-1. Access the selected serie's [**getParentSeriesGroup**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getParentSeriesGroup--) and set the chart series overlap value.
+1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
 1. Write the modified presentation to a PPTX file.
 
+This Java code shows you how to set the overlap for a chart series:
+
 ```java
-// Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
-    // Adding chart
+    // Adds chart
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    if (series.get_Item(0).getOverlap() == 0) {
-        // Setting series overlap
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte) -30);
+    if (series.get_Item(0).getOverlap() == 0)
+    {
+        // Sets series overlap
+        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
     }
 
-    // Saving presentation
-    pres.save("ErrorBars.pptx", SaveFormat.Pptx);
+    // Writes the presentation file to disk
+    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 ## **Change Series Color**
-Aspose.Slides for Java provides support for changing series color. 
+Aspose.Slides for Java allows you to change a series' color this way:
 
-1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Add chart on the slide.
-1. Access specific series of chart.
-1. Set fill type and fill color.
-1. Save modified presentation.
+1. Access the series whose color you want to change. 
+1. Set your preferred fill type and fill color.
+1. Save the modified presentation.
 
-Below sample example is given. 
+This Java code shows you how to change a series' color:
 
 ```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
+Presentation pres = new Presentation("test.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-
     IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
 
     point.setExplosion(30);
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    
+
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Change Color of Categories in Series**
-Aspose.Slides for Java provides support for changing color of categories in a series color. 
+## **Change Series Category's Color**
+Aspose.Slides for Java allows you to change a series category's color this way:
 
-1. Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Add chart on the slide.
-1. Access specific series of chart.
-1. Set fill type and fill color.
-1. Save modified presentation.
+1. Access the series category whose color you want to change.
+1. Set your preferred fill type and fill color.
+1. Save the modified presentation.
 
-Below sample example is given. 
+This code in Java shows you how to change a series category's color:
 
 ```java
-// Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-
     IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
 
     point.getFormat().getFill().setFillType(FillType.Solid);
-
     point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Set Chart Series Fill Colors**
-Aspose.Slides for Java provides a simple API for setting automatic fill color for chart series inside plot area:
+## **Change Series' Name** 
+
+By default, the legend names for a chart are the contents of cells above each column or row of data. 
+
+In our example (sample image), 
+
+* the columns are *Series 1, Series 2,* and *Series 3*;
+* the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
+
+Aspose.Slides for Java allows you to update or change a series name in its chart data and legend. 
+
+This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
+
+```java
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+
+    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
+    seriesCell.setValue("New name");
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+This Java code shows you how to change a series name in its legend through`Series`:
+
+```java
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    IStringChartValue name = series.getName();
+    name.getAsCells().get_Item(0).setValue("New name");
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Set Chart Series Fill Color**
+
+Aspose.Slides for Java allows you to set the automatic fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
-1. Accessing the chart series and setting the fill color to Automatic.
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
+1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
 
+This Java code shows you how to set the automatic fill color for a chart series:
+
 ```java
-// Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
-    // Creating a clustered column chart
+    // Creates a clustered column chart
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // Setting series fill format to automatic
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
+    // Sets series fill format to automatic
+    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
+    {
         chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
     }
 
-    // Saving presentation
-    pres.save("AutoFillSeries.pptx", SaveFormat.Pptx);
+    // Writes the presentation file to disk
+    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 ## **Set Chart Series Invert Fill Colors**
-Aspose.Slides for Java provides a simple API for setting invert fill color for chart series inside plot area:
+Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
-1. Accessing the chart series and setting the fill color to invert.
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
+1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
 
+This Java code demonstrates the operation:
+
 ```java
-// Create an instance of Presentation class
+Color inverColor = Color.RED;
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
@@ -139,24 +190,22 @@ try {
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    // Adding new series and categories
+    // Adds new series and categories
     chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
 
-    // Take first chart series and populating series data.
+    // Takes the first chart series and populates its series data.
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    
     Color seriesColor = series.getAutomaticSeriesColor();
-    
     series.setInvertIfNegative(true);
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.getInvertedSolidFillColor().setColor(inverColor);
     
     pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -164,8 +213,11 @@ try {
 }
 ```
 
-## **Set Invert If Negative Property for Individual Series**
-The Aspose.Slides for Java lets developers allow to set inverts. Methods [**setInvertIfNegative**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#setInvertIfNegative-boolean-) and [**getInvertIfNegative**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getInvertIfNegative--) methods have been added to [IChartDataPoint](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint) interface and [ChartDataPoint](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartDataPoint) class. This Specifies the data point shall invert its colors if the value is negative. Sample code is given below.
+
+## **Set Series to Invert When Value is Negative**
+Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
+
+This Java code demonstrates the operation:
 
 ```java
 Presentation pres = new Presentation();
@@ -174,45 +226,43 @@ try {
     IChartSeriesCollection series = chart.getChartData().getSeries();
     chart.getChartData().getSeries().clear();
 
-    series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2",-5));
-    series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3",3));
-    series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4",-2));
-    series.get_Item(0).getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5",1));
+    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
+    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
+    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
+    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
+    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
 
-    series.get_Item(0).setInvertIfNegative(false);
-    series.get_Item(0).getInvertIfNegative();
-    series.get_Item(0).getDataPoints().get_Item(2).setInvertIfNegative(true);
+    chartSeries.setInvertIfNegative(false);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
+
+    pres.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    if (pres != null) pres.dispose();
 }
 ```
 
-## **Clear Specific Chart Series Data Points Data**
-Aspose.Slides for Java provides a simple API to clear specific chart series [**DataPoints**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint) data. To clear specific chart series [**DataPoints**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint) data, please follow the steps below:
+## **Clear Specific Data Points' Data**
+Aspose.Slides for Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
-- Create an instance of Presentation class and load the desired presentation.
-- Obtain the reference of a slide by using its Index
-- Obtain the reference of a chart by using its Index
-- Iterate through all the [**DataPoints**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getDataPoints--) of chart and set [**XValue**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getXValue--) and [**YValue**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getYValue--) to null.
-- Remove all [**DataPoints**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getDataPoints--) of specific chart series
-- Write the modified presentation to a PPTX file
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Obtain the reference of a slide through its index.
+3. Obtain the reference of a chart through its index.
+4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
+5. Clear all`DataPoints` for specific chart series.
+6. Write the modified presentation to a PPTX file.
 
-Sample code is given below.
+This Java code demonstrates the operation:
 
 ```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation("Chart.pptx");
+Presentation pres = new Presentation("TestChart.pptx");
 try {
-    // Accessing the first slide in presentation
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide sl = pres.getSlides().get_Item(0);
 
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
+    IChart chart = (IChart)sl.getShapes().get_Item(0);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints()) {
-
+    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
+    {
         dataPoint.getXValue().getAsCell().setValue(null);
         dataPoint.getYValue().getAsCell().setValue(null);
     }
@@ -225,45 +275,47 @@ try {
 }
 ```
 
-## **Set GapWidth Property of Chart Series**
-Aspose.Slides for Java provides a simple API for setting [**gapWidth**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getGapWidth--) property. The sample code applies setting the [**gapWidth**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartSeries#getGapWidth--) property.
+## **Set Series Gap Width**
+Aspose.Slides for Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Access any chart series.
-1. Set GapWidth property.
+1. Set the `GapWidth` property.
 1. Write the modified presentation to a PPTX file.
 
+This code in Java shows you how to set a series' Gap Width:
+
 ```java
-// Create an instance of Presentation class
+// Creates empty presentation 
 Presentation pres = new Presentation();
 try {
-    // Access first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add chart with default data
-    IChart chart = sld.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-
-    // Setting the index of chart data sheet
+    // Accesses the presentation's first slide
+    ISlide slide = pres.getSlides().get_Item(0);
+    
+    // Adds a chart with default data
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
+    
+    // Sets the index of the chart data sheet
     int defaultWorksheetIndex = 0;
     
-    // Getting the chart data worksheet
+    // Gets the chart data worksheet
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Add series
+    // Adds series
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
-    // Add Catrgories
+    // Adds Categories
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Take second chart series
+    // Takes the second chart series
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
     
-    // Now populating series data
+    // Populates the series data
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -271,10 +323,10 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Set GapWidth value
+    // Sets GapWidth value
     series.getParentSeriesGroup().setGapWidth(50);
     
-    // Save presentation with chart
+    // Saves presentation to disk
     pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();

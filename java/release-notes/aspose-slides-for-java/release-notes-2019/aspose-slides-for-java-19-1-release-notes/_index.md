@@ -8,7 +8,7 @@ url: /java/aspose-slides-for-java-19-1-release-notes/
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
 |SLIDESJAVA-37157|Option for setting locale in application|Feature|
-|SLIDESJAVA-37440|[Use Aspose.Slides for Net 19.1 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.1+Release+Notes)|Feature|
+|SLIDESJAVA-37440|[Use Aspose.Slides for Net 19.1 features](/slides/net/aspose-slides-for-net-19-1-release-notes/)|Feature|
 |SLIDESJAVA-36680|WordArt text shadow has lost when converting to thumbnail image|Bug|
 |SLIDESJAVA-36930|PPTX to PDF text shadowing not same|Bug|
 |SLIDESJAVA-35532|PowerPoint Loses Alt Text Fields|Bug|

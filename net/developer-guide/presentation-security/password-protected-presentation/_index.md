@@ -3,8 +3,9 @@ title: Password Protected Presentation
 type: docs
 weight: 20
 url: /net/password-protected-presentation/
-keywords: "Lock PowerPoint presentation"
-description: "Lock PowerPoint presentation. Password protected PowerPoint with Aspose.Slides."
+keywords: "Lock PowerPoint, unlock PowerPoint, protect PowerPoint, set password, add password, encrypt PowerPoint, decrypt PowerPoint, Write protection, PowerPoint security, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint password protection, encryption, and security in C# or .NET"
+
 ---
 
 

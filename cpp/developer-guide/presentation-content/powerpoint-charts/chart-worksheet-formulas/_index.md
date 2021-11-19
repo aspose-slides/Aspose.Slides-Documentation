@@ -21,7 +21,7 @@ Usually, the chart represents complicated data (e.g. financial analysts, scienti
 
 **Chart spreadsheet formula** in presentation is an expression to automatically calculate and update chart spreadsheet data. Spreadsheet formula defines the data calculation logic for a certain cell or a set of cells. Spreadsheet formula is a math formula or a logical formula, which is using: cell references, math functions, logical operators, arithmetic operators, conversion functions, string constants, etc. The definition of the formula is written into a cell, and this cell does not contain a simple value. Spreadsheet formula calculates the value and returns it back, then this value is assigned to the cell. Chart spreadsheet formulas in presentations are actually the same as excel formulas, and there are supported the same default functions, operators and constants for their implementation.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/cpp) chart spreadsheet is represented with 
+In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) chart spreadsheet is represented with 
 [**ChartData::get_ChartDataWorkbook()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) method of the
 [**IChartDataWorkbook**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook) type. 
 Spreadsheet formula can be assigned and changed with 

@@ -316,5 +316,5 @@ There are two approaches to fix the worksheet resizing issue. The selection of t
 h4. {_}Related Sections 
 {_}
 
-[Creating and Embedding an Excel Chart as OLE Object in Presentation](https://docs.aspose.com/display/slidescpp/Creating+Excel+Chart+and+Embedding+it+in+Presentation+as+OLE+Object)
+[Creating and Embedding an Excel Chart as OLE Object in Presentation](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 

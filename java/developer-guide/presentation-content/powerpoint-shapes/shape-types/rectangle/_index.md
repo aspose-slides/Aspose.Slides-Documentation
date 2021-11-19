@@ -14,7 +14,7 @@ Like previous topics, this one is also about adding a shape and this time the sh
 ## **Add Rectangle to Slide**
 To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
 - Write the modified presentation as a PPTX file.
@@ -41,7 +41,7 @@ try {
 ## **Add Formatted Rectangle to Slide**
 To add a formatted rectangle to a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
 - Set the [Fill Type](https://apireference.aspose.com/slides/java/com.aspose.slides/FillType) of the Rectangle to Solid.

@@ -37,7 +37,7 @@ This table contains the file formats Aspose.Slides for .NET can load and save:
 |[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument Presentation Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[TIFF](https://docs.fileformat.com/image/tiff/)|Saves the document as a Single or Multi-Page TIFF Image| |{{< emoticons/tick >}}| |
 |[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format Plus Extensions| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/view/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
 |[XPS](https://docs.fileformat.com/page-description-language/xps/)|XPS Documents| |{{< emoticons/tick >}}| |
 |[JPEG](https://docs.fileformat.com/image/jpeg/)|Saves the document in the JPEG Format| |{{< emoticons/tick >}}| |
 |[PNG](https://docs.fileformat.com/image/png/)|Saves the document in the PNG Format| |{{< emoticons/tick >}}| |

@@ -21,7 +21,7 @@ Zoom frame is one of the shapes offered by Aspose.Slides for .NET. We intend to 
 
 You can add a zoom frame in a slide using Aspose.Slides for .NET this way:
 
-1.	Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 2.	Create new slides to which you intend to link. 
 3.	Add an identification text and background to the created slides.
 4.  Add zoom frames (containing the references to created slides) into the first slide.
@@ -63,7 +63,7 @@ using (Presentation pres = new Presentation())
 ```
 ## **Creating Zoom Frames with Custom Images**
 With Aspose.Slides for .NET, you can create a zoom frame with an image other than the slide preview image this way: 
-1.	Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1.	Create an instance of the `Presentation` class.
 2.	Create a new slide to which you intend to link. 
 3.	Add an identification text and background to created slide.
 4.  Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
@@ -103,7 +103,7 @@ In the previous sections (above), we showed you how to create simple zoom frames
 
 You can control the formatting of a zoom frame in a slide this way:
 
-1.	Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1.	Create an instance of the `Presentation` class.
 2.	Create new slides to link to.
 3.	Add identification text and background to created slides.
 4.  Add zoom frames (containing the references to created slides) into the first slide.
@@ -172,7 +172,7 @@ Aspose.Slides for .NET has no methods for creating a summary zoom, but it has an
 
 You can create a summary zoom in a slide this way:
 
-1.	Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1.	Create an instance of the `Presentation` class.
 2.	Create new slides to which you intend to link. 
 3.	Add an identification text and background to the created slides.
 6.  Add zoom frames (containing the references to created slides) into the first slide.

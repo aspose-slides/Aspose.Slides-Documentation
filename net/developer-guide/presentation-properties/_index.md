@@ -3,6 +3,8 @@ title: Presentation Properties
 type: docs
 weight: 70
 url: /net/presentation-properties/
+keywords: "PowerPoint properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint presentation properties in C# or .NET"
 ---
 
 
@@ -15,7 +17,7 @@ Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) 
 
 
 ## **About Presentation Properties**
-As we have described earlier that Aspose.Slides for .NET supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for .NET API. Aspose.Slides for .NET provides a class [IDocumentProperties](https://apireference.aspose.com/net/slides/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through [Presentation.DocumentProperties](https://apireference.aspose.com/net/slides/aspose.slides/documentproperties/properties/index) property. Developers can use [IDocumentProperties](https://apireference.aspose.com/net/slides/aspose.slides/idocumentproperties) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
+As we have described earlier that Aspose.Slides for .NET supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for .NET API. Aspose.Slides for .NET provides a class [IDocumentProperties](https://apireference.aspose.com/slides/net/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through [Presentation.DocumentProperties](https://apireference.aspose.com/slides/net/aspose.slides/documentproperties/properties/index) property. Developers can use [IDocumentProperties](https://apireference.aspose.com/slides/net/aspose.slides/idocumentproperties) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
 
 
 

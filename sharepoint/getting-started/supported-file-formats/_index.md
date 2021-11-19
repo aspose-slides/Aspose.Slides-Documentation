@@ -23,18 +23,18 @@ The following table indicates the file formats that Aspose.Slides for SharePoint
 
 |**Format**|**Description**|**Load**|**Save**|**Remarks**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://wiki.fileformat.com/Presentation/PPT/)|PowerPoint presentation 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://wiki.fileformat.com/Presentation/PPTX/)|PowerPoint presentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://wiki.fileformat.com/Presentation/PPS/)|PowerPoint slideShow 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://wiki.fileformat.com/Presentation/PPSX/)|PowerPoint slideShow 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://wiki.fileformat.com/presentation/pptm/)|PowerPoint presentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://wiki.fileformat.com/presentation/ppsm/)|PowerPoint slideShow 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://wiki.fileformat.com/Presentation/POTX/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://wiki.fileformat.com/presentation/potm/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://wiki.fileformat.com/image/tiff/)|Saves the document as Single or Multi-Page TIFF Image| |{{< emoticons/tick >}}| |
-|[PDF](https://wiki.fileformat.com/view/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
-|[XPS](https://wiki.fileformat.com/page-description-language/xps/)|XPS Documents| |{{< emoticons/tick >}}| |
-|[SVG](https://wiki.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics (An XML-based vector image format)| |{{< emoticons/tick >}}| |
-|[SWF](https://wiki.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
-|[HTML](https://wiki.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint presentation 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint presentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint slideShow 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint slideShow 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint presentation 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint slideShow 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint template 2007 - 2019|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Saves the document as Single or Multi-Page TIFF Image| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XPS Documents| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics (An XML-based vector image format)| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}| |
 

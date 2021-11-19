@@ -51,7 +51,7 @@ To reference the [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slide
 
 ![todo:image_alt_text](installation_4.png)
 
-If you are not familiar with [Aspose EULA](http://www.aspose.com/corporate/purchase/end-user-license-agreement.aspx), then you may want to read the license referenced in the URL. 
+If you are not familiar with [Aspose EULA](https://about.aspose.com/legal/eula), then you may want to read the license referenced in the URL. 
 
 In the Package Manager Console, you can run the `Update-Package Aspose.Slides.Cpp` command to check for updates to the Aspose.Slides package. Updates (if found) get installed automatically. You can also use the `-prerelease` suffix to update the latest release.
 

@@ -18,7 +18,7 @@ This page contains release notes for [Aspose.Slides for CPP 19.10](https://www.
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1820|[Use Aspose.Slides for .NET 19.10 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.10+Release+Notes)|Feature|
+|SLIDESCPP-1820|[Use Aspose.Slides for .NET 19.10 features](/slides/net/aspose-slides-for-net-19-10-release-notes)|Feature|
 |SLIDESNET-40689|[Support for accessing prompt text from slides shapes placeholders](/slides/cpp/adding-and-formatting-text/#addingandformattingtext-setprompttextinaplaceholder)|Feature|
 |SLIDESNET-41393|After conversion to PDF/A an image is rendered with blur|Enhancement|
 |SLIDESCPP-2086|Improve thumbnails rendering quality|Enhancement|

@@ -27,7 +27,7 @@ Click on " **Reporting Services Integration** .
 We will provide the URL for the Report Server that we found in the Reporting Services Configuration Manager. 
 ## **Authentication Mode**
 We will also select an Authentication Mode. The following MSDN link goes through in detail what these are. 
-[Security Overview for Reporting Services in SharePoint Integrated Mode](http://msdn.microsoft.com/en-us/library/bb283324.aspx) 
+[Security Overview for Reporting Services in SharePoint Integrated Mode](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/bb283324(v=sql.105)) 
 
 In short, if your site is using **Claims Authentication** , you will always be using Trusted Authentication regardless of what you choose here. If you want to pass windows credentials, you will want to choose Windows Authentication. For Trusted Authentication, we will pass the SPUser token and not rely on the Windows credential. 
 

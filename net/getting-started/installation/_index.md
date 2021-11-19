@@ -52,7 +52,7 @@ To reference the [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slide
 
 Once the download reaches completion, you should see some confirmation messages. 
 
-If you are not familiar with [Aspose EULA](http://www.aspose.com/corporate/purchase/end-user-license-agreement.aspx), then you may want to read the license referenced in the URL. 
+If you are not familiar with [Aspose EULA](https://about.aspose.com/legal/eula), then you may want to read the license referenced in the URL. 
 
 ![todo:image_alt_text](installation_5.png)
 

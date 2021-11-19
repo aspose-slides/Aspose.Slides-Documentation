@@ -29,7 +29,7 @@ These are links to useful resources:
 - [Aspose.Slides for .NET Features](/slides/net/features-overview/)
 - [Aspose.Slides for .NET Limitations](/slides/net/known-issues/)
 - [Aspose.Slides for .NET Release Notes](/slides/net/release-notes/)
-- [Aspose.Slides for .NET Product Page](https://products.aspose.com/slides/net)
+- [Aspose.Slides for .NET Product Page](https://products.aspose.com/slides/net/)
 - [Install Aspose.Slides for .NET NuGet Package](https://www.nuget.org/packages/Aspose.Slides.NET/)
 - [Aspose.Slides for .NET API Reference Guide](https://apireference.aspose.com/slides/net)
 - [Download Examples from a GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-.NET)

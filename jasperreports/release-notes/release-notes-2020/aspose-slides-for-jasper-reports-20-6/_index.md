@@ -13,5 +13,5 @@ This page contains release notes for Aspose.Slides for Jasper Reports 20.6
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESJR-33352|[Use Aspose.Slides for Java 20.6 features](https://docs.aspose.com/display/slidesjava/Aspose.Slides+for+Java+20.6+Release+Notes)|Enhancement|
+|SLIDESJR-33352|[Use Aspose.Slides for Java 20.6 features](/slides/java/aspose-slides-for-java-20-6-release-notes/)|Enhancement|
 

@@ -49,7 +49,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |SLIDESNET-35564|Text improperly rendered in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-35188|Improve chart rendering in generated thumbnails|Bug|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-34870|Image reflection effect is lost when exporting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-34428|Arcs and arrow lines are missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf//>
+|SLIDESNET-34428|Arcs and arrow lines are missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
 
 ## Public API Changes ##
 

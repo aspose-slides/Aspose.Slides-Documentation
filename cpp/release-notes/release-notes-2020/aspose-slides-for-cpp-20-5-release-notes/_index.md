@@ -27,7 +27,7 @@ This page contains release notes for Aspose.Slides for C++ 20.5.
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-2209|[Use Aspose.Slides for .NET 20.5 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+20.5+Release+Notes)|Enhancement |
+|SLIDESCPP-2209|[Use Aspose.Slides for .NET 20.5 features](/slides/net/aspose-slides-for-net-20-5-release-notes/)|Enhancement |
 |SLIDESCPP-2129|Add support for document digital signing|Enhancement|
 
 ## **Public API Changes**

@@ -501,6 +501,6 @@ public static CTGraphicalObjectFrame createGraphicFrameFromString() throws JAXBE
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Creating a Table from Scratch in Slide](http://www.aspose.com/docs/display/slidesjava/Creating+a+Table+from+Scratch+in+Slide).
+For more details, visit [Creating a Table from Scratch in Slide](/slides/java/manage-table/).
 
 {{% /alert %}}

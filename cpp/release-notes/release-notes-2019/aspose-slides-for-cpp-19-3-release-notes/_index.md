@@ -13,7 +13,7 @@ This page contains release notes for Aspose.Slides for CPP 19.3
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1720|[Use Aspose.Slides for .NET 19.3 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.3+Release+Notes)|Feature|
+|SLIDESCPP-1720|[Use Aspose.Slides for .NET 19.3 features](/slides/net/aspose-slides-for-net-19-3-release-notes/)|Feature|
 |SLIDESNET-40600|Support for Text Highlighter feature|Feature|
 |SLIDESNET-40794|Support for setting Transparency property for shadow effects|Feature|
 |SLIDESNET-40799|Restricting local file system access when opening a document|Feature|

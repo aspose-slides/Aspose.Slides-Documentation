@@ -29,7 +29,7 @@ This will create a mathematical text in XML that can be displayed in PowerPoint 
 
 PowerPoint supports plenty of mathematical symbols to create math equations. However, creating complicated math equations in PowerPoint often does not bring a good and professional-looking result. Users, who need to create mathematical presentations frequently, resort to the use of third-party solutions to create good-looking math formulas.
 
-Using [**Aspose.Slide API**](https://products.aspose.com/slides/java), you can work with math equations in the PowerPoint presentations programmatically in C#. Create new math expressions or edit previously created ones. The export of mathematical structures into images is also partially supported.
+Using [**Aspose.Slide API**](https://products.aspose.com/slides/java/), you can work with math equations in the PowerPoint presentations programmatically in C#. Create new math expressions or edit previously created ones. The export of mathematical structures into images is also partially supported.
 
 
 ## **How to Create a Mathematical Equation**

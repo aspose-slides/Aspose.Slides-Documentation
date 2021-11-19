@@ -74,6 +74,6 @@ pres.save(dataDir + "AsposePresetNumberFormat.pptx", SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Setting Number Format For Chart Data Cell](http://www.aspose.com/docs/display/slidesjava/Setting+Number+Format+for+Chart+Data+Cell).
+For more details, visit [Setting Number Format For Chart Data Cell](/slides/java/setting-number-format-for-chart-data-cell-in-aspose-slides/).
 
 {{% /alert %}}

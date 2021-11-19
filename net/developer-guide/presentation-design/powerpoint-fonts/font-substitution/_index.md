@@ -3,6 +3,8 @@ title: Font Substitution
 type: docs
 weight: 70
 url: /net/font-substitution/
+keywords: "Font, substitute font, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Substitute font in PowerPoint in C# or .NET"
 ---
 
 ## **Rule Based Font Substitution**

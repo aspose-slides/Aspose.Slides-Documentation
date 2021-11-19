@@ -84,10 +84,8 @@ presentation.save(dataDir + "AsposeTransition2.pptx",SaveFormat.Pptx);
 
 {{< /highlight >}}
 ## **Download Running Code**
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaapachepoi)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Apache_POI-v1.0.0)
 ## **Download Sample Code**
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaapachepoi#src/main/java/com/aspose/slides/examples/asposefeatures/slides/slidetransitions/AsposeTransitions.java)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/slides/slidetransitions/AsposeTransitions.java)
 
 {{% alert color="primary" %}} 

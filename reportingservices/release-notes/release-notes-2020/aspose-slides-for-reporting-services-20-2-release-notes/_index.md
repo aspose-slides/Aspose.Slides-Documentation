@@ -13,6 +13,6 @@ This page contains release notes for [Aspose.Slides for Reporting Services 20.2.
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESRS-33612|[Use Aspose.Slides for .NET 20.2 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+20.2+Release+Notes)|Feature|
+|SLIDESRS-33612|[Use Aspose.Slides for .NET 20.2 features](/slides/net/aspose-slides-for-net-20-2-release-notes/)|Feature|
 
 

@@ -15,7 +15,7 @@ In this topic, we will introduce developers about adding ellipse shapes to their
 ## **Create Ellipse**
 To add a simple ellipse to a selected slide of the presentation, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Ellipse type using [addAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
 - Write the modified presentation as a PPTX file.
@@ -42,7 +42,7 @@ try {
 ## **Create Formatted Ellipse**
 To add a better formatted ellipse to a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Ellipse type using [addAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
 - Set the Fill Type of the Ellipse to Solid.

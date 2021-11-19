@@ -8,7 +8,7 @@ url: /java/aspose-slides-for-java-18-7-release-notes/
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
 |SLIDESJAVA-37012|Setting chart.getChartData().setRange(range) resets the chart formatting|Feature|
-|SLIDESJAVA-37131|[Use Aspose.Slides for Net 18.7 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+18.7+Release+Notes)|Feature|
+|SLIDESJAVA-37131|[Use Aspose.Slides for Net 18.7 features](/slides/net/aspose-slides-for-net-18-7-release-notes/)|Feature|
 |SLIDESNET-25055|Font size of legend, minimum & maximum values of axes|Feature|
 |SLIDESNET-26270|Support for changing Series Color|Feature|
 |SLIDESNET-30409|Getting chart image from ChartEx|Feature|

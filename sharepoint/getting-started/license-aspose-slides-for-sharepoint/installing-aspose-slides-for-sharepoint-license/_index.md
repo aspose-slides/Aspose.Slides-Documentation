@@ -7,7 +7,7 @@ url: /sharepoint/installing-aspose-slides-for-sharepoint-license/
 
 {{% alert color="primary" %}} 
 
-Once you are happy with your evaluation, you can [purchase a license](http://www.aspose.com/purchase/default.aspx). Before purchasing, make sure you understand and agree to the license subscription terms. The license is emailed to you when the order has been paid.
+Once you are happy with your evaluation, you can [purchase a license](https://purchase.aspose.com/buy). Before purchasing, make sure you understand and agree to the license subscription terms. The license is emailed to you when the order has been paid.
 
 The license is a ZIP archive containing a regular SharePoint solution package. The archive contains:
 

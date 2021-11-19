@@ -10,7 +10,7 @@ description: "Edit PowerPoint chart axis in C# or .NET"
 ## **Getting the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for .NET allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Access the first slide.
 1. Add a chart with default data.
 1. Get the actual maximum value on the axis.

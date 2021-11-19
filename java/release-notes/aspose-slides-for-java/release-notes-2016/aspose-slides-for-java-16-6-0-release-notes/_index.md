@@ -8,7 +8,7 @@ url: /java/aspose-slides-for-java-16-6-0-release-notes/
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
 |SLIDESJAVA-34923|Huge memory consumption for loading the presentation using Aspose.Slides for Java 15.5.0|Investigation|
-|SLIDESNET-32388|[Inserting video from web in presentation](http://www.aspose.com/docs/display/slidesjava/Adding+Frame+to+the+Slide#AddingFrametotheSlide-AddingVideoFramewithVideofromWebSource)|Feature|
+|SLIDESNET-32388|[Inserting video from web in presentation](/slides/java/adding-frame-to-the-slide/)|Feature|
 |SLIDESNET-37410|Implement FillOverlay effect|Feature|
 |SLIDESJAVA-34301|Converting XML to PPT|Bug|
 |SLIDESJAVA-35531|NoClassDefFoundError exception for specific case when calling Presentation.getPresentationText in 1.6 jdk|Bug|

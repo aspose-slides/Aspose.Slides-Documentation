@@ -208,14 +208,14 @@ Any presentation document that can be loaded into Aspose.Slides for C++ can be c
 - Bullets
 - Tables
 
-You can export the presentation documents to PDF documents directly using Aspose.Slides for C++ component only. That is, you do not need any other third party or Aspose.Pdf component for this purpose. Further, you can customize the presentation to PDF export with different options as explained in [this topic](http://docs.aspose.com/display/slidescpp/Converting+to+PDF+File).
+You can export the presentation documents to PDF documents directly using Aspose.Slides for C++ component only. That is, you do not need any other third party or Aspose.Pdf component for this purpose. Further, you can customize the presentation to PDF export with different options as explained in [this topic](/slides/cpp/converting-presentation-to-pdf/).
 
 A Presentation Document Converted to PDF Document through Aspose.Slides for C++
 ## **XML Parser Specification (XPS)**
 ### **About XPS**
 The [XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) is a page description language and a fixed-document format originally developed by Microsoft. Like PDF, XPS is a fixed-layout document format designed to preserve document fidelity and provide device-independent document appearance.
 ### **XPS in Aspose.Slides for C++**
-Any presentation document that can be loaded by Aspose.Slides for C++ can be converted to XPS format. Aspose.Slides for C++ uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format. It is worth-mentioning that Aspose.Slides for C++ directly generates XPS without depending upon the Windows Presentation Foundation (WPF) classes that are packaged with C++ Framework 3.5 hence allowing Aspose.Slides for C++ to produce XPS documents on machines running C++ Framework versions earlier than version 3.5. You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for C++ in [this topic](http://docs.aspose.com/display/slidescpp/Converting+to+XPS+File).
+Any presentation document that can be loaded by Aspose.Slides for C++ can be converted to XPS format. Aspose.Slides for C++ uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format. It is worth-mentioning that Aspose.Slides for C++ directly generates XPS without depending upon the Windows Presentation Foundation (WPF) classes that are packaged with C++ Framework 3.5 hence allowing Aspose.Slides for C++ to produce XPS documents on machines running C++ Framework versions earlier than version 3.5. You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for C++ in [this topic](/slides/java/converting-presentation-to-xps-in-ruby/).
 
 A Presentation Document Converted to XPS Document through Aspose.Slides for C++
 
