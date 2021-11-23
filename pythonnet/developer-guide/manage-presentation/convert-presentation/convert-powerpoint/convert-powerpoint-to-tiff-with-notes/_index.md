@@ -16,12 +16,13 @@ You may want to check out Aspose [FREE PowerPoint to Poster converter](https://p
 TIFF is one of several widely used image formats that Aspose.Slides for Python via .NET supports for converting PowerPoint PPT and PPTX presentation with notes to images. You can also generate slide thumbnails in the Notes Slide view. The [Save](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/save/index) method exposed by Presentation class can be used to convert the whole presentation in Notes Slide view to TIFF. Saving a Microsoft PowerPoint presentation to TIFF notes with Aspose.Slides for Python via .NET is a two-line process. You simply open the presentation and save it out to TIFF notes. You can also generate a slide thumbnail in Notes Slide view for individual slides. The code snippets below update the sample presentation to TIFF images in Notes Slide view, as shown below:
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("NotesFile.pptx"))
-{
-    // Saving the presentation to TIFF notes
-    presentation.Save("Notes_In_Tiff_out.tiff", SaveFormat.Tiff);
-}
+import aspose.slides as slides
+
+# Instantiate a Presentation object that represents a presentation file
+presentation = slides.Presentation("pres.pptx")
+
+# Saving the presentation to TIFF notes
+presentation.save("Notes_In_Tiff_out.tiff", slides.export.SaveFormat.TIFF)
 ```
 
 

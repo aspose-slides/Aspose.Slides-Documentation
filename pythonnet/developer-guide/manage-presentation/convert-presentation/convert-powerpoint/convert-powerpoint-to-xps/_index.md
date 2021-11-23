@@ -51,12 +51,13 @@ When converting a presentation to XPS, you have to save the presentation using e
 This sample code in Python shows you how to convert a presentation to an XPS document using standard settings:
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation("Convert_XPS.pptx"))
-{
-    // Saving the presentation to XPS document
-    pres.Save("XPS_Output_Without_XPSOption_out.xps", SaveFormat.Xps);
-}
+import aspose.slides as slides
+
+# Instantiate a Presentation object that represents a presentation file
+pres = slides.Presentation("Convert_XPS.pptx")
+
+# Saving the presentation to XPS document
+pres.save("XPS_Output_Without_XPSOption_out.xps", slides.export.SaveFormat.XPS)
 ```
 
 
@@ -64,17 +65,18 @@ using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 This sample code shows you how to convert a presentation to an XPS document using custom settings in Python:
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
-{
-    // Instantiate the TiffOptions class
-    XpsOptions options = new XpsOptions();
+import aspose.slides as slides
 
-    // Save MetaFiles as PNG
-    options.SaveMetafilesAsPng = true;
+# Instantiate a Presentation object that represents a presentation file
+pres = slides.Presentation("Convert_XPS_Options.pptx")
 
-    // Save the presentation to XPS document
-    pres.Save("XPS_With_Options_out.xps", SaveFormat.Xps, options);
-}
+# Instantiate the TiffOptions class
+options = slides.export.XpsOptions()
+
+# Save MetaFiles as PNG
+options.save_metafiles_as_png = True
+
+# Save the presentation to XPS document
+pres.save("XPS_With_Options_out.xps", slides.export.SaveFormat.XPS, options)
 ```
 

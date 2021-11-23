@@ -27,14 +27,14 @@ Go through these steps:
 This Python code shows you how to convert a PowerPoint presentation to PNG:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-        slide.GetThumbnail().Save($"slide_{index}.png", ImageFormat.Png);
-    }
-}
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
+pres = slides.Presentation("pres.pptx")
+
+for index in range(pres.slides.length):
+    slide = pres.slides[index]
+    slide.get_thumbnail().save("slide_{i}.png".format(i = index), drawing.imaging.ImageFormat.png)
 ```
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
@@ -44,16 +44,16 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in Python demonstrates the described operation:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-        slide.GetThumbnail(scaleX, scaleY).Save($"slide_{index}.png", ImageFormat.Png); 
-    }
-}
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
+pres = slides.Presentation("pres.pptx")
+
+scaleX = 2
+scaleY = 2
+for index in range(pres.slides.length):
+    slide = pres.slides[index]
+    slide.get_thumbnail(scaleX, scaleY).save("slide_{index}.png".format(index=index), drawing.imaging.ImageFormat.png)
 ```
 
 ## **Convert PowerPoint to PNG With Custom Size**
@@ -63,14 +63,15 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    Size size = new Size(960, 720);
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
-        slide.GetThumbnail(size).Save($"slide_{index}.png", ImageFormat.Png);
-    }
-}
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
+pres = slides.Presentation(path + "pres.pptx")
+
+size = drawing.Size(960, 720)
+
+for index in range(pres.slides.length):
+    slide = pres.slides[index]
+    slide.get_thumbnail(size).save("slide_{index}.png".format(index=index), drawing.imaging.ImageFormat.png)
 ```
 

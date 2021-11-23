@@ -30,17 +30,15 @@ You may want to try out our [free web application](https://products.aspose.app/s
 This sample code in Python shows you how to convert PPT to SVG using Aspose.Slides:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+import aspose.slides as slides
 
-        using (FileStream fileStream = new FileStream($"slide-{index}.svg", FileMode.Create, FileAccess.Write))
-        {
-            slide.WriteAsSvg(fileStream);   
-        }
-    }
-}
+# Instantiate a Presentation object that represents a presentation file 
+pres = slides.Presentation("pres.pptx")
+
+for index in range(pres.slides.length):
+    slide = pres.slides[index]
+
+    with open("slide-{index}.svg".format(index = index), "wb") as file:
+        slide.write_as_svg(file)
 ```
 

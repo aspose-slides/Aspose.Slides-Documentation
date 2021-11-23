@@ -49,23 +49,20 @@ When converting a PPT document to PDF, Aspose.Slides allows you to export a PPT 
 This sample code shows you how to specify your preferred PDF compliance standard when converting PPT to PDF:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    pres.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
-    {
-        Compliance = PdfCompliance.PdfA1a
-    });
-   
-    pres.Save("pres-a1b-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
-    {
-        Compliance = PdfCompliance.PdfA1b
-    });
-   
-    pres.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
-   {
-        Compliance = PdfCompliance.PdfUa
-    });
-}
+import aspose.slides as slides
+
+pres = slides.Presentation("pres.pptx")
+
+options = slides.export.PdfOptions()
+
+options.compliance = slides.export.PdfCompliance.PDF_A1A
+pres.save("pres-a1a-compliance.pdf", slides.export.SaveFormat.PDF, options)
+
+options.compliance = slides.export.PdfCompliance.PDF_A1B
+pres.save("pres-a1b-compliance.pdf", slides.export.SaveFormat.PDF, options)
+
+options.compliance = slides.export.PdfCompliance.PDF_UA
+pres.save("pres-ua-compliance.pdf", slides.export.SaveFormat.PDF, options)
 ```
 
 Aspose.Slides for Python via .NET typically exports the presentation documents to PDF and makes it as similar as possible to the original presentation document. Aspose.Slides renders most elements in a presentation when converting it to PDF:
@@ -106,11 +103,13 @@ Aspose.Slides allows you to convert PPT(X) presentations to PDF document without
 The following example shows you how to convert a PowerPoint PPT, PPTX, and OpenOffice ODP document into a PDF document using the default options. The default options create a PDF document at the maximum quality levels
 
 ```py
-// Instantiate a Presentation object that represents a PPT file
-Presentation presentation = new Presentation("PowerPoint.ppt");
+import aspose.slides as slides
 
-// Save the presentation as PDF
-presentation.Save("PPT-to-PDF.pdf", SaveFormat.Pdf);
+# Instantiate a Presentation object that represents a PPT file
+presentation = slides.Presentation("PowerPoint.ppt")
+
+# Save the presentation as PDF
+presentation.save("PPT-to-PDF.pdf", slides.export.SaveFormat.PDF)
 ```
 
 
@@ -120,26 +119,28 @@ presentation.Save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/pdfoptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/pdftextcompression)enumeration and sets PDF standard.
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file
-Presentation presentation = new Presentation("PowerPoint.pptx");
+import aspose.slides as slides
 
-// Instantiate the PdfOptions class
-PdfOptions pdfOptions = new PdfOptions();
+# Instantiate a Presentation object that represents a PPTX file
+presentation = slides.Presentation("PowerPoint.pptx")
 
-// Set Jpeg quality
-pdfOptions.JpegQuality = 90;
+# Instantiate the PdfOptions class
+pdfOptions = slides.export.PdfOptions()
 
-// Set behavior for metafiles
-pdfOptions.SaveMetafilesAsPng = true;
+# Set Jpeg quality
+pdfOptions.jpeg_quality = 90
 
-// Set text compression level
-pdfOptions.TextCompression = PdfTextCompression.Flate;
+# Set behavior for metafiles
+pdfOptions.save_metafiles_as_png = True
 
-// Define the PDF standard
-pdfOptions.Compliance = PdfCompliance.Pdf15;
+# Set text compression level
+pdfOptions.text_compression = slides.export.PdfTextCompression.FLATE
 
-// Save the presentation as PDF
-presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+# Define the PDF standard
+pdfOptions.compliance = slides.export.PdfCompliance.PDF15
+
+# Save the presentation as PDF
+presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
 
@@ -154,17 +155,19 @@ This property specifies whether the exported document should include hidden slid
 Default value is **"false"**.
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file
-Presentation presentation = new Presentation("PowerPoint.pptx");
+import aspose.slides as slides
 
-// Instantiate the PdfOptions class
-PdfOptions pdfOptions = new PdfOptions();
+# Instantiate a Presentation object that represents a PPTX file
+presentation = slides.Presentation("PowerPoint.pptx")
 
-// Include hidden slides
-pdfOptions.ShowHiddenSlides = true;
+# Instantiate the PdfOptions class
+pdfOptions = slides.export.PdfOptions()
 
-// Save the presentation as PDF
-presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+# Include hidden slides
+pdfOptions.show_hidden_slides = True
+
+# Save the presentation as PDF
+presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
 
@@ -176,18 +179,20 @@ The following example shows you how to convert a presentation to a password-prot
 
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file
-Presentation presentation = new Presentation("PowerPoint.pptx");
+import aspose.slides as slides
 
-/// Instantiate the PdfOptions class
-PdfOptions pdfOptions = new PdfOptions();
+# Instantiate a Presentation object that represents a PPTX file
+presentation = slides.Presentation("PowerPoint.pptx")
 
-// Setting PDF password and access permissions
-pdfOptions.Password = "password";
-pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
+# Instantiate the PdfOptions class
+pdfOptions = slides.export.PdfOptions()
 
-// Save the presentation as PDF
-presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+# Setting PDF password and access permissions
+pdfOptions.password = "password"
+pdfOptions.access_permissions = slides.export.PdfAccessPermissions.PRINT_DOCUMENT | slides.export.PdfAccessPermissions.HIGH_QUALITY_PRINT
+
+# Save the presentation as PDF
+presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
 
@@ -197,14 +202,16 @@ presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 The following example shows you how to convert a specific presentation slide to a PDF document with custom options.
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file
-Presentation presentation = new Presentation("PowerPoint.pptx");
+import aspose.slides as slides
 
-// Setting array of slides positions
-int[] slides = { 1, 3 };
+# Instantiate a Presentation object that represents a PPTX file
+presentation = slides.Presentation("PowerPoint.pptx")
 
-// Save the presentation as PDF
-presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
+# Setting array of slides positions
+slides_array = [ 1, 3 ]
+
+# Save the presentation as PDF
+presentation.save("PPTX-to-PDF.pdf", slides_array, slides.export.SaveFormat.PDF)
 ```
 
 
@@ -214,26 +221,23 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 The following example shows you how to convert a presentation to a PDF notes document with custom slide size. Here, each inch equals 72.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("SelectedSlides.pptx");
-Presentation auxPresentation = new Presentation();
+import aspose.slides as slides
 
-ISlide slide = presentation.Slides[0];
+# Instantiate a Presentation object that represents a presentation file 
+presentation = slides.Presentation("SelectedSlides.pptx")
+auxPresentation = slides.Presentation()
 
-auxPresentation.Slides.InsertClone(0, slide);
+slide = presentation.slides[0]
 
-// Setting Slide Type and Size 
-//auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height,SlideSizeScaleType.EnsureFit);
-auxPresentation.SlideSize.SetSize(612F, 792F,SlideSizeScaleType.EnsureFit);
+auxPresentation.slides.insert_clone(0, slide)
 
+# Setting Slide Type and Size 
+auxPresentation.slide_size.set_size(612, 792, slides.SlideSizeScaleType.ENSURE_FIT)
 
-PdfOptions pdfOptions = new PdfOptions();
-INotesCommentsLayoutingOptions options = pdfOptions.NotesCommentsLayouting;
-options.NotesPosition = NotesPositions.BottomFull;
+pdfOptions = slides.export.PdfOptions()
+pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-
-
-auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+auxPresentation.save("PDFnotes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
 
@@ -243,14 +247,14 @@ auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
 The [**Save**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/save/index) method exposed by [**Presentation**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for Python via .NET is a two-line process. First, you open the presentation. Second, you save it out to PDF notes. The code snippet below updates the sample presentation to PDF in Notes Slide view.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("NotesFile.pptx"))
-{
-	PdfOptions pdfOptions = new PdfOptions();
-	INotesCommentsLayoutingOptions options = pdfOptions.NotesCommentsLayouting;
-	options.NotesPosition = NotesPositions.BottomFull;
+import aspose.slides as slides
 
-	// Save the presentation to PDF notes
-	presentation.Save("Pdf_Notes_out.tiff", SaveFormat.Pdf, pdfOptions);
-}
+# Instantiate a Presentation object that represents a presentation file
+presentation = slides.Presentation("NotesFile.pptx")
+
+pdfOptions = slides.export.PdfOptions()
+pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+
+# Save the presentation to PDF notes
+presentation.Save("Pdf_Notes_out.tiff", slides.export.SaveFormat.PDF, pdfOptions)
 ```

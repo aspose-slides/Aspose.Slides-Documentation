@@ -21,12 +21,12 @@ You may want to check out Aspose [FREE PowerPoint to Poster converter](https://p
 The [Save](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/tiffoptions) class exposes **ImageSize** property enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("DemoFile.pptx"))
-{
-    // Saving the presentation to TIFF document
-    presentation.Save("Tiffoutput_out.tiff", SaveFormat.Tiff);
-}
+import aspose.slides as slides
+
+# Instantiate a Presentation object that represents a presentation file
+presentation = slides.Presentation("pres.pptx")
+# Saving the presentation to TIFF document
+presentation.save("Tiffoutput_out.tiff", slides.export.SaveFormat.TIFF)
 ```
 
 
@@ -36,39 +36,28 @@ using (Presentation presentation = new Presentation("DemoFile.pptx"))
 The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/tiffoptions) class. 
 
 ```py
-// Instantiate a Presentation object that represents a Presentation file
-using (Presentation pres = new Presentation("Convert_Tiff_Custom.pptx"))
-{
-    // Instantiate the TiffOptions class
-    TiffOptions opts = new TiffOptions();
+import aspose.slides as slides
+import aspose.pydrawing as drawing
 
-    // Setting compression type
-    opts.CompressionType = TiffCompressionTypes.Default;
+# Instantiate a Presentation object that represents a presentation file
+pres = slides.Presentation("pres.pptx")
 
-    INotesCommentsLayoutingOptions notesOptions = opts.NotesCommentsLayouting;
-    notesOptions.NotesPosition = NotesPositions.BottomFull;
-    // Compression Types
+# Instantiate the TiffOptions class
+opts = slides.export.TiffOptions()
 
-    // Default - Specifies the default compression scheme (LZW).
-    // None - Specifies no compression.
-    // CCITT3
-    // CCITT4
-    // LZW
-    // RLE
+# Setting compression type
+opts.compression_type = slides.export.TiffCompressionTypes.DEFAULT
+opts.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-    // Depth depends on the compression type and cannot be set manually.
-    // Resolution unit  is always equal to “2” (dots per inch)
+# Setting image DPI
+opts.dpi_x = 200
+opts.dpi_y = 100
 
-    // Setting image DPI
-    opts.DpiX = 200;
-    opts.DpiY = 100;
+# Set Image Size
+opts.image_size = drawing.Size(1728, 1078)
 
-    // Set Image Size
-    opts.ImageSize = new Size(1728, 1078);
-
-    // Save the presentation to TIFF with specified image size
-    pres.Save("TiffWithCustomSize_out.tiff", SaveFormat.Tiff, opts);
-}
+# Save the presentation to TIFF with specified image size
+pres.save("TiffWithCustomSize_out.tiff", slides.export.SaveFormat.TIFF, opts)
 ```
 
 
@@ -78,23 +67,17 @@ using (Presentation pres = new Presentation("Convert_Tiff_Custom.pptx"))
 The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/tiffoptions) class. You can also include comments in generated HTML by using [TiffOptions](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/tiffoptions) class and **INotesCommentsLayoutingOptions** interface.
 
 ```py
-// Instantiate a Presentation object that represents a Presentation file
-using (Presentation presentation = new Presentation("DemoFile.pptx"))
-{
-    TiffOptions options = new TiffOptions();
-   
-    options.PixelFormat = ImagePixelFormat.Format8bppIndexed;
-    /*
-    ImagePixelFormat contains the following values (as could be seen from documentation):
-    Format1bppIndexed; // 1 bits per pixel, indexed.
-    Format4bppIndexed; // 4 bits per pixel, indexed.
-    Format8bppIndexed; // 8 bits per pixel, indexed.
-    Format24bppRgb; // 24 bits per pixel, RGB.
-    Format32bppArgb; // 32 bits per pixel, ARGB.
-    */
+import aspose.slides as slides
 
-    // Save the presentation to TIFF with specified image size
-    presentation.Save("Tiff_With_Custom_Image_Pixel_Format_out.tiff", SaveFormat.Tiff, options);
-}
+# Instantiate a Presentation object that represents a presentation file
+pres = slides.Presentation("pres.pptx")
+
+# Instantiate the TiffOptions class
+options = slides.export.TiffOptions()
+
+options.pixel_format = slides.export.ImagePixelFormat.FORMAT8BPP_INDEXED
+
+# Save the presentation to TIFF with specified image size
+pres.save("Tiff_With_Custom_Image_Pixel_Format_out.tiff", slides.export.SaveFormat.TIFF, options)
 ```
 

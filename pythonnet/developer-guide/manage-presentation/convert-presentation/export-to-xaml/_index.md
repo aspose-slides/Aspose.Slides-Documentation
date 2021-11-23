@@ -26,10 +26,10 @@ XAML, which is an XML-based language, is Microsoft’s variant for describing a 
 This Python code shows you how to export a presentation to XAML with default settings:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.Save(new XamlOptions());
-}
+import aspose.slides as slides
+
+pres = slides.Presentation("pres.pptx")
+pres.save(slides.export.xaml.XamlOptions())
 ```
 
 ## Exporting Presentations to XAML With Custom Options
@@ -39,8 +39,12 @@ You get to select options from the [IXamlOptions](https://apireference.aspose.co
 For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) property to true. See this sample Python code: 
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    pres.Save(new XamlOptions { ExportHiddenSlides = true });
-}
+import aspose.slides as slides
+
+pres = slides.Presentation("pres.pptx")
+
+opt = slides.export.xaml.XamlOptions()
+opt.export_hidden_slides = True
+
+pres.save(opt)
 ```

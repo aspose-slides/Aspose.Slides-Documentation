@@ -49,19 +49,18 @@ Convert PPT or PPTX presentation to HTML file using Aspose.Slides. For that, sav
 1. Call [**Save** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/save)method from it specifying the resulting file as an HTML file:
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
-{
-    HtmlOptions htmlOpt = new HtmlOptions();
-    
-    INotesCommentsLayoutingOptions options = htmlOpt.NotesCommentsLayouting;
-    options.NotesPosition = NotesPositions.BottomFull;
-    
-    htmlOpt.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter("", false);
+import aspose.slides as slides
 
-    // Saving the presentation to HTML
-    presentation.Save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
-}
+# Instantiate a Presentation object that represents a presentation file
+pres = slides.Presentation("Convert_HTML.pptx")
+
+options = slides.export.HtmlOptions()
+
+options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+options.html_formatter = slides.export.HtmlFormatter.create_document_formatter("", False)
+
+# Saving the presentation to HTML
+pres.save("ConvertWholePresentationToHTML_out.html", slides.export.SaveFormat.HTML, options)
 ```
 
 
@@ -69,15 +68,17 @@ using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
 Convert PPT(X) presentation to Responsive HTML, which will ensure the generated HTML will be displayed properly across all browsers and devices. [**ResponsiveHtmlController** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/responsivehtmlcontroller)class provides the possibility to generate responsive HTML files. This controller can be used in the same manner as other HTML controllers:
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
-{
-    ResponsiveHtmlController controller = new ResponsiveHtmlController();
-    HtmlOptions htmlOptions = new HtmlOptions { HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller) };
+# Instantiate a Presentation object that represents a presentation file
+import aspose.slides as slides
 
-    // Saving the presentation to HTML
-    presentation.Save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
-}
+pres = slides.Presentation("Convert_HTML.pptx")
+
+controller = slides.export.ResponsiveHtmlController()
+htmlOptions = slides.export.HtmlOptions()
+htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
+
+# Saving the presentation to HTML
+pres.save("ConvertPresentationToResponsiveHTML_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
 
 
@@ -86,16 +87,14 @@ using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
 The following example shows how to convert PPT(X) presentation to HTML with the rendered speaker notes. Using the options of [**HtmlOptions**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/htmloptions) class and [**INotesCommentsLayoutingOptions** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/inotescommentslayoutingoptions/properties/index)interface you can render speaker notes to HTML:
 
 ```py
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    HtmlOptions opt = new HtmlOptions();
+import aspose.slides as slides
 
-    INotesCommentsLayoutingOptions options = opt.NotesCommentsLayouting;
-    options.NotesPosition = NotesPositions.BottomFull;
+pres = slides.Presentation("Presentation.pptx")
 
-    // Saving notes pages
-    pres.Save("Output.html", SaveFormat.Html, opt);
-}
+opt = slides.export.HtmlOptions()
+opt.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+
+pres.save("Output.html", slides.export.SaveFormat.HTML, opt)
 ```
 
 
@@ -104,20 +103,17 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 Preserve original fonts that are used in presentation while converting PPT(X) to HTML. [**EmbedAllFontsHtmlController** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/embedallfontshtmlcontroller)class preserves the original fonts in generated HTML:
 
 ```py
-using (Presentation pres = new Presentation("input.pptx"))
-{
-    // exclude default presentation fonts
-    string[] fontNameExcludeList = { "Calibri", "Arial" };
+import aspose.slides as slides
 
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
+pres = slides.Presentation("input.pptx")
 
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(embedFontsController)
-    };
+# exclude default presentation fonts
+fontNameExcludeList = ["Calibri", "Arial"]
 
-    pres.Save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, htmlOptionsEmbed);
-}
+htmlOptionsEmbed = slides.export.HtmlOptions()
+htmlOptionsEmbed.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(slides.export.EmbedAllFontsHtmlController(fontNameExcludeList))
+
+pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveFormat.HTML, htmlOptionsEmbed)
 ```
 
 
@@ -128,50 +124,7 @@ Convert a separate presentation slide to HTML. Fo that use the same [**Save**](
 
 
 ```py
-public static void Run()
-{
-    using (Presentation presentation = new Presentation("Individual-Slide.pptx"))
-    {
-        HtmlOptions htmlOptions = new HtmlOptions();
-
-        INotesCommentsLayoutingOptions options = htmlOptions.NotesCommentsLayouting;
-        options.NotesPosition = NotesPositions.BottomFull;
-
-        htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new CustomFormattingController());
-
-        // Saving File              
-        for (int i = 0; i < presentation.Slides.Count; i++)
-            presentation.Save("Individual Slide" + (i + 1) + "_out.html", new[] { i + 1 }, SaveFormat.Html, htmlOptions);
-    }
-}
-
-public class CustomFormattingController : IHtmlFormattingController
-{
-    void IHtmlFormattingController.WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {}
-
-    void IHtmlFormattingController.WriteDocumentEnd(IHtmlGenerator generator, IPresentation presentation)
-    {}
-
-    void IHtmlFormattingController.WriteSlideStart(IHtmlGenerator generator, ISlide slide)
-    {
-        generator.AddHtml(string.Format(SlideHeader, generator.SlideIndex + 1));
-    }
-
-    void IHtmlFormattingController.WriteSlideEnd(IHtmlGenerator generator, ISlide slide)
-    {
-        generator.AddHtml(SlideFooter);
-    }
-
-    void IHtmlFormattingController.WriteShapeStart(IHtmlGenerator generator, IShape shape)
-    {}
-
-    void IHtmlFormattingController.WriteShapeEnd(IHtmlGenerator generator, IShape shape)
-    {}
-
-    private const string SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide{0}\">";
-    private const string SlideFooter = "</div>";
-}
+# [TODO[not_supported_yet]: python implementation of .net interface]
 ```
 
 
@@ -179,128 +132,26 @@ public class CustomFormattingController : IHtmlFormattingController
 Use new CSS styles file to change the resulting styles of the HTML file while PPT(X) to HTML conversion with Aspose.Slides. Please review the example below how to use overridable methods to create a custom HTML document with a link to CSS file:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-	CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-	HtmlOptions options = new HtmlOptions
-	{
-		HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
-	};
-	pres.Save("pres.html", SaveFormat.Html, options);
-}
-```
-
-```py
-public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
-{
-    // Custom header template
-    const string Header = "<!DOCTYPE html>\n" +
-                            "<html>\n" +
-                            "<head>\n" +
-                            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-                            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-                            "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" +
-                            "</head>";
-
-
-    private readonly string m_cssFileName;
-
-    public CustomHeaderAndFontsController(string cssFileName)
-    {
-        m_cssFileName = cssFileName;
-    }
-
-    public override void WriteDocumentStart(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.AddHtml(string.Format(Header, m_cssFileName));
-        WriteAllFonts(generator, presentation);
-    }
-
-    public override void WriteAllFonts(IHtmlGenerator generator, IPresentation presentation)
-    {
-        generator.AddHtml("<!-- Embedded fonts -->");
-        base.WriteAllFonts(generator, presentation);
-    }
-}
+# [TODO[not_supported_yet]: python implementation of .net interfaces]
 ```
 
 ## **Embed All Fonts When Converting Presentation to HTML**
 Convert PPT(X) presentation to HTML with all its embedded fonts. [**EmbedAllFontsHtmlController** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.export/embedallfontshtmlcontroller)class is used to embed all presentation fonts into HTML document. EmbedAllFontsHtmlController has a parameterized constructor where an array of font names can be passed to prevent them from embedding. Some fonts, like Calibri or Arial, used in the presentation are not needed to be embedded (which leads the resulting HTML document to become larger) because almost every system already has them installed. The EmbedAllFontsHtmlController also supports inheritance and WriteFont method that is intended to be overridden:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    // exclude default presentation fonts
-    string[] fontNameExcludeList = { "Calibri", "Arial" };
-
-
-    Paragraph para = new Paragraph();
-    ITextFrame txt;
-
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions
-    {
-        //HtmlFormatter = HtmlFormatter.CreateCustomFormatter(embedFontsController)
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
-    };
-
-    pres.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
-```
-
-```py
-public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
-{
-    private readonly string m_basePath;
-
-    public LinkAllFontsHtmlController(string[] fontNameExcludeList, string basePath) : base(fontNameExcludeList)
-    {
-        m_basePath = basePath;
-    }
-
-    public override void WriteFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            string fontStyle,
-            string fontWeight,
-            byte[] fontData)
-    {
-        try
-        {
-            string fontName = substitutedFont == null ? originalFont.FontName : substitutedFont.FontName;
-            string path = fontName + ".woff"; // some path sanitaze may be needed
-
-            File.WriteAllBytes(Path.Combine(m_basePath, path), fontData);
-            
-            generator.AddHtml("<style>");
-            generator.AddHtml("@font-face { ");
-            generator.AddHtml("font-family: '" + fontName + "'; ");
-            generator.AddHtml("src: url('" + path + "')");
-
-            generator.AddHtml(" }");
-            generator.AddHtml("</style>");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-}
+# [TODO[not_supported_yet]: python implementation of .net interfaces]
 ```
 
 ## **Support of SVG Responsive Property**
 The code sample below shows how to export a PPT(X) presentation to HTML with the responsive layout:
 
 ```py
-Presentation presentation = new Presentation("SomePresentation.pptx");
-HtmlOptions saveOptions = new HtmlOptions();
-saveOptions.SvgResponsiveLayout = true;
-presentation.Save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
+presentation = slides.Presentation("SomePresentation.pptx")
+
+saveOptions = slides.export.HtmlOptions()
+saveOptions.svg_responsive_layout = True
+
+presentation.save("SomePresentation-out.html", slides.export.SaveFormat.HTML, saveOptions)
 ```
 
 
@@ -315,24 +166,23 @@ In order to export media files from PPT(X) presentation to HTML. Please follow t
 In the example given below, we have exported the media files to HTML.
 
 ```py
-// Loading a presentation
-using (Presentation pres = new Presentation("Media File.pptx"))
-{
-    string path = "C:/";
-    const string fileName = "ExportMediaFiles_out.html";
-    const string baseUri = "http://www.example.com/";
+import aspose.slides as slides
 
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
+# Loading a presentation
+presentation = slides.Presentation("Media File.pptx")
 
-    // Setting HTML options
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
-    SVGOptions svgOptions = new SVGOptions(controller);
+path = "C:\\"
+fileName = "ExportMediaFiles_out.html"
+baseUri = "http://www.example.com/"
 
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
+controller = slides.export.VideoPlayerHtmlController(path, fileName, baseUri)
 
-    // Saving the file
-    pres.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
-}
+htmlOptions = slides.export.HtmlOptions(controller)
+svgOptions = slides.export.SVGOptions(controller)
+
+htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
+htmlOptions.slide_image_format = slides.export.SlideImageFormat.svg(svgOptions)
+
+presentation.save(path + "ExportMediaFiles_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
 

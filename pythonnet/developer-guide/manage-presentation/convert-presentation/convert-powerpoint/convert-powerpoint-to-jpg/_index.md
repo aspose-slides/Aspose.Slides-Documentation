@@ -30,41 +30,33 @@ Here are the steps to convert PPT/PPTX to JPG:
 {{% /alert %}} 
 
 ```py
-using (Presentation pres = new Presentation("PowerPoint-Presentation.ppt"))
-{
-	foreach (ISlide sld in pres.Slides)
-	{
-		// Create a full scale image
-		Bitmap bmp = sld.GetThumbnail(1f, 1f);
+import aspose.slides as slides
+import aspose.pydrawing as drawing
 
-		// Save the image to disk in JPEG format
-		bmp.Save(string.Format("Slide_{0}.jpg", sld.SlideNumber), System.Drawing.Imaging.ImageFormat.Jpeg);
-	}
-}
+pres = slides.Presentation("pres.pptx")
+
+for sld in pres.slides:
+    bmp = sld.get_thumbnail(1, 1)
+    bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), drawing.imaging.ImageFormat.jpeg)
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* for it. To do that, pass *ScaleX* and *ScaleY* values into [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.islide/getthumbnail/methods/6) method:
 
 ```py
-using (Presentation pres = new Presentation("PowerPoint-Presentation.pptx"))
-{
-	// Define dimensions
-	int desiredX = 1200;
-	int desiredY = 800;
-	// Get scaled values of X and Y
-	float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-	float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
+import aspose.slides as slides
+import aspose.pydrawing as drawing
 
-	foreach (ISlide sld in pres.Slides)
-	{
-		// Create a full scale image
-		Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
+pres = slides.Presentation("pres.pptx")
 
-		// Save the image to disk in JPEG format
-		bmp.Save(string.Format("Slide_{0}.jpg", sld.SlideNumber), System.Drawing.Imaging.ImageFormat.Jpeg);
-	}
-}
+desiredX = 1200
+desiredY = 800
+scaleX = (float)(1.0 / pres.slide_size.size.width) * desiredX
+scaleY = (float)(1.0 / pres.slide_size.size.height) * desiredY
+
+for sld in pres.slides:
+    bmp = sld.get_thumbnail(scaleX, scaleY)
+    bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), drawing.imaging.ImageFormat.jpeg)
 ```
 
 
@@ -74,21 +66,22 @@ using (Presentation pres = new Presentation("PowerPoint-Presentation.pptx"))
 Aspose.Slides for Python via .NET provides a facility to render comments of presentations or slide when converting those into images.  An example is given below that shows how to render comments of presentation into an image.
 
 ```py
-Presentation pres = new Presentation("test.pptx");
-Bitmap bmp = new Bitmap(740, 960);
+import aspose.slides as slides
+import aspose.pydrawing as drawing
 
-IRenderingOptions opts = new RenderingOptions();
-opts.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-opts.NotesCommentsLayouting.CommentsAreaColor = Color.Red;
-opts.NotesCommentsLayouting.CommentsAreaWidth = 200;
-opts.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
+pres = slides.Presentation("pres.pptx")
 
-using (Graphics graphics = Graphics.FromImage(bmp))
-{
-	pres.Slides[0].RenderToGraphics(opts, graphics);
-}
-bmp.Save("OutPresBitmap.png", ImageFormat.Png);
-System.Diagnostics.Process.Start("OutPresBitmap.png");
+bmp = drawing.Bitmap(740, 960)
+
+opts = slides.export.RenderingOptions()
+opts.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
+opts.notes_comments_layouting.comments_area_color = drawing.Color.red
+opts.notes_comments_layouting.comments_area_width = 200
+opts.notes_comments_layouting.comments_position = slides.export.CommentsPositions.RIGHT
+
+graphics = drawing.Graphics.from_image(bmp)
+pres.slides[0].render_to_graphics(opts, graphics)
+bmp.save("OutPresBitmap.png", drawing.imaging.ImageFormat.png)
 ```
 
 {{% alert title="Tip" color="primary" %}}

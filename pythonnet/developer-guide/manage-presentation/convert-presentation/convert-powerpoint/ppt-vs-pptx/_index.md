@@ -27,11 +27,13 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 {{% /alert %}} 
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
+import aspose.slides as slides
 
-// Saving the PPTX presentation to PPTX format
-pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+# Instantiate a Presentation object that represents a PPTX file
+pres = slides.Presentation("PPTtoPPTX.ppt")
+
+# Saving the PPTX presentation to PPTX format
+pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 

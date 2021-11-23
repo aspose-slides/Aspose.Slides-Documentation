@@ -22,9 +22,9 @@ These examples show you how to convert ODP documents to other formats (just chan
 For example, if you need to convert an ODP presentation to PDF, it can be done this way:
 
 ```py
-using (Presentation pres = new Presentation("pres.odp"))
-{
-    pres.Save("pres.pdf", SaveFormat.Pdf);
-}
+import aspose.slides as slides
+
+pres = slides.Presentation("pres.odp")
+pres.save("pres.pdf", slides.export.SaveFormat.PDF)
 ```
 

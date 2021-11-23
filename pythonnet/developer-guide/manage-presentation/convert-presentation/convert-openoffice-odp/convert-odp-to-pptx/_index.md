@@ -10,11 +10,14 @@ description: "Convert OpenOffice ODP to PowerPoint Presentation PPTX  in Python"
 Aspose.Slides for Python via .NET offers Presentation class that represents a presentation file. [**Presentation**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class can now also access ODP through Presentation constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.
 
 ```py
-// Open the ODP file
-Presentation pres = new Presentation("AccessOpenDoc.odp");
+# Import Aspose.Slides for Python via .NET module
+import aspose.slides as slides
 
-// Saving the ODP presentation to PPTX format
-pres.Save("AccessOpenDoc_out.pptx", SaveFormat.Pptx);
+# Open the ODP file
+pres = slides.Presentation("AccessOpenDoc.odp")
+
+# Saving the ODP presentation to PPTX format
+pres.save("AccessOpenDoc_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 

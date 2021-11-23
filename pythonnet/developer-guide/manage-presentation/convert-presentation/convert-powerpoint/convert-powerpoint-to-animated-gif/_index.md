@@ -12,10 +12,10 @@ description: "Convert PowerPoint Presentation to animated GIF: PPT to GIF, PPTX 
 This sample code in Python shows you how to convert a presentation to animated GIF using standard settings:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    pres.Save("pres.gif", SaveFormat.Gif);
-}
+import aspose.slides as slides
+
+pres = slides.Presentation(path + "pres.pptx")
+pres.save("pres.gif", slides.export.SaveFormat.GIF)
 ```
 
 The animated GIF will be created with default parameters. 
@@ -30,13 +30,15 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 This sample code shows you how to convert a presentation to animated GIF using custom settings in Python:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
-    {
-        FrameSize = new Size(960, 720), // the size of the resulted GIF  
-        DefaultDelay = 2000, // how long each slide will be showed until it will be changed to the next one
-        TransitionFps = 35 // increase FPS to better transition animation quality
-    });
-}
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
+pres = slides.Presentation(path + "pres.pptx")
+
+options = slides.export.GifOptions()
+options.frame_size = drawing.Size(960, 720) # the size of the resulted GIF  
+options.default_delay = 2000 # how long each slide will be showed until it will be changed to the next one
+options.transition_fps = 35  # increase FPS to better transition animation quality
+
+pres.save("pres.gif", slides.export.SaveFormat.GIF, options)
 ```

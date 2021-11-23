@@ -20,50 +20,39 @@ You may want to try out our [**Presentation to Word Online Converter**](https://
 
 ### **Aspose.Slides and Aspose.Words**
 
-To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for Python via .NET](https://products.aspose.com/slides/pythonnet/) and [Aspose.Words for .NET](https://products.aspose.com/words/net/).
+To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for Python via .NET](https://products.aspose.com/slides/pythonnet/) and [Aspose.Words for Python via .NET](https://products.aspose.com/words/python/).
 
-As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for .NET provides functions that allow you to extract texts from presentations. 
+As a standalone API, [Aspose.Slides](https://products.aspose.app/slides/pythonnet/) for Python via .NET provides functions that allow you to extract texts from presentations. 
 
-[Aspose.Words](https://docs.aspose.com/words/net/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
+[Aspose.Words](https://docs.aspose.com/words/python/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
 
-## **Convert PowerPoint to Word**
+## **Convert PowerPoint to Word in Python**
 
-1. Add these namespaces to your program.cs file:
+1. Add these namespaces to your program.py file:
 
-   ```py
-   using System;
-   using System.Drawing.Imaging;
-   using System.IO;
-   using Aspose.Slides;
-   using Aspose.Words;
-   using SkiaSharp;
-   ```
+```py
+import aspose.slides as slides
+import aspose.words as words
+```
 
 2. Use this code snippet to convert the PowerPoint to Word:
 
-   ```py
-   using var presentation = new Presentation();
-   var doc = new Document();
-   var builder = new DocumentBuilder(doc);
-   foreach (var slide in presentation.Slides)
-   {
-      // generates and inserts slide image
-      using var bitmap = slide.GetThumbnail(1, 1);
-      using var stream = new MemoryStream();
-      bitmap.Save(stream, ImageFormat.Png);
-      stream.Seek(0, SeekOrigin.Begin);
-      using var skBitmap = SKBitmap.Decode(stream);
-      builder.InsertImage(skBitmap);
+```py
+presentation = slides.Presentation("pres.pptx")
+doc = words.Document()
+builder = words.DocumentBuilder(doc)
+
+for index in range(presentation.slides.length):
+    slide = presentation.slides[index]
+    # generates and inserts slide image
+    slide.get_thumbnail(2,2).save("slide_{i}.png".format(i = index), drawing.imaging.ImageFormat.png)
+    builder.insert_image("slide_{i}.png".format(i = index))
+    
+    for shape in slide.shapes:
+        # inserts slide's texts
+        if (type(shape) is slides.AutoShape):
+            builder.writeln(shape.text_frame.text)
    
-      // inserts slide's texts
-      foreach (var shape in slide.Shapes)
-      {
-         if (shape is AutoShape autoShape)
-         {
-            builder.Writeln(autoShape.TextFrame.Text);
-         }
-      }
-   
-      builder.InsertBreak(BreakType.PageBreak);
-   }
-   ```
+    builder.insert_break(words.BreakType.PAGE_BREAK)
+doc.save("presentation.docx")
+```
