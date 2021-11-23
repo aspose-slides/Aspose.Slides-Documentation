@@ -11,7 +11,7 @@ is_root: true
 
 **Welcome to Aspose.Slides for Python via .NET**
 
-![Aspose.Slides for Python via .NET Product Logo](home_1.png)
+![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.svg)
 
 Aspose.Slides for Python via .NET is a Microsoft PowerPoint® management API that enables .NET applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. 
 
