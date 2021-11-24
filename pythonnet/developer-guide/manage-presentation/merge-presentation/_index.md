@@ -47,9 +47,9 @@ You can apply options that determine whether
 * each slide in the output presentation retains a unique style
 * a specific style is used for all the slides in the output presentation. 
 
-To merge presentations, Aspose.Slides provides [AddClone](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islidecollection/methods/addclone) methods (from the [ISlideCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islidecollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/properties/slides) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides. 
+To merge presentations, Aspose.Slides provides [add_clone](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islidecollection/methods/addclone) methods (from the [ISlideCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islidecollection) interface). There are several implementations of the `add_clone` methods that define the presentation merging process parameters. Every Presentation object has a [slides](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/properties/slides) collection, so you can call a `add_clone` method from the presentation to which you want to merge slides. 
 
-The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
+The `add_clone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
 
 ## **Merge Presentations** 
 
@@ -58,60 +58,51 @@ Aspose.Slides provides the [**AddClone (ISlide)**](https://apireference.aspose.c
 This Python code shows you how to merge presentations:
 
 ```py
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide);
-    }
+import aspose.slides as slides
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation("pres.pptx") as pres1:
+    with slides.Presentation("Presentation1.pptx") as pres2:
+        for slide in pres2.slides:
+            pres1.slides.add_clone(slide)
+        pres1.save("combined.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Merge Presentations with Slide Master**
 
-Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+Aspose.Slides provides the [**add_clone (ISlide, IMasterSlide, Boolean)**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
 
 This code in Python demonstrates the described operation:
 
 ```py
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
-    }
+import aspose.slides as slides
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation("pres.pptx") as pres1:
+    with slides.Presentation("Presentation1.pptx") as pres2:
+        for slide in pres2.slides:
+            pres1.slides.add_clone(slide, pres1.masters[0], allow_clone_missing_layout = True)
+        pres1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 {{% alert title="Note" color="warning" %}} 
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://apireference.aspose.com/slides/pythonnet/aspose.slides/pptxeditexception) will be thrown. 
+The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `add_clone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://apireference.aspose.com/slides/pythonnet/aspose.slides/pptxeditexception) will be thrown. 
 
 {{% /alert %}}
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
+If you want the slides in the output presentation to have a different slide layout, use the [add_clone (ISlide, ILayoutSlide)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
 
 ## **Merge Specific Slides From Presentations**
 
 This Python code shows you how to select and combine specific slides from different presentations to get one output presentation:
 
 ```py
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+import aspose.slides as slides
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation("pres.pptx") as pres1:
+    with slides.Presentation("Presentation1.pptx") as pres2:
+        for slide in pres2.slides:
+            pres1.slides.add_clone(slide, pres1.layout_slides[0])
+        pres1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 ## **Merge Presentations With Slide Layout**
@@ -119,16 +110,13 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 This Python code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```py
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+import aspose.slides as slides
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation("pres.pptx") as pres1:
+    with slides.Presentation("Presentation1.pptx") as pres2:
+        for slide in pres2.slides:
+            pres1.slides.add_clone(slide, pres1.layout_slides[0])
+        pres1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 ## **Merge Presentations With Different Slide Sizes**
@@ -144,18 +132,14 @@ To merge 2 presentations with different slide sizes, you have to resize one of t
 This sample code demonstrates the described operation:
 
 ```py
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres1:
+    with slides.Presentation("Presentation1.pptx") as pres2:
+        pres2.slide_size.set_size(pres1.slide_size.size.width, pres1.slide_size.size.height, slides.SlideSizeScaleType.ENSURE_FIT)
+        for slide in pres2.slides:
+            pres1.slides.add_clone(slide)
+        pres1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 ## **Merge Slides to Presentation Section**
@@ -163,17 +147,13 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 This Python code shows you how to merge a specific slide to a section in a presentation:
 
 ```py
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+import aspose.slides as slides
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation("pres.pptx") as pres1:
+    with slides.Presentation("Presentation1.pptx") as pres2:
+        for slide in pres2.slides:
+            pres1.slides.add_clone(slide, pres1.sections[0])
+        pres1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 The slide is added at the end of the section. 

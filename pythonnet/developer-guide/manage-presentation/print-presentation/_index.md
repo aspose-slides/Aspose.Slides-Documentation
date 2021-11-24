@@ -12,16 +12,18 @@ Aspose.Slides for Python via .NET provides four overloads methods for the printi
 Printing of the presentation to the default printer is quite simple in Aspose.Slides for Python via .NET. Perform the following steps in order to print the presentation to default printer:
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class to load a presentation that is to be printed
-1. Call the [Print method](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ipresentation/print/methods/1) with no parameters as exposed by the Presentation object
+1. Call the [print method](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ipresentation/print/methods/1) with no parameters as exposed by the Presentation object
 
 In the example given below, we have call the Print method with no parameters.
 
 ```py
-// Load the presentation
-Presentation presentation = new Presentation("Print.ppt");
+import aspose.slides as slides
 
-// Call the print method to print whole presentation to the default printer
-presentation.Print();
+# Load the presentation
+presentation = slides.Presentation("Print.ppt")
+
+# Call the print method to print whole presentation to the default printer
+presentation.print()
 ```
 
 
@@ -30,24 +32,20 @@ presentation.Print();
 Printing of the presentation to the specific printer requires the name of the printer as a parameter to the [**Print**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ipresentation/print/methods/1) method of the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation). Perform the following steps in order to print the presentation to the desired printer:
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class to load a presentation that is to be printed.
-1. Call the [Print method](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ipresentation/print/methods/1) of the Presentation class with the printer name as a string parameter to the Print method.
+1. Call the [print method](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ipresentation/print/methods/1) of the Presentation class with the printer name as a string parameter to the Print method.
 
 In the example given below, we have called the Print method with the printer name as a string parameter to the Print method.
 
 ```py
-try
-{
-    // Load the presentation
-    Presentation presentation = new Presentation("Print.ppt");
+import aspose.slides as slides
 
-    // Call the print method to print whole presentation to the desired printer
-    presentation.Print("Please set your printer name here");
-
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message + "\nPlease set printer name as string parameter to the Presentation Print method");
-}
+try:
+    # Load the presentation
+    with slides.Presentation("pres.pptx") as pres:
+        # Call the print method to print whole presentation to the desired printer
+        pres.print("Please set your printer name here")
+except:
+    print("Please set printer name as string parameter to the Presentation Print method")
 ```
 
 
@@ -65,14 +63,14 @@ Aspose.Slides provides support for setting the print presentation dynamically wi
 In the example given below, we have called the Print method with no parameters.
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	PrinterSettings printerSettings = new PrinterSettings();
-	printerSettings.Copies = 2;
-	printerSettings.DefaultPageSettings.Landscape = true;
-	printerSettings.DefaultPageSettings.Margins.Left = 10;
-	   //...etc
-	pres.Print(printerSettings);
-}
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
+with slides.Presentation("pres.pptx") as pres:
+    printerSettings = drawing.printing.PrinterSettings()
+    printerSettings.copies = 2
+    printerSettings.default_page_settings.landscape = True
+    printerSettings.default_page_settings.margins.left = 10
+    pres.print(printerSettings)
 ```
 

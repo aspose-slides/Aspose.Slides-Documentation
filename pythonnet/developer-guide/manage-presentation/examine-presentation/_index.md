@@ -22,14 +22,16 @@ Before working on a presentation, you may want to find out what format (PPT, PPT
 You can check a presentation's format without loading the presentation. See this sample code:
 
 ```py
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-Console.WriteLine(info.LoadFormat); // PPTX
+import aspose.slides as slides
 
-IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
-Console.WriteLine(info2.LoadFormat); // PPT
+info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
+print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
 
-IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
-Console.WriteLine(info3.LoadFormat); // ODP
+info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
+print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
+
+info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
+print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
 ## **Getting the Properties of a Presentation**
@@ -37,12 +39,13 @@ Console.WriteLine(info3.LoadFormat); // ODP
 This sample code in Python shows you how to get a presentation’s properties (information about the presentation):
 
 ```py
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-IDocumentProperties props = info.ReadDocumentProperties();
-Console.WriteLine(props.CreatedTime);
-Console.WriteLine(props.Subject);
-Console.WriteLine(props.Title);
-// .. 
+import aspose.slides as slides
+
+info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
+props = info.read_document_properties()
+print(props.created_time)
+print(props.subject)
+print(props.title)
 ```
 
 ## **Updating the Properties of a Presentation**
@@ -52,11 +55,16 @@ Aspose.Slides provides the [PresentationInfoUpdateDocumentProperties](https://ap
 This sample code shows you how to edit the properties for a presentation in Python:
 
 ```py
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
+import aspose.slides as slides
 
-IDocumentProperties props = info.ReadDocumentProperties();
-props.Title = "My title";
-info.UpdateDocumentProperties(props);
+info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
+props = info.read_document_properties()
+print(props.title)
+
+props.title = "My title"
+info.update_document_properties(props)
+
+print(props.title)
 ```
 
 ### **Useful Links**

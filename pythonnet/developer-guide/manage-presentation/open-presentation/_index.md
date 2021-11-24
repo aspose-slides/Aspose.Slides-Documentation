@@ -13,11 +13,12 @@ Using Aspose.Slides for Python via .NET, developers can not only create PowerPoi
 Aspose.Slides for Python via .NET provides Presentation class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation. In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of Presentation class. After the file is opened, we get the total number of slides present in the presentation to print on the screen. The following example shows how to Open a Presentation.
 
 ```py
-// Opening the presentation file by passing the file path to the constructor of Presentation class
-Presentation pres = new Presentation("OpenPresentation.pptx");
+import aspose.slides as slides
 
-// Printing the total number of slides present in the presentation
-System.Console.WriteLine(pres.Slides.Count.ToString());
+# Opening the presentation file by passing the file path to the constructor of Presentation class
+with slides.Presentation("pres.pptx") as pres:
+    # Printing the total number of slides present in the presentation
+    print(pres.slides.length)
 ```
 
 
@@ -26,35 +27,28 @@ System.Console.WriteLine(pres.Slides.Count.ToString());
 Aspose.Slides for Python via .NET provides facility to open very large presentations using Presentation class. Now you can load large presentations lets say presentation size is 2 Gb, you can easily open that with these sample codes provided below.
 
 ```py
-const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
+import aspose.slides as slides
+import os
 
-LoadOptions loadOptions = new LoadOptions
-{
-    BlobManagementOptions = {
-        // let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
-        // the Presentation's instance lifetime, but we don't need to load it into memory or copy into
-        // thetemporary file
-        PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-    }
-};
+loadOptions = slides.LoadOptions()
+loadOptions.blob_management_options = slides.BlobManagementOptions()
+loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 
-using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
-{
-    // the huge presentation is loaded and ready to use, but the memory consumption is still low.
+with slides.Presentation("pres.pptx", loadOptions) as pres:
+    # the huge presentation is loaded and ready to use, but the memory consumption is still low.
 
-    // make any changes to the presentation.
-    pres.Slides[0].Name = "Very large presentation";
+    # make any changes to the presentation.
+    pres.slides[0].name = "Very large presentation"
 
-    // presentation will be saved to the other file, the memory consumptions still low during saving.
-    pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    # presentation will be saved to the other file, the memory consumptions still low during saving.
+    pres.save("veryLargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
 
-    // can't do that! IO exception will be thrown, because the file is locked while pres objects will
-    // not be disposed
-    File.Delete(pathToVeryLargePresentationFile);
-}
+    # can't do that! IO exception will be thrown, because the file is locked while pres objects will
+    # not be disposed
+    os.remove("pres.pptx")
 
-// it's ok to do it here, the source file is not locked by pres object
-File.Delete(pathToVeryLargePresentationFile);
+# it's ok to do it here, the source file is not locked by pres object
+os.remove("pres.pptx")
 ```
 
 
@@ -68,39 +62,6 @@ New IResourceLoadingCallback interface has been added. This callback interface i
 The code snippet below shows how to use IResourceLoadingCallback interface:
 
 ```py
-LoadOptions opts = new LoadOptions();
-opts.ResourceLoadingCallback = new ImageLoadingHandler();
-Presentation presentation = new Presentation("presentation.pptx", opts);
-```
-
-```py
-public class ImageLoadingHandler : IResourceLoadingCallback
-{
-    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
-    {
-        if (args.OriginalUri.EndsWith(".jpg"))
-        {
-            try // load substitute image
-            {
-                byte[] imageBytes = File.ReadAllBytes("c:\\aspose-logo.jpg");
-                args.SetData(imageBytes);
-                return ResourceLoadingAction.UserProvided;
-            }
-            catch (Exception)
-            {
-                return ResourceLoadingAction.Skip;
-            }
-        }
-        else if (args.OriginalUri.EndsWith(".png"))
-        {
-            // set substitute url
-            args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
-            return ResourceLoadingAction.Default;
-        }
-
-        // skip all other images
-        return ResourceLoadingAction.Skip;
-    }
-}
+# [TODO[not_supported_yet]: python implementation of .net interfaces]
 ```
 
