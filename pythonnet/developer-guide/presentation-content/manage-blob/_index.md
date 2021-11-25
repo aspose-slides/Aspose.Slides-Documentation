@@ -22,23 +22,21 @@ Aspose.Slides for Python via .NET allows you to use BLOBs for objects in a way t
 This Python shows you how to add a large video file through the BLOB process to a presentation:
 
 ```py
-const string pathToVeryLargeVideo = "veryLargeVideo.avi";
+import aspose.slides as slides
 
-// Creates a new presentation to which the video will be added
-using (Presentation pres = new Presentation())
-{
-    using (FileStream fileStream = new FileStream(pathToVeryLargeVideo, FileMode.Open))
-    {
-        // Let's add the video to the presentation - we chose the KeepLocked behavior because we do
-        //not intend to access the "veryLargeVideo.avi" file.
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-        pres.Slides[0].Shapes.AddVideoFrame(0, 0, 480, 270, video);
+pathToVeryLargeVideo = "veryLargeVideo.avi"
 
-        // Saves the presentation. While a large presentation gets outputted, the memory consumption
-        // stays low through the pres object's lifecycle 
-        pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
-    }
-}
+# Creates a new presentation to which the video will be added
+with slides.Presentation() as pres:
+    with open(pathToVeryLargeVideo, "br") as fileStream:
+        # Let's add the video to the presentation - we chose the KeepLocked behavior because we do
+        # not intend to access the "veryLargeVideo.avi" file.
+        video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+        pres.slides[0].shapes.add_video_frame(0, 0, 480, 270, video)
+
+        # Saves the presentation. While a large presentation gets outputted, the memory consumption
+        # stays low through the pres object's lifecycle 
+        pres.save("presentationWithLargeVideo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -48,6 +46,7 @@ Aspose.Slides for Python via .NET allows you to export large files (in this case
 This code in Python demonstrates the described operation:
 
 ```py
+# [TODO:convert to python]
 const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
 
 LoadOptions loadOptions = new LoadOptions
@@ -99,23 +98,14 @@ With methods from the [**IImageCollection**](https://apireference.aspose.com/sli
 This Python code shows you how to add a large image through the BLOB process:
 
 ```py
-string pathToLargeImage = "large_image.jpg";
+import aspose.slides as slides
 
-// creates a new presentation to which the image will be added.
-using (Presentation pres = new Presentation())
-{
-	using (FileStream fileStream = new FileStream(pathToLargeImage, FileMode.Open))
-	{
-		// Let's add the image to the presentation - we choose KeepLocked behavior because we do
-		// NOT intend to access the "largeImage.png" file.
-		IPPImage img = pres.Images.AddImage(fileStream, LoadingStreamBehavior.KeepLocked);
-		pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
-
-		// Saves the presentation. While a large presentation gets outputted, the memory consumption 
-		// stays low through the pres object's lifecycle
-		pres.Save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
-	}
-}
+# creates a new presentation to which the image will be added.
+with slides.Presentation() as pres:
+    with open("img.jpeg", "br") as fileStream:
+        img = pres.images.add_image(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+        pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, 300, 200, img)
+    pres.save("presentationWithLargeImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Memory and Large Presentations**
@@ -125,10 +115,10 @@ Typically, to load a large presentation, computers require a lot of temporary me
 Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this Python code:
 
 ```py
-using (Presentation pres = new Presentation("large.pptx"))
-{
-   pres.Save("large.pdf", SaveFormat.Pdf);
-}
+import aspose.slides as slides
+
+with slides.Presentation("large.pptx") as pres:
+	pres.save("large.pdf", slides.export.SaveFormat.PDF)
 ```
 
 But this method consumes around 1.6 GB of temporary memory. 
@@ -138,39 +128,33 @@ But this method consumes around 1.6 GB of temporary memory.
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This Python code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```py
-LoadOptions loadOptions = new LoadOptions
-{
-   BlobManagementOptions = new BlobManagementOptions
-   {
-       PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-       IsTemporaryFilesAllowed = true
-   }
-};
- 
-using (Presentation pres = new Presentation("large.pptx", loadOptions))
-{
-   pres.Save("large.pdf", SaveFormat.Pdf);
-}
+import aspose.slides as slides
+
+loadOptions = slides.LoadOptions()
+loadOptions.blob_management_options = slides.BlobManagementOptions()
+loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+loadOptions.blob_management_options.is_temporary_files_allowed = True
+
+with slides.Presentation("large.pptx", loadOptions) as pres:
+	pres.save("large.pdf", slides.export.SaveFormat.PDF)
 ```
 
 #### **Change the Folder for Temporary Files**
 
-When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
+When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `temp_files_root_path`:
 
 ```py
-LoadOptions loadOptions = new LoadOptions
-{
-   BlobManagementOptions = new BlobManagementOptions
-   {
-       PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-       IsTemporaryFilesAllowed = true,
-       TempFilesRootPath = "temp"
-   }
-};
+import aspose.slides as slides
+
+loadOptions = slides.LoadOptions()
+loadOptions.blob_management_options = slides.BlobManagementOptions()
+loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+loadOptions.blob_management_options.is_temporary_files_allowed = True
+loadOptions.blob_management_options.temp_files_root_path = "temp"
 ```
 
 {{% alert title="Info" color="info" %}}
 
-When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
+When you use `temp_files_root_path`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
 
 {{% /alert %}}

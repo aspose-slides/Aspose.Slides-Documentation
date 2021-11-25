@@ -14,44 +14,42 @@ Slide comment is like an annotation in PDF file or a note that one can attach wi
 In Aspose.Slides for Python via .NET, the presentation slide comment are associated with a particular author. The [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class holds the collection of authors in [**ICommentAuthorCollection** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides/icommentauthorcollection/properties/index)that are responsible for adding slide comments. For each author, there is a collection of comments in [**ICommentCollection**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/icommentcollection). The [**IComment**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/icomment) class includes information like an author who added slide comment, time of creation, slide where a comment is added, the position of slide comment on the selected slide and the comment text. The [**CommentAuthor**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/commentauthor) class includes the author's name, his initials and list of associated comments. In the following example, we have added the code snippet for adding the slide comments.
 
 ```py
-// Instantiate Presentation class
-using (Presentation presentation = new Presentation())
-{
-    // Adding Empty slide
-    presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+import aspose.slides as slides
+import aspose.pydrawing as draw
+import datetime
 
-    // Adding Author
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
+# Instantiate Presentation class
+with slides.Presentation() as presentation:
+    # Adding Empty slide
+    presentation.slides.add_empty_slide(presentation.layout_slides[0])
 
-    // Position of comments
-    PointF point = new PointF();
-    point.X = 0.2f;
-    point.Y = 0.2f;
+    # Adding Author
+    author = presentation.comment_authors.add_author("Jawad", "MF")
 
-    // Adding slide comment for an author on slide 1
-    author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
+    # Position of comments
+    point = draw.PointF(0.2, 0.2)
 
-    // Adding slide comment for an author on slide 1
-    author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
+    # Adding slide comment for an author on slide 1
+    author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
 
-    // Accessing ISlide 1
-    ISlide slide = presentation.Slides[0];
+    # Adding slide comment for an author on slide 1
+    author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
 
-    // if null is passed as an argument then it will bring comments from all authors on selected slide
-    IComment[] Comments = slide.GetSlideComments(author);
+    # Accessing ISlide 1
+    slide = presentation.slides[0]
 
-    // Accessin the comment at index 0 for slide 1
-    String str = Comments[0].Text;
+    # if null is passed as an argument then it will bring comments from all authors on selected slide
+    comments = slide.get_slide_comments(author)
 
-    presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
+    # Accessin the comment at index 0 for slide 1
+    str = comments[0].text
 
-    if (Comments.GetLength(0) > 0)
-    {
-        // Select comments collection of Author at index 0
-        ICommentCollection commentCollection = Comments[0].Author.Comments;
-        String Comment = commentCollection[0].Text;
-    }
-}
+    presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
+
+    if comments.length > 0:
+        # Select comments collection of Author at index 0
+        commentCollection = comments[0].author.comments
+        print(commentCollection[0].text)
 ```
 
 
@@ -60,19 +58,16 @@ using (Presentation presentation = new Presentation())
 In the following example, we will learn how to access the existing slide comments and can even modify the comments as well.
 
 ```py
-// Instantiate Presentation class
-using (Presentation presentation = new Presentation("Comments1.pptx"))
-{
-    foreach (var commentAuthor in presentation.CommentAuthors)
-    {
-        var author = (CommentAuthor) commentAuthor;
-        foreach (var comment1 in author.Comments)
-        {
-            var comment = (Comment) comment1;
-            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " has comment: " + comment.Text + " with Author: " + comment.Author.Name + " posted on time :" + comment.CreatedTime + "\n");
-        }
-    }
-}
+import aspose.slides as slides
+
+# Instantiate Presentation class
+with slides.Presentation("Comments1.pptx") as presentation:
+    for author in presentation.comment_authors:
+        for comment in author.comments:
+            print("ISlide :" + str(comment.slide.slide_number) + 
+            " has comment: " + comment.text + 
+            " with Author: " + comment.author.name + 
+            " posted on time :" + str(comment.created_time) + "\n")
 ```
 
 
@@ -82,54 +77,52 @@ A new property [**ParentComment**](https://apireference.aspose.com/slides/pytho
 The code snippet below shows a sample of adding some comments and some replies to them:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    // Add comment
-    ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+import aspose.slides as slides
+import aspose.pydrawing as draw
+import datetime
 
-    // Add reply for comment1
-    ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply1.ParentComment = comment1;
+with slides.Presentation() as pres:
+    # Add comment
+    author1 = pres.comment_authors.add_author("Author_1", "A.A.")
+    comment1 = author1.comments.add_comment("comment1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
 
-    // Add reply for comment1
-    IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply2.ParentComment = comment1;
+    # Add reply for comment1
+    author2 = pres.comment_authors.add_author("Autror_2", "B.B.")
+    reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply1.parent_comment = comment1
 
-    // Add reply to reply
-    IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    subReply.ParentComment = reply2;
+    # Add reply for comment1
+    reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply2.parent_comment = comment1
 
-    IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    # Add reply to reply
+    subReply = author1.comments.add_comment("subreply 3 for reply 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    subReply.parent_comment = reply2
 
-    IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply3.ParentComment = comment3;
+    comment2 = author2.comments.add_comment("comment 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    comment3 = author2.comments.add_comment("comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
 
-    // Display hierarchy on console
-    ISlide slide = pres.Slides[0];
-    var comments = slide.GetSlideComments(null);
-    for (int i = 0; i < comments.Length; i++)
-    {
-        IComment comment = comments[i];
-        while (comment.ParentComment != null)
-        {
-            Console.Write("\t");
-            comment = comment.ParentComment;
-        }
+    reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply3.parent_comment = comment3
 
-        Console.Write("{0} : {1}", comments[i].Author.Name, comments[i].Text);
-        Console.WriteLine();
-    }
+    # Display hierarchy on console
+    slide = pres.slides[0]
+    comments = slide.get_slide_comments(None)
+    for i in range(comments.length):
+        comment = comments[i]
+        while comment.parent_comment is not None:
+            print("\t")
+            comment = comment.parent_comment
 
-    pres.Save("parent_comment.pptx",SaveFormat.Pptx);
+        print(comments[i].author.name + " : " + comments[i].text)
+        print("\r\n")
 
-    // Remove comment1 and all its replies
-    comment1.Remove();
+    pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    pres.Save("remove_comment.pptx", SaveFormat.Pptx);
-}
+    # Remove comment1 and all its replies
+    comment1.remove()
+
+    pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Attention" %}} 

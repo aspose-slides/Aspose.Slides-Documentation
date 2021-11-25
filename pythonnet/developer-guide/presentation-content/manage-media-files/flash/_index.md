@@ -11,17 +11,11 @@ description: "Extract flash object from PowerPoint presentation in Python"
 Aspose.Slides for Python via .NET provides a facility for extracting flash objects from presentation. You can access the flash control by name and extract it from presentation and including store SWF object data.
 
 ```py
-using (Presentation pres = new Presentation("withFlash.pptm"))
-{
-    IControlCollection controls = pres.Slides[0].Controls;
-    Control flashControl = null;
-    foreach (IControl control in controls)
-    {
-        if (control.Name == "ShockwaveFlash1")
-        {
-            flashControl = (Control)control;
-        }
-    }
-}
-```
+import aspose.slides as slides
 
+with slides.Presentation("withFlash.pptm") as pres:
+    controls = pres.slides[0].controls
+    for control in controls:
+        if control.Name == "ShockwaveFlash1":
+            flashControl = control
+```

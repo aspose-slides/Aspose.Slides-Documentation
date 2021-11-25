@@ -21,26 +21,24 @@ To add an audio file in a slide using Aspose.Slides for Python via .NET, please 
 This Python shows you how to add an embedded audio frame into a slide:
 
 ```py
-// Instantiate Presentation class that represents the presentation file
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents the presentation file
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Load the wav sound file to stream
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+    # Load the wav sound file to stream
+    with open(path + "sampleaudio.wav", "rb") as in_file:
+        # Add Audio Frame
+        audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
 
-    // Add Audio Frame
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
+        # Set Play Mode and Volume of the Audio
+        audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
+        audio_frame.volume = slides.AudioVolumeMode.LOUD
 
-    // Set Play Mode and Volume of the Audio
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // Write the PPTX file to disk
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+        # Write the PPTX file to disk
+        pres.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Change Audio Frame properties**
@@ -67,32 +65,32 @@ To change the Audio Frame properties, please follow these steps:
 This sample code demonstrates the operation:
 
 ```py 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
-{
-    // Get the AudioFrame shape
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
+import aspose.slides as slides
 
-    // Change Play mode to play on click
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
+    # Get the AudioFrame shape
+    audioFrame = pres.slides[0].shapes[0]
 
-    // Set Volume to Low
-    audioFrame.Volume = AudioVolumeMode.Low;
+    # Change Play mode to play on click
+    audioFrame.play_mode = slides.AudioPlayModePreset.ON_CLICK
 
-    // Set audio to play across slides
-    audioFrame.PlayAcrossSlides = true;
+    # Set Volume to Low
+    audioFrame.volume = slides.AudioVolumeMode.LOW
 
-    // Set audio to not loop
-    audioFrame.PlayLoopMode = false;
+    # Set audio to play across slides
+    audioFrame.play_across_slides = True
 
-    // Hide AudioFrame during the slide show
-    audioFrame.HideAtShowing = true;
+    # Set audio to not loop
+    audioFrame.play_loop_mode = False
 
-    // Rewind audio to start after playing
-    audioFrame.RewindAudio = true;
+    # Hide AudioFrame during the slide show
+    audioFrame.hide_at_showing = True
 
-    // Save the PPTX file to disk
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
-}
+    # Rewind audio to start after playing
+    audioFrame.rewind_audio = True
+
+    # Save the PPTX file to disk
+    pres.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Extract Audio**
@@ -108,20 +106,19 @@ To extract the audio, please follow these steps:
 This code in Python shows you how to extract the audio used in a slide:
 
 ```py
-string presName = "AudioSlide.pptx";
+import aspose.slides as slides
 
-// Instantiate Presentation class that represents the presentation file
-Presentation pres = new Presentation(presName);
+#with slides.Presentation("AudioSlide.pptx") as pres:
+with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
+    # Access the desired slide
+    slide = pres.slides[0]  
 
-// Access the desired slide
-ISlide slide = pres.Slides[0];
+    # Get the slideshow transition effects for slide
+    transition = slide.slide_show_transition
 
-// Get the slideshow transition effects for slide
-ISlideShowTransition transition = slide.SlideShowTransition;
+    #Extract sound in byte array
+    audio = transition.sound.binary_data
 
-//Extract sound in byte array
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+    print("Length: " + str(len(audio)))
 ```
 

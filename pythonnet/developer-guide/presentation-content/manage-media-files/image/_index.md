@@ -30,14 +30,15 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 You can add one or several images on your computer onto a slide in a presentation. This sample code in Python shows you how to add an image to a slide:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    with open("img.jpeg", "rb") as in_file:
+        image = pres.images.add_image(in_file)
+        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
     
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    pres.save("pres_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Adding Images From the Web to Slides**
@@ -47,21 +48,18 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in Python:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+import aspose.slides as slides
+import urllib2
+import base64
 
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    imageData = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    image = pres.images.add_image(imageData)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
     
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Adding Images to Slide Masters**
@@ -71,16 +69,16 @@ A slide master is the top slide that stores and controls information (theme, lay
 This Python sample code shows you how to add an image to a slide master:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    masterSlide = slide.layout_slide.master_slide
+    with open("img.jpeg", "rb") as in_file:
+        image = pres.images.add_image(in_file)
+        masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+        
+    pres.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Adding Images as Slide Background**
@@ -88,7 +86,7 @@ using (Presentation pres = new Presentation())
 You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/pythonnet/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Adding SVG to Presentations**
-You can add or insert any image into a presentation by using the [AddPictureFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishapecollection/methods/addpictureframe) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishapecollection) interface.
+You can add or insert any image into a presentation by using the [add_picture_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishapecollection/methods/addpictureframe) method that belongs to the [IShapeCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishapecollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
 
@@ -98,33 +96,24 @@ To create an image object based on SVG image, you can do it this way:
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```py 
-// The path to the documents directory
-string dataDir = @"D:\Documents\";
+import aspose.slides as slides
 
-// Source SVG file name
-string svgFileName = dataDir + "sample.svg";
+# Create new presentation
+with slides.Presentation() as p:
+    # Read SVG file content
+    with open("sample.svg","rt") as in_file:
+        svgContent = in_file.read()
+        # Create SvgImage object
+        svgImage = slides.SvgImage(svgContent)
 
-// Output presentation file name
-string outPptxPath = dataDir + "presentation.pptx";
+        # Create PPImage object
+        ppImage = p.images.add_image(svgImage)
 
-// Create new presentation
-using (var p = new Presentation())
-{
-    // Read SVG file content
-    string svgContent = File.ReadAllText(svgFileName);
+        # Creates a new PictureFrame 
+        p.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, ppImage.width, ppImage.height, ppImage)
 
-    // Create SvgImage object
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Create PPImage object
-    IPPImage ppImage = p.Images.AddImage(svgImage);
-
-    // Creates a new PictureFrame 
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // Save presentation in PPTX format
-    p.Save(outPptxPath, SaveFormat.Pptx);
-}
+        # Save presentation in PPTX format
+        p.save("presentation_with-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Converting SVG to a Set of Shapes**
@@ -133,73 +122,42 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [AddGroupShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ishapecollection/addgroupshape/methods/1) method of the [IShapeCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishapecollection) interface that takes an [ISvgImage](https://apireference.aspose.com/slides/pythonnet/aspose.slides/isvgimage) object as the first argument.
+The functionality is provided by one of the overloads of the [add_group_shape](https://apireference.aspose.com/slides/pythonnet/aspose.slides.ishapecollection/addgroupshape/methods/1) method of the [IShapeCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishapecollection) interface that takes an [ISvgImage](https://apireference.aspose.com/slides/pythonnet/aspose.slides/isvgimage) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ```py 
-// The path to the documents directory
-string dataDir = @"D:\Documents\";
+import aspose.slides as slides
 
-// Source SVG file name
-string svgFileName = dataDir + "sample.svg";
+with slides.Presentation() as presentation:
+    # Read SVG file content
+    with open("sample.svg","rt") as in_file:
+        svgContent = in_file.read()
+        # Create SvgImage object
+        svgImage = slides.SvgImage(svgContent)
 
-// Output presentation file name
-string outPptxPath = dataDir + "presentation.pptx";
+        # Get slide size
+        slide_size = presentation.slide_size.size
 
-// Create new presentation
-using (IPresentation presentation = new Presentation())
-{
-    // Read SVG file content
-    string svgContent = File.ReadAllText(svgFileName);
+        # Convert SVG image to group of shapes scaling it to slide size
+        presentation.slides[0].shapes.add_group_shape(svgImage, 0, 0, slide_size.width, slide_size.height)
 
-    // Create SvgImage object
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Get slide size
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Convert SVG image to group of shapes scaling it to slide size
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Save presentation in PPTX format
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+        # Save presentation in PPTX format
+        presentation.save("presentation_with_shape_svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Adding Images as EMF in Slides**
-Aspose.Slides for Python via .NET allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
+Aspose.Slides for Python via .NET allows you to add the EMF image. 
 
 This sample code shows you how to perform the described task:
 
 ```py 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
-
-    //Save the workbook to stream
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
-
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    with open("image.emf", "rb") as in_file:
+        emfImage = pres.images.add_image(in_file)
+        slide_size = pres.slide_size.size
+        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emfImage)
+    
+    pres.save("pres_with_emf.pptx", slides.export.SaveFormat.PPTX)
 ```
