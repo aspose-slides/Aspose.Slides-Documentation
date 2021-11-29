@@ -46,50 +46,37 @@ Aspose.Slides for Python via .NET allows you to export large files (in this case
 This code in Python demonstrates the described operation:
 
 ```py
-# [TODO:convert to python]
-const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
+import aspose.slides as slides
 
-LoadOptions loadOptions = new LoadOptions
-{
-	BlobManagementOptions = {
-		// Locks the source file and does NOT load it into memory
-		PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
-	}
-};
+loadOptions = slides.LoadOptions()
+loadOptions.blob_management_options = slides.BlobManagementOptions()
+loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+loadOptions.blob_management_options.is_temporary_files_allowed = True
 
-// Creates a Presentation's instance, locks the "hugePresentationWithAudiosAndVideos.pptx" file.
-using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions))
-{
-	// Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
-	// to transfer the data from the presentation's video stream to a stream for a newly created video file.
-	byte[] buffer = new byte[8 * 1024];
+with slides.Presentation(path + "Video.pptx", loadOptions) as pres:
+	# Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
+	# to transfer the data from the presentation's video stream to a stream for a newly created video file.
+	# byte[] buffer = new byte[8 * 1024];
+    bufferSize = 8 * 1024
 
-	// Iterates through the videos
-	for (var index = 0; index < pres.Videos.Count; index++)
-	{
-		IVideo video = pres.Videos[index];
-
-		// Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
-		// like video.BinaryData - because this property returns a byte array containing a full video, which then
-		// causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
-		//  require us to load the whole video into the memory.
-		using (Stream presVideoStream = video.GetStream())
-		{
-			using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
-			{
-				int bytesRead;
-				while ((bytesRead = presVideoStream.Read(buffer, 0, buffer.Length)) > 0)
-				{
-					outputFileStream.Write(buffer, 0, bytesRead);
-				}
-			}
-		}
-
-		// Memory consumption will remain low regardless of the size of the video or presentation,
-	}
-
-	// If necessary, you can apply the same steps for audio files. 
-}
+	# Iterates through the videos
+    index = 0
+    # If necessary, you can apply the same steps for audio files. 
+    for video in pres.videos:
+		# Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
+		# like video.BinaryData - because this property returns a byte array containing a full video, which then
+		# causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
+		#  require us to load the whole video into the memory.
+        with video.get_stream() as presVideoStream:
+            with open("video{index}.avi".format(index = index), "wb") as outputFileStream:
+                buffer = presVideoStream.read(8 * 1024)
+                bytesRead = len(buffer)
+                while bytesRead > 0:
+                    outputFileStream.write(buffer)
+                    buffer = presVideoStream.read(8 * 1024)
+                    bytesRead = len(buffer)
+                    
+        index += 1
 ```
 
 ### **Add Image as BLOB in Presentation**

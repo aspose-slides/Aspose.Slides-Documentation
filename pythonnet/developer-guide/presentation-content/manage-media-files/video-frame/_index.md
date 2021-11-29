@@ -19,38 +19,38 @@ Developers can also add and play video files in the slides to enrich their prese
 In the example below, we added a Video Frame into the slide.
 
 ```py
-// Instantiate Presentation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Embedd vide inside presentation
-    IVideo vid = pres.Videos.AddVideo(new FileStream("Wildlife.mp4", FileMode.Open));
+    # Embedd vide inside presentation
+    with open(path + "Wildlife.mp4", "rb") as in_file:
+        vid = pres.videos.add_video(in_file)
 
-    // Add Video Frame
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 350, vid);
+        # Add Video Frame
+        vf = sld.shapes.add_video_frame(50, 150, 300, 350, vid)
 
-    // Set video to Video Frame
-    vf.EmbeddedVideo = vid;
+        # Set video to Video Frame
+        vf.embedded_video = vid
 
-    // Set Play Mode and Volume of the Video
-    vf.PlayMode = VideoPlayModePreset.Auto;
-    vf.Volume = AudioVolumeMode.Loud;
+        # Set Play Mode and Volume of the Video
+        vf.play_mode = slides.VideoPlayModePreset.AUTO
+        vf.volume = slides.AudioVolumeMode.LOUD
 
-    // Write the PPTX file to disk
-    pres.Save("VideoFrame_out.pptx", SaveFormat.Pptx);
-}
+    # Write the PPTX file to disk
+    pres.save("VideoFrame_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 It is possible to add a video passing path to the video file directly into AddVideoFrame method:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 150, "video1.avi");
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    sld = pres.slides[0]
+    vf = sld.shapes.add_video_frame(50, 150, 300, 150, "video1.avi")
 ```
 
 
@@ -68,28 +68,23 @@ Follow these steps:
 This sample code shows you how to to add a video from YouTube to your presentation using Aspose.Slides:
 
 ```py
-public static void Run()
-{
-    using (Presentation pres = new Presentation())
-    {
-        AddVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.Save("AddVideoFrameFromWebSource_out.pptx", SaveFormat.Pptx);
-    }
-}
+import aspose.slides as slides
+from urllib.request import urlopen
 
-private static void AddVideoFromYouTube(Presentation pres, string videoId)
-{
-    //add videoFrame
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
-    videoFrame.PlayMode = VideoPlayModePreset.Auto;
+def add_video_from_youyube(pres, videoId):
+    #add videoFrame
+    videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId)
+    videoFrame.play_mode = slides.VideoPlayModePreset.AUTO
 
-    //load thumbnail
-    using (WebClient client = new WebClient())
-    {
-        string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
-        videoFrame.PictureFormat.Picture.Image = pres.Images.AddImage(client.DownloadData(thumbnailUri));
-    }
-}
+    # load thumbnail
+    thumbnail_uri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"
+    f = urlopen(thumbnail_uri)
+    videoFrame.picture_format.picture.image = pres.images.add_image(f.read())
+
+
+with slides.Presentation() as pres:
+    add_video_from_youyube(pres, "s5JbfQZ5Cc0")
+    pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Extract Video From Slide**
@@ -102,26 +97,15 @@ Aspose.Slides for Python via .NET supports extracting video from the slide. In o
   In the example given below, we have saved the video file from a slide.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("Video.pptx");
+import aspose.slides as slides
 
-foreach (ISlide slide in presentation.Slides)
-{
-    foreach (IShape shape in presentation.Slides[0].Shapes)
-    {
-        if (shape is VideoFrame)
-        {
-            IVideoFrame vf = shape as IVideoFrame;
-            String type = vf.EmbeddedVideo.ContentType;
-            int ss = type.LastIndexOf('/');
-            type = type.Remove(0, type.LastIndexOf('/') + 1);
-            Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-            using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
-            {                                                     
-                stream.Write(buffer, 0, buffer.Length);
-            }
-        }
-    }
-}
+# Instantiate a Presentation object that represents a presentation file 
+with slides.Presentation(path + "Video.pptx") as presentation:
+    for shape in presentation.slides[0].shapes:
+        if type(shape) is slides.VideoFrame:
+            type = shape.embedded_video.content_type
+            buffer = shape.embedded_video.binary_data
+            with open("NewVideo_out." + type[type.rfind('/') + 1:len(type)], "wb") as stream:
+                stream.write(buffer)
 ```
 

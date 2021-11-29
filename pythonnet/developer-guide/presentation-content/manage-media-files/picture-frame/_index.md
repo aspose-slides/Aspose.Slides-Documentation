@@ -37,29 +37,29 @@ To add a simple picture frame to your slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ```py
-// Instantiate Presentation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Instantiate the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    # Instantiate the ImageEx class
+    with open("img.jpeg", "rb") as in_file:
+        image = pres.images.add_image(in_file)
 
-    // Add Picture Frame with height and width equivalent of Picture
-    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+        # Add Picture Frame with height and width equivalent of Picture
+        pf = sld.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 150, image.width, image.height, image)
 
-    // Apply some formatting to PictureFrameEx
-    pf.LineFormat.FillFormat.FillType = FillType.Solid;
-    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pf.LineFormat.Width = 20;
-    pf.Rotation = 45;
+        # Apply some formatting to PictureFrameEx
+        pf.line_format.fill_format.fill_type = slides.FillType.SOLID
+        pf.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+        pf.line_format.width = 20
+        pf.rotation = 45
 
-    //Write the PPTX file to disk
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
+        # Write the PPTX file to disk
+        pres.save("RectPicFrameFormat_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -76,24 +76,23 @@ The picture frame that we created in the above section were simple as well as we
 The above steps are implemented in the example given below.
 
 ```py
-// Instantiate presentation object
-using (Presentation presentation = new Presentation())
-{
+import aspose.slides as slides
 
-    // Load Image to be added in presentaiton image collection
-    Image img = new Bitmap("aspose-logo.jpg");
-    IPPImage image = presentation.Images.AddImage(img);
+# Instantiate presentation object
+with slides.Presentation() as presentation:
+    # Load Image to be added in presentaiton image collection
+    with open("img.jpeg", "rb") as in_file:
+        image = presentation.images.add_image(in_file)
 
-    // Add picture frame to slide
-    IPictureFrame pf = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+        # Add picture frame to slide
+        pf = presentation.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
-    // Setting relative scale width and height
-    pf.RelativeScaleHeight = 0.8f;
-    pf.RelativeScaleWidth = 1.35f;
+        # Setting relative scale width and height
+        pf.relative_scale_height = 0.8
+        pf.relative_scale_width = 1.35
 
-    // Save presentation
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
+        # Save presentation
+        presentation.save("Adding Picture Frame with Relative Scale_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -118,29 +117,28 @@ The picture frame that we created in the above section is simple. We can also co
 The above steps are implemented in the example given below.
 
 ```py
-// Instantiate Presentation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Instantiate the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    with open("img.jpeg", "rb") as in_file:
+        imgx = pres.images.add_image(in_file)
 
-    // Add Picture Frame with height and width equivalent of Picture
-    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+        # Add Picture Frame with height and width equivalent of Picture
+        pf = sld.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 150, imgx.width, imgx.height, imgx)
 
-    // Apply some formatting to PictureFrameEx
-    pf.LineFormat.FillFormat.FillType = FillType.Solid;
-    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pf.LineFormat.Width = 20;
-    pf.Rotation = 45;
+        # Apply some formatting to PictureFrameEx
+        pf.line_format.fill_format.fill_type = slides.FillType.SOLID
+        pf.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+        pf.line_format.width = 20
+        pf.rotation = 45
 
-    //Write the PPTX file to disk
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
+    # Write the PPTX file to disk
+    pres.save("RectPicFrameFormat_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert title="Tip" color="primary" %}}
@@ -165,22 +163,37 @@ The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and Stre
 The above steps are implemented in the example given below.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
 
-    // Instantiate the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    # Get the first slide
+    slide = pres.slides[0]
 
-    // Add Picture Frame with height and width equivalent of Picture
-    sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    # Instantiate the ImageEx class
+    with open("img.jpeg", "rb") as in_file:
+        imgx = pres.images.add_image(in_file)
 
-    //Write the PPTX file to disk
-    pres.Save("AddStretchOffsetForImageFill_out.pptx", SaveFormat.Pptx);
-}
+        # Add Picture Frame with height and width equivalent of Picture
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+
+        # Set shape's fill type
+        shape.fill_format.fill_type = slides.FillType.PICTURE
+
+        # Set shape's picture fill mode
+        shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+
+        # Set image to fill the shape
+        shape.fill_format.picture_fill_format.picture.image = imgx
+
+        # Specify image offsets from the corresponding edge of the shape's bounding box
+        shape.fill_format.picture_fill_format.stretch_offset_left = 25
+        shape.fill_format.picture_fill_format.stretch_offset_right = 25
+        shape.fill_format.picture_fill_format.stretch_offset_top = -20
+        shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
+    
+    # Write the PPTX file to disk
+    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
