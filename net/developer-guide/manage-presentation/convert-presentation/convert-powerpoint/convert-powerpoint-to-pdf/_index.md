@@ -8,11 +8,11 @@ description: "Convert PowerPoint Presentation to PDF in C# or .NET. Save PowerPo
 ---
 
 ## How to Convert PPT to PDF Online
-You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/) to convert PPT or PPTX files to PDF quickly.
+You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/ppt-to-pdf) to convert PPT or PPTX files to PDF quickly.
 
 Go through these steps:
 
-1. Go to our [PowerPoint Online Converter page](https://products.aspose.app/slides/conversion/). 
+1. Go to our [PowerPoint Online Converter page](https://products.aspose.app/slides/conversion/powerpoint-to-pdf). 
 
 2. Click **Drop or upload your files**. 
 
