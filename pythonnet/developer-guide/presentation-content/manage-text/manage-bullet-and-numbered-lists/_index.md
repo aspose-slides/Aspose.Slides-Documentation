@@ -2,7 +2,7 @@
 title: Manage Bullet and Numbered Lists
 type: docs
 weight: 70
-url: /pythonnet/manage-bullet-and-numbered-lists
+url: /pythonnet/manage-bullet-and-numbered-lists/
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Python, Aspose.Slides for Python via .NET"
 description: "Create bullet and numbered lists in PowerPoint presentation in Python"
 ---
@@ -40,43 +40,43 @@ To create a bullet list, through these steps:
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class.
 2. Access the slide (in which you want to add a bullet list) in slide collection through the [ISlide](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/index) object.
 3. Add an [AutoShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/autoshape) in the selected slide.
-4. Access the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) of the added shape.
-5. Remove the default paragraph in the [TextFrame]().
+4. Access the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) of the added shape.
+5. Remove the default paragraph in the [text_frame]().
 6. Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/pythonnet/aspose.slides/paragraph) class.
 8. Set the bullet type to Symbol and then set the bullet character.
 9. Set the Paragraph Text.
 10. Set the Paragraph Indent to set the bullet.
 11. Set the Color of the Bullet.
 12. Set the Height of the Bullet.
-13. Add the created paragraph in the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) paragraph collection.
+13. Add the created paragraph in the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) paragraph collection.
 14. Add the second paragraph and repeat steps 7-12.
 15. Save the presentation.
 
 This sample code in Python—an implementation of the steps above—shows you to create a bullet list in a slide:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Paragraphs.Clear();
-    
-    Paragraph paragraph = new Paragraph();
-    paragraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    paragraph.ParagraphFormat.Bullet.Char = '*';
-    paragraph.ParagraphFormat.Indent = 15;
-    paragraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
-    paragraph.ParagraphFormat.Bullet.Color.Color = Color.Red;
-    paragraph.ParagraphFormat.Bullet.Height = 100;
-    paragraph.Text = "My text";
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    textFrame.Paragraphs.Add(paragraph);
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    textFrame = autoShape.text_frame
+    textFrame.paragraphs.clear()
     
-    // ...
+    paragraph = slides.Paragraph()
+    paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph.paragraph_format.bullet.char = '*'
+    paragraph.paragraph_format.indent = 15
+    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1
+    paragraph.paragraph_format.bullet.color.color = draw.Color.red
+    paragraph.paragraph_format.bullet.height = 100
+    paragraph.text = "My text"
+
+    textFrame.paragraphs.add(paragraph)
     
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
  
@@ -97,45 +97,44 @@ To create a picture bullet, go through these steps:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class.
 2. Access the desired slide in slide collection using the [ISlide](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/index) object.
-3. Add an [AutoShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/autoshape) in the selected slide.
-4. Access the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) of the added shape.
-5. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe).
+3. Add an [add_auto_shape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/autoshape) in the selected slide.
+4. Access the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) of the added shape.
+5. Remove the default paragraph in the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe).
 6. Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/pythonnet/aspose.slides/paragraph) class.
-7. Load Image from disk and add it to [Presentation.Images](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/properties/images) and then use the [IPPImage](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ippimage) instance that was returned from the [AddImage](https://apireference.aspose.com/slides/pythonnet/aspose.slides/imagecollection/methods/addimage/index) method.
+7. Load Image from disk and add it to [Presentation.images](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/properties/images) and then use the [IPPImage](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ippimage) instance that was returned from the [add_image](https://apireference.aspose.com/slides/pythonnet/aspose.slides/imagecollection/methods/addimage/index) method.
 8. Set the bullet type to Picture and then set the image.
 9. Set the Paragraph Text.
 10. Set the Paragraph Indent to set the bullet.
 11. Set the Color of Bullet.
 12. Set the Height of Bullets.
-13. Add the created paragraph in the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) paragraph collection.
+13. Add the created paragraph in the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) paragraph collection.
 14. Add the second paragraph and repeat steps 7-13.
 15. Save the presentation.
 
  This Python code shows you to create a picture bullet in a slide:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Paragraphs.Clear();
-    
-    
-    Paragraph paragraph = new Paragraph();
-    paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    paragraph.ParagraphFormat.Bullet.Picture.Image = image;
-    paragraph.ParagraphFormat.Indent = 15;
-    paragraph.ParagraphFormat.Bullet.Height = 100;
-    paragraph.Text = "My text";
+import aspose.slides as slides
 
-    textFrame.Paragraphs.Add(paragraph);
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    textFrame = autoShape.text_frame
+    textFrame.paragraphs.clear()
     
-    // ...
     
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    paragraph = slides.Paragraph()
+    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
+    with open("img.jpeg", "rb") as in_file:
+        image = pres.images.add_image(in_file)
+    paragraph.paragraph_format.bullet.picture.image = image
+    paragraph.paragraph_format.indent = 15
+    paragraph.paragraph_format.bullet.height = 100
+    paragraph.text = "My text"
+
+    textFrame.paragraphs.add(paragraph)
+    
+    pres.save("pres-bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
  
@@ -146,48 +145,48 @@ To create a bullet list that contains items on different levels—additional lis
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class.
 2. Access the desired slide in slide collection using the [ISlide](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/index) object.
-3. Add an [AutoShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/autoshape) in the selected slide.
-4. Access the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) of the added shape.
-5. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe).
+3. Add an [auto_shape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/autoshape) in the selected slide.
+4. Access the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) of the added shape.
+5. Remove the default paragraph in the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe).
 6. Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/pythonnet/aspose.slides/paragraph) class and with depth set to 0.
 7. Create the second paragraph instance using the Paragraph class and the depth set to 1.
 8. Create the third paragraph instance using the Paragraph class and the depth set to 2.
 9. Create the fourth paragraph instance using the Paragraph class and the depth set to 3.
-10. Add the created paragraphs in the [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) paragraph collection.
+10. Add the created paragraphs in the [text_frame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) paragraph collection.
 11. Save the presentation.
 
 This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Python:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 300, 300);
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Paragraphs.Clear();
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 300, 300)
+    textFrame = autoShape.text_frame
+    textFrame.paragraphs.clear()
     
-    Paragraph paragraph = new Paragraph();
-    paragraph.ParagraphFormat.Depth = 0;
-    paragraph.Text = "My text Depth 0";
-    textFrame.Paragraphs.Add(paragraph);
+    paragraph = slides.Paragraph()
+    paragraph.paragraph_format.depth = 0
+    paragraph.text = "My text Depth 0"
+    textFrame.paragraphs.add(paragraph)
     
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.ParagraphFormat.Depth = 0;
-    paragraph2.Text = "My text Depth 1";
-    textFrame.Paragraphs.Add(paragraph2);
+    paragraph2 = slides.Paragraph()
+    paragraph2.paragraph_format.depth = 0
+    paragraph2.text = "My text Depth 1"
+    textFrame.paragraphs.add(paragraph2)
     
-    Paragraph paragraph3 = new Paragraph();
-    paragraph3.ParagraphFormat.Depth = 2;
-    paragraph3.Text = "My text Depth 2";
-    textFrame.Paragraphs.Add(paragraph3);
+    paragraph3 = slides.Paragraph()
+    paragraph3.paragraph_format.depth = 2
+    paragraph3.text = "My text Depth 2"
+    textFrame.paragraphs.add(paragraph3)
     
-    Paragraph paragraph4 = new Paragraph();
-    paragraph4.ParagraphFormat.Depth = 3;
-    paragraph4.Text = "My text Depth 3";
-    textFrame.Paragraphs.Add(paragraph4);
+    paragraph4 = slides.Paragraph()
+    paragraph4.paragraph_format.depth = 3
+    paragraph4.text = "My text Depth 3"
+    textFrame.paragraphs.add(paragraph4)
     
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    pres.save("pres-bullets2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
  
@@ -197,27 +196,25 @@ using (Presentation pres = new Presentation())
  This Python code shows you how to create a numbered list in a slide:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Paragraphs.Clear();
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    textFrame = autoShape.text_frame
+    textFrame.paragraphs.clear()
     
-    Paragraph paragraph = new Paragraph();
-    paragraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    paragraph.Text = "My text 1";
-    textFrame.Paragraphs.Add(paragraph);
+    paragraph = slides.Paragraph()
+    paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph.text = "My text 1"
+    textFrame.paragraphs.add(paragraph)
     
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    paragraph2.Text = "My text 2";
-    textFrame.Paragraphs.Add(paragraph2);
+    paragraph2 = slides.Paragraph()
+    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph2.text = "My text 2"
+    textFrame.paragraphs.add(paragraph2)
     
-    // ...
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    pres.save("pres-bullets3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 

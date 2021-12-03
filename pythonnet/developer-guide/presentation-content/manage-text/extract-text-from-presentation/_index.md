@@ -22,33 +22,28 @@ use the [GetAllTextBoxes](https://apireference.aspose.com/slides/pythonnet/aspos
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
 ```py
-//Instatiate Presentation class that represents a PPTX file
-Presentation pptxPresentation = new Presentation("demo.pptx");
+import aspose.slides as slides
 
-//Get an Array of ITextFrame objects from all slides in the PPTX
-ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+#Instatiate Presentation class that represents a PPTX file
+with slides.Presentation("pres.pptx") as pptxPresentation:
+    # Get an Array of ITextFrame objects from all slides in the PPTX
+    textFramesPPTX = slides.util.SlideUtil.get_all_text_boxes(pptxPresentation.slides[0])
+    
+    # Loop through the Array of TextFrames
+    for i in range(len(textFramesPPTX)):
+	    # Loop through paragraphs in current ITextFrame
+        for para in textFramesPPTX[i].paragraphs:
+            # Loop through portions in the current IParagraph
+            for port in para.portions:
+			    # Display text in the current portion
+                print(port.text)
 
-//Loop through the Array of TextFrames
-for (int i = 0; i < textFramesPPTX.Length; i++)
-{
-	//Loop through paragraphs in current ITextFrame
-	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
-	{
-		//Loop through portions in the current IParagraph
-		foreach (IPortion port in para.Portions)
-		{
-			//Display text in the current portion
-			Console.WriteLine(port.Text);
+    			# Display font height of the text
+                print(port.portion_format.font_height)
 
-			//Display font height of the text
-			Console.WriteLine(port.PortionFormat.FontHeight);
-
-			//Display font name of the text
-			if (port.PortionFormat.LatinFont != null)
-				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
-		}
-	}
-}
+			    # Display font name of the text
+                if port.portion_format.latin_font != None:
+                    print(port.portion_format.latin_font.font_name)
 ```
 
 
@@ -63,31 +58,28 @@ To scan the text from the whole presentation, use the
    The method returns an array of TextFrame objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
 
 ```py
-//Instatiate Presentation class that represents a PPTX file
-Presentation pptxPresentation = new Presentation("demo.pptx");
+import aspose.slides as slides
 
-//Get an Array of ITextFrame objects from all slides in the PPTX
-ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+#Instatiate Presentation class that represents a PPTX file
+with slides.Presentation("pres.pptx") as pptxPresentation:
+    # Get an Array of ITextFrame objects from all slides in the PPTX
+    textFramesPPTX = slides.util.SlideUtil.get_all_text_frames(pptxPresentation, True)
+    
+    # Loop through the Array of TextFrames
+    for i in range(len(textFramesPPTX)):
+	    # Loop through paragraphs in current ITextFrame
+        for para in textFramesPPTX[i].paragraphs:
+            # Loop through portions in the current IParagraph
+            for port in para.portions:
+			    # Display text in the current portion
+                print(port.text)
 
-//Loop through the Array of TextFrames
-for (int i = 0; i < textFramesPPTX.Length; i++)
+    			# Display font height of the text
+                print(port.portion_format.font_height)
 
-	//Loop through paragraphs in current ITextFrame
-	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
-
-		//Loop through portions in the current IParagraph
-		foreach (IPortion port in para.Portions)
-		{
-			//Display text in the current portion
-			Console.WriteLine(port.Text);
-
-			//Display font height of the text
-			Console.WriteLine(port.PortionFormat.FontHeight);
-
-			//Display font name of the text
-			if (port.PortionFormat.LatinFont != null)
-				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
-		}
+			    # Display font name of the text
+                if port.portion_format.latin_font != None:
+                    print(port.portion_format.latin_font.font_name)
 ```
 
 
@@ -97,8 +89,8 @@ for (int i = 0; i < textFramesPPTX.Length; i++)
 The new static method GetPresentationText has been added to Presentation class. There are two overloads for this method:
 
 ```py
-PresentationText GetPresentationText(Stream stream)
-PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
+slides.Presentation.get_presentation_text(stream)
+slides.Presentation.get_presentation_text(stream, mode)      
 ```
 
 The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
@@ -107,23 +99,24 @@ Arranged - The text is positioned in the same order as on the slide
 
 Unarranged mode can be used when speed is critical, it's faster than Arranged mode.
 
-PresentationText represents the raw text extracted from the presentation. It contains a SlidesText property from Aspose.Slides.Util namespace which returns an array of ISlideText objects. Every object represent the text on the corresponding slide. ISlideText object have the following properties:
+PresentationText represents the raw text extracted from the presentation. It contains a `slides_text` property from Aspose.Slides.Util namespace which returns an array of SlideText objects. Every object represent the text on the corresponding slide. SlideText object have the following properties:
 
-ISlideText.Text - The text on the slide's shapes
-ISlideText.MasterText - The text on the master page's shapes for this slide
-ISlideText.LayoutText - The text on the layout page's shapes for this slide
-ISlideText.NotesText - The text on the notes page's shapes for this slide
+SlideText.text - The text on the slide's shapes
+SlideText.master_text - The text on the master page's shapes for this slide
+SlideText.layout_text - The text on the layout page's shapes for this slide
+SlideText.notes_text - The text on the notes page's shapes for this slide
 
-There is also a SlideText class which implements the ISlideText interface.
 
 The new API can be used like this:
 
 ```py
-IPresentationText text1 = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
-Console.WriteLine(text1.SlidesText[0].Text);
-Console.WriteLine(text1.SlidesText[0].LayoutText);
-Console.WriteLine(text1.SlidesText[0].MasterText);
-Console.WriteLine(text1.SlidesText[0].NotesText);
+import aspose.slides as slides
+
+text1 = slides.PresentationFactory().get_presentation_text("pres.pptx", slides.TextExtractionArrangingMode.UNARRANGED)
+print(text1.slides_text[0].text)
+print(text1.slides_text[0].layout_text)
+print(text1.slides_text[0].master_text)
+print(text1.slides_text[0].notes_text)
 ```
 
 

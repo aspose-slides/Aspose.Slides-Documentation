@@ -27,76 +27,76 @@ To create a textbox on a slide, go through these steps:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an [IAutoShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/slides/pythonnet/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
-4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
+3. Add an [IAutoShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/slides/pythonnet/aspose.slides/igeometryshape/properties/shapetype) set as `RECTANGLE` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
+4. Add a `text_frame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 
 This Python code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```py
-// Instantiates PresentationEx
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
 
-    // Gets the first slide in the presentation
-    ISlide sld = pres.Slides[0];
+# Instantiates PresentationEx
+with slides.Presentation() as pres:
 
-    // Adds an AutoShape with type set as Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    # Gets the first slide in the presentation
+    sld = pres.slides[0]
 
-    // Adds TextFrame to the Rectangle
-    ashp.AddTextFrame(" ");
+    # Adds an AutoShape with type set as Rectangle
+    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    // Accesses the text frame
-    ITextFrame txtFrame = ashp.TextFrame;
+    # Adds TextFrame to the Rectangle
+    ashp.add_text_frame(" ")
 
-    // Creates the Paragraph object for text frame
-    IParagraph para = txtFrame.Paragraphs[0];
+    # Accesses the text frame
+    txtFrame = ashp.text_frame
 
-    // Creates a Portion object for paragraph
-    IPortion portion = para.Portions[0];
+    # Creates the Paragraph object for text frame
+    para = txtFrame.paragraphs[0]
 
-    // Sets Text
-    portion.Text = "Aspose TextBox";
+    # Creates a Portion object for paragraph
+    portion = para.portions[0]
 
-    // Saves the presentation to disk
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Sets Text
+    portion.text = "Aspose TextBox"
+
+    # Saves the presentation to disk
+    pres.save("TextBox_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Add Column In Text Box**
-Aspose.Slides provides the [ColumnCount](https://apireference.aspose.com/slides/pythonnet/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://apireference.aspose.com/slides/pythonnet/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframeformat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
+Aspose.Slides provides the [column_count](https://apireference.aspose.com/slides/pythonnet/aspose.slides/itextframeformat/properties/columncount) and [column_spacing](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://apireference.aspose.com/slides/pythonnet/aspose.slides/itextframeformat) interface and [text_frame_format](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframeformat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
 This code in Python demonstrates the described operation: 
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-	// Gets the first slide in the presentation
-	ISlide slide = presentation.Slides[0];
+import aspose.slides as slides
 
-	// Add an AutoShape with type set as Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+with slides.Presentation() as presentation:
+	# Gets the first slide in the presentation
+	slide = presentation.slides[0]
 
-	// Add TextFrame to the Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
+	# Add an AutoShape with type set as Rectangle
+	aShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+
+	# Add TextFrame to the Rectangle
+	aShape.add_text_frame("All these columns are limited to be within a single text container -- " +
 	"you can add or delete text and the new or remaining text automatically adjusts " +
 	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+	"to other though -- we told you PowerPoint's column options for text are limited!")
 
-	// Gets the text format of TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
+	# Gets the text format of TextFrame
+	format = aShape.text_frame.text_frame_format
 
-	// Specifies the number of columns in TextFrame
-	format.ColumnCount = 3;
+	# Specifies the number of columns in TextFrame
+	format.column_count = 3
 
-	// Specifies the spacing between columns
-	format.ColumnSpacing = 10;
+	# Specifies the spacing between columns
+	format.column_spacing = 10
 
-	// Saves the presentation
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+	# Saves the presentation
+	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -106,44 +106,38 @@ Aspose.Slides for Python via .NET provides the [ColumnCount](https://apireferenc
  This Python code shows you how to add a column inside a text frame:
 
 ```py
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
+import aspose.slides as slides
 
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+outPptxFileName = "ColumnsTest.pptx"
+with slides.Presentation() as pres:
+    shape1 = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    format = shape1.text_frame.text_frame_format
 
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.NaN == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
+    format.column_count = 2
+    shape1.text_frame.text = """All these columns are forced to stay within a single text container -- 
+        you can add or delete text - and the new or remaining text automatically adjusts 
+        itself to stay within the container. You cannot have text spill over from one container 
+        to other, though -- because PowerPoint's column options for text are limited!
+        pres.save(outPptxFileName, slides.export.SaveFormat.PPTX)"""
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+    with slides.Presentation(path + outPptxFileName) as test:
+        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
+        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
 
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
+    format.column_spacing = 20
+    pres.save(path + outPptxFileName, slides.export.SaveFormat.PPTX)
 
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+    with slides.Presentation(path + outPptxFileName) as test:
+        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
+        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
 
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-}
+    format.column_count = 3
+    format.column_spacing = 15
+    pres.save(path + outPptxFileName, slides.export.SaveFormat.PPTX)
+
+    with slides.Presentation(path + outPptxFileName) as test:
+        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
+        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
 ```
 
 ## **Update Text**
@@ -153,29 +147,19 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This Python code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```py
-using(Presentation pres = new Presentation("text.pptx"))
-{
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Checks if shape supports text frame (IAutoShape). 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Iterates through paragraphs in text frame
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Iterates through each portion in paragraph
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Changes text
-                       portion.PortionFormat.FontBold = NullableBool.True; //Changes formatting
-                   }
-               }
-           }
-       }
-   }
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    for slide in pres.slides:
+        for shape in slide.shapes:
+            if type(shape) is slides.AutoShape:
+                for paragraph in shape.text_frame.paragraphs:
+                    for portion in paragraph.portions:
+                        portion.text = portion.text.replace("years", "months")
+                        portion.portion_format.font_bold = 1
   
-   //Saves modified presentation
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
-}
+    # Saves modified presentation
+    pres.save("text-changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Add Text Box with Hyperlink** 
@@ -186,38 +170,36 @@ You can insert a link inside a text box. When the text box is clicked, users are
 
 1. Create an instance of the `Presentation` class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
-4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
-5. Instantiate the `IHyperlinkManager` class. 
-6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://apireference.aspose.com/slides/pythonnet/aspose.slides/shape/properties/hyperlinkclick) property associated with your preferred portion of the `TextFrame`. 
+3. Add an `AutoShape` object with `ShapeType` set as `RECTANGLE` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
+4. Add a `text_frame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
+5. Instantiate the `hyperlink_manager` class. 
+6. Assign the `hyperlink_manager` object to the [HyperlinkClick](https://apireference.aspose.com/slides/pythonnet/aspose.slides/shape/properties/hyperlinkclick) property associated with your preferred portion of the `TextFrame`. 
 7. Finally, write the PPTX file through the `Presentation` object. 
 
 This Python code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```py
-// Instantiates a Presentation class that represents a PPTX
-Presentation pptxPresentation = new Presentation();
+import aspose.slides as slides
 
-// Gets the first slide in the presentation
-ISlide slide = pptxPresentation.Slides[0];
+# Instantiates a Presentation class that represents a PPTX
+with slides.Presentation() as pptxPresentation:
+    # Gets the first slide in the presentation
+    slide = pptxPresentation.slides[0]
 
-// Adds an AutoShape object with type set as Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    # Adds an AutoShape object with type set as Rectangle
+    pptxShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
 
-// Casts the shape to AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
+    # Accesses the ITextFrame property associated with the AutoShape
+    pptxShape.add_text_frame("")
 
-// Accesses the ITextFrame property associated with the AutoShape
-pptxAutoShape.AddTextFrame("");
+    textFrame = pptxShape.text_frame
 
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
+    # Adds some text to the frame
+    textFrame.paragraphs[0].portions[0].text = "Aspose.Slides"
 
-// Adds some text to the frame
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Sets the Hyperlink for the portion text
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-// Saves the PPTX Presentation
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    # Sets the Hyperlink for the portion text
+    hm = textFrame.paragraphs[0].portions[0].portion_format.hyperlink_manager
+    hm.set_external_hyperlink_click("http://www.aspose.com")
+    # Saves the PPTX Presentation
+    pptxPresentation.save("hLinkPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```

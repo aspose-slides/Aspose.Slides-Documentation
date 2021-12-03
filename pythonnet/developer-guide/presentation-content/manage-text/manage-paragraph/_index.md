@@ -24,66 +24,61 @@ Please follow the steps below to add TextFrame having 3 paragraphs and 3 portion
 The implementation of the above steps is given below.
 
 ```py
-// Instantiate a Presentation class that represents a PPTX file
-using (Presentation pres = new Presentation())
-{
-    // Accessing first slide
-    ISlide slide = pres.Slides[0];
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+# Instantiate a Presentation class that represents a PPTX file
+with slides.Presentation() as pres:
+    # Accessing first slide
+    slide = pres.slides[0]
 
-    // Access TextFrame of the AutoShape
-    ITextFrame tf = ashp.TextFrame;
+    # Add an AutoShape of Rectangle type
+    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
 
-    // Create Paragraphs and Portions with different text formats
-    IParagraph para0 = tf.Paragraphs[0];
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.Portions.Add(port01);
-    para0.Portions.Add(port02);
+    # Access TextFrame of the AutoShape
+    tf = ashp.text_frame
 
-    IParagraph para1 = new Paragraph();
-    tf.Paragraphs.Add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.Portions.Add(port10);
-    para1.Portions.Add(port11);
-    para1.Portions.Add(port12);
+    # Create Paragraphs and Portions with different text formats
+    para0 = tf.paragraphs[0]
+    port01 = slides.Portion()
+    port02 = slides.Portion()
+    para0.portions.add(port01)
+    para0.portions.add(port02)
 
-    IParagraph para2 = new Paragraph();
-    tf.Paragraphs.Add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.Portions.Add(port20);
-    para2.Portions.Add(port21);
-    para2.Portions.Add(port22);
+    para1 = slides.Paragraph()
+    tf.paragraphs.add(para1)
+    port10 = slides.Portion()
+    port11 = slides.Portion()
+    port12 = slides.Portion()
+    para1.portions.add(port10)
+    para1.portions.add(port11)
+    para1.portions.add(port12)
 
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
-        {
-            tf.Paragraphs[i].Portions[j].Text = "Portion0" + j.ToString();
-            if (j == 0)
-            {
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.FillType = FillType.Solid;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontBold = NullableBool.True;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontHeight = 15;
-            }
-            else if (j == 1)
-            {
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.FillType = FillType.Solid;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontItalic = NullableBool.True;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontHeight = 18;
-            }
-        }
+    para2 = slides.Paragraph()
+    tf.paragraphs.add(para2)
+    port20 = slides.Portion()
+    port21 = slides.Portion()
+    port22 = slides.Portion()
+    para2.portions.add(port20)
+    para2.portions.add(port21)
+    para2.portions.add(port22)
 
-    //Write PPTX to Disk
-    pres.Save("multiParaPort_out.pptx", SaveFormat.Pptx);
-}
+    for i in range(3):
+        for j in range(3):
+            tf.paragraphs[i].portions[j].text = "Portion0" + str(j)
+            if j == 0:
+                tf.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
+                tf.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
+                tf.paragraphs[i].portions[j].portion_format.font_bold = 1
+                tf.paragraphs[i].portions[j].portion_format.font_height = 15
+            elif j == 1:
+                tf.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
+                tf.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+                tf.paragraphs[i].portions[j].portion_format.font_italic = 1
+                tf.paragraphs[i].portions[j].portion_format.font_height = 18
+
+    # Write PPTX to Disk
+    pres.save("multiParaPort_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -111,75 +106,73 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 The implementation of the above steps is given below.
 
 ```py
-// Creating a presenation instance
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Accessing the first slide
-    ISlide slide = pres.Slides[0];
+# Creating a presenation instance
+with slides.Presentation() as pres:
+    # Accessing the first slide
+    slide = pres.slides[0]
+
+    # Adding and accessing Autoshape
+    aShp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+
+    # Accessing the text frame of created autoshape
+    txtFrm = aShp.text_frame
+
+    # Removing the default exisiting paragraph
+    txtFrm.paragraphs.remove_at(0)
+
+    # Creating a paragraph
+    para = slides.Paragraph()
+
+    # Setting paragraph bullet style and symbol
+    para.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para.paragraph_format.bullet.char = chr(8226)
+
+    # Setting paragraph text
+    para.text = "Welcome to Aspose.Slides"
+
+    # Setting bullet indent
+    para.paragraph_format.indent = 25
+
+    # Setting bullet color
+    para.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    para.paragraph_format.bullet.color.color = draw.Color.black
+    para.paragraph_format.bullet.is_bullet_hard_color = 1 
+
+    # Setting bullet Height
+    para.paragraph_format.bullet.height = 100
+
+    # Adding Paragraph to text frame
+    txtFrm.paragraphs.add(para)
+
+    # Creating second paragraph
+    para2 = slides.Paragraph()
+
+    # Setting paragraph bullet type and style
+    para2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    para2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
+
+    # Adding paragraph text
+    para2.text = "This is numbered bullet"
+
+    # Setting bullet indent
+    para2.paragraph_format.indent = 25
+
+    para2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    para2.paragraph_format.bullet.color.color = draw.Color.black
+    para2.paragraph_format.bullet.is_bullet_hard_color = 1
+
+    # Setting bullet Height
+    para2.paragraph_format.bullet.height = 100
+
+    # Adding Paragraph to text frame
+    txtFrm.paragraphs.add(para2)
 
 
-    // Adding and accessing Autoshape
-    IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Accessing the text frame of created autoshape
-    ITextFrame txtFrm = aShp.TextFrame;
-
-    // Removing the default exisiting paragraph
-    txtFrm.Paragraphs.RemoveAt(0);
-
-    // Creating a paragraph
-    Paragraph para = new Paragraph();
-
-    // Setting paragraph bullet style and symbol
-    para.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-
-    // Setting paragraph text
-    para.Text = "Welcome to Aspose.Slides";
-
-    // Setting bullet indent
-    para.ParagraphFormat.Indent = 25;
-
-    // Setting bullet color
-    para.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
-    para.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // set IsBulletHardColor to true to use own bullet color
-
-    // Setting Bullet Height
-    para.ParagraphFormat.Bullet.Height = 100;
-
-    // Adding Paragraph to text frame
-    txtFrm.Paragraphs.Add(para);
-
-    // Creating second paragraph
-    Paragraph para2 = new Paragraph();
-
-    // Setting paragraph bullet type and style
-    para2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    para2.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
-
-    // Adding paragraph text
-    para2.Text = "This is numbered bullet";
-
-    // Setting bullet indent
-    para2.ParagraphFormat.Indent = 25;
-
-    para2.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
-    para2.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // set IsBulletHardColor to true to use own bullet color
-
-    // Setting Bullet Height
-    para2.ParagraphFormat.Bullet.Height = 100;
-
-    // Adding Paragraph to text frame
-    txtFrm.Paragraphs.Add(para2);
-
-
-    //Writing the presentation as a PPTX file
-    pres.Save("Bullet_out.pptx", SaveFormat.Pptx);
-
-}
+    #Writing the presentation as a PPTX file
+    pres.save("bullet_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -205,42 +198,45 @@ This topic is also the part of the topic series of managing text in paragraphs. 
 The implementation of the above steps is given below.
 
 ```py
-Presentation presentation = new Presentation();
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Accessing the first slide
-ISlide slide = presentation.Slides[0];
+with slides.Presentation() as presentation:
 
-// Instantiate the image for bullets
-Image image = new Bitmap("bullets.png");
-IPPImage ippxImage = presentation.Images.AddImage(image);
+    # Accessing the first slide
+    slide = presentation.slides[0]
 
-// Adding and accessing Autoshape
-IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    # Instantiate the image for bullets
+    image = draw.Bitmap(path + "bullets.png")
+    ippxImage = presentation.images.add_image(image)
 
-// Accessing the text frame of created autoshape
-ITextFrame textFrame = autoShape.TextFrame;
+    # Adding and accessing Autoshape
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-// Removing the default exisiting paragraph
-textFrame.Paragraphs.RemoveAt(0);
+    # Accessing the text frame of created autoshape
+    textFrame = autoShape.text_frame
 
-// Creating new paragraph
-Paragraph paragraph = new Paragraph();
-paragraph.Text = "Welcome to Aspose.Slides";
+    # Removing the default exisiting paragraph
+    textFrame.paragraphs.remove_at(0)
 
-// Setting paragraph bullet style and image
-paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
-paragraph.ParagraphFormat.Bullet.Picture.Image = ippxImage;
+    # Creating new paragraph
+    paragraph = slides.Paragraph()
+    paragraph.text = "Welcome to Aspose.Slides"
 
-// Setting Bullet Height
-paragraph.ParagraphFormat.Bullet.Height = 100;
+    # Setting paragraph bullet style and image
+    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
+    paragraph.paragraph_format.bullet.picture.image = ippxImage
 
-// Adding Paragraph to text frame
-textFrame.Paragraphs.Add(paragraph);
+    # Setting Bullet Height
+    paragraph.paragraph_format.bullet.height = 100
 
-// Writing the presentation as a PPTX file
-presentation.Save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-// Writing the presentation as a PPT file
-presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
+    # Adding Paragraph to text frame
+    textFrame.paragraphs.add(paragraph)
+
+    # Writing the presentation as a PPTX file
+    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", slides.export.SaveFormat.PPTX)
+    # Writing the presentation as a PPT file
+    presentation.save("ParagraphPictureBulletsPPT_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
 
@@ -260,71 +256,71 @@ This topic is also the part of the topic series of managing text in paragraphs. 
 - Save the presentation.
 
 ```py
-// Creating a presenation instance
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Accessing the first slide
-    ISlide slide = pres.Slides[0];
+# Creating a presenation instance
+with slides.Presentation() as pres:
+    # Accessing the first slide
+    slide = pres.slides[0]
     
-    // Adding and accessing Autoshape
-    IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    # Adding and accessing Autoshape
+    aShp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    // Accessing the text frame of created autoshape
-    ITextFrame text = aShp.AddTextFrame("");
+    # Accessing the text frame of created autoshape
+    text = aShp.add_text_frame("")
     
-    //clearing default paragraph
-    text.Paragraphs.Clear();
+    #clearing default paragraph
+    text.paragraphs.clear()
 
-    //Adding first paragraph
-    IParagraph para1 = new Paragraph();
-    para1.Text = "Content";
-    para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-    para1.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para1.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    //Setting bullet level
-    para1.ParagraphFormat.Depth = 0;
+    #Adding first paragraph
+    para1 = slides.Paragraph()
+    para1.text = "Content"
+    para1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para1.paragraph_format.bullet.char = chr(8226)
+    para1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    para1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    #Setting bullet level
+    para1.paragraph_format.depth = 0
 
-    //Adding second paragraph
-    IParagraph para2 = new Paragraph();
-    para2.Text = "Second Level";
-    para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para2.ParagraphFormat.Bullet.Char = '-';
-    para2.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para2.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    //Setting bullet level
-    para2.ParagraphFormat.Depth = 1;
+    #Adding second paragraph
+    para2 = slides.Paragraph()
+    para2.text = "Second Level"
+    para2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para2.paragraph_format.bullet.char = '-'
+    para2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    para2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    #Setting bullet level
+    para2.paragraph_format.depth = 1
 
-    //Adding third paragraph
-    IParagraph para3 = new Paragraph();
-    para3.Text = "Third Level";
-    para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-    para3.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para3.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    //Setting bullet level
-    para3.ParagraphFormat.Depth = 2;
+    #Adding third paragraph
+    para3 = slides.Paragraph()
+    para3.text = "Third Level"
+    para3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para3.paragraph_format.bullet.char = chr(8226)
+    para3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    para3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    #Setting bullet level
+    para3.paragraph_format.depth = 2
 
-    //Adding fourth paragraph
-    IParagraph para4 = new Paragraph();
-    para4.Text = "Fourth Level";
-    para4.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para4.ParagraphFormat.Bullet.Char = '-';
-    para4.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para4.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    //Setting bullet level
-    para4.ParagraphFormat.Depth = 3;
+    #Adding fourth paragraph
+    para4 = slides.Paragraph()
+    para4.text = "Fourth Level"
+    para4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para4.paragraph_format.bullet.char = '-'
+    para4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    para4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    #Setting bullet level
+    para4.paragraph_format.depth = 3
 
-    //Adding paragraphs to collection
-    text.Paragraphs.Add(para1);
-    text.Paragraphs.Add(para2);
-    text.Paragraphs.Add(para3);
-    text.Paragraphs.Add(para4);
+    #Adding paragraphs to collection
+    text.paragraphs.add(para1)
+    text.paragraphs.add(para2)
+    text.paragraphs.add(para3)
+    text.paragraphs.add(para4)
 
-    //Writing the presentation as a PPTX file
-    pres.Save("MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    #Writing the presentation as a PPTX file
+    pres.save("MultilevelBullet.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -343,38 +339,41 @@ Aspose.Slides for Python via .NET provides a simple API to manage paragraphs wit
 - Save the presentation.
 
 ```py
-using (var presentation = new Presentation())
-{
-	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+import aspose.slides as slides
 
-	// Accessing the text frame of created autoshape
-	ITextFrame textFrame = shape.TextFrame;
+with slides.Presentation() as presentation:
+    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-	// Removing the default exisiting paragraph
-	textFrame.Paragraphs.RemoveAt(0);
+    # Accessing the text frame of created autoshape
+    textFrame = shape.text_frame
 
-	// First list
-	var paragraph1 = new Paragraph { Text = "bullet 2" };
-	paragraph1.ParagraphFormat.Depth = 4; 
-	paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
-	paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph1);
+    # Removing the default exisiting paragraph
+    textFrame.paragraphs.remove_at(0)
 
-	var paragraph2 = new Paragraph { Text = "bullet 3" };
-	paragraph2.ParagraphFormat.Depth = 4;
-	paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
-	paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
-	textFrame.Paragraphs.Add(paragraph2);
+    # First list
+    paragraph1 = slides.Paragraph()
+    paragraph1.text = "bullet 2"
+    paragraph1.paragraph_format.depth = 4 
+    paragraph1.paragraph_format.bullet.numbered_bullet_start_with = 2
+    paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    textFrame.paragraphs.add(paragraph1)
 
-	
-	var paragraph5 = new Paragraph { Text = "bullet 7" };
-	paragraph5.ParagraphFormat.Depth = 4;
-	paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
-	paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph5);
+    paragraph2 = slides.Paragraph()
+    paragraph2.text = "bullet 3"
+    paragraph2.paragraph_format.depth = 4
+    paragraph2.paragraph_format.bullet.numbered_bullet_start_with = 3 
+    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
+    textFrame.paragraphs.add(paragraph2)
 
-	presentation.Save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
-}
+
+    paragraph5 = slides.Paragraph()
+    paragraph5.text = "bullet 7"
+    paragraph5.paragraph_format.depth = 4
+    paragraph5.paragraph_format.bullet.numbered_bullet_start_with = 7
+    paragraph5.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    textFrame.paragraphs.add(paragraph5)
+
+    presentation.save("SetCustomBulletsNumber-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -394,52 +393,54 @@ This page will illustrate how we can manage paragraph indent. We will see how de
 The implementation of the above steps is given below.
 
 ```py
-// Instantiate Presentation Class
-Presentation pres = new Presentation();
+import aspose.slides as slides
 
-// Get first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation Class
+with slides.Presentation() as pres:
 
-// Add a Rectangle Shape
-IAutoShape rect = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
+    # Get first slide
+    sld = pres.slides[0]
 
-// Add TextFrame to the Rectangle
-ITextFrame tf = rect.AddTextFrame("This is first line \rThis is second line \rThis is third line");
+    # Add a Rectangle Shape
+    rect = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 150)
 
-// Set the text to fit the shape
-tf.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+    # Add TextFrame to the Rectangle
+    tf = rect.add_text_frame("This is first line \rThis is second line \rThis is third line")
 
-// Hide the lines of the Rectangle
-rect.LineFormat.FillFormat.FillType = FillType.Solid;
+    # Set the text to fit the shape
+    tf.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
 
-// Get first Paragraph in the TextFrame and set its Indent
-IParagraph para1 = tf.Paragraphs[0];
-// Setting paragraph bullet style and symbol
-para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-para1.ParagraphFormat.Alignment = TextAlignment.Left;
+    # Hide the lines of the Rectangle
+    rect.line_format.fill_format.fill_type = slides.FillType.SOLID
 
-para1.ParagraphFormat.Depth = 2;
-para1.ParagraphFormat.Indent = 30;
+    # Get first Paragraph in the TextFrame and set its Indent
+    para1 = tf.paragraphs[0]
+    # Setting paragraph bullet style and symbol
+    para1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para1.paragraph_format.bullet.char = chr(8226)
+    para1.paragraph_format.alignment = slides.TextAlignment.LEFT
 
-// Get second Paragraph in the TextFrame and set its Indent
-IParagraph para2 = tf.Paragraphs[1];
-para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-para2.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-para2.ParagraphFormat.Alignment = TextAlignment.Left;
-para2.ParagraphFormat.Depth = 2;
-para2.ParagraphFormat.Indent = 40;
+    para1.paragraph_format.depth = 2
+    para1.paragraph_format.indent = 30
 
-// Get third Paragraph in the TextFrame and set its Indent
-IParagraph para3 = tf.Paragraphs[2];
-para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-para3.ParagraphFormat.Alignment = TextAlignment.Left;
-para3.ParagraphFormat.Depth = 2;
-para3.ParagraphFormat.Indent = 50;
+    # Get second Paragraph in the TextFrame and set its Indent
+    para2 = tf.paragraphs[1]
+    para2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para2.paragraph_format.bullet.char = chr(8226)
+    para2.paragraph_format.alignment = slides.TextAlignment.LEFT
+    para2.paragraph_format.depth = 2
+    para2.paragraph_format.indent = 40
 
-//Write the Presentation to disk
-pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
+    # Get third Paragraph in the TextFrame and set its Indent
+    para3 = tf.paragraphs[2]
+    para3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    para3.paragraph_format.bullet.char = chr(8226)
+    para3.paragraph_format.alignment = slides.TextAlignment.LEFT
+    para3.paragraph_format.depth = 2
+    para3.paragraph_format.indent = 50
+
+    #Write the Presentation to disk
+    pres.save("InOutDent_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -457,25 +458,25 @@ This page will illustrate how we can manage end paragraph run properties. We wil
 The implementation of the above steps is given below.
 
 ```py
-using (Presentation pres = new Presentation("Test.pptx"))
-{
-	IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+import aspose.slides as slides
 
-	Paragraph para1 = new Paragraph();
-	para1.Portions.Add(new Portion("Sample text"));
+with slides.Presentation("pres.pptx") as pres:
+	shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
 
-	Paragraph para2 = new Paragraph();
-	para2.Portions.Add(new Portion("Sample text 2"));
-	PortionFormat endParagraphPortionFormat = new PortionFormat();
-	endParagraphPortionFormat.FontHeight = 48;
-	endParagraphPortionFormat.LatinFont = new FontData("Times New Roman");
-	para2.EndParagraphPortionFormat = endParagraphPortionFormat;
+	para1 = slides.Paragraph()
+	para1.portions.add(slides.Portion("Sample text"))
 
-	shape.TextFrame.Paragraphs.Add(para1);
-	shape.TextFrame.Paragraphs.Add(para2);
+	para2 = slides.Paragraph()
+	para2.portions.add(slides.Portion("Sample text 2"))
+	endParagraphPortionFormat = slides.PortionFormat()
+	endParagraphPortionFormat.font_height = 48
+	endParagraphPortionFormat.latin_font = slides.FontData("Times New Roman")
+	para2.end_paragraph_portion_format = endParagraphPortionFormat
 
-	pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+	shape.text_frame.paragraphs.add(para1)
+	shape.text_frame.paragraphs.add(para2)
+
+	pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -495,32 +496,31 @@ This topic is also part of a series of topics about managing text paragraphs. As
 - Save the presentation.
 
 ```py
-// Create Empty presentation instance// Create Empty presentation instance
-using (Presentation pres = new Presentation())
-{
-    // Acesss the default first slide of presentation
-    ISlide slide = pres.Slides[0];
+import aspose.slides as slides
 
-    // Adding the AutoShape to accomodate the HTML content
-    IAutoShape ashape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, pres.SlideSize.Size.Width - 20, pres.SlideSize.Size.Height - 10);
+# Create Empty presentation instance# Create Empty presentation instance
+with slides.Presentation() as pres:
+    # Acesss the default first slide of presentation
+    slide = pres.slides[0]
 
-    ashape.FillFormat.FillType = FillType.NoFill;
+    # Adding the AutoShape to accomodate the HTML content
+    ashape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, pres.slide_size.size.width - 20, pres.slide_size.size.height - 10)
 
-    // Adding text frame to the shape
-    ashape.AddTextFrame("");
+    ashape.fill_format.fill_type = slides.FillType.NO_FILL
 
-    // Clearing all paragraphs in added text frame
-    ashape.TextFrame.Paragraphs.Clear();
+    # Adding text frame to the shape
+    ashape.add_text_frame("")
 
-    // Loading the HTML file using stream reader
-    TextReader tr = new StreamReader("file.html");
+    # Clearing all paragraphs in added text frame
+    ashape.text_frame.paragraphs.clear()
 
-    // Adding text from HTML stream reader in text frame
-    ashape.TextFrame.Paragraphs.AddFromHtml(tr.ReadToEnd());
+    # Loading the HTML file using stream reader
+    with open(path + "file.html", "rt") as tr:
+        # Adding text from HTML stream reader in text frame
+        ashape.text_frame.paragraphs.add_from_html(tr.read())
 
-    // Saving Presentation
-    pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Saving Presentation
+    pres.save("output_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -536,25 +536,21 @@ Please follow the steps below to see how to export the paragraph text to HTML us
   The implementation of the above steps is given below.
 
 ```py
-// Load the presentation file
-using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
-{
+import aspose.slides as slides
 
-    // Acesss the default first slide of presentation
-    ISlide slide = pres.Slides[0];
+# Load the presentation file
+with slides.Presentation(path + "ExportingHTMLText.pptx") as pres:
+    # Acesss the default first slide of presentation
+    slide = pres.slides[0]
 
-    // Desired index
-    int index = 0;
+    # Desired index
+    index = 0
 
-    // Accessing the added shape
-    IAutoShape ashape = (IAutoShape)slide.Shapes[index];
+    # Accessing the added shape
+    ashape = slide.shapes[index]
 
-    StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
-
-    //Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
-    sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));
-
-    sw.Close();
-}
+    with open("output_out.html", "w") as sw:
+        # Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
+        sw.write(ashape.text_frame.paragraphs.export_to_html(0, ashape.text_frame.paragraphs.count, None))
 ```
 

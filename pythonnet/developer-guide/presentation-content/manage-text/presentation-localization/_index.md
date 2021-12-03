@@ -17,13 +17,13 @@ description: "Change or check language in PowerPoint presentation. Spell check t
 The implementation of the above steps is demonstrated below in an example.
 
 ```py
-using (Presentation pres = new Presentation("test0.pptx"))
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-    shape.AddTextFrame("Text to apply spellcheck language");
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-EN";
+import aspose.slides as slides
 
-    pres.Save("test1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
-}
+with slides.Presentation("pres.pptx") as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 50)
+    shape.add_text_frame("Text to apply spellcheck language")
+    shape.text_frame.paragraphs[0].portions[0].portion_format.language_id = "en-EN"
+
+    pres.save("test1.pptx", slides.export.SaveFormat.PPTX)
 ```
 

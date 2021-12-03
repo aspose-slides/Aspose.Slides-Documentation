@@ -32,23 +32,25 @@ With Aspose.Slides for Python via .NET, you can easily create your own WordArt t
 
 First, we create a simple text using this Python code: 
 
-```py 
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-    ITextFrame textFrame = autoShape.TextFrame;
+```py
+import aspose.slides as slides
 
-    Portion portion = (Portion)textFrame.Paragraphs[0].Portions[0];
-    portion.Text = "Aspose.Slides";
-}
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+
+    pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ```py 
-FontData fontData = new FontData("Arial Black");
-portion.PortionFormat.LatinFont = fontData;
-portion.PortionFormat.FontHeight = 36;
+    fontData = slides.FontData("Arial Black")
+    portion.portion_format.latin_font = fontData
+    portion.portion_format.font_height = 36
 ```
 
 **Using Microsoft PowerPoint**
@@ -68,13 +70,13 @@ These are some of the available parameters or options:
 Here, we apply the SmallGrid pattern color to the text and add a 1-width black text border using this code:
 
 ```py 
-portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-            
-portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
+    portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
+    portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
+    portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.SMALL_GRID
+                
+    portion.portion_format.line_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
 ```
 
 The resulting text:
@@ -96,16 +98,16 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in Python:
 
 ```py 
-portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 65;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4.73;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 2;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 30;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+    portion.portion_format.effect_format.enable_outer_shadow_effect()
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
+    portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
+    portion.portion_format.effect_format.outer_shadow_effect.scale_vertical = 65
+    portion.portion_format.effect_format.outer_shadow_effect.blur_radius = 4.73
+    portion.portion_format.effect_format.outer_shadow_effect.direction = 230
+    portion.portion_format.effect_format.outer_shadow_effect.distance = 2
+    portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 30
+    portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
+    portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
 ```
 
 Aspose.Slides API supports three types of shadows: OuterShadow, InnerShadow, and PresetShadow. 
@@ -132,17 +134,17 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 We add display to the text through this code sample in Python:
 
 ```py 
-portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
+    portion.portion_format.effect_format.enable_reflection_effect()
+    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
+    portion.portion_format.effect_format.reflection_effect.distance = 4.72 
+    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0 
+    portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
+    portion.portion_format.effect_format.reflection_effect.direction = 90 
+    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100 
+    portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
+    portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
+    portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
+    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
 ```
 
 ### Applying Glow Effect to Texts
@@ -150,10 +152,10 @@ portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAl
 We apply the glow effect to the text to make it shine or stand out using this code:
 
 ```py 
-portion.PortionFormat.EffectFormat.EnableGlowEffect();
-portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+    portion.portion_format.effect_format.enable_glow_effect()
+    portion.portion_format.effect_format.glow_effect.color.r = 255
+    portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
+    portion.portion_format.effect_format.glow_effect.radius = 7
 ```
 
 The result of the operation:
@@ -170,7 +172,7 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ```py 
-textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
 ```
 
 The result:
@@ -196,29 +198,29 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```py 
-autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+    autoShape.three_dformat.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    autoShape.three_dformat.bevel_bottom.height = 10.5
+    autoShape.three_dformat.bevel_bottom.width = 10.5
 
-autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-autoShape.ThreeDFormat.BevelTop.Width = 11;
+    autoShape.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    autoShape.three_dformat.bevel_top.height = 12.5
+    autoShape.three_dformat.bevel_top.width = 11
 
-autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-autoShape.ThreeDFormat.ExtrusionHeight = 6;
+    autoShape.three_dformat.extrusion_color.color = draw.Color.orange
+    autoShape.three_dformat.extrusion_height = 6
 
-autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-autoShape.ThreeDFormat.ContourWidth = 1.5;
+    autoShape.three_dformat.contour_color.color = draw.Color.dark_red
+    autoShape.three_dformat.contour_width = 1.5
 
-autoShape.ThreeDFormat.Depth = 3;
+    autoShape.three_dformat.depth = 3
 
-autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
+    autoShape.three_dformat.material = slides.MaterialPresetType.PLASTIC
 
-autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+    autoShape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    autoShape.three_dformat.light_rig.set_rotation(0, 0, 40)
 
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
 The resulting text and its shape:
@@ -228,29 +230,29 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this Python code:
 
 ```py 
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+    textFrame.text_frame_format.three_dformat.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    textFrame.text_frame_format.three_dformat.bevel_bottom.height = 3.5
+    textFrame.text_frame_format.three_dformat.bevel_bottom.width = 3.5
 
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+    textFrame.text_frame_format.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    textFrame.text_frame_format.three_dformat.bevel_top.height = 4
+    textFrame.text_frame_format.three_dformat.bevel_top.width = 4
 
-textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+    textFrame.text_frame_format.three_dformat.extrusion_color.color = draw.Color.orange
+    textFrame.text_frame_format.three_dformat.extrusion_height= 6
 
-textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+    textFrame.text_frame_format.three_dformat.contour_color.color = draw.Color.dark_red
+    textFrame.text_frame_format.three_dformat.contour_width = 1.5
 
-textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+    textFrame.text_frame_format.three_dformat.depth= 3
 
-textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+    textFrame.text_frame_format.three_dformat.material = slides.MaterialPresetType.PLASTIC
 
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+    textFrame.text_frame_format.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+    textFrame.text_frame_format.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    textFrame.text_frame_format.three_dformat.light_rig.set_rotation(0, 0, 40)
 
-textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+    textFrame.text_frame_format.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
 The result of the operation:
@@ -290,33 +292,34 @@ Aspose.Slides for Python via .NET provides the [**IOuterShadow**](https://apiref
 This sample code in Python—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```py
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get reference of the slide
-    ISlide sld = pres.Slides[0];
+with slides.Presentation() as pres:
 
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+    # Get reference of the slide
+    sld = pres.slides[0]
 
-    // Add TextFrame to the Rectangle
-    ashp.AddTextFrame("Aspose TextBox");
+    # Add an AutoShape of Rectangle type
+    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    // Disable shape fill in case we want to get shadow of text
-    ashp.FillFormat.FillType = FillType.NoFill;
+    # Add TextFrame to the Rectangle
+    ashp.add_text_frame("Aspose TextBox")
 
-    // Add outer shadow and set all necessary parameters
-    ashp.EffectFormat.EnableOuterShadowEffect();
-    IOuterShadow shadow = ashp.EffectFormat.OuterShadowEffect;
-    shadow.BlurRadius = 4.0;
-    shadow.Direction = 45;
-    shadow.Distance = 3;
-    shadow.RectangleAlign = RectangleAlignment.TopLeft;
-    shadow.ShadowColor.PresetColor = PresetColor.Black;
+    # Disable shape fill in case we want to get shadow of text
+    ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    //Write the presentation to disk
-    pres.Save("pres_out.pptx", SaveFormat.Pptx);
-}
+    # Add outer shadow and set all necessary parameters
+    ashp.effect_format.enable_outer_shadow_effect()
+    shadow = ashp.effect_format.outer_shadow_effect
+    shadow.blur_radius = 4.0
+    shadow.direction = 45
+    shadow.distance = 3
+    shadow.rectangle_align = slides.RectangleAlignment.TOP_LEFT
+    shadow.shadow_color.preset_color = slides.PresetColor.BLACK
+
+    #Write the presentation to disk
+    pres.save("pres_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -335,39 +338,40 @@ Go through these steps:
 This sample code (based on the steps above) shows you how to add a connector between two shapes in Python:
 
 ```py
-using(Presentation presentation = new Presentation())
-{
-    // Get reference of a slide
-    ISlide slide = presentation.Slides[0];
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.FillFormat.FillType = FillType.NoFill;
+with slides.Presentation() as presentation:
+    # Get reference of a slide
+    slide = presentation.slides[0]
 
-    // Add TextFrame to the Rectangle
-    ashp.AddTextFrame("Aspose TextBox");
-    IPortion port = ashp.TextFrame.Paragraphs[0].Portions[0];
-    IPortionFormat pf = port.PortionFormat;
-    pf.FontHeight = 50;
+    # Add an AutoShape of Rectangle type
+    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 400, 300)
+    ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    // Enable InnerShadowEffect    
-    IEffectFormat ef = pf.EffectFormat;
-    ef.EnableInnerShadowEffect();
+    # Add TextFrame to the Rectangle
+    ashp.add_text_frame("Aspose TextBox")
+    port = ashp.text_frame.paragraphs[0].portions[0]
+    pf = port.portion_format
+    pf.font_height = 50
 
-    // Set all necessary parameters
-    ef.InnerShadowEffect.BlurRadius = 8.0;
-    ef.InnerShadowEffect.Direction = 90.0F;
-    ef.InnerShadowEffect.Distance = 6.0;
-    ef.InnerShadowEffect.ShadowColor.B = 189;
+    # Enable inner_shadow_effect    
+    ef = pf.effect_format
+    ef.enable_inner_shadow_effect()
 
-    // Set ColorType as Scheme
-    ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
+    # Set all necessary parameters
+    ef.inner_shadow_effect.blur_radius = 8.0
+    ef.inner_shadow_effect.direction = 90.0
+    ef.inner_shadow_effect.distance = 6.0
+    ef.inner_shadow_effect.shadow_color.b = 189
 
-    // Set Scheme Color
-    ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
+    # Set ColorType as Scheme
+    ef.inner_shadow_effect.shadow_color.color_type = slides.ColorType.SCHEME
 
-    // Save Presentation
-    presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
-}
+    # Set Scheme Color
+    ef.inner_shadow_effect.shadow_color.scheme_color = slides.SchemeColor.ACCENT1
+
+    # Save Presentation
+    presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

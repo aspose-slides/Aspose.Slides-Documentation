@@ -9,21 +9,19 @@ description: "Add animated text and effects to PowerPoint presentation in Python
 
 ## Adding Animation Effects to Paragraphs
 
-We added the [**AddEffect()**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.animation/sequence) and [**ISequence**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
+We added the [**add_effect()**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.animation/sequence) and [**ISequence**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```py
-using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
-{
-    // select paragraph to add effect
-    IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
+import aspose.slides as slides
 
-    // add Fly animation effect to selected paragraph
-    IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
+with slides.Presentation(path + "Presentation1.pptx") as presentation:
+    # select paragraph to add effect
+    autoShape = presentation.slides[0].shapes[0]
+    paragraph = autoShape.text_frame.paragraphs[0]
 
-
-    presentation.Save(dataDir + "AnimationEffectinParagraph.pptx", SaveFormat.Pptx);
-}
+    # add Fly animation effect to selected paragraph
+    effect = presentation.slides[0].timeline.main_sequence.add_effect(paragraph, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.LEFT, slides.animation.EffectTriggerType.ON_CLICK)
+    presentation.save("AnimationEffectinParagraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -35,18 +33,14 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for Python via .NET allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```py
-using (Presentation pres = new Presentation("Test.pptx"))
-{
-	ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-	IAutoShape autoShape = (IAutoShape)pres.Slides[0].Shapes[1];
+import aspose.slides as slides
 
-	foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
-	{
-		IEffect[] effects = sequence.GetEffectsByParagraph(paragraph);
-
-		if (effects.Length > 0)
-			Console.WriteLine("Paragraph \"" + paragraph.Text + "\" has " + effects[0].Type + " effect.");
-	}
-}
+with slides.Presentation("AnimationEffectinParagraph.pptx") as pres:
+    sequence = pres.slides[0].timeline.main_sequence
+    autoShape = pres.slides[0].shapes[0]
+    for paragraph in autoShape.text_frame.paragraphs:
+        effects = sequence.get_effects_by_paragraph(paragraph)
+        if len(effects) > 0:
+            print("Paragraph \"" + paragraph.text + "\" has " + str(effects[0].type) + " effect.")
 ```
 

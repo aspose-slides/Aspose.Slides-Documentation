@@ -33,37 +33,25 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
 **Note** that the [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ioleembeddeddatainfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```py 
-// Instantiate the Presentation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+import aspose.slides as slides
 
-    // Load an excel file to stream
-    MemoryStream mstream = new MemoryStream();
-    using (FileStream fs = new FileStream("book1.xlsx", FileMode.Open, FileAccess.Read))
-    {
-        byte[] buf = new byte[4096];
+# Instantiate the Presentation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-        while (true)
-        {
-            int bytesRead = fs.Read(buf, 0, buf.Length);
-            if (bytesRead <= 0)
-                break;
-            mstream.Write(buf, 0, bytesRead);
-        }
-    }
+    # Load an excel file to stream
+    with open(path + "book1.xlsx", "rb") as fs:
+        bytes = fs.read()
+    
+        # Create a data object for embedding
+        dataInfo = slides.dom.ole.OleEmbeddedDataInfo(bytes, "xlsx")
 
-    // Create a data object for embedding
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.ToArray(), "xlsx");
+        # Add an Ole Object Frame shape
+        oleObjectFrame = sld.shapes.add_ole_object_frame(0, 0, pres.slide_size.size.width, pres.slide_size.size.height, dataInfo)
 
-    // Add an Ole Object Frame shape
-    IOleObjectFrame oleObjectFrame = sld.Shapes.AddOleObjectFrame(0, 0, pres.SlideSize.Size.Width,
-        pres.SlideSize.Size.Height, dataInfo);
-
-    //Write the PPTX to disk
-    pres.Save("OleEmbed_out.pptx", SaveFormat.Pptx);
-}
+        # Write the PPTX to disk
+        pres.save("OleEmbed_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily using Aspose.Slides for Python via .NET this way:
@@ -81,34 +69,30 @@ If an OLE object is already embedded in a slide, you can find or access that obj
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file.
 
 ```py 
-// Load the PPTX to Presentation object
-using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
-{
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+import aspose.slides as slides
 
-    // Cast the shape to OleObjectFrame
-    OleObjectFrame oleObjectFrame = sld.Shapes[0] as OleObjectFrame;
+# Load the PPTX to Presentation object
+with slides.Presentation(path + "AccessingOLEObjectFrame.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-    // Read the OLE Object and write it to disk
-    if (oleObjectFrame != null)
-    {
-        // Get embedded file data
-        byte[] data = oleObjectFrame.EmbeddedData.EmbeddedFileData;
+    # Cast the shape to OleObjectFrame
+    oleObjectFrame = sld.shapes[0]
 
-        // Get embedded file extention
-        string fileExtention = oleObjectFrame.EmbeddedData.EmbeddedFileExtension;
+    # Read the OLE Object and write it to disk
+    if type(oleObjectFrame) is slides.OleObjectFrame:
+        # Get embedded file data
+        data = oleObjectFrame.embedded_data.embedded_file_data
 
-        // Create a path to save the extracted file
-        string extractedPath = "excelFromOLE_out" + fileExtention;
+        # Get embedded file extention
+        fileExtention = oleObjectFrame.embedded_data.embedded_file_extension
 
-        // Save extracted data
-        using (FileStream fstr = new FileStream(extractedPath, FileMode.Create, FileAccess.Write))
-        {
-            fstr.Write(data, 0, data.Length);
-        }
-    }
-}
+        # Create a path to save the extracted file
+        extractedPath = "excelFromOLE_out" + fileExtention
+
+        # Save extracted data
+        with open("out.xlsx", "wb") as fs:
+            fs.write(data)
 ```
 
 ## **Changing OLE Object Data**
@@ -136,6 +120,7 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data.
 
 ```py 
+# [TODO:require Aspose.Cells for Python via .NET]
 using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -187,22 +172,23 @@ Besides Excel charts, Aspose.Slides for Python via .NET allows you to embed othe
 This sample code shows you how to embed HTML and ZIP in a slide:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-  ISlide slide = pres.Slides[0];
-  
-  byte[] htmlBytes = File.ReadAllBytes("embedOle.html");
-  IOleEmbeddedDataInfo dataInfoHtml = new OleEmbeddedDataInfo(htmlBytes, "html");
-  IOleObjectFrame oleFrameHtml = slide.Shapes.AddOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
-  oleFrameHtml.IsObjectIcon = true;
+import aspose.slides as slides
 
-  byte[] zipBytes = File.ReadAllBytes("embedOle.zip");
-  IOleEmbeddedDataInfo dataInfoZip = new OleEmbeddedDataInfo(zipBytes, "zip");
-  IOleObjectFrame oleFrameZip = slide.Shapes.AddOleObjectFrame(150, 220, 50, 50, dataInfoZip);
-  oleFrameZip.IsObjectIcon = true;
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    with open(path + "index.html", "rb") as fs1:
+        htmlBytes = fs1.read()
+        dataInfoHtml = slides.dom.ole.OleEmbeddedDataInfo(htmlBytes, "html")
+        oleFrameHtml = slide.shapes.add_ole_object_frame(150, 120, 50, 50, dataInfoHtml)
+        oleFrameHtml.is_object_icon = True
 
-  pres.Save("embeddedOle.pptx", SaveFormat.Pptx);
-}
+    with open(path + "archive.zip", "rb") as fs2:
+        zipBytes = fs2.read()
+        dataInfoZip = slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip")
+        oleFrameZip = slide.shapes.add_ole_object_frame(150, 220, 50, 50, dataInfoZip)
+        oleFrameZip.is_object_icon = True
+
+    pres.save("embeddedOle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Setting File Types for Embedded Objects
@@ -214,16 +200,19 @@ Aspose.Slides for Python via .NET allows you to set the file type for an embedde
 This sample code shows you how to set the file type for an embedded OLE object:
 
 ```py
-using (Presentation pres = new Presentation("embeddedOle.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
-    Console.WriteLine($"Current embedded data extension is: {oleObjectFrame.EmbeddedData.EmbeddedFileExtension}");
+import aspose.slides as slides
+
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    oleObjectFrame = slide.shapes[0]
+    print("Current embedded data extension is:" + oleObjectFrame.embedded_data.embedded_file_extension)
    
-    oleObjectFrame.SetEmbeddedData(new OleEmbeddedDataInfo(File.ReadAllBytes("embedOle.zip"), "zip"));
+    with open(path + "1.zip", "rb") as fs2:
+        zipBytes = fs2.read()
+
+    oleObjectFrame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip"))
    
-    pres.Save("embeddedChanged.pptx", SaveFormat.Pptx);
-}
+    pres.save("embeddedChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Setting Icon Images and Titles for Embedded Objects
@@ -235,18 +224,20 @@ If you want to use a specific image and text as elements in the preview, you can
 This Python code shows you how to set the icon image and title for an embedded object: 
 
 ```py
-using (Presentation pres = new Presentation("embeddedOle.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
+import aspose.slides as slides
 
-    IPPImage oleImage = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    oleObjectFrame.SubstitutePictureTitle = "My title";
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = oleImage;
-    oleObjectFrame.IsObjectIcon = false;
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    oleObjectFrame = slide.shapes[0]
+    
+    with open("img.jpeg", "rb") as in_file:
+        oleImage = pres.images.add_image(in_file)
 
-    pres.Save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
-}
+    oleObjectFrame.substitute_picture_title = "My title"
+    oleObjectFrame.substitute_picture_format.picture.image = oleImage
+    oleObjectFrame.is_object_icon = False
+
+    pres.save("embeddedOle-newImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -262,24 +253,19 @@ Aspose.Slides for Python via .NET allows you to extract the files embedded in sl
 This sample code shows you how to extract a file embedded in a slide as an OLE object:
 
 ```py
-using (Presentation pres = new Presentation("embeddedOle.pptx"))
-{
-    ISlide slide = pres.Slides[0];
+import aspose.slides as slides
 
-    for (var index = 0; index < slide.Shapes.Count; index++)
-    {
-        IShape shape = slide.Shapes[index];
-        
-        IOleObjectFrame oleFrame = shape as IOleObjectFrame;
-        
-        if (oleFrame != null)
-        {
-            byte[] data = oleFrame.EmbeddedData.EmbeddedFileData;
-            string extension = oleFrame.EmbeddedData.EmbeddedFileExtension;
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    index = 0
+    for shape in slide.shapes:
+
+        if type(shape) is slides.OleObjectFrame:
+            data = shape.embedded_data.embedded_file_data
+            extension = shape.embedded_data.embedded_file_extension
             
-            File.WriteAllBytes($"oleFrame{index}{extension}", data);
-        }
-    }
-}
+            with open("oleFrame{idx}{ex}".format(idx = str(index), ex = extension), "wb") as fs:
+                fs.write(data)
+        index += 1
 ```
 

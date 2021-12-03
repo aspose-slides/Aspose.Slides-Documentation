@@ -15,13 +15,17 @@ It allows to highlight text part with background color using text sample, simila
 The code snippet below shows how to use this feature:
 
 ```py
-Presentation presentation = new Presentation("SomePresentation.pptx");
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // highlighting all words 'important'
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("to", Color.Violet, new TextHighlightingOptions()
-{
-    WholeWordsOnly = true
-}); // highlighting all separate 'the' occurrences
-presentation.Save("SomePresentation-out2.pptx", SaveFormat.Pptx);
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation(path + "SomePresentation.pptx") as presentation:
+    presentation.slides[0].shapes[0].text_frame.highlight_text("title", draw.Color.light_blue)
+
+    opts = slides.TextHighlightingOptions()
+    opts.whole_words_only = True
+    presentation.slides[0].shapes[0].text_frame.highlight_text("to", draw.Color.violet, opts)
+
+    presentation.save("SomePresentation-out2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 
@@ -40,10 +44,14 @@ It allows to highlight text part with background color using regex, similar to T
 The code snippet below shows how to use this feature:
 
 ```py
-Presentation presentation = new Presentation("SomePresentation.pptx");
-TextHighlightingOptions options = new TextHighlightingOptions();
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Blue, options); // highlighting all words with 10 symbols or longer
-presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation(path + "SomePresentation.pptx") as presentation:
+    options = slides.TextHighlightingOptions()
+
+    presentation.slides[0].shapes[0].text_frame.highlight_regex("\\b[^\s]{5,}\\b", draw.Color.blue, options) 
+    presentation.save("SomePresentation-out3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -62,32 +70,31 @@ Text formatting is one of the key elements while creating any kind of documents 
 The implementation of the above steps is given below.
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file
-using (Presentation pres = new Presentation("ParagraphsAlignment.pptx"))
-{
+import aspose.slides as slides
 
-    // Accessing first slide
-    ISlide slide = pres.Slides[0];
+# Instantiate a Presentation object that represents a PPTX file
+with slides.Presentation(path + "ParagraphsAlignment.pptx") as presentation:
+    # Accessing first slide
+    slide = presentation.slides[0]
 
-    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
-    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
+    # Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+    tf1 = slide.shapes[0].text_frame
+    tf2 = slide.shapes[1].text_frame
 
-    // Change the text in both placeholders
-    tf1.Text = "Center Align by Aspose";
-    tf2.Text = "Center Align by Aspose";
+    # Change the text in both placeholders
+    tf1.text = "Center Align by Aspose"
+    tf2.text = "Center Align by Aspose"
 
-    // Getting the first paragraph of the placeholders
-    IParagraph para1 = tf1.Paragraphs[0];
-    IParagraph para2 = tf2.Paragraphs[0];
+    # Getting the first paragraph of the placeholders
+    para1 = tf1.paragraphs[0]
+    para2 = tf2.paragraphs[0]
 
-    // Aligning the text paragraph to center
-    para1.ParagraphFormat.Alignment = TextAlignment.Center;
-    para2.ParagraphFormat.Alignment = TextAlignment.Center;
+    # Aligning the text paragraph to center
+    para1.paragraph_format.alignment = slides.TextAlignment.CENTER
+    para2.paragraph_format.alignment = slides.TextAlignment.CENTER
 
-    //Writing the presentation as a PPTX file
-    pres.Save("Centeralign_out.pptx", SaveFormat.Pptx);
-}
+    #Writing the presentation as a PPTX file
+    presentation.save("Centeralign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -102,21 +109,21 @@ This article demonstrates how to set transparency property to any text shape us
 The implementation of the above steps is given below.
 
 ```py
-using (Presentation pres = new Presentation("transparency.pptx"))
-{
-    IAutoShape shape = (IAutoShape)pres.Slides[0].Shapes[0];
-    IEffectFormat effects = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.EffectFormat;
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    IOuterShadow outerShadowEffect = effects.OuterShadowEffect;
+with slides.Presentation(path + "transparency.pptx") as pres:
+    shape = pres.slides[0].shapes[0]
+    effects = shape.text_frame.paragraphs[0].portions[0].portion_format.effect_format
 
-    Color shadowColor = outerShadowEffect.ShadowColor.Color;
-    Console.WriteLine($"{shadowColor} - transparency is: {((float)shadowColor.A / byte.MaxValue) * 100}");
+    outerShadowEffect = effects.outer_shadow_effect
 
-    // set transparency to zero percent
-    outerShadowEffect.ShadowColor.Color = Color.FromArgb(255, shadowColor);
+    shadowColor = outerShadowEffect.shadow_color.color
+    print("{color} - transparency is: {value}".format(color = shadowColor, value = (shadowColor.a / 255) * 100))
+    # set transparency to zero percent
+    outerShadowEffect.shadow_color.color = draw.Color.from_argb(255, shadowColor)
 
-    pres.Save("transparency-2.pptx", SaveFormat.Pptx);
-}
+    pres.save("transparency-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -140,50 +147,50 @@ Presentations usually contain both text and images. The text can be formatted in
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
 
 ```py
-// Instantiate a Presentation object that represents a PPTX file// Instantiate a Presentation object that represents a PPTX file
-using (Presentation pres = new Presentation("FontProperties.pptx"))
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Accessing a slide using its slide position
-    ISlide slide = pres.Slides[0];
+# Instantiate a Presentation object that represents a PPTX file
+with slides.Presentation(path + "FontProperties.pptx") as pres:
+    # Accessing a slide using its slide position
+    slide = pres.slides[0]
 
-    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
-    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
+    # Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+    tf1 = slide.shapes[0].text_frame
+    tf2 = slide.shapes[1].text_frame
 
-    // Accessing the first Paragraph
-    IParagraph para1 = tf1.Paragraphs[0];
-    IParagraph para2 = tf2.Paragraphs[0];
+    # Accessing the first Paragraph
+    para1 = tf1.paragraphs[0]
+    para2 = tf2.paragraphs[0]
 
-    // Accessing the first portion
-    IPortion port1 = para1.Portions[0];
-    IPortion port2 = para2.Portions[0];
+    # Accessing the first portion
+    port1 = para1.portions[0]
+    port2 = para2.portions[0]
 
-    // Define new fonts
-    FontData fd1 = new FontData("Elephant");
-    FontData fd2 = new FontData("Castellar");
+    # Define new fonts
+    fd1 = slides.FontData("Elephant")
+    fd2 = slides.FontData("Castellar")
 
-    // Assign new fonts to portion
-    port1.PortionFormat.LatinFont = fd1;
-    port2.PortionFormat.LatinFont = fd2;
+    # Assign new fonts to portion
+    port1.portion_format.latin_font = fd1
+    port2.portion_format.latin_font = fd2
 
-    // Set font to Bold
-    port1.PortionFormat.FontBold = NullableBool.True;
-    port2.PortionFormat.FontBold = NullableBool.True;
+    # Set font to Bold
+    port1.portion_format.font_bold = 1
+    port2.portion_format.font_bold = 1
 
-    // Set font to Italic
-    port1.PortionFormat.FontItalic = NullableBool.True;
-    port2.PortionFormat.FontItalic = NullableBool.True;
+    # Set font to Italic
+    port1.portion_format.font_italic = 1
+    port2.portion_format.font_italic = 1
 
-    // Set font color
-    port1.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port1.PortionFormat.FillFormat.SolidFillColor.Color = Color.Purple;
-    port2.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port2.PortionFormat.FillFormat.SolidFillColor.Color = Color.Peru;
+    # Set font color
+    port1.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    port1.portion_format.fill_format.solid_fill_color.color = draw.Color.purple
+    port2.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    port2.portion_format.fill_format.solid_fill_color.color = draw.Color.peru
 
-    //Write the PPTX to disk
-    pres.Save("WelcomeFont_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX to disk
+    pres.save("WelcomeFont_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -204,48 +211,48 @@ As mentioned in Managing Font Related Properties a Portion is used to hold text 
 The implementation of the above steps is given below.
 
 ```py
-// Instantiate Presentation
-using (Presentation presentation = new Presentation())
-{
-   
-    // Get first slide
-    ISlide sld = presentation.Slides[0];
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
+# Instantiate Presentation
+with slides.Presentation() as presentation:
+    # Get first slide
+    sld = presentation.slides[0]
 
-    // Remove any fill style associated with the AutoShape
-    ashp.FillFormat.FillType = FillType.NoFill;
+    # Add an AutoShape of Rectangle type
+    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 50)
 
-    // Access the TextFrame associated with the AutoShape
-    ITextFrame tf = ashp.TextFrame;
-    tf.Text = "Aspose TextBox";
+    # Remove any fill style associated with the AutoShape
+    ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    // Access the Portion associated with the TextFrame
-    IPortion port = tf.Paragraphs[0].Portions[0];
+    # Access the TextFrame associated with the AutoShape
+    tf = ashp.text_frame
+    tf.text = "Aspose TextBox"
 
-    // Set the Font for the Portion
-    port.PortionFormat.LatinFont = new FontData("Times New Roman");
+    # Access the Portion associated with the TextFrame
+    port = tf.paragraphs[0].portions[0]
 
-    // Set Bold property of the Font
-    port.PortionFormat.FontBold = NullableBool.True;
+    # Set the Font for the Portion
+    port.portion_format.latin_font = slides.FontData("Times New Roman")
 
-    // Set Italic property of the Font
-    port.PortionFormat.FontItalic = NullableBool.True;
+    # Set Bold property of the Font
+    port.portion_format.font_bold = 1
 
-    // Set Underline property of the Font
-    port.PortionFormat.FontUnderline = TextUnderlineType.Single;
+    # Set Italic property of the Font
+    port.portion_format.font_italic = 1
 
-    // Set the Height of the Font
-    port.PortionFormat.FontHeight = 25;
+    # Set Underline property of the Font
+    port.portion_format.font_underline = slides.TextUnderlineType.SINGLE
 
-    // Set the color of the Font
-    port.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    # Set the Height of the Font
+    port.portion_format.font_height = 25
 
-    // Write the PPTX to disk 
-    presentation.Save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
-}
+    # Set the color of the Font
+    port.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    port.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+
+    # Write the PPTX to disk 
+    presentation.save("SetTextFontProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -262,34 +269,36 @@ Aspose.Slides for Python via .NET allows developers to rotate the text. Text cou
 - Save file to disk.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Get the first slide 
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    # Get the first slide 
+    slide = presentation.slides[0]
 
-// Add an AutoShape of Rectangle type
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+    # Add an AutoShape of Rectangle type
+    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
 
-// Add TextFrame to the Rectangle
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
+    # Add TextFrame to the Rectangle
+    ashp.add_text_frame(" ")
+    ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-// Accessing the text frame
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
+    # Accessing the text frame
+    txtFrame = ashp.text_frame
+    txtFrame.text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-// Create the Paragraph object for text frame
-IParagraph para = txtFrame.Paragraphs[0];
+    # Create the Paragraph object for text frame
+    para = txtFrame.paragraphs[0]
 
-// Create Portion object for paragraph
-IPortion portion = para.Portions[0];
-portion.Text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    # Create Portion object for paragraph
+    portion = para.portions[0]
+    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
 
-// Save Presentation
-presentation.Save("RotateText_out.pptx", SaveFormat.Pptx);
+    # Save Presentation
+    presentation.save("RotateText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -304,21 +313,22 @@ Aspose.Slides for Python via .NET now supports, Setting custom rotation angle fo
 In the example given below, we set the RotationAngle property.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides as slides
 
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
 
-IChartSeries series = chart.ChartData.Series[0];
+    series = chart.chart_data.series[0]
 
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 65;
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.text_format.text_block_format.rotation_angle = 65
 
-chart.HasTitle = true;
-chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
+    chart.has_title = True
+    chart.chart_title.add_text_frame_for_overriding("Custom title").text_frame_format.rotation_angle = -30
 
-// Save Presentation
-presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
+    # Save Presentation
+    presentation.save("textframe-rotation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -333,24 +343,26 @@ Aspose.Slides for Python via .NET lets developers to set the properties of Parag
 - Save the presentation to disk.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation("Fonts.pptx");
+import aspose.slides as slides
 
-// Obtain a slide's reference by its index
-ISlide sld = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation(path + "Fonts.pptx") as presentation:
 
-// Access the TextFrame
-ITextFrame tf1 = ((IAutoShape)sld.Shapes[0]).TextFrame;
+    # Obtain a slide's reference by its index
+    sld = presentation.slides[0]
 
-// Access the Paragraph
-IParagraph para1 = tf1.Paragraphs[0];
+    # Access the TextFrame
+    tf1 = sld.shapes[0].text_frame
 
-// Set properties of Paragraph
-para1.ParagraphFormat.SpaceWithin = 80;
-para1.ParagraphFormat.SpaceBefore = 40;
-para1.ParagraphFormat.SpaceAfter = 40;
-// Save Presentation
-presentation.Save("LineSpacing_out.pptx", SaveFormat.Pptx);
+    # Access the Paragraph
+    para1 = tf1.paragraphs[0]
+
+    # Set properties of Paragraph
+    para1.paragraph_format.space_within = 80
+    para1.paragraph_format.space_before = 40
+    para1.paragraph_format.space_after = 40
+    # Save Presentation
+    presentation.save("LineSpacing_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -367,34 +379,37 @@ In this topic, we will explore the different formatting properties of text frame
 - Save file to disk.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Access the first slide 
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
 
-// Add an AutoShape of Rectangle type
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+    # Access the first slide 
+    slide = presentation.slides[0]
 
-// Add TextFrame to the Rectangle
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
+    # Add an AutoShape of Rectangle type
+    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
 
-// Accessing the text frame
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+    # Add TextFrame to the Rectangle
+    ashp.add_text_frame(" ")
+    ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-// Create the Paragraph object for text frame
-IParagraph para = txtFrame.Paragraphs[0];
+    # Accessing the text frame
+    txtFrame = ashp.text_frame
+    txtFrame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
 
-// Create Portion object for paragraph
-IPortion portion = para.Portions[0];
-portion.Text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    # Create the Paragraph object for text frame
+    para = txtFrame.paragraphs[0]
 
-// Save Presentation
-presentation.Save("formatText_out.pptx", SaveFormat.Pptx); 
+    # Create Portion object for paragraph
+    portion = para.portions[0]
+    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
+    # Save Presentation
+    presentation.save("formatText_out.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 
@@ -409,34 +424,36 @@ Aspose.Slides for Python via .NET allows developers to Anchor of any TextFrame. 
 - Save file to disk.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Get the first slide 
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    # Get the first slide 
+    slide = presentation.slides[0]
 
-// Add an AutoShape of Rectangle type
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+    # Add an AutoShape of Rectangle type
+    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 350, 350)
 
-// Add TextFrame to the Rectangle
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
+    # Add TextFrame to the Rectangle
+    ashp.add_text_frame(" ")
+    ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-// Accessing the text frame
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
+    # Accessing the text frame
+    txtFrame = ashp.text_frame
+    txtFrame.text_frame_format.anchoring_type = slides.TextAnchorType.BOTTOM
 
-// Create the Paragraph object for text frame
-IParagraph para = txtFrame.Paragraphs[0];
+    # Create the Paragraph object for text frame
+    para = txtFrame.paragraphs[0]
 
-// Create Portion object for paragraph
-IPortion portion = para.Portions[0];
-portion.Text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    # Create Portion object for paragraph
+    portion = para.portions[0]
+    portion.text = "A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog."
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
 
-// Save Presentation
-presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
+    # Save Presentation
+    presentation.save("AnchorText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 

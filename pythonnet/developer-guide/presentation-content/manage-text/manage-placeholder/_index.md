@@ -25,24 +25,21 @@ To replace the text of a Placeholder, please follow the steps below:
 - Write the modified presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
 
 ```py
-// Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
-using (Presentation pres = new Presentation("ReplacingText.pptx"))
-{
+import aspose.slides as slides
 
-    // Access first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX
+with slides.Presentation(path + "ReplacingText.pptx") as pres:
+    # Access first slide
+    sld = pres.slides[0]
 
-    // Iterate through shapes to find the placeholder
-    foreach (IShape shp in sld.Shapes)
-        if (shp.Placeholder != null)
-        {
-            // Change the text of each placeholder
-            ((IAutoShape)shp).TextFrame.Text = "This is Placeholder";
-        }
+    # Iterate through shapes to find the placeholder
+    for shp in sld.shapes:
+        if shp.placeholder != None:
+            # Change the text of each placeholder
+            shp.text_frame.text = "This is Placeholder"
 
-    // Save the PPTX to Disk
-    pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Save the PPTX to Disk
+    pres.save("output_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -52,30 +49,22 @@ As we know that Standard and pre-built layouts contain placeholders with default
 The code snippet below shows how to use this feature:
 
 ```py
-using (Presentation pres = new Presentation("Presentation2.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // iterate through the slide
-    {
-        if (shape.Placeholder != null && shape is AutoShape)
-        {
-            string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) //PowerPoint displays "Click to add title". 
-            {
-                text = "Add Title";
-            }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) //add subtitle.
-            {
-                text = "Add Subtitle";
-            }
+import aspose.slides as slides
 
-            ((IAutoShape)shape).TextFrame.Text = text;
+with slides.Presentation(path + "Presentation2.pptx") as pres:
+    slide = pres.slides[0]
+    for shape in slide.slide.shapes: # iterate through the slide
+        if shape.placeholder != None and type(shape) is slides.AutoShape:
+            text = ""
+            if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE: #PowerPoint displays "Click to add title". 
+                text = "Add Title"
+            elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE: #add subtitle.
+                text = "Add Subtitle"
 
-            Console.WriteLine($"Placeholder with text: {text}");
-        }
-    }
+            shape.text_frame.text = text
 
-    pres.Save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
-}
+            print("Placeholder with text: {text}".format(text = text))
+
+    pres.save("Placeholders_PromptText.pptx", slides.export.SaveFormat.PPTX)
 ```
 

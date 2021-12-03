@@ -30,50 +30,49 @@ This property returns or sets the superscript or subscript text (value from -100
 The implementation of the above steps is given below.
 
 ```py
-using (Presentation presentation = new Presentation("test.pptx"))
-{
-    // Get slide
-    ISlide slide = presentation.Slides[0];
+import aspose.slides as slides
 
-    // Create text box
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    ITextFrame textFrame = shape.TextFrame;
-    textFrame.Paragraphs.Clear();
+with slides.Presentation("pres.pptx") as presentation:
+    # Get slide
+    slide = presentation.slides[0]
 
-    // Create paragraph for superscript text
-    IParagraph superPar = new Paragraph();
+    # Create text box
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    textFrame = shape.text_frame
+    textFrame.paragraphs.clear()
 
-    // Create portion with usual text
-    IPortion portion1 = new Portion();
-    portion1.Text = "SlideTitle";
-    superPar.Portions.Add(portion1);
+    # Create paragraph for superscript text
+    superPar = slides.Paragraph()
 
-    // Create portion with superscript text
-    IPortion superPortion = new Portion();
-    superPortion.PortionFormat.Escapement = 30;
-    superPortion.Text = "TM";
-    superPar.Portions.Add(superPortion);
+    # Create portion with usual text
+    portion1 = slides.Portion()
+    portion1.text = "SlideTitle"
+    superPar.portions.add(portion1)
 
-    // Create paragraph for subscript text
-    IParagraph paragraph2 = new Paragraph();
+    # Create portion with superscript text
+    superPortion = slides.Portion()
+    superPortion.portion_format.escapement = 30
+    superPortion.text = "TM"
+    superPar.portions.add(superPortion)
 
-    // Create portion with usual text
-    IPortion portion2 = new Portion();
-    portion2.Text = "a";
-    paragraph2.Portions.Add(portion2);
+    # Create paragraph for subscript text
+    paragraph2 = slides.Paragraph()
 
-    // Create portion with subscript text
-    IPortion subPortion = new Portion();
-    subPortion.PortionFormat.Escapement = -25;
-    subPortion.Text = "i";
-    paragraph2.Portions.Add(subPortion);
+    # Create portion with usual text
+    portion2 = slides.Portion()
+    portion2.text = "a"
+    paragraph2.portions.add(portion2)
 
-    // Add paragraphs to text box
-    textFrame.Paragraphs.Add(superPar);
-    textFrame.Paragraphs.Add(paragraph2);
+    # Create portion with subscript text
+    subPortion = slides.Portion()
+    subPortion.portion_format.escapement = -25
+    subPortion.text = "i"
+    paragraph2.portions.add(subPortion)
 
-    presentation.Save("TestOut.pptx", SaveFormat.Pptx);
-    System.Diagnostics.Process.Start("TestOut.pptx");
- } 
+    # Add paragraphs to text box
+    textFrame.paragraphs.add(superPar)
+    textFrame.paragraphs.add(paragraph2)
+
+    presentation.save("TestOut.pptx", slides.export.SaveFormat.PPTX)
 ```
 
