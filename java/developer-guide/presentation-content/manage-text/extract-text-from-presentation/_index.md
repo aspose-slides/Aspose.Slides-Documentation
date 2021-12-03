@@ -1,7 +1,7 @@
 ---
 title: Extract Text from Presentation
 type: docs
-weight: 80
+weight: 90
 url: /java/extract-text-from-presentation/
 ---
 
