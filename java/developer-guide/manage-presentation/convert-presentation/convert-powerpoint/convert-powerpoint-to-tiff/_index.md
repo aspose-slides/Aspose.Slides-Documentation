@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint PPT(X) to TIFF
+title: Convert PowerPoint to TIFF
 type: docs
 weight: 90
 url: /java/convert-powerpoint-to-tiff/

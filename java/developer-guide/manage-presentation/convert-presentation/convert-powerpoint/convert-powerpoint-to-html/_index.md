@@ -1,5 +1,5 @@
 ---
-title: Convert Powerpoint PPT(X) to HTML
+title: Convert Powerpoint to HTML
 type: docs
 weight: 30
 url: /java/convert-powerpoint-to-html/

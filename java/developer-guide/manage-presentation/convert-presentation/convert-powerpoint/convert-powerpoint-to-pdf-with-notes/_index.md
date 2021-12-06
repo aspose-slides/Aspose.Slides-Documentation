@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint PPT(X) to PDF Notes
+title: Convert PowerPoint to PDF Notes
 type: docs
 weight: 50
 url: /java/convert-powerpoint-to-pdf-with-notes/

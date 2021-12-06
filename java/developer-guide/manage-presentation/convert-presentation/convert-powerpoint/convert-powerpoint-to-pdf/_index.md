@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint PPT(X) to PDF
+title: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /java/convert-powerpoint-to-pdf/

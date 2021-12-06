@@ -1,5 +1,5 @@
 ---
-title: Convert Powerpoint PPT(X) to JPG
+title: Convert Powerpoint to JPG
 type: docs
 weight: 60
 url: /java/convert-powerpoint-to-jpg/
