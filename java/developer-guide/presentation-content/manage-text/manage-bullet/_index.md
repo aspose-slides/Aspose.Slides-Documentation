@@ -9,7 +9,7 @@ description: "Create bullet and numbered lists in PowerPoint presentation in Jav
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Java** also allows you to use bullets and numbers in slides in your presentations. 
 
-### Why Use Bullet Lists?
+## Why Use Bullet Lists?
 
 Bullet lists help you to organize and present information quickly and efficiently. 
 
@@ -21,7 +21,7 @@ In most cases, a bullet list serves these three main functions:
 - allows your readers or viewers to scan for key points easily
 - communicates and delivers important details efficiently.
 
-### Why Use Numbered Lists?
+## Why Use Numbered Lists?
 
 Numbered lists also help in organizing and presenting information. Ideally, you should use numbers (in place of bullets) when the order of the entries (for example, *step 1, step 2*, etc.) is important or when an entry has to be referenced (for example, *see step 3*).
 
