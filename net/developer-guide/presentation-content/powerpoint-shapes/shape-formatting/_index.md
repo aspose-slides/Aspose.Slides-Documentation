@@ -265,7 +265,21 @@ shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
 ```
 
+## Set Transparency
 
+Aspose.Slides allows you to set the transparency level for a shape this way:
+
+1. Create an instance of the [Presentation class](http://www.aspose.com/api/net/slides/aspose.slides/).
+2. Obtain the reference of a slide through its Index.
+3. Add an [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
+4. XXX.
+5. Save the object as a PowerPoint file. 
+
+This C# code demonstrates the process:
+
+```c#
+
+```
 
 ## **Rotate Shapes**
 Aspose.Slides for .NET allows developers to you rotate shapes as well in this topic, we will see how developers can rotate their shapes. Rotating a shape using Aspose.Slides for .NET is as easy as ABC. To rotate a shape added to the slide, please follow the steps below:
