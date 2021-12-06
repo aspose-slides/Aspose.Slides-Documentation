@@ -1,7 +1,7 @@
 ---
 title: Superscript and Subscript
 type: docs
-weight: 70
+weight: 80
 url: /java/superscript-and-subscript/
 ---
 

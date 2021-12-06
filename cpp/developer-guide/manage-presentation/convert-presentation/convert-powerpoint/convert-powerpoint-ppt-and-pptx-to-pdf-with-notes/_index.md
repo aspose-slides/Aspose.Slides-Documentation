@@ -30,3 +30,11 @@ pdfOptions->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::Bott
 
 auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions);
 ```
+
+
+
+{{% alert color="primary" %}} 
+
+You may to want to check out Aspose [PowerPoint to PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) or [PPT to PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) converter. 
+
+{{% /alert %}} 

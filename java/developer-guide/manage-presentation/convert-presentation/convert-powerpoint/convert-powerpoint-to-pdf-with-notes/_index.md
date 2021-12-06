@@ -45,3 +45,9 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+{{% alert color="primary" %}} 
+
+You may to want to check out Aspose [PowerPoint to PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) or [PPT to PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) converter. 
+
+{{% /alert %}} 

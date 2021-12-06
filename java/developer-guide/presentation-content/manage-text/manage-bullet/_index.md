@@ -3,9 +3,37 @@ title: Manage Bullet
 type: docs
 weight: 60
 url: /java/manage-bullet/
+keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Java"
+description: "Create bullet and numbered lists in PowerPoint presentation in Java"
 ---
 
-## **Create Bullet**
+In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Java** also allows you to use bullets and numbers in slides in your presentations. 
+
+### Why Use Bullet Lists?
+
+Bullet lists help you to organize and present information quickly and efficiently. 
+
+**Bullet List Example**
+
+In most cases, a bullet list serves these three main functions:
+
+- draws your readers or viewers attention to important information
+- allows your readers or viewers to scan for key points easily
+- communicates and delivers important details efficiently.
+
+### Why Use Numbered Lists?
+
+Numbered lists also help in organizing and presenting information. Ideally, you should use numbers (in place of bullets) when the order of the entries (for example, *step 1, step 2*, etc.) is important or when an entry has to be referenced (for example, *see step 3*).
+
+**Numbered List Example**
+
+This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** procedure below:
+
+1. Create an instance of the presentation class. 
+2. Perform several tasks (step 3 to step 14).
+3. Save the presentation. 
+
+## Creating Bullets
 This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for Java:
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
@@ -24,7 +52,7 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 1. Add the second paragraph and repeat the process given in steps **7 to 13**.
 1. Save the presentation.
 
-The implementation of the above steps is given below.
+This sample code in Java—an implementation of the steps above—shows you to create a bullet list in a slide:
 
 ```java
 // Instantiate a Presentation class that represents a PPTX file
@@ -75,26 +103,37 @@ try {
 }
 ```
 
-## **Create Picture Bullet**
-This topic is also the part of the topic series of managing text in paragraphs. This page will illustrate how we can manage paragraph picture bullets. Picture bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph picture bullets using Aspose.Slides for Java:
+## Creating Picture Bullets
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class
-- Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/islide) object
-- Add an autoshape in selected slide
-- Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape
-- Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe)
-- Create the first paragraph instance using Paragraph class
-- Load Image from disc in [IPPImage](https://apireference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage)
-- Set the bullet type to Picture and the set the image
-- Set the Paragraph Text
-- Set the Paragraph Indent to set the bullet
-- Set the Color of Bullet
-- Set the Height of Bullets
-- Add the created paragraph in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection
-- Add the second paragraph and repeat the process given in previous steps
-- Save the presentation
+Aspose.Slides for Java allows you to change the bullets on bullet lists. You get to replace the bullets with custom symbols or images. If you want to add visual interest to a list or draw even more attention to entries on a list, you can use your own image as the bullet. 
 
-The implementation of the above steps is given below.
+{{% alert color="primary" %}} 
+
+Ideally, if you intend to replace the regular bullet symbol with a picture, you may want to select a simple graphics image with a transparent background. Such images work best as custom bullet symbols. 
+
+In any case, the image you choose will be reduced to a very small size, so we strongly recommend you select an image that looks good (as a replacement for the bullet symbol) in a list. 
+
+{{% /alert %}} 
+
+To create a picture bullet, go through these steps:
+
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class
+1. Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/islide) object
+1. Add an autoshape in selected slide
+1. Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape
+1. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe)
+1. Create the first paragraph instance using Paragraph class
+1. Load Image from disc in [IPPImage](https://apireference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage)
+1. Set the bullet type to Picture and the set the image
+1. Set the Paragraph Text
+1. Set the Paragraph Indent to set the bullet
+1. Set the Color of Bullet
+1. Set the Height of Bullets
+1. Add the created paragraph in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection
+1. Add the second paragraph and repeat the process given in previous steps
+1. Save the presentation
+
+This Java code shows you to create a picture bullet in a slide:
 
 ```java
 Presentation pres = new Presentation();
@@ -136,22 +175,23 @@ try {
 }
 ```
 
-## **Create Multilevel Bullet**
-This topic is also the part of the topic series of managing text in paragraphs. This page will illustrate that how we can manage paragraphs with multilevel bullets. Please follow the steps below to manage the multilevel bullets using Aspose.Slides for Java:
+## Creating Multilevel Bullets
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-- Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/islide) object.
-- Add an autoshape in selected slide.
-- Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
-- Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe).
-- Create the first paragraph instance using Paragraph class and with depth set to 0.
-- Create the second paragraph instance using Paragraph class and with depth set to 1.
-- Create the third paragraph instance using Paragraph class and with depth set to 2.
-- Create the fourth paragraph instance using Paragraph class and with depth set to 3.
-- Add the created paragraphs in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
-- Save the presentation.
+To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
-The implementation of the above steps is given below.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/islide) object.
+1. Add an autoshape in selected slide.
+1. Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
+1. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe).
+1. Create the first paragraph instance using Paragraph class and with depth set to 0.
+1. Create the second paragraph instance using Paragraph class and with depth set to 1.
+1. Create the third paragraph instance using Paragraph class and with depth set to 2.
+1. Create the fourth paragraph instance using Paragraph class and with depth set to 3.
+1. Add the created paragraphs in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
+1. Save the presentation.
+
+This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Java:
 
 ```java
 // Instantiate a Presentation class that represents a PPTX file
@@ -226,21 +266,21 @@ try {
 }
 ```
 
-## **Create Custom Numbered List**
-Aspose.Slides for Java provides a simple API to manage paragraphs with custom numbers formatting. For this purpose, [**setNumberedBulletStartWith**](https://apireference.aspose.com/slides/java/com.aspose.slides/IBulletFormat#setNumberedBulletStartWith-short-) method has been added to [**IBulletFormat**](https://apireference.aspose.com/slides/java/com.aspose.slides/IBulletFormat). To add a custom number list in a paragraph, please follow the steps below:
+## Create Custom Numbered List
+Aspose.Slides for Java provides a simple API to manage paragraphs with custom numbers formatting. To add a custom number list in a paragraph, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-- Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/islide) object.
-- Add an autoshape in selected slide.
-- Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
-- Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe).
-- Create the first paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 2
-- Create the second paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 3
-- Create the third paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 7
-- Add the created paragraphs in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
-- Save the presentation.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/islide) object.
+1. Add an autoshape in selected slide.
+1. Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
+1. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe).
+1. Create the first paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 2
+1. Create the second paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 3
+1. Create the third paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 7
+1. Add the created paragraphs in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
+1. Save the presentation.
 
-The implementation of the above steps is given below.
+This Java code shows you how to create a numbered list in a slide:
 
 ```java
 // Instantiate a Presentation class that represents a PPTX file

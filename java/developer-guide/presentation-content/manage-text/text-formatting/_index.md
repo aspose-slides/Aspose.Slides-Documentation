@@ -1,7 +1,7 @@
 ---
 title: Text Formatting
 type: docs
-weight: 40
+weight: 50
 url: /java/text-formatting/
 ---
 
