@@ -12,7 +12,7 @@ Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET
 ### **Windows**
 - Microsoft Windows 2000 Server ( x64, x86)
 - Microsoft Windows 2003 Server ( x64, x86)
-- Microsoft Windows Server 2022
+- Microsoft Windows 2022 Server
 - Microsoft Windows Vista ( x64, x86)
 - Microsoft Windows XP ( x64, x86)
 - Microsoft Windows 7 ( x64, x86)
