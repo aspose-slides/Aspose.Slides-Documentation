@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint PPT and PPTX to DOC and DOCX
+title: Convert PowerPoint to Word
 type: docs
 weight: 110
 url: /java/convert-powerpoint-to-word/
@@ -18,7 +18,7 @@ You may want to try out our [**Presentation to Word Online Converter**](https://
 
 {{% /alert %}} 
 
-### **Aspose.Slides and Aspose.Words**
+## **Aspose.Slides and Aspose.Words**
 
 To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for Java](https://products.aspose.com/slides/java/) and [Aspose.Words for Java](https://products.aspose.com/words/java/).
 

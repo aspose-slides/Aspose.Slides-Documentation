@@ -1,8 +1,8 @@
 ---
-title: Convert Powerpoint PPT(X) to HTML
+title: Convert Powerpoint to HTML
 type: docs
 weight: 30
-url: /java/convert-powerpoint-ppt-and-pptx-to-html/
+url: /java/convert-powerpoint-to-html/
 keywords: "convert pptx to html, ppt to html, powerpoint to html, save pptx as html"
 description: "Convert PowerPoint to HTML of any format: PPTX to HTML, PPT to HTML. Save PPTX to HTML and use PowerPoint HTML export."
 ---
