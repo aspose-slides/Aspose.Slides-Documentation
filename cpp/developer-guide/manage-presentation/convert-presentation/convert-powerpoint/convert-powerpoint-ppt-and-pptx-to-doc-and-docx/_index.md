@@ -1,45 +1,56 @@
 ---
-title: Convert PowerPoint PPT and PPTX to DOC and DOCX
+title: Convert PowerPoint to Word
 type: docs
 weight: 110
-url: /cpp/convert-powerpoint-ppt-and-pptx-to-doc-and-docx/
+url: /cpp/convert-powerpoint-to-word/
+keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to DOCX, PPT to DOC, PPTX to DOC, PPT to DOCX, C++, Aspose.Slides"
+description: "Convert PowerPoint Presentation to Word in C++ "
 ---
 
-If you intend to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). For example, compared to the Microsoft Presentation app, the Microsoft Word app is more equipped with tools or functionalities that allow you to improve and manipulate content for different purposes. 
+If you plan to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). 
+
+* When compared to Microsoft PowerPoint, the Microsoft Word app is more equipped with tools or functionalities for content. 
+* Besides the editing functions in Word, you may also benefit from enhanced collaboration, printing, and sharing features. 
 
 {{% alert color="primary" %}} 
 
-You can try out our [**Presentation to Word online converter**](https://products.aspose.app/slides/conversion/ppt-to-word). This way, you get to see what you could gain from working with textual content from slides. 
+You may want to try out our [**Presentation to Word Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) to see what you could gain from working with textual content from slides. 
 
 {{% /alert %}} 
 
-Besides the numerous functions you get to use in a Word editor, you may also benefit from enhanced collaboration, printing, and sharing features. If necessary, you can easily transform your presentation into a poster or brochure (webpage or printed).
+### **Aspose.Slides and Aspose.Words**
 
-As a standalone API, [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) for C++ provides functions that allow you to extract texts from presentations. To convert PPT to DOC or DOCX, you will have to use Aspose.Slides with another API. 
+To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) and [Aspose.Words for C++](https://products.aspose.com/words/cpp/).
 
-**Extracting the Text**
+As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for C++ provides functions that allow you to extract texts from presentations. 
 
-You can start by using the [**GetAllTextFrames** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a5a0aebdc520e5258c8a1f665fdb8be12)method from the [**SlideUtil** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util)class to extract the required text from an entire presentation. After the extraction, you can write the text into a DOC/DOCX document.
+[Aspose.Words](https://docs.aspose.com/words/cpp/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
 
-{{% alert color="primary" %}} 
+## **Convert PowerPoint to Word**
 
-See [**Extracting Text from the Presentation**](/slides/cpp/extracting-text-from-the-presentation/)**.**
+Use this code snippet to convert the PowerPoint to Word:
 
-{{% /alert %}} 
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto doc = MakeObject<Aspose::Words::Document>();
+auto builder = MakeObject<Aspose::Words::DocumentBuilder>(doc);
 
-**Creating the Word Document**
+for (const auto& slide : presentation->get_Slides())
+{
+    // generates and inserts slide image
+    auto bitmap = slide->GetThumbnail(1.0f, 1.0f);
+    builder->InsertImage(bitmap);
 
-After extracting the text from a presentation, you can use Aspose.Slides together with another API ([Aspose.Words](https://products.aspose.com/words/cpp/), for example) to create the Word (DOC or DOCX) file. This sample code demonstrates the projected operation:
+    // inserts slide's texts
+    for (const auto& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<AutoShape>(shape))
+        {
+            auto autoShape = System::DynamicCast_noexcept<AutoShape>(shape);
+            builder->Writeln(autoShape->get_TextFrame()->get_Text());
+        }
+    }
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-auto stream = System::MakeObject<MemoryStream>();
-
-presentation->Save(stream, SaveFormat::Html);
-stream->Flush();
-stream->Seek(0, SeekOrigin::Begin);
-
-auto doc = System::MakeObject<Aspose::Words::Document>(stream);
-doc->Save(u"pres.docx", Aspose::Words::SaveFormat::Docx);
+    builder->InsertBreak(Aspose::Words::BreakType::PageBreak);
+}
 ```
