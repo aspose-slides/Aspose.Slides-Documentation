@@ -23,20 +23,21 @@ Aspose.Slides for Python via .NET allows you to obtain the minimum and maximum v
 This sample code—an implementation of the steps above—shows you how to get the required values in Python:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
-	chart.ValidateChartLayout();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
-	double minValue = chart.Axes.VerticalAxis.ActualMinValue;
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.AREA, 100, 100, 500, 350)
+	chart.validate_chart_layout()
 
-	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
-	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
+	maxValue = chart.axes.vertical_axis.actual_max_value
+	minValue = chart.axes.vertical_axis.actual_min_value
+
+	majorUnit = chart.axes.horizontal_axis.actual_major_unit
+	minorUnit = chart.axes.horizontal_axis.actual_minor_unit
 	
-	// Saves the presentation
-	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
-}
+	# Saves the presentation
+	pres.save("ErrorBars_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -46,17 +47,18 @@ Aspose.Slides allows you to quickly swap the data between axes—the data repres
 This Python code shows you how to perform the data swap task between axes on a chart:
 
 ```py
-// Creates empty presentation
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	//Switches rows and columns
-	chart.ChartData.SwitchRowColumn();
-		   
-	// Saves presentation
-	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
- }
+# Creates empty presentation
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
+
+    #Switches rows and columns
+    chart.chart_data.switch_row_column()
+            
+    # Saves presentation
+    pres.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Disabling the Vertical Axis for Line Charts**
@@ -64,13 +66,14 @@ using (Presentation pres = new Presentation())
 This Python code shows you how to hide the vertical axis for a line chart:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
-    chart.Axes.VerticalAxis.IsVisible = false; 
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.LINE, 100, 100, 400, 300)
+    chart.axes.vertical_axis.is_visible = False
     
-    pres.Save("chart.pptx", SaveFormat.Pptx);
-}
+    pres.save("chart-is_visible.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Disabling the Horizontal Axis for Line Charts**
@@ -78,13 +81,14 @@ using (Presentation pres = new Presentation())
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
-    chart.Axes.HorizontalAxis.IsVisible = false; 
-    
-    pres.Save("chart.pptx", SaveFormat.Pptx);
-}
+import aspose.slides.charts as charts
+import aspose.slides as slides
+ 
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.LINE, 100, 100, 400, 300)
+    chart.axes.horizontal_axis.is_visible = False
+
+    pres.save("chart-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Changing Category Axis**
@@ -92,83 +96,90 @@ using (Presentation pres = new Presentation())
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in Python demonstrates the operation: 
 
 ```py
-using (Presentation presentation = new Presentation("ExistingChart.pptx"))
-{
-    IChart chart = presentation.Slides[0].Shapes[0] as IChart;
-    chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-    chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
-    chart.Axes.HorizontalAxis.MajorUnit = 1;
-    chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
-    presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
-}
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    chart.axes.horizontal_axis.category_axis_type = charts.CategoryAxisType.DATE
+    chart.axes.horizontal_axis.is_automatic_major_unit = False
+    chart.axes.horizontal_axis.major_unit = 1
+    chart.axes.horizontal_axis.major_unit_scale = charts.TimeUnitType.MONTHS
+    presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Setting the Date Format for Category Axis Value**
 Aspose.Slides for Python via .NET allows you to set the date format for a category axis value. The operation is demonstrated in this Python code:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Area, 50, 50, 450, 300);
+import aspose.slides.charts as charts
+import aspose.slides as slides
+from datetime import date
 
-	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.AREA, 50, 50, 450, 300)
 
-	wb.Clear(0);
+	wb = chart.chart_data.chart_data_workbook
 
-	chart.ChartData.Categories.Clear();
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A2", new DateTime(2015, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A3", new DateTime(2016, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A4", new DateTime(2017, 1, 1).ToOADate()));
-	chart.ChartData.Categories.Add(wb.GetCell(0, "A5", new DateTime(2018, 1, 1).ToOADate()));
+	wb.clear(0)
 
-	IChartSeries series = chart.ChartData.Series.Add(ChartType.Line);
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B2", 1));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B3", 2));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B4", 3));
-	series.DataPoints.AddDataPointForLineSeries(wb.GetCell(0, "B5", 4));
-	chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-	chart.Axes.HorizontalAxis.IsNumberFormatLinkedToSource = false;
-	chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
-	pres.Save("test.pptx", SaveFormat.Pptx);
-}
+	chart.chart_data.categories.clear()
+	chart.chart_data.series.clear()
+    
+	chart.chart_data.categories.add(wb.get_cell(0, "A2", date(2015, 1, 1)))
+	chart.chart_data.categories.add(wb.get_cell(0, "A3", date(2016, 1, 1)))
+	chart.chart_data.categories.add(wb.get_cell(0, "A4", date(2017, 1, 1)))
+	chart.chart_data.categories.add(wb.get_cell(0, "A5", date(2018, 1, 1)))
+
+	series = chart.chart_data.series.add(charts.ChartType.LINE)
+	series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B2", 1))
+	series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B3", 2))
+	series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B4", 3))
+	series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B5", 4))
+	chart.axes.horizontal_axis.category_axis_type = charts.CategoryAxisType.DATE
+	chart.axes.horizontal_axis.is_number_format_linked_to_source = False
+	chart.axes.horizontal_axis.number_format = "yyyy"
+	pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Setting the Rotation Angle for Chart Axis Title**
 Aspose.Slides for Python via .NET allows you to set the rotation angle for a chart axis title. This Python code demonstrates the operation:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.VerticalAxis.HasTitle = true;
-             chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	pres.Save("test.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
+    chart.axes.vertical_axis.has_title = True
+    chart.axes.vertical_axis.title.text_format.text_block_format.rotation_angle = 90
+
+    pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
 Aspose.Slides for Python via .NET allows you to set the position axis in a category or value axis. This Python code shows how to perform the task:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	pres.Save("AsposeScatterChart.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
+	chart.axes.horizontal_axis.axis_between_categories = True
+
+	pres.save("AsposeScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
 Aspose.Slides for Python via .NET allows you to configure a chart to show a unit label on its chart value axis. This Python code demonstrates the operation:
 
 ```py
-using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-	chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
-	pres.Save("Result.pptx", SaveFormat.Pptx);
-}
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
+	chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
+	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```

@@ -18,16 +18,17 @@ Aspose.Slides for Python via .NET provides support for changing color of categor
  Below sample example is given. 
 
 ```py
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	chart.HasDataTable = true;
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+	chart.has_data_table = True
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+	chart.chart_data_table.text_format.portion_format.font_bold = 1
+	chart.chart_data_table.text_format.portion_format.font_height = 20
+
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 

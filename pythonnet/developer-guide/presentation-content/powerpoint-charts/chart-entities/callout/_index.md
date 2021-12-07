@@ -10,14 +10,14 @@ description: "PowerPoint chart callouts and data labels in Python"
 New property **ShowLabelAsDataCallout** has been added to **DataLabelFormat** class and **IDataLabelFormat** interface, which determines either specified chart's data label will be displayed as data callout or as data label. In the example given below, we have set the Callouts.
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowLabelAsDataCallout = true;
-    chart.ChartData.Series[0].Labels[2].DataLabelFormat.ShowLabelAsDataCallout = false;
-    presentation.Save("DisplayChartLabels_out.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.PIE, 50, 50, 500, 400)
+    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    chart.chart_data.series[0].labels.default_data_label_format.show_label_as_data_callout = True
+    chart.chart_data.series[0].labels[2].data_label_format.show_label_as_data_callout = False
+    presentation.save("DisplayChartLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -26,61 +26,56 @@ using (Presentation presentation = new Presentation())
 Aspose.Slides for Python via .NET provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```py
-Presentation pres = new Presentation("testc.pptx");
-ISlide slide = pres.Slides[0];
-IChart chart = slide.Shapes.AddChart(ChartType.Doughnut, 10, 10, 500, 500, false);
-IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
-chart.ChartData.Series.Clear();
-chart.ChartData.Categories.Clear();
-chart.HasLegend = false;
-int seriesIndex = 0;
-while (seriesIndex < 15)
-{
-	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.Type);
-	series.Explosion = 0;
-	series.ParentSeriesGroup.DoughnutHoleSize = (byte)20;
-	series.ParentSeriesGroup.FirstSliceAngle = 351;
-	seriesIndex++;
-}
-int categoryIndex = 0;
-while (categoryIndex < 15)
-{
-	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
-	int i = 0;
-	while (i < chart.ChartData.Series.Count)
-	{
-		IChartSeries iCS = chart.ChartData.Series[i];
-		IChartDataPoint dataPoint = iCS.DataPoints.AddDataPointForDoughnutSeries(workBook.GetCell(0, categoryIndex + 1, i + 1, 1));
-		dataPoint.Format.Fill.FillType = FillType.Solid;
-		dataPoint.Format.Line.FillFormat.FillType = FillType.Solid;
-		dataPoint.Format.Line.FillFormat.SolidFillColor.Color = Color.White;
-		dataPoint.Format.Line.Width = 1;
-		dataPoint.Format.Line.Style = LineStyle.Single;
-		dataPoint.Format.Line.DashStyle = LineDashStyle.Solid;
-		if (i == chart.ChartData.Series.Count - 1)
-		{
-			IDataLabel lbl = dataPoint.Label;
-			lbl.TextFormat.TextBlockFormat.AutofitType = TextAutofitType.Shape;
-			lbl.DataLabelFormat.TextFormat.PortionFormat.FontBold = NullableBool.True;
-			lbl.DataLabelFormat.TextFormat.PortionFormat.LatinFont = new FontData("DINPro-Bold");
-			lbl.DataLabelFormat.TextFormat.PortionFormat.FontHeight = 12;
-			lbl.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-			lbl.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.LightGray;
-			lbl.DataLabelFormat.Format.Line.FillFormat.SolidFillColor.Color = Color.White;
-			lbl.DataLabelFormat.ShowValue = false;
-			lbl.DataLabelFormat.ShowCategoryName = true;
-			lbl.DataLabelFormat.ShowSeriesName = false;
-			//lbl.DataLabelFormat.ShowLabelAsDataCallout = true;
-			lbl.DataLabelFormat.ShowLeaderLines = true;
-			lbl.DataLabelFormat.ShowLabelAsDataCallout = false;
-			chart.ValidateChartLayout();
-			lbl.AsILayoutable.X = (float)lbl.AsILayoutable.X + (float)0.5;
-			lbl.AsILayoutable.Y = (float)lbl.AsILayoutable.Y + (float)0.5;
-		}
-		i++;
-	}
-	categoryIndex++;
-}
-pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.DOUGHNUT, 10, 10, 500, 500, False)
+    workBook = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    chart.has_legend = False
+    seriesIndex = 0
+    while seriesIndex < 15:
+        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIES " + str(seriesIndex)), chart.type)
+        series.explosion = 0
+        series.parent_series_group.doughnut_hole_size = 20
+        series.parent_series_group.first_slice_angle = 351
+        seriesIndex += 1
+    categoryIndex = 0
+    while categoryIndex < 15:
+        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORY " + str(categoryIndex)))
+        i = 0
+        while i < len(chart.chart_data.series):
+            iCS = chart.chart_data.series[i]
+            dataPoint = iCS.data_points.add_data_point_for_doughnut_series(workBook.get_cell(0, categoryIndex + 1, i + 1, 1))
+            dataPoint.format.fill.fill_type = slides.FillType.SOLID
+            dataPoint.format.line.fill_format.fill_type = slides.FillType.SOLID
+            dataPoint.format.line.fill_format.solid_fill_color.color = draw.Color.white
+            dataPoint.format.line.width = 1
+            dataPoint.format.line.style = slides.LineStyle.SINGLE
+            dataPoint.format.line.dash_style = slides.LineDashStyle.SOLID
+            if i == len(chart.chart_data.series) - 1:
+                lbl = dataPoint.label
+                lbl.text_format.text_block_format.autofit_type = slides.TextAutofitType.SHAPE
+                lbl.data_label_format.text_format.portion_format.font_bold = 1
+                lbl.data_label_format.text_format.portion_format.latin_font = slides.FontData("DINPro-Bold")
+                lbl.data_label_format.text_format.portion_format.font_height = 12
+                lbl.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                lbl.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.light_gray
+                lbl.data_label_format.format.line.fill_format.solid_fill_color.color = draw.Color.white
+                lbl.data_label_format.show_value = False
+                lbl.data_label_format.show_category_name = True
+                lbl.data_label_format.show_series_name = False
+                lbl.data_label_format.show_leader_lines = True
+                lbl.data_label_format.show_label_as_data_callout = False
+                chart.validate_chart_layout()
+                lbl.as_ilayoutable.x += 0.5
+                lbl.as_ilayoutable.y += 0.5
+            i += 1
+        categoryIndex +=1 
+    pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 

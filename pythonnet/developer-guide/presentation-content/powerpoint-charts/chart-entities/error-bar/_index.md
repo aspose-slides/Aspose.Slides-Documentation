@@ -17,28 +17,29 @@ Aspose.Slides for Python via .NET provides a simple API for managing error bar v
 1. Write the modified presentation to a PPTX file.
 
 ```py
-// Creating empty presentation
-using (Presentation presentation = new Presentation())
-{
-    // Creating a bubble chart
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    // Adding Error bars and setting its format
-    IErrorBarsFormat errBarX = chart.ChartData.Series[0].ErrorBarsXFormat;
-    IErrorBarsFormat errBarY = chart.ChartData.Series[0].ErrorBarsYFormat;
-    errBarX.IsVisible = true;
-    errBarY.IsVisible = true;
-    errBarX.ValueType = ErrorBarValueType.Fixed;
-    errBarX.Value = 0.1f;
-    errBarY.ValueType = ErrorBarValueType.Percentage;
-    errBarY.Value = 5;
-    errBarX.Type = ErrorBarType.Plus;
-    errBarY.Format.Line.Width = 2;
-    errBarX.HasEndCap = true;
+# Creating empty presentation
+with slides.Presentation() as presentation:
+    # Creating a bubble chart
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 400, 300, True)
 
-    // Saving presentation
-    presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
-}
+    # Adding Error bars and setting its format
+    errBarX = chart.chart_data.series[0].error_bars_xformat
+    errBarY = chart.chart_data.series[0].error_bars_yformat
+    errBarX.is_visible = True
+    errBarY.is_visible = True
+    errBarX.value_type = charts.ErrorBarValueType.FIXED
+    errBarX.value = 0.1
+    errBarY.value_type = charts.ErrorBarValueType.PERCENTAGE
+    errBarY.value = 5
+    errBarX.type = charts.ErrorBarType.PLUS
+    errBarY.format.line.width = 2
+    errBarX.has_end_cap = True
+
+    # Saving presentation
+    presentation.save("ErrorBars_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -55,39 +56,38 @@ Aspose.Slides for Python via .NET provides a simple API for managing custom erro
 1. Write the modified presentation to a PPTX file.
 
 ```py
-// Creating empty presentation
-using (Presentation presentation = new Presentation())
-{
-    // Creating a bubble chart
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    // Adding custom Error bars and setting its format
-    IChartSeries series = chart.ChartData.Series[0];
-    IErrorBarsFormat errBarX = series.ErrorBarsXFormat;
-    IErrorBarsFormat errBarY = series.ErrorBarsYFormat;
-    errBarX.IsVisible = true;
-    errBarY.IsVisible = true;
-    errBarX.ValueType = ErrorBarValueType.Custom;
-    errBarY.ValueType = ErrorBarValueType.Custom;
+# Creating empty presentation
+with slides.Presentation() as presentation:
+    # Creating a bubble chart
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 400, 300, True)
 
-    // Accessing chart series data point and setting error bars values for individual point
-    IChartDataPointCollection points = series.DataPoints;
-    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
-    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
-    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYPlusValues = DataSourceType.DoubleLiterals;
-    points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYMinusValues = DataSourceType.DoubleLiterals;
+    # Adding custom Error bars and setting its format
+    series = chart.chart_data.series[0]
+    errBarX = series.error_bars_xformat
+    errBarY = series.error_bars_yformat
+    errBarX.is_visible = True
+    errBarY.is_visible = True
+    errBarX.value_type = charts.ErrorBarValueType.CUSTOM
+    errBarY.value_type = charts.ErrorBarValueType.CUSTOM
 
-    // Setting error bars for chart series points
-    for (int i = 0; i < points.Count; i++)
-    {
-        points[i].ErrorBarsCustomValues.XMinus.AsLiteralDouble = i + 1;
-        points[i].ErrorBarsCustomValues.XPlus.AsLiteralDouble = i + 1;
-        points[i].ErrorBarsCustomValues.YMinus.AsLiteralDouble = i + 1;
-        points[i].ErrorBarsCustomValues.YPlus.AsLiteralDouble = i + 1;
-    }
+    # Accessing chart series data point and setting error bars values for individual point
+    points = series.data_points
+    points.data_source_type_for_error_bars_custom_values.data_source_type_for_xplus_values = charts.DataSourceType.DOUBLE_LITERALS
+    points.data_source_type_for_error_bars_custom_values.data_source_type_for_xminus_values = charts.DataSourceType.DOUBLE_LITERALS
+    points.data_source_type_for_error_bars_custom_values.data_source_type_for_yplus_values = charts.DataSourceType.DOUBLE_LITERALS
+    points.data_source_type_for_error_bars_custom_values.data_source_type_for_yminus_values = charts.DataSourceType.DOUBLE_LITERALS
 
-    // Saving presentation
-    presentation.Save("ErrorBarsCustomValues_out.pptx", SaveFormat.Pptx);
-}
+    # Setting error bars for chart series points
+    for i in range(len(points)):
+        points[i].error_bars_custom_values.xminus.as_literal_double = i + 1
+        points[i].error_bars_custom_values.xplus.as_literal_double = i + 1
+        points[i].error_bars_custom_values.yminus.as_literal_double = i + 1
+        points[i].error_bars_custom_values.yplus.as_literal_double = i + 1
+
+    # Saving presentation
+    presentation.save("ErrorBarsCustomValues_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

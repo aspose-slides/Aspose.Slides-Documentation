@@ -29,37 +29,38 @@ You can add a zoom frame in a slide using Aspose.Slides for Python via .NET this
 
 This sample code shows you how to create a zoom frame in a slide:
 ```py 
-using (Presentation pres = new Presentation())
-{
-    //Add new slides to the presentation
-    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Create a background for the second slide
-    slide2.Background.Type = BackgroundType.OwnBackground;
-    slide2.Background.FillFormat.FillType = FillType.Solid;
-    slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+with slides.Presentation() as pres:
+    #Add new slides to the presentation
+    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    // Create a text box for the second slide
-    IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
+    # Create a background for the second slide
+    slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide2.background.fill_format.fill_type = slides.FillType.SOLID
+    slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    // Create a background for the third slide
-    slide3.Background.Type = BackgroundType.OwnBackground;
-    slide3.Background.FillFormat.FillType = FillType.Solid;
-    slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
+    # Create a text box for the second slide
+    autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    autoshape.text_frame.text = "Second Slide"
 
-    // Create a text box for the third slide
-    autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Trird Slide";
+    # Create a background for the third slide
+    slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide3.background.fill_format.fill_type = slides.FillType.SOLID
+    slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    //Add ZoomFrame objects
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
-    pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
+    # Create a text box for the third slide
+    autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    autoshape.text_frame.text = "Trird Slide"
 
-    // Save the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+    #Add ZoomFrame objects
+    pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
+    pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
+
+    # Save the presentation
+    pres.save("presentation-zoom.pptx", slides.export.SaveFormat.PPTX)
 ```
 ## **Creating Zoom Frames with Custom Images**
 With Aspose.Slides for Python via .NET, you can create a zoom frame with an image other than the slide preview image this way: 
@@ -73,29 +74,30 @@ With Aspose.Slides for Python via .NET, you can create a zoom frame with an imag
 This sample code shows you how to create a zoom frame with a different image:
 
 ```py 
-using (Presentation pres = new Presentation())
-{
-    //Add a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Create a background for the second slide
-    slide.Background.Type = BackgroundType.OwnBackground;
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+with slides.Presentation() as pres:
+    #Add a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    // Create a text box for the third slide
-    IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
+    # Create a background for the second slide
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    // Create a new image for the zoom object
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
+    # Create a text box for the third slide
+    autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    autoshape.text_frame.text = "Second Slide"
 
-    //Add the ZoomFrame object
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, image);
+    # Create a new image for the zoom object
+    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
 
-    // Save the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+    #Add the ZoomFrame object
+    pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
+
+    # Save the presentation
+    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Formatting Zoom Frames**
@@ -116,51 +118,52 @@ You can control the formatting of a zoom frame in a slide this way:
 This sample code shows you how to change the formatting of a zoom frame: 
 
 ```py 
-using (Presentation pres = new Presentation())
-{
-    //Add new slides to presentation
-    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Create a background for the second slide
-    slide2.Background.Type = BackgroundType.OwnBackground;
-    slide2.Background.FillFormat.FillType = FillType.Solid;
-    slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+with slides.Presentation() as pres:
+    #Add new slides to presentation
+    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    // Create a text box for the second slide
-    IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
+    # Create a background for the second slide
+    slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide2.background.fill_format.fill_type = slides.FillType.SOLID
+    slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    // Create a background for the third slide
-    slide3.Background.Type = BackgroundType.OwnBackground;
-    slide3.Background.FillFormat.FillType = FillType.Solid;
-    slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
+    # Create a text box for the second slide
+    autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    autoshape.text_frame.text = "Second Slide"
 
-    // Create a text box for the third slide
-    autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Trird Slide";
+    # Create a background for the third slide
+    slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide3.background.fill_format.fill_type = slides.FillType.SOLID
+    slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    //Add ZoomFrame objects
-    IZoomFrame zoomFrame1 = pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
-    IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
+    # Create a text box for the third slide
+    autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    autoshape.text_frame.text = "Trird Slide"
 
-    // Create a new image for the zoom object
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
-    // Set custom image for zoomFrame1 object
-    zoomFrame1.Image = image;
+    #Add ZoomFrame objects
+    zoomFrame1 = pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
+    zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
-    // Set a zoom frame format for the zoomFrame2 object
-    zoomFrame2.LineFormat.Width = 5;
-    zoomFrame2.LineFormat.FillFormat.FillType = FillType.Solid;
-    zoomFrame2.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
-    zoomFrame2.LineFormat.DashStyle = LineDashStyle.DashDot;
+    # Create a new image for the zoom object
+    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    # Set custom image for zoomFrame1 object
+    zoomFrame1.image = image
 
-    // Do not show background for zoomFrame2 object
-    zoomFrame2.ShowBackground = false;
+    # Set a zoom frame format for the zoomFrame2 object
+    zoomFrame2.line_format.width = 5
+    zoomFrame2.line_format.fill_format.fill_type = slides.FillType.SOLID
+    zoomFrame2.line_format.fill_format.solid_fill_color.color = draw.Color.hot_pink
+    zoomFrame2.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    // Save the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+    # Do not show background for zoomFrame2 object
+    zoomFrame2.show_background = False
+
+    # Save the presentation
+    pres.save("presentation-zoom2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Creating a Summary Zoom**
@@ -183,38 +186,35 @@ You can create a summary zoom in a slide this way:
 This sample code shows you how to create a summary zoom using Aspose.Slides for Python via .NET:
 
 ```py 
-using (Presentation pres = new Presentation())
-{
-    // Create slides array
-    for (int slideNumber = 0; slideNumber < 5; slideNumber++)
-    {
-        //Add new slides to presentation
-        ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-        // Create a background for the slide
-        slide.Background.Type = BackgroundType.OwnBackground;
-        slide.Background.FillFormat.FillType = FillType.Solid;
-        slide.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
+with slides.Presentation() as pres:
+    # Create slides array
+    for slideNumber in range(5):
+        #Add new slides to presentation
+        slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-        // Create a text box for the slide
-        IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-        autoshape.TextFrame.Text = String.Format("Slide - {0}", slideNumber + 2);
-    }
+        # Create a background for the slide
+        slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+        slide.background.fill_format.fill_type = slides.FillType.SOLID
+        slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    // Create zoom objects for all slides in the first slide
-    for (int slideNumber = 1; slideNumber < pres.Slides.Count; slideNumber++)
-    {
-        int x = (slideNumber - 1) * 100;
-        int y = (slideNumber - 1) * 100;
-        IZoomFrame zoomFrame = pres.Slides[0].Shapes.AddZoomFrame(x, y, 150, 120, pres.Slides[slideNumber]);
+        # Create a text box for the slide
+        autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+        autoshape.text_frame.text = "Slide - {num}".format(num = (slideNumber + 2))
 
-        // Set the ReturnToParent property to return to the first slide
-        zoomFrame.ReturnToParent = true;
-    }
+    # Create zoom objects for all slides in the first slide
+    for slideNumber in range(1, len(pres.slides)):
+        x = (slideNumber - 1) * 100
+        y = (slideNumber - 1) * 100
+        zoomFrame = pres.slides[0].shapes.add_zoom_frame(x, y, 150, 120, pres.slides[slideNumber])
 
-    // Save the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+        # Set the ReturnToParent property to return to the first slide
+        zoomFrame.return_to_parent = True
+
+    # Save the presentation
+    pres.save("presentation-zoom3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
   

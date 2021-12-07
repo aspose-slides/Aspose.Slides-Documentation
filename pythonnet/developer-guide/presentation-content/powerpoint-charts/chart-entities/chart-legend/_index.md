@@ -18,23 +18,26 @@ In order to set the legend properties. Please follow the steps below:
 In the example given below, we have set the position and size for Chart legend.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-// Get reference of the slide
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
 
-// Add a clustered column chart on the slide
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+    # Get reference of the slide
+    slide = presentation.slides[0]
 
-// Set Legend Properties
-chart.Legend.X = 50 / chart.Width;
-chart.Legend.Y = 50 / chart.Height;
-chart.Legend.Width = 100 / chart.Width;
-chart.Legend.Height = 100 / chart.Height;
+    # Add a clustered column chart on the slide
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-// Write presentation to disk
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+    # Set Legend Properties
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
+    chart.legend.width = 100 / chart.width
+    chart.legend.height = 100 / chart.height
+
+    # Write presentation to disk
+    presentation.save("Legend_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -50,18 +53,19 @@ The Aspose.Slides for Python via .NET lets developers allow to set font size of 
 - Write presentation to disk.
 
 ```py
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+	chart.legend.text_format.portion_format.font_height = 20
+	chart.axes.vertical_axis.is_automatic_min_value = False
+	chart.axes.vertical_axis.min_value = -5
+	chart.axes.vertical_axis.is_automatic_max_value = False
+	chart.axes.vertical_axis.max_value = 10
+
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -77,18 +81,21 @@ The Aspose.Slides for Python via .NET lets developers allow to set font size of 
 - Write presentation to disk.
 
 ```py
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
+ 
+ 
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+	tf = chart.legend.entries[1].text_format
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+	tf.portion_format.font_bold = 1
+	tf.portion_format.font_height = 20
+	tf.portion_format.font_italic = 1
+	tf.portion_format.fill_format.fill_type = slides.FillType.SOLID 
+	tf.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 

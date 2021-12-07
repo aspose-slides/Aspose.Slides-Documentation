@@ -11,18 +11,17 @@ description: "PowerPoint chart calculations and values in Python"
 Aspose.Slides for Python via .NET provides a simple API for getting these properties. This will help you to Calculates actual values of chart elements. The actual values include position of elements that implement IActualLayout interface (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 
 ```py
-using (Presentation pres = new Presentation("test.pptx"))
-{
-    Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-    chart.ValidateChartLayout();
-    double x = chart.PlotArea.ActualX;
-    double y = chart.PlotArea.ActualY;
-    double w = chart.PlotArea.ActualWidth;
-    double h = chart.PlotArea.ActualHeight;
-	
-	// Saving presentation
-	pres.Save("Result.pptx", SaveFormat.Pptx);
-}
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 350)
+    chart.validate_chart_layout()
+
+    maxValue = chart.axes.vertical_axis.actual_max_value
+    minValue = chart.axes.vertical_axis.actual_min_value
+    majorUnit = chart.axes.horizontal_axis.actual_major_unit
+    minorUnit = chart.axes.horizontal_axis.actual_minor_unit
 ```
 
 
@@ -31,17 +30,17 @@ using (Presentation pres = new Presentation("test.pptx"))
 Aspose.Slides for Python via .NET provides a simple API for getting these properties. Properties of IActualLayout provide information about actual position of parent chart element. It is necessary to call method IChart.ValidateChartLayout() previously to fill properties with actual values.
 
 ```py
-// Creating empty presentation
-using (Presentation pres = new Presentation())
-{
-   Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-   chart.ValidateChartLayout();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-   double x = chart.PlotArea.ActualX;
-   double y = chart.PlotArea.ActualY;
-   double w = chart.PlotArea.ActualWidth;
-   double h = chart.PlotArea.ActualHeight;
-}
+with slides.Presentation("pres.pptx") as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 350)
+    chart.validate_chart_layout()
+
+    x = chart.plot_area.actual_x
+    y = chart.plot_area.actual_y
+    w = chart.plot_area.actual_width
+    h = chart.plot_area.actual_height
 ```
 
 
@@ -50,44 +49,43 @@ using (Presentation pres = new Presentation())
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Python via .NET you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    //Hiding chart Title
-    chart.HasTitle = false;
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 140, 118, 320, 370)
 
-    ///Hiding Values axis
-    chart.Axes.VerticalAxis.IsVisible = false;
+    # Hiding chart Title
+    chart.has_title = False
 
-    //Category Axis visibility
-    chart.Axes.HorizontalAxis.IsVisible = false;
+    # Hiding Values axis
+    chart.axes.vertical_axis.is_visible = False
 
-    //Hiding Legend
-    chart.HasLegend = false;
+    # Category Axis visibility
+    chart.axes.horizontal_axis.is_visible = False
 
-    //Hiding MajorGridLines
-    chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+    # Hiding Legend
+    chart.has_legend = False
 
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        chart.ChartData.Series.RemoveAt(i);
-    }
+    # Hiding MajorGridLines
+    chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    IChartSeries series = chart.ChartData.Series[0];
+    #for i in range(len(chart.chart_data.series)):
+    #    chart.chart_data.series.remove_at(i)
 
-    series.Marker.Symbol = MarkerStyleType.Circle;
-    series.Labels.DefaultDataLabelFormat.ShowValue = true;
-    series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.Top;
-    series.Marker.Size = 15;
+    series = chart.chart_data.series[0]
 
-    //Setting series line color
-    series.Format.Line.FillFormat.FillType = FillType.Solid;
-    series.Format.Line.FillFormat.SolidFillColor.Color = Color.Purple;
-    series.Format.Line.DashStyle = LineDashStyle.Solid;
+    series.marker.symbol = charts.MarkerStyleType.CIRCLE
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.TOP
+    series.marker.size = 15
 
-    pres.Save("HideInformationFromChart.pptx", SaveFormat.Pptx);
-}
+    # Setting series line color
+    series.format.line.fill_format.fill_type = slides.FillType.SOLID
+    series.format.line.fill_format.solid_fill_color.color = draw.Color.purple
+    series.format.line.dash_style = slides.LineDashStyle.SOLID
+
+    pres.save("HideInformationFromChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 

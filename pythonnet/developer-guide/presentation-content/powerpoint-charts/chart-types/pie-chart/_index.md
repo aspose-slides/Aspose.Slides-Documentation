@@ -17,20 +17,22 @@ Aspose.Slides for Python via .NET now supports, second plot options for Pie of P
 In the example given below, we have set different properties of Pie of Pie chart.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-// Add chart on slide
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
-     
-// Set different properties
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
-chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    # Add chart on slide
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 500, 400)
+        
+    # Set different properties
+    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
+    chart.chart_data.series[0].parent_series_group.second_pie_size = 149
+    chart.chart_data.series[0].parent_series_group.pie_split_by = charts.PieSplitType.BY_PERCENTAGE
+    chart.chart_data.series[0].parent_series_group.pie_split_position = 53
 
-// Write presentation to disk
-presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
+    # Write presentation to disk
+    presentation.save("SecondPlotOptionsforCharts_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -53,52 +55,51 @@ Aspose.Slides for Python via .NET provides a simple API for setting automatic pi
 Write the modified presentation to a PPTX file.
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-using (Presentation presentation = new Presentation())
-{
-	// Instantiate Presentation class that represents PPTX file
-	Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-	// Access first slide
-	ISlide slides = presentation.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as presentation:
+	# Access first slide
+	slide = presentation.slides[0]
 
-	// Add chart with default data
-	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+	# Add chart with default data
+	chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
 
-	// Setting chart Title
-	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-	chart.ChartTitle.Height = 20;
-	chart.HasTitle = true;
+	# Setting chart Title
+	chart.chart_title.add_text_frame_for_overriding("Sample Title")
+	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
+	chart.chart_title.height = 20
+	chart.has_title = True
 
-	// Set first series to Show Values
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+	# Set first series to Show Values
+	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
-	// Setting the index of chart data sheet
-	int defaultWorksheetIndex = 0;
+	# Setting the index of chart data sheet
+	defaultWorksheetIndex = 0
 
-	// Getting the chart data worksheet
-	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+	# Getting the chart data worksheet
+	fact = chart.chart_data.chart_data_workbook
 
-	// Delete default generated series and categories
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
+	# Delete default generated series and categories
+	chart.chart_data.series.clear()
+	chart.chart_data.categories.clear()
 
-	// Adding new categories
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
+	# Adding new categories
+	chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
+	chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
+	chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
 
-	// Adding new series
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
+	# Adding new series
+	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-	// Now populating series data
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+	# Now populating series data
+	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
+	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
+	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
 
-	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+	series.parent_series_group.is_color_varied = True
+	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 

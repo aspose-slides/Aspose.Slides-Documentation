@@ -2,7 +2,7 @@
 title: Managing Tags and Custom Data
 type: docs
 weight: 300
-url: /pythonnet/managing-tags-and-custom-data
+url: /pythonnet/managing-tags-and-custom-data/
 keywords: "Tags, Custom data, Value for tags, Add tags, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Add tags and custom data to PowerPoint presentations in Python"
 ---
@@ -26,10 +26,10 @@ Tags are essentially string-key pair values.
 In slides, a tag corresponds to the IDocumentProperties.Keywords property. This sample code shows you how to get a tag’s value with Aspose.Slides for Python via .NET for [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation):
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   string keywords = pres.DocumentProperties.Keywords;
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    print(pres.document_properties.keywords)
 ```
 
 ## Adding Tags to Presentations
@@ -44,31 +44,32 @@ If you need to classify some presentations based on a specific rule or property,
 This sample code shows you how to add a tag to a [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) using Aspose.Slides for Python via .NET:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   ITagCollection tags = pres.CustomData.Tags;
-   pres.CustomData.Tags["MyTag"] = "My Tag Value";
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+   tags = pres.custom_data.tags 
+   tags.add("MyTag", "My Tag Value")
 ```
 
 Tags also can be set for [Slide](https://apireference.aspose.com/slides/pythonnet/aspose.slides/slide):
 
 ```py
-using(Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    slide.CustomData.Tags["tag"] = "value";
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    slide = pres.slides[0]
+    tags = slide.custom_data.tags
+    tags.add("tag", "value")
 ```
 
 Or any individual [Shape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/shape):
 
 ```py
-using(Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
-    shape.TextFrame.Text = "My text";
-    shape.CustomData.Tags["tag"] = "value";
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    slide = pres.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 50)
+    shape.text_frame.text = "My text"
+    shape.custom_data.tags.add("tag", "value")
 ```

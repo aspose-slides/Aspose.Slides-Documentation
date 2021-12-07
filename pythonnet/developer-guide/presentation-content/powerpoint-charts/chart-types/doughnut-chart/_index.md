@@ -18,13 +18,16 @@ In order to specify the size of the hole in a doughnut chart. Please follow the 
 In the example given below, we have set the size of the hole in a doughnut chart.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
-chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
 
-// Write presentation to disk
-presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.DOUGHNUT, 50, 50, 400, 400)
+    chart.chart_data.series_groups[0].doughnut_hole_size = 90
+
+    # Write presentation to disk
+    presentation.save("DoughnutHoleSize_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

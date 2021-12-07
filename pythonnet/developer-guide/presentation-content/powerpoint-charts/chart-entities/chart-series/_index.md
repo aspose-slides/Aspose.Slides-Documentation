@@ -14,31 +14,30 @@ A series is a row or column of numbers plotted in a chart.
 
 With the [IChartSeriesOverlap](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
 
-Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred value for `Overlap`. 
+Use the `parent_series_group.overlap` read/write property to set your preferred value for `overlap`. 
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class.
 1. Add a clustered column chart on a slide.
 1. Access the first chart series.
-1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
+1. Access the chart series' `parent_series_group` and set your preferred overlap value for the series. 
 1. Write the modified presentation to a PPTX file.
 
 This Python code shows you how to set the overlap for a chart series:
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    // Adds chart
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.ChartData.Series;
-    if (series[0].Overlap == 0)
-    {
-        // Sets series overlap
-        series[0].ParentSeriesGroup.Overlap = -30;
-    }
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    // Writes the presentation file to disk
-    presentation.Save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as presentation:
+    # Adds chart
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400, True)
+    series = chart.chart_data.series
+    if series[0].overlap == 0:
+        # Sets series overlap
+        series[0].parent_series_group.overlap = -30
+
+    # Writes the presentation file to disk
+    presentation.save("SetChartSeriesOverlap_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Change Series Color**
@@ -53,17 +52,19 @@ Aspose.Slides for Python via .NET allows you to change a series' color this way:
 This Python code shows you how to change a series' color:
 
 ```py
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 600, 400);
-	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[1];
-	
-	point.Explosion = 30;
-	point.Format.Fill.FillType = FillType.Solid;
-	point.Format.Fill.SolidFillColor.Color = Color.Blue;
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 400)
+	point = chart.chart_data.series[0].data_points[1]
+	
+	point.explosion = 30
+	point.format.fill.fill_type = slides.FillType.SOLID
+	point.format.fill.solid_fill_color.color = draw.Color.blue
+
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Change Series Category's Color**
@@ -78,16 +79,18 @@ Aspose.Slides for Python via .NET allows you to change a series category's color
 This code in Python shows you how to change a series category's color:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[0];
-	
-	point.Format.Fill.FillType = FillType.Solid;
-	point.Format.Fill.SolidFillColor.Color = Color.Blue;
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+	point = chart.chart_data.series[0].data_points[0]
+	
+	point.format.fill.fill_type = slides.FillType.SOLID
+	point.format.fill.solid_fill_color.color = draw.Color.blue
+
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Change Series' Name** 
@@ -104,28 +107,31 @@ Aspose.Slides for Python via .NET allows you to update or change a series name i
 This Python code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN3_D, 50, 50, 600, 400, True)
     
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = "New name";
+    seriesCell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
+    seriesCell.value = "New name"
     
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 This Python code shows you how to change a series name in its legend through`Series`:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.ChartData.Series[0];
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN3_D, 50, 50, 600, 400, True)
+    series = chart.chart_data.series[0]
     
-    IStringChartValue name = series.Name;
-    name.AsCells[0].Value = "New name";   
-}
+    series.name.as_cells[0].value = "New name"
+
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 ## **Set Chart Series Fill Color**
@@ -134,27 +140,26 @@ Aspose.Slides for Python via .NET allows you to set the automatic fill color for
 
 1. Create an instance of the `Presentation` class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.CLUSTERED_COLUMN`).
 1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
 
 This Python code shows you how to set the automatic fill color for a chart series:
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    // Creates a clustered column chart
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    // Sets series fill format to automatic
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        chart.ChartData.Series[i].GetAutomaticSeriesColor();
-    }
+with slides.Presentation() as presentation:
+    # Creates a clustered column chart
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 50, 600, 400)
 
-    // Writes the presentation file to disk
-    presentation.Save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-}
+    # Sets series fill format to automatic
+    for i in range(len(chart.chart_data.series)):
+        chart.chart_data.series[i].get_automatic_series_color()
+
+    # Writes the presentation file to disk
+    presentation.save("AutoFillSeries_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Set Chart Series Invert Fill Colors**
@@ -162,151 +167,152 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 
 1. Create an instance of the `Presentation` class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.CLUSTERED_COLUMN`).
 1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
 
 This Python code demonstrates the operation:
 
 ```py
-Color inverColor = Color.Red;
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
+    workBook = chart.chart_data.chart_data_workbook
 
-    // Adds new series and categories
-    chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-    // Takes the first chart series and populates its series data.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-    pres.Save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);               
-}
+    # Adds new series and categories
+    chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.categories.add(workBook.get_cell(0, 1, 0, "Category 1"))
+    chart.chart_data.categories.add(workBook.get_cell(0, 2, 0, "Category 2"))
+    chart.chart_data.categories.add(workBook.get_cell(0, 3, 0, "Category 3"))
+
+    # Takes the first chart series and populates its series data.
+    series = chart.chart_data.series[0]
+    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 1, 1, -20))
+    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
+    seriesColor = series.get_automatic_series_color()
+    series.invert_if_negative = True
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = seriesColor
+    series.inverted_solid_fill_color.color = draw.Color.red
+    pres.save("SetInvertFillColorChart_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Set Series to Invert When Value is Negative**
-Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
+Aspose.Slides allows you to set inverts through the `ChartDataPoint.invert_if_negative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
 
 This Python code demonstrates the operation:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-	IChartSeriesCollection series = chart.ChartData.Series;
-	chart.ChartData.Series.Clear();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-	series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -2));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400, True)
+	series = chart.chart_data.series
+	chart.chart_data.series.clear()
 
-	series[0].InvertIfNegative = false;
+	series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
+	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
+	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
+	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -2))
+	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
 
-	series[0].DataPoints[2].InvertIfNegative = true;
+	series[0].invert_if_negative = False
 
-	pres.Save("out.pptx", SaveFormat.Pptx);
-}
+	series[0].data_points[2].invert_if_negative = True
+
+	pres.save("out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Clear Specific Data Points' Data**
-Aspose.Slides for Python via .NET allows you to clear the `DataPoints` data for a specific chart series this way:
+Aspose.Slides for Python via .NET allows you to clear the `data_points` data for a specific chart series this way:
 
 1. Create an instance of the `Presentation` class.
 2. Obtain the reference of a slide through its index.
 3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
-5. Clear all`DataPoints` for specific chart series.
+4. Iterate through all the chart `data_points` and set `xvalue` and `yvalue` to null.
+5. Clear all`data_points` for specific chart series.
 6. Write the modified presentation to a PPTX file.
 
 This Python code demonstrates the operation:
 
 ```py
-using (Presentation pres = new Presentation("TestChart.pptx"))
-{
-	ISlide sl = pres.Slides[0];
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	IChart chart = (IChart)sl.Shapes[0];
+with slides.Presentation(path + "TestChart.pptx") as pres:
+    sl = pres.slides[0]
+    chart = sl.shapes[0]
 
-	foreach (IChartDataPoint dataPoint in chart.ChartData.Series[0].DataPoints)
-	{
-		dataPoint.XValue.AsCell.Value = null;
-		dataPoint.YValue.AsCell.Value = null;
-	}
+    for dataPoint in chart.chart_data.series[0].data_points:
+        dataPoint.xvalue.as_cell.value = None
+        dataPoint.yvalue.as_cell.value = None
 
-	chart.ChartData.Series[0].DataPoints.Clear();
+    chart.chart_data.series[0].data_points.clear()
 
-	pres.Save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
-}
+    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Set Series Gap Width**
-Aspose.Slides for Python via .NET allows you to set a series' Gap Width through the **`GapWidth`** property this way:
+Aspose.Slides for Python via .NET allows you to set a series' Gap Width through the **`gap_width`** property this way:
 
 1. Create an instance of the `Presentation` class.
 1. Access first slide.
 1. Add chart with default data.
 1. Access any chart series.
-1. Set the `GapWidth` property.
+1. Set the `gap_width` property.
 1. Write the modified presentation to a PPTX file.
 
 This code in Python shows you how to set a series' Gap Width:
 
 ```py
-// Creates empty presentation 
-Presentation presentation = new Presentation();
+# Creates empty presentation 
+with slides.Presentation() as presentation:
 
-// Accesses the presentation's first slide
-ISlide slide = presentation.Slides[0];
+    # Accesses the presentation's first slide
+    slide = presentation.slides[0]
 
-// Adds a chart with default data
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 0, 0, 500, 500);
+    # Adds a chart with default data
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 0, 0, 500, 500)
 
-// Sets the index of the chart data sheet
-int defaultWorksheetIndex = 0;
+    # Sets the index of the chart data sheet
+    defaultWorksheetIndex = 0
 
-// Gets the chart data worksheet
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    # Gets the chart data worksheet
+    fact = chart.chart_data.chart_data_workbook
 
-// Adds series
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+    # Adds series
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
 
-// Adds Categories
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # Adds Categories
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
 
-// Takes the second chart series
-IChartSeries series = chart.ChartData.Series[1];
+    # Takes the second chart series
+    series = chart.chart_data.series[1]
 
-// Populates the series data
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
+    # Populates the series data
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
 
-// Sets GapWidth value
-series.ParentSeriesGroup.GapWidth = 50;
+    # Sets GapWidth value
+    series.parent_series_group.gap_width = 50
 
-// Saves presentation to disk
-presentation.Save("GapWidth_out.pptx", SaveFormat.Pptx);
+    # Saves presentation to disk
+    presentation.save("GapWidth_out.pptx", slides.export.SaveFormat.PPTX)
 ```

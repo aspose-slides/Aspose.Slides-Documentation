@@ -16,51 +16,55 @@ Aspose.Slides for Python via .NET provides a simple API for setting these proper
 1. Write the modified presentation to a PPTX file.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
-           
-// Access first slide
-ISlide slide = presentation.Slides[0];
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Add chart with default data
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+            
+    # Access first slide
+    slide = presentation.slides[0]
 
-// Setting the index of chart data sheet
-int defaultWorksheetIndex = 0;
+    # Add chart with default data
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN3_D, 0, 0, 500, 500)
 
-// Getting the chart data worksheet
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    # Setting the index of chart data sheet
+    defaultWorksheetIndex = 0
 
-// Add series
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+    # Getting the chart data worksheet
+    fact = chart.chart_data.chart_data_workbook
 
-// Add Catrgories
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # Add series
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
 
-// Set Rotation3D properties
-chart.Rotation3D.RightAngleAxes = true;
-chart.Rotation3D.RotationX = 40;
-chart.Rotation3D.RotationY = 270;
-chart.Rotation3D.DepthPercents = 150;
+    # Add Catrgories
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
 
-// Take second chart series
-IChartSeries series = chart.ChartData.Series[1];
+    # Set Rotation3D properties
+    chart.rotation3_d.right_angle_axes = True
+    chart.rotation3_d.rotation_x = 40
+    chart.rotation3_d.rotation_y = 270
+    chart.rotation3_d.depth_percents = 150
 
-// Now populating series data
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
+    # Take second chart series
+    series = chart.chart_data.series[1]
 
-// Set OverLap value
-series.ParentSeriesGroup.Overlap = 100;         
+    # Now populating series data
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
 
-// Write presentation to disk
-presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
+    # Set OverLap value
+    series.parent_series_group.overlap = 100         
+
+    # Write presentation to disk
+    presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

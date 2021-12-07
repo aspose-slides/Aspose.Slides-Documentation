@@ -17,11 +17,8 @@ Let’s start with adding a new Sunburst chart to the presentation:
 
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-}
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 100, 100, 450, 400)
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -51,8 +48,8 @@ Show value of "Leaf 4" data point:
 
 
 ```py
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
+    dataPoints = chart.chart_data.series[0].data_points
+    dataPoints[3].data_point_levels[0].label.data_label_format.show_value = True
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
@@ -62,12 +59,12 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
 
 
 ```py
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
+    branch1Label = dataPoints[0].data_point_levels[2].label
+    branch1Label.data_label_format.show_category_name = False
+    branch1Label.data_label_format.show_series_name = True
 
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
+    branch1Label.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    branch1Label.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.yellow
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
@@ -76,19 +73,20 @@ branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.
 Change color of "Stem 4" branch:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    
-    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 100, 100, 450, 400)
+    dataPoints = chart.chart_data.series[0].data_points
+
+    stem4branch = dataPoints[9].data_point_levels[1]
     
-    stem4branch.Format.Fill.FillType = FillType.Solid;
-    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
+    stem4branch.format.fill.fill_type = slides.FillType.SOLID
+    stem4branch.format.fill.solid_fill_color.color = draw.Color.red
       
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)

@@ -19,19 +19,20 @@ Aspose.Slides for Python via .NET provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ```py
-using (Presentation pres = new Presentation("test.Pptx"))
-{
-    Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-    chart.ValidateChartLayout();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    double x = chart.PlotArea.ActualX;
-    double y = chart.PlotArea.ActualY;
-    double w = chart.PlotArea.ActualWidth;
-    double h = chart.PlotArea.ActualHeight;
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 350)
+    chart.validate_chart_layout()
+
+    x = chart.plot_area.actual_x
+    y = chart.plot_area.actual_y
+    w = chart.plot_area.actual_width
+    h = chart.plot_area.actual_height
 	
-	// Save presentation with chart
-	pres.Save("Chart_out.pptx", SaveFormat.Pptx);
-}
+	# Save presentation with chart
+    pres.save("Chart_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -46,17 +47,18 @@ Aspose.Slides for Python via .NET provides a simple API to set the layout mode o
 Sample code is given below.
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-    chart.PlotArea.AsILayoutable.X = 0.2f;
-    chart.PlotArea.AsILayoutable.Y = 0.2f;
-    chart.PlotArea.AsILayoutable.Width = 0.7f;
-    chart.PlotArea.AsILayoutable.Height = 0.7f;
-    chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    presentation.Save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
+    chart.plot_area.as_ilayoutable.x = 0.2
+    chart.plot_area.as_ilayoutable.y = 0.2
+    chart.plot_area.as_ilayoutable.width = 0.7
+    chart.plot_area.as_ilayoutable.height = 0.7
+    chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
+
+    presentation.save("SetLayoutMode_outer.pptx", slides.export.SaveFormat.PPTX)
 ```
 

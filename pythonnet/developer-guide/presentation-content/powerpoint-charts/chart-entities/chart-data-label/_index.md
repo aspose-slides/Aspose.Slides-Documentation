@@ -10,14 +10,15 @@ description: "Set PowerPoint chart data label and distance in Python"
 Aspose.Slides for Python via .NET provides a simple API for setting precision of data in chart data label. Below sample example is given. 
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
-	chart.HasDataTable = true;
-	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
+	chart.has_data_table = True
+	chart.chart_data.series[0].number_format_of_values = "#,##0.00"
+
+	pres.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -35,53 +36,45 @@ Aspose.Slides for Python via .NET supports displaying the percentage as labels. 
 In the example given below, we have set the percentage as label.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-ISlide slide = presentation.Slides[0];
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
-IChartSeries series = chart.ChartData.Series[0];
-IChartCategory cat;
-double[] total_for_Cat = new double[chart.ChartData.Categories.Count];
-for (int k = 0; k < chart.ChartData.Categories.Count; k++)
-{
-    cat = chart.ChartData.Categories[k];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
+    series = chart.chart_data.series[0]
+    total_for_Cat = [0]*len(chart.chart_data.categories)
+    for k in range(len(chart.chart_data.categories)):
+        cat = chart.chart_data.categories[k]
+        for i in range(len(chart.chart_data.series)):
+            total_for_Cat[k] += chart.chart_data.series[i].data_points[k].value.data
 
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        total_for_Cat[k] = total_for_Cat[k] + Convert.ToDouble(chart.ChartData.Series[i].DataPoints[k].Value.Data);
-    }
-}
+dataPontPercent = 0
 
-double dataPontPercent = 0f;
+for x in range(len(chart.chart_data.series)):
+    series = chart.chart_data.series[x]
+    series.labels.default_data_label_format.show_legend_key = False
 
-for (int x = 0; x < chart.ChartData.Series.Count; x++)
-{
-    series = chart.ChartData.Series[x];
-    series.Labels.DefaultDataLabelFormat.ShowLegendKey = false;
+    for j in range(len(series.data_points)):
+        lbl = series.data_points[j].label
+        dataPontPercent = series.data_points[j].value.data / total_for_Cat[j] * 100
 
-    for (int j = 0; j < series.DataPoints.Count; j++)
-    {
-        IDataLabel lbl = series.DataPoints[j].Label;
-        dataPontPercent = (Convert.ToDouble(series.DataPoints[j].Value.Data) / total_for_Cat[j]) * 100;
+        port = slides.Portion()
+        port.text = "{0:.2f} %".format(dataPontPercent)
+        port.portion_format.font_height = 8
+        lbl.text_frame_for_overriding.text = ""
+        para = lbl.text_frame_for_overriding.paragraphs[0]
+        para.portions.add(port)
 
-        IPortion port = new Portion();
-        port.Text = String.Format("{0:F2} %", dataPontPercent);
-        port.PortionFormat.FontHeight = 8f;
-        lbl.TextFrameForOverriding.Text = "";
-        IParagraph para = lbl.TextFrameForOverriding.Paragraphs[0];
-        para.Portions.Add(port);
+        lbl.data_label_format.show_series_name = False
+        lbl.data_label_format.show_percentage = False
+        lbl.data_label_format.show_legend_key = False
+        lbl.data_label_format.show_category_name = False
+        lbl.data_label_format.show_bubble_size = False
 
-        lbl.DataLabelFormat.ShowSeriesName = false;
-        lbl.DataLabelFormat.ShowPercentage = false;
-        lbl.DataLabelFormat.ShowLegendKey = false;
-        lbl.DataLabelFormat.ShowCategoryName = false;
-        lbl.DataLabelFormat.ShowBubbleSize = false;
-    }
-}
-
-// Save presentation with chart
-presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
+# Save presentation with chart
+presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -100,64 +93,68 @@ In order to set the percentage sign with chart data labels. Please follow the st
 - Write the presentation as a PPTX file.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Get reference of the slide
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
 
-// Add PercentsStackedColumn chart on a slide
-IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+    # Get reference of the slide
+    slide = presentation.slides[0]
 
-// Set NumberFormatLinkedToSource to false
-chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
-chart.Axes.VerticalAxis.NumberFormat = "0.00%";
+    # Add PercentsStackedColumn chart on a slide
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
 
-chart.ChartData.Series.Clear();
-int defaultWorksheetIndex = 0;
+    # Set NumberFormatLinkedToSource to false
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00%"
 
-// Getting the chart data worksheet
-IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    chart.chart_data.series.clear()
+    defaultWorksheetIndex = 0
 
-// Add new series
-IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
+    # Getting the chart data worksheet
+    workbook = chart.chart_data.chart_data_workbook
 
-// Setting the fill color of series
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+    # Add new series
+    series = chart.chart_data.series.add(workbook.get_cell(defaultWorksheetIndex, 0, 1, "Reds"), chart.type)
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 1, 1, 0.30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 2, 1, 0.50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 3, 1, 0.80))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 4, 1, 0.65))
 
-// Setting LabelFormat properties
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
+    # Setting the fill color of series
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.red
 
-// Add new series
-IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
+    # Setting LabelFormat properties
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.is_number_format_linked_to_source = False
+    series.labels.default_data_label_format.number_format = "0.0%"
+    series.labels.default_data_label_format.text_format.portion_format.font_height = 10
+    series.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
+    series.labels.default_data_label_format.show_value = True
 
-// Setting Fill type and color
-series2.Format.Fill.FillType = FillType.Solid;
-series2.Format.Fill.SolidFillColor.Color = Color.Blue;
-series2.Labels.DefaultDataLabelFormat.ShowValue = true;
-series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+    # Add new series
+    series2 = chart.chart_data.series.add(workbook.get_cell(defaultWorksheetIndex, 0, 2, "Blues"), chart.type)
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 1, 2, 0.70))
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 2, 2, 0.50))
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 3, 2, 0.20))
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 4, 2, 0.35))
 
-// Write presentation to disk
-presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    # Setting Fill type and color
+    series2.format.fill.fill_type = slides.FillType.SOLID
+    series2.format.fill.solid_fill_color.color = draw.Color.blue
+    series2.labels.default_data_label_format.show_value = True
+    series2.labels.default_data_label_format.is_number_format_linked_to_source = False
+    series2.labels.default_data_label_format.number_format = "0.0%"
+    series2.labels.default_data_label_format.text_format.portion_format.font_height = 10
+    series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
+
+    # Write presentation to disk
+    presentation.save("SetDatalabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -174,18 +171,20 @@ In order to set the Label Distance. Please follow the steps below:
 In the example given below, we have set the label distance from category axis.
 
 ```py
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-// Get reference of the slide
-ISlide sld = presentation.Slides[0];
+with slides.Presentation() as presentation:
+    # Get reference of the slide
+    sld = presentation.slides[0]
+    
+    # Adding a chart on slide
+    ch = sld.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-// Adding a chart on slide
-IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    # Setting the position of label from axis
+    ch.axes.horizontal_axis.label_offset = 500
 
-// Setting the position of label from axis
-ch.Axes.HorizontalAxis.LabelOffset = 500;
-
-// Write the presentation file to disk
-presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+    # Write the presentation file to disk
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
