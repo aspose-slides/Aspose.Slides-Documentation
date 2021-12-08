@@ -11,10 +11,12 @@ description: "Get chart images in PowerPoint presentation in Python"
 Aspose.Slides for Python via .NET provides support for extracting image of specific chart. Below sample example is given. 
 
 ```py
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	Image img = chart.GetThumbnail();
-	img.Save("image.png", ImageFormat.Png);
-}
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+	img = chart.get_thumbnail()
+	img.save("image.png", draw.imaging.ImageFormat.png)
 ```

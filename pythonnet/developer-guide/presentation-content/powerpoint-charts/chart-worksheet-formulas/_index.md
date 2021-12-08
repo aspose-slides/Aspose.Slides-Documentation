@@ -50,19 +50,13 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-using (var presentation = new Presentation())
-
-{
-
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    // ...
-
-}
-
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    # ...
 ```
 
 
@@ -74,13 +68,9 @@ of the **Object** type, which means you can set any value to the property:
 
 
 ```py
-
-workbook.GetCell(0, "F2").Value = -2.5;
-
-workbook.GetCell(0, "G3").Value = 6.3;
-
-workbook.GetCell(0, "H4").Value = 3;
-
+    workbook.get_cell(0, "F2").value = -2.5
+    workbook.get_cell(0, "G3").value = 6.3
+    workbook.get_cell(0, "H4").value = 3
 ```
 
 
@@ -89,7 +79,7 @@ Now to write formula to the cell, you can use the
 [**IChartDataCell.Formula**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/ichartdatacell/properties/formula) property:
 
 ```py
-workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
+    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
 ```
 
 *Note*: [**IChartDataCell.Formula**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/ichartdatacell/properties/formula) property is used to set A1-style cell references. 
@@ -99,7 +89,7 @@ workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
 To set the [R1C1Formula](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/ichartdatacell/properties/r1c1formula) cell reference, you can use the [**IChartDataCell.R1C1Formula**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/ichartdatacell/properties/r1c1formula) property:
 
 ```py
-workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
+    workbook.get_cell(0, "C2").r1_c1_formula = "R[1]C[4]/R[2]C[5]"
 ```
 
 Then use the [**IChartDataWorkbook.CalculateFormulas**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) method to calculate all formulas within the workbook and update corresponding cells values:
@@ -107,12 +97,9 @@ Then use the [**IChartDataWorkbook.CalculateFormulas**](https://apireference.asp
 
 
 ```py
-workbook.CalculateFormulas();
-
-object value1 = workbook.GetCell(0, "B2"); // 7.8
-
-object value2 = workbook.GetCell(0, "C2"); // 2.1
-
+    workbook.calculate_formulas()
+    print(workbook.get_cell(0, "B2").value) # 7.8
+    print(workbook.get_cell(0, "C2").value) # 2.1
 ```
 
 

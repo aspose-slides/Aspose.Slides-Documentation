@@ -21,41 +21,47 @@ Here we will apply the PathFootball effect (one of more than 150 available effec
 - Write the presentation to the disk as a PPTX file.
 
 ```py
-// Instantiate PrseetationEx class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
+import aspose.slides.animation as anim
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Now create effect "PathFootball" for existing shape from scratch.
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
+# Instantiate PrseetationEx class that represents the PPTX
+with slides.Presentation() as pres:
+    sld = pres.slides[0]
 
-    ashp.AddTextFrame("Animated TextBox");
+    # Now create effect "PathFootball" for existing shape from scratch.
+    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
 
-    // Add PathFootBall animation effect
-    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    ashp.add_text_frame("Animated TextBox")
 
-    // Create some kind of "button".
-    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
+    # Add PathFootBall animation effect
+    pres.slides[0].timeline.main_sequence.add_effect(ashp, 
+        anim.EffectType.PATH_FOOTBALL,
+        anim.EffectSubtype.NONE, 
+        anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    // Create sequence of effects for this button.
-    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
+    # Create some kind of "button".
+    shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
 
-    // Create custom user path. Our object will be moved only after "button" click.
-    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
+    # Create sequence of effects for this button.
+    seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
 
-    // Created path is empty so we should add commands for moving.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
+    # Create custom user path. Our object will be moved only after "button" click.
+    fxUserPath = seqInter.add_effect(ashp, 
+        anim.EffectType.PATH_USER, 
+        anim.EffectSubtype.NONE, 
+        anim.EffectTriggerType.ON_CLICK)
 
-    PointF[] pts = new PointF[1];
-    pts[0] = new PointF(0.076f, 0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new PointF(-0.076f, -0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
+    # Created path is empty so we should add commands for moving.
+    motionBhv = fxUserPath.behaviors[0]
 
-    //Write the presentation as PPTX to disk
-    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-}
+    pts = [draw.PointF(0.076, 0.59)]
+    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, True)
+    pts = [draw.PointF(-0.076, -0.59)]
+    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
+    motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
+
+    #Write the presentation as PPTX to disk
+    pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

@@ -20,15 +20,22 @@ While humans easily write the code for some equation formats like LaTeX, they st
 This sample code shows you how to export a math equation from a presentation to MathML:
 
 ```py
-using (Presentation pres = new Presentation())
-        {
-            var autoShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 500, 50);
-            var mathParagraph = ((MathPortion)autoShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+import aspose.slides as slides
+import aspose.slides.mathtext as math
 
-            mathParagraph.Add(new MathematicalText("a").SetSuperscript("2").Join("+").Join(new MathematicalText("b").SetSuperscript("2")).Join("=").Join(new MathematicalText("c").SetSuperscript("2")));
+with slides.Presentation() as pres:
+    autoShape = pres.slides[0].shapes.add_math_shape(0, 0, 500, 50)
+    mathParagraph = autoShape.text_frame.paragraphs[0].portions[0].math_paragraph
 
-       using (Stream stream = new FileStream("mathml.xml", FileMode.Create))
-                mathParagraph.WriteAsMathMl(stream);
-        }
+    mathParagraph.add(
+        math.MathematicalText("a").
+            set_superscript("2").
+            join("+").
+            join(math.MathematicalText("b").set_superscript("2")).
+            join("=").
+            join(math.MathematicalText("c").set_superscript("2")))
+
+    with open("mathml.xml", "wb") as stream:
+        mathParagraph.write_as_math_ml(stream)
 ```
 

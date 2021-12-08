@@ -8,36 +8,6 @@ description: "Chart workbook in PowerPoint presentation in Python"
 ---
 
 ## **Chart Workbook**
-### **Set Chart Data from Workbook**
-A new property has been added to set chart data from workbook. Now Aspose.Slides does allow ReadWorkbookStream() and WrtiteWorkbookStream() methods to read and write chart data workbooks containing chart data edited using Aspose.Cells. However, the chart data needs to be organized in same way or of similar type as of source type. Below sample example is given.
-
-```py
-Presentation pres = new Presentation(dataDir+"Test.pptx");
-
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
-chart.ChartData.ChartDataWorkbook.Clear(0);
-
-Workbook workbook = null;
-try
-{
-	workbook = new Aspose.Cells.Workbook("a1.xlsx");
-}
-catch (Exception ex)
-{
-	Console.Write(ex);
-}
-MemoryStream mem = new MemoryStream();
-workbook.Save(mem, Aspose.Cells.SaveFormat.Xlsx);
-
-chart.ChartData.WriteWorkbookStream(mem);
-
-chart.ChartData.SetRange("Sheet1!$A$1:$B$9");
-IChartSeries series = chart.ChartData.Series[0];
-series.ParentSeriesGroup.IsColorVaried = true;
-pres.Save(dataDir+"response2.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-```
-
-
 ### **Set WorkBook Cell as Chart DataLabel**
 Aspose.Slides for Python via .NET provides a simple API for getting value from WorkBook Cell used as DataLabel:
 
@@ -49,31 +19,24 @@ Aspose.Slides for Python via .NET provides a simple API for getting value from W
 1. Save the presentation to a PPTX file.
 
 ```py
-string lbl0 = "Label 0 cell value";
-string lbl1 = "Label 1 cell value";
-string lbl2 = "Label 2 cell value";
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-// Instantiate Presentation class that represents a presentation file 
+# Instantiate Presentation class that represents a presentation file 
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
 
-using (Presentation pres = new Presentation("chart2.pptx"))
-{
-    ISlide slide = pres.Slides[0];
+    series = chart.chart_data.series
 
+    series[0].labels.default_data_label_format.show_label_value_from_cell = True
 
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
+    wb = chart.chart_data.chart_data_workbook
 
-    IChartSeriesCollection series = chart.ChartData.Series;
+    series[0].labels[0].value_from_cell = wb.get_cell(0, "A10", "Label 0 cell value")
+    series[0].labels[1].value_from_cell = wb.get_cell(0, "A11", "Label 1 cell value")
+    series[0].labels[2].value_from_cell = wb.get_cell(0, "A12", "Label 2 cell value")
 
-    series[0].Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
-
-    IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-    series[0].Labels[0].ValueFromCell = wb.GetCell(0, "A10", lbl0);
-    series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
-    series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
-
-    pres.Save("resultchart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    pres.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -87,18 +50,14 @@ Aspose.Slides for Python via .NET provides a simple API for getting value from W
 1. If Source Type is equal to external workbook the get chart external data source workbook path.
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-	ISlide slide = pres.Slides[1];
-	IChart chart = (IChart)slide.Shapes[0];
-	ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
-	if (sourceType == ChartDataSourceType.ExternalWorkbook)
-	{
-		string path = chart.ChartData.ExternalWorkbookPath;
-	}
-}
-// Saving presentation
-pres.Save("Result.pptx", SaveFormat.Pptx);
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation("response2.pptx") as pres:
+    chart = pres.slides[0].shapes[0]
+    sourceType = chart.chart_data.data_source_type
+    if sourceType == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
+        print(chart.chart_data.external_workbook_path)
 ```
 
 ### **Manage Worksheets**
@@ -106,13 +65,14 @@ pres.Save("Result.pptx", SaveFormat.Pptx);
 To gain access to a worksheet collection, use the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/pythonnet/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property. See the Python code below. 
 
 ```py
-using (Presentation pres = new Presentation())
-{
-   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
-   IChartDataWorkbook wb =  chart.ChartData.ChartDataWorkbook;
-   for (int i = 0; i < wb.Worksheets.Count; i++)
-      Console.WriteLine(wb.Worksheets[i].Name);
-}
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+   chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
+   wb =  chart.chart_data.chart_data_workbook
+   for i in range(len(wb.worksheets)):
+      print(wb.worksheets[i].name)
 ```
 
 
@@ -121,78 +81,76 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for Python via .NET for 19.4 supports external workbooks as a data source for charts.
 {{% /alert %}} 
 ### **Create External Workbook**
-This article demonstrates how to create an external workbook from scratch using Aspose.Slides for Python via .NET. **IChartData.ReadWorkbookStream()** and **IChartData.SetExternalWorkbook()** methods can be used to create an external workbook from scratch or to make an internal workbook external.
+This article demonstrates how to create an external workbook from scratch using Aspose.Slides for Python via .NET. **ChartData.set_external_workbook()** method can be used to create an external workbook from scratch or to make an internal workbook external.
 
 The implementation is demonstrated below in an example.
 
 ```py
-using (Presentation pres = new Presentation("presentation.pptx"))
-{
-    string externalWbPath = "externalWorkbook1.xlsx";
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600);
+with slides.Presentation() as pres:
 
-    if (File.Exists(externalWbPath))
-        File.Delete(externalWbPath);
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 500, 400)
+    chart.chart_data.chart_data_workbook.clear(0)
 
-    using (FileStream fileStream = new FileStream(externalWbPath, FileMode.CreateNew))
-    {
-        byte[] worbookData = chart.ChartData.ReadWorkbookStream().ToArray();
-        fileStream.Write(worbookData, 0, worbookData.Length);
-    }
+    chart.chart_data.set_external_workbook(path + "externalWorkbook.xlsx")
 
-    chart.ChartData.SetExternalWorkbook(externalWbPath);
-
-    pres.Save("Presentation_with_externalWbPath.pptx", SaveFormat.Pptx);
-}
+    chart.chart_data.set_range("Sheet1!$A$2:$B$5")
+    series = chart.chart_data.series[0]
+    series.parent_series_group.is_color_varied = True
+    pres.save("response2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 
 
 ### **Set External Workbook**
-Using Aspose.Slides for Python via .NET, an external workbook can be assigned to a chart as a data source. For this purpose **IChartData.SetExternalWorkbook** method has been added.
+Using Aspose.Slides for Python via .NET, an external workbook can be assigned to a chart as a data source. For this purpose **ChartData.set_external_workbook** method has been added.
 
-**SetExternalWorkbook()** method can be also used to update a path to the external workbook if it has been moved. Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. If the relative path was provided for an external workbook, it converts to full path automatically.
+**set_external_workbook()** method can be also used to update a path to the external workbook if it has been moved. Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. If the relative path was provided for an external workbook, it converts to full path automatically.
 
 The implementation is demonstrated below in an example.
 
 ```py
-// The path to the documents directory.
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
-    IChartData chartData = chart.ChartData;
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+# The path to the documents directory.
+with slides.Presentation() as pres:
+
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
+    chartData = chart.chart_data
                     
-    chartData.SetExternalWorkbook("externalWorkbook.xlsx");
+    chartData.set_external_workbook(path + "externalWorkbook.xlsx")
                   
 
-    chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
-    chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
-    chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B3"));
-    chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B4"));
+    chartData.series.add(chartData.chart_data_workbook.get_cell(0, "B1"), charts.ChartType.PIE)
+    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B2"))
+    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B3"))
+    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B4"))
 
-    chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A2"));
-    chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A3"));
-    chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A4"));
-    pres.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
-}
+    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A2"))
+    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A3"))
+    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A4"))
+    pres.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-The **SetExternalWorkbook(System::String workbookPath, bool updateChartData)** method has been added with **updateChartData** parameter to the **ChartData** and **IChartData** classes.
+The **set_external_workbook(String workbookPath, bool updateChartData)** method has been added with **updateChartData** parameter to the **ChartData** class.
 
-The **updateChartData** parameter defines whether an excel workbook will be loaded or not. If the value is ***false*** only the workbook path will be updated. Chart data will not be loaded and updated from the target workbook. This is useful when the target workbook does not yet exist or is not available. If the value is **true** chart data will be updated from the target workbook as the **SetExternalWorkbook(System::String)** method does.
+The **updateChartData** parameter defines whether an excel workbook will be loaded or not. If the value is ***False*** only the workbook path will be updated. Chart data will not be loaded and updated from the target workbook. This is useful when the target workbook does not yet exist or is not available. If the value is **True** chart data will be updated from the target workbook as the **set_external_workbook(System::String)** method does.
 
 ```py
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
-	IChartData chartData = chart.ChartData;
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-	(chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
+    chartData = chart.chart_data
 
-	pres.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
-}
+    chartData.set_external_workbook("http://path/doesnt/exists", False)
+
+    pres.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -202,15 +160,12 @@ Using Aspose.Slides for Python via .NET, Chart data in external workbooks can be
 The implementation is demonstrated below in an example.
 
 ```py
-using (Presentation pres = new Presentation("presentation.pptx"))
-{
-    IChart chart = pres.Slides[0].Shapes[0] as IChart;
-    ChartData chartData = (ChartData)chart.ChartData;
-                   
+import aspose.slides.charts as charts
+import aspose.slides as slides
 
-    chartData.Series[0].DataPoints[0].Value.AsCell.Value = 100;
-    pres.Save("presentation_out.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation(path + "presentation.pptx") as pres:
+    pres.slides[0].shapes[0].chart_data.series[0].data_points[0].value.as_cell.value = 100
+    pres.save("presentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 

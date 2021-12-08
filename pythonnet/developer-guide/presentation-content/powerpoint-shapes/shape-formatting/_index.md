@@ -22,32 +22,32 @@ Using Aspose.Slides for Python via .NET developers can add different kinds of sh
 In the example given below, we have selected an AutoShape of Rectangle type whose lines are formatted using Aspose.Slides for Python via .NET .
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+    # Add autoshape of rectangle type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-    // Set the fill color of the rectangle shape
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.White;
+    # Set the fill color of the rectangle shape
+    shp.fill_format.fill_type = slides.FillType.SOLID
+    shp.fill_format.solid_fill_color.color = draw.Color.white
 
-    // Apply some formatting on the line of the rectangle
-    shp.LineFormat.Style = LineStyle.ThickThin;
-    shp.LineFormat.Width = 7;
-    shp.LineFormat.DashStyle = LineDashStyle.Dash;
+    # Apply some formatting on the line of the rectangle
+    shp.line_format.style = slides.LineStyle.THICK_THIN
+    shp.line_format.width = 7
+    shp.line_format.dash_style = slides.LineDashStyle.DASH
 
-    // Set the color of the line of rectangle
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    # Set the color of the line of rectangle
+    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shp.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    //Write the PPTX file to disk
-    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("RectShpLn_out-1.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -61,52 +61,52 @@ Join Style is the style of the outer corners of the shape. They are of three typ
 In the example given below, we will create three rectangles with each of the Join Style mentioned above and show the resulting output of the code.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-	// Get the first slide
-	ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+	# Get the first slide
+	sld = pres.slides[0]
 
-	// Add three autoshapes of rectangle type
-	IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-	IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-	IShape shp3 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
+	# Add three autoshapes of rectangle type
+	shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 100, 150, 75)
+	shp2 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 150, 75)
+	shp3 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 150, 75)
 
-	// Set the fill color of the rectangle shape
-	shp1.FillFormat.FillType = FillType.Solid;
-	shp1.FillFormat.SolidFillColor.Color = Color.Black;
-	shp2.FillFormat.FillType = FillType.Solid;
-	shp2.FillFormat.SolidFillColor.Color = Color.Black;
-	shp3.FillFormat.FillType = FillType.Solid;
-	shp3.FillFormat.SolidFillColor.Color = Color.Black;
+	# Set the fill color of the rectangle shape
+	shp1.fill_format.fill_type = slides.FillType.SOLID
+	shp1.fill_format.solid_fill_color.color = draw.Color.black
+	shp2.fill_format.fill_type = slides.FillType.SOLID
+	shp2.fill_format.solid_fill_color.color = draw.Color.black
+	shp3.fill_format.fill_type = slides.FillType.SOLID
+	shp3.fill_format.solid_fill_color.color = draw.Color.black
 
-	// Set the line width
-	shp1.LineFormat.Width = 15;
-	shp2.LineFormat.Width = 15;
-	shp3.LineFormat.Width = 15;
+	# Set the line width
+	shp1.line_format.width = 15
+	shp2.line_format.width = 15
+	shp3.line_format.width = 15
 
-	// Set the color of the line of rectangle
-	shp1.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp2.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp3.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+	# Set the color of the line of rectangle
+	shp1.line_format.fill_format.fill_type = slides.FillType.SOLID
+	shp1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+	shp2.line_format.fill_format.fill_type = slides.FillType.SOLID
+	shp2.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+	shp3.line_format.fill_format.fill_type = slides.FillType.SOLID
+	shp3.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-	// Set the Join Style
-	shp1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-	shp2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-	shp3.LineFormat.JoinStyle = LineJoinStyle.Round;
+	# Set the Join style
+	shp1.line_format.join_style = slides.LineJoinStyle.MITER
+	shp2.line_format.join_style = slides.LineJoinStyle.BEVEL
+	shp3.line_format.join_style = slides.LineJoinStyle.ROUND
 
-	// Add text to each rectangle
-	((IAutoShape)shp1).TextFrame.Text = "This is Miter Join Style";
-	((IAutoShape)shp2).TextFrame.Text = "This is Bevel Join Style";
-	((IAutoShape)shp3).TextFrame.Text = "This is Round Join Style";
+	# Add text to each rectangle
+	shp1.text_frame.text = "This is Miter Join style"
+	shp2.text_frame.text = "This is Bevel Join style"
+	shp3.text_frame.text = "This is Round Join style"
 
-	//Write the PPTX file to disk
-	pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
-}
+	#Write the PPTX file to disk
+	pres.save("RectShpLnJoin_out-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -123,30 +123,30 @@ Aspose.Slides for Python via .NET supports different features while filling shap
 In the example given below, we have selected the ellipse shape for the demonstration purpose.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of ellipse type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
+    # Add autoshape of ellipse type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 75, 150)
 
-    // Apply some gradiant formatting to ellipse shape
-    shp.FillFormat.FillType = FillType.Gradient;
-    shp.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    # Apply some gradiant formatting to ellipse shape
+    shp.fill_format.fill_type = slides.FillType.GRADIENT
+    shp.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
 
-    // Set the Gradient Direction
-    shp.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+    # Set the Gradient Direction
+    shp.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
 
-    // Add two Gradiant Stops
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)1.0, PresetColor.Purple);
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
+    # Add two Gradiant Stops
+    shp.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
+    shp.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
 
-    //Write the PPTX file to disk
-    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("EllipseShpGrad_out-3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -165,29 +165,29 @@ This topic covers about patterns that can also be used by developers to fill the
 The above steps are implemented in the example given below.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    # Add autoshape of rectangle type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
-    // Set the fill type to Pattern
-    shp.FillFormat.FillType = FillType.Pattern;
+    # Set the fill type to Pattern
+    shp.fill_format.fill_type = slides.FillType.PATTERN
 
-    // Set the pattern style
-    shp.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+    # Set the pattern style
+    shp.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
 
-    // Set the pattern back and fore colors
-    shp.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+    # Set the pattern back and fore colors
+    shp.fill_format.pattern_format.back_color.color = draw.Color.light_gray
+    shp.fill_format.pattern_format.fore_color.color = draw.Color.yellow
 
-    //Write the PPTX file to disk
-    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("RectShpPatt_out-4.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -206,30 +206,31 @@ In our previous topics, we have discussed about using pre-defined gradient and p
 The above steps are implemented in the example given below.
 
 ```py
-// Instantiate PrseetationEx class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate PrseetationEx class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    # Add autoshape of rectangle type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
 
-    // Set the fill type to Picture
-    shp.FillFormat.FillType = FillType.Picture;
+    # Set the fill type to Picture
+    shp.fill_format.fill_type = slides.FillType.PICTURE
 
-    // Set the picture fill mode
-    shp.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    # Set the picture fill mode
+    shp.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    // Set the picture
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("Tulips.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
-    shp.FillFormat.PictureFillFormat.Picture.Image = imgx;
+    # Set the picture
+    img = draw.Bitmap(path + "Tulips.jpg")
+    imgx = pres.images.add_image(img)
+    shp.fill_format.picture_fill_format.picture.image = imgx
 
-    //Write the PPTX file to disk
-    pres.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    #Write the PPTX file to disk
+    pres.save("RectShpPic_out-5.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -246,23 +247,25 @@ In this topic, we will discuss that how can developers fill their shapes with so
 The above steps are implemented in the example given below.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Get the first slide
-ISlide slide = presentation.Slides[0];
+with slides.Presentation() as presentation:
 
-// Add autoshape of rectangle type
-IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    # Get the first slide
+    slide = presentation.slides[0]
 
-// Set the fill type to Solid
-shape.FillFormat.FillType = FillType.Solid;
+    # Add autoshape of rectangle type
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
-// Set the color of the rectangle
-shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+    # Set the fill type to Solid
+    shape.fill_format.fill_type = slides.FillType.SOLID
 
-//Write the PPTX file to disk
-presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    # Set the color of the rectangle
+    shape.fill_format.solid_fill_color.color = draw.Color.yellow
+
+    #Write the PPTX file to disk
+    presentation.save("RectShpSolid_out-6.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -279,22 +282,21 @@ Aspose.Slides for Python via .NET allows developers to you rotate shapes as well
 In the example given below, we have rotated a rectangle shape to 90 degrees for the demonstration purpose.
 
 ```py
-// Instantiate PrseetationEx class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    # Add autoshape of rectangle type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
-    // Rotate the shape to 90 degree
-    shp.Rotation = 90;
+    # Rotate the shape to 90 degree
+    shp.rotation = 90
 
-    // Write the PPTX file to disk
-    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
-}
+    # Write the PPTX file to disk
+    pres.save("RectShpRot_out-7.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -308,30 +310,33 @@ Aspose.Slides for Python via .NET now supports adding 3D bevel effects to a shap
    In the example given below, we have applied 3D bevel effects on a shape.
 
 ```py
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-ISlide slide = pres.Slides[0];
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Add a shape on slide
-IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
-shape.FillFormat.FillType = FillType.Solid;
-shape.FillFormat.SolidFillColor.Color = Color.Green;
-ILineFillFormat format = shape.LineFormat.FillFormat;
-format.FillType = FillType.Solid;
-format.SolidFillColor.Color = Color.Orange;
-shape.LineFormat.Width = 2.0;
+# Create an instance of Presentation class
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
 
-// Set ThreeDFormat properties of shape
-shape.ThreeDFormat.Depth = 4;
-shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-shape.ThreeDFormat.BevelTop.Height = 6;
-shape.ThreeDFormat.BevelTop.Width = 6;
-shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
-shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    # Add a shape on slide
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 30, 30, 100, 100)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = draw.Color.green
+    format = shape.line_format.fill_format
+    format.fill_type = slides.FillType.SOLID
+    format.solid_fill_color.color = draw.Color.orange
+    shape.line_format.width = 2.0
 
-// Write the presentation as a PPTX file
-pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+    # Set three_dformat properties of shape
+    shape.three_dformat.depth = 4
+    shape.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    shape.three_dformat.bevel_top.height = 6
+    shape.three_dformat.bevel_top.width = 6
+    shape.three_dformat.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
+    shape.three_dformat.light_rig.light_type = slides.LightRigPresetType.THREE_PT
+    shape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+
+    # Write the presentation as a PPTX file
+    pres.save("Bavel_out-8.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -345,22 +350,25 @@ Aspose.Slides for Python via .NET now supports adding 3D Rotation effects to a s
    In the example given below, we have applied 3D Rotation effects on a shape.
 
 ```py
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-autoShape.ThreeDFormat.Depth = 6;
-autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+# Create an instance of Presentation class
+with slides.Presentation() as pres:
+    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 200, 200)
 
-autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-autoShape.ThreeDFormat.Depth = 6;
-autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    autoShape.three_dformat.depth = 6
+    autoShape.three_dformat.camera.set_rotation(40, 35, 20)
+    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
+    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
-          
-pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.LINE, 30, 300, 200, 200)
+    autoShape.three_dformat.depth = 6
+    autoShape.three_dformat.camera.set_rotation(0, 35, 20)
+    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
+    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
+
+            
+    pres.save("Rotation_out-9.pptx", slides.export.SaveFormat.PPTX)
 ```
 

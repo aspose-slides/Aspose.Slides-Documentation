@@ -44,54 +44,38 @@ Let's see how we can create the following mathematical equation via Aspose.Slide
 To add a mathematical expression on the slide, first, add a shape that will contain the mathematical text:
 
 ```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
 
- using (Presentation pres = new Presentation())
-
-{
-
-    var mathShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 720, 150);
-
-}
-
+with slides.Presentation() as pres:
+    mathShape = pres.slides[0].shapes.add_math_shape(0, 0, 720, 150)
 ```
 
 
 After creating, the shape will already contain one paragraph with a mathematical portion by default. The [**MathPortion** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathportion)class is a portion that contains a mathematical text inside. To access mathematical content inside [**MathPortion**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathportion), refer to the [**MathParagraph** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathparagraph)variable:
 
 ```py
-
- var mathParagraph = (mathShape.TextFrame.Paragraphs[0].Portions[0] as MathPortion).MathParagraph;
-
+    mathParagraph = mathShape.text_frame.paragraphs[0].portions[0].math_paragraph
 ```
 
 
 The [**MathParagraph** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathparagraph)class allows to read, add, edit and delete math blocks ([**MathBlock**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathblock)), that consist of a combination of mathematical elements. For example, create a fraction and place it in the presentation:
 
 ```py
-
- var fraction = new MathematicalText("x").Divide("y");
-
-mathParagraph.Add(new MathBlock(fraction));
-
+    fraction = math.MathematicalText("x").divide("y")
+    mathParagraph.add(math.MathBlock(fraction))
 ```
 
 
 Each mathematical element is represented by some class that implements the [**IMathElement** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/imathelement)interface. This interface provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
 
 ```py
-
- var mathBlock = new MathematicalText("c")
-
-    .SetSuperscript("2")
-
-    .Join("=")
-
-    .Join(new MathematicalText("a").SetSuperscript("2"))
-
-    .Join("+")
-
-    .Join(new MathematicalText("b").SetSuperscript("2"));
-
+    mathBlock = (
+        math.MathematicalText("c").set_superscript("2").
+            join("=").
+            join(math.MathematicalText("a").set_superscript("2")).
+            join("+").
+            join(math.MathematicalText("b").set_superscript("2")))
 ```
 
 
@@ -101,41 +85,27 @@ Operations of the interface [**IMathElement** ](https://apireference.aspose.co
 The full source code sample:
 
 ```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
 
- using (Presentation pres = new Presentation())
+with slides.Presentation() as pres:
+    mathShape = pres.slides[0].shapes.add_math_shape(0, 0, 720, 150)
 
-{
+    mathParagraph = mathShape.text_frame.paragraphs[0].portions[0].math_paragraph
 
-    IAutoShape mathShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 720, 150);
+    fraction = math.MathematicalText("x").divide("y")
+    mathParagraph.add(math.MathBlock(fraction))
 
-   var mathParagraph = (mathShape.TextFrame.Paragraphs[0].Portions[0] as MathPortion).MathParagraph;
+    mathBlock = (
+        math.MathematicalText("c").set_superscript("2").
+            join("=").
+            join(math.MathematicalText("a").set_superscript("2")).
+            join("+").
+            join(math.MathematicalText("b").set_superscript("2")))
 
+    mathParagraph.add(mathBlock)
 
-
-   var fraction = new MathematicalText("x").Divide("y");
-
-    mathParagraph.Add(new MathBlock(fraction));
-
-
-
-   var mathBlock = new MathematicalText("c")
-
-        .SetSuperscript("2")
-
-        .Join("=")
-
-        .Join(new MathematicalText("a").SetSuperscript("2"))
-
-        .Join("+")
-
-        .Join(new MathematicalText("b").SetSuperscript("2"));
-
-    mathParagraph.Add(mathBlock);
-
-    pres.Save("math.pptx", SaveFormat.Pptx);
-
-}
-
+    pres.save("math.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -183,11 +153,8 @@ Example:
 is created using a combination of [**MathFunction** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathfunction)and [**MathLimit** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/mathlimit)elements this way:
 
 ```py
-
- var funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑥→∞"));
-
-var mathFunc = new MathFunction(funcName, new MathematicalText("𝑥"));
-
+    funcName = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑥→∞"))
+    mathFunc = math.MathFunction(funcName, math.MathematicalText("𝑥"))
 ```
 
 
@@ -246,13 +213,9 @@ Each mathematical element and mathematical expression (via [**MathBlock**](https
 Joins a mathematical element and forms a mathematical block. For example:
 
 ```py
-
- IMathElement element1 = new MathematicalText("x");
-
-IMathElement element2 = new MathematicalText("y");
-
-IMathBlock block = element1.Join(element2);
-
+    element1 = math.MathematicalText("x")
+    element2 = math.MathematicalText("y")
+    block = element1.join(element2)
 ```
 ### **Divide method**
 - [Divide(String)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext.imathelement/divide/methods/2)
@@ -263,11 +226,8 @@ IMathBlock block = element1.Join(element2);
 Creates a fraction of the specified type with this numerator and specified denominator. For example:
 
 ```py
-
- IMathElement numerator = new MathematicalText("x");
-
-IMathFraction fraction = numerator.Divide("y", MathFractionTypes.Linear);
-
+    numerator = math.MathematicalText("x")
+    fraction = numerator.divide("y", math.MathFractionTypes.LINEAR)
 ```
 ### **Enclose method**
 - [Enclose()](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/imathelement/methods/enclose)
@@ -276,34 +236,19 @@ IMathFraction fraction = numerator.Divide("y", MathFractionTypes.Linear);
 Encloses the element in specified characters such as parenthesis or another character as framing.
 
 ```py
+# Encloses a math element in parenthesis
+MathDelimiter enclose()
 
- /// <summary>
-
-/// Encloses a math element in parenthesis
-
-/// </summary>
-
-IMathDelimiter Enclose();
-
-/// <summary>
-
-/// Encloses this element in specified characters such as parenthesis or another characters as framing
-
-/// </summary>
-
-IMathDelimiter Enclose(char beginningCharacter, char endingCharacter);
-
+# Encloses this element in specified characters such as parenthesis or another characters as framing
+MathDelimiter enclose(char beginningCharacter, char endingCharacter)
 ```
 
 
 For example:
 
 ```py
-
- IMathDelimiter delimiter = new MathematicalText("x"). Enclose('[', ']');
-
-IMathDelimiter delimiter2 = new MathematicalText("elem1").Join("elem2").Enclose();
-
+    delimiter = math.MathematicalText("x").enclose('[', ']')
+    delimiter2 = math.MathematicalText("elem1").join("elem2").enclose()
 ```
 ### **Function method**
 - [Function(String)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext.imathelement/function/methods/1)
@@ -311,29 +256,10 @@ IMathDelimiter delimiter2 = new MathematicalText("elem1").Join("elem2").Enclose(
 
 Takes a function of an argument using the current object as the function name.
 
-```py
-
- /// <summary>
-
-/// Takes a function of an argument using this instance as the function name
-
-/// </summary>
-
-/// <param name="functionArgument">An argument of the function</param>
-
-IMathFunction Function(IMathElement functionArgument);
-
-IMathFunction Function(string functionArgument);
-
-```
-
-
 For example:
 
 ```py
-
- IMathFunction func = new MathematicalText("sin").Function("x");
-
+func = math.MathematicalText("sin").function("x")
 ```
 ### **AsArgumentOfFunction method**
 - [AsArgumentOfFunction(String)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext.imathelement/asargumentoffunction/methods/4)
@@ -351,17 +277,11 @@ Takes the specified function using the current instance as the argument. You can
 For example:
 
 ```py
-
- var funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
-
-var func1 = new MathematicalText("2x").AsArgumentOfFunction(funcName);
-
-var func2 = new MathematicalText("x").AsArgumentOfFunction("sin");
-
-var func3 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfOneArgument.Sin);
-
-var func4 = new MathematicalText("x").AsArgumentOfFunction(MathFunctionsOfTwoArguments.Log, "3")
-
+    funcName = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑛→∞"))
+    func1 = math.MathematicalText("2x").as_argument_of_function(funcName)
+    func2 = math.MathematicalText("x").as_argument_of_function("sin")
+    func3 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfOneArgument.SIN)
+    func4 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfTwoArguments.LOG, "3")
 ```
 ### **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft methods**
 - [SetSubscript(String)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext.imathelement/setsubscript/methods/1)
@@ -378,9 +298,7 @@ Sets subscript and superscript. You can set subscript and superscript at the sam
 Example:
 
 ```py
-
- var script = new MathematicalText("y").SetSubSuperscriptOnTheLeft("2x", "3z");
-
+    script = math.MathematicalText("y").set_sub_superscript_on_the_left("2x", "3z")
 ```
 ### **Radical method**
 - [Radical(String)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext.imathelement/radical/methods/1)
@@ -391,9 +309,7 @@ Specifies the mathematical root of the given degree from the specified argument.
 Example:
 
 ```py
-
- var radical = new MathematicalText("x").Radical("3");
-
+    radical = math.MathematicalText("x").radical("3")
 ```
 ### **SetUpperLimit and SetLowerLimit methods**
 - [SetUpperLimit(String)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext.imathelement/setupperlimit/methods/1)
@@ -410,9 +326,7 @@ Let's consider an expression: 
 Such expressions can be created through a combination of classes [MathFunction ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/MathFunction)and [MathLimit](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/MathLimit), and operations of the [IMathElement ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/IMathElement)as follows:
 
 ```py
-
- var mathExpression = MathText.Create("lim").SetLowerLimit("x→∞").Function("x");
-
+mathExpression = math.MathematicalText("lim").set_lower_limit("x→∞").function("x")
 ```
 ### **Nary and Integral methods**
 - [Nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/imathelement/methods/nary)
@@ -428,11 +342,8 @@ Both **Nary** and **Integral** methods create and return the N-ary operator repr
 Example:
 
 ```py
-
- IMathBlock baseArg = new MathematicalText("x").Join(new MathematicalText("dx").ToBox());
-
-IMathNaryOperator integral = baseArg.Integral(MathIntegralTypes.Simple, "0", "1");
-
+    baseArg = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
+    integral = baseArg.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
 ### **ToMathArray method**
 [**ToMathArray**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/imathelement/methods/tomatharray) puts elements in a vertical array. If this operation is called for a **MathBlock** instance, all child elements will be placed in the returned array.
@@ -440,9 +351,7 @@ IMathNaryOperator integral = baseArg.Integral(MathIntegralTypes.Simple, "0", "1"
 Example:
 
 ```py
-
- var arrayFunction = new MathematicalText("x").Join("y").ToMathArray();
-
+    arrayFunction = math.MathematicalText("x").join("y").to_math_array()
 ```
 ### **Formatting operations: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
 - [**Accent**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.mathtext/imathelement/methods/accent) method sets an accent mark (a character on the top of the element).
@@ -454,15 +363,11 @@ Example:
 Examples:
 
 ```py
-
- var accent = new MathematicalText("x").Accent('\u0303');
-
-var bar = new MathematicalText("x").Overbar();
-
-var groupChr = new MathematicalText("x").Join("y").Join("z").Group('\u23E1', MathTopBotPositions.Bottom, MathTopBotPositions.Top);
-
-var borderBox = new MathematicalText("x+y+z").ToBorderBox();
-
-var boxedOperator = new MathematicalText(":=").ToBox();
-
+    accent = math.MathematicalText("x").accent(chr(0x0303))
+    bar = math.MathematicalText("x").overbar()
+    groupChr = math.MathematicalText("x").join("y").join("z").group(chr(0x23E1), 
+            math.MathTopBotPositions.BOTTOM, 
+            math.MathTopBotPositions.TOP)
+    borderBox = math.MathematicalText("x+y+z").to_border_box()
+    boxedOperator = math.MathematicalText(":=").to_box()
 ```

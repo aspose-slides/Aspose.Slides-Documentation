@@ -13,35 +13,22 @@ This topic will describe a simple technique to make it easier for developers to 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Python via .NET and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](http://www.aspose.com/api/net/slides/aspose.slides.util/slideutil/methods/findshape/index) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 ```py
-public static void Run()
-{
-    // Instantiate a Presentation class that represents the presentation file
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
-    {
+import aspose.slides as slides
 
-        ISlide slide = p.Slides[0];
-        // Alternative text of the shape to be found
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Method implementation to find a shape in a slide using its alternative text
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Iterating through all shapes inside the slide
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // If the alternative text of the slide matches with the required one then
-        // Return the shape
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
+# Method implementation to find a shape in a slide using its alternative text
+def find_shape(slide, alttext):
+    for i in range(len(slide.shapes)):
+        if slide.shapes[i].alternative_text == alttext:
+            return slide.shapes[i]
+    return None
+    
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation(path + "FindingShapeInSlide.pptx") as p:
+    slide = p.slides[0]
+    # Alternative text of the shape to be found
+    shape = find_shape(slide, "Shape1")
+    if shape != None:
+        print("Shape Name: " + shape.name)
 ```
 
 
@@ -59,20 +46,20 @@ To clone a shape to a slide using Aspose.Slides for Python via .NET:
 The example below adds a group shape to a slide.
 
 ```py
-// Instantiate Presentation class
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
+import aspose.slides as slides
 
-	// Write the PPTX file to disk
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
+# Instantiate Presentation class
+with slides.Presentation(path + "Source Frame.pptx") as srcPres:
+	sourceShapes = srcPres.slides[0].shapes
+	blankLayout = srcPres.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+	destSlide = srcPres.slides.add_empty_slide(blankLayout)
+	destShapes = destSlide.shapes
+	destShapes.add_clone(sourceShapes[1], 50, 150 + sourceShapes[0].height)
+	destShapes.add_clone(sourceShapes[2])                 
+	destShapes.insert_clone(0, sourceShapes[0], 50, 150)
+
+	# Write the PPTX file to disk
+	srcPres.save("CloneShape_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -87,28 +74,24 @@ Aspose.Slides for Python via .NET allows developers to remove any shape. To remo
 1. Save file to disk.
 
 ```py
-// Create Presentation object
-Presentation pres = new Presentation();
+import aspose.slides as slides
 
-// Get the first slide
-ISlide sld = pres.Slides[0];
+# Create Presentation object
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
-    }
-}
+    # Add autoshape of rectangle type
+    shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
+    shp2 = sld.shapes.add_auto_shape(slides.ShapeType.MOON, 160, 40, 150, 50)
+    alttext = "User Defined"
+    for i in range(len(sld.shapes)):
+        ashp = sld.shapes[0]
+        if ashp.alternative_text == alttext:
+            sld.shapes.remove(ashp)
 
-// Save presentation to disk
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
+    # Save presentation to disk
+    pres.save("RemoveShape_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -123,28 +106,24 @@ Aspose.Slides for Python via .NET allows developers to hide any shape. To hide t
 1. Save file to disk.
 
 ```py
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
+import aspose.slides as slides
 
-// Get the first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
-}
+    # Add autoshape of rectangle type
+    shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
+    shp2 = sld.shapes.add_auto_shape(slides.ShapeType.MOON, 160, 40, 150, 50)
+    alttext = "User Defined"
+    for i in range(len(sld.shapes)):
+        ashp = sld.shapes[i]
+        if ashp.alternative_text == alttext:
+            ashp.hidden = True
 
-// Save presentation to disk
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
+    # Save presentation to disk
+    pres.save("Hiding_Shapes_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -161,19 +140,21 @@ Aspose.Slides for Python via .NET allows developers to reorder the shapes. Reord
 1. Save file to disk.
 
 ```py
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
+import aspose.slides as slides
 
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
+with slides.Presentation(path + "HelloWorld.pptx") as presentation1:
+    slide = presentation1.slides[0]
+    shp3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 365, 400, 150)
+    shp3.fill_format.fill_type = slides.FillType.NO_FILL
+    shp3.add_text_frame(" ")
+
+    txtFrame = shp3.text_frame
+    para = txtFrame.paragraphs[0]
+    portion = para.portions[0]
+    portion.text="Watermark Text Watermark Text Watermark Text"
+    shp3 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 200, 365, 400, 150)
+    slide.shapes.reorder(2, shp3)
+    presentation1.save( "Reshape_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -181,14 +162,11 @@ presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
 Aspose.Slides for Python via .NET allows developers to get a unique shape identifier in slide scope in contrast to the UniqueId property, which allows obtaining a unique identifier in presentation scope. Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively. The value returned by OfficeInteropShapeId property corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```py
-public static void Run()
-{
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Getting unique shape identifier in slide scope
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
-}
+import aspose.slides as slides
+
+with slides.Presentation(path + "Presentation.pptx") as presentation:
+    # Getting unique shape identifier in slide scope
+    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
 ```
 
 
@@ -210,30 +188,27 @@ To set the AlternateText of a shape, please follow the steps below:
 1. Save file to disk.
 
 ```py
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Get the first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-// Add autoshape of rectangle type
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
+    # Add autoshape of rectangle type
+    shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
+    shp2 = sld.shapes.add_auto_shape(slides.ShapeType.MOON, 160, 40, 150, 50)
+    shp2.fill_format.fill_type = slides.FillType.SOLID
+    shp2.fill_format.solid_fill_color.color = draw.Color.gray
 
-for (int i = 0; i < sld.Shapes.Count; i++)
-{
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
-    {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
-    }
-}
+    for i in range(len(sld.shapes)):
+        shape = sld.shapes[i]
+        if shape != None:
+            shape.alternative_text = "User Defined"
 
-// Save presentation to disk
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
+    # Save presentation to disk
+    pres.save("Set_AlternativeText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -245,31 +220,23 @@ pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 Below sample code is given.
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
-}
+import aspose.slides as slides
+
+with slides.Presentation("Set_AlternativeText_out.pptx") as pres:
+    for layoutSlide in pres.layout_slides:
+        fillFormats = list(map(lambda shape: shape.fill_format, layoutSlide.shapes))
+        lineFormats = list(map(lambda shape: shape.line_format, layoutSlide.shapes))
 ```
 
 ## **Render Shape as SVG**
 Now Aspose.Slides for Python via .NET support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```py
-public static void Run()
-{
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    with open("SingleShape.svg", "wb") as stream:
+        pres.slides[0].shapes[0].write_as_svg(stream)
 ```
 
 ## Align Shape
@@ -287,19 +254,17 @@ This Python code shows you how to align shapes with indices 1,2 and 4 along the 
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
 
 ```py
-using (Presentation pres = new Presentation("example.pptx"))
-{
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
-}
+import aspose.slides as slides
+
+with slides.Presentation("OutputPresentation.pptx") as pres:
+     slide = pres.slides[0]
+     shape1 = slide.shapes[1]
+     shape2 = slide.shapes[2]
+     shape3 = slide.shapes[4]
+     slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, pres.slides[0], [
+            slide.shapes.index_of(shape1),
+            slide.shapes.index_of(shape2),
+            slide.shapes.index_of(shape3)])
 ```
 
 ### Example 2
@@ -307,8 +272,8 @@ using (Presentation pres = new Presentation("example.pptx"))
 This Python code shows you how to align an entire collection of shapes relative to the bottom shape in the collection:
 
 ```py
-using (Presentation pres = new Presentation("example.pptx"))
-{
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+import aspose.slides as slides
+
+with slides.Presentation("example.pptx") as pres:
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_BOTTOM, False, pres.slides[0].shapes)
 ```

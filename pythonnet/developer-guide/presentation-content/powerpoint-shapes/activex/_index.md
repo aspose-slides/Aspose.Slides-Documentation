@@ -24,110 +24,134 @@ To manage a simple ActiveX control like a text box and simple command button on 
 The code snippet below updates the ActiveX controls on the presentation slides to the slide as shown below.
 
 ```py
-// Accessing the presentation with  ActiveX controls
-Presentation presentation = new Presentation("ActiveX.pptm");
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Accessing the first slide in presentation
-ISlide slide = presentation.Slides[0];
+# Accessing the presentation with  ActiveX controls
+with slides.Presentation(path + "ActiveX.pptm") as presentation:
+    # Accessing the first slide in presentation
+    slide = presentation.slides[0]
 
-// changing TextBox text
-IControl control = slide.Controls[0];
+    # changing TextBox text
+    control = slide.controls[0]
 
-if (control.Name == "TextBox1" && control.Properties != null)
-{
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
+    if control.name == "TextBox1" and control.properties != None:
+        newText = "Changed text"
+        control.properties.remove("Value")
+        control.properties.add("Value", newText)
 
-    // changing substitute image. Powerpoint will replace this image during activeX activation, so sometime it's OK to leave image unchanged.
+        # changing substitute image. Powerpoint will replace this image during activeX activation, so sometime it's OK to leave image unchanged.
 
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
+        image = draw.Bitmap(control.frame.width, control.frame.height)
+        with draw.Graphics.from_image(image) as graphics:
+            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
+                graphics.fill_rectangle(brush, 0, 0, image.width, image.height)
 
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
-}
+            # font = draw.Font(control.properties["FontName"], 14)
+            font = draw.Font("Arial", 14)
+            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
+                graphics.draw_string(newText, font, brush, 10, 4)
 
-// changing Button caption
-control = slide.Controls[1];
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
+                graphics.draw_lines(pen, [ 
+                        draw.PointF(0, image.height - 1), 
+                        draw.PointF(0, 0), 
+                        draw.PointF(image.width - 1, 0) ])
 
-if (control.Name == "CommandButton1" && control.Properties != null)
-{
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
+                graphics.draw_lines(pen, [
+                        draw.PointF(1, image.height - 2), 
+                        draw.PointF(1, 1), 
+                        draw.PointF(image.width - 2, 1) ])
 
-    // changing substitute
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
-}
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
+                graphics.draw_lines(pen, 
+                    [
+                        draw.PointF(1, image.height - 1), 
+                        draw.PointF(image.width - 1, image.height - 1),
+                        draw.PointF(image.width - 1, 1)])
 
-// Moving ActiveX frames 100 points down
-foreach (Control ctl in slide.Controls)
-{
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
-}
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
+                graphics.draw_lines(pen,
+                    [ 
+                        draw.PointF(0, image.height), 
+                        draw.PointF(image.width, image.height), 
+                        draw.PointF(image.width, 0) ])
 
-// Save the presentation with Edited ActiveX Controls
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+        control.substitute_picture_format.picture.image = presentation.images.add_image(image)
+
+    # changing Button caption
+    control = slide.controls[1]
+
+    if control.name == "CommandButton1" and control.properties != None:
+        newCaption = "MessageBox"
+        control.properties.remove("Caption")
+        control.properties.add("Caption", newCaption)
+
+        # changing substitute
+        image = draw.Bitmap(control.frame.width, control.frame.height)
+        with draw.Graphics.from_image(image) as graphics:
+            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
+                graphics.fill_rectangle(brush, 0, 0, image.width, image.height)
+
+            #font = draw.Font(control.properties["FontName"], 14)
+            font = draw.Font("Arial", 14)
+            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
+                textSize = graphics.measure_string(newCaption, font, 65535)
+                graphics.draw_string(newCaption, font, brush, 
+                    (image.width - textSize.width) / 2, 
+                    (image.height - textSize.height) / 2)
+
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
+                graphics.draw_lines(pen, 
+                    [ 
+                        draw.PointF(0, image.height - 1), 
+                        draw.PointF(0, 0), 
+                        draw.PointF(image.width - 1, 0) ])
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
+                graphics.draw_lines(pen, 
+                    [ 
+                        draw.PointF(1, image.height - 2), 
+                        draw.PointF(1, 1), 
+                        draw.PointF(image.width - 2, 1) ])
+
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
+                graphics.draw_lines(pen, 
+                    [ 
+                        draw.PointF(1, image.height - 1),
+                        draw.PointF(image.width - 1, image.height - 1),
+                        draw.PointF(image.width - 1, 1) ])
+
+            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
+                graphics.draw_lines(pen, 
+                    [ 
+                        draw.PointF(0, image.height), 
+                        draw.PointF(image.width, image.height), 
+                        draw.PointF(image.width, 0) ])
+
+        control.substitute_picture_format.picture.image = presentation.images.add_image(image)
+    
+    # Moving ActiveX frames 100 points down
+    for ctl in slide.controls:
+        frame = control.frame
+        control.frame = slides.ShapeFrame(
+            frame.x, 
+            frame.y + 100, 
+            frame.width, 
+            frame.height, 
+            frame.flip_h, 
+            frame.flip_v, 
+            frame.rotation)
+
+    # Save the presentation with Edited ActiveX Controls
+    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
 
 
-// Now removing controls
-slide.Controls.Clear();
+    # Now removing controls
+    slide.controls.clear()
 
-// Saving the presentation with cleared ActiveX controls
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+    # Saving the presentation with cleared ActiveX controls
+    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
 ```
 
 
@@ -143,22 +167,27 @@ To add ActiveX Media Player control, please perform following steps:
 1. Save the presentation to a PPTX file.
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-Presentation presentation = new Presentation("template.pptx");
+import aspose.slides as slides
 
-// Create empty presentation instance
-Presentation newPresentation = new Presentation();
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation(path + "template.pptx") as presentation:
 
-// Remove default slide
-newPresentation.Slides.RemoveAt(0);
+    # Create empty presentation instance
+    with slides.Presentation() as newPresentation:
 
-// Clone slide with Media Player ActiveX Control
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+        # Remove default slide
+        newPresentation.slides.remove_at(0)
 
-// Access the Media Player ActiveX control and set the video path
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
+        # Clone slide with Media Player ActiveX Control
+        newPresentation.slides.insert_clone(0, presentation.slides[0])
 
-// Save the Presentation
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+        # Access the Media Player ActiveX control and set the video path
+        prop = newPresentation.slides[0].controls[0].properties
+
+        prop.remove("URL")
+        prop.add("URL", "Wildlife.mp4")
+
+        # Save the Presentation
+        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

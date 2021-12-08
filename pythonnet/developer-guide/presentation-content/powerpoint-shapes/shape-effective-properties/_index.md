@@ -18,16 +18,16 @@ then those values are called **local** values. At any level, **local** values co
 The following example shows how to get effective values.
 
 ```py
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-    IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
+import aspose.slides as slides
 
-    ITextFrameFormat localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
+with slides.Presentation(path + "Presentation1.pptx") as pres:
+    shape = pres.slides[0].shapes[0]
 
-    IPortionFormat localPortionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.GetEffective();
-}
+    localTextFrameFormat = shape.text_frame.text_frame_format
+    effectiveTextFrameFormat = localTextFrameFormat.get_effective()
+
+    localPortionFormat = shape.text_frame.paragraphs[0].portions[0].portion_format
+    effectivePortionFormat = localPortionFormat.get_effective()
 ```
 
 
@@ -38,15 +38,15 @@ Aspose.Slides for Python via .NET allows developers to get effective properties
 The following code sample shows how to get effective properties for the camera.
 
 ```py
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+import aspose.slides as slides
 
-	Console.WriteLine("= Effective camera properties =");
-	Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-	Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-	Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-}
+with slides.Presentation(path + "Presentation1.pptx") as pres:
+	threeDEffectiveData = pres.slides[0].shapes[0].three_dformat.get_effective()
+
+	print("= Effective camera properties =")
+	print("Type: " + str(threeDEffectiveData.camera.camera_type))
+	print("Field of view: " + str(threeDEffectiveData.camera.field_of_view_angle))
+	print("Zoom: " + str(threeDEffectiveData.camera.zoom))
 ```
 
 
@@ -56,14 +56,14 @@ Aspose.Slides for Python via .NET allows developers to get effective properties
 The following code sample shows how to get effective properties for the Light Rig.
 
 ```py
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+import aspose.slides as slides
 
-	Console.WriteLine("= Effective light rig properties =");
-	Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-	Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-}
+with slides.Presentation(path + "Presentation1.pptx") as pres:
+	threeDEffectiveData = pres.slides[0].shapes[0].three_dformat.get_effective()
+
+	print("= Effective light rig properties =")
+	print("Type: " + str(threeDEffectiveData.light_rig.light_type))
+	print("Direction: " + str(threeDEffectiveData.light_rig.direction))
 ```
 
 
@@ -73,15 +73,15 @@ Aspose.Slides for Python via .NET allows developers to get effective properties
 The following code sample shows how to get effective properties for the Bevel Shape.
 
 ```py
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
+import aspose.slides as slides
 
-	Console.WriteLine("= Effective shape's top face relief properties =");
-	Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-	Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-	Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-}
+with slides.Presentation(path + "Presentation1.pptx") as pres:
+	threeDEffectiveData = pres.slides[0].shapes[0].three_dformat.get_effective()
+
+	print("= Effective shape's top face relief properties =")
+	print("Type: " + str(threeDEffectiveData.bevel_top.bevel_type))
+	print("Width: " + str(threeDEffectiveData.bevel_top.width))
+	print("Height: " + str(threeDEffectiveData.bevel_top.height))
 ```
 
 
@@ -92,23 +92,23 @@ Using Aspose.Slides for Python via .NET, you can get effective properties of Tex
 The following code sample shows how to get effective text frame formatting properties.
 
 ```py
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-	IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
+import aspose.slides as slides
 
-	ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-	ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.GetEffective();
+with slides.Presentation(path + "Presentation1.pptx") as pres:
+	shape = pres.slides[0].shapes[0]
+
+	textFrameFormat = shape.text_frame.text_frame_format
+	effectiveTextFrameFormat = textFrameFormat.get_effective()
 
 
-	Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-	Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-	Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-	Console.WriteLine("Margins");
-	Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-	Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-	Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-	Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-}
+	print("Anchoring type: " + str(effectiveTextFrameFormat.anchoring_type))
+	print("Autofit type: " + str(effectiveTextFrameFormat.autofit_type))
+	print("Text vertical type: " + str(effectiveTextFrameFormat.text_vertical_type))
+	print("Margins")
+	print("   Left: " + str(effectiveTextFrameFormat.margin_left))
+	print("   Top: " + str(effectiveTextFrameFormat.margin_top))
+	print("   Right: " + str(effectiveTextFrameFormat.margin_right))
+	print("   Bottom: " + str(effectiveTextFrameFormat.margin_bottom))
 ```
 
 
@@ -119,23 +119,21 @@ Using Aspose.Slides for Python via .NET, you can get effective properties of Tex
 The following code sample shows how to get effective text style properties.
 
 ```py
-using (Presentation pres = new Presentation("Presentation1.pptx"))
-{
-    IAutoShape shape = pres.Slides[0].Shapes[0] as IAutoShape;
+import aspose.slides as slides
 
-    ITextStyleEffectiveData effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
+with slides.Presentation(path + "Presentation1.pptx") as pres:
+    shape = pres.slides[0].shapes[0]
 
-    for (int i = 0; i <= 8; i++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.GetLevel(i);
-        Console.WriteLine("= Effective paragraph formatting for style level #" + i + " =");
+    effectiveTextStyle = shape.text_frame.text_frame_format.text_style.get_effective()
 
-        Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-        Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-        Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-        Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-    }
-}
+    for i in range(8):
+        effectiveStyleLevel = effectiveTextStyle.get_level(i)
+        print("= Effective paragraph formatting for style level #" + str(i) + " =")
+
+        print("Depth: " + str(effectiveStyleLevel.depth))
+        print("Indent: " + str(effectiveStyleLevel.indent))
+        print("Alignment: " + str(effectiveStyleLevel.alignment))
+        print("Font alignment: " + str(effectiveStyleLevel.font_alignment))
 
 ```
 
@@ -144,48 +142,48 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 Using Aspose.Slides for Python via .NET, you can get effective properties of Font Height . Here is the code demonstrating the portion's effective font height value changing after setting local font height values on different presentation structure levels. 
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IAutoShape newShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    newShape.AddTextFrame("");
-    newShape.TextFrame.Paragraphs[0].Portions.Clear();
+import aspose.slides as slides
 
-    IPortion portion0 = new Portion("Sample text with first portion");
-    IPortion portion1 = new Portion(" and second portion.");
+with slides.Presentation() as pres:
+    newShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
+    newShape.add_text_frame("")
+    newShape.text_frame.paragraphs[0].portions.clear()
 
-    newShape.TextFrame.Paragraphs[0].Portions.Add(portion0);
-    newShape.TextFrame.Paragraphs[0].Portions.Add(portion1);
+    portion0 = slides.Portion("Sample text with first portion")
+    portion1 = slides.Portion(" and second portion.")
 
-    Console.WriteLine("Effective font height just after creation:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
+    newShape.text_frame.paragraphs[0].portions.add(portion0)
+    newShape.text_frame.paragraphs[0].portions.add(portion1)
 
-    pres.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
+    print("Effective font height just after creation:")
+    print("Portion #0: " + str(portion0.portion_format.get_effective().font_height))
+    print("Portion #1: " + str(portion1.portion_format.get_effective().font_height))
 
-    Console.WriteLine("Effective font height after setting entire presentation default font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
+    pres.default_text_style.get_level(0).default_portion_format.font_height = 24
 
-    newShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
+    print("Effective font height after setting entire presentation default font height:")
+    print("Portion #0: " + str(portion0.portion_format.get_effective().font_height))
+    print("Portion #1: " + str(portion1.portion_format.get_effective().font_height))
 
-    Console.WriteLine("Effective font height after setting paragraph default font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
+    newShape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 40
 
-    newShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 55;
+    print("Effective font height after setting paragraph default font height:")
+    print("Portion #0: " + str(portion0.portion_format.get_effective().font_height))
+    print("Portion #1: " + str(portion1.portion_format.get_effective().font_height))
 
-    Console.WriteLine("Effective font height after setting portion #0 font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
+    newShape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 55
 
-    newShape.TextFrame.Paragraphs[0].Portions[1].PortionFormat.FontHeight = 18;
+    print("Effective font height after setting portion #0 font height:")
+    print("Portion #0: " + str(portion0.portion_format.get_effective().font_height))
+    print("Portion #1: " + str(portion1.portion_format.get_effective().font_height))
 
-    Console.WriteLine("Effective font height after setting portion #1 font height:");
-    Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
-    Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
+    newShape.text_frame.paragraphs[0].portions[1].portion_format.font_height = 18
 
-    pres.Save("SetLocalFontHeightValues.pptx",SaveFormat.Pptx);
-}
+    print("Effective font height after setting portion #1 font height:")
+    print("Portion #0: " + str(portion0.portion_format.get_effective().font_height))
+    print("Portion #1: " + str(portion1.portion_format.get_effective().font_height))
+
+    pres.save("SetLocalFontHeightValues.pptx",slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -195,19 +193,19 @@ Using Aspose.Slides for Python via .NET, you can get effective fill formatting f
 So finally **CellFormatEffectiveData** properties always used to draw the table. The following code sample shows how to get effective fill formatting for different table logic parts.
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-	ITable tbl = pres.Slides[0].Shapes[0] as ITable;
-	ITableFormatEffectiveData tableFormatEffective = tbl.TableFormat.GetEffective();
-	IRowFormatEffectiveData rowFormatEffective = tbl.Rows[0].RowFormat.GetEffective();
-	IColumnFormatEffectiveData columnFormatEffective = tbl.Columns[0].ColumnFormat.GetEffective();
-	ICellFormatEffectiveData cellFormatEffective = tbl[0, 0].CellFormat.GetEffective();
+import aspose.slides as slides
 
-	IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.FillFormat;
-	IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.FillFormat;
-	IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.FillFormat;
-	IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.FillFormat;
-}
+with slides.Presentation(path + "pres.pptx") as pres:
+	tbl = pres.slides[0].shapes[0]
+	tableFormatEffective = tbl.table_format.get_effective()
+	rowFormatEffective = tbl.rows[0].row_format.get_effective()
+	columnFormatEffective = tbl.columns[0].column_format.get_effective()
+	cellFormatEffective = tbl[0, 0].cell_format.get_effective()
+
+	tableFillFormatEffective = tableFormatEffective.fill_format
+	rowFillFormatEffective = rowFormatEffective.fill_format
+	columnFillFormatEffective = columnFormatEffective.fill_format
+	cellFillFormatEffective = cellFormatEffective.fill_format
 ```
 
 

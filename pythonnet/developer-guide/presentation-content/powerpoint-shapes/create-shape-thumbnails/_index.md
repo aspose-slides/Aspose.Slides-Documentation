@@ -25,16 +25,15 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Python via 
 The example below generating shape thumbnail.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation("HelloWorld.pptx"))
-{
-    // Create a full scale image
-    using (Bitmap bitmap = presentation.Slides[0].Shapes[0].GetThumbnail())
-    {
-        // Save the image to disk in PNG format
-        bitmap.Save("Shape_thumbnail_out.png", ImageFormat.Png);
-    }
-}
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation(path + "HelloWorld.pptx") as presentation:
+    # Create a full scale image
+    with presentation.slides[0].shapes[0].get_thumbnail() as bitmap:
+        # Save the image to disk in PNG format
+        bitmap.save("Shape_thumbnail_out.png", draw.imaging.ImageFormat.png)
 ```
 
 
@@ -49,16 +48,15 @@ To generate the shape thumbnail of any slide shape using Aspose.Slides for Pytho
 The example below generate a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation p = new Presentation("HelloWorld.pptx"))
-{
-    // Create a full scale image
-    using (Bitmap bitmap = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Shape, 1, 1))
-    {
-        // Save the image to disk in PNG format
-        bitmap.Save("Scaling Factor Thumbnail_out.png", ImageFormat.Png);
-    }
-}
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation(path + "HelloWorld.pptx") as p:
+    # Create a full scale image
+    with p.slides[0].shapes[0].get_thumbnail(slides.ShapeThumbnailBounds.SHAPE, 1, 1) as bitmap:
+        # Save the image to disk in PNG format
+        bitmap.save("Scaling Factor Thumbnail_out.png", draw.imaging.ImageFormat.png)
 ```
 
 
@@ -73,15 +71,14 @@ This method for creating thumbnails of shapes allows developers to generate a th
 The example below create a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation("HelloWorld.pptx"))
-{
-    // Create a Appearance bound shape image
-    using (Bitmap bitmap = presentation.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1))
-    {
-        // Save the image to disk in PNG format
-        bitmap.Save("Shape_thumbnail_Bound_Shape_out.png", ImageFormat.Png);
-    }
-}
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation(path + "HelloWorld.pptx") as presentation:
+    # Create a Appearance bound shape image
+    with presentation.slides[0].shapes[0].get_thumbnail(slides.ShapeThumbnailBounds.APPEARANCE, 1, 1) as bitmap:
+        # Save the image to disk in PNG format
+        bitmap.save("Shape_thumbnail_Bound_Shape_out.png", draw.imaging.ImageFormat.png)
 ```
 

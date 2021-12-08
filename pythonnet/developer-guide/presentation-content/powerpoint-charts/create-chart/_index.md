@@ -30,87 +30,90 @@ Aspose.Slides for Python via .NET has simple APIs that allow you to create diffe
 Sample code used to create a normal chart:
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Access first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as pres:
 
-// Add chart with default data
-IChart chart = sld.Shapes.AddChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
+    # Access first slide
+    sld = pres.slides[0]
 
-// Setting chart Title
-// Chart.ChartTitle.TextFrameForOverriding.Text = "Sample Title";
-chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-chart.ChartTitle.Height = 20;
-chart.HasTitle = true;
+    # Add chart with default data
+    chart = sld.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 0, 0, 500, 500)
 
-// Set first series to Show Values
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    # Setting chart Title
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
+    chart.chart_title.height = 20
+    chart.has_title = True
 
-// Setting the index of chart data sheet
-int defaultWorksheetIndex = 0;
+    # Set first series to Show Values
+    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
-// Getting the chart data worksheet
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    # Setting the index of chart data sheet
+    defaultWorksheetIndex = 0
 
-// Delete default generated series and categories
-chart.ChartData.Series.Clear();
-chart.ChartData.Categories.Clear();
-int s = chart.ChartData.Series.Count;
-s = chart.ChartData.Categories.Count;
+    # Getting the chart data worksheet
+    fact = chart.chart_data.chart_data_workbook
 
-// Adding new series
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+    # Delete default generated series and categories
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    s = len(chart.chart_data.series)
+    s = len(chart.chart_data.categories)
 
-// Adding new categories
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # Adding new series
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
 
-// Take first chart series
-IChartSeries series = chart.ChartData.Series[0];
+    # Adding new categories
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
 
-// Now populating series data
+    # Take first chart series
+    series = chart.chart_data.series[0]
 
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+    # Now populating series data
 
-// Setting fill color for series
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
+
+    # Setting fill color for series
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.red
 
 
-// Take second chart series
-series = chart.ChartData.Series[1];
+    # Take second chart series
+    series = chart.chart_data.series[1]
 
-// Now populating series data
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
+    # Now populating series data
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
 
-// Setting fill color for series
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Green;
+    # Setting fill color for series
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = draw.Color.green
 
-// First label will be show Category name
-IDataLabel lbl = series.DataPoints[0].Label;
-lbl.DataLabelFormat.ShowCategoryName = true;
+    # First label will be show Category name
+    lbl = series.data_points[0].label
+    lbl.data_label_format.show_category_name = True
 
-lbl = series.DataPoints[1].Label;
-lbl.DataLabelFormat.ShowSeriesName = true;
+    lbl = series.data_points[1].label
+    lbl.data_label_format.show_series_name = True
 
-// Show value for third label
-lbl = series.DataPoints[2].Label;
-lbl.DataLabelFormat.ShowValue = true;
-lbl.DataLabelFormat.ShowSeriesName = true;
-lbl.DataLabelFormat.Separator = "/";
-            
-// Save presentation with chart
-pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+    # Show value for third label
+    lbl = series.data_points[2].label
+    lbl.data_label_format.show_value = True
+    lbl.data_label_format.show_series_name = True
+    lbl.data_label_format.separator = "/"
+                
+    # Save presentation with chart
+    pres.save("AsposeChart_out-1.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -118,62 +121,66 @@ pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 Sample code used to create a scatter chart with different series of markers:
 
 ```py
-Presentation pres = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-ISlide slide = pres.Slides[0];
+with slides.Presentation() as pres:
 
-// Creating the default chart
-IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
+    slide = pres.slides[0]
 
-// Getting the default chart data worksheet index
-int defaultWorksheetIndex = 0;
+    # Creating the default chart
+    chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 0, 0, 400, 400)
 
-// Getting the chart data worksheet
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    # Getting the default chart data worksheet index
+    defaultWorksheetIndex = 0
 
-// Delete demo series
-chart.ChartData.Series.Clear();
+    # Getting the chart data worksheet
+    fact = chart.chart_data.chart_data_workbook
 
-// Add new series
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
+    # Delete demo series
+    chart.chart_data.series.clear()
 
-// Take first chart series
-IChartSeries series = chart.ChartData.Series[0];
+    # Add new series
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.type)
 
-// Add new point (1:3) there.
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 1), fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
+    # Take first chart series
+    series = chart.chart_data.series[0]
 
-// Add new point (2:10)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 2), fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
+    # Add new point (1:3) there.
+    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 1), fact.get_cell(defaultWorksheetIndex, 2, 2, 3))
 
-// Edit the type of series
-series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+    # Add new point (2:10)
+    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 2), fact.get_cell(defaultWorksheetIndex, 3, 2, 10))
 
-// Changing the chart series marker
-series.Marker.Size = 10;
-series.Marker.Symbol = MarkerStyleType.Star;
+    # Edit the type of series
+    series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-// Take second chart series
-series = chart.ChartData.Series[1];
+    # Changing the chart series marker
+    series.marker.size = 10
+    series.marker.symbol = charts.MarkerStyleType.STAR
 
-// Add new point (5:2) there.
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 5), fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
+    # Take second chart series
+    series = chart.chart_data.series[1]
 
-// Add new point (3:1)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 3, 3), fact.GetCell(defaultWorksheetIndex, 3, 4, 1));
+    # Add new point (5:2) there.
+    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 2, 3, 5), fact.get_cell(defaultWorksheetIndex, 2, 4, 2))
 
-// Add new point (2:2)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 4, 3, 2), fact.GetCell(defaultWorksheetIndex, 4, 4, 2));
+    # Add new point (3:1)
+    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 3, 3, 3), fact.get_cell(defaultWorksheetIndex, 3, 4, 1))
 
-// Add new point (5:1)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 5, 3, 5), fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
+    # Add new point (2:2)
+    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 4, 3, 2), fact.get_cell(defaultWorksheetIndex, 4, 4, 2))
 
-// Changing the chart series marker
-series.Marker.Size = 10;
-series.Marker.Symbol = MarkerStyleType.Circle;
+    # Add new point (5:1)
+    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 5, 3, 5), fact.get_cell(defaultWorksheetIndex, 5, 4, 1))
 
-pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+    # Changing the chart series marker
+    series.marker.size = 10
+    series.marker.symbol = charts.MarkerStyleType.CIRCLE
+
+    pres.save("AsposeChart_out-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -194,107 +201,111 @@ pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 Sample code used to create a pie chart:
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-Presentation presentation = new Presentation();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Access first slide
-ISlide slides = presentation.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as presentation:
 
-// Add chart with default data
-IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+    # Access first slide
+    slide = presentation.slides[0]
 
-// Setting chart Title
-chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-chart.ChartTitle.Height = 20;
-chart.HasTitle = true;
+    # Add chart with default data
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
 
-// Set first series to Show Values
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    # Setting chart Title
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
+    chart.chart_title.height = 20
+    chart.has_title = True
 
-// Setting the index of chart data sheet
-int defaultWorksheetIndex = 0;
+    # Set first series to Show Values
+    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
-// Getting the chart data worksheet
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    # Setting the index of chart data sheet
+    defaultWorksheetIndex = 0
 
-// Delete default generated series and categories
-chart.ChartData.Series.Clear();
-chart.ChartData.Categories.Clear();
+    # Getting the chart data worksheet
+    fact = chart.chart_data.chart_data_workbook
 
-// Adding new categories
-chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
-chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
-chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
+    # Delete default generated series and categories
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-// Adding new series
-IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
+    # Adding new categories
+    chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "First Qtr"))
+    chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "2nd Qtr"))
+    chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "3rd Qtr"))
 
-// Now populating series data
-series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+    # Adding new series
+    series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-// Not working in new version
-// Adding new points and setting sector color
-// series.IsColorVaried = true;
-chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+    # Now populating series data
+    series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
+    series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
+    series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
 
-IChartDataPoint point = series.DataPoints[0];
-point.Format.Fill.FillType = FillType.Solid;
-point.Format.Fill.SolidFillColor.Color = Color.Cyan;
-// Setting Sector border
-point.Format.Line.FillFormat.FillType = FillType.Solid;
-point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-point.Format.Line.Width = 3.0;
-point.Format.Line.Style = LineStyle.ThinThick;
-point.Format.Line.DashStyle = LineDashStyle.DashDot;
+    # Not working in new version
+    # Adding new points and setting sector color
+    # series.IsColorVaried = True
+    chart.chart_data.series_groups[0].is_color_varied = True
 
-IChartDataPoint point1 = series.DataPoints[1];
-point1.Format.Fill.FillType = FillType.Solid;
-point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+    point = series.data_points[0]
+    point.format.fill.fill_type = slides.FillType.SOLID
+    point.format.fill.solid_fill_color.color = draw.Color.cyan
+    # Setting Sector border
+    point.format.line.fill_format.fill_type = slides.FillType.SOLID
+    point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
+    point.format.line.width = 3.0
+    point.format.line.style = slides.LineStyle.THIN_THICK
+    point.format.line.dash_style = slides.LineDashStyle.DASH_DOT
 
-// Setting Sector border
-point1.Format.Line.FillFormat.FillType = FillType.Solid;
-point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-point1.Format.Line.Width = 3.0;
-point1.Format.Line.Style = LineStyle.Single;
-point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+    point1 = series.data_points[1]
+    point1.format.fill.fill_type = slides.FillType.SOLID
+    point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-IChartDataPoint point2 = series.DataPoints[2];
-point2.Format.Fill.FillType = FillType.Solid;
-point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+    # Setting Sector border
+    point1.format.line.fill_format.fill_type = slides.FillType.SOLID
+    point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
+    point1.format.line.width = 3.0
+    point1.format.line.style = slides.LineStyle.SINGLE
+    point1.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT
 
-// Setting Sector border
-point2.Format.Line.FillFormat.FillType = FillType.Solid;
-point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-point2.Format.Line.Width = 2.0;
-point2.Format.Line.Style = LineStyle.ThinThin;
-point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+    point2 = series.data_points[2]
+    point2.format.fill.fill_type = slides.FillType.SOLID
+    point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-// Create custom labels for each of categories for new series
-IDataLabel lbl1 = series.DataPoints[0].Label;
+    # Setting Sector border
+    point2.format.line.fill_format.fill_type = slides.FillType.SOLID
+    point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
+    point2.format.line.width = 2.0
+    point2.format.line.style = slides.LineStyle.THIN_THIN
+    point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-// lbl.ShowCategoryName = true;
-lbl1.DataLabelFormat.ShowValue = true;
+    # Create custom labels for each of categories for new series
+    lbl1 = series.data_points[0].label
 
-IDataLabel lbl2 = series.DataPoints[1].Label;
-lbl2.DataLabelFormat.ShowValue = true;
-lbl2.DataLabelFormat.ShowLegendKey = true;
-lbl2.DataLabelFormat.ShowPercentage = true;
+    # lbl.show_category_name = True
+    lbl1.data_label_format.show_value = True
 
-IDataLabel lbl3 = series.DataPoints[2].Label;
-lbl3.DataLabelFormat.ShowSeriesName = true;
-lbl3.DataLabelFormat.ShowPercentage = true;
+    lbl2 = series.data_points[1].label
+    lbl2.data_label_format.show_value = True
+    lbl2.data_label_format.show_legend_key = True
+    lbl2.data_label_format.show_percentage = True
 
-// Showing Leader Lines for Chart
-series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+    lbl3 = series.data_points[2].label
+    lbl3.data_label_format.show_series_name = True
+    lbl3.data_label_format.show_percentage = True
 
-// Setting Rotation Angle for Pie Chart Sectors
-chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+    # Showing Leader Lines for Chart
+    series.labels.default_data_label_format.show_leader_lines = True
 
-// Save presentation with chart
-presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+    # Setting Rotation Angle for Pie Chart Sectors
+    chart.chart_data.series_groups[0].first_slice_angle = 180
+
+    # Save presentation with chart
+    presentation.save("PieChart_out-3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -311,59 +322,58 @@ presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 Sample code used to create a chart:
 
 ```py
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.Treemap, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.TREEMAP, 50, 50, 500, 400)
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
 
-		wb.Clear(0);
+    wb = chart.chart_data.chart_data_workbook
 
-		//branch 1
-		IChartCategory leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C1", "Leaf1"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-		leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+    wb.clear(0)
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C2", "Leaf2"));
+    #branch 1
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C1", "Leaf1"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem1")
+    leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C3", "Leaf3"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+    chart.chart_data.categories.add(wb.get_cell(0, "C2", "Leaf2"))
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C4", "Leaf4"));
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C3", "Leaf3"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem2")
+
+    chart.chart_data.categories.add(wb.get_cell(0, "C4", "Leaf4"))
 
 
-		//branch 2
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C5", "Leaf5"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-		leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+    #branch 2
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C5", "Leaf5"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem3")
+    leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C6", "Leaf6"));
+    chart.chart_data.categories.add(wb.get_cell(0, "C6", "Leaf6"))
 
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C7", "Leaf7"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C7", "Leaf7"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C8", "Leaf8"));
+    chart.chart_data.categories.add(wb.get_cell(0, "C8", "Leaf8"))
 
-		IChartSeries series = chart.ChartData.Series.Add(Aspose.Slides.Charts.ChartType.Treemap);
-		series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D1", 4));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D2", 5));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D3", 3));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D4", 6));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D5", 9));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D6", 9));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D7", 4));
-		series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D8", 3));
+    series = chart.chart_data.series.add(charts.ChartType.TREEMAP)
+    series.labels.default_data_label_format.show_category_name = True
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D1", 4))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D2", 5))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D3", 3))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D4", 6))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D5", 9))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D6", 9))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D7", 4))
+    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D8", 3))
 
-		series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+    series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
 
-		pres.Save("Treemap.pptx", SaveFormat.Pptx);
-	}
-}
+    pres.save("Treemap-4.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -381,57 +391,55 @@ public static void Run()
 Sample code used to create a chart:
 
 ```py
-using (Presentation pres = new Presentation("Test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 50, 50, 600, 400, False)
 
-	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-	chart.ChartData.Categories.Add(wb.GetCell(0, 1, 0, "A"));
-	chart.ChartData.Categories.Add(wb.GetCell(0, 2, 0, "B"));
-	chart.ChartData.Categories.Add(wb.GetCell(0, 3, 0, "C"));
+    wb = chart.chart_data.chart_data_workbook
 
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 1, "Open"), chart.Type);
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 2, "High"), chart.Type);
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 3, "Low"), chart.Type);
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 4, "Close"), chart.Type);
+    chart.chart_data.categories.add(wb.get_cell(0, 1, 0, "A"))
+    chart.chart_data.categories.add(wb.get_cell(0, 2, 0, "B"))
+    chart.chart_data.categories.add(wb.get_cell(0, 3, 0, "C"))
 
-	IChartSeries series = chart.ChartData.Series[0];
+    chart.chart_data.series.add(wb.get_cell(0, 0, 1, "Open"), chart.type)
+    chart.chart_data.series.add(wb.get_cell(0, 0, 2, "High"), chart.type)
+    chart.chart_data.series.add(wb.get_cell(0, 0, 3, "Low"), chart.type)
+    chart.chart_data.series.add(wb.get_cell(0, 0, 4, "Close"), chart.type)
 
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 1, 72));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 1, 25));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 1, 38));
+    series = chart.chart_data.series[0]
 
-	series = chart.ChartData.Series[1];
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 2, 172));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 2, 57));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 2, 57));
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 1, 72))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 1, 25))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 1, 38))
 
-	series = chart.ChartData.Series[2];
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 3, 12));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 3, 12));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 3, 13));
+    series = chart.chart_data.series[1]
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 2, 172))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 2, 57))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 2, 57))
 
-	series = chart.ChartData.Series[3];
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 4, 25));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 4, 38));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 4, 50));
+    series = chart.chart_data.series[2]
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 3, 12))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 3, 12))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 3, 13))
 
-	chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-	chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+    series = chart.chart_data.series[3]
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 4, 25))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 4, 38))
+    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 4, 50))
 
-	foreach (IChartSeries ser in chart.ChartData.Series)
-	{
-		ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-	}
+    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
+    chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+    for ser in chart.chart_data.series:
+        ser.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-		}
+    pres.save("output-5.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -448,44 +456,43 @@ using (Presentation pres = new Presentation("Test.pptx"))
 The following code is used to create a chart.
 
 ```py
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 50, 50, 500, 400)
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
 
-		wb.Clear(0);
+    wb = chart.chart_data.chart_data_workbook
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A1", "Category 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A2", "Category 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A3", "Category 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A4", "Category 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A5", "Category 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A6", "Category 1"));
+    wb.clear(0)
 
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
+    chart.chart_data.categories.add(wb.get_cell(0, "A1", "Category 1"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A2", "Category 1"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A3", "Category 1"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A4", "Category 1"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A5", "Category 1"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A6", "Category 1"))
 
-		series.QuartileMethod = QuartileMethodType.Exclusive;
-		series.ShowMeanLine = true;
-		series.ShowMeanMarkers = true;
-		series.ShowInnerPoints = true;
-		series.ShowOutlierPoints = true;
+    series = chart.chart_data.series.add(charts.ChartType.BOX_AND_WHISKER)
 
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B1", 15));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B2", 41));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B3", 16));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B4", 10));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B5", 23));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B6", 16));
+    series.quartile_method = charts.QuartileMethodType.EXCLUSIVE
+    series.show_mean_line = True
+    series.show_mean_markers = True
+    series.show_inner_points = True
+    series.show_outlier_points = True
+
+    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B1", 15))
+    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B2", 41))
+    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B3", 16))
+    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B4", 10))
+    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B5", 23))
+    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B6", 16))
 
 
-		pres.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-	}
-}
+    pres.save("BoxAndWhisker-6.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -498,37 +505,36 @@ public static void Run()
 The following code is used to create a chart.
 
 ```py
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
 
-		wb.Clear(0);
+    wb = chart.chart_data.chart_data_workbook
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A1", "Category 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A2", "Category 2"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A3", "Category 3"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A4", "Category 4"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A5", "Category 5"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A6", "Category 6"));
+    wb.clear(0)
 
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
+    chart.chart_data.categories.add(wb.get_cell(0, "A1", "Category 1"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A2", "Category 2"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A3", "Category 3"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A4", "Category 4"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A5", "Category 5"))
+    chart.chart_data.categories.add(wb.get_cell(0, "A6", "Category 6"))
 
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B1", 50));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B2", 100));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B3", 200));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B4", 300));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B5", 400));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B6", 500));
+    series = chart.chart_data.series.add(charts.ChartType.FUNNEL)
 
-		pres.Save("Funnel.pptx", SaveFormat.Pptx);
-	}
-}
+    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B1", 50))
+    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B2", 100))
+    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B3", 200))
+    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B4", 300))
+    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B5", 400))
+    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B6", 500))
+
+    pres.save("Funnel-7.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -542,56 +548,55 @@ public static void Run()
 The following code is used to create a chart.
 
 ```py
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 50, 50, 500, 400)
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
 
-		wb.Clear(0);
+    wb = chart.chart_data.chart_data_workbook
 
-		//branch 1
-		IChartCategory leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C1", "Leaf1"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
-		leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+    wb.clear(0)
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C2", "Leaf2"));
+    #branch 1
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C1", "Leaf1"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem1")
+    leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C3", "Leaf3"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+    chart.chart_data.categories.add(wb.get_cell(0, "C2", "Leaf2"))
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C4", "Leaf4"));
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C3", "Leaf3"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-		//branch 2
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C5", "Leaf5"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
-		leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+    chart.chart_data.categories.add(wb.get_cell(0, "C4", "Leaf4"))
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C6", "Leaf6"));
+    #branch 2
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C5", "Leaf5"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem3")
+    leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C7", "Leaf7"));
-		leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+    chart.chart_data.categories.add(wb.get_cell(0, "C6", "Leaf6"))
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C8", "Leaf8"));
+    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C7", "Leaf7"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
-		series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D1", 4));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D2", 5));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D3", 3));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D4", 6));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D5", 9));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D6", 9));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D7", 4));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D8", 3));
+    chart.chart_data.categories.add(wb.get_cell(0, "C8", "Leaf8"))
 
-		pres.Save("Sunburst.pptx", SaveFormat.Pptx);
-	}
-}
+    series = chart.chart_data.series.add(charts.ChartType.SUNBURST)
+    series.labels.default_data_label_format.show_category_name = True
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D1", 4))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D2", 5))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D3", 3))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D4", 6))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D5", 9))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D6", 9))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D7", 4))
+    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D8", 3))
+
+    pres.save("Sunburst-8.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -607,31 +612,30 @@ public static void Run()
 The following code is used to create a chart.
 
 ```py
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Histogram, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.HISTOGRAM, 50, 50, 500, 400)
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
 
-		wb.Clear(0);
+    wb = chart.chart_data.chart_data_workbook
 
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A1", 15));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A2", -41));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A3", 16));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A4", 10));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A5", -23));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A6", 16));
+    wb.clear(0)
 
-		chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+    series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
+    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A1", 15))
+    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A2", -41))
+    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A3", 16))
+    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A4", 10))
+    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A5", -23))
+    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A6", 16))
 
-		pres.Save("Histogram.pptx", SaveFormat.Pptx);
-	}
-}
+    chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
+
+    pres.save("Histogram-9.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -648,48 +652,51 @@ public static void Run()
 The following code is used to create a chart.
 
 ```py
-Presentation pres = new Presentation();
-ISlide slide = pres.Slides[0];
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-IChart ch = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
-ch.ChartData.Series.Clear();
-ch.ChartData.Categories.Clear();
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+
+    ch = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 600, 450)
+    ch.chart_data.series.clear()
+    ch.chart_data.categories.clear()
 
 
-IChartDataWorkbook fact = ch.ChartData.ChartDataWorkbook;
-fact.Clear(0);
-int defaultWorksheetIndex = 0;
+    fact = ch.chart_data.chart_data_workbook
+    fact.clear(0)
+    defaultWorksheetIndex = 0
 
-IChartCategory category = ch.ChartData.Categories.Add(fact.GetCell(0, "c2", "A"));
-category.GroupingLevels.SetGroupingItem(1, "Group1");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c3", "B"));
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c2", "A"))
+    category.grouping_levels.set_grouping_item(1, "Group1")
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c3", "B"))
 
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c4", "C"));
-category.GroupingLevels.SetGroupingItem(1, "Group2");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c5", "D"));
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c4", "C"))
+    category.grouping_levels.set_grouping_item(1, "Group2")
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c5", "D"))
 
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c6", "E"));
-category.GroupingLevels.SetGroupingItem(1, "Group3");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c7", "F"));
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c6", "E"))
+    category.grouping_levels.set_grouping_item(1, "Group3")
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c7", "F"))
 
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c8", "G"));
-category.GroupingLevels.SetGroupingItem(1, "Group4");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c9", "H"));
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c8", "G"))
+    category.grouping_levels.set_grouping_item(1, "Group4")
+    category = ch.chart_data.categories.add(fact.get_cell(0, "c9", "H"))
 
-//            Adding Series
-IChartSeries series = ch.ChartData.Series.Add(fact.GetCell(0, "D1", "Series 1"),
-    ChartType.ClusteredColumn);
+    # Adding Series
+    series = ch.chart_data.series.add(fact.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D2", 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D3", 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D4", 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D5", 40));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D6", 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D7", 60));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D8", 70));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D9", 80));
-// Save presentation with chart
-pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D2", 10))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D3", 20))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D4", 30))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D5", 40))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D6", 50))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D7", 60))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D8", 70))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D9", 80))
+    # Save presentation with chart
+    pres.save("AsposeChart_out-10.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -707,61 +714,65 @@ To update a chart, do this:
 Code sample used to update a chart:
 
 ```py
-// Instantiate Presentation class that represents PPTX file// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation("ExistingChart.pptx");
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Access first slideMarker
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation(path + "ExistingChart.pptx") as pres:
 
-// Add chart with default data
-IChart chart = (IChart)sld.Shapes[0];
+    # Access first slideMarker
+    sld = pres.slides[0]
 
-// Setting the index of chart data sheet
-int defaultWorksheetIndex = 0;
+    # Add chart with default data
+    chart = sld.shapes[0]
 
-// Getting the chart data worksheet
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    # Setting the index of chart data sheet
+    defaultWorksheetIndex = 0
 
-
-// Changing chart Category Name
-fact.GetCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-fact.GetCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-
-
-// Take first chart series
-IChartSeries series = chart.ChartData.Series[0];
-
-// Now updating series data
-fact.GetCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifying series name
-series.DataPoints[0].Value.Data = 90;
-series.DataPoints[1].Value.Data = 123;
-series.DataPoints[2].Value.Data = 44;
-
-// Take Second chart series
-series = chart.ChartData.Series[1];
-
-// Now updating series data
-fact.GetCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifying series name
-series.DataPoints[0].Value.Data = 23;
-series.DataPoints[1].Value.Data = 67;
-series.DataPoints[2].Value.Data = 99;
+    # Getting the chart data worksheet
+    fact = chart.chart_data.chart_data_workbook
 
 
-// Now, Adding a new series
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.Type);
+    # Changing chart Category Name
+    fact.get_cell(defaultWorksheetIndex, 1, 0, "Modified Category 1")
+    fact.get_cell(defaultWorksheetIndex, 2, 0, "Modified Category 2")
 
-// Take 3rd chart series
-series = chart.ChartData.Series[2];
 
-// Now populating series data
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 3, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 3, 30));
+    # Take first chart series
+    series = chart.chart_data.series[0]
 
-chart.Type = ChartType.ClusteredCylinder;
+    # Now updating series data
+    fact.get_cell(defaultWorksheetIndex, 0, 1, "New_Series1")# Modifying series name
+    series.data_points[0].value.data = 90
+    series.data_points[1].value.data = 123
+    series.data_points[2].value.data = 44
 
-// Save presentation with chart
-pres.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
+    # Take Second chart series
+    series = chart.chart_data.series[1]
+
+    # Now updating series data
+    fact.get_cell(defaultWorksheetIndex, 0, 2, "New_Series2")# Modifying series name
+    series.data_points[0].value.data = 23
+    series.data_points[1].value.data = 67
+    series.data_points[2].value.data = 99
+
+
+    # Now, Adding a new series
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.type)
+
+    # Take 3rd chart series
+    series = chart.chart_data.series[2]
+
+    # Now populating series data
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 3, 20))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 3, 50))
+    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 3, 30))
+
+    chart.type = charts.ChartType.CLUSTERED_CYLINDER
+
+    # Save presentation with chart
+    pres.save("AsposeChartModified_out-11.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -779,14 +790,17 @@ To set the data range for a chart, do this:
 Code sample used to set data range for a chart:
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-Presentation presentation = new Presentation("ExistingChart.pptx");
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-// Access first slideMarker and add chart with default data
-ISlide slide = presentation.Slides[0];
-IChart chart = (IChart)slide.Shapes[0];
-chart.ChartData.SetRange("Sheet1!A1:B4");
-presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+    # Access first slideMarker and add chart with default data
+    slide = presentation.slides[0]
+    chart = slide.shapes[0]
+    chart.chart_data.set_range("Sheet1!A1:B4")
+    presentation.save("SetDataRange_out-12.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -796,42 +810,44 @@ Aspose.Slides for Python via .NET has a simple API that can help you set the cha
 Code sample used to set a chart series marker automatically:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 10, 10, 400, 400)
 
-    IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-    chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
-    IChartSeries series = chart.ChartData.Series[0];
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-    chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "C1"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 1, 1, 24));
-    chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "C2"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 2, 1, 23));
-    chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "C3"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 3, 1, -10));
-    chart.ChartData.Categories.Add(fact.GetCell(0, 4, 0, "C4"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 4, 1, null));
+    fact = chart.chart_data.chart_data_workbook
+    chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
+    series = chart.chart_data.series[0]
 
-    chart.ChartData.Series.Add(fact.GetCell(0, 0, 2, "Series 2"), chart.Type);
-    //Take second chart series
-    IChartSeries series2 = chart.ChartData.Series[1];
+    chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "C1"))
+    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 1, 1, 24))
+    chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "C2"))
+    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 2, 1, 23))
+    chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "C3"))
+    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 3, 1, -10))
+    chart.chart_data.categories.add(fact.get_cell(0, 4, 0, "C4"))
+    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 4, 1, None))
 
-    //Now populating series data
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 1, 2, 30));
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 2, 2, 10));
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 3, 2, 60));
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 4, 2, 40));
+    chart.chart_data.series.add(fact.get_cell(0, 0, 2, "Series 2"), chart.type)
+    #Take second chart series
+    series2 = chart.chart_data.series[1]
 
-    chart.HasLegend = true;
-    chart.Legend.Overlay = false;
+    #Now populating series data
+    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 1, 2, 30))
+    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 2, 2, 10))
+    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 3, 2, 60))
+    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 4, 2, 40))
 
-    pres.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
-}
+    chart.has_legend = True
+    chart.legend.overlay = False
+
+    pres.save("DefaultMarkersInChart-13.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
