@@ -19,19 +19,18 @@ In this topic, we will introduce developers about adding ellipse shapes to their
 In the example given below, we have added an ellipse to the first slide.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of ellipse type
-    sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
+    # Add autoshape of ellipse type
+    sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 150, 50)
 
-    //Write the PPTX file to disk
-    pres.Save("EllipseShp1_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("EllipseShp1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -51,27 +50,27 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of ellipse type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
+    # Add autoshape of ellipse type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 150, 50)
 
-    // Apply some formatting to ellipse shape
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
+    # Apply some formatting to ellipse shape
+    shp.fill_format.fill_type = slides.FillType.SOLID
+    shp.fill_format.solid_fill_color.color = draw.Color.chocolate
 
-    // Apply some formatting to the line of Ellipse
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    shp.LineFormat.Width = 5;
+    # Apply some formatting to the line of Ellipse
+    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shp.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    shp.line_format.width = 5
 
-    //Write the PPTX file to disk
-    pres.Save("EllipseShp2_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("EllipseShp2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

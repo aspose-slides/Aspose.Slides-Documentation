@@ -19,30 +19,30 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```py
-// Instantiate Prseetation class 
-using (Presentation pres = new Presentation())
-{
-    // Get the first slide 
-    ISlide sld = pres.Slides[0];
+import aspose.slides as slides
 
-    // Accessing the shape collection of slides 
-    IShapeCollection slideShapes = sld.Shapes;
+# Instantiate Prseetation class 
+with slides.Presentation() as pres:
+    # Get the first slide 
+    sld = pres.slides[0]
 
-    // Adding a group shape to the slide 
-    IGroupShape groupShape = slideShapes.AddGroupShape();
+    # Accessing the shape collection of slides 
+    slideShapes = sld.shapes
 
-    // Adding shapes inside added group shape 
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
+    # Adding a group shape to the slide 
+    groupShape = slideShapes.add_group_shape()
 
-    // Adding group shape frame 
-    groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
+    # Adding shapes inside added group shape 
+    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
+    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
+    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
+    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
 
-    // Write the PPTX file to disk 
-    pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
-}
+    # Adding group shape frame 
+    groupShape.frame = slides.ShapeFrame(100, 300, 500, 40, -1, -1, 0)
+
+    # Write the PPTX file to disk 
+    pres.save("GroupShape_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -59,28 +59,22 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation("AltText.pptx");
+import aspose.slides as slides
 
-// Get the first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation(path + "AltText.pptx") as pres:
 
-for (int i = 0; i < sld.Shapes.Count; i++)
-{
-    // Accessing the shape collection of slides
-    IShape shape = sld.Shapes[i];
+    # Get the first slide
+    sld = pres.slides[0]
 
-    if (shape is GroupShape)
-    {
-        // Accessing the group shape.
-        IGroupShape grphShape = (IGroupShape)shape;
-        for (int j = 0; j < grphShape.Shapes.Count; j++)
-        {
-            IShape shape2 = grphShape.Shapes[j];
-            // Accessing the AltText property
-            Console.WriteLine(shape2.AlternativeText);
-        }
-    }
-}
+    for i in range(len(sld.shapes)):
+        # Accessing the shape collection of slides
+        shape = sld.shapes[i]
+
+        if type(shape) is slides.GroupShape:
+            # Accessing the group shape.
+            for j in range(len(shape.shapes)):
+                # Accessing the AltText property
+                print(shape.shapes[j].alternative_text)
 ```
 

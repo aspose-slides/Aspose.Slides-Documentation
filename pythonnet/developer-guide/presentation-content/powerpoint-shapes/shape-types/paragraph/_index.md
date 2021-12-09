@@ -14,13 +14,13 @@ Using Aspose.Slides for Python via .NET, developers can now get the rectangular 
 The new method **GetRect()** has been added. It allows to get paragraph bounds rectangle.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("Shapes.pptx"))
-{
-    IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-        var textFrame = (ITextFrame)shape.TextFrame;
-        RectangleF rect = ((Paragraph)textFrame.Paragraphs[0]).GetRect();
-}
+import aspose.slides as slides
+
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "Shapes.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    textFrame = shape.text_frame
+    rect = textFrame.paragraphs[0].get_rect()
 ```
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
@@ -30,43 +30,35 @@ To get the [Portion](https://apireference.aspose.com/slides/pythonnet/aspose.sli
 This sample code demonstrates the described operation:
 
 ```py
-using (Presentation pres = new Presentation("source.pptx"))
-{
-    Table tbl = pres.Slides[0].Shapes[0] as Table;
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    ICell cell = tbl.Rows[1][1];
+with slides.Presentation(path + "source.pptx") as pres:
+    tbl = pres.slides[0].shapes[0]
 
-
-    double x = tbl.X + tbl.Rows[1][1].OffsetX;
-    double y = tbl.Y + tbl.Rows[1][1].OffsetY;
-
-    foreach (IParagraph para in cell.TextFrame.Paragraphs)
-    {
-        if (para.Text == "")
-            continue;
-
-        RectangleF rect = para.GetRect();
-        IAutoShape shape =
-            pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
-                rect.X + (float)x, rect.Y + (float)y, rect.Width, rect.Height);
-
-        shape.FillFormat.FillType = FillType.NoFill;
-        shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-        shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    cell = tbl.rows[1][1]
 
 
-        foreach (IPortion portion in para.Portions)
-        {
-            if (portion.Text.Contains("0"))
-            {
-                rect = portion.GetRect();
-                shape =
-                    pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle,
-                        rect.X + (float)x, rect.Y + (float)y, rect.Width, rect.Height);
+    x = tbl.X + tbl.rows[1][1].offset_x
+    y = tbl.Y + tbl.rows[1][1].offset_y
 
-                shape.FillFormat.FillType = FillType.NoFill;
-            }
-        }
-    }
-}
+    for para in cell.text_frame.paragraphs:
+        if para.text == "":
+            continue
+
+        rect = para.get_rect()
+        shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE,
+                rect.x + x, rect.y + y, rect.width, rect.height)
+
+        shape.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.line_format.fill_format.solid_fill_color.color = draw.Color.yellow
+        shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+
+        for portion in para.portions:
+            if "0" in portion.text:
+                rect = portion.get_rect()
+                shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE,
+                        rect.x + x, rect.y + y, rect.width, rect.height)
+
+                shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```

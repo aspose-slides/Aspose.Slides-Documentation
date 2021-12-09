@@ -11,32 +11,30 @@ description: "PowerPoint embedded fonts in Python"
 Now, you can also work with embedded fonts. FontsManger class now offer, GetEmbeddedFonts() method that returns a list of embedded fonts inside the presentation. You can also remove any embedded font inside presentation if that is required by using RemoveEmbeddedFont() method exposed by FontsManager class. The implementation of the above steps is given below.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
-{
-    // render a slide that contains a text frame that uses embedded "FunSized"
-    presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture1_out.png", ImageFormat.Png);
+import aspose.slides as slides
 
-    IFontsManager fontsManager = presentation.FontsManager;
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
+    # render a slide that contains a text frame that uses embedded "FunSized"
+    presentation.slides[0].get_thumbnail(draw.Size(960, 720)).save("picture1_out.png", draw.imaging.ImageFormat.png)
 
-    // get all embedded fonts
-    IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
+    fontsManager = presentation.fonts_manager
 
-    // find "Calibri" font
-    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate(IFontData data)
-    {
-        return data.FontName == "Calibri";
-    });
+    # get all embedded fonts
+    embeddedFonts = fontsManager.get_embedded_fonts()
 
-    // remove "Calibri" font
-    fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
+    # find "Calibri" font
+    
+    funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
 
-    // render the presentation; removed "Calibri" font is replaced to an existing one
-    presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture2_out.png", ImageFormat.Png);
+    # remove "Calibri" font
+    fontsManager.remove_embedded_font(funSizedEmbeddedFont)
 
-    // save the presentation without embedded "Calibri" font
-    presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
-}
+    # render the presentation removed "Calibri" font is replaced to an existing one
+    presentation.slides[0].get_thumbnail(draw.Size(960, 720)).save("picture2_out.png", draw.imaging.ImageFormat.png)
+
+    # save the presentation without embedded "Calibri" font
+    presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
 
@@ -45,24 +43,21 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 A new property of embedding fonts has been added. To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloads of AddEmbeddedFont method have been added. Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in the Presentation can be embedded. The implementation of the above steps is given below.
 
 ```py
-// Load presentation
-Presentation presentation = new Presentation("Fonts.pptx");
+import aspose.slides as slides
 
-// Load source font to be replaced
-IFontData sourceFont = new FontData("Arial");
+# Load presentation
+with slides.Presentation(path + "Fonts.pptx") as presentation:
+    # Load source font to be replaced
+    sourceFont = slides.FontData("Arial")
 
 
-IFontData[] allFonts = presentation.FontsManager.GetFonts();
-IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
-foreach (IFontData font in allFonts)
-{
-    if (!embeddedFonts.Contains(font))
-    {
-        presentation.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
-    }
-}
+    allFonts = presentation.fonts_manager.get_fonts()
+    embeddedFonts = presentation.fonts_manager.get_embedded_fonts()
+    for font in allFonts:
+        if font not in embeddedFonts:
+            presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-// Save the presentation
-presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    # Save the presentation
+    presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

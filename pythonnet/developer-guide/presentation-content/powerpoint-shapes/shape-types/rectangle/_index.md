@@ -19,19 +19,18 @@ Like previous topics, this one is also about adding a shape and this time the sh
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of rectangle type
-    sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
+    # Add autoshape of rectangle type
+    sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 50)
 
-    //Write the PPTX file to disk
-    pres.Save("RectShp1_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("RectShp1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -49,27 +48,27 @@ To add a formatted rectangle to a slide, please follow the steps below:
    The above steps are implemented in the example given below.
 
 ```py
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Prseetation class that represents the PPTX
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
+    # Add autoshape of rectangle type
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 50)
 
-    // Apply some formatting to rectangle shape
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
+    # Apply some formatting to rectangle shape
+    shp.fill_format.fill_type = slides.FillType.SOLID
+    shp.fill_format.solid_fill_color.color = draw.Color.chocolate
 
-    // Apply some formatting to the line of rectangle
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    shp.LineFormat.Width = 5;
+    # Apply some formatting to the line of rectangle
+    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shp.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    shp.line_format.width = 5
 
-    //Write the PPTX file to disk
-    pres.Save("RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    #Write the PPTX file to disk
+    pres.save("RectShp2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

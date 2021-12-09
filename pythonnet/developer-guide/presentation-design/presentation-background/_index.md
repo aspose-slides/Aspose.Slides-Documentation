@@ -19,19 +19,18 @@ We know that Aspose.Slides for Python via .NET may contain two types of slides: 
 1. Write the modified presentation as a presentation file.
 
 ```py
-// Instantiate the Presentation class that represents the presentation file
-using (Presentation pres = new Presentation())
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Set the background color of the Master ISlide to Forest Green
-    pres.Masters[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Masters[0].Background.FillFormat.FillType = FillType.Solid;
-    pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
+# Instantiate the Presentation class that represents the presentation file
+with slides.Presentation() as pres:
+    # Set the background color of the Master ISlide to Forest Green
+    pres.masters[0].background.type = slides.BackgroundType.OWN_BACKGROUND
+    pres.masters[0].background.fill_format.fill_type = slides.FillType.SOLID
+    pres.masters[0].background.fill_format.solid_fill_color.color = draw.Color.forest_green
 
-    // Write the presentation to disk
-    pres.Save("SetSlideBackgroundMaster_out.pptx", SaveFormat.Pptx);
-
-}
+    # Write the presentation to disk
+    pres.save("SetSlideBackgroundMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -45,16 +44,16 @@ A Normal Slide is the one which inherits its format settings from the master sli
 - Write the modified presentation as a presentation file.
 
 ```py
-// Instantiate the Presentation class that represents the presentation file
-using (Presentation pres = new Presentation())
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Set the background color of the first ISlide to Blue
-    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Slides[0].Background.FillFormat.FillType = FillType.Solid;
-    pres.Slides[0].Background.FillFormat.SolidFillColor.Color = Color.Blue;
-    pres.Save("ContentBG_out.pptx", SaveFormat.Pptx);
-}
+# Instantiate the Presentation class that represents the presentation file
+with slides.Presentation() as pres:
+    # Set the background color of the first ISlide to Blue
+    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
+    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
+    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
+    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -70,18 +69,18 @@ To apply the simple gradient effect on the background of a slide using Aspose.Sl
 - Write the modified presentation file.
 
 ```py
-// Instantiate the Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("SetBackgroundToGradient.pptx"))
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Apply Gradiant effect to the Background
-    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Slides[0].Background.FillFormat.FillType = FillType.Gradient;
-    pres.Slides[0].Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
+# Instantiate the Presentation class that represents the presentation file
+with slides.Presentation(path + "SetBackgroundToGradient.pptx") as pres:
+    # Apply Gradiant effect to the background
+    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
+    pres.slides[0].background.fill_format.fill_type = slides.FillType.GRADIENT
+    pres.slides[0].background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
-    //Write the presentation to disk
-    pres.Save("ContentBG_Grad_out.pptx", SaveFormat.Pptx);
-}
+    #Write the presentation to disk
+    pres.save("ContentBG_Grad_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -98,26 +97,26 @@ To use an image as the background of a slide using Aspose.Slides for Python via 
 1. Write the modified presentation file.
 
 ```py
-// Instantiate the Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("SetImageAsBackground.pptx"))
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Set the background with Image
-    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Slides[0].Background.FillFormat.FillType = FillType.Picture;
-    pres.Slides[0].Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+# Instantiate the Presentation class that represents the presentation file
+with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
+    # Set the background with Image
+    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
+    pres.slides[0].background.fill_format.fill_type = slides.FillType.PICTURE
+    pres.slides[0].background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
-    // Set the picture
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir + "Tulips.jpg");
+    # Set the picture
+    img = draw.Bitmap(path + "Tulips.jpg")
 
-    // Add image to presentation's images collection
-    IPPImage imgx = pres.Images.AddImage(img);
+    # Add image to presentation's images collection
+    imgx = pres.images.add_image(img)
 
-    pres.Slides[0].Background.FillFormat.PictureFillFormat.Picture.Image = imgx;
+    pres.slides[0].background.fill_format.picture_fill_format.picture.image = imgx
 
-    // Write the presentation to disk
-    pres.Save("ContentBG_Img_out.pptx", SaveFormat.Pptx);
-}
+    # Write the presentation to disk
+    pres.save("ContentBG_Img_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -129,15 +128,17 @@ using (Presentation pres = new Presentation("SetImageAsBackground.pptx"))
 The following code snippet shows how to get effective background values of slide.
 
 ```py
-// Instantiate the Presentation class that represents the presentation file
-Presentation pres = new Presentation("SamplePresentation.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-IBackgroundEffectiveData effBackground = pres.Slides[0].Background.GetEffective();
+# Instantiate the Presentation class that represents the presentation file
+with slides.Presentation(path + "SamplePresentation.pptx") as pres:
 
-if (effBackground.FillFormat.FillType == FillType.Solid)
-    Console.WriteLine("Fill color: " + effBackground.FillFormat.SolidFillColor);
-else
-    Console.WriteLine("Fill type: " + effBackground.FillFormat.FillType);
+    effBackground = pres.slides[0].background.get_effective()
 
+    if effBackground.fill_format.fill_type == slides.FillType.SOLID:
+        print("Fill color: " + str(effBackground.fill_format.solid_fill_color))
+    else:
+        print("Fill type: " + str(effBackground.fill_format.fill_type))
 ```
 

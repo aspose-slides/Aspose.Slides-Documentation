@@ -16,19 +16,19 @@ Aspose.Slides for Python via .NET now facilitates to add custom SmartArt shapes 
 - Write the modified presentation as a PPTX file.
 
 ```py
-// Instantiate the presentation
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Access the presentation slide
-    ISlide slide = pres.Slides[0];
+# Instantiate the presentation
+with slides.Presentation() as pres:
+    # Access the presentation slide
+    slide = pres.slides[0]
 
-    // Add Smart Art Shape
-    ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
+    # Add Smart Art Shape
+    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
 
-    // Saving presentation
-    pres.Save("SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Saving presentation
+    pres.save("SimpleSmartArt_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -37,23 +37,18 @@ using (Presentation pres = new Presentation())
 The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a SmartArt shape. If shape is of SmartArt type then we will typecast that to SmartArt instance.
 
 ```py
-// Load the desired the presentation
-using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
-{
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Traverse through every shape inside first slide
-    foreach (IShape shape in pres.Slides[0].Shapes)
-    {
-        // Check if shape is of SmartArt type
-        if (shape is ISmartArt)
-        {
-            // Typecast shape to SmartArtEx
-            ISmartArt smart = (ISmartArt)shape;
-            System.Console.WriteLine("Shape Name:" + smart.Name);
+# Load the desired the presentation
+with slides.Presentation(path + "SmartArt.pptx") as pres:
 
-        }
-    }
-}
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Typecast shape to SmartArtEx
+            print("Shape Name:" + shape.name)
 ```
 
 
@@ -68,25 +63,17 @@ The following sample code will help to access the SmartArt shape with particular
 - Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```py
-using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
-{
-    // Traverse through every shape inside first slide
-    foreach (IShape shape in presentation.Slides[0].Shapes)
-    {
-        // Check if shape is of SmartArt type
-        if (shape is ISmartArt)
-        {
-            // Typecast shape to SmartArtEx
-            ISmartArt smart = (ISmartArt) shape;
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-            // Checking SmartArt Layout
-            if (smart.Layout == SmartArtLayoutType.BasicBlockList)
-            {
-                Console.WriteLine("Do some thing here....");
-            }
-        }
-    }
-}
+with slides.Presentation(path + "SmartArt.pptx") as presentation:
+    # Traverse through every shape inside first slide
+    for shape in presentation.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Checking SmartArt Layout
+            if shape.layout == art.SmartArtLayoutType.BASIC_BLOCK_LIST:
+                print("Do some thing here....")
 ```
 
 
@@ -103,29 +90,21 @@ The following sample code will help to access the SmartArt shape with particular
 - Save the Presentation.
 
 ```py
-using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
-{
-    // Traverse through every shape inside first slide
-    foreach (IShape shape in presentation.Slides[0].Shapes)
-    {
-        // Check if shape is of SmartArt type
-        if (shape is ISmartArt)
-        {
-            // Typecast shape to SmartArtEx
-            ISmartArt smart = (ISmartArt)shape;
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-            // Checking SmartArt style
-            if (smart.QuickStyle == SmartArtQuickStyleType.SimpleFill)
-            {
-                // Changing SmartArt Style
-                smart.QuickStyle = SmartArtQuickStyleType.Cartoon;
-            }
-        }
-    }
+with slides.Presentation(path + "SmartArt.pptx") as presentation:
+    # Traverse through every shape inside first slide
+    for shape in presentation.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Checking SmartArt style
+            if shape.quick_style == art.SmartArtQuickStyleType.SIMPLE_FILL:
+                # Changing SmartArt Style
+                smart.quick_style = art.SmartArtQuickStyleType.CARTOON
 
-    // Saving Presentation
-    presentation.Save("ChangeSmartArtStyle_out.pptx", SaveFormat.Pptx);
-}
+    # Saving Presentation
+    presentation.save("ChangeSmartArtStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -142,28 +121,20 @@ In this example, we will learn to change the color style for any SmartArt shape.
 - Save the Presentation.
 
 ```py
-using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
-{
-    // Traverse through every shape inside first slide
-    foreach (IShape shape in presentation.Slides[0].Shapes)
-    {
-        // Check if shape is of SmartArt type
-        if (shape is ISmartArt)
-        {
-            // Typecast shape to SmartArtEx
-            ISmartArt smart = (ISmartArt)shape;
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-            // Checking SmartArt color type
-            if (smart.ColorStyle == SmartArtColorType.ColoredFillAccent1)
-            {
-                // Changing SmartArt color type
-                smart.ColorStyle = SmartArtColorType.ColorfulAccentColors;
-            }
-        }
-    }
+with slides.Presentation(path + "SmartArt.pptx") as presentation:
+    # Traverse through every shape inside first slide
+    for shape in presentation.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Checking SmartArt color type
+            if shape.color_style == art.SmartArtColorType.COLORED_FILL_ACCENT1:
+                # Changing SmartArt color type
+                shape.color_style = art.SmartArtColorType.COLORFUL_ACCENT_COLORS
 
-    // Saving Presentation
-    presentation.Save("ChangeSmartArtColorStyle_out.pptx", SaveFormat.Pptx);
-}
+    # Saving Presentation
+    presentation.save("ChangeSmartArtColorStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

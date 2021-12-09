@@ -19,19 +19,21 @@ To replace the fonts using explicit replacement following steps are used:
 The implementation of the above steps is given below.
 
 ```py
-// Load presentation
-Presentation presentation = new Presentation("Fonts.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// Load source font to be replaced
-IFontData sourceFont = new FontData("Arial");
+# Load presentation
+with slides.Presentation(path + "Fonts.pptx") as presentation:
+    # Load source font to be replaced
+    sourceFont = slides.FontData("Arial")
 
-// Load the replacing font
-IFontData destFont = new FontData("Times New Roman");
+    # Load the replacing font
+    destFont = slides.FontData("Times New Roman")
 
-// Replace the fonts
-presentation.FontsManager.ReplaceFont(sourceFont, destFont);
+    # Replace the fonts
+    presentation.fonts_manager.replace_font(sourceFont, destFont)
 
-// Save the presentation
-presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
+    # Save the presentation
+    presentation.save("UpdatedFont_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

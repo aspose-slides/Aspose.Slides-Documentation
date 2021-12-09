@@ -15,35 +15,33 @@ The following example includes these steps:
 1. With [Presentation.Save()](https://apireference.aspose.com/slides/pythonnet/aspose.slides.presentation/save/methods/4) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```py
-// Create new instance of a rules collection
-IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// create a number of rules
-rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
-//rulesList.Add(new FontFallBackRule(...));
+# Create new instance of a rules collection
+rulesList = slides.FontFallBackRulesCollection()
 
-foreach (IFontFallBackRule fallBackRule in rulesList)
-{
-	//Trying to remove FallBack font "Tahoma" from loaded rules
-	fallBackRule.Remove("Tahoma");
+# create a number of rules
+rulesList.add(slides.FontFallBackRule(0x400, 0x4FF, "Times New Roman"))
 
-	//And to update of rules for specified range
-	if ((fallBackRule.RangeEndIndex >= 0x4000) && (fallBackRule.RangeStartIndex < 0x5000))
-		fallBackRule.AddFallBackFonts("Verdana");
-}
+for fallBackRule in rulesList:
+	#Trying to remove FallBack font "Tahoma" from loaded rules
+	fallBackRule.remove("Tahoma")
 
-//Also we can remove any existing rules from list
-if (rulesList.Count > 0)
-	rulesList.Remove(rulesList[0]);
+	#And to update of rules for specified range
+	if fallBackRule.range_end_index >= 0x4000 and fallBackRule.range_start_index < 0x5000:
+		fallBackRule.add_fall_back_fonts("Verdana")
 
-using (Presentation pres = new Presentation("input.pptx"))
-{
-	//Assigning a prepared rules list for using
-	pres.FontsManager.FontFallBackRulesCollection = rulesList;
+#Also we can remove any existing rules from list
+if len(rulesList) > 0:
+	rulesList.remove(rulesList[0])
 
-	// Rendering of thumbnail with using of initialized rules collection and saving to PNG
-	pres.Slides[0].GetThumbnail(1f, 1f).Save("Slide_0.png", ImageFormat.Png);
-}
+with slides.Presentation(path + "input.pptx") as pres:
+	#Assigning a prepared rules list for using
+	pres.fonts_manager.font_fall_back_rules_collection = rulesList
+
+	# Rendering of thumbnail with using of initialized rules collection and saving to PNG
+	pres.slides[0].get_thumbnail(1, 1).save("Slide_0.png", draw.imaging.ImageFormat.png)
 ```
 
 

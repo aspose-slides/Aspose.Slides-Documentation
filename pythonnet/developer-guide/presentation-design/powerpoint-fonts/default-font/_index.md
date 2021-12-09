@@ -20,22 +20,23 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```py
-// Use load options to define the default regualr and asian fonts// Use load options to define the default regualr and asian fonts
-LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
-loadOptions.DefaultRegularFont = "Wingdings";
-loadOptions.DefaultAsianFont = "Wingdings";
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// Load the presentation
-using (Presentation pptx = new Presentation("DefaultFonts.pptx", loadOptions))
-{
-    // Generate slide thumbnail
-    pptx.Slides[0].GetThumbnail(1, 1).Save("output_out.png", ImageFormat.Png);
+# Use load options to define the default regualr and asian fonts# Use load options to define the default regualr and asian fonts
+loadOptions = slides.LoadOptions(slides.LoadFormat.AUTO)
+loadOptions.default_regular_font = "Wingdings"
+loadOptions.default_asian_font = "Wingdings"
 
-    // Generate PDF
-    pptx.Save("output_out.pdf", SaveFormat.Pdf);
+# Load the presentation
+with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as pptx:
+    # Generate slide thumbnail
+    pptx.slides[0].get_thumbnail(1, 1).save("output_out.png", draw.imaging.ImageFormat.png)
 
-    // Generate XPS
-    pptx.Save("output_out.xps", SaveFormat.Xps);
-}
+    # Generate PDF
+    pptx.save("output_out.pdf", slides.export.SaveFormat.PDF)
+
+    # Generate XPS
+    pptx.save("output_out.xps", slides.export.SaveFormat.XPS)
 ```
 

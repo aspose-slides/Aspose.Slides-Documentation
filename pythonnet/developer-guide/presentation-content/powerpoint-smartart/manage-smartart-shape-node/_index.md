@@ -20,37 +20,30 @@ Aspose.Slides for Python via .NET has provided the simplest API to manage the Sm
 - Save the Presentation.
 
 ```py
-// Load the desired the presentation
-Presentation pres = new Presentation("AddNodes.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-// Traverse through every shape inside first slide
-foreach (IShape shape in pres.Slides[0].Shapes)
-{
+# Load the desired the presentation
+with slides.Presentation(path + "AddNodes.pptx") as pres:
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
 
-    // Check if shape is of SmartArt type
-    if (shape is Aspose.Slides.SmartArt.SmartArt)
-    {
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Adding a new SmartArt Node
+            node1 = shape.all_nodes.add_node()
+            # Adding text
+            node1.text_frame.text = "Test"
 
-        // Typecast shape to SmartArt
-        Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
+            # Adding new child node in parent node. It  will be added in the end of collection
+            new_node = node1.child_nodes.add_node()
 
-        // Adding a new SmartArt Node
-        Aspose.Slides.SmartArt.SmartArtNode TemNode = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes.AddNode();
+            # Adding text
+            new_node.text_frame.text = "New Node Added"
 
-        // Adding text
-        TemNode.TextFrame.Text = "Test";
-
-        // Adding new child node in parent node. It  will be added in the end of collection
-        Aspose.Slides.SmartArt.SmartArtNode newNode = (Aspose.Slides.SmartArt.SmartArtNode)TemNode.ChildNodes.AddNode();
-
-        // Adding text
-        newNode.TextFrame.Text = "New Node Added";
-
-    }
-}
-
-// Saving Presentation
-pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    # Saving Presentation
+    pres.save("AddSmartArtNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -66,26 +59,29 @@ In the following sample code we have explained how to add the child nodes belong
 - Save the Presentation.
 
 ```py
-// Creating a presentation instance
-Presentation pres = new Presentation();
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-// Access the presentation slide
-ISlide slide = pres.Slides[0];
+# Creating a presentation instance
+with slides.Presentation() as pres:
+    # Access the presentation slide
+    slide = pres.slides[0]
 
-// Add Smart Art IShape
-ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
+    # Add Smart Art IShape
+    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
 
-// Accessing the SmartArt node at index 0
-ISmartArtNode node = smart.AllNodes[0];
+    # Accessing the SmartArt node at index 0
+    node = smart.all_nodes[0]
 
-// Adding new child node at position 2 in parent node
-SmartArtNode chNode = (SmartArtNode)((SmartArtNodeCollection)node.ChildNodes).AddNodeByPosition(2);
+    # Adding new child node at position 2 in parent node
+    chNode = node.child_nodes.add_node_by_position(2)
 
-// Add Text
-chNode.TextFrame.Text = "Sample Text Added";
+    # Add text
+    chNode.text_frame.text = "Sample text Added"
 
-// Save Presentation
-pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    # save Presentation
+    pres.save("AddSmartArtNodeByPosition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -106,32 +102,24 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 
 - Access and display information like SmartArt Node position, level and Text.
 
-  ```py
-  // Load the desired the presentation
-   Presentation pres = new Presentation("AccessSmartArt.pptx");
-  
-  // Traverse through every shape inside first slide
-  foreach (IShape shape in pres.Slides[0].Shapes)
-  {
-      // Check if shape is of SmartArt type
-      if (shape is Aspose.Slides.SmartArt.SmartArt)
-      {
-  
-          // Typecast shape to SmartArt
-          Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-  
-          // Traverse through all nodes inside SmartArt
-          for (int i = 0; i < smart.AllNodes.Count; i++)
-          {
-              // Accessing SmartArt node at index i
-              Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
-  
-              // Printing the SmartArt node parameters
-              string outString = string.Format("i = {0}, Text = {1},  Level = {2}, Position = {3}", i, node.TextFrame.Text, node.Level, node.Position);
-              Console.WriteLine(outString);
-          }
-      }
-  }
+```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
+
+# Load the desired the presentation
+with slides.Presentation(path + "AccessSmartArt.pptx") as pres:
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Traverse through all nodes inside SmartArt
+            for i in range(len(shape.all_nodes)):
+                # Accessing SmartArt node at index i
+                node = shape.all_nodes[i]
+
+                # Printing the SmartArt node parameters
+                print("i = {0}, text = {1},  level = {2}, position = {3}".format(i, node.text_frame.text, node.level, node.position))
   ```
 
   
@@ -149,39 +137,26 @@ The following sample code will help to access the child nodes belonging to respe
 - Access and display information like Child Node position, level and Text.
 
 ```py
-// Load the desired the presentation
-Presentation pres = new Presentation("AccessChildNodes.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-// Traverse through every shape inside first slide
-foreach (IShape shape in pres.Slides[0].Shapes)
-{
+# Load the desired the presentation
+with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Traverse through all nodes inside SmartArt
+            for node0 in shape.all_nodes:
+                # Traversing through the child nodes
+                for j in range(len(node0.child_nodes)):
+                    # Accessing the child node in SmartArt node
+                    node = node0.child_nodes[j]
 
-    // Check if shape is of SmartArt type
-    if (shape is Aspose.Slides.SmartArt.SmartArt)
-    {
+                    # Printing the SmartArt child node parameters
+                    print("j = {0}, text = {1},  level = {2}, position = {3}".format(j, node.text_frame.text, node.level, node.position))
 
-        // Typecast shape to SmartArt
-        Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-
-        // Traverse through all nodes inside SmartArt
-        for (int i = 0; i < smart.AllNodes.Count; i++)
-        {
-            // Accessing SmartArt node at index i
-            Aspose.Slides.SmartArt.SmartArtNode node0 = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
-
-            // Traversing through the child nodes in SmartArt node at index i
-            for (int j = 0; j < node0.ChildNodes.Count; j++)
-            {
-                // Accessing the child node in SmartArt node
-                Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)node0.ChildNodes[j];
-
-                // Printing the SmartArt child node parameters
-                string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", j, node.TextFrame.Text, node.Level, node.Position);
-                Console.WriteLine(outString);
-            }
-        }
-    }
-}
 ```
 
 
@@ -198,25 +173,24 @@ In this example, we will learn to access the child nodes at some particular posi
 - Access and display information like Child Node position, level and Text.
 
 ```py
-// Instantiate the presentation
-Presentation pres = new Presentation();
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-// Accessing the first slide
-ISlide slide = pres.Slides[0];
+# Instantiate the presentation
+with slides.Presentation() as pres:
+    # Accessing the first slide
+    slide = pres.slides[0]
+    # Adding the SmartArt shape in first slide
+    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
+    # Accessing the SmartArt  node at index 0
+    node = smart.all_nodes[0]
+    # Accessing the child node at position 1 in parent node
+    position = 1
+    chNode = node.child_nodes[position] 
+    # Printing the SmartArt child node parameters
+    print("j = {0}, text = {1},  level = {2}, position = {3}".format(position, chNode.text_frame.text, chNode.level, chNode.position))
 
-// Adding the SmartArt shape in first slide
-ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
-
-// Accessing the SmartArt  node at index 0
-ISmartArtNode node = smart.AllNodes[0];
-
-// Accessing the child node at position 1 in parent node
-int position = 1;
-SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
-
-// Printing the SmartArt child node parameters
-string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
-Console.WriteLine(outString);
 ```
 
 
@@ -233,35 +207,26 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 - Now, remove the selected node using RemoveNode() method* Save the Presentation.
 
 ```py
-// Load the desired the presentation
-using (Presentation pres = new Presentation("RemoveNode.pptx"))
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Traverse through every shape inside first slide
-    foreach (IShape shape in pres.Slides[0].Shapes)
-    {
+# Load the desired the presentation
+with slides.Presentation(path + "RemoveNode.pptx") as pres:
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Typecast shape to SmartArtEx
+            if len(shape.all_nodes) > 0:
+                # Accessing SmartArt node at index 0
+                node = shape.all_nodes[0]
 
-        // Check if shape is of SmartArt type
-        if (shape is ISmartArt)
-        {
-            // Typecast shape to SmartArtEx
-            ISmartArt smart = (ISmartArt)shape;
+                # Removing the selected node
+                shape.all_nodes.remove_node(node)
 
-            if (smart.AllNodes.Count > 0)
-            {
-                // Accessing SmartArt node at index 0
-                ISmartArtNode node = smart.AllNodes[0];
-
-                // Removing the selected node
-                smart.AllNodes.RemoveNode(node);
-
-            }
-        }
-    }
-
-    // Save Presentation
-    pres.Save("RemoveSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # save Presentation
+    pres.save("RemoveSmartArtNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -279,35 +244,26 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 - Save the Presentation.
 
 ```py
-// Load the desired the presentation             
-Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-// Traverse through every shape inside first slide
-foreach (IShape shape in pres.Slides[0].Shapes)
-{
-    // Check if shape is of SmartArt type
-    if (shape is Aspose.Slides.SmartArt.SmartArt)
-    {
-        // Typecast shape to SmartArt
-        Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
+# Load the desired the presentation
+with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:             
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Typecast shape to SmartArt
+            if len(shape.all_nodes) > 0:
+                # Accessing SmartArt node at index 0
+                node = shape.all_nodes[0]
+                if len(node.child_nodes) >= 2:
+                    # Removing the child node at position 1
+                    node.child_nodes.remove_node(1)
 
-        if (smart.AllNodes.Count > 0)
-        {
-            // Accessing SmartArt node at index 0
-            Aspose.Slides.SmartArt.ISmartArtNode node = smart.AllNodes[0];
-
-            if (node.ChildNodes.Count >= 2)
-            {
-                // Removing the child node at position 1
-                ((Aspose.Slides.SmartArt.SmartArtNodeCollection)node.ChildNodes).RemoveNode(1);
-            }
-
-        }
-    }
-}
-
-// Save Presentation
-pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    # save Presentation
+    pres.save("RemoveSmartArtNodeByPosition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -316,35 +272,36 @@ pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveForm
 Now Aspose.Slides for Python via .NET support for setting SmartArtShape X and Y properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes.
 
 ```py
-// Load the desired the presentation
-Presentation pres = new Presentation("AccessChildNodes.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-{
-	ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
+# Load the desired the presentation
+with slides.Presentation(path + "AccessChildNodes.pptx") as pres: 
+	smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
 
-	// Move SmartArt shape to new position
-	ISmartArtNode node = smart.AllNodes[1];
-	ISmartArtShape shape = node.Shapes[1];
-	shape.X += (shape.Width * 2);
-	shape.Y -= (shape.Height / 2);
+	# Move SmartArt shape to new position
+	node = smart.all_nodes[1]
+	shape = node.shapes[1]
+	shape.x += (shape.width * 2)
+	shape.y -= (shape.height / 2)
 
-	// Change SmartArt shape's widths
-	node = smart.AllNodes[2];
-	shape = node.Shapes[1];
-	shape.Width += (shape.Width / 2);
+	# Change SmartArt shape's widths
+	node = smart.all_nodes[2]
+	shape = node.shapes[1]
+	shape.width += (shape.width / 2)
 
-	// Change SmartArt shape's height
-	node = smart.AllNodes[3];
-	shape = node.Shapes[1];
-	shape.Height += (shape.Height / 2);
+	# Change SmartArt shape's height
+	node = smart.all_nodes[3]
+	shape = node.shapes[1]
+	shape.height += (shape.height / 2)
 
-	// Change SmartArt shape's rotation
-	node = smart.AllNodes[4];
-	shape = node.Shapes[1];
-	shape.Rotation = 90;
+	# Change SmartArt shape's rotation
+	node = smart.all_nodes[4]
+	shape = node.shapes[1]
+	shape.rotation = 90
 
-	pres.Save("SmartArt.pptx", SaveFormat.Pptx);
-}
+	pres.save("SmartArt.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -361,34 +318,25 @@ In the following sample code we will investigate how to identify Assistant Nodes
 - Save the Presentation.
 
 ```py
-// Creating a presentation instance
-using (Presentation pres = new Presentation("AssistantNode.pptx"))
-{
-    // Traverse through every shape inside first slide
-    foreach (IShape shape in pres.Slides[0].Shapes)
-    {
-        // Check if shape is of SmartArt type
-        if (shape is Aspose.Slides.SmartArt.ISmartArt)
-        {
-            // Typecast shape to SmartArtEx
-            Aspose.Slides.SmartArt.ISmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-            // Traversing through all nodes of SmartArt shape
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-            foreach (Aspose.Slides.SmartArt.ISmartArtNode node in smart.AllNodes)
-            {
-                String tc = node.TextFrame.Text;
-                // Check if node is Assitant node
-                if (node.IsAssistant)
-                {
-                    // Setting Assitant node to false and making it normal node
-                    node.IsAssistant = false;
-                }
-            }
-        }
-    }
-    // Save Presentation
-    pres.Save("ChangeAssitantNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+# Creating a presentation instance
+with slides.Presentation(path + "AssistantNode.pptx") as pres: 
+    # Traverse through every shape inside first slide
+    for shape in pres.slides[0].shapes:
+        # Check if shape is of SmartArt type
+        if type(shape) is art.SmartArt:
+            # Traversing through all nodes of SmartArt shape
+            for node in shape.all_nodes:
+                tc = node.text_frame.text
+                # Check if node is Assitant node
+                if node.is_assistant:
+                    # Setting Assitant node to false and making it normal node
+                    node.is_assistant = False
+    # save Presentation
+    pres.save("ChangeAssitantNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -405,26 +353,26 @@ Please follow the steps below:
 - Write the modified presentation as a PPTX file.
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    // Accessing the slide
-    ISlide slide = presentation.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Adding SmartArt shape and nodes
-    var chevron = slide.Shapes.AddSmartArt(10, 10, 800, 60, SmartArtLayoutType.ClosedChevronProcess);
-    var node = chevron.AllNodes.AddNode();
-    node.TextFrame.Text = "Some text";
+with slides.Presentation() as presentation: 
+    # Accessing the slide
+    slide = presentation.slides[0]
 
-    // Setting node fill color
-    foreach (var item in node.Shapes)
-    {
-        item.FillFormat.FillType = FillType.Solid;
-        item.FillFormat.SolidFillColor.Color = Color.Red;
-    }
+    # Adding SmartArt shape and nodes
+    chevron = slide.shapes.add_smart_art(10, 10, 800, 60, art.SmartArtLayoutType.CLOSED_CHEVRON_PROCESS)
+    node = chevron.all_nodes.add_node()
+    node.text_frame.text = "Some text"
 
-    // Saving Presentation
-    presentation.Save("FillFormat_SmartArt_ShapeNode_out.pptx", SaveFormat.Pptx);
-}
+    # Setting node fill color
+    for item in node.shapes:
+        item.fill_format.fill_type = slides.FillType.SOLID
+        item.fill_format.solid_fill_color.color = draw.Color.red
+
+    # Saving Presentation
+    presentation.save("FillFormat_SmartArt_ShapeNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -441,20 +389,23 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 The example below generating a thumbnail of SmartArt child node
 
 ```py
-// Instantiate Presentation class that represents the PPTX file 
-Presentation pres = new Presentation();
+import aspose.pydrawing as draw
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-// Add SmartArt 
-ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
+# Instantiate Presentation class that represents the PPTX file 
+with slides.Presentation() as presentation: 
+    # Add SmartArt 
+    smart = pres.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
 
-// Obtain the reference of a node by using its Index  
-ISmartArtNode node = smart.Nodes[1];
+    # Obtain the reference of a node by using its Index  
+    node = smart.nodes[1]
 
-// Get thumbnail
-Bitmap bmp = node.Shapes[0].GetThumbnail();
+    # Get thumbnail
+    bmp = node.shapes[0].get_thumbnail()
 
-// Save thumbnail
-bmp.Save("SmartArt_ChildNote_Thumbnail_out.jpeg", ImageFormat.Jpeg);
+    # save thumbnail
+    bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", draw.imaging.ImageFormat.jpeg)
 ```
 
 

@@ -17,30 +17,32 @@ Aspose.Slides lets you load fonts for rendering in presentations without even in
 The implementation of the above is given below.
 
 ```py
-// The path to the documents directory.
-string dataDir = "C:\\";
+import aspose.slides as slides
 
-// folders to seek fonts
-String[] folders = new String[] { dataDir };
+# The path to the documents directory.
+dataDir = "C:\\"
 
-// Load the custom font directory fonts
-FontsLoader.LoadExternalFonts(folders);
+# folders to seek fonts
+folders = [ dataDir ]
 
-// Do Some work and perform presentation/slides rendering
-using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx"))
-    presentation.Save(dataDir + "NewFonts_out.pptx", SaveFormat.Pptx);
+# Load the custom font directory fonts
+slides.FontsLoader.load_external_fonts(folders)
 
-// Clear Font Cachce
-FontsLoader.ClearCache();
+# Do Some work and perform presentation/slides rendering
+with slides.Presentation(path + "DefaultFonts.pptx") as presentation:
+    presentation.save("NewFonts_out.pptx", slides.export.SaveFormat.PPTX)
+
+# Clear Font Cachce
+slides.FontsLoader.clear_cache()
 ```
 
 ## **Get Custom Fonts Folder**
 A new property has been added that returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
 
 ```py
-//The following line shall return folders where font files are searched.
-//Those are folders that have been added with LoadExternalFonts method as well as system font folders.
-string[] fontFolders = FontsLoader.GetFontFolders();
+# The following line shall return folders where font files are searched.
+# Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+fontFolders = slides.FontsLoader.get_font_folders()
 
 ```
 
@@ -49,16 +51,20 @@ string[] fontFolders = FontsLoader.GetFontFolders();
 A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
 
 ```py
-byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
-byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
+import aspose.slides as slides
 
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts", "global\\fonts" };
-loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
-using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
-{
-    //work with the presentation
-    //CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
-}
+with open(path + "CustomFont1.ttf", "br") as font1:
+    memoryFont1 = font1.read()
+    with open(path + "CustomFont2.ttf", "br") as font2:
+        memoryFont2 = font2.read()
+
+        loadOptions = slides.LoadOptions()
+        loadOptions.document_level_font_sources.font_folders =  ["assets\\fonts", "global\\fonts"] 
+        loadOptions.document_level_font_sources.memory_fonts = [ memoryFont1, memoryFont2 ]
+        with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as presentation:
+            #work with the presentation
+            #CustomFont1, CustomFont2 as well as fonts from assets\fonts
+            #  & global\fonts folders and their subfolders are available to the presentation
+            print(len(presentation.slides))
 ```
 

@@ -20,31 +20,31 @@ In order to add a connector shape for joining two shapes. Please follow the step
    In the example given below, we have added a connector between two shapes.
 
 ```py
-// Instantiate Presentation class that represents the PPTX file
-using (Presentation input = new Presentation())
-{                
-    // Accessing shapes collection for selected slide
-    IShapeCollection shapes = input.Slides[0].Shapes;
+import aspose.slides as slides
 
-    // Add autoshape Ellipse
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+# Instantiate Presentation class that represents the PPTX file
+with slides.Presentation() as input:
+    # Accessing shapes collection for selected slide
+    shapes = input.slides[0].shapes
 
-    // Add autoshape Rectangle
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+    # Add autoshape Ellipse
+    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 0, 100, 100, 100)
 
-    // Adding connector shape to slide shape collection
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+    # Add autoshape Rectangle
+    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 300, 100, 100)
 
-    // Joining Shapes to connectors
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+    # Adding connector shape to slide shape collection
+    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    // Call reroute to set the automatic shortest path between shapes
-    connector.Reroute();
+    # Joining shapes to connectors
+    connector.start_shape_connected_to = ellipse
+    connector.end_shape_connected_to = rectangle
 
-    // Saving presenation
-    input.Save("Connecting shapes using connectors_out.pptx", SaveFormat.Pptx);
-}
+    # Call reroute to set the automatic shortest path between shapes
+    connector.reroute()
+
+    # Saving presenation
+    input.save("Connecting shapes using connectors_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 
@@ -67,38 +67,36 @@ In order to add a connector shape for joining two shapes. Please follow the step
 In the example given below, we have added a connector between two shapes.
 
 ```py
-// Instantiate Presentation class that represents the PPTX file
-using (Presentation presentation = new Presentation())
-{
-    // Accessing shapes collection for selected slide
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
+import aspose.slides as slides
 
-    // Adding connector shape to slide shape collection
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+# Instantiate Presentation class that represents the PPTX file
+with slides.Presentation() as presentation:
+    # Accessing shapes collection for selected slide
+    shapes = presentation.slides[0].shapes
 
-    // Add autoshape Ellipse
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    # Adding connector shape to slide shape collection
+    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    // Add autoshape Rectangle
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
+    # Add autoshape Ellipse
+    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 0, 100, 100, 100)
 
-    // Joining Shapes to connectors
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+    # Add autoshape Rectangle
+    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 100, 100)
 
-    // Setting the desired connection site index of Ellipse shape for connector to get connected
-    uint wantedIndex = 6;
+    # Joining shapes to connectors
+    connector.start_shape_connected_to = ellipse
+    connector.end_shape_connected_to = rectangle
 
-    // Checking if desired index is less than maximum site index count
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Setting the desired connection site for connector on Ellipse
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
+    # Setting the desired connection site index of Ellipse shape for connector to get connected
+    wantedIndex = 6
 
-    // Save presentation
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
-}
+    # Checking if desired index is less than maximum site index count
+    if  ellipse.connection_site_count > wantedIndex:
+        # Setting the desired connection site for connector on Ellipse
+        connector.start_shape_connection_site_index = wantedIndex
+
+    # save presentation
+    presentation.save("Connecting_Shape_on_desired_connection_site_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -113,42 +111,30 @@ In order to calculate the angle for connector line, please follow the steps belo
    In the example given below, we have calculated the angle for connector line shape in slide.
 
 ```py
-public static void Run()
-{
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
+import aspose.slides as slides
+import math
 
-        Console.WriteLine(dir);
-    }
+def get_direction(w, h, flipH, flipV):
+    endLineX = w * (-1 if flipH else 1)
+    endLineY = h * (-1 if flipV else 1)
+    endYAxisX = 0
+    endYAxisY = h
+    angle = math.atan2(endYAxisY, endYAxisX) - math.atan2(endLineY, endLineX)
+    if (angle < 0):
+         angle += 2 * math.pi
+    return angle * 180.0 / math.pi
 
-}
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+with slides.Presentation(path + "ConnectorLineAngle.pptx") as pres:
+    slide = pres.slides[0]
+    for i in range(len(slide.shapes)):
+        dir = 0.0
+        shape = slide.shapes[i]
+        if (type(shape) is slides.AutoShape):
+            if shape.shape_type == slides.ShapeType.LINE:
+                dir = get_direction(shape.width, shape.Height, shape.frame.flip_h, shape.frame.flip_v)
+        elif type(shape) is slides.Connector:
+            dir = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
+
+        print(dir)
 ```
 

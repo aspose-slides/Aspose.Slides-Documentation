@@ -24,50 +24,50 @@ To set [GeometryPath](https://apireference.aspose.com/slides/pythonnet/aspose.sl
 
 **Adds line** to the end of the path
 ```py
-void LineTo(PointF point);
-void LineTo(float x, float y);
+line_to(point)
+line_to(x, y)
 ```
 **Adds line** to the specified place of the path:
 ```py    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
+line_to(point, index)
+line_to(x, y, index)
 ```
 **Adds cubic Bezier curve** at the end the path:
 ```py
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
+cubic_bezier_to(point1, point2, point3)
+cubic_bezier_to(x1, y1, x2, y2, x3, y3)
 ```
 **Adds cubic Bezier curve** to the specified place of the path:
 ```py
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
+cubic_bezier_to(point1, point2, point3, index)
+cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
 ```
 **Adds quadratic Bezier curve** at the end the path:
 ```py
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
+quadratic_bezier_to(point1, point2)
+quadratic_bezier_to(x1, y1, x2, y2)
 ```
 **Adds quadratic Bezier curve** to the specified place of the path:
 ```py
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
+quadratic_bezier_to(point1, point2, index)
+quadratic_bezier_to(x1, y1, x2, y2, index)
 ```
 **Appends the specified arc** to the path:
 ```py
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
+arc_to(width, heigth, startAngle, sweepAngle)
 ```
 **Closes the current figure** of this path:
 ```py
-void CloseFigure();
+close_figure()
 ```
 **Sets next point position**:
 ```py
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
+move_to(point)
+move_to(x, y)
 ```
 **Removes path segment** at the specified index:
 ```py
-void RemoveAt(int index);
+remove_at(index)
 ```
 Properties [IGeometryPath.Stroke](https://apireference.aspose.com/slides/pythonnet/aspose.slides/igeometrypath/properties/stroke) and [IGeometryPath.FillMode](https://apireference.aspose.com/slides/pythonnet/aspose.slides/igeometrypath/properties/fillmode) set an appearance of the geometry path.
 
@@ -84,15 +84,15 @@ Property [IGeometryPath.PathData](https://apireference.aspose.com/slides/pythonn
 - Add a new point between two bottom points of the path.
 - Apply the path to the shape.
 ```py
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
+import aspose.slides as slides
 
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    geometryPath = shape.get_geometry_paths()[0]
+
+    geometryPath.line_to(100, 50, 1)
+    geometryPath.line_to(100, 50, 4)
+    shape.set_geometry_path(geometryPath)
 ```
 
 ![example1_image](custom_shape_1.png)
@@ -104,14 +104,14 @@ using (Presentation pres = new Presentation())
 - Remove segment of the path.
 - Apply the path to the shape.
 ```py
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+import aspose.slides as slides
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+with slides.Presentation() as pres:
+	shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.HEART, 100, 100, 300, 300)
+
+	path = shape.get_geometry_paths()[0]
+	path.remove_at(2)
+	shape.set_geometry_path(path)
 ```
 ![example2_image](custom_shape_2.png)
 
@@ -124,40 +124,38 @@ using (Presentation pres = new Presentation())
 - Apply the path to the shape.
 
 ```py
-List<PointF> points = new List<PointF>();
+import aspose.slides as slides
+import aspose.pydrawing as draw
+import math
 
-float R = 100, r = 50;
-int step = 72;
+points = []
 
-for (int angle = -90; angle < 270; angle += step)
-{
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+R = 100
+r = 50
+step = 72
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
-}
+for angle in range(-90, 270, step):
+    radians = angle * (math.pi / 180)
+    x = R * math.cos(radians)
+    y = R * math.sin(radians)
+    points.append(draw.PointF(x + R, y + R))
 
-GeometryPath starPath = new GeometryPath();
-starPath.MoveTo(points[0]);
+    radians = math.pi * (angle + step / 2) / 180.0
+    x = r * math.cos(radians)
+    y = r * math.sin(radians)
+    points.append(draw.PointF(x + R, y + R))
 
-for (int i = 1; i < points.Count; i++)
-{
-    starPath.LineTo(points[i]);
-}
+starPath = slides.GeometryPath()
+starPath.move_to(points[0])
 
-starPath.CloseFigure();
+for i in range(len(points)):
+    starPath.line_to(points[i])
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+starPath.close_figure()
 
-    shape.SetGeometryPath(starPath);
-}
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape.set_geometry_path(starPath)
 ```
 ![example3_image](custom_shape_3.png)
 
@@ -170,26 +168,27 @@ using (Presentation pres = new Presentation())
   - Apply the paths to the shape.
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+    geometryPath0 = slides.GeometryPath()
+    geometryPath0.move_to(0, 0)
+    geometryPath0.line_to(shape.width, 0)
+    geometryPath0.line_to(shape.width, shape.height/3)
+    geometryPath0.line_to(0, shape.height / 3)
+    geometryPath0.close_figure()
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+    geometryPath1 = slides.GeometryPath()
+    geometryPath1.move_to(0, shape.height/3 * 2)
+    geometryPath1.line_to(shape.width, shape.height / 3 * 2)
+    geometryPath1.line_to(shape.width, shape.height)
+    geometryPath1.line_to(0, shape.height)
+    geometryPath1.close_figure()
+
+    shape.set_geometry_paths([ geometryPath0, geometryPath1])
 ```
 ![example4_image](custom_shape_4.png)
 
@@ -200,21 +199,22 @@ using (Presentation pres = new Presentation())
 - Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [GeometryPath](https://apireference.aspose.com/slides/pythonnet/aspose.slides/geometrypath) instance using [ShapeUtil](https://apireference.aspose.com/slides/pythonnet/aspose.slides.util/shapeutil).
 - Apply the paths to the shape.
 ```py
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 100)
 
-    GraphicsPath gPath = new GraphicsPath();
+    originalPath = shape.get_geometry_paths()[0]
+    originalPath.fill_mode = slides.PathFillModeType.NONE
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
+    gPath = draw.drawing2d.GraphicsPath()
 
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
+    gPath.add_string("Text in shape", draw.FontFamily("Arial"), 1, 40, draw.PointF(10, 10), draw.StringFormat.generic_default)
 
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
-}
+    textPath = slides.util.ShapeUtil.graphics_path_to_geometry_path(gPath)
+    textPath.fill_mode = slides.PathFillModeType.NORMAL
+
+    shape.set_geometry_paths([originalPath, textPath])
 ```
 ![example5_image](custom_shape_5.png)

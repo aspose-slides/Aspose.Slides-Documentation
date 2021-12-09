@@ -11,21 +11,16 @@ description: "SmartArt and organization type chart in PowerPoint presentations i
 Now TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively. This property allows you to get all text from SmartArt if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```py
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-	ISlide slide = pres.Slides[0];
-	ISmartArt smartArt = (ISmartArt)slide.Shapes[0];
+import aspose.slides as slides
 
-	ISmartArtNodeCollection smartArtNodes = smartArt.AllNodes;
-	foreach (ISmartArtNode smartArtNode in smartArtNodes)
-	{
-		foreach (ISmartArtShape nodeShape in smartArtNode.Shapes)
-		{
-			if (nodeShape.TextFrame != null)
-				Console.WriteLine(nodeShape.TextFrame.Text);
-		}
-	}
-}
+with slides.Presentation(path + "SmartArt.pptx") as pres:
+    slide = pres.slides[0]
+    smartArt = slide.shapes[0]
+
+    for smartArtNode in smartArt.all_nodes:
+        for nodeShape in smartArtNode.shapes:
+            if nodeShape.text_frame != None:
+                print(nodeShape.text_frame.text)
 ```
 
 
@@ -41,17 +36,16 @@ In order to change the layout type of SmartArt. Please follow the steps below:
   In the example given below, we have added a connector between two shapes.
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    // Add SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Change LayoutType to BasicProcess
-    smart.Layout = SmartArtLayoutType.BasicProcess;
-
-    // Saving Presentation
-    presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as presentation:
+    # Add SmartArt BasicProcess 
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    # Change LayoutType to BasicProcess
+    smart.layout = art.SmartArtLayoutType.BASIC_PROCESS
+    # Saving Presentation
+    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -68,24 +62,20 @@ Please note Method com.aspose.slides.ISmartArtNode.isHidden() returns true if th
 In the example given below, we have added a connector between two shapes.
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    // Add SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Add node on SmartArt 
-    ISmartArtNode node = smart.AllNodes.AddNode();
-
-    // Check isHidden property
-    bool hidden = node.IsHidden; // Returns true
-
-    if (hidden)
-    {
-        // Do some actions or notifications
-    }
-    // Saving Presentation
-    presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as presentation:
+    # Add SmartArt BasicProcess 
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.RADIAL_CYCLE)
+    # Add node on SmartArt 
+    node = smart.all_nodes.add_node()
+    # Check isHidden property
+    if node.is_hidden:
+        print("hidden")
+        # Do some actions or notifications
+    # Saving Presentation
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -100,17 +90,16 @@ Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganiz
   In the example given below, we have added a connector between two shapes.
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    // Add SmartArt BasicProcess 
-    ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+import aspose.slides as slides
+import aspose.slides.smartart as art
 
-    // Get or Set the organization chart type 
-    smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
-
-    // Saving Presentation
-    presentation.Save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as presentation:
+    # Add SmartArt BasicProcess 
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.ORGANIZATION_CHART)
+    # Get or Set the organization chart type 
+    smart.nodes[0].organization_chart_layout = art.OrganizationChartLayoutType.LEFT_HANGING
+    # Saving Presentation
+    presentation.save("OrganizeChartLayoutType_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -127,14 +116,12 @@ Aspose.Slides for Python via .NET provides a simple API for creating and Pictur
 The following code is used to create a chart.
 
 ```py
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		ISmartArt smartArt = pres.Slides[0].Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-		pres.Save("OrganizationChart.pptx", SaveFormat.Pptx);
-	}			
-}
+import aspose.slides as slides
+import aspose.slides.smartart as art
+
+with slides.Presentation() as pres:
+    smartArt = pres.slides[0].shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
+    pres.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 

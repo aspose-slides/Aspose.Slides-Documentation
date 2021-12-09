@@ -18,41 +18,29 @@ description: "PowerPoint header and footer in Python"
 Notes of some specific slide could be updated as shown in the example below:
 
 ```py
-// Load Presentation
-Presentation pres = new Presentation("headerTest.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// Setting Footer
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+# Method to set Header/Footer text
+def update_header_footer_text(master):
+    for shape in master.shapes:
+        if shape.placeholder is not None:
+            if shape.placeholder.type == slides.PlaceholderType.HEADER:
+                shape.text_frame.text = "HI there new header"
 
-// Access and Update Header
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+# Load Presentation
+with slides.Presentation("combined_with_master.pptx") as pres:
+    # Setting Footer
+    pres.header_footer_manager.set_all_footers_text("My Footer text")
+    pres.header_footer_manager.set_all_footers_visibility(True)
 
-// Save presentation
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+    # Access and Update Header
+    masterNotesSlide = pres.master_notes_slide_manager.master_notes_slide
+    if masterNotesSlide is not None:
+        update_header_footer_text(masterNotesSlide)
 
-
-
-```py
-// Method to set Header/Footer Text
-public static void UpdateHeaderFooterText(IBaseSlide master)
-{
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
-}
+    # save presentation
+    pres.save("HeaderFooter-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -74,48 +62,48 @@ Aspose.Slides for Python via .NET supports Header and Footer in Handout and note
 Code Snippet provided in the below Example.
 
 ```py
-using (Presentation presentation = new Presentation("presentation.pptx"))
-{
-	// Change Header and Footer settings for notes master and all notes slides
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // make the master notes slide and all child Footer placeholders visible
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // make the master notes slide and all child Header placeholders visible
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // make the master notes slide and all child SlideNumber placeholders visible
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // make the master notes slide and all child Date and time placeholders visible
+with slides.Presentation("combined_with_master.pptx") as presentation:
+	masterNotesSlide = presentation.master_notes_slide_manager.master_notes_slide
+	if masterNotesSlide != None:
+		headerFooterManager = masterNotesSlide.header_footer_manager
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // set text to master notes slide and all child Header placeholders
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // set text to master notes slide and all child Footer placeholders
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // set text to master notes slide and all child Date and time placeholders
-	}
+		# make the master notes slide and all child Footer placeholders visible
+		headerFooterManager.set_header_and_child_headers_visibility(True) 
+		headerFooterManager.set_footer_and_child_footers_visibility(True) 
+		headerFooterManager.set_slide_number_and_child_slide_numbers_visibility(True) 
+		headerFooterManager.set_date_time_and_child_date_times_visibility(True)
 
-	// Change Header and Footer settings for first notes slide only
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // make this notes slide Header placeholder visible
+		# set text to master notes slide and all child Header placeholders
+		headerFooterManager.set_header_and_child_headers_text("Header text") 
+		headerFooterManager.set_footer_and_child_footers_text("Footer text") 
+		headerFooterManager.set_date_time_and_child_date_times_text("Date and time text") 
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // make this notes slide Footer placeholder visible
+	# Change Header and Footer settings for first notes slide only
+	notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
+	if notesSlide != None:
+		headerFooterManager = notesSlide.header_footer_manager
 
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // make this notes slide SlideNumber placeholder visible
+		# make notes slide Header placeholder visible
 
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // make this notes slide Date-time placeholder visible
+		if not headerFooterManager.is_header_visible:
+			headerFooterManager.set_header_visibility(True) 
 
-		headerFooterManager.SetHeaderText("New header text"); // set text to notes slide Header placeholder
-		headerFooterManager.SetFooterText("New footer text"); // set text to notes slide Footer placeholder
-		headerFooterManager.SetDateTimeText("New date and time text"); // set text to notes slide Date-time placeholder
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
-}
-		
- }
+		if not headerFooterManager.is_footer_visible:
+			headerFooterManager.set_footer_visibility(True) 
+
+		if not headerFooterManager.is_slide_number_visible:
+			headerFooterManager.set_slide_number_visibility(True) 
+
+		if not headerFooterManager.is_date_time_visible:
+			headerFooterManager.set_date_time_visibility(True) 
+
+		# set text to notes slide Header placeholder
+		headerFooterManager.set_header_text("New header text") 
+		headerFooterManager.set_footer_text("New footer text") 
+		headerFooterManager.set_date_time_text("New date and time text") 
+	presentation.save("testresult.pptx",slides.export.SaveFormat.PPTX)
 ```
 

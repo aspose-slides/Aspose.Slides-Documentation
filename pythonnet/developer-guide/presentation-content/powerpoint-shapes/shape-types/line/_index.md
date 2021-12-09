@@ -2,7 +2,7 @@
 title: Line
 type: docs
 weight: 50
-url: /pythonnet/Line/
+url: /pythonnet/line/
 keywords: "Line, PowerPoint shape, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Add line in PowerPoint presentation in Python"
 ---
@@ -19,18 +19,18 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```py
-// Instantiate PresentationEx class that represents the PPTX file
-using (Presentation pres = new Presentation())
-{
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+import aspose.slides as slides
 
-    // Add an autoshape of type line
-    sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
+# Instantiate PresentationEx class that represents the PPTX file
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    //Write the PPTX to Disk
-    pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
-}
+    # Add an autoshape of type line
+    sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+
+    #Write the PPTX to Disk
+    pres.save("LineShape1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -48,33 +48,33 @@ Aspose.Slides for Python via .NET also allows developers to configure some prope
 - Write the modified presentation as a PPTX file.
 
 ```py
-// Instantiate PresentationEx class that represents the PPTX file
-using (Presentation pres = new Presentation())
-{
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate PresentationEx class that represents the PPTX file
+with slides.Presentation() as pres:
+    # Get the first slide
+    sld = pres.slides[0]
 
-    // Add an autoshape of type line
-    IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
+    # Add an autoshape of type line
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
 
-    // Apply some formatting on the line
-    shp.LineFormat.Style = LineStyle.ThickBetweenThin;
-    shp.LineFormat.Width = 10;
+    # Apply some formatting on the line
+    shp.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
+    shp.line_format.width = 10
 
-    shp.LineFormat.DashStyle = LineDashStyle.DashDot;
+    shp.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    shp.LineFormat.BeginArrowheadLength = LineArrowheadLength.Short;
-    shp.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.Oval;
+    shp.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
+    shp.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
 
-    shp.LineFormat.EndArrowheadLength = LineArrowheadLength.Long;
-    shp.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+    shp.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
+    shp.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
 
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
+    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shp.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
 
-    //Write the PPTX to Disk
-    pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
-}
+    #Write the PPTX to Disk
+    pres.save("LineShape2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

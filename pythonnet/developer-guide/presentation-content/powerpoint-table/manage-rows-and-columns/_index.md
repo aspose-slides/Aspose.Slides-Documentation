@@ -11,27 +11,23 @@ description: "Manage table rows and columns in PowerPoint presentations in Pytho
 Aspose.Slides for Python via .NET provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/slides/pythonnet/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
 
 ```py
-// Instantiate Presentation class that represents PPTX
-Presentation pres = new Presentation("table.pptx");
+import aspose.slides as slides
 
-// Access the first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX
+with slides.Presentation("table.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-// Initialize null TableEx
-ITable tbl = null;
+    # Initialize null TableEx
+    tbl = None
 
-// Iterate through the shapes and set a reference to the table found
-foreach (IShape shp in sld.Shapes)
-{
-    if (shp is ITable)
-    {
-        tbl = (ITable)shp;
-    }
-}
+    # Iterate through the shapes and set a reference to the table found
+    for shp in sld.shapes:
+        if type(shp) is slides.Table:
+            tbl = shp
 
-
-//Set the first row of a table as header with a special formatting.
-tbl.FirstRow = true;
+    #Set the first row of a table as header with a special formatting.
+    tbl.first_row = True
 ```
 
 
@@ -50,49 +46,47 @@ Aspose.Slides for Python via .NET has provided the simplest API to work with tab
 - Save the presentation as a PPTX file.
 
 ```py
- // Instantiate presentationentation class that representationents PPTX file
-using (Presentation presentation = new Presentation("Test.pptx"))
-{
-    // Access first slide
-    ISlide sld = presentation.Slides[0];
+import aspose.slides as slides
 
-    // Define columns with widths and rows with heights
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+# Instantiate presentationentation class that representationents PPTX file
+with slides.Presentation() as presentation:
 
-    // Add table shape to slide
-    ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Access first slide
+    sld = presentation.slides[0]
 
+    # Define columns with widths and rows with heights
+    dblCols =  [50, 50, 50] 
+    dblRows =  [50, 30, 30, 30, 30] 
 
-    // Add text to the row 1 cell 1
-    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+    # Add table shape to slide
+    table = sld.shapes.add_table(100, 50, dblCols, dblRows)
 
-    // Add text to the row 1 cell 2
-    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+    # Add text to the row 1 cell 1
+    table.rows[0][0].text_frame.text = "Row 1 Cell 1"
 
-    // Clone Row 1 at end of table
-    table.Rows.AddClone(table.Rows[0], false);
+    # Add text to the row 1 cell 2
+    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
 
-    // Add text to the row 2 cell 1
-    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+    # Clone Row 1 at end of table
+    table.rows.add_clone(table.rows[0], False)
 
-    // Add text to the row 2 cell 2
-    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+    # Add text to the row 2 cell 1
+    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
 
+    # Add text to the row 2 cell 2
+    table.rows[1][1].text_frame.text = "Row 2 Cell 2"
 
-    // Clone Row 2 as 4th row of table
-    table.Rows.InsertClone(3,table.Rows[1], false);
+    # Clone Row 2 as 4th row of table
+    table.rows.insert_clone(3,table.rows[1], False)
 
-    //Cloning first column at end
-    table.Columns.AddClone(table.Columns[0], false);
+    #Cloning first column at end
+    table.columns.add_clone(table.columns[0], False)
 
-    //Cloning 2nd column at 4th column index
-    table.Columns.InsertClone(3,table.Columns[1], false);
+    #Cloning 2nd column at 4th column index
+    table.columns.insert_clone(3,table.columns[1], False)
     
-
-    // Write PPTX to Disk
-    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Write PPTX to Disk
+    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -110,16 +104,17 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Write the modified presentation as a PPTX file.
 
 ```py
-Presentation pres = new Presentation();
+import aspose.slides as slides
 
-ISlide slide = pres.Slides[0];
-double[] colWidth = { 100, 50, 30 };
-double[] rowHeight = { 30, 50, 30 };
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    colWidth =  [100, 50, 30] 
+    rowHeight =  [30, 50, 30] 
 
-ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
-table.Rows.RemoveAt(1, false);
-table.Columns.RemoveAt(1, false);
-pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    table = slide.shapes.add_table(100, 100, colWidth, rowHeight)
+    table.rows.remove_at(1, False)
+    table.columns.remove_at(1, False)
+    pres.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -136,30 +131,32 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Save the modified presentation as a PPTX file.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
-           
-ISlide slide = presentation.Slides[0];
+import aspose.slides as slides
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    
+    slide = presentation.slides[0]
 
-// setting first row cells' font height
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Rows[0].SetTextFormat(portionFormat);
+    someTable = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-// setting first row cells' text alignment and right margin in one call
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Rows[0].SetTextFormat(paragraphFormat);
+    # setting first row cells' font height
+    portionFormat = slides.PortionFormat()
+    portionFormat.font_height = 25
+    someTable.rows[0].set_text_format(portionFormat)
 
-// setting second row cells' text vertical type
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Rows[1].SetTextFormat(textFrameFormat);
+    # setting first row cells' text alignment and right margin in one call
+    paragraphFormat = slides.ParagraphFormat()
+    paragraphFormat.alignment = slides.TextAlignment.RIGHT
+    paragraphFormat.margin_right = 20
+    someTable.rows[0].set_text_format(paragraphFormat)
 
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    # setting second row cells' text vertical type
+    textFrameFormat = slides.TextFrameFormat()
+    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
+    someTable.rows[1].set_text_format(textFrameFormat)
+
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -176,30 +173,29 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Save the modified presentation as a PPTX file.
 
 ```py
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-           
-ISlide slide = pres.Slides[0];
+import aspose.slides as slides
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
+# Create an instance of Presentation class
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    someTable = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-// setting first column cells' font height
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Columns[0].SetTextFormat(portionFormat);
+    # setting first column cells' font height
+    portionFormat = slides.PortionFormat()
+    portionFormat.font_height = 25
+    someTable.columns[0].set_text_format(portionFormat)
 
-// setting first column cells' text alignment and right margin in one call
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Columns[0].SetTextFormat(paragraphFormat);
+    # setting first column cells' text alignment and right margin in one call
+    paragraphFormat = slides.ParagraphFormat()
+    paragraphFormat.alignment = slides.TextAlignment.RIGHT
+    paragraphFormat.margin_right = 20
+    someTable.columns[0].set_text_format(paragraphFormat)
 
-// setting second column cells' text vertical type
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Columns[1].SetTextFormat(textFrameFormat);
+    # setting second column cells' text vertical type
+    textFrameFormat = slides.TextFrameFormat()
+    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
+    someTable.columns[1].set_text_format(textFrameFormat)
 
-pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
+    pres.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 

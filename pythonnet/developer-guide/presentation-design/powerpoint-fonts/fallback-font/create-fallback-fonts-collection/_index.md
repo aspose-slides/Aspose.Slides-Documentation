@@ -16,15 +16,15 @@ Each [Presentation ](https://apireference.aspose.com/slides/pythonnet/aspose.sli
 Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
+import aspose.slides as slides
 
-	userRulesList.Add(new FontFallBackRule(0x0B80, 0x0BFF, "Vijaya"));
-	userRulesList.Add(new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic"));
+with slides.Presentation() as presentation:
+	userRulesList = slides.FontFallBackRulesCollection()
 
-	presentation.FontsManager.FontFallBackRulesCollection = userRulesList;
-}
+	userRulesList.add(slides.FontFallBackRule(0x0B80, 0x0BFF, "Vijaya"))
+	userRulesList.add(slides.FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic"))
+
+	presentation.fonts_manager.font_fall_back_rules_collection = userRulesList
 ```
 
 After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.

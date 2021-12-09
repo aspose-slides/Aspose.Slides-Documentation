@@ -16,24 +16,17 @@ Aspose.Slides for Python via .NET has provided the simplest API to identify merg
 - Print Message if cells are merged.
 
 ```py
-using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
-{
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // assuming that Slide#0.Shape#0 is a table
-    for (int i = 0; i < table.Rows.Count; i++)
-    {
-        for (int j = 0; j < table.Columns.Count; j++)
-        {
-            ICell currentCell = table.Rows[i][j];
-            if (currentCell.IsMergedCell)
-            {
-                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
-                                  i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-
-            }
-        }
-    }
-}
+with slides.Presentation(path + "SomePresentationWithTable.pptx") as pres:
+    table = pres.slides[0].shapes[0] # assuming that #0.Shape#0 is a table
+    for i in range(len(table.rows)):
+        for j in range(len(table.columns)):
+            currentCell = table.rows[i][j]
+            if currentCell.is_merged_cell:
+                print("Cell 01 is a part of merged cell with RowSpan=2 and ColSpan=3 starting from Cell 45.".format(
+                    i, j, currentCell.row_span, currentCell.col_span, currentCell.first_row_index, currentCell.first_column_index))
 ```
 
 
@@ -50,34 +43,33 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Save the modified presentation as a PPTX file.
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-using (Presentation pres = new Presentation())
-{
-   // Access first slide
-    Slide sld = (Slide)pres.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Define columns with widths and rows with heights
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as pres:
+   # Access first slide
+    sld = pres.slides[0]
 
-    // Add table shape to slide
+    # Define columns with widths and rows with heights
+    dblCols = [ 50, 50, 50, 50 ]
+    dblRows = [ 50, 30, 30, 30, 30 ]
 
-    // Add table shape to slide
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Add table shape to slide
 
-    // Set border format for each cell
-    foreach (IRow row in tbl.Rows)
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.NoFill;
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
-        }
+    # Add table shape to slide
+    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
 
-    //Write PPTX to Disk
-    pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Set border format for each cell
+    for row in tbl.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.NO_FILL
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
+
+    #Write PPTX to Disk
+    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -87,50 +79,47 @@ using (Presentation pres = new Presentation())
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2) then table will be numbered and look like this:
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-using (Presentation presentation = new Presentation())
-{
-    // Access first slide
-    ISlide sld = presentation.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Define columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as presentation:
+    # Access first slide
+    sld = presentation.slides[0]
 
-    // Add table shape to slide
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Define columns with widths and rows with heights
+    dblCols =  [70, 70, 70, 70] 
+    dblRows =  [70, 70, 70, 70] 
 
-    // Set border format for each cell
-    foreach (IRow row in tbl.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+    # Add table shape to slide
+    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+    # Set border format for each cell
+    for row in tbl.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_top.width = 5
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_bottom.width = 5
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
-    }
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_left.width = 5
 
-    // Merging cells (1, 1) x (2, 1)
-    tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_right.width = 5
 
-    // Merging cells (1, 2) x (2, 2)
-    tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
+    # Merging cells (1, 1) x (2, 1)
+    tbl.merge_cells(tbl.rows[1][1], tbl.rows[2][1], False)
 
-    presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
-}
+    # Merging cells (1, 2) x (2, 2)
+    tbl.merge_cells(tbl.rows[1][2], tbl.rows[2][2], False)
+
+    presentation.save("MergeCells_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -138,56 +127,51 @@ using (Presentation presentation = new Presentation())
 Let's continue merging cells. Now we merge (1, 1) and (1, 2). As a result we have table with large merged cell in the middle:
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-using (Presentation presentation = new Presentation())
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Access first slide
-    ISlide slide = presentation.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as presentation:
+    # Access first slide
+    slide = presentation.slides[0]
 
-    // Define columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    # Define columns with widths and rows with heights
+    dblCols =  [70, 70, 70, 70] 
+    dblRows =  [70, 70, 70, 70]
 
-    // Add table shape to slide
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Add table shape to slide
+    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
 
-    // Set border format for each cell
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+    # Set border format for each cell
+    for row in table.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_top.width = 5
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_bottom.width = 5
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_left.width = 5
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_right.width = 5
 
-        }
-    }
+    # Merging cells (1, 1) x (2, 1)
+    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
 
-    // Merging cells (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
+    # Merging cells (1, 2) x (2, 2)
+    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
 
-    // Merging cells (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
+    # Merging cells (1, 2) x (2, 2)
+    table.merge_cells(table.rows[1][1], table.rows[1][2], True)
 
-    // Merging cells (1, 2) x (2, 2)
-    table.MergeCells(table[1, 1], table[1, 2], true);
-
-    //Write PPTX to Disk
-    presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
-}
+    #Write PPTX to Disk
+    presentation.save("MergeCells1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -196,55 +180,51 @@ using (Presentation presentation = new Presentation())
 We could see in previous example when table cells are merged then numeration of other cells is not changed.Now let's return to our normal table (without merged cells) and try to split cell (1, 1). The result is strange enough but that is the way MS PowerPoint and Aspose.Slides for Python via .NET numerate table cells.
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-using (Presentation presentation = new Presentation())
-{
-    // Access first slide
-    ISlide slide = presentation.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Define columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as presentation:
+    # Access first slide
+    slide = presentation.slides[0]
 
-    // Add table shape to slide
-    ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Define columns with widths and rows with heights
+    dblCols =  [70, 70, 70, 70] 
+    dblRows =  [70, 70, 70, 70] 
 
-    // Set border format for each cell
-    foreach (IRow row in table.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+    # Add table shape to slide
+    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+    # Set border format for each cell
+    for row in table.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_top.width = 5
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_bottom.width = 5
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_left.width = 5
 
-        }
-    }
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_right.width = 5
 
-    // Merging cells (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
+    # Merging cells (1, 1) x (2, 1)
+    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
 
-    // Merging cells (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
+    # Merging cells (1, 2) x (2, 2)
+    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
 
-    // split cell (1, 1). 
-    table[1, 1].SplitByWidth(table[2, 1].Width / 2);
+    # split cell (1, 1). 
+    table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
 
-    //Write PPTX to Disk
-    presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
-}
+    #Write PPTX to Disk
+    presentation.save("CellSplit_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -264,31 +244,33 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Save the modified presentation as a PPTX file
 
 ```py
-// Instantiate Presentation class object
-Presentation presentation = new Presentation();
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// Access first slide
-ISlide islide = presentation.Slides[0];
+# Instantiate Presentation class object
+with slides.Presentation() as presentation:
+    # Access first slide
+    islide = presentation.slides[0]
 
-// Define columns with widths and rows with heights
-double[] dblCols = { 150, 150, 150, 150 };
-double[] dblRows = { 100, 100, 100, 100, 90 };
+    # Define columns with widths and rows with heights
+    dblCols =  [150, 150, 150, 150] 
+    dblRows =  [100, 100, 100, 100, 90] 
 
-// Add table shape to slide
-ITable tbl = islide.Shapes.AddTable(50, 50, dblCols, dblRows);
+    # Add table shape to slide
+    tbl = islide.shapes.add_table(50, 50, dblCols, dblRows)
 
-// Creating a Bitmap Image object to hold the image file
-Bitmap image = new Bitmap("aspose-logo.jpg");
+    # Creating a Bitmap Image object to hold the image file
+    image = draw.Bitmap(path + "aspose-logo.jpg")
 
-// Create an IPPImage object using the bitmap object
-IPPImage imgx1 = presentation.Images.AddImage(image);
+    # Create an IPPImage object using the bitmap object
+    imgx1 = presentation.images.add_image(image)
 
-// Add image to first table cell
-tbl[0, 0].FillFormat.FillType = FillType.Picture;
-tbl[0, 0].FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-tbl[0, 0].FillFormat.PictureFillFormat.Picture.Image = imgx1;
+    # Add image to first table cell
+    tbl.rows[0][0].cell_format.fill_format.fill_type = slides.FillType.PICTURE
+    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture.image = imgx1
 
-// Save PPTX to Disk
-presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
+    # save PPTX to Disk
+    presentation.save("Image_In_TableCell_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

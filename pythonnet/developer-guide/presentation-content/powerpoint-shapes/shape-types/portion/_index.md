@@ -11,19 +11,15 @@ description: "Get portion in PowerPoint presentation in Python"
 **GetCoordinates()** method has been added to IPortion and Portion class which allows retrieving the coordinates of the beginning of the portion:
 
 ```py
-using (Presentation presentation = new Presentation("Shapes.pptx"))
-{
-    IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-    var textFrame = (ITextFrame)shape.TextFrame;
+import aspose.slides as slides
 
-    foreach (var paragraph in textFrame.Paragraphs)
-    {
-        foreach (Portion portion in paragraph.Portions)
-        {
-            PointF point = portion.GetCoordinates();
-            Console.Write(Environment.NewLine + "Corrdinates X =" + point.X + " Corrdinates Y =" + point.Y);
-        }
-    }
-}
+with slides.Presentation(path + "HelloWorld.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    textFrame = shape.text_frame
+
+    for paragraph in textFrame.paragraphs:
+        for portion in paragraph.portions:
+            point = portion.get_coordinates()
+            print("Corrdinates X =" + str(point.x) + " Corrdinates Y =" + str(point.y))
 ```
 

@@ -22,49 +22,49 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Save the modified presentation as a PPTX file.
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation();
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// Access first slide
-ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as pres:
+    # Access first slide
+    sld = pres.slides[0]
 
-// Define columns with widths and rows with heights
-double[] dblCols = { 50, 50, 50 };
-double[] dblRows = { 50, 30, 30, 30, 30 };
+    # Define columns with widths and rows with heights
+    dblCols =  [50, 50, 50] 
+    dblRows =  [50, 30, 30, 30, 30] 
 
-// Add table shape to slide
-ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Add table shape to slide
+    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
 
-// Set border format for each cell
-for (int row = 0; row < tbl.Rows.Count; row++)
-{
-	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
-	{
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderTop.Width = 5;
+    # Set border format for each cell
+    for row in range(len(tbl.rows)):
+        for cell in range(len(tbl.rows[row])):
+            tbl.rows[row][cell].cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            tbl.rows[row][cell].cell_format.border_top.width = 5
 
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.FillType = (FillType.Solid);
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.SolidFillColor.Color= Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderBottom.Width =5;
+            tbl.rows[row][cell].cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
+            tbl.rows[row][cell].cell_format.border_bottom.width =5
 
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.SolidFillColor.Color =Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.Width = 5;
+            tbl.rows[row][cell].cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
+            tbl.rows[row][cell].cell_format.border_left.width = 5
 
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
-	}
-}
-// Merge cells 1 & 2 of row 1
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
+            tbl.rows[row][cell].cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            tbl.rows[row][cell].cell_format.border_right.width = 5
+        
 
-// Add text to the merged cell
-tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
+    # Merge cells 1 & 2 of row 1
+    tbl.merge_cells(tbl.rows[0][0], tbl.rows[1][1], False)
 
-// Save PPTX to Disk
-pres.Save("table.pptx", SaveFormat.Pptx);
+    # Add text to the merged cell
+    tbl.rows[0][0].text_frame.text = "Merged Cells"
+
+    # save PPTX to Disk
+    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -80,27 +80,27 @@ To access a table that already exists in a slide, please follow the steps below:
 - Save the modified presentation as a PPT file.
 
 ```py
-// Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
-using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX
+with slides.Presentation(path + "UpdateExistingTable.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-    // Initialize null TableEx
-    ITable tbl = null;
+    # Initialize null TableEx
+    tbl = None
 
-    // Iterate through the shapes and set a reference to the table found
-    foreach (IShape shp in sld.Shapes)
-        if (shp is ITable)
-            tbl = (ITable)shp;
+    # Iterate through the shapes and set a reference to the table found
+    for shp in sld.shapes:
+        if type(shp) is slides.Table:
+            tbl = shp
 
-    // Set the text of the first column of second row
-    tbl[0, 1].TextFrame.Text = "New";
+    # Set the text of the first column of second row
+    tbl.rows[0][1].text_frame.text = "New"
 
-    //Write the PPTX to Disk
-    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    #Write the PPTX to Disk
+    pres.save("table1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -118,41 +118,43 @@ Aspose.Slides for Python via .NET has provided the simplest API to work with tab
 - Save the presentation as a PPTX file.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-// Get the first slide 
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    # Get the first slide 
+    slide = presentation.slides[0]
 
-// Define columns with widths and rows with heights
-double[] dblCols = { 120, 120, 120, 120 };
-double[] dblRows = { 100, 100, 100, 100 };
+    # Define columns with widths and rows with heights
+    dblCols =  [120, 120, 120, 120] 
+    dblRows =  [100, 100, 100, 100] 
 
-// Add table shape to slide
-ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-tbl[1, 0].TextFrame.Text = "10";
-tbl[2, 0].TextFrame.Text = "20";
-tbl[3, 0].TextFrame.Text = "30";
+    # Add table shape to slide
+    tbl = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    tbl.rows[1][0].text_frame.text = "10"
+    tbl.rows[2][0].text_frame.text = "20"
+    tbl.rows[3][0].text_frame.text = "30"
 
-// Accessing the text frame
-ITextFrame txtFrame = tbl[0, 0].TextFrame;
+    # Accessing the text frame
+    txtFrame = tbl.rows[0][0].text_frame
 
-// Create the Paragraph object for text frame
-IParagraph paragraph = txtFrame.Paragraphs[0];
+    # Create the Paragraph object for text frame
+    paragraph = txtFrame.paragraphs[0]
 
-// Create Portion object for paragraph
-IPortion portion = paragraph.Portions[0];
-portion.Text = "Text here";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    # Create Portion object for paragraph
+    portion = paragraph.portions[0]
+    portion.text = "text here"
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
 
-// Aligning the text vertically
-ICell cell = tbl[0, 0];
-cell.TextAnchorType = TextAnchorType.Center;
-cell.TextVerticalType = TextVerticalType.Vertical270;
+    # Aligning the text vertically
+    cell = tbl.rows[0][0]
+    cell.text_anchor_type = slides.TextAnchorType.CENTER
+    cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-// Save Presentation
-presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+    # save Presentation
+    presentation.save("Vertical_Align_Text_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -169,30 +171,31 @@ Aspose.Slides for Python via .NET has provided the simplest API to create tables
 - Save the modified presentation as a PPTX file.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation();
-ISlide slide = presentation.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
+# Create an instance of Presentation class
+with slides.Presentation() as presentation:
+    someTable = presentation.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-// setting table cells' font height
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.SetTextFormat(portionFormat);
+    # setting table cells' font height
+    portionFormat = slides.PortionFormat()
+    portionFormat.font_height = 25
+    someTable.set_text_format(portionFormat)
 
-// setting table cells' text alignment and right margin in one call
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.SetTextFormat(paragraphFormat);
+    # setting table cells' text alignment and right margin in one call
+    paragraphFormat = slides.ParagraphFormat()
+    paragraphFormat.alignment = slides.TextAlignment.RIGHT
+    paragraphFormat.margin_right = 20
+    someTable.set_text_format(paragraphFormat)
 
-// setting table cells' text vertical type
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.SetTextFormat(textFrameFormat);
+    # setting table cells' text vertical type
+    textFrameFormat = slides.TextFrameFormat()
+    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
+    someTable.set_text_format(textFrameFormat)
 
 
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -208,46 +211,42 @@ In a standard table numeration of cells is straightforward and zero-based. The f
 |(0, 3)|(1, 3)|(2, 3)|(3, 3)|
 
 ```py
-// Instantiate Presentation class that represents PPTX file
-using (Presentation pres = new Presentation())
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Access first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate Presentation class that represents PPTX file
+with slides.Presentation() as pres:
+    # Access first slide
+    sld = pres.slides[0]
 
-    // Define columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    # Define columns with widths and rows with heights
+    dblCols =  [70, 70, 70, 70] 
+    dblRows =  [70, 70, 70, 70] 
 
-    // Add table shape to slide
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+    # Add table shape to slide
+    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
 
-    // Set border format for each cell
-    foreach (IRow row in tbl.Rows)
-    {
-        foreach (ICell cell in row)
-        {
-			cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderTop.Width = 5;
+    # Set border format for each cell
+    for row in tbl.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_top.width = 5
 
-			cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderBottom.Width = 5;
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_bottom.width = 5
 
-			cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderLeft.Width = 5;
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_left.width = 5
 
-			cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderRight.Width = 5;
-        }
-    }
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_right.width = 5
 
-    //Write PPTX to Disk
-    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
-}
+    #Write PPTX to Disk
+    pres.save("StandardTables_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -257,16 +256,17 @@ using (Presentation pres = new Presentation())
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. You can lock aspect ratio of table using **ShapeLock.AspectRatioLocked** property. Below code example shows how to use this property.
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ITable table = (ITable)pres.Slides[0].Shapes[0];
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    table.ShapeLock.AspectRatioLocked = !table.ShapeLock.AspectRatioLocked; // invert
+with slides.Presentation() as pres:
+    table = pres.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    print("Lock aspect ratio set: {0}".format(table.shape_lock.aspect_ratio_locked))
 
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+    table.shape_lock.aspect_ratio_locked = not table.shape_lock.aspect_ratio_locked
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+    print("Lock aspect ratio set: {0}".format(table.shape_lock.aspect_ratio_locked))
+
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
