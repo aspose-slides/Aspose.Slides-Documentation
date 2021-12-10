@@ -23,28 +23,30 @@ To add a section that will house slides in a presentation, Aspose.Slides for Pyt
 This sample code shows you to create a section in a presentation in Python:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    ISlide defaultSlide = pres.Slides[0];
-    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+import aspose.slides as slides
 
-    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 will be ended at newSlide2 and after it section2 will start   
+with slides.Presentation() as pres:
+    defaultSlide = pres.slides[0]
+    newSlide1 = pres.slides.add_empty_slide(pres.layout_slides[0])
+    newSlide2 = pres.slides.add_empty_slide(pres.layout_slides[0])
+    newSlide3 = pres.slides.add_empty_slide(pres.layout_slides[0])
+    newSlide4 = pres.slides.add_empty_slide(pres.layout_slides[0])
+
+    section1 = pres.sections.add_section("Section 1", newSlide1)
+    # section1 will be ended at newSlide2 and after it section2 will start 
+    section2 = pres.sections.add_section("Section 2", newSlide3) 
+      
     
-    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
+    pres.save("pres-sections.pptx", slides.export.SaveFormat.PPTX)
     
-    pres.Sections.ReorderSectionWithSlides(section2, 0);
-    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
+    pres.sections.reorder_section_with_slides(section2, 0)
+    pres.save("pres-sections-moved.pptx", slides.export.SaveFormat.PPTX)
     
-    pres.Sections.RemoveSectionWithSlides(section2);
+    pres.sections.remove_section_with_slides(section2)
     
-    pres.Sections.AppendEmptySection("Last empty section");
+    pres.sections.append_empty_section("Last empty section")
     
-    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
-}
+    pres.save("pres-section-with-empty.pptx",slides.export.SaveFormat.PPTX)
 ```
 
 ## Changing the Names of Sections
@@ -54,10 +56,10 @@ After you create a section in a PowerPoint presentation, you may decide to chang
 This sample code shows you how to change the name of a section in a presentation in Python using Aspose.Slides:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   ISection section = pres.Sections[0];
-   section.Name = "My section";
-}
+import aspose.slides as slides
+
+with slides.Presentation("pres-sections.pptx") as pres:
+   section = pres.sections[0]
+   section.name = "My section"
 ```
 

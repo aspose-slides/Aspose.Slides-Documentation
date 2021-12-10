@@ -76,19 +76,13 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/pythonnet/) to choose 
 
 
 ```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
- using (Presentation pres = new Presentation())
-
-{
-
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-    shape.FillFormat.FillType = FillType.Solid;
-
-    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-}
-
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 ```
 
 
@@ -98,11 +92,8 @@ In the example above, we have set a reference on *Accent4* color, taken from the
 
 
 ```py
-
- var fillEffective = shape.FillFormat.GetEffective();
-
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
-
+fillEffective = shape.fill_format.get_effective()
+print("{0} ({1})".format(fillEffective.solid_fill_color.name, fillEffective.solid_fill_color)) # ff8064a2 (Color [A=255, R=128, G=100, B=162])
 ```
 
 
@@ -112,11 +103,8 @@ We can check that color matches the one defined as *Accent4* for the presentat
 
 
 ```py
-
- Color themeAccent4 = pres.MasterTheme.ColorScheme.Accent4.Color;
-
-Console.WriteLine($"{themeAccent4.Name} - from theme");
-
+themeAccent4 = pres.master_theme.color_scheme.accent4.color
+print("{0} - from theme".format(themeAccent4.name))
 ```
 
 
@@ -126,17 +114,11 @@ Lets us create one more element and assign it the same *Accent4* color from t
 
 
 ```py
+otherShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
+otherShape.fill_format.fill_type = slides.FillType.SOLID
+otherShape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 
- IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
-
-otherShape.FillFormat.FillType = FillType.Solid;
-
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-
-
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
-
+pres.master_theme.color_scheme.accent4.color = draw.Color.red
 ```
 
 
@@ -166,23 +148,13 @@ Let us create an element with the text, and assign the Latin font from the font 
 
 
 ```py
+shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
 
- IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.Portions.Add(portion);
-
-shape.TextFrame.Paragraphs.Add(paragraph);
-
-
-
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
-
+paragraph = slides.Paragraph()
+portion = slides.Portion("Theme text format")
+paragraph.portions.add(portion)
+shape.text_frame.paragraphs.add(paragraph)
+portion.portion_format.latin_font = slides.FontData("+mn-lt")
 ```
 
 
@@ -192,11 +164,8 @@ Now lets check that the same font is set for Body Latin:
 
 
 ```py
-
- Console.WriteLine($"Portion Body Latin font is: {portion.PortionFormat.GetEffective().LatinFont.FontName}");
-
-Console.WriteLine($"Theme Body Latin font is: {pres.MasterTheme.FontScheme.Minor.LatinFont}");
-
+print("Portion Body Latin font is: {0}".format(portion.portion_format.get_effective().latin_font.font_name))
+print("Theme Body Latin font is: {0}".format(pres.master_theme.font_scheme.minor.latin_font))
 ```
 
 
@@ -206,9 +175,7 @@ It is possible to change the presentation theme font, which will be updated for 
 
 
 ```py
-
- pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
-
+pres.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 ```
 
 
@@ -228,17 +195,9 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/pythonnet/) its possib
 On the images above you can see, that to design the Background Style in PowerPoint, there are 12 predefined backgrounds available. However, if we upload the presentation, saved in PowerPoint through Aspose.Slides, then execute the following code - we will see only 3 predefined backgrounds in the resulting presentation:
 
 ```py
-
- using (Presentation pres = new Presentation("pres.pptx"))
-
-{
-
-    int numberOfBackgroundFills = pres.MasterTheme.FormatScheme.BackgroundFillStyles.Count;
-
-    Console.WriteLine($"Number of background fill styles for theme is {numberOfBackgroundFills}");
-
-}
-
+with slides.Presentation() as pres:
+    numberOfBackgroundFills = len(pres.master_theme.format_scheme.background_fill_styles)
+    print("Number of background fill styles for theme is {0}".format(numberOfBackgroundFills))
 ```
 
 The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/slides/pythonnet/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property.
@@ -248,9 +207,7 @@ To define which background should be used for presentation, set the needed prese
 
 
 ```py
-
- pres.Masters[0].Background.StyleIndex = 2;
-
+pres.masters[0].background.style_index = 2
 ```
 
 
@@ -291,25 +248,13 @@ So, the effects you can use in PowerPoint are strictly limited. While, in Aspos
 
 
 ```py
+with slides.Presentation("combined_with_master.pptx") as pres:
+    pres.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
+    pres.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
+    pres.master_theme.format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
+    pres.master_theme.format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
 
- using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
-
-{
-
-    pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
-
-    pres.MasterTheme.FormatScheme.FillStyles[2].FillType = FillType.Solid;
-
-    pres.MasterTheme.FormatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
-
-    pres.MasterTheme.FormatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
-
-
-
-    pres.Save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
-
-}
-
+    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 

@@ -21,11 +21,11 @@ The Read-Only recommendation is a simple yet effective deterrent that discourage
 Aspose.Slides for Python via .NET allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in Python using Aspose.Slides:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    pres.ProtectionManager.ReadOnlyRecommended = true;
-    pres.Save("ReadOnlyPresentation.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    pres.protection_manager.read_only_recommended = True
+    pres.save("ReadOnlyPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 

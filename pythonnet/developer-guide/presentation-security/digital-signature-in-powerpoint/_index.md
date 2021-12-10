@@ -28,20 +28,23 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    // Create DigitalSignature object with PFX file and PFX password 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
 
-    // Comment new digital signature
-    signature.Comments = "Aspose.Slides digital signing test.";
+#[TODO:Exception] RuntimeError: Proxy error(FileNotFoundException): Could not load file or assembly 'System.Security.Cryptography.Xml, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'. File was not found.
 
-    // Add digital signature to presentation
-    pres.DigitalSignatures.Add(signature);
+import aspose.slides as slides
 
-    // Save presentation
-    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-}
+with slides.Presentation() as pres:
+    # Create DigitalSignature object with PFX file and PFX password 
+    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+
+    # Comment new digital signature
+    signature.comments = "Aspose.Slides digital signing test."
+
+    # Add digital signature to presentation
+    pres.digital_signatures.add(signature)
+
+    # save presentation
+    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -51,28 +54,22 @@ Now its possible to check if the presentation was digitally signed and has not 
 
 
 ```py
-// Open presentation
-using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
-{
-    if (pres.DigitalSignatures.Count > 0)
-    {
-        bool allSignaturesAreValid = true;
+# Open presentation
+with slides.Presentation("SomePresentationSigned.pptx") as pres:
+    if len(pres.digital_signatures) > 0:
+        allSignaturesAreValid = True
 
-        Console.WriteLine("Signatures used to sign the presentation: ");
+        print("Signatures used to sign the presentation: ")
+        # Check if all digital signatures are valid
+        for signature in pres.digital_signatures :
+            print(signature.certificate.subject_name.name + ", "
+                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
+            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
+        
 
-        // Check if all digital signatures are valid
-        foreach (DigitalSignature signature in pres.DigitalSignatures)
-        {
-            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
-                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.IsValid;
-        }
-
-        if (allSignaturesAreValid)
-            Console.WriteLine("Presentation is genuine, all signatures are valid.");
-        else
-            Console.WriteLine("Presentation has been modified since signing.");
-    }
-}
+        if allSignaturesAreValid:
+            print("Presentation is genuine, all signatures are valid.")
+        else:
+            print("Presentation has been modified since signing.")
 ```
 

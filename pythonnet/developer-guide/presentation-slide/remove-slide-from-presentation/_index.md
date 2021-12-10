@@ -21,19 +21,18 @@ To remove a slide using its reference, please follow the steps below:
 1. Write the modified presentation file.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
-{
+import aspose.slides as slides
 
-    // Accessing a slide using its index in the slides collection
-    ISlide slide = pres.Slides[0];
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "RemoveSlideUsingReference.pptx") as pres:
+    # Accessing a slide using its index in the slides collection
+    slide = pres.slides[0]
 
-    // Removing a slide using its reference
-    pres.Slides.Remove(slide);
+    # Removing a slide using its reference
+    pres.slides.remove(slide)
 
-    //Writing the presentation file
-    pres.Save("modified_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    #Writing the presentation file
+    pres.save("modified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -45,15 +44,14 @@ To remove a slide using its index position in the slides collection of the prese
 1. Write the modified presentation file.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
-{
+import aspose.slides as slides
 
-    // Removing a slide using its slide index
-    pres.Slides.RemoveAt(0);
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "RemoveSlideUsingIndex.pptx") as pres:
+    # Removing a slide using its slide index
+    pres.slides.remove_at(0)
 
-    // Writing the presentation file
-    pres.Save("modified_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+    # Writing the presentation file
+    pres.save("modified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

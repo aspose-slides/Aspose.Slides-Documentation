@@ -28,37 +28,33 @@ In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.b
 This Python code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
 ```py 
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    // Converts the first slide in the presentation to a Bitmap object
-    using (Bitmap bmp = pres.Slides[0].GetThumbnail())
-    {
-        // Saves the image in the PNG format
-        bmp.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as pres:
+    # Converts the first slide in the presentation to a Bitmap object
+    with pres.slides[0].get_thumbnail() as bmp:
+        # Saves the image in the PNG format
+        bmp.save("Slide_0.png", draw.imaging.ImageFormat.png)
 ```
 
 This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/rendertographics/index) method:
 
-```py 
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    // Gets the presentation slide size
-    Size slideSize = pres.SlideSize.Size.ToSize();
+```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Creates a Bitmap with the slide size
-    using (Bitmap slideImage = new Bitmap(slideSize.Width, slideSize.Height))
-    {
-        // Renders the first slide to the Graphics object
-        using (Graphics graphics = Graphics.FromImage(slideImage))
-        {
-            pres.Slides[0].RenderToGraphics(new RenderingOptions(), graphics);
-        }
+with slides.Presentation("Presentation.pptx") as pres:
+    # Gets the presentation slide size
+    slideSize = pres.slide_size.size
 
-        slideImage.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
+    # Creates a Bitmap with the slide size
+    with draw.Bitmap(slideSize.width, slideSize.height) as slideImage:
+        # Renders the first slide to the Graphics object
+        with draw.Graphics.from_image(slideImage) as graphics:
+            pres.slides[0].render_to_graphics(slides.export.RenderingOptions(), graphics)
+
+        slideImage.save("Slide_1.png", draw.imaging.ImageFormat.png)
 ```
 
 {{% alert title="Tip" color="primary" %}} 
@@ -73,42 +69,38 @@ You may need to get an image of a certain size. Using an overload from the [GetT
 
 This sample code demonstrates the proposed conversion using the [GetThumbnail](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/getthumbnail/index) method in Python:
 
-```py 
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    // Converts the first slide in the presentation to a Bitmap with the specified size
-    using (Bitmap bmp = pres.Slides[0].GetThumbnail(new Size(1820, 1040)))
-    {
-        // Saves the image in the JPEG format
-        bmp.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as pres:
+    # Converts the first slide in the presentation to a Bitmap with the specified size
+    with pres.slides[0].get_thumbnail(draw.Size(1820, 1040)) as bmp:
+        # Saves the image in the JPEG format
+        bmp.save("Slide_0.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
 This Python code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/rendertographics/index) method:
 
 ```py 
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    Size slideSize = new Size(1820, 1040);
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Creates a Bitmap with the specified size (slide size + fields)
-    using (Bitmap slideImage = new Bitmap(slideSize.Width + 50, slideSize.Height + 50))
-    {
-        using (Graphics graphics = Graphics.FromImage(slideImage))
-        {
-            // Fills and translates Graphics to create a frame around the slide
-            graphics.Clear(Color.Red);
-            graphics.TranslateTransform(25f, 25f);
+with slides.Presentation("Presentation.pptx") as pres:
+    slideSize = draw.Size(1820, 1040)
 
-            // Renders the first slide to Graphics
-            pres.Slides[0].RenderToGraphics(new RenderingOptions(), graphics, slideSize);
-        }
+    # Creates a Bitmap with the specified size (slide size + fields)
+    with draw.Bitmap(slideSize.width + 50, slideSize.height + 50) as slideImage:
+        with draw.Graphics.from_image(slideImage) as graphics:
+            # Fills and translates Graphics to create a frame around the slide
+            graphics.clear(draw.Color.red)
+            graphics.translate_transform(25, 25)
 
-        // Saves the image in the JPEG format
-        slideImage.Save("FramedSlide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+            # Renders the first slide to Graphics
+            pres.slides[0].render_to_graphics(slides.export.RenderingOptions(), graphics, slideSize)
+
+        # Saves the image in the JPEG format
+        slideImage.save("FramedSlide_0.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
 ## **Converting Slides With Notes and Comments to Images**
@@ -126,58 +118,56 @@ With the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides
 This Python code demonstrates the conversion process for a slide with notes and comments:
 
 ```py 
-using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
-{
-    // Creates the rendering options
-    IRenderingOptions options = new RenderingOptions();
-                
-    // Sets the position of the notes on the page
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-                
-    // Sets the position of the comments on the page 
-    options.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Sets the width of the comment output area
-    options.NotesCommentsLayouting.CommentsAreaWidth = 500;
+with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
+    # Creates the rendering options
+    options = slides.export.RenderingOptions()
                 
-    // Sets the color for the comments area
-    options.NotesCommentsLayouting.CommentsAreaColor = Color.AntiqueWhite;
+    # Sets the position of the notes on the page
+    options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
                 
-    // Converts the first slide of the presentation to a Bitmap object
-    Bitmap bmp = pres.Slides[0].GetThumbnail(options, 2f, 2f);
+    # Sets the position of the comments on the page 
+    options.notes_comments_layouting.comments_position = slides.export.CommentsPositions.RIGHT
 
-    // Saves the image in the GIF format
-    bmp.Save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
-}
+    # Sets the width of the comment output area
+    options.notes_comments_layouting.comments_area_width = 500
+                
+    # Sets the color for the comments area
+    options.notes_comments_layouting.comments_area_color = draw.Color.antique_white
+                
+    # Converts the first slide of the presentation to a Bitmap object
+    bmp = pres.slides[0].get_thumbnail(options, 2, 2)
+
+    # Saves the image in the GIF format
+    bmp.save("Slide_Notes_Comments_0.gif", draw.imaging.ImageFormat.gif)
 ```
 
 This Python code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide/methods/rendertographics/index) method:
 
 ```py 
-using (Presentation pres = new Presentation("PresentationNotes.pptx"))
-{
-    // Gets the presentation notes size
-    Size notesSize = pres.NotesSize.Size.ToSize();
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Creates the rendering options
-    IRenderingOptions options = new RenderingOptions();
+with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
+    # Gets the presentation notes size
+    notesSize = pres.notes_size.size.to_size()
 
-    // Sets the position of the notes
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
+    # Creates the rendering options
+    options = slides.export.RenderingOptions()
 
-    // Creates a Bitmap with the notes' size
-    using (Bitmap slideImage = new Bitmap(notesSize.Width, notesSize.Height))
-    {
-        // Renders the first slide to Graphics
-        using (Graphics graphics = Graphics.FromImage(slideImage))
-        {
-            pres.Slides[0].RenderToGraphics(options, graphics, notesSize);
-        }
+    # Sets the position of the notes
+    options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
 
-        // Saves the image in PNG format
-        slideImage.Save("Slide_Notes_0.png", ImageFormat.Png);
-    }
-}
+    # Creates a Bitmap with the notes' size
+    with draw.Bitmap(notesSize.width, notesSize.height) as slideImage:
+        # Renders the first slide to Graphics
+        with draw.Graphics.from_image(slideImage) as graphics:
+            pres.slides[0].render_to_graphics(options, graphics, notesSize)
+
+        # Saves the image in PNG format
+        slideImage.save("Slide_Notes_0.png", draw.imaging.ImageFormat.png)
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -193,34 +183,34 @@ The [ITiffOptions](https://apireference.aspose.com/slides/pythonnet/aspose.slide
 This Python code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
 ```py 
-using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
-{
-    // Gets a slide by its index
-    ISlide slide = pres.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Creates a TiffOptions object
-    TiffOptions options = new TiffOptions() {ImageSize = new Size(2160, 2880)};
+with slides.Presentation(path + "Comments1.pptx") as pres:
+    # Gets a slide by its index
+    slide = pres.slides[0]
 
-    // Set the font used in case source font is not found
-    options.DefaultRegularFont = "Arial Black";
+    # Creates a TiffOptions object
+    options = slides.export.TiffOptions() 
+    options.image_size = draw.Size(2160, 2880)
 
-    // Set the position of the notes on the page 
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
+    # Set the font used in case source font is not found
+    options.default_regular_font = "Arial Black"
 
-    // Sets the pixel format (black and white)
-    options.PixelFormat = ImagePixelFormat.Format1bppIndexed;
+    # Set the position of the notes on the page 
+    options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
 
-    // Sets the resolution
-    options.DpiX = 300;
-    options.DpiY = 300;
+    # Sets the pixel format (black and white)
+    options.pixel_format = slides.export.ImagePixelFormat.FORMAT1BPP_INDEXED
 
-    // Converts the slide to a Bitmap object
-    using (Bitmap bmp = slide.GetThumbnail(options))
-    {
-        // Saves the image in BMP format
-        bmp.Save("PresentationNotesComments.tiff", ImageFormat.Tiff);
-    }
-}  
+    # Sets the resolution
+    options.dpi_x = 300
+    options.dpi_y = 300
+
+    # Converts the slide to a Bitmap object
+    with slide.get_thumbnail(options) as bmp:
+        # Saves the image in BMP format
+        bmp.save("PresentationNotesComments.tiff", draw.imaging.ImageFormat.tiff)
 ```
 
 ## **Converting All Slides to Images**
@@ -230,28 +220,19 @@ Aspose.Slides allows you to convert all slides in a single presentation to image
 This sample code shows you how to convert all slides in a presentation to images in Python:
 
 ```py
-// Specifies the path to the output directory
-string outputDir = @"D:\PresentationImages";
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    // Renders presentation to images array slide by slide
-    for (int i = 0 ; i < pres.Slides.Count ; i++)
-    {
-        // Specifies the setting for hidden slides (do not render hidden slides)
-        if (pres.Slides[i].Hidden)
-            continue;
+with slides.Presentation("Presentation.pptx") as pres:
+    # Renders presentation to images array slide by slide
+    for i in range(len(pres.slides)):
+        # Specifies the setting for hidden slides (do not render hidden slides)
+        if pres.slides[i].hidden:
+            continue
 
-        // Converts the slide to a Bitmap object
-        using (Bitmap bmp = pres.Slides[i].GetThumbnail(2f, 2f))
-        {
-            // Creates a file name for an image
-            string outputFilePath = Path.Combine(outputDir, "Slide_" + i + ".jpg");
-
-            // Saves the image in the JPEG format
-            bmp.Save(outputFilePath, ImageFormat.Jpeg);
-        }
-    }
-} 
+        # Converts the slide to a Bitmap object
+        with pres.slides[i].get_thumbnail(2, 2) as bmp:
+            # Saves the image in the JPEG format
+            bmp.save("image_{0}.jpeg".format(i), draw.imaging.ImageFormat.jpeg)
 ```
 

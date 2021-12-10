@@ -83,11 +83,11 @@ To encrypt or password protect a presentation, you have to use the encrypt metho
 This sample code shows you how to encrypt a presentation:
 
 ```py
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    pres.protection_manager.encrypt("123123")
+    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Setting Write Protection to a Presentation 
@@ -99,11 +99,11 @@ You can add a mark stating “Do not modify” to a presentation. This way, you 
 To set a write protection, you have to use the setWriteProtection method. This sample code shows you how to set a write protection to a presentation:
 
 ```py
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    pres.protection_manager.set_write_protection("123123")
+    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Decrypting a Presentation; Opening an Encrypted Presentation
@@ -113,11 +113,12 @@ Aspose.Slides allow you to load an encrypted file by passing its password. To de
 This sample code shows you how to decrypt a presentation: 
 
 ```py
-LoadOptions loadOptions = new LoadOptions {Password = "123123"};
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-  // work with decrypted presentation
-}
+import aspose.slides as slides
+
+loadOptions = slides.LoadOptions()
+loadOptions.password = "123123"
+with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
+    print(pres.document_properties.author)
 ```
 
 ## Removing Encryption; Disabling Password Protection
@@ -127,12 +128,13 @@ You can remove the encryption or password protection on a presentation. This way
 To remove encryption or password protection, you have to call the [RemoveEncryption](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/methods/removeencryption) method. This sample code shows you to remove encryption from a presentation:
 
 ```py
-LoadOptions loadOptions = new LoadOptions {Password = "123123"};
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+loadOptions = slides.LoadOptions()
+loadOptions.password = "123123"
+with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
+    pres.protection_manager.remove_encryption()
+    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Removing Write Protection from a Presentation
@@ -142,11 +144,11 @@ You can use Aspose.Slides to remove the write protection used on a presentation 
 You can remove the write protection from a presentation by using the [RemoveWriteProtection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/methods/removewriteprotection) method. This sample code shows you to remove the write protection from a presentation:
 
 ```py
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation("write-protected-pres.pptx") as pres:
+    pres.protection_manager.remove_write_protection()
+    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Getting the Properties of an Encrypted Presentation
@@ -155,40 +157,40 @@ Typically, users struggle to get the document properties of an encrypted or pass
 
 **Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
 
-If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [EncryptDocumentProperties](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/properties/encryptdocumentproperties) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
+If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [EncryptDocumentProperties](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/properties/encryptdocumentproperties) property to `True`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ```py
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    pres.protection_manager.encrypt_document_properties = True
+    pres.protection_manager.encrypt("123123")
 ```
 
 ## Checking whether a Presentation is Encrypted
 
-Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
+Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `True` if the presentation is encrypted or `False` if the presentation isn't encrypted. 
 
 This sample code shows you how to check whether a presentation is encrypted:
 
 ```py
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
-}
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    print(str(pres.protection_manager.is_encrypted))
 ```
 
 ## Checking whether a Presentation is Write Protected
 
-Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [IsWriteProtected](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/properties/iswriteprotected) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
+Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [IsWriteProtected](https://apireference.aspose.com/slides/pythonnet/aspose.slides/protectionmanager/properties/iswriteprotected) property, which returns `True` if the presentation is encrypted or `False` if the presentation isn't encrypted. 
 
 This sample code shows you how to check whether a presentation is write-protected:
 
 ```py
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+import aspose.slides as slides
+
+with slides.Presentation("write-protected-pres.pptx") as pres:
+    print(str(pres.protection_manager.is_write_protected))
 ```
 
 ## **Validating or Confirming that a Specific Password has been used to Protect a Presentation**
@@ -198,14 +200,15 @@ You may want to check and confirm that a specific password has been used to prot
 This sample code shows you how to validate a password:
 
 ```py
-using (IPresentation pres = new Presentation("pres.pptx"))
-{
-    // check if "pass" is matched with
-    bool isWriteProtected = pres.ProtectionManager.CheckWriteProtection("my_password");
-}
+import aspose.slides as slides
+
+with slides.Presentation("write-protected-pres.pptx") as pres:
+    # check if "pass" is matched with
+    matched = pres.protection_manager.check_write_protection("my_password")
+    print(str(matched))
 ```
 
-It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 
+It returns `True` if the presentation has been encrypted with the specified password. Otherwise, it returns `False`. 
 
 {{% alert color="primary" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/pythonnet/digital-signature-in-powerpoint/)

@@ -36,11 +36,11 @@ If you prefer to use a special slide size for your presentations, we strongly re
  This sample code shows you how to change the slide size in a presentation in Python using Aspose.Slides:
 
 ```py
-using (Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx"))
-{
-    pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.Save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation(path + "AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    pres.save("pres-4x3-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Specifying Custom Slide Sizes in Presentations
@@ -50,11 +50,11 @@ If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you 
 This sample code shows you how to use Aspose.Slides for Python via .NET to specify a custom slide size for a presentation in Python:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 paper size
-    pres.Save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation(path + "AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(780, 540, slides.SlideSizeScaleType.DO_NOT_SCALE) # A4 paper size
+    pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Dealing With Issues When Changing the Size of Slides in Presentations
@@ -63,24 +63,24 @@ After you change the slide size for a presentation, the slides’ contents (imag
 
 Depending on what you intend to do or achieve, you can use any of these settings:
 
-- `DoNotScale`
+- `DO_NOT_SCALE`
 
   If you do NOT want the objects on the slides to be resized, use this setting.
 
-- `EnsureFit`
+- `ENSURE_FIT`
 
   If you want to scale to a smaller slide size and you need Aspose.Slides to scale down the slides’ objects to ensure they all fit on slides (this way, you avoid losing content), use this setting. 
 
-- `Maximize`
+- `MAXIMIZE`
 
   If you want to scale to a larger slide size and you need Aspose.Slides to enlarge the slides’ objects to make them proportional to the new slide size, use this setting. 
 
-This sample code shows you how to use the `Maximize` setting when changing the size of a presentation’s slide:
+This sample code shows you how to use the `MAXIMIZE` setting when changing the size of a presentation’s slide:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-   pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
-}
+import aspose.slides as slides
+
+with slides.Presentation(path + "AccessSlides.pptx") as pres:
+   pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 

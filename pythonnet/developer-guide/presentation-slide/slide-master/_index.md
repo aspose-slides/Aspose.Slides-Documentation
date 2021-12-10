@@ -111,6 +111,14 @@ In PowerPoint, Slide Master can be found in "View -> Slide Master" menu:
 
 With Aspose.Slides its possible to access Slide Master this way:
 
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    # access to the Presentation's master slide
+    masterSlide = pres.masters[0]
+```
+
 
 
 Slide Master is represented by [IMasterSlide](https://apireference.aspose.com/slides/pythonnet/aspose.slides/imasterslide) type. What you need is to get [Masters ](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/properties/masters)list from [Presentation ](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation)object. Masters list has a type of [IMasterSlideCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/imasterslidecollection) and contains a list of all Slide Masters that are defined in the presentation. 
@@ -126,7 +134,29 @@ Place your company logo and few images to Slide Master, then switch back to slid
 
 The same can be achieved with Aspose.Slides for Python via .NET:
 
+```py
+import aspose.slides as slides
 
+def readAllBytes(file_name):
+    with open(file_name, "rb") as stream:
+        return stream.read()
+
+# add images to the presentation
+logo = pres.images.add_image(readAllBytes("logo.png"))
+image1 = pres.images.add_image(readAllBytes("slides.png"))
+image2 = pres.images.add_image(readAllBytes("cells.png"))
+image3 = pres.images.add_image(readAllBytes("words.png"))
+
+# add these added images to the master slide
+masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 25, 25, logo)
+masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 40, 25, 25, image1)
+masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 75, 25, 25, image2)
+masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 110, 25, 25, image3)
+
+# add new slides with same master slide template
+pres.slides.add_empty_slide(masterSlide.layout_slides[0])
+pres.slides.add_empty_slide(masterSlide.layout_slides[1]) 
+```
 
 
 
@@ -168,7 +198,16 @@ We are going to change the formatting of Title and Subtitle on Slides Master thi
 
 With Aspose.Slides to change the formatting of title placeholder, we first retrieve it from Slide Master object, and then use PlaceHolder.FillFormat field:
 
+```py
+# get the reference to the master's title placeholder
+titlePlaceholder = masterSlide.shapes[0]
 
+# format fill as gradient fill
+titlePlaceholder.fill_format.fill_type = slides.FillType.GRADIENT
+titlePlaceholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
+titlePlaceholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
+titlePlaceholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
+```
 
 
 
@@ -186,7 +225,11 @@ The style and formatting of the title will change for all slides, based on this 
 ## **Change Background on Slide Master**
 It is possible to change the background of Slide Master and make it apply to all presentation slides this way. If you change the background color of the master slide, all normal slides in the presentation will receive the same background color settings. Follow the steps below to change the background color of the master slide:
 
-
+```py
+masterSlide.background.type = slides.BackgroundType.OWN_BACKGROUND
+masterSlide.background.fill_format.fill_type = slides.FillType.SOLID
+masterSlide.background.fill_format.solid_fill_color.color = draw.Color.gray
+```
 
 {{% alert color="primary" title="See also" %}} 
 - [Presentation Background](/slides/pythonnet/presentation-background/)
@@ -196,6 +239,10 @@ It is possible to change the background of Slide Master and make it apply to all
 To clone Slide Master to another presentation, 
 [**AddClone**](https://apireference.aspose.com/slides/pythonnet/aspose.slides.islidecollection/addclone/methods/2) method is called from destination presentation with a Slide Master passed into it:
 
+```py
+# add new master slide form another presentation
+pres1MasterSlide = pres.masters.add_clone(masterSlide)
+```
 
 ## **Add Multiple Slide Masters to Presentation**
 It is possible to add any amount of Slide Masters and Layouts to presentation. Its useful, if you need maximum flexibility to set up the styles, layouts and formatting of presentation slides in multiple ways.
@@ -207,7 +254,10 @@ In PowerPoint you can add new Slide Masters and Layouts in "Slide Master menu" t
 
 With Aspose.Slides you can add new Slide Master by calling Presentation.Masters.AddClone method:
 
-
+```py
+# add new master slide
+secondMasterSlide = pres.masters.add_clone(masterSlide)
+```
 
 
 ## **Compare Slide Masters**
@@ -219,7 +269,17 @@ Master Slide implements [IBaseSlide](https://apireference.aspose.com/slides/pyt
 ## **Set Slide Master as Presentation Default View**
 Its possible to set Slide Master as a default view, when you open the Aspose.Slides generated saved presentation:
 
+```py
+import aspose.slides as slides
 
+# Instantiate Presentation class that represents the presentation file
+with slides.Presentation() as presentation:
+    # Set Default View as SlideMasterView
+    presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
+
+    # Save presentation
+    presentation.save("PresView.pptx", slides.export.SaveFormat.PPTX)
+```
 
 
 ## **Live Example**

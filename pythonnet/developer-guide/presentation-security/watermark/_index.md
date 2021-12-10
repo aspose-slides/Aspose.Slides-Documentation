@@ -25,18 +25,13 @@ You can design watermark in any way however there are usually attend common feat
 To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) type. This type is not inherited from [IShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishape/), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://apireference.aspose.com/slides/pythonnet/aspose.slides/textframe) object into [IAutoShape](https://apireference.aspose.com/slides/pythonnet/aspose.slides/iautoshape/) object. To add watermark into the shape, use [**AddTextFrame**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/iautoshape/methods/addtextframe) method with watermark text passed into it:
 
 ```py
+import aspose.slides as slides
 
- using (var presentation = new Presentation())
-
-{
-
-	ISlide slide = presentation.Slides[0];
-
-	IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
-
-	ITextFrame watermarkTextFrame = watermarkShape.AddTextFrame("Watermark");
-
-}
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermarkShape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 0, 0, 0, 0)
+    watermarkTextFrame = watermarkShape.add_text_frame("Watermark")
+    presentation.save("watermark-1.pptx", slides.export.SaveFormat.PPTX)
 
 ```
 
@@ -55,19 +50,13 @@ object and then add watermark into it with
  [**AddTextFrame**](https://apireference.aspose.com/slides/pythonnet/aspose.slides/iautoshape/methods/addtextframe) method:
 
 ```py
+import aspose.slides as slides
 
- using (var presentation = new Presentation())
-
-{
-
-	IMasterSlide master = pres.Masters[0];
-
-	IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
-
-	ITextFrame watermarkTextFrame = watermarkShape.AddTextFrame("Watermark");
-
-}
-
+with slides.Presentation() as pres:
+    master = pres.masters[0]
+    watermarkShape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 0, 0, 0, 0)
+    watermarkTextFrame = watermarkShape.add_text_frame("Watermark")
+    presentation.save("watermark-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -79,13 +68,8 @@ object and then add watermark into it with
 You can change the font of text watermark:
 
 ```py
-
- int alpha = 150, red = 200, green = 200, blue = 200;
-
-IPortion watermarkPortion = watermarkTextFrame.Paragraphs[0].Portions[0];
-
-watermarkPortion.PortionFormat.FontHeight = 52;
-
+watermarkPortion = watermarkTextFrame.paragraphs[0].portions[0]
+watermarkPortion.portion_format.font_height = 52
 ```
 
 
@@ -93,15 +77,9 @@ watermarkPortion.PortionFormat.FontHeight = 52;
 To set the transparency of text watermark use this code:
 
 ```py
-
- int alpha = 150, red = 200, green = 200, blue = 200;
-
-IPortion watermarkPortion = watermarkTextFrame.Paragraphs[0].Portions[0];
-
-watermarkPortion.PortionFormat.FillFormat.FillType = FillType.Solid;
-
-watermarkPortion.PortionFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.FromArgb(alpha, red, green, blue);
-
+watermarkPortion = watermarkTextFrame.paragraphs[0].portions[0]
+watermarkPortion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+watermarkPortion.portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(150, 200, 200, 200)
 ```
 
 
@@ -111,25 +89,16 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 ```py
+center = draw.PointF(presentation.slide_size.size.width / 2, presentation.slide_size.size.height / 2)
 
- PointF center = new PointF(presentation.SlideSize.Size.Width / 2, presentation.SlideSize.Size.Height / 2);
+width = 300
+height = 300
 
-float width = 300;
+x = center.x - width / 2
+y = center.y - height / 2
 
-float height = 300;
-
-float x = center.X - width / 2;
-
-float y = center.Y - height / 2;
-
-
-
-//...
-
-
-
-IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, x, y, width, height);
-
+# ... code ...
+watermarkShape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, x, y, width, height)
 ```
 
 
@@ -138,21 +107,16 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, x, y, 
 To add image watermark into all presentation slides, you may do the following:
 
 ```py
+with slides.Presentation() as presentation:
+    with open("image.png", "rb") as fs:
+        data = fs.read()
+        image = presentation.images.add_image(data)
 
- IPPImage image = presentation.Images.AddImage(File.ReadAllBytes("watermark.png"));
+# ...
 
-
-
-// ...
-
-
-
-watermarkShape.FillFormat.FillType = FillType.Picture;
-
-watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
-
-watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-
+watermarkShape.fill_format.fill_type = slides.FillType.PICTURE
+watermarkShape.fill_format.picture_fill_format.picture.image = image
+watermarkShape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 ```
 
 
@@ -162,19 +126,12 @@ watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.St
 If its needed to prevent watermark from editing, use [**AutoShape.ShapeLock** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides/autoshape/properties/shapelock)property on the shape, that wraps its. With this property you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
 
 ```py
-
- // Lock Shapes from modifying
-
-watermarkShape.ShapeLock.SelectLocked = true;
-
-watermarkShape.ShapeLock.SizeLocked = true;
-
-watermarkShape.ShapeLock.TextLocked = true;
-
-watermarkShape.ShapeLock.PositionLocked = true;
-
-watermarkShape.ShapeLock.GroupingLocked = true;
-
+# Lock shapes from modifying
+watermarkShape.shape_lock.select_locked = True
+watermarkShape.shape_lock.size_locked = True
+watermarkShape.shape_lock.text_locked = True
+watermarkShape.shape_lock.position_locked = True
+watermarkShape.shape_lock.grouping_locked = True
 ```
 
 
@@ -187,9 +144,7 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.Reorder** ](https://apireference.aspose.com/slides/pythonnet/aspose.slides.slidecollection/reorder/methods/1)method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
 
 ```py
-
- slide.Shapes.Reorder(slide.Shapes.Count - 1, watermarkShape);
-
+slide.shapes.reorder(len(slide.shapes) - 1, watermarkShape)
 ```
 
 
@@ -197,33 +152,16 @@ In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.Reorder
 Here is an example how to set the rotation of watermark (and its parent shape):
 
 ```py
+def calculate_rotation(height, width):
+	rotation = math.atan(height / width) * 180 / math.pi
+	return rotation
 
- float h = presentation.SlideSize.Size.Height;
+h = presentation.slide_size.size.height
+w = presentation.slide_size.size.width
 
-float w = presentation.SlideSize.Size.Width;
-
-watermarkShape.X = Convert.ToInt32((w - watermarkShape.Width) / 2);
-
-watermarkShape.Y = Convert.ToInt32((h - watermarkShape.Height) / 2);
-
-watermarkShape.Rotation = calculateRotation(h, w);
-
-
-
-private int calculateRotation(float height, float width)
-
-{
-
-	double pageHeight = Convert.ToDouble(height);
-
-	double pageWidth = Convert.ToDouble(width);
-
-	double rotation = Math.Atan((pageHeight / pageWidth)) * 180 / Math.PI;
-
-	return Convert.ToInt32(rotation);
-
-}
-
+watermarkShape.x = (w - watermarkShape.width) / 2
+watermarkShape.y = (h - watermarkShape.height) / 2
+watermarkShape.rotation = calculate_rotation(h, w)
 ```
 
 
@@ -233,9 +171,7 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
 
 ```py
-
- watermarkShape.Name = "watermark";
-
+watermarkShape.name = "watermark"
 ```
 
 
@@ -243,23 +179,11 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 To remove watermark shape and its child controls from slide, use [AutoShape.Name](https://apireference.aspose.com/slides/pythonnet/aspose.slides/ishape/properties/name) property to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.Remove**](https://apireference.aspose.com/net/cells/aspose.cells.drawing/shapecollection/methods/remove) method:
 
 ```py
+for i in range(len(slide.shapes)):
+    shape = slide.shapes[i]
 
- for (int i = 0; i < slide.Shapes.Count; i++)
-
-{
-
-	AutoShape shape = (AutoShape)slide.Shapes[i];
-
-	if (String.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
-
-	{
-
-		slide.Shapes.Remove(watermarkShape);
-
-	}
-
-}
-
+    if shape.name == "watermark":
+        slide.shapes.remove(shape)
 ```
 
 

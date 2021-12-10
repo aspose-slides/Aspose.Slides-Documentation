@@ -16,4 +16,20 @@ Before talking about adding slides to the presentation files, let us discuss som
 - Do some work with the newly added empty slide.
 - Finally, write the presentation file using the [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) object.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-AddSlides-AddSlides.cs" >}}
+```py
+import aspose.slides as slides
+
+# Instantiate Presentation class that represents the presentation file
+with slides.Presentation() as pres:
+    # Instantiate SlideCollection calss
+    slds = pres.slides
+
+    for i in range(len(pres.layout_slides)):
+        # Add an empty slide to the Slides collection
+        slds.add_empty_slide(pres.layout_slides[i])
+        
+    # Do some work on the newly added slide
+
+    # Save the PPTX file to the Disk
+    pres.save("EmptySlide.pptx", slides.export.SaveFormat.PPTX)
+```

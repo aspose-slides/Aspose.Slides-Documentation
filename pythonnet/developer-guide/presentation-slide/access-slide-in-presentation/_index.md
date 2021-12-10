@@ -18,11 +18,12 @@ Aspose.Slides for Python via .NET provides a [Presentation](https://apireference
 [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islidecollection) collection (that is a collection of [ISlide](https://apireference.aspose.com/slides/pythonnet/aspose.slides/islide) objects). All of these slides can be accessed from this Slides collection using a slide index as shown below in the example.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import aspose.slides as slides
 
-// Obtain a slide's reference by its index
-ISlide slide = presentation.Slides[0];
+# Create an instance of Presentation class
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    # Obtain a slide's reference by its index
+    slide = presentation.slides[0]
 ```
 
 
@@ -30,14 +31,14 @@ ISlide slide = presentation.Slides[0];
 Every slide in the presentation has a unique ID associated with it. The [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation) class exposes the [GetSlideById(id)](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/getslidebyid) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [GetSlideById(id)](https://apireference.aspose.com/slides/pythonnet/aspose.slides/presentation/methods/getslidebyid) method as shown below in the example.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import aspose.slides as slides
 
-// Getting Slide ID
-uint id = presentation.Slides[0].SlideId;
-
-// Accessing Slide by ID
-IBaseSlide slide = presentation.GetSlideById(id);
+# Create an instance of Presentation class
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    # Getting Slide ID
+    id = presentation.slides[0].slide_id
+    # Accessing Slide by ID
+    slide = presentation.get_slide_by_id(id)
 ```
 
 
@@ -53,18 +54,16 @@ If you create a presentation using MS PowerPoint, you would have experienced tha
 The example given below moves the slide (that was at position 1 to the second position and the slide that was at the second position, is moved to the first position and so on). In this way, all slides are adjusted automatically by Aspose.Slides for Python via .NET.
 
 ```py
-// Instantiate Presentation class to load the source presentation file
-using (Presentation pres = new Presentation("ChangePosition.pptx"))
-{
-    // Get the slide whose position is to be changed
-    ISlide sld = pres.Slides[0];
+import aspose.slides as slides
 
-    // Set the new position for the slide
-    sld.SlideNumber = 2;
-
-    // Write the presentation to disk
-    pres.Save("Aspose_out.pptx", SaveFormat.Pptx);
-}
+# Instantiate Presentation class to load the source presentation file
+with slides.Presentation(path + "ChangePosition.pptx") as pres:
+    # Get the slide whose position is to be changed
+    sld = pres.slides[0]
+    # Set the new position for the slide
+    sld.slide_number = 2
+    # Write the presentation to disk
+    pres.save("Aspose_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -81,16 +80,15 @@ Aspose.Slides for Python via .NET now supports, setting the Slide Number. In thi
 In the example given below, we have get and set the slide number.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("HelloWorld.pptx"))
-{
-    // Get the slide number
-    int firstSlideNumber = presentation.FirstSlideNumber;
+import aspose.slides as slides
 
-    // Set the slide number
-    presentation.FirstSlideNumber=10;
-
-    presentation.Save("Set_Slide_Number_out.pptx", SaveFormat.Pptx);
-}
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "HelloWorld.pptx") as presentation:
+    # Get the slide number
+    firstSlideNumber = presentation.first_slide_number
+    # Set the slide number
+    presentation.first_slide_number = 10
+    
+    presentation.save("Set_Slide_Number_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

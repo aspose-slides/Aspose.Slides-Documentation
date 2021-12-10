@@ -21,59 +21,46 @@ Aspose.Slides also offer to add Layout slides in presentation. There are cases w
 In the example given below, we have added Layout Slides to Presentation.
 
 ```py
-// Instantiate Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
-{
-    // Try to search by layout slide type
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    if (layoutSlide == null)
-    {
-        // The situation when a presentation doesn't contain some type of layouts.
-        // presentation File only contains Blank and Custom layout types.
-        // But layout slides with Custom types has different slide names,
-        // like "Title", "Title and Content", etc. And it is possible to use these
-        // names for layout slide selection.
-        // Also it is possible to use the set of placeholder shape types. For example,
-        // Title slide should have only Title pleceholder type, etc.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
+# Instantiate Presentation class that represents the presentation file
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    # Try to search by layout slide type
+    layoutSlides = presentation.masters[0].layout_slides
+    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
+    if layoutSlide is None:
+         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
 
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
+    if layoutSlide is None:
+        # The situation when a presentation doesn't contain some type of layouts.
+        # presentation File only contains Blank and Custom layout types.
+        # But layout slides with Custom types has different slide names,
+        # like "Title", "Title and Content", etc. And it is possible to use these
+        # names for layout slide selection.
+        # Also it is possible to use the set of placeholder shape types. For example,
+        # Title slide should have only Title pleceholder type, etc.
+        for titleAndObjectLayoutSlide in layoutSlides:
+            if titleAndObjectLayoutSlide.name == "Title and Object":
+                layoutSlide = titleAndObjectLayoutSlide
+                break
 
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
+        if layoutSlide is None:
+            for titleLayoutSlide in layoutSlides:
+                if titleLayoutSlide.name == "Title":
+                    layoutSlide = titleLayoutSlide
+                    break
 
-    // Adding empty slide with added layout slide 
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
+            if layoutSlide is None:
+                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layoutSlide is None:
+                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    // Save presentation    
-    presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
-}
+    # Adding empty slide with added layout slide 
+    presentation.slides.insert_empty_slide(0, layoutSlide)
+
+    # save presentation    
+    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -83,19 +70,21 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 [SlideSize.Type](https://apireference.aspose.com/slides/pythonnet/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://apireference.aspose.com/slides/pythonnet/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```py
+import aspose.slides as slides
+
 // Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+# Instantiate a Presentation object that represents a presentation file 
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    with slides.Presentation() as auxPresentation:
+        slide = presentation.slides[0]
 
-ISlide slide = presentation.Slides[0];
+        # Set the slide size of generated presentations to that of source
+        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
 
-// Set the slide size of generated presentations to that of source
-auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type,SlideSizeScaleType.EnsureFit);
-
-auxPresentation.Slides.InsertClone(0, slide);
-auxPresentation.Slides.RemoveAt(0);
-// Save Presentation to disk
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
+        auxPresentation.slides.insert_clone(0, slide)
+        auxPresentation.slides.remove_at(0)
+        # save Presentation to disk
+        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -109,26 +98,29 @@ To set footer in a slide using its index position in the slides collection of th
 1. Write the modified presentation file.
 
 ```py
-using (Presentation presentation = new Presentation("presentation.ppt"))
-{
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.Slides[0].HeaderFooterManager;
-    if (!headerFooterManager.IsFooterVisible) // Property IsFooterVisible is used for indicating that a slide footer placeholder is not present.
-    {
-        headerFooterManager.SetFooterVisibility(true); // Method SetFooterVisibility is used for making a slide footer placeholder visible.
-    }
-    if (!headerFooterManager.IsSlideNumberVisible) // Property IsSlideNumberVisible is used for indicating that a slide page number placeholder is not present.
-    {
-        headerFooterManager.SetSlideNumberVisibility(true); // Method SetSlideNumberVisibility is used for making a slide page number placeholder visible.
-    }
-    if (!headerFooterManager.IsDateTimeVisible) // Property IsDateTimeVisible is used for indicating that a slide date-time placeholder is not present.
-    {
-        headerFooterManager.SetDateTimeVisibility(true); // Method SetFooterVisibility is used for making a slide date-time placeholder visible.
-    }
-    headerFooterManager.SetFooterText("Footer text"); // Method SetFooterText is used for setting text to slide footer placeholder.
-    headerFooterManager.SetDateTimeText("Date and time text"); // Method SetDateTimeText is used for setting text to slide date-time placeholder.
+import aspose.slides as slides
 
-	presentation.Save("Presentation.ppt",SaveFormat.ppt);
-}
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    headerFooterManager = presentation.slides[0].header_footer_manager
+    # Property is_footer_visible is used for indicating that a slide footer placeholder is not present.
+    if not headerFooterManager.is_footer_visible: 
+        # Method set_footer_visibility is used for making a slide footer placeholder visible.
+        headerFooterManager.set_footer_visibility(True) 
+        # Property is_slide_number_visible is used for indicating that a slide page number placeholder is not present.
+    if not headerFooterManager.is_slide_number_visible:  
+        # Method set_slide_number_visibility is used for making a slide page number placeholder visible.
+        headerFooterManager.set_slide_number_visibility(True) 
+        # Property is_date_time_visible is used for indicating that a slide date-time placeholder is not present.
+    if not headerFooterManager.is_date_time_visible: 
+        # Method set_footer_visibility is used for making a slide date-time placeholder visible. 
+        headerFooterManager.set_date_time_visibility(True)
+
+    # Method set_footer_text is used for setting text to slide footer placeholder. 
+    headerFooterManager.set_footer_text("Footer text") 
+    # Method set_date_time_text is used for setting text to slide date-time placeholder.
+    headerFooterManager.set_date_time_text("Date and time text") 
+
+    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
 ```
 
 
@@ -144,16 +136,17 @@ To set footer and child footer a slide using its index position in the slides co
 1. Write the modified presentation file.
 
 ```py
-using (Presentation presentation = new Presentation("presentation.ppt"))
-{
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-    headerFooterManager.SetFooterAndChildFootersVisibility(true); // Method SetFooterAndChildFootersVisibility is used for making a master slide and all child footer placeholders visible.
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // Method SetSlideNumberAndChildSlideNumbersVisibility is used for making a master slide and all child page number placeholders visible.
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // Method SetDateTimeAndChildDateTimesVisibility is used for making a master slide and all child date-time placeholders visible.
+import aspose.slides as slides
 
-    headerFooterManager.SetFooterAndChildFootersText("Footer text"); // Method SetFooterAndChildFootersText is used for setting text to master slide and all child footer placeholders.
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // Method SetDateTimeAndChildDateTimesText is used for setting text to master slide and all child date-time placeholders.
-}
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    manager = presentation.masters[0].header_footer_manager
+    manager.set_footer_and_child_footers_visibility(True) # Method set_footer_and_child_footers_visibility is used for making a master slide and all child footer placeholders visible.
+    manager.set_slide_number_and_child_slide_numbers_visibility(True) # Method set_slide_number_and_child_slide_numbers_visibility is used for making a master slide and all child page number placeholders visible.
+    manager.set_date_time_and_child_date_times_visibility(True) # Method set_date_time_and_child_date_times_visibility is used for making a master slide and all child date-time placeholders visible.
+
+    manager.set_footer_and_child_footers_text("Footer text") # Method set_footer_and_child_footers_text is used for setting text to master slide and all child footer placeholders.
+    manager.set_date_time_and_child_date_times_text("Date and time text") # Method set_date_time_and_child_date_times_text is used for setting text to master slide and all child date-time placeholders.
+
 
 ```
 
@@ -163,18 +156,19 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
 You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://apireference.aspose.com/slides/pythonnet/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://apireference.aspose.com/slides/pythonnet/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+import aspose.slides as slides
 
-ISlide slide = presentation.Slides[0];
+# Instantiate a Presentation object that represents a presentation file 
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    with slides.Presentation() as auxPresentation:
+        slide = presentation.slides[0]
 
-// Set the slide size of generated presentations to that of source
-presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used for set slide size with scale content to ensure fit
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used for set slide size with maximize size of content
-           
-// Save Presentation to disk
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
+        # Set the slide size of generated presentations to that of source
+        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # Method set_size is used for set slide size with scale content to ensure fit
+        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # Method set_size is used for set slide size with maximize size of content
+                
+        # save Presentation to disk
+        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -183,17 +177,18 @@ auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://apireference.aspose.com/slides/pythonnet/aspose.slides/slidesize/properties/type) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation();
+import aspose.slides as slides
 
-// Set SlideSize.Type Property 
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
+# Instantiate a Presentation object that represents a presentation file 
+with slides.Presentation() as presentation:
+    # Set slide_size.Type Property 
+    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
 
-// Set different properties of PDF Options
-PdfOptions opts = new  PdfOptions();
-opts.SufficientResolution = 600;
+    # Set different properties of PDF Options
+    opts = slides.export.PdfOptions()
+    opts.sufficient_resolution = 600
 
-// Save presentation to disk
-presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
+    # save presentation to disk
+    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
 ```
 
