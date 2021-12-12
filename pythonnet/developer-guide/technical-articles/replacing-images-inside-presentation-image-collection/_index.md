@@ -21,24 +21,31 @@ Aspose.Slides for Python via .NET provides a simple API methods for replacing th
 1. Write the modified presentation as a PPTX file.
 
 ```py
-//Instantiate the presentation
-Presentation presentation = new Presentation("presentation.pptx");
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-//the first way
-byte[] data = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(data);
+def read_all_bytes(file_name):
+    with open(file_name, "rb") as stream:
+        return stream.read()
 
-//the second way
-Image newImage = Image.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
+#Instantiate the presentation
+with slides.Presentation("pres.pptx") as presentation:
 
-//the third way
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
+    #the first way
+    data = read_all_bytes("image_0.jpeg")
+    oldImage = presentation.images[0]
+    oldImage.replace_image(data)
 
-//Save the presentation
-presentation.Save("c:\\Presentations\\TestSmart.pptx", SaveFormat.Pptx);
+    #the second way
+    newImage = draw.Image.from_file("image_1.jpeg")
+    oldImage = presentation.images[1]
+    oldImage.replace_image(newImage)
+
+    #the third way
+    oldImage = presentation.images[2]
+    oldImage.replace_image(presentation.images[3])
+
+    #Save the presentation
+    presentation.save("replace_image-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

@@ -18,7 +18,7 @@ Property [**IViewProperties.NormalViewProperties**](https://apireference.aspose.
 
 
 
-## **About INormalViewProperties** #
+## **About INormalViewProperties** 
 
 Represents normal view properties.
 
@@ -34,7 +34,7 @@ Properties **RestoredLeft** and **RestoredTop** specify the sizing of the top or
 
 
 
-## **About INormalViewRestoredProperties** #
+## **About INormalViewRestoredProperties** 
 
 Specifies the sizing of the slide region ((width when a child of RestoredTop, height when a child of RestoredLeft) of the normal view, when the region is of a variable restored size(neither minimized nor maximized). 
 
@@ -45,18 +45,18 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 An example is given below shows how can you access **ViewProperties.NormalViewProperties** properties for a presentation.
 
 ```py
-//Instantiate a presentation object that represents a presentation file
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+import aspose.slides as slides
 
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+#Instantiate a presentation object that represents a presentation file
+with slides.Presentation(path + "AccessSlides.pptx") as pres:
+    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
+    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
+    pres.view_properties.normal_view_properties.show_outline_icons = True
+
+    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -74,16 +74,15 @@ In order to set the view properties. Please follow the steps below:
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Setting View Properties of Presentation
+import aspose.slides as slides
 
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Zoom value in percentages for slide view
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Zoom value in percentages for notes view 
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    # Setting View Properties of Presentation
+    presentation.view_properties.slide_view_properties.scale = 100 # Zoom value in percentages for slide view
+    presentation.view_properties.notes_view_properties.scale = 100 # Zoom value in percentages for notes view 
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -98,15 +97,14 @@ In order to set the view properties. Please follow the steps below:
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```py
-// Instantiate a Presentation object that represents a presentation file
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Setting View Properties of Presentation
+import aspose.slides as slides
 
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Zoom value in percentages for slide view
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Zoom value in percentages for notes view 
+# Instantiate a Presentation object that represents a presentation file
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    # Setting View Properties of Presentation
+    presentation.view_properties.slide_view_properties.scale = 100 # Zoom value in percentages for slide view
+    presentation.view_properties.notes_view_properties.scale = 100 # Zoom value in percentages for notes view 
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

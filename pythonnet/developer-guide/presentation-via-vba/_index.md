@@ -22,34 +22,32 @@ The [Presentation](https://apireference.aspose.com/slides/pythonnet/aspose.slid
 The implementation of the above steps is demonstrated in the example below.
 
 ```py
-// Instantiate Presentation
-using (Presentation presentation = new Presentation())
-{
-    // Create new VBA Project
-    presentation.VbaProject = new VbaProject();
+import aspose.slides as slides
 
-    // Add empty module to the VBA project
-    IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
+# Instantiate Presentation
+with slides.Presentation() as presentation:
+    # Create new VBA Project
+    presentation.vba_project = slides.vba.VbaProject()
+
+    # add empty module to the VBA project
+    module = presentation.vba_project.modules.add_empty_module("Module")
   
-    // Set module source code
-    module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
+    # Set module source code
+    module.source_code = "Sub Test(oShape As Shape) MsgBox ""Test"" End Sub"
 
-    // Create reference to <stdole>
-    VbaReferenceOleTypeLib stdoleReference =
-        new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
+    # Create reference to <stdole>
+    stdoleReference = slides.vba.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation")
 
-    // Create reference to Office
-    VbaReferenceOleTypeLib officeReference =
-        new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
+    # Create reference to Office
+    officeReference =slides.vba.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library")
 
-    // Add references to the VBA project
-    presentation.VbaProject.References.Add(stdoleReference);
-    presentation.VbaProject.References.Add(officeReference);
+    # add references to the VBA project
+    presentation.vba_project.references.add(stdoleReference)
+    presentation.vba_project.references.add(officeReference)
 
             
-    // Save Presentation
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
-}
+    # save Presentation
+    presentation.save("AddVBAMacros_out.pptm", slides.export.SaveFormat.PPTM)
 ```
 
 {{% alert color="primary" %}} 
@@ -68,15 +66,15 @@ The `Presentation` class now has included the support to remove the VBA macros
 The implementation of the above steps is demonstrated in the example below.
 
 ```py
-// Instantiate Presentation
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
-{
-    // Access the Vba module and remove 
-    presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
+import aspose.slides as slides
 
-    // Save Presentation
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
-}
+# Instantiate Presentation
+with slides.Presentation(path + "VBA.pptm") as presentation:
+    # Access the Vba module and remove 
+    presentation.vba_project.modules.remove(presentation.vba_project.modules[0])
+
+    # save Presentation
+    presentation.save("RemovedVBAMacros_out.pptm", slides.export.SaveFormat.PPTM)
 ```
 
 
@@ -90,16 +88,12 @@ Aspose.Slides for Python via .NET supports extracting VBA Macros from the slide.
 The implementation of the above steps is demonstrated in the example below.
 
 ```py
-using (Presentation pres = new Presentation("VBA.pptm"))
-{
-	if (pres.VbaProject != null) // check if Presentation contains VBA Project
-	{
-		foreach (IVbaModule module in pres.VbaProject.Modules)
-		{
-			Console.WriteLine(module.Name);
-			Console.WriteLine(module.SourceCode);
-		}
-	}
-}
+import aspose.slides as slides
+
+with slides.Presentation(path + "VBA.pptm") as pres:
+    if pres.vba_project is not None: # check if Presentation contains VBA Project
+        for module in pres.vba_project.modules:
+            print(module.name)
+            print(module.source_code)
 ```
 

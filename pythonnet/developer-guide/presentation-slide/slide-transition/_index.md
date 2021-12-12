@@ -15,18 +15,18 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 1. Write the modified presentation file.
 
 ```py
-// Instantiate Presentation class to load the source presentation file
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
-{
-    // Apply circle type transition on slide 1
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+import aspose.slides as slides
 
-    // Apply comb type transition on slide 2
-    presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
+# Instantiate Presentation class to load the source presentation file
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    # Apply circle type transition on slide 1
+    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    // Write the presentation to disk
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
-}
+    # Apply comb type transition on slide 2
+    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
+
+    # Write the presentation to disk
+    presentation.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -40,37 +40,36 @@ In the above section, we just applied a simple transition effect on the slide. N
 1. Write the modified presentation as a presentation file.
 
 ```py
-// Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
-{
+import aspose.slides as slides
 
-    // Apply circle type transition on slide 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-
-    // Set the transition time of 3 seconds
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Apply comb type transition on slide 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
+# Instantiate Presentation class that represents a presentation file
+with slides.Presentation(path + "BetterSlideTransitions.pptx") as pres:
+    # Apply circle type transition on slide 1
+    pres.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
 
-    // Set the transition time of 5 seconds
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
+    # Set the transition time of 3 seconds
+    pres.slides[0].slide_show_transition.advance_on_click = True
+    pres.slides[0].slide_show_transition.advance_after_time = 3000
 
-    // Apply zoom type transition on slide 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
+    # Apply comb type transition on slide 2
+    pres.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
 
-    // Set the transition time of 7 seconds
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
+    # Set the transition time of 5 seconds
+    pres.slides[1].slide_show_transition.advance_on_click = True
+    pres.slides[1].slide_show_transition.advance_after_time = 5000
 
-    // Write the presentation to disk
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
-}
+    # Apply zoom type transition on slide 3
+    pres.slides[2].slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+
+
+    # Set the transition time of 7 seconds
+    pres.slides[2].slide_show_transition.advance_on_click = True
+    pres.slides[2].slide_show_transition.advance_after_time = 7000
+
+    # Write the presentation to disk
+    pres.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -82,23 +81,22 @@ The following code snippet shows you how to add a clone of the slide with some t
 
 
 ```py
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+import aspose.slides as slides
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+with slides.Presentation() as presentation:
+    autoshape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    autoshape.text_frame.text = "Morph Transition in PowerPoint Presentations"
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+    presentation.slides.add_clone(presentation.slides[0])
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+    presentation.slides[1].shapes[0].x += 100
+    presentation.slides[1].shapes[0].y += 50
+    presentation.slides[1].shapes[0].width -= 200
+    presentation.slides[1].shapes[0].height -= 10
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
 
+    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -114,12 +112,12 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```py
-using (Presentation presentation = new Presentation("presentation.pptx"))
-{
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+import aspose.slides as slides
+
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    presentation.slides[0].slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -135,14 +133,16 @@ Aspose.Slides for Python via .NET supports setting the transition effects like, 
 In the example given below, we have set the transition effects.
 
 ```py
-// Create an instance of Presentation class
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import aspose.slides as slides
 
-// Set effect
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+# Create an instance of Presentation class
+with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
-// Write the presentation to disk
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    # Set effect
+    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CUT
+    presentation.slides[0].slide_show_transition.value.from_black = True
+
+    # Write the presentation to disk
+    presentation.save("SetTransitionEffects_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

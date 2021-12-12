@@ -15,19 +15,13 @@ In order to get presentation format. Please follow the steps below:
 In the example given below, we have got the presentation format:
 
 ```py
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("HelloWorld.pptx");
-switch (info.LoadFormat)
-{
-    case LoadFormat.Pptx:
-        {
-            break;
-        }
+import aspose.slides as slides
 
-    case LoadFormat.Unknown:
-        {
-            break;
-        }
-}
+info = slides.PresentationFactory.instance.get_presentation_info(path + "HelloWorld.pptx")
+if info.load_format == slides.LoadFormat.PPTX:
+    print("PPTX")
+elif info.load_format == slides.LoadFormat.UNKNOWN:
+    print("UNKNOWN")
 ```
 
 

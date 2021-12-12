@@ -7,141 +7,74 @@ url: /pythonnet/extracting-images-from-presentation-shapes/
 
 {{% alert color="primary" %}} 
 
-Images are added in slide background and shapes. Sometimes, it is required to extract the images added in the presentation shapes. The images are added in **IPPImageCollection** inside Presentation Document Object Model (DOM). This article covers the feature of accessing the images in presentation shape, extracting them from presentation collection and saving them in a file.
+Images are added in slide background and shapes. Sometimes, it is required to extract the images added in the presentation shapes. The images are added in **PPImageCollection** inside Presentation Document Object Model (DOM). This article covers the feature of accessing the images in presentation shape, extracting them from presentation collection and saving them in a file.
 
 {{% /alert %}} 
 ## **Extracting images from Presentation Shapes**
-In Aspose.Slides for Python via .NET, images can be added to slide shape and slide background. The images are added in **IPPImageCollection** of the presentation. In this example we will traverse through each shape inside every slide of presentation and see if there is any image added in slide shape. If the image will be found for any shape, we will extract that and will save it in file.The following code snippet will serve the purpose.
+In Aspose.Slides for Python via .NET, images can be added to slide shape and slide background. The images are added in **PPImageCollection** of the presentation. In this example we will traverse through each shape inside every slide of presentation and see if there is any image added in slide shape. If the image will be found for any shape, we will extract that and will save it in file.The following code snippet will serve the purpose.
 
 ```py
-public static void Run() {
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    String path = @"D:\Aspose Data\";
-    //Accessing the presentation
-    Presentation pres = new Presentation(path + "ExtractImages.pptx");
-    Aspose.Slides.IPPImage img = null;
-    Aspose.Slides.IPPImage Backimg = null;
+def get_image_format(image_type):
+    return {
+        "jpeg": draw.imaging.ImageFormat.jpeg,
+        "emf": draw.imaging.ImageFormat.emf,
+        "bmp": draw.imaging.ImageFormat.bmp,
+        "png": draw.imaging.ImageFormat.png,
+        "wmf": draw.imaging.ImageFormat.wmf,
+        "gif": draw.imaging.ImageFormat.gif,
+    }.get(image_type, draw.imaging.ImageFormat.jpeg)
 
-    int slideIndex = 0;
-    String ImageType = "";
-    bool ifImageFound = false;
-    for (int i = 0; i < pres.Slides.Count; i++)
-    {
+with slides.Presentation("pres.pptx") as pres:
+    #Accessing the presentation
+    
+    slideIndex = 0
+    image_type = ""
+    ifImageFound = False
+    for slide in pres.slides:
+        slideIndex += 1
+        #Accessing the first slide
+        image_format = draw.imaging.ImageFormat.jpeg
 
-        slideIndex++;
-        //Accessing the first slide
-        ISlide sl = pres.Slides[i];
-        System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
+        back_image = None
+        file_name = "BackImage_Slide_{0}{1}.{2}"
+        is_layout = False
 
-        //Accessing the first slide Slide sl = pres.getSlideByPosition(i);
-        if (sl.Background.FillFormat.FillType == FillType.Picture)
-        {
-            //Getting the back picture  
-            Backimg = sl.Background.FillFormat.PictureFillFormat.Picture.Image;
+        if slide.background.fill_format.fill_type == slides.FillType.PICTURE:
+            #Getting the back picture  
+            back_image = slide.background.fill_format.picture_fill_format.picture.image
+        elif slide.layout_slide.background.fill_format.fill_type == slides.FillType.PICTURE:
+            #Getting the back picture  
+            back_image = slide.layout_slide.background.fill_format.picture_fill_format.picture.image
+            is_layout = True
 
-            //Setting the desired picture format 
+        if back_image is not None:
+            #Setting the desired picture format 
+            image_type = back_image.content_type.split("/")[1]
+            image_format = get_image_format(image_type)
 
-            ImageType = Backimg.ContentType;
-            ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
-            Format = GetImageFormat(ImageType);
+            back_image.system_image.save(
+                file_name.format("LayoutSlide_" if is_layout else "", slideIndex, image_type), 
+                image_format)
 
-            String ImagePath = path + "BackImage_";
-            Backimg.SystemImage.Save(ImagePath + "Slide_" + slideIndex.ToString() + "." + ImageType, Format);
+        for i in range(len(slide.shapes)):
+            shape = slide.shapes[i]
+            shape_image = None
 
-        }
-        else
-        {
-            if (sl.LayoutSlide.Background.FillFormat.FillType == FillType.Picture)
-            {
-                //Getting the back picture  
-                Backimg = sl.LayoutSlide.Background.FillFormat.PictureFillFormat.Picture.Image;
+            if type(shape) is slides.AutoShape and shape.fill_format.fill_type == slides.FillType.PICTURE:
+                shape_image = shape.fill_format.picture_fill_format.picture.image
+            elif type(shape) is slides.PictureFrame:
+                shape_image = shape.picture_format.picture.image
 
-                //Setting the desired picture format 
+            if shape_image is not None:
+                image_type = shape_image.content_type.split("/")[1]
+                image_format = get_image_format(image_type)
 
-                ImageType = Backimg.ContentType;
-                ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
-                Format = GetImageFormat(ImageType);
-
-                String ImagePath = path + "BackImage_Slide_" + i;
-                Backimg.SystemImage.Save(ImagePath + "LayoutSlide_" + slideIndex.ToString() + "." + ImageType, Format);
-
-            }
-        }
-
-        for (int j = 0; j < sl.Shapes.Count; j++)
-        {
-            // Accessing the shape with picture
-            IShape sh = sl.Shapes[j];
-
-            if (sh is AutoShape)
-            {
-                AutoShape ashp = (AutoShape)sh;
-                if (ashp.FillFormat.FillType == FillType.Picture)
-                {
-                    img = ashp.FillFormat.PictureFillFormat.Picture.Image;
-                    ImageType = img.ContentType;
-                    ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
-                    ifImageFound = true;
-
-                }
-            }
-
-            else if (sh is PictureFrame)
-            {
-                IPictureFrame pf = (IPictureFrame)sh;
-                if (pf.FillFormat.FillType == FillType.Picture)
-                {
-                    img = pf.PictureFormat.Picture.Image;
-                    ImageType = img.ContentType;
-                    ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
-                    ifImageFound = true;
-                }
-            }
-
-            //Setting the desired picture format
-            if (ifImageFound)
-            {
-                Format = GetImageFormat(ImageType);
-                String ImagePath = path + "Slides\\Image_";
-                img.SystemImage.Save(ImagePath + "Slide_" + slideIndex.ToString() + "_Shape_" + j.ToString() + "." + ImageType, Format);
-            }
-            ifImageFound = false;
-        }
-    }
-}
-
-public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType)
-{
-    System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
-    switch (ImageType)
-    {
-        case "jpeg":
-            Format = System.Drawing.Imaging.ImageFormat.Jpeg;
-            break;
-
-        case "emf":
-            Format = System.Drawing.Imaging.ImageFormat.Emf;
-            break;
-
-        case "bmp":
-            Format = System.Drawing.Imaging.ImageFormat.Bmp;
-            break;
-
-        case "png":
-            Format = System.Drawing.Imaging.ImageFormat.Png;
-            break;
-
-        case "wmf":
-            Format = System.Drawing.Imaging.ImageFormat.Wmf;
-            break;
-
-        case "gif":
-            Format = System.Drawing.Imaging.ImageFormat.Gif;
-            break;
-
-    }
-    return Format;
-}
+                shape_image.system_image.save(
+                                file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
+                                image_format)
 ```
 
 

@@ -26,133 +26,13 @@ Following is the complete code of **LinkController** class which implements the 
   The final method of the sequence, it is called when it comes to storing the resource externally. We have the resource identifier and the resource contents as a byte array. It’s up to us what to do with the provided resource data.
 
 ```py
-class LinkController : ILinkEmbedController
-{
-    static LinkController()
-    {
-        s_templates.Add("image/jpeg", "image-{0}.jpg");
-        s_templates.Add("image/png", "image-{0}.png");
-    }
-
-    /// <summary>
-    /// Default parameterless constructor
-    /// </summary>
-    public LinkController()
-    {
-        m_externalImages = new Dictionary<int, string>();
-    }
-
-    /// <summary>
-    /// Creates a class instance and sets the path where generated resource files will be saved to.
-    /// </summary>
-    /// <param name="savePath">Path to the location where generated resource files will be stored.</param>
-    public LinkController(string savePath)
-        : this()
-    {
-        SavePath = savePath;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedController member
-    /// </summary>
-    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName,
-        string contentType,
-        string recomendedExtension)
-    {
-        // Here we make the decision about storing images externally.
-        // The id is unique identifier of each object during the whole export operation.
-
-        string template;
-
-        // The s_templates dictionary contains content types we are going to store externally and the corresponding file name template.
-        if (s_templates.TryGetValue(contentType, out template))
-        {
-            // Storing this resource to the export list
-            m_externalImages.Add(id, template);
-            return LinkEmbedDecision.Link;
-        }
-
-        // All other resources, if any, will be embedded
-        return LinkEmbedDecision.Embed;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedController member
-    /// </summary>
-    public string GetUrl(int id, int referrer)
-    {
-        // Here we construct the resource reference string to form the tag: <img src="%result%">
-        // We need to check the dictionary to filter out unnecessary resources.
-        // Along with checking we extract the corresponding file name template.
-        string template;
-        if (m_externalImages.TryGetValue(id, out template))
-        {
-            // Assuming we are going to store resource files just near the HTML file.
-            // The image tag will look like <img src="image-1.png"> with the appropriate resource Id and extension.
-            var fileUrl = String.Format(template, id);
-            return fileUrl;
-        }
-
-        // null must be returned for the resources remaining embedded
-        return null;
-    }
-
-    /// <summary>
-    /// A ILinkEmbedController member
-    /// </summary>
-    public void SaveExternal(int id, byte[] entityData)
-    {
-        // Here we actually save the resource files to disk.
-        // Once again, checking the dictionary. If the id is not found here it is a sign of an error in GetObjectStoringLocation or GetUrl methods.
-        if (m_externalImages.ContainsKey(id))
-        {
-            // Now we use the file name stored in the dictionary and combine it with a path as required.
-
-            // Constructing the file name using the stored template and the Id.
-            var fileName = String.Format(m_externalImages[id], id);
-
-            // Combining with the location directory
-            var filePath = Path.Combine(SavePath ?? String.Empty, fileName);
-
-            using (var fs = new FileStream(filePath, FileMode.Create))
-                fs.Write(entityData, 0, entityData.Length);
-        }
-        else
-            throw new Exception("Something is wrong");
-    }
-
-    /// <summary>
-    /// Gets or sets the path where generated resource files will be saved to.
-    /// </summary>
-    public string SavePath { get; set; }
-
-    /// <summary>
-    /// A dictionary to store associations between resource ids and corresponding file names.
-    /// </summary>
-    private readonly Dictionary<int, string> m_externalImages;
-
-    /// <summary>
-    /// A dictionary to store associations between content types of resources we are going to store externally
-    /// and corresponding file name templates.
-    /// </summary>
-    private static readonly Dictionary<string, string> s_templates = new Dictionary<string, string>();
-}
+# [TODO[not_supported_yet]: python implementation of .net interfaces]
 ```
 
 After writing the **LinkController** class, now we will use it with **HTMLOptions** class to export the presentation to HTML having externally linked images using the following code.
 
 ```py
-using (var pres = new Presentation(@"C:\data\input.pptx")) {
-
-    var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
-    htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
-    // This line is needed to remove the slide title display in HTML.
-    // Comment it out if your prefer slide title displayed.
-    htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
-
-    Console.WriteLine("Starting export");
-    pres.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
-}
+# [TODO[not_supported_yet]: python implementation of .net interfaces]
 ```
 
 We assigned **SlideImageFormat.Svg** to the **SlideImageFormat** property which means the resulting HTML file will contain SVG data inside to draw the presentation contents.

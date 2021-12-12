@@ -19,30 +19,7 @@ Aspose.Slides for Python via .NET provides a simple API methods to get the Warni
 1. Generate the slide thumbnail to see the effect.
 
 ```py
-//Setting Warning Callbacks
-LoadOptions lo = new LoadOptions();
-lo.WarningCallback = new HandleFontsWarnings();
-
-//Instantiate the presentation
-Presentation presentation = new Presentation("1.ppt", lo);
-
-//Generating slide thumbnail
-foreach (ISlide slide in presentation.Slides)
-{
-    Image image = slide.GetThumbnail();
-}
-```
-
-```py
-class HandleFontsWarnings : IWarningCallback
-{
-    public ReturnAction Warning(IWarningInfo warning)
-    {
-        Console.WriteLine(warning.WarningType); // 1 - WarningType.DataLoss
-        Console.WriteLine(warning.Description); // "Font will be substituted from X to Y"
-        return ReturnAction.Continue;
-    }
-}
+# [TODO[not_supported_yet]: python implementation of .net interfaces]
 ```
 
 

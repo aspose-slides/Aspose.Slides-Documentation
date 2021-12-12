@@ -11,39 +11,35 @@ One of the most frequent questions asked by the Aspose.Slides for Python via .NE
 To avoid shapes disorientation, each shape on the slide needs to be updated according to new slide size.
 
 ```py
- //Load a presentation
-Presentation presentation = new Presentation(@"D:\TestResize.ppt");
+import aspose.slides as slides
 
-//Old slide size
-float currentHeight = presentation.SlideSize.Size.Height;
-float currentWidth = presentation.SlideSize.Size.Width;
+#Load a presentation
+with slides.Presentation("pres.pptx") as presentation:
+    #Old slide size
+    currentHeight = presentation.slide_size.size.height
+    currentWidth = presentation.slide_size.size.width
 
-//Changing slide size
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    #Changing slide size
+    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
 
-//New slide size
-float newHeight = presentation.SlideSize.Size.Height;
-float newWidth = presentation.SlideSize.Size.Width;
+    #New slide size
+    newHeight = presentation.slide_size.size.height
+    newWidth = presentation.slide_size.size.width
 
-float ratioHeight = newHeight / currentHeight;
-float ratioWidth = newWidth / currentWidth;
+    ratioHeight = newHeight / currentHeight
+    ratioWidth = newWidth / currentWidth
 
-foreach (ISlide slide in presentation.Slides)
-{
-	foreach (IShape shape in slide.Shapes)
-	{
-		//Resize position
-		shape.Height = shape.Height * ratioHeight;
-		shape.Width = shape.Width * ratioWidth;
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            #Resize position
+            shape.height = shape.height * ratioHeight
+            shape.width = shape.width * ratioWidth
 
-		//Resize shape size if required 
-		shape.Y = shape.Y * ratioHeight;
-		shape.X = shape.X * ratioWidth;
+            #Resize shape size if required 
+            shape.y = shape.y * ratioHeight
+            shape.x = shape.x * ratioWidth
 
-	}
-}
-
-presentation.Save("Resize.pptx", SaveFormat.Pptx);
+    presentation.save("Resize-1.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 
@@ -55,85 +51,60 @@ If there is any table in the slide then above code would not work perfect. In th
 You need to use following code on your end if you need to re-size the slides with tables. Setting table width or height is a special case in shapes where you need to alter the individual row height and column width to alter the table height and width.
 
 ```py
-Presentation presentation = new Presentation("D:\\Test.pptx");
+import aspose.slides as slides
 
-//Old slide size
-float currentHeight = presentation.SlideSize.Size.Height;
-float currentWidth = presentation.SlideSize.Size.Width;
+with slides.Presentation("pres.pptx") as presentation:
+    #Old slide size
+    currentHeight = presentation.slide_size.size.height
+    currentWidth = presentation.slide_size.size.width
 
-//Changing slide size
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+    #Changing slide size
+    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
 
-//New slide size
-float newHeight = presentation.SlideSize.Size.Height;
-float newWidth = presentation.SlideSize.Size.Width;
+    #New slide size
+    newHeight = presentation.slide_size.size.height
+    newWidth = presentation.slide_size.size.width
 
 
-float ratioHeight = newHeight / currentHeight;
-float ratioWidth = newWidth / currentWidth;
+    ratioHeight = newHeight / currentHeight
+    ratioWidth = newWidth / currentWidth
 
-foreach (IMasterSlide master in presentation.Masters)
-{
-    foreach (IShape shape in master.Shapes)
-    {
-        //Resize position
-        shape.Height = shape.Height * ratioHeight;
-        shape.Width = shape.Width * ratioWidth;
+    for master in presentation.masters:
+        for shape in master.shapes:
+            #Resize position
+            shape.height = shape.height * ratioHeight
+            shape.width = shape.width * ratioWidth
 
-        //Resize shape size if required 
-        shape.Y = shape.Y * ratioHeight;
-        shape.X = shape.X * ratioWidth;
+            #Resize shape size if required 
+            shape.y = shape.y * ratioHeight
+            shape.x = shape.x * ratioWidth
 
-    }
+        for layoutslide in master.layout_slides:
+            for shape in layoutslide.shapes:
+                #Resize position
+                shape.height = shape.height * ratioHeight
+                shape.width = shape.width * ratioWidth
 
-    foreach (ILayoutSlide layoutslide in master.LayoutSlides)
-    {
-        foreach (IShape shape in layoutslide.Shapes)
-        {
-            //Resize position
-            shape.Height = shape.Height * ratioHeight;
-            shape.Width = shape.Width * ratioWidth;
+                #Resize shape size if required 
+                shape.y = shape.y * ratioHeight
+                shape.x = shape.x * ratioWidth
 
-            //Resize shape size if required 
-            shape.Y = shape.Y * ratioHeight;
-            shape.X = shape.X * ratioWidth;
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            #Resize position
+            shape.height = shape.height * ratioHeight
+            shape.width = shape.width * ratioWidth
 
-        }
+            #Resize shape size if required 
+            shape.y = shape.y * ratioHeight
+            shape.x = shape.x * ratioWidth
+            if type(shape) is slides.Table:
+                for row in shape.rows:
+                    row.minimal_height = row.minimal_height * ratioHeight
+                for col in shape.columns:
+                    col.width = col.width * ratioWidth
 
-    }
-}
-
-foreach (ISlide slide in presentation.Slides)
-{
-    foreach (IShape shape in slide.Shapes)
-    {
-        //Resize position
-        shape.Height = shape.Height * ratioHeight;
-        shape.Width = shape.Width * ratioWidth;
-
-        //Resize shape size if required 
-        shape.Y = shape.Y * ratioHeight;
-        shape.X = shape.X * ratioWidth;
-        if (shape is ITable)
-        {
-            ITable table = (ITable)shape;
-            foreach (IRow row in table.Rows)
-            {
-                row.MinimalHeight = row.MinimalHeight * ratioHeight;
-                //   row.Height = row.Height * ratioHeight;
-            }
-            foreach (IColumn col in table.Columns)
-            {
-                col.Width = col.Width * ratioWidth;
-
-            }
-        }
-
-    }
-}
-
-presentation.Save("D:\\Resize.pptx", SaveFormat.Pptx);
+    presentation.save("Resize-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
