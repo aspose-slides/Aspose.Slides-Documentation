@@ -29,15 +29,13 @@ This page collects a number of frequently asked questions about:
 - Microsoft PowerPoint 2007-2013 SlideShow (PPSX)
 - Open Document Format presentations (ODP)
 ### **Exceptions**
-#### **Q: I get an exception when I try to load a PowerPoint 2007 (PPTX) presentation using Presentation class?**
-**A**: There is a separate set of classes under the Aspose.Slides.Pptx namespace for working with Microsoft PowerPoint 2007-2010 presentations.
 #### **Q: I am getting an OutOfMemory exception while importing a large PPT file with images to MemoryStream. Is there a limitation in Aspose.Slides regarding file size?**
 **A** : There is no specific formula for calculating the presentation size support by Aspose.Slides. There should be enough space to accommodate the whole presentation structure and images in the presentation. Normally, the images in the memory occupy more space than hard disk especially when there are effects on it as well.
 
 In general, Aspose.Slides for Python via .NET can easily handle presentation files around 300 MB on a server with 4 GB RAM.
 ### **Working with Slides**
 #### **Q: Can I change the size of the slides in a presentation?**
-**A** : You can use the SlideSize property exposed by the Presentation class to define the size of the slides in a presentation.
+**A** : You can use the slide_size property exposed by the Presentation class to define the size of the slides in a presentation.
 #### **Q: Is there a way to define slides of different size in a presentation?**
 **A**: Since the size of slides is defined at presentation level in Microsoft PowerPoint, there is no way to do this.
 #### **Q: Does Aspose.Slides for Python via .NET support previewing a slide before saving?**
@@ -49,27 +47,25 @@ In general, Aspose.Slides for Python via .NET can easily handle presentation fil
 **A**: Notes associated with a slide cannot be cloned as it is prohibited by the PPT documentation. You can add notes associated with a slide using the following code:
 
 ```py
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ISlide srcSlide = pres.Slides[0];
-    ISlide targetSlide = pres.Slides.AddEmptySlide(srcSlide.LayoutSlide);
-    
-    //Check if source slide has notes
-    if (srcSlide.NotesSlideManager.NotesSlide != null)
-    {
-        //Create notes page in target slide
-        INotesSlide notes = targetSlide.NotesSlideManager.AddNotesSlide();
+import aspose.slides as slides
 
-        //Add each paragraph from the source notes page to the target slide notes
-        for (int j = 0; j < srcSlide.NotesSlideManager.NotesSlide.NotesTextFrame.Paragraphs.Count; j++)
-            notes.NotesTextFrame.Paragraphs.Add(new Paragraph((Paragraph)srcSlide.NotesSlideManager.NotesSlide.NotesTextFrame.Paragraphs[j]));
-
-        //Remove the default paragraph that is created on creation of the notes page
-        notes.NotesTextFrame.Paragraphs.RemoveAt(0);
-    }
+with slides.Presentation() as pres:
+    srcSlide = pres.slides[0]
+    targetSlide = pres.slides.add_empty_slide(srcSlide.layout_slide)
     
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+    #Check if source slide has notes
+    if srcSlide.notes_slide_manager.notes_slide is not None:
+        #Create notes page in target slide
+        notes = targetSlide.notes_slide_manager.add_notes_slide()
+
+        #Add each paragraph from the source notes page to the target slide notes
+        for paragraph in srcSlide.notes_slide_manager.notes_slide.notes_text_frame.paragraphs:
+            notes.notes_text_frame.paragraphs.add(slides.Paragraph(paragraph))
+
+        #Remove the default paragraph that is created on creation of the notes page
+        notes.notes_text_frame.paragraphs.remove_at(0)
+    
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 #### **Q: Why are internal hyperlinks lost when slides are cloned ?**
@@ -81,11 +77,11 @@ The rest of the slides are not shown in this mode. If I open the presentation se
 
 Is it possible to change these values?
 
-**A**: You can use the StartingSlide and EndingSlide properties of the SlideShowSettings class to control these settings.
+**A**: You can use the starting_slide and ending_slide properties of the SlideShowSettings class to control these settings.
 #### **Q: Is it possible to scan text from a presentation?**
-**A** : Aspose.Slides for Python via .NET 4 and later provides the PresentationScanner class under the Aspose.Slides.Util namespace that provides various methods for retrieving whole text from the presentations.
+**A** : Aspose.Slides for Python via .NET 4 and later provides the PresentationScanner class under the slides.util namespace that provides various methods for retrieving whole text from the presentations.
 ### **Formatting and Images**
 #### **Q: How can I set the color of a table's border?**
 **A**: You can change the border for all borders in a table or just border around whole table. For changing all borders, please check the Table.SetBorders function. For border of table, you should iterate cell and change color of external borders.
 #### **Q: What measure does Aspose.Slides for Python via .NET use to place pictures? Is it point?**
-**A**: It's pixels and resolution of slides is 576 pixels per inch.
+**A**: It's pixels and resolution of slides is  76 pixels per inch.
