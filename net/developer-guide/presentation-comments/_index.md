@@ -148,7 +148,7 @@ When the [Remove](https://apireference.aspose.com/slides/net/aspose.slides/icomm
 If setting [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) results in circular reference, the [PptxEditException](https://apireference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown.
 {{% /alert %}}
 
-## Modern Comments
+## Add Modern Comment
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
@@ -165,4 +165,3 @@ using (Presentation pres = new Presentation())
      pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
-
