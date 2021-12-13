@@ -40,6 +40,6 @@ This table list useful Aspose.Slides for Python via .NET technical resources.
 | :- | :- |
 |[Aspose.Slides for Python via .NET home page](https://products.aspose.com/slides/pythonnet/)|Product home page.|
 |[Aspose.Slides blog](https://blog.aspose.com/category/slides/)|Check this section regularly for information on new releases and useful tips on Aspose.Slides.|
-|[Aspose.Slides for Python via .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides from this page. We often release new versions.|
+|[Aspose.Slides for Python via .NET download](https://pypi.org/project/aspose.slides/)|Download the latest version of Aspose.Slides from this page. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
 |[Aspose.Slides for Python via .NET product documentation](/slides/pythonnet/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|

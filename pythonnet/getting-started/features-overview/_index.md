@@ -6,13 +6,15 @@ url: /pythonnet/features-overview/
 ---
 
 ## **Supported Platforms**
-Aspose.Slides for Python via .NET supports the most popular development and deployment platforms. Go through these details:
+The platforms Aspose.Slides for Python via .NET can be used on Windows x64 or x86 and wide range of Linux distributions with Python 3.5 or later installed. There are additional requirements to the target Linux platform:
+- GCC-6 runtime libraries (or later)
+- Dependencies of .NET Core Runtime. Installing .NET Core Runtime itself is NOT required
+- For Python 3.5-3.7: The `pymalloc` build of Python is needed. The `--with-pymalloc` Python build option is enabled by default. Typically, the `pymalloc` build of Python is marked with `m` suffix in the filename.
+- `libpython` shared Python library. The `--enable-shared` Python build option is disabled by default, some Python distributions do not contain the `libpython` shared library. For some linux platforms, the `libpython` shared library can be installed using the package manager, for example: `sudo apt-get install libpython3.7`. The common issue is that `libpython` library is installed in a different location than the standard system location for shared libraries. The issue can be fixed by using the Python build options to set alternate library paths when compiling Python, or fixed by creating a symbolic link to the `libpython` library file in the system standard location for shared libraries. Typically, the `libpython` shared library file name is `libpythonX.Ym.so.1.0` for Python 3.5-3.7, or libpythonX.Y.so.1.0 for Python 3.8 or later (for example: `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
 
-|**Feature**|**Description**|
-| :- | :- |
-|ASP.NET Web Applications|Use Aspose.Slides for Python via .NET to build the ASP.NET Web Applications targeting the .NET Framework versions 2.0 to 4.6.2|
-|Web Services| Use Aspose.Slides for Python via .NET to deploy Web Services            |
-|WinForms Applications|Aspose.Slides for Python via .NET can also be used to develop Windows Forms Applications|
+If you need support for more platforms, look for the "twin brother" products Aspose.Slides for .NET or Aspose.Slides for Java.
+
+
 ## **File Formats and Conversions**
 Aspose.Slides for Python via .NET supports most PowerPoint document formats. It also lets you export them to the popular formats organizations widely use and exchange among themselves. Go through these details:
 
@@ -24,6 +26,7 @@ Aspose.Slides for Python via .NET supports most PowerPoint document formats. It 
 |[XML Parser Specification (XPS)](/slides/pythonnet/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)|You can export all supported file formats to XML Parser Specification (XPS) documents with a single method.|
 |[Tagged Image File Format (TIFF)](/slides/pythonnet/convert-powerpoint-to-tiff/)|You can export all supported presentation file formats to Tagged Image File Format (TIFF).|
 |[PPTX To HTML Conversion](/slides/pythonnet/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for Python via .NET supports the conversion of PresentationEx to HTML format.|
+
 ## **Rendering and Printing**
 Aspose.Slides for Python via .NET supports high fidelity rendering of slides in the presentation documents to various graphics formats. Go through these details:
 
@@ -66,6 +69,7 @@ Aspose.Slides for Python via .NET allows you to access, modify, or create almost
 |Text Scanning|You get to scan text in a presentation at the presentation or slide level through built-in scanning methods.|
 |Animations|You get to apply animations on shapes|
 |Slide Shows|Aspose.Slides for Python via .NET supports slide shows and slide transitions|
+
 ## **Formatting Features**
 With Aspose.Slides for Python via .NET, you can format texts and shapes on slides in presentations. Go through these details:
 

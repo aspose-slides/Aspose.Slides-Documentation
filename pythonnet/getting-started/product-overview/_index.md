@@ -8,7 +8,7 @@ url: /pythonnet/product-overview/
 
 
 ## **Product Description**
-Aspose.Slides for Python via .NET is a Microsoft PowerPoint® management API that enables .NET applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. 
+Aspose.Slides for Python via .NET is a cross-platform class library that enables your applications to perform a wide variety of document processing tasks without using Microsoft PowerPoint®.
 
 ### Why You Should Use Aspose.Slides for Python via .NET
 
@@ -106,7 +106,7 @@ If you have an issue with Aspose.Slides for Python via .NET, follow these guidel
 
 - Check and confirm that you are using the latest Aspose.Slides for Python via .NET version first before reporting the issue. Perhaps, the issue you experienced was already resolved in an update.  
 
-  See [Aspose.Slides download](https://www.nuget.org/packages/Aspose.Slides.NET/) to get information on the latest product version.
+  See [Aspose.Slides download](https://pypi.org/project/aspose.slides/) to get information on the latest product version.
 
 - Before reporting an issue, you may want to go through our forums, this documentation, and the API Reference. Perhaps, the answer to your question was provided already. 
 
@@ -122,19 +122,6 @@ This table lists important Aspose.Slides for Python via .NET technical resources
 | :- | :- |
 |[Aspose.Slides for Python via .NET home page](https://products.aspose.com/slides/pythonnet/)|Product home page.|
 |[Aspose.Slide blog](https://blog.aspose.com/category/slides/)|Check this page regularly for information on new releases and useful tips on Aspose.Slides.|
-|[Aspose.Slides for Python via .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Download the latest version of Aspose.Slides here. We often release new versions.|
+|[Aspose.Slides for Python via .NET download](https://pypi.org/project/aspose.slides/)|Download the latest version of Aspose.Slides here. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
 |[Aspose.Slides for Python via .NET product documentation](/slides/pythonnet/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|
-## **Declaration**
-All Aspose .NET components require the Full Trust permission set. The reason: Aspose .NET components need top privileges to access registry settings, system files, and virtual directories to execute certain operations like parsing of fonts and similar tasks. Moreover, Aspose .NET Components are based on the core .NET system classes, which also require the Full Trust permission set in many cases. 
-
-Internet Service Providers hosting multiple applications from different companies mostly enforce Medium Trust security level. In a case involving NET 2.0, that security level applies these constraints:
-
-- OleDbPermission is not available. This means you cannot use the ADO.NET managed OLE DB data provider to access databases.
-- EventLogPermission is not available. This means you cannot access the Windows event log.
-- ReflectionPermission is not available. This means you cannot use reflection.
-- RegistryPermission is not available. This means you cannot access the registry.
-- WebPermission is restricted. This means your application can only communicate with an address or the range of addresses that you defined in the <trust> element.
-- FileIOPermission is restricted. This means you can only access files in your application's virtual directory hierarchy.
-
-Due to the reasons above, Aspose .NET components can only be used on servers that grant the Full Trust permission set. 
