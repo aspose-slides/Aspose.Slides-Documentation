@@ -15,7 +15,7 @@ Aspose.Slides for Python via .NET has simple APIs that allow you to create diffe
 
 
 ## **Creating Normal Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain the reference of a slide by index.
 1. Add a chart with default data along with the desired type.
 1. Add a chart title.
@@ -185,7 +185,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Pie Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.Pie).
 1. Access the chart data IChartDataWorkbook.
@@ -310,7 +310,7 @@ with slides.Presentation() as presentation:
 
 
 ## **Creating Tree Map Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.TreeMap).
 1. Access the chart data IChartDataWorkbook.
@@ -378,7 +378,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Stock Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
 1. Access the chart data IChartDataWorkbook.
@@ -444,7 +444,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Box and Whisker Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.BoxAndWhisker).
 1. Access the chart data IChartDataWorkbook.
@@ -497,7 +497,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Funnel Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.Funnel).
 1. Write the modified presentation to a PPTX file
@@ -540,7 +540,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Sunburst Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.sunburst).
 1. Write the modified presentation to a PPTX file
@@ -601,7 +601,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Histogram Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.Histogram).
 1. Access the chart data IChartDataWorkbook.
@@ -640,7 +640,7 @@ with slides.Presentation() as pres:
 
 
 ## **Creating Multi Category Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.ClusteredColumn).
 1. Access the chart data IChartDataWorkbook.
@@ -703,7 +703,7 @@ with slides.Presentation() as pres:
 ## **Updating Charts**
 To update a chart, do this:
 
-- Open an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class containing the chart.
+- Open an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class containing the chart.
 - Obtain the reference of a slide by using its Index.
 - Traverse through all shapes to find the desired chart.
 - Access the chart data worksheet.
@@ -781,7 +781,7 @@ with slides.Presentation(path + "ExistingChart.pptx") as pres:
 
 To set the data range for a chart, do this:
 
-- Open an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class containing the chart.
+- Open an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class containing the chart.
 - Obtain the reference of a slide by using its Index.
 - Traverse through all shapes to find the desired chart.
 - Access the chart data and set the range.

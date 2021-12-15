@@ -34,9 +34,9 @@ pres.save(slides.export.xaml.XamlOptions())
 
 ## Exporting Presentations to XAML With Custom Options
 
-You get to select options from the [IXamlOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
+You get to select options from the [IXamlOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export.xaml/ixamloptions/) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://apireference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) property to true. See this sample Python code: 
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export.xaml/ixamloptions/) property to true. See this sample Python code: 
 
 ```py
 import aspose.slides as slides

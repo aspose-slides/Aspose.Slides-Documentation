@@ -11,11 +11,11 @@ description: "Add audio to PowerPoint presentation in Python"
 Aspose.Slides for Python via .NET allows you to add audio files to slides. Audio files are embedded in slides as audio frames. 
 To add an audio file in a slide using Aspose.Slides for Python via .NET, please follow these steps:
 
-1. Create an instance of the [Presentation ](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation)class.
+1. Create an instance of the [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class.
 2. Obtain the reference of a slide by using its Index.
 3. Open the audio file stream to be embedded in the slide.
 4. Add the embedded audio Frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://apireference.aspose.com/slides/python-net/aspose.slides/audioplaymodepreset) and Volume exposed by [IAudioFrame](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe) object.
+5. Set [PlayMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioplaymodepreset) and Volume exposed by [IAudioFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) object.
 6. Write the modified presentation as a PPTX file.
 
 This Python shows you how to add an embedded audio frame into a slide:
@@ -48,13 +48,13 @@ This is the Audio Options pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-These are the correspondences between PowerPoint Audio Options and [AudioFrame](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe) properties:
-- Audio Options **Start** drop-down list matches the [AudioFrame.PlayMode](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe/properties/playmode) property 
-- Audio Options **Volume** matches the [AudioFrame.Volume](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe/properties/volume)  property 
-- Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe/properties/playacrossslides)  property 
-- Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe/properties/playloopmode)  property 
-- Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing ](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe/properties/hideatshowing)  property 
-- Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://apireference.aspose.com/slides/python-net/aspose.slides/audioframe/properties/rewindaudio) property 
+These are the correspondences between PowerPoint Audio Options and [AudioFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) properties:
+- Audio Options **Start** drop-down list matches the [AudioFrame.PlayMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) property 
+- Audio Options **Volume** matches the [AudioFrame.Volume](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
+- Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
+- Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
+- Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
+- Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) property 
 
 To change the Audio Frame properties, please follow these steps:
 

@@ -10,7 +10,7 @@ description: "Table cells in PowerPoint presentations in Python"
 ## **Identify Merged Table Cell**
 Aspose.Slides for Python via .NET has provided the simplest API to identify merge table cells in an easiest way. To identify merge cells in table, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 - Obtain the the table from first slide.
 - Iterate through row and columns of table to find out merge cells.
 - Print Message if cells are merged.

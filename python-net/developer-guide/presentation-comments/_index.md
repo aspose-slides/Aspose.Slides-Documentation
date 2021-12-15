@@ -11,7 +11,7 @@ description: "Add comments and replies in PowerPoint presentation in Python"
 
 Slide comment is like an annotation in PDF file or a note that one can attach with a slide. Slide comments are generally used while reviewing the slides in PowerPoint. However, they can also serve as a useful utility for highlighting something important in the presentation slide and giving the needed explanation for that.
 ## **Add Slide Comment**
-In Aspose.Slides for Python via .NET, the presentation slide comment are associated with a particular author. The [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class holds the collection of authors in [**ICommentAuthorCollection** ](https://apireference.aspose.com/slides/python-net/aspose.slides/icommentauthorcollection/properties/index)that are responsible for adding slide comments. For each author, there is a collection of comments in [**ICommentCollection**](https://apireference.aspose.com/slides/python-net/aspose.slides/icommentcollection). The [**IComment**](https://apireference.aspose.com/slides/python-net/aspose.slides/icomment) class includes information like an author who added slide comment, time of creation, slide where a comment is added, the position of slide comment on the selected slide and the comment text. The [**CommentAuthor**](https://apireference.aspose.com/slides/python-net/aspose.slides/commentauthor) class includes the author's name, his initials and list of associated comments. In the following example, we have added the code snippet for adding the slide comments.
+In Aspose.Slides for Python via .NET, the presentation slide comment are associated with a particular author. The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class holds the collection of authors in [**ICommentAuthorCollection** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icommentauthorcollection/)that are responsible for adding slide comments. For each author, there is a collection of comments in [**ICommentCollection**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icommentcollection/). The [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) class includes information like an author who added slide comment, time of creation, slide where a comment is added, the position of slide comment on the selected slide and the comment text. The [**CommentAuthor**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentauthor/) class includes the author's name, his initials and list of associated comments. In the following example, we have added the code snippet for adding the slide comments.
 
 ```py
 import aspose.slides as slides
@@ -72,7 +72,7 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **Reply Comments**
-A new property [**ParentComment**](https://apireference.aspose.com/slides/python-net/aspose.slides/icomment/properties/parentcomment) has been added to [**IComment**](https://apireference.aspose.com/slides/python-net/aspose.slides/icomment) interface and [**Comment**](https://apireference.aspose.com/slides/python-net/aspose.slides/comment) class in Aspose.Slides for Python via .NET. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
+A new property [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/properties/parentcomment/) has been added to [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface and [**Comment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/comment/) class in Aspose.Slides for Python via .NET. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
 
 The code snippet below shows a sample of adding some comments and some replies to them:
 
@@ -126,9 +126,9 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-Remove method of [**IComment**](https://apireference.aspose.com/slides/python-net/aspose.slides/icomment) interface removes the comment with all its replies.
+Remove method of [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface removes the comment with all its replies.
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}} 
-If setting [**ParentComment**](https://apireference.aspose.com/slides/python-net/aspose.slides/icomment/properties/parentcomment) leads to a circular reference, the exception of type **PptxEditException** will be thrown.
+If setting [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/properties/parentcomment/) leads to a circular reference, the exception of type **PptxEditException** will be thrown.
 {{% /alert %}}

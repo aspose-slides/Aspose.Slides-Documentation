@@ -23,11 +23,11 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Python via .NET provides similar options—some properties under the [text_frame_format](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat) class—that allow you to control the autofit behavior for textboxes in presentations. 
+Aspose.Slides for Python via .NET provides similar options—some properties under the [text_frame_format](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) class—that allow you to control the autofit behavior for textboxes in presentations. 
 
 ## **Resize Shape to Fit Text**
 
-If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [autofit_type](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat/properties/autofittype) property (from the [text_frame_format](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat) class) to `SHAPE`.
+If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [autofit_type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) property (from the [text_frame_format](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) class) to `SHAPE`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
@@ -56,7 +56,7 @@ If the text becomes longer or bigger, the textbox will be automatically resized 
 
 ## **Do Not Autofit**
 
-If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [autofit_type](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat/properties/autofittype) property (from the [text_frame_format](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat) class) to `NONE`. 
+If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [autofit_type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) property (from the [text_frame_format](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) class) to `NONE`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
@@ -85,7 +85,7 @@ When the text becomes too long for its box, it spills out.
 
 ## **Shrink Text on Overflow**
 
-If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [autofit_type](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat/properties/autofittype) property (from the [text_frame_format](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat) class) to `NORMAL`.
+If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [autofit_type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) property (from the [text_frame_format](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) class) to `NORMAL`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
@@ -118,7 +118,7 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 ## **Wrap Text**
 
-If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [wrap_text](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat/properties/wraptext) property (from the [TextFrameFormat](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat) class) to `1`. 
+If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [wrap_text](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) property (from the [TextFrameFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) class) to `1`. 
 
 This Python code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 

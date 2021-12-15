@@ -18,7 +18,7 @@ You may want to check out Aspose [FREE PowerPoint to Poster converter](https://p
 {{% /alert %}}
 
 ## **Convert PowerPoint to TIFF with default size**
-The [Save](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions) class exposes **ImageSize** property enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
+The [Save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) method exposed by [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/tiffoptions/) class exposes **ImageSize** property enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
 
 ```py
 import aspose.slides as slides
@@ -33,7 +33,7 @@ presentation.save("Tiffoutput_out.tiff", slides.export.SaveFormat.TIFF)
 
 ## **Convert PowerPoint to TIFF with custom size**
 
-The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions) class. 
+The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/tiffoptions/) class. 
 
 ```py
 import aspose.slides as slides
@@ -64,7 +64,7 @@ pres.save("TiffWithCustomSize_out.tiff", slides.export.SaveFormat.TIFF, opts)
 
 
 ## **Convert PowerPoint to TIFF with custom Image Pixel Format**
-The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions) class. You can also include comments in generated HTML by using [TiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions) class and **INotesCommentsLayoutingOptions** interface.
+The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/tiffoptions/) class. You can also include comments in generated HTML by using [TiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/tiffoptions/) class and **INotesCommentsLayoutingOptions** interface.
 
 ```py
 import aspose.slides as slides

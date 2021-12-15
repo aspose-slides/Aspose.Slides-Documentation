@@ -67,7 +67,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 
 ## **Set Size and Type of Slide**
-[SlideSize.Type](https://apireference.aspose.com/slides/python-net/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://apireference.aspose.com/slides/python-net/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
+[SlideSize.type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidesize/) and [SlideSize.size](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidesize/) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```py
 import aspose.slides as slides
@@ -91,7 +91,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 ## **Set Footer Visibility Inside Slide**
 To set footer in a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide by its reference index.
 1. Set Footer visible by making slide footer placeholder visible.
 1. Set date-time placeholder visible by using the SetDateTime method.
@@ -128,10 +128,10 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 ## **Set Child Footer Visibility Inside Slide**
 To set footer and child footer a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain the master slide by using its index.
 1. Set Footer and child footer visibility by making a master slide and all child footer placeholder visible.
-1. Set text to master slide and all child footer placeholder by using [SetFooterAndChildFootersText ](https://apireference.aspose.com/slides/python-net/aspose.slides/imasterslideheaderfootermanager/methods/setfooterandchildfootersvisibility)method.
+1. Set text to master slide and all child footer placeholder by using [set_footer_and_child_footers_visibility ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslideheaderfootermanager/)method.
 1. Set text to master slide and all child date-time placeholder by using SetDateTimeAndChildDateTimesText method.
 1. Write the modified presentation file.
 
@@ -153,7 +153,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 
 ## **Set Slide Size with Respect to Content Scaling**
-You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://apireference.aspose.com/slides/python-net/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://apireference.aspose.com/slides/python-net/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
+You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidesize/) and [SlideSize.Size](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidesize/) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```py
 import aspose.slides as slides
@@ -174,7 +174,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 
 ## **Set Page Size when Generating PDF**
-Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://apireference.aspose.com/slides/python-net/aspose.slides/slidesize/properties/type) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
+Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidesize/) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
 ```py
 import aspose.slides as slides

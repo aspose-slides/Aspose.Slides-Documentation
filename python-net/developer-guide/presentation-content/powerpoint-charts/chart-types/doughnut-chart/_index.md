@@ -10,7 +10,7 @@ description: "Specify center gap in doughnut chart in PowerPoint presentation in
 ## **Specify Center Gap in Doughnut Chart**
 In order to specify the size of the hole in a doughnut chart. Please follow the steps below:
 
-- Instantiate [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+- Instantiate [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 - Add doughnut chart on the slide.
 - Specify the size of the hole in a doughnut chart.
 - Write presentation to disk.

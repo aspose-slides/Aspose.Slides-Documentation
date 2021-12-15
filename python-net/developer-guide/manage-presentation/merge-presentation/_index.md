@@ -47,13 +47,13 @@ You can apply options that determine whether
 * each slide in the output presentation retains a unique style
 * a specific style is used for all the slides in the output presentation. 
 
-To merge presentations, Aspose.Slides provides [add_clone](https://apireference.aspose.com/slides/python-net/aspose.slides/islidecollection/methods/addclone) methods (from the [ISlideCollection](https://apireference.aspose.com/slides/python-net/aspose.slides/islidecollection) interface). There are several implementations of the `add_clone` methods that define the presentation merging process parameters. Every Presentation object has a [slides](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation/properties/slides) collection, so you can call a `add_clone` method from the presentation to which you want to merge slides. 
+To merge presentations, Aspose.Slides provides [add_clone](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islidecollection/) methods (from the [ISlideCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islidecollection/) interface). There are several implementations of the `add_clone` methods that define the presentation merging process parameters. Every Presentation object has a [slides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) collection, so you can call a `add_clone` method from the presentation to which you want to merge slides. 
 
 The `add_clone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
 
 ## **Merge Presentations** 
 
-Aspose.Slides provides the [**AddClone (ISlide)**](https://apireference.aspose.com/slides/python-net/aspose.slides/islidecollection/methods/addclone) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
+Aspose.Slides provides the [**AddClone (ISlide)**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islidecollection/) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
 
 This Python code shows you how to merge presentations:
 
@@ -69,7 +69,7 @@ with slides.Presentation("pres.pptx") as pres1:
 
 ## **Merge Presentations with Slide Master**
 
-Aspose.Slides provides the [**add_clone (ISlide, IMasterSlide, Boolean)**](https://apireference.aspose.com/slides/python-net/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+Aspose.Slides provides the [**add_clone (ISlide, IMasterSlide, Boolean)**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islidecollection/) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
 
 This code in Python demonstrates the described operation:
 
@@ -85,11 +85,11 @@ with slides.Presentation("pres.pptx") as pres1:
 
 {{% alert title="Note" color="warning" %}} 
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `add_clone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://apireference.aspose.com/slides/python-net/aspose.slides/pptxeditexception) will be thrown. 
+The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `add_clone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/pptxeditexception/) will be thrown. 
 
 {{% /alert %}}
 
-If you want the slides in the output presentation to have a different slide layout, use the [add_clone (ISlide, ILayoutSlide)](https://apireference.aspose.com/slides/python-net/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
+If you want the slides in the output presentation to have a different slide layout, use the [add_clone (ISlide, ILayoutSlide)](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islidecollection/) method instead when merging. 
 
 ## **Merge Specific Slides From Presentations**
 

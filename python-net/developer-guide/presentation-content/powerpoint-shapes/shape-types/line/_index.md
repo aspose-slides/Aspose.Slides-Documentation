@@ -11,9 +11,9 @@ Aspose.Slides for Python via .NET supports adding different kinds of shapes to t
 ## **Create Plain Line**
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation)class.
+- Create an instance of [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Line type using [AddAutoShape](https://apireference.aspose.com/slides/python-net/aspose.slides/ishapecollection/methods/addautoshape/index) method exposed by Shapes object.
+- Add an AutoShape of Line type using [add_auto_shape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) method exposed by Shapes object.
 - Write the modified presentation as a PPTX file.
 
 In the example given below, we have added a line to the first slide of the presentation.
@@ -37,13 +37,13 @@ with slides.Presentation() as pres:
 ## **Create Arrow Shaped Line**
 Aspose.Slides for Python via .NET also allows developers to configure some properties of the line to make it look more appealing. Let's try to configure few properties of a line to make it look like an arrow. Please follow the steps below to do so:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/)[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class).
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Line type using AddAutoShape method exposed by Shapes object.
 - Set the Line Style to one of the styles as offered by Aspose.Slides for Python via .NET.
 - Set the Width of the line.
-- Set the [Dash Style](https://apireference.aspose.com/slides/python-net/aspose.slides/linedashstyle) of the line to one of the styles offered by Aspose.Slides for Python via .NET.
-- Set the [Arrow Head Style](https://apireference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle) and Length of the start point of the line.
+- Set the [Dash Style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linedashstyle/) of the line to one of the styles offered by Aspose.Slides for Python via .NET.
+- Set the [Arrow Head Style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linearrowheadstyle/) and Length of the start point of the line.
 - Set the Arrow Head Style and Length of the end point of the line.
 - Write the modified presentation as a PPTX file.
 

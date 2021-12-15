@@ -12,12 +12,12 @@ Aspose.Slides for Python via .NET allows you to convert slides (in presentations
 To convert a slide to an image, do this: 
 
 1. First,
-   * convert the slide to a Bitmap first by using the [GetThumbnail](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/getthumbnail/index) method or
-   * render the slide to a Graphics object by using the [RenderToGraphics](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/rendertographics/index) method from the [ISlide](https://apireference.aspose.com/slides/python-net/aspose.slides/islide) interface.
+   * convert the slide to a Bitmap first by using the [get_thumbnail](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method or
+   * render the slide to a Graphics object by using the [render_to_graphics](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method from the [ISlide](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) interface.
 
 2. Second, set additional options for conversion and convertible slide objects through
-   * the [ITiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/itiffoptions) interface or
-   * the [IRenderingOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/irenderingoptions) interface. 
+   * the [ITiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/itiffoptions/) interface or
+   * the [IRenderingOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/irenderingoptions/) interface. 
 
 ## **About Bitmap and Other Image Formats**
 
@@ -38,7 +38,7 @@ with slides.Presentation("Presentation.pptx") as pres:
         bmp.save("Slide_0.png", draw.imaging.ImageFormat.png)
 ```
 
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/rendertographics/index) method:
+This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [render_to_graphics](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method:
 
 ```py
 import aspose.pydrawing as draw
@@ -65,9 +65,9 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/getthumbnail/index) or [RenderToGraphics](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/rendertographics/index) method, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [get_thumbnail](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) or [render_to_graphics](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method, you can convert a slide to an image with specific dimensions (length and width). 
 
-This sample code demonstrates the proposed conversion using the [GetThumbnail](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/getthumbnail/index) method in Python:
+This sample code demonstrates the proposed conversion using the [get_thumbnail](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method in Python:
 
 ```py
 import aspose.pydrawing as draw
@@ -80,7 +80,7 @@ with slides.Presentation("Presentation.pptx") as pres:
         bmp.save("Slide_0.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
-This Python code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/rendertographics/index) method:
+This Python code demonstrates how to convert the first slide to the framed image with the [render_to_graphics](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method:
 
 ```py 
 import aspose.pydrawing as draw
@@ -107,11 +107,11 @@ with slides.Presentation("Presentation.pptx") as pres:
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[ITiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/irenderingoptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/inotescommentslayoutingoptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two interfaces—[ITiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/itiffoptions/) and [IRenderingOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/irenderingoptions/)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/inotescommentslayoutingoptions/) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/inotescommentslayoutingoptions) interface, you get to specify your preferred position for notes and comments in the resulting image. 
+With the [INotesCommentsLayoutingOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/inotescommentslayoutingoptions/) interface, you get to specify your preferred position for notes and comments in the resulting image. 
 
 {{% /alert %}} 
 
@@ -144,7 +144,7 @@ with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
     bmp.save("Slide_Notes_Comments_0.gif", draw.imaging.ImageFormat.gif)
 ```
 
-This Python code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/rendertographics/index) method:
+This Python code demonstrates the conversion process for a slide with notes using the [render_to_graphics](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method:
 
 ```py 
 import aspose.pydrawing as draw
@@ -172,13 +172,13 @@ with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
 
 {{% alert title="Note" color="warning" %}} 
 
-In any slide to image conversion process, the [NotesPositions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/inotescommentslayoutingoptions/properties/notesposition) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size. 
+In any slide to image conversion process, the [NotesPositions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/inotescommentslayoutingoptions/) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size. 
 
 {{% /alert %}} 
 
 ## **Converting Slides to Images Using ITiffOptions**
 
-The [ITiffOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.export/itiffoptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
+The [ITiffOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/itiffoptions/) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
 
 This Python code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 

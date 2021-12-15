@@ -19,10 +19,10 @@ The PNG (Portable Network Graphics) format is not as popular as JPEG (Joint Phot
 
 Go through these steps:
 
-1. Instantiate the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
-2. Get the slide object from the [Presentation.Slides](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation/properties/slides) collection under the [ISlide](https://apireference.aspose.com/slides/python-net/aspose.slides/islide) interface. 
-3. Use a [ISlideGetThumbnail](https://apireference.aspose.com/slides/python-net/aspose.slides/islide/methods/getthumbnail/index) method to get the thumbnail for each slide. 
-4. Use the [IPresentation.SaveMethod(String, SaveFormat, ISaveOptions](https://apireference.aspose.com/slides/python-net/aspose.slides.ipresentation/save/methods/5) method to save the slide thumbnail to the PNG format. 
+1. Instantiate the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get the slide object from the [Presentation.Slides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) collection under the [ISlide](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) interface. 
+3. Use a [ISlideGetThumbnail](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) method to get the thumbnail for each slide. 
+4. Use the [IPresentation.SaveMethod(String, SaveFormat, ISaveOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipresentation/) method to save the slide thumbnail to the PNG format. 
 
 This Python code shows you how to convert a PowerPoint presentation to PNG:
 

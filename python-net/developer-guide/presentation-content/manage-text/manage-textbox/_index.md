@@ -7,17 +7,17 @@ keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, Python, Asp
 description: "Add textbox or text frame to PowerPoint presentations in Python or ,NET"
 ---
 
-Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Python via .NET provides the [IAutoShape](https://apireference.aspose.com/slides/python-net/aspose.slides/iautoshape) interface that allows you to add a shape containing some text.
+Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Python via .NET provides the [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/) interface that allows you to add a shape containing some text.
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides also provides the [IShape](https://apireference.aspose.com/slides/python-net/aspose.slides/ishape) interface that allows you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. But shapes added through the [IAutoShape](https://apireference.aspose.com/slides/python-net/aspose.slides/iautoshape) interface may contain text. 
+Aspose.Slides also provides the [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) interface that allows you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. But shapes added through the [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/) interface may contain text. 
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://apireference.aspose.com/slides/python-net/aspose.slides/iautoshape/properties/textframe), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/python-net/manage-textbox/#update-text) section on this page. 
+Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/properties/textframe/), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/python-net/manage-textbox/#update-text) section on this page. 
 
 {{% /alert %}}
 
@@ -25,9 +25,9 @@ Therefore, when dealing with a shape to which you want to add text, you may want
 
 To create a textbox on a slide, go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class. 
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an [IAutoShape](https://apireference.aspose.com/slides/python-net/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometryshape/properties/shapetype) set as `RECTANGLE` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
+3. Add an [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/) object with [ShapeType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometryshape/) set as `RECTANGLE` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
 4. Add a `text_frame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 
@@ -66,7 +66,7 @@ with slides.Presentation() as pres:
 
 
 ## **Add Column In Text Box**
-Aspose.Slides provides the [column_count](https://apireference.aspose.com/slides/python-net/aspose.slides/itextframeformat/properties/columncount) and [column_spacing](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://apireference.aspose.com/slides/python-net/aspose.slides/itextframeformat) interface and [text_frame_format](https://apireference.aspose.com/slides/python-net/aspose.slides/textframeformat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
+Aspose.Slides provides the [column_count](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/itextframeformat/) and [column_spacing](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) properties (from the [ITextFrameFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/itextframeformat/) interface and [text_frame_format](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/textframeformat/) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
 This code in Python demonstrates the described operation: 
 
@@ -101,7 +101,7 @@ with slides.Presentation() as presentation:
 
 
 ## **Add Column In Text Frame**
-Aspose.Slides for Python via .NET provides the [ColumnCount](https://apireference.aspose.com/slides/python-net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://apireference.aspose.com/slides/python-net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
+Aspose.Slides for Python via .NET provides the [ColumnCount](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/itextframeformat/) property (from the [ITextFrameFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/itextframeformat/) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
 
  This Python code shows you how to add a column inside a text frame:
 
@@ -173,7 +173,7 @@ You can insert a link inside a text box. When the text box is clicked, users are
 3. Add an `AutoShape` object with `ShapeType` set as `RECTANGLE` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
 4. Add a `text_frame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
 5. Instantiate the `hyperlink_manager` class. 
-6. Assign the `hyperlink_manager` object to the [HyperlinkClick](https://apireference.aspose.com/slides/python-net/aspose.slides/shape/properties/hyperlinkclick) property associated with your preferred portion of the `TextFrame`. 
+6. Assign the `hyperlink_manager` object to the [HyperlinkClick](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/shape/) property associated with your preferred portion of the `TextFrame`. 
 7. Finally, write the PPTX file through the `Presentation` object. 
 
 This Python code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:

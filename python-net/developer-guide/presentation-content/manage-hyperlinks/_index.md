@@ -162,7 +162,7 @@ with slides.Presentation() as presentation:
 
 ### **Color**
 
-With the [color_source](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink/properties/colorsource) property in the [IHyperlink](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
+With the [color_source](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/) property in the [IHyperlink](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
 
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
@@ -223,13 +223,13 @@ with slides.Presentation("demo.pptx") as pres:
 
 ## **Mutable Hyperlink**
 
-The [Hyperlink](https://apireference.aspose.com/slides/python-net/aspose.slides/hyperlink) class is mutable. With this class, you can change the values for these properties:
+The [Hyperlink](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/hyperlink) class is mutable. With this class, you can change the values for these properties:
 
-- [IHyperlink.TargetFrame](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink/properties/highlightclick)
-- [IHyperlink.StopSoundOnClick](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+- [IHyperlink.TargetFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/)
+- [IHyperlink.Tooltip](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/)
+- [IHyperlink.History](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/)
+- [IHyperlink.HighlightClick](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/)
+- [IHyperlink.StopSoundOnClick](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlink/)
 
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
@@ -253,14 +253,14 @@ with slides.Presentation() as presentation:
 
 You can access IHyperlinkQueries from a presentation, slide, or text for which the hyperlink is defined. 
 
-- [IPresentation.HyperlinkQueries](https://apireference.aspose.com/slides/python-net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://apireference.aspose.com/slides/python-net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://apireference.aspose.com/slides/python-net/aspose.slides/itextframe/properties/hyperlinkqueries)
+- [IPresentation.HyperlinkQueries](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipresentation/)
+- [IBaseSlide.HyperlinkQueries](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/)
+- [ITextFrame.HyperlinkQueries](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/itextframe/)
 
 The IHyperlinkQueries class supports these methods and properties: 
 
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://apireference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
+- [IHyperlinkQueries.GetHyperlinkClicks();](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlinkqueries/)
+- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlinkqueries/)
+- [IHyperlinkQueries.GetAnyHyperlinks();](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlinkqueries/)
+- [IHyperlinkQueries.RemoveAllHyperlinks();](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ihyperlinkqueries/)
 

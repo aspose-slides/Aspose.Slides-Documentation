@@ -8,7 +8,7 @@ description: "Manage table rows and columns in PowerPoint presentations in Pytho
 ---
 
 ## **Set First Row as Header**
-Aspose.Slides for Python via .NET provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/slides/python-net/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
+Aspose.Slides for Python via .NET provides the feature to set the first row as header using the following methods of [ITable](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/itable/) interface. Below code example shows how to set the first row as a header.
 
 ```py
 import aspose.slides as slides
@@ -36,7 +36,7 @@ with slides.Presentation("table.pptx") as pres:
 ## **Clone Row or Column of Table**
 Aspose.Slides for Python via .NET has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.

@@ -26,7 +26,7 @@ This article explains how picture frames can be used in different ways:
 
 To add a simple picture frame to your slide, please follow the steps below:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation)class. 
+- Create an instance of [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class. 
 - Obtain the reference of a slide by using its index.
 - Create an Image object by adding an image to the Images collection associated with the Presentation object that will be used to fill the Shape.
 - Calculate the width and height of the image.
@@ -66,10 +66,10 @@ with slides.Presentation() as pres:
 ## **Create Picture Frame with Relative Scale**
 The picture frame that we created in the above section were simple as well as well formatted. We can also control the relative scaling of image added in picture frame as well. In order to control the relative scaling of the image in a picture frame, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 - Obtain the reference of a slide by using its index.
 - Add an image to the presentation image collection.
-- Create an [IPPImage](https://apireference.aspose.com/slides/python-net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
+- Create an [IPPImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
 - Set the relative width and height of the image in the picture frame.
 - Write the modified presentation as a PPTX file.
 
@@ -101,11 +101,11 @@ with slides.Presentation() as presentation:
 ## **Picture Frame Formatting**
 The picture frame that we created in the above section is simple. We can also control the formatting of a picture frame according to the requirement. There are many formatting settings that can be applied on a picture frame. To control the formatting of a picture frame in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/) class.
 - Obtain the reference of a slide by using its index.
-- Create an [IPPImage](http://www.aspose.com/api/net/slides/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
+- Create an [IPPImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
 - Calculate the width and height of image.
-- Create a PictureFrame according to the width and height of the image by using the [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection) object associated with the referenced slide.
+- Create a PictureFrame according to the width and height of the image by using the [AddPictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection) object associated with the referenced slide.
 - Add the picture frame (containing the picture) to the slide.
 - Set the picture frame's line color.
 - Set the picture frame's line width.
@@ -150,7 +150,7 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 ## **Add StretchOff Property**
 The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom has been added to IPictureFillFormat interface and PictureFillFormat class respectively. These properties specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/) class.
 - Obtain the reference of a slide by using its index.
 - Add an AutoShape of Rectangle type.
 - Create Image.

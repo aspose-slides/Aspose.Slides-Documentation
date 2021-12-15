@@ -62,7 +62,7 @@ with slides.Presentation("response2.pptx") as pres:
 
 ### **Manage Worksheets**
 
-To gain access to a worksheet collection, use the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/python-net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property. See the Python code below. 
+To gain access to a worksheet collection, use the [IChartDataWorkbook.Worksheets](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdataworkbook/) property. See the Python code below. 
 
 ```py
 import aspose.slides.charts as charts

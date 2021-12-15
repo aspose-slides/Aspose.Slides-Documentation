@@ -72,7 +72,7 @@ Here is the same theme color set, with all its color names, available in "*Desig
 
 Here is possible to add new colors not defined in presentation theme, or change existing ones. For example, "Hyperlink” and ”Followed Hyperlink” colors were added manually. 
 ## **Change Theme Colors with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) to choose the appropriate color from the theme color set and set it to the element, use [**IFillFormat.SolidFillColor.SchemeColor**](https://apireference.aspose.com/slides/python-net/aspose.slides/icolorformat/properties/schemecolor) property:
+In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) to choose the appropriate color from the theme color set and set it to the element, use [**scheme_color**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icolorformat/) property:
 
 
 ```py
@@ -190,7 +190,7 @@ Presentation theme may also contain a set of background styles, which can be cha
 
 
 ## **Change Theme Background Style with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) its possible to access Background Style with [**IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles**](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
+In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) its possible to access Background Style with [**background_fill_styless**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/iformatscheme/) property. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
 
 On the images above you can see, that to design the Background Style in PowerPoint, there are 12 predefined backgrounds available. However, if we upload the presentation, saved in PowerPoint through Aspose.Slides, then execute the following code - we will see only 3 predefined backgrounds in the resulting presentation:
 
@@ -200,7 +200,7 @@ with slides.Presentation() as pres:
     print("Number of background fill styles for theme is {0}".format(numberOfBackgroundFills))
 ```
 
-The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property.
+The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [background_fill_styles](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/iformatscheme/) property.
 
 To define which background should be used for presentation, set the needed presentation index (**Note**: the index starts from 1, not from 0. 0 is used to define "*no fill*" value):
 
@@ -218,7 +218,7 @@ pres.masters[0].background.style_index = 2
 ## **Change Theme Effects with Aspose.Slides**
 
 
-An important difference in [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme)type. [FormatScheme ](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
+An important difference in [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/formatscheme/)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/formatscheme/)type. [FormatScheme ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/formatscheme/)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
 
 - fill styles
 - line styles
@@ -239,7 +239,7 @@ For example, 3 shapes will look this way after we apply 3 different effects on t
 
 
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/slides/python-net/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property available, but it can only change the background fill style.
+In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/formatscheme/) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [background_fill_styles](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/iformatscheme/) property available, but it can only change the background fill style.
 
 
 

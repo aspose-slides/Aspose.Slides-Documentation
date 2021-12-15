@@ -14,14 +14,14 @@ With a slide zoom, you get to deeply examine several information parts while fee
 
 ![overview_image](Overview.png)
 
-To allow you use zoom objects, Aspose.Slides provides the [ZoomImageType](https://apireference.aspose.com/slides/python-net/aspose.slides/zoomimagetype) enumeration, the [IZoomFrame](https://apireference.aspose.com/slides/python-net/aspose.slides/izoomframe) interface, and some methods in the [IShapeCollection](https://apireference.aspose.com/slides/python-net/aspose.slides/ishapecollection) interface.
+To allow you use zoom objects, Aspose.Slides provides the [ZoomImageType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/izoomframe/) interface, and some methods in the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface.
 
 ## **Creating Zoom Frames**
 Zoom frame is one of the shapes offered by Aspose.Slides for Python via .NET. We intend to provide simple steps and examples to show you how to add zoom frames to slides. 
 
 You can add a zoom frame in a slide using Aspose.Slides for Python via .NET this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+1.	Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 2.	Create new slides to which you intend to link. 
 3.	Add an identification text and background to the created slides.
 4.  Add zoom frames (containing the references to created slides) into the first slide.
@@ -67,7 +67,7 @@ With Aspose.Slides for Python via .NET, you can create a zoom frame with an imag
 1.	Create an instance of the `Presentation` class.
 2.	Create a new slide to which you intend to link. 
 3.	Add an identification text and background to created slide.
-4.  Create an [IPPImage](https://apireference.aspose.com/slides/python-net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
+4.  Create an [IPPImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
 5.  Add zoom frames (containing the reference to created slide) into the first slide.
 6.	Write the modified presentation as a PPTX file.
 
@@ -109,7 +109,7 @@ You can control the formatting of a zoom frame in a slide this way:
 2.	Create new slides to link to.
 3.	Add identification text and background to created slides.
 4.  Add zoom frames (containing the references to created slides) into the first slide.
-5.  Create an [IPPImage](https://apireference.aspose.com/slides/python-net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
+5.  Create an [IPPImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
 6.  Set a custom image for the first zoom frame object.
 7.  Change the line format for the second zoom frame object.
 8.  Remove the background from an image of the second zoom frame object.
@@ -179,7 +179,7 @@ You can create a summary zoom in a slide this way:
 2.	Create new slides to which you intend to link. 
 3.	Add an identification text and background to the created slides.
 6.  Add zoom frames (containing the references to created slides) into the first slide.
-5.  Set the [ReturnToParent](https://apireference.aspose.com/slides/python-net/aspose.slides/izoomframe/properties/returntoparent) property of every zoom frame object to `true`.
+5.  Set the [ReturnToParent](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/izoomframe/) property of every zoom frame object to `true`.
 
 **Note**: If you have your own custom algorithm for placing zoom frame objects on a slide, you can use it. 
 

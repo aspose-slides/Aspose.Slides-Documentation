@@ -7,7 +7,7 @@ keywords: "Fonts, fallback font, PowerPoint presentation Python, Aspose.Slides f
 description: "Fallback font in PowerPoint in Python"
 ---
 
-Aspose.Slides supports [IFontFallBackRule](https://apireference.aspose.com/slides/python-net/aspose.slides/iFontFallBackRule) interface and [FontFallBackRule](https://apireference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule) class to specify the rules to apply a fallback font. [FontFallBackRule](https://apireference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
+Aspose.Slides supports [IFontFallBackRule](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iFontFallBackRule/) interface and [FontFallBackRule](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/FontFallBackRule/) class to specify the rules to apply a fallback font. [FontFallBackRule](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/FontFallBackRule/) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
 
 ```py
 startUnicodeIndex = 0x0B80
@@ -24,9 +24,9 @@ thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 
 
 
-It is also possible to [Remove()](https://apireference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrule/methods/remove) fallback font or [AddFallBackFonts()](https://apireference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) into existing [FontFallBackRule](https://apireference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule) object.
+It is also possible to [Remove()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ifontfallbackrule/) fallback font or [AddFallBackFonts()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontfallbackrule/) into existing [FontFallBackRule](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/FontFallBackRule/) object.
 
-[FontFallBackRulesCollection](https://apireference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection)[ ](https://apireference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection)can be used to organize a list of [FontFallBackRule](https://apireference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
+[FontFallBackRulesCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontfallbackrulescollection/) can be used to organize a list of [FontFallBackRule](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/FontFallBackRule/) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
 
 {{% alert color="primary" title="See also" %}} 
 - [Create Fallback Fonts Collection](/slides/python-net/create-fallback-fonts-collection/)

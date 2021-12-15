@@ -9,7 +9,7 @@ description: "Set positioning and font size for chart legend in PowerPoint prese
 ## **Legend Positioning**
 In order to set the legend properties. Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 - Get reference of the slide.
 - Adding a chart on slide.
 - Setting the properties of legend.

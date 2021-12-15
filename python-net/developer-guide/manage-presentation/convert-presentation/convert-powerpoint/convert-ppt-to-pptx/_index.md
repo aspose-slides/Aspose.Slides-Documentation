@@ -31,7 +31,7 @@ Find other live [**Aspose.Slides Conversion**](https://products.aspose.app/slide
 
 
 ## **Convert PPT to PPTX**
-To convert a PPT to PPTX simply pass the file name and save format to the [**Save**](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation/methods/save/index) method of [**Presentation**](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class. The code sample below converts a Presentation from PPT to PPTX using default options.
+To convert a PPT to PPTX simply pass the file name and save format to the [**Save**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) method of [**Presentation**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class. The code sample below converts a Presentation from PPT to PPTX using default options.
 
 ```py
 import aspose.slides as slides

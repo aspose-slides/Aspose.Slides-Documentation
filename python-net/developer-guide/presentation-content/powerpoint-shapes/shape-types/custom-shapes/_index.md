@@ -13,14 +13,14 @@ Customization of the shape geometry assumes editing points of an existing shape.
 
 ![overview_image](custom_shape_0.png)
 
-To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) class and [IGeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometrypath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometryshape) object. 
+To provide the mentioned functionality [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class and [IGeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) interface have been added. [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) instance represents a geometry path of the [IGeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometryshape/) object. 
 
-To retrieve [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) from the [IGeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometryshape) instance [IGeometryShape.GetGeometryPaths](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometryshape/methods/getgeometrypaths) method has been added. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) objects. 
+To retrieve [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) from the [IGeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometryshape/) instance [IGeometryShape.GetGeometryPaths](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometryshape/) method has been added. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) objects. 
 
-To set [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) to the shape two methods have been added: 
-[IGeometryShape.SetGeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometryshape/methods/setgeometrypath) for solid shapes and [IGeometryShape.SetGeometryPaths](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometryshape/methods/setgeometrypaths) for composite shapes.
+To set [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) to the shape two methods have been added: 
+[IGeometryShape.SetGeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometryshape/) for solid shapes and [IGeometryShape.SetGeometryPaths](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometryshape/) for composite shapes.
 
-[IGeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometrypath) provides methods for adding segments of various types:
+[IGeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) provides methods for adding segments of various types:
 
 **Adds line** to the end of the path
 ```py
@@ -69,17 +69,17 @@ move_to(x, y)
 ```py
 remove_at(index)
 ```
-Properties [IGeometryPath.Stroke](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometrypath/properties/stroke) and [IGeometryPath.FillMode](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometrypath/properties/fillmode) set an appearance of the geometry path.
+Properties [IGeometryPath.Stroke](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) and [IGeometryPath.FillMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) set an appearance of the geometry path.
 
-Property [IGeometryPath.PathData](https://apireference.aspose.com/slides/python-net/aspose.slides/igeometrypath/properties/pathdata) returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/geometryshape) as an array of path segments.
+Property [IGeometryPath.PathData](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/properties/pathdata) returns the geometry path of [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape) as an array of path segments.
 
 
-*To provide more options of shape geometry customization [ShapeUtil](https://apireference.aspose.com/slides/python-net/aspose.slides.util/shapeutil) class has been added. Methods of this class allow to convert [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
+*To provide more options of shape geometry customization [ShapeUtil](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.util/shapeutil/) class has been added. Methods of this class allow to convert [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
 
 # Examples and Use Cases
 ## Add Custom Points to Shape
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/geometryshape) class of type [ShapeType.Rectangle](https://apireference.aspose.com/slides/python-net/aspose.slides/shapetype)
-- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) class from the shape.
+- Create an instance of the [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape/) class of type [ShapeType.Rectangle](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/shapetype/)
+- Retrieve an instance of the [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class from the shape.
 - Add a new point between two top points of the path.
 - Add a new point between two bottom points of the path.
 - Apply the path to the shape.
@@ -99,8 +99,8 @@ with slides.Presentation() as pres:
 
 ##  Remove Points from Shape
 
-- Create an instance of [GeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/geometryshape) class of type [ShapeType.Heart](https://apireference.aspose.com/slides/python-net/aspose.slides/shapetype).
-- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) class from the shape.
+- Create an instance of [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape/) class of type [ShapeType.Heart](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/shapetype/).
+- Retrieve an instance of the [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class from the shape.
 - Remove segment of the path.
 - Apply the path to the shape.
 ```py
@@ -118,9 +118,9 @@ with slides.Presentation() as pres:
 ##  Create Custom Shape
 
 - Calculate points of the shape.
-- Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) class. 
+- Create an instance of the [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class. 
 - Fill the path with the points.
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/geometryshape) class. 
+- Create an instance of the [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape/) class. 
 - Apply the path to the shape.
 
 ```py
@@ -162,9 +162,9 @@ with slides.Presentation() as pres:
 
 ## Create Composite Custom Shape
 
-  - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/geometryshape) class.
-  - Create first instance of the [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) class.
-  - Create second instance of the [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) class.
+  - Create an instance of the [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape/) class.
+  - Create first instance of the [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class.
+  - Create second instance of the [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class.
   - Apply the paths to the shape.
 
 ```py
@@ -194,9 +194,9 @@ with slides.Presentation() as pres:
 
 ## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 
 
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/python-net/aspose.slides/geometryshape) class.
+- Create an instance of the [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape/) class.
 - Create an instance of the [GrpahicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) class  of the [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) namespace.
-- Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [GeometryPath](https://apireference.aspose.com/slides/python-net/aspose.slides/geometrypath) instance using [ShapeUtil](https://apireference.aspose.com/slides/python-net/aspose.slides.util/shapeutil).
+- Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) instance using [ShapeUtil](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.util/shapeutil/).
 - Apply the paths to the shape.
 ```py
 import aspose.slides as slides

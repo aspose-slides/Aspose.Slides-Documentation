@@ -8,11 +8,11 @@ description: "Add, remove, and extract VBA macros in PowerPoint presentations in
 ---
 
 ## **Add VBA Macros**
-The [Presentation](https://apireference.aspose.com/slides/python-net/aspose.slides/presentation) class previous [VbaProject](http://www.aspose.com/api/net/slides/aspose.slides.vba/vbaproject) property has been replaced. Now instead of the raw bytes of the [VbaProject](http://www.aspose.com/api/net/slides/aspose.slides.vba/vbaproject) property representation of VBA project, the new **IVbaProject** interface implementation has been added. Use **IVbaProject** to manage VBA embedded in a presentation. You can add new project references, edit existing modules and create new ones. Also, you can create a new VBA project using the **VbaProject** class which implements the **VbaProject** interface. The following example shows how to create a simple VBA project. It contains one module and adds two required references to the libraries.
+The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class previous [VbaProject](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.vba/vbaproject/) property has been replaced. Now instead of the raw bytes of the [VbaProject](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.vba/vbaproject/) property representation of VBA project, the new **IVbaProject** interface implementation has been added. Use **IVbaProject** to manage VBA embedded in a presentation. You can add new project references, edit existing modules and create new ones. Also, you can create a new VBA project using the **VbaProject** class which implements the **VbaProject** interface. The following example shows how to create a simple VBA project. It contains one module and adds two required references to the libraries.
 
 1. Create an instance of the `Presentation` class.
 1. Add a new VbaProject with the **Presentation.VbaProject** property.
-1. Add a module to the [VbaProject](http://www.aspose.com/api/net/slides/aspose.slides.vba/vbaproject).
+1. Add a module to the [VbaProject](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.vba/vbaproject/).
 1. Set the module source code.
 1. Add references to <stdole>.
 1. Add references to **Microsoft Office**.
