@@ -1,0 +1,21 @@
+---
+title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+type: docs
+weight: 2380
+url: /python-net/api-reference/aspose.slides/isectionslidecollection/
+---
+
+Represents a collection of a slides in the section.
+
+**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+
+**Full Class Name:** aspose.slides.ISectionSlideCollection
+
+**Assembly:**  Aspose.Slides Version: 21.11.0.0
+
+The ISectionSlideCollection type exposes the following members:
+## **Properties**
+|**Name**|**Description**|
+| :- | :- |
+|as_icollection|Returns ICollection class.|
+|as_ienumerable|Returns IEnumerable class.|
