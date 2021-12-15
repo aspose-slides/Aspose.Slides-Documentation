@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: PresentationHeaderFooterManager Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 3470
 url: /python-net/api-reference/aspose.slides/presentationheaderfootermanager/

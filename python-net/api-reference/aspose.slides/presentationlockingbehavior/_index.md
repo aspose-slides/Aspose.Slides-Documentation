@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PresentationLockingBehavior Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 9740
 url: /python-net/api-reference/aspose.slides/presentationlockingbehavior/

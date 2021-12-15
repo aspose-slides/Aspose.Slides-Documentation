@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: FontCollectionIndex Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 9420
 url: /python-net/api-reference/aspose.slides/fontcollectionindex/

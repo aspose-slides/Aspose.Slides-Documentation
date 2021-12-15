@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: Backdrop3DScene Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 80
 url: /python-net/api-reference/aspose.slides/backdrop3dscene/

@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ControlType Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 9380
 url: /python-net/api-reference/aspose.slides/controltype/

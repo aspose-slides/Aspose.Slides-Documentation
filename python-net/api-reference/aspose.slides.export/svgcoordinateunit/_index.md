@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SvgCoordinateUnit Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 790
 url: /python-net/api-reference/aspose.slides.export/svgcoordinateunit/

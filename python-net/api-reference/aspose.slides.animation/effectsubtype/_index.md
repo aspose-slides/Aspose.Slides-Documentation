@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectSubtype Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 610
 url: /python-net/api-reference/aspose.slides.animation/effectsubtype/

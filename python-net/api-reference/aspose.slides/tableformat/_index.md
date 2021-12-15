@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: TableFormat Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 3760
 url: /python-net/api-reference/aspose.slides/tableformat/

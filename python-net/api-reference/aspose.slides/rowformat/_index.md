@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: RowFormat Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 3530
 url: /python-net/api-reference/aspose.slides/rowformat/

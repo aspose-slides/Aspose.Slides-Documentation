@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IPatternFormatEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 2100
 url: /python-net/api-reference/aspose.slides/ipatternformateffectivedata/

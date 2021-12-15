@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectChartMinorGroupingType Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 570
 url: /python-net/api-reference/aspose.slides.animation/effectchartminorgroupingtype/

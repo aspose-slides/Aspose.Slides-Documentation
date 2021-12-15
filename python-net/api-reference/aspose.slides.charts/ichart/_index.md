@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IChart Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 450
 url: /python-net/api-reference/aspose.slides.charts/ichart/

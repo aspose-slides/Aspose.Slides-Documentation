@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionSideDirectionType Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 440
 url: /python-net/api-reference/aspose.slides.slideshow/transitionsidedirectiontype/

@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: ILineParamSource Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 1800
 url: /python-net/api-reference/aspose.slides/ilineparamsource/

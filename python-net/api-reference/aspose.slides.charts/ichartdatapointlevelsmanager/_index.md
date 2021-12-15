@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartDataPointLevelsManager Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 560
 url: /python-net/api-reference/aspose.slides.charts/ichartdatapointlevelsmanager/

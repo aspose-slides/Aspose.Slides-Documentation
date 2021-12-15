@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: NumberedBulletStyle Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 9640
 url: /python-net/api-reference/aspose.slides/numberedbulletstyle/

@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: DisplayUnitType Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 1200
 url: /python-net/api-reference/aspose.slides.charts/displayunittype/

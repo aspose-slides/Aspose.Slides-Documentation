@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartSeriesGroupCollection Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 670
 url: /python-net/api-reference/aspose.slides.charts/ichartseriesgroupcollection/

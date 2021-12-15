@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PropertyValueType Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 720
 url: /python-net/api-reference/aspose.slides.animation/propertyvaluetype/

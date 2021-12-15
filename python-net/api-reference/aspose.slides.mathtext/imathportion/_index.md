@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathPortion Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 350
 url: /python-net/api-reference/aspose.slides.mathtext/imathportion/

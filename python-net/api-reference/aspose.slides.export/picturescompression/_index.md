@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PicturesCompression Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 770
 url: /python-net/api-reference/aspose.slides.export/picturescompression/

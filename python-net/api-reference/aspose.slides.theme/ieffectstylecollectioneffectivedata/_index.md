@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IEffectStyleCollectionEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 160
 url: /python-net/api-reference/aspose.slides.theme/ieffectstylecollectioneffectivedata/

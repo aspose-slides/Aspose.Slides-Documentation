@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IParagraphCollection Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 2040
 url: /python-net/api-reference/aspose.slides/iparagraphcollection/

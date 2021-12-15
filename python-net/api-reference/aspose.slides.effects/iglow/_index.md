@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IGlow Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 620
 url: /python-net/api-reference/aspose.slides.effects/iglow/

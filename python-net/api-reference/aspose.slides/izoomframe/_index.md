@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IZoomFrame Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 2810
 url: /python-net/api-reference/aspose.slides/izoomframe/

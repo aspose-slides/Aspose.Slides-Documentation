@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IRowCollection Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 2330
 url: /python-net/api-reference/aspose.slides/irowcollection/

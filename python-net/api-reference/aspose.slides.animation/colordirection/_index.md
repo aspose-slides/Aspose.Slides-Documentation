@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ColorDirection Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 530
 url: /python-net/api-reference/aspose.slides.animation/colordirection/

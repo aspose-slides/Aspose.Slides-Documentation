@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PresetShadowType Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 9760
 url: /python-net/api-reference/aspose.slides/presetshadowtype/

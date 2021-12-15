@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: CannotCombine2DAnd3DChartsException Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 60
 url: /python-net/api-reference/aspose.slides.charts/cannotcombine2dand3dchartsexception/

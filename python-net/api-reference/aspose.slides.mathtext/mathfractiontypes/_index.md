@@ -1,5 +1,5 @@
 ---
-title: {0} Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathFractionTypes Enumeration - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 880
 url: /python-net/api-reference/aspose.slides.mathtext/mathfractiontypes/

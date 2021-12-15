@@ -1,5 +1,5 @@
 ---
-title: {0} Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontSubstRule Class - Aspose.Slides for Python via .NET - API Reference
 type: docs
 weight: 1400
 url: /python-net/api-reference/aspose.slides/ifontsubstrule/
