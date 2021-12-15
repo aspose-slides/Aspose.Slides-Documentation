@@ -25,38 +25,39 @@ a shape become a PowerPoint 3D shape use [IShape.ThreeDFormat](https://docs.aspo
 which inherits the features of [IThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat) interface:
 - [BevelBottom](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
 and [BevelTop](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
-- [Camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
+- [camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
 shapes as with the 3D model in PowerPoint.
 - [ContourColor](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
 and [ContourWidth](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): set contour properties to make the shape look like 3D PowerPoint shape.
-- [Depth](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/), 
-[ExtrusionColor](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
-and [ExtrusionHeight](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
+- [depth](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/), 
+[extrusion_color](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
+and [extrusion_height](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
 by setting its depth or extrusing it.
-- [LightRig](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
+- [light_rig](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
 in relation to the #D shape and choose the light type.
-- [Material](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
+- [material](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
 Metal, Plastic, Powder, Matte, etc.  
 
 All 3D features can be applied to both shapes and text. Let us see how to access the properties mentioned above and then look on them in details step by step:
 ```py 
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.TextFrame.Text = "3D";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
+    shape.text_frame.text = "3D"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 64
     
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.Material = MaterialPresetType.Flat; 
-    shape.ThreeDFormat.ExtrusionHeight = 100;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
+    shape.three_dformat.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
+    shape.three_dformat.camera.set_rotation(20, 30, 40)
+    shape.three_dformat.light_rig.light_type = slides.light_rigPresetType.FLAT
+    shape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+    shape.three_dformat.material = slides.MaterialPresetType.FLAT 
+    shape.three_dformat.extrusion_height = 100
+    shape.three_dformat.extrusion_color.color = draw.Color.blue
     
-    pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
-    pres.Save("sandbox_3d.pptx", SaveFormat.Pptx);
-}
+    pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
+    pres.save("sandbox_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The rendered thumbnail looks like that:
@@ -68,26 +69,26 @@ It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more inte
 
 ![todo:image_alt_text](img_02_01.png)
 
-In Aspose.Slides API 3D shape rotation can be managed using [IThreeDFormat.Camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) property:
+In Aspose.Slides API 3D shape rotation can be managed using [camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) property:
 
 ```py
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-// ... set other 3D scene parameters
-pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
+shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
+shape.three_dformat.camera.set_rotation(20, 30, 40)
+# ... set other 3D scene parameters
+pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
 ```
 
 ## 3D Depth and Extrusion
 To bring the third dimension to your shape and make it a 3D shape, use [IThreeDFormat.ExtrusionHeight](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
-and [IThreeDFormat.ExtrusionColor.Color](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) properties:
+and [extrusion_color.color](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) properties:
 
 ```py
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-shape.ThreeDFormat.ExtrusionHeight = 100;
-shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
-// ... set other 3D scene parameters
-pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
+shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
+shape.three_dformat.camera.set_rotation(20, 30, 40)
+shape.three_dformat.extrusion_height = 100
+shape.three_dformat.extrusion_color.color = draw.Color.purple
+# ... set other 3D scene parameters
+pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
 ```
 
 Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
@@ -99,25 +100,26 @@ Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
 Gradient can be used to fill the color of PowerPoint 3D shape. Let us create a shape with gradient fill color and apply a 3D effect on it:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.TextFrame.Text = "3D Gradient";
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    shape.FillFormat.FillType = FillType.Gradient;
-    shape.FillFormat.GradientFormat.GradientStops.Add(0, Color.Blue);
-    shape.FillFormat.GradientFormat.GradientStops.Add(100, Color.Orange);
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 250, 250)
+    shape.text_frame.text = "3D Gradient"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 64
+
+    shape.fill_format.fill_type = slides.FillType.GRADIENT
+    shape.fill_format.gradient_format.gradient_stops.add(0, draw.Color.blue)
+    shape.fill_format.gradient_format.gradient_stops.add(100, draw.Color.orange)
    
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.ExtrusionHeight = 150;
-    shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
+    shape.three_dformat.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
+    shape.three_dformat.camera.set_rotation(10, 20, 30)
+    shape.three_dformat.light_rig.light_type = slides.light_rigPresetType.FLAT
+    shape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+    shape.three_dformat.extrusion_height = 150
+    shape.three_dformat.extrusion_color.color = draw.Color.dark_orange
    
-    pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
-}
+    pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
 ```
 
 And here is the result:
@@ -126,11 +128,15 @@ And here is the result:
 
 Except a gradient fill color, its possible to fill shapes with an image:
 ```py
-shape.FillFormat.FillType = FillType.Picture;
-shape.FillFormat.PictureFillFormat.Picture.Image = pres.Images.AddImage(File.ReadAllBytes("image.jpg"));
-shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-// .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
-pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
+shape.fill_format.fill_type = slides.FillType.PICTURE
+with open("image.png", "rb") as fs : 
+    data = fs.read()
+
+    shape.fill_format.picture_fill_format.picture.image = pres.images.add_image(data)
+    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    
+    # .. setup 3D: shape.three_dformat.camera, shape.three_dformat.light_rig, shape.three_dformat.Extrusion* properties
+    pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
 ```
 
 
@@ -142,37 +148,39 @@ That's how it looks like:
 Aspose.Slides allows to apply 3D on text too. For creating a 3D text its possible to use WordArt transform effect:
 
 ```py
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.FillFormat.FillType = FillType.NoFill;
-    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
-    shape.TextFrame.Text = "3D Text";
-   
-    Portion portion = (Portion)shape.TextFrame.Paragraphs[0].Portions[0];
-    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.LargeGrid;
-   
-    shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
-   
-    ITextFrame textFrame = shape.TextFrame;
-    // setup "Arch Up" WordArt transform effect
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUp;
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
-    textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
-
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 250, 250)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.text_frame.text = "3D text"
    
-    pres.Slides[0].GetThumbnail(2, 2).Save("text3d.png");
-    pres.Save("text3d.pptx", SaveFormat.Pptx);
-}
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
+    portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
+    portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
+    portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.LARGE_GRID
+   
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 128
+   
+    textFrame = shape.text_frame
+    # setup "Arch Up" WordArt transform effect
+    textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP
+
+    textFrame.text_frame_format.three_dformat.extrusion_height = 3.5
+    textFrame.text_frame_format.three_dformat.depth = 3
+    textFrame.text_frame_format.three_dformat.material = slides.MaterialPresetType.PLASTIC
+    textFrame.text_frame_format.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+    textFrame.text_frame_format.three_dformat.light_rig.light_type = slides.light_rigPresetType.BALANCED
+    textFrame.text_frame_format.three_dformat.light_rig.set_rotation(0, 0, 40)
+
+    textFrame.text_frame_format.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+   
+    pres.slides[0].get_thumbnail(2, 2).save("text3d.png")
+    pres.save("text3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Here is the result:

@@ -24,34 +24,18 @@ To generate an SVG image from any desired slide with Aspose.Slides for Python, p
 - Save the memory stream to file.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))
-{
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Create a memory stream object
-    MemoryStream SvgStream = new MemoryStream();
-
-    // Generate SVG image of slide and save in memory stream
-    sld.WriteAsSvg(SvgStream);
-    SvgStream.Position = 0;
-
-    // Save memory stream to file
-    using (Stream fileStream = System.IO.File.OpenWrite("Aspose_out.svg"))
-    {
-        byte[] buffer = new byte[8 * 1024];
-        int len;
-        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)
-        {
-            fileStream.Write(buffer, 0, len);
-        }
-
-    }
-    SvgStream.Close();
-}
+    # Create a memory stream object
+    with open("Aspose_out-1.svg", "wb") as svg_stream:
+        # Generate SVG image of slide and save in memory stream
+        sld.write_as_svg(svg_stream)
 ```
 
 
@@ -59,37 +43,13 @@ using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))
 Aspose.Slides for Python via .NET can be used to generate [SVG ](https://docs.fileformat.com/page-description-language/svg/)from slide with custom shape ID. For that, use ID property from [ISvgShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/isvgshape/), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```py
-using (Presentation pres = new Presentation("pptxFileName.pptx"))
-{
-    using (FileStream stream = new FileStream(outputPath, FileMode.OpenOrCreate))
-    {
-        SVGOptions svgOptions = new SVGOptions
-        {
-            ShapeFormattingController = new CustomSvgShapeFormattingController()
-        };
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-        pres.Slides[0].WriteAsSvg(stream, svgOptions);
-    }
-}
-```
-
-
-
-```py
-class CustomSvgShapeFormattingController : ISvgShapeFormattingController
-{
-	private int m_shapeIndex;
-	
-	public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
-	{
-		m_shapeIndex = shapeStartIndex;
-	}
-
-	public void FormatShape(ISvgShape svgShape, IShape shape)
-	{
-		svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
-	}
-}
+with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
+    with open("Aspose_out-2.svg", "wb") as svg_stream:
+        svgOptions = slides.export.SVGOptions()
+        pres.slides[0].write_as_svg(svg_stream, svgOptions)
 ```
 
 
@@ -102,20 +62,19 @@ Aspose.Slides for Python via .NET help you generate thumbnail images of the slid
 1. Save the thumbnail image in any desired image format.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation("pres.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-    // Create a full scale image
-    Bitmap bmp = sld.GetThumbnail(1f, 1f);
+    # Create a full scale image
+    bmp = sld.get_thumbnail(1, 1)
 
-    // Save the image to disk in JPEG format
-    bmp.Save("Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
-}
+    # save the image to disk in JPEG format
+    bmp.save("Thumbnail_out.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
 
@@ -126,28 +85,28 @@ using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))
 1. Save the thumbnail image in any desired image format.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx"))
-{
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation("pres.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+    # User defined dimension
+    desiredX = 1200
+    desiredY = 800
 
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
+    # Getting scaled value  of X and Y
+    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
+    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
 
 
-    // Create a full scale image
-    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
+    # Create a full scale image
+    bmp = sld.get_thumbnail(ScaleX, ScaleY)
 
-    // Save the image to disk in JPEG format
-    bmp.Save("Thumbnail2_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-}
+    # save the image to disk in JPEG format
+    bmp.save("Thumbnail2_out.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
 
@@ -162,25 +121,26 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
 ```py
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("ThumbnailFromSlideInNotes.pptx"))
-{
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+# Instantiate a Presentation class that represents the presentation file
+with slides.Presentation("pres.pptx") as pres:
+    # Access the first slide
+    sld = pres.slides[0]
 
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
+    # User defined dimension
+    desiredX = 1200
+    desiredY = 800
+
+    # Getting scaled value  of X and Y
+    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
+    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
 
    
-    // Create a full scale image                
-    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-    // Save the image to disk in JPEG format
-    bmp.Save("Notes_tnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-}
+    # Create a full scale image                
+    bmp = sld.get_thumbnail(ScaleX, ScaleY)
+    # save the image to disk in JPEG format
+    bmp.save("Notes_tnail_out.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
