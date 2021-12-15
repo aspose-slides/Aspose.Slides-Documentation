@@ -104,7 +104,7 @@ These are links to useful resources:
 
 {{% alert color="primary" %}} 
 
-![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.svg)
+![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.png)
 
 Aspose.Slides for Python via .NET is a class library that enables your applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. Aspose.Slides for Python via .NET is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for Python via .NET provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 
@@ -112,14 +112,14 @@ Aspose.Slides for Python via .NET is a class library that enables your applicati
 
 These are links to some useful resources:
 f
-- [Aspose.Slides for Python via .NET Online Documentation](/slides/pythonnet/)
-- [Aspose.Slides for Python via .NET Features](/slides/pythonnet/features-overview/)
-- [Aspose.Slides for Python via .NET Limitations](/slides/pythonnet/known-issues/)
-- [Aspose.Slides for Python via .NET Release Notes](/slides/pythonnet/release-notes/)
-- [Aspose.Slides for Python via .NET Product Page](https://products.aspose.com/slides/pythonnet/)
-- [Download Aspose.Slides for Python via .NET](https://downloads.aspose.com/slides/pythonnet)
-- [Install Aspose.Slides for Python via .NET](/slides/pythonnet/installation/)
-- [Aspose.Slides for Python via .NET API Reference Guide](https://apireference.aspose.com/slides/pythonnet)
+- [Aspose.Slides for Python via .NET Online Documentation](/slides/python-net/)
+- [Aspose.Slides for Python via .NET Features](/slides/python-net/features-overview/)
+- [Aspose.Slides for Python via .NET Limitations](/slides/python-net/known-issues/)
+- [Aspose.Slides for Python via .NET Release Notes](/slides/python-net/release-notes/)
+- [Aspose.Slides for Python via .NET Product Page](https://products.aspose.com/slides/python-net/)
+- [Download Aspose.Slides for Python via .NET](https://downloads.aspose.com/slides/python-net)
+- [Install Aspose.Slides for Python via .NET](/slides/python-net/installation/)
+- [Aspose.Slides for Python via .NET API Reference Guide](https://apireference.aspose.com/slides/python-net)
 - [Aspose.Slides for Python via .NET Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
 

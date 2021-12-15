@@ -5,7 +5,7 @@ weight: 10
 url: /python-net/product-overview/
 ---
 
-![todo:image_alt_text](aspose_slides-for-python.svg)
+![todo:image_alt_text](aspose_slides-for-python.png)
 
 ## **Product Description**
 Aspose.Slides for Python via .NET is a cross-platform class library that enables your applications to perform a wide variety of document processing tasks without using Microsoft PowerPoint®.
