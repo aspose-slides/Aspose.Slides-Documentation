@@ -11,7 +11,7 @@ Represents options for saving OpenXml presentations (PPTX, PPSX, POTX, PPTM, PPS
 
 **Full Class Name:** aspose.slides.export.PptxOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PptxOptions type exposes the following members:
 ## **Constructors**

@@ -11,7 +11,7 @@ Represents an exception which thrown on presentation reading errors.
 
 **Full Class Name:** aspose.slides.PptxReadException
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PptxReadException type exposes the following members:
 ## **Constructors**

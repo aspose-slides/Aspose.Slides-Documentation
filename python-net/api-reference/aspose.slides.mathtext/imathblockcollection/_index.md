@@ -11,7 +11,7 @@ Collection of math blocks (IMathBlock)
 
 **Full Class Name:** aspose.slides.mathtext.IMathBlockCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathBlockCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The IMathBlockCollection type exposes the following members:
 | :- | :- |
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_ienumerable|Allows to get base IEnumerable interface<br/>            list|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the item at the specified index.<br/>            Read-only [IMathBlock](/python-net/api-reference/aspose.slides.mathtext/imathblock/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

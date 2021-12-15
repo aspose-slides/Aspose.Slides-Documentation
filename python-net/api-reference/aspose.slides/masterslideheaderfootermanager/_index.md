@@ -11,7 +11,7 @@ Represents manager which holds behavior of the master slide footer, date-time, p
 
 **Full Class Name:** aspose.slides.MasterSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MasterSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents Camera.
 
 **Full Class Name:** aspose.slides.Camera
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Camera type exposes the following members:
 ## **Properties**

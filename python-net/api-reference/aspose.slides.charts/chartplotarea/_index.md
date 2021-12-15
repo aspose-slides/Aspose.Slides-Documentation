@@ -11,7 +11,7 @@ Represents rectangle where chart should be plotted.
 
 **Full Class Name:** aspose.slides.charts.ChartPlotArea
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ChartPlotArea type exposes the following members:
 ## **Properties**

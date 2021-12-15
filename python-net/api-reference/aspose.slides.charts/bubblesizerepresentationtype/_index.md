@@ -11,7 +11,7 @@ Specifies the possible ways to represent data as bubble chart sizes.
 
 **Full Name:** aspose.slides.charts.BubbleSizeRepresentationType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

@@ -11,7 +11,7 @@ Immutable object which contains effective theme properties.
 
 **Full Class Name:** aspose.slides.theme.IThemeEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IThemeEffectiveData type exposes the following members:
 ## **Properties**

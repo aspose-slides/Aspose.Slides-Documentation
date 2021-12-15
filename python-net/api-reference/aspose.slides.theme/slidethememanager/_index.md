@@ -11,7 +11,7 @@ Provides access to slide theme overriden.
 
 **Full Class Name:** aspose.slides.theme.SlideThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The SlideThemeManager type exposes the following members:
 ## **Properties**

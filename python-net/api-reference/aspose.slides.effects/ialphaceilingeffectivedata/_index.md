@@ -11,7 +11,7 @@ Immutable object which represents an Alpha Ceiling effect.<br/>            Alpha
 
 **Full Class Name:** aspose.slides.effects.IAlphaCeilingEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IAlphaCeilingEffectiveData type exposes the following members:
 ## **Properties**

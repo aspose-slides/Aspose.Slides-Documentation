@@ -11,7 +11,7 @@ Represents a layout slide.
 
 **Full Class Name:** aspose.slides.LayoutSlide
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The LayoutSlide type exposes the following members:
 ## **Properties**

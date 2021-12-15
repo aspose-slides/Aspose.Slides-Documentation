@@ -11,7 +11,7 @@ Specifies the interior fill type of various visual objects.
 
 **Full Name:** aspose.slides.FillType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

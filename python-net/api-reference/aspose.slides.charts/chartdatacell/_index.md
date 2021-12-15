@@ -11,7 +11,7 @@ Represents cell for chart data.
 
 **Full Class Name:** aspose.slides.charts.ChartDataCell
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ChartDataCell type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents an options set for [WebDocument](/python-net/api-reference/aspose.sli
 
 **Full Class Name:** aspose.slides.export.web.WebDocumentOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The WebDocumentOptions type exposes the following members:
 ## **Constructors**

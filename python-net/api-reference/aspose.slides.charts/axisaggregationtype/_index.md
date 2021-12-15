@@ -11,7 +11,7 @@ Represents aggregation type of category axis. Used with Histogram or HistogramPa
 
 **Full Name:** aspose.slides.charts.AxisAggregationType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

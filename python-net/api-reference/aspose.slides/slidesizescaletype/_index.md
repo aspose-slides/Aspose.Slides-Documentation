@@ -11,7 +11,7 @@ Represents the scale type of slide content.
 
 **Full Name:** aspose.slides.SlideSizeScaleType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

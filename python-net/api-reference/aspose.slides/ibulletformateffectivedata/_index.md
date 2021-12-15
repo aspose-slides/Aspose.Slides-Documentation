@@ -11,7 +11,7 @@ Immutable object which contains effective paragraph bullet formatting properties
 
 **Full Class Name:** aspose.slides.IBulletFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IBulletFormatEffectiveData type exposes the following members:
 ## **Properties**

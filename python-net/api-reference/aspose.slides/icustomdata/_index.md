@@ -11,7 +11,7 @@ Represents container for custom data.
 
 **Full Class Name:** aspose.slides.ICustomData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ICustomData type exposes the following members:
 ## **Properties**

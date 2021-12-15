@@ -11,7 +11,7 @@ The formatting controller class to use for fonts embedding in EOT format
 
 **Full Class Name:** aspose.slides.export.EmbeddedEotFontsHtmlController
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The EmbeddedEotFontsHtmlController type exposes the following members:
 ## **Constructors**

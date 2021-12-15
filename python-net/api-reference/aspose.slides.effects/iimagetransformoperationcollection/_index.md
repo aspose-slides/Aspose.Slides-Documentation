@@ -11,13 +11,17 @@ Represents a collection of effects apllied to an image.
 
 **Full Class Name:** aspose.slides.effects.IImageTransformOperationCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IImageTransformOperationCollection type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns an [IImageTransformOperation](/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/) from the collection by it's index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

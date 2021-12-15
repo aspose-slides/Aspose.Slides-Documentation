@@ -11,7 +11,7 @@ Represents a Color Replacement effect.<br/>            All effect colors are cha
 
 **Full Class Name:** aspose.slides.effects.ColorReplace
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ColorReplace type exposes the following members:
 ## **Properties**

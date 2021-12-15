@@ -11,7 +11,7 @@ Specifies how the motion path moves when the target shape is moved
 
 **Full Name:** aspose.slides.animation.MotionPathEditMode
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

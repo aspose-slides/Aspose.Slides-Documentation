@@ -11,6 +11,6 @@ Determines format in which slide image will be saved for presentation to HTML ex
 
 **Full Class Name:** aspose.slides.export.ISlideImageFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ISlideImageFormat type exposes the following members:

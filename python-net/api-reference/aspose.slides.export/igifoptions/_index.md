@@ -11,7 +11,7 @@ Represents GIF exporting options.
 
 **Full Class Name:** aspose.slides.export.IGifOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IGifOptions type exposes the following members:
 ## **Properties**

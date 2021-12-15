@@ -11,7 +11,7 @@ Represent master theme manager.
 
 **Full Class Name:** aspose.slides.theme.IMasterThemeable
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMasterThemeable type exposes the following members:
 ## **Properties**

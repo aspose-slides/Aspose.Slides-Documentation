@@ -11,7 +11,7 @@ Represents a collection of Video objects.
 
 **Full Class Name:** aspose.slides.IVideoCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IVideoCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The IVideoCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.<br/>            Read-only [IVideo](/python-net/api-reference/aspose.slides/ivideo/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

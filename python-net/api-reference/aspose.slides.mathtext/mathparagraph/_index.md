@@ -11,7 +11,7 @@ Mathematical paragraph that is a container for mathematical blocks (IMathBlock)
 
 **Full Class Name:** aspose.slides.mathtext.MathParagraph
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MathParagraph type exposes the following members:
 ## **Constructors**
@@ -26,6 +26,10 @@ The MathParagraph type exposes the following members:
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_imath_block_collection|Allows to get base IMathBlockCollection interface<br/>            [IMathBlockCollection](/python-net/api-reference/aspose.slides.mathtext/imathblockcollection/)|
 |as_ienumerable|Allows to get base IEnumerable interface<br/>            list|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the item at the specified index.<br/>            Read-only [IMathBlock](/python-net/api-reference/aspose.slides.mathtext/imathblock/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

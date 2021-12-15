@@ -11,7 +11,7 @@ Represent motion path.
 
 **Full Class Name:** aspose.slides.animation.IMotionPath
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMotionPath type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The IMotionPath type exposes the following members:
 | :- | :- |
 |count|Returns the number of paths in the collection.<br/>            Read-only|
 |as_ienumerable|Allows to get base IBehavior interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a command at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

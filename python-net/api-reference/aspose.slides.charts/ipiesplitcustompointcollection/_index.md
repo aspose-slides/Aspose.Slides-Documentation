@@ -11,13 +11,17 @@ Represents a collection of points that shall be drawn in the second pie or bar o
 
 **Full Class Name:** aspose.slides.charts.IPieSplitCustomPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPieSplitCustomPointCollection type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
 |as_ienumerable|Returns IEnumerable interface.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns chart data point by index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

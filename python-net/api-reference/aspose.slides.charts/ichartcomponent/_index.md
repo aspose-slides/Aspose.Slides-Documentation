@@ -11,7 +11,7 @@ Represents a component of a chart.
 
 **Full Class Name:** aspose.slides.charts.IChartComponent
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartComponent type exposes the following members:
 ## **Properties**

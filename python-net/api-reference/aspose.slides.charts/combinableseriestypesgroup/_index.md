@@ -11,7 +11,7 @@ Enumeration of groups of combinable series types.<br/>            Each element r
 
 **Full Name:** aspose.slides.charts.CombinableSeriesTypesGroup
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

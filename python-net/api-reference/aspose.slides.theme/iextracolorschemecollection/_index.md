@@ -11,7 +11,7 @@ Represents a collection of additional color schemes.
 
 **Full Class Name:** aspose.slides.theme.IExtraColorSchemeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IExtraColorSchemeCollection type exposes the following members:
 ## **Properties**
@@ -19,3 +19,7 @@ The IExtraColorSchemeCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns an color scheme by index.<br/>            Read-only [IExtraColorScheme](/python-net/api-reference/aspose.slides.theme/iextracolorscheme/).|

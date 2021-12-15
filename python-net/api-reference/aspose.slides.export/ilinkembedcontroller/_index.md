@@ -11,7 +11,7 @@ Callback interface used to determine how object should be processed during savin
 
 **Full Class Name:** aspose.slides.export.ILinkEmbedController
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ILinkEmbedController type exposes the following members:
 ## **Methods**

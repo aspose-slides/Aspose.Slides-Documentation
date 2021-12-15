@@ -11,7 +11,7 @@ Represents a video embedded into a presentation.
 
 **Full Class Name:** aspose.slides.IVideo
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IVideo type exposes the following members:
 ## **Properties**

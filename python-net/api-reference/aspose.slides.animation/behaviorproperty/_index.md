@@ -11,7 +11,7 @@ Represent property types for animation behavior.<br/>            Follows the lis
 
 **Full Class Name:** aspose.slides.animation.BehaviorProperty
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The BehaviorProperty type exposes the following members:
 ## **Properties**

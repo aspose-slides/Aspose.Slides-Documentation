@@ -11,7 +11,7 @@ Represents a type of hyperlink action.
 
 **Full Name:** aspose.slides.ColorStringFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

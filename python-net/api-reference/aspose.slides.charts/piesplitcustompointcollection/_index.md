@@ -11,7 +11,7 @@ Represents a collection of points for splitting point in a bar-of-pie or pie-of-
 
 **Full Class Name:** aspose.slides.charts.PieSplitCustomPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PieSplitCustomPointCollection type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The PieSplitCustomPointCollection type exposes the following members:
 |is_synchronized|Returns a value indicating whether access to the collection is synchronized (thread-safe).<br/>            Read-only bool.|
 |sync_root|Returns a synchronization root.<br/>            Read-only object.|
 |as_ienumerable|Returns IEnumerable interface.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns chart data point for specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

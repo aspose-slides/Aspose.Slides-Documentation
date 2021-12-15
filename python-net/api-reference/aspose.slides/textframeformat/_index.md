@@ -11,7 +11,7 @@ Contains the TextFrame's formatTextFrameFormatting properties.
 
 **Full Class Name:** aspose.slides.TextFrameFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The TextFrameFormat type exposes the following members:
 ## **Constructors**

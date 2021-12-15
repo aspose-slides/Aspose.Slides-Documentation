@@ -11,7 +11,7 @@ Determines which operations are disabled on the parent Connector.
 
 **Full Class Name:** aspose.slides.IConnectorLock
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IConnectorLock type exposes the following members:
 ## **Properties**

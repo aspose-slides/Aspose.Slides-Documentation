@@ -11,7 +11,7 @@ Specifies an instance of mathematical text that contained within a MathParagraph
 
 **Full Class Name:** aspose.slides.mathtext.MathBlock
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MathBlock type exposes the following members:
 ## **Constructors**
@@ -28,6 +28,10 @@ The MathBlock type exposes the following members:
 |as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets or sets IMathElement at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

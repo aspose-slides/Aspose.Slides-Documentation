@@ -11,7 +11,7 @@ Represents the rule to render notes into exported document
 
 **Full Name:** aspose.slides.export.NotesPositions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

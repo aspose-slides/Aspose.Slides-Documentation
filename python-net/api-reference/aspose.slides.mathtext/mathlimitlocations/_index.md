@@ -11,7 +11,7 @@ Location of limits (subscript/superscript) in n-ary operators.
 
 **Full Name:** aspose.slides.mathtext.MathLimitLocations
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

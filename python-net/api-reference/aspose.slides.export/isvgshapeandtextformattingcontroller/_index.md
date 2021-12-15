@@ -11,7 +11,7 @@ Controls SVG shape and text generation.
 
 **Full Class Name:** aspose.slides.export.ISvgShapeAndTextFormattingController
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ISvgShapeAndTextFormattingController type exposes the following members:
 ## **Properties**

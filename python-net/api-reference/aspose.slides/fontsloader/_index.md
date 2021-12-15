@@ -11,7 +11,7 @@ Class for loading custom fonts defined by user.<br/>            Should be used b
 
 **Full Class Name:** aspose.slides.FontsLoader
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FontsLoader type exposes the following members:
 ## **Methods**

@@ -11,7 +11,7 @@ Represents walls on 3d charts.
 
 **Full Class Name:** aspose.slides.charts.IChartWall
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartWall type exposes the following members:
 ## **Properties**

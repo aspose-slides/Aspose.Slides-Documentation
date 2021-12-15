@@ -11,7 +11,7 @@ Represents an Alpha Ceiling effect.<br/>            Alpha (opacity) values great
 
 **Full Class Name:** aspose.slides.effects.IAlphaCeiling
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IAlphaCeiling type exposes the following members:
 ## **Properties**

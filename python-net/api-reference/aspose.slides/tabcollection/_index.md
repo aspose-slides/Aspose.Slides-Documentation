@@ -11,7 +11,7 @@ Represents a collection of tabs.
 
 **Full Class Name:** aspose.slides.TabCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The TabCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The TabCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.<br/>            Read-only [Tab](/python-net/api-reference/aspose.slides/tab/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

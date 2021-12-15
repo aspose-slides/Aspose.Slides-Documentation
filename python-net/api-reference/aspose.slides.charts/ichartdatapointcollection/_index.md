@@ -11,7 +11,7 @@ Represents collection of a series data point.
 
 **Full Class Name:** aspose.slides.charts.IChartDataPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartDataPointCollection type exposes the following members:
 ## **Properties**
@@ -24,6 +24,10 @@ The IChartDataPointCollection type exposes the following members:
 |data_source_type_for_error_bars_custom_values|Specifies the type of values in ChartDataPoint.ErrorBarsCustomValues properties listþ<br/>            Read-only [IDataSourceTypeForErrorBarsCustomValues](/python-net/api-reference/aspose.slides.charts/idatasourcetypeforerrorbarscustomvalues/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns the series data point by index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

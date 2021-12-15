@@ -11,7 +11,7 @@ Immutable object which contains effective pattern filling properties.
 
 **Full Class Name:** aspose.slides.IPatternFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPatternFormatEffectiveData type exposes the following members:
 ## **Properties**

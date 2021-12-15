@@ -11,7 +11,7 @@ Represents a Color Change effect.<br/>            Instances of FromColor are rep
 
 **Full Class Name:** aspose.slides.effects.ColorChange
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ColorChange type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a video clip on a slide.
 
 **Full Class Name:** aspose.slides.IVideoFrame
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IVideoFrame type exposes the following members:
 ## **Properties**

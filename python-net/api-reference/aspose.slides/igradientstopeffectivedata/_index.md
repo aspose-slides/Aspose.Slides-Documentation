@@ -11,7 +11,7 @@ immutable object which represents a gradient stop.
 
 **Full Class Name:** aspose.slides.IGradientStopEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IGradientStopEffectiveData type exposes the following members:
 ## **Properties**

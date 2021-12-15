@@ -11,7 +11,7 @@ Specifies the conformance class to which the PresentationML document conforms.
 
 **Full Name:** aspose.slides.export.Conformance
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

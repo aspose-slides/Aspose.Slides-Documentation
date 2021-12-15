@@ -11,7 +11,7 @@ Constants which define the type of a compression applied to all content in the P
 
 **Full Name:** aspose.slides.export.PdfTextCompression
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

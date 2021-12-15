@@ -11,7 +11,7 @@ Represents a cell of a table.
 
 **Full Class Name:** aspose.slides.Cell
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Cell type exposes the following members:
 ## **Properties**

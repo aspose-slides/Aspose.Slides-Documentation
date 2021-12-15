@@ -11,7 +11,7 @@ Allows to create presentation via COM interface
 
 **Full Class Name:** aspose.slides.IPresentationFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPresentationFactory type exposes the following members:
 ## **Methods**

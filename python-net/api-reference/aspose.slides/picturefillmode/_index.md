@@ -11,7 +11,7 @@ Determines how picture will fill area.
 
 **Full Name:** aspose.slides.PictureFillMode
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

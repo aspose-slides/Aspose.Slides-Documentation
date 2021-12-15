@@ -11,7 +11,7 @@ Common text portion formatting properties.
 
 **Full Class Name:** aspose.slides.BasePortionFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The BasePortionFormat type exposes the following members:
 ## **Properties**

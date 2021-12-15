@@ -11,7 +11,7 @@ Represents a standard internal exception type related to Office Open XML file fo
 
 **Full Class Name:** aspose.slides.OOXMLException
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The OOXMLException type exposes the following members:
 ## **Constructors**

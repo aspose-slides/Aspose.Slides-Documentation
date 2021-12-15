@@ -11,7 +11,7 @@ Constants which define camera preset type.
 
 **Full Name:** aspose.slides.CameraPresetType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

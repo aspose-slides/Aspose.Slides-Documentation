@@ -11,7 +11,7 @@ Represents error bars of chart series. ErrorBars custom values are in IChartData
 
 **Full Class Name:** aspose.slides.charts.IErrorBarsFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IErrorBarsFormat type exposes the following members:
 ## **Properties**

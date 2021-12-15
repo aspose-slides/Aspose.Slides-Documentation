@@ -11,7 +11,7 @@ Specifies default text formatting for chart text elements.
 
 **Full Class Name:** aspose.slides.charts.ChartTextFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ChartTextFormat type exposes the following members:
 ## **Properties**

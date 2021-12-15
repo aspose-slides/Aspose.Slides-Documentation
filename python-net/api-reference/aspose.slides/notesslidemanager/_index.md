@@ -11,7 +11,7 @@ Notes slide manager.
 
 **Full Class Name:** aspose.slides.NotesSlideManager
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The NotesSlideManager type exposes the following members:
 ## **Properties**

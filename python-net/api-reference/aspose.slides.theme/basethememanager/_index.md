@@ -11,6 +11,6 @@ Base class for classes that provide access to different types of themes.
 
 **Full Class Name:** aspose.slides.theme.BaseThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The BaseThemeManager type exposes the following members:

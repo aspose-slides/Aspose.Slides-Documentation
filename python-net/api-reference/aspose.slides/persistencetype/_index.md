@@ -11,7 +11,7 @@ Specifies the method used to store properties of the ActiveX control.
 
 **Full Name:** aspose.slides.PersistenceType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

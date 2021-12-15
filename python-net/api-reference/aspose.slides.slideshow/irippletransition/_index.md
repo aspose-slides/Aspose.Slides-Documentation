@@ -11,7 +11,7 @@ Ripple slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.IRippleTransition
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IRippleTransition type exposes the following members:
 ## **Properties**

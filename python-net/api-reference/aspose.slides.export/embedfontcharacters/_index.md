@@ -11,7 +11,7 @@ Represents the rule to use for adding new embedding font into [IPresentation](/p
 
 **Full Name:** aspose.slides.export.EmbedFontCharacters
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

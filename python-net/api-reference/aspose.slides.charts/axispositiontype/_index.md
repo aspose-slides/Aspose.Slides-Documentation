@@ -11,7 +11,7 @@ Determines a position of axis.
 
 **Full Name:** aspose.slides.charts.AxisPositionType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

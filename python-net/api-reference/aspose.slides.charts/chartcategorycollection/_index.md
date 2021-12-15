@@ -11,7 +11,7 @@ Represents collection of [ChartCategory](/python-net/api-reference/aspose.slides
 
 **Full Class Name:** aspose.slides.charts.ChartCategoryCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ChartCategoryCollection type exposes the following members:
 ## **Properties**
@@ -21,6 +21,10 @@ The ChartCategoryCollection type exposes the following members:
 |grouping_level_count|Returns count of category grouping levels used.<br/>            Is more then one for multilevel categories.<br/>            Read-only|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

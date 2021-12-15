@@ -11,7 +11,7 @@ Represents an exception thrown when edit presentation error is detected.
 
 **Full Class Name:** aspose.slides.PptxEditException
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PptxEditException type exposes the following members:
 ## **Constructors**

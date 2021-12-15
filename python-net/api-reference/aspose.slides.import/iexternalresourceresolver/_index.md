@@ -11,7 +11,7 @@ Callback interface used to resolve external resources during Html, Svg documents
 
 **Full Class Name:** aspose.slides.import.IExternalResourceResolver
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IExternalResourceResolver type exposes the following members:
 ## **Methods**

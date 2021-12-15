@@ -11,7 +11,7 @@ Determines which operations are disabled on the parent PictureFrame.
 
 **Full Class Name:** aspose.slides.PictureFrameLock
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PictureFrameLock type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Provides options that control the look of layouting of notes and comments in exp
 
 **Full Class Name:** aspose.slides.export.INotesCommentsLayoutingOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The INotesCommentsLayoutingOptions type exposes the following members:
 ## **Properties**

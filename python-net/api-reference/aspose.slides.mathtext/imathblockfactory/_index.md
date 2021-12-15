@@ -11,7 +11,7 @@ Allows to create a math block
 
 **Full Class Name:** aspose.slides.mathtext.IMathBlockFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathBlockFactory type exposes the following members:
 ## **Methods**

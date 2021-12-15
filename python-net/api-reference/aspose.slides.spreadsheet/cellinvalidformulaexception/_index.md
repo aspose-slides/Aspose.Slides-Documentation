@@ -11,7 +11,7 @@ The exception that is thrown when a calculated formula is not correct or was not
 
 **Full Class Name:** aspose.slides.spreadsheet.CellInvalidFormulaException
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The CellInvalidFormulaException type exposes the following members:
 ## **Constructors**

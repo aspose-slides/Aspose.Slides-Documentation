@@ -11,7 +11,7 @@ Represents formatting type the child nodes in an organization chart
 
 **Full Name:** aspose.slides.smartart.OrganizationChartLayoutType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

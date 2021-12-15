@@ -11,7 +11,7 @@ Immutable object which representsepresents a Gray Scale effect. Converts all eff
 
 **Full Class Name:** aspose.slides.effects.GrayScaleEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The GrayScaleEffectiveData type exposes the following members:
 ## **Properties**

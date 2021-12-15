@@ -11,7 +11,7 @@ Represents a reflection effect.
 
 **Full Class Name:** aspose.slides.effects.IReflection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IReflection type exposes the following members:
 ## **Properties**

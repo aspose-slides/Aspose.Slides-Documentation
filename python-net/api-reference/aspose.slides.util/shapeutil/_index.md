@@ -11,7 +11,7 @@ Offer methods which helps to process shapes objects.
 
 **Full Class Name:** aspose.slides.util.ShapeUtil
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ShapeUtil type exposes the following members:
 ## **Methods**

@@ -11,7 +11,7 @@ Immutable object which represents a Fill Overlay effect. A fill overlay may be u
 
 **Full Class Name:** aspose.slides.effects.FillOverlayEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FillOverlayEffectiveData type exposes the following members:
 ## **Properties**

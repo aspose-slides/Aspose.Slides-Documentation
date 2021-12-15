@@ -11,7 +11,7 @@ Allows to create a math array
 
 **Full Class Name:** aspose.slides.mathtext.IMathArrayFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathArrayFactory type exposes the following members:
 ## **Methods**

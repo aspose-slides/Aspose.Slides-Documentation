@@ -11,7 +11,7 @@ Allow to create ITab instances
 
 **Full Class Name:** aspose.slides.ITabFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITabFactory type exposes the following members:
 ## **Methods**

@@ -11,7 +11,7 @@ Represents an output saving service.
 
 **Full Class Name:** aspose.slides.export.web.IOutputSaver
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IOutputSaver type exposes the following members:
 ## **Methods**

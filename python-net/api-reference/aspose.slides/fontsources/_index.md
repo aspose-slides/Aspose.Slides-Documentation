@@ -11,7 +11,7 @@ Provides file and memory sources for external fonts.
 
 **Full Class Name:** aspose.slides.FontSources
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FontSources type exposes the following members:
 ## **Constructors**

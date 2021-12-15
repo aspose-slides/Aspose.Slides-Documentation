@@ -11,7 +11,7 @@ Represents segment of graphics path of GeometryShape
 
 **Full Class Name:** aspose.slides.PathSegment
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PathSegment type exposes the following members:
 ## **Properties**

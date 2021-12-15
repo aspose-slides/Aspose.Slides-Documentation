@@ -11,7 +11,7 @@ Represents different text alignment styles.
 
 **Full Name:** aspose.slides.TextAlignment
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

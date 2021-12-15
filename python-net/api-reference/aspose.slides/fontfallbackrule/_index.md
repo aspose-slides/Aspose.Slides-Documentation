@@ -11,7 +11,7 @@ Represents font fallback rule
 
 **Full Class Name:** aspose.slides.FontFallBackRule
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FontFallBackRule type exposes the following members:
 ## **Constructors**
@@ -25,6 +25,10 @@ The FontFallBackRule type exposes the following members:
 |range_start_index|Get first index of continuous unicode range.|
 |range_end_index|Get last index of continuous unicode range.|
 |count|Gets the number of fonts actually defined for range.<br/>            Read-only|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the font name at the specified index.<br/>            Read-only [IFontFallBackRule](/python-net/api-reference/aspose.slides/ifontfallbackrule/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

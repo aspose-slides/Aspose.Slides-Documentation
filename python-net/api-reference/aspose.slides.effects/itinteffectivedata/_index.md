@@ -11,7 +11,7 @@ Immutable object which represents a Tint effect.<br/>            Shifts effect c
 
 **Full Class Name:** aspose.slides.effects.ITintEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITintEffectiveData type exposes the following members:
 ## **Properties**

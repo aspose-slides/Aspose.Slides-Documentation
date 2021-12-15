@@ -11,7 +11,7 @@ Represents an output saver implementation for transfer data to the external stor
 
 **Full Class Name:** aspose.slides.export.xaml.IXamlOutputSaver
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IXamlOutputSaver type exposes the following members:
 ## **Methods**

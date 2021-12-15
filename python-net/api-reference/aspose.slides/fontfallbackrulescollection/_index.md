@@ -11,7 +11,7 @@ Represents a collection of FontFallBack rules, defined by user
 
 **Full Class Name:** aspose.slides.FontFallBackRulesCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FontFallBackRulesCollection type exposes the following members:
 ## **Constructors**
@@ -23,6 +23,10 @@ The FontFallBackRulesCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the rule at the specified index.<br/>            Read-only [IFontFallBackRule](/python-net/api-reference/aspose.slides/ifontfallbackrule/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

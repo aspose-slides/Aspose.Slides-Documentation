@@ -11,7 +11,7 @@ Represents normal view properties. The normal view consists of<br/>            t
 
 **Full Class Name:** aspose.slides.INormalViewProperties
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The INormalViewProperties type exposes the following members:
 ## **Properties**

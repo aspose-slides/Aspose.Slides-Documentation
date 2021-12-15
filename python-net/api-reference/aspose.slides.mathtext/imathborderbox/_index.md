@@ -11,7 +11,7 @@ Draws a rectangular or some other border around the IMathElement.
 
 **Full Class Name:** aspose.slides.mathtext.IMathBorderBox
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathBorderBox type exposes the following members:
 ## **Properties**

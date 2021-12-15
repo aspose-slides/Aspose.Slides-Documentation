@@ -11,7 +11,7 @@ Specifies the state that the splitter bar should be shown in. The splitter bar s
 
 **Full Name:** aspose.slides.SplitterBarStateType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

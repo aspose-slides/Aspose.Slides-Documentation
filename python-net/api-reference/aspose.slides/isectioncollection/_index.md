@@ -11,7 +11,7 @@ Represents a collection of sections.
 
 **Full Class Name:** aspose.slides.ISectionCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ISectionCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The ISectionCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.<br/>            Read-only [ISection](/python-net/api-reference/aspose.slides/isection/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

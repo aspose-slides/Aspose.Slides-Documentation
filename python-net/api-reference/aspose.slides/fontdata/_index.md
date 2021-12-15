@@ -11,7 +11,7 @@ Represents a font definition. Immutable.
 
 **Full Class Name:** aspose.slides.FontData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FontData type exposes the following members:
 ## **Constructors**

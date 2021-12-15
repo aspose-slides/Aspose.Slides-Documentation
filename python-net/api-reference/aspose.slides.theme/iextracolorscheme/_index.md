@@ -11,7 +11,7 @@ Represents an additional color scheme which can be assigned to a slide.
 
 **Full Class Name:** aspose.slides.theme.IExtraColorScheme
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IExtraColorScheme type exposes the following members:
 ## **Properties**

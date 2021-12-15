@@ -11,7 +11,7 @@ This class contains the text portion formatting properties. Unlike [IPortionForm
 
 **Full Class Name:** aspose.slides.IPortionFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPortionFormat type exposes the following members:
 ## **Properties**

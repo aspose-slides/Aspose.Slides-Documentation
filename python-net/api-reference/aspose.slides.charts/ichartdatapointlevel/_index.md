@@ -11,7 +11,7 @@ Represents data point level. Applies for Treemap and Sunburst chart.
 
 **Full Class Name:** aspose.slides.charts.IChartDataPointLevel
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartDataPointLevel type exposes the following members:
 ## **Properties**

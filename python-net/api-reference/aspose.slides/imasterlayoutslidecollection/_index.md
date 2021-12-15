@@ -11,7 +11,7 @@ Represents a collections of all layout slides of defined master slide.<br/>     
 
 **Full Class Name:** aspose.slides.IMasterLayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMasterLayoutSlideCollection type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The IMasterLayoutSlideCollection type exposes the following members:
 |as_ilayout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns the layout slide by index.<br/>            Read-only [ILayoutSlide](/python-net/api-reference/aspose.slides/ilayoutslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

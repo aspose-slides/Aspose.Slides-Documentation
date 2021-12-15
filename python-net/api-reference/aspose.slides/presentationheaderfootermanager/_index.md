@@ -11,7 +11,7 @@ Represents manager which holds behavior of all footer, date-time and page number
 
 **Full Class Name:** aspose.slides.PresentationHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PresentationHeaderFooterManager type exposes the following members:
 ## **Properties**

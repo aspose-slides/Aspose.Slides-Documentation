@@ -11,7 +11,7 @@ Defines a way to change the placement of selected shapes on the slide.
 
 **Full Name:** aspose.slides.ShapesAlignmentType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

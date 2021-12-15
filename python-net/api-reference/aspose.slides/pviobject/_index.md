@@ -11,7 +11,7 @@ Encapsulates basic service infrastructure for objects can be a subject of proper
 
 **Full Class Name:** aspose.slides.PVIObject
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PVIObject type exposes the following members:
 ## **Properties**

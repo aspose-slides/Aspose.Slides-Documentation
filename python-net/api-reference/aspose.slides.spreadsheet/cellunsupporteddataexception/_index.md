@@ -11,7 +11,7 @@ The exception that is thrown when an unsupported data is encountered in a spread
 
 **Full Class Name:** aspose.slides.spreadsheet.CellUnsupportedDataException
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The CellUnsupportedDataException type exposes the following members:
 ## **Constructors**

@@ -11,7 +11,7 @@ Specifies a vertical array of equations or any mathematical objects
 
 **Full Class Name:** aspose.slides.mathtext.IMathArray
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathArray type exposes the following members:
 ## **Properties**

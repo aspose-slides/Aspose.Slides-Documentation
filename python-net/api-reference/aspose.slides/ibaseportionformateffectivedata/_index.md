@@ -11,7 +11,7 @@ Base interface for immutable objects which contain effective text portion format
 
 **Full Class Name:** aspose.slides.IBasePortionFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IBasePortionFormatEffectiveData type exposes the following members:
 ## **Properties**

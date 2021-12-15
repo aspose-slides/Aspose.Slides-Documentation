@@ -11,7 +11,7 @@ Represents a Gray Scale effect. Converts all effect color values to a shade of g
 
 **Full Class Name:** aspose.slides.effects.GrayScale
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The GrayScale type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents shape frame's properties.
 
 **Full Class Name:** aspose.slides.ShapeFrame
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ShapeFrame type exposes the following members:
 ## **Constructors**

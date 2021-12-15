@@ -11,7 +11,7 @@ Represent a type of morph transition.
 
 **Full Name:** aspose.slides.slideshow.TransitionMorphType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

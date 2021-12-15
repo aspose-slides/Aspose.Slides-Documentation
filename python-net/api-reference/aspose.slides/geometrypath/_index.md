@@ -11,7 +11,7 @@ Represents geometry path of GeometryShape
 
 **Full Class Name:** aspose.slides.GeometryPath
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The GeometryPath type exposes the following members:
 ## **Constructors**

@@ -11,7 +11,7 @@ Represents an Alpha Inverse effect.<br/>            Alpha (opacity) values are i
 
 **Full Class Name:** aspose.slides.effects.AlphaInverse
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The AlphaInverse type exposes the following members:
 ## **Properties**

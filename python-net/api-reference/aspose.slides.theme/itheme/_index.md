@@ -11,7 +11,7 @@ Represents a theme.
 
 **Full Class Name:** aspose.slides.theme.ITheme
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITheme type exposes the following members:
 ## **Properties**

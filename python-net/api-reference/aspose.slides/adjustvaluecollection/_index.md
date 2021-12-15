@@ -11,7 +11,7 @@ Reprasents a collection of shape's adjustments.
 
 **Full Class Name:** aspose.slides.AdjustValueCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The AdjustValueCollection type exposes the following members:
 ## **Properties**
@@ -19,3 +19,7 @@ The AdjustValueCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Allows to get base ICollection interface.<br/>            Read-only list.|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns adjustment by index.|

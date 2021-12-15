@@ -11,7 +11,7 @@ Represents section of slides.
 
 **Full Class Name:** aspose.slides.Section
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Section type exposes the following members:
 ## **Properties**

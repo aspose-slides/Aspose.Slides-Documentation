@@ -11,7 +11,7 @@ Allows to create math radical
 
 **Full Class Name:** aspose.slides.mathtext.MathRadicalFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MathRadicalFactory type exposes the following members:
 ## **Constructors**

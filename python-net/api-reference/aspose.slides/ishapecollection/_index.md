@@ -11,7 +11,7 @@ Represents a collection of a shapes.
 
 **Full Class Name:** aspose.slides.IShapeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IShapeCollection type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The IShapeCollection type exposes the following members:
 |parent_group|Returns parent GroupShape object for a shapes collection.<br/>            Read-only [IGroupShape](/python-net/api-reference/aspose.slides/igroupshape/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.<br/>            Read-only [IShape](/python-net/api-reference/aspose.slides/ishape/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

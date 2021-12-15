@@ -11,7 +11,7 @@ Represents a shape inside SmartArt diagram
 
 **Full Class Name:** aspose.slides.smartart.ISmartArtShape
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ISmartArtShape type exposes the following members:
 ## **Properties**

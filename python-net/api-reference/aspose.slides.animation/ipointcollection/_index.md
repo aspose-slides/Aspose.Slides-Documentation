@@ -11,7 +11,7 @@ Represents a collection of portions.
 
 **Full Class Name:** aspose.slides.animation.IPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPointCollection type exposes the following members:
 ## **Properties**
@@ -19,3 +19,7 @@ The IPointCollection type exposes the following members:
 | :- | :- |
 |count|Returns the number of points in the collection.<br/>            Read-only|
 |as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a point at the specified index.|

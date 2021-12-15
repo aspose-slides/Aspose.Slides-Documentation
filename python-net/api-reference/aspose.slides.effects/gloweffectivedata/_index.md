@@ -11,7 +11,7 @@ Immutable object which represents a glow effect, in which a color blurred outlin
 
 **Full Class Name:** aspose.slides.effects.GlowEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The GlowEffectiveData type exposes the following members:
 ## **Properties**

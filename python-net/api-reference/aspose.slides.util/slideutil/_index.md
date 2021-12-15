@@ -11,7 +11,7 @@ Offer methods which help to search shapes and text in a presentation.
 
 **Full Class Name:** aspose.slides.util.SlideUtil
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The SlideUtil type exposes the following members:
 ## **Methods**

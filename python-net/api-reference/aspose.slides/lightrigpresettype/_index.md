@@ -11,7 +11,7 @@ Constants which define light preset types.
 
 **Full Name:** aspose.slides.LightRigPresetType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

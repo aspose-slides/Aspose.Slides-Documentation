@@ -11,7 +11,7 @@ Represents a collection of all layout slides in presentation.<br/>            Ex
 
 **Full Class Name:** aspose.slides.GlobalLayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The GlobalLayoutSlideCollection type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The GlobalLayoutSlideCollection type exposes the following members:
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
 |as_ilayout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns the layout slide by index.<br/>            Read-only [LayoutSlide](/python-net/api-reference/aspose.slides/layoutslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

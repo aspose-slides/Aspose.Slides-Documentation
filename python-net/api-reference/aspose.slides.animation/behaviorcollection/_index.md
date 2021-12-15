@@ -11,7 +11,7 @@ Represents collection of behavior effects.
 
 **Full Class Name:** aspose.slides.animation.BehaviorCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The BehaviorCollection type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The BehaviorCollection type exposes the following members:
 |count|Returns the number of behaviors in a collection.<br/>            Read-only|
 |is_read_only|Gets a value indicating whether the list is read-only.<br/>            Read-only bool.|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Retirns a behavior at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

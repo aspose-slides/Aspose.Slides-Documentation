@@ -11,7 +11,7 @@ Specifies the radical function, consisting of a base, and an optional degree.<br
 
 **Full Class Name:** aspose.slides.mathtext.IMathRadical
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathRadical type exposes the following members:
 ## **Properties**

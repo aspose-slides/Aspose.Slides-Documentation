@@ -11,7 +11,7 @@ Represents which sketch type or effect a shape has been assigned.
 
 **Full Name:** aspose.slides.LineSketchType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

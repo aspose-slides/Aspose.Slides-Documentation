@@ -11,7 +11,7 @@ Helper for getting additional information about charts and series by its ChartTy
 
 **Full Class Name:** aspose.slides.charts.ChartTypeCharacterizer
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ChartTypeCharacterizer type exposes the following members:
 ## **Methods**

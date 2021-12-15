@@ -11,7 +11,7 @@ This class allows to initialize IBitmapWrapper.
 
 **Full Class Name:** aspose.slides.ImageWrapperFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ImageWrapperFactory type exposes the following members:
 ## **Constructors**

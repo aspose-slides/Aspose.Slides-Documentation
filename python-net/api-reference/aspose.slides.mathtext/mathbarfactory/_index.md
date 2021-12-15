@@ -11,7 +11,7 @@ Allows to create a math bar
 
 **Full Class Name:** aspose.slides.mathtext.MathBarFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MathBarFactory type exposes the following members:
 ## **Constructors**

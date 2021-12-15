@@ -11,7 +11,7 @@ Constants which define the format of a saved presentation.
 
 **Full Name:** aspose.slides.export.SaveFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

@@ -11,7 +11,7 @@ Represents a legacy diagram object.
 
 **Full Class Name:** aspose.slides.LegacyDiagram
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The LegacyDiagram type exposes the following members:
 ## **Properties**

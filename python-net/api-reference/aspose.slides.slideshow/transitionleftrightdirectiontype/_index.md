@@ -11,7 +11,7 @@ Specifies a direction restricted to the values of left and right.
 
 **Full Name:** aspose.slides.slideshow.TransitionLeftRightDirectionType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

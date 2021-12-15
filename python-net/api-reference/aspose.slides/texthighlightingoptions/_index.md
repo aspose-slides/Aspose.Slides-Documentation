@@ -11,7 +11,7 @@ Represents options which can be used to highlight text in text frame.
 
 **Full Class Name:** aspose.slides.TextHighlightingOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The TextHighlightingOptions type exposes the following members:
 ## **Constructors**

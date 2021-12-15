@@ -11,7 +11,7 @@ Provides methods to license the component.
 
 **Full Class Name:** aspose.slides.ILicense
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ILicense type exposes the following members:
 ## **Methods**

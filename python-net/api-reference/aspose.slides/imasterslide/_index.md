@@ -11,7 +11,7 @@ Represents a master slide in a presentation.
 
 **Full Class Name:** aspose.slides.IMasterSlide
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMasterSlide type exposes the following members:
 ## **Properties**

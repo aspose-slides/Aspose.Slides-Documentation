@@ -11,7 +11,7 @@ Immutable object which contains effective light rig properties.
 
 **Full Class Name:** aspose.slides.ILightRigEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ILightRigEffectiveData type exposes the following members:
 ## **Properties**

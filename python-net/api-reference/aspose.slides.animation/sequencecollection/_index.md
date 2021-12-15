@@ -11,7 +11,7 @@ Represents collection of interactive sequences.
 
 **Full Class Name:** aspose.slides.animation.SequenceCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The SequenceCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The SequenceCollection type exposes the following members:
 | :- | :- |
 |count|Returns the number of elements in a collection<br/>            Read-only|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a sequense at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -11,7 +11,7 @@ Information about presentation file
 
 **Full Class Name:** aspose.slides.PresentationInfo
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PresentationInfo type exposes the following members:
 ## **Properties**

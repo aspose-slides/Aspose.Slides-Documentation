@@ -11,7 +11,7 @@ Represents properties of shape's main face relief.
 
 **Full Class Name:** aspose.slides.IShapeBevel
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IShapeBevel type exposes the following members:
 ## **Properties**

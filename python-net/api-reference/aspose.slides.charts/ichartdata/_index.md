@@ -11,7 +11,7 @@ Represents data used for a chart plotting.
 
 **Full Class Name:** aspose.slides.charts.IChartData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartData type exposes the following members:
 ## **Properties**

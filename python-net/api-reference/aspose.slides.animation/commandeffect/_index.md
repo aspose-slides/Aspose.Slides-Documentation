@@ -11,7 +11,7 @@ Represents a command effect for an animation behavior.
 
 **Full Class Name:** aspose.slides.animation.CommandEffect
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The CommandEffect type exposes the following members:
 ## **Constructors**

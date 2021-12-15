@@ -11,7 +11,7 @@ Represent types of points in animation motion path.
 
 **Full Name:** aspose.slides.animation.MotionPathPointsType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

@@ -11,7 +11,7 @@ Represents how shape element should be drawn.
 
 **Full Name:** aspose.slides.ShapeElementStrokeSource
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

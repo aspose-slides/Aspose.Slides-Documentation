@@ -11,7 +11,7 @@ Represents collection of a cells with data.
 
 **Full Class Name:** aspose.slides.charts.IChartCellCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartCellCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The IChartCellCollection type exposes the following members:
 | :- | :- |
 |count|Gets the count of cells in collection.<br/>            Read-only|
 |as_ienumerable|Returns ICollection interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a cell (IChartDataCell) by index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

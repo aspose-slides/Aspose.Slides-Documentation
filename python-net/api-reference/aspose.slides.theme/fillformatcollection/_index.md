@@ -11,7 +11,7 @@ Represents the collection of fill styles.
 
 **Full Class Name:** aspose.slides.theme.FillFormatCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The FillFormatCollection type exposes the following members:
 ## **Properties**
@@ -19,3 +19,7 @@ The FillFormatCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.<br/>            Read-only [IFillFormat](/python-net/api-reference/aspose.slides/ifillformat/).|

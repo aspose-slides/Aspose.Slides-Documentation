@@ -11,7 +11,7 @@ Represents the text extracted from the slide
 
 **Full Class Name:** aspose.slides.ISlideText
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ISlideText type exposes the following members:
 ## **Properties**

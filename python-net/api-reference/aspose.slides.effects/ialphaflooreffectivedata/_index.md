@@ -11,7 +11,7 @@ Immutable object which represents an Alpha Floor effect.<br/>            Alpha (
 
 **Full Class Name:** aspose.slides.effects.IAlphaFloorEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IAlphaFloorEffectiveData type exposes the following members:
 ## **Properties**

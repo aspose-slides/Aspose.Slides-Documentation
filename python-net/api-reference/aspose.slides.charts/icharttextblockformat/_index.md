@@ -11,7 +11,7 @@ Represents formatting properties for chart text elements.
 
 **Full Class Name:** aspose.slides.charts.IChartTextBlockFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IChartTextBlockFormat type exposes the following members:
 ## **Properties**

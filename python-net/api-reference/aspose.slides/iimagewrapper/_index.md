@@ -11,7 +11,7 @@ System.Drawing.Image wrapper for COM interface.
 
 **Full Class Name:** aspose.slides.IImageWrapper
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IImageWrapper type exposes the following members:
 ## **Properties**

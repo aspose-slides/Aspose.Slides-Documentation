@@ -11,7 +11,7 @@ Provides options that control how a presentation is saved in PPT format.
 
 **Full Class Name:** aspose.slides.export.IPptOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPptOptions type exposes the following members:
 ## **Properties**

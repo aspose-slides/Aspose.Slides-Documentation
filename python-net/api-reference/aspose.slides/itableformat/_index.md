@@ -11,7 +11,7 @@ Represents format of a table.
 
 **Full Class Name:** aspose.slides.ITableFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITableFormat type exposes the following members:
 ## **Properties**

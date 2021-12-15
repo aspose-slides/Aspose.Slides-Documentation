@@ -11,7 +11,7 @@ Determines how text will appear on a shape during animation.
 
 **Full Name:** aspose.slides.animation.BuildType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

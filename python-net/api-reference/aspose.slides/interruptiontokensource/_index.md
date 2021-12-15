@@ -11,7 +11,7 @@ Represents the source of [InterruptionToken](/python-net/api-reference/aspose.sl
 
 **Full Class Name:** aspose.slides.InterruptionTokenSource
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The InterruptionTokenSource type exposes the following members:
 ## **Constructors**

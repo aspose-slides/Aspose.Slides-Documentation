@@ -11,7 +11,7 @@ Immutable object which represents a Color Replacement effect.<br/>            Al
 
 **Full Class Name:** aspose.slides.effects.IColorReplaceEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IColorReplaceEffectiveData type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a base interface for all warnings.
 
 **Full Class Name:** aspose.slides.warnings.IWarningInfo
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IWarningInfo type exposes the following members:
 ## **Properties**

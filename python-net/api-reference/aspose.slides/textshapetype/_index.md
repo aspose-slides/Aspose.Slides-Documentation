@@ -11,7 +11,7 @@ Represents text wrapping shape.
 
 **Full Name:** aspose.slides.TextShapeType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

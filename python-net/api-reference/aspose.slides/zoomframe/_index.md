@@ -11,7 +11,7 @@ Represents an Zoom object on a slide.
 
 **Full Class Name:** aspose.slides.ZoomFrame
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ZoomFrame type exposes the following members:
 ## **Properties**

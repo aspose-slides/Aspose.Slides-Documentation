@@ -11,7 +11,7 @@ The location and size of the delimiters relative to the content of the operands
 
 **Full Name:** aspose.slides.mathtext.MathDelimiterShape
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

@@ -11,7 +11,7 @@ If layout of the plot area defined manually this property specifies whether <br/
 
 **Full Name:** aspose.slides.charts.LayoutTargetType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

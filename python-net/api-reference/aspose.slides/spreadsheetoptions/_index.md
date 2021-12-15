@@ -11,7 +11,7 @@ Represents options which can be used to specify additional spreadsheets behavior
 
 **Full Class Name:** aspose.slides.SpreadsheetOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The SpreadsheetOptions type exposes the following members:
 ## **Constructors**

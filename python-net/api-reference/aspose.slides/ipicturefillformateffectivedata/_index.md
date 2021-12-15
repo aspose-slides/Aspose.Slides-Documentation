@@ -11,7 +11,7 @@ Immutable object which contains the properties of picture fill.
 
 **Full Class Name:** aspose.slides.IPictureFillFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPictureFillFormatEffectiveData type exposes the following members:
 ## **Properties**

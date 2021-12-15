@@ -11,7 +11,7 @@ Represents IImageTransformOperation interface.
 
 **Full Class Name:** aspose.slides.effects.IGrayScale
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IGrayScale type exposes the following members:
 ## **Properties**

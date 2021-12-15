@@ -11,7 +11,7 @@ Represents a type of field. <br/>            This value determines which text wi
 
 **Full Class Name:** aspose.slides.IFieldType
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IFieldType type exposes the following members:
 ## **Properties**

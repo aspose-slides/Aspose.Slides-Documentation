@@ -11,7 +11,7 @@ Exception which thrown when presentation file format is unsupported.
 
 **Full Class Name:** aspose.slides.PptUnsupportedFormatException
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PptUnsupportedFormatException type exposes the following members:
 ## **Constructors**

@@ -11,7 +11,7 @@ Represents a collection of portions.
 
 **Full Class Name:** aspose.slides.PortionCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PortionCollection type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The PortionCollection type exposes the following members:
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |is_read_only|Gets a value indicating whether the list is read-only.<br/>            Read-only bool.|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -11,7 +11,7 @@ Represents a Preset Shadow effect.
 
 **Full Class Name:** aspose.slides.effects.IPresetShadow
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPresetShadow type exposes the following members:
 ## **Properties**

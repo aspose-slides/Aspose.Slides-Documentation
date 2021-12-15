@@ -11,7 +11,7 @@ Represents an audio clip on a slide.
 
 **Full Class Name:** aspose.slides.IAudioFrame
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IAudioFrame type exposes the following members:
 ## **Properties**

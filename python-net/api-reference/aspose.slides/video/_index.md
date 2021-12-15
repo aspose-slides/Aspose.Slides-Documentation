@@ -11,7 +11,7 @@ Represents an image embedded into a presentation.
 
 **Full Class Name:** aspose.slides.Video
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Video type exposes the following members:
 ## **Properties**

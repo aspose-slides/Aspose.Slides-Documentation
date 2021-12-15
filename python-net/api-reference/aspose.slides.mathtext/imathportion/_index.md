@@ -11,7 +11,7 @@ Represents a portion with mathematical context inside.
 
 **Full Class Name:** aspose.slides.mathtext.IMathPortion
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IMathPortion type exposes the following members:
 ## **Properties**

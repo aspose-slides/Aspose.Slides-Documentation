@@ -11,7 +11,7 @@ Represents manager which holds behavior of the notes slide placeholders, includi
 
 **Full Class Name:** aspose.slides.INotesSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The INotesSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

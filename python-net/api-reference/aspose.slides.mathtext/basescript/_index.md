@@ -11,7 +11,7 @@ Math script
 
 **Full Class Name:** aspose.slides.mathtext.BaseScript
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The BaseScript type exposes the following members:
 ## **Properties**

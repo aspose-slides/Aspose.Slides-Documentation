@@ -11,7 +11,7 @@ Options for extracting HTML from the Pptx text.
 
 **Full Class Name:** aspose.slides.export.TextToHtmlConversionOptions
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The TextToHtmlConversionOptions type exposes the following members:
 ## **Constructors**

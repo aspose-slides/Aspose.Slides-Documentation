@@ -11,6 +11,6 @@ Base class for slide transition effects.
 
 **Full Class Name:** aspose.slides.slideshow.TransitionValueBase
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The TransitionValueBase type exposes the following members:

@@ -11,7 +11,7 @@ Represents a collection of TrendlineEx
 
 **Full Class Name:** aspose.slides.charts.ITrendlineCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITrendlineCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The ITrendlineCollection type exposes the following members:
 | :- | :- |
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Gets the element at the specified index.<br/>            Read-only [ITrendline](/python-net/api-reference/aspose.slides.charts/itrendline/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

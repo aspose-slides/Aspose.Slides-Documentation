@@ -11,7 +11,7 @@ Represents a picture fill style.
 
 **Full Class Name:** aspose.slides.PictureFillFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PictureFillFormat type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents an Alpha Floor effect.<br/>            Alpha (opacity) values less th
 
 **Full Class Name:** aspose.slides.effects.AlphaFloor
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The AlphaFloor type exposes the following members:
 ## **Properties**

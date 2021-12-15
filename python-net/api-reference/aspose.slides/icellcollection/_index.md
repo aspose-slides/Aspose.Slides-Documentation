@@ -11,7 +11,7 @@ Represents a collection of cells.
 
 **Full Class Name:** aspose.slides.ICellCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ICellCollection type exposes the following members:
 ## **Properties**
@@ -23,3 +23,7 @@ The ICellCollection type exposes the following members:
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a cell by it's position.<br/>            Read-only [ICell](/python-net/api-reference/aspose.slides/icell/).|

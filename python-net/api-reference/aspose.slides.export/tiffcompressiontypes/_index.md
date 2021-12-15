@@ -11,7 +11,7 @@ Provides options that control how a presentation is compressed in TIFF format.
 
 **Full Name:** aspose.slides.export.TiffCompressionTypes
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

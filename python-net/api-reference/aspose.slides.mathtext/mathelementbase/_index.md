@@ -11,7 +11,7 @@ Base class for IMathElement with the implementation of some methods that are com
 
 **Full Class Name:** aspose.slides.mathtext.MathElementBase
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MathElementBase type exposes the following members:
 ## **Methods**

@@ -11,7 +11,7 @@ Represents different color operations used for color transformations.<br/>      
 
 **Full Class Name:** aspose.slides.ColorOperation
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ColorOperation type exposes the following members:
 ## **Constructors**

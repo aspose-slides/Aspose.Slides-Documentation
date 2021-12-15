@@ -11,7 +11,7 @@ Represent collection of animation points.
 
 **Full Class Name:** aspose.slides.animation.PointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The PointCollection type exposes the following members:
 ## **Constructors**
@@ -23,3 +23,7 @@ The PointCollection type exposes the following members:
 | :- | :- |
 |count|Returns the number of points in the collection.<br/>            Read-only|
 |as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a point at the specified index.|

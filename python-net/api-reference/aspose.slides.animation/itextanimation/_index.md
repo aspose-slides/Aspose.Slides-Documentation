@@ -11,7 +11,7 @@ Represent text animation.
 
 **Full Class Name:** aspose.slides.animation.ITextAnimation
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITextAnimation type exposes the following members:
 ## **Properties**

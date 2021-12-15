@@ -11,7 +11,7 @@ Represents a column in a table.
 
 **Full Class Name:** aspose.slides.Column
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Column type exposes the following members:
 ## **Properties**
@@ -27,6 +27,10 @@ The Column type exposes the following members:
 |as_ienumerable|Returns IEnumerable class.|
 |as_icell_collection|Allows to get base ICellCollection interface.<br/>            Read-only [ICellCollection](/python-net/api-reference/aspose.slides/icellcollection/).|
 |as_ibulk_text_formattable|Allows to get base IBulkTextFormattable interface.<br/>            Read-only [IBulkTextFormattable](/python-net/api-reference/aspose.slides/ibulktextformattable/).|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns a cell by it's position.<br/>            Read-only [Cell](/python-net/api-reference/aspose.slides/cell/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

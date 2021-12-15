@@ -11,7 +11,7 @@ Factory of StreamWrappers. For COM interface.
 
 **Full Class Name:** aspose.slides.StreamWrapperFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The StreamWrapperFactory type exposes the following members:
 ## **Constructors**

@@ -11,7 +11,7 @@ Represents 3D rotation of a chart.
 
 **Full Class Name:** aspose.slides.charts.IRotation3D
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IRotation3D type exposes the following members:
 ## **Properties**

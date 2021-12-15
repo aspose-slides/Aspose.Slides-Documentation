@@ -11,7 +11,7 @@ Allows to create effects' instances
 
 **Full Class Name:** aspose.slides.effects.IEffectFactory
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IEffectFactory type exposes the following members:
 ## **Properties**

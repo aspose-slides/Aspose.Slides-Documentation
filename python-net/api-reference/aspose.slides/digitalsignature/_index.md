@@ -11,7 +11,7 @@ Digital signature in signed file.
 
 **Full Class Name:** aspose.slides.DigitalSignature
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The DigitalSignature type exposes the following members:
 ## **Constructors**

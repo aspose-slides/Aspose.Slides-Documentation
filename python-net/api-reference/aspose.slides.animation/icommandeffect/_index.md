@@ -11,7 +11,7 @@ Represents a command effect for an animation behavior.
 
 **Full Class Name:** aspose.slides.animation.ICommandEffect
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ICommandEffect type exposes the following members:
 ## **Properties**

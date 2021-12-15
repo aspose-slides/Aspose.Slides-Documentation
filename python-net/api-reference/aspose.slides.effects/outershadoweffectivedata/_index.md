@@ -11,7 +11,7 @@ Immutable object which represents a outer shadow effect.
 
 **Full Class Name:** aspose.slides.effects.OuterShadowEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The OuterShadowEffectiveData type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a HTML5 exporting options.
 
 **Full Class Name:** aspose.slides.export.Html5Options
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Html5Options type exposes the following members:
 ## **Constructors**

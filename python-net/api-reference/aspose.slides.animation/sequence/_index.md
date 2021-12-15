@@ -11,7 +11,7 @@ Represents sequence (collection of effects).
 
 **Full Class Name:** aspose.slides.animation.Sequence
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Sequence type exposes the following members:
 ## **Properties**
@@ -20,6 +20,10 @@ The Sequence type exposes the following members:
 |count|Returns the number of effects in a sequense.<br/>            Read-only|
 |trigger_shape|Returns or sets shape target for INTERACTIVE sequence.<br/>            If sequence is not interactive then returns null.<br/>            Read/write [IShape](/python-net/api-reference/aspose.slides/ishape/).|
 |as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns an effect at the specified index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

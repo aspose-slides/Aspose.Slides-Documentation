@@ -11,7 +11,7 @@ Represents VBA project with presentation macros.
 
 **Full Class Name:** aspose.slides.vba.VbaProject
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The VbaProject type exposes the following members:
 ## **Constructors**

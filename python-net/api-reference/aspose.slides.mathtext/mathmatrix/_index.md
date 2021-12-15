@@ -11,7 +11,7 @@ Specifies the Matrix object, consisting of child elements laid out in one or mor
 
 **Full Class Name:** aspose.slides.mathtext.MathMatrix
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The MathMatrix type exposes the following members:
 ## **Constructors**

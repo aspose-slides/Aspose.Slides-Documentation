@@ -11,7 +11,7 @@ Controls SVG shape generation.
 
 **Full Class Name:** aspose.slides.export.ISvgShapeFormattingController
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ISvgShapeFormattingController type exposes the following members:
 ## **Methods**

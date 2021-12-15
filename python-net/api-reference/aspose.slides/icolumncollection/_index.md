@@ -11,7 +11,7 @@ Represents collection of columns in a table.
 
 **Full Class Name:** aspose.slides.IColumnCollection
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IColumnCollection type exposes the following members:
 ## **Properties**
@@ -19,6 +19,10 @@ The IColumnCollection type exposes the following members:
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
+## **Indexer**
+|**Name**|**Description**|
+| :- | :- |
+|[index]|Returns the column at the specified index.<br/>            Read-only [IColumn](/python-net/api-reference/aspose.slides/icolumn/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

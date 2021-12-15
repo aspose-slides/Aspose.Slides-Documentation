@@ -11,6 +11,6 @@ Represents a part of shape with same outline and fill properties.
 
 **Full Class Name:** aspose.slides.IShapeElement
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IShapeElement type exposes the following members:

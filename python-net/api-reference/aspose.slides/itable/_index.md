@@ -11,7 +11,7 @@ Represents a table on a slide.
 
 **Full Class Name:** aspose.slides.ITable
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The ITable type exposes the following members:
 ## **Properties**

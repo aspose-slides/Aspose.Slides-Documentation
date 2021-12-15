@@ -11,7 +11,7 @@ Represents a pattern to fill a shape.
 
 **Full Class Name:** aspose.slides.IPatternFormat
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IPatternFormat type exposes the following members:
 ## **Properties**

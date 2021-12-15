@@ -11,7 +11,7 @@ Controls a html file generation.
 
 **Full Class Name:** aspose.slides.export.IHtmlFormattingController
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IHtmlFormattingController type exposes the following members:
 ## **Methods**

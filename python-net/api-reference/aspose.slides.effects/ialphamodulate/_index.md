@@ -11,7 +11,7 @@ Represents an Alpha Modulate effect.<br/>            Effect alpha (opacity) valu
 
 **Full Class Name:** aspose.slides.effects.IAlphaModulate
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The IAlphaModulate type exposes the following members:
 ## **Properties**

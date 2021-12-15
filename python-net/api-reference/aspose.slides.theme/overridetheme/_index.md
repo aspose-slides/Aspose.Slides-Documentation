@@ -11,7 +11,7 @@ Represents a overriding theme.
 
 **Full Class Name:** aspose.slides.theme.OverrideTheme
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The OverrideTheme type exposes the following members:
 ## **Properties**

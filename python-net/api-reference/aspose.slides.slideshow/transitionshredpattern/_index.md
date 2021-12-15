@@ -11,7 +11,7 @@ Specifies a geometric shape that tiles together to fill a larger area.
 
 **Full Name:** aspose.slides.slideshow.TransitionShredPattern
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

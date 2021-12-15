@@ -11,7 +11,7 @@ Represents a collection of output elements for IWebDocument.
 
 **Full Class Name:** aspose.slides.export.web.Output
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Output type exposes the following members:
 ## **Methods**

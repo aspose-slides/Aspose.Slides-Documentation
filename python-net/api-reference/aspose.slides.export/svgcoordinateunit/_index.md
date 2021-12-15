@@ -11,7 +11,7 @@ Represents CSS2 coordinate units used to define SVG coordinates.
 
 **Full Name:** aspose.slides.export.SvgCoordinateUnit
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 ## **Members**
 |**Member name**|**Value**|**Description**|

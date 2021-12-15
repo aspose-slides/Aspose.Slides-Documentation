@@ -11,7 +11,7 @@ Represents a tabulation for a text.
 
 **Full Class Name:** aspose.slides.Tab
 
-**Assembly:**  Aspose.Slides Version: 21.11.0.0
+**Assembly:**  Aspose.Slides Version: 21.12.0.0
 
 The Tab type exposes the following members:
 ## **Constructors**
