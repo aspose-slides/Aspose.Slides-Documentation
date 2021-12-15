@@ -1,13 +1,13 @@
 ---
-title: ILoadOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: ILoadOptions Class
 type: docs
 weight: 1810
-url: /python-net/api-reference/aspose.slides/iloadoptions/
+url: /slides/python-net/api-reference/aspose.slides/iloadoptions/
 ---
 
 Allows to specify additional options (such as format or default font) when loading a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ILoadOptions
 

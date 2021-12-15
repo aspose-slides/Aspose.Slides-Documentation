@@ -1,13 +1,13 @@
 ---
-title: PptEditException Class - Aspose.Slides for Python via .NET - API Reference
+title: PptEditException Class
 type: docs
 weight: 3360
-url: /python-net/api-reference/aspose.slides/ppteditexception/
+url: /slides/python-net/api-reference/aspose.slides/ppteditexception/
 ---
 
 Represents an exception thrown when edit presentation error is detected.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PptEditException
 

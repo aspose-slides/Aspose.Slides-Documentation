@@ -1,13 +1,13 @@
 ---
-title: EmbedFontCharacters Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EmbedFontCharacters Enumeration
 type: docs
 weight: 700
-url: /python-net/api-reference/aspose.slides.export/embedfontcharacters/
+url: /slides/python-net/api-reference/aspose.slides.export/embedfontcharacters/
 ---
 
 Represents the rule to use for adding new embedding font into [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/)
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.EmbedFontCharacters
 

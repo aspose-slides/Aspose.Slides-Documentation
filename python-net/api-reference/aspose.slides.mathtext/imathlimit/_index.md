@@ -1,13 +1,13 @@
 ---
-title: IMathLimit Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathLimit Class
 type: docs
 weight: 260
-url: /python-net/api-reference/aspose.slides.mathtext/imathlimit/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathlimit/
 ---
 
 Specifies the Limit object, consisting of text on the baseline and reduced-size text immediately above or below it.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathLimit
 

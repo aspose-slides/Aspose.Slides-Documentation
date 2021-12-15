@@ -1,13 +1,13 @@
 ---
-title: EightDirectionTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: EightDirectionTransition Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.slideshow/eightdirectiontransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/eightdirectiontransition/
 ---
 
 Eight direction slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.EightDirectionTransition
 

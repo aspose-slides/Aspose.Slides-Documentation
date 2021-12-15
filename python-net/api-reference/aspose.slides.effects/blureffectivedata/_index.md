@@ -1,13 +1,13 @@
 ---
-title: BlurEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: BlurEffectiveData Class
 type: docs
 weight: 180
-url: /python-net/api-reference/aspose.slides.effects/blureffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/blureffectivedata/
 ---
 
 Immutable object which represents a Blur effect that is applied to the entire shape, including its fill.<br/>            All color channels, including alpha, are affected.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.BlurEffectiveData
 

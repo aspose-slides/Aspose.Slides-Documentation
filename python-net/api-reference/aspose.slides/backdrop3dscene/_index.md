@@ -1,13 +1,13 @@
 ---
-title: Backdrop3DScene Class - Aspose.Slides for Python via .NET - API Reference
+title: Backdrop3DScene Class
 type: docs
 weight: 80
-url: /python-net/api-reference/aspose.slides/backdrop3dscene/
+url: /slides/python-net/api-reference/aspose.slides/backdrop3dscene/
 ---
 
 Defines a plane in which effects, such as glow and shadow, are applied in relation to the shape they are being applied to.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Backdrop3DScene
 

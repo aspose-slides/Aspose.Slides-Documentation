@@ -1,13 +1,13 @@
 ---
-title: IPresentationFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IPresentationFactory Class
 type: docs
 weight: 2240
-url: /python-net/api-reference/aspose.slides/ipresentationfactory/
+url: /slides/python-net/api-reference/aspose.slides/ipresentationfactory/
 ---
 
 Allows to create presentation via COM interface
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPresentationFactory
 

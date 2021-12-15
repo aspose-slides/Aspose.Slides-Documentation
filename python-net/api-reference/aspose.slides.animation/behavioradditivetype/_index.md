@@ -1,13 +1,13 @@
 ---
-title: BehaviorAdditiveType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: BehaviorAdditiveType Enumeration
 type: docs
 weight: 510
-url: /python-net/api-reference/aspose.slides.animation/behavioradditivetype/
+url: /slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/
 ---
 
 Represents additive type for effect behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.BehaviorAdditiveType
 

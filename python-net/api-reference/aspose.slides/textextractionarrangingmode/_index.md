@@ -1,13 +1,13 @@
 ---
-title: TextExtractionArrangingMode Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextExtractionArrangingMode Enumeration
 type: docs
 weight: 9980
-url: /python-net/api-reference/aspose.slides/textextractionarrangingmode/
+url: /slides/python-net/api-reference/aspose.slides/textextractionarrangingmode/
 ---
 
 Represents the mode to use during text extraction
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextExtractionArrangingMode
 

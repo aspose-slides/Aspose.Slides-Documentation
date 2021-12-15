@@ -1,13 +1,13 @@
 ---
-title: IAdjustValue Class - Aspose.Slides for Python via .NET - API Reference
+title: IAdjustValue Class
 type: docs
 weight: 750
-url: /python-net/api-reference/aspose.slides/iadjustvalue/
+url: /slides/python-net/api-reference/aspose.slides/iadjustvalue/
 ---
 
 Represents a geometry shape's adjustment value.<br/>            These values affect shape's form.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IAdjustValue
 

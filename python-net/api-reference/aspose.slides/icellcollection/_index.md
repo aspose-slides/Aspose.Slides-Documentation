@@ -1,13 +1,13 @@
 ---
-title: ICellCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ICellCollection Class
 type: docs
 weight: 1010
-url: /python-net/api-reference/aspose.slides/icellcollection/
+url: /slides/python-net/api-reference/aspose.slides/icellcollection/
 ---
 
 Represents a collection of cells.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICellCollection
 

@@ -1,13 +1,13 @@
 ---
-title: Picture Class - Aspose.Slides for Python via .NET - API Reference
+title: Picture Class
 type: docs
 weight: 3260
-url: /python-net/api-reference/aspose.slides/picture/
+url: /slides/python-net/api-reference/aspose.slides/picture/
 ---
 
 Represents a picture in a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Picture
 

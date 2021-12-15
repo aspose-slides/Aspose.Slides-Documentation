@@ -1,13 +1,13 @@
 ---
-title: MarkerStyleType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MarkerStyleType Enumeration
 type: docs
 weight: 1260
-url: /python-net/api-reference/aspose.slides.charts/markerstyletype/
+url: /slides/python-net/api-reference/aspose.slides.charts/markerstyletype/
 ---
 
 Determines form of marker on chart's data point.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.MarkerStyleType
 

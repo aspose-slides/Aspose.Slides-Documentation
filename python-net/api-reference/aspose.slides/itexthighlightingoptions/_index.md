@@ -1,13 +1,13 @@
 ---
-title: ITextHighlightingOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: ITextHighlightingOptions Class
 type: docs
 weight: 2710
-url: /python-net/api-reference/aspose.slides/itexthighlightingoptions/
+url: /slides/python-net/api-reference/aspose.slides/itexthighlightingoptions/
 ---
 
 Represents options which can be used to highlight text in text frame.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITextHighlightingOptions
 

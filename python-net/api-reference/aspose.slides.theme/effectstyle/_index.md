@@ -1,13 +1,13 @@
 ---
-title: EffectStyle Class - Aspose.Slides for Python via .NET - API Reference
+title: EffectStyle Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides.theme/effectstyle/
+url: /slides/python-net/api-reference/aspose.slides.theme/effectstyle/
 ---
 
 Represents an effect style.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.EffectStyle
 

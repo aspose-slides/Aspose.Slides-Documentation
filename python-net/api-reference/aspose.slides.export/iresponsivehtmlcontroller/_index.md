@@ -1,13 +1,13 @@
 ---
-title: IResponsiveHtmlController Class - Aspose.Slides for Python via .NET - API Reference
+title: IResponsiveHtmlController Class
 type: docs
 weight: 230
-url: /python-net/api-reference/aspose.slides.export/iresponsivehtmlcontroller/
+url: /slides/python-net/api-reference/aspose.slides.export/iresponsivehtmlcontroller/
 ---
 
 Responsive HTML Controller
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.IResponsiveHtmlController
 

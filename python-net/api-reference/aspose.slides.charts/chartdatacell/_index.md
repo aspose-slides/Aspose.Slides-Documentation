@@ -1,13 +1,13 @@
 ---
-title: ChartDataCell Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartDataCell Class
 type: docs
 weight: 130
-url: /python-net/api-reference/aspose.slides.charts/chartdatacell/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartdatacell/
 ---
 
 Represents cell for chart data.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartDataCell
 

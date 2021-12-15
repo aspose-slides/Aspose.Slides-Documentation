@@ -1,13 +1,13 @@
 ---
-title: BehaviorProperty Class - Aspose.Slides for Python via .NET - API Reference
+title: BehaviorProperty Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides.animation/behaviorproperty/
+url: /slides/python-net/api-reference/aspose.slides.animation/behaviorproperty/
 ---
 
 Represent property types for animation behavior.<br/>            Follows the list of properties from https://msdn.microsoft.com/en-us/library/dd949052(v=office.15).aspx<br/>            and https://msdn.microsoft.com/en-us/library/documentformat.openxml.presentation.attributename(v=office.15).aspx
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.BehaviorProperty
 

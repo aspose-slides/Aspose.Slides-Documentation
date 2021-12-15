@@ -1,13 +1,13 @@
 ---
-title: FillBlendMode Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: FillBlendMode Enumeration
 type: docs
 weight: 9390
-url: /python-net/api-reference/aspose.slides/fillblendmode/
+url: /slides/python-net/api-reference/aspose.slides/fillblendmode/
 ---
 
 Determines blend mode.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.FillBlendMode
 

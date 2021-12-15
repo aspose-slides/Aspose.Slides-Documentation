@@ -1,13 +1,13 @@
 ---
-title: IProgressCallback Class - Aspose.Slides for Python via .NET - API Reference
+title: IProgressCallback Class
 type: docs
 weight: 2280
-url: /python-net/api-reference/aspose.slides/iprogresscallback/
+url: /slides/python-net/api-reference/aspose.slides/iprogresscallback/
 ---
 
 Represents a callback object for saving progress updates in percentage.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IProgressCallback
 

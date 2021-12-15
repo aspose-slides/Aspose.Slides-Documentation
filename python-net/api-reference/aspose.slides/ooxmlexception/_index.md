@@ -1,13 +1,13 @@
 ---
-title: OOXMLException Class - Aspose.Slides for Python via .NET - API Reference
+title: OOXMLException Class
 type: docs
 weight: 3140
-url: /python-net/api-reference/aspose.slides/ooxmlexception/
+url: /slides/python-net/api-reference/aspose.slides/ooxmlexception/
 ---
 
 Represents a standard internal exception type related to Office Open XML file format.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.OOXMLException
 

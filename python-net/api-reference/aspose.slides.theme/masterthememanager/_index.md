@@ -1,13 +1,13 @@
 ---
-title: MasterThemeManager Class - Aspose.Slides for Python via .NET - API Reference
+title: MasterThemeManager Class
 type: docs
 weight: 410
-url: /python-net/api-reference/aspose.slides.theme/masterthememanager/
+url: /slides/python-net/api-reference/aspose.slides.theme/masterthememanager/
 ---
 
 Provides access to presentation master theme.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.MasterThemeManager
 

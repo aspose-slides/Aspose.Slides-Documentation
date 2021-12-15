@@ -1,13 +1,13 @@
 ---
-title: IEffectStyleEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IEffectStyleEffectiveData Class
 type: docs
 weight: 170
-url: /python-net/api-reference/aspose.slides.theme/ieffectstyleeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.theme/ieffectstyleeffectivedata/
 ---
 
 Immutable object which contains effective effect style properties.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IEffectStyleEffectiveData
 

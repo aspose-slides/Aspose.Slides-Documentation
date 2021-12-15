@@ -1,13 +1,13 @@
 ---
-title: NotesSize Class - Aspose.Slides for Python via .NET - API Reference
+title: NotesSize Class
 type: docs
 weight: 3090
-url: /python-net/api-reference/aspose.slides/notessize/
+url: /slides/python-net/api-reference/aspose.slides/notessize/
 ---
 
 Represents a size of notes slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.NotesSize
 

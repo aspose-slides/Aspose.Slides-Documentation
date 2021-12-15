@@ -1,13 +1,13 @@
 ---
-title: SplitterBarStateType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SplitterBarStateType Enumeration
 type: docs
 weight: 9900
-url: /python-net/api-reference/aspose.slides/splitterbarstatetype/
+url: /slides/python-net/api-reference/aspose.slides/splitterbarstatetype/
 ---
 
 Specifies the state that the splitter bar should be shown in. The splitter bar separates a primary and<br/>            secondary region within a viewing area.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.SplitterBarStateType
 

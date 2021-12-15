@@ -1,13 +1,13 @@
 ---
-title: ReflectionEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: ReflectionEffectiveData Class
 type: docs
 weight: 990
-url: /python-net/api-reference/aspose.slides.effects/reflectioneffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/reflectioneffectivedata/
 ---
 
 Immutable object which represents a reflection effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.ReflectionEffectiveData
 

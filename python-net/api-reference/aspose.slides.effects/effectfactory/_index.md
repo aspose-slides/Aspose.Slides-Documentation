@@ -1,13 +1,13 @@
 ---
-title: EffectFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: EffectFactory Class
 type: docs
 weight: 250
-url: /python-net/api-reference/aspose.slides.effects/effectfactory/
+url: /slides/python-net/api-reference/aspose.slides.effects/effectfactory/
 ---
 
 Allows to create effects
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.EffectFactory
 

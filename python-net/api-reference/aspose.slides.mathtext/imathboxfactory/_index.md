@@ -1,13 +1,13 @@
 ---
-title: IMathBoxFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathBoxFactory Class
 type: docs
 weight: 140
-url: /python-net/api-reference/aspose.slides.mathtext/imathboxfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathboxfactory/
 ---
 
 Allows to create a math box
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathBoxFactory
 

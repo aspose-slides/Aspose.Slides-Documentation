@@ -1,13 +1,13 @@
 ---
-title: BaseShapeLock Class - Aspose.Slides for Python via .NET - API Reference
+title: BaseShapeLock Class
 type: docs
 weight: 130
-url: /python-net/api-reference/aspose.slides/baseshapelock/
+url: /slides/python-net/api-reference/aspose.slides/baseshapelock/
 ---
 
 Represents a base class for locks (disabled operation).
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.BaseShapeLock
 

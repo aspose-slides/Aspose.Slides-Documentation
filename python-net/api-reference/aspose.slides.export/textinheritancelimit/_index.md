@@ -1,13 +1,13 @@
 ---
-title: TextInheritanceLimit Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextInheritanceLimit Enumeration
 type: docs
 weight: 820
-url: /python-net/api-reference/aspose.slides.export/textinheritancelimit/
+url: /slides/python-net/api-reference/aspose.slides.export/textinheritancelimit/
 ---
 
 Controls the depth of the text properties inheritance.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.TextInheritanceLimit
 

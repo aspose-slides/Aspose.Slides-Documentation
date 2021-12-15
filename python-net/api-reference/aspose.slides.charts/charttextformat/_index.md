@@ -1,13 +1,13 @@
 ---
-title: ChartTextFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartTextFormat Class
 type: docs
 weight: 270
-url: /python-net/api-reference/aspose.slides.charts/charttextformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/charttextformat/
 ---
 
 Specifies default text formatting for chart text elements.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartTextFormat
 

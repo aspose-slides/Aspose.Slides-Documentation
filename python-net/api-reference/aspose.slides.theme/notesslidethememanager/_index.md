@@ -1,13 +1,13 @@
 ---
-title: NotesSlideThemeManager Class - Aspose.Slides for Python via .NET - API Reference
+title: NotesSlideThemeManager Class
 type: docs
 weight: 420
-url: /python-net/api-reference/aspose.slides.theme/notesslidethememanager/
+url: /slides/python-net/api-reference/aspose.slides.theme/notesslidethememanager/
 ---
 
 Provides access to notes slide theme overriden.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.NotesSlideThemeManager
 

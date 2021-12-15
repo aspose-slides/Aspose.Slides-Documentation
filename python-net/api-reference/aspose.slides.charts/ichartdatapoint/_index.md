@@ -1,13 +1,13 @@
 ---
-title: IChartDataPoint Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartDataPoint Class
 type: docs
 weight: 530
-url: /python-net/api-reference/aspose.slides.charts/ichartdatapoint/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartdatapoint/
 ---
 
 Represents series data point.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartDataPoint
 

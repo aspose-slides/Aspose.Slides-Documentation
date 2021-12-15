@@ -1,13 +1,13 @@
 ---
-title: MathLimitLocations Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathLimitLocations Enumeration
 type: docs
 weight: 940
-url: /python-net/api-reference/aspose.slides.mathtext/mathlimitlocations/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathlimitlocations/
 ---
 
 Location of limits (subscript/superscript) in n-ary operators.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathLimitLocations
 

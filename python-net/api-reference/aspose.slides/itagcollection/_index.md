@@ -1,13 +1,13 @@
 ---
-title: ITagCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ITagCollection Class
 type: docs
 weight: 2670
-url: /python-net/api-reference/aspose.slides/itagcollection/
+url: /slides/python-net/api-reference/aspose.slides/itagcollection/
 ---
 
 Represents the collection of tags (user defined pairs of strings)
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITagCollection
 

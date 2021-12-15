@@ -1,13 +1,13 @@
 ---
-title: MathArray Class - Aspose.Slides for Python via .NET - API Reference
+title: MathArray Class
 type: docs
 weight: 480
-url: /python-net/api-reference/aspose.slides.mathtext/matharray/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/matharray/
 ---
 
 Specifies a vertical array of equations or any mathematical objects
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathArray
 

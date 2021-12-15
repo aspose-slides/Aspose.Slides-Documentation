@@ -1,13 +1,13 @@
 ---
-title: ChartLinesFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartLinesFormat Class
 type: docs
 weight: 210
-url: /python-net/api-reference/aspose.slides.charts/chartlinesformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartlinesformat/
 ---
 
 Represents gridlines format properties.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartLinesFormat
 

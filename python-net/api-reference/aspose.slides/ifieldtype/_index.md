@@ -1,13 +1,13 @@
 ---
-title: IFieldType Class - Aspose.Slides for Python via .NET - API Reference
+title: IFieldType Class
 type: docs
 weight: 1310
-url: /python-net/api-reference/aspose.slides/ifieldtype/
+url: /slides/python-net/api-reference/aspose.slides/ifieldtype/
 ---
 
 Represents a type of field. <br/>            This value determines which text will be set to the field portion when it will be updated.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFieldType
 

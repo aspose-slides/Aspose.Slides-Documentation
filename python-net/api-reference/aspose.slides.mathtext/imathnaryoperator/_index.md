@@ -1,13 +1,13 @@
 ---
-title: IMathNaryOperator Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathNaryOperator Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides.mathtext/imathnaryoperator/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperator/
 ---
 
 Specifies an N-ary mathematical object, such as Summation and Integral.<br/>            It consists of an operator, a base (or operand), and optional upper and lower limits. <br/>            Examples of N-ary operators are: Summation, Union, Intersection, Integral
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathNaryOperator
 

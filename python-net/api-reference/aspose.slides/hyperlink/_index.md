@@ -1,13 +1,13 @@
 ---
-title: Hyperlink Class - Aspose.Slides for Python via .NET - API Reference
+title: Hyperlink Class
 type: docs
 weight: 720
-url: /python-net/api-reference/aspose.slides/hyperlink/
+url: /slides/python-net/api-reference/aspose.slides/hyperlink/
 ---
 
 Represents a hyperlink.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Hyperlink
 

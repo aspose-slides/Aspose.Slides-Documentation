@@ -1,13 +1,13 @@
 ---
-title: IMathFunctionFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathFunctionFactory Class
 type: docs
 weight: 220
-url: /python-net/api-reference/aspose.slides.mathtext/imathfunctionfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathfunctionfactory/
 ---
 
 Allows to create a math function
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathFunctionFactory
 

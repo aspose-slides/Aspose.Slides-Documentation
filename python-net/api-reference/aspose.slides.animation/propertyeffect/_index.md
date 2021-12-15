@@ -1,13 +1,13 @@
 ---
-title: PropertyEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: PropertyEffect Class
 type: docs
 weight: 410
-url: /python-net/api-reference/aspose.slides.animation/propertyeffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/propertyeffect/
 ---
 
 Represent property effect behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.PropertyEffect
 

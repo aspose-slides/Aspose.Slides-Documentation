@@ -1,13 +1,13 @@
 ---
-title: IThreeDFormatEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IThreeDFormatEffectiveData Class
 type: docs
 weight: 2750
-url: /python-net/api-reference/aspose.slides/ithreedformateffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/ithreedformateffectivedata/
 ---
 
 Immutable object which represents effective 3-D formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IThreeDFormatEffectiveData
 

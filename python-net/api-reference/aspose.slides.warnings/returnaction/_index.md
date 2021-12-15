@@ -1,13 +1,13 @@
 ---
-title: ReturnAction Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ReturnAction Enumeration
 type: docs
 weight: 70
-url: /python-net/api-reference/aspose.slides.warnings/returnaction/
+url: /slides/python-net/api-reference/aspose.slides.warnings/returnaction/
 ---
 
 Represents warning callback decision options.
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Name:** aspose.slides.warnings.ReturnAction
 

@@ -1,13 +1,13 @@
 ---
-title: GradientDirection Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: GradientDirection Enumeration
 type: docs
 weight: 9440
-url: /python-net/api-reference/aspose.slides/gradientdirection/
+url: /slides/python-net/api-reference/aspose.slides/gradientdirection/
 ---
 
 Represents the gradient style.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.GradientDirection
 

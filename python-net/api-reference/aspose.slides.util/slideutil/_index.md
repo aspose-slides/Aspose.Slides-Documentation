@@ -1,13 +1,13 @@
 ---
-title: SlideUtil Class - Aspose.Slides for Python via .NET - API Reference
+title: SlideUtil Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.util/slideutil/
+url: /slides/python-net/api-reference/aspose.slides.util/slideutil/
 ---
 
 Offer methods which help to search shapes and text in a presentation.
 
-**Namespace:** [aspose.slides.util](/python-net/api-reference/aspose.slides.util/)
+**Namespace:** [aspose.slides.util](/slides/python-net/api-reference/aspose.slides.util/)
 
 **Full Class Name:** aspose.slides.util.SlideUtil
 

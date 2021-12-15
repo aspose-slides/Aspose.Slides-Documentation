@@ -1,13 +1,13 @@
 ---
-title: Marker Class - Aspose.Slides for Python via .NET - API Reference
+title: Marker Class
 type: docs
 weight: 1010
-url: /python-net/api-reference/aspose.slides.charts/marker/
+url: /slides/python-net/api-reference/aspose.slides.charts/marker/
 ---
 
 Represents marker of a chert.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.Marker
 

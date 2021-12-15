@@ -1,13 +1,13 @@
 ---
-title: HSLEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: HSLEffectiveData Class
 type: docs
 weight: 330
-url: /python-net/api-reference/aspose.slides.effects/hsleffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/hsleffectivedata/
 ---
 
 Represents a Hue/Saturation/Luminance effect.<br/>            The hue, saturation, and luminance may each be adjusted relative to its current value.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.HSLEffectiveData
 

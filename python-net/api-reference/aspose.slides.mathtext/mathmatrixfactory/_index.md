@@ -1,13 +1,13 @@
 ---
-title: MathMatrixFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathMatrixFactory Class
 type: docs
 weight: 710
-url: /python-net/api-reference/aspose.slides.mathtext/mathmatrixfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathmatrixfactory/
 ---
 
 Allows to create a math matrix
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathMatrixFactory
 

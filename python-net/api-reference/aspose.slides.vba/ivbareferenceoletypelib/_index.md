@@ -1,13 +1,13 @@
 ---
-title: IVbaReferenceOleTypeLib Class - Aspose.Slides for Python via .NET - API Reference
+title: IVbaReferenceOleTypeLib Class
 type: docs
 weight: 90
-url: /python-net/api-reference/aspose.slides.vba/ivbareferenceoletypelib/
+url: /slides/python-net/api-reference/aspose.slides.vba/ivbareferenceoletypelib/
 ---
 
 Represents OLE Automation type library reference.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.IVbaReferenceOleTypeLib
 

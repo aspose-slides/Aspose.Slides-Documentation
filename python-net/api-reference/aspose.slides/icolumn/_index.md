@@ -1,13 +1,13 @@
 ---
-title: IColumn Class - Aspose.Slides for Python via .NET - API Reference
+title: IColumn Class
 type: docs
 weight: 1070
-url: /python-net/api-reference/aspose.slides/icolumn/
+url: /slides/python-net/api-reference/aspose.slides/icolumn/
 ---
 
 Represents a column in a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IColumn
 

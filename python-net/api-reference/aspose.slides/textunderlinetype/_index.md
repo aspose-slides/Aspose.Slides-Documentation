@@ -1,13 +1,13 @@
 ---
-title: TextUnderlineType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextUnderlineType Enumeration
 type: docs
 weight: 10010
-url: /python-net/api-reference/aspose.slides/textunderlinetype/
+url: /slides/python-net/api-reference/aspose.slides/textunderlinetype/
 ---
 
 Represents the type of text underline.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextUnderlineType
 

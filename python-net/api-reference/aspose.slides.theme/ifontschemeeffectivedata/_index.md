@@ -1,13 +1,13 @@
 ---
-title: IFontSchemeEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontSchemeEffectiveData Class
 type: docs
 weight: 230
-url: /python-net/api-reference/aspose.slides.theme/ifontschemeeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.theme/ifontschemeeffectivedata/
 ---
 
 Immutable object which contains effective font scheme properties.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IFontSchemeEffectiveData
 

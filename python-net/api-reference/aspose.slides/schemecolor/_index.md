@@ -1,13 +1,13 @@
 ---
-title: SchemeColor Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SchemeColor Enumeration
 type: docs
 weight: 9790
-url: /python-net/api-reference/aspose.slides/schemecolor/
+url: /slides/python-net/api-reference/aspose.slides/schemecolor/
 ---
 
 Represents colors in a color scheme.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.SchemeColor
 

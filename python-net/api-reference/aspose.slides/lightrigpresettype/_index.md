@@ -1,13 +1,13 @@
 ---
-title: LightRigPresetType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LightRigPresetType Enumeration
 type: docs
 weight: 9480
-url: /python-net/api-reference/aspose.slides/lightrigpresettype/
+url: /slides/python-net/api-reference/aspose.slides/lightrigpresettype/
 ---
 
 Constants which define light preset types.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.LightRigPresetType
 

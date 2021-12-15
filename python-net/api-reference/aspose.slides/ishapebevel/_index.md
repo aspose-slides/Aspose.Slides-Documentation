@@ -1,13 +1,13 @@
 ---
-title: IShapeBevel Class - Aspose.Slides for Python via .NET - API Reference
+title: IShapeBevel Class
 type: docs
 weight: 2400
-url: /python-net/api-reference/aspose.slides/ishapebevel/
+url: /slides/python-net/api-reference/aspose.slides/ishapebevel/
 ---
 
 Represents properties of shape's main face relief.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IShapeBevel
 

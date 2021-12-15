@@ -1,13 +1,13 @@
 ---
-title: SmartArtColorType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SmartArtColorType Enumeration
 type: docs
 weight: 120
-url: /python-net/api-reference/aspose.slides.smartart/smartartcolortype/
+url: /slides/python-net/api-reference/aspose.slides.smartart/smartartcolortype/
 ---
 
 Represents color scheme of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Name:** aspose.slides.smartart.SmartArtColorType
 

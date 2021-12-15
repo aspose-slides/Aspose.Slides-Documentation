@@ -1,13 +1,13 @@
 ---
-title: Conformance Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: Conformance Enumeration
 type: docs
 weight: 690
-url: /python-net/api-reference/aspose.slides.export/conformance/
+url: /slides/python-net/api-reference/aspose.slides.export/conformance/
 ---
 
 Specifies the conformance class to which the PresentationML document conforms.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.Conformance
 

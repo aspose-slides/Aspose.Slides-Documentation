@@ -1,13 +1,13 @@
 ---
-title: MathSuperscriptElement Class - Aspose.Slides for Python via .NET - API Reference
+title: MathSuperscriptElement Class
 type: docs
 weight: 830
-url: /python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelement/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelement/
 ---
 
 Specifies the superscript object, which consists of a base <br/>            and a reduced-size superscript placed above and to the right
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathSuperscriptElement
 

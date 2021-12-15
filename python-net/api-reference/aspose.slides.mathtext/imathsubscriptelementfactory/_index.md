@@ -1,13 +1,13 @@
 ---
-title: IMathSubscriptElementFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathSubscriptElementFactory Class
 type: docs
 weight: 410
-url: /python-net/api-reference/aspose.slides.mathtext/imathsubscriptelementfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathsubscriptelementfactory/
 ---
 
 Allows to create IMathSubscriptElement
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathSubscriptElementFactory
 

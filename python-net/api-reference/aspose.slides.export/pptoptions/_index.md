@@ -1,13 +1,13 @@
 ---
-title: PptOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: PptOptions Class
 type: docs
 weight: 400
-url: /python-net/api-reference/aspose.slides.export/pptoptions/
+url: /slides/python-net/api-reference/aspose.slides.export/pptoptions/
 ---
 
 Provides options that control how a presentation is saved in PPT format.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.PptOptions
 

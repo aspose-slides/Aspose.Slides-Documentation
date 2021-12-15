@@ -1,13 +1,13 @@
 ---
-title: FillType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: FillType Enumeration
 type: docs
 weight: 9400
-url: /python-net/api-reference/aspose.slides/filltype/
+url: /slides/python-net/api-reference/aspose.slides/filltype/
 ---
 
 Specifies the interior fill type of various visual objects.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.FillType
 

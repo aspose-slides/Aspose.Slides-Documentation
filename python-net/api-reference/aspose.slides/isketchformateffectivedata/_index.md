@@ -1,13 +1,13 @@
 ---
-title: ISketchFormatEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: ISketchFormatEffectiveData Class
 type: docs
 weight: 2470
-url: /python-net/api-reference/aspose.slides/isketchformateffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/isketchformateffectivedata/
 ---
 
 Immutable object which contains effective line sketch properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ISketchFormatEffectiveData
 

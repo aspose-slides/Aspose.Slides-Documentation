@@ -1,13 +1,13 @@
 ---
-title: DisplayBlanksAsType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: DisplayBlanksAsType Enumeration
 type: docs
 weight: 1190
-url: /python-net/api-reference/aspose.slides.charts/displayblanksastype/
+url: /slides/python-net/api-reference/aspose.slides.charts/displayblanksastype/
 ---
 
 Determines how missing data will be displayed.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.DisplayBlanksAsType
 

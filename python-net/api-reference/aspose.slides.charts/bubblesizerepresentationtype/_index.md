@@ -1,13 +1,13 @@
 ---
-title: BubbleSizeRepresentationType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: BubbleSizeRepresentationType Enumeration
 type: docs
 weight: 1110
-url: /python-net/api-reference/aspose.slides.charts/bubblesizerepresentationtype/
+url: /slides/python-net/api-reference/aspose.slides.charts/bubblesizerepresentationtype/
 ---
 
 Specifies the possible ways to represent data as bubble chart sizes.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.BubbleSizeRepresentationType
 

@@ -1,13 +1,13 @@
 ---
-title: IHtmlFormattingController Class - Aspose.Slides for Python via .NET - API Reference
+title: IHtmlFormattingController Class
 type: docs
 weight: 140
-url: /python-net/api-reference/aspose.slides.export/ihtmlformattingcontroller/
+url: /slides/python-net/api-reference/aspose.slides.export/ihtmlformattingcontroller/
 ---
 
 Controls a html file generation.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.IHtmlFormattingController
 

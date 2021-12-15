@@ -1,13 +1,13 @@
 ---
-title: IChart Class - Aspose.Slides for Python via .NET - API Reference
+title: IChart Class
 type: docs
 weight: 450
-url: /python-net/api-reference/aspose.slides.charts/ichart/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichart/
 ---
 
 Represents an graphic chart on a slide.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChart
 

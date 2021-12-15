@@ -1,13 +1,13 @@
 ---
-title: MathRightSubSuperscriptElementFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathRightSubSuperscriptElementFactory Class
 type: docs
 weight: 800
-url: /python-net/api-reference/aspose.slides.mathtext/mathrightsubsuperscriptelementfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathrightsubsuperscriptelementfactory/
 ---
 
 Allows to create IMathRightSubSuperscriptElementFactory
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathRightSubSuperscriptElementFactory
 

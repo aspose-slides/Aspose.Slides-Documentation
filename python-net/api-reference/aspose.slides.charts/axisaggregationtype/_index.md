@@ -1,13 +1,13 @@
 ---
-title: AxisAggregationType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: AxisAggregationType Enumeration
 type: docs
 weight: 1090
-url: /python-net/api-reference/aspose.slides.charts/axisaggregationtype/
+url: /slides/python-net/api-reference/aspose.slides.charts/axisaggregationtype/
 ---
 
 Represents aggregation type of category axis. Used with Histogram or HistogramPareto series only.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.AxisAggregationType
 

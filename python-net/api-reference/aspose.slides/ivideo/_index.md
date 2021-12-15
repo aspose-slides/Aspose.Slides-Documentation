@@ -1,13 +1,13 @@
 ---
-title: IVideo Class - Aspose.Slides for Python via .NET - API Reference
+title: IVideo Class
 type: docs
 weight: 2770
-url: /python-net/api-reference/aspose.slides/ivideo/
+url: /slides/python-net/api-reference/aspose.slides/ivideo/
 ---
 
 Represents a video embedded into a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IVideo
 

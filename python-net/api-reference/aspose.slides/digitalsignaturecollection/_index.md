@@ -1,13 +1,13 @@
 ---
-title: DigitalSignatureCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: DigitalSignatureCollection Class
 type: docs
 weight: 430
-url: /python-net/api-reference/aspose.slides/digitalsignaturecollection/
+url: /slides/python-net/api-reference/aspose.slides/digitalsignaturecollection/
 ---
 
 Represents a collection of digital signatures attached to a document.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.DigitalSignatureCollection
 

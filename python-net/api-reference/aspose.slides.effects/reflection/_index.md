@@ -1,13 +1,13 @@
 ---
-title: Reflection Class - Aspose.Slides for Python via .NET - API Reference
+title: Reflection Class
 type: docs
 weight: 980
-url: /python-net/api-reference/aspose.slides.effects/reflection/
+url: /slides/python-net/api-reference/aspose.slides.effects/reflection/
 ---
 
 Represents a Reflection effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.Reflection
 

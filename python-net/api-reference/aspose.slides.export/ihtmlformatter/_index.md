@@ -1,13 +1,13 @@
 ---
-title: IHtmlFormatter Class - Aspose.Slides for Python via .NET - API Reference
+title: IHtmlFormatter Class
 type: docs
 weight: 130
-url: /python-net/api-reference/aspose.slides.export/ihtmlformatter/
+url: /slides/python-net/api-reference/aspose.slides.export/ihtmlformatter/
 ---
 
 Represents HTML file template.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.IHtmlFormatter
 

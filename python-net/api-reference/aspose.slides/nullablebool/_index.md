@@ -1,13 +1,13 @@
 ---
-title: NullableBool Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: NullableBool Enumeration
 type: docs
 weight: 9630
-url: /python-net/api-reference/aspose.slides/nullablebool/
+url: /slides/python-net/api-reference/aspose.slides/nullablebool/
 ---
 
 Represents triple boolean values.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.NullableBool
 

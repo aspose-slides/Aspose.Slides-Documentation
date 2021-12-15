@@ -1,13 +1,13 @@
 ---
-title: ISplitTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: ISplitTransition Class
 type: docs
 weight: 200
-url: /python-net/api-reference/aspose.slides.slideshow/isplittransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/isplittransition/
 ---
 
 Split slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.ISplitTransition
 

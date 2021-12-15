@@ -1,13 +1,13 @@
 ---
-title: ResourceLoadingAction Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ResourceLoadingAction Enumeration
 type: docs
 weight: 9780
-url: /python-net/api-reference/aspose.slides/resourceloadingaction/
+url: /slides/python-net/api-reference/aspose.slides/resourceloadingaction/
 ---
 
 Specifies the mode of external resource loading.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ResourceLoadingAction
 

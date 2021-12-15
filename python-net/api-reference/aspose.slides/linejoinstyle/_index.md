@@ -1,13 +1,13 @@
 ---
-title: LineJoinStyle Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LineJoinStyle Enumeration
 type: docs
 weight: 9560
-url: /python-net/api-reference/aspose.slides/linejoinstyle/
+url: /slides/python-net/api-reference/aspose.slides/linejoinstyle/
 ---
 
 Represents the lines join style.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.LineJoinStyle
 

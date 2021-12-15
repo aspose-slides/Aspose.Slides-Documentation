@@ -1,13 +1,13 @@
 ---
-title: MathHorizontalAlignment Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathHorizontalAlignment Enumeration
 type: docs
 weight: 910
-url: /python-net/api-reference/aspose.slides.mathtext/mathhorizontalalignment/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathhorizontalalignment/
 ---
 
 Horizontal Alignment
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathHorizontalAlignment
 

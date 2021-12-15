@@ -1,13 +1,13 @@
 ---
-title: IShapeFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: IShapeFrame Class
 type: docs
 weight: 2440
-url: /python-net/api-reference/aspose.slides/ishapeframe/
+url: /slides/python-net/api-reference/aspose.slides/ishapeframe/
 ---
 
 Represents shape frame's properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IShapeFrame
 

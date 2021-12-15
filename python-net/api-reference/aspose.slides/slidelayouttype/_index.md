@@ -1,13 +1,13 @@
 ---
-title: SlideLayoutType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SlideLayoutType Enumeration
 type: docs
 weight: 9850
-url: /python-net/api-reference/aspose.slides/slidelayouttype/
+url: /slides/python-net/api-reference/aspose.slides/slidelayouttype/
 ---
 
 Represents the slide layout type.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.SlideLayoutType
 

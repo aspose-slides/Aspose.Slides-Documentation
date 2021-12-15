@@ -1,13 +1,13 @@
 ---
-title: GradientStop Class - Aspose.Slides for Python via .NET - API Reference
+title: GradientStop Class
 type: docs
 weight: 640
-url: /python-net/api-reference/aspose.slides/gradientstop/
+url: /slides/python-net/api-reference/aspose.slides/gradientstop/
 ---
 
 Represents a gradient format.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GradientStop
 

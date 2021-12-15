@@ -1,13 +1,13 @@
 ---
-title: IGeometryPath Class - Aspose.Slides for Python via .NET - API Reference
+title: IGeometryPath Class
 type: docs
 weight: 1470
-url: /python-net/api-reference/aspose.slides/igeometrypath/
+url: /slides/python-net/api-reference/aspose.slides/igeometrypath/
 ---
 
 Represents geometry path of GeometryShape
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IGeometryPath
 

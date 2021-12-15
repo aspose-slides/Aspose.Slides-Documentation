@@ -1,13 +1,13 @@
 ---
-title: IAxis Class - Aspose.Slides for Python via .NET - API Reference
+title: IAxis Class
 type: docs
 weight: 420
-url: /python-net/api-reference/aspose.slides.charts/iaxis/
+url: /slides/python-net/api-reference/aspose.slides.charts/iaxis/
 ---
 
 Encapsulates the object that represents a chart's axis.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IAxis
 

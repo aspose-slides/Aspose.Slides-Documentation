@@ -1,13 +1,13 @@
 ---
-title: TransitionSideDirectionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionSideDirectionType Enumeration
 type: docs
 weight: 440
-url: /python-net/api-reference/aspose.slides.slideshow/transitionsidedirectiontype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionsidedirectiontype/
 ---
 
 Represent side direction transition types.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionSideDirectionType
 

@@ -1,13 +1,13 @@
 ---
-title: ISingleCellChartValue Class - Aspose.Slides for Python via .NET - API Reference
+title: ISingleCellChartValue Class
 type: docs
 weight: 920
-url: /python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/
+url: /slides/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/
 ---
 
 Represents a chart data cell.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ISingleCellChartValue
 

@@ -1,13 +1,13 @@
 ---
-title: TextAnimation Class - Aspose.Slides for Python via .NET - API Reference
+title: TextAnimation Class
 type: docs
 weight: 470
-url: /python-net/api-reference/aspose.slides.animation/textanimation/
+url: /slides/python-net/api-reference/aspose.slides.animation/textanimation/
 ---
 
 Represent text animation.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.TextAnimation
 

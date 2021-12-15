@@ -1,13 +1,13 @@
 ---
-title: IMathBorderBoxFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathBorderBoxFactory Class
 type: docs
 weight: 120
-url: /python-net/api-reference/aspose.slides.mathtext/imathborderboxfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathborderboxfactory/
 ---
 
 Allows to create a math border box
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathBorderBoxFactory
 

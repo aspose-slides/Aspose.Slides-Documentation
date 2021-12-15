@@ -1,13 +1,13 @@
 ---
-title: SmartArtLayoutType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SmartArtLayoutType Enumeration
 type: docs
 weight: 130
-url: /python-net/api-reference/aspose.slides.smartart/smartartlayouttype/
+url: /slides/python-net/api-reference/aspose.slides.smartart/smartartlayouttype/
 ---
 
 Represents layout type of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Name:** aspose.slides.smartart.SmartArtLayoutType
 

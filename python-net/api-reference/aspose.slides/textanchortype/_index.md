@@ -1,13 +1,13 @@
 ---
-title: TextAnchorType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextAnchorType Enumeration
 type: docs
 weight: 9950
-url: /python-net/api-reference/aspose.slides/textanchortype/
+url: /slides/python-net/api-reference/aspose.slides/textanchortype/
 ---
 
 text box alignment within a text area.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextAnchorType
 

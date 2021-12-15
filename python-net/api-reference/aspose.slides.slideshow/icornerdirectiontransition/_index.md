@@ -1,13 +1,13 @@
 ---
-title: ICornerDirectionTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: ICornerDirectionTransition Class
 type: docs
 weight: 60
-url: /python-net/api-reference/aspose.slides.slideshow/icornerdirectiontransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/icornerdirectiontransition/
 ---
 
 Corner direction slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.ICornerDirectionTransition
 

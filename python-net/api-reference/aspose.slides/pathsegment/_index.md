@@ -1,13 +1,13 @@
 ---
-title: PathSegment Class - Aspose.Slides for Python via .NET - API Reference
+title: PathSegment Class
 type: docs
 weight: 3240
-url: /python-net/api-reference/aspose.slides/pathsegment/
+url: /slides/python-net/api-reference/aspose.slides/pathsegment/
 ---
 
 Represents segment of graphics path of GeometryShape
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PathSegment
 

@@ -1,13 +1,13 @@
 ---
-title: CommentAuthor Class - Aspose.Slides for Python via .NET - API Reference
+title: CommentAuthor Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides/commentauthor/
+url: /slides/python-net/api-reference/aspose.slides/commentauthor/
 ---
 
 Represents an author of comments.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CommentAuthor
 

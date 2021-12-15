@@ -1,13 +1,13 @@
 ---
-title: SmartArt Class - Aspose.Slides for Python via .NET - API Reference
+title: SmartArt Class
 type: docs
 weight: 60
-url: /python-net/api-reference/aspose.slides.smartart/smartart/
+url: /slides/python-net/api-reference/aspose.slides.smartart/smartart/
 ---
 
 Represents a SmartArt diagram
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Class Name:** aspose.slides.smartart.SmartArt
 

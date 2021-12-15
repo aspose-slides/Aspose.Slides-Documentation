@@ -1,13 +1,13 @@
 ---
-title: AlphaInverse Class - Aspose.Slides for Python via .NET - API Reference
+title: AlphaInverse Class
 type: docs
 weight: 70
-url: /python-net/api-reference/aspose.slides.effects/alphainverse/
+url: /slides/python-net/api-reference/aspose.slides.effects/alphainverse/
 ---
 
 Represents an Alpha Inverse effect.<br/>            Alpha (opacity) values are inverted by subtracting from 100%.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.AlphaInverse
 

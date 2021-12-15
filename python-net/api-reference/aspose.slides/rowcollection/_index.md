@@ -1,13 +1,13 @@
 ---
-title: RowCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: RowCollection Class
 type: docs
 weight: 3520
-url: /python-net/api-reference/aspose.slides/rowcollection/
+url: /slides/python-net/api-reference/aspose.slides/rowcollection/
 ---
 
 Represents table row collection.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.RowCollection
 

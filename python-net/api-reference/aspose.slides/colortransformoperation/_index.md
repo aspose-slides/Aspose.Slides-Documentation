@@ -1,13 +1,13 @@
 ---
-title: ColorTransformOperation Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ColorTransformOperation Enumeration
 type: docs
 weight: 9360
-url: /python-net/api-reference/aspose.slides/colortransformoperation/
+url: /slides/python-net/api-reference/aspose.slides/colortransformoperation/
 ---
 
 Defines color transform operation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ColorTransformOperation
 

@@ -1,13 +1,13 @@
 ---
-title: LineArrowheadStyle Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LineArrowheadStyle Enumeration
 type: docs
 weight: 9520
-url: /python-net/api-reference/aspose.slides/linearrowheadstyle/
+url: /slides/python-net/api-reference/aspose.slides/linearrowheadstyle/
 ---
 
 Represents the style of an arrowhead.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.LineArrowheadStyle
 

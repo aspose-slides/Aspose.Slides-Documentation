@@ -1,13 +1,13 @@
 ---
-title: VbaReferenceFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: VbaReferenceFactory Class
 type: docs
 weight: 160
-url: /python-net/api-reference/aspose.slides.vba/vbareferencefactory/
+url: /slides/python-net/api-reference/aspose.slides.vba/vbareferencefactory/
 ---
 
 Allows to create VBA project references via COM interface
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.VbaReferenceFactory
 

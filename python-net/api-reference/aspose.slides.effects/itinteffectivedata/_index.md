@@ -1,13 +1,13 @@
 ---
-title: ITintEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: ITintEffectiveData Class
 type: docs
 weight: 850
-url: /python-net/api-reference/aspose.slides.effects/itinteffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/itinteffectivedata/
 ---
 
 Immutable object which represents a Tint effect.<br/>            Shifts effect color values towards/away from hue by the specified amount.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.ITintEffectiveData
 

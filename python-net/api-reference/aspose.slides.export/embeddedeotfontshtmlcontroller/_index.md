@@ -1,13 +1,13 @@
 ---
-title: EmbeddedEotFontsHtmlController Class - Aspose.Slides for Python via .NET - API Reference
+title: EmbeddedEotFontsHtmlController Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.export/embeddedeotfontshtmlcontroller/
+url: /slides/python-net/api-reference/aspose.slides.export/embeddedeotfontshtmlcontroller/
 ---
 
 The formatting controller class to use for fonts embedding in EOT format
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.EmbeddedEotFontsHtmlController
 

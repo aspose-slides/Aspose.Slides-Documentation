@@ -1,13 +1,13 @@
 ---
-title: TransitionLeftRightDirectionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionLeftRightDirectionType Enumeration
 type: docs
 weight: 400
-url: /python-net/api-reference/aspose.slides.slideshow/transitionleftrightdirectiontype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionleftrightdirectiontype/
 ---
 
 Specifies a direction restricted to the values of left and right.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionLeftRightDirectionType
 

@@ -1,13 +1,13 @@
 ---
-title: IFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IFormat Class
 type: docs
 weight: 810
-url: /python-net/api-reference/aspose.slides.charts/iformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/iformat/
 ---
 
 Represents chart format properties.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IFormat
 

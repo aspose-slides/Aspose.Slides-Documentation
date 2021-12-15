@@ -1,13 +1,13 @@
 ---
-title: LegendDataLabelPosition Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LegendDataLabelPosition Enumeration
 type: docs
 weight: 1240
-url: /python-net/api-reference/aspose.slides.charts/legenddatalabelposition/
+url: /slides/python-net/api-reference/aspose.slides.charts/legenddatalabelposition/
 ---
 
 Determines position of data labels.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.LegendDataLabelPosition
 

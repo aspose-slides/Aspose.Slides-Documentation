@@ -1,13 +1,13 @@
 ---
-title: IColorScheme Class - Aspose.Slides for Python via .NET - API Reference
+title: IColorScheme Class
 type: docs
 weight: 120
-url: /python-net/api-reference/aspose.slides.theme/icolorscheme/
+url: /slides/python-net/api-reference/aspose.slides.theme/icolorscheme/
 ---
 
 Stores theme-defined colors.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IColorScheme
 

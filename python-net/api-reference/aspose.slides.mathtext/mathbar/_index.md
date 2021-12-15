@@ -1,13 +1,13 @@
 ---
-title: MathBar Class - Aspose.Slides for Python via .NET - API Reference
+title: MathBar Class
 type: docs
 weight: 500
-url: /python-net/api-reference/aspose.slides.mathtext/mathbar/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathbar/
 ---
 
 Specifies the bar function, consisting of a base argument and an overbar or underbar
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathBar
 

@@ -1,13 +1,13 @@
 ---
-title: IImageTransformOperation Class - Aspose.Slides for Python via .NET - API Reference
+title: IImageTransformOperation Class
 type: docs
 weight: 690
-url: /python-net/api-reference/aspose.slides.effects/iimagetransformoperation/
+url: /slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/
 ---
 
 Represents abstract image transformation effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IImageTransformOperation
 

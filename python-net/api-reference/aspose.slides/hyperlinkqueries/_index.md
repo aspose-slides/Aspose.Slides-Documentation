@@ -1,13 +1,13 @@
 ---
-title: HyperlinkQueries Class - Aspose.Slides for Python via .NET - API Reference
+title: HyperlinkQueries Class
 type: docs
 weight: 740
-url: /python-net/api-reference/aspose.slides/hyperlinkqueries/
+url: /slides/python-net/api-reference/aspose.slides/hyperlinkqueries/
 ---
 
 Provide easy access to contained hyperlinks.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.HyperlinkQueries
 

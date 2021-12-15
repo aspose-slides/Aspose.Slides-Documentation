@@ -1,13 +1,13 @@
 ---
-title: IRippleTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: IRippleTransition Class
 type: docs
 weight: 170
-url: /python-net/api-reference/aspose.slides.slideshow/irippletransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/irippletransition/
 ---
 
 Ripple slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.IRippleTransition
 

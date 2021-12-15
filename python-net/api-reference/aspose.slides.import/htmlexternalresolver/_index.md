@@ -1,13 +1,13 @@
 ---
-title: HtmlExternalResolver Class - Aspose.Slides for Python via .NET - API Reference
+title: HtmlExternalResolver Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.import/htmlexternalresolver/
+url: /slides/python-net/api-reference/aspose.slides.import/htmlexternalresolver/
 ---
 
 Callback object used by HTML import routine to obtain referrenced objects such as images.
 
-**Namespace:** [aspose.slides.import](/python-net/api-reference/aspose.slides.import/)
+**Namespace:** [aspose.slides.import](/slides/python-net/api-reference/aspose.slides.import/)
 
 **Full Class Name:** aspose.slides.import.HtmlExternalResolver
 

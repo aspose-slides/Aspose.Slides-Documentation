@@ -1,13 +1,13 @@
 ---
-title: IChartSeriesGroupCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartSeriesGroupCollection Class
 type: docs
 weight: 670
-url: /python-net/api-reference/aspose.slides.charts/ichartseriesgroupcollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartseriesgroupcollection/
 ---
 
 Represents the collection of groups of combinable series.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartSeriesGroupCollection
 

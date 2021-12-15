@@ -1,13 +1,13 @@
 ---
-title: IFontsManager Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontsManager Class
 type: docs
 weight: 1450
-url: /python-net/api-reference/aspose.slides/ifontsmanager/
+url: /slides/python-net/api-reference/aspose.slides/ifontsmanager/
 ---
 
 Manages fonts across the presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFontsManager
 

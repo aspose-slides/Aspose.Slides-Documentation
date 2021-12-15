@@ -1,13 +1,13 @@
 ---
-title: RevealTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: RevealTransition Class
 type: docs
 weight: 280
-url: /python-net/api-reference/aspose.slides.slideshow/revealtransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/revealtransition/
 ---
 
 Reveal slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.RevealTransition
 

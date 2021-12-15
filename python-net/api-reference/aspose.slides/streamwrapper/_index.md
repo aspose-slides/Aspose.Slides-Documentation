@@ -1,13 +1,13 @@
 ---
-title: StreamWrapper Class - Aspose.Slides for Python via .NET - API Reference
+title: StreamWrapper Class
 type: docs
 weight: 3690
-url: /python-net/api-reference/aspose.slides/streamwrapper/
+url: /slides/python-net/api-reference/aspose.slides/streamwrapper/
 ---
 
 Aspose.IO.Stream wrapper for COM interface.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.StreamWrapper
 

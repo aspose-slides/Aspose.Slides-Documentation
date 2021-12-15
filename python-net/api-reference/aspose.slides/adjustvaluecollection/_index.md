@@ -1,13 +1,13 @@
 ---
-title: AdjustValueCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: AdjustValueCollection Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides/adjustvaluecollection/
+url: /slides/python-net/api-reference/aspose.slides/adjustvaluecollection/
 ---
 
 Reprasents a collection of shape's adjustments.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.AdjustValueCollection
 

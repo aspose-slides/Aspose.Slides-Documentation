@@ -1,13 +1,13 @@
 ---
-title: PathCommandType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PathCommandType Enumeration
 type: docs
 weight: 9670
-url: /python-net/api-reference/aspose.slides/pathcommandtype/
+url: /slides/python-net/api-reference/aspose.slides/pathcommandtype/
 ---
 
 Represents graphics path commands
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PathCommandType
 

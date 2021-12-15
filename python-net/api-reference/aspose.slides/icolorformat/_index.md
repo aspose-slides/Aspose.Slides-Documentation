@@ -1,13 +1,13 @@
 ---
-title: IColorFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IColorFormat Class
 type: docs
 weight: 1040
-url: /python-net/api-reference/aspose.slides/icolorformat/
+url: /slides/python-net/api-reference/aspose.slides/icolorformat/
 ---
 
 Represents a color used in a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IColorFormat
 

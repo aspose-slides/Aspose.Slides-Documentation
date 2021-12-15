@@ -1,13 +1,13 @@
 ---
-title: ErrorBarType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ErrorBarType Enumeration
 type: docs
 weight: 1210
-url: /python-net/api-reference/aspose.slides.charts/errorbartype/
+url: /slides/python-net/api-reference/aspose.slides.charts/errorbartype/
 ---
 
 Represents type of error bar
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.ErrorBarType
 

@@ -1,13 +1,13 @@
 ---
-title: XamlOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: XamlOptions Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.export.xaml/xamloptions/
+url: /slides/python-net/api-reference/aspose.slides.export.xaml/xamloptions/
 ---
 
 Options that control how a XAML document is saved.
 
-**Namespace:** [aspose.slides.export.xaml](/python-net/api-reference/aspose.slides.export.xaml/)
+**Namespace:** [aspose.slides.export.xaml](/slides/python-net/api-reference/aspose.slides.export.xaml/)
 
 **Full Class Name:** aspose.slides.export.xaml.XamlOptions
 

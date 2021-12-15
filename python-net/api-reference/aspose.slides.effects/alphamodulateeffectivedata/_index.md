@@ -1,13 +1,13 @@
 ---
-title: AlphaModulateEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: AlphaModulateEffectiveData Class
 type: docs
 weight: 100
-url: /python-net/api-reference/aspose.slides.effects/alphamodulateeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/alphamodulateeffectivedata/
 ---
 
 Immutable object which represents an Alpha Modulate effect.<br/>            Effect alpha (opacity) values are multiplied by a fixed percentage.<br/>            The effect container specifies an effect containing alpha values to modulate.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.AlphaModulateEffectiveData
 

@@ -1,13 +1,13 @@
 ---
-title: IThemeManager Class - Aspose.Slides for Python via .NET - API Reference
+title: IThemeManager Class
 type: docs
 weight: 360
-url: /python-net/api-reference/aspose.slides.theme/ithememanager/
+url: /slides/python-net/api-reference/aspose.slides.theme/ithememanager/
 ---
 
 Represent theme properties.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IThemeManager
 

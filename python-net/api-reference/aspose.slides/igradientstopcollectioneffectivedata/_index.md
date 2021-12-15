@@ -1,13 +1,13 @@
 ---
-title: IGradientStopCollectionEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IGradientStopCollectionEffectiveData Class
 type: docs
 weight: 1540
-url: /python-net/api-reference/aspose.slides/igradientstopcollectioneffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/igradientstopcollectioneffectivedata/
 ---
 
 Represents a collection of GradientStopDataEx objects.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IGradientStopCollectionEffectiveData
 

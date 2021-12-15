@@ -1,13 +1,13 @@
 ---
-title: EffectPresetClassType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectPresetClassType Enumeration
 type: docs
 weight: 590
-url: /python-net/api-reference/aspose.slides.animation/effectpresetclasstype/
+url: /slides/python-net/api-reference/aspose.slides.animation/effectpresetclasstype/
 ---
 
 Represent effect class types.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.EffectPresetClassType
 

@@ -1,13 +1,13 @@
 ---
-title: LineFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: LineFormat Class
 type: docs
 weight: 2950
-url: /python-net/api-reference/aspose.slides/lineformat/
+url: /slides/python-net/api-reference/aspose.slides/lineformat/
 ---
 
 Represents format of a line.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.LineFormat
 

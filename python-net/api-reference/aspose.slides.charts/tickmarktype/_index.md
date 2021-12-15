@@ -1,13 +1,13 @@
 ---
-title: TickMarkType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TickMarkType Enumeration
 type: docs
 weight: 1330
-url: /python-net/api-reference/aspose.slides.charts/tickmarktype/
+url: /slides/python-net/api-reference/aspose.slides.charts/tickmarktype/
 ---
 
 Represents the tick mark type for the specified axis.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.TickMarkType
 

@@ -1,13 +1,13 @@
 ---
-title: ILightRig Class - Aspose.Slides for Python via .NET - API Reference
+title: ILightRig Class
 type: docs
 weight: 1740
-url: /python-net/api-reference/aspose.slides/ilightrig/
+url: /slides/python-net/api-reference/aspose.slides/ilightrig/
 ---
 
 Represents LightRig.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ILightRig
 

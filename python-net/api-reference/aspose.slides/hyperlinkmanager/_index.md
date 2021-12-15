@@ -1,13 +1,13 @@
 ---
-title: HyperlinkManager Class - Aspose.Slides for Python via .NET - API Reference
+title: HyperlinkManager Class
 type: docs
 weight: 730
-url: /python-net/api-reference/aspose.slides/hyperlinkmanager/
+url: /slides/python-net/api-reference/aspose.slides/hyperlinkmanager/
 ---
 
 Provide hyperlinks management (adding, removing).
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.HyperlinkManager
 

@@ -1,13 +1,13 @@
 ---
-title: IPlaceholder Class - Aspose.Slides for Python via .NET - API Reference
+title: IPlaceholder Class
 type: docs
 weight: 2160
-url: /python-net/api-reference/aspose.slides/iplaceholder/
+url: /slides/python-net/api-reference/aspose.slides/iplaceholder/
 ---
 
 Represents a placeholder on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPlaceholder
 

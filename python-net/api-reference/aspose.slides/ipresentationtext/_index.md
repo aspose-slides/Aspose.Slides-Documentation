@@ -1,13 +1,13 @@
 ---
-title: IPresentationText Class - Aspose.Slides for Python via .NET - API Reference
+title: IPresentationText Class
 type: docs
 weight: 2270
-url: /python-net/api-reference/aspose.slides/ipresentationtext/
+url: /slides/python-net/api-reference/aspose.slides/ipresentationtext/
 ---
 
 Represents the text extracted from the slide
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPresentationText
 

@@ -1,13 +1,13 @@
 ---
-title: ICamera Class - Aspose.Slides for Python via .NET - API Reference
+title: ICamera Class
 type: docs
 weight: 980
-url: /python-net/api-reference/aspose.slides/icamera/
+url: /slides/python-net/api-reference/aspose.slides/icamera/
 ---
 
 Represents Camera.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICamera
 

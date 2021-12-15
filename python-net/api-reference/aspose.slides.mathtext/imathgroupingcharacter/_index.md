@@ -1,13 +1,13 @@
 ---
-title: IMathGroupingCharacter Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathGroupingCharacter Class
 type: docs
 weight: 230
-url: /python-net/api-reference/aspose.slides.mathtext/imathgroupingcharacter/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathgroupingcharacter/
 ---
 
 Specifies a grouping symbol above or below an expression, usually to highlight the relationship between elements
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathGroupingCharacter
 

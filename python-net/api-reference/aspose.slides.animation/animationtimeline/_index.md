@@ -1,13 +1,13 @@
 ---
-title: AnimationTimeLine Class - Aspose.Slides for Python via .NET - API Reference
+title: AnimationTimeLine Class
 type: docs
 weight: 10
-url: /python-net/api-reference/aspose.slides.animation/animationtimeline/
+url: /slides/python-net/api-reference/aspose.slides.animation/animationtimeline/
 ---
 
 Represents timeline of animation.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.AnimationTimeLine
 

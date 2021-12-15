@@ -1,13 +1,13 @@
 ---
-title: ILayoutable Class - Aspose.Slides for Python via .NET - API Reference
+title: ILayoutable Class
 type: docs
 weight: 830
-url: /python-net/api-reference/aspose.slides.charts/ilayoutable/
+url: /slides/python-net/api-reference/aspose.slides.charts/ilayoutable/
 ---
 
 Specifies the exact position of a chart element.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ILayoutable
 

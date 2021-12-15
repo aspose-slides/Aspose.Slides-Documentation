@@ -1,13 +1,13 @@
 ---
-title: ChartTypeCharacterizer Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartTypeCharacterizer Class
 type: docs
 weight: 290
-url: /python-net/api-reference/aspose.slides.charts/charttypecharacterizer/
+url: /slides/python-net/api-reference/aspose.slides.charts/charttypecharacterizer/
 ---
 
 Helper for getting additional information about charts and series by its ChartType.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartTypeCharacterizer
 

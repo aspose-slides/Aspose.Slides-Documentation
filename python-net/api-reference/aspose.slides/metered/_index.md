@@ -1,13 +1,13 @@
 ---
-title: Metered Class - Aspose.Slides for Python via .NET - API Reference
+title: Metered Class
 type: docs
 weight: 3050
-url: /python-net/api-reference/aspose.slides/metered/
+url: /slides/python-net/api-reference/aspose.slides/metered/
 ---
 
 Provides methods to set metered key.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Metered
 

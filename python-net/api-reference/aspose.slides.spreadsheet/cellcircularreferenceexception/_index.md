@@ -1,13 +1,13 @@
 ---
-title: CellCircularReferenceException Class - Aspose.Slides for Python via .NET - API Reference
+title: CellCircularReferenceException Class
 type: docs
 weight: 10
-url: /python-net/api-reference/aspose.slides.spreadsheet/cellcircularreferenceexception/
+url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellcircularreferenceexception/
 ---
 
 The exception that is thrown when one or more circular references are detected where a formula refers to its<br/>            own cell either directly or indirectly.
 
-**Namespace:** [aspose.slides.spreadsheet](/python-net/api-reference/aspose.slides.spreadsheet/)
+**Namespace:** [aspose.slides.spreadsheet](/slides/python-net/api-reference/aspose.slides.spreadsheet/)
 
 **Full Class Name:** aspose.slides.spreadsheet.CellCircularReferenceException
 

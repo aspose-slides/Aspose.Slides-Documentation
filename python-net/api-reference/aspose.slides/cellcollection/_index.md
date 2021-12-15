@@ -1,13 +1,13 @@
 ---
-title: CellCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: CellCollection Class
 type: docs
 weight: 210
-url: /python-net/api-reference/aspose.slides/cellcollection/
+url: /slides/python-net/api-reference/aspose.slides/cellcollection/
 ---
 
 Represents a collection of cells.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CellCollection
 

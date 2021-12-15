@@ -1,13 +1,13 @@
 ---
-title: RotationEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: RotationEffect Class
 type: docs
 weight: 420
-url: /python-net/api-reference/aspose.slides.animation/rotationeffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/rotationeffect/
 ---
 
 Represent rotation behavior of effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.RotationEffect
 

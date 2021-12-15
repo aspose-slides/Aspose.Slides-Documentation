@@ -1,13 +1,13 @@
 ---
-title: IPresetShadow Class - Aspose.Slides for Python via .NET - API Reference
+title: IPresetShadow Class
 type: docs
 weight: 780
-url: /python-net/api-reference/aspose.slides.effects/ipresetshadow/
+url: /slides/python-net/api-reference/aspose.slides.effects/ipresetshadow/
 ---
 
 Represents a Preset Shadow effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IPresetShadow
 

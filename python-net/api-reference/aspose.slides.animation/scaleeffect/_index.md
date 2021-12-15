@@ -1,13 +1,13 @@
 ---
-title: ScaleEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: ScaleEffect Class
 type: docs
 weight: 430
-url: /python-net/api-reference/aspose.slides.animation/scaleeffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/scaleeffect/
 ---
 
 Represents animation scale effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.ScaleEffect
 

@@ -1,13 +1,13 @@
 ---
-title: ILuminance Class - Aspose.Slides for Python via .NET - API Reference
+title: ILuminance Class
 type: docs
 weight: 740
-url: /python-net/api-reference/aspose.slides.effects/iluminance/
+url: /slides/python-net/api-reference/aspose.slides.effects/iluminance/
 ---
 
 Represents a Luminance effect.<br/>            Brightness linearly shifts all colors closer to white or black.<br/>            Contrast scales all colors to be either closer or further apart.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.ILuminance
 

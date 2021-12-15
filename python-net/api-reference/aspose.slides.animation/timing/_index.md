@@ -1,13 +1,13 @@
 ---
-title: Timing Class - Aspose.Slides for Python via .NET - API Reference
+title: Timing Class
 type: docs
 weight: 490
-url: /python-net/api-reference/aspose.slides.animation/timing/
+url: /slides/python-net/api-reference/aspose.slides.animation/timing/
 ---
 
 Represents animation timing.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.Timing
 

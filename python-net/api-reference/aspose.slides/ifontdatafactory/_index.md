@@ -1,13 +1,13 @@
 ---
-title: IFontDataFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontDataFactory Class
 type: docs
 weight: 1360
-url: /python-net/api-reference/aspose.slides/ifontdatafactory/
+url: /slides/python-net/api-reference/aspose.slides/ifontdatafactory/
 ---
 
 FontData factory interface
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFontDataFactory
 

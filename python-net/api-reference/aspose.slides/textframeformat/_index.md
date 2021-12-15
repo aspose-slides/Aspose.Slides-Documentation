@@ -1,13 +1,13 @@
 ---
-title: TextFrameFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: TextFrameFormat Class
 type: docs
 weight: 3790
-url: /python-net/api-reference/aspose.slides/textframeformat/
+url: /slides/python-net/api-reference/aspose.slides/textframeformat/
 ---
 
 Contains the TextFrame's formatTextFrameFormatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.TextFrameFormat
 

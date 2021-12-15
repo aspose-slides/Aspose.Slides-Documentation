@@ -1,13 +1,13 @@
 ---
-title: PictureFillMode Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PictureFillMode Enumeration
 type: docs
 weight: 9710
-url: /python-net/api-reference/aspose.slides/picturefillmode/
+url: /slides/python-net/api-reference/aspose.slides/picturefillmode/
 ---
 
 Determines how picture will fill area.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PictureFillMode
 

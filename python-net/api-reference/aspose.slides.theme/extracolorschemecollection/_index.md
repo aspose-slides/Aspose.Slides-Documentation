@@ -1,13 +1,13 @@
 ---
-title: ExtraColorSchemeCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ExtraColorSchemeCollection Class
 type: docs
 weight: 80
-url: /python-net/api-reference/aspose.slides.theme/extracolorschemecollection/
+url: /slides/python-net/api-reference/aspose.slides.theme/extracolorschemecollection/
 ---
 
 Represents a collection of additional color schemes.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.ExtraColorSchemeCollection
 

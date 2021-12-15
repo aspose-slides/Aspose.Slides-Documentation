@@ -1,13 +1,13 @@
 ---
-title: ISoftEdgeEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: ISoftEdgeEffectiveData Class
 type: docs
 weight: 830
-url: /python-net/api-reference/aspose.slides.effects/isoftedgeeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/isoftedgeeffectivedata/
 ---
 
 Immutable object which represents a soft edge effect. <br/>            The edges of the shape are blurred, while the fill is not affected.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.ISoftEdgeEffectiveData
 

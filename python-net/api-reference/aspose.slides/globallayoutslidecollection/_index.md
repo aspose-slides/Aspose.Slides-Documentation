@@ -1,13 +1,13 @@
 ---
-title: GlobalLayoutSlideCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: GlobalLayoutSlideCollection Class
 type: docs
 weight: 620
-url: /python-net/api-reference/aspose.slides/globallayoutslidecollection/
+url: /slides/python-net/api-reference/aspose.slides/globallayoutslidecollection/
 ---
 
 Represents a collection of all layout slides in presentation.<br/>            Extends LayoutSlideCollection class with methods for adding/cloning <br/>            layout slides in context of uniting of the individual collections of master's layout slides.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GlobalLayoutSlideCollection
 

@@ -1,13 +1,13 @@
 ---
-title: ChartCategoryCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartCategoryCollection Class
 type: docs
 weight: 90
-url: /python-net/api-reference/aspose.slides.charts/chartcategorycollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartcategorycollection/
 ---
 
 Represents collection of [ChartCategory](/python-net/api-reference/aspose.slides.charts/chartcategory/)
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartCategoryCollection
 

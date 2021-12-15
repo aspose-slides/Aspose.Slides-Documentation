@@ -1,13 +1,13 @@
 ---
-title: PVIObject Class - Aspose.Slides for Python via .NET - API Reference
+title: PVIObject Class
 type: docs
 weight: 3190
-url: /python-net/api-reference/aspose.slides/pviobject/
+url: /slides/python-net/api-reference/aspose.slides/pviobject/
 ---
 
 Encapsulates basic service infrastructure for objects can be a subject of property value inheritance.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PVIObject
 

@@ -1,13 +1,13 @@
 ---
-title: ICustomXmlPartCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ICustomXmlPartCollection Class
 type: docs
 weight: 1230
-url: /python-net/api-reference/aspose.slides/icustomxmlpartcollection/
+url: /slides/python-net/api-reference/aspose.slides/icustomxmlpartcollection/
 ---
 
 Represents collection of custom xml parts.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICustomXmlPartCollection
 

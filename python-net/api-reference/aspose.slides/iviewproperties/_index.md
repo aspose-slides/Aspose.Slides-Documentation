@@ -1,13 +1,13 @@
 ---
-title: IViewProperties Class - Aspose.Slides for Python via .NET - API Reference
+title: IViewProperties Class
 type: docs
 weight: 2800
-url: /python-net/api-reference/aspose.slides/iviewproperties/
+url: /slides/python-net/api-reference/aspose.slides/iviewproperties/
 ---
 
 Presentation wide view properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IViewProperties
 

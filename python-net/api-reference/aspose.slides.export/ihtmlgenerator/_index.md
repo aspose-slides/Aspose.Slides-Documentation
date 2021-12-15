@@ -1,13 +1,13 @@
 ---
-title: IHtmlGenerator Class - Aspose.Slides for Python via .NET - API Reference
+title: IHtmlGenerator Class
 type: docs
 weight: 150
-url: /python-net/api-reference/aspose.slides.export/ihtmlgenerator/
+url: /slides/python-net/api-reference/aspose.slides.export/ihtmlgenerator/
 ---
 
 Html generator.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.IHtmlGenerator
 

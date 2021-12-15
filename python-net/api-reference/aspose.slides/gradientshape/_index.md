@@ -1,13 +1,13 @@
 ---
-title: GradientShape Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: GradientShape Enumeration
 type: docs
 weight: 9450
-url: /python-net/api-reference/aspose.slides/gradientshape/
+url: /slides/python-net/api-reference/aspose.slides/gradientshape/
 ---
 
 Represents the shape of gradient fill.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.GradientShape
 

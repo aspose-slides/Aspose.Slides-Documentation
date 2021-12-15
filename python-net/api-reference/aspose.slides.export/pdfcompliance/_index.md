@@ -1,13 +1,13 @@
 ---
-title: PdfCompliance Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PdfCompliance Enumeration
 type: docs
 weight: 750
-url: /python-net/api-reference/aspose.slides.export/pdfcompliance/
+url: /slides/python-net/api-reference/aspose.slides.export/pdfcompliance/
 ---
 
 Constants which define the PDF standards compliance level.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.PdfCompliance
 

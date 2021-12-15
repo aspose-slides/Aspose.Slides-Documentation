@@ -1,13 +1,13 @@
 ---
-title: IAutoShape Class - Aspose.Slides for Python via .NET - API Reference
+title: IAutoShape Class
 type: docs
 weight: 810
-url: /python-net/api-reference/aspose.slides/iautoshape/
+url: /slides/python-net/api-reference/aspose.slides/iautoshape/
 ---
 
 Represents an AutoShape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IAutoShape
 

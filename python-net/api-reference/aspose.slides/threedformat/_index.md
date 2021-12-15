@@ -1,13 +1,13 @@
 ---
-title: ThreeDFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ThreeDFormat Class
 type: docs
 weight: 3820
-url: /python-net/api-reference/aspose.slides/threedformat/
+url: /slides/python-net/api-reference/aspose.slides/threedformat/
 ---
 
 Represents 3-D properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ThreeDFormat
 

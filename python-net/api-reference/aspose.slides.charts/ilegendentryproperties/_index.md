@@ -1,13 +1,13 @@
 ---
-title: ILegendEntryProperties Class - Aspose.Slides for Python via .NET - API Reference
+title: ILegendEntryProperties Class
 type: docs
 weight: 860
-url: /python-net/api-reference/aspose.slides.charts/ilegendentryproperties/
+url: /slides/python-net/api-reference/aspose.slides.charts/ilegendentryproperties/
 ---
 
 Represents legend properties of a chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ILegendEntryProperties
 

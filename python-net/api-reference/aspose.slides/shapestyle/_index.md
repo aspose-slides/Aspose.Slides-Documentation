@@ -1,13 +1,13 @@
 ---
-title: ShapeStyle Class - Aspose.Slides for Python via .NET - API Reference
+title: ShapeStyle Class
 type: docs
 weight: 3620
-url: /python-net/api-reference/aspose.slides/shapestyle/
+url: /slides/python-net/api-reference/aspose.slides/shapestyle/
 ---
 
 Represent shape's style reference.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ShapeStyle
 

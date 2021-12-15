@@ -1,13 +1,13 @@
 ---
-title: CameraPresetType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: CameraPresetType Enumeration
 type: docs
 weight: 9330
-url: /python-net/api-reference/aspose.slides/camerapresettype/
+url: /slides/python-net/api-reference/aspose.slides/camerapresettype/
 ---
 
 Constants which define camera preset type.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.CameraPresetType
 

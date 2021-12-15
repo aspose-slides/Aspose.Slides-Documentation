@@ -1,13 +1,13 @@
 ---
-title: BaseOverrideThemeManager Class - Aspose.Slides for Python via .NET - API Reference
+title: BaseOverrideThemeManager Class
 type: docs
 weight: 10
-url: /python-net/api-reference/aspose.slides.theme/baseoverridethememanager/
+url: /slides/python-net/api-reference/aspose.slides.theme/baseoverridethememanager/
 ---
 
 Base class for classes that provide access to different types of overriden themes.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.BaseOverrideThemeManager
 

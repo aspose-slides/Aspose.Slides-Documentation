@@ -1,13 +1,13 @@
 ---
-title: ChartDataSourceType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ChartDataSourceType Enumeration
 type: docs
 weight: 1130
-url: /python-net/api-reference/aspose.slides.charts/chartdatasourcetype/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartdatasourcetype/
 ---
 
 Represents a type of data source of the chart
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.ChartDataSourceType
 

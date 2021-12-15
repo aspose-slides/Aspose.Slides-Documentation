@@ -1,13 +1,13 @@
 ---
-title: ITransitionValueBase Class - Aspose.Slides for Python via .NET - API Reference
+title: ITransitionValueBase Class
 type: docs
 weight: 210
-url: /python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/
 ---
 
 Represents base class for slide transition effects.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.ITransitionValueBase
 

@@ -1,13 +1,13 @@
 ---
-title: IEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: IEffect Class
 type: docs
 weight: 200
-url: /python-net/api-reference/aspose.slides.animation/ieffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/ieffect/
 ---
 
 Represents animation effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IEffect
 

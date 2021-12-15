@@ -1,13 +1,13 @@
 ---
-title: IScaleEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: IScaleEffect Class
 type: docs
 weight: 290
-url: /python-net/api-reference/aspose.slides.animation/iscaleeffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/iscaleeffect/
 ---
 
 Represents animation scale effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IScaleEffect
 

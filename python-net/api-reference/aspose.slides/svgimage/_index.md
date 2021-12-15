@@ -1,13 +1,13 @@
 ---
-title: SvgImage Class - Aspose.Slides for Python via .NET - API Reference
+title: SvgImage Class
 type: docs
 weight: 3710
-url: /python-net/api-reference/aspose.slides/svgimage/
+url: /slides/python-net/api-reference/aspose.slides/svgimage/
 ---
 
 Represents an SVG image.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.SvgImage
 

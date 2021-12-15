@@ -1,13 +1,13 @@
 ---
-title: Tint Class - Aspose.Slides for Python via .NET - API Reference
+title: Tint Class
 type: docs
 weight: 1020
-url: /python-net/api-reference/aspose.slides.effects/tint/
+url: /slides/python-net/api-reference/aspose.slides.effects/tint/
 ---
 
 Represents a Tint effect.<br/>            Shifts effect color values towards/away from hue by the specified amount.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.Tint
 

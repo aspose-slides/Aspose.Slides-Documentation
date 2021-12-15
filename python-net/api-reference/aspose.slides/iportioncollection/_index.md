@@ -1,13 +1,13 @@
 ---
-title: IPortionCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IPortionCollection Class
 type: docs
 weight: 2180
-url: /python-net/api-reference/aspose.slides/iportioncollection/
+url: /slides/python-net/api-reference/aspose.slides/iportioncollection/
 ---
 
 Represents a collection of a portions.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPortionCollection
 

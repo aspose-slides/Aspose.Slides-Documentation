@@ -1,13 +1,13 @@
 ---
-title: GradientStopEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: GradientStopEffectiveData Class
 type: docs
 weight: 670
-url: /python-net/api-reference/aspose.slides/gradientstopeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/gradientstopeffectivedata/
 ---
 
 Immutable object which represents a gradient stop.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GradientStopEffectiveData
 

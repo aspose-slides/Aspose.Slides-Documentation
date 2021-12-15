@@ -1,13 +1,13 @@
 ---
-title: IVideoPlayerHtmlControllerFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IVideoPlayerHtmlControllerFactory Class
 type: docs
 weight: 360
-url: /python-net/api-reference/aspose.slides.export/ivideoplayerhtmlcontrollerfactory/
+url: /slides/python-net/api-reference/aspose.slides.export/ivideoplayerhtmlcontrollerfactory/
 ---
 
 Allows to create VideoPlayerHtmlController.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.IVideoPlayerHtmlControllerFactory
 

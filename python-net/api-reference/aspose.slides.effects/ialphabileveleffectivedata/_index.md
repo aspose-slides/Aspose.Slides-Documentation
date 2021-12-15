@@ -1,13 +1,13 @@
 ---
-title: IAlphaBiLevelEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IAlphaBiLevelEffectiveData Class
 type: docs
 weight: 350
-url: /python-net/api-reference/aspose.slides.effects/ialphabileveleffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/ialphabileveleffectivedata/
 ---
 
 Immutable object which represents an Alpha Bi-Level effect.<br/>            Alpha (Opacity) values less than the threshold are changed to 0 (fully transparent) and<br/>            alpha values greater than or equal to the threshold are changed to 100% (fully opaque).
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IAlphaBiLevelEffectiveData
 

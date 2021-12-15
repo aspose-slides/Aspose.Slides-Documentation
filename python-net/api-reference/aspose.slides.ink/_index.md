@@ -1,8 +1,8 @@
 ---
-title: aspose.slides.ink Namespace - Aspose.Slides for Python via .NET - API Reference
+title: aspose.slides.ink
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.ink/
+url: /slides/python-net/api-reference/aspose.slides.ink/
 ---
 
 
@@ -11,5 +11,5 @@ Contains classes for work with Ink
 ## **Classes**
 |**Class**|**Description**|
 | :- | :- |
-|[IInk](/python-net/api-reference/aspose.slides.ink/iink/)|Represents an ink object on a slide.|
-|[Ink](/python-net/api-reference/aspose.slides.ink/ink/)|Represents an ink object on a slide.|
+|[IInk](/slides/python-net/api-reference/aspose.slides.ink/iink/)|Represents an ink object on a slide.|
+|[Ink](/slides/python-net/api-reference/aspose.slides.ink/ink/)|Represents an ink object on a slide.|

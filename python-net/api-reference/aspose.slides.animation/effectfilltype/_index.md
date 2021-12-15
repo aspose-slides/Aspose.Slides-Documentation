@@ -1,13 +1,13 @@
 ---
-title: EffectFillType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectFillType Enumeration
 type: docs
 weight: 580
-url: /python-net/api-reference/aspose.slides.animation/effectfilltype/
+url: /slides/python-net/api-reference/aspose.slides.animation/effectfilltype/
 ---
 
 Represent fill types.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.EffectFillType
 

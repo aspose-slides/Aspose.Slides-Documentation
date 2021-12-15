@@ -1,13 +1,13 @@
 ---
-title: SlideCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: SlideCollection Class
 type: docs
 weight: 3650
-url: /python-net/api-reference/aspose.slides/slidecollection/
+url: /slides/python-net/api-reference/aspose.slides/slidecollection/
 ---
 
 Represents a collection of a slides.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.SlideCollection
 

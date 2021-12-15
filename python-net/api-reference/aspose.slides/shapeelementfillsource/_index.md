@@ -1,13 +1,13 @@
 ---
-title: ShapeElementFillSource Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ShapeElementFillSource Enumeration
 type: docs
 weight: 9800
-url: /python-net/api-reference/aspose.slides/shapeelementfillsource/
+url: /slides/python-net/api-reference/aspose.slides/shapeelementfillsource/
 ---
 
 Represents how shape element should be filled.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ShapeElementFillSource
 

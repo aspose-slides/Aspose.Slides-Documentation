@@ -1,13 +1,13 @@
 ---
-title: Row Class - Aspose.Slides for Python via .NET - API Reference
+title: Row Class
 type: docs
 weight: 3510
-url: /python-net/api-reference/aspose.slides/row/
+url: /slides/python-net/api-reference/aspose.slides/row/
 ---
 
 Represents a row in a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Row
 

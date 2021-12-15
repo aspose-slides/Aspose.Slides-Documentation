@@ -1,13 +1,13 @@
 ---
-title: MathPortion Class - Aspose.Slides for Python via .NET - API Reference
+title: MathPortion Class
 type: docs
 weight: 760
-url: /python-net/api-reference/aspose.slides.mathtext/mathportion/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathportion/
 ---
 
 Represents a portion with mathematical context inside.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathPortion
 

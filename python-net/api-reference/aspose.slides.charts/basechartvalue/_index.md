@@ -1,13 +1,13 @@
 ---
-title: BaseChartValue Class - Aspose.Slides for Python via .NET - API Reference
+title: BaseChartValue Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides.charts/basechartvalue/
+url: /slides/python-net/api-reference/aspose.slides.charts/basechartvalue/
 ---
 
 Represents a value of a chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.BaseChartValue
 

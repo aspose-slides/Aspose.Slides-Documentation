@@ -1,13 +1,13 @@
 ---
-title: ColorChangeEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: ColorChangeEffectiveData Class
 type: docs
 weight: 200
-url: /python-net/api-reference/aspose.slides.effects/colorchangeeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/colorchangeeffectivedata/
 ---
 
 Immutable object which represents a Color Change effect.<br/>            Instances of FromColor are replaced with instances of ToColor.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.ColorChangeEffectiveData
 

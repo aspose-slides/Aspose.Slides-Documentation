@@ -1,13 +1,13 @@
 ---
-title: FillOverlay Class - Aspose.Slides for Python via .NET - API Reference
+title: FillOverlay Class
 type: docs
 weight: 260
-url: /python-net/api-reference/aspose.slides.effects/filloverlay/
+url: /slides/python-net/api-reference/aspose.slides.effects/filloverlay/
 ---
 
 Represents a Fill Overlay effect. A fill overlay may be used to specify<br/>            an additional fill for an object and blend the two fills together.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.FillOverlay
 

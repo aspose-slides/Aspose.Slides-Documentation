@@ -1,13 +1,13 @@
 ---
-title: IChartComponent Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartComponent Class
 type: docs
 weight: 500
-url: /python-net/api-reference/aspose.slides.charts/ichartcomponent/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/
 ---
 
 Represents a component of a chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartComponent
 

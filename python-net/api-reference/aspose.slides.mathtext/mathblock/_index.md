@@ -1,13 +1,13 @@
 ---
-title: MathBlock Class - Aspose.Slides for Python via .NET - API Reference
+title: MathBlock Class
 type: docs
 weight: 520
-url: /python-net/api-reference/aspose.slides.mathtext/mathblock/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathblock/
 ---
 
 Specifies an instance of mathematical text that contained within a MathParagraph and starts on its own line.<br/>            All math zones, including equations, expressions, arrays of equations or expressions, and formulas are represented by math block.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathBlock
 

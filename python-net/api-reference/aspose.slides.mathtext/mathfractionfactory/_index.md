@@ -1,13 +1,13 @@
 ---
-title: MathFractionFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathFractionFactory Class
 type: docs
 weight: 620
-url: /python-net/api-reference/aspose.slides.mathtext/mathfractionfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfractionfactory/
 ---
 
 Allows to create a math fraction
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathFractionFactory
 

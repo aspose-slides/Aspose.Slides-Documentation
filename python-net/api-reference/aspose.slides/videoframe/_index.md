@@ -1,13 +1,13 @@
 ---
-title: VideoFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: VideoFrame Class
 type: docs
 weight: 3850
-url: /python-net/api-reference/aspose.slides/videoframe/
+url: /slides/python-net/api-reference/aspose.slides/videoframe/
 ---
 
 Represents a video clip on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.VideoFrame
 

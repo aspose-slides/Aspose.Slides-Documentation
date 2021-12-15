@@ -1,13 +1,13 @@
 ---
-title: OverrideTheme Class - Aspose.Slides for Python via .NET - API Reference
+title: OverrideTheme Class
 type: docs
 weight: 430
-url: /python-net/api-reference/aspose.slides.theme/overridetheme/
+url: /slides/python-net/api-reference/aspose.slides.theme/overridetheme/
 ---
 
 Represents a overriding theme.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.OverrideTheme
 

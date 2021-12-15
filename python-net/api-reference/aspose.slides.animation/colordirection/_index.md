@@ -1,13 +1,13 @@
 ---
-title: ColorDirection Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ColorDirection Enumeration
 type: docs
 weight: 530
-url: /python-net/api-reference/aspose.slides.animation/colordirection/
+url: /slides/python-net/api-reference/aspose.slides.animation/colordirection/
 ---
 
 Represents color direction for color effect behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.ColorDirection
 

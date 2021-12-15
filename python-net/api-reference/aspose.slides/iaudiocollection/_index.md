@@ -1,13 +1,13 @@
 ---
-title: IAudioCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IAudioCollection Class
 type: docs
 weight: 790
-url: /python-net/api-reference/aspose.slides/iaudiocollection/
+url: /slides/python-net/api-reference/aspose.slides/iaudiocollection/
 ---
 
 Represents a collection of embedded audio files.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IAudioCollection
 

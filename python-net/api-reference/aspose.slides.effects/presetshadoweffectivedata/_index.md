@@ -1,13 +1,13 @@
 ---
-title: PresetShadowEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: PresetShadowEffectiveData Class
 type: docs
 weight: 970
-url: /python-net/api-reference/aspose.slides.effects/presetshadoweffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/presetshadoweffectivedata/
 ---
 
 Immutable object which represents a preset shadow effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.PresetShadowEffectiveData
 

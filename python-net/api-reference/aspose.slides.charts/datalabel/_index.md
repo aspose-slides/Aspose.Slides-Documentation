@@ -1,13 +1,13 @@
 ---
-title: DataLabel Class - Aspose.Slides for Python via .NET - API Reference
+title: DataLabel Class
 type: docs
 weight: 310
-url: /python-net/api-reference/aspose.slides.charts/datalabel/
+url: /slides/python-net/api-reference/aspose.slides.charts/datalabel/
 ---
 
 Represents a series labels.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.DataLabel
 

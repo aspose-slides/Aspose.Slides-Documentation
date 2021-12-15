@@ -1,13 +1,13 @@
 ---
-title: IPresentationSignedWarningInfo Class - Aspose.Slides for Python via .NET - API Reference
+title: IPresentationSignedWarningInfo Class
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.warnings/ipresentationsignedwarninginfo/
+url: /slides/python-net/api-reference/aspose.slides.warnings/ipresentationsignedwarninginfo/
 ---
 
 This warning indicates that the presentation being read has the signature <br/>            and this signature will be removed during processing.
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Class Name:** aspose.slides.warnings.IPresentationSignedWarningInfo
 

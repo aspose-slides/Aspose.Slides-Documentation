@@ -1,13 +1,13 @@
 ---
-title: ShapeElementStrokeSource Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ShapeElementStrokeSource Enumeration
 type: docs
 weight: 9810
-url: /python-net/api-reference/aspose.slides/shapeelementstrokesource/
+url: /slides/python-net/api-reference/aspose.slides/shapeelementstrokesource/
 ---
 
 Represents how shape element should be drawn.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ShapeElementStrokeSource
 

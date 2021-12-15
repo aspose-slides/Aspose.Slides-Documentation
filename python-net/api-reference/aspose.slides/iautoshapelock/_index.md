@@ -1,13 +1,13 @@
 ---
-title: IAutoShapeLock Class - Aspose.Slides for Python via .NET - API Reference
+title: IAutoShapeLock Class
 type: docs
 weight: 820
-url: /python-net/api-reference/aspose.slides/iautoshapelock/
+url: /slides/python-net/api-reference/aspose.slides/iautoshapelock/
 ---
 
 Determines which operations are disabled on the parent AutoshapeEx.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IAutoShapeLock
 

@@ -1,13 +1,13 @@
 ---
-title: INormalViewProperties Class - Aspose.Slides for Python via .NET - API Reference
+title: INormalViewProperties Class
 type: docs
 weight: 1940
-url: /python-net/api-reference/aspose.slides/inormalviewproperties/
+url: /slides/python-net/api-reference/aspose.slides/inormalviewproperties/
 ---
 
 Represents normal view properties. The normal view consists of<br/>            three content regions: the slide itself, a side content region, and a bottom content region.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.INormalViewProperties
 

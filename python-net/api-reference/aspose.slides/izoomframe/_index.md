@@ -1,13 +1,13 @@
 ---
-title: IZoomFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: IZoomFrame Class
 type: docs
 weight: 2810
-url: /python-net/api-reference/aspose.slides/izoomframe/
+url: /slides/python-net/api-reference/aspose.slides/izoomframe/
 ---
 
 Represents a Zoom object on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IZoomFrame
 

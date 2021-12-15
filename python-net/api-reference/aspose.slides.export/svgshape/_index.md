@@ -1,13 +1,13 @@
 ---
-title: SvgShape Class - Aspose.Slides for Python via .NET - API Reference
+title: SvgShape Class
 type: docs
 weight: 480
-url: /python-net/api-reference/aspose.slides.export/svgshape/
+url: /slides/python-net/api-reference/aspose.slides.export/svgshape/
 ---
 
 Represents options for SVG shape.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.SvgShape
 

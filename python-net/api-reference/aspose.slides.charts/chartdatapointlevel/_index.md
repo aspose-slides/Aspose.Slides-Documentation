@@ -1,13 +1,13 @@
 ---
-title: ChartDataPointLevel Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartDataPointLevel Class
 type: docs
 weight: 160
-url: /python-net/api-reference/aspose.slides.charts/chartdatapointlevel/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartdatapointlevel/
 ---
 
 Represents data point level. Applies for Treemap and Sunburst chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartDataPointLevel
 

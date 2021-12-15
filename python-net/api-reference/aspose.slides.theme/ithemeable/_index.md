@@ -1,13 +1,13 @@
 ---
-title: IThemeable Class - Aspose.Slides for Python via .NET - API Reference
+title: IThemeable Class
 type: docs
 weight: 370
-url: /python-net/api-reference/aspose.slides.theme/ithemeable/
+url: /slides/python-net/api-reference/aspose.slides.theme/ithemeable/
 ---
 
 Represents objects that can be themed with [ITheme](/python-net/api-reference/aspose.slides.theme/itheme/).
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IThemeable
 

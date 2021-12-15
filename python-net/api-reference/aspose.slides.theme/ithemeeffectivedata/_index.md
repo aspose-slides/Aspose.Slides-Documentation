@@ -1,13 +1,13 @@
 ---
-title: IThemeEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IThemeEffectiveData Class
 type: docs
 weight: 350
-url: /python-net/api-reference/aspose.slides.theme/ithemeeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.theme/ithemeeffectivedata/
 ---
 
 Immutable object which contains effective theme properties.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IThemeEffectiveData
 

@@ -1,13 +1,13 @@
 ---
-title: IChartWall Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartWall Class
 type: docs
 weight: 720
-url: /python-net/api-reference/aspose.slides.charts/ichartwall/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartwall/
 ---
 
 Represents walls on 3d charts.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartWall
 

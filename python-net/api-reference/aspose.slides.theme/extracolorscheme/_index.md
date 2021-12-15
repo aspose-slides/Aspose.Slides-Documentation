@@ -1,13 +1,13 @@
 ---
-title: ExtraColorScheme Class - Aspose.Slides for Python via .NET - API Reference
+title: ExtraColorScheme Class
 type: docs
 weight: 70
-url: /python-net/api-reference/aspose.slides.theme/extracolorscheme/
+url: /slides/python-net/api-reference/aspose.slides.theme/extracolorscheme/
 ---
 
 Represents an additional color scheme which can be assigned to a slide.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.ExtraColorScheme
 

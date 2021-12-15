@@ -1,13 +1,13 @@
 ---
-title: Point Class - Aspose.Slides for Python via .NET - API Reference
+title: Point Class
 type: docs
 weight: 390
-url: /python-net/api-reference/aspose.slides.animation/point/
+url: /slides/python-net/api-reference/aspose.slides.animation/point/
 ---
 
 Represent animation point.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.Point
 

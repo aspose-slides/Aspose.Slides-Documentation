@@ -1,13 +1,13 @@
 ---
-title: IMasterThemeable Class - Aspose.Slides for Python via .NET - API Reference
+title: IMasterThemeable Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides.theme/imasterthemeable/
+url: /slides/python-net/api-reference/aspose.slides.theme/imasterthemeable/
 ---
 
 Represent master theme manager.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IMasterThemeable
 

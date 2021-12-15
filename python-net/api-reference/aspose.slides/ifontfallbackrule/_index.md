@@ -1,13 +1,13 @@
 ---
-title: IFontFallBackRule Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontFallBackRule Class
 type: docs
 weight: 1370
-url: /python-net/api-reference/aspose.slides/ifontfallbackrule/
+url: /slides/python-net/api-reference/aspose.slides/ifontfallbackrule/
 ---
 
 Represents font fallback rule
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFontFallBackRule
 

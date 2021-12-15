@@ -1,13 +1,13 @@
 ---
-title: IBiLevel Class - Aspose.Slides for Python via .NET - API Reference
+title: IBiLevel Class
 type: docs
 weight: 480
-url: /python-net/api-reference/aspose.slides.effects/ibilevel/
+url: /slides/python-net/api-reference/aspose.slides.effects/ibilevel/
 ---
 
 Represents base IImageTransformOperation interface.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IBiLevel
 

@@ -1,13 +1,13 @@
 ---
-title: EmptyTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: EmptyTransition Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.slideshow/emptytransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/emptytransition/
 ---
 
 Empty slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.EmptyTransition
 

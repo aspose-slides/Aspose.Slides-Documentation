@@ -1,13 +1,13 @@
 ---
-title: InnerShadow Class - Aspose.Slides for Python via .NET - API Reference
+title: InnerShadow Class
 type: docs
 weight: 900
-url: /python-net/api-reference/aspose.slides.effects/innershadow/
+url: /slides/python-net/api-reference/aspose.slides.effects/innershadow/
 ---
 
 Represents a Inner Shadow effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.InnerShadow
 

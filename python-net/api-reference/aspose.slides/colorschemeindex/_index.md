@@ -1,13 +1,13 @@
 ---
-title: ColorSchemeIndex Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ColorSchemeIndex Enumeration
 type: docs
 weight: 9340
-url: /python-net/api-reference/aspose.slides/colorschemeindex/
+url: /slides/python-net/api-reference/aspose.slides/colorschemeindex/
 ---
 
 Represents an index in a colorscheme.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ColorSchemeIndex
 

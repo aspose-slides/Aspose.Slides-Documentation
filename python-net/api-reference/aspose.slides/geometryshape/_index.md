@@ -1,13 +1,13 @@
 ---
-title: GeometryShape Class - Aspose.Slides for Python via .NET - API Reference
+title: GeometryShape Class
 type: docs
 weight: 610
-url: /python-net/api-reference/aspose.slides/geometryshape/
+url: /slides/python-net/api-reference/aspose.slides/geometryshape/
 ---
 
 Represents the parent class for all geometric shapes.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GeometryShape
 

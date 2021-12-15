@@ -1,13 +1,13 @@
 ---
-title: IPointCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IPointCollection Class
 type: docs
 weight: 260
-url: /python-net/api-reference/aspose.slides.animation/ipointcollection/
+url: /slides/python-net/api-reference/aspose.slides.animation/ipointcollection/
 ---
 
 Represents a collection of portions.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IPointCollection
 

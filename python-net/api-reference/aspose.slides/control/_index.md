@@ -1,13 +1,13 @@
 ---
-title: Control Class - Aspose.Slides for Python via .NET - API Reference
+title: Control Class
 type: docs
 weight: 360
-url: /python-net/api-reference/aspose.slides/control/
+url: /slides/python-net/api-reference/aspose.slides/control/
 ---
 
 Represents an ActiveX control.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Control
 

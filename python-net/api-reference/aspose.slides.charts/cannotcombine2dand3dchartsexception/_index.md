@@ -1,13 +1,13 @@
 ---
-title: CannotCombine2DAnd3DChartsException Class - Aspose.Slides for Python via .NET - API Reference
+title: CannotCombine2DAnd3DChartsException Class
 type: docs
 weight: 60
-url: /python-net/api-reference/aspose.slides.charts/cannotcombine2dand3dchartsexception/
+url: /slides/python-net/api-reference/aspose.slides.charts/cannotcombine2dand3dchartsexception/
 ---
 
 Exception which thrown when trying to combine 2D and 3D chart types.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.CannotCombine2DAnd3DChartsException
 

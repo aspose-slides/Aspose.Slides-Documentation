@@ -1,13 +1,13 @@
 ---
-title: OdpException Class - Aspose.Slides for Python via .NET - API Reference
+title: OdpException Class
 type: docs
 weight: 3150
-url: /python-net/api-reference/aspose.slides/odpexception/
+url: /slides/python-net/api-reference/aspose.slides/odpexception/
 ---
 
 Represents a standard internal exception type.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.OdpException
 

@@ -1,13 +1,13 @@
 ---
-title: ICell Class - Aspose.Slides for Python via .NET - API Reference
+title: ICell Class
 type: docs
 weight: 1000
-url: /python-net/api-reference/aspose.slides/icell/
+url: /slides/python-net/api-reference/aspose.slides/icell/
 ---
 
 Represents a cell in a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICell
 

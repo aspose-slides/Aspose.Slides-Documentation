@@ -1,13 +1,13 @@
 ---
-title: CustomData Class - Aspose.Slides for Python via .NET - API Reference
+title: CustomData Class
 type: docs
 weight: 390
-url: /python-net/api-reference/aspose.slides/customdata/
+url: /slides/python-net/api-reference/aspose.slides/customdata/
 ---
 
 Represents container for custom data.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CustomData
 

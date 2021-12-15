@@ -1,13 +1,13 @@
 ---
-title: BasePortionFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: BasePortionFormat Class
 type: docs
 weight: 120
-url: /python-net/api-reference/aspose.slides/baseportionformat/
+url: /slides/python-net/api-reference/aspose.slides/baseportionformat/
 ---
 
 Common text portion formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.BasePortionFormat
 

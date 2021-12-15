@@ -1,13 +1,13 @@
 ---
-title: Video Class - Aspose.Slides for Python via .NET - API Reference
+title: Video Class
 type: docs
 weight: 3830
-url: /python-net/api-reference/aspose.slides/video/
+url: /slides/python-net/api-reference/aspose.slides/video/
 ---
 
 Represents an image embedded into a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Video
 

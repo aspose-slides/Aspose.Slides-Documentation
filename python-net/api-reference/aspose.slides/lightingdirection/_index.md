@@ -1,13 +1,13 @@
 ---
-title: LightingDirection Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LightingDirection Enumeration
 type: docs
 weight: 9490
-url: /python-net/api-reference/aspose.slides/lightingdirection/
+url: /slides/python-net/api-reference/aspose.slides/lightingdirection/
 ---
 
 Constants which define light directions.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.LightingDirection
 

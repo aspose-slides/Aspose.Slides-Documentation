@@ -1,13 +1,13 @@
 ---
-title: TextVerticalType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextVerticalType Enumeration
 type: docs
 weight: 10030
-url: /python-net/api-reference/aspose.slides/textverticaltype/
+url: /slides/python-net/api-reference/aspose.slides/textverticaltype/
 ---
 
 Determines vertical writing mode for a text.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextVerticalType
 

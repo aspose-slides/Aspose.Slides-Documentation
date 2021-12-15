@@ -1,13 +1,13 @@
 ---
-title: IMasterHandoutSlideHeaderFooterManager Class - Aspose.Slides for Python via .NET - API Reference
+title: IMasterHandoutSlideHeaderFooterManager Class
 type: docs
 weight: 1830
-url: /python-net/api-reference/aspose.slides/imasterhandoutslideheaderfootermanager/
+url: /slides/python-net/api-reference/aspose.slides/imasterhandoutslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the master handout slide placeholders, including header placeholder.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IMasterHandoutSlideHeaderFooterManager
 

@@ -1,13 +1,13 @@
 ---
-title: IBulletFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IBulletFormat Class
 type: docs
 weight: 960
-url: /python-net/api-reference/aspose.slides/ibulletformat/
+url: /slides/python-net/api-reference/aspose.slides/ibulletformat/
 ---
 
 Represents paragraph bullet formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IBulletFormat
 

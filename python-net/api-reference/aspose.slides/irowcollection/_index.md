@@ -1,13 +1,13 @@
 ---
-title: IRowCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IRowCollection Class
 type: docs
 weight: 2330
-url: /python-net/api-reference/aspose.slides/irowcollection/
+url: /slides/python-net/api-reference/aspose.slides/irowcollection/
 ---
 
 Represents table row collection.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IRowCollection
 

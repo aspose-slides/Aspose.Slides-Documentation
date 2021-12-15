@@ -1,13 +1,13 @@
 ---
-title: TileFlip Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TileFlip Enumeration
 type: docs
 weight: 10040
-url: /python-net/api-reference/aspose.slides/tileflip/
+url: /slides/python-net/api-reference/aspose.slides/tileflip/
 ---
 
 Defines tile flipping mode.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TileFlip
 

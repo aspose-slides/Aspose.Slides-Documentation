@@ -1,13 +1,13 @@
 ---
-title: IMathMatrix Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathMatrix Class
 type: docs
 weight: 280
-url: /python-net/api-reference/aspose.slides.mathtext/imathmatrix/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathmatrix/
 ---
 
 Specifies the Matrix object, consisting of child elements laid out in one or more rows and columns. <br/>            It is important to note that matrices do not have built in delimiters. <br/>            To place the matrix in the brackets you should use the delimiter object (IMathDelimiter).<br/>            Null arguments can be used to create gaps in matrices.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathMatrix
 

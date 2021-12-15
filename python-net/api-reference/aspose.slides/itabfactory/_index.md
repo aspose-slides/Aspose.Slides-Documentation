@@ -1,13 +1,13 @@
 ---
-title: ITabFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: ITabFactory Class
 type: docs
 weight: 2630
-url: /python-net/api-reference/aspose.slides/itabfactory/
+url: /slides/python-net/api-reference/aspose.slides/itabfactory/
 ---
 
 Allow to create ITab instances
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITabFactory
 

@@ -1,13 +1,13 @@
 ---
-title: ParentLabelLayoutType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ParentLabelLayoutType Enumeration
 type: docs
 weight: 1270
-url: /python-net/api-reference/aspose.slides.charts/parentlabellayouttype/
+url: /slides/python-net/api-reference/aspose.slides.charts/parentlabellayouttype/
 ---
 
 Represents layout of category data labels. Used with Treemap series only.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.ParentLabelLayoutType
 

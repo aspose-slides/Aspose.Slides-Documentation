@@ -1,13 +1,13 @@
 ---
-title: AlphaCeilingEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: AlphaCeilingEffectiveData Class
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.effects/alphaceilingeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/alphaceilingeffectivedata/
 ---
 
 Immutable object which represents an Alpha Ceiling effect.<br/>            Alpha (opacity) values greater than zero are changed to 100%.<br/>            In other words, anything partially opaque becomes fully opaque.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.AlphaCeilingEffectiveData
 

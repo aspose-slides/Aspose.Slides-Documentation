@@ -1,13 +1,13 @@
 ---
-title: PptException Class - Aspose.Slides for Python via .NET - API Reference
+title: PptException Class
 type: docs
 weight: 3370
-url: /python-net/api-reference/aspose.slides/pptexception/
+url: /slides/python-net/api-reference/aspose.slides/pptexception/
 ---
 
 Represents a standard internal exception type.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PptException
 

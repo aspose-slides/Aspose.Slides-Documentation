@@ -1,13 +1,13 @@
 ---
-title: BehaviorFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: BehaviorFactory Class
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.animation/behaviorfactory/
+url: /slides/python-net/api-reference/aspose.slides.animation/behaviorfactory/
 ---
 
 Allows to create animation effects
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.BehaviorFactory
 

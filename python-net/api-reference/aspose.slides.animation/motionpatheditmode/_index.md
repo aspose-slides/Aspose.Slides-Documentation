@@ -1,13 +1,13 @@
 ---
-title: MotionPathEditMode Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MotionPathEditMode Enumeration
 type: docs
 weight: 690
-url: /python-net/api-reference/aspose.slides.animation/motionpatheditmode/
+url: /slides/python-net/api-reference/aspose.slides.animation/motionpatheditmode/
 ---
 
 Specifies how the motion path moves when the target shape is moved
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.MotionPathEditMode
 

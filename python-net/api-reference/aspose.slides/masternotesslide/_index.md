@@ -1,13 +1,13 @@
 ---
-title: MasterNotesSlide Class - Aspose.Slides for Python via .NET - API Reference
+title: MasterNotesSlide Class
 type: docs
 weight: 3000
-url: /python-net/api-reference/aspose.slides/masternotesslide/
+url: /slides/python-net/api-reference/aspose.slides/masternotesslide/
 ---
 
 Represents master slide for notes.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.MasterNotesSlide
 

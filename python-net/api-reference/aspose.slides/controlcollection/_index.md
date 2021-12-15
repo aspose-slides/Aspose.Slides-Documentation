@@ -1,13 +1,13 @@
 ---
-title: ControlCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ControlCollection Class
 type: docs
 weight: 370
-url: /python-net/api-reference/aspose.slides/controlcollection/
+url: /slides/python-net/api-reference/aspose.slides/controlcollection/
 ---
 
 A collection of ActiveX controls.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ControlCollection
 

@@ -1,13 +1,13 @@
 ---
-title: IAxisFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IAxisFormat Class
 type: docs
 weight: 430
-url: /python-net/api-reference/aspose.slides.charts/iaxisformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/iaxisformat/
 ---
 
 Represents chart format properties.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IAxisFormat
 

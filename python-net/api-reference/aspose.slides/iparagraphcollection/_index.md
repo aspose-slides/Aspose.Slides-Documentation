@@ -1,13 +1,13 @@
 ---
-title: IParagraphCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IParagraphCollection Class
 type: docs
 weight: 2040
-url: /python-net/api-reference/aspose.slides/iparagraphcollection/
+url: /slides/python-net/api-reference/aspose.slides/iparagraphcollection/
 ---
 
 Represents a collection of a paragraphs.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IParagraphCollection
 

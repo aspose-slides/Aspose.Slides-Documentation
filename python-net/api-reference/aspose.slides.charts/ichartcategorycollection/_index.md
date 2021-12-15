@@ -1,13 +1,13 @@
 ---
-title: IChartCategoryCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartCategoryCollection Class
 type: docs
 weight: 470
-url: /python-net/api-reference/aspose.slides.charts/ichartcategorycollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartcategorycollection/
 ---
 
 Represents collection of [IChartCategory](/python-net/api-reference/aspose.slides.charts/ichartcategory/)
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartCategoryCollection
 

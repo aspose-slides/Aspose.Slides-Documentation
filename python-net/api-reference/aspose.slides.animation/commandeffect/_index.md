@@ -1,13 +1,13 @@
 ---
-title: CommandEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: CommandEffect Class
 type: docs
 weight: 90
-url: /python-net/api-reference/aspose.slides.animation/commandeffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/commandeffect/
 ---
 
 Represents a command effect for an animation behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.CommandEffect
 

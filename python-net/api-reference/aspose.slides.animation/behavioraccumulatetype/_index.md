@@ -1,13 +1,13 @@
 ---
-title: BehaviorAccumulateType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: BehaviorAccumulateType Enumeration
 type: docs
 weight: 500
-url: /python-net/api-reference/aspose.slides.animation/behavioraccumulatetype/
+url: /slides/python-net/api-reference/aspose.slides.animation/behavioraccumulatetype/
 ---
 
 Represents types of accumulation of effect behaviors.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.BehaviorAccumulateType
 

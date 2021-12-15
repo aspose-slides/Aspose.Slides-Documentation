@@ -1,13 +1,13 @@
 ---
-title: TabFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: TabFactory Class
 type: docs
 weight: 3740
-url: /python-net/api-reference/aspose.slides/tabfactory/
+url: /slides/python-net/api-reference/aspose.slides/tabfactory/
 ---
 
 Allows to create ITab instances
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.TabFactory
 

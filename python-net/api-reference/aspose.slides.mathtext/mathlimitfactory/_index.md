@@ -1,13 +1,13 @@
 ---
-title: MathLimitFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathLimitFactory Class
 type: docs
 weight: 690
-url: /python-net/api-reference/aspose.slides.mathtext/mathlimitfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathlimitfactory/
 ---
 
 Allows to create IMathLimit
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathLimitFactory
 

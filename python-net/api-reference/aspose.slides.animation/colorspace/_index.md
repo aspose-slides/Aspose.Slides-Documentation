@@ -1,13 +1,13 @@
 ---
-title: ColorSpace Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ColorSpace Enumeration
 type: docs
 weight: 540
-url: /python-net/api-reference/aspose.slides.animation/colorspace/
+url: /slides/python-net/api-reference/aspose.slides.animation/colorspace/
 ---
 
 Represents color space for color effect behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.ColorSpace
 

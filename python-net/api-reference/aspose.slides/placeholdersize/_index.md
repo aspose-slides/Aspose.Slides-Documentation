@@ -1,13 +1,13 @@
 ---
-title: PlaceholderSize Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PlaceholderSize Enumeration
 type: docs
 weight: 9720
-url: /python-net/api-reference/aspose.slides/placeholdersize/
+url: /slides/python-net/api-reference/aspose.slides/placeholdersize/
 ---
 
 Represents the size of a placeholder.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PlaceholderSize
 

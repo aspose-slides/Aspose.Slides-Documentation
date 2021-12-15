@@ -1,13 +1,13 @@
 ---
-title: IGroupShape Class - Aspose.Slides for Python via .NET - API Reference
+title: IGroupShape Class
 type: docs
 weight: 1580
-url: /python-net/api-reference/aspose.slides/igroupshape/
+url: /slides/python-net/api-reference/aspose.slides/igroupshape/
 ---
 
 Represents a group of shapes on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IGroupShape
 

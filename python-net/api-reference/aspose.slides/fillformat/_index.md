@@ -1,13 +1,13 @@
 ---
-title: FillFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: FillFormat Class
 type: docs
 weight: 480
-url: /python-net/api-reference/aspose.slides/fillformat/
+url: /slides/python-net/api-reference/aspose.slides/fillformat/
 ---
 
 Represents a fill formatting options.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.FillFormat
 

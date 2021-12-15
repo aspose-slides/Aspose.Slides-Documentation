@@ -1,13 +1,13 @@
 ---
-title: VbaReferenceOleTypeLib Class - Aspose.Slides for Python via .NET - API Reference
+title: VbaReferenceOleTypeLib Class
 type: docs
 weight: 170
-url: /python-net/api-reference/aspose.slides.vba/vbareferenceoletypelib/
+url: /slides/python-net/api-reference/aspose.slides.vba/vbareferenceoletypelib/
 ---
 
 Represents OLE Automation type library reference.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.VbaReferenceOleTypeLib
 

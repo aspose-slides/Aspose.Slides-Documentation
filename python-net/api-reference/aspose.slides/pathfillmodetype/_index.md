@@ -1,13 +1,13 @@
 ---
-title: PathFillModeType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PathFillModeType Enumeration
 type: docs
 weight: 9680
-url: /python-net/api-reference/aspose.slides/pathfillmodetype/
+url: /slides/python-net/api-reference/aspose.slides/pathfillmodetype/
 ---
 
 Specifies the manner in which a path should be filled
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PathFillModeType
 

@@ -1,13 +1,13 @@
 ---
-title: TransitionEightDirectionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionEightDirectionType Enumeration
 type: docs
 weight: 380
-url: /python-net/api-reference/aspose.slides.slideshow/transitioneightdirectiontype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioneightdirectiontype/
 ---
 
 Represent eight direction transition types.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionEightDirectionType
 

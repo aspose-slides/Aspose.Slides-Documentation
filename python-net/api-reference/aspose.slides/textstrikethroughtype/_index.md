@@ -1,13 +1,13 @@
 ---
-title: TextStrikethroughType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextStrikethroughType Enumeration
 type: docs
 weight: 10000
-url: /python-net/api-reference/aspose.slides/textstrikethroughtype/
+url: /slides/python-net/api-reference/aspose.slides/textstrikethroughtype/
 ---
 
 Represents the type of text strikethrough.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextStrikethroughType
 

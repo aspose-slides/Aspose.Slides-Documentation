@@ -1,13 +1,13 @@
 ---
-title: TextFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: TextFrame Class
 type: docs
 weight: 3780
-url: /python-net/api-reference/aspose.slides/textframe/
+url: /slides/python-net/api-reference/aspose.slides/textframe/
 ---
 
 Represents a TextFrame.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.TextFrame
 

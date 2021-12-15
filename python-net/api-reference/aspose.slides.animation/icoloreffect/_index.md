@@ -1,13 +1,13 @@
 ---
-title: IColorEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: IColorEffect Class
 type: docs
 weight: 170
-url: /python-net/api-reference/aspose.slides.animation/icoloreffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/icoloreffect/
 ---
 
 Represents a color effect for an animation behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IColorEffect
 

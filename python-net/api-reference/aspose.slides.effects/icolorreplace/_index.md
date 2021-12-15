@@ -1,13 +1,13 @@
 ---
-title: IColorReplace Class - Aspose.Slides for Python via .NET - API Reference
+title: IColorReplace Class
 type: docs
 weight: 540
-url: /python-net/api-reference/aspose.slides.effects/icolorreplace/
+url: /slides/python-net/api-reference/aspose.slides.effects/icolorreplace/
 ---
 
 Represents a Color Replacement effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IColorReplace
 

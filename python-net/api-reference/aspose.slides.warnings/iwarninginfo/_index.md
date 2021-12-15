@@ -1,13 +1,13 @@
 ---
-title: IWarningInfo Class - Aspose.Slides for Python via .NET - API Reference
+title: IWarningInfo Class
 type: docs
 weight: 60
-url: /python-net/api-reference/aspose.slides.warnings/iwarninginfo/
+url: /slides/python-net/api-reference/aspose.slides.warnings/iwarninginfo/
 ---
 
 Represents a base interface for all warnings.
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Class Name:** aspose.slides.warnings.IWarningInfo
 

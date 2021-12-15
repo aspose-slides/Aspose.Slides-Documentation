@@ -1,13 +1,13 @@
 ---
-title: SideDirectionTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: SideDirectionTransition Class
 type: docs
 weight: 310
-url: /python-net/api-reference/aspose.slides.slideshow/sidedirectiontransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/sidedirectiontransition/
 ---
 
 Side direction slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.SideDirectionTransition
 

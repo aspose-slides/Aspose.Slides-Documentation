@@ -1,13 +1,13 @@
 ---
-title: PdfAccessPermissions Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PdfAccessPermissions Enumeration
 type: docs
 weight: 740
-url: /python-net/api-reference/aspose.slides.export/pdfaccesspermissions/
+url: /slides/python-net/api-reference/aspose.slides.export/pdfaccesspermissions/
 ---
 
 Contains a set of flags specifying which access permissions should be granted when the document is opened with <br/>            user access.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.PdfAccessPermissions
 

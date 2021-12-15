@@ -1,13 +1,13 @@
 ---
-title: IShapeBevelEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IShapeBevelEffectiveData Class
 type: docs
 weight: 2410
-url: /python-net/api-reference/aspose.slides/ishapebeveleffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/ishapebeveleffectivedata/
 ---
 
 Immutable object which contains effective shape's face relief properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IShapeBevelEffectiveData
 

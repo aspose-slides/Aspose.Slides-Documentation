@@ -1,13 +1,13 @@
 ---
-title: VbaProject Class - Aspose.Slides for Python via .NET - API Reference
+title: VbaProject Class
 type: docs
 weight: 130
-url: /python-net/api-reference/aspose.slides.vba/vbaproject/
+url: /slides/python-net/api-reference/aspose.slides.vba/vbaproject/
 ---
 
 Represents VBA project with presentation macros.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.VbaProject
 

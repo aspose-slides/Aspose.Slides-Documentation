@@ -1,13 +1,13 @@
 ---
-title: IBackground Class - Aspose.Slides for Python via .NET - API Reference
+title: IBackground Class
 type: docs
 weight: 840
-url: /python-net/api-reference/aspose.slides/ibackground/
+url: /slides/python-net/api-reference/aspose.slides/ibackground/
 ---
 
 Represents background of a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IBackground
 

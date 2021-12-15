@@ -1,13 +1,13 @@
 ---
-title: IComment Class - Aspose.Slides for Python via .NET - API Reference
+title: IComment Class
 type: docs
 weight: 1110
-url: /python-net/api-reference/aspose.slides/icomment/
+url: /slides/python-net/api-reference/aspose.slides/icomment/
 ---
 
 Represents a comment on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IComment
 

@@ -1,13 +1,13 @@
 ---
-title: ControlPropertiesCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ControlPropertiesCollection Class
 type: docs
 weight: 380
-url: /python-net/api-reference/aspose.slides/controlpropertiescollection/
+url: /slides/python-net/api-reference/aspose.slides/controlpropertiescollection/
 ---
 
 A collection of AcitveX properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ControlPropertiesCollection
 

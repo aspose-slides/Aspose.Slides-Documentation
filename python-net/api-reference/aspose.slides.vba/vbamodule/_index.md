@@ -1,13 +1,13 @@
 ---
-title: VbaModule Class - Aspose.Slides for Python via .NET - API Reference
+title: VbaModule Class
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.vba/vbamodule/
+url: /slides/python-net/api-reference/aspose.slides.vba/vbamodule/
 ---
 
 Represents module that is contained in VBA project.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.VbaModule
 

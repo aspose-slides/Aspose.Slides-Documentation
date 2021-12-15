@@ -1,13 +1,13 @@
 ---
-title: ISlideSize Class - Aspose.Slides for Python via .NET - API Reference
+title: ISlideSize Class
 type: docs
 weight: 2530
-url: /python-net/api-reference/aspose.slides/islidesize/
+url: /slides/python-net/api-reference/aspose.slides/islidesize/
 ---
 
 Represents a size of slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ISlideSize
 

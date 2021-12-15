@@ -1,13 +1,13 @@
 ---
-title: ISwfOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: ISwfOptions Class
 type: docs
 weight: 320
-url: /python-net/api-reference/aspose.slides.export/iswfoptions/
+url: /slides/python-net/api-reference/aspose.slides.export/iswfoptions/
 ---
 
 Provides options that control how a presentation is saved in SWF format.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.ISwfOptions
 

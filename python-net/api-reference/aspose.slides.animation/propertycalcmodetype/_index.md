@@ -1,13 +1,13 @@
 ---
-title: PropertyCalcModeType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PropertyCalcModeType Enumeration
 type: docs
 weight: 710
-url: /python-net/api-reference/aspose.slides.animation/propertycalcmodetype/
+url: /slides/python-net/api-reference/aspose.slides.animation/propertycalcmodetype/
 ---
 
 Represent calc mode for animation property.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.PropertyCalcModeType
 

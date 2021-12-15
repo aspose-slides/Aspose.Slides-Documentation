@@ -1,13 +1,13 @@
 ---
-title: IVbaModuleCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IVbaModuleCollection Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.vba/ivbamodulecollection/
+url: /slides/python-net/api-reference/aspose.slides.vba/ivbamodulecollection/
 ---
 
 Represents a collection of a VBA Project modules.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.IVbaModuleCollection
 

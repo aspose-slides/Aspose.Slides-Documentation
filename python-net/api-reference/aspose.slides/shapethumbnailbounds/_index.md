@@ -1,13 +1,13 @@
 ---
-title: ShapeThumbnailBounds Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ShapeThumbnailBounds Enumeration
 type: docs
 weight: 9820
-url: /python-net/api-reference/aspose.slides/shapethumbnailbounds/
+url: /slides/python-net/api-reference/aspose.slides/shapethumbnailbounds/
 ---
 
 Enumeration of types of shape thumbnail bounds.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ShapeThumbnailBounds
 

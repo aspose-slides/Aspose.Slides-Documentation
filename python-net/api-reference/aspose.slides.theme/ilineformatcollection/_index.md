@@ -1,13 +1,13 @@
 ---
-title: ILineFormatCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ILineFormatCollection Class
 type: docs
 weight: 260
-url: /python-net/api-reference/aspose.slides.theme/ilineformatcollection/
+url: /slides/python-net/api-reference/aspose.slides.theme/ilineformatcollection/
 ---
 
 Represents the collection of line styles.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.ILineFormatCollection
 

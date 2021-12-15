@@ -1,13 +1,13 @@
 ---
-title: NotesPositions Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: NotesPositions Enumeration
 type: docs
 weight: 730
-url: /python-net/api-reference/aspose.slides.export/notespositions/
+url: /slides/python-net/api-reference/aspose.slides.export/notespositions/
 ---
 
 Represents the rule to render notes into exported document
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.NotesPositions
 

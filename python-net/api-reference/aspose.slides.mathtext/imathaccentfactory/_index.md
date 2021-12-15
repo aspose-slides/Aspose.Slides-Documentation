@@ -1,13 +1,13 @@
 ---
-title: IMathAccentFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathAccentFactory Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.mathtext/imathaccentfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathaccentfactory/
 ---
 
 Allows to create a math accent
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathAccentFactory
 

@@ -1,13 +1,13 @@
 ---
-title: IMultipleCellChartValue Class - Aspose.Slides for Python via .NET - API Reference
+title: IMultipleCellChartValue Class
 type: docs
 weight: 880
-url: /python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/
+url: /slides/python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/
 ---
 
 Represents a collection of a chart cells.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IMultipleCellChartValue
 

@@ -1,13 +1,13 @@
 ---
-title: ITabCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ITabCollection Class
 type: docs
 weight: 2610
-url: /python-net/api-reference/aspose.slides/itabcollection/
+url: /slides/python-net/api-reference/aspose.slides/itabcollection/
 ---
 
 Represents a collection of tabs.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITabCollection
 

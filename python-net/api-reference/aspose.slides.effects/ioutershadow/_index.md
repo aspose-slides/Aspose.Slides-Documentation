@@ -1,13 +1,13 @@
 ---
-title: IOuterShadow Class - Aspose.Slides for Python via .NET - API Reference
+title: IOuterShadow Class
 type: docs
 weight: 760
-url: /python-net/api-reference/aspose.slides.effects/ioutershadow/
+url: /slides/python-net/api-reference/aspose.slides.effects/ioutershadow/
 ---
 
 Represents an Outer Shadow effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IOuterShadow
 

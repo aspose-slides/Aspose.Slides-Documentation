@@ -1,13 +1,13 @@
 ---
-title: PptCorruptFileException Class - Aspose.Slides for Python via .NET - API Reference
+title: PptCorruptFileException Class
 type: docs
 weight: 3350
-url: /python-net/api-reference/aspose.slides/pptcorruptfileexception/
+url: /slides/python-net/api-reference/aspose.slides/pptcorruptfileexception/
 ---
 
 Exception which thrown when presentation file is probably corrupt.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PptCorruptFileException
 

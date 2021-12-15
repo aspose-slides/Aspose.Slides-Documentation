@@ -1,13 +1,13 @@
 ---
-title: IShapeElement Class - Aspose.Slides for Python via .NET - API Reference
+title: IShapeElement Class
 type: docs
 weight: 2430
-url: /python-net/api-reference/aspose.slides/ishapeelement/
+url: /slides/python-net/api-reference/aspose.slides/ishapeelement/
 ---
 
 Represents a part of shape with same outline and fill properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IShapeElement
 

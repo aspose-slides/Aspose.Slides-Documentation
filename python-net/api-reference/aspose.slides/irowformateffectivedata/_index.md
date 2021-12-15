@@ -1,13 +1,13 @@
 ---
-title: IRowFormatEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IRowFormatEffectiveData Class
 type: docs
 weight: 2350
-url: /python-net/api-reference/aspose.slides/irowformateffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/irowformateffectivedata/
 ---
 
 Immutable object which contains effective table row formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IRowFormatEffectiveData
 

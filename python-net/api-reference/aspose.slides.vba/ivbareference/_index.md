@@ -1,13 +1,13 @@
 ---
-title: IVbaReference Class - Aspose.Slides for Python via .NET - API Reference
+title: IVbaReference Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides.vba/ivbareference/
+url: /slides/python-net/api-reference/aspose.slides.vba/ivbareference/
 ---
 
 Represents the name of the VBA project reference.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.IVbaReference
 

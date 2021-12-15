@@ -1,13 +1,13 @@
 ---
-title: WarningType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: WarningType Enumeration
 type: docs
 weight: 80
-url: /python-net/api-reference/aspose.slides.warnings/warningtype/
+url: /slides/python-net/api-reference/aspose.slides.warnings/warningtype/
 ---
 
 Represents a type of warning.
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Name:** aspose.slides.warnings.WarningType
 

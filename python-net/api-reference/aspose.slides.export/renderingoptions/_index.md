@@ -1,13 +1,13 @@
 ---
-title: RenderingOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: RenderingOptions Class
 type: docs
 weight: 420
-url: /python-net/api-reference/aspose.slides.export/renderingoptions/
+url: /slides/python-net/api-reference/aspose.slides.export/renderingoptions/
 ---
 
 Provides options that control how a presentation/slide is rendered.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.RenderingOptions
 

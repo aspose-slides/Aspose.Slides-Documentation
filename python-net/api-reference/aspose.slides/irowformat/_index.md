@@ -1,13 +1,13 @@
 ---
-title: IRowFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IRowFormat Class
 type: docs
 weight: 2340
-url: /python-net/api-reference/aspose.slides/irowformat/
+url: /slides/python-net/api-reference/aspose.slides/irowformat/
 ---
 
 Represents format of a table row.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IRowFormat
 

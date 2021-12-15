@@ -1,13 +1,13 @@
 ---
-title: IPictureEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IPictureEffectiveData Class
 type: docs
 weight: 2110
-url: /python-net/api-reference/aspose.slides/ipictureeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/ipictureeffectivedata/
 ---
 
 Immutable object which contains effective picture properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPictureEffectiveData
 

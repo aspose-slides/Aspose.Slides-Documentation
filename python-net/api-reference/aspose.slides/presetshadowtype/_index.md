@@ -1,13 +1,13 @@
 ---
-title: PresetShadowType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PresetShadowType Enumeration
 type: docs
 weight: 9760
-url: /python-net/api-reference/aspose.slides/presetshadowtype/
+url: /slides/python-net/api-reference/aspose.slides/presetshadowtype/
 ---
 
 Represents a preset for a shadow effect.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PresetShadowType
 

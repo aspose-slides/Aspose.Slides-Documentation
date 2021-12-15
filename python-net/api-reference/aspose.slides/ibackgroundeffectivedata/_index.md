@@ -1,13 +1,13 @@
 ---
-title: IBackgroundEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IBackgroundEffectiveData Class
 type: docs
 weight: 850
-url: /python-net/api-reference/aspose.slides/ibackgroundeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/ibackgroundeffectivedata/
 ---
 
 Immutable object which contains effective background properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IBackgroundEffectiveData
 

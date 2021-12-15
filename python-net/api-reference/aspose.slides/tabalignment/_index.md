@@ -1,13 +1,13 @@
 ---
-title: TabAlignment Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TabAlignment Enumeration
 type: docs
 weight: 9920
-url: /python-net/api-reference/aspose.slides/tabalignment/
+url: /slides/python-net/api-reference/aspose.slides/tabalignment/
 ---
 
 Represents the tab alignment.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TabAlignment
 

@@ -1,13 +1,13 @@
 ---
-title: MathSpacingRules Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathSpacingRules Enumeration
 type: docs
 weight: 970
-url: /python-net/api-reference/aspose.slides.mathtext/mathspacingrules/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathspacingrules/
 ---
 
 Types of gap (horizontal spacing) between columns of a matrix
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathSpacingRules
 

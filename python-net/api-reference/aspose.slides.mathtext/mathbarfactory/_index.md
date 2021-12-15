@@ -1,13 +1,13 @@
 ---
-title: MathBarFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathBarFactory Class
 type: docs
 weight: 510
-url: /python-net/api-reference/aspose.slides.mathtext/mathbarfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathbarfactory/
 ---
 
 Allows to create a math bar
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathBarFactory
 

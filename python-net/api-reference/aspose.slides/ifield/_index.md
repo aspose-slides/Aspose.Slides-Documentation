@@ -1,13 +1,13 @@
 ---
-title: IField Class - Aspose.Slides for Python via .NET - API Reference
+title: IField Class
 type: docs
 weight: 1300
-url: /python-net/api-reference/aspose.slides/ifield/
+url: /slides/python-net/api-reference/aspose.slides/ifield/
 ---
 
 Represents a field.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IField
 

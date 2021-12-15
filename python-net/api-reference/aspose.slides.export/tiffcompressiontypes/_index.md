@@ -1,13 +1,13 @@
 ---
-title: TiffCompressionTypes Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TiffCompressionTypes Enumeration
 type: docs
 weight: 830
-url: /python-net/api-reference/aspose.slides.export/tiffcompressiontypes/
+url: /slides/python-net/api-reference/aspose.slides.export/tiffcompressiontypes/
 ---
 
 Provides options that control how a presentation is compressed in TIFF format.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.TiffCompressionTypes
 

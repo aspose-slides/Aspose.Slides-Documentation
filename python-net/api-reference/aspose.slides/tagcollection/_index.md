@@ -1,13 +1,13 @@
 ---
-title: TagCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: TagCollection Class
 type: docs
 weight: 3770
-url: /python-net/api-reference/aspose.slides/tagcollection/
+url: /slides/python-net/api-reference/aspose.slides/tagcollection/
 ---
 
 Represents the collection of tags (user defined pairs of strings)
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.TagCollection
 

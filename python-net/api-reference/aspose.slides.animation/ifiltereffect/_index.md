@@ -1,13 +1,13 @@
 ---
-title: IFilterEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: IFilterEffect Class
 type: docs
 weight: 210
-url: /python-net/api-reference/aspose.slides.animation/ifiltereffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/ifiltereffect/
 ---
 
 Represent filter effect of behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IFilterEffect
 

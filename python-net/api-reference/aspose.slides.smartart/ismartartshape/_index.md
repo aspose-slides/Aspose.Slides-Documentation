@@ -1,13 +1,13 @@
 ---
-title: ISmartArtShape Class - Aspose.Slides for Python via .NET - API Reference
+title: ISmartArtShape Class
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.smartart/ismartartshape/
+url: /slides/python-net/api-reference/aspose.slides.smartart/ismartartshape/
 ---
 
 Represents a shape inside SmartArt diagram
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Class Name:** aspose.slides.smartart.ISmartArtShape
 

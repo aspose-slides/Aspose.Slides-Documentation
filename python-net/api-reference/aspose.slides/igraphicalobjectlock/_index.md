@@ -1,13 +1,13 @@
 ---
-title: IGraphicalObjectLock Class - Aspose.Slides for Python via .NET - API Reference
+title: IGraphicalObjectLock Class
 type: docs
 weight: 1570
-url: /python-net/api-reference/aspose.slides/igraphicalobjectlock/
+url: /slides/python-net/api-reference/aspose.slides/igraphicalobjectlock/
 ---
 
 Determines which operations are disabled on the parent GraphicalObjectEx.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IGraphicalObjectLock
 

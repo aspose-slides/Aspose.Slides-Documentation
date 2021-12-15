@@ -1,8 +1,8 @@
 ---
-title: aspose.slides.dom Namespace - Aspose.Slides for Python via .NET - API Reference
+title: aspose.slides.dom
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.dom/
+url: /slides/python-net/api-reference/aspose.slides.dom/
 ---
 
 

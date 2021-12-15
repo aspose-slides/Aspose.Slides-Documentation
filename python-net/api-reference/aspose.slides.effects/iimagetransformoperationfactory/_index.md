@@ -1,13 +1,13 @@
 ---
-title: IImageTransformOperationFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IImageTransformOperationFactory Class
 type: docs
 weight: 710
-url: /python-net/api-reference/aspose.slides.effects/iimagetransformoperationfactory/
+url: /slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperationfactory/
 ---
 
 Allows to create image effects' instances
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IImageTransformOperationFactory
 

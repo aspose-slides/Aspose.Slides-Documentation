@@ -1,13 +1,13 @@
 ---
-title: PersistenceType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PersistenceType Enumeration
 type: docs
 weight: 9700
-url: /python-net/api-reference/aspose.slides/persistencetype/
+url: /slides/python-net/api-reference/aspose.slides/persistencetype/
 ---
 
 Specifies the method used to store properties of the ActiveX control.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PersistenceType
 

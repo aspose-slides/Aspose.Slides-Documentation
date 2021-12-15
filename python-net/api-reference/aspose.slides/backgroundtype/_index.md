@@ -1,13 +1,13 @@
 ---
-title: BackgroundType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: BackgroundType Enumeration
 type: docs
 weight: 9290
-url: /python-net/api-reference/aspose.slides/backgroundtype/
+url: /slides/python-net/api-reference/aspose.slides/backgroundtype/
 ---
 
 Defines the slide background fill source.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.BackgroundType
 

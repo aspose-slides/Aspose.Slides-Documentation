@@ -1,13 +1,13 @@
 ---
-title: ChartDataWorksheetCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartDataWorksheetCollection Class
 type: docs
 weight: 200
-url: /python-net/api-reference/aspose.slides.charts/chartdataworksheetcollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartdataworksheetcollection/
 ---
 
 Represents the collection of worksheets of chart data workbook.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartDataWorksheetCollection
 

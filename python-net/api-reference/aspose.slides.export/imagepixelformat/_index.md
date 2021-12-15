@@ -1,13 +1,13 @@
 ---
-title: ImagePixelFormat Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ImagePixelFormat Enumeration
 type: docs
 weight: 710
-url: /python-net/api-reference/aspose.slides.export/imagepixelformat/
+url: /slides/python-net/api-reference/aspose.slides.export/imagepixelformat/
 ---
 
 Specifies the pixel format for the generated images.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.ImagePixelFormat
 

@@ -1,13 +1,13 @@
 ---
-title: IParagraphFormatEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IParagraphFormatEffectiveData Class
 type: docs
 weight: 2070
-url: /python-net/api-reference/aspose.slides/iparagraphformateffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/
 ---
 
 Immutable object which contains effective paragraph formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IParagraphFormatEffectiveData
 

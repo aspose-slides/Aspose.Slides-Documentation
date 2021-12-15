@@ -1,13 +1,13 @@
 ---
-title: IConnector Class - Aspose.Slides for Python via .NET - API Reference
+title: IConnector Class
 type: docs
 weight: 1160
-url: /python-net/api-reference/aspose.slides/iconnector/
+url: /slides/python-net/api-reference/aspose.slides/iconnector/
 ---
 
 Represents a connector.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IConnector
 

@@ -1,13 +1,13 @@
 ---
-title: IEffectFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IEffectFormat Class
 type: docs
 weight: 1270
-url: /python-net/api-reference/aspose.slides/ieffectformat/
+url: /slides/python-net/api-reference/aspose.slides/ieffectformat/
 ---
 
 Represents effect properties of shape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IEffectFormat
 

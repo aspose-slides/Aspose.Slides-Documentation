@@ -1,13 +1,13 @@
 ---
-title: INotesSlide Class - Aspose.Slides for Python via .NET - API Reference
+title: INotesSlide Class
 type: docs
 weight: 1970
-url: /python-net/api-reference/aspose.slides/inotesslide/
+url: /slides/python-net/api-reference/aspose.slides/inotesslide/
 ---
 
 Represents a notes slide in a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.INotesSlide
 

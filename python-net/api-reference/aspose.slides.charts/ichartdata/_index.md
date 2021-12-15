@@ -1,13 +1,13 @@
 ---
-title: IChartData Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartData Class
 type: docs
 weight: 510
-url: /python-net/api-reference/aspose.slides.charts/ichartdata/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartdata/
 ---
 
 Represents data used for a chart plotting.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartData
 

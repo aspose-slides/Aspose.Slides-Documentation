@@ -1,13 +1,13 @@
 ---
-title: ChartCellCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartCellCollection Class
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.charts/chartcellcollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartcellcollection/
 ---
 
 Represents collection of a cells with data.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartCellCollection
 

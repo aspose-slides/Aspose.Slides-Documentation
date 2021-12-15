@@ -1,13 +1,13 @@
 ---
-title: TextToHtmlConversionOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: TextToHtmlConversionOptions Class
 type: docs
 weight: 510
-url: /python-net/api-reference/aspose.slides.export/texttohtmlconversionoptions/
+url: /slides/python-net/api-reference/aspose.slides.export/texttohtmlconversionoptions/
 ---
 
 Options for extracting HTML from the Pptx text.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.TextToHtmlConversionOptions
 

@@ -1,13 +1,13 @@
 ---
-title: IStreamWrapperFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IStreamWrapperFactory Class
 type: docs
 weight: 2580
-url: /python-net/api-reference/aspose.slides/istreamwrapperfactory/
+url: /slides/python-net/api-reference/aspose.slides/istreamwrapperfactory/
 ---
 
 Factory of StreamWrappers. For COM interface.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IStreamWrapperFactory
 

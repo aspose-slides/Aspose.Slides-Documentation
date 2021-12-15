@@ -1,13 +1,13 @@
 ---
-title: ImageWrapper Class - Aspose.Slides for Python via .NET - API Reference
+title: ImageWrapper Class
 type: docs
 weight: 2830
-url: /python-net/api-reference/aspose.slides/imagewrapper/
+url: /slides/python-net/api-reference/aspose.slides/imagewrapper/
 ---
 
 System.Drawing.Image wrapper for COM interface.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ImageWrapper
 

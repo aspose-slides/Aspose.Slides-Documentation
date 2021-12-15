@@ -1,13 +1,13 @@
 ---
-title: FlyThroughTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: FlyThroughTransition Class
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.slideshow/flythroughtransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/flythroughtransition/
 ---
 
 Fly-through slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.FlyThroughTransition
 

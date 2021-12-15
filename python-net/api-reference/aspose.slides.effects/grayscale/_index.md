@@ -1,13 +1,13 @@
 ---
-title: GrayScale Class - Aspose.Slides for Python via .NET - API Reference
+title: GrayScale Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides.effects/grayscale/
+url: /slides/python-net/api-reference/aspose.slides.effects/grayscale/
 ---
 
 Represents a Gray Scale effect. Converts all effect color values to a shade of gray,<br/>            corresponding to their luminance. Effect alpha (opacity) values are unaffected.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.GrayScale
 

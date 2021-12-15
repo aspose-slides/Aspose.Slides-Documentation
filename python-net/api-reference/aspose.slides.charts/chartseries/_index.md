@@ -1,13 +1,13 @@
 ---
-title: ChartSeries Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartSeries Class
 type: docs
 weight: 240
-url: /python-net/api-reference/aspose.slides.charts/chartseries/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartseries/
 ---
 
 Represents a chart series.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartSeries
 

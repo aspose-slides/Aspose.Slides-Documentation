@@ -1,13 +1,13 @@
 ---
-title: MathGroupingCharacterFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathGroupingCharacterFactory Class
 type: docs
 weight: 660
-url: /python-net/api-reference/aspose.slides.mathtext/mathgroupingcharacterfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathgroupingcharacterfactory/
 ---
 
 Allows to create a math grouping character
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathGroupingCharacterFactory
 

@@ -1,13 +1,13 @@
 ---
-title: IMathParagraph Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathParagraph Class
 type: docs
 weight: 330
-url: /python-net/api-reference/aspose.slides.mathtext/imathparagraph/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathparagraph/
 ---
 
 Mathematical paragraph that is a container for mathematical blocks (IMathBlock)
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathParagraph
 

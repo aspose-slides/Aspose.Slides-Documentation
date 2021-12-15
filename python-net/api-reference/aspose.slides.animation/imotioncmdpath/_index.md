@@ -1,13 +1,13 @@
 ---
-title: IMotionCmdPath Class - Aspose.Slides for Python via .NET - API Reference
+title: IMotionCmdPath Class
 type: docs
 weight: 220
-url: /python-net/api-reference/aspose.slides.animation/imotioncmdpath/
+url: /slides/python-net/api-reference/aspose.slides.animation/imotioncmdpath/
 ---
 
 Represent one command of a path.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IMotionCmdPath
 

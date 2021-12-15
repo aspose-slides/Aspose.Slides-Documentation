@@ -1,13 +1,13 @@
 ---
-title: IChartPlotArea Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartPlotArea Class
 type: docs
 weight: 620
-url: /python-net/api-reference/aspose.slides.charts/ichartplotarea/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartplotarea/
 ---
 
 Represents chart title properties.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartPlotArea
 

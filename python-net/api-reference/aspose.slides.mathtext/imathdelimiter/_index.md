@@ -1,13 +1,13 @@
 ---
-title: IMathDelimiter Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathDelimiter Class
 type: docs
 weight: 150
-url: /python-net/api-reference/aspose.slides.mathtext/imathdelimiter/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathdelimiter/
 ---
 
 Specifies the delimiter object, consisting of opening and closing characters (such as parentheses, <br/>            braces, brackets, and vertical bars), and one or more mathematical elements inside, separated by a specified character.<br/>            Examples: (𝑥2); [𝑥2|𝑦2]
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathDelimiter
 

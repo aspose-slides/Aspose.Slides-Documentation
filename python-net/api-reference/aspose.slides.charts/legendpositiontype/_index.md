@@ -1,13 +1,13 @@
 ---
-title: LegendPositionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LegendPositionType Enumeration
 type: docs
 weight: 1250
-url: /python-net/api-reference/aspose.slides.charts/legendpositiontype/
+url: /slides/python-net/api-reference/aspose.slides.charts/legendpositiontype/
 ---
 
 Determines a position of legend on a chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.LegendPositionType
 

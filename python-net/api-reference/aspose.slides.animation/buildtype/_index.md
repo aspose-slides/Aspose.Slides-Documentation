@@ -1,13 +1,13 @@
 ---
-title: BuildType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: BuildType Enumeration
 type: docs
 weight: 520
-url: /python-net/api-reference/aspose.slides.animation/buildtype/
+url: /slides/python-net/api-reference/aspose.slides.animation/buildtype/
 ---
 
 Determines how text will appear on a shape during animation.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.BuildType
 

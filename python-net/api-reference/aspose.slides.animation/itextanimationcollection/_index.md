@@ -1,13 +1,13 @@
 ---
-title: ITextAnimationCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ITextAnimationCollection Class
 type: docs
 weight: 340
-url: /python-net/api-reference/aspose.slides.animation/itextanimationcollection/
+url: /slides/python-net/api-reference/aspose.slides.animation/itextanimationcollection/
 ---
 
 Represents collection of text animations.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.ITextAnimationCollection
 

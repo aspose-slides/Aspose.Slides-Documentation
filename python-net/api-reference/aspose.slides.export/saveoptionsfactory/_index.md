@@ -1,13 +1,13 @@
 ---
-title: SaveOptionsFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: SaveOptionsFactory Class
 type: docs
 weight: 460
-url: /python-net/api-reference/aspose.slides.export/saveoptionsfactory/
+url: /slides/python-net/api-reference/aspose.slides.export/saveoptionsfactory/
 ---
 
 Allows to create save options' instances
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.SaveOptionsFactory
 

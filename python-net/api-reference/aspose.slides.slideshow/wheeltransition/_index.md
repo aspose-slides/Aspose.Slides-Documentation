@@ -1,13 +1,13 @@
 ---
-title: WheelTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: WheelTransition Class
 type: docs
 weight: 350
-url: /python-net/api-reference/aspose.slides.slideshow/wheeltransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/wheeltransition/
 ---
 
 Wheel slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.WheelTransition
 

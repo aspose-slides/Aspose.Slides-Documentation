@@ -1,13 +1,13 @@
 ---
-title: IGraphicalObject Class - Aspose.Slides for Python via .NET - API Reference
+title: IGraphicalObject Class
 type: docs
 weight: 1560
-url: /python-net/api-reference/aspose.slides/igraphicalobject/
+url: /slides/python-net/api-reference/aspose.slides/igraphicalobject/
 ---
 
 Represents abstract graphical object.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IGraphicalObject
 

@@ -1,13 +1,13 @@
 ---
-title: TiffOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: TiffOptions Class
 type: docs
 weight: 520
-url: /python-net/api-reference/aspose.slides.export/tiffoptions/
+url: /slides/python-net/api-reference/aspose.slides.export/tiffoptions/
 ---
 
 Provides options that control how a presentation is saved in TIFF format.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.TiffOptions
 

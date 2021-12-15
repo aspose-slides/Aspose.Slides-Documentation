@@ -1,13 +1,13 @@
 ---
-title: RectangleAlignment Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: RectangleAlignment Enumeration
 type: docs
 weight: 9770
-url: /python-net/api-reference/aspose.slides/rectanglealignment/
+url: /slides/python-net/api-reference/aspose.slides/rectanglealignment/
 ---
 
 Defines 2-dimension allignment.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.RectangleAlignment
 

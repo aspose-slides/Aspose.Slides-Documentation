@@ -1,13 +1,13 @@
 ---
-title: CommonSlideViewProperties Class - Aspose.Slides for Python via .NET - API Reference
+title: CommonSlideViewProperties Class
 type: docs
 weight: 330
-url: /python-net/api-reference/aspose.slides/commonslideviewproperties/
+url: /slides/python-net/api-reference/aspose.slides/commonslideviewproperties/
 ---
 
 Represents common slide view properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CommonSlideViewProperties
 

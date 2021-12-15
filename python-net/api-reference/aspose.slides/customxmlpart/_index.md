@@ -1,13 +1,13 @@
 ---
-title: CustomXmlPart Class - Aspose.Slides for Python via .NET - API Reference
+title: CustomXmlPart Class
 type: docs
 weight: 400
-url: /python-net/api-reference/aspose.slides/customxmlpart/
+url: /slides/python-net/api-reference/aspose.slides/customxmlpart/
 ---
 
 Represents custom xml part.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CustomXmlPart
 

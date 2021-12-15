@@ -1,13 +1,13 @@
 ---
-title: IDataLabelCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IDataLabelCollection Class
 type: docs
 weight: 740
-url: /python-net/api-reference/aspose.slides.charts/idatalabelcollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/idatalabelcollection/
 ---
 
 Represents a series labels.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IDataLabelCollection
 

@@ -1,13 +1,13 @@
 ---
-title: TextCapType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextCapType Enumeration
 type: docs
 weight: 9970
-url: /python-net/api-reference/aspose.slides/textcaptype/
+url: /slides/python-net/api-reference/aspose.slides/textcaptype/
 ---
 
 Represents the type of text capitalisation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextCapType
 

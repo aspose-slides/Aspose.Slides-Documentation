@@ -1,13 +1,13 @@
 ---
-title: GradientFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: GradientFormat Class
 type: docs
 weight: 630
-url: /python-net/api-reference/aspose.slides/gradientformat/
+url: /slides/python-net/api-reference/aspose.slides/gradientformat/
 ---
 
 Represent a gradient format.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GradientFormat
 

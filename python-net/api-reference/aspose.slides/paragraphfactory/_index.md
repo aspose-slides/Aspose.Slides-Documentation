@@ -1,13 +1,13 @@
 ---
-title: ParagraphFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: ParagraphFactory Class
 type: docs
 weight: 3220
-url: /python-net/api-reference/aspose.slides/paragraphfactory/
+url: /slides/python-net/api-reference/aspose.slides/paragraphfactory/
 ---
 
 Allows to create paragraphs
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ParagraphFactory
 

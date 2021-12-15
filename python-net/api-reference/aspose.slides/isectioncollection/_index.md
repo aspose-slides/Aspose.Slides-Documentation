@@ -1,13 +1,13 @@
 ---
-title: ISectionCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ISectionCollection Class
 type: docs
 weight: 2370
-url: /python-net/api-reference/aspose.slides/isectioncollection/
+url: /slides/python-net/api-reference/aspose.slides/isectioncollection/
 ---
 
 Represents a collection of sections.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ISectionCollection
 

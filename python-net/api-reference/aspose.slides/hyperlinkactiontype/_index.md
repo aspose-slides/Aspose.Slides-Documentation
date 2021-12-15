@@ -1,13 +1,13 @@
 ---
-title: HyperlinkActionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: HyperlinkActionType Enumeration
 type: docs
 weight: 9460
-url: /python-net/api-reference/aspose.slides/hyperlinkactiontype/
+url: /slides/python-net/api-reference/aspose.slides/hyperlinkactiontype/
 ---
 
 Represents a type of hyperlink action.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.HyperlinkActionType
 

@@ -1,13 +1,13 @@
 ---
-title: IPPImage Class - Aspose.Slides for Python via .NET - API Reference
+title: IPPImage Class
 type: docs
 weight: 2020
-url: /python-net/api-reference/aspose.slides/ippimage/
+url: /slides/python-net/api-reference/aspose.slides/ippimage/
 ---
 
 Represents an image in a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPPImage
 

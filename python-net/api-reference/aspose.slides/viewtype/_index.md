@@ -1,13 +1,13 @@
 ---
-title: ViewType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ViewType Enumeration
 type: docs
 weight: 10060
-url: /python-net/api-reference/aspose.slides/viewtype/
+url: /slides/python-net/api-reference/aspose.slides/viewtype/
 ---
 
 Presentation view types
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ViewType
 

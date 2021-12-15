@@ -1,13 +1,13 @@
 ---
-title: IMathRadical Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathRadical Class
 type: docs
 weight: 360
-url: /python-net/api-reference/aspose.slides.mathtext/imathradical/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathradical/
 ---
 
 Specifies the radical function, consisting of a base, and an optional degree.<br/>            Example of radical object is √𝑥.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathRadical
 

@@ -1,13 +1,13 @@
 ---
-title: IMetered Class - Aspose.Slides for Python via .NET - API Reference
+title: IMetered Class
 type: docs
 weight: 1920
-url: /python-net/api-reference/aspose.slides/imetered/
+url: /slides/python-net/api-reference/aspose.slides/imetered/
 ---
 
 Provides methods to set metered key.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IMetered
 

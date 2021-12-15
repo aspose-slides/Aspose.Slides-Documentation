@@ -1,13 +1,13 @@
 ---
-title: INotImplementedWarningInfo Class - Aspose.Slides for Python via .NET - API Reference
+title: INotImplementedWarningInfo Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.warnings/inotimplementedwarninginfo/
+url: /slides/python-net/api-reference/aspose.slides.warnings/inotimplementedwarninginfo/
 ---
 
 Represents a warning about known not implemented feature which won't be implemented in the near future.
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Class Name:** aspose.slides.warnings.INotImplementedWarningInfo
 

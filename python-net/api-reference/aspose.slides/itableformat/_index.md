@@ -1,13 +1,13 @@
 ---
-title: ITableFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ITableFormat Class
 type: docs
 weight: 2650
-url: /python-net/api-reference/aspose.slides/itableformat/
+url: /slides/python-net/api-reference/aspose.slides/itableformat/
 ---
 
 Represents format of a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITableFormat
 

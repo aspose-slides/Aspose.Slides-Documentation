@@ -1,13 +1,13 @@
 ---
-title: NumberedBulletStyle Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: NumberedBulletStyle Enumeration
 type: docs
 weight: 9640
-url: /python-net/api-reference/aspose.slides/numberedbulletstyle/
+url: /slides/python-net/api-reference/aspose.slides/numberedbulletstyle/
 ---
 
 Represents the style of the numbered bullets.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.NumberedBulletStyle
 

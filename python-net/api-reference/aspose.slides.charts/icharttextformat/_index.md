@@ -1,13 +1,13 @@
 ---
-title: IChartTextFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartTextFormat Class
 type: docs
 weight: 700
-url: /python-net/api-reference/aspose.slides.charts/icharttextformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/icharttextformat/
 ---
 
 Chart operate with restricted set of text format properties.<br/>            IChartTextFormat, IChartTextBlockFormat, IChartParagraphFormat, IChartPortionFormat<br/>            interfaces describe this restricted set.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartTextFormat
 

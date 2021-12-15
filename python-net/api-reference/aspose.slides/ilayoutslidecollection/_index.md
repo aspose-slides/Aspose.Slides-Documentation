@@ -1,13 +1,13 @@
 ---
-title: ILayoutSlideCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ILayoutSlideCollection Class
 type: docs
 weight: 1700
-url: /python-net/api-reference/aspose.slides/ilayoutslidecollection/
+url: /slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/
 ---
 
 Represents a base class for collection of a layout slides.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ILayoutSlideCollection
 

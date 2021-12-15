@@ -1,13 +1,13 @@
 ---
-title: LayoutSlide Class - Aspose.Slides for Python via .NET - API Reference
+title: LayoutSlide Class
 type: docs
 weight: 2880
-url: /python-net/api-reference/aspose.slides/layoutslide/
+url: /slides/python-net/api-reference/aspose.slides/layoutslide/
 ---
 
 Represents a layout slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.LayoutSlide
 

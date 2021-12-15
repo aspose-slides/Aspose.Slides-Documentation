@@ -1,13 +1,13 @@
 ---
-title: IOverrideThemeable Class - Aspose.Slides for Python via .NET - API Reference
+title: IOverrideThemeable Class
 type: docs
 weight: 330
-url: /python-net/api-reference/aspose.slides.theme/ioverridethemeable/
+url: /slides/python-net/api-reference/aspose.slides.theme/ioverridethemeable/
 ---
 
 Represents override theme manager.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IOverrideThemeable
 

@@ -1,13 +1,13 @@
 ---
-title: ChartTitle Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartTitle Class
 type: docs
 weight: 280
-url: /python-net/api-reference/aspose.slides.charts/charttitle/
+url: /slides/python-net/api-reference/aspose.slides.charts/charttitle/
 ---
 
 Represents chart title properties.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartTitle
 

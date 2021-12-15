@@ -1,13 +1,13 @@
 ---
-title: IFontSources Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontSources Class
 type: docs
 weight: 1390
-url: /python-net/api-reference/aspose.slides/ifontsources/
+url: /slides/python-net/api-reference/aspose.slides/ifontsources/
 ---
 
 Provides file and memory sources for external fonts.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFontSources
 

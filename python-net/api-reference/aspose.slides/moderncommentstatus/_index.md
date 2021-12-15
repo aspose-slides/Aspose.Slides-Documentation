@@ -1,13 +1,13 @@
 ---
-title: ModernCommentStatus Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ModernCommentStatus Enumeration
 type: docs
 weight: 9620
-url: /python-net/api-reference/aspose.slides/moderncommentstatus/
+url: /slides/python-net/api-reference/aspose.slides/moderncommentstatus/
 ---
 
 Represents the status of a modern comment.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ModernCommentStatus
 

@@ -1,13 +1,13 @@
 ---
-title: OleObjectFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: OleObjectFrame Class
 type: docs
 weight: 3170
-url: /python-net/api-reference/aspose.slides/oleobjectframe/
+url: /slides/python-net/api-reference/aspose.slides/oleobjectframe/
 ---
 
 Represents an OLE object on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.OleObjectFrame
 

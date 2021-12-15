@@ -1,13 +1,13 @@
 ---
-title: DataLabelFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: DataLabelFormat Class
 type: docs
 weight: 330
-url: /python-net/api-reference/aspose.slides.charts/datalabelformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/datalabelformat/
 ---
 
 Represents formatting options for DataLabel.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.DataLabelFormat
 

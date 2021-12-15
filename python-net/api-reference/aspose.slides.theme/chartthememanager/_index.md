@@ -1,13 +1,13 @@
 ---
-title: ChartThemeManager Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartThemeManager Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.theme/chartthememanager/
+url: /slides/python-net/api-reference/aspose.slides.theme/chartthememanager/
 ---
 
 Provides access to chart theme overriden.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.ChartThemeManager
 

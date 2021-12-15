@@ -1,13 +1,13 @@
 ---
-title: CellInvalidFormulaException Class - Aspose.Slides for Python via .NET - API Reference
+title: CellInvalidFormulaException Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.spreadsheet/cellinvalidformulaexception/
+url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidformulaexception/
 ---
 
 The exception that is thrown when a calculated formula is not correct or was not parsed.
 
-**Namespace:** [aspose.slides.spreadsheet](/python-net/api-reference/aspose.slides.spreadsheet/)
+**Namespace:** [aspose.slides.spreadsheet](/slides/python-net/api-reference/aspose.slides.spreadsheet/)
 
 **Full Class Name:** aspose.slides.spreadsheet.CellInvalidFormulaException
 

@@ -1,13 +1,13 @@
 ---
-title: Connector Class - Aspose.Slides for Python via .NET - API Reference
+title: Connector Class
 type: docs
 weight: 340
-url: /python-net/api-reference/aspose.slides/connector/
+url: /slides/python-net/api-reference/aspose.slides/connector/
 ---
 
 Represents a connector.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Connector
 

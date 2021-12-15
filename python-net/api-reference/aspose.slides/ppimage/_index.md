@@ -1,13 +1,13 @@
 ---
-title: PPImage Class - Aspose.Slides for Python via .NET - API Reference
+title: PPImage Class
 type: docs
 weight: 3180
-url: /python-net/api-reference/aspose.slides/ppimage/
+url: /slides/python-net/api-reference/aspose.slides/ppimage/
 ---
 
 Represents an image in a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PPImage
 

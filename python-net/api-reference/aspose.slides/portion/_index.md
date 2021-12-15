@@ -1,13 +1,13 @@
 ---
-title: Portion Class - Aspose.Slides for Python via .NET - API Reference
+title: Portion Class
 type: docs
 weight: 3310
-url: /python-net/api-reference/aspose.slides/portion/
+url: /slides/python-net/api-reference/aspose.slides/portion/
 ---
 
 Represents a portion of text inside a text paragraph.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Portion
 

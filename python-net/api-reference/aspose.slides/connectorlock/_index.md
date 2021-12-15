@@ -1,13 +1,13 @@
 ---
-title: ConnectorLock Class - Aspose.Slides for Python via .NET - API Reference
+title: ConnectorLock Class
 type: docs
 weight: 350
-url: /python-net/api-reference/aspose.slides/connectorlock/
+url: /slides/python-net/api-reference/aspose.slides/connectorlock/
 ---
 
 Determines which operations are disabled on the parent Connector.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ConnectorLock
 

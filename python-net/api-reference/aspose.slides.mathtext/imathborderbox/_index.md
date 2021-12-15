@@ -1,13 +1,13 @@
 ---
-title: IMathBorderBox Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathBorderBox Class
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.mathtext/imathborderbox/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathborderbox/
 ---
 
 Draws a rectangular or some other border around the IMathElement.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathBorderBox
 

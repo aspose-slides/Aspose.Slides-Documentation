@@ -1,13 +1,13 @@
 ---
-title: TextAlignment Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextAlignment Enumeration
 type: docs
 weight: 9940
-url: /python-net/api-reference/aspose.slides/textalignment/
+url: /slides/python-net/api-reference/aspose.slides/textalignment/
 ---
 
 Represents different text alignment styles.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextAlignment
 

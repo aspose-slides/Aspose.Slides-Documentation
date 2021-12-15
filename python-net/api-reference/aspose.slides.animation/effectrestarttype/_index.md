@@ -1,13 +1,13 @@
 ---
-title: EffectRestartType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectRestartType Enumeration
 type: docs
 weight: 600
-url: /python-net/api-reference/aspose.slides.animation/effectrestarttype/
+url: /slides/python-net/api-reference/aspose.slides.animation/effectrestarttype/
 ---
 
 Represent restart types for timing.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.EffectRestartType
 

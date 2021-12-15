@@ -1,13 +1,13 @@
 ---
-title: SaveFormat Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SaveFormat Enumeration
 type: docs
 weight: 780
-url: /python-net/api-reference/aspose.slides.export/saveformat/
+url: /slides/python-net/api-reference/aspose.slides.export/saveformat/
 ---
 
 Constants which define the format of a saved presentation.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.SaveFormat
 

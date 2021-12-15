@@ -1,13 +1,13 @@
 ---
-title: AxesManager Class - Aspose.Slides for Python via .NET - API Reference
+title: AxesManager Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.charts/axesmanager/
+url: /slides/python-net/api-reference/aspose.slides.charts/axesmanager/
 ---
 
 Provides access to chart axes.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.AxesManager
 

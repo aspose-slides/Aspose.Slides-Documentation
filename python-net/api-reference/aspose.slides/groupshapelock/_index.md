@@ -1,13 +1,13 @@
 ---
-title: GroupShapeLock Class - Aspose.Slides for Python via .NET - API Reference
+title: GroupShapeLock Class
 type: docs
 weight: 710
-url: /python-net/api-reference/aspose.slides/groupshapelock/
+url: /slides/python-net/api-reference/aspose.slides/groupshapelock/
 ---
 
 Determines which operations are disabled on the parent GroupShape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GroupShapeLock
 

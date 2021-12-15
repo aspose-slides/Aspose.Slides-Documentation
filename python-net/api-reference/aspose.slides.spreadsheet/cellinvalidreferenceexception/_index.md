@@ -1,13 +1,13 @@
 ---
-title: CellInvalidReferenceException Class - Aspose.Slides for Python via .NET - API Reference
+title: CellInvalidReferenceException Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.spreadsheet/cellinvalidreferenceexception/
+url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidreferenceexception/
 ---
 
 The exception that is thrown when an invalid cell reference is encountered.
 
-**Namespace:** [aspose.slides.spreadsheet](/python-net/api-reference/aspose.slides.spreadsheet/)
+**Namespace:** [aspose.slides.spreadsheet](/slides/python-net/api-reference/aspose.slides.spreadsheet/)
 
 **Full Class Name:** aspose.slides.spreadsheet.CellInvalidReferenceException
 

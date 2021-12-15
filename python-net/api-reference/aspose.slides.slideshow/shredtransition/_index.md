@@ -1,13 +1,13 @@
 ---
-title: ShredTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: ShredTransition Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides.slideshow/shredtransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/shredtransition/
 ---
 
 Shred slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.ShredTransition
 

@@ -1,13 +1,13 @@
 ---
-title: FontCollectionIndex Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: FontCollectionIndex Enumeration
 type: docs
 weight: 9420
-url: /python-net/api-reference/aspose.slides/fontcollectionindex/
+url: /slides/python-net/api-reference/aspose.slides/fontcollectionindex/
 ---
 
 Represents font's index in a collection.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.FontCollectionIndex
 

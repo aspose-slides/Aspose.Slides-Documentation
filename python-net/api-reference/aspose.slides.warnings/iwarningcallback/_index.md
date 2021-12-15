@@ -1,13 +1,13 @@
 ---
-title: IWarningCallback Class - Aspose.Slides for Python via .NET - API Reference
+title: IWarningCallback Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides.warnings/iwarningcallback/
+url: /slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/
 ---
 
 Interface for classes which receive warning
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Class Name:** aspose.slides.warnings.IWarningCallback
 

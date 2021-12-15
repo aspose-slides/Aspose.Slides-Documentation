@@ -1,13 +1,13 @@
 ---
-title: Html5Options Class - Aspose.Slides for Python via .NET - API Reference
+title: Html5Options Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides.export/html5options/
+url: /slides/python-net/api-reference/aspose.slides.export/html5options/
 ---
 
 Represents a HTML5 exporting options.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.Html5Options
 

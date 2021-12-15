@@ -1,13 +1,13 @@
 ---
-title: IShape Class - Aspose.Slides for Python via .NET - API Reference
+title: IShape Class
 type: docs
 weight: 2390
-url: /python-net/api-reference/aspose.slides/ishape/
+url: /slides/python-net/api-reference/aspose.slides/ishape/
 ---
 
 Represents a shape on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IShape
 

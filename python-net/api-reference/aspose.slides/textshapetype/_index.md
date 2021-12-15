@@ -1,13 +1,13 @@
 ---
-title: TextShapeType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextShapeType Enumeration
 type: docs
 weight: 9990
-url: /python-net/api-reference/aspose.slides/textshapetype/
+url: /slides/python-net/api-reference/aspose.slides/textshapetype/
 ---
 
 Represents text wrapping shape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextShapeType
 

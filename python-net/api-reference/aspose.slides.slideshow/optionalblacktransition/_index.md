@@ -1,13 +1,13 @@
 ---
-title: OptionalBlackTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: OptionalBlackTransition Class
 type: docs
 weight: 260
-url: /python-net/api-reference/aspose.slides.slideshow/optionalblacktransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/optionalblacktransition/
 ---
 
 Optional black slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.OptionalBlackTransition
 

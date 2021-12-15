@@ -1,13 +1,13 @@
 ---
-title: MathDelimiterShape Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathDelimiterShape Enumeration
 type: docs
 weight: 870
-url: /python-net/api-reference/aspose.slides.mathtext/mathdelimitershape/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathdelimitershape/
 ---
 
 The location and size of the delimiters relative to the content of the operands
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathDelimiterShape
 

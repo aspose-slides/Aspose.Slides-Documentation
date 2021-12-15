@@ -1,13 +1,13 @@
 ---
-title: DataSourceTypeForErrorBarsCustomValues Class - Aspose.Slides for Python via .NET - API Reference
+title: DataSourceTypeForErrorBarsCustomValues Class
 type: docs
 weight: 340
-url: /python-net/api-reference/aspose.slides.charts/datasourcetypeforerrorbarscustomvalues/
+url: /slides/python-net/api-reference/aspose.slides.charts/datasourcetypeforerrorbarscustomvalues/
 ---
 
 Specifies types of values in ChartDataPoint.ErrorBarsCustomValues properties list
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.DataSourceTypeForErrorBarsCustomValues
 

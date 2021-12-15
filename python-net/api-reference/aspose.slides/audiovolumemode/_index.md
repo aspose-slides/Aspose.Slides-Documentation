@@ -1,13 +1,13 @@
 ---
-title: AudioVolumeMode Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: AudioVolumeMode Enumeration
 type: docs
 weight: 9280
-url: /python-net/api-reference/aspose.slides/audiovolumemode/
+url: /slides/python-net/api-reference/aspose.slides/audiovolumemode/
 ---
 
 Constants which define audio volume.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.AudioVolumeMode
 

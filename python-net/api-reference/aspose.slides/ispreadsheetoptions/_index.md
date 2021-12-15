@@ -1,13 +1,13 @@
 ---
-title: ISpreadsheetOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: ISpreadsheetOptions Class
 type: docs
 weight: 2560
-url: /python-net/api-reference/aspose.slides/ispreadsheetoptions/
+url: /slides/python-net/api-reference/aspose.slides/ispreadsheetoptions/
 ---
 
 Represents options which can be used to specify additional spreadsheets behavior.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ISpreadsheetOptions
 

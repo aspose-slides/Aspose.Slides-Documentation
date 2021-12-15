@@ -1,13 +1,13 @@
 ---
-title: FilterEffectType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: FilterEffectType Enumeration
 type: docs
 weight: 660
-url: /python-net/api-reference/aspose.slides.animation/filtereffecttype/
+url: /slides/python-net/api-reference/aspose.slides.animation/filtereffecttype/
 ---
 
 Represents filter effect types.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.FilterEffectType
 

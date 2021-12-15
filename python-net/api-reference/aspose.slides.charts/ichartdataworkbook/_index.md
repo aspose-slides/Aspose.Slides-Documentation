@@ -1,13 +1,13 @@
 ---
-title: IChartDataWorkbook Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartDataWorkbook Class
 type: docs
 weight: 570
-url: /python-net/api-reference/aspose.slides.charts/ichartdataworkbook/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartdataworkbook/
 ---
 
 Provides access to embedded Excel workbook
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartDataWorkbook
 

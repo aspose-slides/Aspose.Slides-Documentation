@@ -1,13 +1,13 @@
 ---
-title: EffectChartMajorGroupingType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectChartMajorGroupingType Enumeration
 type: docs
 weight: 560
-url: /python-net/api-reference/aspose.slides.animation/effectchartmajorgroupingtype/
+url: /slides/python-net/api-reference/aspose.slides.animation/effectchartmajorgroupingtype/
 ---
 
 Represents the type of an animation effect for chart's element.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.EffectChartMajorGroupingType
 

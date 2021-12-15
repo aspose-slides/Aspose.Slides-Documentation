@@ -1,13 +1,13 @@
 ---
-title: ILineFillFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ILineFillFormat Class
 type: docs
 weight: 1760
-url: /python-net/api-reference/aspose.slides/ilinefillformat/
+url: /slides/python-net/api-reference/aspose.slides/ilinefillformat/
 ---
 
 Represents properties for lines filling.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ILineFillFormat
 

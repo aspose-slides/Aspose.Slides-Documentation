@@ -1,13 +1,13 @@
 ---
-title: ICommentAuthorCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ICommentAuthorCollection Class
 type: docs
 weight: 1130
-url: /python-net/api-reference/aspose.slides/icommentauthorcollection/
+url: /slides/python-net/api-reference/aspose.slides/icommentauthorcollection/
 ---
 
 Represents a collection of comment authors.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICommentAuthorCollection
 

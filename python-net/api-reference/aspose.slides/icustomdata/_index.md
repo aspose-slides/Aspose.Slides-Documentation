@@ -1,13 +1,13 @@
 ---
-title: ICustomData Class - Aspose.Slides for Python via .NET - API Reference
+title: ICustomData Class
 type: docs
 weight: 1210
-url: /python-net/api-reference/aspose.slides/icustomdata/
+url: /slides/python-net/api-reference/aspose.slides/icustomdata/
 ---
 
 Represents container for custom data.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICustomData
 

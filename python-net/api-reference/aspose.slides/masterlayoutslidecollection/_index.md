@@ -1,13 +1,13 @@
 ---
-title: MasterLayoutSlideCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: MasterLayoutSlideCollection Class
 type: docs
 weight: 2990
-url: /python-net/api-reference/aspose.slides/masterlayoutslidecollection/
+url: /slides/python-net/api-reference/aspose.slides/masterlayoutslidecollection/
 ---
 
 Represents a collections of all layout slides of defined master slide.<br/>            Extends LayoutSlideCollection class with methods for adding/inserting/removing/cloning/reordering <br/>            layout slides in context of the individual collections of master's layout slides.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.MasterLayoutSlideCollection
 

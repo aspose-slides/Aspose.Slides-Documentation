@@ -1,13 +1,13 @@
 ---
-title: PortionFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: PortionFactory Class
 type: docs
 weight: 3330
-url: /python-net/api-reference/aspose.slides/portionfactory/
+url: /slides/python-net/api-reference/aspose.slides/portionfactory/
 ---
 
 Allows to create test portions
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PortionFactory
 

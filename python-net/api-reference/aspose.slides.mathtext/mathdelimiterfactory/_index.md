@@ -1,13 +1,13 @@
 ---
-title: MathDelimiterFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathDelimiterFactory Class
 type: docs
 weight: 590
-url: /python-net/api-reference/aspose.slides.mathtext/mathdelimiterfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathdelimiterfactory/
 ---
 
 Allows to create a math delimiter
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathDelimiterFactory
 

@@ -1,13 +1,13 @@
 ---
-title: ICellFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ICellFormat Class
 type: docs
 weight: 1020
-url: /python-net/api-reference/aspose.slides/icellformat/
+url: /slides/python-net/api-reference/aspose.slides/icellformat/
 ---
 
 Represents format of a table cell.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ICellFormat
 

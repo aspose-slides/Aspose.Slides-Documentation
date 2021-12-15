@@ -1,13 +1,13 @@
 ---
-title: IRotationEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: IRotationEffect Class
 type: docs
 weight: 280
-url: /python-net/api-reference/aspose.slides.animation/irotationeffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/irotationeffect/
 ---
 
 Represent rotation behavior of effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IRotationEffect
 

@@ -1,13 +1,13 @@
 ---
-title: BuildVersionInfo Class - Aspose.Slides for Python via .NET - API Reference
+title: BuildVersionInfo Class
 type: docs
 weight: 170
-url: /python-net/api-reference/aspose.slides/buildversioninfo/
+url: /slides/python-net/api-reference/aspose.slides/buildversioninfo/
 ---
 
 Contains information about version of Aspose.Slides.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.BuildVersionInfo
 

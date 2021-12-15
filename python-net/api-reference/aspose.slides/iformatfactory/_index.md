@@ -1,13 +1,13 @@
 ---
-title: IFormatFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IFormatFactory Class
 type: docs
 weight: 1460
-url: /python-net/api-reference/aspose.slides/iformatfactory/
+url: /slides/python-net/api-reference/aspose.slides/iformatfactory/
 ---
 
 Allows to create formats via COM interface.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFormatFactory
 

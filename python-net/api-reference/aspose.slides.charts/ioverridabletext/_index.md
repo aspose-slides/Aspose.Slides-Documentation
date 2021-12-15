@@ -1,13 +1,13 @@
 ---
-title: IOverridableText Class - Aspose.Slides for Python via .NET - API Reference
+title: IOverridableText Class
 type: docs
 weight: 890
-url: /python-net/api-reference/aspose.slides.charts/ioverridabletext/
+url: /slides/python-net/api-reference/aspose.slides.charts/ioverridabletext/
 ---
 
 Represents overridable text for a chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IOverridableText
 

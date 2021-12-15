@@ -1,13 +1,13 @@
 ---
-title: CombinableSeriesTypesGroup Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: CombinableSeriesTypesGroup Enumeration
 type: docs
 weight: 1160
-url: /python-net/api-reference/aspose.slides.charts/combinableseriestypesgroup/
+url: /slides/python-net/api-reference/aspose.slides.charts/combinableseriestypesgroup/
 ---
 
 Enumeration of groups of combinable series types.<br/>            Each element relates to group of types of chart series that can persist simultaneously in one ChartSeriesGroup.<br/>            For example: ChartType.PercentsStackedArea series cannot be simultaneously with ChartType.StackedArea series <br/>            in one ChartSeriesGroup. But two or more ChartType.PercentsStackedArea can be in one ChartSeriesGroup <br/>            simultaneously (CombinableSeriesTypesGroup.AreaChart_PercentsStackedArea). And ChartType.Line series can be <br/>            with ChartType.LineWithMarkers series simultaneously in one CombinableSeriesTypesGroup.LineChart_Line <br/>            ChartSeriesGroup.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.CombinableSeriesTypesGroup
 

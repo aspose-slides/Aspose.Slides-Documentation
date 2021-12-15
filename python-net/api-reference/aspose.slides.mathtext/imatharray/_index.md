@@ -1,13 +1,13 @@
 ---
-title: IMathArray Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathArray Class
 type: docs
 weight: 40
-url: /python-net/api-reference/aspose.slides.mathtext/imatharray/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imatharray/
 ---
 
 Specifies a vertical array of equations or any mathematical objects
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathArray
 

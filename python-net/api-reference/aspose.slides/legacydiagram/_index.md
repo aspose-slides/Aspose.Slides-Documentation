@@ -1,13 +1,13 @@
 ---
-title: LegacyDiagram Class - Aspose.Slides for Python via .NET - API Reference
+title: LegacyDiagram Class
 type: docs
 weight: 2910
-url: /python-net/api-reference/aspose.slides/legacydiagram/
+url: /slides/python-net/api-reference/aspose.slides/legacydiagram/
 ---
 
 Represents a legacy diagram object.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.LegacyDiagram
 

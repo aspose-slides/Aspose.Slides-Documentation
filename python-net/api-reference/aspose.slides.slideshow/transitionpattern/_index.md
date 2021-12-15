@@ -1,13 +1,13 @@
 ---
-title: TransitionPattern Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionPattern Enumeration
 type: docs
 weight: 420
-url: /python-net/api-reference/aspose.slides.slideshow/transitionpattern/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionpattern/
 ---
 
 Specifies a geometric pattern that tiles together to fill a larger area.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionPattern
 

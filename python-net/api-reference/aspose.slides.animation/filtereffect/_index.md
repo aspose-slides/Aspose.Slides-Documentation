@@ -1,13 +1,13 @@
 ---
-title: FilterEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: FilterEffect Class
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.animation/filtereffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/filtereffect/
 ---
 
 Represent filter effect of behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.FilterEffect
 

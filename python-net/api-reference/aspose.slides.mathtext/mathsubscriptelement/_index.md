@@ -1,13 +1,13 @@
 ---
-title: MathSubscriptElement Class - Aspose.Slides for Python via .NET - API Reference
+title: MathSubscriptElement Class
 type: docs
 weight: 810
-url: /python-net/api-reference/aspose.slides.mathtext/mathsubscriptelement/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathsubscriptelement/
 ---
 
 Specifies the subscript object, which consists of a base <br/>            and a reduced-size subscript placed below and to the right.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathSubscriptElement
 

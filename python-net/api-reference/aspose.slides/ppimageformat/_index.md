@@ -1,13 +1,13 @@
 ---
-title: PPImageFormat Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PPImageFormat Enumeration
 type: docs
 weight: 9660
-url: /python-net/api-reference/aspose.slides/ppimageformat/
+url: /slides/python-net/api-reference/aspose.slides/ppimageformat/
 ---
 
 Image formats. This enum is replacement for
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.PPImageFormat
 

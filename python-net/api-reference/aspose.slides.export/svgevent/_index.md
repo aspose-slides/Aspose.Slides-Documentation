@@ -1,13 +1,13 @@
 ---
-title: SvgEvent Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SvgEvent Enumeration
 type: docs
 weight: 800
-url: /python-net/api-reference/aspose.slides.export/svgevent/
+url: /slides/python-net/api-reference/aspose.slides.export/svgevent/
 ---
 
 Represents options for SVG shape.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.SvgEvent
 

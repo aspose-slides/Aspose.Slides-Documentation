@@ -1,13 +1,13 @@
 ---
-title: IImageTransformOCollectionEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IImageTransformOCollectionEffectiveData Class
 type: docs
 weight: 680
-url: /python-net/api-reference/aspose.slides.effects/iimagetransformocollectioneffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/iimagetransformocollectioneffectivedata/
 ---
 
 Immutable object that represents a readonly collection of effective image transform effects.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.IImageTransformOCollectionEffectiveData
 

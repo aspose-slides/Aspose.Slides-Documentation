@@ -1,13 +1,13 @@
 ---
-title: IPictureFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: IPictureFrame Class
 type: docs
 weight: 2140
-url: /python-net/api-reference/aspose.slides/ipictureframe/
+url: /slides/python-net/api-reference/aspose.slides/ipictureframe/
 ---
 
 Represents a frame with a picture inside.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPictureFrame
 

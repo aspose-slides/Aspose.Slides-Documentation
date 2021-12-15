@@ -1,13 +1,13 @@
 ---
-title: LineSketchType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LineSketchType Enumeration
 type: docs
 weight: 9570
-url: /python-net/api-reference/aspose.slides/linesketchtype/
+url: /slides/python-net/api-reference/aspose.slides/linesketchtype/
 ---
 
 Represents which sketch type or effect a shape has been assigned.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.LineSketchType
 

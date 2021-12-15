@@ -1,13 +1,13 @@
 ---
-title: IFormatSchemeEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IFormatSchemeEffectiveData Class
 type: docs
 weight: 250
-url: /python-net/api-reference/aspose.slides.theme/iformatschemeeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.theme/iformatschemeeffectivedata/
 ---
 
 Immutable object which contains effective format scheme properties.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.IFormatSchemeEffectiveData
 

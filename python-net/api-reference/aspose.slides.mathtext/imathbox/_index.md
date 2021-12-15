@@ -1,13 +1,13 @@
 ---
-title: IMathBox Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathBox Class
 type: docs
 weight: 130
-url: /python-net/api-reference/aspose.slides.mathtext/imathbox/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathbox/
 ---
 
 Specifies the logical boxing (packaging) of mathematical element.<br/>            For example, a boxed object can serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.<br/>            For example, the "==" operator should be boxed to prevent line breaks.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathBox
 

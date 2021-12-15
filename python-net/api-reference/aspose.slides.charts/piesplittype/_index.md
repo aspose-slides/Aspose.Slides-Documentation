@@ -1,13 +1,13 @@
 ---
-title: PieSplitType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: PieSplitType Enumeration
 type: docs
 weight: 1290
-url: /python-net/api-reference/aspose.slides.charts/piesplittype/
+url: /slides/python-net/api-reference/aspose.slides.charts/piesplittype/
 ---
 
 Represents a type of splitting points in the second pie or bar <br/>            on a pie-of-pie or bar-of-pie chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.PieSplitType
 

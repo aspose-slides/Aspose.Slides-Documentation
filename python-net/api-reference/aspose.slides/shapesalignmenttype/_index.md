@@ -1,13 +1,13 @@
 ---
-title: ShapesAlignmentType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ShapesAlignmentType Enumeration
 type: docs
 weight: 9840
-url: /python-net/api-reference/aspose.slides/shapesalignmenttype/
+url: /slides/python-net/api-reference/aspose.slides/shapesalignmenttype/
 ---
 
 Defines a way to change the placement of selected shapes on the slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ShapesAlignmentType
 

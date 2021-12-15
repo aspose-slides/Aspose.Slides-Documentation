@@ -1,13 +1,13 @@
 ---
-title: PatternFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: PatternFormat Class
 type: docs
 weight: 3250
-url: /python-net/api-reference/aspose.slides/patternformat/
+url: /slides/python-net/api-reference/aspose.slides/patternformat/
 ---
 
 Represents a pattern to fill a shape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PatternFormat
 

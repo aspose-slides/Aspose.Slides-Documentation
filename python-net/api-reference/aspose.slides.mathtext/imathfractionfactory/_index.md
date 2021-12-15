@@ -1,13 +1,13 @@
 ---
-title: IMathFractionFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathFractionFactory Class
 type: docs
 weight: 200
-url: /python-net/api-reference/aspose.slides.mathtext/imathfractionfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathfractionfactory/
 ---
 
 Allows to create a math fraction
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathFractionFactory
 

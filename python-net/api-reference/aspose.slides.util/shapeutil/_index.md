@@ -1,13 +1,13 @@
 ---
-title: ShapeUtil Class - Aspose.Slides for Python via .NET - API Reference
+title: ShapeUtil Class
 type: docs
 weight: 10
-url: /python-net/api-reference/aspose.slides.util/shapeutil/
+url: /slides/python-net/api-reference/aspose.slides.util/shapeutil/
 ---
 
 Offer methods which helps to process shapes objects.
 
-**Namespace:** [aspose.slides.util](/python-net/api-reference/aspose.slides.util/)
+**Namespace:** [aspose.slides.util](/slides/python-net/api-reference/aspose.slides.util/)
 
 **Full Class Name:** aspose.slides.util.ShapeUtil
 

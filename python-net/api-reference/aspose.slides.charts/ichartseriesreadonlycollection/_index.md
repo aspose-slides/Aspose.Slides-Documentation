@@ -1,13 +1,13 @@
 ---
-title: IChartSeriesReadonlyCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartSeriesReadonlyCollection Class
 type: docs
 weight: 680
-url: /python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/
 ---
 
 Represents a readonly collection of  [IChartSeries](/python-net/api-reference/aspose.slides.charts/ichartseries/)
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartSeriesReadonlyCollection
 

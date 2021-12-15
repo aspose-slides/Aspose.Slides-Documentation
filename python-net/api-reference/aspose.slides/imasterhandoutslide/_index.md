@@ -1,13 +1,13 @@
 ---
-title: IMasterHandoutSlide Class - Aspose.Slides for Python via .NET - API Reference
+title: IMasterHandoutSlide Class
 type: docs
 weight: 1820
-url: /python-net/api-reference/aspose.slides/imasterhandoutslide/
+url: /slides/python-net/api-reference/aspose.slides/imasterhandoutslide/
 ---
 
 Represents master slide for handouts.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IMasterHandoutSlide
 

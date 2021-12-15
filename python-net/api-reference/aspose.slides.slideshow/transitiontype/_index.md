@@ -1,13 +1,13 @@
 ---
-title: TransitionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionType Enumeration
 type: docs
 weight: 470
-url: /python-net/api-reference/aspose.slides.slideshow/transitiontype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitiontype/
 ---
 
 Represent slide show transition type.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionType
 

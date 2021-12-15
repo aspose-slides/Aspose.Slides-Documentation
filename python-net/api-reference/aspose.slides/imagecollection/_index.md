@@ -1,13 +1,13 @@
 ---
-title: ImageCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ImageCollection Class
 type: docs
 weight: 2820
-url: /python-net/api-reference/aspose.slides/imagecollection/
+url: /slides/python-net/api-reference/aspose.slides/imagecollection/
 ---
 
 Represents collection of PPImage.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ImageCollection
 

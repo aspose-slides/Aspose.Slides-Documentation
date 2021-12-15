@@ -1,13 +1,13 @@
 ---
-title: ChartWall Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartWall Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides.charts/chartwall/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartwall/
 ---
 
 Represents walls on 3d charts.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartWall
 

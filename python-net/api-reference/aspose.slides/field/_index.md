@@ -1,13 +1,13 @@
 ---
-title: Field Class - Aspose.Slides for Python via .NET - API Reference
+title: Field Class
 type: docs
 weight: 460
-url: /python-net/api-reference/aspose.slides/field/
+url: /slides/python-net/api-reference/aspose.slides/field/
 ---
 
 Represents a field.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Field
 

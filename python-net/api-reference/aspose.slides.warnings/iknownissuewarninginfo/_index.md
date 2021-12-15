@@ -1,13 +1,13 @@
 ---
-title: IKnownIssueWarningInfo Class - Aspose.Slides for Python via .NET - API Reference
+title: IKnownIssueWarningInfo Class
 type: docs
 weight: 10
-url: /python-net/api-reference/aspose.slides.warnings/iknownissuewarninginfo/
+url: /slides/python-net/api-reference/aspose.slides.warnings/iknownissuewarninginfo/
 ---
 
 Represents a warning about known issue which won't be fixed in the near future.
 
-**Namespace:** [aspose.slides.warnings](/python-net/api-reference/aspose.slides.warnings/)
+**Namespace:** [aspose.slides.warnings](/slides/python-net/api-reference/aspose.slides.warnings/)
 
 **Full Class Name:** aspose.slides.warnings.IKnownIssueWarningInfo
 

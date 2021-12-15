@@ -1,13 +1,13 @@
 ---
-title: GraphicalObject Class - Aspose.Slides for Python via .NET - API Reference
+title: GraphicalObject Class
 type: docs
 weight: 680
-url: /python-net/api-reference/aspose.slides/graphicalobject/
+url: /slides/python-net/api-reference/aspose.slides/graphicalobject/
 ---
 
 Represents abstract graphical object.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GraphicalObject
 

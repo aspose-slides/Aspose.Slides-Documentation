@@ -1,13 +1,13 @@
 ---
-title: IGlitterTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: IGlitterTransition Class
 type: docs
 weight: 100
-url: /python-net/api-reference/aspose.slides.slideshow/iglittertransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/iglittertransition/
 ---
 
 Glitter slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.IGlitterTransition
 

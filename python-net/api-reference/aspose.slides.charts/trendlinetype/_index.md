@@ -1,13 +1,13 @@
 ---
-title: TrendlineType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TrendlineType Enumeration
 type: docs
 weight: 1350
-url: /python-net/api-reference/aspose.slides.charts/trendlinetype/
+url: /slides/python-net/api-reference/aspose.slides.charts/trendlinetype/
 ---
 
 Represents type of trend line
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.TrendlineType
 

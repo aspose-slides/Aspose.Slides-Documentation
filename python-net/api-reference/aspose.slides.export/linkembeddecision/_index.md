@@ -1,13 +1,13 @@
 ---
-title: LinkEmbedDecision Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LinkEmbedDecision Enumeration
 type: docs
 weight: 720
-url: /python-net/api-reference/aspose.slides.export/linkembeddecision/
+url: /slides/python-net/api-reference/aspose.slides.export/linkembeddecision/
 ---
 
 Determines how object will be processed during saving.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.LinkEmbedDecision
 

@@ -1,13 +1,13 @@
 ---
-title: Audio Class - Aspose.Slides for Python via .NET - API Reference
+title: Audio Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides/audio/
+url: /slides/python-net/api-reference/aspose.slides/audio/
 ---
 
 Represents an embedded audio file.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Audio
 

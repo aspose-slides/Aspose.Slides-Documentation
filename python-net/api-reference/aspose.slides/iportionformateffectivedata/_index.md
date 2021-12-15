@@ -1,13 +1,13 @@
 ---
-title: IPortionFormatEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: IPortionFormatEffectiveData Class
 type: docs
 weight: 2210
-url: /python-net/api-reference/aspose.slides/iportionformateffectivedata/
+url: /slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/
 ---
 
 Immutable object which contains effective text portion formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPortionFormatEffectiveData
 

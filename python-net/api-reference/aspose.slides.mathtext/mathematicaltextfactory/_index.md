@@ -1,13 +1,13 @@
 ---
-title: MathematicalTextFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathematicalTextFactory Class
 type: docs
 weight: 860
-url: /python-net/api-reference/aspose.slides.mathtext/mathematicaltextfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathematicaltextfactory/
 ---
 
 Allows to create a MathematicalText element
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathematicalTextFactory
 

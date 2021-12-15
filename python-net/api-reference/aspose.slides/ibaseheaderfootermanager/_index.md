@@ -1,13 +1,13 @@
 ---
-title: IBaseHeaderFooterManager Class - Aspose.Slides for Python via .NET - API Reference
+title: IBaseHeaderFooterManager Class
 type: docs
 weight: 870
-url: /python-net/api-reference/aspose.slides/ibaseheaderfootermanager/
+url: /slides/python-net/api-reference/aspose.slides/ibaseheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the footer, date-time, page number placeholders for all slide types.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IBaseHeaderFooterManager
 

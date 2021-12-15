@@ -1,13 +1,13 @@
 ---
-title: CommentsPositions Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: CommentsPositions Enumeration
 type: docs
 weight: 680
-url: /python-net/api-reference/aspose.slides.export/commentspositions/
+url: /slides/python-net/api-reference/aspose.slides.export/commentspositions/
 ---
 
 Represents the rule to render comments into exported document
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.CommentsPositions
 

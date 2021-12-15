@@ -1,13 +1,13 @@
 ---
-title: ISetEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: ISetEffect Class
 type: docs
 weight: 320
-url: /python-net/api-reference/aspose.slides.animation/iseteffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/iseteffect/
 ---
 
 Represents a set effect for an animation behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.ISetEffect
 

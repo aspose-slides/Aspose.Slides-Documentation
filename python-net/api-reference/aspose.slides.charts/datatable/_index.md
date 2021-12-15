@@ -1,13 +1,13 @@
 ---
-title: DataTable Class - Aspose.Slides for Python via .NET - API Reference
+title: DataTable Class
 type: docs
 weight: 350
-url: /python-net/api-reference/aspose.slides.charts/datatable/
+url: /slides/python-net/api-reference/aspose.slides.charts/datatable/
 ---
 
 Represents data table properties.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.DataTable
 

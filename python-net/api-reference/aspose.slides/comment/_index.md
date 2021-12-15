@@ -1,13 +1,13 @@
 ---
-title: Comment Class - Aspose.Slides for Python via .NET - API Reference
+title: Comment Class
 type: docs
 weight: 290
-url: /python-net/api-reference/aspose.slides/comment/
+url: /slides/python-net/api-reference/aspose.slides/comment/
 ---
 
 Represents a comment on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Comment
 

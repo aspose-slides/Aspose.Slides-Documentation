@@ -1,13 +1,13 @@
 ---
-title: TabCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: TabCollection Class
 type: docs
 weight: 3730
-url: /python-net/api-reference/aspose.slides/tabcollection/
+url: /slides/python-net/api-reference/aspose.slides/tabcollection/
 ---
 
 Represents a collection of tabs.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.TabCollection
 

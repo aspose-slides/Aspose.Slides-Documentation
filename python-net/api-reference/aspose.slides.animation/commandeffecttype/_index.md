@@ -1,13 +1,13 @@
 ---
-title: CommandEffectType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: CommandEffectType Enumeration
 type: docs
 weight: 550
-url: /python-net/api-reference/aspose.slides.animation/commandeffecttype/
+url: /slides/python-net/api-reference/aspose.slides.animation/commandeffecttype/
 ---
 
 Represents command effect type for command effect behavior.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.CommandEffectType
 

@@ -1,13 +1,13 @@
 ---
-title: IGradientStopCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IGradientStopCollection Class
 type: docs
 weight: 1530
-url: /python-net/api-reference/aspose.slides/igradientstopcollection/
+url: /slides/python-net/api-reference/aspose.slides/igradientstopcollection/
 ---
 
 Represnts a collection of gradient stops.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IGradientStopCollection
 

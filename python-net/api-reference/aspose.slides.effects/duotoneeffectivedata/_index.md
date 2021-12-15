@@ -1,13 +1,13 @@
 ---
-title: DuotoneEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: DuotoneEffectiveData Class
 type: docs
 weight: 240
-url: /python-net/api-reference/aspose.slides.effects/duotoneeffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/duotoneeffectivedata/
 ---
 
 Immutable object which represents a Duotone effect.<br/>            For each pixel, combines clr1 and clr2 through a linear interpolation<br/>            to determine the new color for that pixel.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.DuotoneEffectiveData
 

@@ -1,13 +1,13 @@
 ---
-title: LeftRightDirectionTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: LeftRightDirectionTransition Class
 type: docs
 weight: 240
-url: /python-net/api-reference/aspose.slides.slideshow/leftrightdirectiontransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/leftrightdirectiontransition/
 ---
 
 Left-right direction slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.LeftRightDirectionTransition
 

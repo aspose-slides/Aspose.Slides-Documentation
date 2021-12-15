@@ -1,13 +1,13 @@
 ---
-title: CommentCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: CommentCollection Class
 type: docs
 weight: 320
-url: /python-net/api-reference/aspose.slides/commentcollection/
+url: /slides/python-net/api-reference/aspose.slides/commentcollection/
 ---
 
 Represents a collection of comments of one author.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CommentCollection
 

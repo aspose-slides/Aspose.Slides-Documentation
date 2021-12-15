@@ -1,13 +1,13 @@
 ---
-title: NotesSlideManager Class - Aspose.Slides for Python via .NET - API Reference
+title: NotesSlideManager Class
 type: docs
 weight: 3120
-url: /python-net/api-reference/aspose.slides/notesslidemanager/
+url: /slides/python-net/api-reference/aspose.slides/notesslidemanager/
 ---
 
 Notes slide manager.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.NotesSlideManager
 

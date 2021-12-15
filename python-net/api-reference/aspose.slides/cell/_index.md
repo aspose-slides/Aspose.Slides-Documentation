@@ -1,13 +1,13 @@
 ---
-title: Cell Class - Aspose.Slides for Python via .NET - API Reference
+title: Cell Class
 type: docs
 weight: 200
-url: /python-net/api-reference/aspose.slides/cell/
+url: /slides/python-net/api-reference/aspose.slides/cell/
 ---
 
 Represents a cell of a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Cell
 

@@ -1,13 +1,13 @@
 ---
-title: FontScheme Class - Aspose.Slides for Python via .NET - API Reference
+title: FontScheme Class
 type: docs
 weight: 100
-url: /python-net/api-reference/aspose.slides.theme/fontscheme/
+url: /slides/python-net/api-reference/aspose.slides.theme/fontscheme/
 ---
 
 Stores theme-defined fonts.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.FontScheme
 

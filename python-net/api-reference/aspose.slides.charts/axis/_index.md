@@ -1,13 +1,13 @@
 ---
-title: Axis Class - Aspose.Slides for Python via .NET - API Reference
+title: Axis Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.charts/axis/
+url: /slides/python-net/api-reference/aspose.slides.charts/axis/
 ---
 
 Encapsulates the object that represents a chart's axis.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.Axis
 

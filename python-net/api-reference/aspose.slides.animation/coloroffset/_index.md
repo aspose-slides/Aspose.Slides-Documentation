@@ -1,13 +1,13 @@
 ---
-title: ColorOffset Class - Aspose.Slides for Python via .NET - API Reference
+title: ColorOffset Class
 type: docs
 weight: 80
-url: /python-net/api-reference/aspose.slides.animation/coloroffset/
+url: /slides/python-net/api-reference/aspose.slides.animation/coloroffset/
 ---
 
 Represent color offset.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.ColorOffset
 

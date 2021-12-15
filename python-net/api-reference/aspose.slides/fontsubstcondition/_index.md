@@ -1,13 +1,13 @@
 ---
-title: FontSubstCondition Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: FontSubstCondition Enumeration
 type: docs
 weight: 9430
-url: /python-net/api-reference/aspose.slides/fontsubstcondition/
+url: /slides/python-net/api-reference/aspose.slides/fontsubstcondition/
 ---
 
 Represents a rule fot font substitution
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.FontSubstCondition
 

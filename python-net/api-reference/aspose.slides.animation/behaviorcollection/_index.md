@@ -1,13 +1,13 @@
 ---
-title: BehaviorCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: BehaviorCollection Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.animation/behaviorcollection/
+url: /slides/python-net/api-reference/aspose.slides.animation/behaviorcollection/
 ---
 
 Represents collection of behavior effects.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.BehaviorCollection
 

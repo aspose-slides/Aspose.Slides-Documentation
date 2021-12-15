@@ -1,13 +1,13 @@
 ---
-title: TransitionMorphType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionMorphType Enumeration
 type: docs
 weight: 410
-url: /python-net/api-reference/aspose.slides.slideshow/transitionmorphtype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionmorphtype/
 ---
 
 Represent a type of morph transition.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionMorphType
 

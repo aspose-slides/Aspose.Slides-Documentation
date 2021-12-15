@@ -1,13 +1,13 @@
 ---
-title: ColorOperation Class - Aspose.Slides for Python via .NET - API Reference
+title: ColorOperation Class
 type: docs
 weight: 240
-url: /python-net/api-reference/aspose.slides/coloroperation/
+url: /slides/python-net/api-reference/aspose.slides/coloroperation/
 ---
 
 Represents different color operations used for color transformations.<br/>            Immutable object.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ColorOperation
 

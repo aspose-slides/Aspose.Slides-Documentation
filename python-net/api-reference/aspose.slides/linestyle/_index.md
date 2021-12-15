@@ -1,13 +1,13 @@
 ---
-title: LineStyle Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: LineStyle Enumeration
 type: docs
 weight: 9580
-url: /python-net/api-reference/aspose.slides/linestyle/
+url: /slides/python-net/api-reference/aspose.slides/linestyle/
 ---
 
 Represents the style of a line.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.LineStyle
 

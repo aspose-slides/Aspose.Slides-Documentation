@@ -1,13 +1,13 @@
 ---
-title: TimeUnitType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TimeUnitType Enumeration
 type: docs
 weight: 1340
-url: /python-net/api-reference/aspose.slides.charts/timeunittype/
+url: /slides/python-net/api-reference/aspose.slides.charts/timeunittype/
 ---
 
 Represents the base unit for the category axis
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.TimeUnitType
 

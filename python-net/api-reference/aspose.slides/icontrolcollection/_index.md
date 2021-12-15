@@ -1,13 +1,13 @@
 ---
-title: IControlCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IControlCollection Class
 type: docs
 weight: 1190
-url: /python-net/api-reference/aspose.slides/icontrolcollection/
+url: /slides/python-net/api-reference/aspose.slides/icontrolcollection/
 ---
 
 A collection of ActiveX controls.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IControlCollection
 

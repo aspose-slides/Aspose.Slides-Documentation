@@ -1,13 +1,13 @@
 ---
-title: Ink Class - Aspose.Slides for Python via .NET - API Reference
+title: Ink Class
 type: docs
 weight: 20
-url: /python-net/api-reference/aspose.slides.ink/ink/
+url: /slides/python-net/api-reference/aspose.slides.ink/ink/
 ---
 
 Represents an ink object on a slide.
 
-**Namespace:** [aspose.slides.ink](/python-net/api-reference/aspose.slides.ink/)
+**Namespace:** [aspose.slides.ink](/slides/python-net/api-reference/aspose.slides.ink/)
 
 **Full Class Name:** aspose.slides.ink.Ink
 

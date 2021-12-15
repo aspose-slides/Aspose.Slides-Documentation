@@ -1,13 +1,13 @@
 ---
-title: TextAutofitType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextAutofitType Enumeration
 type: docs
 weight: 9960
-url: /python-net/api-reference/aspose.slides/textautofittype/
+url: /slides/python-net/api-reference/aspose.slides/textautofittype/
 ---
 
 Represents text autofit mode.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextAutofitType
 

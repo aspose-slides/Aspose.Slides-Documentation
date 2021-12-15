@@ -1,13 +1,13 @@
 ---
-title: SvgExternalFontsHandling Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SvgExternalFontsHandling Enumeration
 type: docs
 weight: 810
-url: /python-net/api-reference/aspose.slides.export/svgexternalfontshandling/
+url: /slides/python-net/api-reference/aspose.slides.export/svgexternalfontshandling/
 ---
 
 Represents a way to handle external fonts used for text drawing.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Name:** aspose.slides.export.SvgExternalFontsHandling
 

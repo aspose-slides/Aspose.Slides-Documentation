@@ -1,13 +1,13 @@
 ---
-title: EffectType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectType Enumeration
 type: docs
 weight: 630
-url: /python-net/api-reference/aspose.slides.animation/effecttype/
+url: /slides/python-net/api-reference/aspose.slides.animation/effecttype/
 ---
 
 Represents the type of an animation effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.EffectType
 

@@ -1,13 +1,13 @@
 ---
-title: IMathElementCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathElementCollection Class
 type: docs
 weight: 180
-url: /python-net/api-reference/aspose.slides.mathtext/imathelementcollection/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/
 ---
 
 Represents a collection of mathematical elements (MathElement).
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathElementCollection
 

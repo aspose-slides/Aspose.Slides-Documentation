@@ -1,13 +1,13 @@
 ---
-title: ChartData Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartData Class
 type: docs
 weight: 120
-url: /python-net/api-reference/aspose.slides.charts/chartdata/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartdata/
 ---
 
 Represents data used for a chart plotting.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartData
 

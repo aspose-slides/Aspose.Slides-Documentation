@@ -1,13 +1,13 @@
 ---
-title: PptxReadException Class - Aspose.Slides for Python via .NET - API Reference
+title: PptxReadException Class
 type: docs
 weight: 3430
-url: /python-net/api-reference/aspose.slides/pptxreadexception/
+url: /slides/python-net/api-reference/aspose.slides/pptxreadexception/
 ---
 
 Represents an exception which thrown on presentation reading errors.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.PptxReadException
 

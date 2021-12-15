@@ -1,13 +1,13 @@
 ---
-title: ISequence Class - Aspose.Slides for Python via .NET - API Reference
+title: ISequence Class
 type: docs
 weight: 300
-url: /python-net/api-reference/aspose.slides.animation/isequence/
+url: /slides/python-net/api-reference/aspose.slides.animation/isequence/
 ---
 
 Represents sequence (collection of effects).
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.ISequence
 

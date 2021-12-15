@@ -1,13 +1,13 @@
 ---
-title: ImageWrapperFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: ImageWrapperFactory Class
 type: docs
 weight: 2840
-url: /python-net/api-reference/aspose.slides/imagewrapperfactory/
+url: /slides/python-net/api-reference/aspose.slides/imagewrapperfactory/
 ---
 
 This class allows to initialize IBitmapWrapper.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ImageWrapperFactory
 

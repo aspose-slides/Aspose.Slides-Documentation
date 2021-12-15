@@ -1,13 +1,13 @@
 ---
-title: AudioFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: AudioFrame Class
 type: docs
 weight: 50
-url: /python-net/api-reference/aspose.slides/audioframe/
+url: /slides/python-net/api-reference/aspose.slides/audioframe/
 ---
 
 Represents an audio clip on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.AudioFrame
 

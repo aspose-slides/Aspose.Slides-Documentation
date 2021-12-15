@@ -1,13 +1,13 @@
 ---
-title: ControlType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ControlType Enumeration
 type: docs
 weight: 9380
-url: /python-net/api-reference/aspose.slides/controltype/
+url: /slides/python-net/api-reference/aspose.slides/controltype/
 ---
 
 Defines a control type which should be embedded by
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ControlType
 

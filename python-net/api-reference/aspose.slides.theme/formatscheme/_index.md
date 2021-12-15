@@ -1,13 +1,13 @@
 ---
-title: FormatScheme Class - Aspose.Slides for Python via .NET - API Reference
+title: FormatScheme Class
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.theme/formatscheme/
+url: /slides/python-net/api-reference/aspose.slides.theme/formatscheme/
 ---
 
 Stores theme-defined formats for the shapes.
 
-**Namespace:** [aspose.slides.theme](/python-net/api-reference/aspose.slides.theme/)
+**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
 
 **Full Class Name:** aspose.slides.theme.FormatScheme
 

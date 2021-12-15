@@ -1,13 +1,13 @@
 ---
-title: DocumentProperties Class - Aspose.Slides for Python via .NET - API Reference
+title: DocumentProperties Class
 type: docs
 weight: 440
-url: /python-net/api-reference/aspose.slides/documentproperties/
+url: /slides/python-net/api-reference/aspose.slides/documentproperties/
 ---
 
 Represents properties of a presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.DocumentProperties
 

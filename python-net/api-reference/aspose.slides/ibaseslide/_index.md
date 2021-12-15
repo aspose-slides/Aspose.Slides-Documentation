@@ -1,13 +1,13 @@
 ---
-title: IBaseSlide Class - Aspose.Slides for Python via .NET - API Reference
+title: IBaseSlide Class
 type: docs
 weight: 910
-url: /python-net/api-reference/aspose.slides/ibaseslide/
+url: /slides/python-net/api-reference/aspose.slides/ibaseslide/
 ---
 
 Represents common data for all slide types.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IBaseSlide
 

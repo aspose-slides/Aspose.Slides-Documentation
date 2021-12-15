@@ -1,13 +1,13 @@
 ---
-title: TextVerticalOverflowType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TextVerticalOverflowType Enumeration
 type: docs
 weight: 10020
-url: /python-net/api-reference/aspose.slides/textverticaloverflowtype/
+url: /slides/python-net/api-reference/aspose.slides/textverticaloverflowtype/
 ---
 
 Represents text vertical overflow type.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TextVerticalOverflowType
 

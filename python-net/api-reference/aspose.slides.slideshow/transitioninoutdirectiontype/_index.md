@@ -1,13 +1,13 @@
 ---
-title: TransitionInOutDirectionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionInOutDirectionType Enumeration
 type: docs
 weight: 390
-url: /python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/
 ---
 
 Represent in or out direction transition types.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionInOutDirectionType
 

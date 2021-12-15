@@ -1,13 +1,13 @@
 ---
-title: IMathLeftSubSuperscriptElement Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathLeftSubSuperscriptElement Class
 type: docs
 weight: 250
-url: /python-net/api-reference/aspose.slides.mathtext/imathleftsubsuperscriptelement/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathleftsubsuperscriptelement/
 ---
 
 Specifies the Sub-Superscript object, which consists of a base <br/>            and a subscript and superscript placed to the left of the base.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathLeftSubSuperscriptElement
 

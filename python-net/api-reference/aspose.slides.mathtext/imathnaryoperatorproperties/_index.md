@@ -1,13 +1,13 @@
 ---
-title: IMathNaryOperatorProperties Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathNaryOperatorProperties Class
 type: docs
 weight: 320
-url: /python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/
 ---
 
 Specifies properties of IMathNaryOperator
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathNaryOperatorProperties
 

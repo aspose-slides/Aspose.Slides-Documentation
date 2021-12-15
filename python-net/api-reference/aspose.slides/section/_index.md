@@ -1,13 +1,13 @@
 ---
-title: Section Class - Aspose.Slides for Python via .NET - API Reference
+title: Section Class
 type: docs
 weight: 3540
-url: /python-net/api-reference/aspose.slides/section/
+url: /slides/python-net/api-reference/aspose.slides/section/
 ---
 
 Represents section of slides.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Section
 

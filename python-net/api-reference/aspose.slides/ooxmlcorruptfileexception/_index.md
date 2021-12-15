@@ -1,13 +1,13 @@
 ---
-title: OOXMLCorruptFileException Class - Aspose.Slides for Python via .NET - API Reference
+title: OOXMLCorruptFileException Class
 type: docs
 weight: 3130
-url: /python-net/api-reference/aspose.slides/ooxmlcorruptfileexception/
+url: /slides/python-net/api-reference/aspose.slides/ooxmlcorruptfileexception/
 ---
 
 Exception which thrown when Office Open XML file format is corrupted.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.OOXMLCorruptFileException
 

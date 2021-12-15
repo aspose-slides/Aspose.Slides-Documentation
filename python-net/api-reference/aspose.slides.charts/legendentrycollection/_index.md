@@ -1,13 +1,13 @@
 ---
-title: LegendEntryCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: LegendEntryCollection Class
 type: docs
 weight: 990
-url: /python-net/api-reference/aspose.slides.charts/legendentrycollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/legendentrycollection/
 ---
 
 Represents legends collection.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.LegendEntryCollection
 

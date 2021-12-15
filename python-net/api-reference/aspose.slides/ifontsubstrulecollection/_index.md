@@ -1,13 +1,13 @@
 ---
-title: IFontSubstRuleCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontSubstRuleCollection Class
 type: docs
 weight: 1410
-url: /python-net/api-reference/aspose.slides/ifontsubstrulecollection/
+url: /slides/python-net/api-reference/aspose.slides/ifontsubstrulecollection/
 ---
 
 Represents collection of fonts substitution.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFontSubstRuleCollection
 

@@ -1,13 +1,13 @@
 ---
-title: EmbeddedWoffFontsHtmlController Class - Aspose.Slides for Python via .NET - API Reference
+title: EmbeddedWoffFontsHtmlController Class
 type: docs
 weight: 30
-url: /python-net/api-reference/aspose.slides.export/embeddedwofffontshtmlcontroller/
+url: /slides/python-net/api-reference/aspose.slides.export/embeddedwofffontshtmlcontroller/
 ---
 
 The formatting controller class to use for fonts embedding in WOFF format
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.EmbeddedWoffFontsHtmlController
 

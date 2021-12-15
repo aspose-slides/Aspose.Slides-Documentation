@@ -1,13 +1,13 @@
 ---
-title: IVbaReferenceOleTwiddledTypeLib Class - Aspose.Slides for Python via .NET - API Reference
+title: IVbaReferenceOleTwiddledTypeLib Class
 type: docs
 weight: 80
-url: /python-net/api-reference/aspose.slides.vba/ivbareferenceoletwiddledtypelib/
+url: /slides/python-net/api-reference/aspose.slides.vba/ivbareferenceoletwiddledtypelib/
 ---
 
 Represents modified OLE Automation type library reference in which <br/>            all controls are marked as extensible.
 
-**Namespace:** [aspose.slides.vba](/python-net/api-reference/aspose.slides.vba/)
+**Namespace:** [aspose.slides.vba](/slides/python-net/api-reference/aspose.slides.vba/)
 
 **Full Class Name:** aspose.slides.vba.IVbaReferenceOleTwiddledTypeLib
 

@@ -1,13 +1,13 @@
 ---
-title: TableStylePreset Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TableStylePreset Enumeration
 type: docs
 weight: 9930
-url: /python-net/api-reference/aspose.slides/tablestylepreset/
+url: /slides/python-net/api-reference/aspose.slides/tablestylepreset/
 ---
 
 Represents builtin table styles.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.TableStylePreset
 

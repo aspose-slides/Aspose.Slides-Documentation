@@ -1,13 +1,13 @@
 ---
-title: MathFunctionsOfTwoArguments Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathFunctionsOfTwoArguments Enumeration
 type: docs
 weight: 900
-url: /python-net/api-reference/aspose.slides.mathtext/mathfunctionsoftwoarguments/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfunctionsoftwoarguments/
 ---
 
 Common mathematical functions of two arguments
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathFunctionsOfTwoArguments
 

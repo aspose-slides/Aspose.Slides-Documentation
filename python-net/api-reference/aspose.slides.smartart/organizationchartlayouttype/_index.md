@@ -1,13 +1,13 @@
 ---
-title: OrganizationChartLayoutType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: OrganizationChartLayoutType Enumeration
 type: docs
 weight: 110
-url: /python-net/api-reference/aspose.slides.smartart/organizationchartlayouttype/
+url: /slides/python-net/api-reference/aspose.slides.smartart/organizationchartlayouttype/
 ---
 
 Represents formatting type the child nodes in an organization chart
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Name:** aspose.slides.smartart.OrganizationChartLayoutType
 

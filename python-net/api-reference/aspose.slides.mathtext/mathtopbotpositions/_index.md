@@ -1,13 +1,13 @@
 ---
-title: MathTopBotPositions Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathTopBotPositions Enumeration
 type: docs
 weight: 980
-url: /python-net/api-reference/aspose.slides.mathtext/mathtopbotpositions/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathtopbotpositions/
 ---
 
 Top/bottom positions enumeration
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathTopBotPositions
 

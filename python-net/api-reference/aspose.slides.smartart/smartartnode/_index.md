@@ -1,13 +1,13 @@
 ---
-title: SmartArtNode Class - Aspose.Slides for Python via .NET - API Reference
+title: SmartArtNode Class
 type: docs
 weight: 70
-url: /python-net/api-reference/aspose.slides.smartart/smartartnode/
+url: /slides/python-net/api-reference/aspose.slides.smartart/smartartnode/
 ---
 
 Represents node of a SmartArt object
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Class Name:** aspose.slides.smartart.SmartArtNode
 

@@ -1,13 +1,13 @@
 ---
-title: WebDocument Class - Aspose.Slides for Python via .NET - API Reference
+title: WebDocument Class
 type: docs
 weight: 80
-url: /python-net/api-reference/aspose.slides.export.web/webdocument/
+url: /slides/python-net/api-reference/aspose.slides.export.web/webdocument/
 ---
 
 Represents a transition form of the presentation for saving into a web format.
 
-**Namespace:** [aspose.slides.export.web](/python-net/api-reference/aspose.slides.export.web/)
+**Namespace:** [aspose.slides.export.web](/slides/python-net/api-reference/aspose.slides.export.web/)
 
 **Full Class Name:** aspose.slides.export.web.WebDocument
 

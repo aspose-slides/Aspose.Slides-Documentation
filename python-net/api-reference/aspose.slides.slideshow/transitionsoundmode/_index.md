@@ -1,13 +1,13 @@
 ---
-title: TransitionSoundMode Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionSoundMode Enumeration
 type: docs
 weight: 450
-url: /python-net/api-reference/aspose.slides.slideshow/transitionsoundmode/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionsoundmode/
 ---
 
 Represent sound mode of transition.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionSoundMode
 

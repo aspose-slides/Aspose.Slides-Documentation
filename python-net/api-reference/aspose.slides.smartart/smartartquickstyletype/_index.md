@@ -1,13 +1,13 @@
 ---
-title: SmartArtQuickStyleType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SmartArtQuickStyleType Enumeration
 type: docs
 weight: 140
-url: /python-net/api-reference/aspose.slides.smartart/smartartquickstyletype/
+url: /slides/python-net/api-reference/aspose.slides.smartart/smartartquickstyletype/
 ---
 
 Represents style scheme of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/python-net/api-reference/aspose.slides.smartart/)
+**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
 
 **Full Name:** aspose.slides.smartart.SmartArtQuickStyleType
 

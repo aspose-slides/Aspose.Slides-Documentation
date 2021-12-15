@@ -1,13 +1,13 @@
 ---
-title: IMotionEffect Class - Aspose.Slides for Python via .NET - API Reference
+title: IMotionEffect Class
 type: docs
 weight: 230
-url: /python-net/api-reference/aspose.slides.animation/imotioneffect/
+url: /slides/python-net/api-reference/aspose.slides.animation/imotioneffect/
 ---
 
 Represent motion effect behavior of effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Class Name:** aspose.slides.animation.IMotionEffect
 

@@ -1,13 +1,13 @@
 ---
-title: ISlideShowTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: ISlideShowTransition Class
 type: docs
 weight: 2520
-url: /python-net/api-reference/aspose.slides/islideshowtransition/
+url: /slides/python-net/api-reference/aspose.slides/islideshowtransition/
 ---
 
 Represents slide show transition.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ISlideShowTransition
 

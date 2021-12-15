@@ -1,13 +1,13 @@
 ---
-title: IParagraphFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IParagraphFormat Class
 type: docs
 weight: 2060
-url: /python-net/api-reference/aspose.slides/iparagraphformat/
+url: /slides/python-net/api-reference/aspose.slides/iparagraphformat/
 ---
 
 This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IParagraphFormat
 

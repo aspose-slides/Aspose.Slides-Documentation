@@ -1,13 +1,13 @@
 ---
-title: TransitionCornerDirectionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: TransitionCornerDirectionType Enumeration
 type: docs
 weight: 370
-url: /python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/
 ---
 
 Represent corner direction transition types.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Name:** aspose.slides.slideshow.TransitionCornerDirectionType
 

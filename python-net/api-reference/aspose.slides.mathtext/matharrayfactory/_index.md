@@ -1,13 +1,13 @@
 ---
-title: MathArrayFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: MathArrayFactory Class
 type: docs
 weight: 490
-url: /python-net/api-reference/aspose.slides.mathtext/matharrayfactory/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/matharrayfactory/
 ---
 
 Allows to create a math array
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathArrayFactory
 

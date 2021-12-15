@@ -1,13 +1,13 @@
 ---
-title: IActualLayout Class - Aspose.Slides for Python via .NET - API Reference
+title: IActualLayout Class
 type: docs
 weight: 400
-url: /python-net/api-reference/aspose.slides.charts/iactuallayout/
+url: /slides/python-net/api-reference/aspose.slides.charts/iactuallayout/
 ---
 
 Specifies actual position of a chart element.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IActualLayout
 

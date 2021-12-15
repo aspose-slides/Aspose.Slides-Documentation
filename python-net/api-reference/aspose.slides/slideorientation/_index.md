@@ -1,13 +1,13 @@
 ---
-title: SlideOrientation Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: SlideOrientation Enumeration
 type: docs
 weight: 9860
-url: /python-net/api-reference/aspose.slides/slideorientation/
+url: /slides/python-net/api-reference/aspose.slides/slideorientation/
 ---
 
 Represents the slide orientation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.SlideOrientation
 

@@ -1,13 +1,13 @@
 ---
-title: BevelPresetType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: BevelPresetType Enumeration
 type: docs
 weight: 9300
-url: /python-net/api-reference/aspose.slides/bevelpresettype/
+url: /slides/python-net/api-reference/aspose.slides/bevelpresettype/
 ---
 
 Constants which define 3D bevel of shape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.BevelPresetType
 

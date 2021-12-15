@@ -1,13 +1,13 @@
 ---
-title: Column Class - Aspose.Slides for Python via .NET - API Reference
+title: Column Class
 type: docs
 weight: 260
-url: /python-net/api-reference/aspose.slides/column/
+url: /slides/python-net/api-reference/aspose.slides/column/
 ---
 
 Represents a column in a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Column
 

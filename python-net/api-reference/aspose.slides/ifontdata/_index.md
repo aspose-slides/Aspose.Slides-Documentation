@@ -1,13 +1,13 @@
 ---
-title: IFontData Class - Aspose.Slides for Python via .NET - API Reference
+title: IFontData Class
 type: docs
 weight: 1350
-url: /python-net/api-reference/aspose.slides/ifontdata/
+url: /slides/python-net/api-reference/aspose.slides/ifontdata/
 ---
 
 Represents a font definition.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IFontData
 

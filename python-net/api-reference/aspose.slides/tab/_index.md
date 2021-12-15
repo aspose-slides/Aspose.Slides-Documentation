@@ -1,13 +1,13 @@
 ---
-title: Tab Class - Aspose.Slides for Python via .NET - API Reference
+title: Tab Class
 type: docs
 weight: 3720
-url: /python-net/api-reference/aspose.slides/tab/
+url: /slides/python-net/api-reference/aspose.slides/tab/
 ---
 
 Represents a tabulation for a text.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Tab
 

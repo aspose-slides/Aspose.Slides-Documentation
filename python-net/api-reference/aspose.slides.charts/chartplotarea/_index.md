@@ -1,13 +1,13 @@
 ---
-title: ChartPlotArea Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartPlotArea Class
 type: docs
 weight: 220
-url: /python-net/api-reference/aspose.slides.charts/chartplotarea/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartplotarea/
 ---
 
 Represents rectangle where chart should be plotted.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartPlotArea
 

@@ -1,13 +1,13 @@
 ---
-title: InterruptionTokenSource Class - Aspose.Slides for Python via .NET - API Reference
+title: InterruptionTokenSource Class
 type: docs
 weight: 2860
-url: /python-net/api-reference/aspose.slides/interruptiontokensource/
+url: /slides/python-net/api-reference/aspose.slides/interruptiontokensource/
 ---
 
 Represents the source of [InterruptionToken](/python-net/api-reference/aspose.slides/interruptiontoken/).
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.InterruptionTokenSource
 

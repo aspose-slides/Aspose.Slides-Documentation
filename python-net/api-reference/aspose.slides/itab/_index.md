@@ -1,13 +1,13 @@
 ---
-title: ITab Class - Aspose.Slides for Python via .NET - API Reference
+title: ITab Class
 type: docs
 weight: 2600
-url: /python-net/api-reference/aspose.slides/itab/
+url: /slides/python-net/api-reference/aspose.slides/itab/
 ---
 
 Represents a tabulation for a text.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITab
 

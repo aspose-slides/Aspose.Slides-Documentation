@@ -1,13 +1,13 @@
 ---
-title: FormatFactory Class - Aspose.Slides for Python via .NET - API Reference
+title: FormatFactory Class
 type: docs
 weight: 590
-url: /python-net/api-reference/aspose.slides/formatfactory/
+url: /slides/python-net/api-reference/aspose.slides/formatfactory/
 ---
 
 Allows to create formats via COM interface.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.FormatFactory
 

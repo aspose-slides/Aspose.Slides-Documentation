@@ -1,13 +1,13 @@
 ---
-title: OuterShadowEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: OuterShadowEffectiveData Class
 type: docs
 weight: 950
-url: /python-net/api-reference/aspose.slides.effects/outershadoweffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/outershadoweffectivedata/
 ---
 
 Immutable object which represents a outer shadow effect.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.OuterShadowEffectiveData
 

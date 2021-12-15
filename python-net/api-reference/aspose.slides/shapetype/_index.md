@@ -1,13 +1,13 @@
 ---
-title: ShapeType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ShapeType Enumeration
 type: docs
 weight: 9830
-url: /python-net/api-reference/aspose.slides/shapetype/
+url: /slides/python-net/api-reference/aspose.slides/shapetype/
 ---
 
 Represents preset geometry of geometry shapes.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ShapeType
 

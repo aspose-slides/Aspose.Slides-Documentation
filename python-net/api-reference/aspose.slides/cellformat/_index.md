@@ -1,13 +1,13 @@
 ---
-title: CellFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: CellFormat Class
 type: docs
 weight: 220
-url: /python-net/api-reference/aspose.slides/cellformat/
+url: /slides/python-net/api-reference/aspose.slides/cellformat/
 ---
 
 Represents format of a table cell.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.CellFormat
 

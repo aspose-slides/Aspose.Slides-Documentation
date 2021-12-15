@@ -1,13 +1,13 @@
 ---
-title: ChartDataWorksheet Class - Aspose.Slides for Python via .NET - API Reference
+title: ChartDataWorksheet Class
 type: docs
 weight: 190
-url: /python-net/api-reference/aspose.slides.charts/chartdataworksheet/
+url: /slides/python-net/api-reference/aspose.slides.charts/chartdataworksheet/
 ---
 
 Represents worksheet associated with [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/)
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.ChartDataWorksheet
 

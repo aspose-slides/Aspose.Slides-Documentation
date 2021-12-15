@@ -1,13 +1,13 @@
 ---
-title: ColumnCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ColumnCollection Class
 type: docs
 weight: 270
-url: /python-net/api-reference/aspose.slides/columncollection/
+url: /slides/python-net/api-reference/aspose.slides/columncollection/
 ---
 
 Represents collection of columns in a table.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ColumnCollection
 

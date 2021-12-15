@@ -1,13 +1,13 @@
 ---
-title: IOrientationTransition Class - Aspose.Slides for Python via .NET - API Reference
+title: IOrientationTransition Class
 type: docs
 weight: 150
-url: /python-net/api-reference/aspose.slides.slideshow/iorientationtransition/
+url: /slides/python-net/api-reference/aspose.slides.slideshow/iorientationtransition/
 ---
 
 Orientation slide transition effect.
 
-**Namespace:** [aspose.slides.slideshow](/python-net/api-reference/aspose.slides.slideshow/)
+**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
 
 **Full Class Name:** aspose.slides.slideshow.IOrientationTransition
 

@@ -1,13 +1,13 @@
 ---
-title: IPictureFrameLock Class - Aspose.Slides for Python via .NET - API Reference
+title: IPictureFrameLock Class
 type: docs
 weight: 2150
-url: /python-net/api-reference/aspose.slides/ipictureframelock/
+url: /slides/python-net/api-reference/aspose.slides/ipictureframelock/
 ---
 
 Determines which operations are disabled on the parent PictureFrameEx.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IPictureFrameLock
 

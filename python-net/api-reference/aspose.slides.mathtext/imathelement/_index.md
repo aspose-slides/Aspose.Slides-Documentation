@@ -1,13 +1,13 @@
 ---
-title: IMathElement Class - Aspose.Slides for Python via .NET - API Reference
+title: IMathElement Class
 type: docs
 weight: 170
-url: /python-net/api-reference/aspose.slides.mathtext/imathelement/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/imathelement/
 ---
 
 Base interface of any mathematical element: <br/>            fraction, mathmatical text, function, expression with multiple elements etc
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.IMathElement
 

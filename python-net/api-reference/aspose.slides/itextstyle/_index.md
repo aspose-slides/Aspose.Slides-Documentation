@@ -1,13 +1,13 @@
 ---
-title: ITextStyle Class - Aspose.Slides for Python via .NET - API Reference
+title: ITextStyle Class
 type: docs
 weight: 2720
-url: /python-net/api-reference/aspose.slides/itextstyle/
+url: /slides/python-net/api-reference/aspose.slides/itextstyle/
 ---
 
 Text style formatting properties.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITextStyle
 

@@ -1,13 +1,13 @@
 ---
-title: TrendlineCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: TrendlineCollection Class
 type: docs
 weight: 1070
-url: /python-net/api-reference/aspose.slides.charts/trendlinecollection/
+url: /slides/python-net/api-reference/aspose.slides.charts/trendlinecollection/
 ---
 
 Represents a collection of Trendline
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.TrendlineCollection
 

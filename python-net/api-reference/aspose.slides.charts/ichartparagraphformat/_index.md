@@ -1,13 +1,13 @@
 ---
-title: IChartParagraphFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: IChartParagraphFormat Class
 type: docs
 weight: 610
-url: /python-net/api-reference/aspose.slides.charts/ichartparagraphformat/
+url: /slides/python-net/api-reference/aspose.slides.charts/ichartparagraphformat/
 ---
 
 Represents a paragraph formatting properties of a chart.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IChartParagraphFormat
 

@@ -1,13 +1,13 @@
 ---
-title: InvalidPasswordException Class - Aspose.Slides for Python via .NET - API Reference
+title: InvalidPasswordException Class
 type: docs
 weight: 2870
-url: /python-net/api-reference/aspose.slides/invalidpasswordexception/
+url: /slides/python-net/api-reference/aspose.slides/invalidpasswordexception/
 ---
 
 Exception which thrown when presentation file format is unsupported.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.InvalidPasswordException
 

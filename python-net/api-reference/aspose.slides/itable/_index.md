@@ -1,13 +1,13 @@
 ---
-title: ITable Class - Aspose.Slides for Python via .NET - API Reference
+title: ITable Class
 type: docs
 weight: 2640
-url: /python-net/api-reference/aspose.slides/itable/
+url: /slides/python-net/api-reference/aspose.slides/itable/
 ---
 
 Represents a table on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ITable
 

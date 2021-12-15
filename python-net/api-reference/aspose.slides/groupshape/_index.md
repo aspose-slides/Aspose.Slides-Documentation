@@ -1,13 +1,13 @@
 ---
-title: GroupShape Class - Aspose.Slides for Python via .NET - API Reference
+title: GroupShape Class
 type: docs
 weight: 700
-url: /python-net/api-reference/aspose.slides/groupshape/
+url: /slides/python-net/api-reference/aspose.slides/groupshape/
 ---
 
 Represents a group of shapes on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.GroupShape
 

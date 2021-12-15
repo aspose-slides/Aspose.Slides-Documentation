@@ -1,13 +1,13 @@
 ---
-title: IXpsOptions Class - Aspose.Slides for Python via .NET - API Reference
+title: IXpsOptions Class
 type: docs
 weight: 370
-url: /python-net/api-reference/aspose.slides.export/ixpsoptions/
+url: /slides/python-net/api-reference/aspose.slides.export/ixpsoptions/
 ---
 
 Provides options that control how a presentation is saved in XPS format.
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.IXpsOptions
 

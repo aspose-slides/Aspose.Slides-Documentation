@@ -1,13 +1,13 @@
 ---
-title: AxisPositionType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: AxisPositionType Enumeration
 type: docs
 weight: 1100
-url: /python-net/api-reference/aspose.slides.charts/axispositiontype/
+url: /slides/python-net/api-reference/aspose.slides.charts/axispositiontype/
 ---
 
 Determines a position of axis.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Name:** aspose.slides.charts.AxisPositionType
 

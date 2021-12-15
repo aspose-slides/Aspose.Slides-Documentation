@@ -1,13 +1,13 @@
 ---
-title: EffectSubtype Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: EffectSubtype Enumeration
 type: docs
 weight: 610
-url: /python-net/api-reference/aspose.slides.animation/effectsubtype/
+url: /slides/python-net/api-reference/aspose.slides.animation/effectsubtype/
 ---
 
 Represents subtypes of animation effect.
 
-**Namespace:** [aspose.slides.animation](/python-net/api-reference/aspose.slides.animation/)
+**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
 
 **Full Name:** aspose.slides.animation.EffectSubtype
 

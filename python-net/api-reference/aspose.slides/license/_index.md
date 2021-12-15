@@ -1,13 +1,13 @@
 ---
-title: License Class - Aspose.Slides for Python via .NET - API Reference
+title: License Class
 type: docs
 weight: 2920
-url: /python-net/api-reference/aspose.slides/license/
+url: /slides/python-net/api-reference/aspose.slides/license/
 ---
 
 Provides methods to license the component.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.License
 

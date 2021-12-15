@@ -1,13 +1,13 @@
 ---
-title: FieldType Class - Aspose.Slides for Python via .NET - API Reference
+title: FieldType Class
 type: docs
 weight: 470
-url: /python-net/api-reference/aspose.slides/fieldtype/
+url: /slides/python-net/api-reference/aspose.slides/fieldtype/
 ---
 
 Represents a type of field. <br/>            This value determines which text will be set to the field portion when it will be updated.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.FieldType
 

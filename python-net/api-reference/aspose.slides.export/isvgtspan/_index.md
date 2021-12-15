@@ -1,13 +1,13 @@
 ---
-title: ISvgTSpan Class - Aspose.Slides for Python via .NET - API Reference
+title: ISvgTSpan Class
 type: docs
 weight: 310
-url: /python-net/api-reference/aspose.slides.export/isvgtspan/
+url: /slides/python-net/api-reference/aspose.slides.export/isvgtspan/
 ---
 
 Represents options for SVG text portion ("tspan").
 
-**Namespace:** [aspose.slides.export](/python-net/api-reference/aspose.slides.export/)
+**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 
 **Full Class Name:** aspose.slides.export.ISvgTSpan
 

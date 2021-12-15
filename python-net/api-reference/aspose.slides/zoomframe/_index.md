@@ -1,13 +1,13 @@
 ---
-title: ZoomFrame Class - Aspose.Slides for Python via .NET - API Reference
+title: ZoomFrame Class
 type: docs
 weight: 3870
-url: /python-net/api-reference/aspose.slides/zoomframe/
+url: /slides/python-net/api-reference/aspose.slides/zoomframe/
 ---
 
 Represents an Zoom object on a slide.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ZoomFrame
 

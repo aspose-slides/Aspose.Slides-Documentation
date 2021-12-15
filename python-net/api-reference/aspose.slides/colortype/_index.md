@@ -1,13 +1,13 @@
 ---
-title: ColorType Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: ColorType Enumeration
 type: docs
 weight: 9370
-url: /python-net/api-reference/aspose.slides/colortype/
+url: /slides/python-net/api-reference/aspose.slides/colortype/
 ---
 
 Represents different color modes.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.ColorType
 

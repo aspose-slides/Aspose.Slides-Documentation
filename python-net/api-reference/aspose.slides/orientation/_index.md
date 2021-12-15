@@ -1,13 +1,13 @@
 ---
-title: Orientation Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: Orientation Enumeration
 type: docs
 weight: 9650
-url: /python-net/api-reference/aspose.slides/orientation/
+url: /slides/python-net/api-reference/aspose.slides/orientation/
 ---
 
 Represents the orientation of a shape.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Name:** aspose.slides.Orientation
 

@@ -1,13 +1,13 @@
 ---
-title: MathRightSubSuperscriptElement Class - Aspose.Slides for Python via .NET - API Reference
+title: MathRightSubSuperscriptElement Class
 type: docs
 weight: 790
-url: /python-net/api-reference/aspose.slides.mathtext/mathrightsubsuperscriptelement/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathrightsubsuperscriptelement/
 ---
 
 Specifies the Sub-Superscript object, which consists of a base <br/>            and a subscript and superscript placed to the right of the base.
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Class Name:** aspose.slides.mathtext.MathRightSubSuperscriptElement
 

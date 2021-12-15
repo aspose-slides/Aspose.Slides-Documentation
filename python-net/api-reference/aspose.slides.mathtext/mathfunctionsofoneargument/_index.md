@@ -1,13 +1,13 @@
 ---
-title: MathFunctionsOfOneArgument Enumeration - Aspose.Slides for Python via .NET - API Reference
+title: MathFunctionsOfOneArgument Enumeration
 type: docs
 weight: 890
-url: /python-net/api-reference/aspose.slides.mathtext/mathfunctionsofoneargument/
+url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfunctionsofoneargument/
 ---
 
 Common mathematical functions of one argument
 
-**Namespace:** [aspose.slides.mathtext](/python-net/api-reference/aspose.slides.mathtext/)
+**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 
 **Full Name:** aspose.slides.mathtext.MathFunctionsOfOneArgument
 

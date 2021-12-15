@@ -1,13 +1,13 @@
 ---
-title: GlowEffectiveData Class - Aspose.Slides for Python via .NET - API Reference
+title: GlowEffectiveData Class
 type: docs
 weight: 290
-url: /python-net/api-reference/aspose.slides.effects/gloweffectivedata/
+url: /slides/python-net/api-reference/aspose.slides.effects/gloweffectivedata/
 ---
 
 Immutable object which represents a glow effect, in which a color blurred outline <br/>            is added outside the edges of the object.
 
-**Namespace:** [aspose.slides.effects](/python-net/api-reference/aspose.slides.effects/)
+**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
 
 **Full Class Name:** aspose.slides.effects.GlowEffectiveData
 

@@ -1,13 +1,13 @@
 ---
-title: IMarker Class - Aspose.Slides for Python via .NET - API Reference
+title: IMarker Class
 type: docs
 weight: 870
-url: /python-net/api-reference/aspose.slides.charts/imarker/
+url: /slides/python-net/api-reference/aspose.slides.charts/imarker/
 ---
 
 Represents marker of a chert.
 
-**Namespace:** [aspose.slides.charts](/python-net/api-reference/aspose.slides.charts/)
+**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
 **Full Class Name:** aspose.slides.charts.IMarker
 

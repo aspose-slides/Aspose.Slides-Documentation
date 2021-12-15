@@ -1,13 +1,13 @@
 ---
-title: Presentation Class - Aspose.Slides for Python via .NET - API Reference
+title: Presentation Class
 type: docs
 weight: 3450
-url: /python-net/api-reference/aspose.slides/presentation/
+url: /slides/python-net/api-reference/aspose.slides/presentation/
 ---
 
 Represents a Microsoft PowerPoint presentation.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.Presentation
 

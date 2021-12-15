@@ -1,13 +1,13 @@
 ---
-title: ISketchFormat Class - Aspose.Slides for Python via .NET - API Reference
+title: ISketchFormat Class
 type: docs
 weight: 2460
-url: /python-net/api-reference/aspose.slides/isketchformat/
+url: /slides/python-net/api-reference/aspose.slides/isketchformat/
 ---
 
 Represents properties for lines sketch format.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ISketchFormat
 

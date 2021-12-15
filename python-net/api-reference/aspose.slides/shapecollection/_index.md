@@ -1,13 +1,13 @@
 ---
-title: ShapeCollection Class - Aspose.Slides for Python via .NET - API Reference
+title: ShapeCollection Class
 type: docs
 weight: 3590
-url: /python-net/api-reference/aspose.slides/shapecollection/
+url: /slides/python-net/api-reference/aspose.slides/shapecollection/
 ---
 
 Represents a collection of a shapes.
 
-**Namespace:** [aspose.slides](/python-net/api-reference/aspose.slides/)
+**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ShapeCollection
 
