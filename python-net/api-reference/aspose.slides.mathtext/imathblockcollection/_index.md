@@ -2,7 +2,7 @@
 title: IMathBlockCollection Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathblockcollection/
+url: /python-net/api-reference/aspose.slides.mathtext/imathblockcollection/
 ---
 
 Collection of math blocks (IMathBlock)

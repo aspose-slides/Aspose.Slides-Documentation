@@ -2,7 +2,7 @@
 title: MathSuperscriptElement Class
 type: docs
 weight: 830
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelement/
+url: /python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelement/
 ---
 
 Specifies the superscript object, which consists of a base <br/>            and a reduced-size superscript placed above and to the right

@@ -2,7 +2,7 @@
 title: BaseShapeLock Class
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides/baseshapelock/
+url: /python-net/api-reference/aspose.slides/baseshapelock/
 ---
 
 Represents a base class for locks (disabled operation).

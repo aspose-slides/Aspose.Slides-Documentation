@@ -2,7 +2,7 @@
 title: BuildVersionInfo Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides/buildversioninfo/
+url: /python-net/api-reference/aspose.slides/buildversioninfo/
 ---
 
 Contains information about version of Aspose.Slides.

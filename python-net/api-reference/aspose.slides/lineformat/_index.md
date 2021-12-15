@@ -2,7 +2,7 @@
 title: LineFormat Class
 type: docs
 weight: 2950
-url: /slides/python-net/api-reference/aspose.slides/lineformat/
+url: /python-net/api-reference/aspose.slides/lineformat/
 ---
 
 Represents format of a line.

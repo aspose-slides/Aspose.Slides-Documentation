@@ -2,7 +2,7 @@
 title: IMasterHandoutSlideManager Class
 type: docs
 weight: 1840
-url: /slides/python-net/api-reference/aspose.slides/imasterhandoutslidemanager/
+url: /python-net/api-reference/aspose.slides/imasterhandoutslidemanager/
 ---
 
 Master handout slide manager.

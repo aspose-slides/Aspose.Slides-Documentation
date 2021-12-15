@@ -2,7 +2,7 @@
 title: SvgEvent Enumeration
 type: docs
 weight: 800
-url: /slides/python-net/api-reference/aspose.slides.export/svgevent/
+url: /python-net/api-reference/aspose.slides.export/svgevent/
 ---
 
 Represents options for SVG shape.

@@ -2,7 +2,7 @@
 title: IMathElement Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathelement/
+url: /python-net/api-reference/aspose.slides.mathtext/imathelement/
 ---
 
 Base interface of any mathematical element: <br/>            fraction, mathmatical text, function, expression with multiple elements etc

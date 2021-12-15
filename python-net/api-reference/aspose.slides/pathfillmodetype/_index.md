@@ -2,7 +2,7 @@
 title: PathFillModeType Enumeration
 type: docs
 weight: 9680
-url: /slides/python-net/api-reference/aspose.slides/pathfillmodetype/
+url: /python-net/api-reference/aspose.slides/pathfillmodetype/
 ---
 
 Specifies the manner in which a path should be filled

@@ -2,7 +2,7 @@
 title: ILineFormatEffectiveData Class
 type: docs
 weight: 1790
-url: /slides/python-net/api-reference/aspose.slides/ilineformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ilineformateffectivedata/
 ---
 
 Immutable object which contains effective line formatting properties.

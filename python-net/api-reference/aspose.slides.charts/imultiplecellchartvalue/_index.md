@@ -2,7 +2,7 @@
 title: IMultipleCellChartValue Class
 type: docs
 weight: 880
-url: /slides/python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/
+url: /python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/
 ---
 
 Represents a collection of a chart cells.

@@ -2,7 +2,7 @@
 title: IField Class
 type: docs
 weight: 1300
-url: /slides/python-net/api-reference/aspose.slides/ifield/
+url: /python-net/api-reference/aspose.slides/ifield/
 ---
 
 Represents a field.

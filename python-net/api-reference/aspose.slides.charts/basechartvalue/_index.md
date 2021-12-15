@@ -2,7 +2,7 @@
 title: BaseChartValue Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.charts/basechartvalue/
+url: /python-net/api-reference/aspose.slides.charts/basechartvalue/
 ---
 
 Represents a value of a chart.

@@ -2,7 +2,7 @@
 title: LayoutSlideThemeManager Class
 type: docs
 weight: 380
-url: /slides/python-net/api-reference/aspose.slides.theme/layoutslidethememanager/
+url: /python-net/api-reference/aspose.slides.theme/layoutslidethememanager/
 ---
 
 Provides access to layout slide theme overriden.

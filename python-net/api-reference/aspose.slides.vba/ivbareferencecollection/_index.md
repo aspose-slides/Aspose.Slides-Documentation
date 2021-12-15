@@ -2,7 +2,7 @@
 title: IVbaReferenceCollection Class
 type: docs
 weight: 60
-url: /slides/python-net/api-reference/aspose.slides.vba/ivbareferencecollection/
+url: /python-net/api-reference/aspose.slides.vba/ivbareferencecollection/
 ---
 
 Represents a collection of a VBA Project references.

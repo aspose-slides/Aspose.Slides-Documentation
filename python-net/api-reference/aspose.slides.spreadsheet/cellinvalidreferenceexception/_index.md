@@ -2,7 +2,7 @@
 title: CellInvalidReferenceException Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidreferenceexception/
+url: /python-net/api-reference/aspose.slides.spreadsheet/cellinvalidreferenceexception/
 ---
 
 The exception that is thrown when an invalid cell reference is encountered.

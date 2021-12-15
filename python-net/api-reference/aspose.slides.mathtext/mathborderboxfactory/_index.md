@@ -2,7 +2,7 @@
 title: MathBorderBoxFactory Class
 type: docs
 weight: 550
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathborderboxfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathborderboxfactory/
 ---
 
 Allows to create a math border box

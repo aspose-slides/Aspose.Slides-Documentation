@@ -2,7 +2,7 @@
 title: IColorOffset Class
 type: docs
 weight: 180
-url: /slides/python-net/api-reference/aspose.slides.animation/icoloroffset/
+url: /python-net/api-reference/aspose.slides.animation/icoloroffset/
 ---
 
 Represent color offset.

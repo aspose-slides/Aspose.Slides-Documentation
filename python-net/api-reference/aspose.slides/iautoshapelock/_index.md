@@ -2,7 +2,7 @@
 title: IAutoShapeLock Class
 type: docs
 weight: 820
-url: /slides/python-net/api-reference/aspose.slides/iautoshapelock/
+url: /python-net/api-reference/aspose.slides/iautoshapelock/
 ---
 
 Determines which operations are disabled on the parent AutoshapeEx.

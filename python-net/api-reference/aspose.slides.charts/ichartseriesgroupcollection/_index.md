@@ -2,7 +2,7 @@
 title: IChartSeriesGroupCollection Class
 type: docs
 weight: 670
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartseriesgroupcollection/
+url: /python-net/api-reference/aspose.slides.charts/ichartseriesgroupcollection/
 ---
 
 Represents the collection of groups of combinable series.

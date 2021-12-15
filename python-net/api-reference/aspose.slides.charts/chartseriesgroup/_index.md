@@ -2,7 +2,7 @@
 title: ChartSeriesGroup Class
 type: docs
 weight: 260
-url: /slides/python-net/api-reference/aspose.slides.charts/chartseriesgroup/
+url: /python-net/api-reference/aspose.slides.charts/chartseriesgroup/
 ---
 
 Represents group of series.

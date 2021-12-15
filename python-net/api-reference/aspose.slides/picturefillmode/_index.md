@@ -2,7 +2,7 @@
 title: PictureFillMode Enumeration
 type: docs
 weight: 9710
-url: /slides/python-net/api-reference/aspose.slides/picturefillmode/
+url: /python-net/api-reference/aspose.slides/picturefillmode/
 ---
 
 Determines how picture will fill area.

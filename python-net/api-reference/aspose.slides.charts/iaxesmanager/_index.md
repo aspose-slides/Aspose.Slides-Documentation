@@ -2,7 +2,7 @@
 title: IAxesManager Class
 type: docs
 weight: 410
-url: /slides/python-net/api-reference/aspose.slides.charts/iaxesmanager/
+url: /python-net/api-reference/aspose.slides.charts/iaxesmanager/
 ---
 
 Provides access to chart axes.

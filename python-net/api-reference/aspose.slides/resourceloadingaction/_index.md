@@ -2,7 +2,7 @@
 title: ResourceLoadingAction Enumeration
 type: docs
 weight: 9780
-url: /slides/python-net/api-reference/aspose.slides/resourceloadingaction/
+url: /python-net/api-reference/aspose.slides/resourceloadingaction/
 ---
 
 Specifies the mode of external resource loading.

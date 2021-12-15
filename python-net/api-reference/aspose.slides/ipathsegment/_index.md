@@ -2,7 +2,7 @@
 title: IPathSegment Class
 type: docs
 weight: 2080
-url: /slides/python-net/api-reference/aspose.slides/ipathsegment/
+url: /python-net/api-reference/aspose.slides/ipathsegment/
 ---
 
 Represents segment of graphics path of GeometryShape

@@ -2,7 +2,7 @@
 title: ITextHighlightingOptions Class
 type: docs
 weight: 2710
-url: /slides/python-net/api-reference/aspose.slides/itexthighlightingoptions/
+url: /python-net/api-reference/aspose.slides/itexthighlightingoptions/
 ---
 
 Represents options which can be used to highlight text in text frame.

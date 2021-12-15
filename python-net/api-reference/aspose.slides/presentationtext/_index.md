@@ -2,7 +2,7 @@
 title: PresentationText Class
 type: docs
 weight: 3490
-url: /slides/python-net/api-reference/aspose.slides/presentationtext/
+url: /python-net/api-reference/aspose.slides/presentationtext/
 ---
 
 Represents the text extracted from the presentation

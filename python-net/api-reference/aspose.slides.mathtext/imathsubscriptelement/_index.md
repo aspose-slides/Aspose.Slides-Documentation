@@ -2,7 +2,7 @@
 title: IMathSubscriptElement Class
 type: docs
 weight: 400
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathsubscriptelement/
+url: /python-net/api-reference/aspose.slides.mathtext/imathsubscriptelement/
 ---
 
 Specifies the subscript object, which consists of a base <br/>            and a reduced-size subscript placed below and to the right.

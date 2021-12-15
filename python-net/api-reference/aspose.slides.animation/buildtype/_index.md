@@ -2,7 +2,7 @@
 title: BuildType Enumeration
 type: docs
 weight: 520
-url: /slides/python-net/api-reference/aspose.slides.animation/buildtype/
+url: /python-net/api-reference/aspose.slides.animation/buildtype/
 ---
 
 Determines how text will appear on a shape during animation.

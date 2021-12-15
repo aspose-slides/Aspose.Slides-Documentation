@@ -2,7 +2,7 @@
 title: IGlow Class
 type: docs
 weight: 620
-url: /slides/python-net/api-reference/aspose.slides.effects/iglow/
+url: /python-net/api-reference/aspose.slides.effects/iglow/
 ---
 
 Represents a Glow effect, in which a color blurred outline <br/>            is added outside the edges of the object.

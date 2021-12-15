@@ -2,7 +2,7 @@
 title: IChartCategory Class
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartcategory/
+url: /python-net/api-reference/aspose.slides.charts/ichartcategory/
 ---
 
 Represents chart categories.

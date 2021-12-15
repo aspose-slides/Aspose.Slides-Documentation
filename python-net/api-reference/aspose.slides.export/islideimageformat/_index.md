@@ -2,7 +2,7 @@
 title: ISlideImageFormat Class
 type: docs
 weight: 270
-url: /slides/python-net/api-reference/aspose.slides.export/islideimageformat/
+url: /python-net/api-reference/aspose.slides.export/islideimageformat/
 ---
 
 Determines format in which slide image will be saved for presentation to HTML export.

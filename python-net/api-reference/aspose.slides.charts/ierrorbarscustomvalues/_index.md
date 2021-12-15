@@ -2,7 +2,7 @@
 title: IErrorBarsCustomValues Class
 type: docs
 weight: 790
-url: /slides/python-net/api-reference/aspose.slides.charts/ierrorbarscustomvalues/
+url: /python-net/api-reference/aspose.slides.charts/ierrorbarscustomvalues/
 ---
 
 Specifies the errors bar values. It shall be used only when the Error bars value type is Custom.

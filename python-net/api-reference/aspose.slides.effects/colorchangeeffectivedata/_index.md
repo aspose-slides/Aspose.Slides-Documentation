@@ -2,7 +2,7 @@
 title: ColorChangeEffectiveData Class
 type: docs
 weight: 200
-url: /slides/python-net/api-reference/aspose.slides.effects/colorchangeeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/colorchangeeffectivedata/
 ---
 
 Immutable object which represents a Color Change effect.<br/>            Instances of FromColor are replaced with instances of ToColor.

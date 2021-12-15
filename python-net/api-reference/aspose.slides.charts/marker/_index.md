@@ -2,7 +2,7 @@
 title: Marker Class
 type: docs
 weight: 1010
-url: /slides/python-net/api-reference/aspose.slides.charts/marker/
+url: /python-net/api-reference/aspose.slides.charts/marker/
 ---
 
 Represents marker of a chert.

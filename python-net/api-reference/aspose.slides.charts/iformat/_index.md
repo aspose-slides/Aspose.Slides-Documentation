@@ -2,7 +2,7 @@
 title: IFormat Class
 type: docs
 weight: 810
-url: /slides/python-net/api-reference/aspose.slides.charts/iformat/
+url: /python-net/api-reference/aspose.slides.charts/iformat/
 ---
 
 Represents chart format properties.

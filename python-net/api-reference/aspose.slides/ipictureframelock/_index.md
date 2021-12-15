@@ -2,7 +2,7 @@
 title: IPictureFrameLock Class
 type: docs
 weight: 2150
-url: /slides/python-net/api-reference/aspose.slides/ipictureframelock/
+url: /python-net/api-reference/aspose.slides/ipictureframelock/
 ---
 
 Determines which operations are disabled on the parent PictureFrameEx.

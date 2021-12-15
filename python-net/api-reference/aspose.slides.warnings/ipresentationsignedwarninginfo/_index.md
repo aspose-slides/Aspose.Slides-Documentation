@@ -2,7 +2,7 @@
 title: IPresentationSignedWarningInfo Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.warnings/ipresentationsignedwarninginfo/
+url: /python-net/api-reference/aspose.slides.warnings/ipresentationsignedwarninginfo/
 ---
 
 This warning indicates that the presentation being read has the signature <br/>            and this signature will be removed during processing.

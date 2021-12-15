@@ -2,7 +2,7 @@
 title: IPatternFormatEffectiveData Class
 type: docs
 weight: 2100
-url: /slides/python-net/api-reference/aspose.slides/ipatternformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ipatternformateffectivedata/
 ---
 
 Immutable object which contains effective pattern filling properties.

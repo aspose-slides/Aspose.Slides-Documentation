@@ -2,7 +2,7 @@
 title: Fonts Class
 type: docs
 weight: 560
-url: /slides/python-net/api-reference/aspose.slides/fonts/
+url: /python-net/api-reference/aspose.slides/fonts/
 ---
 
 Fonts collection.

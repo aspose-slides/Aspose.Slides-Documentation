@@ -2,7 +2,7 @@
 title: ProtectionManager Class
 type: docs
 weight: 3500
-url: /slides/python-net/api-reference/aspose.slides/protectionmanager/
+url: /python-net/api-reference/aspose.slides/protectionmanager/
 ---
 
 Presentation password protection management.

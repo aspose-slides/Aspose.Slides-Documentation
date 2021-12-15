@@ -2,7 +2,7 @@
 title: VbaModule Class
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.vba/vbamodule/
+url: /python-net/api-reference/aspose.slides.vba/vbamodule/
 ---
 
 Represents module that is contained in VBA project.

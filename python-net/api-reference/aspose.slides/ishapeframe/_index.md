@@ -2,7 +2,7 @@
 title: IShapeFrame Class
 type: docs
 weight: 2440
-url: /slides/python-net/api-reference/aspose.slides/ishapeframe/
+url: /python-net/api-reference/aspose.slides/ishapeframe/
 ---
 
 Represents shape frame's properties.

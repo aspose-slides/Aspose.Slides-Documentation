@@ -2,7 +2,7 @@
 title: Sequence Class
 type: docs
 weight: 440
-url: /slides/python-net/api-reference/aspose.slides.animation/sequence/
+url: /python-net/api-reference/aspose.slides.animation/sequence/
 ---
 
 Represents sequence (collection of effects).

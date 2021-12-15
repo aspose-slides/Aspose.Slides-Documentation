@@ -2,7 +2,7 @@
 title: SmartArtShape Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.smartart/smartartshape/
+url: /python-net/api-reference/aspose.slides.smartart/smartartshape/
 ---
 
 Represents SmartArt shape

@@ -2,7 +2,7 @@
 title: IEffect Class
 type: docs
 weight: 200
-url: /slides/python-net/api-reference/aspose.slides.animation/ieffect/
+url: /python-net/api-reference/aspose.slides.animation/ieffect/
 ---
 
 Represents animation effect.

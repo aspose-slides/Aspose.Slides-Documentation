@@ -2,7 +2,7 @@
 title: IMathParagraphFactory Class
 type: docs
 weight: 340
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathparagraphfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathparagraphfactory/
 ---
 
 Allows to create a math paragraph

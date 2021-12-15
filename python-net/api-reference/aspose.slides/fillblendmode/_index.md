@@ -2,7 +2,7 @@
 title: FillBlendMode Enumeration
 type: docs
 weight: 9390
-url: /slides/python-net/api-reference/aspose.slides/fillblendmode/
+url: /python-net/api-reference/aspose.slides/fillblendmode/
 ---
 
 Determines blend mode.

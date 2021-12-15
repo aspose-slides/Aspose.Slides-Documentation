@@ -2,7 +2,7 @@
 title: IMasterThemeable Class
 type: docs
 weight: 300
-url: /slides/python-net/api-reference/aspose.slides.theme/imasterthemeable/
+url: /python-net/api-reference/aspose.slides.theme/imasterthemeable/
 ---
 
 Represent master theme manager.

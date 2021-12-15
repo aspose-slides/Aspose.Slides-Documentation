@@ -2,7 +2,7 @@
 title: IFontScheme Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides.theme/ifontscheme/
+url: /python-net/api-reference/aspose.slides.theme/ifontscheme/
 ---
 
 Stores theme-defined fonts.

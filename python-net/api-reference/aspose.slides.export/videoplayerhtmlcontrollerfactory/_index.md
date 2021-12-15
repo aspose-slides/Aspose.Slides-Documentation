@@ -2,7 +2,7 @@
 title: VideoPlayerHtmlControllerFactory Class
 type: docs
 weight: 540
-url: /slides/python-net/api-reference/aspose.slides.export/videoplayerhtmlcontrollerfactory/
+url: /python-net/api-reference/aspose.slides.export/videoplayerhtmlcontrollerfactory/
 ---
 
 Allows to create VideoPlayerHtmlController.

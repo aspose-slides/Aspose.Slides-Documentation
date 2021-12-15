@@ -2,7 +2,7 @@
 title: StreamWrapperFactory Class
 type: docs
 weight: 3700
-url: /slides/python-net/api-reference/aspose.slides/streamwrapperfactory/
+url: /python-net/api-reference/aspose.slides/streamwrapperfactory/
 ---
 
 Factory of StreamWrappers. For COM interface.

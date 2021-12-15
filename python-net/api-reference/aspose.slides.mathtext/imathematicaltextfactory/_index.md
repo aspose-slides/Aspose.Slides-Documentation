@@ -2,7 +2,7 @@
 title: IMathematicalTextFactory Class
 type: docs
 weight: 450
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathematicaltextfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathematicaltextfactory/
 ---
 
 Allows to create a MathematicalText element

@@ -2,7 +2,7 @@
 title: IBasePortionFormat Class
 type: docs
 weight: 880
-url: /slides/python-net/api-reference/aspose.slides/ibaseportionformat/
+url: /python-net/api-reference/aspose.slides/ibaseportionformat/
 ---
 
 This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.

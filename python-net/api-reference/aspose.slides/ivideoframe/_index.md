@@ -2,7 +2,7 @@
 title: IVideoFrame Class
 type: docs
 weight: 2790
-url: /slides/python-net/api-reference/aspose.slides/ivideoframe/
+url: /python-net/api-reference/aspose.slides/ivideoframe/
 ---
 
 Represents a video clip on a slide.

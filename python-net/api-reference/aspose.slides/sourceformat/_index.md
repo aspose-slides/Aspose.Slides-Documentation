@@ -2,7 +2,7 @@
 title: SourceFormat Enumeration
 type: docs
 weight: 9890
-url: /slides/python-net/api-reference/aspose.slides/sourceformat/
+url: /python-net/api-reference/aspose.slides/sourceformat/
 ---
 
 Represents source file format.

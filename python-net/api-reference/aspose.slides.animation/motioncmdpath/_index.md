@@ -2,7 +2,7 @@
 title: MotionCmdPath Class
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides.animation/motioncmdpath/
+url: /python-net/api-reference/aspose.slides.animation/motioncmdpath/
 ---
 
 Represent one command of a path.

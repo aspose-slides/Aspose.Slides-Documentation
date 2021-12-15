@@ -2,7 +2,7 @@
 title: MathBox Class
 type: docs
 weight: 560
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathbox/
+url: /python-net/api-reference/aspose.slides.mathtext/mathbox/
 ---
 
 Specifies the logical boxing (packaging) of mathematical element.<br/>            For example, a boxed object can serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.<br/>            For example, the "==" operator should be boxed to prevent line breaks.

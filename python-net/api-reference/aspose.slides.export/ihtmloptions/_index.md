@@ -2,7 +2,7 @@
 title: IHtmlOptions Class
 type: docs
 weight: 160
-url: /slides/python-net/api-reference/aspose.slides.export/ihtmloptions/
+url: /python-net/api-reference/aspose.slides.export/ihtmloptions/
 ---
 
 Represents a HTML exporting options.

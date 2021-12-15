@@ -2,7 +2,7 @@
 title: AxisFormat Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.charts/axisformat/
+url: /python-net/api-reference/aspose.slides.charts/axisformat/
 ---
 
 Represents chart format properties.

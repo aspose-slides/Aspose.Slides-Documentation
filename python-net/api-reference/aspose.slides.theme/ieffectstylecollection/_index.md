@@ -2,7 +2,7 @@
 title: IEffectStyleCollection Class
 type: docs
 weight: 150
-url: /slides/python-net/api-reference/aspose.slides.theme/ieffectstylecollection/
+url: /python-net/api-reference/aspose.slides.theme/ieffectstylecollection/
 ---
 
 Represents a collection of effect styles.

@@ -2,7 +2,7 @@
 title: ISvgShape Class
 type: docs
 weight: 280
-url: /slides/python-net/api-reference/aspose.slides.export/isvgshape/
+url: /python-net/api-reference/aspose.slides.export/isvgshape/
 ---
 
 Represents options for SVG shape.

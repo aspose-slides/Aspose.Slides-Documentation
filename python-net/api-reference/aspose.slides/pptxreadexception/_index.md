@@ -2,7 +2,7 @@
 title: PptxReadException Class
 type: docs
 weight: 3430
-url: /slides/python-net/api-reference/aspose.slides/pptxreadexception/
+url: /python-net/api-reference/aspose.slides/pptxreadexception/
 ---
 
 Represents an exception which thrown on presentation reading errors.

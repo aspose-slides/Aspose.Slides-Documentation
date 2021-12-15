@@ -2,7 +2,7 @@
 title: Chart Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.charts/chart/
+url: /python-net/api-reference/aspose.slides.charts/chart/
 ---
 
 Represents an graphic chart on a slide.

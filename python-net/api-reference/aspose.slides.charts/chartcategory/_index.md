@@ -2,7 +2,7 @@
 title: ChartCategory Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.charts/chartcategory/
+url: /python-net/api-reference/aspose.slides.charts/chartcategory/
 ---
 
 Represents chart categories.

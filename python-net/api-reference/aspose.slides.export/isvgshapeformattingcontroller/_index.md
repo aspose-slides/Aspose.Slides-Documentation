@@ -2,7 +2,7 @@
 title: ISvgShapeFormattingController Class
 type: docs
 weight: 300
-url: /slides/python-net/api-reference/aspose.slides.export/isvgshapeformattingcontroller/
+url: /python-net/api-reference/aspose.slides.export/isvgshapeformattingcontroller/
 ---
 
 Controls SVG shape generation.

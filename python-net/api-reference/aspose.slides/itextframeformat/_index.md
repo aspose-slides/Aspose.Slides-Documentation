@@ -2,7 +2,7 @@
 title: ITextFrameFormat Class
 type: docs
 weight: 2690
-url: /slides/python-net/api-reference/aspose.slides/itextframeformat/
+url: /python-net/api-reference/aspose.slides/itextframeformat/
 ---
 
 Contains the TextFrame's formatting properties.

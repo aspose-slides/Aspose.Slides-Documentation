@@ -2,7 +2,7 @@
 title: IAlphaFloorEffectiveData Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.effects/ialphaflooreffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ialphaflooreffectivedata/
 ---
 
 Immutable object which represents an Alpha Floor effect.<br/>            Alpha (opacity) values less than 100% are changed to zero.<br/>            In other words, anything partially transparent becomes fully transparent.

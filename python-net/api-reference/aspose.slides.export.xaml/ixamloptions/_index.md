@@ -2,7 +2,7 @@
 title: IXamlOptions Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.export.xaml/ixamloptions/
+url: /python-net/api-reference/aspose.slides.export.xaml/ixamloptions/
 ---
 
 Options that control how a XAML document is saved.

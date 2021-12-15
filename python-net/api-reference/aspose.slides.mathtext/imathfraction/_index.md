@@ -2,7 +2,7 @@
 title: IMathFraction Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathfraction/
+url: /python-net/api-reference/aspose.slides.mathtext/imathfraction/
 ---
 
 Specifies the fraction object, consisting of a numerator and denominator separated by a fraction bar.<br/>            The fraction bar can be horizontal or diagonal, depending on the fraction properties.<br/>            The fraction object is also used to represent the stack function, which places one element above another, with no fraction bar.

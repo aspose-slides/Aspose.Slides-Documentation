@@ -2,7 +2,7 @@
 title: Input Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.export.web/input/
+url: /python-net/api-reference/aspose.slides.export.web/input/
 ---
 
 Represents a collection of input elements (templates) for IWebDocument.

@@ -2,7 +2,7 @@
 title: SplitterBarStateType Enumeration
 type: docs
 weight: 9900
-url: /slides/python-net/api-reference/aspose.slides/splitterbarstatetype/
+url: /python-net/api-reference/aspose.slides/splitterbarstatetype/
 ---
 
 Specifies the state that the splitter bar should be shown in. The splitter bar separates a primary and<br/>            secondary region within a viewing area.

@@ -2,7 +2,7 @@
 title: LineDashStyle Enumeration
 type: docs
 weight: 9550
-url: /slides/python-net/api-reference/aspose.slides/linedashstyle/
+url: /python-net/api-reference/aspose.slides/linedashstyle/
 ---
 
 Represents the line dash style.

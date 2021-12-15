@@ -2,7 +2,7 @@
 title: ICommonSlideViewProperties Class
 type: docs
 weight: 1150
-url: /slides/python-net/api-reference/aspose.slides/icommonslideviewproperties/
+url: /python-net/api-reference/aspose.slides/icommonslideviewproperties/
 ---
 
 Represents common slide view properties.

@@ -2,7 +2,7 @@
 title: TransitionShredPattern Enumeration
 type: docs
 weight: 430
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionshredpattern/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionshredpattern/
 ---
 
 Specifies a geometric shape that tiles together to fill a larger area.

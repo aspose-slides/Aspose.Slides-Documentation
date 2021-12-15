@@ -2,7 +2,7 @@
 title: IBackground Class
 type: docs
 weight: 840
-url: /slides/python-net/api-reference/aspose.slides/ibackground/
+url: /python-net/api-reference/aspose.slides/ibackground/
 ---
 
 Represents background of a slide.

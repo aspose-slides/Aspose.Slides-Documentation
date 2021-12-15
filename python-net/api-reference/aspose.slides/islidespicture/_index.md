@@ -2,7 +2,7 @@
 title: ISlidesPicture Class
 type: docs
 weight: 2550
-url: /slides/python-net/api-reference/aspose.slides/islidespicture/
+url: /python-net/api-reference/aspose.slides/islidespicture/
 ---
 
 Represents a picture in a presentation.

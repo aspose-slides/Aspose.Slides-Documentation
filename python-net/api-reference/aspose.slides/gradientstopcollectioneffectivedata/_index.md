@@ -2,7 +2,7 @@
 title: GradientStopCollectionEffectiveData Class
 type: docs
 weight: 660
-url: /slides/python-net/api-reference/aspose.slides/gradientstopcollectioneffectivedata/
+url: /python-net/api-reference/aspose.slides/gradientstopcollectioneffectivedata/
 ---
 
 Represents a collection of GradientStopData objects.

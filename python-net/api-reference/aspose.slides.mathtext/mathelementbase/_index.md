@@ -2,7 +2,7 @@
 title: MathElementBase Class
 type: docs
 weight: 600
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathelementbase/
+url: /python-net/api-reference/aspose.slides.mathtext/mathelementbase/
 ---
 
 Base class for IMathElement with the implementation of some methods that are common to all inherited classes<br/>            For internal use only. Inherited class must be IMathElement.

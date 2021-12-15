@@ -2,7 +2,7 @@
 title: Background Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides/background/
+url: /python-net/api-reference/aspose.slides/background/
 ---
 
 Represents background of a slide.

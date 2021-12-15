@@ -2,7 +2,7 @@
 title: IFontsLoader Class
 type: docs
 weight: 1440
-url: /slides/python-net/api-reference/aspose.slides/ifontsloader/
+url: /python-net/api-reference/aspose.slides/ifontsloader/
 ---
 
 Class for loading custom fonts defined by user.<br/>            Should be used before creating any presentation objects.

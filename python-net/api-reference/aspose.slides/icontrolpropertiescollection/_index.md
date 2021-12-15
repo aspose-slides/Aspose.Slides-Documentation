@@ -2,7 +2,7 @@
 title: IControlPropertiesCollection Class
 type: docs
 weight: 1200
-url: /slides/python-net/api-reference/aspose.slides/icontrolpropertiescollection/
+url: /python-net/api-reference/aspose.slides/icontrolpropertiescollection/
 ---
 
 A collection of ActiveX controls.

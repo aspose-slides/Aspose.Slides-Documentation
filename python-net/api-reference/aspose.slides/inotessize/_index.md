@@ -2,7 +2,7 @@
 title: INotesSize Class
 type: docs
 weight: 1960
-url: /slides/python-net/api-reference/aspose.slides/inotessize/
+url: /python-net/api-reference/aspose.slides/inotessize/
 ---
 
 Represents a size of notes slide.

@@ -2,7 +2,7 @@
 title: DuotoneEffectiveData Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides.effects/duotoneeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/duotoneeffectivedata/
 ---
 
 Immutable object which represents a Duotone effect.<br/>            For each pixel, combines clr1 and clr2 through a linear interpolation<br/>            to determine the new color for that pixel.

@@ -2,7 +2,7 @@
 title: aspose.slides.spreadsheet
 type: docs
 weight: 150
-url: /slides/python-net/api-reference/aspose.slides.spreadsheet/
+url: /python-net/api-reference/aspose.slides.spreadsheet/
 ---
 
 

@@ -2,7 +2,7 @@
 title: IMathPortion Class
 type: docs
 weight: 350
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathportion/
+url: /python-net/api-reference/aspose.slides.mathtext/imathportion/
 ---
 
 Represents a portion with mathematical context inside.

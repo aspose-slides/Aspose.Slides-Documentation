@@ -2,7 +2,7 @@
 title: EffectPresetClassType Enumeration
 type: docs
 weight: 590
-url: /slides/python-net/api-reference/aspose.slides.animation/effectpresetclasstype/
+url: /python-net/api-reference/aspose.slides.animation/effectpresetclasstype/
 ---
 
 Represent effect class types.

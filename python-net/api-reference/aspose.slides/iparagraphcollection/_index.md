@@ -2,7 +2,7 @@
 title: IParagraphCollection Class
 type: docs
 weight: 2040
-url: /slides/python-net/api-reference/aspose.slides/iparagraphcollection/
+url: /python-net/api-reference/aspose.slides/iparagraphcollection/
 ---
 
 Represents a collection of a paragraphs.

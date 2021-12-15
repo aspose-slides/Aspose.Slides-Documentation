@@ -2,7 +2,7 @@
 title: IChartWall Class
 type: docs
 weight: 720
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartwall/
+url: /python-net/api-reference/aspose.slides.charts/ichartwall/
 ---
 
 Represents walls on 3d charts.

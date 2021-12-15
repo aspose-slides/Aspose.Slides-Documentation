@@ -2,7 +2,7 @@
 title: FilterEffectSubtype Enumeration
 type: docs
 weight: 650
-url: /slides/python-net/api-reference/aspose.slides.animation/filtereffectsubtype/
+url: /python-net/api-reference/aspose.slides.animation/filtereffectsubtype/
 ---
 
 Represents filter effect subtypes.

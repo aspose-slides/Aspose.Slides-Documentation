@@ -2,7 +2,7 @@
 title: ICellFormat Class
 type: docs
 weight: 1020
-url: /slides/python-net/api-reference/aspose.slides/icellformat/
+url: /python-net/api-reference/aspose.slides/icellformat/
 ---
 
 Represents format of a table cell.

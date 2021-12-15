@@ -2,7 +2,7 @@
 title: Storage Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.export.web/storage/
+url: /python-net/api-reference/aspose.slides.export.web/storage/
 ---
 
 Represents a temporary data storage for [WebDocument](/python-net/api-reference/aspose.slides.export.web/webdocument/).

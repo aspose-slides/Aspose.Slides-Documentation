@@ -2,7 +2,7 @@
 title: QuartileMethodType Enumeration
 type: docs
 weight: 1300
-url: /slides/python-net/api-reference/aspose.slides.charts/quartilemethodtype/
+url: /python-net/api-reference/aspose.slides.charts/quartilemethodtype/
 ---
 
 Returns type of quartile method

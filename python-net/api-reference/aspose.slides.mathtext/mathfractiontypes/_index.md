@@ -2,7 +2,7 @@
 title: MathFractionTypes Enumeration
 type: docs
 weight: 880
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfractiontypes/
+url: /python-net/api-reference/aspose.slides.mathtext/mathfractiontypes/
 ---
 
 Fraction Types

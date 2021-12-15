@@ -2,7 +2,7 @@
 title: IXamlOutputSaver Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.export.xaml/ixamloutputsaver/
+url: /python-net/api-reference/aspose.slides.export.xaml/ixamloutputsaver/
 ---
 
 Represents an output saver implementation for transfer data to the external storage.

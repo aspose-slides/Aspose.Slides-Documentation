@@ -2,7 +2,7 @@
 title: EffectTriggerType Enumeration
 type: docs
 weight: 620
-url: /slides/python-net/api-reference/aspose.slides.animation/effecttriggertype/
+url: /python-net/api-reference/aspose.slides.animation/effecttriggertype/
 ---
 
 Represent trigger type of effect.

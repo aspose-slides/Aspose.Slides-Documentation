@@ -2,7 +2,7 @@
 title: IFillOverlayEffectiveData Class
 type: docs
 weight: 610
-url: /slides/python-net/api-reference/aspose.slides.effects/ifilloverlayeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ifilloverlayeffectivedata/
 ---
 
 Immutable object which represents a Fill Overlay effect. A fill overlay may be used to specify<br/>            an additional fill for an object and blend the two fills together.

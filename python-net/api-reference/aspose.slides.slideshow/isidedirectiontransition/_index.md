@@ -2,7 +2,7 @@
 title: ISideDirectionTransition Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides.slideshow/isidedirectiontransition/
+url: /python-net/api-reference/aspose.slides.slideshow/isidedirectiontransition/
 ---
 
 Side direction slide transition effect.

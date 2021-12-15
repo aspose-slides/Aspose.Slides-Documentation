@@ -2,7 +2,7 @@
 title: OrganizationChartLayoutType Enumeration
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.smartart/organizationchartlayouttype/
+url: /python-net/api-reference/aspose.slides.smartart/organizationchartlayouttype/
 ---
 
 Represents formatting type the child nodes in an organization chart

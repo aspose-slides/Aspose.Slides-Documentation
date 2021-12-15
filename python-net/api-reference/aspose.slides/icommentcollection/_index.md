@@ -2,7 +2,7 @@
 title: ICommentCollection Class
 type: docs
 weight: 1140
-url: /slides/python-net/api-reference/aspose.slides/icommentcollection/
+url: /python-net/api-reference/aspose.slides/icommentcollection/
 ---
 
 Represents a collection of comments of one author.

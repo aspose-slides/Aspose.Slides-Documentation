@@ -2,7 +2,7 @@
 title: IChartCellCollection Class
 type: docs
 weight: 490
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartcellcollection/
+url: /python-net/api-reference/aspose.slides.charts/ichartcellcollection/
 ---
 
 Represents collection of a cells with data.

@@ -2,7 +2,7 @@
 title: MotionEffect Class
 type: docs
 weight: 370
-url: /slides/python-net/api-reference/aspose.slides.animation/motioneffect/
+url: /python-net/api-reference/aspose.slides.animation/motioneffect/
 ---
 
 Represent motion effect behavior of effect.

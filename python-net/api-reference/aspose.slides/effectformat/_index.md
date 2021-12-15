@@ -2,7 +2,7 @@
 title: EffectFormat Class
 type: docs
 weight: 450
-url: /slides/python-net/api-reference/aspose.slides/effectformat/
+url: /python-net/api-reference/aspose.slides/effectformat/
 ---
 
 Represents effect properties of shape.

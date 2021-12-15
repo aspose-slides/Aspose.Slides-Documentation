@@ -2,7 +2,7 @@
 title: EffectChartMajorGroupingType Enumeration
 type: docs
 weight: 560
-url: /slides/python-net/api-reference/aspose.slides.animation/effectchartmajorgroupingtype/
+url: /python-net/api-reference/aspose.slides.animation/effectchartmajorgroupingtype/
 ---
 
 Represents the type of an animation effect for chart's element.

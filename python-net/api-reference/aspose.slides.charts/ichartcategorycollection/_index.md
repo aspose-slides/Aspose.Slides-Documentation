@@ -2,7 +2,7 @@
 title: IChartCategoryCollection Class
 type: docs
 weight: 470
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartcategorycollection/
+url: /python-net/api-reference/aspose.slides.charts/ichartcategorycollection/
 ---
 
 Represents collection of [IChartCategory](/python-net/api-reference/aspose.slides.charts/ichartcategory/)

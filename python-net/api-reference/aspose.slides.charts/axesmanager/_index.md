@@ -2,7 +2,7 @@
 title: AxesManager Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.charts/axesmanager/
+url: /python-net/api-reference/aspose.slides.charts/axesmanager/
 ---
 
 Provides access to chart axes.

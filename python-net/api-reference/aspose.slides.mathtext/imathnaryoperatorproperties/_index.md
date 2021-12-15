@@ -2,7 +2,7 @@
 title: IMathNaryOperatorProperties Class
 type: docs
 weight: 320
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/
+url: /python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/
 ---
 
 Specifies properties of IMathNaryOperator

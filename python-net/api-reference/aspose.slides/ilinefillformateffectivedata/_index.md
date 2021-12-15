@@ -2,7 +2,7 @@
 title: ILineFillFormatEffectiveData Class
 type: docs
 weight: 1770
-url: /slides/python-net/api-reference/aspose.slides/ilinefillformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ilinefillformateffectivedata/
 ---
 
 Immutable object which contains effective line filling properties.

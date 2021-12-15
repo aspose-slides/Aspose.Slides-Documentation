@@ -2,7 +2,7 @@
 title: IShapeStyle Class
 type: docs
 weight: 2450
-url: /slides/python-net/api-reference/aspose.slides/ishapestyle/
+url: /python-net/api-reference/aspose.slides/ishapestyle/
 ---
 
 Represent shape's style reference.

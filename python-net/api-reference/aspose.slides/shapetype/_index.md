@@ -2,7 +2,7 @@
 title: ShapeType Enumeration
 type: docs
 weight: 9830
-url: /slides/python-net/api-reference/aspose.slides/shapetype/
+url: /python-net/api-reference/aspose.slides/shapetype/
 ---
 
 Represents preset geometry of geometry shapes.

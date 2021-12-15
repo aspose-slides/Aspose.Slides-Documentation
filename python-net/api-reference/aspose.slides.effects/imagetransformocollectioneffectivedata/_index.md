@@ -2,7 +2,7 @@
 title: ImageTransformOCollectionEffectiveData Class
 type: docs
 weight: 860
-url: /slides/python-net/api-reference/aspose.slides.effects/imagetransformocollectioneffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/imagetransformocollectioneffectivedata/
 ---
 
 Immutable object that represents a readonly collection of effective image transform effects.

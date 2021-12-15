@@ -2,7 +2,7 @@
 title: IEffectStyleEffectiveData Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.theme/ieffectstyleeffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/ieffectstyleeffectivedata/
 ---
 
 Immutable object which contains effective effect style properties.

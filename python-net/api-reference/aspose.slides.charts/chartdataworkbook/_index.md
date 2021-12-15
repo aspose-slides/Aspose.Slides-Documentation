@@ -2,7 +2,7 @@
 title: ChartDataWorkbook Class
 type: docs
 weight: 180
-url: /slides/python-net/api-reference/aspose.slides.charts/chartdataworkbook/
+url: /python-net/api-reference/aspose.slides.charts/chartdataworkbook/
 ---
 
 Provides access to embedded Excel workbook

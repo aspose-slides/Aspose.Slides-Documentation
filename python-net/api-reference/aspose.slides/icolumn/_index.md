@@ -2,7 +2,7 @@
 title: IColumn Class
 type: docs
 weight: 1070
-url: /slides/python-net/api-reference/aspose.slides/icolumn/
+url: /python-net/api-reference/aspose.slides/icolumn/
 ---
 
 Represents a column in a table.

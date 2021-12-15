@@ -2,7 +2,7 @@
 title: ModernComment Class
 type: docs
 weight: 3060
-url: /slides/python-net/api-reference/aspose.slides/moderncomment/
+url: /python-net/api-reference/aspose.slides/moderncomment/
 ---
 
 Represents a comment on a slide.

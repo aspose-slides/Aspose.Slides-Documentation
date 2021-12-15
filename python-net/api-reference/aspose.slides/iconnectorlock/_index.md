@@ -2,7 +2,7 @@
 title: IConnectorLock Class
 type: docs
 weight: 1170
-url: /slides/python-net/api-reference/aspose.slides/iconnectorlock/
+url: /python-net/api-reference/aspose.slides/iconnectorlock/
 ---
 
 Determines which operations are disabled on the parent Connector.

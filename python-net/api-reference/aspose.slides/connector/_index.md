@@ -2,7 +2,7 @@
 title: Connector Class
 type: docs
 weight: 340
-url: /slides/python-net/api-reference/aspose.slides/connector/
+url: /python-net/api-reference/aspose.slides/connector/
 ---
 
 Represents a connector.

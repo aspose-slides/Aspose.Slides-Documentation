@@ -2,7 +2,7 @@
 title: TabFactory Class
 type: docs
 weight: 3740
-url: /slides/python-net/api-reference/aspose.slides/tabfactory/
+url: /python-net/api-reference/aspose.slides/tabfactory/
 ---
 
 Allows to create ITab instances

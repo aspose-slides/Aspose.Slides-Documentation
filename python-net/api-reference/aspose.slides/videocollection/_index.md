@@ -2,7 +2,7 @@
 title: VideoCollection Class
 type: docs
 weight: 3840
-url: /slides/python-net/api-reference/aspose.slides/videocollection/
+url: /python-net/api-reference/aspose.slides/videocollection/
 ---
 
 Represents a collection of Video objects.

@@ -2,7 +2,7 @@
 title: FontSources Class
 type: docs
 weight: 530
-url: /slides/python-net/api-reference/aspose.slides/fontsources/
+url: /python-net/api-reference/aspose.slides/fontsources/
 ---
 
 Provides file and memory sources for external fonts.

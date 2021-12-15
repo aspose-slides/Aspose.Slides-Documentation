@@ -2,7 +2,7 @@
 title: PieSplitType Enumeration
 type: docs
 weight: 1290
-url: /slides/python-net/api-reference/aspose.slides.charts/piesplittype/
+url: /python-net/api-reference/aspose.slides.charts/piesplittype/
 ---
 
 Represents a type of splitting points in the second pie or bar <br/>            on a pie-of-pie or bar-of-pie chart.

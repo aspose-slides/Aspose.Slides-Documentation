@@ -2,7 +2,7 @@
 title: IMathBlockFactory Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathblockfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathblockfactory/
 ---
 
 Allows to create a math block

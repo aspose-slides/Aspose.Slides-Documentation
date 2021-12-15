@@ -2,7 +2,7 @@
 title: IMathLimit Class
 type: docs
 weight: 260
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathlimit/
+url: /python-net/api-reference/aspose.slides.mathtext/imathlimit/
 ---
 
 Specifies the Limit object, consisting of text on the baseline and reduced-size text immediately above or below it.

@@ -2,7 +2,7 @@
 title: IVideo Class
 type: docs
 weight: 2770
-url: /slides/python-net/api-reference/aspose.slides/ivideo/
+url: /python-net/api-reference/aspose.slides/ivideo/
 ---
 
 Represents a video embedded into a presentation.

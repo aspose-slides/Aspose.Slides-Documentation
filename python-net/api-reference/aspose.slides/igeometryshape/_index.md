@@ -2,7 +2,7 @@
 title: IGeometryShape Class
 type: docs
 weight: 1480
-url: /slides/python-net/api-reference/aspose.slides/igeometryshape/
+url: /python-net/api-reference/aspose.slides/igeometryshape/
 ---
 
 Represents the parent class for all geometric shapes.

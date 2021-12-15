@@ -2,7 +2,7 @@
 title: IRotation3D Class
 type: docs
 weight: 910
-url: /slides/python-net/api-reference/aspose.slides.charts/irotation3d/
+url: /python-net/api-reference/aspose.slides.charts/irotation3d/
 ---
 
 Represents 3D rotation of a chart.

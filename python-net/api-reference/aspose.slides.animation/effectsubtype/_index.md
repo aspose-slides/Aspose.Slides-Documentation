@@ -2,7 +2,7 @@
 title: EffectSubtype Enumeration
 type: docs
 weight: 610
-url: /slides/python-net/api-reference/aspose.slides.animation/effectsubtype/
+url: /python-net/api-reference/aspose.slides.animation/effectsubtype/
 ---
 
 Represents subtypes of animation effect.

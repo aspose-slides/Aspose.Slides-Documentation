@@ -2,7 +2,7 @@
 title: ColorChange Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides.effects/colorchange/
+url: /python-net/api-reference/aspose.slides.effects/colorchange/
 ---
 
 Represents a Color Change effect.<br/>            Instances of FromColor are replaced with instances of ToColor.

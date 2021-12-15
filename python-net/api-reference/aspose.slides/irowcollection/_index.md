@@ -2,7 +2,7 @@
 title: IRowCollection Class
 type: docs
 weight: 2330
-url: /slides/python-net/api-reference/aspose.slides/irowcollection/
+url: /python-net/api-reference/aspose.slides/irowcollection/
 ---
 
 Represents table row collection.

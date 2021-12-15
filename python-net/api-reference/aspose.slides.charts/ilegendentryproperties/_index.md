@@ -2,7 +2,7 @@
 title: ILegendEntryProperties Class
 type: docs
 weight: 860
-url: /slides/python-net/api-reference/aspose.slides.charts/ilegendentryproperties/
+url: /python-net/api-reference/aspose.slides.charts/ilegendentryproperties/
 ---
 
 Represents legend properties of a chart.

@@ -2,7 +2,7 @@
 title: SchemeColor Enumeration
 type: docs
 weight: 9790
-url: /slides/python-net/api-reference/aspose.slides/schemecolor/
+url: /python-net/api-reference/aspose.slides/schemecolor/
 ---
 
 Represents colors in a color scheme.

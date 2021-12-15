@@ -2,7 +2,7 @@
 title: NullableBool Enumeration
 type: docs
 weight: 9630
-url: /slides/python-net/api-reference/aspose.slides/nullablebool/
+url: /python-net/api-reference/aspose.slides/nullablebool/
 ---
 
 Represents triple boolean values.

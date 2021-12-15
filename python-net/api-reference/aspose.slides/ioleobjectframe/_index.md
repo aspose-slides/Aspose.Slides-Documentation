@@ -2,7 +2,7 @@
 title: IOleObjectFrame Class
 type: docs
 weight: 2010
-url: /slides/python-net/api-reference/aspose.slides/ioleobjectframe/
+url: /python-net/api-reference/aspose.slides/ioleobjectframe/
 ---
 
 Represents an OLE object on a slide.

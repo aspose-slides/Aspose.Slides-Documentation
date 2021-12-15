@@ -2,7 +2,7 @@
 title: CellCircularReferenceException Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellcircularreferenceexception/
+url: /python-net/api-reference/aspose.slides.spreadsheet/cellcircularreferenceexception/
 ---
 
 The exception that is thrown when one or more circular references are detected where a formula refers to its<br/>            own cell either directly or indirectly.

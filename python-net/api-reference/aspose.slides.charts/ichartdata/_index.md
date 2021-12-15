@@ -2,7 +2,7 @@
 title: IChartData Class
 type: docs
 weight: 510
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartdata/
+url: /python-net/api-reference/aspose.slides.charts/ichartdata/
 ---
 
 Represents data used for a chart plotting.

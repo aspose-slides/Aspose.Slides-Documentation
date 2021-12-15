@@ -2,7 +2,7 @@
 title: TickLabelPositionType Enumeration
 type: docs
 weight: 1320
-url: /slides/python-net/api-reference/aspose.slides.charts/ticklabelpositiontype/
+url: /python-net/api-reference/aspose.slides.charts/ticklabelpositiontype/
 ---
 
 Represents the position type of tick-mark labels on the specified axis.

@@ -2,7 +2,7 @@
 title: OdpException Class
 type: docs
 weight: 3150
-url: /slides/python-net/api-reference/aspose.slides/odpexception/
+url: /python-net/api-reference/aspose.slides/odpexception/
 ---
 
 Represents a standard internal exception type.

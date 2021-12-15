@@ -2,7 +2,7 @@
 title: ChartShapeType Enumeration
 type: docs
 weight: 1140
-url: /slides/python-net/api-reference/aspose.slides.charts/chartshapetype/
+url: /python-net/api-reference/aspose.slides.charts/chartshapetype/
 ---
 
 Represents a shape of chart.

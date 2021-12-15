@@ -2,7 +2,7 @@
 title: IBulletFormat Class
 type: docs
 weight: 960
-url: /slides/python-net/api-reference/aspose.slides/ibulletformat/
+url: /python-net/api-reference/aspose.slides/ibulletformat/
 ---
 
 Represents paragraph bullet formatting properties.

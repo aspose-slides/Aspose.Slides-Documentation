@@ -2,7 +2,7 @@
 title: OrientationTransition Class
 type: docs
 weight: 270
-url: /slides/python-net/api-reference/aspose.slides.slideshow/orientationtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/orientationtransition/
 ---
 
 Orientation slide transition effect.

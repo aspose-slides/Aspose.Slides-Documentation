@@ -2,7 +2,7 @@
 title: CameraPresetType Enumeration
 type: docs
 weight: 9330
-url: /slides/python-net/api-reference/aspose.slides/camerapresettype/
+url: /python-net/api-reference/aspose.slides/camerapresettype/
 ---
 
 Constants which define camera preset type.

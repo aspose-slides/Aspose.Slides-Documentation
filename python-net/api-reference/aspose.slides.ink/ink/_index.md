@@ -2,7 +2,7 @@
 title: Ink Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.ink/ink/
+url: /python-net/api-reference/aspose.slides.ink/ink/
 ---
 
 Represents an ink object on a slide.

@@ -2,7 +2,7 @@
 title: ICommentAuthor Class
 type: docs
 weight: 1120
-url: /slides/python-net/api-reference/aspose.slides/icommentauthor/
+url: /python-net/api-reference/aspose.slides/icommentauthor/
 ---
 
 Represents an author of comments.

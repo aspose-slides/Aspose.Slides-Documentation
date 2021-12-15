@@ -2,7 +2,7 @@
 title: InterruptionToken Class
 type: docs
 weight: 2850
-url: /slides/python-net/api-reference/aspose.slides/interruptiontoken/
+url: /python-net/api-reference/aspose.slides/interruptiontoken/
 ---
 
 This class represents the token to use for signaling long running tasks whether the interruption was requested.

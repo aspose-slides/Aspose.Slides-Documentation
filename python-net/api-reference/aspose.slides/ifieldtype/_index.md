@@ -2,7 +2,7 @@
 title: IFieldType Class
 type: docs
 weight: 1310
-url: /slides/python-net/api-reference/aspose.slides/ifieldtype/
+url: /python-net/api-reference/aspose.slides/ifieldtype/
 ---
 
 Represents a type of field. <br/>            This value determines which text will be set to the field portion when it will be updated.

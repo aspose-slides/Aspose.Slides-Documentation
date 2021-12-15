@@ -2,7 +2,7 @@
 title: IParagraph Class
 type: docs
 weight: 2030
-url: /slides/python-net/api-reference/aspose.slides/iparagraph/
+url: /python-net/api-reference/aspose.slides/iparagraph/
 ---
 
 Represents a paragraph of a text.

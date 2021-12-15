@@ -2,7 +2,7 @@
 title: IPptxOptions Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides.export/ipptxoptions/
+url: /python-net/api-reference/aspose.slides.export/ipptxoptions/
 ---
 
 Represents options for saving OpenXml presentations (PPTX, PPSX, POTX, PPTM, PPSM, POTM).

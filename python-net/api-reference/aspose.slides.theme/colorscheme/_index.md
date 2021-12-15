@@ -2,7 +2,7 @@
 title: ColorScheme Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.theme/colorscheme/
+url: /python-net/api-reference/aspose.slides.theme/colorscheme/
 ---
 
 Stores theme-defined colors.

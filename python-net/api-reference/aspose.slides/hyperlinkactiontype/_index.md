@@ -2,7 +2,7 @@
 title: HyperlinkActionType Enumeration
 type: docs
 weight: 9460
-url: /slides/python-net/api-reference/aspose.slides/hyperlinkactiontype/
+url: /python-net/api-reference/aspose.slides/hyperlinkactiontype/
 ---
 
 Represents a type of hyperlink action.

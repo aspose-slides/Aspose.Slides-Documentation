@@ -2,7 +2,7 @@
 title: Format Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.charts/format/
+url: /python-net/api-reference/aspose.slides.charts/format/
 ---
 
 Represents chart format properties.

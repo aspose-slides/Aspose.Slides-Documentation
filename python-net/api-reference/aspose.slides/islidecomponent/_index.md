@@ -2,7 +2,7 @@
 title: ISlideComponent Class
 type: docs
 weight: 2500
-url: /slides/python-net/api-reference/aspose.slides/islidecomponent/
+url: /python-net/api-reference/aspose.slides/islidecomponent/
 ---
 
 Represents a component of a slide.

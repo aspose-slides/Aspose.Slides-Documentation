@@ -2,7 +2,7 @@
 title: Conformance Enumeration
 type: docs
 weight: 690
-url: /slides/python-net/api-reference/aspose.slides.export/conformance/
+url: /python-net/api-reference/aspose.slides.export/conformance/
 ---
 
 Specifies the conformance class to which the PresentationML document conforms.

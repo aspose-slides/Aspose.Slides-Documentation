@@ -2,7 +2,7 @@
 title: IDataLabelFormat Class
 type: docs
 weight: 750
-url: /slides/python-net/api-reference/aspose.slides.charts/idatalabelformat/
+url: /python-net/api-reference/aspose.slides.charts/idatalabelformat/
 ---
 
 Represents formatting options for DataLabel.

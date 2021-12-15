@@ -2,7 +2,7 @@
 title: License Class
 type: docs
 weight: 2920
-url: /slides/python-net/api-reference/aspose.slides/license/
+url: /python-net/api-reference/aspose.slides/license/
 ---
 
 Provides methods to license the component.

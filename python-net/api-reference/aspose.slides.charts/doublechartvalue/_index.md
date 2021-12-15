@@ -2,7 +2,7 @@
 title: DoubleChartValue Class
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides.charts/doublechartvalue/
+url: /python-net/api-reference/aspose.slides.charts/doublechartvalue/
 ---
 
 Represent double value which can be stored in pptx presentation document in two ways:<br/>            1) in cell/cells of workbook related to chart;<br/>            2) as literal value.

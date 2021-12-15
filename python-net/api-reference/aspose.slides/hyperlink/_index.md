@@ -2,7 +2,7 @@
 title: Hyperlink Class
 type: docs
 weight: 720
-url: /slides/python-net/api-reference/aspose.slides/hyperlink/
+url: /python-net/api-reference/aspose.slides/hyperlink/
 ---
 
 Represents a hyperlink.

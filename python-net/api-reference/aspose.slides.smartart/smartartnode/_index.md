@@ -2,7 +2,7 @@
 title: SmartArtNode Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.smartart/smartartnode/
+url: /python-net/api-reference/aspose.slides.smartart/smartartnode/
 ---
 
 Represents node of a SmartArt object

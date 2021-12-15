@@ -2,7 +2,7 @@
 title: ICameraEffectiveData Class
 type: docs
 weight: 990
-url: /slides/python-net/api-reference/aspose.slides/icameraeffectivedata/
+url: /python-net/api-reference/aspose.slides/icameraeffectivedata/
 ---
 
 Immutable object which contains effective camera properties.

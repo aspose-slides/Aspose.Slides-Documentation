@@ -2,7 +2,7 @@
 title: IObsoletePresLockingBehaviorWarningInfo Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.warnings/iobsoletepreslockingbehaviorwarninginfo/
+url: /python-net/api-reference/aspose.slides.warnings/iobsoletepreslockingbehaviorwarninginfo/
 ---
 
 This warning indicates that an obsolete presentation locking behavior is used.

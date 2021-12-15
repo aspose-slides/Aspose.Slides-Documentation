@@ -2,7 +2,7 @@
 title: ICamera Class
 type: docs
 weight: 980
-url: /slides/python-net/api-reference/aspose.slides/icamera/
+url: /python-net/api-reference/aspose.slides/icamera/
 ---
 
 Represents Camera.

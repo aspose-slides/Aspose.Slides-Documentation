@@ -2,7 +2,7 @@
 title: IShapeCollection Class
 type: docs
 weight: 2420
-url: /slides/python-net/api-reference/aspose.slides/ishapecollection/
+url: /python-net/api-reference/aspose.slides/ishapecollection/
 ---
 
 Represents a collection of a shapes.

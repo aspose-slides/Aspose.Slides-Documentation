@@ -2,7 +2,7 @@
 title: SVGOptions Class
 type: docs
 weight: 440
-url: /slides/python-net/api-reference/aspose.slides.export/svgoptions/
+url: /python-net/api-reference/aspose.slides.export/svgoptions/
 ---
 
 Represents an SVG options.

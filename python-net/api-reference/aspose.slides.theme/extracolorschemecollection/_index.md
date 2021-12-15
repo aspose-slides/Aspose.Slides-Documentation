@@ -2,7 +2,7 @@
 title: ExtraColorSchemeCollection Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.theme/extracolorschemecollection/
+url: /python-net/api-reference/aspose.slides.theme/extracolorschemecollection/
 ---
 
 Represents a collection of additional color schemes.

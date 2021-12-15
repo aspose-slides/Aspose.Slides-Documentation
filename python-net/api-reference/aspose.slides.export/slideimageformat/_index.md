@@ -2,7 +2,7 @@
 title: SlideImageFormat Class
 type: docs
 weight: 470
-url: /slides/python-net/api-reference/aspose.slides.export/slideimageformat/
+url: /python-net/api-reference/aspose.slides.export/slideimageformat/
 ---
 
 Determines format in which slide image will be saved for presentation to HTML export.

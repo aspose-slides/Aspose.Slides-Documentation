@@ -2,7 +2,7 @@
 title: SaveOptionsFactory Class
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides.export/saveoptionsfactory/
+url: /python-net/api-reference/aspose.slides.export/saveoptionsfactory/
 ---
 
 Allows to create save options' instances

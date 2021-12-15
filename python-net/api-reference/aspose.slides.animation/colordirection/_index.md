@@ -2,7 +2,7 @@
 title: ColorDirection Enumeration
 type: docs
 weight: 530
-url: /slides/python-net/api-reference/aspose.slides.animation/colordirection/
+url: /python-net/api-reference/aspose.slides.animation/colordirection/
 ---
 
 Represents color direction for color effect behavior.

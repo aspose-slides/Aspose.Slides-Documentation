@@ -2,7 +2,7 @@
 title: IHSL Class
 type: docs
 weight: 660
-url: /slides/python-net/api-reference/aspose.slides.effects/ihsl/
+url: /python-net/api-reference/aspose.slides.effects/ihsl/
 ---
 
 Represents a Hue/Saturation/Luminance effect.<br/>            The hue, saturation, and luminance may each be adjusted relative to its current value.

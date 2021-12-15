@@ -2,7 +2,7 @@
 title: IModernComment Class
 type: docs
 weight: 1930
-url: /slides/python-net/api-reference/aspose.slides/imoderncomment/
+url: /python-net/api-reference/aspose.slides/imoderncomment/
 ---
 
 Represents a comment on a slide.

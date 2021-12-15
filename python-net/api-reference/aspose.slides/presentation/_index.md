@@ -2,7 +2,7 @@
 title: Presentation Class
 type: docs
 weight: 3450
-url: /slides/python-net/api-reference/aspose.slides/presentation/
+url: /python-net/api-reference/aspose.slides/presentation/
 ---
 
 Represents a Microsoft PowerPoint presentation.

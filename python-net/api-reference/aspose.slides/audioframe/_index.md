@@ -2,7 +2,7 @@
 title: AudioFrame Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides/audioframe/
+url: /python-net/api-reference/aspose.slides/audioframe/
 ---
 
 Represents an audio clip on a slide.

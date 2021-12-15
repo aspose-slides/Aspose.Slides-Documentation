@@ -2,7 +2,7 @@
 title: IChartCategoryLevelsManager Class
 type: docs
 weight: 480
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartcategorylevelsmanager/
+url: /python-net/api-reference/aspose.slides.charts/ichartcategorylevelsmanager/
 ---
 
 Managed container of the values of the chart category levels.

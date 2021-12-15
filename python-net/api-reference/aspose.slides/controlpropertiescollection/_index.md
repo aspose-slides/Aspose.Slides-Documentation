@@ -2,7 +2,7 @@
 title: ControlPropertiesCollection Class
 type: docs
 weight: 380
-url: /slides/python-net/api-reference/aspose.slides/controlpropertiescollection/
+url: /python-net/api-reference/aspose.slides/controlpropertiescollection/
 ---
 
 A collection of AcitveX properties.

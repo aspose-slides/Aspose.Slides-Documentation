@@ -2,7 +2,7 @@
 title: ILegacyDiagram Class
 type: docs
 weight: 1720
-url: /slides/python-net/api-reference/aspose.slides/ilegacydiagram/
+url: /python-net/api-reference/aspose.slides/ilegacydiagram/
 ---
 
 Represents a legacy diagram object

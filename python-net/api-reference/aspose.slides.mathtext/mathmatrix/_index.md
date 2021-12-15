@@ -2,7 +2,7 @@
 title: MathMatrix Class
 type: docs
 weight: 700
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathmatrix/
+url: /python-net/api-reference/aspose.slides.mathtext/mathmatrix/
 ---
 
 Specifies the Matrix object, consisting of child elements laid out in one or more rows and columns. <br/>            It is important to note that matrices do not have built in delimiters. <br/>            To place the matrix in the brackets you should use the delimiter object (IMathDelimiter).<br/>            Null arguments can be used to create gaps in matrices.

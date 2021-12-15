@@ -2,7 +2,7 @@
 title: MathFractionFactory Class
 type: docs
 weight: 620
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfractionfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathfractionfactory/
 ---
 
 Allows to create a math fraction

@@ -2,7 +2,7 @@
 title: Camera Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides/camera/
+url: /python-net/api-reference/aspose.slides/camera/
 ---
 
 Represents Camera.

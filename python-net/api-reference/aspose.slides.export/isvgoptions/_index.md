@@ -2,7 +2,7 @@
 title: ISVGOptions Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides.export/isvgoptions/
+url: /python-net/api-reference/aspose.slides.export/isvgoptions/
 ---
 
 Represents an SVG options.

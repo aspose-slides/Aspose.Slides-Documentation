@@ -2,7 +2,7 @@
 title: SetEffect Class
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides.animation/seteffect/
+url: /python-net/api-reference/aspose.slides.animation/seteffect/
 ---
 
 Represents a set effect for an animation behavior.

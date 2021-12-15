@@ -2,7 +2,7 @@
 title: ThreeDFormat Class
 type: docs
 weight: 3820
-url: /slides/python-net/api-reference/aspose.slides/threedformat/
+url: /python-net/api-reference/aspose.slides/threedformat/
 ---
 
 Represents 3-D properties.

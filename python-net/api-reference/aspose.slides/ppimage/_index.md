@@ -2,7 +2,7 @@
 title: PPImage Class
 type: docs
 weight: 3180
-url: /slides/python-net/api-reference/aspose.slides/ppimage/
+url: /python-net/api-reference/aspose.slides/ppimage/
 ---
 
 Represents an image in a presentation.

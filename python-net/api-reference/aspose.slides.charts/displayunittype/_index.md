@@ -2,7 +2,7 @@
 title: DisplayUnitType Enumeration
 type: docs
 weight: 1200
-url: /slides/python-net/api-reference/aspose.slides.charts/displayunittype/
+url: /python-net/api-reference/aspose.slides.charts/displayunittype/
 ---
 
 Determines multiplicity of the displayed data.

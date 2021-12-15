@@ -2,7 +2,7 @@
 title: IGradientStop Class
 type: docs
 weight: 1520
-url: /slides/python-net/api-reference/aspose.slides/igradientstop/
+url: /python-net/api-reference/aspose.slides/igradientstop/
 ---
 
 Represents a gradient format.

@@ -2,7 +2,7 @@
 title: PptUnsupportedFormatException Class
 type: docs
 weight: 3390
-url: /slides/python-net/api-reference/aspose.slides/pptunsupportedformatexception/
+url: /python-net/api-reference/aspose.slides/pptunsupportedformatexception/
 ---
 
 Exception which thrown when presentation file format is unsupported.

@@ -2,7 +2,7 @@
 title: MathBorderBox Class
 type: docs
 weight: 540
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathborderbox/
+url: /python-net/api-reference/aspose.slides.mathtext/mathborderbox/
 ---
 
 Draws a rectangular or some other border around the IMathElement.

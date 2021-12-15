@@ -2,7 +2,7 @@
 title: MathLimitLocations Enumeration
 type: docs
 weight: 940
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathlimitlocations/
+url: /python-net/api-reference/aspose.slides.mathtext/mathlimitlocations/
 ---
 
 Location of limits (subscript/superscript) in n-ary operators.

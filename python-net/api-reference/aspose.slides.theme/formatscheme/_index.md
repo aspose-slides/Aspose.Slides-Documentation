@@ -2,7 +2,7 @@
 title: FormatScheme Class
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.theme/formatscheme/
+url: /python-net/api-reference/aspose.slides.theme/formatscheme/
 ---
 
 Stores theme-defined formats for the shapes.

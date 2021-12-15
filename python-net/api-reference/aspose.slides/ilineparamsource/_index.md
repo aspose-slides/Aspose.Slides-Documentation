@@ -2,7 +2,7 @@
 title: ILineParamSource Class
 type: docs
 weight: 1800
-url: /slides/python-net/api-reference/aspose.slides/ilineparamsource/
+url: /python-net/api-reference/aspose.slides/ilineparamsource/
 ---
 
 Auxiliary line parameters interface.

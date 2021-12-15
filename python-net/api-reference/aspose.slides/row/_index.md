@@ -2,7 +2,7 @@
 title: Row Class
 type: docs
 weight: 3510
-url: /slides/python-net/api-reference/aspose.slides/row/
+url: /python-net/api-reference/aspose.slides/row/
 ---
 
 Represents a row in a table.

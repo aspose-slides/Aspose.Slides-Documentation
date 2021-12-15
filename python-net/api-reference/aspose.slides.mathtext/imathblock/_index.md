@@ -2,7 +2,7 @@
 title: IMathBlock Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathblock/
+url: /python-net/api-reference/aspose.slides.mathtext/imathblock/
 ---
 
 Specifies an instance of mathematical text that contained within a MathParagraph and starts on its own line.<br/>            All math zones, including equations, expressions, arrays of equations or expressions, and formulas are represented by math block.

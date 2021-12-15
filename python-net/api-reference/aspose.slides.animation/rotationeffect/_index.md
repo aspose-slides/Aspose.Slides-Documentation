@@ -2,7 +2,7 @@
 title: RotationEffect Class
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides.animation/rotationeffect/
+url: /python-net/api-reference/aspose.slides.animation/rotationeffect/
 ---
 
 Represent rotation behavior of effect.

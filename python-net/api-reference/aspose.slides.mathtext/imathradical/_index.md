@@ -2,7 +2,7 @@
 title: IMathRadical Class
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathradical/
+url: /python-net/api-reference/aspose.slides.mathtext/imathradical/
 ---
 
 Specifies the radical function, consisting of a base, and an optional degree.<br/>            Example of radical object is √𝑥.

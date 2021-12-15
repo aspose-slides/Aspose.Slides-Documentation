@@ -2,7 +2,7 @@
 title: Rotation3D Class
 type: docs
 weight: 1030
-url: /slides/python-net/api-reference/aspose.slides.charts/rotation3d/
+url: /python-net/api-reference/aspose.slides.charts/rotation3d/
 ---
 
 Represents 3D rotation of a chart.

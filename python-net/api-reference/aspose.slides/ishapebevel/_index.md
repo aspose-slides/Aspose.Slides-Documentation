@@ -2,7 +2,7 @@
 title: IShapeBevel Class
 type: docs
 weight: 2400
-url: /slides/python-net/api-reference/aspose.slides/ishapebevel/
+url: /python-net/api-reference/aspose.slides/ishapebevel/
 ---
 
 Represents properties of shape's main face relief.

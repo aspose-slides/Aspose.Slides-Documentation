@@ -2,7 +2,7 @@
 title: InvalidPasswordException Class
 type: docs
 weight: 2870
-url: /slides/python-net/api-reference/aspose.slides/invalidpasswordexception/
+url: /python-net/api-reference/aspose.slides/invalidpasswordexception/
 ---
 
 Exception which thrown when presentation file format is unsupported.

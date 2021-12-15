@@ -2,7 +2,7 @@
 title: aspose.slides.animation
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.animation/
+url: /python-net/api-reference/aspose.slides.animation/
 ---
 
 

@@ -2,7 +2,7 @@
 title: IUpDownBarsManager Class
 type: docs
 weight: 970
-url: /slides/python-net/api-reference/aspose.slides.charts/iupdownbarsmanager/
+url: /python-net/api-reference/aspose.slides.charts/iupdownbarsmanager/
 ---
 
 Provide access to up/down bars of Line- or Stock-chart.

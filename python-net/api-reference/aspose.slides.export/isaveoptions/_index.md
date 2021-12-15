@@ -2,7 +2,7 @@
 title: ISaveOptions Class
 type: docs
 weight: 250
-url: /slides/python-net/api-reference/aspose.slides.export/isaveoptions/
+url: /python-net/api-reference/aspose.slides.export/isaveoptions/
 ---
 
 Options that control how a presentation is saved.

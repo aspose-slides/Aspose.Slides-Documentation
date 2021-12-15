@@ -2,7 +2,7 @@
 title: BevelPresetType Enumeration
 type: docs
 weight: 9300
-url: /slides/python-net/api-reference/aspose.slides/bevelpresettype/
+url: /python-net/api-reference/aspose.slides/bevelpresettype/
 ---
 
 Constants which define 3D bevel of shape.

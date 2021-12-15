@@ -2,7 +2,7 @@
 title: RectangleAlignment Enumeration
 type: docs
 weight: 9770
-url: /slides/python-net/api-reference/aspose.slides/rectanglealignment/
+url: /python-net/api-reference/aspose.slides/rectanglealignment/
 ---
 
 Defines 2-dimension allignment.

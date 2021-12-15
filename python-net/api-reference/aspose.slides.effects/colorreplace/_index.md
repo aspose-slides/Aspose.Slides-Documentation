@@ -2,7 +2,7 @@
 title: ColorReplace Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides.effects/colorreplace/
+url: /python-net/api-reference/aspose.slides.effects/colorreplace/
 ---
 
 Represents a Color Replacement effect.<br/>            All effect colors are changed to a fixed color.<br/>            Alpha values are unaffected.

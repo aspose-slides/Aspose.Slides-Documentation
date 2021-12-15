@@ -2,7 +2,7 @@
 title: TickMarkType Enumeration
 type: docs
 weight: 1330
-url: /slides/python-net/api-reference/aspose.slides.charts/tickmarktype/
+url: /python-net/api-reference/aspose.slides.charts/tickmarktype/
 ---
 
 Represents the tick mark type for the specified axis.

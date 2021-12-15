@@ -2,7 +2,7 @@
 title: IBaseTableFormatEffectiveData Class
 type: docs
 weight: 930
-url: /slides/python-net/api-reference/aspose.slides/ibasetableformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ibasetableformateffectivedata/
 ---
 
 Base interface for immutable objects which contain effective table formatting properties.

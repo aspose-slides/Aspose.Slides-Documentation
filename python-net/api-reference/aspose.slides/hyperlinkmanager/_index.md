@@ -2,7 +2,7 @@
 title: HyperlinkManager Class
 type: docs
 weight: 730
-url: /slides/python-net/api-reference/aspose.slides/hyperlinkmanager/
+url: /python-net/api-reference/aspose.slides/hyperlinkmanager/
 ---
 
 Provide hyperlinks management (adding, removing).

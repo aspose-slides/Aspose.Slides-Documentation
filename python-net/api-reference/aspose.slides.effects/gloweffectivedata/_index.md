@@ -2,7 +2,7 @@
 title: GlowEffectiveData Class
 type: docs
 weight: 290
-url: /slides/python-net/api-reference/aspose.slides.effects/gloweffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/gloweffectivedata/
 ---
 
 Immutable object which represents a glow effect, in which a color blurred outline <br/>            is added outside the edges of the object.

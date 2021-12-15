@@ -2,7 +2,7 @@
 title: ISketchFormatEffectiveData Class
 type: docs
 weight: 2470
-url: /slides/python-net/api-reference/aspose.slides/isketchformateffectivedata/
+url: /python-net/api-reference/aspose.slides/isketchformateffectivedata/
 ---
 
 Immutable object which contains effective line sketch properties.

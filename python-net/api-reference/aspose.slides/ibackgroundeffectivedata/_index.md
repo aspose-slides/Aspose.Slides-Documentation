@@ -2,7 +2,7 @@
 title: IBackgroundEffectiveData Class
 type: docs
 weight: 850
-url: /slides/python-net/api-reference/aspose.slides/ibackgroundeffectivedata/
+url: /python-net/api-reference/aspose.slides/ibackgroundeffectivedata/
 ---
 
 Immutable object which contains effective background properties.

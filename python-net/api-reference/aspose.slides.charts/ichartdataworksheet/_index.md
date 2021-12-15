@@ -2,7 +2,7 @@
 title: IChartDataWorksheet Class
 type: docs
 weight: 580
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartdataworksheet/
+url: /python-net/api-reference/aspose.slides.charts/ichartdataworksheet/
 ---
 
 Represents worksheet associated with [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/)

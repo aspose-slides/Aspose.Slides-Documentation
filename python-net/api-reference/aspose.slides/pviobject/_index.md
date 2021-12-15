@@ -2,7 +2,7 @@
 title: PVIObject Class
 type: docs
 weight: 3190
-url: /slides/python-net/api-reference/aspose.slides/pviobject/
+url: /python-net/api-reference/aspose.slides/pviobject/
 ---
 
 Encapsulates basic service infrastructure for objects can be a subject of property value inheritance.

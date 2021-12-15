@@ -2,7 +2,7 @@
 title: IFormatFactory Class
 type: docs
 weight: 1460
-url: /slides/python-net/api-reference/aspose.slides/iformatfactory/
+url: /python-net/api-reference/aspose.slides/iformatfactory/
 ---
 
 Allows to create formats via COM interface.

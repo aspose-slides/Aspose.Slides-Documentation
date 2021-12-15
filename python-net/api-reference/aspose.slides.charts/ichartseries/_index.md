@@ -2,7 +2,7 @@
 title: IChartSeries Class
 type: docs
 weight: 640
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartseries/
+url: /python-net/api-reference/aspose.slides.charts/ichartseries/
 ---
 
 Represents a chart series.

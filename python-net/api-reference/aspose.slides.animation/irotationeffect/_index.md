@@ -2,7 +2,7 @@
 title: IRotationEffect Class
 type: docs
 weight: 280
-url: /slides/python-net/api-reference/aspose.slides.animation/irotationeffect/
+url: /python-net/api-reference/aspose.slides.animation/irotationeffect/
 ---
 
 Represent rotation behavior of effect.

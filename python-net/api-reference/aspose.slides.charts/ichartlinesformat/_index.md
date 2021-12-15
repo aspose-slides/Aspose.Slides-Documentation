@@ -2,7 +2,7 @@
 title: IChartLinesFormat Class
 type: docs
 weight: 600
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartlinesformat/
+url: /python-net/api-reference/aspose.slides.charts/ichartlinesformat/
 ---
 
 Represents gridlines format properties.

@@ -2,7 +2,7 @@
 title: MasterNotesSlide Class
 type: docs
 weight: 3000
-url: /slides/python-net/api-reference/aspose.slides/masternotesslide/
+url: /python-net/api-reference/aspose.slides/masternotesslide/
 ---
 
 Represents master slide for notes.

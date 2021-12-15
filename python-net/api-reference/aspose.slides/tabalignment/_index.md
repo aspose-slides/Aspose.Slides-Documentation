@@ -2,7 +2,7 @@
 title: TabAlignment Enumeration
 type: docs
 weight: 9920
-url: /slides/python-net/api-reference/aspose.slides/tabalignment/
+url: /python-net/api-reference/aspose.slides/tabalignment/
 ---
 
 Represents the tab alignment.

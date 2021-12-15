@@ -2,7 +2,7 @@
 title: IAdjustValueCollection Class
 type: docs
 weight: 760
-url: /slides/python-net/api-reference/aspose.slides/iadjustvaluecollection/
+url: /python-net/api-reference/aspose.slides/iadjustvaluecollection/
 ---
 
 Reprasents a collection of shape's adjustments.

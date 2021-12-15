@@ -2,7 +2,7 @@
 title: IFormatScheme Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides.theme/iformatscheme/
+url: /python-net/api-reference/aspose.slides.theme/iformatscheme/
 ---
 
 Stores theme-defined formats for the shapes.

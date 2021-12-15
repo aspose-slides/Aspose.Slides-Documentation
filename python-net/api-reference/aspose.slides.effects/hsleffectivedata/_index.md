@@ -2,7 +2,7 @@
 title: HSLEffectiveData Class
 type: docs
 weight: 330
-url: /slides/python-net/api-reference/aspose.slides.effects/hsleffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/hsleffectivedata/
 ---
 
 Represents a Hue/Saturation/Luminance effect.<br/>            The hue, saturation, and luminance may each be adjusted relative to its current value.

@@ -2,7 +2,7 @@
 title: Axis Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.charts/axis/
+url: /python-net/api-reference/aspose.slides.charts/axis/
 ---
 
 Encapsulates the object that represents a chart's axis.

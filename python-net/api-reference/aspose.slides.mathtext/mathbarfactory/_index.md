@@ -2,7 +2,7 @@
 title: MathBarFactory Class
 type: docs
 weight: 510
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathbarfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathbarfactory/
 ---
 
 Allows to create a math bar

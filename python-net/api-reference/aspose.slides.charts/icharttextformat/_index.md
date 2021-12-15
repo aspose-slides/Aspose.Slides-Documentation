@@ -2,7 +2,7 @@
 title: IChartTextFormat Class
 type: docs
 weight: 700
-url: /slides/python-net/api-reference/aspose.slides.charts/icharttextformat/
+url: /python-net/api-reference/aspose.slides.charts/icharttextformat/
 ---
 
 Chart operate with restricted set of text format properties.<br/>            IChartTextFormat, IChartTextBlockFormat, IChartParagraphFormat, IChartPortionFormat<br/>            interfaces describe this restricted set.

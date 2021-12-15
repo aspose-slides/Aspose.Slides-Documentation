@@ -2,7 +2,7 @@
 title: ImagePixelFormat Enumeration
 type: docs
 weight: 710
-url: /slides/python-net/api-reference/aspose.slides.export/imagepixelformat/
+url: /python-net/api-reference/aspose.slides.export/imagepixelformat/
 ---
 
 Specifies the pixel format for the generated images.

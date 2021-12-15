@@ -2,7 +2,7 @@
 title: IChartDataCell Class
 type: docs
 weight: 520
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/
+url: /python-net/api-reference/aspose.slides.charts/ichartdatacell/
 ---
 
 Represents cell for chart data.

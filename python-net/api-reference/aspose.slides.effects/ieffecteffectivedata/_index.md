@@ -2,7 +2,7 @@
 title: IEffectEffectiveData Class
 type: docs
 weight: 580
-url: /slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/
 ---
 
 Base class for immutable objects, which represent effect.

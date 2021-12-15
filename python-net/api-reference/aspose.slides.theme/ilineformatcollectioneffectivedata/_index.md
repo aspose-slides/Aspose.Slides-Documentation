@@ -2,7 +2,7 @@
 title: ILineFormatCollectionEffectiveData Class
 type: docs
 weight: 270
-url: /slides/python-net/api-reference/aspose.slides.theme/ilineformatcollectioneffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/ilineformatcollectioneffectivedata/
 ---
 
 Immutable object that represents a readonly collection of effective line formats.

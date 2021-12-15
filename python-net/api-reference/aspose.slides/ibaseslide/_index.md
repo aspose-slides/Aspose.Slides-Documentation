@@ -2,7 +2,7 @@
 title: IBaseSlide Class
 type: docs
 weight: 910
-url: /slides/python-net/api-reference/aspose.slides/ibaseslide/
+url: /python-net/api-reference/aspose.slides/ibaseslide/
 ---
 
 Represents common data for all slide types.

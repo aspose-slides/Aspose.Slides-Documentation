@@ -2,7 +2,7 @@
 title: IPointCollection Class
 type: docs
 weight: 260
-url: /slides/python-net/api-reference/aspose.slides.animation/ipointcollection/
+url: /python-net/api-reference/aspose.slides.animation/ipointcollection/
 ---
 
 Represents a collection of portions.

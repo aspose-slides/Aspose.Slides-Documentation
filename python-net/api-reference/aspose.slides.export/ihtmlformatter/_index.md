@@ -2,7 +2,7 @@
 title: IHtmlFormatter Class
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides.export/ihtmlformatter/
+url: /python-net/api-reference/aspose.slides.export/ihtmlformatter/
 ---
 
 Represents HTML file template.

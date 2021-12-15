@@ -2,7 +2,7 @@
 title: aspose.slides.export
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.export/
+url: /python-net/api-reference/aspose.slides.export/
 ---
 
 

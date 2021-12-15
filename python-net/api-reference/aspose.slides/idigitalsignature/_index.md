@@ -2,7 +2,7 @@
 title: IDigitalSignature Class
 type: docs
 weight: 1240
-url: /slides/python-net/api-reference/aspose.slides/idigitalsignature/
+url: /python-net/api-reference/aspose.slides/idigitalsignature/
 ---
 
 Digital signature in signed file.

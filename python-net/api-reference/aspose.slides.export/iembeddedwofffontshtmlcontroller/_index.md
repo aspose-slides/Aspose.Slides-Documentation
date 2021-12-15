@@ -2,7 +2,7 @@
 title: IEmbeddedWoffFontsHtmlController Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.export/iembeddedwofffontshtmlcontroller/
+url: /python-net/api-reference/aspose.slides.export/iembeddedwofffontshtmlcontroller/
 ---
 
 Embedded woff fonts html controller.

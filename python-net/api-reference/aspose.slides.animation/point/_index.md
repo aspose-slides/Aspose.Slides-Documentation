@@ -2,7 +2,7 @@
 title: Point Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.animation/point/
+url: /python-net/api-reference/aspose.slides.animation/point/
 ---
 
 Represent animation point.

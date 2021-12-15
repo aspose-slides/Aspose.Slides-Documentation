@@ -2,7 +2,7 @@
 title: NotesSlide Class
 type: docs
 weight: 3100
-url: /slides/python-net/api-reference/aspose.slides/notesslide/
+url: /python-net/api-reference/aspose.slides/notesslide/
 ---
 
 Represents a notes slide in a presentation.

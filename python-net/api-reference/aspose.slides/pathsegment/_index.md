@@ -2,7 +2,7 @@
 title: PathSegment Class
 type: docs
 weight: 3240
-url: /slides/python-net/api-reference/aspose.slides/pathsegment/
+url: /python-net/api-reference/aspose.slides/pathsegment/
 ---
 
 Represents segment of graphics path of GeometryShape

@@ -2,7 +2,7 @@
 title: BehaviorAccumulateType Enumeration
 type: docs
 weight: 500
-url: /slides/python-net/api-reference/aspose.slides.animation/behavioraccumulatetype/
+url: /python-net/api-reference/aspose.slides.animation/behavioraccumulatetype/
 ---
 
 Represents types of accumulation of effect behaviors.

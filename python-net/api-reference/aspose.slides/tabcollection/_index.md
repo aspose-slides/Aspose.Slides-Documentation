@@ -2,7 +2,7 @@
 title: TabCollection Class
 type: docs
 weight: 3730
-url: /slides/python-net/api-reference/aspose.slides/tabcollection/
+url: /python-net/api-reference/aspose.slides/tabcollection/
 ---
 
 Represents a collection of tabs.

@@ -2,7 +2,7 @@
 title: IMathArray Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imatharray/
+url: /python-net/api-reference/aspose.slides.mathtext/imatharray/
 ---
 
 Specifies a vertical array of equations or any mathematical objects

@@ -2,7 +2,7 @@
 title: IDataSourceTypeForErrorBarsCustomValues Class
 type: docs
 weight: 760
-url: /slides/python-net/api-reference/aspose.slides.charts/idatasourcetypeforerrorbarscustomvalues/
+url: /python-net/api-reference/aspose.slides.charts/idatasourcetypeforerrorbarscustomvalues/
 ---
 
 Specifies types of values in ChartDataPoint.ErrorBarsCustomValues properties list

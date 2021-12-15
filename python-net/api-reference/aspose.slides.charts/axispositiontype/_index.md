@@ -2,7 +2,7 @@
 title: AxisPositionType Enumeration
 type: docs
 weight: 1100
-url: /slides/python-net/api-reference/aspose.slides.charts/axispositiontype/
+url: /python-net/api-reference/aspose.slides.charts/axispositiontype/
 ---
 
 Determines a position of axis.

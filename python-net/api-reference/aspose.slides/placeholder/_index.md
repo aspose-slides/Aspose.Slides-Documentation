@@ -2,7 +2,7 @@
 title: Placeholder Class
 type: docs
 weight: 3300
-url: /slides/python-net/api-reference/aspose.slides/placeholder/
+url: /python-net/api-reference/aspose.slides/placeholder/
 ---
 
 Represents a placeholder on a slide.

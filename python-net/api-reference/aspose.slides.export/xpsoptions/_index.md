@@ -2,7 +2,7 @@
 title: XpsOptions Class
 type: docs
 weight: 550
-url: /slides/python-net/api-reference/aspose.slides.export/xpsoptions/
+url: /python-net/api-reference/aspose.slides.export/xpsoptions/
 ---
 
 Provides options that control how a presentation is saved in XPS format.

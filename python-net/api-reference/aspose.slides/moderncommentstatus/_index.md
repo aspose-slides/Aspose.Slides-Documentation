@@ -2,7 +2,7 @@
 title: ModernCommentStatus Enumeration
 type: docs
 weight: 9620
-url: /slides/python-net/api-reference/aspose.slides/moderncommentstatus/
+url: /python-net/api-reference/aspose.slides/moderncommentstatus/
 ---
 
 Represents the status of a modern comment.

@@ -2,7 +2,7 @@
 title: ChartType Enumeration
 type: docs
 weight: 1150
-url: /slides/python-net/api-reference/aspose.slides.charts/charttype/
+url: /python-net/api-reference/aspose.slides.charts/charttype/
 ---
 
 Represents a type of chart.

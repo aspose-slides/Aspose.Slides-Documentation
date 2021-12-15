@@ -2,7 +2,7 @@
 title: IFormatSchemeEffectiveData Class
 type: docs
 weight: 250
-url: /slides/python-net/api-reference/aspose.slides.theme/iformatschemeeffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/iformatschemeeffectivedata/
 ---
 
 Immutable object which contains effective format scheme properties.

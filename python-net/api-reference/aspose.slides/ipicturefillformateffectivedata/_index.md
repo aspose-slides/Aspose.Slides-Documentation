@@ -2,7 +2,7 @@
 title: IPictureFillFormatEffectiveData Class
 type: docs
 weight: 2130
-url: /slides/python-net/api-reference/aspose.slides/ipicturefillformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ipicturefillformateffectivedata/
 ---
 
 Immutable object which contains the properties of picture fill.

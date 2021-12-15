@@ -2,7 +2,7 @@
 title: GifOptions Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.export/gifoptions/
+url: /python-net/api-reference/aspose.slides.export/gifoptions/
 ---
 
 Represents GIF exporting options.

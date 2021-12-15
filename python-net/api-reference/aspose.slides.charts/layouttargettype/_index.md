@@ -2,7 +2,7 @@
 title: LayoutTargetType Enumeration
 type: docs
 weight: 1230
-url: /slides/python-net/api-reference/aspose.slides.charts/layouttargettype/
+url: /python-net/api-reference/aspose.slides.charts/layouttargettype/
 ---
 
 If layout of the plot area defined manually this property specifies whether <br/>            to layout the plot area by its inside (not including axis and axis labels) or outside<br/>            (including axis and axis labels).

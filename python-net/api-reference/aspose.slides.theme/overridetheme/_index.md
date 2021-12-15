@@ -2,7 +2,7 @@
 title: OverrideTheme Class
 type: docs
 weight: 430
-url: /slides/python-net/api-reference/aspose.slides.theme/overridetheme/
+url: /python-net/api-reference/aspose.slides.theme/overridetheme/
 ---
 
 Represents a overriding theme.

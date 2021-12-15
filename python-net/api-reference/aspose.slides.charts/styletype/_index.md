@@ -2,7 +2,7 @@
 title: StyleType Enumeration
 type: docs
 weight: 1310
-url: /slides/python-net/api-reference/aspose.slides.charts/styletype/
+url: /python-net/api-reference/aspose.slides.charts/styletype/
 ---
 
 Represents chart style.

@@ -2,7 +2,7 @@
 title: aspose.slides.export.xaml
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.export.xaml/
+url: /python-net/api-reference/aspose.slides.export.xaml/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Legend Class
 type: docs
 weight: 980
-url: /slides/python-net/api-reference/aspose.slides.charts/legend/
+url: /python-net/api-reference/aspose.slides.charts/legend/
 ---
 
 Represents chart's legend properties.

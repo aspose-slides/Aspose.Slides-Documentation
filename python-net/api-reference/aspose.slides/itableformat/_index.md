@@ -2,7 +2,7 @@
 title: ITableFormat Class
 type: docs
 weight: 2650
-url: /slides/python-net/api-reference/aspose.slides/itableformat/
+url: /python-net/api-reference/aspose.slides/itableformat/
 ---
 
 Represents format of a table.

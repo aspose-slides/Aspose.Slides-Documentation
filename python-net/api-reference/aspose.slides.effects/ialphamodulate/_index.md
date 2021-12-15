@@ -2,7 +2,7 @@
 title: IAlphaModulate Class
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides.effects/ialphamodulate/
+url: /python-net/api-reference/aspose.slides.effects/ialphamodulate/
 ---
 
 Represents an Alpha Modulate effect.<br/>            Effect alpha (opacity) values are multiplied by a fixed percentage.<br/>            The effect container specifies an effect containing alpha values to modulate.

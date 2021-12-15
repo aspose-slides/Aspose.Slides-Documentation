@@ -2,7 +2,7 @@
 title: TextFrame Class
 type: docs
 weight: 3780
-url: /slides/python-net/api-reference/aspose.slides/textframe/
+url: /python-net/api-reference/aspose.slides/textframe/
 ---
 
 Represents a TextFrame.

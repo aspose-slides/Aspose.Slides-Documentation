@@ -2,7 +2,7 @@
 title: VbaReferenceFactory Class
 type: docs
 weight: 160
-url: /slides/python-net/api-reference/aspose.slides.vba/vbareferencefactory/
+url: /python-net/api-reference/aspose.slides.vba/vbareferencefactory/
 ---
 
 Allows to create VBA project references via COM interface

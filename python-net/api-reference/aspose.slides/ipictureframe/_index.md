@@ -2,7 +2,7 @@
 title: IPictureFrame Class
 type: docs
 weight: 2140
-url: /slides/python-net/api-reference/aspose.slides/ipictureframe/
+url: /python-net/api-reference/aspose.slides/ipictureframe/
 ---
 
 Represents a frame with a picture inside.

@@ -2,7 +2,7 @@
 title: EffectFactory Class
 type: docs
 weight: 250
-url: /slides/python-net/api-reference/aspose.slides.effects/effectfactory/
+url: /python-net/api-reference/aspose.slides.effects/effectfactory/
 ---
 
 Allows to create effects

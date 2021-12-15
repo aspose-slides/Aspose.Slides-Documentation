@@ -2,7 +2,7 @@
 title: ScaleEffect Class
 type: docs
 weight: 430
-url: /slides/python-net/api-reference/aspose.slides.animation/scaleeffect/
+url: /python-net/api-reference/aspose.slides.animation/scaleeffect/
 ---
 
 Represents animation scale effect.

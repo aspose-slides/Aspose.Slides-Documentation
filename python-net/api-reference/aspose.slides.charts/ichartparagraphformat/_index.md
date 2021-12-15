@@ -2,7 +2,7 @@
 title: IChartParagraphFormat Class
 type: docs
 weight: 610
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartparagraphformat/
+url: /python-net/api-reference/aspose.slides.charts/ichartparagraphformat/
 ---
 
 Represents a paragraph formatting properties of a chart.

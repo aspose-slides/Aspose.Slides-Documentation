@@ -2,7 +2,7 @@
 title: SoftEdge Class
 type: docs
 weight: 1000
-url: /slides/python-net/api-reference/aspose.slides.effects/softedge/
+url: /python-net/api-reference/aspose.slides.effects/softedge/
 ---
 
 Represents a soft edge effect. <br/>            The edges of the shape are blurred, while the fill is not affected.

@@ -2,7 +2,7 @@
 title: LineFormatCollection Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.theme/lineformatcollection/
+url: /python-net/api-reference/aspose.slides.theme/lineformatcollection/
 ---
 
 Represents the collection of line styles.

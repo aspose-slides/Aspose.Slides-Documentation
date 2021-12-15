@@ -2,7 +2,7 @@
 title: aspose.slides.charts
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.charts/
+url: /python-net/api-reference/aspose.slides.charts/
 ---
 
 

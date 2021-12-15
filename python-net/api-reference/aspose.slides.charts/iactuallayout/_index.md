@@ -2,7 +2,7 @@
 title: IActualLayout Class
 type: docs
 weight: 400
-url: /slides/python-net/api-reference/aspose.slides.charts/iactuallayout/
+url: /python-net/api-reference/aspose.slides.charts/iactuallayout/
 ---
 
 Specifies actual position of a chart element.

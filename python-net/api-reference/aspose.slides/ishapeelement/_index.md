@@ -2,7 +2,7 @@
 title: IShapeElement Class
 type: docs
 weight: 2430
-url: /slides/python-net/api-reference/aspose.slides/ishapeelement/
+url: /python-net/api-reference/aspose.slides/ishapeelement/
 ---
 
 Represents a part of shape with same outline and fill properties.

@@ -2,7 +2,7 @@
 title: IVbaReferenceOleTwiddledTypeLib Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.vba/ivbareferenceoletwiddledtypelib/
+url: /python-net/api-reference/aspose.slides.vba/ivbareferenceoletwiddledtypelib/
 ---
 
 Represents modified OLE Automation type library reference in which <br/>            all controls are marked as extensible.

@@ -2,7 +2,7 @@
 title: LoadOptions Class
 type: docs
 weight: 2960
-url: /slides/python-net/api-reference/aspose.slides/loadoptions/
+url: /python-net/api-reference/aspose.slides/loadoptions/
 ---
 
 Allows to specify additional options (such as format or default font) when loading a presentation.

@@ -2,7 +2,7 @@
 title: Picture Class
 type: docs
 weight: 3260
-url: /slides/python-net/api-reference/aspose.slides/picture/
+url: /python-net/api-reference/aspose.slides/picture/
 ---
 
 Represents a picture in a presentation.

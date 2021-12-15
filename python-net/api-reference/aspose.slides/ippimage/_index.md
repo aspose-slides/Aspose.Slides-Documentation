@@ -2,7 +2,7 @@
 title: IPPImage Class
 type: docs
 weight: 2020
-url: /slides/python-net/api-reference/aspose.slides/ippimage/
+url: /python-net/api-reference/aspose.slides/ippimage/
 ---
 
 Represents an image in a presentation.

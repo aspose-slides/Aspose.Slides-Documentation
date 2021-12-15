@@ -2,7 +2,7 @@
 title: LoadFormat Enumeration
 type: docs
 weight: 9590
-url: /slides/python-net/api-reference/aspose.slides/loadformat/
+url: /python-net/api-reference/aspose.slides/loadformat/
 ---
 
 Indicates the format of the document that is to be loaded.

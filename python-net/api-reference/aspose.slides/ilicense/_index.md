@@ -2,7 +2,7 @@
 title: ILicense Class
 type: docs
 weight: 1730
-url: /slides/python-net/api-reference/aspose.slides/ilicense/
+url: /python-net/api-reference/aspose.slides/ilicense/
 ---
 
 Provides methods to license the component.

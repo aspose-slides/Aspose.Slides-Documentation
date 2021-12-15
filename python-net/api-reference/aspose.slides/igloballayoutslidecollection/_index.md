@@ -2,7 +2,7 @@
 title: IGlobalLayoutSlideCollection Class
 type: docs
 weight: 1490
-url: /slides/python-net/api-reference/aspose.slides/igloballayoutslidecollection/
+url: /python-net/api-reference/aspose.slides/igloballayoutslidecollection/
 ---
 
 Represents a collection of all layout slides in presentation.<br/>            Extends ILayoutSlideCollection interface with methods for adding/cloning <br/>            layout slides in context of uniting of the individual collections of master's layout slides.

@@ -2,7 +2,7 @@
 title: VideoPlayerHtmlController Class
 type: docs
 weight: 530
-url: /slides/python-net/api-reference/aspose.slides.export/videoplayerhtmlcontroller/
+url: /python-net/api-reference/aspose.slides.export/videoplayerhtmlcontroller/
 ---
 
 This class allows export of video and audio files into a HTML

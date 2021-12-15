@@ -2,7 +2,7 @@
 title: AxesCompositionNotCombinableException Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.charts/axescompositionnotcombinableexception/
+url: /python-net/api-reference/aspose.slides.charts/axescompositionnotcombinableexception/
 ---
 
 Exception which thrown when axes composition of the series is not combinable with present axes <br/>            composition in chart.

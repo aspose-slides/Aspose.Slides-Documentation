@@ -2,7 +2,7 @@
 title: PptxCorruptFileException Class
 type: docs
 weight: 3400
-url: /slides/python-net/api-reference/aspose.slides/pptxcorruptfileexception/
+url: /python-net/api-reference/aspose.slides/pptxcorruptfileexception/
 ---
 
 

@@ -2,7 +2,7 @@
 title: ShapeCollection Class
 type: docs
 weight: 3590
-url: /slides/python-net/api-reference/aspose.slides/shapecollection/
+url: /python-net/api-reference/aspose.slides/shapecollection/
 ---
 
 Represents a collection of a shapes.

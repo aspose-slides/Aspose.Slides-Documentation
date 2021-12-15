@@ -2,7 +2,7 @@
 title: HtmlGenerator Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.export/htmlgenerator/
+url: /python-net/api-reference/aspose.slides.export/htmlgenerator/
 ---
 
 Html generator.

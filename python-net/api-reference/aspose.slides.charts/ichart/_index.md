@@ -2,7 +2,7 @@
 title: IChart Class
 type: docs
 weight: 450
-url: /slides/python-net/api-reference/aspose.slides.charts/ichart/
+url: /python-net/api-reference/aspose.slides.charts/ichart/
 ---
 
 Represents an graphic chart on a slide.

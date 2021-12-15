@@ -2,7 +2,7 @@
 title: IOutputFile Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.export.web/ioutputfile/
+url: /python-net/api-reference/aspose.slides.export.web/ioutputfile/
 ---
 
 Represents an output file.

@@ -2,7 +2,7 @@
 title: ChartDataPointLevelsManager Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.charts/chartdatapointlevelsmanager/
+url: /python-net/api-reference/aspose.slides.charts/chartdatapointlevelsmanager/
 ---
 
 Container of data point levels. Applied for Treeamp and Sunburst series.<br/>            Data point levels indexing is zero-based.

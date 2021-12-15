@@ -2,7 +2,7 @@
 title: IMarker Class
 type: docs
 weight: 870
-url: /slides/python-net/api-reference/aspose.slides.charts/imarker/
+url: /python-net/api-reference/aspose.slides.charts/imarker/
 ---
 
 Represents marker of a chert.

@@ -2,7 +2,7 @@
 title: ShapeUtil Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.util/shapeutil/
+url: /python-net/api-reference/aspose.slides.util/shapeutil/
 ---
 
 Offer methods which helps to process shapes objects.

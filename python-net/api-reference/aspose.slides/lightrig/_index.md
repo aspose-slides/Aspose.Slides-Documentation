@@ -2,7 +2,7 @@
 title: LightRig Class
 type: docs
 weight: 2930
-url: /slides/python-net/api-reference/aspose.slides/lightrig/
+url: /python-net/api-reference/aspose.slides/lightrig/
 ---
 
 Represents LightRig.

@@ -2,7 +2,7 @@
 title: TransitionLeftRightDirectionType Enumeration
 type: docs
 weight: 400
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionleftrightdirectiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionleftrightdirectiontype/
 ---
 
 Specifies a direction restricted to the values of left and right.

@@ -2,7 +2,7 @@
 title: IOverrideThemeManager Class
 type: docs
 weight: 320
-url: /slides/python-net/api-reference/aspose.slides.theme/ioverridethememanager/
+url: /python-net/api-reference/aspose.slides.theme/ioverridethememanager/
 ---
 
 Provides access to different types of overriden themes.

@@ -2,7 +2,7 @@
 title: PdfAccessPermissions Enumeration
 type: docs
 weight: 740
-url: /slides/python-net/api-reference/aspose.slides.export/pdfaccesspermissions/
+url: /python-net/api-reference/aspose.slides.export/pdfaccesspermissions/
 ---
 
 Contains a set of flags specifying which access permissions should be granted when the document is opened with <br/>            user access.

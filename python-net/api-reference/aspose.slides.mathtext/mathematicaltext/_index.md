@@ -2,7 +2,7 @@
 title: MathematicalText Class
 type: docs
 weight: 850
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathematicaltext/
+url: /python-net/api-reference/aspose.slides.mathtext/mathematicaltext/
 ---
 
 Mathematical text

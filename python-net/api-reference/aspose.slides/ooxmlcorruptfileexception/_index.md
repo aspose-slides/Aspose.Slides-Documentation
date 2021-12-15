@@ -2,7 +2,7 @@
 title: OOXMLCorruptFileException Class
 type: docs
 weight: 3130
-url: /slides/python-net/api-reference/aspose.slides/ooxmlcorruptfileexception/
+url: /python-net/api-reference/aspose.slides/ooxmlcorruptfileexception/
 ---
 
 Exception which thrown when Office Open XML file format is corrupted.

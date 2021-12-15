@@ -2,7 +2,7 @@
 title: HtmlExternalResolver Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.import/htmlexternalresolver/
+url: /python-net/api-reference/aspose.slides.import/htmlexternalresolver/
 ---
 
 Callback object used by HTML import routine to obtain referrenced objects such as images.

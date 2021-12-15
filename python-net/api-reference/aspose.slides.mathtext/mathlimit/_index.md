@@ -2,7 +2,7 @@
 title: MathLimit Class
 type: docs
 weight: 680
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathlimit/
+url: /python-net/api-reference/aspose.slides.mathtext/mathlimit/
 ---
 
 Specifies the Limit object, consisting of text on the baseline and reduced-size text immediately above or below it.

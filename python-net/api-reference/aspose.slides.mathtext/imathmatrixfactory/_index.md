@@ -2,7 +2,7 @@
 title: IMathMatrixFactory Class
 type: docs
 weight: 290
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathmatrixfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathmatrixfactory/
 ---
 
 Allows to create a math matrix

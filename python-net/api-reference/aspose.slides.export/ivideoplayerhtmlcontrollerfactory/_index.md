@@ -2,7 +2,7 @@
 title: IVideoPlayerHtmlControllerFactory Class
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides.export/ivideoplayerhtmlcontrollerfactory/
+url: /python-net/api-reference/aspose.slides.export/ivideoplayerhtmlcontrollerfactory/
 ---
 
 Allows to create VideoPlayerHtmlController.

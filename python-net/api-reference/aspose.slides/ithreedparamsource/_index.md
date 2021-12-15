@@ -2,7 +2,7 @@
 title: IThreeDParamSource Class
 type: docs
 weight: 2760
-url: /slides/python-net/api-reference/aspose.slides/ithreedparamsource/
+url: /python-net/api-reference/aspose.slides/ithreedparamsource/
 ---
 
 3D properties source auxiliary interface

@@ -2,7 +2,7 @@
 title: IGrayScale Class
 type: docs
 weight: 640
-url: /slides/python-net/api-reference/aspose.slides.effects/igrayscale/
+url: /python-net/api-reference/aspose.slides.effects/igrayscale/
 ---
 
 Represents IImageTransformOperation interface.

@@ -2,7 +2,7 @@
 title: SlideHeaderFooterManager Class
 type: docs
 weight: 3660
-url: /slides/python-net/api-reference/aspose.slides/slideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/slideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the slide footer, date-time, page number placeholders.

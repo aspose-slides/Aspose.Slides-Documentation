@@ -2,7 +2,7 @@
 title: GradientFormat Class
 type: docs
 weight: 630
-url: /slides/python-net/api-reference/aspose.slides/gradientformat/
+url: /python-net/api-reference/aspose.slides/gradientformat/
 ---
 
 Represent a gradient format.

@@ -2,7 +2,7 @@
 title: IColorScheme Class
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides.theme/icolorscheme/
+url: /python-net/api-reference/aspose.slides.theme/icolorscheme/
 ---
 
 Stores theme-defined colors.

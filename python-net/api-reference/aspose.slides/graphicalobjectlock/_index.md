@@ -2,7 +2,7 @@
 title: GraphicalObjectLock Class
 type: docs
 weight: 690
-url: /slides/python-net/api-reference/aspose.slides/graphicalobjectlock/
+url: /python-net/api-reference/aspose.slides/graphicalobjectlock/
 ---
 
 Determines which operations are disabled on the parent GraphicalObject.

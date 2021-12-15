@@ -2,7 +2,7 @@
 title: Video Class
 type: docs
 weight: 3830
-url: /slides/python-net/api-reference/aspose.slides/video/
+url: /python-net/api-reference/aspose.slides/video/
 ---
 
 Represents an image embedded into a presentation.

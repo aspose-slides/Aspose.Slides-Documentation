@@ -2,7 +2,7 @@
 title: ISmartArt Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.smartart/ismartart/
+url: /python-net/api-reference/aspose.slides.smartart/ismartart/
 ---
 
 Represents a SmartArt diagram.

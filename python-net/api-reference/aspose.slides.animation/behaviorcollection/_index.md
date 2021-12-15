@@ -2,7 +2,7 @@
 title: BehaviorCollection Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.animation/behaviorcollection/
+url: /python-net/api-reference/aspose.slides.animation/behaviorcollection/
 ---
 
 Represents collection of behavior effects.

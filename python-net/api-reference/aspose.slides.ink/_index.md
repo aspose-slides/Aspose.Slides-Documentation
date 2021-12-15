@@ -2,7 +2,7 @@
 title: aspose.slides.ink
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.ink/
+url: /python-net/api-reference/aspose.slides.ink/
 ---
 
 

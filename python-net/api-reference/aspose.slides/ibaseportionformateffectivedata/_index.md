@@ -2,7 +2,7 @@
 title: IBasePortionFormatEffectiveData Class
 type: docs
 weight: 890
-url: /slides/python-net/api-reference/aspose.slides/ibaseportionformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ibaseportionformateffectivedata/
 ---
 
 Base interface for immutable objects which contain effective text portion formatting properties.

@@ -2,7 +2,7 @@
 title: IHtmlExternalResolver Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.import/ihtmlexternalresolver/
+url: /python-net/api-reference/aspose.slides.import/ihtmlexternalresolver/
 ---
 
 Callback interface used by HTML import routine to obtain referrenced objects such as images.

@@ -2,7 +2,7 @@
 title: CommentsPositions Enumeration
 type: docs
 weight: 680
-url: /slides/python-net/api-reference/aspose.slides.export/commentspositions/
+url: /python-net/api-reference/aspose.slides.export/commentspositions/
 ---
 
 Represents the rule to render comments into exported document

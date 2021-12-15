@@ -2,7 +2,7 @@
 title: WebDocument Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.export.web/webdocument/
+url: /python-net/api-reference/aspose.slides.export.web/webdocument/
 ---
 
 Represents a transition form of the presentation for saving into a web format.

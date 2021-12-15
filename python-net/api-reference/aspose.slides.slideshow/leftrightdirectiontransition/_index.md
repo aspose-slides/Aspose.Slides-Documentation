@@ -2,7 +2,7 @@
 title: LeftRightDirectionTransition Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides.slideshow/leftrightdirectiontransition/
+url: /python-net/api-reference/aspose.slides.slideshow/leftrightdirectiontransition/
 ---
 
 Left-right direction slide transition effect.

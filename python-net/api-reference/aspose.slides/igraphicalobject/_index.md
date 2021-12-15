@@ -2,7 +2,7 @@
 title: IGraphicalObject Class
 type: docs
 weight: 1560
-url: /slides/python-net/api-reference/aspose.slides/igraphicalobject/
+url: /python-net/api-reference/aspose.slides/igraphicalobject/
 ---
 
 Represents abstract graphical object.

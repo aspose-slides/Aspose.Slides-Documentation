@@ -2,7 +2,7 @@
 title: ILightRig Class
 type: docs
 weight: 1740
-url: /slides/python-net/api-reference/aspose.slides/ilightrig/
+url: /python-net/api-reference/aspose.slides/ilightrig/
 ---
 
 Represents LightRig.

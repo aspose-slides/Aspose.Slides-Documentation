@@ -2,7 +2,7 @@
 title: IMathNaryOperatorFactory Class
 type: docs
 weight: 310
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorfactory/
 ---
 
 Allows to create IMathNaryOperator

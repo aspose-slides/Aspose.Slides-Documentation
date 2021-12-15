@@ -2,7 +2,7 @@
 title: IEmptyTransition Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.slideshow/iemptytransition/
+url: /python-net/api-reference/aspose.slides.slideshow/iemptytransition/
 ---
 
 Empty slide transition effect.

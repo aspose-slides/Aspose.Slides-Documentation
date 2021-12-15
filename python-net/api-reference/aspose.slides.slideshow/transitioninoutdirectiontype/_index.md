@@ -2,7 +2,7 @@
 title: TransitionInOutDirectionType Enumeration
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/
 ---
 
 Represent in or out direction transition types.

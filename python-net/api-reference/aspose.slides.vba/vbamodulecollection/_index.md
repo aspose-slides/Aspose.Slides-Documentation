@@ -2,7 +2,7 @@
 title: VbaModuleCollection Class
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides.vba/vbamodulecollection/
+url: /python-net/api-reference/aspose.slides.vba/vbamodulecollection/
 ---
 
 Represents a collection of a VBA Project modules.

@@ -2,7 +2,7 @@
 title: LineAlignment Enumeration
 type: docs
 weight: 9500
-url: /slides/python-net/api-reference/aspose.slides/linealignment/
+url: /python-net/api-reference/aspose.slides/linealignment/
 ---
 
 Represents the lines alignment type.

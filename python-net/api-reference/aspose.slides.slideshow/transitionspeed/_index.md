@@ -2,7 +2,7 @@
 title: TransitionSpeed Enumeration
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionspeed/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionspeed/
 ---
 
 Represent transition speed types.

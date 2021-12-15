@@ -2,7 +2,7 @@
 title: PortionFormat Class
 type: docs
 weight: 3340
-url: /slides/python-net/api-reference/aspose.slides/portionformat/
+url: /python-net/api-reference/aspose.slides/portionformat/
 ---
 
 This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.

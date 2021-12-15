@@ -2,7 +2,7 @@
 title: MathJustification Enumeration
 type: docs
 weight: 930
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathjustification/
+url: /python-net/api-reference/aspose.slides.mathtext/mathjustification/
 ---
 
 Specifies justification of the math paragraph (a series of adjacent instances of mathematical text within the same paragraph)

@@ -2,7 +2,7 @@
 title: IImageWrapperFactory Class
 type: docs
 weight: 1660
-url: /slides/python-net/api-reference/aspose.slides/iimagewrapperfactory/
+url: /python-net/api-reference/aspose.slides/iimagewrapperfactory/
 ---
 
 This interface allows to initialize IBitmapWrapper.

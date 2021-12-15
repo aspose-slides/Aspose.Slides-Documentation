@@ -2,7 +2,7 @@
 title: MathLimitFactory Class
 type: docs
 weight: 690
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathlimitfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathlimitfactory/
 ---
 
 Allows to create IMathLimit

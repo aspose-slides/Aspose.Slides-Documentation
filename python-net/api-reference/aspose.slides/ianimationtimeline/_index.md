@@ -2,7 +2,7 @@
 title: IAnimationTimeLine Class
 type: docs
 weight: 770
-url: /slides/python-net/api-reference/aspose.slides/ianimationtimeline/
+url: /python-net/api-reference/aspose.slides/ianimationtimeline/
 ---
 
 Represents timeline of animation.

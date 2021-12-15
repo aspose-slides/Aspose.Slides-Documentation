@@ -2,7 +2,7 @@
 title: IAudio Class
 type: docs
 weight: 780
-url: /slides/python-net/api-reference/aspose.slides/iaudio/
+url: /python-net/api-reference/aspose.slides/iaudio/
 ---
 
 Represents an embedded audio file.

@@ -2,7 +2,7 @@
 title: TrendlineType Enumeration
 type: docs
 weight: 1350
-url: /slides/python-net/api-reference/aspose.slides.charts/trendlinetype/
+url: /python-net/api-reference/aspose.slides.charts/trendlinetype/
 ---
 
 Represents type of trend line

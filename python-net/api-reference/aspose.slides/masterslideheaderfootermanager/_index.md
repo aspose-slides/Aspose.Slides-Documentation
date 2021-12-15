@@ -2,7 +2,7 @@
 title: MasterSlideHeaderFooterManager Class
 type: docs
 weight: 3040
-url: /slides/python-net/api-reference/aspose.slides/masterslideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/masterslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the master slide footer, date-time, page number placeholders and all child placeholders.<br/>            Child placeholders mean placeholders are contained on depending layout slides and depending slides.<br/>            Depending layout slides and slides use and depend on master slide.

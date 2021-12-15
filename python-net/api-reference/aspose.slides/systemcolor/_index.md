@@ -2,7 +2,7 @@
 title: SystemColor Enumeration
 type: docs
 weight: 9910
-url: /slides/python-net/api-reference/aspose.slides/systemcolor/
+url: /python-net/api-reference/aspose.slides/systemcolor/
 ---
 
 Represents predefined system colors.

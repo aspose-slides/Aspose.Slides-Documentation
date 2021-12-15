@@ -2,7 +2,7 @@
 title: RenderingOptions Class
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides.export/renderingoptions/
+url: /python-net/api-reference/aspose.slides.export/renderingoptions/
 ---
 
 Provides options that control how a presentation/slide is rendered.

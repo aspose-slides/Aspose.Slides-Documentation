@@ -2,7 +2,7 @@
 title: PropertyValueType Enumeration
 type: docs
 weight: 720
-url: /slides/python-net/api-reference/aspose.slides.animation/propertyvaluetype/
+url: /python-net/api-reference/aspose.slides.animation/propertyvaluetype/
 ---
 
 Represent property value types.

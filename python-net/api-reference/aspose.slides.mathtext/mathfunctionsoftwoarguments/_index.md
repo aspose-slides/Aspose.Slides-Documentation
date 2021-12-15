@@ -2,7 +2,7 @@
 title: MathFunctionsOfTwoArguments Enumeration
 type: docs
 weight: 900
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfunctionsoftwoarguments/
+url: /python-net/api-reference/aspose.slides.mathtext/mathfunctionsoftwoarguments/
 ---
 
 Common mathematical functions of two arguments

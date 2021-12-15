@@ -2,7 +2,7 @@
 title: ChartTypeCharacterizer Class
 type: docs
 weight: 290
-url: /slides/python-net/api-reference/aspose.slides.charts/charttypecharacterizer/
+url: /python-net/api-reference/aspose.slides.charts/charttypecharacterizer/
 ---
 
 Helper for getting additional information about charts and series by its ChartType.

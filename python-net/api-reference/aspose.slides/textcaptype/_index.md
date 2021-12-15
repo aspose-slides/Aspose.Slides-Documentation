@@ -2,7 +2,7 @@
 title: TextCapType Enumeration
 type: docs
 weight: 9970
-url: /slides/python-net/api-reference/aspose.slides/textcaptype/
+url: /python-net/api-reference/aspose.slides/textcaptype/
 ---
 
 Represents the type of text capitalisation.

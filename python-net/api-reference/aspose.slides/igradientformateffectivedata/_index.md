@@ -2,7 +2,7 @@
 title: IGradientFormatEffectiveData Class
 type: docs
 weight: 1510
-url: /slides/python-net/api-reference/aspose.slides/igradientformateffectivedata/
+url: /python-net/api-reference/aspose.slides/igradientformateffectivedata/
 ---
 
 Imutable object which contains effective gradient filling properties.

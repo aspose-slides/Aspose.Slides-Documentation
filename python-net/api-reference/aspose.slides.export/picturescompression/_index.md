@@ -2,7 +2,7 @@
 title: PicturesCompression Enumeration
 type: docs
 weight: 770
-url: /slides/python-net/api-reference/aspose.slides.export/picturescompression/
+url: /python-net/api-reference/aspose.slides.export/picturescompression/
 ---
 
 Represents the pictures compression level

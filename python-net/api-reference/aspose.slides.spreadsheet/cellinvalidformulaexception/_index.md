@@ -2,7 +2,7 @@
 title: CellInvalidFormulaException Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidformulaexception/
+url: /python-net/api-reference/aspose.slides.spreadsheet/cellinvalidformulaexception/
 ---
 
 The exception that is thrown when a calculated formula is not correct or was not parsed.

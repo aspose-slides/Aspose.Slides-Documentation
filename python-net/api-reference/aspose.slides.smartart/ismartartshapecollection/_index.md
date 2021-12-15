@@ -2,7 +2,7 @@
 title: ISmartArtShapeCollection Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.smartart/ismartartshapecollection/
+url: /python-net/api-reference/aspose.slides.smartart/ismartartshapecollection/
 ---
 
 Represents a collection of SmartArt shapes

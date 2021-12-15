@@ -2,7 +2,7 @@
 title: SplitTransition Class
 type: docs
 weight: 330
-url: /slides/python-net/api-reference/aspose.slides.slideshow/splittransition/
+url: /python-net/api-reference/aspose.slides.slideshow/splittransition/
 ---
 
 Split slide transition effect.

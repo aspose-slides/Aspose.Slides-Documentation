@@ -2,7 +2,7 @@
 title: EffectType Enumeration
 type: docs
 weight: 630
-url: /slides/python-net/api-reference/aspose.slides.animation/effecttype/
+url: /python-net/api-reference/aspose.slides.animation/effecttype/
 ---
 
 Represents the type of an animation effect.

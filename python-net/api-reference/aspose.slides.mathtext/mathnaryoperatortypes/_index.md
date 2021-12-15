@@ -2,7 +2,7 @@
 title: MathNaryOperatorTypes Enumeration
 type: docs
 weight: 950
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathnaryoperatortypes/
+url: /python-net/api-reference/aspose.slides.mathtext/mathnaryoperatortypes/
 ---
 
 Nary operator IMathNaryOperator types (excluding integrals)<br/>            For integrals [MathIntegralTypes](/python-net/api-reference/aspose.slides.mathtext/mathintegraltypes/)

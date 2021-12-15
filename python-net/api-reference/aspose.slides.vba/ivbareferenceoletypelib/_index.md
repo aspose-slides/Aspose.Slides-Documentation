@@ -2,7 +2,7 @@
 title: IVbaReferenceOleTypeLib Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.vba/ivbareferenceoletypelib/
+url: /python-net/api-reference/aspose.slides.vba/ivbareferenceoletypelib/
 ---
 
 Represents OLE Automation type library reference.

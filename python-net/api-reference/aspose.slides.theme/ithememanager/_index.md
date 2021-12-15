@@ -2,7 +2,7 @@
 title: IThemeManager Class
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides.theme/ithememanager/
+url: /python-net/api-reference/aspose.slides.theme/ithememanager/
 ---
 
 Represent theme properties.

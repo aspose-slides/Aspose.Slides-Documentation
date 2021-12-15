@@ -2,7 +2,7 @@
 title: MathSpacingRules Enumeration
 type: docs
 weight: 970
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathspacingrules/
+url: /python-net/api-reference/aspose.slides.mathtext/mathspacingrules/
 ---
 
 Types of gap (horizontal spacing) between columns of a matrix

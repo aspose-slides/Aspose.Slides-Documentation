@@ -2,7 +2,7 @@
 title: LineSketchType Enumeration
 type: docs
 weight: 9570
-url: /slides/python-net/api-reference/aspose.slides/linesketchtype/
+url: /python-net/api-reference/aspose.slides/linesketchtype/
 ---
 
 Represents which sketch type or effect a shape has been assigned.

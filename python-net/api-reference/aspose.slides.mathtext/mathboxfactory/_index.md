@@ -2,7 +2,7 @@
 title: MathBoxFactory Class
 type: docs
 weight: 570
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathboxfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathboxfactory/
 ---
 
 Allows to create a math box

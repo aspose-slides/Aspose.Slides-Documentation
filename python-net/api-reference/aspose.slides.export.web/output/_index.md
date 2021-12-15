@@ -2,7 +2,7 @@
 title: Output Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.export.web/output/
+url: /python-net/api-reference/aspose.slides.export.web/output/
 ---
 
 Represents a collection of output elements for IWebDocument.

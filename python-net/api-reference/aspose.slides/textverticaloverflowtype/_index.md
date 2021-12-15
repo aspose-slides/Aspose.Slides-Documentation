@@ -2,7 +2,7 @@
 title: TextVerticalOverflowType Enumeration
 type: docs
 weight: 10020
-url: /slides/python-net/api-reference/aspose.slides/textverticaloverflowtype/
+url: /python-net/api-reference/aspose.slides/textverticaloverflowtype/
 ---
 
 Represents text vertical overflow type.

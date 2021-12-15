@@ -2,7 +2,7 @@
 title: AnimationTimeLine Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.animation/animationtimeline/
+url: /python-net/api-reference/aspose.slides.animation/animationtimeline/
 ---
 
 Represents timeline of animation.

@@ -2,7 +2,7 @@
 title: LegendPositionType Enumeration
 type: docs
 weight: 1250
-url: /slides/python-net/api-reference/aspose.slides.charts/legendpositiontype/
+url: /python-net/api-reference/aspose.slides.charts/legendpositiontype/
 ---
 
 Determines a position of legend on a chart.

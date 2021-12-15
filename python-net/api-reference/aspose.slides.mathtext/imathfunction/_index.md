@@ -2,7 +2,7 @@
 title: IMathFunction Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathfunction/
+url: /python-net/api-reference/aspose.slides.mathtext/imathfunction/
 ---
 
 Specifies a function of an argument.

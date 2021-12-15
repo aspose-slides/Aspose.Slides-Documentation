@@ -2,7 +2,7 @@
 title: IChartDataWorkbook Class
 type: docs
 weight: 570
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartdataworkbook/
+url: /python-net/api-reference/aspose.slides.charts/ichartdataworkbook/
 ---
 
 Provides access to embedded Excel workbook

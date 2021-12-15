@@ -2,7 +2,7 @@
 title: EmbeddedEotFontsHtmlController Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.export/embeddedeotfontshtmlcontroller/
+url: /python-net/api-reference/aspose.slides.export/embeddedeotfontshtmlcontroller/
 ---
 
 The formatting controller class to use for fonts embedding in EOT format

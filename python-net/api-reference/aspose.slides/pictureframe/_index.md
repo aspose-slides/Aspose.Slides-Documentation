@@ -2,7 +2,7 @@
 title: PictureFrame Class
 type: docs
 weight: 3280
-url: /slides/python-net/api-reference/aspose.slides/pictureframe/
+url: /python-net/api-reference/aspose.slides/pictureframe/
 ---
 
 Represents a frame with a picture inside.

@@ -2,7 +2,7 @@
 title: MathRowSpacingRule Enumeration
 type: docs
 weight: 960
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathrowspacingrule/
+url: /python-net/api-reference/aspose.slides.mathtext/mathrowspacingrule/
 ---
 
 The type of vertical spacing between columns in a matrix or array

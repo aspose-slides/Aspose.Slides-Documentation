@@ -2,7 +2,7 @@
 title: PptxEditException Class
 type: docs
 weight: 3410
-url: /slides/python-net/api-reference/aspose.slides/pptxeditexception/
+url: /python-net/api-reference/aspose.slides/pptxeditexception/
 ---
 
 Represents an exception thrown when edit presentation error is detected.

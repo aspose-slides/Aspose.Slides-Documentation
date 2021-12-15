@@ -2,7 +2,7 @@
 title: ITemplateEngine Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.export.web/itemplateengine/
+url: /python-net/api-reference/aspose.slides.export.web/itemplateengine/
 ---
 
 Represents a template engine that transforms template and data pair into resulting output (usually HTML).

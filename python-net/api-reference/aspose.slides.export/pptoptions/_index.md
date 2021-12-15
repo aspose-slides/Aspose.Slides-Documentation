@@ -2,7 +2,7 @@
 title: PptOptions Class
 type: docs
 weight: 400
-url: /slides/python-net/api-reference/aspose.slides.export/pptoptions/
+url: /python-net/api-reference/aspose.slides.export/pptoptions/
 ---
 
 Provides options that control how a presentation is saved in PPT format.

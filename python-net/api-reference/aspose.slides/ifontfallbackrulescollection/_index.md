@@ -2,7 +2,7 @@
 title: IFontFallBackRulesCollection Class
 type: docs
 weight: 1380
-url: /slides/python-net/api-reference/aspose.slides/ifontfallbackrulescollection/
+url: /python-net/api-reference/aspose.slides/ifontfallbackrulescollection/
 ---
 
 Represents a collection of FontFallBack rules, defined by user

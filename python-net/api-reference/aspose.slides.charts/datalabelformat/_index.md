@@ -2,7 +2,7 @@
 title: DataLabelFormat Class
 type: docs
 weight: 330
-url: /slides/python-net/api-reference/aspose.slides.charts/datalabelformat/
+url: /python-net/api-reference/aspose.slides.charts/datalabelformat/
 ---
 
 Represents formatting options for DataLabel.

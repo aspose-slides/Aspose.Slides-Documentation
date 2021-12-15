@@ -2,7 +2,7 @@
 title: CategoryAxisType Enumeration
 type: docs
 weight: 1120
-url: /slides/python-net/api-reference/aspose.slides.charts/categoryaxistype/
+url: /python-net/api-reference/aspose.slides.charts/categoryaxistype/
 ---
 
 Represents a type of a category axis.

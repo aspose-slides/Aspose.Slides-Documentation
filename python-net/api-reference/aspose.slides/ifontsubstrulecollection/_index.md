@@ -2,7 +2,7 @@
 title: IFontSubstRuleCollection Class
 type: docs
 weight: 1410
-url: /slides/python-net/api-reference/aspose.slides/ifontsubstrulecollection/
+url: /python-net/api-reference/aspose.slides/ifontsubstrulecollection/
 ---
 
 Represents collection of fonts substitution.

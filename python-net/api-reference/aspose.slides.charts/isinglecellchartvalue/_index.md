@@ -2,7 +2,7 @@
 title: ISingleCellChartValue Class
 type: docs
 weight: 920
-url: /slides/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/
+url: /python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/
 ---
 
 Represents a chart data cell.

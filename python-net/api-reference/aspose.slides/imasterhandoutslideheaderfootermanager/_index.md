@@ -2,7 +2,7 @@
 title: IMasterHandoutSlideHeaderFooterManager Class
 type: docs
 weight: 1830
-url: /slides/python-net/api-reference/aspose.slides/imasterhandoutslideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/imasterhandoutslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the master handout slide placeholders, including header placeholder.

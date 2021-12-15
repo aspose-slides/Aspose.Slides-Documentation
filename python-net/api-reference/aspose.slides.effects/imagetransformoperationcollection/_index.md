@@ -2,7 +2,7 @@
 title: ImageTransformOperationCollection Class
 type: docs
 weight: 880
-url: /slides/python-net/api-reference/aspose.slides.effects/imagetransformoperationcollection/
+url: /python-net/api-reference/aspose.slides.effects/imagetransformoperationcollection/
 ---
 
 Represents a collection of effects apllied to an image.

@@ -2,7 +2,7 @@
 title: IThemeEffectiveData Class
 type: docs
 weight: 350
-url: /slides/python-net/api-reference/aspose.slides.theme/ithemeeffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/ithemeeffectivedata/
 ---
 
 Immutable object which contains effective theme properties.

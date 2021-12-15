@@ -2,7 +2,7 @@
 title: ChartCategoryCollection Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.charts/chartcategorycollection/
+url: /python-net/api-reference/aspose.slides.charts/chartcategorycollection/
 ---
 
 Represents collection of [ChartCategory](/python-net/api-reference/aspose.slides.charts/chartcategory/)

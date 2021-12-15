@@ -2,7 +2,7 @@
 title: IMetered Class
 type: docs
 weight: 1920
-url: /slides/python-net/api-reference/aspose.slides/imetered/
+url: /python-net/api-reference/aspose.slides/imetered/
 ---
 
 Provides methods to set metered key.

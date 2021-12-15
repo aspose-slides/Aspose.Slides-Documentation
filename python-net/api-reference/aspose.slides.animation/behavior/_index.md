@@ -2,7 +2,7 @@
 title: Behavior Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.animation/behavior/
+url: /python-net/api-reference/aspose.slides.animation/behavior/
 ---
 
 Represent base class behavior of effect.

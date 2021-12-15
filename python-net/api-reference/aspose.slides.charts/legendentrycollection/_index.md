@@ -2,7 +2,7 @@
 title: LegendEntryCollection Class
 type: docs
 weight: 990
-url: /slides/python-net/api-reference/aspose.slides.charts/legendentrycollection/
+url: /python-net/api-reference/aspose.slides.charts/legendentrycollection/
 ---
 
 Represents legends collection.

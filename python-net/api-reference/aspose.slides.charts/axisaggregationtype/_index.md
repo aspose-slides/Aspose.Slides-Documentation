@@ -2,7 +2,7 @@
 title: AxisAggregationType Enumeration
 type: docs
 weight: 1090
-url: /slides/python-net/api-reference/aspose.slides.charts/axisaggregationtype/
+url: /python-net/api-reference/aspose.slides.charts/axisaggregationtype/
 ---
 
 Represents aggregation type of category axis. Used with Histogram or HistogramPareto series only.

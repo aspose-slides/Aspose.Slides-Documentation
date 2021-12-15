@@ -2,7 +2,7 @@
 title: IColorEffect Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.animation/icoloreffect/
+url: /python-net/api-reference/aspose.slides.animation/icoloreffect/
 ---
 
 Represents a color effect for an animation behavior.

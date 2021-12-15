@@ -2,7 +2,7 @@
 title: Field Class
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides/field/
+url: /python-net/api-reference/aspose.slides/field/
 ---
 
 Represents a field.

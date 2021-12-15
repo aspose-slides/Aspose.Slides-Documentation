@@ -2,7 +2,7 @@
 title: PresentationLockingBehavior Enumeration
 type: docs
 weight: 9740
-url: /slides/python-net/api-reference/aspose.slides/presentationlockingbehavior/
+url: /python-net/api-reference/aspose.slides/presentationlockingbehavior/
 ---
 
 Represents the behavior regarding treating the [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/) source (file or <br/>            stream) while loading and working with an instance of [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).

@@ -2,7 +2,7 @@
 title: FillType Enumeration
 type: docs
 weight: 9400
-url: /slides/python-net/api-reference/aspose.slides/filltype/
+url: /python-net/api-reference/aspose.slides/filltype/
 ---
 
 Specifies the interior fill type of various visual objects.

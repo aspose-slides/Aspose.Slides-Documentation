@@ -2,7 +2,7 @@
 title: DataTable Class
 type: docs
 weight: 350
-url: /slides/python-net/api-reference/aspose.slides.charts/datatable/
+url: /python-net/api-reference/aspose.slides.charts/datatable/
 ---
 
 Represents data table properties.

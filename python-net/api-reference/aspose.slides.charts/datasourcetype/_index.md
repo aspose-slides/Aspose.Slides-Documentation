@@ -2,7 +2,7 @@
 title: DataSourceType Enumeration
 type: docs
 weight: 1180
-url: /slides/python-net/api-reference/aspose.slides.charts/datasourcetype/
+url: /python-net/api-reference/aspose.slides.charts/datasourcetype/
 ---
 
 Data source types.

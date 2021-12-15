@@ -2,7 +2,7 @@
 title: TextAlignment Enumeration
 type: docs
 weight: 9940
-url: /slides/python-net/api-reference/aspose.slides/textalignment/
+url: /python-net/api-reference/aspose.slides/textalignment/
 ---
 
 Represents different text alignment styles.

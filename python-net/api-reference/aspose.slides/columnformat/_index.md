@@ -2,7 +2,7 @@
 title: ColumnFormat Class
 type: docs
 weight: 280
-url: /slides/python-net/api-reference/aspose.slides/columnformat/
+url: /python-net/api-reference/aspose.slides/columnformat/
 ---
 
 Represents format of a table column.

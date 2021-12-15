@@ -2,7 +2,7 @@
 title: PPImageFormat Enumeration
 type: docs
 weight: 9660
-url: /slides/python-net/api-reference/aspose.slides/ppimageformat/
+url: /python-net/api-reference/aspose.slides/ppimageformat/
 ---
 
 Image formats. This enum is replacement for

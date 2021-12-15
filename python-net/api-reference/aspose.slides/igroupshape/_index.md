@@ -2,7 +2,7 @@
 title: IGroupShape Class
 type: docs
 weight: 1580
-url: /slides/python-net/api-reference/aspose.slides/igroupshape/
+url: /python-net/api-reference/aspose.slides/igroupshape/
 ---
 
 Represents a group of shapes on a slide.

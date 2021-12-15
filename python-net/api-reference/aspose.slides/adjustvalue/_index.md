@@ -2,7 +2,7 @@
 title: AdjustValue Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides/adjustvalue/
+url: /python-net/api-reference/aspose.slides/adjustvalue/
 ---
 
 Represents a geometry shape's adjustment value.<br/>            These values affect shape's form.

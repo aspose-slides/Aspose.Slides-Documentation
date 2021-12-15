@@ -2,7 +2,7 @@
 title: LuminanceEffectiveData Class
 type: docs
 weight: 930
-url: /slides/python-net/api-reference/aspose.slides.effects/luminanceeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/luminanceeffectivedata/
 ---
 
 Represents a Luminance effect.<br/>            Brightness linearly shifts all colors closer to white or black.<br/>            Contrast scales all colors to be either closer or further apart.

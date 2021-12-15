@@ -2,7 +2,7 @@
 title: SectionCollection Class
 type: docs
 weight: 3550
-url: /slides/python-net/api-reference/aspose.slides/sectioncollection/
+url: /python-net/api-reference/aspose.slides/sectioncollection/
 ---
 
 Represents a collection of sections.

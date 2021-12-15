@@ -2,7 +2,7 @@
 title: BulletType Enumeration
 type: docs
 weight: 9320
-url: /slides/python-net/api-reference/aspose.slides/bullettype/
+url: /python-net/api-reference/aspose.slides/bullettype/
 ---
 
 Represents the type of the extended bullets.

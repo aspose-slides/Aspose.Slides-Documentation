@@ -2,7 +2,7 @@
 title: FontSubstCondition Enumeration
 type: docs
 weight: 9430
-url: /slides/python-net/api-reference/aspose.slides/fontsubstcondition/
+url: /python-net/api-reference/aspose.slides/fontsubstcondition/
 ---
 
 Represents a rule fot font substitution

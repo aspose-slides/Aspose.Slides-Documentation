@@ -2,7 +2,7 @@
 title: IShapeBevelEffectiveData Class
 type: docs
 weight: 2410
-url: /slides/python-net/api-reference/aspose.slides/ishapebeveleffectivedata/
+url: /python-net/api-reference/aspose.slides/ishapebeveleffectivedata/
 ---
 
 Immutable object which contains effective shape's face relief properties.

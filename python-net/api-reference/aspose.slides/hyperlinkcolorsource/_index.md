@@ -2,7 +2,7 @@
 title: HyperlinkColorSource Enumeration
 type: docs
 weight: 9470
-url: /slides/python-net/api-reference/aspose.slides/hyperlinkcolorsource/
+url: /python-net/api-reference/aspose.slides/hyperlinkcolorsource/
 ---
 
 Represents source of hyperlink color.

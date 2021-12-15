@@ -2,7 +2,7 @@
 title: MathDelimiterShape Enumeration
 type: docs
 weight: 870
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathdelimitershape/
+url: /python-net/api-reference/aspose.slides.mathtext/mathdelimitershape/
 ---
 
 The location and size of the delimiters relative to the content of the operands

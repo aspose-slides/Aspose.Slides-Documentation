@@ -2,7 +2,7 @@
 title: IConnector Class
 type: docs
 weight: 1160
-url: /slides/python-net/api-reference/aspose.slides/iconnector/
+url: /python-net/api-reference/aspose.slides/iconnector/
 ---
 
 Represents a connector.

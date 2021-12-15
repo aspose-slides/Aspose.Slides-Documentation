@@ -2,7 +2,7 @@
 title: Slide Class
 type: docs
 weight: 3640
-url: /slides/python-net/api-reference/aspose.slides/slide/
+url: /python-net/api-reference/aspose.slides/slide/
 ---
 
 Represents a slide in a presentation.

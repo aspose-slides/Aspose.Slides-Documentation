@@ -2,7 +2,7 @@
 title: DisplayBlanksAsType Enumeration
 type: docs
 weight: 1190
-url: /slides/python-net/api-reference/aspose.slides.charts/displayblanksastype/
+url: /python-net/api-reference/aspose.slides.charts/displayblanksastype/
 ---
 
 Determines how missing data will be displayed.

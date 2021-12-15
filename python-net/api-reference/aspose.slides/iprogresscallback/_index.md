@@ -2,7 +2,7 @@
 title: IProgressCallback Class
 type: docs
 weight: 2280
-url: /slides/python-net/api-reference/aspose.slides/iprogresscallback/
+url: /python-net/api-reference/aspose.slides/iprogresscallback/
 ---
 
 Represents a callback object for saving progress updates in percentage.

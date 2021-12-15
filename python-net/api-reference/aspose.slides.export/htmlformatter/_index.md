@@ -2,7 +2,7 @@
 title: HtmlFormatter Class
 type: docs
 weight: 60
-url: /slides/python-net/api-reference/aspose.slides.export/htmlformatter/
+url: /python-net/api-reference/aspose.slides.export/htmlformatter/
 ---
 
 Represents HTML file template.

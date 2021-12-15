@@ -2,7 +2,7 @@
 title: SvgExternalFontsHandling Enumeration
 type: docs
 weight: 810
-url: /slides/python-net/api-reference/aspose.slides.export/svgexternalfontshandling/
+url: /python-net/api-reference/aspose.slides.export/svgexternalfontshandling/
 ---
 
 Represents a way to handle external fonts used for text drawing.

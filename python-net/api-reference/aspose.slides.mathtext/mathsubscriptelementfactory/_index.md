@@ -2,7 +2,7 @@
 title: MathSubscriptElementFactory Class
 type: docs
 weight: 820
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathsubscriptelementfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathsubscriptelementfactory/
 ---
 
 Allows to create IMathSubscriptElement

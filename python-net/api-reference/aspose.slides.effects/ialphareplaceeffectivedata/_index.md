@@ -2,7 +2,7 @@
 title: IAlphaReplaceEffectiveData Class
 type: docs
 weight: 470
-url: /slides/python-net/api-reference/aspose.slides.effects/ialphareplaceeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ialphareplaceeffectivedata/
 ---
 
 Immutable object which represents and Alpha Replace effect.<br/>            Effect alpha (opacity) values are replaced by a fixed alpha.

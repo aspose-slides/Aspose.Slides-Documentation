@@ -2,7 +2,7 @@
 title: StreamWrapper Class
 type: docs
 weight: 3690
-url: /slides/python-net/api-reference/aspose.slides/streamwrapper/
+url: /python-net/api-reference/aspose.slides/streamwrapper/
 ---
 
 Aspose.IO.Stream wrapper for COM interface.

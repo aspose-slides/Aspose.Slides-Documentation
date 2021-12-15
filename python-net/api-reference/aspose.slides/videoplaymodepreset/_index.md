@@ -2,7 +2,7 @@
 title: VideoPlayModePreset Enumeration
 type: docs
 weight: 10050
-url: /slides/python-net/api-reference/aspose.slides/videoplaymodepreset/
+url: /python-net/api-reference/aspose.slides/videoplaymodepreset/
 ---
 
 Constants which define how a video is played.

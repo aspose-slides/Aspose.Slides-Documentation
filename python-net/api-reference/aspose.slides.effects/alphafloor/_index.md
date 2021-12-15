@@ -2,7 +2,7 @@
 title: AlphaFloor Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.effects/alphafloor/
+url: /python-net/api-reference/aspose.slides.effects/alphafloor/
 ---
 
 Represents an Alpha Floor effect.<br/>            Alpha (opacity) values less than 100% are changed to zero.<br/>            In other words, anything partially transparent becomes fully transparent.

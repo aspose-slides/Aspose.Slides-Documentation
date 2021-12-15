@@ -2,7 +2,7 @@
 title: MathIntegralTypes Enumeration
 type: docs
 weight: 920
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathintegraltypes/
+url: /python-net/api-reference/aspose.slides.mathtext/mathintegraltypes/
 ---
 
 Mathematical integral types

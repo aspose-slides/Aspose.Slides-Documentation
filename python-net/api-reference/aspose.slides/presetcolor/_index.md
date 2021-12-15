@@ -2,7 +2,7 @@
 title: PresetColor Enumeration
 type: docs
 weight: 9750
-url: /slides/python-net/api-reference/aspose.slides/presetcolor/
+url: /python-net/api-reference/aspose.slides/presetcolor/
 ---
 
 Represents predefined color presets.

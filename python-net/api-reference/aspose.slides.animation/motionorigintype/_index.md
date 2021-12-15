@@ -2,7 +2,7 @@
 title: MotionOriginType Enumeration
 type: docs
 weight: 680
-url: /slides/python-net/api-reference/aspose.slides.animation/motionorigintype/
+url: /python-net/api-reference/aspose.slides.animation/motionorigintype/
 ---
 
 Specifies what the origin of the motion path is relative to.<br/>            Such as the layout of the slide, or the parent.

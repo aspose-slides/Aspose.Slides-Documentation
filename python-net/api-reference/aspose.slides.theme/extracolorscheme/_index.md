@@ -2,7 +2,7 @@
 title: ExtraColorScheme Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.theme/extracolorscheme/
+url: /python-net/api-reference/aspose.slides.theme/extracolorscheme/
 ---
 
 Represents an additional color scheme which can be assigned to a slide.

@@ -2,7 +2,7 @@
 title: MarkerStyleType Enumeration
 type: docs
 weight: 1260
-url: /slides/python-net/api-reference/aspose.slides.charts/markerstyletype/
+url: /python-net/api-reference/aspose.slides.charts/markerstyletype/
 ---
 
 Determines form of marker on chart's data point.

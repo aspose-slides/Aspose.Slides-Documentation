@@ -2,7 +2,7 @@
 title: IOutputSaver Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.export.web/ioutputsaver/
+url: /python-net/api-reference/aspose.slides.export.web/ioutputsaver/
 ---
 
 Represents an output saving service.

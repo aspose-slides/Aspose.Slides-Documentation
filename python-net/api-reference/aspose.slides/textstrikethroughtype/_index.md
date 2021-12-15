@@ -2,7 +2,7 @@
 title: TextStrikethroughType Enumeration
 type: docs
 weight: 10000
-url: /slides/python-net/api-reference/aspose.slides/textstrikethroughtype/
+url: /python-net/api-reference/aspose.slides/textstrikethroughtype/
 ---
 
 Represents the type of text strikethrough.

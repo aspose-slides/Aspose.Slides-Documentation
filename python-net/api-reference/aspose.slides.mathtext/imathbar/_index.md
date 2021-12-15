@@ -2,7 +2,7 @@
 title: IMathBar Class
 type: docs
 weight: 60
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathbar/
+url: /python-net/api-reference/aspose.slides.mathtext/imathbar/
 ---
 
 Specifies the bar function, consisting of a base argument and an overbar or underbar

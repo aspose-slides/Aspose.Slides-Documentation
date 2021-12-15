@@ -2,7 +2,7 @@
 title: IMathElementCollection Class
 type: docs
 weight: 180
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/
+url: /python-net/api-reference/aspose.slides.mathtext/imathelementcollection/
 ---
 
 Represents a collection of mathematical elements (MathElement).

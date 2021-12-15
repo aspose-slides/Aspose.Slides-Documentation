@@ -2,7 +2,7 @@
 title: OOXMLException Class
 type: docs
 weight: 3140
-url: /slides/python-net/api-reference/aspose.slides/ooxmlexception/
+url: /python-net/api-reference/aspose.slides/ooxmlexception/
 ---
 
 Represents a standard internal exception type related to Office Open XML file format.

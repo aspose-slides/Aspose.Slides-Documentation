@@ -2,7 +2,7 @@
 title: IFonts Class
 type: docs
 weight: 1420
-url: /slides/python-net/api-reference/aspose.slides/ifonts/
+url: /python-net/api-reference/aspose.slides/ifonts/
 ---
 
 Represents fonts collection.

@@ -2,7 +2,7 @@
 title: CrossesType Enumeration
 type: docs
 weight: 1170
-url: /slides/python-net/api-reference/aspose.slides.charts/crossestype/
+url: /python-net/api-reference/aspose.slides.charts/crossestype/
 ---
 
 Determines where axis will cross.

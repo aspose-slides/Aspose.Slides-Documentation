@@ -2,7 +2,7 @@
 title: IOverridableText Class
 type: docs
 weight: 890
-url: /slides/python-net/api-reference/aspose.slides.charts/ioverridabletext/
+url: /python-net/api-reference/aspose.slides.charts/ioverridabletext/
 ---
 
 Represents overridable text for a chart.

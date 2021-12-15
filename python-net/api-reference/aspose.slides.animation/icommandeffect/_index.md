@@ -2,7 +2,7 @@
 title: ICommandEffect Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides.animation/icommandeffect/
+url: /python-net/api-reference/aspose.slides.animation/icommandeffect/
 ---
 
 Represents a command effect for an animation behavior.

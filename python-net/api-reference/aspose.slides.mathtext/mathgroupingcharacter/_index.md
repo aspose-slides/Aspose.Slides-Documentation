@@ -2,7 +2,7 @@
 title: MathGroupingCharacter Class
 type: docs
 weight: 650
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathgroupingcharacter/
+url: /python-net/api-reference/aspose.slides.mathtext/mathgroupingcharacter/
 ---
 
 Specifies a grouping symbol above or below an expression, usually to highlight the relationship between elements

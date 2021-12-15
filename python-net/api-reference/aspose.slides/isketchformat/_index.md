@@ -2,7 +2,7 @@
 title: ISketchFormat Class
 type: docs
 weight: 2460
-url: /slides/python-net/api-reference/aspose.slides/isketchformat/
+url: /python-net/api-reference/aspose.slides/isketchformat/
 ---
 
 Represents properties for lines sketch format.

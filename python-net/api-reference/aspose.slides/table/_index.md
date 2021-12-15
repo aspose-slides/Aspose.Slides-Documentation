@@ -2,7 +2,7 @@
 title: Table Class
 type: docs
 weight: 3750
-url: /slides/python-net/api-reference/aspose.slides/table/
+url: /python-net/api-reference/aspose.slides/table/
 ---
 
 Represents a table on a slide.

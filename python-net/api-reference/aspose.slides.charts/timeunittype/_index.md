@@ -2,7 +2,7 @@
 title: TimeUnitType Enumeration
 type: docs
 weight: 1340
-url: /slides/python-net/api-reference/aspose.slides.charts/timeunittype/
+url: /python-net/api-reference/aspose.slides.charts/timeunittype/
 ---
 
 Represents the base unit for the category axis

@@ -2,7 +2,7 @@
 title: IVbaModuleCollection Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.vba/ivbamodulecollection/
+url: /python-net/api-reference/aspose.slides.vba/ivbamodulecollection/
 ---
 
 Represents a collection of a VBA Project modules.

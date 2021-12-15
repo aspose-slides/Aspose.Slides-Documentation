@@ -2,7 +2,7 @@
 title: SaveFormat Enumeration
 type: docs
 weight: 780
-url: /slides/python-net/api-reference/aspose.slides.export/saveformat/
+url: /python-net/api-reference/aspose.slides.export/saveformat/
 ---
 
 Constants which define the format of a saved presentation.

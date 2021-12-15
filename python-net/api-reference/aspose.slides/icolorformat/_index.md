@@ -2,7 +2,7 @@
 title: IColorFormat Class
 type: docs
 weight: 1040
-url: /slides/python-net/api-reference/aspose.slides/icolorformat/
+url: /python-net/api-reference/aspose.slides/icolorformat/
 ---
 
 Represents a color used in a presentation.

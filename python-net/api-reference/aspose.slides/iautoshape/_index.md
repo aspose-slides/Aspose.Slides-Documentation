@@ -2,7 +2,7 @@
 title: IAutoShape Class
 type: docs
 weight: 810
-url: /slides/python-net/api-reference/aspose.slides/iautoshape/
+url: /python-net/api-reference/aspose.slides/iautoshape/
 ---
 
 Represents an AutoShape.

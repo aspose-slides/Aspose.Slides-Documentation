@@ -2,7 +2,7 @@
 title: ICustomXmlPart Class
 type: docs
 weight: 1220
-url: /slides/python-net/api-reference/aspose.slides/icustomxmlpart/
+url: /python-net/api-reference/aspose.slides/icustomxmlpart/
 ---
 
 Represents custom xml part.

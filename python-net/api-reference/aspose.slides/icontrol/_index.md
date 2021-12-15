@@ -2,7 +2,7 @@
 title: IControl Class
 type: docs
 weight: 1180
-url: /slides/python-net/api-reference/aspose.slides/icontrol/
+url: /python-net/api-reference/aspose.slides/icontrol/
 ---
 
 Represents an ActiveX control.

@@ -2,7 +2,7 @@
 title: Paragraph Class
 type: docs
 weight: 3200
-url: /slides/python-net/api-reference/aspose.slides/paragraph/
+url: /python-net/api-reference/aspose.slides/paragraph/
 ---
 
 Represents a paragraph of text.

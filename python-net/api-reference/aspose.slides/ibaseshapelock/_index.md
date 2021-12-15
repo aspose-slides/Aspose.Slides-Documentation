@@ -2,7 +2,7 @@
 title: IBaseShapeLock Class
 type: docs
 weight: 900
-url: /slides/python-net/api-reference/aspose.slides/ibaseshapelock/
+url: /python-net/api-reference/aspose.slides/ibaseshapelock/
 ---
 
 Represents Shape lock (disabled operation).

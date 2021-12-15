@@ -2,7 +2,7 @@
 title: LightRigPresetType Enumeration
 type: docs
 weight: 9480
-url: /slides/python-net/api-reference/aspose.slides/lightrigpresettype/
+url: /python-net/api-reference/aspose.slides/lightrigpresettype/
 ---
 
 Constants which define light preset types.

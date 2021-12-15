@@ -2,7 +2,7 @@
 title: IEmbeddedEotFontsHtmlController Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.export/iembeddedeotfontshtmlcontroller/
+url: /python-net/api-reference/aspose.slides.export/iembeddedeotfontshtmlcontroller/
 ---
 
 Embedded Eot fonts HTML controller.

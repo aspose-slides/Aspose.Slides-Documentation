@@ -2,7 +2,7 @@
 title: DigitalSignature Class
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides/digitalsignature/
+url: /python-net/api-reference/aspose.slides/digitalsignature/
 ---
 
 Digital signature in signed file.

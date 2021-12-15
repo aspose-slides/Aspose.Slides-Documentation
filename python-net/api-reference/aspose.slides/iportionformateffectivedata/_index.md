@@ -2,7 +2,7 @@
 title: IPortionFormatEffectiveData Class
 type: docs
 weight: 2210
-url: /slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/
+url: /python-net/api-reference/aspose.slides/iportionformateffectivedata/
 ---
 
 Immutable object which contains effective text portion formatting properties.

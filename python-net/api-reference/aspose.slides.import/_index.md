@@ -2,7 +2,7 @@
 title: aspose.slides.import
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.import/
+url: /python-net/api-reference/aspose.slides.import/
 ---
 
 

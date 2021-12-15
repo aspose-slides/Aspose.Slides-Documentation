@@ -2,7 +2,7 @@
 title: OleEmbeddedDataInfo Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.dom.ole/oleembeddeddatainfo/
+url: /python-net/api-reference/aspose.slides.dom.ole/oleembeddeddatainfo/
 ---
 
 Represents embedded data info for OLE object.

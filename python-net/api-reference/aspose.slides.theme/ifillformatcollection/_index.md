@@ -2,7 +2,7 @@
 title: IFillFormatCollection Class
 type: docs
 weight: 200
-url: /slides/python-net/api-reference/aspose.slides.theme/ifillformatcollection/
+url: /python-net/api-reference/aspose.slides.theme/ifillformatcollection/
 ---
 
 Represents the collection of fill styles.

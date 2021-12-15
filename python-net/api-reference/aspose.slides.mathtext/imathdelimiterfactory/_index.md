@@ -2,7 +2,7 @@
 title: IMathDelimiterFactory Class
 type: docs
 weight: 160
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathdelimiterfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathdelimiterfactory/
 ---
 
 Allows to create a math delimiter

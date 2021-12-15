@@ -2,7 +2,7 @@
 title: IAxis Class
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides.charts/iaxis/
+url: /python-net/api-reference/aspose.slides.charts/iaxis/
 ---
 
 Encapsulates the object that represents a chart's axis.

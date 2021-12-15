@@ -2,7 +2,7 @@
 title: IExternalResourceResolver Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.import/iexternalresourceresolver/
+url: /python-net/api-reference/aspose.slides.import/iexternalresourceresolver/
 ---
 
 Callback interface used to resolve external resources during Html, Svg documents import.

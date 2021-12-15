@@ -2,7 +2,7 @@
 title: IGlitterTransition Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.slideshow/iglittertransition/
+url: /python-net/api-reference/aspose.slides.slideshow/iglittertransition/
 ---
 
 Glitter slide transition effect.

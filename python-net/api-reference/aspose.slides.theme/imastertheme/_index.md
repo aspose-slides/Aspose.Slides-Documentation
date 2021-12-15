@@ -2,7 +2,7 @@
 title: IMasterTheme Class
 type: docs
 weight: 280
-url: /slides/python-net/api-reference/aspose.slides.theme/imastertheme/
+url: /python-net/api-reference/aspose.slides.theme/imastertheme/
 ---
 
 Represents a master theme.

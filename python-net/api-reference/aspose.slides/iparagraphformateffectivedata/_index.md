@@ -2,7 +2,7 @@
 title: IParagraphFormatEffectiveData Class
 type: docs
 weight: 2070
-url: /slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/
+url: /python-net/api-reference/aspose.slides/iparagraphformateffectivedata/
 ---
 
 Immutable object which contains effective paragraph formatting properties.

@@ -2,7 +2,7 @@
 title: MathHorizontalAlignment Enumeration
 type: docs
 weight: 910
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathhorizontalalignment/
+url: /python-net/api-reference/aspose.slides.mathtext/mathhorizontalalignment/
 ---
 
 Horizontal Alignment

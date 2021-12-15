@@ -2,7 +2,7 @@
 title: ZoomFrame Class
 type: docs
 weight: 3870
-url: /slides/python-net/api-reference/aspose.slides/zoomframe/
+url: /python-net/api-reference/aspose.slides/zoomframe/
 ---
 
 Represents an Zoom object on a slide.

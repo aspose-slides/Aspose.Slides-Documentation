@@ -2,7 +2,7 @@
 title: aspose.slides.util
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.util/
+url: /python-net/api-reference/aspose.slides.util/
 ---
 
 

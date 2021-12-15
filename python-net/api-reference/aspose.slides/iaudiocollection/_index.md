@@ -2,7 +2,7 @@
 title: IAudioCollection Class
 type: docs
 weight: 790
-url: /slides/python-net/api-reference/aspose.slides/iaudiocollection/
+url: /python-net/api-reference/aspose.slides/iaudiocollection/
 ---
 
 Represents a collection of embedded audio files.

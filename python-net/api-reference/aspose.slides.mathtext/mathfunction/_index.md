@@ -2,7 +2,7 @@
 title: MathFunction Class
 type: docs
 weight: 630
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfunction/
+url: /python-net/api-reference/aspose.slides.mathtext/mathfunction/
 ---
 
 Specifies a function of an argument.

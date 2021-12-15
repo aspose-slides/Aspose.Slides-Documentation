@@ -2,7 +2,7 @@
 title: IMathArrayFactory Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imatharrayfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imatharrayfactory/
 ---
 
 Allows to create a math array

@@ -2,7 +2,7 @@
 title: IPresentationText Class
 type: docs
 weight: 2270
-url: /slides/python-net/api-reference/aspose.slides/ipresentationtext/
+url: /python-net/api-reference/aspose.slides/ipresentationtext/
 ---
 
 Represents the text extracted from the slide

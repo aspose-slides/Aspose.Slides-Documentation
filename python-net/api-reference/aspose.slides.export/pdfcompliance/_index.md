@@ -2,7 +2,7 @@
 title: PdfCompliance Enumeration
 type: docs
 weight: 750
-url: /slides/python-net/api-reference/aspose.slides.export/pdfcompliance/
+url: /python-net/api-reference/aspose.slides.export/pdfcompliance/
 ---
 
 Constants which define the PDF standards compliance level.

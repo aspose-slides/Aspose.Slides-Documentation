@@ -2,7 +2,7 @@
 title: GeometryShape Class
 type: docs
 weight: 610
-url: /slides/python-net/api-reference/aspose.slides/geometryshape/
+url: /python-net/api-reference/aspose.slides/geometryshape/
 ---
 
 Represents the parent class for all geometric shapes.

@@ -2,7 +2,7 @@
 title: IVbaReferenceProject Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.vba/ivbareferenceproject/
+url: /python-net/api-reference/aspose.slides.vba/ivbareferenceproject/
 ---
 
 Represents reference to an external VBA project.

@@ -2,7 +2,7 @@
 title: MotionPath Class
 type: docs
 weight: 380
-url: /slides/python-net/api-reference/aspose.slides.animation/motionpath/
+url: /python-net/api-reference/aspose.slides.animation/motionpath/
 ---
 
 Represent motion path.

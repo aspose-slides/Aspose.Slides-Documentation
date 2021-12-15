@@ -2,7 +2,7 @@
 title: ISmartArtNodeCollection Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.smartart/ismartartnodecollection/
+url: /python-net/api-reference/aspose.slides.smartart/ismartartnodecollection/
 ---
 
 Represents a collection of SmartArt nodes.

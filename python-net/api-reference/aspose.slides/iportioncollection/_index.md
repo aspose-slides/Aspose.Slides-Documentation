@@ -2,7 +2,7 @@
 title: IPortionCollection Class
 type: docs
 weight: 2180
-url: /slides/python-net/api-reference/aspose.slides/iportioncollection/
+url: /python-net/api-reference/aspose.slides/iportioncollection/
 ---
 
 Represents a collection of a portions.

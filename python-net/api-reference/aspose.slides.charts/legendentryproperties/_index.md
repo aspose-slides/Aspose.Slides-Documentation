@@ -2,7 +2,7 @@
 title: LegendEntryProperties Class
 type: docs
 weight: 1000
-url: /slides/python-net/api-reference/aspose.slides.charts/legendentryproperties/
+url: /python-net/api-reference/aspose.slides.charts/legendentryproperties/
 ---
 
 Represents legend properties of a chart.

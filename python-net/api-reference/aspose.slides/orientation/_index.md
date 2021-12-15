@@ -2,7 +2,7 @@
 title: Orientation Enumeration
 type: docs
 weight: 9650
-url: /slides/python-net/api-reference/aspose.slides/orientation/
+url: /python-net/api-reference/aspose.slides/orientation/
 ---
 
 Represents the orientation of a shape.

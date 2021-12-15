@@ -2,7 +2,7 @@
 title: IMasterNotesSlideHeaderFooterManager Class
 type: docs
 weight: 1870
-url: /slides/python-net/api-reference/aspose.slides/imasternotesslideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/imasternotesslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the master notes slide footer, date-time, page number placeholders and all child placeholders.<br/>            Child placeholders mean placeholders are contained on depending notes slides.<br/>            Depending notes slides use and depend on master notes slide.

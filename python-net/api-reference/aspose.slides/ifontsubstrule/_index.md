@@ -2,7 +2,7 @@
 title: IFontSubstRule Class
 type: docs
 weight: 1400
-url: /slides/python-net/api-reference/aspose.slides/ifontsubstrule/
+url: /python-net/api-reference/aspose.slides/ifontsubstrule/
 ---
 
 Represents font subtituition information

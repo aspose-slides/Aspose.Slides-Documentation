@@ -2,7 +2,7 @@
 title: ITagCollection Class
 type: docs
 weight: 2670
-url: /slides/python-net/api-reference/aspose.slides/itagcollection/
+url: /python-net/api-reference/aspose.slides/itagcollection/
 ---
 
 Represents the collection of tags (user defined pairs of strings)

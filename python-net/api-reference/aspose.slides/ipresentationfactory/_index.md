@@ -2,7 +2,7 @@
 title: IPresentationFactory Class
 type: docs
 weight: 2240
-url: /slides/python-net/api-reference/aspose.slides/ipresentationfactory/
+url: /python-net/api-reference/aspose.slides/ipresentationfactory/
 ---
 
 Allows to create presentation via COM interface

@@ -2,7 +2,7 @@
 title: IHtmlGenerator Class
 type: docs
 weight: 150
-url: /slides/python-net/api-reference/aspose.slides.export/ihtmlgenerator/
+url: /python-net/api-reference/aspose.slides.export/ihtmlgenerator/
 ---
 
 Html generator.

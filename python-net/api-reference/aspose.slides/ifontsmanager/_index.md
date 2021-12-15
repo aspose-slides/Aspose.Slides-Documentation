@@ -2,7 +2,7 @@
 title: IFontsManager Class
 type: docs
 weight: 1450
-url: /slides/python-net/api-reference/aspose.slides/ifontsmanager/
+url: /python-net/api-reference/aspose.slides/ifontsmanager/
 ---
 
 Manages fonts across the presentation.

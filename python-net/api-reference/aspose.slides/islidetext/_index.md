@@ -2,7 +2,7 @@
 title: ISlideText Class
 type: docs
 weight: 2540
-url: /slides/python-net/api-reference/aspose.slides/islidetext/
+url: /python-net/api-reference/aspose.slides/islidetext/
 ---
 
 Represents the text extracted from the slide

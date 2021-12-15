@@ -2,7 +2,7 @@
 title: ITrendline Class
 type: docs
 weight: 950
-url: /slides/python-net/api-reference/aspose.slides.charts/itrendline/
+url: /python-net/api-reference/aspose.slides.charts/itrendline/
 ---
 
 Class represents trend line of chart series

@@ -2,7 +2,7 @@
 title: TransitionSideDirectionType Enumeration
 type: docs
 weight: 440
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionsidedirectiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionsidedirectiontype/
 ---
 
 Represent side direction transition types.

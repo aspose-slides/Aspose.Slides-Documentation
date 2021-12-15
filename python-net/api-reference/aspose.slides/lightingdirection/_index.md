@@ -2,7 +2,7 @@
 title: LightingDirection Enumeration
 type: docs
 weight: 9490
-url: /slides/python-net/api-reference/aspose.slides/lightingdirection/
+url: /python-net/api-reference/aspose.slides/lightingdirection/
 ---
 
 Constants which define light directions.

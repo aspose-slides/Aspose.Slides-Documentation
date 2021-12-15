@@ -2,7 +2,7 @@
 title: ChartTextFormat Class
 type: docs
 weight: 270
-url: /slides/python-net/api-reference/aspose.slides.charts/charttextformat/
+url: /python-net/api-reference/aspose.slides.charts/charttextformat/
 ---
 
 Specifies default text formatting for chart text elements.

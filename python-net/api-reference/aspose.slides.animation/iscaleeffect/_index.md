@@ -2,7 +2,7 @@
 title: IScaleEffect Class
 type: docs
 weight: 290
-url: /slides/python-net/api-reference/aspose.slides.animation/iscaleeffect/
+url: /python-net/api-reference/aspose.slides.animation/iscaleeffect/
 ---
 
 Represents animation scale effect.

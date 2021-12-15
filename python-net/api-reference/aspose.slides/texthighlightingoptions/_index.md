@@ -2,7 +2,7 @@
 title: TextHighlightingOptions Class
 type: docs
 weight: 3800
-url: /slides/python-net/api-reference/aspose.slides/texthighlightingoptions/
+url: /python-net/api-reference/aspose.slides/texthighlightingoptions/
 ---
 
 Represents options which can be used to highlight text in text frame.

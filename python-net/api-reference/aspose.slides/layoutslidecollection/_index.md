@@ -2,7 +2,7 @@
 title: LayoutSlideCollection Class
 type: docs
 weight: 2890
-url: /slides/python-net/api-reference/aspose.slides/layoutslidecollection/
+url: /python-net/api-reference/aspose.slides/layoutslidecollection/
 ---
 
 Represents a base class for collection of a layout slides.

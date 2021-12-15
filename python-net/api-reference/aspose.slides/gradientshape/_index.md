@@ -2,7 +2,7 @@
 title: GradientShape Enumeration
 type: docs
 weight: 9450
-url: /slides/python-net/api-reference/aspose.slides/gradientshape/
+url: /python-net/api-reference/aspose.slides/gradientshape/
 ---
 
 Represents the shape of gradient fill.

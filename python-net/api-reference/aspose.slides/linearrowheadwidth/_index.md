@@ -2,7 +2,7 @@
 title: LineArrowheadWidth Enumeration
 type: docs
 weight: 9530
-url: /slides/python-net/api-reference/aspose.slides/linearrowheadwidth/
+url: /python-net/api-reference/aspose.slides/linearrowheadwidth/
 ---
 
 Represents the width of an arrowhead.

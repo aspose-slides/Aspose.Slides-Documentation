@@ -2,7 +2,7 @@
 title: PatternFormat Class
 type: docs
 weight: 3250
-url: /slides/python-net/api-reference/aspose.slides/patternformat/
+url: /python-net/api-reference/aspose.slides/patternformat/
 ---
 
 Represents a pattern to fill a shape.

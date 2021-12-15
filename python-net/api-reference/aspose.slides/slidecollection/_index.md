@@ -2,7 +2,7 @@
 title: SlideCollection Class
 type: docs
 weight: 3650
-url: /slides/python-net/api-reference/aspose.slides/slidecollection/
+url: /python-net/api-reference/aspose.slides/slidecollection/
 ---
 
 Represents a collection of a slides.

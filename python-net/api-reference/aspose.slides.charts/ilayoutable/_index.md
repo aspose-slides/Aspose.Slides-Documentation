@@ -2,7 +2,7 @@
 title: ILayoutable Class
 type: docs
 weight: 830
-url: /slides/python-net/api-reference/aspose.slides.charts/ilayoutable/
+url: /python-net/api-reference/aspose.slides.charts/ilayoutable/
 ---
 
 Specifies the exact position of a chart element.

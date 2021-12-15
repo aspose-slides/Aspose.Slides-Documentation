@@ -2,7 +2,7 @@
 title: IViewProperties Class
 type: docs
 weight: 2800
-url: /slides/python-net/api-reference/aspose.slides/iviewproperties/
+url: /python-net/api-reference/aspose.slides/iviewproperties/
 ---
 
 Presentation wide view properties.

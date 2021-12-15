@@ -2,7 +2,7 @@
 title: ChartDataSourceType Enumeration
 type: docs
 weight: 1130
-url: /slides/python-net/api-reference/aspose.slides.charts/chartdatasourcetype/
+url: /python-net/api-reference/aspose.slides.charts/chartdatasourcetype/
 ---
 
 Represents a type of data source of the chart

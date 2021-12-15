@@ -2,7 +2,7 @@
 title: MotionPathPointsType Enumeration
 type: docs
 weight: 700
-url: /slides/python-net/api-reference/aspose.slides.animation/motionpathpointstype/
+url: /python-net/api-reference/aspose.slides.animation/motionpathpointstype/
 ---
 
 Represent types of points in animation motion path.

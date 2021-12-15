@@ -2,7 +2,7 @@
 title: IPdfOptions Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides.export/ipdfoptions/
+url: /python-net/api-reference/aspose.slides.export/ipdfoptions/
 ---
 
 Provides options that control how a presentation is saved in Pdf format.

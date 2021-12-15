@@ -2,7 +2,7 @@
 title: MathTopBotPositions Enumeration
 type: docs
 weight: 980
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathtopbotpositions/
+url: /python-net/api-reference/aspose.slides.mathtext/mathtopbotpositions/
 ---
 
 Top/bottom positions enumeration

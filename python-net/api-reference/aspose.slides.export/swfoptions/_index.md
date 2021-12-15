@@ -2,7 +2,7 @@
 title: SwfOptions Class
 type: docs
 weight: 500
-url: /slides/python-net/api-reference/aspose.slides.export/swfoptions/
+url: /python-net/api-reference/aspose.slides.export/swfoptions/
 ---
 
 Provides options that control how a presentation is saved in Swf format.

@@ -2,7 +2,7 @@
 title: IPatternFormat Class
 type: docs
 weight: 2090
-url: /slides/python-net/api-reference/aspose.slides/ipatternformat/
+url: /python-net/api-reference/aspose.slides/ipatternformat/
 ---
 
 Represents a pattern to fill a shape.

@@ -2,7 +2,7 @@
 title: IThemeable Class
 type: docs
 weight: 370
-url: /slides/python-net/api-reference/aspose.slides.theme/ithemeable/
+url: /python-net/api-reference/aspose.slides.theme/ithemeable/
 ---
 
 Represents objects that can be themed with [ITheme](/python-net/api-reference/aspose.slides.theme/itheme/).

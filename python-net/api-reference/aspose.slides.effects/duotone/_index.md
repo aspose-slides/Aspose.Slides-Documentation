@@ -2,7 +2,7 @@
 title: Duotone Class
 type: docs
 weight: 230
-url: /slides/python-net/api-reference/aspose.slides.effects/duotone/
+url: /python-net/api-reference/aspose.slides.effects/duotone/
 ---
 
 Represents a Duotone effect.<br/>            For each pixel, combines Color1 and Color2 through a linear interpolation<br/>            to determine the new color for that pixel.

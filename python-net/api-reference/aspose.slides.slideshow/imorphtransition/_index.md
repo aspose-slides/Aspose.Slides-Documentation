@@ -2,7 +2,7 @@
 title: IMorphTransition Class
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides.slideshow/imorphtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/imorphtransition/
 ---
 
 Ripple slide transition effect.

@@ -2,7 +2,7 @@
 title: CustomXmlPartCollection Class
 type: docs
 weight: 410
-url: /slides/python-net/api-reference/aspose.slides/customxmlpartcollection/
+url: /python-net/api-reference/aspose.slides/customxmlpartcollection/
 ---
 
 Represents collection of custom xml parts.

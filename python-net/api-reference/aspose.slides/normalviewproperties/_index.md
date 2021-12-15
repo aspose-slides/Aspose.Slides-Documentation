@@ -2,7 +2,7 @@
 title: NormalViewProperties Class
 type: docs
 weight: 3070
-url: /slides/python-net/api-reference/aspose.slides/normalviewproperties/
+url: /python-net/api-reference/aspose.slides/normalviewproperties/
 ---
 
 Represents normal view properties. The normal view consists of<br/>            three content regions: the slide itself, a side content region, and a bottom content region.

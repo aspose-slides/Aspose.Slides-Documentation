@@ -2,7 +2,7 @@
 title: SlideUtil Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.util/slideutil/
+url: /python-net/api-reference/aspose.slides.util/slideutil/
 ---
 
 Offer methods which help to search shapes and text in a presentation.

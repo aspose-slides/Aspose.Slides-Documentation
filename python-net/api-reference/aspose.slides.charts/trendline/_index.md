@@ -2,7 +2,7 @@
 title: Trendline Class
 type: docs
 weight: 1060
-url: /slides/python-net/api-reference/aspose.slides.charts/trendline/
+url: /python-net/api-reference/aspose.slides.charts/trendline/
 ---
 
 Class represents trend line of chart series

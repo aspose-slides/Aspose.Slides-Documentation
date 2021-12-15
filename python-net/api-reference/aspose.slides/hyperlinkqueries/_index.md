@@ -2,7 +2,7 @@
 title: HyperlinkQueries Class
 type: docs
 weight: 740
-url: /slides/python-net/api-reference/aspose.slides/hyperlinkqueries/
+url: /python-net/api-reference/aspose.slides/hyperlinkqueries/
 ---
 
 Provide easy access to contained hyperlinks.

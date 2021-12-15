@@ -2,7 +2,7 @@
 title: IDataLabelCollection Class
 type: docs
 weight: 740
-url: /slides/python-net/api-reference/aspose.slides.charts/idatalabelcollection/
+url: /python-net/api-reference/aspose.slides.charts/idatalabelcollection/
 ---
 
 Represents a series labels.

@@ -2,7 +2,7 @@
 title: BaseScript Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.mathtext/basescript/
+url: /python-net/api-reference/aspose.slides.mathtext/basescript/
 ---
 
 Math script

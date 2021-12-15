@@ -2,7 +2,7 @@
 title: IEffectFormatEffectiveData Class
 type: docs
 weight: 1280
-url: /slides/python-net/api-reference/aspose.slides/ieffectformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ieffectformateffectivedata/
 ---
 
 Imutable object which contains effective effect formatting properties.

@@ -2,7 +2,7 @@
 title: Control Class
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides/control/
+url: /python-net/api-reference/aspose.slides/control/
 ---
 
 Represents an ActiveX control.

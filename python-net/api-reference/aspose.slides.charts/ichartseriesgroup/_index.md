@@ -2,7 +2,7 @@
 title: IChartSeriesGroup Class
 type: docs
 weight: 660
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartseriesgroup/
+url: /python-net/api-reference/aspose.slides.charts/ichartseriesgroup/
 ---
 
 Represents group of series.

@@ -2,7 +2,7 @@
 title: BaseHandoutNotesSlideHeaderFooterManager Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides/basehandoutnotesslideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/basehandoutnotesslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the placeholders, including header placeholder for all types handout and notes slides.

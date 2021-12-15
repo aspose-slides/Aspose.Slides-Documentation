@@ -2,7 +2,7 @@
 title: ICustomData Class
 type: docs
 weight: 1210
-url: /slides/python-net/api-reference/aspose.slides/icustomdata/
+url: /python-net/api-reference/aspose.slides/icustomdata/
 ---
 
 Represents container for custom data.

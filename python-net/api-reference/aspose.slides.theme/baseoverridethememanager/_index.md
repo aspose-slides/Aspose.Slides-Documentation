@@ -2,7 +2,7 @@
 title: BaseOverrideThemeManager Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.theme/baseoverridethememanager/
+url: /python-net/api-reference/aspose.slides.theme/baseoverridethememanager/
 ---
 
 Base class for classes that provide access to different types of overriden themes.

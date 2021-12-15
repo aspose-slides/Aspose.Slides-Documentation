@@ -2,7 +2,7 @@
 title: ITintEffectiveData Class
 type: docs
 weight: 850
-url: /slides/python-net/api-reference/aspose.slides.effects/itinteffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/itinteffectivedata/
 ---
 
 Immutable object which represents a Tint effect.<br/>            Shifts effect color values towards/away from hue by the specified amount.

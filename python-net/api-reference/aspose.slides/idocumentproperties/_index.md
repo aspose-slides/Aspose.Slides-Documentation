@@ -2,7 +2,7 @@
 title: IDocumentProperties Class
 type: docs
 weight: 1260
-url: /slides/python-net/api-reference/aspose.slides/idocumentproperties/
+url: /python-net/api-reference/aspose.slides/idocumentproperties/
 ---
 
 Represents properties of a presentation.

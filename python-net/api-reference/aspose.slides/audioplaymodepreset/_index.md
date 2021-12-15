@@ -2,7 +2,7 @@
 title: AudioPlayModePreset Enumeration
 type: docs
 weight: 9270
-url: /slides/python-net/api-reference/aspose.slides/audioplaymodepreset/
+url: /python-net/api-reference/aspose.slides/audioplaymodepreset/
 ---
 
 Constants which define how a sound is played.

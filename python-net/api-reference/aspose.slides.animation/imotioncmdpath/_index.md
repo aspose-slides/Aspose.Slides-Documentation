@@ -2,7 +2,7 @@
 title: IMotionCmdPath Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides.animation/imotioncmdpath/
+url: /python-net/api-reference/aspose.slides.animation/imotioncmdpath/
 ---
 
 Represent one command of a path.

@@ -2,7 +2,7 @@
 title: PresetShadowEffectiveData Class
 type: docs
 weight: 970
-url: /slides/python-net/api-reference/aspose.slides.effects/presetshadoweffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/presetshadoweffectivedata/
 ---
 
 Immutable object which represents a preset shadow effect.

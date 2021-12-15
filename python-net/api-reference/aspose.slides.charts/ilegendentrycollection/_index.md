@@ -2,7 +2,7 @@
 title: ILegendEntryCollection Class
 type: docs
 weight: 850
-url: /slides/python-net/api-reference/aspose.slides.charts/ilegendentrycollection/
+url: /python-net/api-reference/aspose.slides.charts/ilegendentrycollection/
 ---
 
 Represents legends collection.

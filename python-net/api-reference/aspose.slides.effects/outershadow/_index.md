@@ -2,7 +2,7 @@
 title: OuterShadow Class
 type: docs
 weight: 940
-url: /slides/python-net/api-reference/aspose.slides.effects/outershadow/
+url: /python-net/api-reference/aspose.slides.effects/outershadow/
 ---
 
 Represents an Outer Shadow effect.

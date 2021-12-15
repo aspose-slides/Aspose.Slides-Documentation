@@ -2,7 +2,7 @@
 title: IMasterThemeManager Class
 type: docs
 weight: 290
-url: /slides/python-net/api-reference/aspose.slides.theme/imasterthememanager/
+url: /python-net/api-reference/aspose.slides.theme/imasterthememanager/
 ---
 
 Provides access to presentation master theme.

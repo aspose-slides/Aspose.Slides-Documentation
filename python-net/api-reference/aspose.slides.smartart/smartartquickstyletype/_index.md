@@ -2,7 +2,7 @@
 title: SmartArtQuickStyleType Enumeration
 type: docs
 weight: 140
-url: /slides/python-net/api-reference/aspose.slides.smartart/smartartquickstyletype/
+url: /python-net/api-reference/aspose.slides.smartart/smartartquickstyletype/
 ---
 
 Represents style scheme of a SmartArt diagram.

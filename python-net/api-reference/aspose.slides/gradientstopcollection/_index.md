@@ -2,7 +2,7 @@
 title: GradientStopCollection Class
 type: docs
 weight: 650
-url: /slides/python-net/api-reference/aspose.slides/gradientstopcollection/
+url: /python-net/api-reference/aspose.slides/gradientstopcollection/
 ---
 
 Represnts a collection of gradient stops.

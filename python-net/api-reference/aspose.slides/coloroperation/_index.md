@@ -2,7 +2,7 @@
 title: ColorOperation Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides/coloroperation/
+url: /python-net/api-reference/aspose.slides/coloroperation/
 ---
 
 Represents different color operations used for color transformations.<br/>            Immutable object.

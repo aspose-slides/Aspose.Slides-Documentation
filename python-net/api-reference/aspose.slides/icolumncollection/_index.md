@@ -2,7 +2,7 @@
 title: IColumnCollection Class
 type: docs
 weight: 1080
-url: /slides/python-net/api-reference/aspose.slides/icolumncollection/
+url: /python-net/api-reference/aspose.slides/icolumncollection/
 ---
 
 Represents collection of columns in a table.

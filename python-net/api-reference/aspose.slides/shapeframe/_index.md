@@ -2,7 +2,7 @@
 title: ShapeFrame Class
 type: docs
 weight: 3610
-url: /slides/python-net/api-reference/aspose.slides/shapeframe/
+url: /python-net/api-reference/aspose.slides/shapeframe/
 ---
 
 Represents shape frame's properties.

@@ -2,7 +2,7 @@
 title: PersistenceType Enumeration
 type: docs
 weight: 9700
-url: /slides/python-net/api-reference/aspose.slides/persistencetype/
+url: /python-net/api-reference/aspose.slides/persistencetype/
 ---
 
 Specifies the method used to store properties of the ActiveX control.

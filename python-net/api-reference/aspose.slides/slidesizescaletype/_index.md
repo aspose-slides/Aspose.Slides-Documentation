@@ -2,7 +2,7 @@
 title: SlideSizeScaleType Enumeration
 type: docs
 weight: 9870
-url: /slides/python-net/api-reference/aspose.slides/slidesizescaletype/
+url: /python-net/api-reference/aspose.slides/slidesizescaletype/
 ---
 
 Represents the scale type of slide content.

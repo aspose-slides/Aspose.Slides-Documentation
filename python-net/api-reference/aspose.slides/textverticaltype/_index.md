@@ -2,7 +2,7 @@
 title: TextVerticalType Enumeration
 type: docs
 weight: 10030
-url: /slides/python-net/api-reference/aspose.slides/textverticaltype/
+url: /python-net/api-reference/aspose.slides/textverticaltype/
 ---
 
 Determines vertical writing mode for a text.

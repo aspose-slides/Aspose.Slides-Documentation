@@ -2,7 +2,7 @@
 title: ColorReplaceEffectiveData Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides.effects/colorreplaceeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/colorreplaceeffectivedata/
 ---
 
 Immutable object which represents a Color Replacement effect.<br/>            All effect colors are changed to a fixed color.<br/>            Alpha values are unaffected.

@@ -2,7 +2,7 @@
 title: ColorOffset Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.animation/coloroffset/
+url: /python-net/api-reference/aspose.slides.animation/coloroffset/
 ---
 
 Represent color offset.

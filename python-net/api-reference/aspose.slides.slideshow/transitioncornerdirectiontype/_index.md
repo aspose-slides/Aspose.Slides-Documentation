@@ -2,7 +2,7 @@
 title: TransitionCornerDirectionType Enumeration
 type: docs
 weight: 370
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/
 ---
 
 Represent corner direction transition types.

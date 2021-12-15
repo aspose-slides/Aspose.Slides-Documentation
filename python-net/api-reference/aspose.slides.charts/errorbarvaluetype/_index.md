@@ -2,7 +2,7 @@
 title: ErrorBarValueType Enumeration
 type: docs
 weight: 1220
-url: /slides/python-net/api-reference/aspose.slides.charts/errorbarvaluetype/
+url: /python-net/api-reference/aspose.slides.charts/errorbarvaluetype/
 ---
 
 Represents type of error bar value

@@ -2,7 +2,7 @@
 title: ICommentAuthorCollection Class
 type: docs
 weight: 1130
-url: /slides/python-net/api-reference/aspose.slides/icommentauthorcollection/
+url: /python-net/api-reference/aspose.slides/icommentauthorcollection/
 ---
 
 Represents a collection of comment authors.

@@ -2,7 +2,7 @@
 title: MotionPathEditMode Enumeration
 type: docs
 weight: 690
-url: /slides/python-net/api-reference/aspose.slides.animation/motionpatheditmode/
+url: /python-net/api-reference/aspose.slides.animation/motionpatheditmode/
 ---
 
 Specifies how the motion path moves when the target shape is moved

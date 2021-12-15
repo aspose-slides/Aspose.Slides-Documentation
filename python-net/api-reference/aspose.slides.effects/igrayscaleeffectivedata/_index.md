@@ -2,7 +2,7 @@
 title: IGrayScaleEffectiveData Class
 type: docs
 weight: 650
-url: /slides/python-net/api-reference/aspose.slides.effects/igrayscaleeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/igrayscaleeffectivedata/
 ---
 
 Immutable object which representsepresents a Gray Scale effect. Converts all effect color values to a shade of gray,<br/>            corresponding to their luminance. Effect alpha (opacity) values are unaffected.

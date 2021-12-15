@@ -2,7 +2,7 @@
 title: IMotionEffect Class
 type: docs
 weight: 230
-url: /slides/python-net/api-reference/aspose.slides.animation/imotioneffect/
+url: /python-net/api-reference/aspose.slides.animation/imotioneffect/
 ---
 
 Represent motion effect behavior of effect.

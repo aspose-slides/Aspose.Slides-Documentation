@@ -2,7 +2,7 @@
 title: EmbedFontCharacters Enumeration
 type: docs
 weight: 700
-url: /slides/python-net/api-reference/aspose.slides.export/embedfontcharacters/
+url: /python-net/api-reference/aspose.slides.export/embedfontcharacters/
 ---
 
 Represents the rule to use for adding new embedding font into [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/)

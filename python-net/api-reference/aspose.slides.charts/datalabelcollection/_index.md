@@ -2,7 +2,7 @@
 title: DataLabelCollection Class
 type: docs
 weight: 320
-url: /slides/python-net/api-reference/aspose.slides.charts/datalabelcollection/
+url: /python-net/api-reference/aspose.slides.charts/datalabelcollection/
 ---
 
 Represents a series labels.

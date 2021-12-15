@@ -2,7 +2,7 @@
 title: ITrendlineCollection Class
 type: docs
 weight: 960
-url: /slides/python-net/api-reference/aspose.slides.charts/itrendlinecollection/
+url: /python-net/api-reference/aspose.slides.charts/itrendlinecollection/
 ---
 
 Represents a collection of TrendlineEx

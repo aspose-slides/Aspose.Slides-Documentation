@@ -2,7 +2,7 @@
 title: IBlobManagementOptions Class
 type: docs
 weight: 940
-url: /slides/python-net/api-reference/aspose.slides/iblobmanagementoptions/
+url: /python-net/api-reference/aspose.slides/iblobmanagementoptions/
 ---
 
 A Binary Large Object (BLOB) is a binary data stored as a single entity - i.e. BLOB can be an <br/>            audio, video or presentation itself. A number of techniques are used to optimize memory consumption <br/>            while working with BLOBs - which was already stored in the presentation or be added later programmatically. <br/>            Using [IBlobManagementOptions](/python-net/api-reference/aspose.slides/iblobmanagementoptions/) you can change a different behavior aspects regarding BLOBs <br/>            handling for the [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/) instance lifetime.

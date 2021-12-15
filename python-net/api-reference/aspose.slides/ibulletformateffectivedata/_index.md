@@ -2,7 +2,7 @@
 title: IBulletFormatEffectiveData Class
 type: docs
 weight: 970
-url: /slides/python-net/api-reference/aspose.slides/ibulletformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ibulletformateffectivedata/
 ---
 
 Immutable object which contains effective paragraph bullet formatting properties.

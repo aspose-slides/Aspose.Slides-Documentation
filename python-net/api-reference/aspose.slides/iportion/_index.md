@@ -2,7 +2,7 @@
 title: IPortion Class
 type: docs
 weight: 2170
-url: /slides/python-net/api-reference/aspose.slides/iportion/
+url: /python-net/api-reference/aspose.slides/iportion/
 ---
 
 Represents a portion of text inside a text paragraph.

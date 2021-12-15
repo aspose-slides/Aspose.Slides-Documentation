@@ -2,7 +2,7 @@
 title: IShape Class
 type: docs
 weight: 2390
-url: /slides/python-net/api-reference/aspose.slides/ishape/
+url: /python-net/api-reference/aspose.slides/ishape/
 ---
 
 Represents a shape on a slide.

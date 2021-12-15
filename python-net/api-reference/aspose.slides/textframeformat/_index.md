@@ -2,7 +2,7 @@
 title: TextFrameFormat Class
 type: docs
 weight: 3790
-url: /slides/python-net/api-reference/aspose.slides/textframeformat/
+url: /python-net/api-reference/aspose.slides/textframeformat/
 ---
 
 Contains the TextFrame's formatTextFrameFormatting properties.

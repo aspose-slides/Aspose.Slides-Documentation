@@ -2,7 +2,7 @@
 title: CellUnsupportedDataException Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.spreadsheet/cellunsupporteddataexception/
+url: /python-net/api-reference/aspose.slides.spreadsheet/cellunsupporteddataexception/
 ---
 
 The exception that is thrown when an unsupported data is encountered in a spreadsheet cell.

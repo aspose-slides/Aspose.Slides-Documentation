@@ -2,7 +2,7 @@
 title: ChartThemeManager Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.theme/chartthememanager/
+url: /python-net/api-reference/aspose.slides.theme/chartthememanager/
 ---
 
 Provides access to chart theme overriden.

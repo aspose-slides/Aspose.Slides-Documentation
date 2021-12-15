@@ -2,7 +2,7 @@
 title: FontAlignment Enumeration
 type: docs
 weight: 9410
-url: /slides/python-net/api-reference/aspose.slides/fontalignment/
+url: /python-net/api-reference/aspose.slides/fontalignment/
 ---
 
 Represents vertical font alignment.

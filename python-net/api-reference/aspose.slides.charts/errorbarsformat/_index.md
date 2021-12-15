@@ -2,7 +2,7 @@
 title: ErrorBarsFormat Class
 type: docs
 weight: 380
-url: /slides/python-net/api-reference/aspose.slides.charts/errorbarsformat/
+url: /python-net/api-reference/aspose.slides.charts/errorbarsformat/
 ---
 
 Represents error bars of chart series. ErrorBars custom values are in IChartDataPointCollection<br/>            (in [error_bars_custom_values](/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property).

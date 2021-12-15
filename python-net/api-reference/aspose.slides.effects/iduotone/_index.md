@@ -2,7 +2,7 @@
 title: IDuotone Class
 type: docs
 weight: 560
-url: /slides/python-net/api-reference/aspose.slides.effects/iduotone/
+url: /python-net/api-reference/aspose.slides.effects/iduotone/
 ---
 
 Represents a Duotone effect.

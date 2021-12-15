@@ -2,7 +2,7 @@
 title: ITiffOptions Class
 type: docs
 weight: 340
-url: /slides/python-net/api-reference/aspose.slides.export/itiffoptions/
+url: /python-net/api-reference/aspose.slides.export/itiffoptions/
 ---
 
 Provides options that control how a presentation is saved in TIFF format.

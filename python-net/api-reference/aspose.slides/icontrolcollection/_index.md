@@ -2,7 +2,7 @@
 title: IControlCollection Class
 type: docs
 weight: 1190
-url: /slides/python-net/api-reference/aspose.slides/icontrolcollection/
+url: /python-net/api-reference/aspose.slides/icontrolcollection/
 ---
 
 A collection of ActiveX controls.

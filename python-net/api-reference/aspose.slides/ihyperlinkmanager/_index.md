@@ -2,7 +2,7 @@
 title: IHyperlinkManager Class
 type: docs
 weight: 1620
-url: /slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/
+url: /python-net/api-reference/aspose.slides/ihyperlinkmanager/
 ---
 
 Provide hyperlinks management (adding, removing).

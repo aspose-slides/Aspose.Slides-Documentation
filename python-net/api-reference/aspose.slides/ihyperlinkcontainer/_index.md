@@ -2,7 +2,7 @@
 title: IHyperlinkContainer Class
 type: docs
 weight: 1610
-url: /slides/python-net/api-reference/aspose.slides/ihyperlinkcontainer/
+url: /python-net/api-reference/aspose.slides/ihyperlinkcontainer/
 ---
 
 Represents hyperlink object.

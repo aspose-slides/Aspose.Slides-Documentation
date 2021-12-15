@@ -2,7 +2,7 @@
 title: WheelTransition Class
 type: docs
 weight: 350
-url: /slides/python-net/api-reference/aspose.slides.slideshow/wheeltransition/
+url: /python-net/api-reference/aspose.slides.slideshow/wheeltransition/
 ---
 
 Wheel slide transition effect.

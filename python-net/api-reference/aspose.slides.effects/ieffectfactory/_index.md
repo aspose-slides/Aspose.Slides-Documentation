@@ -2,7 +2,7 @@
 title: IEffectFactory Class
 type: docs
 weight: 590
-url: /slides/python-net/api-reference/aspose.slides.effects/ieffectfactory/
+url: /python-net/api-reference/aspose.slides.effects/ieffectfactory/
 ---
 
 Allows to create effects' instances

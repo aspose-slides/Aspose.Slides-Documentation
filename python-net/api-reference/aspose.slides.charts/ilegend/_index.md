@@ -2,7 +2,7 @@
 title: ILegend Class
 type: docs
 weight: 840
-url: /slides/python-net/api-reference/aspose.slides.charts/ilegend/
+url: /python-net/api-reference/aspose.slides.charts/ilegend/
 ---
 
 Represents chart's legend properties.

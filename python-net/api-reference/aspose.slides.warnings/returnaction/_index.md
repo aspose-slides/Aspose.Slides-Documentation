@@ -2,7 +2,7 @@
 title: ReturnAction Enumeration
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.warnings/returnaction/
+url: /python-net/api-reference/aspose.slides.warnings/returnaction/
 ---
 
 Represents warning callback decision options.

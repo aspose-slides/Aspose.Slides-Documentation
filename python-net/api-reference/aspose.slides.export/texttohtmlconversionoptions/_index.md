@@ -2,7 +2,7 @@
 title: TextToHtmlConversionOptions Class
 type: docs
 weight: 510
-url: /slides/python-net/api-reference/aspose.slides.export/texttohtmlconversionoptions/
+url: /python-net/api-reference/aspose.slides.export/texttohtmlconversionoptions/
 ---
 
 Options for extracting HTML from the Pptx text.

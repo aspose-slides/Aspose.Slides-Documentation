@@ -2,7 +2,7 @@
 title: MathSuperscriptElementFactory Class
 type: docs
 weight: 840
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelementfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelementfactory/
 ---
 
 Allows to create IMathSuperscriptElement

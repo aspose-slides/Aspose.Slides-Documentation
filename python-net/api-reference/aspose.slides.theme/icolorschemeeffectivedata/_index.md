@@ -2,7 +2,7 @@
 title: IColorSchemeEffectiveData Class
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides.theme/icolorschemeeffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/icolorschemeeffectivedata/
 ---
 
 Immutable object which contains effective color scheme properties.

@@ -2,7 +2,7 @@
 title: MathVerticalAlignment Enumeration
 type: docs
 weight: 990
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathverticalalignment/
+url: /python-net/api-reference/aspose.slides.mathtext/mathverticalalignment/
 ---
 
 Vertical Alignment

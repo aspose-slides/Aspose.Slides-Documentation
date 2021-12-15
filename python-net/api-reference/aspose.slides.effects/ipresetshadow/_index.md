@@ -2,7 +2,7 @@
 title: IPresetShadow Class
 type: docs
 weight: 780
-url: /slides/python-net/api-reference/aspose.slides.effects/ipresetshadow/
+url: /python-net/api-reference/aspose.slides.effects/ipresetshadow/
 ---
 
 Represents a Preset Shadow effect.

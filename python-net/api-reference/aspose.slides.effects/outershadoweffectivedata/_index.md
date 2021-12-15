@@ -2,7 +2,7 @@
 title: OuterShadowEffectiveData Class
 type: docs
 weight: 950
-url: /slides/python-net/api-reference/aspose.slides.effects/outershadoweffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/outershadoweffectivedata/
 ---
 
 Immutable object which represents a outer shadow effect.

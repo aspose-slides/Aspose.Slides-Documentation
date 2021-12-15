@@ -2,7 +2,7 @@
 title: TextUnderlineType Enumeration
 type: docs
 weight: 10010
-url: /slides/python-net/api-reference/aspose.slides/textunderlinetype/
+url: /python-net/api-reference/aspose.slides/textunderlinetype/
 ---
 
 Represents the type of text underline.

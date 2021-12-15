@@ -2,7 +2,7 @@
 title: aspose.slides.effects
 type: docs
 weight: 60
-url: /slides/python-net/api-reference/aspose.slides.effects/
+url: /python-net/api-reference/aspose.slides.effects/
 ---
 
 

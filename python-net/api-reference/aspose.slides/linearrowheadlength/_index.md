@@ -2,7 +2,7 @@
 title: LineArrowheadLength Enumeration
 type: docs
 weight: 9510
-url: /slides/python-net/api-reference/aspose.slides/linearrowheadlength/
+url: /python-net/api-reference/aspose.slides/linearrowheadlength/
 ---
 
 Represents the length of an arrowhead.

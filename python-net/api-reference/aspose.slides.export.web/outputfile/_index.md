@@ -2,7 +2,7 @@
 title: OutputFile Class
 type: docs
 weight: 60
-url: /slides/python-net/api-reference/aspose.slides.export.web/outputfile/
+url: /python-net/api-reference/aspose.slides.export.web/outputfile/
 ---
 
 Represents an output file.

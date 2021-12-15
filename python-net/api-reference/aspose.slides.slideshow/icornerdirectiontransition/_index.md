@@ -2,7 +2,7 @@
 title: ICornerDirectionTransition Class
 type: docs
 weight: 60
-url: /slides/python-net/api-reference/aspose.slides.slideshow/icornerdirectiontransition/
+url: /python-net/api-reference/aspose.slides.slideshow/icornerdirectiontransition/
 ---
 
 Corner direction slide transition effect.

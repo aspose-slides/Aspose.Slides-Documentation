@@ -2,7 +2,7 @@
 title: AlphaCeiling Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.effects/alphaceiling/
+url: /python-net/api-reference/aspose.slides.effects/alphaceiling/
 ---
 
 Represents an Alpha Ceiling effect.<br/>            Alpha (opacity) values greater than zero are changed to 100%.<br/>            In other words, anything partially opaque becomes fully opaque.

@@ -2,7 +2,7 @@
 title: IKnownIssueWarningInfo Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.warnings/iknownissuewarninginfo/
+url: /python-net/api-reference/aspose.slides.warnings/iknownissuewarninginfo/
 ---
 
 Represents a warning about known issue which won't be fixed in the near future.

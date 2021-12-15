@@ -2,7 +2,7 @@
 title: VbaProjectFactory Class
 type: docs
 weight: 140
-url: /slides/python-net/api-reference/aspose.slides.vba/vbaprojectfactory/
+url: /python-net/api-reference/aspose.slides.vba/vbaprojectfactory/
 ---
 
 Allows to create VBA project via COM interface

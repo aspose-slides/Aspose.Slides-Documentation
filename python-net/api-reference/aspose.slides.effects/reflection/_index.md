@@ -2,7 +2,7 @@
 title: Reflection Class
 type: docs
 weight: 980
-url: /slides/python-net/api-reference/aspose.slides.effects/reflection/
+url: /python-net/api-reference/aspose.slides.effects/reflection/
 ---
 
 Represents a Reflection effect.

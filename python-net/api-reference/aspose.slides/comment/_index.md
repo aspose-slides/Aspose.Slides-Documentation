@@ -2,7 +2,7 @@
 title: Comment Class
 type: docs
 weight: 290
-url: /slides/python-net/api-reference/aspose.slides/comment/
+url: /python-net/api-reference/aspose.slides/comment/
 ---
 
 Represents a comment on a slide.

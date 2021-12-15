@@ -2,7 +2,7 @@
 title: TransitionMorphType Enumeration
 type: docs
 weight: 410
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionmorphtype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionmorphtype/
 ---
 
 Represent a type of morph transition.

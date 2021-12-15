@@ -2,7 +2,7 @@
 title: PropertyEffect Class
 type: docs
 weight: 410
-url: /slides/python-net/api-reference/aspose.slides.animation/propertyeffect/
+url: /python-net/api-reference/aspose.slides.animation/propertyeffect/
 ---
 
 Represent property effect behavior.

@@ -2,7 +2,7 @@
 title: LinkEmbedDecision Enumeration
 type: docs
 weight: 720
-url: /slides/python-net/api-reference/aspose.slides.export/linkembeddecision/
+url: /python-net/api-reference/aspose.slides.export/linkembeddecision/
 ---
 
 Determines how object will be processed during saving.

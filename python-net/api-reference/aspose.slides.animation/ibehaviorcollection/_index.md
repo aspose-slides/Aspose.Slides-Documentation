@@ -2,7 +2,7 @@
 title: IBehaviorCollection Class
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides.animation/ibehaviorcollection/
+url: /python-net/api-reference/aspose.slides.animation/ibehaviorcollection/
 ---
 
 Represents collection of behavior effects.

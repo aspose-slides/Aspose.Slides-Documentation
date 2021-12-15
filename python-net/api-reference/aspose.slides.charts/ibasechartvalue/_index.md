@@ -2,7 +2,7 @@
 title: IBaseChartValue Class
 type: docs
 weight: 440
-url: /slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/
+url: /python-net/api-reference/aspose.slides.charts/ibasechartvalue/
 ---
 
 Represents a value of a chart.

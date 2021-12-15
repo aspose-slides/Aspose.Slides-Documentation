@@ -2,7 +2,7 @@
 title: ColorEffect Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.animation/coloreffect/
+url: /python-net/api-reference/aspose.slides.animation/coloreffect/
 ---
 
 Represents a color effect for an animation behavior.

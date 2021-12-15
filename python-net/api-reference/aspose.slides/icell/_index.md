@@ -2,7 +2,7 @@
 title: ICell Class
 type: docs
 weight: 1000
-url: /slides/python-net/api-reference/aspose.slides/icell/
+url: /python-net/api-reference/aspose.slides/icell/
 ---
 
 Represents a cell in a table.

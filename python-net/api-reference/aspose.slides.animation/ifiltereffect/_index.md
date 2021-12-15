@@ -2,7 +2,7 @@
 title: IFilterEffect Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides.animation/ifiltereffect/
+url: /python-net/api-reference/aspose.slides.animation/ifiltereffect/
 ---
 
 Represent filter effect of behavior.

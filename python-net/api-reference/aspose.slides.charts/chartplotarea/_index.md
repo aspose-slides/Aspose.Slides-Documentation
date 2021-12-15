@@ -2,7 +2,7 @@
 title: ChartPlotArea Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides.charts/chartplotarea/
+url: /python-net/api-reference/aspose.slides.charts/chartplotarea/
 ---
 
 Represents rectangle where chart should be plotted.

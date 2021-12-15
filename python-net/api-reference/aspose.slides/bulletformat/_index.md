@@ -2,7 +2,7 @@
 title: BulletFormat Class
 type: docs
 weight: 180
-url: /slides/python-net/api-reference/aspose.slides/bulletformat/
+url: /python-net/api-reference/aspose.slides/bulletformat/
 ---
 
 Represents paragraph bullet formatting properties.

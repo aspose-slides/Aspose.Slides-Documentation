@@ -2,7 +2,7 @@
 title: ITint Class
 type: docs
 weight: 840
-url: /slides/python-net/api-reference/aspose.slides.effects/itint/
+url: /python-net/api-reference/aspose.slides.effects/itint/
 ---
 
 Represents a Tint effect.<br/>            Shifts effect color values towards/away from hue by the specified amount.

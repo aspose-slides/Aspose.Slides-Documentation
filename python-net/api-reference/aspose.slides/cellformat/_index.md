@@ -2,7 +2,7 @@
 title: CellFormat Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides/cellformat/
+url: /python-net/api-reference/aspose.slides/cellformat/
 ---
 
 Represents format of a table cell.

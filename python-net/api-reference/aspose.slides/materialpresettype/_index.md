@@ -2,7 +2,7 @@
 title: MaterialPresetType Enumeration
 type: docs
 weight: 9610
-url: /slides/python-net/api-reference/aspose.slides/materialpresettype/
+url: /python-net/api-reference/aspose.slides/materialpresettype/
 ---
 
 Constants which define material of shape.

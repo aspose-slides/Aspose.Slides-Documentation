@@ -2,7 +2,7 @@
 title: StringOrDoubleChartValue Class
 type: docs
 weight: 1050
-url: /slides/python-net/api-reference/aspose.slides.charts/stringordoublechartvalue/
+url: /python-net/api-reference/aspose.slides.charts/stringordoublechartvalue/
 ---
 
 Represent string or double value which can be stored in pptx presentation document in two ways:<br/>            1) in cell/cells of workbook related to chart;<br/>            2) as literal value.

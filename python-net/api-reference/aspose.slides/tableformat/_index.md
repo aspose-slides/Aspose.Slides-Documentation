@@ -2,7 +2,7 @@
 title: TableFormat Class
 type: docs
 weight: 3760
-url: /slides/python-net/api-reference/aspose.slides/tableformat/
+url: /python-net/api-reference/aspose.slides/tableformat/
 ---
 
 Represents format of a table.

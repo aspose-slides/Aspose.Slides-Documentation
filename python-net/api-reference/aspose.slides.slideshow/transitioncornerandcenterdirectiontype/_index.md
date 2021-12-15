@@ -2,7 +2,7 @@
 title: TransitionCornerAndCenterDirectionType Enumeration
 type: docs
 weight: 360
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioncornerandcenterdirectiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitioncornerandcenterdirectiontype/
 ---
 
 Specifies a direction restricted to the corners and center.

@@ -2,7 +2,7 @@
 title: PdfTextCompression Enumeration
 type: docs
 weight: 760
-url: /slides/python-net/api-reference/aspose.slides.export/pdftextcompression/
+url: /python-net/api-reference/aspose.slides.export/pdftextcompression/
 ---
 
 Constants which define the type of a compression applied to all content in the PDF file except images.

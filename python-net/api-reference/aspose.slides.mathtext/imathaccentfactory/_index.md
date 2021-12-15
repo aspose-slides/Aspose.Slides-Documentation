@@ -2,7 +2,7 @@
 title: IMathAccentFactory Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathaccentfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathaccentfactory/
 ---
 
 Allows to create a math accent

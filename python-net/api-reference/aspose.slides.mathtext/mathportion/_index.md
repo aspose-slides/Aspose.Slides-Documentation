@@ -2,7 +2,7 @@
 title: MathPortion Class
 type: docs
 weight: 760
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathportion/
+url: /python-net/api-reference/aspose.slides.mathtext/mathportion/
 ---
 
 Represents a portion with mathematical context inside.

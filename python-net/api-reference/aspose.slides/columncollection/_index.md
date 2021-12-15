@@ -2,7 +2,7 @@
 title: ColumnCollection Class
 type: docs
 weight: 270
-url: /slides/python-net/api-reference/aspose.slides/columncollection/
+url: /python-net/api-reference/aspose.slides/columncollection/
 ---
 
 Represents collection of columns in a table.

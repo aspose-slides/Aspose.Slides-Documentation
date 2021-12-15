@@ -2,7 +2,7 @@
 title: PptxException Class
 type: docs
 weight: 3420
-url: /slides/python-net/api-reference/aspose.slides/pptxexception/
+url: /python-net/api-reference/aspose.slides/pptxexception/
 ---
 
 Represents a standard internal exception type.

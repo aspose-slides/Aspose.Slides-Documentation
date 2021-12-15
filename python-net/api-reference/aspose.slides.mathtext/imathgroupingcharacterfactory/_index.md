@@ -2,7 +2,7 @@
 title: IMathGroupingCharacterFactory Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathgroupingcharacterfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathgroupingcharacterfactory/
 ---
 
 Allows to create a math grouping character

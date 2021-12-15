@@ -2,7 +2,7 @@
 title: ISlide Class
 type: docs
 weight: 2480
-url: /slides/python-net/api-reference/aspose.slides/islide/
+url: /python-net/api-reference/aspose.slides/islide/
 ---
 
 Represents a slide in a presentation.

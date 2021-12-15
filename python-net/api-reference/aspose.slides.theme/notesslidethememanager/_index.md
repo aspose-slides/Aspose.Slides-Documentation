@@ -2,7 +2,7 @@
 title: NotesSlideThemeManager Class
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides.theme/notesslidethememanager/
+url: /python-net/api-reference/aspose.slides.theme/notesslidethememanager/
 ---
 
 Provides access to notes slide theme overriden.

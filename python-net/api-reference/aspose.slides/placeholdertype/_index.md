@@ -2,7 +2,7 @@
 title: PlaceholderType Enumeration
 type: docs
 weight: 9730
-url: /slides/python-net/api-reference/aspose.slides/placeholdertype/
+url: /python-net/api-reference/aspose.slides/placeholdertype/
 ---
 
 Represents the type of a placeholder.

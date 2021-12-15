@@ -2,7 +2,7 @@
 title: FillFormat Class
 type: docs
 weight: 480
-url: /slides/python-net/api-reference/aspose.slides/fillformat/
+url: /python-net/api-reference/aspose.slides/fillformat/
 ---
 
 Represents a fill formatting options.

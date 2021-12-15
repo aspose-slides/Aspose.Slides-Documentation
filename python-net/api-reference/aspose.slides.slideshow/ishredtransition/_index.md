@@ -2,7 +2,7 @@
 title: IShredTransition Class
 type: docs
 weight: 180
-url: /slides/python-net/api-reference/aspose.slides.slideshow/ishredtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/ishredtransition/
 ---
 
 Shred slide transition effect.

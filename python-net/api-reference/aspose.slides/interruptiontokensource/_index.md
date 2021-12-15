@@ -2,7 +2,7 @@
 title: InterruptionTokenSource Class
 type: docs
 weight: 2860
-url: /slides/python-net/api-reference/aspose.slides/interruptiontokensource/
+url: /python-net/api-reference/aspose.slides/interruptiontokensource/
 ---
 
 Represents the source of [InterruptionToken](/python-net/api-reference/aspose.slides/interruptiontoken/).

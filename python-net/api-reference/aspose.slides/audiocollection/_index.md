@@ -2,7 +2,7 @@
 title: AudioCollection Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides/audiocollection/
+url: /python-net/api-reference/aspose.slides/audiocollection/
 ---
 
 Represents a collection of embedded audio files.

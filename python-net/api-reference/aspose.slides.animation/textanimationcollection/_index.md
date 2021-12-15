@@ -2,7 +2,7 @@
 title: TextAnimationCollection Class
 type: docs
 weight: 480
-url: /slides/python-net/api-reference/aspose.slides.animation/textanimationcollection/
+url: /python-net/api-reference/aspose.slides.animation/textanimationcollection/
 ---
 
 Represents collection of text animations.

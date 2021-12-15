@@ -2,7 +2,7 @@
 title: ILineFormat Class
 type: docs
 weight: 1780
-url: /slides/python-net/api-reference/aspose.slides/ilineformat/
+url: /python-net/api-reference/aspose.slides/ilineformat/
 ---
 
 Represents format of a line.

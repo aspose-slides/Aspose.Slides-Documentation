@@ -2,7 +2,7 @@
 title: IChartSeriesReadonlyCollection Class
 type: docs
 weight: 680
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/
+url: /python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/
 ---
 
 Represents a readonly collection of  [IChartSeries](/python-net/api-reference/aspose.slides.charts/ichartseries/)

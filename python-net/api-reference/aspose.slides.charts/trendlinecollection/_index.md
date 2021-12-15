@@ -2,7 +2,7 @@
 title: TrendlineCollection Class
 type: docs
 weight: 1070
-url: /slides/python-net/api-reference/aspose.slides.charts/trendlinecollection/
+url: /python-net/api-reference/aspose.slides.charts/trendlinecollection/
 ---
 
 Represents a collection of Trendline

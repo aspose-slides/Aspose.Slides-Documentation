@@ -2,7 +2,7 @@
 title: PropertyCalcModeType Enumeration
 type: docs
 weight: 710
-url: /slides/python-net/api-reference/aspose.slides.animation/propertycalcmodetype/
+url: /python-net/api-reference/aspose.slides.animation/propertycalcmodetype/
 ---
 
 Represent calc mode for animation property.

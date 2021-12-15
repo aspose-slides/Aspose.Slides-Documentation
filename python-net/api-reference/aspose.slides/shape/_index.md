@@ -2,7 +2,7 @@
 title: Shape Class
 type: docs
 weight: 3570
-url: /slides/python-net/api-reference/aspose.slides/shape/
+url: /python-net/api-reference/aspose.slides/shape/
 ---
 
 Represents a shape on a slide.

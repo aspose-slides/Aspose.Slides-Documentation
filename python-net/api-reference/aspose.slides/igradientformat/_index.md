@@ -2,7 +2,7 @@
 title: IGradientFormat Class
 type: docs
 weight: 1500
-url: /slides/python-net/api-reference/aspose.slides/igradientformat/
+url: /python-net/api-reference/aspose.slides/igradientformat/
 ---
 
 Represent a gradient format.

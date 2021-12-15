@@ -2,7 +2,7 @@
 title: ISequence Class
 type: docs
 weight: 300
-url: /slides/python-net/api-reference/aspose.slides.animation/isequence/
+url: /python-net/api-reference/aspose.slides.animation/isequence/
 ---
 
 Represents sequence (collection of effects).

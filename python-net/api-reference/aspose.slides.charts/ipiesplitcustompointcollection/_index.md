@@ -2,7 +2,7 @@
 title: IPieSplitCustomPointCollection Class
 type: docs
 weight: 900
-url: /slides/python-net/api-reference/aspose.slides.charts/ipiesplitcustompointcollection/
+url: /python-net/api-reference/aspose.slides.charts/ipiesplitcustompointcollection/
 ---
 
 Represents a collection of points that shall be drawn in the second pie or bar on a bar-of-pie or pie-of-pie chart with a custom split.

@@ -2,7 +2,7 @@
 title: OleObjectFrame Class
 type: docs
 weight: 3170
-url: /slides/python-net/api-reference/aspose.slides/oleobjectframe/
+url: /python-net/api-reference/aspose.slides/oleobjectframe/
 ---
 
 Represents an OLE object on a slide.

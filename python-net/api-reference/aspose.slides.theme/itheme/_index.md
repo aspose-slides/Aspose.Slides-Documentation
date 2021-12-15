@@ -2,7 +2,7 @@
 title: ITheme Class
 type: docs
 weight: 340
-url: /slides/python-net/api-reference/aspose.slides.theme/itheme/
+url: /python-net/api-reference/aspose.slides.theme/itheme/
 ---
 
 Represents a theme.

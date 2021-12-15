@@ -2,7 +2,7 @@
 title: ICellFormatEffectiveData Class
 type: docs
 weight: 1030
-url: /slides/python-net/api-reference/aspose.slides/icellformateffectivedata/
+url: /python-net/api-reference/aspose.slides/icellformateffectivedata/
 ---
 
 Immutable object which contains effective table cell formatting properties.

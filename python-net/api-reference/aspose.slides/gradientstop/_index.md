@@ -2,7 +2,7 @@
 title: GradientStop Class
 type: docs
 weight: 640
-url: /slides/python-net/api-reference/aspose.slides/gradientstop/
+url: /python-net/api-reference/aspose.slides/gradientstop/
 ---
 
 Represents a gradient format.

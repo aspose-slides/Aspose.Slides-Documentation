@@ -2,7 +2,7 @@
 title: IAxisFormat Class
 type: docs
 weight: 430
-url: /slides/python-net/api-reference/aspose.slides.charts/iaxisformat/
+url: /python-net/api-reference/aspose.slides.charts/iaxisformat/
 ---
 
 Represents chart format properties.

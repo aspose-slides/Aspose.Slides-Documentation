@@ -2,7 +2,7 @@
 title: EmbedAllFontsHtmlController Class
 type: docs
 weight: 10
-url: /slides/python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/
+url: /python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/
 ---
 
 The formatting controller class to use for embedding all presentation fonts in WOFF format.

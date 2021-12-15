@@ -2,7 +2,7 @@
 title: IWheelTransition Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides.slideshow/iwheeltransition/
+url: /python-net/api-reference/aspose.slides.slideshow/iwheeltransition/
 ---
 
 Wheel slide transition effect.

@@ -2,7 +2,7 @@
 title: IDataTable Class
 type: docs
 weight: 770
-url: /slides/python-net/api-reference/aspose.slides.charts/idatatable/
+url: /python-net/api-reference/aspose.slides.charts/idatatable/
 ---
 
 Represents data table properties.

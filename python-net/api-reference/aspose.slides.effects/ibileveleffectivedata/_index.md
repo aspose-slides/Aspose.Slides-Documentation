@@ -2,7 +2,7 @@
 title: IBiLevelEffectiveData Class
 type: docs
 weight: 490
-url: /slides/python-net/api-reference/aspose.slides.effects/ibileveleffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ibileveleffectivedata/
 ---
 
 Immutable object which represents a Bi-Level (black/white) effect.<br/>            Input colors whose luminance is less than the specified threshold value are changed to black.<br/>            Input colors whose luminance are greater than or equal the specified value are set to white.<br/>            The alpha effect values are unaffected by this effect.

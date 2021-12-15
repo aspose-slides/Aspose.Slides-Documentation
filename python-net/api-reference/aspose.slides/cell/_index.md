@@ -2,7 +2,7 @@
 title: Cell Class
 type: docs
 weight: 200
-url: /slides/python-net/api-reference/aspose.slides/cell/
+url: /python-net/api-reference/aspose.slides/cell/
 ---
 
 Represents a cell of a table.

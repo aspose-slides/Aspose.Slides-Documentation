@@ -2,7 +2,7 @@
 title: MathBar Class
 type: docs
 weight: 500
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathbar/
+url: /python-net/api-reference/aspose.slides.mathtext/mathbar/
 ---
 
 Specifies the bar function, consisting of a base argument and an overbar or underbar

@@ -2,7 +2,7 @@
 title: GradientDirection Enumeration
 type: docs
 weight: 9440
-url: /slides/python-net/api-reference/aspose.slides/gradientdirection/
+url: /python-net/api-reference/aspose.slides/gradientdirection/
 ---
 
 Represents the gradient style.

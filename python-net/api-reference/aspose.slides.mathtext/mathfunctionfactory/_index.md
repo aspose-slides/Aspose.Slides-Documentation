@@ -2,7 +2,7 @@
 title: MathFunctionFactory Class
 type: docs
 weight: 640
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfunctionfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathfunctionfactory/
 ---
 
 Allows to create a math function

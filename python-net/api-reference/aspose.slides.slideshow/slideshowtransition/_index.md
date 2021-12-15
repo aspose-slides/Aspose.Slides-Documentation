@@ -2,7 +2,7 @@
 title: SlideShowTransition Class
 type: docs
 weight: 320
-url: /slides/python-net/api-reference/aspose.slides.slideshow/slideshowtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/slideshowtransition/
 ---
 
 Represents slide show transition.

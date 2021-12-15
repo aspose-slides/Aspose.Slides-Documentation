@@ -2,7 +2,7 @@
 title: Portion Class
 type: docs
 weight: 3310
-url: /slides/python-net/api-reference/aspose.slides/portion/
+url: /python-net/api-reference/aspose.slides/portion/
 ---
 
 Represents a portion of text inside a text paragraph.

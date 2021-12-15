@@ -2,7 +2,7 @@
 title: CommandEffect Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.animation/commandeffect/
+url: /python-net/api-reference/aspose.slides.animation/commandeffect/
 ---
 
 Represents a command effect for an animation behavior.

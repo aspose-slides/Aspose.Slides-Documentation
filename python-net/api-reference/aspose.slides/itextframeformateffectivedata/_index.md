@@ -2,7 +2,7 @@
 title: ITextFrameFormatEffectiveData Class
 type: docs
 weight: 2700
-url: /slides/python-net/api-reference/aspose.slides/itextframeformateffectivedata/
+url: /python-net/api-reference/aspose.slides/itextframeformateffectivedata/
 ---
 
 Immutable object which contains effective text frame formatting properties.

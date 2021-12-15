@@ -2,7 +2,7 @@
 title: ITextAnimation Class
 type: docs
 weight: 330
-url: /slides/python-net/api-reference/aspose.slides.animation/itextanimation/
+url: /python-net/api-reference/aspose.slides.animation/itextanimation/
 ---
 
 Represent text animation.

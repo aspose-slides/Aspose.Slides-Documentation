@@ -2,7 +2,7 @@
 title: ILayoutSlideHeaderFooterManager Class
 type: docs
 weight: 1710
-url: /slides/python-net/api-reference/aspose.slides/ilayoutslideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/ilayoutslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the layout slide footer, date-time, page number placeholders and all child placeholders.<br/>            Child placeholders mean placeholders are contained on depending slides.<br/>            Depending slides use and depend on layout slide.

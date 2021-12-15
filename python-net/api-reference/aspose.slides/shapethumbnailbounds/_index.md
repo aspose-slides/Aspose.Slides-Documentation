@@ -2,7 +2,7 @@
 title: ShapeThumbnailBounds Enumeration
 type: docs
 weight: 9820
-url: /slides/python-net/api-reference/aspose.slides/shapethumbnailbounds/
+url: /python-net/api-reference/aspose.slides/shapethumbnailbounds/
 ---
 
 Enumeration of types of shape thumbnail bounds.

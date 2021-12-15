@@ -2,7 +2,7 @@
 title: IFontSources Class
 type: docs
 weight: 1390
-url: /slides/python-net/api-reference/aspose.slides/ifontsources/
+url: /python-net/api-reference/aspose.slides/ifontsources/
 ---
 
 Provides file and memory sources for external fonts.

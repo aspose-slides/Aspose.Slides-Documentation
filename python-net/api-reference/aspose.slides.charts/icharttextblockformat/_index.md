@@ -2,7 +2,7 @@
 title: IChartTextBlockFormat Class
 type: docs
 weight: 690
-url: /slides/python-net/api-reference/aspose.slides.charts/icharttextblockformat/
+url: /python-net/api-reference/aspose.slides.charts/icharttextblockformat/
 ---
 
 Represents formatting properties for chart text elements.

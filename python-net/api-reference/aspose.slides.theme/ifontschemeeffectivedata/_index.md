@@ -2,7 +2,7 @@
 title: IFontSchemeEffectiveData Class
 type: docs
 weight: 230
-url: /slides/python-net/api-reference/aspose.slides.theme/ifontschemeeffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/ifontschemeeffectivedata/
 ---
 
 Immutable object which contains effective font scheme properties.

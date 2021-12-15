@@ -2,7 +2,7 @@
 title: SequenceCollection Class
 type: docs
 weight: 450
-url: /slides/python-net/api-reference/aspose.slides.animation/sequencecollection/
+url: /python-net/api-reference/aspose.slides.animation/sequencecollection/
 ---
 
 Represents collection of interactive sequences.

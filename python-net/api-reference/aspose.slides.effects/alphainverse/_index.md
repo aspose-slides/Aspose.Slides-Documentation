@@ -2,7 +2,7 @@
 title: AlphaInverse Class
 type: docs
 weight: 70
-url: /slides/python-net/api-reference/aspose.slides.effects/alphainverse/
+url: /python-net/api-reference/aspose.slides.effects/alphainverse/
 ---
 
 Represents an Alpha Inverse effect.<br/>            Alpha (opacity) values are inverted by subtracting from 100%.

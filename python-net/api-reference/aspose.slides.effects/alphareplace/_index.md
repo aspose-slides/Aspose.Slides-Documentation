@@ -2,7 +2,7 @@
 title: AlphaReplace Class
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides.effects/alphareplace/
+url: /python-net/api-reference/aspose.slides.effects/alphareplace/
 ---
 
 Represents and Alpha Replace effect.<br/>            Effect alpha (opacity) values are replaced by a fixed alpha.

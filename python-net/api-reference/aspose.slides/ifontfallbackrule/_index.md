@@ -2,7 +2,7 @@
 title: IFontFallBackRule Class
 type: docs
 weight: 1370
-url: /slides/python-net/api-reference/aspose.slides/ifontfallbackrule/
+url: /python-net/api-reference/aspose.slides/ifontfallbackrule/
 ---
 
 Represents font fallback rule

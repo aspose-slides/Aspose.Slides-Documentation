@@ -2,7 +2,7 @@
 title: BaseSlide Class
 type: docs
 weight: 140
-url: /slides/python-net/api-reference/aspose.slides/baseslide/
+url: /python-net/api-reference/aspose.slides/baseslide/
 ---
 
 Represents common data for all slide types.

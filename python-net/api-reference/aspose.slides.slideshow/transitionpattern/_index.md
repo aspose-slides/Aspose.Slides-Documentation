@@ -2,7 +2,7 @@
 title: TransitionPattern Enumeration
 type: docs
 weight: 420
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionpattern/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionpattern/
 ---
 
 Specifies a geometric pattern that tiles together to fill a larger area.

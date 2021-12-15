@@ -2,7 +2,7 @@
 title: PointCollection Class
 type: docs
 weight: 400
-url: /slides/python-net/api-reference/aspose.slides.animation/pointcollection/
+url: /python-net/api-reference/aspose.slides.animation/pointcollection/
 ---
 
 Represent collection of animation points.

@@ -2,7 +2,7 @@
 title: ControlType Enumeration
 type: docs
 weight: 9380
-url: /slides/python-net/api-reference/aspose.slides/controltype/
+url: /python-net/api-reference/aspose.slides/controltype/
 ---
 
 Defines a control type which should be embedded by

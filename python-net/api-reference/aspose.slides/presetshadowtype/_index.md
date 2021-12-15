@@ -2,7 +2,7 @@
 title: PresetShadowType Enumeration
 type: docs
 weight: 9760
-url: /slides/python-net/api-reference/aspose.slides/presetshadowtype/
+url: /python-net/api-reference/aspose.slides/presetshadowtype/
 ---
 
 Represents a preset for a shadow effect.

@@ -2,7 +2,7 @@
 title: ISaveOptionsFactory Class
 type: docs
 weight: 260
-url: /slides/python-net/api-reference/aspose.slides.export/isaveoptionsfactory/
+url: /python-net/api-reference/aspose.slides.export/isaveoptionsfactory/
 ---
 
 Allows to create save options' instances

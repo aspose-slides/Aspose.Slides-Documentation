@@ -2,7 +2,7 @@
 title: IParagraphFactory Class
 type: docs
 weight: 2050
-url: /slides/python-net/api-reference/aspose.slides/iparagraphfactory/
+url: /python-net/api-reference/aspose.slides/iparagraphfactory/
 ---
 
 Allows to create paragraphs

@@ -2,7 +2,7 @@
 title: MathRightSubSuperscriptElement Class
 type: docs
 weight: 790
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathrightsubsuperscriptelement/
+url: /python-net/api-reference/aspose.slides.mathtext/mathrightsubsuperscriptelement/
 ---
 
 Specifies the Sub-Superscript object, which consists of a base <br/>            and a subscript and superscript placed to the right of the base.

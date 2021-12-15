@@ -2,7 +2,7 @@
 title: ISection Class
 type: docs
 weight: 2360
-url: /slides/python-net/api-reference/aspose.slides/isection/
+url: /python-net/api-reference/aspose.slides/isection/
 ---
 
 Represents section of slides.

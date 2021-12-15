@@ -2,7 +2,7 @@
 title: IPresentation Class
 type: docs
 weight: 2220
-url: /slides/python-net/api-reference/aspose.slides/ipresentation/
+url: /python-net/api-reference/aspose.slides/ipresentation/
 ---
 
 Presentation document

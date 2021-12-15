@@ -2,7 +2,7 @@
 title: Tab Class
 type: docs
 weight: 3720
-url: /slides/python-net/api-reference/aspose.slides/tab/
+url: /python-net/api-reference/aspose.slides/tab/
 ---
 
 Represents a tabulation for a text.

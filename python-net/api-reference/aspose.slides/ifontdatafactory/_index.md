@@ -2,7 +2,7 @@
 title: IFontDataFactory Class
 type: docs
 weight: 1360
-url: /slides/python-net/api-reference/aspose.slides/ifontdatafactory/
+url: /python-net/api-reference/aspose.slides/ifontdatafactory/
 ---
 
 FontData factory interface

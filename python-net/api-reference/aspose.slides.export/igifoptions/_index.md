@@ -2,7 +2,7 @@
 title: IGifOptions Class
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.export/igifoptions/
+url: /python-net/api-reference/aspose.slides.export/igifoptions/
 ---
 
 Represents GIF exporting options.

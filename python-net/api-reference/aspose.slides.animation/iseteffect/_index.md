@@ -2,7 +2,7 @@
 title: ISetEffect Class
 type: docs
 weight: 320
-url: /slides/python-net/api-reference/aspose.slides.animation/iseteffect/
+url: /python-net/api-reference/aspose.slides.animation/iseteffect/
 ---
 
 Represents a set effect for an animation behavior.

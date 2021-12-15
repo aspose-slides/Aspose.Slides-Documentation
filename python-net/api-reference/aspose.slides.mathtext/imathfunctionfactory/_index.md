@@ -2,7 +2,7 @@
 title: IMathFunctionFactory Class
 type: docs
 weight: 220
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathfunctionfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathfunctionfactory/
 ---
 
 Allows to create a math function

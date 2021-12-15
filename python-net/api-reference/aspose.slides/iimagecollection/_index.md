@@ -2,7 +2,7 @@
 title: IImageCollection Class
 type: docs
 weight: 1640
-url: /slides/python-net/api-reference/aspose.slides/iimagecollection/
+url: /python-net/api-reference/aspose.slides/iimagecollection/
 ---
 
 Represents collection of PPImage.

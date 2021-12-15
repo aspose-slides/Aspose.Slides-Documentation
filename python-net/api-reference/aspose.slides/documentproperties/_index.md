@@ -2,7 +2,7 @@
 title: DocumentProperties Class
 type: docs
 weight: 440
-url: /slides/python-net/api-reference/aspose.slides/documentproperties/
+url: /python-net/api-reference/aspose.slides/documentproperties/
 ---
 
 Represents properties of a presentation.

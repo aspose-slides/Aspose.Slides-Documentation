@@ -2,7 +2,7 @@
 title: IAlphaModulateEffectiveData Class
 type: docs
 weight: 430
-url: /slides/python-net/api-reference/aspose.slides.effects/ialphamodulateeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ialphamodulateeffectivedata/
 ---
 
 Immutable object which represents an Alpha Modulate effect.<br/>            Effect alpha (opacity) values are multiplied by a fixed percentage.<br/>            The effect container specifies an effect containing alpha values to modulate.

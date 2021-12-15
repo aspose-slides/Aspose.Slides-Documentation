@@ -2,7 +2,7 @@
 title: DigitalSignatureCollection Class
 type: docs
 weight: 430
-url: /slides/python-net/api-reference/aspose.slides/digitalsignaturecollection/
+url: /python-net/api-reference/aspose.slides/digitalsignaturecollection/
 ---
 
 Represents a collection of digital signatures attached to a document.

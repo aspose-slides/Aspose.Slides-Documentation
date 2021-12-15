@@ -2,7 +2,7 @@
 title: ControlCollection Class
 type: docs
 weight: 370
-url: /slides/python-net/api-reference/aspose.slides/controlcollection/
+url: /python-net/api-reference/aspose.slides/controlcollection/
 ---
 
 A collection of ActiveX controls.

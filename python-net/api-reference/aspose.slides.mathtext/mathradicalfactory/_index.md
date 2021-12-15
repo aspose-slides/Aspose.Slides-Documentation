@@ -2,7 +2,7 @@
 title: MathRadicalFactory Class
 type: docs
 weight: 780
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathradicalfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/mathradicalfactory/
 ---
 
 Allows to create math radical

@@ -2,7 +2,7 @@
 title: IAlphaReplace Class
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides.effects/ialphareplace/
+url: /python-net/api-reference/aspose.slides.effects/ialphareplace/
 ---
 
 Represents base IImageTransformOperation interface.

@@ -2,7 +2,7 @@
 title: IColumnFormat Class
 type: docs
 weight: 1090
-url: /slides/python-net/api-reference/aspose.slides/icolumnformat/
+url: /python-net/api-reference/aspose.slides/icolumnformat/
 ---
 
 Represents format of a table column.

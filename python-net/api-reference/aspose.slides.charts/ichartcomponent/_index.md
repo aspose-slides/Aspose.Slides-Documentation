@@ -2,7 +2,7 @@
 title: IChartComponent Class
 type: docs
 weight: 500
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/
+url: /python-net/api-reference/aspose.slides.charts/ichartcomponent/
 ---
 
 Represents a component of a chart.

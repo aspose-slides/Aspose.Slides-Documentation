@@ -2,7 +2,7 @@
 title: BasePortionFormat Class
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides/baseportionformat/
+url: /python-net/api-reference/aspose.slides/baseportionformat/
 ---
 
 Common text portion formatting properties.

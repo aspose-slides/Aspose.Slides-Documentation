@@ -2,7 +2,7 @@
 title: Glow Class
 type: docs
 weight: 280
-url: /slides/python-net/api-reference/aspose.slides.effects/glow/
+url: /python-net/api-reference/aspose.slides.effects/glow/
 ---
 
 Represents a Glow effect, in which a color blurred outline <br/>            is added outside the edges of the object.

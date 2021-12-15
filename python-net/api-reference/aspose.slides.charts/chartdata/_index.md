@@ -2,7 +2,7 @@
 title: ChartData Class
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides.charts/chartdata/
+url: /python-net/api-reference/aspose.slides.charts/chartdata/
 ---
 
 Represents data used for a chart plotting.

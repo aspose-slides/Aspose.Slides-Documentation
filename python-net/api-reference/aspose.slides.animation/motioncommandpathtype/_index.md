@@ -2,7 +2,7 @@
 title: MotionCommandPathType Enumeration
 type: docs
 weight: 670
-url: /slides/python-net/api-reference/aspose.slides.animation/motioncommandpathtype/
+url: /python-net/api-reference/aspose.slides.animation/motioncommandpathtype/
 ---
 
 Represent types of command for animation motion effect behavior.

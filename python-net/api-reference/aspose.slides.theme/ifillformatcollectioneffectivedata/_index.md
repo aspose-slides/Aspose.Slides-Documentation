@@ -2,7 +2,7 @@
 title: IFillFormatCollectionEffectiveData Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides.theme/ifillformatcollectioneffectivedata/
+url: /python-net/api-reference/aspose.slides.theme/ifillformatcollectioneffectivedata/
 ---
 
 Immutable object that represents a readonly collection of effective fill formats.

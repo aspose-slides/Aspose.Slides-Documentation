@@ -2,7 +2,7 @@
 title: IInnerShadowEffectiveData Class
 type: docs
 weight: 730
-url: /slides/python-net/api-reference/aspose.slides.effects/iinnershadoweffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/iinnershadoweffectivedata/
 ---
 
 Immutable object which represents a inner shadow effect.

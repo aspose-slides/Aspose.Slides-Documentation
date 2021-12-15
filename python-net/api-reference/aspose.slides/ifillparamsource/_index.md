@@ -2,7 +2,7 @@
 title: IFillParamSource Class
 type: docs
 weight: 1340
-url: /slides/python-net/api-reference/aspose.slides/ifillparamsource/
+url: /python-net/api-reference/aspose.slides/ifillparamsource/
 ---
 
 Auxiliary fill parameters interface.

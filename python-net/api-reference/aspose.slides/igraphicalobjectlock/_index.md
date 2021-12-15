@@ -2,7 +2,7 @@
 title: IGraphicalObjectLock Class
 type: docs
 weight: 1570
-url: /slides/python-net/api-reference/aspose.slides/igraphicalobjectlock/
+url: /python-net/api-reference/aspose.slides/igraphicalobjectlock/
 ---
 
 Determines which operations are disabled on the parent GraphicalObjectEx.

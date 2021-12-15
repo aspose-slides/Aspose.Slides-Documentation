@@ -2,7 +2,7 @@
 title: AudioVolumeMode Enumeration
 type: docs
 weight: 9280
-url: /slides/python-net/api-reference/aspose.slides/audiovolumemode/
+url: /python-net/api-reference/aspose.slides/audiovolumemode/
 ---
 
 Constants which define audio volume.

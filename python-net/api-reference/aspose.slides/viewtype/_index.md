@@ -2,7 +2,7 @@
 title: ViewType Enumeration
 type: docs
 weight: 10060
-url: /slides/python-net/api-reference/aspose.slides/viewtype/
+url: /python-net/api-reference/aspose.slides/viewtype/
 ---
 
 Presentation view types

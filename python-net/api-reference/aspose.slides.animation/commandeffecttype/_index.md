@@ -2,7 +2,7 @@
 title: CommandEffectType Enumeration
 type: docs
 weight: 550
-url: /slides/python-net/api-reference/aspose.slides.animation/commandeffecttype/
+url: /python-net/api-reference/aspose.slides.animation/commandeffecttype/
 ---
 
 Represents command effect type for command effect behavior.

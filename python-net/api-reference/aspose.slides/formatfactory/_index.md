@@ -2,7 +2,7 @@
 title: FormatFactory Class
 type: docs
 weight: 590
-url: /slides/python-net/api-reference/aspose.slides/formatfactory/
+url: /python-net/api-reference/aspose.slides/formatfactory/
 ---
 
 Allows to create formats via COM interface.

@@ -2,7 +2,7 @@
 title: ILineFillFormat Class
 type: docs
 weight: 1760
-url: /slides/python-net/api-reference/aspose.slides/ilinefillformat/
+url: /python-net/api-reference/aspose.slides/ilinefillformat/
 ---
 
 Represents properties for lines filling.

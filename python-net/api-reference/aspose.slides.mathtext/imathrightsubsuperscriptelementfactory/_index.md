@@ -2,7 +2,7 @@
 title: IMathRightSubSuperscriptElementFactory Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathrightsubsuperscriptelementfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathrightsubsuperscriptelementfactory/
 ---
 
 Allows to create IMathRightSubSuperscriptElementFactory

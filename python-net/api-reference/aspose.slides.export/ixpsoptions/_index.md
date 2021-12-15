@@ -2,7 +2,7 @@
 title: IXpsOptions Class
 type: docs
 weight: 370
-url: /slides/python-net/api-reference/aspose.slides.export/ixpsoptions/
+url: /python-net/api-reference/aspose.slides.export/ixpsoptions/
 ---
 
 Provides options that control how a presentation is saved in XPS format.

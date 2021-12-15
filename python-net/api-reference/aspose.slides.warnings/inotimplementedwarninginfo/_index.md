@@ -2,7 +2,7 @@
 title: INotImplementedWarningInfo Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.warnings/inotimplementedwarninginfo/
+url: /python-net/api-reference/aspose.slides.warnings/inotimplementedwarninginfo/
 ---
 
 Represents a warning about known not implemented feature which won't be implemented in the near future.

@@ -2,7 +2,7 @@
 title: PictureType Enumeration
 type: docs
 weight: 1280
-url: /slides/python-net/api-reference/aspose.slides.charts/picturetype/
+url: /python-net/api-reference/aspose.slides.charts/picturetype/
 ---
 
 Determines mode of bar picture filling.

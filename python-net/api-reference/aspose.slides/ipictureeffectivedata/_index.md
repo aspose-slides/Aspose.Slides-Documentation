@@ -2,7 +2,7 @@
 title: IPictureEffectiveData Class
 type: docs
 weight: 2110
-url: /slides/python-net/api-reference/aspose.slides/ipictureeffectivedata/
+url: /python-net/api-reference/aspose.slides/ipictureeffectivedata/
 ---
 
 Immutable object which contains effective picture properties.

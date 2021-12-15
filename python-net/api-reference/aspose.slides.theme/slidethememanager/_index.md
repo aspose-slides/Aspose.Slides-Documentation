@@ -2,7 +2,7 @@
 title: SlideThemeManager Class
 type: docs
 weight: 440
-url: /slides/python-net/api-reference/aspose.slides.theme/slidethememanager/
+url: /python-net/api-reference/aspose.slides.theme/slidethememanager/
 ---
 
 Provides access to slide theme overriden.

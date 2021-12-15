@@ -2,7 +2,7 @@
 title: IRowFormatEffectiveData Class
 type: docs
 weight: 2350
-url: /slides/python-net/api-reference/aspose.slides/irowformateffectivedata/
+url: /python-net/api-reference/aspose.slides/irowformateffectivedata/
 ---
 
 Immutable object which contains effective table row formatting properties.

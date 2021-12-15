@@ -2,7 +2,7 @@
 title: ParentLabelLayoutType Enumeration
 type: docs
 weight: 1270
-url: /slides/python-net/api-reference/aspose.slides.charts/parentlabellayouttype/
+url: /python-net/api-reference/aspose.slides.charts/parentlabellayouttype/
 ---
 
 Represents layout of category data labels. Used with Treemap series only.

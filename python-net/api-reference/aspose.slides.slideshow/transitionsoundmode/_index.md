@@ -2,7 +2,7 @@
 title: TransitionSoundMode Enumeration
 type: docs
 weight: 450
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitionsoundmode/
+url: /python-net/api-reference/aspose.slides.slideshow/transitionsoundmode/
 ---
 
 Represent sound mode of transition.

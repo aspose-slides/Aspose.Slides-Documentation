@@ -2,7 +2,7 @@
 title: IVbaProject Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides.vba/ivbaproject/
+url: /python-net/api-reference/aspose.slides.vba/ivbaproject/
 ---
 
 Represents VBA project with presentation macros.

@@ -2,7 +2,7 @@
 title: OptionalBlackTransition Class
 type: docs
 weight: 260
-url: /slides/python-net/api-reference/aspose.slides.slideshow/optionalblacktransition/
+url: /python-net/api-reference/aspose.slides.slideshow/optionalblacktransition/
 ---
 
 Optional black slide transition effect.

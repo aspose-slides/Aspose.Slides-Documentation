@@ -2,7 +2,7 @@
 title: ImageTransformOperationFactory Class
 type: docs
 weight: 890
-url: /slides/python-net/api-reference/aspose.slides.effects/imagetransformoperationfactory/
+url: /python-net/api-reference/aspose.slides.effects/imagetransformoperationfactory/
 ---
 
 Allows to create image transform operations

@@ -2,7 +2,7 @@
 title: FontData Class
 type: docs
 weight: 490
-url: /slides/python-net/api-reference/aspose.slides/fontdata/
+url: /python-net/api-reference/aspose.slides/fontdata/
 ---
 
 Represents a font definition. Immutable.

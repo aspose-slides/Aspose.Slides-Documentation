@@ -2,7 +2,7 @@
 title: TagCollection Class
 type: docs
 weight: 3770
-url: /slides/python-net/api-reference/aspose.slides/tagcollection/
+url: /python-net/api-reference/aspose.slides/tagcollection/
 ---
 
 Represents the collection of tags (user defined pairs of strings)

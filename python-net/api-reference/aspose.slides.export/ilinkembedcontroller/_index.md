@@ -2,7 +2,7 @@
 title: ILinkEmbedController Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.export/ilinkembedcontroller/
+url: /python-net/api-reference/aspose.slides.export/ilinkembedcontroller/
 ---
 
 Callback interface used to determine how object should be processed during saving.

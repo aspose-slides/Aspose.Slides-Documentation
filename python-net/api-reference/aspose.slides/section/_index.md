@@ -2,7 +2,7 @@
 title: Section Class
 type: docs
 weight: 3540
-url: /slides/python-net/api-reference/aspose.slides/section/
+url: /python-net/api-reference/aspose.slides/section/
 ---
 
 Represents section of slides.

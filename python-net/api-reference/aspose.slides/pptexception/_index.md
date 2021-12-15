@@ -2,7 +2,7 @@
 title: PptException Class
 type: docs
 weight: 3370
-url: /slides/python-net/api-reference/aspose.slides/pptexception/
+url: /python-net/api-reference/aspose.slides/pptexception/
 ---
 
 Represents a standard internal exception type.

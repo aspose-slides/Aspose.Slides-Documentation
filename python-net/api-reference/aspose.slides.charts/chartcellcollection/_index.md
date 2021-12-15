@@ -2,7 +2,7 @@
 title: ChartCellCollection Class
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.charts/chartcellcollection/
+url: /python-net/api-reference/aspose.slides.charts/chartcellcollection/
 ---
 
 Represents collection of a cells with data.

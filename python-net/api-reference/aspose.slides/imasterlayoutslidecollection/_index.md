@@ -2,7 +2,7 @@
 title: IMasterLayoutSlideCollection Class
 type: docs
 weight: 1850
-url: /slides/python-net/api-reference/aspose.slides/imasterlayoutslidecollection/
+url: /python-net/api-reference/aspose.slides/imasterlayoutslidecollection/
 ---
 
 Represents a collections of all layout slides of defined master slide.<br/>            Extends ILayoutSlideCollection interface with methods for adding/inserting/removing/cloning <br/>            layout slides in context of the individual collections of master's layout slides.

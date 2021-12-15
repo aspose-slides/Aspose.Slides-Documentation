@@ -2,7 +2,7 @@
 title: IGeometryPath Class
 type: docs
 weight: 1470
-url: /slides/python-net/api-reference/aspose.slides/igeometrypath/
+url: /python-net/api-reference/aspose.slides/igeometrypath/
 ---
 
 Represents geometry path of GeometryShape

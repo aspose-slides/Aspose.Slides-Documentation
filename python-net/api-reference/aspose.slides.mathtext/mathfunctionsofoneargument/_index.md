@@ -2,7 +2,7 @@
 title: MathFunctionsOfOneArgument Enumeration
 type: docs
 weight: 890
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathfunctionsofoneargument/
+url: /python-net/api-reference/aspose.slides.mathtext/mathfunctionsofoneargument/
 ---
 
 Common mathematical functions of one argument

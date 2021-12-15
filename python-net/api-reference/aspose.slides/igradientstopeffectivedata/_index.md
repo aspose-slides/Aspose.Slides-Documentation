@@ -2,7 +2,7 @@
 title: IGradientStopEffectiveData Class
 type: docs
 weight: 1550
-url: /slides/python-net/api-reference/aspose.slides/igradientstopeffectivedata/
+url: /python-net/api-reference/aspose.slides/igradientstopeffectivedata/
 ---
 
 immutable object which represents a gradient stop.

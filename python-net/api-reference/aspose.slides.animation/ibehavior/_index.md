@@ -2,7 +2,7 @@
 title: IBehavior Class
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides.animation/ibehavior/
+url: /python-net/api-reference/aspose.slides.animation/ibehavior/
 ---
 
 Represent base class behavior of effect.

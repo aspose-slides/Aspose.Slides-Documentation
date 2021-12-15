@@ -2,7 +2,7 @@
 title: aspose.slides.dom.ole
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.dom.ole/
+url: /python-net/api-reference/aspose.slides.dom.ole/
 ---
 
 

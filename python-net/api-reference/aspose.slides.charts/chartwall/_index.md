@@ -2,7 +2,7 @@
 title: ChartWall Class
 type: docs
 weight: 300
-url: /slides/python-net/api-reference/aspose.slides.charts/chartwall/
+url: /python-net/api-reference/aspose.slides.charts/chartwall/
 ---
 
 Represents walls on 3d charts.

@@ -2,7 +2,7 @@
 title: ColorType Enumeration
 type: docs
 weight: 9370
-url: /slides/python-net/api-reference/aspose.slides/colortype/
+url: /python-net/api-reference/aspose.slides/colortype/
 ---
 
 Represents different color modes.

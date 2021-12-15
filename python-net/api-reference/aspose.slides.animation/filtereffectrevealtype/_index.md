@@ -2,7 +2,7 @@
 title: FilterEffectRevealType Enumeration
 type: docs
 weight: 640
-url: /slides/python-net/api-reference/aspose.slides.animation/filtereffectrevealtype/
+url: /python-net/api-reference/aspose.slides.animation/filtereffectrevealtype/
 ---
 
 Represents filter reveal type.

@@ -2,7 +2,7 @@
 title: LoadingStreamBehavior Enumeration
 type: docs
 weight: 9600
-url: /slides/python-net/api-reference/aspose.slides/loadingstreambehavior/
+url: /python-net/api-reference/aspose.slides/loadingstreambehavior/
 ---
 
 The stream passed to a method is considered as a Binary Large Object (BLOB) (see <br/>            [IBlobManagementOptions](/python-net/api-reference/aspose.slides/iblobmanagementoptions/) description). Values of this enumeration identify how <br/>            the stream should be treated when it passed to the method. Depending on the <br/>            requirements, different decisions could be made to provide the most efficient behavior.

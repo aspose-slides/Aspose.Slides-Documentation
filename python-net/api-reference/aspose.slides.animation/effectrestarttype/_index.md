@@ -2,7 +2,7 @@
 title: EffectRestartType Enumeration
 type: docs
 weight: 600
-url: /slides/python-net/api-reference/aspose.slides.animation/effectrestarttype/
+url: /python-net/api-reference/aspose.slides.animation/effectrestarttype/
 ---
 
 Represent restart types for timing.

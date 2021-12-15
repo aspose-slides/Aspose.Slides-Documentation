@@ -2,7 +2,7 @@
 title: INotesSlideManager Class
 type: docs
 weight: 1990
-url: /slides/python-net/api-reference/aspose.slides/inotesslidemanager/
+url: /python-net/api-reference/aspose.slides/inotesslidemanager/
 ---
 
 Notes slide manager.

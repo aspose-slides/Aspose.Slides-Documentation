@@ -2,7 +2,7 @@
 title: Backdrop3DScene Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides/backdrop3dscene/
+url: /python-net/api-reference/aspose.slides/backdrop3dscene/
 ---
 
 Defines a plane in which effects, such as glow and shadow, are applied in relation to the shape they are being applied to.

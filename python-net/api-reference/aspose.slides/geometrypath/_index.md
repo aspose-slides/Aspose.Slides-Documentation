@@ -2,7 +2,7 @@
 title: GeometryPath Class
 type: docs
 weight: 600
-url: /slides/python-net/api-reference/aspose.slides/geometrypath/
+url: /python-net/api-reference/aspose.slides/geometrypath/
 ---
 
 Represents geometry path of GeometryShape

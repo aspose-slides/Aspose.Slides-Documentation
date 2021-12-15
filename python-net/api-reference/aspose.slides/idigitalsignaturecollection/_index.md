@@ -2,7 +2,7 @@
 title: IDigitalSignatureCollection Class
 type: docs
 weight: 1250
-url: /slides/python-net/api-reference/aspose.slides/idigitalsignaturecollection/
+url: /python-net/api-reference/aspose.slides/idigitalsignaturecollection/
 ---
 
 Represents a collection of digital signatures attached to a document.

@@ -2,7 +2,7 @@
 title: IThreeDFormat Class
 type: docs
 weight: 2740
-url: /slides/python-net/api-reference/aspose.slides/ithreedformat/
+url: /python-net/api-reference/aspose.slides/ithreedformat/
 ---
 
 Represents 3-D properties.

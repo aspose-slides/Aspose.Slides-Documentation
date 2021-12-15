@@ -2,7 +2,7 @@
 title: SaveOptions Class
 type: docs
 weight: 450
-url: /slides/python-net/api-reference/aspose.slides.export/saveoptions/
+url: /python-net/api-reference/aspose.slides.export/saveoptions/
 ---
 
 Abstract class with options that control how a presentation is saved.

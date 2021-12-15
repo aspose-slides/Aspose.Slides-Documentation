@@ -2,7 +2,7 @@
 title: ITiming Class
 type: docs
 weight: 350
-url: /slides/python-net/api-reference/aspose.slides.animation/itiming/
+url: /python-net/api-reference/aspose.slides.animation/itiming/
 ---
 
 Represents animation timing.

@@ -2,7 +2,7 @@
 title: ChartSeries Class
 type: docs
 weight: 240
-url: /slides/python-net/api-reference/aspose.slides.charts/chartseries/
+url: /python-net/api-reference/aspose.slides.charts/chartseries/
 ---
 
 Represents a chart series.

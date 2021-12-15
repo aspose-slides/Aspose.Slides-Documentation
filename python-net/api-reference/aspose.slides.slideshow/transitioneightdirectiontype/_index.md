@@ -2,7 +2,7 @@
 title: TransitionEightDirectionType Enumeration
 type: docs
 weight: 380
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitioneightdirectiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitioneightdirectiontype/
 ---
 
 Represent eight direction transition types.

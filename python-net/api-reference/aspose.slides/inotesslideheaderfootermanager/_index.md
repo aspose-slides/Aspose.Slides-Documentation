@@ -2,7 +2,7 @@
 title: INotesSlideHeaderFooterManager Class
 type: docs
 weight: 1980
-url: /slides/python-net/api-reference/aspose.slides/inotesslideheaderfootermanager/
+url: /python-net/api-reference/aspose.slides/inotesslideheaderfootermanager/
 ---
 
 Represents manager which holds behavior of the notes slide placeholders, including header placeholder.

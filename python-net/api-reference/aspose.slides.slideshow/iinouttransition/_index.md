@@ -2,7 +2,7 @@
 title: IInOutTransition Class
 type: docs
 weight: 110
-url: /slides/python-net/api-reference/aspose.slides.slideshow/iinouttransition/
+url: /python-net/api-reference/aspose.slides.slideshow/iinouttransition/
 ---
 
 In-Out slide transition effect.

@@ -2,7 +2,7 @@
 title: FilterEffectType Enumeration
 type: docs
 weight: 660
-url: /slides/python-net/api-reference/aspose.slides.animation/filtereffecttype/
+url: /python-net/api-reference/aspose.slides.animation/filtereffecttype/
 ---
 
 Represents filter effect types.

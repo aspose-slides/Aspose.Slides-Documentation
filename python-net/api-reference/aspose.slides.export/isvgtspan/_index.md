@@ -2,7 +2,7 @@
 title: ISvgTSpan Class
 type: docs
 weight: 310
-url: /slides/python-net/api-reference/aspose.slides.export/isvgtspan/
+url: /python-net/api-reference/aspose.slides.export/isvgtspan/
 ---
 
 Represents options for SVG text portion ("tspan").

@@ -2,7 +2,7 @@
 title: ParagraphCollection Class
 type: docs
 weight: 3210
-url: /slides/python-net/api-reference/aspose.slides/paragraphcollection/
+url: /python-net/api-reference/aspose.slides/paragraphcollection/
 ---
 
 Represents a collection of a paragraphs.

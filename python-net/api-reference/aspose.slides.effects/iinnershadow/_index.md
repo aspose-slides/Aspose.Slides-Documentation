@@ -2,7 +2,7 @@
 title: IInnerShadow Class
 type: docs
 weight: 720
-url: /slides/python-net/api-reference/aspose.slides.effects/iinnershadow/
+url: /python-net/api-reference/aspose.slides.effects/iinnershadow/
 ---
 
 Represents a inner shadow effect.

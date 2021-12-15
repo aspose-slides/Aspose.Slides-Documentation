@@ -2,7 +2,7 @@
 title: MathDelimiter Class
 type: docs
 weight: 580
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathdelimiter/
+url: /python-net/api-reference/aspose.slides.mathtext/mathdelimiter/
 ---
 
 Specifies the delimiter object, consisting of opening and closing characters (such as parentheses, <br/>            braces, brackets, and vertical bars), and one or more mathematical elements inside, separated by a specified character.<br/>            Examples: (𝑥2); [𝑥2|𝑦2]

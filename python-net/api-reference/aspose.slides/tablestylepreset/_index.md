@@ -2,7 +2,7 @@
 title: TableStylePreset Enumeration
 type: docs
 weight: 9930
-url: /slides/python-net/api-reference/aspose.slides/tablestylepreset/
+url: /python-net/api-reference/aspose.slides/tablestylepreset/
 ---
 
 Represents builtin table styles.

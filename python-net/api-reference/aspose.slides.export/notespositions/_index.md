@@ -2,7 +2,7 @@
 title: NotesPositions Enumeration
 type: docs
 weight: 730
-url: /slides/python-net/api-reference/aspose.slides.export/notespositions/
+url: /python-net/api-reference/aspose.slides.export/notespositions/
 ---
 
 Represents the rule to render notes into exported document

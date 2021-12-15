@@ -2,7 +2,7 @@
 title: IEffectParamSource Class
 type: docs
 weight: 1290
-url: /slides/python-net/api-reference/aspose.slides/ieffectparamsource/
+url: /python-net/api-reference/aspose.slides/ieffectparamsource/
 ---
 
 Auxiliary effect parameters interface.

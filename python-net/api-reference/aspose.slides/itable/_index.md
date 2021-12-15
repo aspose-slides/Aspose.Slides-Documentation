@@ -2,7 +2,7 @@
 title: ITable Class
 type: docs
 weight: 2640
-url: /slides/python-net/api-reference/aspose.slides/itable/
+url: /python-net/api-reference/aspose.slides/itable/
 ---
 
 Represents a table on a slide.

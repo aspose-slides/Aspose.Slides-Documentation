@@ -2,7 +2,7 @@
 title: Audio Class
 type: docs
 weight: 30
-url: /slides/python-net/api-reference/aspose.slides/audio/
+url: /python-net/api-reference/aspose.slides/audio/
 ---
 
 Represents an embedded audio file.

@@ -2,7 +2,7 @@
 title: ChartDataWorksheetCollection Class
 type: docs
 weight: 200
-url: /slides/python-net/api-reference/aspose.slides.charts/chartdataworksheetcollection/
+url: /python-net/api-reference/aspose.slides.charts/chartdataworksheetcollection/
 ---
 
 Represents the collection of worksheets of chart data workbook.

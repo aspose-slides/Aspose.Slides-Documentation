@@ -2,7 +2,7 @@
 title: IChartPlotArea Class
 type: docs
 weight: 620
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartplotarea/
+url: /python-net/api-reference/aspose.slides.charts/ichartplotarea/
 ---
 
 Represents chart title properties.

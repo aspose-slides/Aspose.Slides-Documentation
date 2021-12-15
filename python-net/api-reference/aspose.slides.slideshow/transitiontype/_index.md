@@ -2,7 +2,7 @@
 title: TransitionType Enumeration
 type: docs
 weight: 470
-url: /slides/python-net/api-reference/aspose.slides.slideshow/transitiontype/
+url: /python-net/api-reference/aspose.slides.slideshow/transitiontype/
 ---
 
 Represent slide show transition type.

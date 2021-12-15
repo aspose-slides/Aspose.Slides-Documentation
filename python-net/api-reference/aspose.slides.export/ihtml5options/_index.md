@@ -2,7 +2,7 @@
 title: IHtml5Options Class
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides.export/ihtml5options/
+url: /python-net/api-reference/aspose.slides.export/ihtml5options/
 ---
 
 Represents a HTML5 exporting options.

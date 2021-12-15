@@ -2,7 +2,7 @@
 title: IMathFractionFactory Class
 type: docs
 weight: 200
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathfractionfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathfractionfactory/
 ---
 
 Allows to create a math fraction

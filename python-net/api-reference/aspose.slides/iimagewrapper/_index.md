@@ -2,7 +2,7 @@
 title: IImageWrapper Class
 type: docs
 weight: 1650
-url: /slides/python-net/api-reference/aspose.slides/iimagewrapper/
+url: /python-net/api-reference/aspose.slides/iimagewrapper/
 ---
 
 System.Drawing.Image wrapper for COM interface.

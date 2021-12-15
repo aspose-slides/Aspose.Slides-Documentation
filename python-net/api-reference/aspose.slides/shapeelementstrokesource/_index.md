@@ -2,7 +2,7 @@
 title: ShapeElementStrokeSource Enumeration
 type: docs
 weight: 9810
-url: /slides/python-net/api-reference/aspose.slides/shapeelementstrokesource/
+url: /python-net/api-reference/aspose.slides/shapeelementstrokesource/
 ---
 
 Represents how shape element should be drawn.

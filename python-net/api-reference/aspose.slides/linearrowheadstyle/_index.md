@@ -2,7 +2,7 @@
 title: LineArrowheadStyle Enumeration
 type: docs
 weight: 9520
-url: /slides/python-net/api-reference/aspose.slides/linearrowheadstyle/
+url: /python-net/api-reference/aspose.slides/linearrowheadstyle/
 ---
 
 Represents the style of an arrowhead.

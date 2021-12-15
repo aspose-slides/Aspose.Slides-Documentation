@@ -2,7 +2,7 @@
 title: IBiLevel Class
 type: docs
 weight: 480
-url: /slides/python-net/api-reference/aspose.slides.effects/ibilevel/
+url: /python-net/api-reference/aspose.slides.effects/ibilevel/
 ---
 
 Represents base IImageTransformOperation interface.

@@ -2,7 +2,7 @@
 title: IHyperlink Class
 type: docs
 weight: 1600
-url: /slides/python-net/api-reference/aspose.slides/ihyperlink/
+url: /python-net/api-reference/aspose.slides/ihyperlink/
 ---
 
 Represents a hyperlink.

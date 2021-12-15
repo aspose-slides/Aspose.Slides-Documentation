@@ -2,7 +2,7 @@
 title: RowFormat Class
 type: docs
 weight: 3530
-url: /slides/python-net/api-reference/aspose.slides/rowformat/
+url: /python-net/api-reference/aspose.slides/rowformat/
 ---
 
 Represents format of a table row.

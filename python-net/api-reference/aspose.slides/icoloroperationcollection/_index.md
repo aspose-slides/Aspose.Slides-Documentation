@@ -2,7 +2,7 @@
 title: IColorOperationCollection Class
 type: docs
 weight: 1060
-url: /slides/python-net/api-reference/aspose.slides/icoloroperationcollection/
+url: /python-net/api-reference/aspose.slides/icoloroperationcollection/
 ---
 
 Represents a collection of color transform operations.

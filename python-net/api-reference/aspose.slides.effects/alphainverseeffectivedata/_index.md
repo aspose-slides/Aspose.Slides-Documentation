@@ -2,7 +2,7 @@
 title: AlphaInverseEffectiveData Class
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.effects/alphainverseeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/alphainverseeffectivedata/
 ---
 
 Immutable object which represents an Alpha Inverse effect.<br/>            Alpha (opacity) values are inverted by subtracting from 100%.

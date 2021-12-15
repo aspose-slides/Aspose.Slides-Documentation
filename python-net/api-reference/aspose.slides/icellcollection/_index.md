@@ -2,7 +2,7 @@
 title: ICellCollection Class
 type: docs
 weight: 1010
-url: /slides/python-net/api-reference/aspose.slides/icellcollection/
+url: /python-net/api-reference/aspose.slides/icellcollection/
 ---
 
 Represents a collection of cells.

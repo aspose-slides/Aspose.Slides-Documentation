@@ -2,7 +2,7 @@
 title: IRow Class
 type: docs
 weight: 2320
-url: /slides/python-net/api-reference/aspose.slides/irow/
+url: /python-net/api-reference/aspose.slides/irow/
 ---
 
 Represents a row in a table.

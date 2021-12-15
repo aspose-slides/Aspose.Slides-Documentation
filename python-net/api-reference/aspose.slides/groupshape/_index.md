@@ -2,7 +2,7 @@
 title: GroupShape Class
 type: docs
 weight: 700
-url: /slides/python-net/api-reference/aspose.slides/groupshape/
+url: /python-net/api-reference/aspose.slides/groupshape/
 ---
 
 Represents a group of shapes on a slide.

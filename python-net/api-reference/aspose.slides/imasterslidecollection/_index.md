@@ -2,7 +2,7 @@
 title: IMasterSlideCollection Class
 type: docs
 weight: 1900
-url: /slides/python-net/api-reference/aspose.slides/imasterslidecollection/
+url: /python-net/api-reference/aspose.slides/imasterslidecollection/
 ---
 
 Represents a collection of master slides.

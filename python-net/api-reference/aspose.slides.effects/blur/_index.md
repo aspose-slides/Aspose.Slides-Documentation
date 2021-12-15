@@ -2,7 +2,7 @@
 title: Blur Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.effects/blur/
+url: /python-net/api-reference/aspose.slides.effects/blur/
 ---
 
 Represents a Blur effect that is applied to the entire shape, including its fill.<br/>            All color channels, including alpha, are affected.

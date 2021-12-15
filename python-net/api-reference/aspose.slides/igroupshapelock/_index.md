@@ -2,7 +2,7 @@
 title: IGroupShapeLock Class
 type: docs
 weight: 1590
-url: /slides/python-net/api-reference/aspose.slides/igroupshapelock/
+url: /python-net/api-reference/aspose.slides/igroupshapelock/
 ---
 
 Determines which operations are disabled on the parent GroupShape.

@@ -2,7 +2,7 @@
 title: ILightRigEffectiveData Class
 type: docs
 weight: 1750
-url: /slides/python-net/api-reference/aspose.slides/ilightrigeffectivedata/
+url: /python-net/api-reference/aspose.slides/ilightrigeffectivedata/
 ---
 
 Immutable object which contains effective light rig properties.

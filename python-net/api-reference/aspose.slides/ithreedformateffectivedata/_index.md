@@ -2,7 +2,7 @@
 title: IThreeDFormatEffectiveData Class
 type: docs
 weight: 2750
-url: /slides/python-net/api-reference/aspose.slides/ithreedformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ithreedformateffectivedata/
 ---
 
 Immutable object which represents effective 3-D formatting properties.

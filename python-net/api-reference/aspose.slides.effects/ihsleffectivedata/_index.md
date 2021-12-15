@@ -2,7 +2,7 @@
 title: IHSLEffectiveData Class
 type: docs
 weight: 670
-url: /slides/python-net/api-reference/aspose.slides.effects/ihsleffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ihsleffectivedata/
 ---
 
 Represents a Hue/Saturation/Luminance effect.<br/>            The hue, saturation, and luminance may each be adjusted relative to its current value.

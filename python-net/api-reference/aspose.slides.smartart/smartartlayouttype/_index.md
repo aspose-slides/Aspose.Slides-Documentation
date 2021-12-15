@@ -2,7 +2,7 @@
 title: SmartArtLayoutType Enumeration
 type: docs
 weight: 130
-url: /slides/python-net/api-reference/aspose.slides.smartart/smartartlayouttype/
+url: /python-net/api-reference/aspose.slides.smartart/smartartlayouttype/
 ---
 
 Represents layout type of a SmartArt diagram.

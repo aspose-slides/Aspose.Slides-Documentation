@@ -2,7 +2,7 @@
 title: VbaReferenceOleTypeLib Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.vba/vbareferenceoletypelib/
+url: /python-net/api-reference/aspose.slides.vba/vbareferenceoletypelib/
 ---
 
 Represents OLE Automation type library reference.

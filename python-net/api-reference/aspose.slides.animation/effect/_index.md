@@ -2,7 +2,7 @@
 title: Effect Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.animation/effect/
+url: /python-net/api-reference/aspose.slides.animation/effect/
 ---
 
 Represents animation effect.

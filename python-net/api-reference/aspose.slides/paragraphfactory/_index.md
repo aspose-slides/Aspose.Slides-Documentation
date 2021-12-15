@@ -2,7 +2,7 @@
 title: ParagraphFactory Class
 type: docs
 weight: 3220
-url: /slides/python-net/api-reference/aspose.slides/paragraphfactory/
+url: /python-net/api-reference/aspose.slides/paragraphfactory/
 ---
 
 Allows to create paragraphs

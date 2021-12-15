@@ -2,7 +2,7 @@
 title: PdfOptions Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides.export/pdfoptions/
+url: /python-net/api-reference/aspose.slides.export/pdfoptions/
 ---
 
 Provides options that control how a presentation is saved in Pdf format.

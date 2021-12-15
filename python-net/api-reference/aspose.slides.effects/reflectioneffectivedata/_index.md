@@ -2,7 +2,7 @@
 title: ReflectionEffectiveData Class
 type: docs
 weight: 990
-url: /slides/python-net/api-reference/aspose.slides.effects/reflectioneffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/reflectioneffectivedata/
 ---
 
 Immutable object which represents a reflection effect.

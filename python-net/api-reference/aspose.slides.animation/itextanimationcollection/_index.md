@@ -2,7 +2,7 @@
 title: ITextAnimationCollection Class
 type: docs
 weight: 340
-url: /slides/python-net/api-reference/aspose.slides.animation/itextanimationcollection/
+url: /python-net/api-reference/aspose.slides.animation/itextanimationcollection/
 ---
 
 Represents collection of text animations.

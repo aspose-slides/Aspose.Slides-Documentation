@@ -2,7 +2,7 @@
 title: ColorSpace Enumeration
 type: docs
 weight: 540
-url: /slides/python-net/api-reference/aspose.slides.animation/colorspace/
+url: /python-net/api-reference/aspose.slides.animation/colorspace/
 ---
 
 Represents color space for color effect behavior.

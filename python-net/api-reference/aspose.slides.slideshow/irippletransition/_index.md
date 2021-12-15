@@ -2,7 +2,7 @@
 title: IRippleTransition Class
 type: docs
 weight: 170
-url: /slides/python-net/api-reference/aspose.slides.slideshow/irippletransition/
+url: /python-net/api-reference/aspose.slides.slideshow/irippletransition/
 ---
 
 Ripple slide transition effect.

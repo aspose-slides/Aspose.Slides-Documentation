@@ -2,7 +2,7 @@
 title: TextStyle Class
 type: docs
 weight: 3810
-url: /slides/python-net/api-reference/aspose.slides/textstyle/
+url: /python-net/api-reference/aspose.slides/textstyle/
 ---
 
 This class contains the text style formatting properties.

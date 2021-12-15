@@ -2,7 +2,7 @@
 title: ITabEffectiveData Class
 type: docs
 weight: 2620
-url: /slides/python-net/api-reference/aspose.slides/itabeffectivedata/
+url: /python-net/api-reference/aspose.slides/itabeffectivedata/
 ---
 
 Immutable object which contains effective text's tabulation stop properties.

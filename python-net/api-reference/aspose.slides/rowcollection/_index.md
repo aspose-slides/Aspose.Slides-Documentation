@@ -2,7 +2,7 @@
 title: RowCollection Class
 type: docs
 weight: 3520
-url: /slides/python-net/api-reference/aspose.slides/rowcollection/
+url: /python-net/api-reference/aspose.slides/rowcollection/
 ---
 
 Represents table row collection.

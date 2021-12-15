@@ -2,7 +2,7 @@
 title: IOverrideThemeable Class
 type: docs
 weight: 330
-url: /slides/python-net/api-reference/aspose.slides.theme/ioverridethemeable/
+url: /python-net/api-reference/aspose.slides.theme/ioverridethemeable/
 ---
 
 Represents override theme manager.

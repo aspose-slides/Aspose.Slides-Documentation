@@ -2,7 +2,7 @@
 title: TileFlip Enumeration
 type: docs
 weight: 10040
-url: /slides/python-net/api-reference/aspose.slides/tileflip/
+url: /python-net/api-reference/aspose.slides/tileflip/
 ---
 
 Defines tile flipping mode.

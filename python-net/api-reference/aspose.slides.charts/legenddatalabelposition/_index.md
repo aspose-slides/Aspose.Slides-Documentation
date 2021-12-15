@@ -2,7 +2,7 @@
 title: LegendDataLabelPosition Enumeration
 type: docs
 weight: 1240
-url: /slides/python-net/api-reference/aspose.slides.charts/legenddatalabelposition/
+url: /python-net/api-reference/aspose.slides.charts/legenddatalabelposition/
 ---
 
 Determines position of data labels.

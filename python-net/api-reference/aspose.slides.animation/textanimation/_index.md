@@ -2,7 +2,7 @@
 title: TextAnimation Class
 type: docs
 weight: 470
-url: /slides/python-net/api-reference/aspose.slides.animation/textanimation/
+url: /python-net/api-reference/aspose.slides.animation/textanimation/
 ---
 
 Represent text animation.

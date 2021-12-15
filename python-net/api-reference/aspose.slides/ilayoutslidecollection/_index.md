@@ -2,7 +2,7 @@
 title: ILayoutSlideCollection Class
 type: docs
 weight: 1700
-url: /slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/
+url: /python-net/api-reference/aspose.slides/ilayoutslidecollection/
 ---
 
 Represents a base class for collection of a layout slides.

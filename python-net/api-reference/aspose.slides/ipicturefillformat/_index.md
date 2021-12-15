@@ -2,7 +2,7 @@
 title: IPictureFillFormat Class
 type: docs
 weight: 2120
-url: /slides/python-net/api-reference/aspose.slides/ipicturefillformat/
+url: /python-net/api-reference/aspose.slides/ipicturefillformat/
 ---
 
 Represents a picture fill style.

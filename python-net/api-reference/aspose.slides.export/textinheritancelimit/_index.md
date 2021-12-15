@@ -2,7 +2,7 @@
 title: TextInheritanceLimit Enumeration
 type: docs
 weight: 820
-url: /slides/python-net/api-reference/aspose.slides.export/textinheritancelimit/
+url: /python-net/api-reference/aspose.slides.export/textinheritancelimit/
 ---
 
 Controls the depth of the text properties inheritance.

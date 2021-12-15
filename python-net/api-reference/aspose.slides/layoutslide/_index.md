@@ -2,7 +2,7 @@
 title: LayoutSlide Class
 type: docs
 weight: 2880
-url: /slides/python-net/api-reference/aspose.slides/layoutslide/
+url: /python-net/api-reference/aspose.slides/layoutslide/
 ---
 
 Represents a layout slide.

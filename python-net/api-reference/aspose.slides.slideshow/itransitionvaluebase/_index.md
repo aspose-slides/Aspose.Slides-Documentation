@@ -2,7 +2,7 @@
 title: ITransitionValueBase Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/
+url: /python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/
 ---
 
 Represents base class for slide transition effects.

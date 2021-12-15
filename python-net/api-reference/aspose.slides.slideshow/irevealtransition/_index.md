@@ -2,7 +2,7 @@
 title: IRevealTransition Class
 type: docs
 weight: 160
-url: /slides/python-net/api-reference/aspose.slides.slideshow/irevealtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/irevealtransition/
 ---
 
 Reveal slide transition effect.

@@ -2,7 +2,7 @@
 title: IResponsiveHtmlController Class
 type: docs
 weight: 230
-url: /slides/python-net/api-reference/aspose.slides.export/iresponsivehtmlcontroller/
+url: /python-net/api-reference/aspose.slides.export/iresponsivehtmlcontroller/
 ---
 
 Responsive HTML Controller

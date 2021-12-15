@@ -2,7 +2,7 @@
 title: Metered Class
 type: docs
 weight: 3050
-url: /slides/python-net/api-reference/aspose.slides/metered/
+url: /python-net/api-reference/aspose.slides/metered/
 ---
 
 Provides methods to set metered key.

@@ -2,7 +2,7 @@
 title: IResourceLoadingArgs Class
 type: docs
 weight: 2300
-url: /slides/python-net/api-reference/aspose.slides/iresourceloadingargs/
+url: /python-net/api-reference/aspose.slides/iresourceloadingargs/
 ---
 
 Interface for external resource loading arguments.

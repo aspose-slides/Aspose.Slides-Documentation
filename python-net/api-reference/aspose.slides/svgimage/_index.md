@@ -2,7 +2,7 @@
 title: SvgImage Class
 type: docs
 weight: 3710
-url: /slides/python-net/api-reference/aspose.slides/svgimage/
+url: /python-net/api-reference/aspose.slides/svgimage/
 ---
 
 Represents an SVG image.

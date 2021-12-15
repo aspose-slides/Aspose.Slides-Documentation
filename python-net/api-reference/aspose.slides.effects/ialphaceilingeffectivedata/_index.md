@@ -2,7 +2,7 @@
 title: IAlphaCeilingEffectiveData Class
 type: docs
 weight: 370
-url: /slides/python-net/api-reference/aspose.slides.effects/ialphaceilingeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/ialphaceilingeffectivedata/
 ---
 
 Immutable object which represents an Alpha Ceiling effect.<br/>            Alpha (opacity) values greater than zero are changed to 100%.<br/>            In other words, anything partially opaque becomes fully opaque.

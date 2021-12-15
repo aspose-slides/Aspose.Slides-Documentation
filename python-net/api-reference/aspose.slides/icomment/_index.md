@@ -2,7 +2,7 @@
 title: IComment Class
 type: docs
 weight: 1110
-url: /slides/python-net/api-reference/aspose.slides/icomment/
+url: /python-net/api-reference/aspose.slides/icomment/
 ---
 
 Represents a comment on a slide.

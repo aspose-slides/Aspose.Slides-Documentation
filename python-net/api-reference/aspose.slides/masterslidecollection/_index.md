@@ -2,7 +2,7 @@
 title: MasterSlideCollection Class
 type: docs
 weight: 3030
-url: /slides/python-net/api-reference/aspose.slides/masterslidecollection/
+url: /python-net/api-reference/aspose.slides/masterslidecollection/
 ---
 
 Represents a collection of master slides.

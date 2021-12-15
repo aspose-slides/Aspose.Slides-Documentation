@@ -2,7 +2,7 @@
 title: CustomData Class
 type: docs
 weight: 390
-url: /slides/python-net/api-reference/aspose.slides/customdata/
+url: /python-net/api-reference/aspose.slides/customdata/
 ---
 
 Represents container for custom data.

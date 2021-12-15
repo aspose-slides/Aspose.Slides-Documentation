@@ -2,7 +2,7 @@
 title: IPresentationComponent Class
 type: docs
 weight: 2230
-url: /slides/python-net/api-reference/aspose.slides/ipresentationcomponent/
+url: /python-net/api-reference/aspose.slides/ipresentationcomponent/
 ---
 
 Represents a component of a presentation.

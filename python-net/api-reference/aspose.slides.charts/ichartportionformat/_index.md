@@ -2,7 +2,7 @@
 title: IChartPortionFormat Class
 type: docs
 weight: 630
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartportionformat/
+url: /python-net/api-reference/aspose.slides.charts/ichartportionformat/
 ---
 
 Represents the chart portion formatting properties used in charts.

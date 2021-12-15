@@ -2,7 +2,7 @@
 title: MathParagraph Class
 type: docs
 weight: 740
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathparagraph/
+url: /python-net/api-reference/aspose.slides.mathtext/mathparagraph/
 ---
 
 Mathematical paragraph that is a container for mathematical blocks (IMathBlock)

@@ -2,7 +2,7 @@
 title: BlobManagementOptions Class
 type: docs
 weight: 160
-url: /slides/python-net/api-reference/aspose.slides/blobmanagementoptions/
+url: /python-net/api-reference/aspose.slides/blobmanagementoptions/
 ---
 
 Represents options which can be used to manage BLOB handling rules and other BLOB settings.

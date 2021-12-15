@@ -2,7 +2,7 @@
 title: CommentCollection Class
 type: docs
 weight: 320
-url: /slides/python-net/api-reference/aspose.slides/commentcollection/
+url: /python-net/api-reference/aspose.slides/commentcollection/
 ---
 
 Represents a collection of comments of one author.

@@ -2,7 +2,7 @@
 title: TextAutofitType Enumeration
 type: docs
 weight: 9960
-url: /slides/python-net/api-reference/aspose.slides/textautofittype/
+url: /python-net/api-reference/aspose.slides/textautofittype/
 ---
 
 Represents text autofit mode.

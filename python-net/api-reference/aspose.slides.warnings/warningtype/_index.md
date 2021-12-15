@@ -2,7 +2,7 @@
 title: WarningType Enumeration
 type: docs
 weight: 80
-url: /slides/python-net/api-reference/aspose.slides.warnings/warningtype/
+url: /python-net/api-reference/aspose.slides.warnings/warningtype/
 ---
 
 Represents a type of warning.

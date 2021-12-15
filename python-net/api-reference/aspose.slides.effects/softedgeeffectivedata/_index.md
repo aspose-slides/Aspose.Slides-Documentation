@@ -2,7 +2,7 @@
 title: SoftEdgeEffectiveData Class
 type: docs
 weight: 1010
-url: /slides/python-net/api-reference/aspose.slides.effects/softedgeeffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/softedgeeffectivedata/
 ---
 
 Immutable object which represents a soft edge effect. <br/>            The edges of the shape are blurred, while the fill is not affected.

@@ -2,7 +2,7 @@
 title: MasterTheme Class
 type: docs
 weight: 400
-url: /slides/python-net/api-reference/aspose.slides.theme/mastertheme/
+url: /python-net/api-reference/aspose.slides.theme/mastertheme/
 ---
 
 Represents a master theme.

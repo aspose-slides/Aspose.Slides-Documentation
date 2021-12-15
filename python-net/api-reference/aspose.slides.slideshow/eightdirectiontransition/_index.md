@@ -2,7 +2,7 @@
 title: EightDirectionTransition Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.slideshow/eightdirectiontransition/
+url: /python-net/api-reference/aspose.slides.slideshow/eightdirectiontransition/
 ---
 
 Eight direction slide transition effect.

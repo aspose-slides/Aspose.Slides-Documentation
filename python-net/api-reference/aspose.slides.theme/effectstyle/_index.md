@@ -2,7 +2,7 @@
 title: EffectStyle Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.theme/effectstyle/
+url: /python-net/api-reference/aspose.slides.theme/effectstyle/
 ---
 
 Represents an effect style.

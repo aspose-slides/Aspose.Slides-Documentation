@@ -2,7 +2,7 @@
 title: Timing Class
 type: docs
 weight: 490
-url: /slides/python-net/api-reference/aspose.slides.animation/timing/
+url: /python-net/api-reference/aspose.slides.animation/timing/
 ---
 
 Represents animation timing.

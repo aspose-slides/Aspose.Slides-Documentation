@@ -2,7 +2,7 @@
 title: EffectFillType Enumeration
 type: docs
 weight: 580
-url: /slides/python-net/api-reference/aspose.slides.animation/effectfilltype/
+url: /python-net/api-reference/aspose.slides.animation/effectfilltype/
 ---
 
 Represent fill types.

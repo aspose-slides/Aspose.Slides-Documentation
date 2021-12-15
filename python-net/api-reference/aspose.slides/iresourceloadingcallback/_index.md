@@ -2,7 +2,7 @@
 title: IResourceLoadingCallback Class
 type: docs
 weight: 2310
-url: /slides/python-net/api-reference/aspose.slides/iresourceloadingcallback/
+url: /python-net/api-reference/aspose.slides/iresourceloadingcallback/
 ---
 
 Callback interface used to manage external resources loading.

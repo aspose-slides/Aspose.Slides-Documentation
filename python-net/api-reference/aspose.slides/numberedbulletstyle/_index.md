@@ -2,7 +2,7 @@
 title: NumberedBulletStyle Enumeration
 type: docs
 weight: 9640
-url: /slides/python-net/api-reference/aspose.slides/numberedbulletstyle/
+url: /python-net/api-reference/aspose.slides/numberedbulletstyle/
 ---
 
 Represents the style of the numbered bullets.

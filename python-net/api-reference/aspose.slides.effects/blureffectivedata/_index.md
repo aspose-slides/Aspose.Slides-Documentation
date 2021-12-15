@@ -2,7 +2,7 @@
 title: BlurEffectiveData Class
 type: docs
 weight: 180
-url: /slides/python-net/api-reference/aspose.slides.effects/blureffectivedata/
+url: /python-net/api-reference/aspose.slides.effects/blureffectivedata/
 ---
 
 Immutable object which represents a Blur effect that is applied to the entire shape, including its fill.<br/>            All color channels, including alpha, are affected.

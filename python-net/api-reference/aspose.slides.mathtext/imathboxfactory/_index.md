@@ -2,7 +2,7 @@
 title: IMathBoxFactory Class
 type: docs
 weight: 140
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathboxfactory/
+url: /python-net/api-reference/aspose.slides.mathtext/imathboxfactory/
 ---
 
 Allows to create a math box

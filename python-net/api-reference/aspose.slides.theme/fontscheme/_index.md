@@ -2,7 +2,7 @@
 title: FontScheme Class
 type: docs
 weight: 100
-url: /slides/python-net/api-reference/aspose.slides.theme/fontscheme/
+url: /python-net/api-reference/aspose.slides.theme/fontscheme/
 ---
 
 Stores theme-defined fonts.

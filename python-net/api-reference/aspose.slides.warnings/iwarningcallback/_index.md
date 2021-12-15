@@ -2,7 +2,7 @@
 title: IWarningCallback Class
 type: docs
 weight: 50
-url: /slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/
+url: /python-net/api-reference/aspose.slides.warnings/iwarningcallback/
 ---
 
 Interface for classes which receive warning

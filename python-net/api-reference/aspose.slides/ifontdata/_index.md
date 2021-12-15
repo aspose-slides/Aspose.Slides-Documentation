@@ -2,7 +2,7 @@
 title: IFontData Class
 type: docs
 weight: 1350
-url: /slides/python-net/api-reference/aspose.slides/ifontdata/
+url: /python-net/api-reference/aspose.slides/ifontdata/
 ---
 
 Represents a font definition.

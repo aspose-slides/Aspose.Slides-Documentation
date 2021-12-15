@@ -2,7 +2,7 @@
 title: MorphTransition Class
 type: docs
 weight: 250
-url: /slides/python-net/api-reference/aspose.slides.slideshow/morphtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/morphtransition/
 ---
 
 Ripple slide transition effect.

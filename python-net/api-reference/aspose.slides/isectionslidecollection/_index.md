@@ -2,7 +2,7 @@
 title: ISectionSlideCollection Class
 type: docs
 weight: 2380
-url: /slides/python-net/api-reference/aspose.slides/isectionslidecollection/
+url: /python-net/api-reference/aspose.slides/isectionslidecollection/
 ---
 
 Represents a collection of a slides in the section.

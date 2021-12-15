@@ -2,7 +2,7 @@
 title: CellCollection Class
 type: docs
 weight: 210
-url: /slides/python-net/api-reference/aspose.slides/cellcollection/
+url: /python-net/api-reference/aspose.slides/cellcollection/
 ---
 
 Represents a collection of cells.

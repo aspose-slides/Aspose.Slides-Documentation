@@ -2,7 +2,7 @@
 title: FlyThroughTransition Class
 type: docs
 weight: 40
-url: /slides/python-net/api-reference/aspose.slides.slideshow/flythroughtransition/
+url: /python-net/api-reference/aspose.slides.slideshow/flythroughtransition/
 ---
 
 Fly-through slide transition effect.

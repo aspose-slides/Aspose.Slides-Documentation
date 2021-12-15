@@ -2,7 +2,7 @@
 title: IFillOverlay Class
 type: docs
 weight: 600
-url: /slides/python-net/api-reference/aspose.slides.effects/ifilloverlay/
+url: /python-net/api-reference/aspose.slides.effects/ifilloverlay/
 ---
 
 Represents a Fill Overlay effect. A fill overlay may be used to specify<br/>            an additional fill for an object and blend the two fills together.

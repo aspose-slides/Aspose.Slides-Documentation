@@ -2,7 +2,7 @@
 title: BaseThemeManager Class
 type: docs
 weight: 20
-url: /slides/python-net/api-reference/aspose.slides.theme/basethememanager/
+url: /python-net/api-reference/aspose.slides.theme/basethememanager/
 ---
 
 Base class for classes that provide access to different types of themes.

@@ -2,7 +2,7 @@
 title: IChartDataPointLevel Class
 type: docs
 weight: 550
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartdatapointlevel/
+url: /python-net/api-reference/aspose.slides.charts/ichartdatapointlevel/
 ---
 
 Represents data point level. Applies for Treemap and Sunburst chart.

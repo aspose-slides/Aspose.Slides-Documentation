@@ -2,7 +2,7 @@
 title: IChartTitle Class
 type: docs
 weight: 710
-url: /slides/python-net/api-reference/aspose.slides.charts/icharttitle/
+url: /python-net/api-reference/aspose.slides.charts/icharttitle/
 ---
 
 Represents chart title properties.

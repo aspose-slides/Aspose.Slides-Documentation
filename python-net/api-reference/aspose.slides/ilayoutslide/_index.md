@@ -2,7 +2,7 @@
 title: ILayoutSlide Class
 type: docs
 weight: 1690
-url: /slides/python-net/api-reference/aspose.slides/ilayoutslide/
+url: /python-net/api-reference/aspose.slides/ilayoutslide/
 ---
 
 Represents a layout slide.

@@ -2,7 +2,7 @@
 title: TextExtractionArrangingMode Enumeration
 type: docs
 weight: 9980
-url: /slides/python-net/api-reference/aspose.slides/textextractionarrangingmode/
+url: /python-net/api-reference/aspose.slides/textextractionarrangingmode/
 ---
 
 Represents the mode to use during text extraction

@@ -2,7 +2,7 @@
 title: MathArray Class
 type: docs
 weight: 480
-url: /slides/python-net/api-reference/aspose.slides.mathtext/matharray/
+url: /python-net/api-reference/aspose.slides.mathtext/matharray/
 ---
 
 Specifies a vertical array of equations or any mathematical objects

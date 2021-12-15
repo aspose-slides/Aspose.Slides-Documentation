@@ -2,7 +2,7 @@
 title: IGradientStopCollection Class
 type: docs
 weight: 1530
-url: /slides/python-net/api-reference/aspose.slides/igradientstopcollection/
+url: /python-net/api-reference/aspose.slides/igradientstopcollection/
 ---
 
 Represnts a collection of gradient stops.

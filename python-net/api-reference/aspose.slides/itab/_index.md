@@ -2,7 +2,7 @@
 title: ITab Class
 type: docs
 weight: 2600
-url: /slides/python-net/api-reference/aspose.slides/itab/
+url: /python-net/api-reference/aspose.slides/itab/
 ---
 
 Represents a tabulation for a text.

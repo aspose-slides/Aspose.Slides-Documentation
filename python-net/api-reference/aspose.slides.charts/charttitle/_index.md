@@ -2,7 +2,7 @@
 title: ChartTitle Class
 type: docs
 weight: 280
-url: /slides/python-net/api-reference/aspose.slides.charts/charttitle/
+url: /python-net/api-reference/aspose.slides.charts/charttitle/
 ---
 
 Represents chart title properties.

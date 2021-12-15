@@ -2,7 +2,7 @@
 title: PortionFactory Class
 type: docs
 weight: 3330
-url: /slides/python-net/api-reference/aspose.slides/portionfactory/
+url: /python-net/api-reference/aspose.slides/portionfactory/
 ---
 
 Allows to create test portions

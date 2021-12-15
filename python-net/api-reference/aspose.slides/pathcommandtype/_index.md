@@ -2,7 +2,7 @@
 title: PathCommandType Enumeration
 type: docs
 weight: 9670
-url: /slides/python-net/api-reference/aspose.slides/pathcommandtype/
+url: /python-net/api-reference/aspose.slides/pathcommandtype/
 ---
 
 Represents graphics path commands

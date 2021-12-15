@@ -2,7 +2,7 @@
 title: IHyperlinkQueries Class
 type: docs
 weight: 1630
-url: /slides/python-net/api-reference/aspose.slides/ihyperlinkqueries/
+url: /python-net/api-reference/aspose.slides/ihyperlinkqueries/
 ---
 
 Provide easy access to contained hyperlinks.

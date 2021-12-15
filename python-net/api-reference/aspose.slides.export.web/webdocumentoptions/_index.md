@@ -2,7 +2,7 @@
 title: WebDocumentOptions Class
 type: docs
 weight: 90
-url: /slides/python-net/api-reference/aspose.slides.export.web/webdocumentoptions/
+url: /python-net/api-reference/aspose.slides.export.web/webdocumentoptions/
 ---
 
 Represents an options set for [WebDocument](/python-net/api-reference/aspose.slides.export.web/webdocument/) saving.

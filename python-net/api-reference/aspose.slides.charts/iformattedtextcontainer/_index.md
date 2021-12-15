@@ -2,7 +2,7 @@
 title: IFormattedTextContainer Class
 type: docs
 weight: 820
-url: /slides/python-net/api-reference/aspose.slides.charts/iformattedtextcontainer/
+url: /python-net/api-reference/aspose.slides.charts/iformattedtextcontainer/
 ---
 
 Represents chart text format.

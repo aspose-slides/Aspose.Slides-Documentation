@@ -2,7 +2,7 @@
 title: MathAccent Class
 type: docs
 weight: 460
-url: /slides/python-net/api-reference/aspose.slides.mathtext/mathaccent/
+url: /python-net/api-reference/aspose.slides.mathtext/mathaccent/
 ---
 
 Specifies the accent function, consisting of a base and a combining diacritical mark<br/>            Example: 𝑎́

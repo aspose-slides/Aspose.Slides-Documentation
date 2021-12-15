@@ -2,7 +2,7 @@
 title: IChartDataPointCollection Class
 type: docs
 weight: 540
-url: /slides/python-net/api-reference/aspose.slides.charts/ichartdatapointcollection/
+url: /python-net/api-reference/aspose.slides.charts/ichartdatapointcollection/
 ---
 
 Represents collection of a series data point.

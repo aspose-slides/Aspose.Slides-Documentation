@@ -2,7 +2,7 @@
 title: IMathGroupingCharacter Class
 type: docs
 weight: 230
-url: /slides/python-net/api-reference/aspose.slides.mathtext/imathgroupingcharacter/
+url: /python-net/api-reference/aspose.slides.mathtext/imathgroupingcharacter/
 ---
 
 Specifies a grouping symbol above or below an expression, usually to highlight the relationship between elements

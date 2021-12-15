@@ -2,7 +2,7 @@
 title: INotesSlide Class
 type: docs
 weight: 1970
-url: /slides/python-net/api-reference/aspose.slides/inotesslide/
+url: /python-net/api-reference/aspose.slides/inotesslide/
 ---
 
 Represents a notes slide in a presentation.

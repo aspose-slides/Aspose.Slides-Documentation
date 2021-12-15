@@ -2,7 +2,7 @@
 title: IExtraColorSchemeCollection Class
 type: docs
 weight: 190
-url: /slides/python-net/api-reference/aspose.slides.theme/iextracolorschemecollection/
+url: /python-net/api-reference/aspose.slides.theme/iextracolorschemecollection/
 ---
 
 Represents a collection of additional color schemes.

@@ -2,7 +2,7 @@
 title: ColorFormat Class
 type: docs
 weight: 230
-url: /slides/python-net/api-reference/aspose.slides/colorformat/
+url: /python-net/api-reference/aspose.slides/colorformat/
 ---
 
 Represents a color used in a presentation.

@@ -2,7 +2,7 @@
 title: Column Class
 type: docs
 weight: 260
-url: /slides/python-net/api-reference/aspose.slides/column/
+url: /python-net/api-reference/aspose.slides/column/
 ---
 
 Represents a column in a table.

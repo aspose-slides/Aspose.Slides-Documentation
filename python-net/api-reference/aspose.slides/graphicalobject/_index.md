@@ -2,7 +2,7 @@
 title: GraphicalObject Class
 type: docs
 weight: 680
-url: /slides/python-net/api-reference/aspose.slides/graphicalobject/
+url: /python-net/api-reference/aspose.slides/graphicalobject/
 ---
 
 Represents abstract graphical object.

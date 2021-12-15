@@ -2,7 +2,7 @@
 title: IZoomFrame Class
 type: docs
 weight: 2810
-url: /slides/python-net/api-reference/aspose.slides/izoomframe/
+url: /python-net/api-reference/aspose.slides/izoomframe/
 ---
 
 Represents a Zoom object on a slide.

@@ -2,7 +2,7 @@
 title: IRowFormat Class
 type: docs
 weight: 2340
-url: /slides/python-net/api-reference/aspose.slides/irowformat/
+url: /python-net/api-reference/aspose.slides/irowformat/
 ---
 
 Represents format of a table row.

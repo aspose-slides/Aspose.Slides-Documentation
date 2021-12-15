@@ -2,7 +2,7 @@
 title: EffectChartMinorGroupingType Enumeration
 type: docs
 weight: 570
-url: /slides/python-net/api-reference/aspose.slides.animation/effectchartminorgroupingtype/
+url: /python-net/api-reference/aspose.slides.animation/effectchartminorgroupingtype/
 ---
 
 Represents the type of an animation effect for chart's element in series or category.

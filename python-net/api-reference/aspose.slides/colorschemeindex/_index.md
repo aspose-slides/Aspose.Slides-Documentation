@@ -2,7 +2,7 @@
 title: ColorSchemeIndex Enumeration
 type: docs
 weight: 9340
-url: /slides/python-net/api-reference/aspose.slides/colorschemeindex/
+url: /python-net/api-reference/aspose.slides/colorschemeindex/
 ---
 
 Represents an index in a colorscheme.

@@ -2,7 +2,7 @@
 title: ITabCollection Class
 type: docs
 weight: 2610
-url: /slides/python-net/api-reference/aspose.slides/itabcollection/
+url: /python-net/api-reference/aspose.slides/itabcollection/
 ---
 
 Represents a collection of tabs.

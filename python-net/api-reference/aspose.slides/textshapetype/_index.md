@@ -2,7 +2,7 @@
 title: TextShapeType Enumeration
 type: docs
 weight: 9990
-url: /slides/python-net/api-reference/aspose.slides/textshapetype/
+url: /python-net/api-reference/aspose.slides/textshapetype/
 ---
 
 Represents text wrapping shape.

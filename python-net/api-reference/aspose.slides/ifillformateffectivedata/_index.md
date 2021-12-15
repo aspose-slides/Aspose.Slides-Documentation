@@ -2,7 +2,7 @@
 title: IFillFormatEffectiveData Class
 type: docs
 weight: 1330
-url: /slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/
+url: /python-net/api-reference/aspose.slides/ifillformateffectivedata/
 ---
 
 Immutable object which contains effective fill formatting properties.

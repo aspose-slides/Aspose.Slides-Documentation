@@ -2,7 +2,7 @@
 title: SvgCoordinateUnit Enumeration
 type: docs
 weight: 790
-url: /slides/python-net/api-reference/aspose.slides.export/svgcoordinateunit/
+url: /python-net/api-reference/aspose.slides.export/svgcoordinateunit/
 ---
 
 Represents CSS2 coordinate units used to define SVG coordinates.

@@ -2,7 +2,7 @@
 title: ZoomImageType Enumeration
 type: docs
 weight: 10070
-url: /slides/python-net/api-reference/aspose.slides/zoomimagetype/
+url: /python-net/api-reference/aspose.slides/zoomimagetype/
 ---
 
 Defines whether the Zoom object is using the slide preview or a cover image.

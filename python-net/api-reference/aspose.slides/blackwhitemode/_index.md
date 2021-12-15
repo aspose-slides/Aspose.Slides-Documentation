@@ -2,7 +2,7 @@
 title: BlackWhiteMode Enumeration
 type: docs
 weight: 9310
-url: /slides/python-net/api-reference/aspose.slides/blackwhitemode/
+url: /python-net/api-reference/aspose.slides/blackwhitemode/
 ---
 
 Determines how colored shape should be transformed into black and white.

@@ -2,7 +2,7 @@
 title: IBlur Class
 type: docs
 weight: 500
-url: /slides/python-net/api-reference/aspose.slides.effects/iblur/
+url: /python-net/api-reference/aspose.slides.effects/iblur/
 ---
 
 Represents a Blur effect that is applied to the entire shape, including its fill.<br/>            All color channels, including alpha, are affected.

@@ -2,7 +2,7 @@
 title: PresetShadow Class
 type: docs
 weight: 960
-url: /slides/python-net/api-reference/aspose.slides.effects/presetshadow/
+url: /python-net/api-reference/aspose.slides.effects/presetshadow/
 ---
 
 Represents a Preset Shadow effect.

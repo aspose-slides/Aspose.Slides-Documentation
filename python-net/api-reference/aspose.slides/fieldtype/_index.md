@@ -2,7 +2,7 @@
 title: FieldType Class
 type: docs
 weight: 470
-url: /slides/python-net/api-reference/aspose.slides/fieldtype/
+url: /python-net/api-reference/aspose.slides/fieldtype/
 ---
 
 Represents a type of field. <br/>            This value determines which text will be set to the field portion when it will be updated.

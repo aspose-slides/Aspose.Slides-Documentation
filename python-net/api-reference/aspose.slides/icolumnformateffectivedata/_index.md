@@ -2,7 +2,7 @@
 title: IColumnFormatEffectiveData Class
 type: docs
 weight: 1100
-url: /slides/python-net/api-reference/aspose.slides/icolumnformateffectivedata/
+url: /python-net/api-reference/aspose.slides/icolumnformateffectivedata/
 ---
 
 Immutable object which contains effective table column formatting properties.

@@ -2,7 +2,7 @@
 title: SmartArtColorType Enumeration
 type: docs
 weight: 120
-url: /slides/python-net/api-reference/aspose.slides.smartart/smartartcolortype/
+url: /python-net/api-reference/aspose.slides.smartart/smartartcolortype/
 ---
 
 Represents color scheme of a SmartArt diagram.

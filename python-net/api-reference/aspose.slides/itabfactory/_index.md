@@ -2,7 +2,7 @@
 title: ITabFactory Class
 type: docs
 weight: 2630
-url: /slides/python-net/api-reference/aspose.slides/itabfactory/
+url: /python-net/api-reference/aspose.slides/itabfactory/
 ---
 
 Allow to create ITab instances
