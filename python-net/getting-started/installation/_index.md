@@ -11,13 +11,13 @@ description: "Install Aspose.Slides for Python via .NET in Windows or macOS"
 
 First, you have to check and confirm that machine's specifications meet the [system requirements](/slides/python-net/system-requirements/).
 
-## **Installing [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose.slides/)** 
+## **Installing Aspose.Slides for Python via .NET** 
 
 `pip` is the easiest way to download and install [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose.slides/). 
 
 To install Aspose.Slides, run this command:  `pip install Aspose.Slides`
 
-## **Using [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose.slides/)** 
+## **Using Aspose.Slides for Python via .NET** 
 
 Once you finish installing the module, you can use Aspose.Slides from your python code this way:
 
