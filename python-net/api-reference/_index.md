@@ -1,7 +1,7 @@
 ---
-title: Aspose.Slides for Python via .NET - API Reference
+title: API Reference
 type: docs
-weight: 10
+weight: 50
 url: /python-net/api-reference/
 ---
 
