@@ -27,7 +27,7 @@ For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://apire
 
 ### **Creating Zoom Frames**
 
-Zoom frame is one of the shapes offered by Aspose.Slides for .NET offers. You can add a zoom frame on a slide this way:
+You can add a zoom frame on a slide this way:
 
 1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 2.	Create new slides to which you intend to link the zoom frames. 
