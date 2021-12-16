@@ -49,6 +49,8 @@ Aspose.Slides for Python via .NET supports any 64-bit or 32-bit operating system
 ## System Requirements for Target Linux Platform
 
 - GCC-6 runtime libraries (or later).
+  
+- [`libgdiplus`](https://github.com/mono/libgdiplus): an Open Source implementation of the GDI+ API.
 
 - Dependencies of .NET Core Runtime. Installing .NET Core Runtime itself is NOT required.
 
