@@ -1,8 +1,8 @@
 ---
-title: Convert Powerpoint PPT(X) to JPG
+title: Convert Powerpoint PPT to JPG
 type: docs
 weight: 60
-url: /cpp/convert-powerpoint-ppt-and-pptx-to-jpg/
+url: /cpp/convert-powerpoint-to-jpg/
 keywords: "Convert PowerPoint to JPG"
 description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in C++"
 ---

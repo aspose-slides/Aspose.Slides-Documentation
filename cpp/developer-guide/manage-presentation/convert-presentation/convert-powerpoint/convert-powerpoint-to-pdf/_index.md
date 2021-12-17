@@ -1,8 +1,8 @@
 ---
-title: Convert PowerPoint PPT and PPTX to PDF
+title: Convert PowerPoint to PDF
 type: docs
 weight: 40
-url: /cpp/convert-powerpoint-ppt-and-pptx-to-pdf/
+url: /cpp/convert-powerpoint-to-pdf/
 keywords: "PPT and PPTX to PDF"
 description: "Convert PPT to PDF and PPTX to PDF. Convert PowerPoint to PDF document with Aspose.Slides."
 ---
