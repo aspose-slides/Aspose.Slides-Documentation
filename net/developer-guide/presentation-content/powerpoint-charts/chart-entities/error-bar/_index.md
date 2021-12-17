@@ -2,12 +2,14 @@
 title: Error Bar
 type: docs
 url: /net/error-bar/
+keywords: "Error bar, error bar values PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add error bar to PowerPoint presentations in C# or .NET"
 ---
 
 ## **Add Error Bar**
 Aspose.Slides for .NET provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Add a bubble chart on desired slide.
 1. Access the first chart series and set the error bar X format.
 1. Access the first chart series and set the error bar Y format.
@@ -44,7 +46,7 @@ using (Presentation presentation = new Presentation())
 ## **Add Custom Error Bar Value**
 Aspose.Slides for .NET provides a simple API for managing custom error bar values. The sample code applies when the **IErrorBarsFormat.ValueType** property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Add a bubble chart on desired slide.
 1. Access the first chart series and set the error bar X format.
 1. Access the first chart series and set the error bar Y format.

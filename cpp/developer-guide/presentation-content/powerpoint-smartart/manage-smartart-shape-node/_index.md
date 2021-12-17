@@ -10,7 +10,7 @@ url: /cpp/manage-smartart-shape-node/
 ## **Add SmartArt Node**
 Aspose.Slides for C++ has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -23,7 +23,7 @@ Aspose.Slides for C++ has provided the simplest API to manage the SmartArt shape
 ## **Add SmartArt Node at Specific Position**
 In the following sample code we have explained how to add the child nodes belonging to respective nodes of SmartArt shape at particular position.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of first slide by using its Index.
 - Add a StackedList type SmartArt shape in accessed slide.
 - Access the first node in added SmartArt shape.
@@ -36,7 +36,7 @@ In the following sample code we have explained how to add the child nodes belong
 ## **Access SmartArt Node**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -61,7 +61,7 @@ The following sample code will help to access the child nodes belonging to respe
 ## **Access SmartArt Child Node at Specific Position**
 In this example, we will learn to access the child nodes at some particular position belonging to respective nodes of SmartArt shape.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of first slide by using its Index.
 - Add a StackedList type SmartArt shape.
 - Access the added SmartArt shape.
@@ -74,7 +74,7 @@ In this example, we will learn to access the child nodes at some particular posi
 ## **Remove SmartArt Node**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -87,7 +87,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 ## **Remove SmartArt Node at Specific Position**
 In this example, we will learn to remove the nodes inside SmartArt shape at particular position.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -123,7 +123,7 @@ Aspose.Slides for C++ makes it possible to add custom SmartArt shapes and set th
 
 Please follow the steps below:
 
-- Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of the `Presentation` class.
 - Obtain the reference of a slide using its index.
 - Add a SmartArt shape by setting its LayoutType.
 - Set the FillFormat for the SmartArt shape nodes.
@@ -135,7 +135,7 @@ Please follow the steps below:
 ## **Generate Thumbnail of SmartArt Child Node**
 Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class that represents the PPTX file.
+1. Instantiate `Presentation` class that represents the PPTX file.
 1. Add SmartArt.
 1. Obtain the reference of a node by using its Index
 1. Get the thumbnail image.

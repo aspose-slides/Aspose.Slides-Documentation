@@ -3,6 +3,8 @@ title: New HTML Export System - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /net/web-extensions/
+keywords: "Export PowerPoint HTML, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint HTML export in C# or .NET"
 ---
 
 
@@ -402,4 +404,4 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples) and the sample project [here (zip)](https://github.com/aspose-slides/Aspose.Slides-Documentation/raw/web-extensions/net/developer-guide/web-extensions/sample.zip).
+That's all you need to create an HTML with the animated page transitions generated from the PDF document. The sample HTML export can be downloaded [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples) and the sample project [here (zip)](sample.zip).

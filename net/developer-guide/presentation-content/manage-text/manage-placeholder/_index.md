@@ -3,6 +3,8 @@ title: Manage Placeholder
 type: docs
 weight: 10
 url: /net/manage-placeholder/
+keywords: "Placeholder, Placeholder text, Prompt text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Change Placeholder text and prompt text in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Change Text in a Placeholder**
@@ -16,11 +18,11 @@ Step 2: Replace Text of the Placeholder
 
 To replace the text of a Placeholder, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Iterate through the Shapes and find the Placeholder shapes.
 - Typecast the Placeholder shape to AutoShape and change the text using the TextFrame associated with the AutoShape.
-- Write the modified presentation as a [PPTX ](https://wiki.fileformat.com/presentation/pptx/)file.
+- Write the modified presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
 
 ```c#
 // Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX

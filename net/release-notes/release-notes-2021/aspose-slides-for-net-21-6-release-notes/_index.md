@@ -31,7 +31,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.6](https://www.n
 |SLIDESNET-41563|Image rotation is missing in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
 |SLIDESNET-41008|The effects lost in generated PNG|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-jpg/>
 |SLIDESNET-39925|Pptx to pdf not properly converted|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-39365|Missing shape shadow and bevel when converting to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf////>
+|SLIDESNET-39365|Missing shape shadow and bevel when converting to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
 |SLIDESNET-38555|Incorrect font size in notes page|Bug|<https://docs.aspose.com/slides/net/shape-effective-properties/>
 |SLIDESNET-36944|3D object is missing in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
 |SLIDESNET-36385|3D effects are missing for shapes in exported PDF|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>

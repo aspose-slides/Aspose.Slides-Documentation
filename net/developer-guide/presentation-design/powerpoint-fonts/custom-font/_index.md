@@ -3,6 +3,8 @@ title: Custom Font
 type: docs
 weight: 20
 url: /net/custom-font/
+keywords: "Fonts, custom fonts, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint custom fonts in C# or .NET"
 ---
 
 ## **Load Custom Fonts from .TTF**

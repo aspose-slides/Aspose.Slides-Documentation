@@ -3,12 +3,14 @@ title: Manage Table
 type: docs
 weight: 10
 url: /net/manage-table/
+keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create and manage table in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Create Table from Scratch**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -70,7 +72,7 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 ## **Access Existing Table**
 To access a table that already exists in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide (that contains the table) by using its Position.
 - Create an ITable object and set it to null.
 - Iterate through all Shapes until you find the Table. If a slide contains only one table then you can simply check a shape and if it is found to be a Table then just typecast it as a Table object. But, if the slide contains more than one tables then it's better to find your desired table using its Alternative Text.
@@ -107,7 +109,7 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 ## **Align Text in Table**
 Aspose.Slides for .NET has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Insert table in the slide.
 - Access text frame.
@@ -158,7 +160,7 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ## **Set Text Formatting on Table Level**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set Table Cells Font Height.

@@ -18,7 +18,7 @@ This page contains release notes for[ Aspose.Slides for C++ 19.11](https://www.
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1821|[Use Aspose.Slides for .NET 19.11 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.11+Release+Notes)|Feature|
+|SLIDESCPP-1821|[Use Aspose.Slides for .NET 19.11 features](/slides/net/aspose-slides-for-net-19-11-release-notes/)|Feature|
 |SLIDESNET-39130|[Improve handling of embedded OLE objects in Presentation](/slides/cpp/shape-manipulations/#shapemanipulations-extractembeddedfilesfromoleobject)|Feature|
 |SLIDESNET-41401|Text get overlapped in generated shape thumbnail|Enhancement|
 |SLIDESNET-41340|Chart become image on cloning shape|Enhancement|
@@ -27,10 +27,10 @@ This page contains release notes for[ Aspose.Slides for C++ 19.11](https://www.
 ### **Obsolete methods AddFromSvg() have been deleted**
 Methods **System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent)** and
 
-**System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent, System::SharedPtr<Import::IExternalResourceResolver> externalResResolver, System::String baseUri)**
+`System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent, System::SharedPtr<Import::IExternalResourceResolver> externalResResolver, System::String baseUri)`
 
 have been removed from **ImageCollection** class and corresponding **IImageCollection** interface.
 
-Please use [**AddImage(System::SharedPtr<ISvgImage> svgImage)**](https://apireference.aspose.com/cpp/slides/class/aspose.slides.i_image_collection/#a6a806a0d01d16bb78e60625f3d5a6e4f) method instead.
+Please use [**AddImage(System::SharedPtr<ISvgImage> svgImage)**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection/#a6a806a0d01d16bb78e60625f3d5a6e4f) method instead.
 
 

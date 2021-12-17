@@ -1,14 +1,14 @@
 ---
 title: Save Presentation
 type: docs
-weight: 70
+weight: 80
 url: /java/save-presentation/
 ---
 
 ## **Overview**
 {{% alert color="primary" %}} 
 
-[Opening Presentation](/slides/java/opening-a-presentation/) described how to use the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
+[Opening Presentation](/slides/java/open-presentation/) described how to use the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
 
 {{% /alert %}} 
 

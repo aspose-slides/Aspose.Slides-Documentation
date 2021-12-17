@@ -8,11 +8,11 @@ description: "Convert PPT to PDF and PPTX to PDF. Convert PowerPoint to PDF docu
 ---
 
 ## How to Convert PPT to PDF Online
-You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/) to convert PPT or PPTX files to PDF quickly.
+You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/ppt-to-pdf) to convert PPT or PPTX files to PDF quickly.
 
 Go through these steps:
 
-1. Go to our [PowerPoint Online Converter page](https://products.aspose.app/slides/conversion/). 
+1. Go to our [PowerPoint Online Converter page](https://products.aspose.app/slides/conversion/powerpoint-to-pdf). 
 
 2. Click **Drop or upload your files**. 
 
@@ -28,7 +28,7 @@ Go through these steps:
 
 ## PowerPoint to PDF Conversion in C++
 
-[**Aspose.Slides for C++** ](https://products.aspose.com/slides/cpp)allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
+[**Aspose.Slides for C++** ](https://products.aspose.com/slides/cpp/)allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
 
 To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.Save**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method. The [**Presentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class exposes the [**Save**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
 

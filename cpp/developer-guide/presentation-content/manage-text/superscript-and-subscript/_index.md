@@ -1,7 +1,7 @@
 ---
 title: Superscript and Subscript
 type: docs
-weight: 70
+weight: 80
 url: /cpp/superscript-and-subscript/
 ---
 
@@ -10,7 +10,7 @@ You can add super script and sub script text inside any paragraph portion. For a
 
 This property returns or sets the superscript or subscript text (value from -100% (subscript) to 100% (superscript). For example :
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an IAutoShape of Rectangle type to the slide.
 - Access the ITextFrame associated with the IAutoShape.

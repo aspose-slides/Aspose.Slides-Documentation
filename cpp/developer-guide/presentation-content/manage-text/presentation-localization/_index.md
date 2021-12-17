@@ -1,14 +1,14 @@
 ---
 title: Presentation Localization
 type: docs
-weight: 90
+weight: 100
 url: /cpp/presentation-localization/
 ---
 
 
 
 ## **Change Language for Presentation and Shape's Text**
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Rectangle type to the slide.
 - Add some text to the TextFrame.

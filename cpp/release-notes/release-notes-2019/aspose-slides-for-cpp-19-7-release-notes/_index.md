@@ -18,7 +18,7 @@ This page contains release notes for [Aspose.Slides for CPP 19.7](https://www.n
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1817|[Use Aspose.Slides for .NET 19.7 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.7+Release+Notes)|Feature|
+|SLIDESCPP-1817|[Use Aspose.Slides for .NET 19.7 features](/slides/net/aspose-slides-for-net-19-7-release-notes/)|Feature|
 |SLIDESNET-34685|Default automatic Markers symbols for LineWithMarkers chart|Feature|
 |SLIDESNET-36453|Support API for animation effects on paragraph level editing|Feature|
 |SLIDESNET-33742|Setting Font related properties for Chart Area|Feature|

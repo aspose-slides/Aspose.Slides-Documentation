@@ -3,18 +3,20 @@ title: Connector
 type: docs
 weight: 10
 url: /net/connector/
+keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Connect PowerPoint shapes in C# or .NET"
 ---
 
 ## **Connect Shapes Using Connectors**
 In order to add a connector shape for joining two shapes. Please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its Index.
 1. Add two add AutoShape's in selected slide using AddAutoShape method exposed by Shapes object.
 1. Add Connector using AddConnector method exposed by Shapes object by defining Connector Type.
 1. Join the added shape using connectors.
 1. Call Reroute() method to create shortest automatic connection path.
-1. Write the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) as a PPTX file.
+1. Write the `Presentation` as a PPTX file.
    In the example given below, we have added a connector between two shapes.
 
 ```c#
@@ -54,7 +56,7 @@ Method IConnector.Reroute() reroutes connector so that it take the shortest poss
 ## **Use Desired Connection Site**
 In order to add a connector shape for joining two shapes. Please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of `Presentation` class.
 1. Obtain the reference of a slide by using its Index.
 1. Add two add AutoShape's in selected slide using AddAutoShape method exposed by Shapes object.
 1. Add Connector using AddConnector method exposed by Shapes object by defining Connector Type.
@@ -104,7 +106,7 @@ using (Presentation presentation = new Presentation())
 ## **Find Angle of Connector Lines**
 In order to calculate the angle for connector line, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation.
+1. Create an instance of `Presentation` class and load the presentation.
 1. Obtain the reference of a slide by using its Index.
 1. Access the Connector Line shape.
 1. Use the line width, height, shape frame height and shape frame width to calculate the angle.

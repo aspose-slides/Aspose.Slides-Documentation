@@ -13,7 +13,7 @@ This page contains release notes for Aspose.Slides for CPP 19.4
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1746|[Use Aspose.Slides for .NET 19.4 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.4+Release+Notes)|Feature|
+|SLIDESCPP-1746|[Use Aspose.Slides for .NET 19.4 features](/slides/net/aspose-slides-for-net-19-4-release-notes/)|Feature|
 |SLIDESNET-41018|Supporting of external Excel workbooks|Feature|
 |SLIDESNET-40897|Support for OpenDocument encryption|Feature|
 |SLIDESNET-40917|The rendition to PDF format occupies too much RAM memory|Enhancement|

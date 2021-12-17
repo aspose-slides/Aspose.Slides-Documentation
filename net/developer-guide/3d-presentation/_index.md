@@ -3,6 +3,8 @@ title: 3D Presentation
 type: docs
 weight: 232
 url: /net/3d-presentation/
+keywords: "3D, 3D PowerPoint, 3D presentation, 3D rotation, 3D depth, 3D extrusion, 3D gradient, 3D text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "3D PowerPoint presentation in C# or .NET"
 ---
 
 
@@ -121,7 +123,7 @@ using (Presentation pres = new Presentation())
 And here is the result:
 
 ![todo:image_alt_text](img_02_03.png)
-  
+
 Except a gradient fill color, its possible to fill shapes with an image:
 ``` csharp
 shape.FillFormat.FillType = FillType.Picture;
@@ -177,7 +179,7 @@ Here is the result:
 
 ![todo:image_alt_text](img_02_05.png)
 
- 
+
 ## Not Supported - Coming Soon
 The following PowerPoint 3D features are not supported yet: 
 - Bevel

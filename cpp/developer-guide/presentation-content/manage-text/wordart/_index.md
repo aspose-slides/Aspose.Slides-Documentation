@@ -1,7 +1,7 @@
 ---
 title: WordArt
 type: docs
-weight: 231
+weight: 110
 url: /cpp/wordart/
 ---
 
@@ -340,7 +340,7 @@ Go through these steps:
 5. Set all the necessary parameters.
 6. Set the ColorType as Scheme.
 7. Set the Scheme Color.
-8. Write the presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
 This sample code (based on the steps above) shows you how to add a connector between two shapes in C++:
 

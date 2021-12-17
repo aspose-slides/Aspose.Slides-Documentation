@@ -3,8 +3,8 @@ title: Presentation Theme
 type: docs
 weight: 10
 url: /net/presentation-theme/
-keywords: "PowerPoint PPT presentation design"
-description: "Create PowerPoint design, PPT presentation design with Aspose.Slides API."
+keywords: "Theme, PowerPoint theme, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint presentation theme in C# or .NET"
 ---
 
 ## **About Presentation Design**
@@ -72,7 +72,7 @@ Here is the same theme color set, with all its color names, available in "*Desig
 
 Here is possible to add new colors not defined in presentation theme, or change existing ones. For example, "Hyperlink” and ”Followed Hyperlink” colors were added manually. 
 ## **Change Theme Colors with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/net) to choose the appropriate color from the theme color set and set it to the element, use [**IFillFormat.SolidFillColor.SchemeColor**](https://apireference.aspose.com/net/slides/aspose.slides/icolorformat/properties/schemecolor) property:
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) to choose the appropriate color from the theme color set and set it to the element, use [**IFillFormat.SolidFillColor.SchemeColor**](https://apireference.aspose.com/slides/net/aspose.slides/icolorformat/properties/schemecolor) property:
 
 
 ``` csharp
@@ -89,7 +89,7 @@ In [**Aspose.Slides**](https://products.aspose.com/slides/net) to choose the app
 
 }
 
-``` 
+```
 
 
 
@@ -103,7 +103,7 @@ In the example above, we have set a reference on *Accent4* color, taken from the
 
 Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
 
-``` 
+```
 
 
 
@@ -117,7 +117,7 @@ We can check that color matches the one defined as *Accent4* for the presentat
 
 Console.WriteLine($"{themeAccent4.Name} - from theme");
 
-``` 
+```
 
 
 
@@ -137,7 +137,7 @@ otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
 pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 
-``` 
+```
 
 
 
@@ -152,7 +152,7 @@ The presentation theme defines two main fonts, which will be used for presentat
 
 
 ## **Change Theme Fonts with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/net) (the same as in PowerPoint) to choose the font from the **font scheme**, the special identifier is used:
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) (the same as in PowerPoint) to choose the font from the **font scheme**, the special identifier is used:
 
 - "**+mn-lt**": Body Font Latin (Minor Latin Font)
 - "**+mj-lt**": Heading Font Latin (Major Latin Font)
@@ -183,7 +183,7 @@ shape.TextFrame.Paragraphs.Add(paragraph);
 
 portion.PortionFormat.LatinFont = new FontData("+mn-lt");
 
-``` 
+```
 
 
 
@@ -197,7 +197,7 @@ Now lets check that the same font is set for Body Latin:
 
 Console.WriteLine($"Theme Body Latin font is: {pres.MasterTheme.FontScheme.Minor.LatinFont}");
 
-``` 
+```
 
 
 
@@ -209,7 +209,7 @@ It is possible to change the presentation theme font, which will be updated for 
 
  pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
-``` 
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -223,7 +223,7 @@ Presentation theme may also contain a set of background styles, which can be cha
 
 
 ## **Change Theme Background Style with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/net) its possible to access Background Style with [**IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles**](https://apireference.aspose.com/net/slides/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) its possible to access Background Style with [**IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles**](https://apireference.aspose.com/slides/net/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
 
 On the images above you can see, that to design the Background Style in PowerPoint, there are 12 predefined backgrounds available. However, if we upload the presentation, saved in PowerPoint through Aspose.Slides, then execute the following code - we will see only 3 predefined backgrounds in the resulting presentation:
 
@@ -239,9 +239,9 @@ On the images above you can see, that to design the Background Style in PowerPoi
 
 }
 
-``` 
+```
 
-The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/net/slides/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property.
+The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/slides/net/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property.
 
 To define which background should be used for presentation, set the needed presentation index (**Note**: the index starts from 1, not from 0. 0 is used to define "*no fill*" value):
 
@@ -251,7 +251,7 @@ To define which background should be used for presentation, set the needed prese
 
  pres.Masters[0].Background.StyleIndex = 2;
 
-``` 
+```
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -261,7 +261,7 @@ To define which background should be used for presentation, set the needed prese
 ## **Change Theme Effects with Aspose.Slides**
 
 
-An important difference in [**Aspose.Slides**](https://products.aspose.com/slides/net) to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://apireference.aspose.com/net/slides/aspose.slides.theme/formatscheme)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://apireference.aspose.com/net/slides/aspose.slides.theme/formatscheme)type. [FormatScheme ](https://apireference.aspose.com/net/slides/aspose.slides.theme/formatscheme)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
+An important difference in [**Aspose.Slides**](https://products.aspose.com/slides/net/) to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://apireference.aspose.com/slides/net/aspose.slides.theme/formatscheme)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://apireference.aspose.com/slides/net/aspose.slides.theme/formatscheme)type. [FormatScheme ](https://apireference.aspose.com/slides/net/aspose.slides.theme/formatscheme)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
 
 - fill styles
 - line styles
@@ -282,7 +282,7 @@ For example, 3 shapes will look this way after we apply 3 different effects on t
 
 
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/net) there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://apireference.aspose.com/net/slides/aspose.slides.theme/formatscheme) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/net/slides/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property available, but it can only change the background fill style.
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://apireference.aspose.com/slides/net/aspose.slides.theme/formatscheme) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [IPresentation.MasterTheme.FormatScheme.BackgroundFillStyles](https://apireference.aspose.com/slides/net/aspose.slides.theme/iformatscheme/properties/backgroundfillstyles) property available, but it can only change the background fill style.
 
 
 
@@ -310,7 +310,7 @@ So, the effects you can use in PowerPoint are strictly limited. While, in Aspos
 
 }
 
-``` 
+```
 
 
 

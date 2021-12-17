@@ -89,7 +89,7 @@ try {
 ## **Access SmartArt Node**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
 1. Check if shape is of [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) if it is SmartArt.
@@ -132,7 +132,7 @@ try {
 ## **Access SmartArt Child Node**
 The following sample code will help to access the child nodes belonging to respective nodes of SmartArt shape.
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
 1. Check if shape is of [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) if it is SmartArt.
@@ -182,7 +182,7 @@ try {
 ## **Access SmartArt Child Node at Specific Position**
 In this example, we will learn to access the child nodes at some particular position belonging to respective nodes of SmartArt shape.
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain the reference of first slide by using its Index.
 1. Add a [**StackedList**](https://apireference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType#StackedList) type SmartArt shape.
 1. Access the added SmartArt shape.
@@ -217,7 +217,7 @@ try {
 ## **Remove SmartArt Node**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
 1. Check if shape is of [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) if it is SmartArt.
@@ -260,7 +260,7 @@ try {
 ## **Remove SmartArt Node at Specific Position**
 In this example, we will learn to remove the nodes inside SmartArt shape at particular position.
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
 1. Check if shape is of [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) if it is SmartArt.
@@ -354,7 +354,7 @@ We will use the following source SmartArt shape for our investigation in differe
 
 In the following sample code we will investigate how to identify **Assistant Nodes** in the SmartArt nodes collection and changing them.
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of second slide by using its Index.
 1. Traverse through every shape inside first slide.
 1. Check if shape is of [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) if it is SmartArt.
@@ -405,7 +405,7 @@ Aspose.Slides for Java makes it possible to add custom SmartArt shapes and set t
 
 Please follow the steps below:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain the reference of a slide using its index.
 1. Add a [SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArt) shape by setting its [**LayoutType**](https://apireference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
 1. Set the [**FillFormat**](https://apireference.aspose.com/slides/java/com.aspose.slides/IShape#getFillFormat--) for the SmartArt shape nodes.
@@ -440,7 +440,7 @@ try {
 ## **Generate Thumbnail of SmartArt Child Node**
 Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. [Add SmartArt](https://apireference.aspose.com/slides/java/com.aspose.slides/ISmartArtNodeCollection#addNode--).
 1. Obtain the reference of a node by using its Index
 1. Get the thumbnail image.

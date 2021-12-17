@@ -13,13 +13,13 @@ You’ll need to take the time to understand JAXB, and the Open XML file structu
 
 Read more at [docx4java.org](https://www.docx4java.org/trac/docx4j)
 ### **Aspose.Slides for Java**
-[Aspose.Slides for Java](http://www.aspose.com/java/powerpoint-component.aspx) is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
+[Aspose.Slides for Java](https://products.aspose.com/slides/java/) is a unique PowerPoint management component that enables Java applications to read, write and manipulate PowerPoint documents (PPT, PPTX, POS, PPS, POTX, PPSX) PDF, HTML and image file formats without using Microsoft PowerPoint.
 
 Aspose.Slides for Java is the first and only Java component that provides functionality to manage PowerPoint documents within your own applications.
 
 As with all Aspose Java components, Aspose.Slides for Java is written in pure Java, incredibly priced and lightning fast.
 
-Read more at [aspose.com](http://www.aspose.com/java/powerpoint-component.aspx)
+Read more at [aspose.com](https://products.aspose.com/slides/java/)
 ### **Aspose.Slides Java for pptx4j**
 Project Aspose.Slides for pptx4j shows how different tasks can be performed using Aspose.Slides Java APIs in comparison with pptx4j. The project also covers the features that are only available in Aspose.Slides APIs but not in pptx4j for dealing with presentations.
 
@@ -40,7 +40,6 @@ This project is helpful for developers who want to compare pptx4j with Aspose.S
 ## **Downloading**
 Releases of running examples are available to download on all of the below mentioned social coding sites:
 
-- **CodePlex** - [Aspose.Slides Java for Pptx4j](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 - **GitHub** - [Aspose.Slides Java for Pptx4j](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases)
 
 To configure **Aspose.Slides for Java API**, include the Aspose repository URL and Aspose.Slides for Java API maven dependency in your **pom.xml** as following:
@@ -67,14 +66,12 @@ This is why we offer free support. Anyone who uses our product, whether they hav
 
 You can log any issues or suggestions related to Aspose.Slides Java for pptx4j using any of the following platforms:
 
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/issues)
 ### **Extend and Contribute**
 Aspose.Slides Java for pptx4j is open source and its source code is available on the major social coding websites listed below. Developers are encouraged to download the source code and contribute by suggesting or adding new feature or improving the existing ones, so that others could also benefit from it.
 ### **Source Code**
 You can get the latest source code from one of the following locations
 
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavapptx4j)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins)
 ### **Source code overview**
 There are two projects related to Aspose.Slides Java for pptx4j

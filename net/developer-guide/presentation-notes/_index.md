@@ -3,8 +3,8 @@ title: Presentation Notes
 type: docs
 weight: 110
 url: /net/presentation-notes/
-keywords: "PowerPoint presentation speaker notes"
-description: "PowerPoint presentation notes, speaker notes with Aspose.Slides"
+keywords: "Notes, PowerPoint notes, add notes, remove notes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add and remove notes in PowerPoint presentations in C# or .NET"
 ---
 
 
@@ -49,7 +49,7 @@ presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 
 
 ## **Add NotesStyle**
-NotesStyle property has been added to [IMasterNotesSlide](https://apireference.aspose.com/net/slides/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://apireference.aspose.com/net/slides/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
+NotesStyle property has been added to [IMasterNotesSlide](https://apireference.aspose.com/slides/net/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://apireference.aspose.com/slides/net/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
 ```c#
 // Instantiate Presentation class that represents the presentation file

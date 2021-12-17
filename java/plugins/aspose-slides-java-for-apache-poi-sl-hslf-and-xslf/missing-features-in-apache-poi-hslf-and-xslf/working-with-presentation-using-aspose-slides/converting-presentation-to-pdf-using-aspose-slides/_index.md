@@ -32,10 +32,10 @@ pres.save("AsposeConvert.pdf", SaveFormat.Pdf);
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Apache_POI-v1.0.0)
 ## **Download Sample Code**
 - [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/SourceControl/latest#src/main/java/com/aspose/slides/examples/asposefeatures/presentation/converttoPDF/AsposeConverter.java)
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/presentation/converttoPDF/AsposeConverter.java)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/presentation/converttoPDF/AsposeConverter.java)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Converting Presentation to PDF](http://www.aspose.com/docs/display/slidesjava/Converting+Presentation+to+PDF).
+For more details, visit [Converting Presentation to PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 
 {{% /alert %}}

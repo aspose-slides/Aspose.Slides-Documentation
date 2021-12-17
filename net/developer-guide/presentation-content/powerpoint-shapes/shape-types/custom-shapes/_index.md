@@ -3,6 +3,8 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /net/custom-shape/
+keywords: "PowerPoint shape, custom shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add custom shape in PowerPoint presentation in C# or .NET"
 ---
 
 # Shape Geometry Customization (Shape Points Editing)

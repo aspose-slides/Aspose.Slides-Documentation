@@ -1,8 +1,10 @@
 ---
 title: Extract Text from Presentation
 type: docs
-weight: 80
+weight: 90
 url: /net/extract-text-from-presentation/
+keywords: "Extract text from slide, Extract text from PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "Extract text from slide or PowerPoint presentation in C# or .NET"
 ---
 
 {{% alert color="primary" %}} 

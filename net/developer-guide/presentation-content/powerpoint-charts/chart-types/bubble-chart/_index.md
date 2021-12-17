@@ -2,6 +2,8 @@
 title: Bubble Chart
 type: docs
 url: /net/bubble-chart/
+keywords: "Bubble chart, chart size, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Bubble chart size in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Bubble Chart Size Scaling**

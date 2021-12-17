@@ -20,7 +20,7 @@ In the example given below, we have added a Video Frame into the slide.
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-EmbeddedVideoFrame-EmbeddedVideoFrame.cpp" >}}
 
 ## **Create Video Frame with Video from Web Source**
-PowerPoint 2010 and newer versions support YouTube videos. To play these videos in PowerPoint make sure your [environment meet requirements ](https://support.office.com/en-us/article/Requirements-for-using-the-PowerPoint-YouTube-feature-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-US&rs=en-US&ad=US)for embedding videos from web source.
+PowerPoint 2010 and newer versions support YouTube videos. To play these videos in PowerPoint make sure your [environment meet requirements ](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)for embedding videos from web source.
 
 In order To add video from YouTube with Aspose.Slides, please use following code snippet:
 

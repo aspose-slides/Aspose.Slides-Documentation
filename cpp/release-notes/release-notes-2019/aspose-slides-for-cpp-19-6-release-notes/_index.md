@@ -18,7 +18,7 @@ This page contains release notes for [Aspose.Slides for CPP 19.6](https://www.n
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCPP-1816|[Use Aspose.Slides for .NET 19.6 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+19.6+Release+Notes)|Feature|
+|SLIDESCPP-1816|[Use Aspose.Slides for .NET 19.6 features](/slides/net/aspose-slides-for-net-19-6-release-notes/)|Feature|
 |SLIDESCPP-41142|Support for setting lock Aspect Ratio for text box|Feature|
 |SLIDESNET-41092|IColorFormat.Color doesn’t return effective color|Feature|
 |SLIDESNET-34681|Support for progress in percentage for PDF conversion|Feature|

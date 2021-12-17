@@ -1,11 +1,13 @@
 ---
 title: Presentation Localization
 type: docs
-weight: 90
+weight: 100
 url: /net/presentation-localization/
+keywords: "Change language, Spellcheck, Spell check, Spellchecker, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Change or check language in PowerPoint presentation. Spell check text in C# or .NET"
 ---
 ## **Change Language for Presentation and Shape's Text**
-- Create an instance of [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Rectangle type to the slide.
 - Add some text to the TextFrame.

@@ -3,6 +3,8 @@ title: Shape Animation
 type: docs
 weight: 50
 url: /net/shape-animation/
+keywords: "PowerPoint animation, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Create PowerPoint animation in C# or .NET"
 ---
 
 Animation is one of the most important parts of the presentations that make them more attractive and meaningful. Aspose.Slides for .NET also allows developers to apply different kinds of animation effects on different kinds of shapes. There is a separate namespace [Aspose.Slides.Animation](http://www.aspose.com/api/net/slides/aspose.slides.animation/) that provides classes to handle the animations on PPTX presentations. In this topic, we will show how to apply animation effects on shapes.

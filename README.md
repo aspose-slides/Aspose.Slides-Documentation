@@ -8,6 +8,8 @@ This repository contains Aspose.Slides Product Family documentation.
 
 [Aspose.Slides for Android via Java Documentation](androidjava)
 
+[Asose.Slides for Python via .NET Documentation](pythonnet)
+
 [Aspose.Slides for Reporting Services Documentation](reportingservices)
 
 [Aspose.Slides for SharePoint Documentation](sharepoint)

@@ -2,6 +2,8 @@
 title: Chart Data Label
 type: docs
 url: /net/chart-data-label/
+keywords: "Chart data label,label distance, C#, Csharp, Aspose.Slides for .NET"
+description: "Set PowerPoint chart data label and distance in C# or .NET"
 ---
 
 ## **Set Precision of Data in Chart Data Labels**
@@ -23,7 +25,7 @@ using (Presentation pres = new Presentation())
 ## **Display Percentage as Labels**
 Aspose.Slides for .NET supports displaying the percentage as labels. In this topic, we will see with example how to display the percentage as labels using Aspose.Slides. In order to set percentage as display. Please follow the steps below.
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) object.
+1. Instantiate [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) object.
 1. Add stacked column chart.
 1. Calculate the series data point values for particular categories.
 1. Displaying the percentage as labels.
@@ -87,7 +89,7 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ## **Set Percentage Sign with Chart Data Labels**
 In order to set the percentage sign with chart data labels. Please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Get reference of the slide.
 - Add PercentsStackedColumn chart on a slide.
 - Set NumberFormatLinkedToSource to false.
@@ -163,7 +165,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ## **Set Label Distances**
 In order to set the Label Distance. Please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Get reference of the slide.
 - Adding a chart on slide.
 - Setting the position of label from axis.

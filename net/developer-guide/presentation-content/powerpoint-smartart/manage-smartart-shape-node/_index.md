@@ -3,13 +3,15 @@ title: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /net/manage-smartart-shape-node/
+keywords: "SmartArt node, SmartArt child node, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Smart node and child node in PowerPoint presentations in C# or .NET"
 ---
 
 
 ## **Add SmartArt Node**
 Aspose.Slides for .NET has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -56,7 +58,7 @@ pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ## **Add SmartArt Node at Specific Position**
 In the following sample code we have explained how to add the child nodes belonging to respective nodes of SmartArt shape at particular position.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of first slide by using its Index.
 - Add a StackedList type SmartArt shape in accessed slide.
 - Access the first node in added SmartArt shape.
@@ -92,7 +94,7 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 ## **Access SmartArt Node**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 
 - Obtain the reference of first slide by using its Index.
 
@@ -187,7 +189,7 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 ## **Access SmartArt Child Node at Specific Position**
 In this example, we will learn to access the child nodes at some particular position belonging to respective nodes of SmartArt shape.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of `Presentation` class.
 - Obtain the reference of first slide by using its Index.
 - Add a StackedList type SmartArt shape.
 - Access the added SmartArt shape.
@@ -222,7 +224,7 @@ Console.WriteLine(outString);
 ## **Remove SmartArt Node**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -267,7 +269,7 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
 ## **Remove SmartArt Node at Specific Position**
 In this example, we will learn to remove the nodes inside SmartArt shape at particular position.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -396,7 +398,7 @@ Aspose.Slides for .NET makes it possible to add custom SmartArt shapes and set t
 
 Please follow the steps below:
 
-- Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of the `Presentation` class.
 - Obtain the reference of a slide using its index.
 - Add a SmartArt shape by setting its LayoutType.
 - Set the FillFormat for the SmartArt shape nodes.
@@ -430,7 +432,7 @@ using (Presentation presentation = new Presentation())
 ## **Generate Thumbnail of SmartArt Child Node**
 Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
-1. Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class that represents the PPTX file.
+1. Instantiate `Presentation` class that represents the PPTX file.
 1. Add SmartArt.
 1. Obtain the reference of a node by using its Index
 1. Get the thumbnail image.

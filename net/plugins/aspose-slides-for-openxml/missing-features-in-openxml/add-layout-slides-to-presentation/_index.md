@@ -122,13 +122,9 @@ using (Presentation p = new Presentation(FileName))
 
 ``` 
 ## **Download Sample Code**
-- [Codeplex](https://archive.codeplex.com/?p=asposeslidesopenxml)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-- [Code.MSDN](https://docs.microsoft.com/en-us/samples/browse/?redirectedfrom=MSDN-samples)
 ## **Download Running Example**
-- [Codeplex](https://archive.codeplex.com/?p=asposeslidesopenxml#Aspose.Slides Features missing in OpenXML/Adding Layout Slides/)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
-- [Code.MSDN](https://docs.microsoft.com/en-us/samples/browse/?redirectedfrom=MSDN-samples)
 
 {{% alert color="primary" %}} 
 

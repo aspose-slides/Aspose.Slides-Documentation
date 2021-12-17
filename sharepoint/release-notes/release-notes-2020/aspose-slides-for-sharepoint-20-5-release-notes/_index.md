@@ -7,6 +7,6 @@ url: /sharepoint/aspose-slides-for-sharepoint-20-5-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESSP-33614|[Use Aspose.Slides for .NET 20.5 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+20.5+Release+Notes)|Enhancement|
+|SLIDESSP-33614|[Use Aspose.Slides for .NET 20.5 features](/slides/net/aspose-slides-for-net-20-5-release-notes/)|Enhancement|
 
 

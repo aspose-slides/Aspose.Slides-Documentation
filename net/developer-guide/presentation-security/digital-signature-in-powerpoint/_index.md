@@ -3,8 +3,8 @@ title: Digital Signature in PowerPoint
 type: docs
 weight: 10
 url: /net/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority"
-description: "Add digital signature certificate, certificate authority into PowerPoint presentation with Aspose.Slides."
+keywords: "Digital signature certificate, certificate authority, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Add digital signature or certificate in PowerPoint. Certificate authority in C# or .NET"
 ---
 
 
@@ -20,11 +20,11 @@ Presentation may contain more than one digital signatures. After the digital sig
 
 
 
-To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature** ](https://apireference.aspose.com/net/slides/aspose.slides/idigitalsignature)interface, [**IDigitalSignatureCollection** ](https://apireference.aspose.com/net/slides/aspose.slides/IDigitalSignatureCollection)interface and[ **IPresentation.DigitalSignatures**](https://apireference.aspose.com/net/slides/aspose.slides/ipresentation/properties/digitalsignatures) property. Currently, digital signatures are supported for PPTX format only.
+To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature** ](https://apireference.aspose.com/slides/net/aspose.slides/idigitalsignature)interface, [**IDigitalSignatureCollection** ](https://apireference.aspose.com/slides/net/aspose.slides/IDigitalSignatureCollection)interface and[ **IPresentation.DigitalSignatures**](https://apireference.aspose.com/slides/net/aspose.slides/ipresentation/properties/digitalsignatures) property. Currently, digital signatures are supported for PPTX format only.
 ## **Add Digital Signature from PFX Certificate**
 The code sample below demonstrates how to add digital signature from a PFX certificate:
 
-1. Open PFX file and pass PFX password to [**DigitalSignature** ](https://apireference.aspose.com/net/slides/aspose.slides/digitalsignature)object.
+1. Open PFX file and pass PFX password to [**DigitalSignature** ](https://apireference.aspose.com/slides/net/aspose.slides/digitalsignature)object.
 1. Add created signature to the presentation object.
 
 ```c#

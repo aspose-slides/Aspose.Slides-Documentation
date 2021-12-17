@@ -7,5 +7,5 @@ url: /sharepoint/aspose-slides-for-sharepoint-17-8-release-notes/
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESSP-33241|[Use Aspose.Slides for .NET 17.8 features](https://docs.aspose.com/display/slidesnet/Aspose.Slides+for+.NET+17.8+Release+Notes)|Feature|
+|SLIDESSP-33241|[Use Aspose.Slides for .NET 17.8 features](/slides/net/aspose-slides-for-net-17-8-release-notes/)|Feature|
 

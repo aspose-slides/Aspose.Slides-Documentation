@@ -2,12 +2,14 @@
 title: Chart Data Marker
 type: docs
 url: /net/chart-data-marker/
+keywords: "Chart marker options, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Set chart marker options in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Set Chart Marker Options**
 The markers can be set on chart data points inside particular series. In order to set chart marker options. Please follow the steps below:
 
-- Instantiate [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Instantiate [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Creating the default chart.
 - Set the picture.
 - Take first chart series.

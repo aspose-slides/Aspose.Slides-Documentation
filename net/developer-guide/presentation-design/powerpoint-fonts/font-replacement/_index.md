@@ -3,6 +3,8 @@ title: Font Replacement
 type: docs
 weight: 60
 url: /net/font-replacement/
+keywords: "Font, replace font, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Replace fonts explicitly in PowerPoint in C# or .NET"
 ---
 
 ## **Replacing Fonts Explicitly**

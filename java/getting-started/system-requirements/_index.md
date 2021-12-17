@@ -26,9 +26,9 @@ Aspose.Slides for Java supports any 32-bit or 64-bit operating system that runs 
 ### **Linux**
 - Linux (Ubuntu, OpenSUSE, CentOS and others)
 
-
 ### **Mac**
 - Mac OS X
+
 ## **Supported Java Versions**
 Aspose.Slides for Java supports the following Java versions:
 

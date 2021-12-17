@@ -3,9 +3,11 @@ title: Manage OLE
 type: docs
 weight: 40
 url: /net/manage-ole/
+keywords: "Add OLE, Add object, Embed object Object Linking & Embedding, OLE Object Frame, Embed OLE, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET "
+description: "Add OLE object to PowerPoint presentation in C# or .NET"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert title="Info" color="info" %}}
 
 OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
@@ -21,7 +23,7 @@ Aspose.Slides for .NET allows you to insert OLE Objects into slides as OLE Objec
 ## **Adding OLE Object Frames to Slides**
 Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for .NET, you can do it this way:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of the slide by using its index.
 1. Open the Excel file containing the Excel chart object and save it to MemoryStream.
 1. Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
@@ -66,7 +68,7 @@ using (Presentation pres = new Presentation())
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily using Aspose.Slides for .NET this way:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the `Presentation` class.
 
 1. Obtain the reference of the slide by using its index.
 
@@ -113,7 +115,7 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 
 If an OLE object is already embedded in a slide, you can easily access that object with Aspose.Slides for .NET and modify its data this way:
 
-1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Open the desired presentation with the embedded OLE Object by creating an instance of the `Presentation` class.
 
 1. Obtain the reference of the slide by using its Index.
 

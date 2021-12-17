@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint PPT(X) to XPS
+title: Convert PowerPoint to XPS
 type: docs
 weight: 70
 url: /java/convert-powerpoint-to-xps/
@@ -39,7 +39,7 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/java) for Java, you can use the [**Save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to convert the entire presentation into an XPS document. 
+In [**Aspose.Slides**](https://products.aspose.com/slides/java/) for Java, you can use the [**Save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class to convert the entire presentation into an XPS document. 
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 

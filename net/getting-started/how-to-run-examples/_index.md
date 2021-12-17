@@ -11,7 +11,7 @@ Before you download and run the examples, please check and confirm that your set
 - Visual Studio 2010 or higher.
 - NuGet Package Manager installed in Visual Studio. Verify that the latest NuGet API version is installed in Visual Studio. 
 
-For instructions on installing the NuGet package manager, go to this page: http://docs.nuget.org/ndocs/guides/install-nuget
+For instructions on installing the NuGet package manager, go to this page: https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools
 
 1. Go through **Tools** > **Options** > **NuGet Package Manager**.
 

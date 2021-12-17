@@ -2,6 +2,8 @@
 title: Callout
 type: docs
 url: /net/callout/
+keywords: "Chart callout, chart data label, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint chart callouts and data labels in C# or .NET"
 ---
 
 ## **Using Callouts**

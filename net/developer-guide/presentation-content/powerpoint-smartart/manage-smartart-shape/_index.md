@@ -3,12 +3,14 @@ title: Manage SmartArt Shape
 type: docs
 weight: 20
 url: /net/manage-smartart-shape/
+keywords: "SmartArt shape, SmartArt shape style, SmartArt shape color style, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Manage SmartArt in PowerPoint presentations in C# or .NET"
 ---
 
 ## **Create SmartArt Shape**
 Aspose.Slides for .NET now facilitates to add custom SmartArt shapes in their slides from scratch. Aspose.Slides for .NET has provided the simplest API to create SmartArt shapes in an easiest way. To create a SmartArt shape in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add a SmartArt shape by setting it LayoutType.
 - Write the modified presentation as a PPTX file.
@@ -59,7 +61,7 @@ using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 ## **Access SmartArt Shape with Particular Layout Type**
 The following sample code will help to access the SmartArt shape with particular LayoutType. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -92,7 +94,7 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ## **Change SmartArt Shape Style**
 The following sample code will help to access the SmartArt shape with particular LayoutType.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -131,7 +133,7 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ## **Change SmartArt Shape Color Style**
 In this example, we will learn to change the color style for any SmartArt shape. In the following sample code will access the SmartArt shape with particular color style and will change its style.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.

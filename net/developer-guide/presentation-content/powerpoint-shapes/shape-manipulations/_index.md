@@ -3,6 +3,8 @@ title: Shape Manipulations
 type: docs
 weight: 30
 url: /net/shape-manipulations/
+keywords: "PowerPoint shape, shape on slide, find shape, clone shape, remove shape, hide shape, change shape order, get interlop shape ID, shape alternative text, shape layout formats, shape as SVG, align shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Manipulate PowerPoint shapes in C# or .NET"
 ---
 
 ## **Find Shape in Slide**
@@ -47,7 +49,7 @@ public static IShape FindShape(ISlide slide, string alttext)
 ## **Clone Shape**
 To clone a shape to a slide using Aspose.Slides for .NET:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its index.
 1. Access the source slide shape collection.
 1. Add new slide to the presentation.
@@ -78,7 +80,7 @@ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 ## **Remove Shape**
 Aspose.Slides for .NET allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of `Presentation` class.
 1. Access the first slide.
 1. Find the shape with specific AlternativeText.
 1. Remove the shape.
@@ -114,7 +116,7 @@ pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
 ## **Hide Shape**
 Aspose.Slides for .NET allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of `Presentation` class.
 1. Access the first slide.
 1. Find the shape with specific AlternativeText.
 1. Hide the shape.
@@ -150,7 +152,7 @@ pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 ## **Change Shapes Order**
 Aspose.Slides for .NET allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of `Presentation` class.
 1. Access the first slide.
 1. Add a shape.
 1. Add some text in shape's text frame.
@@ -199,7 +201,7 @@ By using this property, you can tag a shape and can perform different operations
 Hiding a shape or Reordering shapes on a slide.
 To set the AlternateText of a shape, please follow the steps below:
 
-1. Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/presentation) class.
+1. Create an instance of `Presentation` class.
 1. Access the first slide.
 1. Add any shape to the slide.
 1. Do some work with the newly added shape.

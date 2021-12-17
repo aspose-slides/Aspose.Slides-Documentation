@@ -3,6 +3,8 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /net/manage-textbox/
+keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, C#, Csharp, Aspose.Slides for .NET"
+description: "Add textbox or text frame to PowerPoint presentations in C# or ,NET"
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for .NET provides the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface that allows you to add a shape containing some text.
@@ -23,9 +25,9 @@ Therefore, when dealing with a shape to which you want to add text, you may want
 
 To create a textbox on a slide, go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class. 
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an [IAutoShape](https://apireference.aspose.com/net/slides/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/net/slides/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
+3. Add an [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
 4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 

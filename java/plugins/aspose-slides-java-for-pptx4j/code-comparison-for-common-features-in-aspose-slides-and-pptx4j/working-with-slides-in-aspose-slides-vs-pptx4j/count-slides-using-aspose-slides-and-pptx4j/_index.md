@@ -38,6 +38,6 @@ Download source code for **Count Slides** from any of the below mentioned social
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Working with Slides](http://www.aspose.com/docs/display/slidesjava/Working+with+Slides+in+Presentation).
+For more details, visit [Working with Slides](/slides/java/working-with-presentation-in-aspose-slides/).
 
 {{% /alert %}}

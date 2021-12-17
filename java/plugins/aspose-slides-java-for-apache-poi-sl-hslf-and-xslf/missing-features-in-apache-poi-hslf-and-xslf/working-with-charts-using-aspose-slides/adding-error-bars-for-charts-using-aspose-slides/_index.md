@@ -10,7 +10,7 @@ Aspose.Slides for Java provides a simple API for managing error bar values.
 
 The sample code applies when using a custom value type. To specify a value, use theErrorBarCustomValues property of a specific data point in the DataPoints collection of series:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/docs/display/slidesjava/com.aspose.slides.Presentation+class) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Add a bubble chart on desired slide.
 1. Access the first chart series and set the error bar X format.
 1. Access the first chart series and set the error bar Y format.
@@ -62,11 +62,10 @@ pres.save(dataDir + "AsposeErrorBars.pptx", SaveFormat.Pptx);
 - [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/releases/view/618722)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Apache_POI-v1.0.0)
 ## **Download Sample Code**
-- [CodePlex](https://archive.codeplex.com/?p=asposeslidesjavaapachepoi#src/main/java/com/aspose/slides/examples/asposefeatures/charts/errorbarsforcharts/AsposeErrorBarsForCharts.java)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/charts/errorbarsforcharts/AsposeErrorBarsForCharts.java)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Adding Error Bars For Charts](http://www.aspose.com/docs/display/slidesjava/Adding+Error+Bars+for+Charts).
+For more details, visit [Adding Error Bars For Charts](/slides/java/adding-error-bars-for-charts-using-aspose-slides/).
 
 {{% /alert %}}

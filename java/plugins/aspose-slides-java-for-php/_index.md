@@ -108,7 +108,7 @@ Project Aspose.Slides for PHP shows how different tasks can be performed using A
 ### **Download Required Libraries**
 Download required libraries mentioned below. These are the required for executing Aspose.Slides Java for PHP examples.
 
-- **Aspose:** [Aspose.Slides for Java Component](http://www.aspose.com/community/files/72/java-components/aspose.slides-for-java/default.aspx)
+- **Aspose:** [Aspose.Slides for Java Component](https://downloads.aspose.com/slides/java)
 - [PHP/Java Bridge](http://citylan.dl.sourceforge.net/project/php-java-bridge/Binary%20package/php-java-bridge_6.2.1/php-java-bridge_6.2.1_documentation.zip)
 ### **Download Examples from Social Coding Sites**
 Following releases of running examples are available to download on below mentioned social coding sites:
@@ -194,7 +194,7 @@ Please follow below simple steps to configure PHP/Java Bridge on Windows Platfor
 
 6.Go to <http://localhost:8080/JavaBridge/test.php> to check if php works. You can find other examples in there
 
-7.Copy your [Aspose.Slides Java](http://www.aspose.com/community/files/72/java-components/aspose.slides-for-java/default.aspx) jar file to C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\JavaBridge\WEB-INF\lib
+7.Copy your [Aspose.Slides Java](https://downloads.aspose.com/slides/java) jar file to C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\JavaBridge\WEB-INF\lib
 
 8. Clone [Aspose.Slides Java for PHP](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_for_PHP) examples inside C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\ folder.
 

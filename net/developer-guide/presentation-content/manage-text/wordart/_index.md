@@ -1,8 +1,10 @@
 ---
 title: WordArt
 type: docs
-weight: 231
+weight: 110
 url: /net/wordart/
+keywords: "WordArt, Word Art, Create WordArt, WordArt template, WordArt effects, Shadow effects, Display effects, Glow effects, WordArt transformations, 3D effects, Outer shadow effects, Inner Shadow effects, C#, Csharp, Aspose.Slides for .NET"
+description: "Add, manipulate, and manage WordArt and effects in PowerPoint presentations in C# or Aspose.Slides for .NET"
 ---
 
 ## **About WordArt?**
@@ -270,9 +272,9 @@ The descriptions are connected to the [ThreeDFormat.LightRig](https://apireferen
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/net/slides/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
+Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/slides/net/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/slides/net/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -321,14 +323,14 @@ using (Presentation pres = new Presentation())
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/net/slides/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.
 5. Set all the necessary parameters.
 6. Set the ColorType as Scheme.
 7. Set the Scheme Color.
-8. Write the presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
 This sample code (based on the steps above) shows you how to add a connector between two shapes in C#:
 

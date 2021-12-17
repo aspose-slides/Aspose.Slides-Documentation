@@ -32,4 +32,4 @@ puts "Document has been converted, please check the output file."
 ## **Download Running Code**
 Download **Converting PPT to PPTX (Aspose.Slides)** from any of the below mentioned social coding sites:
 
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/tree/master/Plugins/Aspose_Slides_Java_for_Ruby/lib/asposeslidesjava/Presentation/ppttopptx.rb)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_Java_for_Ruby/lib/asposeslidesjava/Presentation/ppttopptx.rb)

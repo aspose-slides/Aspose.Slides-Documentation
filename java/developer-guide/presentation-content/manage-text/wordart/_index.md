@@ -1,7 +1,7 @@
 ---
 title: WordArt
 type: docs
-weight: 100
+weight: 110
 url: /java/wordart/
 ---
 
@@ -273,9 +273,9 @@ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFor
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for Java provides the [**IOuterShadow**](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](http://www.aspose.com/api/java/slides/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/TextFrame). Go through these steps:
+Aspose.Slides for Java provides the [**IOuterShadow**](https://apireference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://apireference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame). Go through these steps:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -286,7 +286,7 @@ Aspose.Slides for Java provides the [**IOuterShadow**](http://www.aspose.com/api
 9. Set the Distance of the shadow.
 10. Set the RectanglelAlign to TopLeft.
 11. Set the PresetColor of the shadow to Black.
-12. Write the presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+12. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
 This sample code in Java—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
@@ -324,14 +324,14 @@ try {
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](http://www.aspose.com/api/java/slides/com.aspose.slides/classes/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.
 5. Set all the necessary parameters.
 6. Set the ColorType as Scheme.
 7. Set the Scheme Color.
-8. Write the presentation as a [PPTX](https://wiki.fileformat.com/presentation/pptx/) file.
+8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
 This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
 

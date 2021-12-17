@@ -8,7 +8,7 @@ url: /java/access-slide-in-presentation/
 ## **Access Slides in Presentation**
 {{% alert color="primary" %}} 
 
-In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](https://apireference.aspose.com/java/slides/com.aspose.slides/ISlideCollection) associated with a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) object.
+In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) associated with a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) object.
 
 {{% /alert %}} 
 
@@ -18,7 +18,7 @@ Aspose.Slides for Java provides [Presentation](https://apireference.aspose.com/s
 1. Accessing Slide by ID
 
 ### **Access Slide by Index**
-[Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://apireference.aspose.com/java/slides/com.aspose.slides/ISlideCollection) collection (that is a collection of [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) objects). All of these slides can be accessed from this [**Slides**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection using a slide index as shown below in the example.
+[Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) collection (that is a collection of [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) objects). All of these slides can be accessed from this [**Slides**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection using a slide index as shown below in the example.
 
 ```java
 // Instantiate a Presentation object that represents a presentation file

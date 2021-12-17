@@ -6,7 +6,7 @@ url: /cpp/why-not-open-xml-sdk/
 ---
 
 ## **What is Open XML SDK?**
-We sometimes hear this question: Why should we use Aspose products rather than the free Open XML SDK? This question is easy to answer: features and functionality. According to the[MSDN Library](http://msdn.microsoft.com/en-us/library/bb448854.aspx), Open XML SDK is defined as: The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree and working with XML elements and attributes directly, Open XML SDK provides classes to do that.
+We sometimes hear this question: Why should we use Aspose products rather than the free Open XML SDK? This question is easy to answer: features and functionality. According to the[MSDN Library](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk), Open XML SDK is defined as: The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree and working with XML elements and attributes directly, Open XML SDK provides classes to do that.
 ## **What is Aspose.Slides?**
 Aspose.Slides is a class library that allows your application to perform the following presentation processing tasks:
 
@@ -16,7 +16,7 @@ Aspose.Slides is a class library that allows your application to perform the fol
 - Ability to build presentations from scratch or by combining from one or multiple documents.
 - Support for adding animations, Ole Frames, Tables, creating and managing charts.
 - Availability of extensive control for Managing the text formatting on TextFrames, Paragraphs and Portions levels.
-  For more details about the features supported, please visit [Aspose.Slides Features](https://docs.aspose.com/display/slidesnet/Product+Overview).
+  For more details about the features supported, please visit [Aspose.Slides Features](/slides/net/product-overview/).
 ## **Compare Open XML SDK and Aspose.Slides**
 The following table compares Open XML SDK and Aspose.Slides features.
 
