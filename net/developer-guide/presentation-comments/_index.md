@@ -7,47 +7,55 @@ keywords: "Comments, PowerPoint comments, PowerPoint presentation, C#, Csharp, A
 description: "Add comments and replies in PowerPoint presentation in C# or .NET"
 ---
 
+In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
+You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
-Slide comment is like an annotation in PDF file or a note that one can attach with a slide. Slide comments are generally used while reviewing the slides in PowerPoint. However, they can also serve as a useful utility for highlighting something important in the presentation slide and giving the needed explanation for that.
+To allow you to use comments in PowerPoint presentations, Aspose.Slides for .NET provides
+
+* The [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class, which contains the collections of authors (from the [CommentAuthorCollection](https://apireference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) property). The authors add comments to slides. 
+* The  [ICommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/icommentcollection) interface, which contains the collection of comments for individual authors. 
+* The  [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
+* The [CommentAuthor](https://apireference.aspose.com/slides/net/aspose.slides/commentauthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
+
 ## **Add Slide Comment**
-In Aspose.Slides for .NET, the presentation slide comment are associated with a particular author. The [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class holds the collection of authors in [**ICommentAuthorCollection** ](https://apireference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)that are responsible for adding slide comments. For each author, there is a collection of comments in [**ICommentCollection**](https://apireference.aspose.com/slides/net/aspose.slides/icommentcollection). The [**IComment**](https://apireference.aspose.com/slides/net/aspose.slides/icomment) class includes information like an author who added slide comment, time of creation, slide where a comment is added, the position of slide comment on the selected slide and the comment text. The [**CommentAuthor**](https://apireference.aspose.com/slides/net/aspose.slides/commentauthor) class includes the author's name, his initials and list of associated comments. In the following example, we have added the code snippet for adding the slide comments.
+This C# code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```c#
-// Instantiate Presentation class
+// Instantiates the Presentation class
 using (Presentation presentation = new Presentation())
 {
-    // Adding Empty slide
+    // Adds an empty slide
     presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
 
-    // Adding Author
+    // Adds an author
     ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 
-    // Position of comments
+    // Sets the position for comments
     PointF point = new PointF();
     point.X = 0.2f;
     point.Y = 0.2f;
 
-    // Adding slide comment for an author on slide 1
+    // Adds slide comment for an author on slide 1
     author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
 
-    // Adding slide comment for an author on slide 1
+    // Adds slide comment for an author on slide 1
     author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
 
-    // Accessing ISlide 1
+    // Accesses ISlide 1
     ISlide slide = presentation.Slides[0];
 
-    // if null is passed as an argument then it will bring comments from all authors on selected slide
+    // When null is passed as an argument, comments from all authors are brought to the selected slide
     IComment[] Comments = slide.GetSlideComments(author);
 
-    // Accessin the comment at index 0 for slide 1
+    // Accesses the comment at index 0 for slide 1
     String str = Comments[0].Text;
 
     presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.GetLength(0) > 0)
     {
-        // Select comments collection of Author at index 0
+        // Selects the Author's comments collection at index 0
         ICommentCollection commentCollection = Comments[0].Author.Comments;
         String Comment = commentCollection[0].Text;
     }
@@ -57,10 +65,10 @@ using (Presentation presentation = new Presentation())
 
 
 ## **Access Slide Comments**
-In the following example, we will learn how to access the existing slide comments and can even modify the comments as well.
+This C# shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```c#
-// Instantiate Presentation class
+// Instantiates the Presentation class
 using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
     foreach (var commentAuthor in presentation.CommentAuthors)
@@ -77,27 +85,27 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 
 
 ## **Reply Comments**
-A new property [**ParentComment**](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) has been added to [**IComment**](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface and [**Comment**](https://apireference.aspose.com/slides/net/aspose.slides/comment) class in Aspose.Slides for .NET. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) property (from the [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface), you can set or get a parent comment. 
 
-The code snippet below shows a sample of adding some comments and some replies to them:
+This C# code shows you how to add comments and get replies to them:
 
 ```c#
 using (Presentation pres = new Presentation())
 {
-    // Add comment
+    // Adds a comment
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
     IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    // Add reply for comment1
+    // Adds a reply to comment1
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
     IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply1.ParentComment = comment1;
 
-    // Add reply for comment1
+    // Adds a reply to comment1
     IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply2.ParentComment = comment1;
 
-    // Add reply to reply
+    // Adds a reply to existing reply
     IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     subReply.ParentComment = reply2;
 
@@ -107,7 +115,7 @@ using (Presentation pres = new Presentation())
     IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // Display hierarchy on console
+    // Displays the comments hierarchy on console
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -125,7 +133,7 @@ using (Presentation pres = new Presentation())
 
     pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Remove comment1 and all its replies
+    // Removes comment1 and all replies to it
     comment1.Remove();
 
     pres.Save("remove_comment.pptx", SaveFormat.Pptx);
@@ -133,9 +141,27 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-Remove method of [**IComment**](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface removes the comment with all its replies.
-{{% /alert %}}
+
+When the [Remove](https://apireference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) method (from the [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface) is used to delete a comment, the replies to the comment also get deleted. 
 
 {{% alert color="info" title="Note" %}} 
-If setting [**ParentComment**](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) leads to a circular reference, the exception of type **PptxEditException** will be thrown.
+If setting [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) results in circular reference, the [PptxEditException](https://apireference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown.
 {{% /alert %}}
+
+## **Add Modern Comment**
+
+In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
+
+In [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://apireference.aspose.com/slides/net/aspose.slides/moderncomment) class. The [AddModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods were added to the [CommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection) class. 
+
+This C# code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
+
+```c#
+using (Presentation pres = new Presentation())
+{
+     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
+     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
+ 
+     pres.Save("pres.pptx", SaveFormat.Pptx);
+}
+```
