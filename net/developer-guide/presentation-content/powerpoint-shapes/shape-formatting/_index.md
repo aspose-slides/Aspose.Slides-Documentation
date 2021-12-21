@@ -247,25 +247,54 @@ The above steps are implemented in the example given below.
 
 ```c#
 // Create an instance of Presentation class
-Presentation presentation = new Presentation();
+using (Presentation presentation = new Presentation())
+{
 
 // Get the first slide
-ISlide slide = presentation.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
 // Add autoshape of rectangle type
-IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
 
 // Set the fill type to Solid
-shape.FillFormat.FillType = FillType.Solid;
+    shape.FillFormat.FillType = FillType.Solid;
 
 // Set the color of the rectangle
-shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
 //Write the PPTX file to disk
-presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+}
 ```
 
+## Set Transparency
 
+Aspose.Slides allows you to set the transparency level for a shape this way:
+
+1. Create an instance of the [Presentation class](http://www.aspose.com/api/net/slides/aspose.slides/).
+2. Obtain the reference of a slide through its Index.
+3. Add an [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
+4. Use Color.FromArgb with the alpha component set.
+5. Save the object as a PowerPoint file. 
+
+This C# code demonstrates the process:
+
+```c#
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+    
+    // add solid shape
+    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
+
+    // add transparent shape over solid
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.FillFormat.SolidFillColor.Color = Color.FromArgb(128, 204, 102, 0);
+    
+    presentation.Save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **Rotate Shapes**
 Aspose.Slides for .NET allows developers to you rotate shapes as well in this topic, we will see how developers can rotate their shapes. Rotating a shape using Aspose.Slides for .NET is as easy as ABC. To rotate a shape added to the slide, please follow the steps below:
@@ -282,7 +311,6 @@ In the example given below, we have rotated a rectangle shape to 90 degrees for 
 // Instantiate PrseetationEx class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
-
     // Get the first slide
     ISlide sld = pres.Slides[0];
 
