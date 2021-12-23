@@ -30,8 +30,14 @@ If you want to add an image as a frame object—especially if you plan to use st
 
 You can add one or several images on your computer onto a slide in a presentation. This sample code in C++ shows you how to add an image to a slide:
 
-```C++
-INSERT C++ CODE
+``` cpp
+auto pres = System::MakeObject<Presentation>();
+
+auto slide = pres->get_Slides()->idx_get(0);
+auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **Adding Images From the Web to Slides**
