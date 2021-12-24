@@ -36,7 +36,7 @@ You may want to check out other [free converters from Aspose](https://products.a
 Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Use the [**Save** ](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save)method to save the object as an HTML file.
+1. Use the [Save ](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save)method to save the object as an HTML file.
 
 This code shows you how to convert a PowerPoint to HTML in C#:
 
@@ -58,7 +58,7 @@ using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
 
 
 ## **Convert PowerPoint to Responsive HTML**
-Aspose.Slides provides the [**ResponsiveHtmlController** ](https://apireference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller)class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in C#:
+Aspose.Slides provides the [ResponsiveHtmlController ](https://apireference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller)class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in C#:
 
 ```c#
 // Instantiates a Presentation object that represents a presentation file
@@ -71,8 +71,6 @@ using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
     presentation.Save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
 }
 ```
-
-
 
 ## **Convert PowerPoint to HTML with Notes**
 This code shows you how to convert a PowerPoint to HTML with notes in C#:
@@ -92,11 +90,11 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 
 ## **Convert PowerPoint to HTML with Original Fonts**
 
-Aspose.Slides provides the EmbedAllFontsHtmlController class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
+Aspose.Slides provides the [EmbedAllFontsHtmlController](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
 
-To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the EmbedAllFontsHtmlController class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
+To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
 
-The EmbedAllFontsHtmlController class supports inheritance and provides the WriteFont method, which is meant to be overwritten.
+The [EmbedAllFontsHtmlController](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) class supports inheritance and provides the [WriteFont](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) method, which is meant to be overwritten. 
 
 ```c#
 using (Presentation pres = new Presentation("input.pptx"))
@@ -117,7 +115,7 @@ using (Presentation pres = new Presentation("input.pptx"))
 
 ## **Convert PowerPoint to HTML with High-quality Images**
 
-By default, when you convert PowerPoint to HTML, Aspose.Slides outputs small HTML with images at 72 DPI and cropped areas deleted. To obtain HTML files with higher quality images, you have to set the `PicturesCompression` property (from the `HtmlOptions` class) to 96 (i.e. `PicturesCompression.Dpi96`) or higher [values](https://apireference.aspose.com/slides/net/aspose.slides.export/picturescompression).
+By default, when you convert PowerPoint to HTML, Aspose.Slides outputs small HTML with images at 72 DPI and deleted cropped areas. To obtain HTML files with higher quality images, you have to set the `PicturesCompression` property (from the `HtmlOptions` class) to 96 (i.e., `PicturesCompression.Dpi96`) or higher [values](https://apireference.aspose.com/slides/net/aspose.slides.export/picturescompression).
 
 This C# code shows you how to convert a PowerPoint presentation to HTML while obtaining high quality images at 150 DPI (i.e. `PicturesCompression.Dpi150`):
 
@@ -141,10 +139,8 @@ HtmlOptions htmlOpts = new HtmlOptions
 pres.Save("Outputdoc-noCrop.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpts);
 ```
 
-
-
 ## **Convert Slide to HTML**
-To convert a specific slide in a PowerPoint to HTML, you have to instantiate the same [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class (used to convert entire presentations to HTML) and then use the [Save ](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save)method to save the file as HTML. [HtmlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/htmloptions**) class can be used to specify additional conversion options:
+To convert a specific slide in a PowerPoint to HTML, you have to instantiate the same [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class (used to convert entire presentations to HTML) and then use the [Save ](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save)method to save the file as HTML. The [HtmlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/htmloptions**) class can be used to specify additional conversion options:
 
 This C# code shows you how to convert a slide in a PowerPoint presentation to HTML:
 
@@ -199,7 +195,7 @@ public class CustomFormattingController : IHtmlFormattingController
 ## **Save CSS and Images When Exporting To HTML**
 Using new CSS style files, you can easily change the style of the HTML file resulting from the PowerPoint to HTML conversion process. 
 
-The code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
+The C# code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -249,9 +245,9 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 
 ## **Link All Fonts When Converting Presentation to HTML**
 
-Instead of embedding fonts (which increase output HTML size) you can link it by implementing your own version of controller (LinkAllFontsHtmlController in the example below).
+If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own  `LinkAllFontsHtmlController` version. 
 
-This C# code shows you how to link all fonts in the output HTML document (excluding "Calibri" and "Arial", that the system already contains):
+This C# code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system): 
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -273,7 +269,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-This C# code shows you how LinkAllFontsHtmlController is implemented:
+This C# code shows you how `LinkAllFontsHtmlController` is implemented:
 
 ```c#
 public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
@@ -328,11 +324,11 @@ presentation.Save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
 ```
 
 
-## ****Export Media Files to HTML****
+## **Export Media Files to HTML**
 Using Aspose.Slides for .NET, you can export media files this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Get a reference of the slide.
+1. Get a reference to the slide.
 1. Add a video to the slide.
 1. Write the presentation as a PPTX file.
 
