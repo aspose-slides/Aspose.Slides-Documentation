@@ -94,10 +94,10 @@ url: /net/aspose-slides-for-net-16-6-0-release-notes/
 |SLIDESNET-22339|Custom bullets failed to render in exported PDF|Bug|
 
 ## **Public API Changes**
-#### **New elements have been added into Aspose.Slides.LoadFormat enumeration**
+### **New elements have been added into Aspose.Slides.LoadFormat enumeration**
 Aspose.Slides.LoadFormat enumeration has been extended with new elements: Potx, Pptm, Ppsm, Potm.
 
-#### **New methods ReadDocumentProperties, UpdateDocumentProperties, and WriteBindedPresentation have been added to IPresentationInfo, logic of the IDocumentProperties.LastSavedTime property setter has been changed**
+### **New methods ReadDocumentProperties, UpdateDocumentProperties, and WriteBindedPresentation have been added to IPresentationInfo, logic of the IDocumentProperties.LastSavedTime property setter has been changed**
 The two new methods ReadDocumentProperties and UpdateDocumentProperties have been added to IPresentationInfo interface. They provide a quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:

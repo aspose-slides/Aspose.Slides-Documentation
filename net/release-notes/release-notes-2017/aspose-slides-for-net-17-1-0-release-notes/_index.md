@@ -71,7 +71,7 @@ url: /net/aspose-slides-for-net-17-1-0-release-notes/
 |SLIDESNET-22336|Equations text overlap in the generated PDF|Bug|
 |SLIDESNET-17912|Mathematical equation are improperly rendered in exported PDF|Bug|
 ## **Public API Changes**
-#### **Default public constructors have been added to PortionFormat, ParagraphFormat and TextFrameFormat classes**
+### **Default public constructors have been added to PortionFormat, ParagraphFormat and TextFrameFormat classes**
 Default public constructors have been added to PortionFormat, ParagraphFormat and TextFrameFormat classes. Formats created with these constructions using can be used to specify text formats for a whole table, etc.
 
 Usage Example:
@@ -81,7 +81,7 @@ ParagraphFormat paragraphFormat = new ParagraphFormat();
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 ``` 
 
-#### **IBulkTextFormattable interface has been added**
+### **IBulkTextFormattable interface has been added**
 Aspose.Slides.IBulkTextFormattable interface has been added. It represents an object with possibility of bulk setting child text elements' formats. It contains the following methods:
 
 ``` csharp
@@ -91,7 +91,7 @@ void SetTextFormat(ITextFrameFormat source);
 ``` 
 
 Calling any of them will make an object of class that implements this interface set all its child portions / paragraphs / text frames (accordingly to used method overload) with all defined properties from provided format sample.
-#### **IFormatFactory interface and FormatFactory class have been added**
+### **IFormatFactory interface and FormatFactory class have been added**
 Aspose.Slides.IFormatFactory interface and Aspose.Slides.FormatFactory class have been added. They allow to create PortionFormat, ParagraphFormat and TextFrameFormat instances via COM interface.
 
 Usage Example:
@@ -101,7 +101,7 @@ IParagraphFormat paragraphFormat = FormatFactory.Instance.CreateParagraphFormat(
 ITextFrameFormatparagraphFormat = FormatFactory.Instance.CreateTextFrameFormat();
 ``` 
 
-#### **Properties DataLabelFormat.ShowLabelValueFromCell and IDataLabelFormat.ShowLabelValueFromCell have been added**
+### **Properties DataLabelFormat.ShowLabelValueFromCell and IDataLabelFormat.ShowLabelValueFromCell have been added**
 Property DataLabelFormat.ShowLabelValueFromCell determines if data label text contains data from workbook data cell.
 
 
@@ -126,7 +126,7 @@ using (Presentation pres = new Presentation())
 }
 ``` 
 
-#### **Properties IDataLabel.ValueFromCell and DataLabel.ValueFromCell have been added**
+### **Properties IDataLabel.ValueFromCell and DataLabel.ValueFromCell have been added**
 Gets or sets workbook data cell. Applied if IDataLabelFormat.ShowLabelValueFromCell property equals true.
 ``` csharp
 string lbl0 = "Label 0 cell value";
@@ -148,7 +148,7 @@ using (Presentation pres = new Presentation())
 }
 ``` 
 
-#### **SetTextFormat methods have been added to Column class due to inheritance from IBulkTextFormattable added to IColumn interface**
+### **SetTextFormat methods have been added to Column class due to inheritance from IBulkTextFormattable added to IColumn interface**
 Aspose.Slides.Column class now implements IBulkTextFormattable interface as a part of IColumn interface. Portion, paragraph or text frame format properties can be set to all column cells by calling Column.SetTextFormat methods.
 
 Usage Examples:
@@ -174,7 +174,7 @@ textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Columns[1].SetTextFormat(textFrameFormat);
 ``` 
 
-#### **SetTextFormat methods have been added to Row class due to inheritance from IBulkTextFormattable added to IRow interface**
+### **SetTextFormat methods have been added to Row class due to inheritance from IBulkTextFormattable added to IRow interface**
 Aspose.Slides.Row class now implements IBulkTextFormattable interface as a part of IRow interface. Portion, paragraph or text frame format properties can be set to all row cells by calling Row.SetTextFormat methods.
 
 Usage Examples:
@@ -199,7 +199,7 @@ textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Rows[1].SetTextFormat(textFrameFormat);
 ``` 
 
-#### **SetTextFormat methods have been added to Table class due to inheritance from IBulkTextFormattable added to ITable interface**
+### **SetTextFormat methods have been added to Table class due to inheritance from IBulkTextFormattable added to ITable interface**
 Aspose.Slides.Table class now implements IBulkTextFormattable interface as a part of ITable interface. Portion, paragraph or text frame format properties can be set to all table cells by calling Table.SetTextFormat methods.
 
 Usage Examples:
@@ -224,7 +224,7 @@ textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.SetTextFormat(textFrameFormat);
 ``` 
 
-#### **SlideSizeScaleType enum, ISlideSize.SetSize and SlideSize.SetSize methods have been added**
+### **SlideSizeScaleType enum, ISlideSize.SetSize and SlideSize.SetSize methods have been added**
 New methods SetSize have been added to SlideSize class and ISlideSize interface.
 
 ``` csharp

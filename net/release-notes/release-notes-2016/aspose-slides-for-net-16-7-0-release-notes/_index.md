@@ -65,7 +65,7 @@ url: /net/aspose-slides-for-net-16-7-0-release-notes/
 |SLIDESNET-6241|CloneSlide Problem: MS-PowerPoint 2000 shows blank slide instead of Rectangular Callout shape|Bug|
 
 ## **Public API Changes**
-#### **API changes related to text extraction**
+### **API changes related to text extraction**
 Changes were made in API related to the text extraction:
 ISlideText and IPresentationText interface, ExtractionMode enum and PresentationText class were moved from Aspose.Slides.Util to Aspose.Slides namespace.
 
@@ -75,7 +75,7 @@ The following static methods of the Presentation class made obsolete (please use
 - GetPresentationText(Stream stream, ExtractionMode mode, LoadOptions options).
 - ExtractionMode enum renamed to TextExtractionArrangingMode.
 
-#### **Obsolete members in many classes and interfaces have been deleted**
+### **Obsolete members in many classes and interfaces have been deleted**
 Members in many classes and interfaces marked as Obsolete a long time ago have been deleted in this release:
 ``` csharp
 Aspose.Slides.BaseSlide.ParentPresentation

@@ -75,11 +75,11 @@ url: /net/aspose-slides-for-net-16-3-0-release-notes/
 |SLIDESNET-33736|Setting table height to 196 failed to open table in PP2003 installed with compatibility pack|Bug|
 
 ## **Public API Changes**
-#### **Class PieSplitCustomPointCollection and interface IPieSplitCustomPointCollection have been added**
+### **Class PieSplitCustomPointCollection and interface IPieSplitCustomPointCollection have been added**
 Class Aspose.Slides.Charts.PieSplitCustomPointCollection and interface Aspose.Slides.Charts.IPieSplitCustomPointCollection have been added. They represent a collection of points that shall be drawn in the second pie or bar on a bar-of-pie or pie-of-pie chart with a custom split.
-#### **Enum PieSplitType has been added**
+### **Enum PieSplitType has been added**
 Enum Aspose.Slides.Charts.PieSplitType represents a type of splitting points in the second pie or bar on a pie-of-pie or bar-of-pie chart.
-#### **Properties for setting the second plot options for BarOfPie or PieOfPie chart have been added**
+### **Properties for setting the second plot options for BarOfPie or PieOfPie chart have been added**
 Properties SecondPieSize, PieSplitPosition, PieSplitBy and PieSplitCustomPoints have been added to classes Aspose.Slides.Charts.ChartSeries, Aspose.Slides.Charts.ChartSeriesGroup and to interfaces Aspose.Slides.Charts.IChartSeries, Aspose.Slides.Charts.IChartSeriesGroup. They represent settings of second plot options for BarOfPie or PieOfPie chart.
-#### **Property FirstSliceAngle has been added to Aspose.Slides.Charts.IChartSeries**
+### **Property FirstSliceAngle has been added to Aspose.Slides.Charts.IChartSeries**
 Property FirstSliceAngle has been added to class Aspose.Slides.Charts.ChartSeries and interface Aspose.Slides.Charts.IChartSeries. It specifies the angle of the first pie or doughnut chart slice.

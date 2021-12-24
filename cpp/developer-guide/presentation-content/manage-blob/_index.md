@@ -7,13 +7,13 @@ keywords: "Add blob, Export blob, Add image as blob, PowerPoint Presentation, C+
 description: "Add blob to PowerPoint presentation in C++. Export blob. Add Image as blob"
 ---
 
-### **About BLOB**
+## **About BLOB**
 
 **BLOB** (**Binary Large Object**) is usually a large item—a large photo, presentation, document, or media—saved in binary formats. 
 
 Aspose.Slides for C++ allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
 
-# **Use BLOB to Reduce Memory Consumption**
+## **Use BLOB to Reduce Memory Consumption**
 
 ### **Add Large File through BLOB to a Presentation**
 

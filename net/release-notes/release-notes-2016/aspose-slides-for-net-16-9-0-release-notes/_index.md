@@ -47,13 +47,13 @@ url: /net/aspose-slides-for-net-16-9-0-release-notes/
 
 ## **Public API Changes**
 
-#### **Interface ICustomXmlPart and class CustomXmlPart have been added**
+### **Interface ICustomXmlPart and class CustomXmlPart have been added**
 Interface Aspose.Slides.ICustomXmlPart and related class Aspose.Slides.CustomXmlPart have been added. It represents one custom xml part and provides methods to get or set xml content, used schema's and id.
 
-#### **Interface ICustomXmlPartCollection and class CustomXmlPartCollection have been added**
+### **Interface ICustomXmlPartCollection and class CustomXmlPartCollection have been added**
 Interface Aspose.Slides.ICustomXmlPartCollection and related class Aspose.Slides.CustomXmlPartCollection have been added. It represents a collection of custom xml parts and provides methods to get, create and delete items.
 
-#### **Property EffectFormat has been added to IBackground and Background**
+### **Property EffectFormat has been added to IBackground and Background**
 Property EffectFormat has been added to interface Aspose.Slides.IBackground and class Aspose.Slides.Background for specifying effects of slide background.
 
 Code snippet:
@@ -78,7 +78,7 @@ using (Presentation pres = new Presentation())
 }
 ``` 
 
-#### **Property ICustomData.CustomXmlParts has been added**
+### **Property ICustomData.CustomXmlParts has been added**
 Property Aspose.Slides.ICustomData.CustomXmlParts has been added. It represents a collection of custom xml parts associated with the corresponding ICustomData instance.
 ``` csharp
 using(Presentation pres = new Presentation())
@@ -99,7 +99,7 @@ private static string GetXmlStringSample(string name)
 }
 ``` 
 
-#### **Property IPresentation.AllCustomXmlParts has been added**
+### **Property IPresentation.AllCustomXmlParts has been added**
 Property Aspose.Slides.IPresentation.AllCustomXmlParts has been added. It returns all custom xml parts contained in the presentation.
 
 ``` csharp
@@ -114,7 +114,7 @@ using (Presentation pres = new Presentation("PresentationWithCustomXml.pptx"))
 }
 ``` 
 
-#### **SetRange method has been added to interface IChartData and class ChartData**
+### **SetRange method has been added to interface IChartData and class ChartData**
 Method SetRange has been added to interface Aspose.Slides.Charts.IChartData and class Aspose.Slides.Charts.ChartData. It allows to set data range with cells formula. Series and categories will be updated based on new data range.
 
 ``` csharp

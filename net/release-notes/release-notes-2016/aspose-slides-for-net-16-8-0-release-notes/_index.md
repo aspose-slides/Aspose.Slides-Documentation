@@ -52,9 +52,9 @@ url: /net/aspose-slides-for-net-16-8-0-release-notes/
 |SLIDESNET-37254|Data sheet can not be edited after slide cloning|Bug|
 
 ## **Public API Changes**
-#### **CreateTextFrameFormatEffective() method has been added to ITextFrame interface and TextFrame class**
+### **CreateTextFrameFormatEffective() method has been added to ITextFrame interface and TextFrame class**
 It returns an effective value of text frame format for a TextFrame object. The returned type is ITextFrameFormatEffective.
-#### **Interface Aspose.Slides.ITextFrameFormatEffective has been added**
+### **Interface Aspose.Slides.ITextFrameFormatEffective has been added**
 Represents effective values (formatting values with inheritance applied) of text frame format. It contains the following members:
 `ITextStyleEffectiveData TextStyle` — Returns effective text's style.
 `double MarginLeft` — Returns the left margin (points) in a TextFrame.
@@ -67,13 +67,13 @@ Represents effective values (formatting values with inheritance applied) of text
 `TextVerticalType TextVerticalType` — Returns text orientation.
 `TextAutofitType AutofitType` — Returns text autofit mode.
 
-#### **Interface Aspose.Slides.ITextStyleFormatEffective has been added**
+### **Interface Aspose.Slides.ITextStyleFormatEffective has been added**
 Represents effective values (formatting values with inheritance applied) of text style. It contains the following members:
 
 `IParagraphFormatEffectiveData GetLevel(int index)` — Returns level of effective style.
 `IParagraphFormatEffectiveData DefaultParagraphFormat` — Returns effective default paragraph properties.
 
-#### **EmbeddedWoffFontsHtmlController and EmbeddedEotFontsHtmlController classed have been added to provide the functionality to embed WOFF and EOT fonts into generated HTML documents**
+### **EmbeddedWoffFontsHtmlController and EmbeddedEotFontsHtmlController classed have been added to provide the functionality to embed WOFF and EOT fonts into generated HTML documents**
 The two new classes have been added to provide the functionality to embed WOFF and EOT fonts into generated HTML documents:
 
 - `EmbeddedWoffFontsHtmlController`
@@ -93,7 +93,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ``` 
 
-#### **New methods have been added to FontsManager**
+### **New methods have been added to FontsManager**
 The following new methods have been added to IFontsManager interface and FontsManager class:
 IFontData[] GetEmbeddedFonts() - this method returns fonts embedded in a presentation.
 void RemoveEmbeddedFont(IFontData fontData) - this method removes an embedded font from a presentation.
@@ -127,7 +127,7 @@ using (Presentation pres = new Presentation("pres.ppt"))
 }
 ``` 
 
-#### **New responsive HTML controller has been added**
+### **New responsive HTML controller has been added**
 The new class ResponsiveHtmlController has been added to provide the possibility to generate responsive HTML files.
 
 This controller can be used in the same manner as other HTML controllers:
@@ -143,5 +143,5 @@ using (var pres = new Presentation("pres.pptx"))
 }
 ``` 
 
-#### **Otp value has been added to LoadFormat and SaveFormat enumerations**
+### **Otp value has been added to LoadFormat and SaveFormat enumerations**
 The new Otp value has been added to Aspose.Slides.LoadFormat and Aspose.Slides.SaveFormat enumerations. This value represents the OpenOffice OTP Presentation template format.

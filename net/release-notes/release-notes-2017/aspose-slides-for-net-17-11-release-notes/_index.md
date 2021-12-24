@@ -43,7 +43,7 @@ net2.0_x64\Aspose.Slides.dll is removed from the release because its functionali
 |SLIDESNET-39495|Cannot open PPTX after saving|Bug|
 ## **Public API Changes**
 
-#### **Possibility to control look and layouting of notes and comments in exported document**
+### **Possibility to control look and layouting of notes and comments in exported document**
 A new NotesCommentsLayoutingOptions property has been added to PdfOptions, TiffOptions, SwfOptions and HtmlOptions classes. It allows specifying notes and comments look and layouting during document export.
 
 NotesCommentsLayoutingOptions property is of type INotesCommentsLayoutingOptions that has the following properties:
