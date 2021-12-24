@@ -15,7 +15,7 @@ This page contains release notes for Aspose.Slides for Android via Java 20.5
 | :- | :- | :- |
 |SLIDESANDROID-239|[Use Aspose.Slides for Java 20.5 features](/slides/java/aspose-slides-for-java-20-5-release-notes/)|Enhancement|
 
-# **Public API Changes**
+## **Public API Changes**
 ### **Digital Signature in PowerPoint**
 **Digital certificate** is used to create a password-protected PowerPoint presentation, marked as created by a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - a certificate authority. After installing digital certificate into the system, it can be used to add a digital signature to the presentation via File -> Info -> Protect Presentation:
 
@@ -38,7 +38,7 @@ interface and[ ](https://apireference.aspose.com/slides/net/aspose.slides/ipres
 Currently, digital signatures are supported for PPTX format only.
 
 
-##### **Add digital signature from PFX Certificate**
+#### **Add digital signature from PFX Certificate**
 The code sample below demonstrates how to add a digital signature from a PFX certificate:
 
 1. Open PFX file and pass the PFX password to [**DigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature) object.
@@ -252,7 +252,7 @@ public byte isWriteProtected();
 public boolean checkWriteProtection(String password);
 
 ```
-##### **Example**
+#### **Example**
 The example below demonstrates how to check a password to modify a presentation:
 ``` java
 
@@ -286,7 +286,7 @@ Method declaration:
 public boolean checkWriteProtection(String password);
 
 ```
-##### **Example**
+#### **Example**
 The example below demonstrates how to check a password to modify a presentation:
 
 
@@ -317,7 +317,7 @@ Method declaration:
 public boolean isPasswordProtected();
 
 ```
-##### **Example**
+#### **Example**
 The example below demonstrates how to check protection to open:
 
 
@@ -337,12 +337,12 @@ The feature helps to change the placement of selected shapes on the slide. Alig
 To provide options from the picture above has been added overloaded method **[SlideUtil](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil).[alignShapes()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)** and [**ShapesAlignmentType**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) class.
 
 
-##### **ShapesAlignmentType**
+#### **ShapesAlignmentType**
 The [**ShapesAlignmentType**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) 
 determines the way to align shapes. Possible values of [**ShapesAlignmentType**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType): [*AlignLeft*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignLeft)*, [AlignRight](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignRight), [AlignCenter](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignCenter), [AlignTop](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignTop), [AlignMiddle](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignMiddle), [AlignBottom](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignBottom), [DistributeHorizontally](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#DistributeHorizontally), [DistributeVertically](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#DistributeVertically)*.
 
 
-##### **Method SlideUtil.alignShape()**
+#### **Method SlideUtil.alignShape()**
 The method changes the placement of selected shapes on the slide. Input parameters:
 
 - [*ShapesAlignmentType*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) **alignmentType** - determines which type of alignment will be applied.
@@ -352,13 +352,13 @@ The method changes the placement of selected shapes on the slide. Input paramete
 - [*IShapeCollection*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) **shapes** - collection of shapes to be aligned.
 
 
-##### **Example 1**
+#### **Example 1**
 ![todo:image_alt_text](aspose-slides-for-android-via-java-20-5-release-notes_4.png)
 
 Let's say we want to align shapes with indexes 1, 2 and 4 along the top border of the slide.
 
 
-##### **Solution**
+#### **Solution**
 
 ``` java
 Presentation pres = new Presentation("example.pptx");
@@ -378,8 +378,8 @@ try {
 }
 ```
 
-##### **![todo:image_alt_text](aspose-slides-for-android-via-java-20-5-release-notes_5.png)**
-##### **Example 2**
+#### **![todo:image_alt_text](aspose-slides-for-android-via-java-20-5-release-notes_5.png)**
+#### **Example 2**
 Another option shows how to align entire collection of shapes on the slide:
 
 ``` java

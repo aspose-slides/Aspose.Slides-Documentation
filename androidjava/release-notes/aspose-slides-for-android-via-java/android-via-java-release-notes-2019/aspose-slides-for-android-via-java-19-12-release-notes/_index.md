@@ -81,7 +81,7 @@ steam4Format.getFill().getSolidFillColor().setColor(android.graphics.Color.argb(
 ![todo:image_alt_text](aspose-slides-for-android-via-java-19-12-release-notes_4)
 ### **getAccessPermissions() and setAccessPermissions() methods have been added to IPdfOptions interface and PdfOptions class**
  [**getAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#getAccessPermissions--) and [**setAccessPermissions()**](https://apireference.aspose.com/androidjava/slides/com.aspose.slides/IPdfOptions#setAccessPermissions-int-) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPdfOptions)** **interface and [**PdfOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PdfOptions)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PdfAccessPermissions) class. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
-##### **Example**
+#### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
 ``` java

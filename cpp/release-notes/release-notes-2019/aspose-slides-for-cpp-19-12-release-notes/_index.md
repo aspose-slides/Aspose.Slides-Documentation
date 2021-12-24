@@ -90,7 +90,7 @@ steam4Format->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color
 ![todo:image_alt_text](aspose-slides-for-cpp-19-12-release-notes_4)
 ###  **IPdfOptions::get_AccessPermissions() and IPdfOptions::set_AccessPermissions() methods have been added**
  [**get_AccessPermissions()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_pdf_options/#ac80b9006c6eab82c84f87dc0235f081b) and [**set_AccessPermissions()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_pdf_options/#ac2b89307d944084a00853ff3dfa070e3) methods have been added to [**IPdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_pdf_options/)** **interface and [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options/)** **class. All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.export/#a8a80eed4177a9fe0cefe91999e4ec353) enumeration. These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
-##### **Example**
+#### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
 ``` cpp

@@ -54,7 +54,7 @@ This page contains release notes for Aspose.Slides for .NET 19.5
 |SLIDESNET-40871|ODP file not properly converted to PPTX|Bug|
 |SLIDESNET-40755|Chart is improperly rendered in generated PDF and HTML|Bug|
 ## **Public API Changes**
-#### **IComment.ParentComment property has been added**
+### **IComment.ParentComment property has been added**
 A new property **ParentComment** has been added to **IComment** interface and **Comment** class.
 
 It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
@@ -114,7 +114,7 @@ using (Presentation pres = new Presentation())
 }
 ``` 
 
-#### **IViewProperties.NormalViewProperties, INormalViewRestoredProperties, and related members have been added to provide access to the presentation's "normal view properties".**
+### **IViewProperties.NormalViewProperties, INormalViewRestoredProperties, and related members have been added to provide access to the presentation's "normal view properties".**
 The normal view consists of three content regions: the slide itself, a side content region, and a bottom content region. Properties pertaining to the positioning of the different content regions. This information allows the application to save its view state to the file, so that when reopened the view is in the same state as when the presentation was last saved.
 
 Property **IViewProperties.NormalViewProperties** has been added to provide access to normal view properties of presentation. 
@@ -124,7 +124,7 @@ Property **IViewProperties.NormalViewProperties** has been added to provide acce
 ![todo:image_alt_text](aspose-slides-for-net-19-5-release-notes_1.png)
 
 
-##### **INormalViewProperties**
+#### **INormalViewProperties**
 Represents normal view properties.
 
 Property **ShowOutlineIcons** specifies whether the application should show icons if displaying outline content in any of the content regions of normal view mode.
@@ -136,7 +136,7 @@ Property **PreferSingleView** specifies whether the user prefers to see a full-w
 Properties **VerticalBarState** and **HorizontalBarState** specify the state that the horizontal or vertical splitter bar should be shown in. A horizontal splitter bar separates the slide from the content region below the slide, vertical splitter bar separates the slide from the side content region. Possible values are: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** and **SplitterBarStateType.Restored.**
 
 Properties **RestoredLeft** and **RestoredTop** specify the sizing of the top or side slide region of the normal view, when **SplitterBarStateType.Restored** value applied for **VerticalBarState** and **HorizontalBarState** accordingly*.*
-##### **INormalViewRestoredProperties**
+#### **INormalViewRestoredProperties**
 Specifies the sizing of the slide region ((width when a child of RestoredTop, height when a child of RestoredLeft) of the normal view, when the region is of a variable restored size(neither minimized nor maximized). 
 
 Property **DimensionSize**  specifies the size of the slide region (width when a child of restoredTop, height when a child of restoredLeft).
@@ -158,7 +158,7 @@ using (Presentation pres = new Presentation())
 }
 ``` 
 
-##### **New IOleObjectFrame .SubstitutePictureTitle property has been added**
+#### **New IOleObjectFrame .SubstitutePictureTitle property has been added**
 A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon:
 
 ``` csharp
@@ -205,7 +205,7 @@ using (Presentation pres = new Presentation())
 **Note**. When property IsObjectIcon of an IOleObjectFrame is set to value of false then SubstitutePictureTitle property is ignored.
 
 **Pay attention**, that the string value of SubstitutePictureTitle may be truncated according to the size of the Ole icon that represents the OLE object.
-#### **Support for the representation of bubble size values has been added.**
+### **Support for the representation of bubble size values has been added.**
 Property **BubbleSizeRepresentation** has been added to IChartSeries, IChartSeriesGroup interfaces, and related classes. 
 
 **BubbleSizeRepresentation** specifies how the bubble size values are represented in the bubble chart. Possible values are: **BubbleSizeRepresentationType.Area** and **BubbleSizeRepresentationType.Width**.
@@ -224,9 +224,9 @@ using (Presentation pres = new Presentation())
 
 
 ``` 
-#### **Support of converting SVG images into group of shapes has been added.**
+### **Support of converting SVG images into group of shapes has been added.**
 Since version 19.5 Aspose.Slides supports converting SVG images into group of shapes. 
-#### **New ISvgImage interface and SvgImage class were added**
+### **New ISvgImage interface and SvgImage class were added**
 New ISvgImage interface was added to represent SVG image:
 
 ``` csharp
@@ -262,7 +262,7 @@ public interface ISvgImage
 }
 ``` 
 
-#### **AddImage method has been added to IImageCollection interface and ImageCollection class**
+### **AddImage method has been added to IImageCollection interface and ImageCollection class**
 New AddImage method has been added to IImageCollection interface and ImageCollection class:
 
 ``` csharp
@@ -300,7 +300,7 @@ using (var p = new Presentation())
 ``` 
 
 **Pay attention** that methods IPPImage **AddFromSvg**(string svgContent) and IPPImage **AddFromSvg**(string svgContent, IExternalResourceResolver externalResResolver, string baseUri) marked now as obsolete and will be deleted from API since version 19.10.
-#### **Property SvgImage property has been added to IPPImage interface and PPImage class**
+### **Property SvgImage property has been added to IPPImage interface and PPImage class**
 New property **SvgImage** have been to **IPPImage** interface and **PPImage** class:
 
 ``` csharp
@@ -311,7 +311,7 @@ New property **SvgImage** have been to **IPPImage** interface and **PPImage** cl
 ISvgImage SvgImage { get; set; }
 ``` 
 
-#### **AddGroupShape method has been added to IShapeCollection interface and IShapeCollection class**
+### **AddGroupShape method has been added to IShapeCollection interface and IShapeCollection class**
 New AddGroupShape method has been added to IShapeCollection interface and ShapeCollection class:
 
 ``` csharp

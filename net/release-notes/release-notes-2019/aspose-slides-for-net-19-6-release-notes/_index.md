@@ -87,7 +87,7 @@ This page contains release notes for [Aspose.Slides for .NET 19.6](https://www.
 |SLIDESNET-24747|Changing chart type result in blank chart as no chart data association works|Bug|
 |SLIDESNET-22961|Chart label text height is increased on cloning slide|Bug|
 ## **Public API Changes**
-#### **PLEASE NOTE: Obsolete methods and properties related to notes and comments have been deleted**
+### **PLEASE NOTE: Obsolete methods and properties related to notes and comments have been deleted**
 Following methods of the **INotesSlide** interface have been removed:
 
 - **Bitmap GetThumbnail(float scaleX, float scaleY);**
@@ -106,10 +106,10 @@ Property **bool IncludeComments** has been removed from IHtmlOptions, IPdfOptio
 
 Named constants **PdfNotes**, **TiffNotes**, **SwfNotes** and **HtmlNotes** have been removed from the **SaveFormat** enumeration. Use specific options with **INotesCommentsLayoutingOptions** element for saving presentation instead.
 
-#### **BackgroundEffectiveData class and IBackgroundEffectiveData interface have been added**
+### **BackgroundEffectiveData class and IBackgroundEffectiveData interface have been added**
 Aspose.Slides.IBackgroundEffectiveData interface and it's implementation by Aspose.Slides.BackgroundEffectiveData class have been added. They represent effective background of slide and contain information about effective fill format and effective effect format.
 
-#### **IBaseSlide.CreateBackgroundEffective method has been added**
+### **IBaseSlide.CreateBackgroundEffective method has been added**
 CreateBackgroundEffective method has been added to IBaseSlide interface and BaseSlide class. Using this method allows to get effective values for slide's background.
 
 Sample code below outputs effective background fill:
@@ -124,7 +124,7 @@ else
 ``` 
 
 
-#### **New IProgressCallback interface has been added**
+### **New IProgressCallback interface has been added**
 New IProgressCallback interface has been added to ISaveOptions interface and SaveOptions abstract class. IProgressCallback interface represents a callback object for saving progress updates in percentage.
 
 ``` csharp
@@ -157,14 +157,14 @@ class ExportProgressHandler : IProgressCallback
 }
 ``` 
 
-#### **Pot value has been added to LoadFormat and SaveFormat enumerations**
+### **Pot value has been added to LoadFormat and SaveFormat enumerations**
 The new **Pot** value has been added to **Aspose.Slides.LoadFormat** and **Aspose.Slides.SaveFormat** enumerations. This value represents Microsoft PowerPoint 97-2003 Presentation template format.
 
-#### **Support of management images as BLOBs has been added**
+### **Support of management images as BLOBs has been added**
 The new method has been added to **IImageCollection** interface and **ImageCollection** class to support adding large image as streams to treat them as BLOBs:
 
 **IPPImage AddImage(Stream stream, LoadingStreamBehavior loadingStreamBehavior);**
-##### **Adding new image as BLOB to the presentation**
+#### **Adding new image as BLOB to the presentation**
 This example demonstrates how to include the large BLOB (image) and prevent a high memory consumption.
 
 ``` csharp

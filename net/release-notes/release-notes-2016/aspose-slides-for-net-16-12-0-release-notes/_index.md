@@ -60,22 +60,22 @@ url: /net/aspose-slides-for-net-16-12-0-release-notes/
 |SLIDESNET-35355|PPTX to PNG Conversion: Chart Missing in the generated PPTX file|Bug|
 |SLIDESNET-34061|Category axis values scales are different in generated PDF|Bug|
 ## **Public API Changes**
-#### **Aspose.Slides.Metered class has been added**
+### **Aspose.Slides.Metered class has been added**
 Aspose.Slides.Metered class has been added. It provides methods to set metered key and check consumption quantity for associated metered account. This new licensing method will be accessible soon.
-###### **Public methods**
+#### **Public methods**
 Metered() Initializes a new instance of this class. void SetMeteredKey(string publicKey, string privateKey) Sets metered public and private key. 
 parameters: 
 - publicKey - Metered pubilc key. 
 - privateKey - Metered private key. 
 - static decimal GetConsumptionQuantity() Gets consumption quantity.
 
-###### **Usage example: **
+#### **Usage example: **
 ``` csharp
 Metered metered = new Metered();
 metered.SetMeteredKey("PublicKey", "PrivateKey");
 decimal consumption = Metered.GetConsumptionQuantity();
 ```
-#### **IAxis.TickMarksSpacing and IAxis.IsAutomaticTickMarksSpacing properties have been added.**
+### **IAxis.TickMarksSpacing and IAxis.IsAutomaticTickMarksSpacing properties have been added.**
 IAxis.IsAutomaticTickMarksSpacing property specifies automatic tick marks spacing value. If false: use TickMarksSpacing property.
 IAxis.TickMarksSpacing specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis. 
 ``` csharp
@@ -88,7 +88,7 @@ using (Presentation pres = new Presentation())
   barChart.Axes.VerticalAxis.TickMarksSpacing = 2;
 }
 ```
-#### **New properties PicturesCompression and DeletePicturesCroppedAreas has been added to HTML and SVG options**
+### **New properties PicturesCompression and DeletePicturesCroppedAreas has been added to HTML and SVG options**
 The new properties PicturesCompression and DeletePicturesCroppedAreas has been added to IHtmlOptions and ISVGOptions.
 
 PicturesCompression is an enum containing the following values:
@@ -125,7 +125,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-#### **New static property Header has been added to class FieldType**
+### **New static property Header has been added to class FieldType**
 The new static property Header has been added to class FieldType. It allows getting the instance of FieldType class that represents "header" field type.
 ``` csharp
 public static FieldType Header { get; }
@@ -148,7 +148,7 @@ using (Presentation pres = new Presentation("presentation.ppt"))
   }
 }
 ```
-#### **SvgExternalFontsHandling enum, ISVGOptions.ExternalFontsHandling and SVGOptions.ExternalFontsHandling properties have been added**
+### **SvgExternalFontsHandling enum, ISVGOptions.ExternalFontsHandling and SVGOptions.ExternalFontsHandling properties have been added**
 ExternalFontsHandling property has been added to Aspose.Slides.Export.ISVGOptions interface and Aspose.Slides.Export.SVGOptions class with return type of Aspose.Slides.Export.SvgExternalFontsHandling enum.
 
 This property defines how Aspose.Slides should handle externally loaded fonts during slide export to SVG format.
@@ -156,7 +156,7 @@ There are 3 possible options:
 - **SvgExternalFontsHandling.AddLinksToFontFiles**. In this case a separate css definition will be added to svg/defs section per each font that was actually used for some piece of text on the slide and was loaded externally by calling to FontsLoader.LoadExternalFonts method. Each definition contains local links to 3 separate font types: TTF, EOT and WOFF. To work correctly font files must be placed in the same directory as SVG file (could be copied there after the export) and must be named the same as original TTF file (for example FancyFont.ttf, FancyFont.eot, FancyFont.woff). If some of the fonts is missing there will be no error, but the resulting SVG file could be rendered incorrectly in some browsers (please take a look to 'Font-browsers compatibility' section below). 
 - **SvgExternalFontsHandling.Embed**. In this case the same css definitions will be added based on the same principle, but the font files content will be embedded directly to SVG file. Choosing this option user should place EOF and WOFF versions of the font to the same directory as original TTF file (the path to which is passed to FontsLoader.LoadExternalFonts method) before the export. If some of the fonts are missing it won't be added to SVG file at all and again it could result incorrect rendering in some browsers. 
 - **SvgExternalFontsHandling.Vectorize**. In this case the text that uses externally loaded fonts will be transformed to graphical objects. It works the same way as when SVGOptions.Vectorize property is set to true, but only for external fonts.
-###### **Font-browser compatibility**
+#### **Font-browser compatibility**
 To make result SVG file rendered correctly in most of modern browsers two additional font files format are recommended to be used along with regular TTF file.
 
 EOT (Embedded Open Type) - for compatibility with all versions of IE. 

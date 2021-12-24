@@ -118,23 +118,23 @@ class ExportProgressHandler implements IProgressCallback {
 
 
 ### **Obsolete methods and properties related to notes and comments have been deleted**
-##### **Following methods of the INotesSlide interface have been removed:**
+#### **Following methods of the INotesSlide interface have been removed:**
 - public java.awt.image.BufferedImage getThumbnail(float scaleX, float scaleY);
 - public java.awt.image.BufferedImage getThumbnail(java.awt.Dimension imageSize);
 
 Use ISlide.getThumbnail method with a parameter of type **INotesCommentsLayoutingOptions** instead.
-##### **Following methods of the ISlide interface have been removed:**
+#### **Following methods of the ISlide interface have been removed:**
 - public void renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, int width, int height);
 - public void renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, float scale);
 - public void renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics);
 
 Use renderToGraphics method with a parameter of type **INotesCommentsLayoutingOptions** instead.
-##### **Following methods have been removed from IHtmlOptions, IPdfOptions, ISwfOptions and ITiffOptions interfaces.**
+#### **Following methods have been removed from IHtmlOptions, IPdfOptions, ISwfOptions and ITiffOptions interfaces.**
 - public boolean getIncludeComments();
 - public void setIncludeComments(boolean value);
 
 Use **INotesCommentsLayoutingOptions** interface instead.
-##### **Named constants PdfNotes, TiffNotes, SwfNotes and HtmlNotes have been removed from the SaveFormat enumeration.**
+#### **Named constants PdfNotes, TiffNotes, SwfNotes and HtmlNotes have been removed from the SaveFormat enumeration.**
 Use specific options with **INotesCommentsLayoutingOptions** element for saving presentation instead.
 ### **The Pot value has been added to LoadFormat and SaveFormat enumerations**
 The new **Pot** value has been added to **com.aspose.slides.LoadFormat** and **com.aspose.slides.SaveFormat** enumerations. 
@@ -148,7 +148,7 @@ Also, the new method has been added to **IImageCollection** interface and **Imag
 public IPPImage addImage(java.io.InputStream stream, int loadingStreamBehavior);
 ```
 
-##### **Adding a new image as BLOB to the presentation.**
+#### **Adding a new image as BLOB to the presentation.**
 This example demonstrates how to include a large BLOB (image) and prevent high memory consumption.
 
 ``` java

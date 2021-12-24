@@ -91,14 +91,14 @@ url: /net/aspose-slides-for-net-16-2-0-release-notes/
 |SLIDESNET-32649| Text converted to image while converting PPT to PPTX|Bug|
 ## **Public API Changes**
 
-#### **Enum Slides.Charts.CategoryAxisType has been added**
+### **Enum Slides.Charts.CategoryAxisType has been added**
 
 Used in IAxis.CategoryAxisType and Axis.CategoryAxisType properties to determine category axis type.
 - **CategoryAxisType.Auto** - category axis type will be determined automatically during serialization (this behavior is not implemented now)
 - **CategoryAxisType.Text** - category axis type is Text
 - **CategoryAxisType.Date** - category axis type is DateTime
 
-#### **Fast text extraction**
+### **Fast text extraction**
 
 The new static method GetPresentationText has been added to Presentation class. There're two overloads for this method:
 ```csharp
@@ -120,7 +120,7 @@ PresentationText represents the raw text extracted from the presentation. It con
 
 There's also a SlideText class which implements the ISlideText interface.
 
-###### **The new API can be used like this:**
+#### **The new API can be used like this:**
 
 ``` csharp
 PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
@@ -132,21 +132,21 @@ Console.WriteLine(text1.SlidesText[0].NotesText);
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
 ```
 
-#### **ILegacyDiagram interface and LegacyDiagram class have been added**
+### **ILegacyDiagram interface and LegacyDiagram class have been added**
 Interface Aspose.Slides.ILegacyDiagram and class Aspose.Slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003. 
 New class provides methods to convert legacy diagram to modern editable SmartArt object or to editable GroupShape.
 
-#### **New Aspose.Slides.TextAlignment enum membed added (JustifyLow)**
+### **New Aspose.Slides.TextAlignment enum membed added (JustifyLow)**
 A new member of TextAlignment enum member has been added:
 - *JustifyLow* - Kashida justify low.
 
-#### **New properties for Aspose.Slides.IOleObjectFrame and OleObjectFrame**
+### **New properties for Aspose.Slides.IOleObjectFrame and OleObjectFrame**
 A new properties has been added to IOleObjectFrame interface and OleObjectFrame class implementing this interface. These properties using to provide information about an object embedded into the presentation:
 - **EmbeddedFileExtension** - Returns the file extension for the current embedded object or empty string if object is not a link
 - **EmbeddedFileLabel** - Returns the file name of embedded OLE object
 - **EmbeddedFileName** - Returns the path of embedded OLE object
 
-#### **New property CategoryAxisType has been added to IAxis and Axis classes**
+### **New property CategoryAxisType has been added to IAxis and Axis classes**
 Property CategoryAxisType specifies type of category axis.
 
 ``` csharp
@@ -162,7 +162,7 @@ using (Presentation pres = new Presentation(sourcePptxFileName))
 }
 ``` 
 
-#### **New property ShowLabelAsDataCallout has been added to DataLabelFormat class and IDataLabelFormat interface**
+### **New property ShowLabelAsDataCallout has been added to DataLabelFormat class and IDataLabelFormat interface**
 
 Property ShowLabelAsDataCallout determines either specified chart's data label will be displayed as data callout or as data label.
 ``` csharp
@@ -177,12 +177,12 @@ using (Presentation pres = new Presentation())
 }
 ``` 
 
-#### **Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed**
+### **Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed**
 Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed from Aspose.Slides.Presentation class and from Aspose.Slides.IPresentation interface.
 The Text property of Aspose.Slides.TextFrame, Paragraph, Portion classes and Aspose.Slides.ITextFrame, IParagraph, IPortion interfaces returns text with updated "datetime" fields.
 Also properties Presentation.DocumentProperties.CreatedTime, LastSavedTime and LastPrinted became read-only.
 
-#### **Property DrawSlidesFrame has been added to PdfOptions and XpsOptions**
+### **Property DrawSlidesFrame has been added to PdfOptions and XpsOptions**
 Boolean property DrawSlidesFrame has been added to interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions and to related classes Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 ``` csharp

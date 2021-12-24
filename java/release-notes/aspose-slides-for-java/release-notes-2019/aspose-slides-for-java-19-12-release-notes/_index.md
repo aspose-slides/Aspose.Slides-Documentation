@@ -112,7 +112,7 @@ steam4Format.getFill().getSolidFillColor().setColor(new Color(0, 176, 240, 255))
  All possible values of this property are defined in the [**PdfAccessPermissions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfAccessPermissions) class. 
  These values allow you to restrict access rights to a PDF document such as printing, modify the contents, copy text and graphics, add or modify text annotations, create or modify interactive form fields, extract text and graphics in support of accessibility to users with disabilities, create bookmarks, manipulate pages, etc. The values of this enumeration may be combined.
 
-##### **Example**
+#### **Example**
 The example below demonstrates how to set access permissions to a PDF document only for printing in high quality.
 
 ``` java
