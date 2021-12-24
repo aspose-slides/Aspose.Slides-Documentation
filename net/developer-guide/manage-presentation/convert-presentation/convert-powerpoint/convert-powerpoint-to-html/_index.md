@@ -250,7 +250,7 @@ To prevent certain fonts from being embedded, you can pass an array of font name
 
 The [EmbedAllFontsHtmlController ](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)class supports inheritance and provides the [WriteFont](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) method, which is meant to be overwritten. 
 
-This C# code shows you how to XXX:
+This C# code shows you how to link all fonts in the output HTML document (excluding "Calibri" and "Arial", that the system already contains):
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -258,17 +258,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
     //Excludes default presentation fonts
     string[] fontNameExcludeList = { "Calibri", "Arial" };
 
-
     Paragraph para = new Paragraph();
     ITextFrame txt;
 
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");
+    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
 
     HtmlOptions htmlOptionsEmbed = new HtmlOptions
     {
-        //HtmlFormatter = HtmlFormatter.CreateCustomFormatter(embedFontsController)
         HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
     };
 
@@ -276,7 +272,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-This C# code shows you how to XXX:
+This C# code shows you how LinkAllFontsHtmlController is implemented:
 
 ```c#
 public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
@@ -300,7 +296,7 @@ public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
         try
         {
             string fontName = substitutedFont == null ? originalFont.FontName : substitutedFont.FontName;
-            string path = fontName + ".woff"; //Some path sanitaze XXX may be needed
+            string path = fontName + ".woff"; //Some path sanitaze may be needed
 
             File.WriteAllBytes(Path.Combine(m_basePath, path), fontData);
             
@@ -332,12 +328,12 @@ presentation.Save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
 
 
 ## ****Export Media Files to HTML****
-Using Aspose.Slides for .NET, you can export media files XXX this way:
+Using Aspose.Slides for .NET, you can export media files this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference of the slide.
-1. Set your preferred transition effect.
-1. Write the presentation as a PPTX file. XXX. 
+1. Add a video to the slide.
+1. Write the presentation as a PPTX file.
 
 This C# code shows you how to XXX: 
 
@@ -349,6 +345,9 @@ using (Presentation pres = new Presentation("Media File.pptx"))
     const string fileName = "ExportMediaFiles_out.html";
     const string baseUri = "http://www.example.com/";
 
+    ISlide slide = pres.Slides[0];
+    IVideoFrame frame = slide.Shapes.AddVideoFrame(10, 10, 100, 100, "my_video.avi");
+    
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
 
     // Sets HTML options
