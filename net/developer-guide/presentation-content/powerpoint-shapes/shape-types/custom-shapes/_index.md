@@ -8,7 +8,7 @@ description: "Add custom shape in PowerPoint presentation in C# or .NET"
 ---
 
 # Change a Shape Using Edit Points
-Consider a square. In PowerPoint, using ***edit points***, you can 
+Consider a square. In PowerPoint, using **edit points**, you can 
 
 * move the square's corner in or out
 * specify the curvature for a corner or point
