@@ -335,7 +335,7 @@ Using Aspose.Slides for .NET, you can export media files this way:
 1. Add a video to the slide.
 1. Write the presentation as a PPTX file.
 
-This C# code shows you how to XXX: 
+This C# code shows you how to add a video to the presentation and then save it as PPTX: 
 
 ```c#
 // Loads a presentation
