@@ -92,7 +92,11 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 
 ## **Convert PowerPoint to HTML with Original Fonts**
 
-Aspose.Slides provides the [**EmbedAllFontsHtmlController** ](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)class that allows you to preserve the original fonts in a generated HTML. This code in C# demonstrates the PowerPoint to HTML conversion process with the original fonts preserved: 
+Aspose.Slides provides the EmbedAllFontsHtmlController class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
+
+To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the EmbedAllFontsHtmlController class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
+
+The EmbedAllFontsHtmlController class supports inheritance and provides the WriteFont method, which is meant to be overwritten.
 
 ```c#
 using (Presentation pres = new Presentation("input.pptx"))
@@ -243,12 +247,9 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 }
 ```
 
-## **Embed All Fonts When Converting Presentation to HTML**
-Aspose.Slides provides the [EmbedAllFontsHtmlController ](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)class that allows you to embed all the fonts in a presentation while converting the presentation to HTML. 
+## **Link All Fonts When Converting Presentation to HTML**
 
-To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController ](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)class. Popular fonts, such as **Calibri** or **Arial**, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large. 
-
-The [EmbedAllFontsHtmlController ](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller)class supports inheritance and provides the [WriteFont](https://apireference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) method, which is meant to be overwritten. 
+Instead of embedding fonts (which increase output HTML size) you can link it by implementing your own version of controller (LinkAllFontsHtmlController in the example below).
 
 This C# code shows you how to link all fonts in the output HTML document (excluding "Calibri" and "Arial", that the system already contains):
 
