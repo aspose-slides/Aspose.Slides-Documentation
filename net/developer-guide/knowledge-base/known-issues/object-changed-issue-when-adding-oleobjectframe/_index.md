@@ -7,57 +7,54 @@ url: /net/object-changed-issue-when-adding-oleobjectframe/
 
 {{% alert color="primary" %}} 
 
-When developers add an **OleObjectFrame** to their slides using Aspose.Slides for .NET, an **Object Changed** message is shown on the output slide instead of the **OLE Object** . Most of the Aspose.Slides for .NET customers think that it is a bug or error in Aspose.Slides for .NET. 
+Using Aspose.Slides for .NET, when you add **[OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe)** to a slide, an **Object Changed** message message is shown on the output slide (and NOT on the OLE object). The described process is a deliberate action and NOT a bug. 
 
 {{% /alert %}} 
-#### **Critical Analysis and Explanation**
-First of all, it is important to know that **Object Changed** message shown by Aspose.Slides for .NET after adding **OleObjectFrame** in the slide, is NOT an error or bug in Aspose.Slides for .NET . It is just an information or message to notify users that **object is changed** and image should be updated. 
+## **Explanation** and Solution
+Aspose.Slides displays the **Object Changed** message to notify you that the OLE object has been changed and the preview image has to be updated. 
 
-For example, if you add a **Microsoft Excel Chart** as an **OleObjectFrame** to your slide (for more details and code snippet about adding OleObjectFrame to your slide, click [here](/slides/net/shape-manipulations/#shapemanipulations-handlingoleobjectframe)) and then open the presentation file using MS PowerPoint then the slide (where the OLE Object was added) would look like this: 
+For example, if you add a Microsoft Excel Chart as an [OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe) to a slide (for more details, see the Manage OLE article) and then open the presentation in the Microsoft PowerPoint app, you will see this image on the slide:
+
+~~Replace all images with new images~~
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 
-**Figure** : Slide showing **Object Changed message** after OLE Object is added 
-
-This is not an error and your **OLE Object** is still added to the slide. If you want to test it then **Double Click** on the **Object Changed** message or Right Click on it and select **Worksheet Object -> Edit option** as shown below in the figure: 
+If you want to check and confirm that your OLE object was added to the slide, you have to double-click on the **Object Changed** message or you can right-click on it and go through **Worksheet Object >  Edit option.**
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_2.png)
 
-**Figure** : Selecting **Edit** option to edit the **OLE Object**
-
-After you select **Edit** option of the popup menu, you will see that **Embedded OLE Object** will become visible in editable form as shown below:
+PowerPoint then opens the embedded OLE object
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_3.png)
 
-**Figure** : **OLE Object** in editable form 
 
-You can still see the **Object Changed** message on the slide in the **Left Pane** of MS PowerPoint that shows slides previews. Once you click on the **OLE Object** , you will see that slide preview would also be changed and the **Changed Object message** would be replaced by the image of OLE Object as shown below: 
+
+The slide may retain the **Object Changed** message. Once you click the OLE object, the slide preview gets updated and the **Object Changed** message get replaced by the actual image for the OLE object. 
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_4.png)
 
-**Figure** : Updation of **OLE Object image** 
+Now, you may want to save your presentation to ensure the image for the OLE Object gets updated correctly. This way, after saving the presentation, when you open the presentation again, you will NOT see the **Object Changed** message. 
 
-Now, you should **Save** your presentation file using MS PowerPoint so that the image of **OLE Object** should be updated. Once you save your presentation and open again using MS PowerPoint, you will see that no **Object Changed** message would be there. 
-#### **More Solutions**
-In the above critic analysis, we demonstrated that the image of **OLE Object** can be updated by opening the presentation file in MS PowerPoint and then saving it. But, there are two more solutions to deal with **Object Changed** message. 
-#### **1st Solution: Replacing Object Changed Message with an Image**
-If you don't like the **Object Changed** message then you can also replace that message with your own image. You can add any desired picture to your presentation and then use the Id of that added picture to replace the Object Changed message. 
+## **Alternatives**
+In the previous section, we demonstrated that it is possible to remove the **Object Changed** message (or update the preview image for an OLE object) by opening the presentation in the Microsoft PowerPoint app and then saving the presentation. This section contains 2 alternative solutions to the described procedure. 
 
-To achieve this, you can add these few lines of code in your application after adding **OleObjectFrame** to your slide. 
-#### **Example**
+### **Solution 1: Replace the Object Changed Message with an Image**
+
+If you do not like the **Object Changed** message, you can replace that message with your preferred preview image. First, you have to add the image to presentation and then use the image's id to replace the **Object Changed** message. These lines of code demonstrate the process:
+
 ``` csharp 
-//Adding the picture to presentation and getting the related picture object
+//Adds the picture to presentation and removes the related picture object
 IPPImage picObject = pres.Images.AddImage(File.ReadAllBytes("C:\\demo.png"));
 
-//Assigning the picture object of newly added picture to the Picture Format of 
+//Assigns the picture object for the newly added picture to the Picture Format of 
 //OleObjectFrame where oof represents an OleObjectFrame
 oof.SubstitutePictureFormat.Picture.Image = picObject;
 ```
 
-After adding above lines in your application, the resulting slide containing **OleObjectFrame** would look like this: 
+The slide containing the `OleObjectFrame` then changes to this:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_5.png)
 
-**Figure: Object Changed** message replaced with an image 
-#### **2nd Solution: Creating an Add-On for MS PowerPoint**
-You can also try to create an add-on for MS PowerPoint, which updates all OLE objects when you open presentation in MS PowerPoint. 
+### **Solution 2: Create an Add-On for PowerPoint**
+You can also create an add-on for Microsoft PowerPoint that updates all OLE objects when you open presentations in the program. 
+
