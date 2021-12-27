@@ -330,21 +330,26 @@ Using Aspose.Slides for .NET, you can export media files this way:
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference to the slide.
 1. Add a video to the slide.
-1. Write the presentation as a PPTX file.
+1. Write the presentation as a HTML file.
 
-This C# code shows you how to add a video to the presentation and then save it as PPTX: 
+This C# code shows you how to add a video to the presentation and then save it as HTML: 
 
 ```c#
 // Loads a presentation
-using (Presentation pres = new Presentation("Media File.pptx"))
+using (Presentation pres = new Presentation())
 {
-    string path = "C:/";
+    string path = "C:/out/";
     const string fileName = "ExportMediaFiles_out.html";
     const string baseUri = "http://www.example.com/";
 
-    ISlide slide = pres.Slides[0];
-    IVideoFrame frame = slide.Shapes.AddVideoFrame(10, 10, 100, 100, "my_video.avi");
-    
+    using (FileStream fileStream = new FileStream("my_video.avi", FileMode.Open, FileAccess.Read))
+    {
+        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.ReadStreamAndRelease);
+        
+        ISlide slide = pres.Slides[0];
+        slide.Shapes.AddVideoFrame(10, 10, 100, 100, video);
+    }
+        
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
 
     // Sets HTML options
