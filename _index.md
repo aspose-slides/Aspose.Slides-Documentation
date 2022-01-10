@@ -18,7 +18,6 @@ Aspose.Slides for .NET is a Microsoft PowerPoint® management API that enables .
 {{% /alert %}}
 
 These are links to some useful resources:
-f
 - [Aspose.Slides for .NET Online Documentation](/slides/net/)
 - [Aspose.Slides for .NET Features](/slides/net/features-overview/)
 - [Aspose.Slides for .NET Limitations](/slides/net/known-issues/)
@@ -111,7 +110,6 @@ Aspose.Slides for Python via .NET is a class library that enables your applicati
 {{% /alert %}}
 
 These are links to some useful resources:
-f
 - [Aspose.Slides for Python via .NET Online Documentation](/slides/python-net/)
 - [Aspose.Slides for Python via .NET Features](/slides/python-net/features-overview/)
 - [Aspose.Slides for Python via .NET Limitations](/slides/python-net/known-issues/)
@@ -119,7 +117,7 @@ f
 - [Aspose.Slides for Python via .NET Product Page](https://products.aspose.com/slides/python-net/)
 - [Download Aspose.Slides for Python via .NET](https://downloads.aspose.com/slides/python-net)
 - [Install Aspose.Slides for Python via .NET](/slides/python-net/installation/)
-- [Aspose.Slides for Python via .NET API Reference Guide](https://apireference.aspose.com/slides)
+- [Aspose.Slides for Python via .NET API Reference Guide](slides/python-net/api-reference/)
 - [Aspose.Slides for Python via .NET Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
