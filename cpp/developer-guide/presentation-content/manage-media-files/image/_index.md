@@ -10,11 +10,13 @@ url: /cpp/image/
 
 Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other locations onto slides. Similarly, Aspose.Slides allows you to add images to slides in your presentations through different procedures. 
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert color="primary" %}} 
 
 Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
 
 {{% /alert %}} 
+
+Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, BMP, GIF, and others. 
 
 {{% alert title="Info" color="info" %}}
 
@@ -22,21 +24,20 @@ If you want to add an image as a frame object—especially if you plan to use st
 
 {{% /alert %}} 
 
-Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, BMP, GIF, and others. 
+
 
 ## **Adding Images Stored Locally to Slides**
 
 You can add one or several images on your computer onto a slide in a presentation. This sample code in C++ shows you how to add an image to a slide:
 
-```C++
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+``` cpp
+auto pres = System::MakeObject<Presentation>();
+
+auto slide = pres->get_Slides()->idx_get(0);
+auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **Adding Images From the Web to Slides**
