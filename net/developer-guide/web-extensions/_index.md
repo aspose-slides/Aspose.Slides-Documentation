@@ -169,6 +169,8 @@ Portion has its own template [portion.html](https://github.com/aspose-slides/Asp
 
 For each shape type, we use a custom template, which is added to the general set of templates from the Aspose.Slides.WebExtensions project. Templates are combined in the ToSinglePageWebDocument and ToMultiPageWebDocument methods to provide a final result. These are common templates used in both single and multi-page:
 
+XXX
+
 -templates
 +-common
   ¦ +-scripts: javascript scripts for slide transition animations, as instance.
@@ -176,7 +178,7 @@ For each shape type, we use a custom template, which is added to the general set
   +-multi-page: index, menu, slide templates for the multi-page output.
   +-single-page: index, slide templates for single-page output.
 
-You can find out how the common part is bound for all the templates in PresentationExtensions.AddCommonInputOutput method [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
+You can find out how the common part is bound for all the templates in `PresentationExtensions.AddCommonInputOutput` method [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
 
 ### Default Template Customization
 
