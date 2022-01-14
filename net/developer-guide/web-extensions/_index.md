@@ -24,7 +24,7 @@ The new WebExtensions system is used to generate HTML from presentations in thes
 
 Your can go through PowerPoint to HTML examples in the [Aspose.Slides.WebExtensions project](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) on GitHub. This project contains 2 parts: **Examples\SinglePageApp** and **Examples\MultiPageApp**. The other examples used in this article can also be found in the GitHub repo.
 
-### Templates
+### **Templates**
 
 To further extend the capabilities of HTML export, we recommend you use the ASP.NET Razor template system. The [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class instance can be used alongside a set of templates to get an HTML document as the export result.
 
@@ -120,7 +120,7 @@ Let's add the reference on the styles to the template and class "text":
 </html>
 ```
 
-### Default Templates
+### **Default Templates**
 
 WebExtensions provide 2 sets of basic templates for exporting presentations to HTML:
 * Single-page: all presentation content are exported into one HTML file. All other resources (images, fonts, styles, etc.) are exported into separate files.
@@ -180,7 +180,7 @@ XXX
 
 You can find out how the common part is bound for all the templates in `PresentationExtensions.AddCommonInputOutput` method [here](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
 
-### Default Template Customization
+### **Default Template Customization**
 
 You can modify any element in the template of the common model. For example, you may decide to change the table formatting styles but want all the other styles of the single page to stay unchanged
 
@@ -329,7 +329,7 @@ You can also use index.html to include the reference on custom table CSS styles 
 </html>
 ```
 
-## Create Project from Scratch: Animated Slides Transitions
+## **Create Project from Scratch: Animated Slides Transitions**
 
 WebExtensions allows you to export presentations with animated slide transitions—you just need to set the `AnimateTransitions` property in `WebDocumentOptions` to `true`:
 
@@ -417,3 +417,4 @@ That's all you need to create HTML with the animated page transitions generated 
 
 * [Download sample HTML file](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).
 * [Download sample project](https://docs.aspose.com/slides/net/web-extensions/sample.zip).
+
