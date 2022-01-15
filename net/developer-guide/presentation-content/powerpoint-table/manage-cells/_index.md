@@ -79,7 +79,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **Numbering in Merged Cells**
-If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table is based on this:
+If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This C# code demonstrates the process:
 
 ```c#
 // Instantiates the Presentation class that represents a PPTX file
@@ -128,7 +128,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-We then merge the cells further by merging (1, 1) and (1, 2). The result is a table consisting of a large merged cell in its middle: 
+We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```c#
 // Instantiates the Presentation class that represents a PPTX file
