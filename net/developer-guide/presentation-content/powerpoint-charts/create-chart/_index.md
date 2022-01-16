@@ -650,7 +650,7 @@ public static void Run()
 }
 ```
 
-### Creating Radar Charts
+### **Creating Radar Charts**
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index. 
