@@ -28,5 +28,5 @@ The EmbedAllFontsHtmlController type exposes the following members:
 |write_slide_end(generator, slide)|Called to write html slide footer. Called once per each of slides.|
 |write_shape_start(generator, shape)|Called before shape's rendering. Called once per each of shape. If this function writes anything to generator, current slide image generation will be finished, added html fragment inserted and new image will be started atop of the previous.|
 |write_shape_end(generator, shape)|Called before shape's rendering. Called once per each of shape. If this function writes anything to generator, current slide image generation will be finished, added html fragment inserted and new image will be started atop of the previous.|
-|write_all_fonts(generator, presentation)|Write all fonts contained in [Presentation](/python-net/api-reference/aspose.slides/presentation/).|
+|write_all_fonts(generator, presentation)|Write all fonts contained in [Presentation](/slides/python-net/api-reference/aspose.slides/presentation/).|
 |write_font(generator, original_font, substituted_font, font_style, font_weight, font_data)|Writes data as base64 into HTML document itself|

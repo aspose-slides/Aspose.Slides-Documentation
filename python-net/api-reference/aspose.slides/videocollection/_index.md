@@ -22,7 +22,7 @@ The VideoCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IVideo](/python-net/api-reference/aspose.slides/ivideo/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IVideo](/slides/python-net/api-reference/aspose.slides/ivideo/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

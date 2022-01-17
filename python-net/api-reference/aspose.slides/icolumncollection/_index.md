@@ -22,7 +22,7 @@ The IColumnCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns the column at the specified index.<br/>            Read-only [IColumn](/python-net/api-reference/aspose.slides/icolumn/).|
+|[index]|Returns the column at the specified index.<br/>            Read-only [IColumn](/slides/python-net/api-reference/aspose.slides/icolumn/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

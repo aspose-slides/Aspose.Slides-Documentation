@@ -17,9 +17,9 @@ The IChartTextFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|text_block_format|Returns format for the chart text elements.<br/>            Read-only [IChartTextBlockFormat](/python-net/api-reference/aspose.slides.charts/icharttextblockformat/).|
-|paragraph_format|Returns paragraph format.<br/>            Read-only [IChartParagraphFormat](/python-net/api-reference/aspose.slides.charts/ichartparagraphformat/).|
-|portion_format|Returns portion format.<br/>            Read-only [IChartPortionFormat](/python-net/api-reference/aspose.slides.charts/ichartportionformat/).|
+|text_block_format|Returns format for the chart text elements.<br/>            Read-only [IChartTextBlockFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextblockformat/).|
+|paragraph_format|Returns paragraph format.<br/>            Read-only [IChartParagraphFormat](/slides/python-net/api-reference/aspose.slides.charts/ichartparagraphformat/).|
+|portion_format|Returns portion format.<br/>            Read-only [IChartPortionFormat](/slides/python-net/api-reference/aspose.slides.charts/ichartportionformat/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -17,16 +17,16 @@ The IBulletFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|type|Returns or sets the bullet type of a paragraph with no inheritance.<br/>            Read/write [BulletType](/python-net/api-reference/aspose.slides/bullettype/).|
+|type|Returns or sets the bullet type of a paragraph with no inheritance.<br/>            Read/write [BulletType](/slides/python-net/api-reference/aspose.slides/bullettype/).|
 |char|Returns or sets the bullet char of a paragraph with no inheritance.<br/>            Read/write char.|
-|font|Returns or sets the bullet font of a paragraph with no inheritance.<br/>            Read/write [IFontData](/python-net/api-reference/aspose.slides/ifontdata/).|
+|font|Returns or sets the bullet font of a paragraph with no inheritance.<br/>            Read/write [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|
 |height|Returns or sets the bullet height of a paragraph with no inheritance.<br/>            Value float.NaN determines that bullet inherits height from the first portion in the paragraph.<br/>            Read/write|
-|color|Returns the color format of a bullet of a paragraph with no inheritance.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|picture|Returns the picture used as a bullet in a paragraph with no inheritance.<br/>            Read-only [ISlidesPicture](/python-net/api-reference/aspose.slides/islidespicture/).|
+|color|Returns the color format of a bullet of a paragraph with no inheritance.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|picture|Returns the picture used as a bullet in a paragraph with no inheritance.<br/>            Read-only [ISlidesPicture](/slides/python-net/api-reference/aspose.slides/islidespicture/).|
 |numbered_bullet_start_with|Returns or sets the first number which is used for group of numbered bullets with no inheritance.<br/>            Read/write int.|
-|numbered_bullet_style|Returns or sets the style of a numbered bullet with no inheritance.<br/>            Read/write [numbered_bullet_style](/python-net/api-reference/aspose.slides/ibulletformat/).|
-|is_bullet_hard_color|Determines whether the bullet has own color or inherits it from the first portion in the paragraph.<br/>            NullableBool.True if bullet has own color and NullableBool.False if bullet<br/>            inherits color from the first portion in the paragraph.<br/>            Read/write [NullableBool](/python-net/api-reference/aspose.slides/nullablebool/).|
-|is_bullet_hard_font|Determines whether the bullet has own font or inherits it from the first portion in the paragraph.<br/>            NullableBool.True if bullet has own font and NullableBool.False if bullet<br/>            inherits font from the first portion in the paragraph.<br/>            Read/write [NullableBool](/python-net/api-reference/aspose.slides/nullablebool/).|
+|numbered_bullet_style|Returns or sets the style of a numbered bullet with no inheritance.<br/>            Read/write [numbered_bullet_style](/slides/python-net/api-reference/aspose.slides/ibulletformat/).|
+|is_bullet_hard_color|Determines whether the bullet has own color or inherits it from the first portion in the paragraph.<br/>            NullableBool.True if bullet has own color and NullableBool.False if bullet<br/>            inherits color from the first portion in the paragraph.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
+|is_bullet_hard_font|Determines whether the bullet has own font or inherits it from the first portion in the paragraph.<br/>            NullableBool.True if bullet has own font and NullableBool.False if bullet<br/>            inherits font from the first portion in the paragraph.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

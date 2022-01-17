@@ -22,7 +22,7 @@ The ICommentCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IComment](/python-net/api-reference/aspose.slides/icomment/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

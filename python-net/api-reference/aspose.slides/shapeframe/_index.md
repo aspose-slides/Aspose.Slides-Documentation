@@ -28,8 +28,8 @@ The ShapeFrame type exposes the following members:
 |rotation|Returns the number of degrees a frame is rotated around the z-axis.<br/>            A positive value indicates clockwise rotation; a negative value<br/>            indicates counterclockwise rotation.<br/>            Read-only|
 |center_x|Returns the X coordinate of a frame's center.<br/>            Read-only|
 |center_y|Returns the Y coordinate of a frame's center.<br/>            Read-only|
-|flip_h|Determines whether a frame is flipped horizontally.<br/>            Read-only [NullableBool](/python-net/api-reference/aspose.slides/nullablebool/).|
-|flip_v|Determines whether a frame is flipped vertically.<br/>            Read-only [NullableBool](/python-net/api-reference/aspose.slides/nullablebool/).|
+|flip_h|Determines whether a frame is flipped horizontally.<br/>            Read-only [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
+|flip_v|Determines whether a frame is flipped vertically.<br/>            Read-only [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |rectangle|Returns the coordinates of a frame.<br/>            Read-only aspose.pydrawing.RectangleF.|
 ## **Methods**
 |**Name**|**Description**|

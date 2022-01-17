@@ -17,6 +17,6 @@ The IFontSubstRule type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|source_font|Font to substitute<br/>            Read-only [IFontData](/python-net/api-reference/aspose.slides/ifontdata/).|
-|dest_font|Font to use for substitution<br/>            Read-only [IFontData](/python-net/api-reference/aspose.slides/ifontdata/).|
-|replace_font_condition|Rule to apply for substitution<br/>            Read-only [FontSubstCondition](/python-net/api-reference/aspose.slides/fontsubstcondition/).|
+|source_font|Font to substitute<br/>            Read-only [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|
+|dest_font|Font to use for substitution<br/>            Read-only [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|
+|replace_font_condition|Rule to apply for substitution<br/>            Read-only [FontSubstCondition](/slides/python-net/api-reference/aspose.slides/fontsubstcondition/).|

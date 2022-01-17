@@ -17,9 +17,9 @@ The IVideoPlayerHtmlController type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ihtml_formatting_controller|Allows to get base IHtmlFormattingController interface.<br/>            Read-only [IHtmlFormattingController](/python-net/api-reference/aspose.slides.export/ihtmlformattingcontroller/).|
-|as_isvg_shape_formatting_controller|Allows to get base ISvgShapeFormattingController interface.<br/>            Read-only [ISvgShapeFormattingController](/python-net/api-reference/aspose.slides.export/isvgshapeformattingcontroller/).|
-|as_ilink_embed_controller|Allows to get base ILinkEmbedController interface.<br/>            Read-only [ILinkEmbedController](/python-net/api-reference/aspose.slides.export/ilinkembedcontroller/).|
+|as_ihtml_formatting_controller|Allows to get base IHtmlFormattingController interface.<br/>            Read-only [IHtmlFormattingController](/slides/python-net/api-reference/aspose.slides.export/ihtmlformattingcontroller/).|
+|as_isvg_shape_formatting_controller|Allows to get base ISvgShapeFormattingController interface.<br/>            Read-only [ISvgShapeFormattingController](/slides/python-net/api-reference/aspose.slides.export/isvgshapeformattingcontroller/).|
+|as_ilink_embed_controller|Allows to get base ILinkEmbedController interface.<br/>            Read-only [ILinkEmbedController](/slides/python-net/api-reference/aspose.slides.export/ilinkembedcontroller/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

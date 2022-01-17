@@ -22,7 +22,7 @@ The ITabCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ITab](/python-net/api-reference/aspose.slides/itab/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ITab](/slides/python-net/api-reference/aspose.slides/itab/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -19,7 +19,7 @@ The IMathFunction type exposes the following members:
 | :- | :- |
 |name|Function name<br/>            For example, function names are sin and cos|
 |base|Function Argument|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

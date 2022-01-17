@@ -19,4 +19,4 @@ The IShapeBevelEffectiveData type exposes the following members:
 | :- | :- |
 |width|Bevel width.<br/>            Read-only float.|
 |height|Bevel height.<br/>            Read-only float.|
-|bevel_type|Bevel type.<br/>            Read-only [BevelPresetType](/python-net/api-reference/aspose.slides/bevelpresettype/).|
+|bevel_type|Bevel type.<br/>            Read-only [BevelPresetType](/slides/python-net/api-reference/aspose.slides/bevelpresettype/).|

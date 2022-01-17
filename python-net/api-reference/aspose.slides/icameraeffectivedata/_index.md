@@ -17,7 +17,7 @@ The ICameraEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|camera_type|Camera type.<br/>            Read-only [CameraPresetType](/python-net/api-reference/aspose.slides/camerapresettype/).|
+|camera_type|Camera type.<br/>            Read-only [CameraPresetType](/slides/python-net/api-reference/aspose.slides/camerapresettype/).|
 |field_of_view_angle|Camera FOV (0-180 deg, field of View).<br/>            Read-only|
 |zoom|Camera zoom (positive value in percentage).<br/>            Read-only|
 ## **Methods**

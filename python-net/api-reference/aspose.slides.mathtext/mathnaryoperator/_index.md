@@ -31,8 +31,8 @@ The MathNaryOperator type exposes the following members:
 |grow_to_match_operand_height|Operator Character grows vertically to match its operand height|
 |hide_subscript|Hide Subscript|
 |hide_superscript|Hide Superscript|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-|as_imath_nary_operator_properties|Allows to get base IMathNaryOperatorProperties interface<br/>            [IMathNaryOperatorProperties](/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_nary_operator_properties|Allows to get base IMathNaryOperatorProperties interface<br/>            [IMathNaryOperatorProperties](/slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

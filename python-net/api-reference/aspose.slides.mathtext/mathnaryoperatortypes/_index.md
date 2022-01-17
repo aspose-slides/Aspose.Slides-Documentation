@@ -5,7 +5,7 @@ weight: 950
 url: /python-net/api-reference/aspose.slides.mathtext/mathnaryoperatortypes/
 ---
 
-Nary operator IMathNaryOperator types (excluding integrals)<br/>            For integrals [MathIntegralTypes](/python-net/api-reference/aspose.slides.mathtext/mathintegraltypes/)
+Nary operator IMathNaryOperator types (excluding integrals)<br/>            For integrals [MathIntegralTypes](/slides/python-net/api-reference/aspose.slides.mathtext/mathintegraltypes/)
 
 **Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
 

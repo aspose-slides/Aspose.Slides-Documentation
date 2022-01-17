@@ -17,14 +17,14 @@ The IMathBlock type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/slides/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |
@@ -71,7 +71,7 @@ The IMathBlock type exposes the following members:
 |to_border_box(hide_top, hide_bottom, hide_left, hide_right, strikethrough_horizontal, strikethrough_vertical, strikethrough_bottom_left_to_top_right, strikethrough_top_left_to_bottom_right)|Places this element in a border-box|
 |delimit(separator_character)|Delimits all child elements with separator character (without the brackets)|
 |join_block(other)|Joins another mathematical block with this one|
-|write_as_math_ml(stream)|Saves content of this [IMathBlock](/python-net/api-reference/aspose.slides.mathtext/imathblock/) as MathML|
+|write_as_math_ml(stream)|Saves content of this [IMathBlock](/slides/python-net/api-reference/aspose.slides.mathtext/imathblock/) as MathML|
 |add(item)|Adds a math element to the end of the collection.|
 |index_of(item)|Determines the index of a specific math element in collection.|
 |insert(index, item)|Inserts a math element into the collection at the specified index.|

@@ -28,5 +28,5 @@ The IPictureFrameLock type exposes the following members:
 |arrowheads_locked|Determines whether a changing arrowheads is forbidden.<br/>            Read/write bool.|
 |shape_type_locked|Determines whether a changing of a shape type is forbidden.<br/>            Read/write bool.|
 |crop_locked|Determines whether an image cropping is forbidden.<br/>            Read/write bool.|
-|as_ibase_shape_lock|Allows to get base IBaseShapeLock interface.<br/>            Read-only [IBaseShapeLock](/python-net/api-reference/aspose.slides/ibaseshapelock/).|
+|as_ibase_shape_lock|Allows to get base IBaseShapeLock interface.<br/>            Read-only [IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/).|
 |no_locks|Return true if all lock-flags are disabled.<br/>            Read-only bool.|

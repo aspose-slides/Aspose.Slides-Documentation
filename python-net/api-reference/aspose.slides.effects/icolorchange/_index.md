@@ -17,9 +17,9 @@ The IColorChange type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|from_color|Color which will be replaced.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|to_color|Color which will replace.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|from_color|Color which will be replaced.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|to_color|Color which will replace.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

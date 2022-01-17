@@ -17,8 +17,8 @@ The IColorReplace type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|color|Returns color format which will replace color of every pixel.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|color|Returns color format which will replace color of every pixel.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

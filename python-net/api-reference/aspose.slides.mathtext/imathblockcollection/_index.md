@@ -22,7 +22,7 @@ The IMathBlockCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the item at the specified index.<br/>            Read-only [IMathBlock](/python-net/api-reference/aspose.slides.mathtext/imathblock/).|
+|[index]|Gets the item at the specified index.<br/>            Read-only [IMathBlock](/slides/python-net/api-reference/aspose.slides.mathtext/imathblock/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

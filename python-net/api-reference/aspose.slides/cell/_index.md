@@ -28,21 +28,21 @@ The Cell type exposes the following members:
 |margin_right|Returns or sets the right margin in a TextFrame.<br/>            Read/write float.|
 |margin_top|Returns or sets the top margin in a TextFrame.<br/>            Read/write float.|
 |margin_bottom|Returns or sets the bottom margin in a TextFrame.<br/>            Read/write float.|
-|text_vertical_type|Returns or sets the type of vertical text.<br/>            Read/write [TextVerticalType](/python-net/api-reference/aspose.slides/textverticaltype/).|
-|text_anchor_type|Returns or sets the text anchor type.<br/>            Read/write [TextAnchorType](/python-net/api-reference/aspose.slides/textanchortype/).|
+|text_vertical_type|Returns or sets the type of vertical text.<br/>            Read/write [TextVerticalType](/slides/python-net/api-reference/aspose.slides/textverticaltype/).|
+|text_anchor_type|Returns or sets the text anchor type.<br/>            Read/write [TextAnchorType](/slides/python-net/api-reference/aspose.slides/textanchortype/).|
 |anchor_center|Determines whether or not text box centered inside a cell.<br/>            Read/write bool.|
-|first_row|Gets first row of cell.<br/>            Read-only [IRow](/python-net/api-reference/aspose.slides/irow/).|
-|first_column|Gets first column of cell.<br/>            Read-only [IColumn](/python-net/api-reference/aspose.slides/icolumn/).|
+|first_row|Gets first row of cell.<br/>            Read-only [IRow](/slides/python-net/api-reference/aspose.slides/irow/).|
+|first_column|Gets first column of cell.<br/>            Read-only [IColumn](/slides/python-net/api-reference/aspose.slides/icolumn/).|
 |col_span|Returns the number of grid columns in the parent table's table grid<br/>            which shall be spanned by the current cell. This property allows cells<br/>            to have the appearance of being merged, as they span vertical boundaries<br/>            of other cells in the table.<br/>            Read-only|
 |row_span|Returns the number of rows that a merged cell spans. This is used in combination<br/>            with the vMerge attribute on other cells in order to specify the beginning cell<br/>            of a horizontal merge.<br/>            Read-only|
-|text_frame|Returns the text frame of a cell.<br/>            Read-only [ITextFrame](/python-net/api-reference/aspose.slides/itextframe/).|
-|table|Returns the parent Table object for a cell.<br/>            Read-only [ITable](/python-net/api-reference/aspose.slides/itable/).|
+|text_frame|Returns the text frame of a cell.<br/>            Read-only [ITextFrame](/slides/python-net/api-reference/aspose.slides/itextframe/).|
+|table|Returns the parent Table object for a cell.<br/>            Read-only [ITable](/slides/python-net/api-reference/aspose.slides/itable/).|
 |is_merged_cell|Returns true if the cell is merged with any adjusted cell, false otherwise.<br/>            Read-only bool.|
-|cell_format|Returns the CellFormat object that contains formatting properties for this cell.<br/>            Read-only [ICellFormat](/python-net/api-reference/aspose.slides/icellformat/).|
-|slide|Returns the parent slide of a cell.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the parent presentation of a cell.<br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/python-net/api-reference/aspose.slides/islidecomponent/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|cell_format|Returns the CellFormat object that contains formatting properties for this cell.<br/>            Read-only [ICellFormat](/slides/python-net/api-reference/aspose.slides/icellformat/).|
+|slide|Returns the parent slide of a cell.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the parent presentation of a cell.<br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

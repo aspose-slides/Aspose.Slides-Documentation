@@ -18,15 +18,15 @@ The IEffectFormat type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |is_no_effects|Returns true if all effects are disabled (as just created, default EffectFormat object).<br/>            Read-only bool.|
-|blur_effect|Blur effect.<br/>            Read/write [IBlur](/python-net/api-reference/aspose.slides.effects/iblur/).|
-|fill_overlay_effect|Fill overlay effect.<br/>            Read/write [IFillOverlay](/python-net/api-reference/aspose.slides.effects/ifilloverlay/).|
-|glow_effect|Glow effect.<br/>            Read/write [IGlow](/python-net/api-reference/aspose.slides.effects/iglow/).|
-|inner_shadow_effect|Inner shadow.<br/>            Read/write [IInnerShadow](/python-net/api-reference/aspose.slides.effects/iinnershadow/).|
-|outer_shadow_effect|Outer shadow.<br/>            Read/write [IOuterShadow](/python-net/api-reference/aspose.slides.effects/ioutershadow/).|
-|preset_shadow_effect|Preset shadow.<br/>            Read/write [IPresetShadow](/python-net/api-reference/aspose.slides.effects/ipresetshadow/).|
-|reflection_effect|Reflection. <br/>            Read/write [IReflection](/python-net/api-reference/aspose.slides.effects/ireflection/).|
-|soft_edge_effect|Soft edge.<br/>            Read/write [ISoftEdge](/python-net/api-reference/aspose.slides.effects/isoftedge/).|
-|as_ieffect_param_source|Allows to get base IEffectParamSource interface.<br/>            Read-only [IEffectParamSource](/python-net/api-reference/aspose.slides/ieffectparamsource/).|
+|blur_effect|Blur effect.<br/>            Read/write [IBlur](/slides/python-net/api-reference/aspose.slides.effects/iblur/).|
+|fill_overlay_effect|Fill overlay effect.<br/>            Read/write [IFillOverlay](/slides/python-net/api-reference/aspose.slides.effects/ifilloverlay/).|
+|glow_effect|Glow effect.<br/>            Read/write [IGlow](/slides/python-net/api-reference/aspose.slides.effects/iglow/).|
+|inner_shadow_effect|Inner shadow.<br/>            Read/write [IInnerShadow](/slides/python-net/api-reference/aspose.slides.effects/iinnershadow/).|
+|outer_shadow_effect|Outer shadow.<br/>            Read/write [IOuterShadow](/slides/python-net/api-reference/aspose.slides.effects/ioutershadow/).|
+|preset_shadow_effect|Preset shadow.<br/>            Read/write [IPresetShadow](/slides/python-net/api-reference/aspose.slides.effects/ipresetshadow/).|
+|reflection_effect|Reflection. <br/>            Read/write [IReflection](/slides/python-net/api-reference/aspose.slides.effects/ireflection/).|
+|soft_edge_effect|Soft edge.<br/>            Read/write [ISoftEdge](/slides/python-net/api-reference/aspose.slides.effects/isoftedge/).|
+|as_ieffect_param_source|Allows to get base IEffectParamSource interface.<br/>            Read-only [IEffectParamSource](/slides/python-net/api-reference/aspose.slides/ieffectparamsource/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

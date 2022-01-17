@@ -22,4 +22,4 @@ The IEffectStyleCollectionEffectiveData type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IEffectStyleEffectiveData](/python-net/api-reference/aspose.slides.theme/ieffectstyleeffectivedata/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IEffectStyleEffectiveData](/slides/python-net/api-reference/aspose.slides.theme/ieffectstyleeffectivedata/).|

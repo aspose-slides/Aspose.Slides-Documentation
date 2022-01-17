@@ -22,7 +22,7 @@ The ColumnCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns the column at the specified index.<br/>            Read-only [Column](/python-net/api-reference/aspose.slides/column/).|
+|[index]|Returns the column at the specified index.<br/>            Read-only [Column](/slides/python-net/api-reference/aspose.slides/column/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

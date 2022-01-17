@@ -22,7 +22,7 @@ The LayoutSlideCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns the layout slide by index.<br/>            Read-only [LayoutSlide](/python-net/api-reference/aspose.slides/layoutslide/).|
+|[index]|Returns the layout slide by index.<br/>            Read-only [LayoutSlide](/slides/python-net/api-reference/aspose.slides/layoutslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

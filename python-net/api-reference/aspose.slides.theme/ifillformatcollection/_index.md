@@ -22,4 +22,4 @@ The IFillFormatCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IFillFormat](/python-net/api-reference/aspose.slides/ifillformat/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|

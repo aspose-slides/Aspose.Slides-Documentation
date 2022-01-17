@@ -17,5 +17,5 @@ The ChartDataPointLevel type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|format|Represents formatting properties of data point level.<br/>            Read/write [IFormat](/python-net/api-reference/aspose.slides.charts/iformat/).|
-|label|Represents data label of data point level. Applied for Treemap and  Sunburst sereis types.<br/>             Read-only [IDataLabel](/python-net/api-reference/aspose.slides.charts/idatalabel/).|
+|format|Represents formatting properties of data point level.<br/>            Read/write [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
+|label|Represents data label of data point level. Applied for Treemap and  Sunburst sereis types.<br/>             Read-only [IDataLabel](/slides/python-net/api-reference/aspose.slides.charts/idatalabel/).|

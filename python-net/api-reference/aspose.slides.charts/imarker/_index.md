@@ -17,6 +17,6 @@ The IMarker type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|symbol|Represents the marker style in a line chart, scatter chart, or radar chart.<br/>            Read/write [MarkerStyleType](/python-net/api-reference/aspose.slides.charts/markerstyletype/).|
-|format|Gets the marker fill.<br/>            Read-only [IFormat](/python-net/api-reference/aspose.slides.charts/iformat/).|
+|symbol|Represents the marker style in a line chart, scatter chart, or radar chart.<br/>            Read/write [MarkerStyleType](/slides/python-net/api-reference/aspose.slides.charts/markerstyletype/).|
+|format|Gets the marker fill.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |size|Represents the marker size in a line chart, scatter chart, or radar chart.<br/>            Read/write|

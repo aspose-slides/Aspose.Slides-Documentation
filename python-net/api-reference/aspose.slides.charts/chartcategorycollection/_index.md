@@ -5,7 +5,7 @@ weight: 90
 url: /python-net/api-reference/aspose.slides.charts/chartcategorycollection/
 ---
 
-Represents collection of [ChartCategory](/python-net/api-reference/aspose.slides.charts/chartcategory/)
+Represents collection of [ChartCategory](/slides/python-net/api-reference/aspose.slides.charts/chartcategory/)
 
 **Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 
@@ -28,9 +28,9 @@ The ChartCategoryCollection type exposes the following members:
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |
-|add(chart_data_cell)|If category exists in collection, return it. Else creates new chart category from <br/>            [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/) and adds it to the collection.|
-|add(value)|Creates new [ChartCategory](/python-net/api-reference/aspose.slides.charts/chartcategory/) from value and adds it to the collection.|
-|index_of(value)|Searches for the specified [ChartCategory](/python-net/api-reference/aspose.slides.charts/chartcategory/) and returns the zero-based index of the first occurrence within the entire Collection.|
+|add(chart_data_cell)|If category exists in collection, return it. Else creates new chart category from <br/>            [IChartDataCell](/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/) and adds it to the collection.|
+|add(value)|Creates new [ChartCategory](/slides/python-net/api-reference/aspose.slides.charts/chartcategory/) from value and adds it to the collection.|
+|index_of(value)|Searches for the specified [ChartCategory](/slides/python-net/api-reference/aspose.slides.charts/chartcategory/) and returns the zero-based index of the first occurrence within the entire Collection.|
 |remove(value)|Removes the specified value.|
 |remove_at(index)|Removes the element at the given index.|
 |clear()|Removes all elements from the collection.|

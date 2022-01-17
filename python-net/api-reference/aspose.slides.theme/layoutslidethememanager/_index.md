@@ -17,9 +17,9 @@ The LayoutSlideThemeManager type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|override_theme|Returns the overriding theme object.<br/>            Read/write [IOverrideTheme](/python-net/api-reference/aspose.slides.theme/ioverridetheme/).|
+|override_theme|Returns the overriding theme object.<br/>            Read/write [IOverrideTheme](/slides/python-net/api-reference/aspose.slides.theme/ioverridetheme/).|
 |is_override_theme_enabled|Determines whether OverrideTheme overrides inherited effective theme or not.<br/>            To enable OverrideTheme for overriding use OverrideTheme.Init*() methods.<br/>            To disable OverrideTheme from overriding use OverrideTheme.Clear() method.<br/>            Read-only bool.|
-|as_itheme_manager|Allows to get base IThemeManager interface.<br/>            Read-only [IThemeManager](/python-net/api-reference/aspose.slides.theme/ithememanager/).|
+|as_itheme_manager|Allows to get base IThemeManager interface.<br/>            Read-only [IThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ithememanager/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

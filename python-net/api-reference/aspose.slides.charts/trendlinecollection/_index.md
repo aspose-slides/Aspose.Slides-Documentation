@@ -22,7 +22,7 @@ The TrendlineCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [Trendline](/python-net/api-reference/aspose.slides.charts/trendline/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [Trendline](/slides/python-net/api-reference/aspose.slides.charts/trendline/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

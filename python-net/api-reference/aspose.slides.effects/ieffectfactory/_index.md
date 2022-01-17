@@ -17,7 +17,7 @@ The IEffectFactory type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|image_transform_operation_factory|Returns ImageTransformOperationFactory.<br/>            Read-only [IImageTransformOperationFactory](/python-net/api-reference/aspose.slides.effects/iimagetransformoperationfactory/).|
+|image_transform_operation_factory|Returns ImageTransformOperationFactory.<br/>            Read-only [IImageTransformOperationFactory](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperationfactory/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

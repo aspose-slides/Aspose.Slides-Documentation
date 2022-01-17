@@ -22,7 +22,7 @@ The ColorOperationCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns or sets the operation at the specified index.<br/>            Read/write [ColorOperation](/python-net/api-reference/aspose.slides/coloroperation/).|
+|[index]|Returns or sets the operation at the specified index.<br/>            Read/write [ColorOperation](/slides/python-net/api-reference/aspose.slides/coloroperation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

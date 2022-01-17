@@ -22,5 +22,5 @@ The ColorOperation type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|operation_type|Returns or sets the type of an operation.<br/>            Read-only [ColorTransformOperation](/python-net/api-reference/aspose.slides/colortransformoperation/).|
+|operation_type|Returns or sets the type of an operation.<br/>            Read-only [ColorTransformOperation](/slides/python-net/api-reference/aspose.slides/colortransformoperation/).|
 |parameter|Returns a parameter of an operation.<br/>            Read-only|

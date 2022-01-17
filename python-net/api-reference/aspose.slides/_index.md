@@ -98,13 +98,13 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[IBackgroundEffectiveData](/slides/python-net/api-reference/aspose.slides/ibackgroundeffectivedata/)|Immutable object which contains effective background properties.|
 |[IBaseHandoutNotesSlideHeaderFooterManag](/slides/python-net/api-reference/aspose.slides/ibasehandoutnotesslideheaderfootermanag/)|Represents manager which holds behavior of the placeholders, including header placeholder for all types handout and notes slides.|
 |[IBaseHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/ibaseheaderfootermanager/)|Represents manager which holds behavior of the footer, date-time, page number placeholders for all slide types.|
-|[IBasePortionFormat](/slides/python-net/api-reference/aspose.slides/ibaseportionformat/)|This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
+|[IBasePortionFormat](/slides/python-net/api-reference/aspose.slides/ibaseportionformat/)|This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
 |[IBasePortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ibaseportionformateffectivedata/)|Base interface for immutable objects which contain effective text portion formatting properties.|
 |[IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/)|Represents Shape lock (disabled operation).|
 |[IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/)|Represents common data for all slide types.|
 |[IBaseSlideHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/ibaseslideheaderfootermanager/)|Represents manager which holds behavior of the footer, date-time, page number placeholders for all slide types.|
 |[IBaseTableFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ibasetableformateffectivedata/)|Base interface for immutable objects which contain effective table formatting properties.|
-|[IBlobManagementOptions](/slides/python-net/api-reference/aspose.slides/iblobmanagementoptions/)|A Binary Large Object (BLOB) is a binary data stored as a single entity - i.e. BLOB can be an <br/>            audio, video or presentation itself. A number of techniques are used to optimize memory consumption <br/>            while working with BLOBs - which was already stored in the presentation or be added later programmatically. <br/>            Using [IBlobManagementOptions](/python-net/api-reference/aspose.slides/iblobmanagementoptions/) you can change a different behavior aspects regarding BLOBs <br/>            handling for the [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/) instance lifetime.|
+|[IBlobManagementOptions](/slides/python-net/api-reference/aspose.slides/iblobmanagementoptions/)|A Binary Large Object (BLOB) is a binary data stored as a single entity - i.e. BLOB can be an <br/>            audio, video or presentation itself. A number of techniques are used to optimize memory consumption <br/>            while working with BLOBs - which was already stored in the presentation or be added later programmatically. <br/>            Using [IBlobManagementOptions](/slides/python-net/api-reference/aspose.slides/iblobmanagementoptions/) you can change a different behavior aspects regarding BLOBs <br/>            handling for the [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/) instance lifetime.|
 |[IBulkTextFormattable](/slides/python-net/api-reference/aspose.slides/ibulktextformattable/)|Represents an object with possibility of bulk setting child text elements' formats.|
 |[IBulletFormat](/slides/python-net/api-reference/aspose.slides/ibulletformat/)|Represents paragraph bullet formatting properties.|
 |[IBulletFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ibulletformateffectivedata/)|Immutable object which contains effective paragraph bullet formatting properties.|
@@ -178,7 +178,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[IImageWrapper](/slides/python-net/api-reference/aspose.slides/iimagewrapper/)|System.Drawing.Image wrapper for COM interface.|
 |[IImageWrapperFactory](/slides/python-net/api-reference/aspose.slides/iimagewrapperfactory/)|This interface allows to initialize IBitmapWrapper.|
 |[IInterruptionToken](/slides/python-net/api-reference/aspose.slides/iinterruptiontoken/)|This class represents the token to use for signaling long running tasks whether the interruption was requested.|
-|[IInterruptionTokenSource](/slides/python-net/api-reference/aspose.slides/iinterruptiontokensource/)|Represents the source of [IInterruptionToken](/python-net/api-reference/aspose.slides/iinterruptiontoken/).|
+|[IInterruptionTokenSource](/slides/python-net/api-reference/aspose.slides/iinterruptiontokensource/)|Represents the source of [IInterruptionToken](/slides/python-net/api-reference/aspose.slides/iinterruptiontoken/).|
 |[ILayoutSlide](/slides/python-net/api-reference/aspose.slides/ilayoutslide/)|Represents a layout slide.|
 |[ILayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/)|Represents a base class for collection of a layout slides.|
 |[ILayoutSlideHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/ilayoutslideheaderfootermanager/)|Represents manager which holds behavior of the layout slide footer, date-time, page number placeholders and all child placeholders.<br/>            Child placeholders mean placeholders are contained on depending slides.<br/>            Depending slides use and depend on layout slide.|
@@ -216,7 +216,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[IParagraph](/slides/python-net/api-reference/aspose.slides/iparagraph/)|Represents a paragraph of a text.|
 |[IParagraphCollection](/slides/python-net/api-reference/aspose.slides/iparagraphcollection/)|Represents a collection of a paragraphs.|
 |[IParagraphFactory](/slides/python-net/api-reference/aspose.slides/iparagraphfactory/)|Allows to create paragraphs|
-|[IParagraphFormat](/slides/python-net/api-reference/aspose.slides/iparagraphformat/)|This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.|
+|[IParagraphFormat](/slides/python-net/api-reference/aspose.slides/iparagraphformat/)|This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.|
 |[IParagraphFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/)|Immutable object which contains effective paragraph formatting properties.|
 |[IPathSegment](/slides/python-net/api-reference/aspose.slides/ipathsegment/)|Represents segment of graphics path of GeometryShape|
 |[IPatternFormat](/slides/python-net/api-reference/aspose.slides/ipatternformat/)|Represents a pattern to fill a shape.|
@@ -230,7 +230,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[IPortion](/slides/python-net/api-reference/aspose.slides/iportion/)|Represents a portion of text inside a text paragraph.|
 |[IPortionCollection](/slides/python-net/api-reference/aspose.slides/iportioncollection/)|Represents a collection of a portions.|
 |[IPortionFactory](/slides/python-net/api-reference/aspose.slides/iportionfactory/)|Allows to create test portions|
-|[IPortionFormat](/slides/python-net/api-reference/aspose.slides/iportionformat/)|This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
+|[IPortionFormat](/slides/python-net/api-reference/aspose.slides/iportionformat/)|This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
 |[IPortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/)|Immutable object which contains effective text portion formatting properties.|
 |[IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/)|Presentation document|
 |[IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/)|Represents a component of a presentation.|
@@ -296,7 +296,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[ImageWrapper](/slides/python-net/api-reference/aspose.slides/imagewrapper/)|System.Drawing.Image wrapper for COM interface.|
 |[ImageWrapperFactory](/slides/python-net/api-reference/aspose.slides/imagewrapperfactory/)|This class allows to initialize IBitmapWrapper.|
 |[InterruptionToken](/slides/python-net/api-reference/aspose.slides/interruptiontoken/)|This class represents the token to use for signaling long running tasks whether the interruption was requested.|
-|[InterruptionTokenSource](/slides/python-net/api-reference/aspose.slides/interruptiontokensource/)|Represents the source of [InterruptionToken](/python-net/api-reference/aspose.slides/interruptiontoken/).|
+|[InterruptionTokenSource](/slides/python-net/api-reference/aspose.slides/interruptiontokensource/)|Represents the source of [InterruptionToken](/slides/python-net/api-reference/aspose.slides/interruptiontoken/).|
 |[InvalidPasswordException](/slides/python-net/api-reference/aspose.slides/invalidpasswordexception/)|Exception which thrown when presentation file format is unsupported.|
 |[LayoutSlide](/slides/python-net/api-reference/aspose.slides/layoutslide/)|Represents a layout slide.|
 |[LayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/layoutslidecollection/)|Represents a base class for collection of a layout slides.|
@@ -333,7 +333,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[Paragraph](/slides/python-net/api-reference/aspose.slides/paragraph/)|Represents a paragraph of text.|
 |[ParagraphCollection](/slides/python-net/api-reference/aspose.slides/paragraphcollection/)|Represents a collection of a paragraphs.|
 |[ParagraphFactory](/slides/python-net/api-reference/aspose.slides/paragraphfactory/)|Allows to create paragraphs|
-|[ParagraphFormat](/slides/python-net/api-reference/aspose.slides/paragraphformat/)|This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.|
+|[ParagraphFormat](/slides/python-net/api-reference/aspose.slides/paragraphformat/)|This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.|
 |[PathSegment](/slides/python-net/api-reference/aspose.slides/pathsegment/)|Represents segment of graphics path of GeometryShape|
 |[PatternFormat](/slides/python-net/api-reference/aspose.slides/patternformat/)|Represents a pattern to fill a shape.|
 |[Picture](/slides/python-net/api-reference/aspose.slides/picture/)|Represents a picture in a presentation.|
@@ -344,7 +344,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[Portion](/slides/python-net/api-reference/aspose.slides/portion/)|Represents a portion of text inside a text paragraph.|
 |[PortionCollection](/slides/python-net/api-reference/aspose.slides/portioncollection/)|Represents a collection of portions.|
 |[PortionFactory](/slides/python-net/api-reference/aspose.slides/portionfactory/)|Allows to create test portions|
-|[PortionFormat](/slides/python-net/api-reference/aspose.slides/portionformat/)|This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
+|[PortionFormat](/slides/python-net/api-reference/aspose.slides/portionformat/)|This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
 |[PptCorruptFileException](/slides/python-net/api-reference/aspose.slides/pptcorruptfileexception/)|Exception which thrown when presentation file is probably corrupt.|
 |[PptEditException](/slides/python-net/api-reference/aspose.slides/ppteditexception/)|Represents an exception thrown when edit presentation error is detected.|
 |[PptException](/slides/python-net/api-reference/aspose.slides/pptexception/)|Represents a standard internal exception type.|
@@ -434,7 +434,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[LineSketchType](/slides/python-net/api-reference/aspose.slides/linesketchtype/)|Represents which sketch type or effect a shape has been assigned.|
 |[LineStyle](/slides/python-net/api-reference/aspose.slides/linestyle/)|Represents the style of a line.|
 |[LoadFormat](/slides/python-net/api-reference/aspose.slides/loadformat/)|Indicates the format of the document that is to be loaded.|
-|[LoadingStreamBehavior](/slides/python-net/api-reference/aspose.slides/loadingstreambehavior/)|The stream passed to a method is considered as a Binary Large Object (BLOB) (see <br/>            [IBlobManagementOptions](/python-net/api-reference/aspose.slides/iblobmanagementoptions/) description). Values of this enumeration identify how <br/>            the stream should be treated when it passed to the method. Depending on the <br/>            requirements, different decisions could be made to provide the most efficient behavior.|
+|[LoadingStreamBehavior](/slides/python-net/api-reference/aspose.slides/loadingstreambehavior/)|The stream passed to a method is considered as a Binary Large Object (BLOB) (see <br/>            [IBlobManagementOptions](/slides/python-net/api-reference/aspose.slides/iblobmanagementoptions/) description). Values of this enumeration identify how <br/>            the stream should be treated when it passed to the method. Depending on the <br/>            requirements, different decisions could be made to provide the most efficient behavior.|
 |[MaterialPresetType](/slides/python-net/api-reference/aspose.slides/materialpresettype/)|Constants which define material of shape.|
 |[ModernCommentStatus](/slides/python-net/api-reference/aspose.slides/moderncommentstatus/)|Represents the status of a modern comment.|
 |[NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/)|Represents triple boolean values.|
@@ -448,7 +448,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[PictureFillMode](/slides/python-net/api-reference/aspose.slides/picturefillmode/)|Determines how picture will fill area.|
 |[PlaceholderSize](/slides/python-net/api-reference/aspose.slides/placeholdersize/)|Represents the size of a placeholder.|
 |[PlaceholderType](/slides/python-net/api-reference/aspose.slides/placeholdertype/)|Represents the type of a placeholder.|
-|[PresentationLockingBehavior](/slides/python-net/api-reference/aspose.slides/presentationlockingbehavior/)|Represents the behavior regarding treating the [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/) source (file or <br/>            stream) while loading and working with an instance of [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
+|[PresentationLockingBehavior](/slides/python-net/api-reference/aspose.slides/presentationlockingbehavior/)|Represents the behavior regarding treating the [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/) source (file or <br/>            stream) while loading and working with an instance of [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |[PresetColor](/slides/python-net/api-reference/aspose.slides/presetcolor/)|Represents predefined color presets.|
 |[PresetShadowType](/slides/python-net/api-reference/aspose.slides/presetshadowtype/)|Represents a preset for a shadow effect.|
 |[RectangleAlignment](/slides/python-net/api-reference/aspose.slides/rectanglealignment/)|Defines 2-dimension allignment.|

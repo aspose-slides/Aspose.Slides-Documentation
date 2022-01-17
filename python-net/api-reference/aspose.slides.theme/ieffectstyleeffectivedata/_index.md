@@ -17,5 +17,5 @@ The IEffectStyleEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|effect_format|Returns an effect format.<br/>            Read-only [IEffectFormatEffectiveData](/python-net/api-reference/aspose.slides/ieffectformateffectivedata/).|
-|three_dformat|Returns a 3d format.<br/>            Read-only [IThreeDFormatEffectiveData](/python-net/api-reference/aspose.slides/ithreedformateffectivedata/).|
+|effect_format|Returns an effect format.<br/>            Read-only [IEffectFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ieffectformateffectivedata/).|
+|three_dformat|Returns a 3d format.<br/>            Read-only [IThreeDFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ithreedformateffectivedata/).|

@@ -18,7 +18,7 @@ The HtmlGenerator type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |slide_image_size|Returns slide image size.<br/>            Read-only aspose.pydrawing.SizeF.|
-|slide_image_size_unit|Returns a unit in which slide image size is specified.<br/>            Read-only [SvgCoordinateUnit](/python-net/api-reference/aspose.slides.export/svgcoordinateunit/).|
+|slide_image_size_unit|Returns a unit in which slide image size is specified.<br/>            Read-only [SvgCoordinateUnit](/slides/python-net/api-reference/aspose.slides.export/svgcoordinateunit/).|
 |slide_image_size_unit_code|Returns a css code of unit in which slide image size is specified.<br/>            Read-only string.|
 |previous_slide_index|Returns index of previously rendered slide or -1 if first slide is rendering.<br/>            Read-only|
 |slide_index|Returns index of currently rendering slide.<br/>            Read-only|

@@ -5,7 +5,7 @@ weight: 700
 url: /python-net/api-reference/aspose.slides.export/embedfontcharacters/
 ---
 
-Represents the rule to use for adding new embedding font into [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/)
+Represents the rule to use for adding new embedding font into [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/)
 
 **Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
 

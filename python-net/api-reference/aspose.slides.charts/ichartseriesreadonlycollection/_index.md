@@ -5,7 +5,7 @@ weight: 680
 url: /python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/
 ---
 
-Represents a readonly collection of  [IChartSeries](/python-net/api-reference/aspose.slides.charts/ichartseries/)
+Represents a readonly collection of  [IChartSeries](/slides/python-net/api-reference/aspose.slides.charts/ichartseries/)
 
 **Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 

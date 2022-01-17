@@ -17,4 +17,4 @@ The ISketchFormatEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|sketch_type|Returns the sketch type.<br/>            Read only [LineSketchType](/python-net/api-reference/aspose.slides/linesketchtype/).|
+|sketch_type|Returns the sketch type.<br/>            Read only [LineSketchType](/slides/python-net/api-reference/aspose.slides/linesketchtype/).|

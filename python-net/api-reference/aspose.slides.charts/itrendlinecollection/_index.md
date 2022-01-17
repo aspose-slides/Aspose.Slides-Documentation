@@ -22,7 +22,7 @@ The ITrendlineCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ITrendline](/python-net/api-reference/aspose.slides.charts/itrendline/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ITrendline](/slides/python-net/api-reference/aspose.slides.charts/itrendline/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

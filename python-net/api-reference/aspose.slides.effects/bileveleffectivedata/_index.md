@@ -18,4 +18,4 @@ The BiLevelEffectiveData type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |threshold|Returns a threshold.<br/>            Read-only|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|

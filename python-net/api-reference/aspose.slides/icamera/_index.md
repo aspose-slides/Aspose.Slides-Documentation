@@ -17,7 +17,7 @@ The ICamera type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|camera_type|Camera type<br/>            Read/write [CameraPresetType](/python-net/api-reference/aspose.slides/camerapresettype/).|
+|camera_type|Camera type<br/>            Read/write [CameraPresetType](/slides/python-net/api-reference/aspose.slides/camerapresettype/).|
 |field_of_view_angle|Camera FOV (0-180 deg, field of View)<br/>            Read/write|
 |zoom|Camera zoom (positive value in percentage)<br/>            Read/write|
 ## **Methods**

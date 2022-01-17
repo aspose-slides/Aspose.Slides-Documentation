@@ -22,4 +22,4 @@ The ILineFormatCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ILineFormat](/python-net/api-reference/aspose.slides/ilineformat/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|

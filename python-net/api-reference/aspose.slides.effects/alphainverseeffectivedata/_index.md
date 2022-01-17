@@ -17,4 +17,4 @@ The AlphaInverseEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|

@@ -17,8 +17,8 @@ The ITextAnimation type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|build_type|List of build type (for exp. Paragraph 1,2,3, All at Once) of text animation.<br/>            Read/write [build_type](/python-net/api-reference/aspose.slides.animation/itextanimation/).|
-|effect_animate_background_shape|Linked shape effect with group or not (null)<br/>            Read/write [IEffect](/python-net/api-reference/aspose.slides.animation/ieffect/).|
+|build_type|List of build type (for exp. Paragraph 1,2,3, All at Once) of text animation.<br/>            Read/write [build_type](/slides/python-net/api-reference/aspose.slides.animation/itextanimation/).|
+|effect_animate_background_shape|Linked shape effect with group or not (null)<br/>            Read/write [IEffect](/slides/python-net/api-reference/aspose.slides.animation/ieffect/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

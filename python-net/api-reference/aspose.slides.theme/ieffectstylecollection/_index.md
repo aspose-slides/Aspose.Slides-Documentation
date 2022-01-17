@@ -22,4 +22,4 @@ The IEffectStyleCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns an element at specified position.<br/>            Read-only [IEffectStyle](/python-net/api-reference/aspose.slides.theme/ieffectstyle/).|
+|[index]|Returns an element at specified position.<br/>            Read-only [IEffectStyle](/slides/python-net/api-reference/aspose.slides.theme/ieffectstyle/).|

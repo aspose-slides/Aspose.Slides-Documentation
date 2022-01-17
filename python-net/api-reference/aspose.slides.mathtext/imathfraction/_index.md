@@ -20,7 +20,7 @@ The IMathFraction type exposes the following members:
 |fraction_type|Fraction type<br/>            Default: Bar|
 |numerator|Numerator|
 |denominator|Denominator|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

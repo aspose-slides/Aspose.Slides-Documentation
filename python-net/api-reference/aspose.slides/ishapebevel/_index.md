@@ -19,4 +19,4 @@ The IShapeBevel type exposes the following members:
 | :- | :- |
 |width|Bevel width.<br/>            Read/write float.|
 |height|Bevel height.<br/>            Read/write float.|
-|bevel_type|Bevel type.<br/>            Read/write [BevelPresetType](/python-net/api-reference/aspose.slides/bevelpresettype/).|
+|bevel_type|Bevel type.<br/>            Read/write [BevelPresetType](/slides/python-net/api-reference/aspose.slides/bevelpresettype/).|

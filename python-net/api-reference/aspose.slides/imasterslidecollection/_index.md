@@ -22,7 +22,7 @@ The IMasterSlideCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IMasterSlide](/python-net/api-reference/aspose.slides/imasterslide/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IMasterSlide](/slides/python-net/api-reference/aspose.slides/imasterslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

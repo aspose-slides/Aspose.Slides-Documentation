@@ -17,13 +17,13 @@ The IMasterLayoutSlideCollection type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ilayout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
+|as_ilayout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns the layout slide by index.<br/>            Read-only [ILayoutSlide](/python-net/api-reference/aspose.slides/ilayoutslide/).|
+|[index]|Returns the layout slide by index.<br/>            Read-only [ILayoutSlide](/slides/python-net/api-reference/aspose.slides/ilayoutslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

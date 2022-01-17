@@ -17,8 +17,8 @@ The Video type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|content_type|Returns a MIME type of an video, encoded in [binary_data](/python-net/api-reference/aspose.slides/video/).<br/>            Read-only string.|
-|binary_data|Returns the copy of an audio's data. In case of large amount of data consider using of <br/>            [None](/python-net/api-reference/aspose.slides/video/) method to prevent unnecessary loading of video's data into memory <br/>            or even OutOfMemoryException.<br/>            Read-only int[].|
+|content_type|Returns a MIME type of an video, encoded in [binary_data](/slides/python-net/api-reference/aspose.slides/video/).<br/>            Read-only string.|
+|binary_data|Returns the copy of an audio's data. In case of large amount of data consider using of <br/>            [None](/slides/python-net/api-reference/aspose.slides/video/) method to prevent unnecessary loading of video's data into memory <br/>            or even OutOfMemoryException.<br/>            Read-only int[].|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

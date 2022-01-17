@@ -17,7 +17,7 @@ The CellInvalidReferenceException type exposes the following members:
 ## **Constructors**
 |**Name**|**Description**|
 | :- | :- |
-|CellInvalidReferenceException()|Initializes a new instance of the [CellInvalidReferenceException](/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidreferenceexception/) class.|
+|CellInvalidReferenceException()|Initializes a new instance of the [CellInvalidReferenceException](/slides/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidreferenceexception/) class.|
 |CellInvalidReferenceException(message)|Initializes a new instance of the CellInvalidReferenceException class|
 |CellInvalidReferenceException(message, reference)|Initializes a new instance of the CellInvalidReferenceException class|
 ## **Properties**

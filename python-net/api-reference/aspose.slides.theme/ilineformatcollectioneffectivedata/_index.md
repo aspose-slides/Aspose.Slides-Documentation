@@ -22,4 +22,4 @@ The ILineFormatCollectionEffectiveData type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ILineFormatEffectiveData](/python-net/api-reference/aspose.slides/ilineformateffectivedata/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ILineFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ilineformateffectivedata/).|

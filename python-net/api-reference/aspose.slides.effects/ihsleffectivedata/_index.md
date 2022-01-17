@@ -20,4 +20,4 @@ The IHSLEffectiveData type exposes the following members:
 |hue|Returns hue percentage.<br/>            Read-only|
 |saturation|Returns saturation percentage.<br/>            Read-only|
 |luminance|Returns luminance percentage.<br/>            Read-only|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|

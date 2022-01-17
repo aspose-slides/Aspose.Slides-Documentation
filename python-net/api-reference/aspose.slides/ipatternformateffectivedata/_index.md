@@ -17,7 +17,7 @@ The IPatternFormatEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|pattern_style|Returns the pattern style.<br/>            Read-only [PatternStyle](/python-net/api-reference/aspose.slides/patternstyle/).|
+|pattern_style|Returns the pattern style.<br/>            Read-only [PatternStyle](/slides/python-net/api-reference/aspose.slides/patternstyle/).|
 |fore_color|Returns the foreground pattern color.<br/>            Read-only aspose.pydrawing.Color.|
 |back_color|Returns the background pattern color.<br/>            Read-only aspose.pydrawing.Color.|
 ## **Methods**

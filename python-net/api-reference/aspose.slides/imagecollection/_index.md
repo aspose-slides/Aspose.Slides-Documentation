@@ -22,7 +22,7 @@ The ImageCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IPPImage](/python-net/api-reference/aspose.slides/ippimage/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IPPImage](/slides/python-net/api-reference/aspose.slides/ippimage/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

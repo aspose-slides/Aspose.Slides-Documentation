@@ -19,8 +19,8 @@ The PPImage type exposes the following members:
 | :- | :- |
 |binary_data|Returns the copy of an image's data.<br/>            Read-only int[].|
 |system_image|Returns the copy of an image.<br/>            Read-only aspose.pydrawing.Image.|
-|svg_image|Returns or sets ISvgImage object [ISvgImage](/python-net/api-reference/aspose.slides/isvgimage/)|
-|content_type|Returns a MIME type of an image, encoded in [binary_data](/python-net/api-reference/aspose.slides/ppimage/).<br/>            Read-only string.|
+|svg_image|Returns or sets ISvgImage object [ISvgImage](/slides/python-net/api-reference/aspose.slides/isvgimage/)|
+|content_type|Returns a MIME type of an image, encoded in [binary_data](/slides/python-net/api-reference/aspose.slides/ppimage/).<br/>            Read-only string.|
 |width|Returns a width of an image.<br/>            Read-only|
 |height|Returns a height of an image.<br/>            Read-only|
 |x|Returns a X-offset of an image.<br/>            Read-only|

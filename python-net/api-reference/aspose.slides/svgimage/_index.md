@@ -27,6 +27,6 @@ The SvgImage type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |svg_data|Returns SVG data.<br/>            Read-only int[].|
-|external_resource_resolver|Return callback interface used to resolve external resources during Svg documents import.<br/>            Read-only [IExternalResourceResolver](/python-net/api-reference/aspose.slides.import/iexternalresourceresolver/).|
+|external_resource_resolver|Return callback interface used to resolve external resources during Svg documents import.<br/>            Read-only [IExternalResourceResolver](/slides/python-net/api-reference/aspose.slides.import/iexternalresourceresolver/).|
 |base_uri|Returns base URI of the specified Svg. Used to resolve relative links.<br/>            Read-only string.|
 |svg_content|Returns SVG content.<br/>            Read-only string.|

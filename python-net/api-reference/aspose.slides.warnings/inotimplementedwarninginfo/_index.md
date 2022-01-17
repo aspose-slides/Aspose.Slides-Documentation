@@ -17,8 +17,8 @@ The INotImplementedWarningInfo type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_iwarning_info|Returns IWarningInfo interface.<br/>            Read-only [IWarningInfo](/python-net/api-reference/aspose.slides.warnings/iwarninginfo/).|
-|warning_type|Returns a type of warning.<br/>            Read-only [warning_type](/python-net/api-reference/aspose.slides.warnings/iwarninginfo/).|
+|as_iwarning_info|Returns IWarningInfo interface.<br/>            Read-only [IWarningInfo](/slides/python-net/api-reference/aspose.slides.warnings/iwarninginfo/).|
+|warning_type|Returns a type of warning.<br/>            Read-only [warning_type](/slides/python-net/api-reference/aspose.slides.warnings/iwarninginfo/).|
 |description|Returns a human readable description of this warning.<br/>            Read-only string.|
 ## **Methods**
 |**Name**|**Description**|

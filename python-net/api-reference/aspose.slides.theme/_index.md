@@ -47,7 +47,7 @@ Contains classes for work with different types of themes.
 |[ITheme](/slides/python-net/api-reference/aspose.slides.theme/itheme/)|Represents a theme.|
 |[IThemeEffectiveData](/slides/python-net/api-reference/aspose.slides.theme/ithemeeffectivedata/)|Immutable object which contains effective theme properties.|
 |[IThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ithememanager/)|Represent theme properties.|
-|[IThemeable](/slides/python-net/api-reference/aspose.slides.theme/ithemeable/)|Represents objects that can be themed with [ITheme](/python-net/api-reference/aspose.slides.theme/itheme/).|
+|[IThemeable](/slides/python-net/api-reference/aspose.slides.theme/ithemeable/)|Represents objects that can be themed with [ITheme](/slides/python-net/api-reference/aspose.slides.theme/itheme/).|
 |[LayoutSlideThemeManager](/slides/python-net/api-reference/aspose.slides.theme/layoutslidethememanager/)|Provides access to layout slide theme overriden.|
 |[LineFormatCollection](/slides/python-net/api-reference/aspose.slides.theme/lineformatcollection/)|Represents the collection of line styles.|
 |[MasterTheme](/slides/python-net/api-reference/aspose.slides.theme/mastertheme/)|Represents a master theme.|

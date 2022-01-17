@@ -17,14 +17,14 @@ The ImageTransformOperationCollection type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns an [ImageTransformOperation](/python-net/api-reference/aspose.slides.effects/imagetransformoperation/) from the collection by it's index.|
+|[index]|Returns an [ImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/imagetransformoperation/) from the collection by it's index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

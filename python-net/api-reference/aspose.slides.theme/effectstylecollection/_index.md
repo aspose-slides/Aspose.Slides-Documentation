@@ -22,4 +22,4 @@ The EffectStyleCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns an element at specified position.<br/>            Read-only [EffectStyle](/python-net/api-reference/aspose.slides.theme/effectstyle/).|
+|[index]|Returns an element at specified position.<br/>            Read-only [EffectStyle](/slides/python-net/api-reference/aspose.slides.theme/effectstyle/).|

@@ -17,6 +17,6 @@ The IPictureEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|image|Returns the embedded image.<br/>            Read-only [IPPImage](/python-net/api-reference/aspose.slides/ippimage/).|
+|image|Returns the embedded image.<br/>            Read-only [IPPImage](/slides/python-net/api-reference/aspose.slides/ippimage/).|
 |link_path_long|Returns linked image's URL.<br/>            Read-only string.|
-|image_transform|Returns the collection of image transform effects.<br/>            Read-only [IImageTransformOCollectionEffectiveData](/python-net/api-reference/aspose.slides.effects/iimagetransformocollectioneffectivedata/).|
+|image_transform|Returns the collection of image transform effects.<br/>            Read-only [IImageTransformOCollectionEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformocollectioneffectivedata/).|

@@ -17,13 +17,13 @@ The IShapeCollection type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|parent_group|Returns parent GroupShape object for a shapes collection.<br/>            Read-only [IGroupShape](/python-net/api-reference/aspose.slides/igroupshape/).|
+|parent_group|Returns parent GroupShape object for a shapes collection.<br/>            Read-only [IGroupShape](/slides/python-net/api-reference/aspose.slides/igroupshape/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IShape](/python-net/api-reference/aspose.slides/ishape/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

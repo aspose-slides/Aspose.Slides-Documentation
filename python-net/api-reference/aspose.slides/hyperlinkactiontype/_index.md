@@ -25,7 +25,7 @@ Represents a type of hyperlink action.
 |JUMP_LAST_SLIDE|6|Jump to the last slide of the presentation.|
 |JUMP_END_SHOW|7|Jump to the end of slideshow.|
 |JUMP_LAST_VIEWED_SLIDE|8|Jump to the last viewed slide.|
-|JUMP_SPECIFIC_SLIDE|9|Jump to the specific slide, referred by [target_slide](/python-net/api-reference/aspose.slides/ihyperlink/) property.|
+|JUMP_SPECIFIC_SLIDE|9|Jump to the specific slide, referred by [target_slide](/slides/python-net/api-reference/aspose.slides/ihyperlink/) property.|
 |START_CUSTOM_SLIDE_SHOW|10|Start custom slideshow.|
 |OPEN_FILE|11|Open referrenced file.|
 |OPEN_PRESENTATION|12|Open referrenced presentation.|

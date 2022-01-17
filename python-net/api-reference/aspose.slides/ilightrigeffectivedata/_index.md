@@ -17,8 +17,8 @@ The ILightRigEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|direction|Light direction.<br/>            Read-only [LightingDirection](/python-net/api-reference/aspose.slides/lightingdirection/).|
-|light_type|Represents a preset light right that can be applied to a shape. <br/>            The light rig represents a group of lights oriented in a specific way relative to a 3D scene.<br/>            Read-only [LightRigPresetType](/python-net/api-reference/aspose.slides/lightrigpresettype/).|
+|direction|Light direction.<br/>            Read-only [LightingDirection](/slides/python-net/api-reference/aspose.slides/lightingdirection/).|
+|light_type|Represents a preset light right that can be applied to a shape. <br/>            The light rig represents a group of lights oriented in a specific way relative to a 3D scene.<br/>            Read-only [LightRigPresetType](/slides/python-net/api-reference/aspose.slides/lightrigpresettype/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

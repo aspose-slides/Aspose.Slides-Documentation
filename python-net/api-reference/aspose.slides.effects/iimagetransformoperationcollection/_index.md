@@ -21,7 +21,7 @@ The IImageTransformOperationCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns an [IImageTransformOperation](/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/) from the collection by it's index.|
+|[index]|Returns an [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/) from the collection by it's index.|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

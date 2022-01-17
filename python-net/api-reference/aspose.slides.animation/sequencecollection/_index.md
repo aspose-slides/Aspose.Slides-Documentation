@@ -26,7 +26,7 @@ The SequenceCollection type exposes the following members:
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |
-|add(shape_trigger)|Add new interactive sequence.<br/>            Read/write [Sequence](/python-net/api-reference/aspose.slides.animation/sequence/).|
+|add(shape_trigger)|Add new interactive sequence.<br/>            Read/write [Sequence](/slides/python-net/api-reference/aspose.slides.animation/sequence/).|
 |remove(item)|Removes specified sequence from a collection.|
 |remove_at(index)|Removes sequence at the specified index.|
 |clear()|Removes all sequences from a collection.|

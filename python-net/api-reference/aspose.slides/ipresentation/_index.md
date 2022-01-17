@@ -18,35 +18,35 @@ The IPresentation type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |current_date_time|Returns or sets date and time which will substitute content of datetime fields.<br/>            Time of this Presentation object creation by default.<br/>            Read/write datetime.|
-|header_footer_manager|Returns HeaderFooter manager of the presentation.<br/>            Read-only [IPresentationHeaderFooterManager](/python-net/api-reference/aspose.slides/ipresentationheaderfootermanager/).|
-|protection_manager|Gets manager of the permissions for this presentation. <br/>            Read-only [IProtectionManager](/python-net/api-reference/aspose.slides/iprotectionmanager/).|
-|slides|Returns a list of all slides that are defined in the presentation.<br/>            Read-only [ISlideCollection](/python-net/api-reference/aspose.slides/islidecollection/).|
-|sections|Returns a list of all slides sections that are defined in the presentation.<br/>            Read-only [ISectionCollection](/python-net/api-reference/aspose.slides/isectioncollection/).|
-|slide_size|Returns slide size object.<br/>            Read-only [ISlideSize](/python-net/api-reference/aspose.slides/islidesize/).|
-|notes_size|Returns notes slide size object.<br/>            Read-only [INotesSize](/python-net/api-reference/aspose.slides/inotessize/).|
-|layout_slides|Returns a list of all layout slides that are defined in the presentation.<br/>            Read-only [IGlobalLayoutSlideCollection](/python-net/api-reference/aspose.slides/igloballayoutslidecollection/).|
-|masters|Returns a list of all master slides that are defined in the presentation.<br/>            Read-only [IMasterSlideCollection](/python-net/api-reference/aspose.slides/imasterslidecollection/).|
-|master_notes_slide_manager|Returns notes master manager.<br/>            Read-only [IMasterNotesSlideManager](/python-net/api-reference/aspose.slides/imasternotesslidemanager/).|
-|master_handout_slide_manager|Returns handout master manager.<br/>            Read-only [IMasterHandoutSlideManager](/python-net/api-reference/aspose.slides/imasterhandoutslidemanager/).|
-|fonts_manager|Returns fonts manager.<br/>            Read-only [IFontsManager](/python-net/api-reference/aspose.slides/ifontsmanager/).|
-|default_text_style|Returns default text style for shapes.<br/>            Read-only [ITextStyle](/python-net/api-reference/aspose.slides/itextstyle/).|
-|comment_authors|Returns the collection of comments autors.<br/>            Read-only [ICommentAuthorCollection](/python-net/api-reference/aspose.slides/icommentauthorcollection/).|
-|document_properties|Returns DocumentProperties object which contains standard and custom document properties.<br/>            Read-only [IDocumentProperties](/python-net/api-reference/aspose.slides/idocumentproperties/).|
-|images|Returns the collection of all images in the presentation.<br/>            Read-only [IImageCollection](/python-net/api-reference/aspose.slides/iimagecollection/).|
-|audios|Returns the collection of all embedded audio files in the presentation.<br/>            Read-only [IAudioCollection](/python-net/api-reference/aspose.slides/iaudiocollection/).|
-|videos|Returns the collection of all embedded video files in the presentation.<br/>            Read-only [IVideoCollection](/python-net/api-reference/aspose.slides/ivideocollection/).|
-|custom_data|Returns the presentation's custom data.<br/>            Read-only [ICustomData](/python-net/api-reference/aspose.slides/icustomdata/).|
-|vba_project|Gets VBA project with presentation macros.<br/>            Read/write [IVbaProject](/python-net/api-reference/aspose.slides.vba/ivbaproject/).|
-|source_format|Returns information about from which format presentation was loaded.<br/>            Read-only [source_format](/python-net/api-reference/aspose.slides/ipresentation/).|
-|master_theme|Returns master theme of the presentation.<br/>            Read-only [IMasterTheme](/python-net/api-reference/aspose.slides.theme/imastertheme/).|
-|hyperlink_queries|Provides easy access to all hyperlinks contained in all presentation slides (not in master, layout, notes slides).<br/>            Read-only [IHyperlinkQueries](/python-net/api-reference/aspose.slides/ihyperlinkqueries/).|
-|view_properties|Gets presentation wide view properties.<br/>            Read-only [IViewProperties](/python-net/api-reference/aspose.slides/iviewproperties/).|
+|header_footer_manager|Returns HeaderFooter manager of the presentation.<br/>            Read-only [IPresentationHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/ipresentationheaderfootermanager/).|
+|protection_manager|Gets manager of the permissions for this presentation. <br/>            Read-only [IProtectionManager](/slides/python-net/api-reference/aspose.slides/iprotectionmanager/).|
+|slides|Returns a list of all slides that are defined in the presentation.<br/>            Read-only [ISlideCollection](/slides/python-net/api-reference/aspose.slides/islidecollection/).|
+|sections|Returns a list of all slides sections that are defined in the presentation.<br/>            Read-only [ISectionCollection](/slides/python-net/api-reference/aspose.slides/isectioncollection/).|
+|slide_size|Returns slide size object.<br/>            Read-only [ISlideSize](/slides/python-net/api-reference/aspose.slides/islidesize/).|
+|notes_size|Returns notes slide size object.<br/>            Read-only [INotesSize](/slides/python-net/api-reference/aspose.slides/inotessize/).|
+|layout_slides|Returns a list of all layout slides that are defined in the presentation.<br/>            Read-only [IGlobalLayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/igloballayoutslidecollection/).|
+|masters|Returns a list of all master slides that are defined in the presentation.<br/>            Read-only [IMasterSlideCollection](/slides/python-net/api-reference/aspose.slides/imasterslidecollection/).|
+|master_notes_slide_manager|Returns notes master manager.<br/>            Read-only [IMasterNotesSlideManager](/slides/python-net/api-reference/aspose.slides/imasternotesslidemanager/).|
+|master_handout_slide_manager|Returns handout master manager.<br/>            Read-only [IMasterHandoutSlideManager](/slides/python-net/api-reference/aspose.slides/imasterhandoutslidemanager/).|
+|fonts_manager|Returns fonts manager.<br/>            Read-only [IFontsManager](/slides/python-net/api-reference/aspose.slides/ifontsmanager/).|
+|default_text_style|Returns default text style for shapes.<br/>            Read-only [ITextStyle](/slides/python-net/api-reference/aspose.slides/itextstyle/).|
+|comment_authors|Returns the collection of comments autors.<br/>            Read-only [ICommentAuthorCollection](/slides/python-net/api-reference/aspose.slides/icommentauthorcollection/).|
+|document_properties|Returns DocumentProperties object which contains standard and custom document properties.<br/>            Read-only [IDocumentProperties](/slides/python-net/api-reference/aspose.slides/idocumentproperties/).|
+|images|Returns the collection of all images in the presentation.<br/>            Read-only [IImageCollection](/slides/python-net/api-reference/aspose.slides/iimagecollection/).|
+|audios|Returns the collection of all embedded audio files in the presentation.<br/>            Read-only [IAudioCollection](/slides/python-net/api-reference/aspose.slides/iaudiocollection/).|
+|videos|Returns the collection of all embedded video files in the presentation.<br/>            Read-only [IVideoCollection](/slides/python-net/api-reference/aspose.slides/ivideocollection/).|
+|custom_data|Returns the presentation's custom data.<br/>            Read-only [ICustomData](/slides/python-net/api-reference/aspose.slides/icustomdata/).|
+|vba_project|Gets VBA project with presentation macros.<br/>            Read/write [IVbaProject](/slides/python-net/api-reference/aspose.slides.vba/ivbaproject/).|
+|source_format|Returns information about from which format presentation was loaded.<br/>            Read-only [source_format](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+|master_theme|Returns master theme of the presentation.<br/>            Read-only [IMasterTheme](/slides/python-net/api-reference/aspose.slides.theme/imastertheme/).|
+|hyperlink_queries|Provides easy access to all hyperlinks contained in all presentation slides (not in master, layout, notes slides).<br/>            Read-only [IHyperlinkQueries](/slides/python-net/api-reference/aspose.slides/ihyperlinkqueries/).|
+|view_properties|Gets presentation wide view properties.<br/>            Read-only [IViewProperties](/slides/python-net/api-reference/aspose.slides/iviewproperties/).|
 |first_slide_number|Represents the first slide number in the presentation.<br/>            Read/write|
-|all_custom_xml_parts|Returns all custom data parts in the presentaion.<br/>            Read-only [ICustomXmlPart](/python-net/api-reference/aspose.slides/icustomxmlpart/)[].|
-|digital_signatures|Returns the collection of signatures used to sign the presentation.<br/>            Read-only [IDigitalSignatureCollection](/python-net/api-reference/aspose.slides/idigitalsignaturecollection/).|
+|all_custom_xml_parts|Returns all custom data parts in the presentaion.<br/>            Read-only [ICustomXmlPart](/slides/python-net/api-reference/aspose.slides/icustomxmlpart/)[].|
+|digital_signatures|Returns the collection of signatures used to sign the presentation.<br/>            Read-only [IDigitalSignatureCollection](/slides/python-net/api-reference/aspose.slides/idigitalsignaturecollection/).|
 |as_idisposable|Returns IDisposable interface.<br/>            Read-only disposable.|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

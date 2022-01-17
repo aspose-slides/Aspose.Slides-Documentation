@@ -22,7 +22,7 @@ The CommentCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [Comment](/python-net/api-reference/aspose.slides/comment/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [Comment](/slides/python-net/api-reference/aspose.slides/comment/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

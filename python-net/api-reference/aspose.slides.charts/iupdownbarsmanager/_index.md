@@ -17,7 +17,7 @@ The IUpDownBarsManager type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|up_bars_format|Returns format of the up bars.<br/>            Read-only [IFormat](/python-net/api-reference/aspose.slides.charts/iformat/).|
-|down_bars_format|Returns format of the down bars.<br/>            Read-only [IFormat](/python-net/api-reference/aspose.slides.charts/iformat/).|
+|up_bars_format|Returns format of the up bars.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
+|down_bars_format|Returns format of the down bars.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |has_up_down_bars|Determines whether the chart has up/down bars.<br/>            Read/write bool.|
 |gap_width|Returns or sets gap width.<br/>            Read/write|

@@ -17,6 +17,6 @@ The IShredTransition type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|direction|Direction of transition.<br/>            Read/write [TransitionInOutDirectionType](/python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/).|
-|pattern|Specifies the shape of the visuals used during the transition.<br/>            Read/write [TransitionShredPattern](/python-net/api-reference/aspose.slides.slideshow/transitionshredpattern/).|
-|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
+|direction|Direction of transition.<br/>            Read/write [TransitionInOutDirectionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/).|
+|pattern|Specifies the shape of the visuals used during the transition.<br/>            Read/write [TransitionShredPattern](/slides/python-net/api-reference/aspose.slides.slideshow/transitionshredpattern/).|
+|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|

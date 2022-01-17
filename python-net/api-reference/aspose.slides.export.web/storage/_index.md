@@ -5,7 +5,7 @@ weight: 70
 url: /python-net/api-reference/aspose.slides.export.web/storage/
 ---
 
-Represents a temporary data storage for [WebDocument](/python-net/api-reference/aspose.slides.export.web/webdocument/).
+Represents a temporary data storage for [WebDocument](/slides/python-net/api-reference/aspose.slides.export.web/webdocument/).
 
 **Namespace:** [aspose.slides.export.web](/slides/python-net/api-reference/aspose.slides.export.web/)
 

@@ -22,7 +22,7 @@ The ILayoutSlideCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns the layout slide by index.<br/>            Read-only [ILayoutSlide](/python-net/api-reference/aspose.slides/ilayoutslide/).|
+|[index]|Returns the layout slide by index.<br/>            Read-only [ILayoutSlide](/slides/python-net/api-reference/aspose.slides/ilayoutslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

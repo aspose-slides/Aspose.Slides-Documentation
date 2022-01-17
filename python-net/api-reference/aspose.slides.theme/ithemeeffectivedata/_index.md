@@ -17,8 +17,8 @@ The IThemeEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|font_scheme|Returns the font scheme.<br/>            Read-only [IFontSchemeEffectiveData](/python-net/api-reference/aspose.slides.theme/ifontschemeeffectivedata/).|
-|format_scheme|Returns the shape format scheme.<br/>            Read-only [IFormatSchemeEffectiveData](/python-net/api-reference/aspose.slides.theme/iformatschemeeffectivedata/).|
+|font_scheme|Returns the font scheme.<br/>            Read-only [IFontSchemeEffectiveData](/slides/python-net/api-reference/aspose.slides.theme/ifontschemeeffectivedata/).|
+|format_scheme|Returns the shape format scheme.<br/>            Read-only [IFormatSchemeEffectiveData](/slides/python-net/api-reference/aspose.slides.theme/iformatschemeeffectivedata/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -17,17 +17,17 @@ The IModernComment type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|shape|Returns a shape associated with the comment.<br/>            Read-only [IShape](/python-net/api-reference/aspose.slides/ishape/).|
+|shape|Returns a shape associated with the comment.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
 |text_selection_start|Returns or sets starting position of text selection in text frame if the comment associated with AutoShape.<br/>            Read/write|
 |text_selection_length|Returns or sets text selection length in text frame if the comment associated with AutoShape.<br/>            Read/write|
-|status|Returns or sets the status of the comment.<br/>            Read/write [ModernCommentStatus](/python-net/api-reference/aspose.slides/moderncommentstatus/).|
-|as_icomment|Allows to get base IComment interface.<br/>            Read-only [IComment](/python-net/api-reference/aspose.slides/icomment/).|
+|status|Returns or sets the status of the comment.<br/>            Read/write [ModernCommentStatus](/slides/python-net/api-reference/aspose.slides/moderncommentstatus/).|
+|as_icomment|Allows to get base IComment interface.<br/>            Read-only [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
 |text|Returns or sets the plain text of a slide comment.<br/>            Read/write string.|
 |created_time|Returns or sets the time of a comment creation.<br/>            Setting this property to min date value means no comment time is set.<br/>            Read/write datetime.|
-|slide|Returns or sets the parent slide of a comment.<br/>            Read-only [ISlide](/python-net/api-reference/aspose.slides/islide/).|
-|author|Returns the author of a comment.<br/>            Read-only [ICommentAuthor](/python-net/api-reference/aspose.slides/icommentauthor/).|
+|slide|Returns or sets the parent slide of a comment.<br/>            Read-only [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|
+|author|Returns the author of a comment.<br/>            Read-only [ICommentAuthor](/slides/python-net/api-reference/aspose.slides/icommentauthor/).|
 |position|Returns or sets the position of a comment on a slide.<br/>            Read/write aspose.pydrawing.PointF.|
-|parent_comment|Gets or sets parent comment.<br/>            Read/write [IComment](/python-net/api-reference/aspose.slides/icomment/).|
+|parent_comment|Gets or sets parent comment.<br/>            Read/write [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

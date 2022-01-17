@@ -18,10 +18,10 @@ The IStringChartValue type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |as_literal_string|Returns or sets the literal string if DataSourceType property is DataSourceType.StringLiterals.<br/>            Read/write string.|
-|as_imultiple_cell_chart_value|Allows to get base IMultipleCellChartValue interface.<br/>            Read-only [IMultipleCellChartValue](/python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/).|
-|as_cells|Returns or sets the collection of chart cells.<br/>            Read/write [IChartCellCollection](/python-net/api-reference/aspose.slides.charts/ichartcellcollection/).|
-|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
-|data_source_type|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual. In other words it specifies the type of value of the Data property.<br/>            This property is read-only. For changing value of this property you can use<br/>            one of the ChartDataPointCollection.DataSourceTypeFor<...> properties.<br/>            Read/write [data_source_type](/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
+|as_imultiple_cell_chart_value|Allows to get base IMultipleCellChartValue interface.<br/>            Read-only [IMultipleCellChartValue](/slides/python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/).|
+|as_cells|Returns or sets the collection of chart cells.<br/>            Read/write [IChartCellCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartcellcollection/).|
+|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
+|data_source_type|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual. In other words it specifies the type of value of the Data property.<br/>            This property is read-only. For changing value of this property you can use<br/>            one of the ChartDataPointCollection.DataSourceTypeFor<...> properties.<br/>            Read/write [data_source_type](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
 |data|Read/write object.|
 ## **Methods**
 |**Name**|**Description**|

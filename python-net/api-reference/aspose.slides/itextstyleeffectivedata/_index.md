@@ -17,7 +17,7 @@ The ITextStyleEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|default_paragraph_format|Returns effective default paragraph properties.<br/>            Read-only [IParagraphFormatEffectiveData](/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/).|
+|default_paragraph_format|Returns effective default paragraph properties.<br/>            Read-only [IParagraphFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

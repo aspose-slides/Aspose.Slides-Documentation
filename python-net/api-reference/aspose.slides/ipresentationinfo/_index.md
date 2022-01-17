@@ -20,7 +20,7 @@ The IPresentationInfo type exposes the following members:
 |is_encrypted|Gets True if binded presentation is encrypted, otherwise False.<br/>            Read-only bool.|
 |is_password_protected|Gets a value that indicates whether a binded presentation is protected by a password to open.|
 |is_write_protected|Gets a value that indicates whether a binded presentation is write protected.|
-|load_format|Gets format of the binded presentation.<br/>            Read-only [LoadFormat](/python-net/api-reference/aspose.slides/loadformat/).|
+|load_format|Gets format of the binded presentation.<br/>            Read-only [LoadFormat](/slides/python-net/api-reference/aspose.slides/loadformat/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

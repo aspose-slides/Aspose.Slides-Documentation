@@ -22,7 +22,7 @@ The IMathElementCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

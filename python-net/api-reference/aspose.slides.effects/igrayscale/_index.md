@@ -17,7 +17,7 @@ The IGrayScale type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_iimage_transform_operation|Returns IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_iimage_transform_operation|Returns IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

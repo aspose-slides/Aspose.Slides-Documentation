@@ -22,7 +22,7 @@ The IFontFallBackRulesCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the rule at the specified index.<br/>            Read-only [IFontFallBackRule](/python-net/api-reference/aspose.slides/ifontfallbackrule/).|
+|[index]|Gets the rule at the specified index.<br/>            Read-only [IFontFallBackRule](/slides/python-net/api-reference/aspose.slides/ifontfallbackrule/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

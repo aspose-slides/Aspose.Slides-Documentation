@@ -22,7 +22,7 @@ The ISmartArtNodeCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns node by index.<br/>            Read-only [ISmartArtNode](/python-net/api-reference/aspose.slides.smartart/ismartartnode/)|
+|[index]|Returns node by index.<br/>            Read-only [ISmartArtNode](/slides/python-net/api-reference/aspose.slides.smartart/ismartartnode/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

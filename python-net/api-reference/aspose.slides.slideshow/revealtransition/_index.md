@@ -17,6 +17,6 @@ The RevealTransition type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|direction|Direction of transition.<br/>            Read/write [TransitionLeftRightDirectionType](/python-net/api-reference/aspose.slides.slideshow/transitionleftrightdirectiontype/).|
+|direction|Direction of transition.<br/>            Read/write [TransitionLeftRightDirectionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitionleftrightdirectiontype/).|
 |through_black|Specifies whether the transition fades through black.<br/>            Read/write bool.|
-|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
+|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|

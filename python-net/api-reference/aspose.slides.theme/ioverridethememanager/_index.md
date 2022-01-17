@@ -18,8 +18,8 @@ The IOverrideThemeManager type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |is_override_theme_enabled|Determines whether OverrideTheme overrides inherited effective theme or not.<br/>            To enable OverrideTheme for overriding use OverrideTheme.Init*() methods.<br/>            To disable OverrideTheme from overriding use OverrideTheme.Clear() method.<br/>            Read-only bool.|
-|override_theme|Returns the overriding theme object.<br/>            Read/write [IOverrideTheme](/python-net/api-reference/aspose.slides.theme/ioverridetheme/).|
-|as_itheme_manager|Allows to get base IThemeManager interface.<br/>            Read-only [IThemeManager](/python-net/api-reference/aspose.slides.theme/ithememanager/).|
+|override_theme|Returns the overriding theme object.<br/>            Read/write [IOverrideTheme](/slides/python-net/api-reference/aspose.slides.theme/ioverridetheme/).|
+|as_itheme_manager|Allows to get base IThemeManager interface.<br/>            Read-only [IThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ithememanager/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

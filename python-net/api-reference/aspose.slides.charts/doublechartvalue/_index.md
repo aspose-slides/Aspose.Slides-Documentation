@@ -17,12 +17,12 @@ The DoubleChartValue type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|data_source_type|Specifies whether AsCell, AsCells, AsLiteralString or AsLiteralDouble <br/>            property is actual in descendants. In other words it specifies the type <br/>            of value of the Data property.<br/>            Read/write [DataSourceType](/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
+|data_source_type|Specifies whether AsCell, AsCells, AsLiteralString or AsLiteralDouble <br/>            property is actual in descendants. In other words it specifies the type <br/>            of value of the Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data|Returns or sets Data object.<br/>            Read/write object.|
-|as_cell|Returns or sets chart data cell.<br/>            Read/write [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/).|
+|as_cell|Returns or sets chart data cell.<br/>            Read/write [IChartDataCell](/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/).|
 |as_literal_double|Returns or sets value as literal double.<br/>            Read/write float.|
-|as_isingle_cell_chart_value|Allows to get base ISingleCellChartValue interface.<br/>            Read-only [ISingleCellChartValue](/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/).|
-|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
+|as_isingle_cell_chart_value|Allows to get base ISingleCellChartValue interface.<br/>            Read-only [ISingleCellChartValue](/slides/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/).|
+|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

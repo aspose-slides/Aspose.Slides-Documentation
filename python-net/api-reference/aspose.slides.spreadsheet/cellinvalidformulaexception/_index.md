@@ -17,7 +17,7 @@ The CellInvalidFormulaException type exposes the following members:
 ## **Constructors**
 |**Name**|**Description**|
 | :- | :- |
-|CellInvalidFormulaException()|Initializes a new instance of the [CellInvalidFormulaException](/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidformulaexception/) class.|
+|CellInvalidFormulaException()|Initializes a new instance of the [CellInvalidFormulaException](/slides/python-net/api-reference/aspose.slides.spreadsheet/cellinvalidformulaexception/) class.|
 |CellInvalidFormulaException(message)|Initializes a new instance of the CellInvalidFormulaException class|
 |CellInvalidFormulaException(message, reference)|Initializes a new instance of the CellInvalidFormulaException class|
 ## **Properties**

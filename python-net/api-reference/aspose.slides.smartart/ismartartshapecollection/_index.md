@@ -22,4 +22,4 @@ The ISmartArtShapeCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ISmartArtShape](/python-net/api-reference/aspose.slides.smartart/ismartartshape/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ISmartArtShape](/slides/python-net/api-reference/aspose.slides.smartart/ismartartshape/).|

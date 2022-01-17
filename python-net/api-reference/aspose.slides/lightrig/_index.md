@@ -17,11 +17,11 @@ The LightRig type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|direction|Light direction.<br/>            Read/write [LightingDirection](/python-net/api-reference/aspose.slides/lightingdirection/).|
-|light_type|Represents a preset light right that can be applied to a shape. <br/>            The light rig represents a group of lights oriented<br/>            in a specific way relative to a 3D scene.<br/>            Read/write [LightRigPresetType](/python-net/api-reference/aspose.slides/lightrigpresettype/).|
-|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|direction|Light direction.<br/>            Read/write [LightingDirection](/slides/python-net/api-reference/aspose.slides/lightingdirection/).|
+|light_type|Represents a preset light right that can be applied to a shape. <br/>            The light rig represents a group of lights oriented<br/>            in a specific way relative to a 3D scene.<br/>            Read/write [LightRigPresetType](/slides/python-net/api-reference/aspose.slides/lightrigpresettype/).|
+|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

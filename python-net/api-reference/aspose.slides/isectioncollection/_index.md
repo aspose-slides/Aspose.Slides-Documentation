@@ -22,7 +22,7 @@ The ISectionCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ISection](/python-net/api-reference/aspose.slides/isection/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ISection](/slides/python-net/api-reference/aspose.slides/isection/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

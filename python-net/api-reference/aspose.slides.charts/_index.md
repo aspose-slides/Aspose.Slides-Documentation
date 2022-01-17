@@ -19,7 +19,7 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[CannotCombine2DAnd3DChartsException](/slides/python-net/api-reference/aspose.slides.charts/cannotcombine2dand3dchartsexception/)|Exception which thrown when trying to combine 2D and 3D chart types.|
 |[Chart](/slides/python-net/api-reference/aspose.slides.charts/chart/)|Represents an graphic chart on a slide.|
 |[ChartCategory](/slides/python-net/api-reference/aspose.slides.charts/chartcategory/)|Represents chart categories.|
-|[ChartCategoryCollection](/slides/python-net/api-reference/aspose.slides.charts/chartcategorycollection/)|Represents collection of [ChartCategory](/python-net/api-reference/aspose.slides.charts/chartcategory/)|
+|[ChartCategoryCollection](/slides/python-net/api-reference/aspose.slides.charts/chartcategorycollection/)|Represents collection of [ChartCategory](/slides/python-net/api-reference/aspose.slides.charts/chartcategory/)|
 |[ChartCategoryLevelsManager](/slides/python-net/api-reference/aspose.slides.charts/chartcategorylevelsmanager/)|Managed container of the values of the chart category levels.|
 |[ChartCellCollection](/slides/python-net/api-reference/aspose.slides.charts/chartcellcollection/)|Represents collection of a cells with data.|
 |[ChartData](/slides/python-net/api-reference/aspose.slides.charts/chartdata/)|Represents data used for a chart plotting.|
@@ -29,13 +29,13 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[ChartDataPointLevel](/slides/python-net/api-reference/aspose.slides.charts/chartdatapointlevel/)|Represents data point level. Applies for Treemap and Sunburst chart.|
 |[ChartDataPointLevelsManager](/slides/python-net/api-reference/aspose.slides.charts/chartdatapointlevelsmanager/)|Container of data point levels. Applied for Treeamp and Sunburst series.<br/>            Data point levels indexing is zero-based.|
 |[ChartDataWorkbook](/slides/python-net/api-reference/aspose.slides.charts/chartdataworkbook/)|Provides access to embedded Excel workbook|
-|[ChartDataWorksheet](/slides/python-net/api-reference/aspose.slides.charts/chartdataworksheet/)|Represents worksheet associated with [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/)|
+|[ChartDataWorksheet](/slides/python-net/api-reference/aspose.slides.charts/chartdataworksheet/)|Represents worksheet associated with [IChartDataCell](/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/)|
 |[ChartDataWorksheetCollection](/slides/python-net/api-reference/aspose.slides.charts/chartdataworksheetcollection/)|Represents the collection of worksheets of chart data workbook.|
 |[ChartLinesFormat](/slides/python-net/api-reference/aspose.slides.charts/chartlinesformat/)|Represents gridlines format properties.|
 |[ChartPlotArea](/slides/python-net/api-reference/aspose.slides.charts/chartplotarea/)|Represents rectangle where chart should be plotted.|
-|[ChartPortionFormat](/slides/python-net/api-reference/aspose.slides.charts/chartportionformat/)|This class contains the chart portion formatting properties used in charts.<br/>            Unlike [IPortionFormatEffectiveData](/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
+|[ChartPortionFormat](/slides/python-net/api-reference/aspose.slides.charts/chartportionformat/)|This class contains the chart portion formatting properties used in charts.<br/>            Unlike [IPortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.|
 |[ChartSeries](/slides/python-net/api-reference/aspose.slides.charts/chartseries/)|Represents a chart series.|
-|[ChartSeriesCollection](/slides/python-net/api-reference/aspose.slides.charts/chartseriescollection/)|Represents collection of  [ChartSeries](/python-net/api-reference/aspose.slides.charts/chartseries/)|
+|[ChartSeriesCollection](/slides/python-net/api-reference/aspose.slides.charts/chartseriescollection/)|Represents collection of  [ChartSeries](/slides/python-net/api-reference/aspose.slides.charts/chartseries/)|
 |[ChartSeriesGroup](/slides/python-net/api-reference/aspose.slides.charts/chartseriesgroup/)|Represents group of series.|
 |[ChartTextFormat](/slides/python-net/api-reference/aspose.slides.charts/charttextformat/)|Specifies default text formatting for chart text elements.|
 |[ChartTitle](/slides/python-net/api-reference/aspose.slides.charts/charttitle/)|Represents chart title properties.|
@@ -48,7 +48,7 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[DataTable](/slides/python-net/api-reference/aspose.slides.charts/datatable/)|Represents data table properties.|
 |[DoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/doublechartvalue/)|Represent double value which can be stored in pptx presentation document in two ways:<br/>            1) in cell/cells of workbook related to chart;<br/>            2) as literal value.|
 |[ErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/errorbarscustomvalues/)|Specifies the errors bar values. It shall be used only when the Error bars value type is Custom.|
-|[ErrorBarsFormat](/slides/python-net/api-reference/aspose.slides.charts/errorbarsformat/)|Represents error bars of chart series. ErrorBars custom values are in IChartDataPointCollection<br/>            (in [error_bars_custom_values](/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property).|
+|[ErrorBarsFormat](/slides/python-net/api-reference/aspose.slides.charts/errorbarsformat/)|Represents error bars of chart series. ErrorBars custom values are in IChartDataPointCollection<br/>            (in [error_bars_custom_values](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property).|
 |[Format](/slides/python-net/api-reference/aspose.slides.charts/format/)|Represents chart format properties.|
 |[IActualLayout](/slides/python-net/api-reference/aspose.slides.charts/iactuallayout/)|Specifies actual position of a chart element.|
 |[IAxesManager](/slides/python-net/api-reference/aspose.slides.charts/iaxesmanager/)|Provides access to chart axes.|
@@ -57,7 +57,7 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/)|Represents a value of a chart.|
 |[IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/)|Represents an graphic chart on a slide.|
 |[IChartCategory](/slides/python-net/api-reference/aspose.slides.charts/ichartcategory/)|Represents chart categories.|
-|[IChartCategoryCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartcategorycollection/)|Represents collection of [IChartCategory](/python-net/api-reference/aspose.slides.charts/ichartcategory/)|
+|[IChartCategoryCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartcategorycollection/)|Represents collection of [IChartCategory](/slides/python-net/api-reference/aspose.slides.charts/ichartcategory/)|
 |[IChartCategoryLevelsManager](/slides/python-net/api-reference/aspose.slides.charts/ichartcategorylevelsmanager/)|Managed container of the values of the chart category levels.|
 |[IChartCellCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartcellcollection/)|Represents collection of a cells with data.|
 |[IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/)|Represents a component of a chart.|
@@ -68,17 +68,17 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[IChartDataPointLevel](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapointlevel/)|Represents data point level. Applies for Treemap and Sunburst chart.|
 |[IChartDataPointLevelsManager](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapointlevelsmanager/)|Container of data point levels. Applied for Treeamp and Sunburst series.<br/>            Data point levels indexing is zero-based.|
 |[IChartDataWorkbook](/slides/python-net/api-reference/aspose.slides.charts/ichartdataworkbook/)|Provides access to embedded Excel workbook|
-|[IChartDataWorksheet](/slides/python-net/api-reference/aspose.slides.charts/ichartdataworksheet/)|Represents worksheet associated with [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/)|
+|[IChartDataWorksheet](/slides/python-net/api-reference/aspose.slides.charts/ichartdataworksheet/)|Represents worksheet associated with [IChartDataCell](/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/)|
 |[IChartDataWorksheetCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartdataworksheetcollection/)|Represents the collection of worksheets of chart data workbook.|
 |[IChartLinesFormat](/slides/python-net/api-reference/aspose.slides.charts/ichartlinesformat/)|Represents gridlines format properties.|
 |[IChartParagraphFormat](/slides/python-net/api-reference/aspose.slides.charts/ichartparagraphformat/)|Represents a paragraph formatting properties of a chart.|
 |[IChartPlotArea](/slides/python-net/api-reference/aspose.slides.charts/ichartplotarea/)|Represents chart title properties.|
 |[IChartPortionFormat](/slides/python-net/api-reference/aspose.slides.charts/ichartportionformat/)|Represents the chart portion formatting properties used in charts.|
 |[IChartSeries](/slides/python-net/api-reference/aspose.slides.charts/ichartseries/)|Represents a chart series.|
-|[IChartSeriesCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartseriescollection/)|Represents collection of  [IChartSeries](/python-net/api-reference/aspose.slides.charts/ichartseries/)|
+|[IChartSeriesCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartseriescollection/)|Represents collection of  [IChartSeries](/slides/python-net/api-reference/aspose.slides.charts/ichartseries/)|
 |[IChartSeriesGroup](/slides/python-net/api-reference/aspose.slides.charts/ichartseriesgroup/)|Represents group of series.|
 |[IChartSeriesGroupCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartseriesgroupcollection/)|Represents the collection of groups of combinable series.|
-|[IChartSeriesReadonlyCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/)|Represents a readonly collection of  [IChartSeries](/python-net/api-reference/aspose.slides.charts/ichartseries/)|
+|[IChartSeriesReadonlyCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartseriesreadonlycollection/)|Represents a readonly collection of  [IChartSeries](/slides/python-net/api-reference/aspose.slides.charts/ichartseries/)|
 |[IChartTextBlockFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextblockformat/)|Represents formatting properties for chart text elements.|
 |[IChartTextFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextformat/)|Chart operate with restricted set of text format properties.<br/>            IChartTextFormat, IChartTextBlockFormat, IChartParagraphFormat, IChartPortionFormat<br/>            interfaces describe this restricted set.|
 |[IChartTitle](/slides/python-net/api-reference/aspose.slides.charts/icharttitle/)|Represents chart title properties.|
@@ -90,7 +90,7 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[IDataTable](/slides/python-net/api-reference/aspose.slides.charts/idatatable/)|Represents data table properties.|
 |[IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/)|Represent double value which can be stored in pptx presentation document in two ways:<br/>            1) in cell/cells of workbook related to chart;<br/>            2) as literal value.|
 |[IErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/ierrorbarscustomvalues/)|Specifies the errors bar values. It shall be used only when the Error bars value type is Custom.|
-|[IErrorBarsFormat](/slides/python-net/api-reference/aspose.slides.charts/ierrorbarsformat/)|Represents error bars of chart series. ErrorBars custom values are in IChartDataPointCollection<br/>            (in [error_bars_custom_values](/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property).|
+|[IErrorBarsFormat](/slides/python-net/api-reference/aspose.slides.charts/ierrorbarsformat/)|Represents error bars of chart series. ErrorBars custom values are in IChartDataPointCollection<br/>            (in [error_bars_custom_values](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property).|
 |[IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/)|Represents chart format properties.|
 |[IFormattedTextContainer](/slides/python-net/api-reference/aspose.slides.charts/iformattedtextcontainer/)|Represents chart text format.|
 |[ILayoutable](/slides/python-net/api-reference/aspose.slides.charts/ilayoutable/)|Specifies the exact position of a chart element.|

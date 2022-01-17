@@ -21,7 +21,7 @@ The VbaProjectFactory type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|instance|VBA project factory static instance.<br/>            Read-only [VbaProjectFactory](/python-net/api-reference/aspose.slides.vba/vbaprojectfactory/).|
+|instance|VBA project factory static instance.<br/>            Read-only [VbaProjectFactory](/slides/python-net/api-reference/aspose.slides.vba/vbaprojectfactory/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

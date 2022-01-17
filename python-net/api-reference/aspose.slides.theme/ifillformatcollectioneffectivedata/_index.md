@@ -22,4 +22,4 @@ The IFillFormatCollectionEffectiveData type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [IFillFormatEffectiveData](/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [IFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|

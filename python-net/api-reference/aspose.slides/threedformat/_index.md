@@ -17,20 +17,20 @@ The ThreeDFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |contour_width|Returns or sets the width of a 3D contour.<br/>            Read/write float.|
 |extrusion_height|Returns or sets the height of an extrusion effect.<br/>            Read/write float.|
 |depth|Returns or sets the depth of a 3D shape.<br/>            Read/write float.|
-|bevel_top|Returns or sets the type of a top 3D bevel.<br/>            Read-only [IShapeBevel](/python-net/api-reference/aspose.slides/ishapebevel/).|
-|bevel_bottom|Returns or sets the type of a bottom 3D bevel.<br/>            Read-only [IShapeBevel](/python-net/api-reference/aspose.slides/ishapebevel/).|
-|contour_color|Returns or sets the color of a contour.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|extrusion_color|Returns or sets the color of an extrusion.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|camera|Returns or sets the settings of a camera.<br/>            Read-only [ICamera](/python-net/api-reference/aspose.slides/icamera/).|
-|light_rig|Returns or sets the type of a light.<br/>            Read-only [ILightRig](/python-net/api-reference/aspose.slides/ilightrig/).|
-|material|Returns or sets the type of a material.<br/>            Read/write [MaterialPresetType](/python-net/api-reference/aspose.slides/materialpresettype/).|
-|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/python-net/api-reference/aspose.slides/ithreedparamsource/).|
+|bevel_top|Returns or sets the type of a top 3D bevel.<br/>            Read-only [IShapeBevel](/slides/python-net/api-reference/aspose.slides/ishapebevel/).|
+|bevel_bottom|Returns or sets the type of a bottom 3D bevel.<br/>            Read-only [IShapeBevel](/slides/python-net/api-reference/aspose.slides/ishapebevel/).|
+|contour_color|Returns or sets the color of a contour.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|extrusion_color|Returns or sets the color of an extrusion.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|camera|Returns or sets the settings of a camera.<br/>            Read-only [ICamera](/slides/python-net/api-reference/aspose.slides/icamera/).|
+|light_rig|Returns or sets the type of a light.<br/>            Read-only [ILightRig](/slides/python-net/api-reference/aspose.slides/ilightrig/).|
+|material|Returns or sets the type of a material.<br/>            Read/write [MaterialPresetType](/slides/python-net/api-reference/aspose.slides/materialpresettype/).|
+|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

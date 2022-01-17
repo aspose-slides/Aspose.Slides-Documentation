@@ -18,4 +18,4 @@ The ColorReplaceEffectiveData type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |color|Returns color.<br/>            Read-only aspose.pydrawing.Color.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|

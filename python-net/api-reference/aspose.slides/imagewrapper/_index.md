@@ -17,8 +17,8 @@ The ImageWrapper type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|image|Gets Image.<br/>            Read-only [image](/python-net/api-reference/aspose.slides/imagewrapper/).|
-|size|Gets the width and height, in pixels, of the Image.<br/>            Read-only [size](/python-net/api-reference/aspose.slides/imagewrapper/).|
+|image|Gets Image.<br/>            Read-only [image](/slides/python-net/api-reference/aspose.slides/imagewrapper/).|
+|size|Gets the width and height, in pixels, of the Image.<br/>            Read-only [size](/slides/python-net/api-reference/aspose.slides/imagewrapper/).|
 |as_idisposable|Returns IDisposable interface.<br/>            Read-only disposable.|
 ## **Methods**
 |**Name**|**Description**|

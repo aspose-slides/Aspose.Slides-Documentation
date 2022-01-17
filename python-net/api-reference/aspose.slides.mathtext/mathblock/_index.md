@@ -25,8 +25,8 @@ The MathBlock type exposes the following members:
 | :- | :- |
 |count|Gets the number of child math elements actually contained in the collection.<br/>            Read-only|
 |is_read_only|Returns false because child elements collection can be modified.|
-|as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/slides/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## **Indexer**
 |**Name**|**Description**|
@@ -92,4 +92,4 @@ The MathBlock type exposes the following members:
 |remove_at(index)|Removes the element at the specified index of the collection.|
 |join_block(other)|Joins another mathematical block with this one|
 |delimit(separator_character)|Delimits child elements with separator character (without the brackets)|
-|write_as_math_ml(stream)|Saves content of this [MathBlock](/python-net/api-reference/aspose.slides.mathtext/mathblock/) as MathML|
+|write_as_math_ml(stream)|Saves content of this [MathBlock](/slides/python-net/api-reference/aspose.slides.mathtext/mathblock/) as MathML|

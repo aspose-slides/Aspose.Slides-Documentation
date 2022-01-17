@@ -71,7 +71,7 @@ Contains classes for exporting Microsoft PowerPoint presentations to different f
 | :- | :- |
 |[CommentsPositions](/slides/python-net/api-reference/aspose.slides.export/commentspositions/)|Represents the rule to render comments into exported document|
 |[Conformance](/slides/python-net/api-reference/aspose.slides.export/conformance/)|Specifies the conformance class to which the PresentationML document conforms.|
-|[EmbedFontCharacters](/slides/python-net/api-reference/aspose.slides.export/embedfontcharacters/)|Represents the rule to use for adding new embedding font into [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/)|
+|[EmbedFontCharacters](/slides/python-net/api-reference/aspose.slides.export/embedfontcharacters/)|Represents the rule to use for adding new embedding font into [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/)|
 |[ImagePixelFormat](/slides/python-net/api-reference/aspose.slides.export/imagepixelformat/)|Specifies the pixel format for the generated images.|
 |[LinkEmbedDecision](/slides/python-net/api-reference/aspose.slides.export/linkembeddecision/)|Determines how object will be processed during saving.|
 |[NotesPositions](/slides/python-net/api-reference/aspose.slides.export/notespositions/)|Represents the rule to render notes into exported document|

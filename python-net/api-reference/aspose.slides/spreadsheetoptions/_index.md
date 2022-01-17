@@ -17,7 +17,7 @@ The SpreadsheetOptions type exposes the following members:
 ## **Constructors**
 |**Name**|**Description**|
 | :- | :- |
-|SpreadsheetOptions()|Initializes a new instance of the [SpreadsheetOptions](/python-net/api-reference/aspose.slides/spreadsheetoptions/) class.|
+|SpreadsheetOptions()|Initializes a new instance of the [SpreadsheetOptions](/slides/python-net/api-reference/aspose.slides/spreadsheetoptions/) class.|
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |

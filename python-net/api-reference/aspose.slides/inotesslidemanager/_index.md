@@ -17,7 +17,7 @@ The INotesSlideManager type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|notes_slide|Returns the notes slide for the current slide. Returns null if slide doesn't have notes slide.<br/>            Read-only [INotesSlide](/python-net/api-reference/aspose.slides/inotesslide/).|
+|notes_slide|Returns the notes slide for the current slide. Returns null if slide doesn't have notes slide.<br/>            Read-only [INotesSlide](/slides/python-net/api-reference/aspose.slides/inotesslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

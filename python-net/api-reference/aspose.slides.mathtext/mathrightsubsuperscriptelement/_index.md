@@ -25,7 +25,7 @@ The MathRightSubSuperscriptElement type exposes the following members:
 |subscript|Subscript argument|
 |superscript|Superscript argument|
 |align_scripts|Specifies the alignment of subscript/superscript. <br/>            When true, subscript and superscript are aligned horizontally to each other.<br/>            When false, they are kerned to the shape of the base.<br/>            Default value is false.|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

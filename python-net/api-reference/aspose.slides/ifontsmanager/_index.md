@@ -17,8 +17,8 @@ The IFontsManager type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|font_subst_rule_list|Font substitutions to use when rendering<br/>            Read/write [IFontSubstRuleCollection](/python-net/api-reference/aspose.slides/ifontsubstrulecollection/).|
-|font_fall_back_rules_collection|Represents a user's collection of FontFallBack rules for managing of collections of fonts for proper substitutions by fallback functionality<br/>            Read/write [IFontFallBackRulesCollection](/python-net/api-reference/aspose.slides/ifontfallbackrulescollection/).|
+|font_subst_rule_list|Font substitutions to use when rendering<br/>            Read/write [IFontSubstRuleCollection](/slides/python-net/api-reference/aspose.slides/ifontsubstrulecollection/).|
+|font_fall_back_rules_collection|Represents a user's collection of FontFallBack rules for managing of collections of fonts for proper substitutions by fallback functionality<br/>            Read/write [IFontFallBackRulesCollection](/slides/python-net/api-reference/aspose.slides/ifontfallbackrulescollection/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

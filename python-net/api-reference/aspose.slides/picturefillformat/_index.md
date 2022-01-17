@@ -17,10 +17,10 @@ The PictureFillFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |dpi|Returns or sets the dpi which is used to fill a picture.<br/>            Read/write|
-|picture_fill_mode|Returns or sets the picture fill mode.<br/>            Read/write [PictureFillMode](/python-net/api-reference/aspose.slides/picturefillmode/).|
-|picture|Returns the picture.<br/>            Read-only [ISlidesPicture](/python-net/api-reference/aspose.slides/islidespicture/).|
+|picture_fill_mode|Returns or sets the picture fill mode.<br/>            Read/write [PictureFillMode](/slides/python-net/api-reference/aspose.slides/picturefillmode/).|
+|picture|Returns the picture.<br/>            Read-only [ISlidesPicture](/slides/python-net/api-reference/aspose.slides/islidespicture/).|
 |crop_left|Returns or sets the number of percents of real image width that are cropped off<br/>            the left of the picture. <br/>            Read/write|
 |crop_top|Returns or sets the number of percents of real image height that are cropped off<br/>            the top of the picture. <br/>            Read/write|
 |crop_right|Returns or sets the number of percents of real image width that are cropped off<br/>            the right of the picture. <br/>            Read/write|
@@ -29,6 +29,6 @@ The PictureFillFormat type exposes the following members:
 |stretch_offset_top|Returns or sets top edge of the fill rectangle that is defined by a percentage offset <br/>            from the top edge of the shape's bounding box. <br/>            A positive percentage specifies an inset, while a negative percentage specifies an outset.<br/>            Read/write|
 |stretch_offset_right|Returns or sets right edge of the fill rectangle that is defined by a percentage offset <br/>            from the right edge of the shape's bounding box. <br/>            A positive percentage specifies an inset, while a negative percentage specifies an outset.<br/>            Read/write|
 |stretch_offset_bottom|Returns or sets bottom edge of the fill rectangle that is defined by a percentage offset <br/>            from the bottom edge of the shape's bounding box. <br/>            A positive percentage specifies an inset, while a negative percentage specifies an outset.<br/>            Read/write|
-|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|

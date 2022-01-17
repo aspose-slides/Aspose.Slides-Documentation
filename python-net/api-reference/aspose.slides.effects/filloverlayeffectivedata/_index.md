@@ -17,6 +17,6 @@ The FillOverlayEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|blend|Determines how one fill drawn over another.<br/>            Read-only [FillBlendMode](/python-net/api-reference/aspose.slides/fillblendmode/).|
-|fill_format|Returns a overlaying fill properties.<br/>            Read-only [IFillFormatEffectiveData](/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|blend|Determines how one fill drawn over another.<br/>            Read-only [FillBlendMode](/slides/python-net/api-reference/aspose.slides/fillblendmode/).|
+|fill_format|Returns a overlaying fill properties.<br/>            Read-only [IFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
+|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|

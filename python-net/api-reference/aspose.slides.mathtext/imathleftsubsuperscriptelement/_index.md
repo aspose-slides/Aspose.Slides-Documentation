@@ -20,7 +20,7 @@ The IMathLeftSubSuperscriptElement type exposes the following members:
 |base|Base argument|
 |subscript|Subscript|
 |superscript|Superscript|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

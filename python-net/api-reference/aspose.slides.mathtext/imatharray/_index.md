@@ -23,7 +23,7 @@ The IMathArray type exposes the following members:
 |object_distribution|Object Distribution<br/>            When true, the contents of the array are spaced to the maximum width of the array object.|
 |row_spacing_rule|The type of vertical spacing between array elements|
 |row_spacing|Spacing between rows of an array<br/>            It is used only when RowSpacingRule is set to 3 Exactly in which case the unit of measure is points <br/>            or Multiple in which case the unit of measure is half-lines.<br/>            Default: 0|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -19,7 +19,7 @@ The ICommentAuthor type exposes the following members:
 | :- | :- |
 |name|Returns or sets the author's name.<br/>            Read/write string.|
 |initials|Returns or sets the authors initials.<br/>            Read/write string.|
-|comments|Returns the collection of comments made by this author.<br/>            Read-only [ICommentCollection](/python-net/api-reference/aspose.slides/icommentcollection/).|
+|comments|Returns the collection of comments made by this author.<br/>            Read-only [ICommentCollection](/slides/python-net/api-reference/aspose.slides/icommentcollection/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

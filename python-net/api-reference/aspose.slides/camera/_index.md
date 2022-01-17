@@ -17,12 +17,12 @@ The Camera type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|camera_type|Camera type.<br/>            Read/write [CameraPresetType](/python-net/api-reference/aspose.slides/camerapresettype/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|camera_type|Camera type.<br/>            Read/write [CameraPresetType](/slides/python-net/api-reference/aspose.slides/camerapresettype/).|
 |field_of_view_angle|Camera FOV (0-180 deg, field of View).<br/>            Read/write|
 |zoom|Camera zoom (positive value in percentage).<br/>            Read/write|
-|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
+|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

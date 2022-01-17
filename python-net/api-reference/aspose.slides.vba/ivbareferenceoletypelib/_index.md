@@ -18,5 +18,5 @@ The IVbaReferenceOleTypeLib type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |libid|Represents the identifier of an Automation type library.<br/>            Read/write string.|
-|as_ivba_reference|Returns IVbaReference interface.<br/>            Read-only [IVbaReference](/python-net/api-reference/aspose.slides.vba/ivbareference/).|
+|as_ivba_reference|Returns IVbaReference interface.<br/>            Read-only [IVbaReference](/slides/python-net/api-reference/aspose.slides.vba/ivbareference/).|
 |name|Represents the name of the VBA project reference.<br/>            Read/write string.|

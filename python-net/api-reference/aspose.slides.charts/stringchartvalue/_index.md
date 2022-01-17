@@ -17,12 +17,12 @@ The StringChartValue type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|data_source_type|Specifies whether AsCell, AsCells, AsLiteralString or AsLiteralDouble <br/>            property is actual in descendants. In other words it specifies the type <br/>            of value of the Data property.<br/>            Read/write [DataSourceType](/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
+|data_source_type|Specifies whether AsCell, AsCells, AsLiteralString or AsLiteralDouble <br/>            property is actual in descendants. In other words it specifies the type <br/>            of value of the Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data|Returns or sets Data object.<br/>            Read/write object.|
-|as_cells|Null value assigning is not allowed.<br/>            Returning value always is not null.<br/>            Read/write [IChartCellCollection](/python-net/api-reference/aspose.slides.charts/ichartcellcollection/).|
+|as_cells|Null value assigning is not allowed.<br/>            Returning value always is not null.<br/>            Read/write [IChartCellCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartcellcollection/).|
 |as_literal_string|Returns or sets value as literal string.<br/>            Read/write string.|
-|as_imultiple_cell_chart_value|Allows to get base IMultipleCellChartValue interface.<br/>            Read-only [IMultipleCellChartValue](/python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/).|
-|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
+|as_imultiple_cell_chart_value|Allows to get base IMultipleCellChartValue interface.<br/>            Read-only [IMultipleCellChartValue](/slides/python-net/api-reference/aspose.slides.charts/imultiplecellchartvalue/).|
+|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

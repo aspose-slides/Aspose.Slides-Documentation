@@ -17,6 +17,6 @@ The AxisFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|fill|Returns fill style properties of an axis.<br/>            Read-only [IFillFormat](/python-net/api-reference/aspose.slides/ifillformat/).|
-|line|Returns line style properties of an axis.<br/>            Read-only [ILineFormat](/python-net/api-reference/aspose.slides/ilineformat/).|
-|effect|Returns effects used for an axis.<br/>            Read-only [IEffectFormat](/python-net/api-reference/aspose.slides/ieffectformat/).|
+|fill|Returns fill style properties of an axis.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|
+|line|Returns line style properties of an axis.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|
+|effect|Returns effects used for an axis.<br/>            Read-only [IEffectFormat](/slides/python-net/api-reference/aspose.slides/ieffectformat/).|

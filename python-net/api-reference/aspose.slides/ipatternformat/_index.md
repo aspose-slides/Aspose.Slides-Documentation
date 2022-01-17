@@ -17,9 +17,9 @@ The IPatternFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|pattern_style|Returns or sets the pattern style.<br/>            Read/write [PatternStyle](/python-net/api-reference/aspose.slides/patternstyle/).|
-|fore_color|Returns the foreground pattern color.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
-|back_color|Returns the background pattern color.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
+|pattern_style|Returns or sets the pattern style.<br/>            Read/write [PatternStyle](/slides/python-net/api-reference/aspose.slides/patternstyle/).|
+|fore_color|Returns the foreground pattern color.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
+|back_color|Returns the background pattern color.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

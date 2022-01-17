@@ -17,6 +17,6 @@ The IFontSchemeEffectiveData type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|minor|Returns the fonts collection for a "body" part of the slide.<br/>            Read-only [IFontsEffectiveData](/python-net/api-reference/aspose.slides/ifontseffectivedata/).|
-|major|Returns the fonts collection for a "heading" part of the slide.<br/>            Read-only [IFontsEffectiveData](/python-net/api-reference/aspose.slides/ifontseffectivedata/).|
+|minor|Returns the fonts collection for a "body" part of the slide.<br/>            Read-only [IFontsEffectiveData](/slides/python-net/api-reference/aspose.slides/ifontseffectivedata/).|
+|major|Returns the fonts collection for a "heading" part of the slide.<br/>            Read-only [IFontsEffectiveData](/slides/python-net/api-reference/aspose.slides/ifontseffectivedata/).|
 |name|Returns the font scheme name.<br/>            Read-only string.|

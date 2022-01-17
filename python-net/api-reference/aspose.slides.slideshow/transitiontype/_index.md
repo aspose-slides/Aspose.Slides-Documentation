@@ -37,7 +37,7 @@ Represent slide show transition type.
 |WEDGE|18|Relates to transition Clock (with option Wedge) in PowerPoint 2010.|
 |WHEEL|19|Relates to transition Clock (with option Clockwise) in PowerPoint 2010.|
 |WIPE|20||
-|ZOOM|21|Relates to transition Shape (with options In/Out) in PowerPoint 2010.<br/>            See also [WARP](/python-net/api-reference/aspose.slides.slideshow/transitiontype/) that relates to transition Zoom in PowerPoint 2010.|
+|ZOOM|21|Relates to transition Shape (with options In/Out) in PowerPoint 2010.<br/>            See also [WARP](/slides/python-net/api-reference/aspose.slides.slideshow/transitiontype/) that relates to transition Zoom in PowerPoint 2010.|
 |VORTEX|22|Available in PowerPoint 2010.|
 |SWITCH|23|Available in PowerPoint 2010.|
 |FLIP|24|Available in PowerPoint 2010.|

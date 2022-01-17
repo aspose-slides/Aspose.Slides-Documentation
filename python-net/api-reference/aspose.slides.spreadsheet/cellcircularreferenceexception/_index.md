@@ -17,7 +17,7 @@ The CellCircularReferenceException type exposes the following members:
 ## **Constructors**
 |**Name**|**Description**|
 | :- | :- |
-|CellCircularReferenceException()|Initializes a new instance of the [CellCircularReferenceException](/python-net/api-reference/aspose.slides.spreadsheet/cellcircularreferenceexception/) class.|
+|CellCircularReferenceException()|Initializes a new instance of the [CellCircularReferenceException](/slides/python-net/api-reference/aspose.slides.spreadsheet/cellcircularreferenceexception/) class.|
 |CellCircularReferenceException(message)|Initializes a new instance of the CellCircularReferenceException class|
 |CellCircularReferenceException(message, reference)|Initializes a new instance of the CellCircularReferenceException class|
 ## **Properties**

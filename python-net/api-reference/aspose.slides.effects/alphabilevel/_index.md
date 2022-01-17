@@ -17,11 +17,11 @@ The AlphaBiLevel type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |threshold|Returns effect threshold.<br/>            Read/write|
-|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/python-net/api-reference/aspose.slides/ibaseslide/).|
-|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

@@ -22,7 +22,7 @@ The SlideCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [Slide](/python-net/api-reference/aspose.slides/slide/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [Slide](/slides/python-net/api-reference/aspose.slides/slide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

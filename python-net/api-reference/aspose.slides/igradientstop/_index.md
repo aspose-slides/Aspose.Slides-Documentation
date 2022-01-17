@@ -18,4 +18,4 @@ The IGradientStop type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |position|Returns or sets the position (0..1) of a gradient stop.<br/>            Read/write|
-|color|Returns the color of a gradient stop.<br/>            Read-only [IColorFormat](/python-net/api-reference/aspose.slides/icolorformat/).|
+|color|Returns the color of a gradient stop.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|

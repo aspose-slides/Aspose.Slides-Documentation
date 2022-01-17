@@ -22,4 +22,4 @@ The ExtraColorSchemeCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Returns an color scheme by index.<br/>            Read-only [ExtraColorScheme](/python-net/api-reference/aspose.slides.theme/extracolorscheme/).|
+|[index]|Returns an color scheme by index.<br/>            Read-only [ExtraColorScheme](/slides/python-net/api-reference/aspose.slides.theme/extracolorscheme/).|

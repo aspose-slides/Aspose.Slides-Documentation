@@ -5,7 +5,7 @@ weight: 1680
 url: /python-net/api-reference/aspose.slides/iinterruptiontokensource/
 ---
 
-Represents the source of [IInterruptionToken](/python-net/api-reference/aspose.slides/iinterruptiontoken/).
+Represents the source of [IInterruptionToken](/slides/python-net/api-reference/aspose.slides/iinterruptiontoken/).
 
 **Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
@@ -17,7 +17,7 @@ The IInterruptionTokenSource type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|token|Returns new token binded to this [IInterruptionTokenSource](/python-net/api-reference/aspose.slides/iinterruptiontokensource/).|
+|token|Returns new token binded to this [IInterruptionTokenSource](/slides/python-net/api-reference/aspose.slides/iinterruptiontokensource/).|
 |is_interruption_requested|Returns true if interruption requested, false otherwise.|
 ## **Methods**
 |**Name**|**Description**|

@@ -17,6 +17,6 @@ The Fonts type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|latin_font|Returns or sets the Latin font.<br/>            Read/write [IFontData](/python-net/api-reference/aspose.slides/ifontdata/).|
-|east_asian_font|Returns or sets the East Asian font.<br/>            Read/write [IFontData](/python-net/api-reference/aspose.slides/ifontdata/).|
-|complex_script_font|Returns or sets the complex script font.<br/>            Read/write [IFontData](/python-net/api-reference/aspose.slides/ifontdata/).|
+|latin_font|Returns or sets the Latin font.<br/>            Read/write [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|
+|east_asian_font|Returns or sets the East Asian font.<br/>            Read/write [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|
+|complex_script_font|Returns or sets the complex script font.<br/>            Read/write [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|

@@ -22,7 +22,7 @@ The MasterSlideCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [MasterSlide](/python-net/api-reference/aspose.slides/masterslide/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [MasterSlide](/slides/python-net/api-reference/aspose.slides/masterslide/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

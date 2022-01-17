@@ -22,4 +22,4 @@ The ISectionSlideCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [ISlide](/python-net/api-reference/aspose.slides/islide/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|

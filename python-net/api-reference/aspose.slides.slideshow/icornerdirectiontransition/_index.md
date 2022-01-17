@@ -17,5 +17,5 @@ The ICornerDirectionTransition type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|direction|Direction of transition.<br/>            Read/write [TransitionCornerDirectionType](/python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/).|
-|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
+|direction|Direction of transition.<br/>            Read/write [TransitionCornerDirectionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/).|
+|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|

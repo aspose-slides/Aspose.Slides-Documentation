@@ -5,7 +5,7 @@ weight: 580
 url: /python-net/api-reference/aspose.slides.charts/ichartdataworksheet/
 ---
 
-Represents worksheet associated with [IChartDataCell](/python-net/api-reference/aspose.slides.charts/ichartdatacell/)
+Represents worksheet associated with [IChartDataCell](/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/)
 
 **Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
 

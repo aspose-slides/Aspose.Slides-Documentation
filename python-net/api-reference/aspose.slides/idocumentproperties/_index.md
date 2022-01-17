@@ -32,7 +32,7 @@ The IDocumentProperties type exposes the following members:
 |comments|Returns or sets the comments of a presentation.<br/>            Read/write string.|
 |category|Returns or sets the category of a presentation.<br/>            Read/write string.|
 |created_time|Returns the date when a presentation was created.<br/>            Read/write datetime.|
-|last_saved_time|Returns the date when a presentation was modified last time.<br/>            Read-only in case of Presentation.DocumentProperties (because it will be updated internally while IPresentation object saving process). <br/>            Can be changed via DocumentProperties instance returning by method [None](/python-net/api-reference/aspose.slides/ipresentationinfo/)<br/>            Please see the example in|
+|last_saved_time|Returns the date when a presentation was modified last time.<br/>            Read-only in case of Presentation.DocumentProperties (because it will be updated internally while IPresentation object saving process). <br/>            Can be changed via DocumentProperties instance returning by method [None](/slides/python-net/api-reference/aspose.slides/ipresentationinfo/)<br/>            Please see the example in|
 |last_printed|Returns the date when a presentation was printed last time.<br/>            Read/write datetime.|
 |last_saved_by|Returns or sets the name of a last person who modified a presentation.<br/>            Read/write string.|
 |revision_number|Returns or sets the presentation revision number.<br/>            Read/write|

@@ -23,8 +23,8 @@ The VbaProject type exposes the following members:
 |**Name**|**Description**|
 | :- | :- |
 |name|Returns the name of the VBA project.<br/>            Read-only string.|
-|modules|Returns the list of all modules that are contained in the VBA project.<br/>            Read-only [IVbaModuleCollection](/python-net/api-reference/aspose.slides.vba/ivbamodulecollection/).|
-|references|Returns the list of all references that are contained in the VBA project.<br/>            Read-only [IVbaReferenceCollection](/python-net/api-reference/aspose.slides.vba/ivbareferencecollection/).|
+|modules|Returns the list of all modules that are contained in the VBA project.<br/>            Read-only [IVbaModuleCollection](/slides/python-net/api-reference/aspose.slides.vba/ivbamodulecollection/).|
+|references|Returns the list of all references that are contained in the VBA project.<br/>            Read-only [IVbaReferenceCollection](/slides/python-net/api-reference/aspose.slides.vba/ivbareferencecollection/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

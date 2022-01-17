@@ -22,7 +22,7 @@ The TabCollection type exposes the following members:
 ## **Indexer**
 |**Name**|**Description**|
 | :- | :- |
-|[index]|Gets the element at the specified index.<br/>            Read-only [Tab](/python-net/api-reference/aspose.slides/tab/).|
+|[index]|Gets the element at the specified index.<br/>            Read-only [Tab](/slides/python-net/api-reference/aspose.slides/tab/).|
 ## **Methods**
 |**Name**|**Description**|
 | :- | :- |

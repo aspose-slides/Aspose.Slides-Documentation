@@ -17,5 +17,5 @@ The IChartLinesFormat type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
-|line|Returns line style properties of a chart line.<br/>            Read-only [ILineFormat](/python-net/api-reference/aspose.slides/ilineformat/).|
-|effect|Returns effects used for a chart line.<br/>            Read-only [IEffectFormat](/python-net/api-reference/aspose.slides/ieffectformat/).|
+|line|Returns line style properties of a chart line.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|
+|effect|Returns effects used for a chart line.<br/>            Read-only [IEffectFormat](/slides/python-net/api-reference/aspose.slides/ieffectformat/).|

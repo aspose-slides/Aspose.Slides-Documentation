@@ -20,7 +20,7 @@ The ReflectionEffectiveData type exposes the following members:
 |blur_radius|Blur radius.<br/>            Read-only float.|
 |direction|Direction of shadow.<br/>            Read-only|
 |distance|Distance of shadow.<br/>            Read-only float.|
-|rectangle_align|Rectangle alignment.<br/>            Read-only [RectangleAlignment](/python-net/api-reference/aspose.slides/rectanglealignment/).|
+|rectangle_align|Rectangle alignment.<br/>            Read-only [RectangleAlignment](/slides/python-net/api-reference/aspose.slides/rectanglealignment/).|
 |skew_horizontal|Specifies the horizontal skew angle.<br/>            Read-only float.|
 |skew_vertical|Specifies the vertical skew angle.<br/>            Read-only float.|
 |rotate_shadow_with_shape|Specifies whether the shadow should rotate with the shape if the shape is rotated.<br/>            Read-only bool.|
@@ -31,4 +31,4 @@ The ReflectionEffectiveData type exposes the following members:
 |fade_direction|Specifies the direction to offset the reflection. (angle).<br/>            Read-only|
 |start_reflection_opacity|Starting reflection opacity. (percents).<br/>            Read-only|
 |end_reflection_opacity|End reflection opacity. (percents).<br/>            Read-only|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
