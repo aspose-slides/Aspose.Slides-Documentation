@@ -81,7 +81,7 @@ opts.notes_comments_layouting.comments_position = slides.export.CommentsPosition
 
 graphics = drawing.Graphics.from_image(bmp)
 pres.slides[0].render_to_graphics(opts, graphics)
-bmp.save("OutPresBitmap.png", drawing.imaging.ImageFormat.png)
+bmp.save("OutPresBitmap.jpg", drawing.imaging.ImageFormat.jpeg)
 ```
 
 {{% alert title="Tip" color="primary" %}}
