@@ -9,6 +9,8 @@ description: "Add comments and replies in PowerPoint presentation in C# or .NET"
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
+### **Why Add Comments to Presentations?**
+
 You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for .NET provides
@@ -62,10 +64,8 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
-
 ## **Access Slide Comments**
-This C# shows you how to access an existing comment on a slide in a PowerPoint presentation:
+This C# code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```c#
 // Instantiates the Presentation class
@@ -142,10 +142,9 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" title="Attention" %}} 
 
-When the [Remove](https://apireference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) method (from the [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* When the [Remove](https://apireference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) method (from the [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* If the [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) setting results in a circular reference, [PptxEditException](https://apireference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown.
 
-{{% alert color="info" title="Note" %}} 
-If setting [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) results in circular reference, the [PptxEditException](https://apireference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown.
 {{% /alert %}}
 
 ## **Add Modern Comment**
