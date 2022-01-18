@@ -16,13 +16,13 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% /alert %}} 
 
-Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, BMP, GIF, and others. 
-
 {{% alert title="Info" color="info" %}}
 
-If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [Picture Frame](https://docs.aspose.com/slides/cpp/picture-frame/). 
+If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [Picture Frame](/slides/cpp/picture-frame/). 
 
 {{% /alert %}} 
+
+Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, GIF, and others. 
 
 ## **Adding Images Stored Locally to Slides**
 
