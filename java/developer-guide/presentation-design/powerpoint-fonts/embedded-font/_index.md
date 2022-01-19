@@ -61,11 +61,17 @@ try {
         boolean embeddedFontsContainsFont = false;
         for (int i = 0; i < embeddedFonts.length; i++)
         {
-            if (embeddedFonts.equals(font)) embeddedFontsContainsFont = true;
+            if (embeddedFonts[i].equals(font))
+            {
+                embeddedFontsContainsFont = true;
+                break;
+            }
         }
         if (!embeddedFontsContainsFont)
         {
             pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
+
+            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
         }
     }
 
