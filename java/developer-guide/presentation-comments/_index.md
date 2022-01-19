@@ -95,20 +95,20 @@ This Java code shows you how to add comments and get replies to them:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Add comment
+    // Adds a comment
     ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
     IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
 
-    // Add reply for comment1
+    // Adds a reply to comment1
     ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
     IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
     reply1.setParentComment(comment1);
 
-    // Add reply for comment1
+    // Adds another reply to comment1
     IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
     reply2.setParentComment(comment1);
 
-    // Add reply to reply
+    // Add a reply to an existing reply
     IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
     subReply.setParentComment(reply2);
 
@@ -118,7 +118,7 @@ try {
     IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
     reply3.setParentComment(comment3);
 
-    // Display hierarchy on console
+    // Displays the comments hierarchy on console
     ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++)
@@ -135,7 +135,7 @@ try {
     }
     pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Remove comment1 and all its replies
+    // Removes comment1 and all replies to it
     comment1.remove();
 
     pres.save("remove_comment.pptx",SaveFormat.Pptx);
