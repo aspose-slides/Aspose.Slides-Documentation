@@ -11,8 +11,8 @@ This page contains release notes for [ Aspose.Slides for .NET 22.1](https://www
 
 {{% /alert %}} 
 
-|**Key**|**Summary**|**Category**|
-| :- | :- | :- |
+|**Key**|**Summary**|**Category**|**Related Documentation**|
+| :- | :- | :- | :- |
 |SLIDESNET-42964|Incorrect word breaks for text frames after export or rasterization|Enhancement|<https://docs.aspose.com/slides/net/convert-slide/>
 |SLIDESNET-42856|Custom table style is lost after cloning to another presentation|Enhancement|<https://docs.aspose.com/slides/net/clone-slides/>
 |SLIDESNET-42953|After import from PDF saved presentation is corrupted|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
