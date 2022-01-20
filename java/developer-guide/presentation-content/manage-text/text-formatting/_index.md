@@ -58,12 +58,12 @@ try {
 ## **Align Text Paragraphs**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for Java supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for Java:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Access the Placeholder shapes present in the slide and typecast them as a [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-- Get the Paragraph (that needs to be aligned) from the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape#getTextFrame--) exposed by [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-- Align the Paragraph. A paragraph can be aligned to Right, Left, Center & Justify.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Obtain the reference of a slide by using its Index.
+3. Access the Placeholder shapes present in the slide and typecast them as a [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+4. Get the Paragraph (that needs to be aligned) from the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape#getTextFrame--) exposed by [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+5. Align the Paragraph. A paragraph can be aligned to Right, Left, Center & Justify.
+6. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
@@ -100,10 +100,10 @@ try {
 ## **Set Transparency for Text**
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides for Java. In order to set the transparency to text. Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Get the reference of a slide.
-- Set shadow color
-- Write the presentation as a PPTX file.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Get the reference of a slide.
+3. Set shadow color
+4. Write the presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
@@ -193,18 +193,18 @@ try {
 ```
 
 ## **Manage Font Family of Text**
-As mentioned in Managing Font Related Properties a Portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Java to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
+A portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Java to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
 
-- Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its index.
-- Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of the type [Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) to the slide.
-- Remove the fill style associated with the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- Access the AutoShape's TextFrame.
-- Add some text to the TextFrame.
-- Access the Portion object associated with the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- Define the font to be used for the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion).
-- Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Obtain the reference of a slide by using its index.
+3. Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of the type [Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) to the slide.
+4. Remove the fill style associated with the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. Access the AutoShape's TextFrame.
+6. Add some text to the TextFrame.
+7. Access the Portion object associated with the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+8. Define the font to be used for the [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion).
+9. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
+10. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
@@ -259,12 +259,12 @@ try {
 ## **Set Text Rotation**
 Aspose.Slides for Java allows developers to rotate the text. Text could be set to appear as [Horizontal](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Horizontal), [Vertical](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Vertical), [Vertical270](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#MongolianVertical) or [WordArtVerticalRightToLeft](https://apireference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). To rotate the text of any TextFrame, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Access the first slide.
-- Add any Shape to the slide.
-- Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- [Rotate the text](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
-- Save file to disk.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Access the first slide.
+3. Add any Shape to the slide.
+4. Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. [Rotate the text](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
+6. Save file to disk.
 
 ```java
 // Create an instance of Presentation class
@@ -303,10 +303,10 @@ try {
 ## **Set Custom Rotation Angle for TextFrame**
 Aspose.Slides for Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) and [getRotationAngle](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getRotationAngle--) have been added to [IChartTextBlockFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartTextBlockFormat) and [ITextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Add a chart on slide.
-- [Set RotationAngle property](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-).
-- Write the presentation as a PPTX file.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Add a chart on slide.
+3. [Set RotationAngle property](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-).
+4. Write the presentation as a PPTX file.
 
 In the example given below, we set the RotationAngle property.
 
@@ -347,12 +347,12 @@ try {
 ## **Line Spacing of Paragraph**
 Aspose.Slides for Java lets developers to set the properties of ParagraphFormat to deal with line spacing of the paragraph. The properties SpaceAfter, SpaceBefore and SpaceWithin could be set for different line spacing. This article explains how to set these properties of [ParagraphFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraphFormat). Aspose.Slides for Java provides a simple API for setting properties of ParagraphFormat:
 
-- Load a presentation with an AutoShape having some text in it.
-- Obtain a slide's reference by its index.
-- Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- Access the Paragraph.
-- Set properties of [Paragraph](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph).
-- Save the presentation to disk.
+1. Load a presentation with an AutoShape having some text in it.
+2. Obtain a slide's reference by its index.
+3. Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+4. Access the Paragraph.
+5. Set properties of [Paragraph](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph).
+6. Save the presentation to disk.
 
 ```java
 // Create an instance of Presentation class
@@ -382,12 +382,12 @@ try {
 ## **Set the AutofitType Property for TextFrame**
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for Java allows developers to set AutofitType property of any text frame. AutofitType could be set to [Normal](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Normal) or [Shape](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Shape). If set to [Normal](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Normal) then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to [Shape](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Shape), then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
-- Create an instance of [Presentation ](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation)class.
-- Access the first slide.
-- Add any shape to the slide.
-- Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- [Set the AutofitType](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) of the TextFrame.
-- Save file to disk.
+1. Create an instance of [Presentation ](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation)class.
+2. Access the first slide.
+3. Add any shape to the slide.
+4. Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. [Set the AutofitType](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) of the TextFrame.
+6. Save file to disk.
 
 ```java
 // Create an instance of Presentation class
@@ -426,12 +426,12 @@ try {
 ## **Set Anchor of TextFrame**
 Aspose.Slides for Java allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. AnchorType could be set to [Top](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Top), [Center](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Center), [Bottom](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Bottom), [Justified](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Justified) or [Distributed](https://apireference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Distributed). To set Anchor of any TextFrame, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Access the first slide.
-- Add any shape to the slide.
-- Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- [Set TextAnchorType](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) of the TextFrame.
-- Save file to disk.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Access the first slide.
+3. Add any shape to the slide.
+4. Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. [Set TextAnchorType](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) of the TextFrame.
+6. Save file to disk.
 
 ```java
 // Create an instance of Presentation class

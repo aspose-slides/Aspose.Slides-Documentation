@@ -32,12 +32,12 @@ The code snippet below shows how to use this feature:
 ## **Align Text Paragraph**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for C++ supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for C++ :
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Access the Placeholder shapes present in the slide and typecast them as an AutoShape.
-- Get the Paragraph (that needs to be aligned) from the TextFrame exposed by AutoShape.
-- Align the Paragraph. A paragraph can be aligned to Right, Left, Center & Justify.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+2. Obtain the reference of a slide by using its Index.
+3. Access the Placeholder shapes present in the slide and typecast them as an AutoShape.
+4. Get the Paragraph (that needs to be aligned) from the TextFrame exposed by AutoShape.
+5. Align the Paragraph. A paragraph can be aligned to Right, Left, Center & Justify.
+6. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
@@ -46,10 +46,10 @@ The implementation of the above steps is given below.
 ## **Set Transparency for Text**
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides. In order to set the transparency to text. Please follow the steps below:
 
-- Create an instance of Presentation class.
-- Get reference of a slide.
-- Set shadow color
-- Write the presentation as a PPTX file.
+1. Create an instance of Presentation class.
+2. Get reference of a slide.
+3. Set shadow color
+4. Write the presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
@@ -77,18 +77,18 @@ The implementation of the above steps is given below. It takes an unadorned pres
 
 
 ## **Manage Font Family of Text**
-As mentioned in [Managing Font Related Properties](), a Portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for C++ to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
+A portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for C++ to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
 
-- Create an instance of the `Presentation` class.
-- Obtain the reference of a slide by using its index.
-- Add an AutoShape of the type Rectangle to the slide.
-- Remove the fill style associated with the AutoShape.
-- Access the AutoShape's TextFrame.
-- Add some text to the TextFrame.
-- Access the Portion object associated with the TextFrame.
-- Define the font to be used for the Portion.
-- Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the `Presentation` class.
+2. Obtain the reference of a slide by using its index.
+3. Add an AutoShape of the type Rectangle to the slide.
+4. Remove the fill style associated with the AutoShape.
+5. Access the AutoShape's TextFrame.
+6. Add some text to the TextFrame.
+7. Access the Portion object associated with the TextFrame.
+8. Define the font to be used for the Portion.
+9. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
+10. Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.
 
@@ -98,12 +98,12 @@ The implementation of the above steps is given below.
 ## **Set Text Rotation**
 Aspose.Slides for C++ allows developers to rotate the text. Text could be set to appear as Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical or WordArtVerticalRightToLeft. To rotate the text of any TextFrame, please follow the steps below:
 
-- Create an instance of `Presentation` class.
-- Access the first slide.
-- Add any Shape to the slide.
-- Access the TextFrame.
-- Rotate the text.
-- Save file to disk.
+1. Create an instance of `Presentation` class.
+2. Access the first slide.
+3. Add any Shape to the slide.
+4. Access the TextFrame.
+5. Rotate the text.
+6. Save file to disk.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RotatingText-RotatingText.cpp" >}}
 
@@ -119,12 +119,12 @@ Aspose.Slides for C++ allows developers to rotate the text. Text could be set to
 ## **Line Spacing of Paragraph**
 Aspose.Slides for C++ lets developers to set the values of ParagraphFormat to deal with line spacing of the paragraph. The methods set_SpaceAfter(), set_SpaceBefore() and Set_SpaceWithin() could be use for different line spacing. Aspose.Slides for C++ provides a simple API for setting values of ParagraphFormat:
 
-- Load a presentation with an AutoShape having some text in it.
-- Obtain a slide's reference by its index.
-- Access the TextFrame.
-- Access the Paragraph.
-- Set values of Paragraph.
-- Save the presentation to disk.
+1. Load a presentation with an AutoShape having some text in it.
+2. Obtain a slide's reference by its index.
+3. Access the TextFrame.
+4. Access the Paragraph.
+5. Set values of Paragraph.
+6. Save the presentation to disk.
 
 ``` cpp
 // The path to the documents directory.
@@ -155,12 +155,12 @@ presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
 ## **Set AutofitType Property of Text Frame**
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for C++ allows developers to set AutofitType property of any text frame. AutofitType could be set to Normal or Shape. If set to Normal then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to shape, then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
-- Create an instance of Presentation class.
-- Access the first slide.
-- Add any shape to the slide.
-- Access the TextFrame.
-- Set the AutofitType of the TextFrame.
-- Save file to disk.
+1. Create an instance of Presentation class.
+2. Access the first slide.
+3. Add any shape to the slide.
+4. Access the TextFrame.
+5. Set the AutofitType of the TextFrame.
+6. Save file to disk.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAutofitOftextframe-SetAutofitOftextframe.cpp" >}}
 
@@ -168,12 +168,12 @@ In this topic, we will explore the different formatting properties of text frame
 ## **Set Anchor of TextFrame**
 Aspose.Slides for C++ allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. TextAnchorType could be set to Top, Center, Bottom, Justified or Distributed. To set Anchor of any TextFrame, please follow the steps below:
 
-- Create an instance of `Presentation` class.
-- Access the first slide.
-- Add any shape to the slide.
-- Access the TextFrame.
-- Set TextAnchorType of the TextFrame.
-- Save file to disk.
+1. Create an instance of `Presentation` class.
+2. Access the first slide.
+3. Add any shape to the slide.
+4. Access the TextFrame.
+5. Set TextAnchorType of the TextFrame.
+6. Save file to disk.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cpp" >}}
 
@@ -181,10 +181,10 @@ Aspose.Slides for C++ allows developers to Anchor of any TextFrame. TextAnchorTy
 ## **Set Custom Rotation Angle for TextFrame**
 Aspose.Slides for C++ now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle property, Please follow the steps below:
 
-- Create an instance of Presentation class.
-- Add a chart on slide.
-- Set RotationAngle property.
-- Write the presentation as a PPTX file.
+1. Create an instance of Presentation class.
+2. Add a chart on slide.
+3. Set RotationAngle property.
+4. Write the presentation as a PPTX file.
 
 In the example given below, we set the RotationAngle property.
 
