@@ -17,28 +17,28 @@ In order to integrate and use Aspose.Slides for C++ library within a Qt Console 
 
 - Open Qt Creator and create a new *Qt Console Application*.
 
-![qt_console_application](Qt-Console-Application.png)
+![qt_console_application](qt-console-application.png)
 
 - Select the QMake option from the *Build System* dropdown list.
 
-![qt_console_application_qmake](Qt-Console-Application-QMake.png)
+![qt_console_application_qmake](qt-console-application-qmake.png)
 
 - Select the appropriate kit and finish the wizard.
 - Copy aspose-slides-cpp-21.02 folder from the extracted package of Aspose.Slides for C++ into the root of the project.
 
-![lib_files](Aspose.Slides-Lib-Files.png)
+![lib_files](aspose.slides-lib-files.png)
 
 - In order to add paths to lib and include folders, right-click on the project in the LHS panel and select *Add Library*.
 
-![qt_add_library](Qt_Add_Library.png)
+![qt_add_library](qt_add_library.png)
 
 - Select the External Library option and browse paths to include lib folders one by one.
 
-![todo:image_alt_text](Qt-Add-External-Library.png)
+![todo:image_alt_text](qt-add-external-library.png)
 
 - Once done, your .pro project file will contain the following entries:
 
-![qt_pro_file.png](Qt-Pro-File.png)
+![qt_pro_file.png](qt-pro-file.png)
 
 - Build the application and you are done with the integration.  
 
@@ -54,16 +54,16 @@ In order to develop a Qt application using Visual Studio, you need to install [Q
 
 - Open Microsoft Visual Studio and create a new *Qt Console Application*.
 
-![VS_Console_Application.png](VS-Console-Application.png)
+![VS_Console_Application.png](vs-console-application.png)
 
 - Select the appropriate kit and finish the wizard.
 - In order to integrate and use Aspose.Slides for C++ library, right-click on the project and select *Manage NuGet Packages...*.
 
-![VS_Manage_NuGet_Package.png](VS-Manage-NuGet-Package.png)
+![VS_Manage_NuGet_Package.png](vs-manage-nuget-package.png)
 
 - Find and install the required *Aspose.Slides.Cpp* package.
 
-![VS_Find_Nuget.png](VS-Find-Nuget.png)
+![VS_Find_Nuget.png](vs-find-nuget.png)
 
 - Build the project and you are done with the integration.  
 

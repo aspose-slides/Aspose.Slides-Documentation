@@ -10,7 +10,7 @@ All examples of Aspose.Slides for Java are hosted on [Github](https://github.com
 
 Extract the contents of ZIP file to any folder on your computer. All examples are located in the **Examples** folder.
 
-![todo:image_alt_text](Examples_Directory.png)
+![todo:image_alt_text](examples_directory.png)
 
 ## **Import examples into the IDE**
 The project uses Maven build system. Any modern IDE can easily open or import the project and its dependencies. Below we show you how to use popular IDEs to build and run the examples.
@@ -18,29 +18,29 @@ The project uses Maven build system. Any modern IDE can easily open or import th
 ### **IntelliJ IDEA**
 Click on the **File** menu and choose **Open**. Browse to the project folder and select the **pom.xml** file.
 
-![todo:image_alt_text](IDEA_Select_File_or_Directory_to_Import.png)
+![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
 It will open the project and download the dependencies automatically. From the Project tab, browse the examples in **src/main/java** folder. To run an example, just right click on the file and choose "Run ..", the example will be executed and the output will be shown in the built in console output window.
 
-![todo:image_alt_text](IDEA_Run_Example.png)
+![todo:image_alt_text](idea_run_example.png)
 
 ### **Eclipse**
 Click on **File** menu and choose **Import**. Select **Maven** - Existing Maven Projects.
 
-![todo:image_alt_text](Eclipse_Import.png)
+![todo:image_alt_text](eclipse_import.png)
 
 Browse to the folder that you cloned or downloaded from GitHub and select **pom.xml** file. It will open the project and download the dependencies automatically. From the Package Explorer tab, browse the examples in **src/main/java** folder. To run an example, just right click on the file and choose **Run As** - **Java Application**, the example will be executed and the output will be shown in the built in console output window.
 
-![todo:image_alt_text](Eclipse_Run_Example.png)
+![todo:image_alt_text](eclipse_run_example.png)
 
 ### **NetBeans**
 Click on the **File** menu and choose **Open Project**. Browse to the folder that you cloned or downloaded from GitHub. The icon of **Examples** folder will show that its a Maven project. Select Examples and open it.
 
-![todo:image_alt_text](NetBeans_OpenProject.png)
+![todo:image_alt_text](netbeans_openproject.png)
 
 It will open the project and download the dependencies automatically. From the Projects tab, browse the examples in **source packages**. To run an example, just right click on the file and choose **Run File**, the example will be executed and the output will be shown in the built in console output window.
 
-![todo:image_alt_text](NetBeans_Run_Example.png)
+![todo:image_alt_text](netbeans_run_example.png)
 
 ## **Adding Aspose.Slides Library into Maven Local Repository**
 When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://repository.aspose.com/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.

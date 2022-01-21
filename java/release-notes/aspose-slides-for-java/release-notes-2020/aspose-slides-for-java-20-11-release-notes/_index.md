@@ -185,4 +185,4 @@ try {
 
 * *When you first open a presentation in PP it may take a few seconds to upload an image of the chart from the Bing service since we don't provide the cached image.*
 
-![todo:image_alt_text](MapChart.png)
+![todo:image_alt_text](mapchart.png)

@@ -10,7 +10,7 @@ description: "Add zoom or zoom frames to PowerPoint presentations in Java"
 ## **Overview**
 Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
 
-![overview_image](Overview.png)
+![overview_image](overview.png)
 
 * To summarize an entire presentation on a single slide, use a [Summary Zoom](#Summary-Zoom).
 * To show selected slides only, use a [Slide Zoom](#Slide-Zoom).
@@ -21,7 +21,7 @@ A slide zoom can make your presentation more dynamic, allowing you to navigate f
 
 Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
 
-![overview_image](SlideZoomSel.png)
+![overview_image](slidezoomsel.png)
 
 For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://apireference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) enumeration, the [IZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) interface, and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
 
@@ -183,7 +183,7 @@ try {
 
 A section zoom is a link to a section in your presentation. You can use section zooms to go back to sections you want to really emphasize. Or you can use them to highlight how certain pieces of your presentation connect. 
 
-![overview_image](SecZoomSel.png)
+![overview_image](seczoomsel.png)
 
 For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) interface and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
 
@@ -329,7 +329,7 @@ try {
 
 A summary zoom is like a landing page where all the pieces of your presentation are displayed at once. When you're presenting, you can use the zoom to go from one place in your presentation to another in any order you like. You can get creative, skip ahead, or revisit pieces of your slide show without interrupting the flow of your presentation.
 
-![overview_image](SumZoomSel.png)
+![overview_image](sumzoomsel.png)
 
 For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection), and [ISummaryZoomSectionCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) interfaces and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
 

@@ -55,7 +55,7 @@ Support of the shape points editing has been added. New classes, interfaces, enu
 
 Customization of the shape geometry assumes editing points of an existing shape. 
 
-![Edit shape points](1_editPoints_PP.png)
+![Edit shape points](1_editpoints_pp.png)
 
 To provide the abovementioned functionality [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
 

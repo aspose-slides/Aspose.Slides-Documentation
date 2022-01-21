@@ -60,7 +60,7 @@ Feature description:
 
 Customization of the shape geometry assumes editing points of an existing shape. 
 
-![Edit shape points](1_editPoints_PP.png)
+![Edit shape points](1_editpoints_pp.png)
 
 To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class and [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
 
@@ -81,7 +81,7 @@ Method declaration:
 /// <param name="outputFile">Output file.</param>
 /// <param name="obj">Resource object.</param>
 void BindResource(IOutputFile outputFile, object obj);
-``` 
+```
 
 ### **Return type of all IOutput.Add method overloads has been changed** ###
 
