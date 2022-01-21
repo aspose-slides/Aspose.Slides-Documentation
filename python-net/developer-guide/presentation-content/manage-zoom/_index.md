@@ -12,7 +12,7 @@ A slide zoom can help you make your presentation more dynamic. It allows you to 
 
 With a slide zoom, you get to deeply examine several information parts while feeling like you were on a single canvas. 
 
-![overview_image](Overview.png)
+![overview_image](overview.png)
 
 To allow you use zoom objects, Aspose.Slides provides the [ZoomImageType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/izoomframe/) interface, and some methods in the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface.
 
@@ -169,7 +169,7 @@ with slides.Presentation() as pres:
 ## **Creating a Summary Zoom**
 A summary zoom is like a landing page that allows you to see all the parts of your presentation at once. By adding a summary zoom to your presentation, you get to jump in and out of different slides or move between them in any order. 
 
-![overview_image](SummaryZoom.png)
+![overview_image](summaryzoom.png)
 
 Aspose.Slides for Python via .NET has no methods for creating a summary zoom, but it has an API that allows you to achieve the same effect and do even more. 
 

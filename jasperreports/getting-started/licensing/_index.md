@@ -18,7 +18,7 @@ Download the license to your computer and copy it to the appropriate folder (for
 ## **Evaluation Version Limitation**
 Evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but (when you save your presentations) it injects an evaluation watermark at the center of each slide as shown in the figure below:
 
-![todo:image_alt_text](Evaluation_Watermark.png) 
+![todo:image_alt_text](evaluation_watermark.png) 
 
 ## **Applying a License**
 There are several ways to apply a license, depending on whether you're working on JasperReports, or JasperServer.

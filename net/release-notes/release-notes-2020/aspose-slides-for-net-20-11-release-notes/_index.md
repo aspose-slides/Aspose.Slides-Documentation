@@ -98,7 +98,7 @@ using (Presentation presentation = new Presentation())
 
 * *When you first open a presentation in PP it may take a few seconds to upload an image of the chart from the Bing service since we don't provide the cached image.*
 
-![todo:image_alt_text](MapChart.png)
+![todo:image_alt_text](mapchart.png)
 
 ### Checking password to open via IPresentationInfo interface
 **[CheckPassword](https://apireference.aspose.com/slides/net/aspose.slides/ipresentationinfo/methods/checkpassword)** 

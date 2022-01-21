@@ -21,7 +21,7 @@ A slide zoom can make your presentation more dynamic, allowing you to navigate f
 
 Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
 
-![overview_image](SlideZoomSel.png)
+![overview_image](slidezoomsel.png)
 
 For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) enumeration, the [IZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) interface, and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
 
@@ -175,7 +175,7 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 A section zoom is a link to a section in your presentation. You can use section zooms to go back to sections you want to really emphasize. Or you can use them to highlight how certain pieces of your presentation connect. 
 
-![overview_image](SecZoomSel.png)
+![overview_image](seczoomsel.png)
 
 For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) interface and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
 
@@ -309,7 +309,7 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 A summary zoom is like a landing page where all the pieces of your presentation are displayed at once. When you're presenting, you can use the zoom to go from one place in your presentation to another in any order you like. You can get creative, skip ahead, or revisit pieces of your slide show without interrupting the flow of your presentation.
 
-![overview_image](SumZoomSel.png)
+![overview_image](sumzoomsel.png)
 
 For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), and [ISummaryZoomSectionCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) interfaces and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
 

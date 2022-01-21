@@ -22,7 +22,7 @@ If you want to test **Aspose.Slides** without evaluation version limitations, yo
 ## **Evaluation Version Limitation**
 Evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but (when you save your presentations) it injects an evaluation watermark at the center of each slide as shown in the figure below:
 
-![todo:image_alt_text](Evaluation_Watermark.png) 
+![todo:image_alt_text](evaluation_watermark.png) 
 
 ## **Setting a License**
 The license is a plain text XML file that contains details such as the product name, number of developers it is licensed to, subscription expiry date, and so on. The file is digitally signed, so do not modify the file. Even an inadvertent addition of an extra line break to the contents of the file will invalidate it.
