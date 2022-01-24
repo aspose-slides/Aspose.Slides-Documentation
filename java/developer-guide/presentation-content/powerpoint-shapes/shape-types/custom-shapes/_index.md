@@ -3,89 +3,118 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /java/custom-shape/
+keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Add custom shape in PowerPoint presentation in Java"
 ---
 
-# Shape Geometry Customization (Shape Points Editing)
+# Change a Shape Using Edit Points
+Consider a square. In PowerPoint, using **edit points**, you can 
 
-## Overview
+* move the square's corner in or out
+* specify the curvature for a corner or point
+* add new points to the square
+* manipulate points on the square, etc. 
 
-Customization of the shape geometry assumes editing points of an existing shape. 
+Essentially, you can perform the described tasks on any shape. Using edit points, you get to change a shape or create a new shape from an existing shape. 
+
+## **Shape Editing Tips**
 
 ![overview_image](custom_shape_0.png)
 
-To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
+Before you start editing PowerPoint shapes through edit points, you might want to consider these points about shapes:
 
-To retrieve [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) from the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) instance [IGeometryShape.getGeometryPaths](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) method has been added. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) objects. 
+* A shape (or its path) can either be closed or open.
+* When a shape is closed, it lacks a start or end point. When a shape is open, it has a beginning and end. 
+* All shapes consist of at least 2 anchor points linked to each other by lines
+* A line is either straight or curved. Anchor points determine the nature of the line. 
+* Anchor points exist as corner points, straight points, or smooth points:
+  * A corner point is a point where 2 straight lines join at an angle. 
+  * A smooth point is a point where 2 handles exist in a straight line and the line's segments join in a smooth curve. In this case, all handles are separated from the anchor point by an equal distance. 
+  * A straight point is a point where 2 handles exist in a straight line and that line's line segments joins in a smooth curve. In this case, the handles don't have to be separated from the anchor point by an equal distance. 
+* By moving or editing anchor points (which changes the angle of lines), you can change the way a shape looks. 
 
-To set [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to the shape two methods have been added: 
-[IGeometryShape.setGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) for solid shapes and [IGeometryShape.setGeometryPaths](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) for composite shapes.
+To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [**IGeometryPath**](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface. 
 
-[IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) provides methods for adding segments of various types:
+* A [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
+* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape.getGeometryPaths](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) method. 
+* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape.setGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) for *solid shapes* and [IGeometryShape.setGeometryPaths](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) for *composite shapes*.
+* To add segments, you can use the methods under [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath). 
+* Using the [IGeometryPath.setStroke](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) and [IGeometryPath.setFillMode](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) methods, you can set the appearance for a geometry path.
+* Using the [IGeometryPath.getPathData](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) method, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
+* To access additional shape geometry customization options, you can convert [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
+* Use [geometryPathToGraphicsPath](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) and [graphicsPathToGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) methods (from the [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) class) to convert [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) back and forth. 
 
-**Adds line** to the end of the path
+## **Simple Editing Operations**
+
+This Java code shows you how to
+
+**Add a line** to the end of a path
+
 ``` java
 public void lineTo(java.awt.geom.Point2D.Float point);
 public void lineTo(float x, float y);
 ```
-**Adds line** to the specified place of the path:
+**Add a line** to a specified position on a path:
+
 ``` java    
 public void lineTo(java.awt.geom.Point2D.Float point, long index);
 public void lineTo(float x, float y, long index);
 ```
-**Adds cubic Bezier curve** at the end the path:
+**Add a cubic Bezier curve** at the end of a path:
+
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**Adds cubic Bezier curve** to the specified place of the path:
+**Add a cubic Bezier curve** to the specified position on a path:
+
 ``` java
 public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
 public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
 ```
-**Adds quadratic Bezier curve** at the end the path:
+**Add a quadratic Bezier curve** at the end of a path:
+
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**Adds quadratic Bezier curve** to the specified place of the path:
+**Add quadratic Bezier curve** to a specified position on a path:
+
 ``` java
 public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
 public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
 ```
-**Appends the specified arc** to the path:
+**Append a given arc** to a path:
+
 ``` java
 public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**Closes the current figure** of this path:
+**Close the current figure** of a path:
+
 ``` java
 public void closeFigure();
 ```
-**Sets next point position**:
+**Set the position for the next point**:
+
 ``` java
 public void moveTo(java.awt.geom.Point2D.Float point);
 public void moveTo(float x, float y);
 ```
-**Removes path segment** at the specified index:
+**Remove the path segment** at a given index:
+
 ``` java
 public void removeAt(int index);
 ```
-Methods [IGeometryPath.getStroke](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getStroke--), [IGeometryPath.getStroke](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-), [IGeometryPath.getFillMode](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getFillMode--) and [IGeometryPath.setFillMode](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) set an appearance of the geometry path.
 
-Method [IGeometryPath.getPathData](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) as an array of path segments.
+## **Add Custom Points to Shape**
+1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType) type.
+2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
+3. Add a new point between the two top points on the path.
+4. Add a new point between the two bottom points on the path.
+5. Apply the path to the shape.
 
+This Java code shows you how to add custom points to a shape:
 
-*To provide more options of shape geometry customization [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) class has been added. Methods of this class allow to convert [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*
-
-# Examples and Use Cases
-
-## Add Custom Points to Shape
-
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class of type [ShapeType.Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle)
-- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
-- Add a new point between two top points of the path.
-- Add a new point between two bottom points of the path.
-- Apply the path to the shape.
-  
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -100,16 +129,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points from Shape
+##  Remove Points From Shape
 
-- Create an instance of [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class of type [ShapeType.Heart](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Heart).
-- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
-- Remove segment of the path.
-- Apply the path to the shape.
-  
+1. Create an instance of [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Heart](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType) type. 
+2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
+3. Remove the segment for the path.
+4. Apply the path to the shape.
+
+This Java code shows you how to remove points from a shape:
+
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -125,13 +155,15 @@ try {
 ```
 ![example2_image](custom_shape_2.png)
 
-##  Create Custom Shape
+##  **Create Custom Shape**
 
-- Calculate points of the shape.
-- Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class. 
-- Fill the path with the points.
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class. 
-- Apply the path to the shape.
+1. Calculate the points for the shape.
+2. Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class. 
+3. Fill the path with the points.
+4. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class. 
+5. Apply the path to the shape.
+
+This Java shows you how to create a custom shape:
 
 ``` java
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
@@ -176,12 +208,14 @@ try {
 ![example3_image](custom_shape_3.png)
 
 
-## Create Composite Custom Shape
+## **Create Composite Custom Shape**
 
-  - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
-  - Create first instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
-  - Create second instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
-  - Apply the paths to the shape.
+  1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
+  2. Create a first instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
+  3. Create a second instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
+  4. Apply the paths to the shape.
+
+This Java code shows you to create a composite custom shape:
 
 ``` java
 Presentation pres = new Presentation();
@@ -210,13 +244,63 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## Conversion of java.awt.Shape to GeometryPath
+## **Create Custom Shape With Curved Corners**
 
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
-- Create an instance of the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) class.
-- Convert the [Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the  [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
-- Apply the paths to the shape.
-  
+This Java code shows you how to create a custom shape with curved corners (inwards);
+
+```java
+float shapeX = 20f;
+float shapeY = 20f;
+float shapeWidth = 300f;
+float shapeHeight = 200f;
+
+float leftTopSize = 50f;
+float rightTopSize = 20f;
+float rightBottomSize = 40f;
+float leftBottomSize = 10f;
+
+Presentation pres = new Presentation();
+try {
+    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
+            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    GeometryPath geometryPath = new GeometryPath();
+
+    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
+
+    geometryPath.moveTo(point1);
+    geometryPath.lineTo(point2);
+    geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
+    geometryPath.lineTo(point3);
+    geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
+    geometryPath.lineTo(point4);
+    geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
+    geometryPath.lineTo(point5);
+    geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
+
+    geometryPath.closeFigure();
+
+    childShape.setGeometryPath(geometryPath);
+
+    pres.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres!= null) pres.dispose();
+}
+```
+
+## **Convert GeometryPath to java.awt.Shape** 
+
+1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
+2. Create an instance of the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) class.
+3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
+4. Apply the paths to the shape.
+
+This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
+
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -250,9 +334,6 @@ try {
 
     // Set combination of new geometry path and origin geometry path to the shape
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
-
-    // Save the presentation
-    pres.save(resultPath, SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
