@@ -19,3 +19,9 @@ The product may be deployed in two different ways: automatically using an MSI in
 - [Integrating manually with Visual Studio 2005 or 2008 Report Designer](/slides/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
 - [Customizing Microsoft PowerPoint rendering extension caption](/slides/reportingservices/customizing-powerpoint-rendering-extension-caption/).
 - [Licensing Aspose.Slides for Reporting Services](/slides/reportingservices/license-aspose-slides-for-reporting-services/).
+
+{{% alert title="Note" color="warning" %}} 
+
+**Aspose.Slides for Reporting Services** requires the installation of .NET Framework 3.5 on the host machine. 
+
+{{% /alert %}}

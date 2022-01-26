@@ -10,6 +10,13 @@ url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-rep
 This article explains how to integrate Aspose.Slides for Reporting Services manually with Visual Studio. 
 
 {{% /alert %}} 
+
+{{% alert title="Note" color="warning" %}} 
+
+**Aspose.Slides for Reporting Services** requires the installation of **.NET Framework 3.5** on the host machine. 
+
+{{% /alert %}}
+
 ## **Integrating Aspose.Slides for Reporting Services with Visual Studio**
 To install Aspose.Slides for Reporting Services manually for Microsoft Visual Studio Report Designer without the MSI installer. We recommend you use the MSI installer because it performs all necessary installation and configuration automatically. However, if you fail to install with MSI installer then please follow the following guidelines. 
 

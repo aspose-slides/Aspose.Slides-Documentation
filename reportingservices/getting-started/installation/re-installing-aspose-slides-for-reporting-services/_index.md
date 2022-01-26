@@ -10,6 +10,13 @@ url: /reportingservices/re-installing-aspose-slides-for-reporting-services/
 This section explains the scenario where Aspose.Slides for Reporting Services is already installed and for some reason, reinstallation of Aspose.Slides for Reporting Services is required. 
 
 {{% /alert %}} 
+
+{{% alert title="Note" color="warning" %}} 
+
+**Aspose.Slides for Reporting Services** requires the installation of **.NET Framework 3.5** on the host machine. 
+
+{{% /alert %}}
+
 ## **Steps of Re-installing Aspose.Slides for Reporting Services**
 T he most important point to consider is to remove the previous Aspose.Slides for Reporting Services installations completely. Although, the MSI installer can successfully perform the necessary actions required to uninstall and hence reinstall Aspose.Slides for Reporting Services automatically, yet the following checklist of steps will ensure to achieve the desired results: 
 

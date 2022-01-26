@@ -10,6 +10,13 @@ url: /reportingservices/install-manually/
 You only need to follow these steps if you install Aspose.Slides for Reporting Services manually, not using the MSI installer. The MSI installer performs all necessary installation and registration actions automatically. 
 
 {{% /alert %}} 
+
+{{% alert title="Note" color="warning" %}} 
+
+**Aspose.Slides for Reporting Services** requires the installation of **.NET Framework 3.5** on the host machine. 
+
+{{% /alert %}}
+
 ### **Manual Installation**
 In the following steps, you will need to copy and modify files in the directory where Microsoft SQL Server Reporting Services is installed. 
 
