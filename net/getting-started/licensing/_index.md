@@ -52,6 +52,7 @@ license.SetLicense("Aspose.Slides.lic");
 ```
 
 When calling the SetLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the SetLicense method.
+
 ### **Applying a License from a Stream**
 You can load a license from a stream. 
 
@@ -94,5 +95,11 @@ license.SetLicense("Aspose.Slides.lic");
 
 ```
 
+## **Thread Safety**
 
+{{% alert title="Note" color="warning" %}} 
+
+The `license.SetLicense` method is not thread safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+
+{{% /alert %}}
 
