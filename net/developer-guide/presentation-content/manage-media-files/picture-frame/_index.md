@@ -141,6 +141,33 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
+## **Crop Image**
+
+This C# code shows you how to crop an existing image on a slide:
+
+```c#
+using (Presentation presentation = new Presentation())
+{
+    // Create new image object
+    IPPImage newImage = presentation.Images.AddImage(Image.FromFile(imagePath));
+
+    // Add PictureFrame to a Slide
+    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
+        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
+
+    // Crop image (percentage values)
+    picFrame.PictureFormat.CropLeft = 23.6f;
+    picFrame.PictureFormat.CropRight = 21.5f;
+    picFrame.PictureFormat.CropTop = 3;
+    picFrame.PictureFormat.CropBottom = 31;
+
+    // Save result
+    presentation.Save(outPptxFile, SaveFormat.Pptx);
+}
+```
+
+
+
 ## **Use StretchOff Property**
 Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
 
