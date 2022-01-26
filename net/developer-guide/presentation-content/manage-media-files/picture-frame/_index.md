@@ -7,9 +7,9 @@ keywords: "Add picture frame, create picture frame, StretchOff property, picture
 description: "Add picture frame to PowerPoint presentation in C# or .NET"
 ---
 
+A picture is a shape that contains an image—it is like a picture in a frame. 
 
-## **Create Picture Frame**
-Picture frame is also one of the shapes offered by Aspose.Slides for .NET. Adding picture frame to a slide is bit trickier than simple shapes. 
+You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
 {{% alert  title="Tip" color="primary" %}} 
 
@@ -17,41 +17,34 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% /alert %}} 
 
-A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
-This article explains how picture frames can be used in different ways:
+## **Create Picture Frame**
 
-- Adding Simple Picture Frames to Slides.
-- Controlling Picture Frame Formatting.
-- Adding Picture Frame with Relative Scale.
+1. Create an instance of the [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class. 
+2. Get a slide's reference through its index. 
+3. Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
+4. Specify the image's width and height.
+5. Create a [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/pictureframe) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
+6. Add a picture frame (containing the picture) to the slide.
+7. Write the modified presentation as a PPTX file.
 
-To add a simple picture frame to your slide, please follow the steps below:
-
-- Create an instance of [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class. 
-- Obtain the reference of a slide by using its index.
-- Create an Image object by adding an image to the Images collection associated with the Presentation object that will be used to fill the Shape.
-- Calculate the width and height of the image.
-- Create a PictureFrame according to the width and height of the image by using the AddPictureFrame method exposed by the Shapes object associated with the referenced slide.
-- Add a picture frame (containing the picture) to the slide.
-- Write the modified presentation as a PPTX file.
-
-The above steps are implemented in the example given below.
+This C# code shows you how to create a picture frame:
 
 ```c#
-// Instantiate Presentation class that represents the PPTX
+// Instantiates the Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // Gets the first slide
     ISlide sld = pres.Slides[0];
 
-    // Instantiate the ImageEx class
+    // Instantiates the ImageEx class
     System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
 
-    // Add Picture Frame with height and width equivalent of Picture
+    // Adds a picture frame with the picture's equivalent height and width
     IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
-    // Apply some formatting to PictureFrameEx
+    // Applies some formatting to the PictureFrameEx
     pf.LineFormat.FillFormat.FillType = FillType.Solid;
     pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pf.LineFormat.Width = 20;
@@ -64,81 +57,80 @@ using (Presentation pres = new Presentation())
 
 
 ## **Create Picture Frame with Relative Scale**
-The picture frame that we created in the above section were simple as well as well formatted. We can also control the relative scaling of image added in picture frame as well. In order to control the relative scaling of the image in a picture frame, please follow the steps below:
+By altering an image's relative scaling, you can create a more complicated picture frame. 
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class[](http://www.aspose.com/api/net/slides/aspose.slides/).
-- Obtain the reference of a slide by using its index.
-- Add an image to the presentation image collection.
-- Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
-- Set the relative width and height of the image in the picture frame.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+2. Get a slide's reference through its index. 
+3. Add an image to the presentation image collection.
+4. Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
+5. Specify the image's relative width and height in the picture frame.
+6. Write the modified presentation as a PPTX file.
 
-The above steps are implemented in the example given below.
+This C# code shows you how to create a picture frame with relative scale:
 
 ```c#
-// Instantiate presentation object
+// Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
 
-    // Load Image to be added in presentaiton image collection
+    // Loads the image that will be added to the presentation image collection
     Image img = new Bitmap("aspose-logo.jpg");
     IPPImage image = presentation.Images.AddImage(img);
 
-    // Add picture frame to slide
+    // Adds a picture frame to the slide
     IPictureFrame pf = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
 
-    // Setting relative scale width and height
+    // Sets the relative scale width and height
     pf.RelativeScaleHeight = 0.8f;
     pf.RelativeScaleWidth = 1.35f;
 
-    // Save presentation
+    // Saves presentation
     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-
-
 ## **Picture Frame Formatting**
-The picture frame that we created in the above section is simple. We can also control the formatting of a picture frame according to the requirement. There are many formatting settings that can be applied on a picture frame. To control the formatting of a picture frame in a slide, please follow the steps below:
+Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-- Obtain the reference of a slide by using its index.
-- Create an [IPPImage](http://www.aspose.com/api/net/slides/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
-- Calculate the width and height of image.
-- Create a PictureFrame according to the width and height of the image by using the [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection) object associated with the referenced slide.
-- Add the picture frame (containing the picture) to the slide.
-- Set the picture frame's line color.
-- Set the picture frame's line width.
-- Rotate the picture frame by giving it either a positive or negative value.
-- A positive value rotates it clockwise; a negative value rotates it anti-clockwise.
-- Add the picture frame (containing the picture) to the slide.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
+2. Get a slide's reference through its index. 
+3. Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
+4. Specify the image's width and height.
+5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection) object associated with the referenced slide.
+6. Add the picture frame (containing the picture) to the slide.
+7. Set the picture frame's line color.
+8. Set the picture frame's line width.
+9. Rotate the picture frame by giving it either a positive or negative value.
+   * A positive value rotates the image clockwise. 
+   * A negative value rotates the image anti-clockwise.
+10. Add the picture frame (containing the picture) to the slide.
+11. Write the modified presentation as a PPTX file.
 
-The above steps are implemented in the example given below.
+This C# code demonstrates the picture frame formatting process:
 
 ```c#
-// Instantiate Presentation class that represents the PPTX
+// Instantiates the Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // Gets the first slide
     ISlide sld = pres.Slides[0];
 
-    // Instantiate the ImageEx class
+    // Instantiates the ImageEx class
     System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
 
-    // Add Picture Frame with height and width equivalent of Picture
+    // Adds a picture frame with the picture's equivalent height and width
     IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
-    // Apply some formatting to PictureFrameEx
+    // Applies some formatting to PictureFrameEx
     pf.LineFormat.FillFormat.FillType = FillType.Solid;
     pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pf.LineFormat.Width = 20;
     pf.Rotation = 45;
 
-    //Write the PPTX file to disk
+    //Writes the PPTX file to disk
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -149,37 +141,37 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
-## **Add StretchOff Property**
-The Properties StretchOffsetLeft, StretchOffsetTop, StretchOffsetRight and StretchOffsetBottom has been added to IPictureFillFormat interface and PictureFillFormat class respectively. These properties specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
+## **Use StretchOff Property**
+Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
 
-- Create an instance of [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-- Obtain the reference of a slide by using its index.
-- Add an AutoShape of Rectangle type.
-- Create Image.
-- Set shape's fill type.
-- Set shape's picture fill mode.
-- Add Set image to fill the shape.
-- Specify image offsets from the corresponding edge of the shape's bounding box
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
+2. Get a slide's reference through its index.
+3. Add a rectangle `AutoShape`. 
+4. Create an image.
+5. Set the shape's fill type.
+6. Set the shape's picture fill mode.
+7. Add a set image to fill the shape.
+8. Specify image offsets from the corresponding edge of the shape's bounding box
+9. Write the modified presentation as a PPTX file.
 
-The above steps are implemented in the example given below.
+This C# code demonstrates the process:
 
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// Instantiates the Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // Gets the first slide
     ISlide sld = pres.Slides[0];
 
-    // Instantiate the ImageEx class
+    // Instantiates the ImageEx class
     System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
     IPPImage imgx = pres.Images.AddImage(img);
 
-    // Add Picture Frame with height and width equivalent of Picture
+    // Adds a picture frame with the picture's equivalent height and width
     sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
 
-    //Write the PPTX file to disk
+    //Writes the PPTX file to disk
     pres.Save("AddStretchOffsetForImageFill_out.pptx", SaveFormat.Pptx);
 }
 ```
