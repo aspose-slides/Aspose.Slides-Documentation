@@ -3,84 +3,117 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /cpp/custom-shape/
+keywords: "PowerPoint shape, custom shape, PowerPoint presentation, C++, Aspose.Slides for C++"
+description: "Add custom shape in PowerPoint presentation in C++"
 ---
 
+# Change a Shape Using Edit Points
+Consider a square. In PowerPoint, using **edit points**, you can 
 
-## Shape Geometry Customization (Shape Points Editing)
-Customization of the shape geometry assumes editing points of an existing shape. 
+* move the square's corner in or out
+* specify the curvature for a corner or point
+* add new points to the square
+* manipulate points on the square, etc. 
+
+Essentially, you can perform the described tasks on any shape. Using edit points, you get to change a shape or create a new shape from an existing shape. 
+
+## **Shape Editing Tips**
 
 ![overview_image](custom_shape_0.png)
 
-To provide the mentioned functionality [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class and [IGeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path) interface have been added. [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path) object. 
+Before you start editing PowerPoint shapes through edit points, you might want to consider these points about shapes:
 
-To retrieve [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) from the [IGeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape) instance IGeometryShape::GetGeometryPaths method has been added. Shapes may be built from a few smaller shapes (e.g. an "equal" sign) so this method returns an array of [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) objects. 
+* A shape (or its path) can either be closed or open.
+* When a shape is closed, it lacks a start or end point. When a shape is open, it has a beginning and end. 
+* All shapes consist of at least 2 anchor points linked to each other by lines
+* A line is either straight or curved. Anchor points determine the nature of the line. 
+* Anchor points exist as corner points, straight points, or smooth points:
+  * A corner point is a point where 2 straight lines join at an angle. 
+  * A smooth point is a point where 2 handles exist in a straight line and the line's segments join in a smooth curve. In this case, all handles are separated from the anchor point by an equal distance. 
+  * A straight point is a point where 2 handles exist in a straight line and that line's line segments joins in a smooth curve. In this case, the handles don't have to be separated from the anchor point by an equal distance. 
+* By moving or editing anchor points (which changes the angle of lines), you can change the way a shape looks. 
 
-To set [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) to the shape two methods have been added: 
-IGeometryShape::SetGeometryPath for solid shapes and IGeometryShape::SetGeometryPaths for composite shapes.
+To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class and [**IGeometryPath**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path) interface. 
 
-[IGeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path) provides methods for adding segments of various types:
+* A [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape) object. 
+* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape::GetGeometryPaths](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1) method. 
+* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape::SetGeometryPath()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) for *solid shapes* and [IGeometryShape::SetGeometryPaths()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) for *composite shapes*.
+* To add segments, you can use the methods under [IGeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
+* Using the [IGeometryPath::set_Stroke()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) and [IGeometryPath::set_FillMode()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) methods, you can set the appearance for a geometry path.
+* Using the [IGeometryPath::get_PathData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) method, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
+* To access additional shape geometry customization options, you can convert [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) to [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path)
+* Use [GeometryPathToGraphicsPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) and [GraphicsPathToGeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) methods (from the [ShapeUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util) class) to convert [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) to [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) back and forth. 
 
-**Adds line** to the end of the path
+## **Simple Editing Operations**
+
+This C++ code shows you how to
+
+**Add a line** to the end of a path
+
 ``` cpp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-**Adds line** to the specified place of the path:
+**Add a line** to a specified position on a path:
+
 ``` cpp    
 void LineTo(PointF point, uint32_t index);
 void LineTo(float x, float y, uint32_t index);
 ```
-**Adds cubic Bezier curve** at the end the path:
+**Add a cubic Bezier curve** at the end of a path:
+
 ``` cpp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**Adds cubic Bezier curve** to the specified place of the path:
+**Add a cubic Bezier curve** to the specified position on a path:
+
 ``` cpp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
 ```
-**Adds quadratic Bezier curve** at the end the path:
+**Add a quadratic Bezier curve** at the end of a path:
+
 ``` cpp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**Adds quadratic Bezier curve** to the specified place of the path:
+**Add quadratic Bezier curve** to a specified position on a path:
+
 ``` cpp
 void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
 ```
-**Appends the specified arc** to the path:
+**Append a given arc** to a path:
+
 ``` cpp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**Closes the current figure** of this path:
+**Close the current figure** of a path:
+
 ``` cpp
 void CloseFigure();
 ```
-**Sets next point position**:
+**Set the position for the next point**:
+
 ``` cpp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-**Removes path segment** at the specified index:
+**Remove the path segment** at a given index:
+
 ``` cpp
 void RemoveAt(int32_t index);
 ```
-Methods IGeometryPath::set_Stroke and IGeometryPath::set_FillMode set an appearance of the geometry path.
+## **Add Custom Points to Shape**
+1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class and set the [ShapeType.Rectangle](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) type.
+2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class from the shape.
+3. Add a new point between the two top points on the path.
+4. Add a new point between the two bottom points on the path.
+5. Apply the path to the shape.
 
-Method IGeometryPath::get_PathData returns the geometry path of [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) as an array of path segments.
+This C++ code shows you how to add custom points to a shape:
 
-
-*To provide more options of shape geometry customization [ShapeUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util) class has been added. Methods of this class allow to convert [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) to [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) back and forth.*
-
-## Add Custom Points to Shape
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class of type ShapeType::Rectangle
-- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class from the shape.
-- Add a new point between two top points of the path.
-- Add a new point between two bottom points of the path.
-- Apply the path to the shape.
-  
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -96,13 +129,15 @@ shape->SetGeometryPath(geometryPath);
 
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points from Shape
+##  Remove Points From Shape
 
-- Create an instance of [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class of type ShapeType::Heart.
-- Retrieve an instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class from the shape.
-- Remove segment of the path.
-- Apply the path to the shape.
-  
+1. Create an instance of [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class and set the [ShapeType.Heart](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) type. 
+2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class from the shape.
+3. Remove the segment for the path.
+4. Apply the path to the shape.
+
+This C++ code shows you how to remove points from a shape:
+
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -115,13 +150,15 @@ shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-##  Create Custom Shape
+##  **Create Custom Shape**
 
-- Calculate points of the shape.
-- Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class. 
-- Fill the path with the points.
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class. 
-- Apply the path to the shape.
+1. Calculate the points for the shape.
+2. Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class. 
+3. Fill the path with the points.
+4. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class. 
+5. Apply the path to the shape.
+
+This C++ code shows you how to create a custom shape:
 
 ``` cpp
 SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
@@ -161,12 +198,15 @@ shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-## Create Composite Custom Shape
 
-  - Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class.
-  - Create first instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class.
-  - Create second instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class.
-  - Apply the paths to the shape.
+## **Create Composite Custom Shape**
+
+  1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class.
+  2. Create a first instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class.
+  3. Create a second instance of the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class.
+  4. Apply the paths to the shape.
+
+This C++ code shows you to create a composite custom shape:
 
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -192,13 +232,59 @@ shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPa
 ```
 ![example4_image](custom_shape_4.png)
 
-## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 
+## **Create Custom Shape With Curved Corners**
 
-- Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class.
-- Create an instance of the [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) class  of the [System::Drawing::Drawing2D](https://apireference.aspose.com/slides/cpp/namespace/system.drawing.drawing2_d) namespace.
-- Convert the [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) instance to the  [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance using [ShapeUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).
-- Apply the paths to the shape.
-  
+This C++ code shows you how to create a custom shape with curved corners (inwards);
+
+```cpp
+float shapeX = 20.f;
+float shapeY = 20.f;
+float shapeWidth = 300.f;
+float shapeHeight = 200.f;
+
+float leftTopSize = 50.f;
+float rightTopSize = 20.f;
+float rightBottomSize = 40.f;
+float leftBottomSize = 10.f;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto geometryPath = System::MakeObject<GeometryPath>();
+
+PointF point1(leftTopSize, 0.0f);
+PointF point2(shapeWidth - rightTopSize, 0.0f);
+PointF point3(shapeWidth, shapeHeight - rightBottomSize);
+PointF point4(leftBottomSize, shapeHeight);
+PointF point5(0.0f, leftTopSize);
+
+geometryPath->MoveTo(point1);
+geometryPath->LineTo(point2);
+geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
+geometryPath->LineTo(point3);
+geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
+geometryPath->LineTo(point4);
+geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
+geometryPath->LineTo(point5);
+geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
+
+geometryPath->CloseFigure();
+
+childShape->SetGeometryPath(geometryPath);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+```
+
+## **Convert GeometryPath to GraphicsPath** 
+
+1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class.
+2. Create an instance of the [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) class of the [System.Drawing.Drawing2D](https://apireference.aspose.com/slides/cpp/namespace/system.drawing.drawing2_d) namespace.
+3. Convert the [GraphicsPath](https://apireference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) instance to the [GeometryPath](https://apireference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) instance using [ShapeUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).
+4. Apply the paths to the shape.
+
+This C++ code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
+
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
