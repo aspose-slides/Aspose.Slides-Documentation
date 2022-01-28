@@ -1,6 +1,7 @@
 ---
 title: Aspose.Slides for Python via .NET
 second_title: "Aspose.Slides for Python Documentation"
+description: Aspose.Slides for Python via .NET provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 type: docs
 weight: 35
 url: /python-net/

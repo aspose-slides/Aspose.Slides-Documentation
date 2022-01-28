@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /
 keywords: "Aspose.Slides for .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Aspose Documentation."
-description: "Aspose.Slides for .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Aspose Documentation."
+description: Aspose.Slides are Microsoft PowerPoint® management APIs that enables software applications to read and write PowerPoint® documents without using Microsoft PowerPoint®.
 ---
 
 ## Aspose.Slides for .NET

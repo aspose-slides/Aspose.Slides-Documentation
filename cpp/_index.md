@@ -1,6 +1,7 @@
 ---
 title: Aspose.Slides for C++
 second_title: Aspose.Slides Documentation
+description: Aspose.Slides for C++ is the first and only component that provides the functionality to manage PowerPoint® documents.
 type: docs
 weight: 30
 url: /cpp/
