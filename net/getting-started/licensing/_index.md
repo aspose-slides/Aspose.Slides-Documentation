@@ -35,6 +35,13 @@ Aspose.Slides for .NET typically tries to find the license in these locations:
 - An embedded resource in the assembly that called the dll of the component (included in Aspose.Slides)
 
 In the sections below, we will describe the two common methods used to set the license. 
+
+{{% alert color="primary" %}}
+
+For license operations, Aspose.Slides provides the [License](https://apireference.aspose.com/slides/net/aspose.slides/license) class. 
+
+{{% /alert %}} 
+
 ## **Applying a License Using File**
 ### **Applying a License Using a File**
 The easiest method of setting a license requires you to place the license file in the same folder containing the component's DLL (included in Aspose.Slides) and specify just the file name without its path.
@@ -52,6 +59,7 @@ license.SetLicense("Aspose.Slides.lic");
 ```
 
 When calling the SetLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the SetLicense method.
+
 ### **Applying a License from a Stream**
 You can load a license from a stream. 
 
@@ -94,5 +102,11 @@ license.SetLicense("Aspose.Slides.lic");
 
 ```
 
+## **Thread Safety**
 
+{{% alert title="Note" color="warning" %}} 
+
+The `license.SetLicense` method is not thread safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+
+{{% /alert %}}
 
