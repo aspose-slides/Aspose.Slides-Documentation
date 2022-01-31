@@ -416,5 +416,5 @@ using (Presentation pres = new Presentation())
 That's all you need to create HTML with the animated page transitions generated from the PDF document. 
 
 * [Download sample HTML file](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).
-* [Download sample project](https://docs.aspose.com/slides/net/web-extensions/sample.zip).
+* [Download sample project](/slides/net/web-extensions/sample.zip).
 
