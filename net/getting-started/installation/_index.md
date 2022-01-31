@@ -64,7 +64,7 @@ For the reasons above, we strongly recommend that you run Aspose.Slides on **Ful
 
 NuGet provides the easiest path to downloading and installing Aspose.Slides for .NET on macs. 
 
-**Install prerequisite**
+**Install Prerequisite**
 
 The `System.Drawing` namespace operates differently in macOS, so you have to install mono-libgdiplus. 
 
