@@ -169,8 +169,6 @@ Portion has its own template [portion.html](https://github.com/aspose-slides/Asp
 
 For each shape type, we use a custom template, which is added to the general set of templates from the Aspose.Slides.WebExtensions project. Templates are combined in the ToSinglePageWebDocument and ToMultiPageWebDocument methods to provide a final result. These are common templates used in both single and multi-page:
 
-XXX
-
 -templates
 +-common
   ¦ +-scripts: javascript scripts for slide transition animations, as instance.
@@ -184,7 +182,7 @@ You can find out how the common part is bound for all the templates in `Presenta
 
 You can modify any element in the template of the common model. For example, you may decide to change the table formatting styles but want all the other styles of the single page to stay unchanged
 
-By default, **XXX** Templates\common\table.html is used, and the table has the same appearance as the table in PowerPoint. Let's change the table formatting using custom CSS styles:
+By default, Templates\common\table.html is used, and the table has the same appearance as the table in PowerPoint. Let's change the table formatting using custom CSS styles:
 ``` css
 .custom-table {
     border: 1px solid black;
