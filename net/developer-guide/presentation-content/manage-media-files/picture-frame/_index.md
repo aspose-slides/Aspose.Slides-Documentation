@@ -135,7 +135,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert color="primary" %}}
 
 Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
 
@@ -148,28 +148,26 @@ This C# code shows you how to crop an existing image on a slide:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Create new image object
+    // Creates new image object
     IPPImage newImage = presentation.Images.AddImage(Image.FromFile(imagePath));
 
-    // Add PictureFrame to a Slide
+    // Adds a PictureFrame to a Slide
     IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
         ShapeType.Rectangle, 100, 100, 420, 250, newImage);
 
-    // Crop image (percentage values)
+    // Crops the image (percentage values)
     picFrame.PictureFormat.CropLeft = 23.6f;
     picFrame.PictureFormat.CropRight = 21.5f;
     picFrame.PictureFormat.CropTop = 3;
     picFrame.PictureFormat.CropBottom = 31;
 
-    // Save result
+    // Saves the result
     presentation.Save(outPptxFile, SaveFormat.Pptx);
 }
 ```
 
-
-
 ## **Use StretchOff Property**
-Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
+Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset. A negative percentage specifies an outset.
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
 2. Get a slide's reference through its index.
