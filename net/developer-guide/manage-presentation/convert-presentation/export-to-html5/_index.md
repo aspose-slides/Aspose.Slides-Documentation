@@ -70,6 +70,6 @@ In this case, the presentation content is rendered through SVG in a form like th
 
 {{% alert title="Note" color="warning" %}} 
 
-When you use this method to export PowerPoint to HTML, given the SVG rendering, you will not be to apply styles or animate specific elements. 
+When you use this method to export PowerPoint to HTML, due to the SVG rendering, you will not be to apply styles or animate specific elements. 
 
 {{% /alert %}}
