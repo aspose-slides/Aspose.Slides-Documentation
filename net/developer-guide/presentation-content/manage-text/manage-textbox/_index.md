@@ -4,29 +4,25 @@ type: docs
 weight: 20
 url: /net/manage-textbox/
 keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, C#, Csharp, Aspose.Slides for .NET"
-description: "Add textbox or text frame to PowerPoint presentations in C# or ,NET"
+description: "Add textbox or text frame to PowerPoint presentations in C# or .NET"
 ---
 
-Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for .NET provides the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface that allows you to add a shape containing some text.
+Texts on slides typically exist in text boxes or shapes. Therefore, to add text to a slide, you have to add a textbox first and then put some text inside the textbox. 
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides also provides the [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape) interface that allows you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. But shapes added through the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface may contain text. 
-
-{{% /alert %}}
+To allow you add a shape that can hold text, Aspose.Slides for .NET provides the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface. 
 
 {{% alert title="Note" color="warning" %}} 
 
-Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) section on this page. 
+Aspose.Slides also provides the [IShape](https://apireference.aspose.com/slides/net/aspose.slides/ishape) interface to allow you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. Shapes added through the [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) interface typically contain text. 
+
+Therefore, when dealing with an existing shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) section on this page. 
 
 {{% /alert %}}
 
 ## **Create Text Box on Slide**
 
-To create a textbox on a slide, go through these steps:
-
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class. 
-2. Obtain a reference for the first slide in the newly created presentation. 
+2. Get the first slide's reference through its index. 
 3. Add an [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) object with [ShapeType](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
 4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
@@ -53,10 +49,10 @@ using (Presentation pres = new Presentation())
     // Creates the Paragraph object for text frame
     IParagraph para = txtFrame.Paragraphs[0];
 
-    // Creates a Portion object for paragraph
+    // Creates a Portion object for the paragraph
     IPortion portion = para.Portions[0];
 
-    // Sets Text
+    // Sets the text
     portion.Text = "Aspose TextBox";
 
     // Saves the presentation to disk
@@ -65,8 +61,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Add Column In Text Box**
-Aspose.Slides provides the [ColumnCount](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
+## **Add Column in Text Box**
+Aspose.Slides provides the [ColumnCount](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/textframeformat) class) to allow you to add columns to textboxes. You get to specify the number of columns in a text box and then specify the spacing in points between columns. 
 
 This code in C# demonstrates the described operation: 
 
@@ -100,7 +96,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Add Column In Text Frame**
+## **Add Column in Text Frame**
 Aspose.Slides for .NET provides the [ColumnCount](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
 
  This C# code shows you how to add a column inside a text frame:
@@ -173,19 +169,17 @@ using(Presentation pres = new Presentation("text.pptx"))
        }
    }
   
-   //Saves modified presentation
+   //Saves the modified presentation
    pres.Save("text-changed.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Add Text Box with Hyperlink** 
 
-You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
-
- To add a text box containing a link, go through these steps:
+You can insert a link inside a textbox. When the textbox is clicked, users are directed to open the link. 
 
 1. Create an instance of the `Presentation` class. 
-2. Obtain a reference for the first slide in the newly created presentation. 
+2. Get the first slide's reference through its index.  
 3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
 4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
 5. Instantiate the `IHyperlinkManager` class. 
@@ -218,6 +212,7 @@ ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
 // Sets the Hyperlink for the portion text
 IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
 HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
+
 // Saves the PPTX Presentation
 pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
