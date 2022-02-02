@@ -1,7 +1,7 @@
 ---
 title: ShapeBevel Class
 type: docs
-weight: 3580
+weight: 3640
 url: /python-net/api-reference/aspose.slides/shapebevel/
 ---
 
@@ -11,7 +11,7 @@ Contains the properties of shape's main face relief.
 
 **Full Class Name:** aspose.slides.ShapeBevel
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ShapeBevel type exposes the following members:
 ## **Constructors**

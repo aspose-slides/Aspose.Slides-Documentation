@@ -11,7 +11,7 @@ Immutable object which represents and Alpha Replace effect.<br/>            Effe
 
 **Full Class Name:** aspose.slides.effects.IAlphaReplaceEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IAlphaReplaceEffectiveData type exposes the following members:
 ## **Properties**

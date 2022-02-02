@@ -1,7 +1,7 @@
 ---
 title: Paragraph Class
 type: docs
-weight: 3200
+weight: 3250
 url: /python-net/api-reference/aspose.slides/paragraph/
 ---
 
@@ -11,7 +11,7 @@ Represents a paragraph of text.
 
 **Full Class Name:** aspose.slides.Paragraph
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Paragraph type exposes the following members:
 ## **Constructors**

@@ -1,7 +1,7 @@
 ---
 title: NotesSlide Class
 type: docs
-weight: 3100
+weight: 3150
 url: /python-net/api-reference/aspose.slides/notesslide/
 ---
 
@@ -11,7 +11,7 @@ Represents a notes slide in a presentation.
 
 **Full Class Name:** aspose.slides.NotesSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NotesSlide type exposes the following members:
 ## **Properties**

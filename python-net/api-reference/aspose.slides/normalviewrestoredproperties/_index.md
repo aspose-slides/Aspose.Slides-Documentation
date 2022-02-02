@@ -1,7 +1,7 @@
 ---
 title: NormalViewRestoredProperties Class
 type: docs
-weight: 3080
+weight: 3130
 url: /python-net/api-reference/aspose.slides/normalviewrestoredproperties/
 ---
 
@@ -11,7 +11,7 @@ Specifies the sizing of the slide region ((width when a child of restoredTop, he
 
 **Full Class Name:** aspose.slides.NormalViewRestoredProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NormalViewRestoredProperties type exposes the following members:
 ## **Properties**

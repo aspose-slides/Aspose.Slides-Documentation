@@ -1,7 +1,7 @@
 ---
 title: RowCollection Class
 type: docs
-weight: 3520
+weight: 3570
 url: /python-net/api-reference/aspose.slides/rowcollection/
 ---
 
@@ -11,7 +11,7 @@ Represents table row collection.
 
 **Full Class Name:** aspose.slides.RowCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The RowCollection type exposes the following members:
 ## **Properties**

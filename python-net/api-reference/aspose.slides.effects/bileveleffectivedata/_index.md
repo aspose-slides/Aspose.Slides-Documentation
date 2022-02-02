@@ -11,7 +11,7 @@ Immutable object which represents a Bi-Level (black/white) effect.<br/>         
 
 **Full Class Name:** aspose.slides.effects.BiLevelEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BiLevelEffectiveData type exposes the following members:
 ## **Properties**

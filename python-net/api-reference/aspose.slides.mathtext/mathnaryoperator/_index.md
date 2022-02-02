@@ -11,7 +11,7 @@ Specifies an N-ary mathematical object, such as Summation and Integral.<br/>    
 
 **Full Class Name:** aspose.slides.mathtext.MathNaryOperator
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathNaryOperator type exposes the following members:
 ## **Constructors**

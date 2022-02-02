@@ -11,11 +11,11 @@ Represents color direction for color effect behavior.
 
 **Full Name:** aspose.slides.animation.ColorDirection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|CLOCKWISE|1||
-|COUNTER_CLOCKWISE|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|CLOCKWISE||
+|COUNTER_CLOCKWISE||

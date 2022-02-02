@@ -1,7 +1,7 @@
 ---
 title: VideoFrame Class
 type: docs
-weight: 3850
+weight: 3940
 url: /python-net/api-reference/aspose.slides/videoframe/
 ---
 
@@ -11,7 +11,7 @@ Represents a video clip on a slide.
 
 **Full Class Name:** aspose.slides.VideoFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The VideoFrame type exposes the following members:
 ## **Properties**

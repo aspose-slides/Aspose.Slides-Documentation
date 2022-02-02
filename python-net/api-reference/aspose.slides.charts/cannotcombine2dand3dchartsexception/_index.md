@@ -11,7 +11,7 @@ Exception which thrown when trying to combine 2D and 3D chart types.
 
 **Full Class Name:** aspose.slides.charts.CannotCombine2DAnd3DChartsException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The CannotCombine2DAnd3DChartsException type exposes the following members:
 ## **Constructors**

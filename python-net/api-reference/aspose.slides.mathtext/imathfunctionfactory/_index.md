@@ -11,7 +11,7 @@ Allows to create a math function
 
 **Full Class Name:** aspose.slides.mathtext.IMathFunctionFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathFunctionFactory type exposes the following members:
 ## **Methods**

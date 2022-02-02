@@ -11,7 +11,7 @@ Represents a collection of master slides.
 
 **Full Class Name:** aspose.slides.IMasterSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterSlideCollection type exposes the following members:
 ## **Properties**

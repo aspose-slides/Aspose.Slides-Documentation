@@ -11,7 +11,7 @@ Represents a collection of SmartArt nodes.
 
 **Full Class Name:** aspose.slides.smartart.ISmartArtNodeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISmartArtNodeCollection type exposes the following members:
 ## **Properties**

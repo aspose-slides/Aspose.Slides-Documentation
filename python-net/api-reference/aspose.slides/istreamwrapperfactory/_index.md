@@ -1,7 +1,7 @@
 ---
 title: IStreamWrapperFactory Class
 type: docs
-weight: 2580
+weight: 2590
 url: /python-net/api-reference/aspose.slides/istreamwrapperfactory/
 ---
 
@@ -11,7 +11,7 @@ Factory of StreamWrappers. For COM interface.
 
 **Full Class Name:** aspose.slides.IStreamWrapperFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IStreamWrapperFactory type exposes the following members:
 ## **Methods**

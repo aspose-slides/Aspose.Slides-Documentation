@@ -11,7 +11,7 @@ Provides access to embedded Excel workbook
 
 **Full Class Name:** aspose.slides.charts.IChartDataWorkbook
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartDataWorkbook type exposes the following members:
 ## **Properties**

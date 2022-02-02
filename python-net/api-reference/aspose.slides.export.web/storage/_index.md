@@ -11,7 +11,7 @@ Represents a temporary data storage for [WebDocument](/slides/python-net/api-ref
 
 **Full Class Name:** aspose.slides.export.web.Storage
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Storage type exposes the following members:
 ## **Constructors**

@@ -1,7 +1,7 @@
 ---
 title: TextExtractionArrangingMode Enumeration
 type: docs
-weight: 9980
+weight: 10110
 url: /python-net/api-reference/aspose.slides/textextractionarrangingmode/
 ---
 
@@ -11,10 +11,10 @@ Represents the mode to use during text extraction
 
 **Full Name:** aspose.slides.TextExtractionArrangingMode
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|UNARRANGED|0|The raw text with no respect to position on the slide|
-|ARRANGED|1|The text is positioned in the same order as on the slide|
+|**Member name**|**Description**|
+| :- | :- |
+|UNARRANGED|The raw text with no respect to position on the slide|
+|ARRANGED|The text is positioned in the same order as on the slide|

@@ -11,7 +11,7 @@ Represents a base class for locks (disabled operation).
 
 **Full Class Name:** aspose.slides.BaseShapeLock
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BaseShapeLock type exposes the following members:
 ## **Properties**

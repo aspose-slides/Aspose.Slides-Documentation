@@ -11,7 +11,7 @@ Immutable object that represents a readonly collection of effective effect style
 
 **Full Class Name:** aspose.slides.theme.IEffectStyleCollectionEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IEffectStyleCollectionEffectiveData type exposes the following members:
 ## **Properties**

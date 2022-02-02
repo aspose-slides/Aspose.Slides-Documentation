@@ -11,7 +11,7 @@ Specifies the superscript object, which consists of a base <br/>            and 
 
 **Full Class Name:** aspose.slides.mathtext.IMathSuperscriptElement
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathSuperscriptElement type exposes the following members:
 ## **Properties**

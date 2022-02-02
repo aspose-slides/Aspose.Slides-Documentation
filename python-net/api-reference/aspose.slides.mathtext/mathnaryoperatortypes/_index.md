@@ -11,15 +11,15 @@ Nary operator IMathNaryOperator types (excluding integrals)<br/>            For 
 
 **Full Name:** aspose.slides.mathtext.MathNaryOperatorTypes
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|SUMMATION|0|Summation: '∑'|
-|PRODUCT|1|Product: '∏'|
-|CO_PRODUCT|2|Coproduct: '∐'|
-|INTERSECTION|3|Intersection: '∩'|
-|UNION|4|Union: '∪'|
-|LOGICAL_AND|5|Logical And: '∧'|
-|LOGICAL_OR|6|Logical Or: '∨'|
+|**Member name**|**Description**|
+| :- | :- |
+|SUMMATION|Summation: '∑'|
+|PRODUCT|Product: '∏'|
+|CO_PRODUCT|Coproduct: '∐'|
+|INTERSECTION|Intersection: '∩'|
+|UNION|Union: '∪'|
+|LOGICAL_AND|Logical And: '∧'|
+|LOGICAL_OR|Logical Or: '∨'|

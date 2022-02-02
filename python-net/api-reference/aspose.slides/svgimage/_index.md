@@ -1,7 +1,7 @@
 ---
 title: SvgImage Class
 type: docs
-weight: 3710
+weight: 3800
 url: /python-net/api-reference/aspose.slides/svgimage/
 ---
 
@@ -11,7 +11,7 @@ Represents an SVG image.
 
 **Full Class Name:** aspose.slides.SvgImage
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SvgImage type exposes the following members:
 ## **Constructors**

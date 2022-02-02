@@ -11,7 +11,7 @@ Represents a placeholder on a slide.
 
 **Full Class Name:** aspose.slides.IPlaceholder
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IPlaceholder type exposes the following members:
 ## **Properties**

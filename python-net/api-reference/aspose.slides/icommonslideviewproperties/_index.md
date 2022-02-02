@@ -11,7 +11,7 @@ Represents common slide view properties.
 
 **Full Class Name:** aspose.slides.ICommonSlideViewProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICommonSlideViewProperties type exposes the following members:
 ## **Properties**

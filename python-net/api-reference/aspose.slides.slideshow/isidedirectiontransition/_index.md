@@ -11,7 +11,7 @@ Side direction slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.ISideDirectionTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISideDirectionTransition type exposes the following members:
 ## **Properties**

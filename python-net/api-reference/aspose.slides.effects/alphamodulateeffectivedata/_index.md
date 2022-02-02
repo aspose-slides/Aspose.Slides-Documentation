@@ -11,7 +11,7 @@ Immutable object which represents an Alpha Modulate effect.<br/>            Effe
 
 **Full Class Name:** aspose.slides.effects.AlphaModulateEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AlphaModulateEffectiveData type exposes the following members:
 ## **Properties**

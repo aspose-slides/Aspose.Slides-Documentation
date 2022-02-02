@@ -11,7 +11,7 @@ Represents font subtituition information
 
 **Full Class Name:** aspose.slides.FontSubstRule
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FontSubstRule type exposes the following members:
 ## **Constructors**

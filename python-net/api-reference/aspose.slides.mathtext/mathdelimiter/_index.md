@@ -11,7 +11,7 @@ Specifies the delimiter object, consisting of opening and closing characters (su
 
 **Full Class Name:** aspose.slides.mathtext.MathDelimiter
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathDelimiter type exposes the following members:
 ## **Constructors**

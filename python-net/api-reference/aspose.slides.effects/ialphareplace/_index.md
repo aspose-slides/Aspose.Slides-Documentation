@@ -11,7 +11,7 @@ Represents base IImageTransformOperation interface.
 
 **Full Class Name:** aspose.slides.effects.IAlphaReplace
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IAlphaReplace type exposes the following members:
 ## **Properties**

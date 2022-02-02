@@ -11,7 +11,7 @@ Allows to create a math paragraph
 
 **Full Class Name:** aspose.slides.mathtext.IMathParagraphFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathParagraphFactory type exposes the following members:
 ## **Methods**

@@ -1,7 +1,7 @@
 ---
 title: PptxException Class
 type: docs
-weight: 3420
+weight: 3470
 url: /python-net/api-reference/aspose.slides/pptxexception/
 ---
 
@@ -11,7 +11,7 @@ Represents a standard internal exception type.
 
 **Full Class Name:** aspose.slides.PptxException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PptxException type exposes the following members:
 ## **Constructors**

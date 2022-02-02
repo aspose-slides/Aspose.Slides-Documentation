@@ -1,7 +1,7 @@
 ---
 title: ITextHighlightingOptions Class
 type: docs
-weight: 2710
+weight: 2750
 url: /python-net/api-reference/aspose.slides/itexthighlightingoptions/
 ---
 
@@ -11,7 +11,7 @@ Represents options which can be used to highlight text in text frame.
 
 **Full Class Name:** aspose.slides.ITextHighlightingOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITextHighlightingOptions type exposes the following members:
 ## **Properties**

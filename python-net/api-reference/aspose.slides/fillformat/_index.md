@@ -11,7 +11,7 @@ Represents a fill formatting options.
 
 **Full Class Name:** aspose.slides.FillFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FillFormat type exposes the following members:
 ## **Properties**

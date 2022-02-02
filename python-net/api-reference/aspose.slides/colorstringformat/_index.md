@@ -1,7 +1,7 @@
 ---
 title: ColorStringFormat Enumeration
 type: docs
-weight: 9350
+weight: 9480
 url: /python-net/api-reference/aspose.slides/colorstringformat/
 ---
 
@@ -11,9 +11,9 @@ Represents a type of hyperlink action.
 
 **Full Name:** aspose.slides.ColorStringFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|VML|0|VML color string format.|
+|**Member name**|**Description**|
+| :- | :- |
+|VML|VML color string format.|

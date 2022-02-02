@@ -1,7 +1,7 @@
 ---
 title: ITagCollection Class
 type: docs
-weight: 2670
+weight: 2710
 url: /python-net/api-reference/aspose.slides/itagcollection/
 ---
 
@@ -11,7 +11,7 @@ Represents the collection of tags (user defined pairs of strings)
 
 **Full Class Name:** aspose.slides.ITagCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITagCollection type exposes the following members:
 ## **Properties**

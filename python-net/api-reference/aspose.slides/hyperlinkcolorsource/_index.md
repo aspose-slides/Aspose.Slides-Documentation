@@ -1,7 +1,7 @@
 ---
 title: HyperlinkColorSource Enumeration
 type: docs
-weight: 9470
+weight: 9600
 url: /python-net/api-reference/aspose.slides/hyperlinkcolorsource/
 ---
 
@@ -11,10 +11,10 @@ Represents source of hyperlink color.
 
 **Full Name:** aspose.slides.HyperlinkColorSource
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|STYLES|0|Styles.|
-|PORTION_FORMAT|1|Portion format.|
+|**Member name**|**Description**|
+| :- | :- |
+|STYLES|Styles.|
+|PORTION_FORMAT|Portion format.|

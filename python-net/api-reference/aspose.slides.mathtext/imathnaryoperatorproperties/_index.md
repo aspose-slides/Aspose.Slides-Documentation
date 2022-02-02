@@ -11,7 +11,7 @@ Specifies properties of IMathNaryOperator
 
 **Full Class Name:** aspose.slides.mathtext.IMathNaryOperatorProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathNaryOperatorProperties type exposes the following members:
 ## **Properties**

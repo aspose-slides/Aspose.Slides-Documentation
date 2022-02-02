@@ -11,7 +11,7 @@ Immutable object which contains effective camera properties.
 
 **Full Class Name:** aspose.slides.ICameraEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICameraEffectiveData type exposes the following members:
 ## **Properties**

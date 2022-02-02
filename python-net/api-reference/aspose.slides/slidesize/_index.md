@@ -1,7 +1,7 @@
 ---
 title: SlideSize Class
 type: docs
-weight: 3670
+weight: 3730
 url: /python-net/api-reference/aspose.slides/slidesize/
 ---
 
@@ -11,7 +11,7 @@ Represents a size of slide.
 
 **Full Class Name:** aspose.slides.SlideSize
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SlideSize type exposes the following members:
 ## **Properties**

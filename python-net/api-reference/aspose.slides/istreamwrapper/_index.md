@@ -1,7 +1,7 @@
 ---
 title: IStreamWrapper Class
 type: docs
-weight: 2570
+weight: 2580
 url: /python-net/api-reference/aspose.slides/istreamwrapper/
 ---
 
@@ -11,7 +11,7 @@ Aspose.IO.Stream wrapper for COM interface.
 
 **Full Class Name:** aspose.slides.IStreamWrapper
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IStreamWrapper type exposes the following members:
 ## **Properties**

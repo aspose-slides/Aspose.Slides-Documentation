@@ -1,7 +1,7 @@
 ---
 title: SketchFormat Class
 type: docs
-weight: 3630
+weight: 3690
 url: /python-net/api-reference/aspose.slides/sketchformat/
 ---
 
@@ -11,7 +11,7 @@ Represents properties for lines sketch format.
 
 **Full Class Name:** aspose.slides.SketchFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SketchFormat type exposes the following members:
 ## **Properties**

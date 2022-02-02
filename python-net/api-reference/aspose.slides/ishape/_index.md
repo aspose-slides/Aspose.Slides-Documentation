@@ -1,7 +1,7 @@
 ---
 title: IShape Class
 type: docs
-weight: 2390
+weight: 2400
 url: /python-net/api-reference/aspose.slides/ishape/
 ---
 
@@ -11,7 +11,7 @@ Represents a shape on a slide.
 
 **Full Class Name:** aspose.slides.IShape
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IShape type exposes the following members:
 ## **Properties**

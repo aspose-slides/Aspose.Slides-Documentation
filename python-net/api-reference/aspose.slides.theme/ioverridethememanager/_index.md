@@ -11,7 +11,7 @@ Provides access to different types of overriden themes.
 
 **Full Class Name:** aspose.slides.theme.IOverrideThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IOverrideThemeManager type exposes the following members:
 ## **Properties**

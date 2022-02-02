@@ -1,7 +1,7 @@
 ---
 title: MasterLayoutSlideCollection Class
 type: docs
-weight: 2990
+weight: 3040
 url: /python-net/api-reference/aspose.slides/masterlayoutslidecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collections of all layout slides of defined master slide.<br/>     
 
 **Full Class Name:** aspose.slides.MasterLayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MasterLayoutSlideCollection type exposes the following members:
 ## **Properties**

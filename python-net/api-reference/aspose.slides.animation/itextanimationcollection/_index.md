@@ -11,7 +11,7 @@ Represents collection of text animations.
 
 **Full Class Name:** aspose.slides.animation.ITextAnimationCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITextAnimationCollection type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: ImageCollection Class
 type: docs
-weight: 2820
+weight: 2870
 url: /python-net/api-reference/aspose.slides/imagecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents collection of PPImage.
 
 **Full Class Name:** aspose.slides.ImageCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ImageCollection type exposes the following members:
 ## **Properties**

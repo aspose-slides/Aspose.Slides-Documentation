@@ -1,7 +1,7 @@
 ---
 title: InterruptionToken Class
 type: docs
-weight: 2850
+weight: 2900
 url: /python-net/api-reference/aspose.slides/interruptiontoken/
 ---
 
@@ -11,7 +11,7 @@ This class represents the token to use for signaling long running tasks whether 
 
 **Full Class Name:** aspose.slides.InterruptionToken
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The InterruptionToken type exposes the following members:
 ## **Properties**

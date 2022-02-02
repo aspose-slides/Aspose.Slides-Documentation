@@ -11,7 +11,7 @@ Represents a geometry shape's adjustment value.<br/>            These values aff
 
 **Full Class Name:** aspose.slides.IAdjustValue
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IAdjustValue type exposes the following members:
 ## **Properties**

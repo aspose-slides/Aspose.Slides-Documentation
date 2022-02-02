@@ -11,11 +11,11 @@ Top/bottom positions enumeration
 
 **Full Name:** aspose.slides.mathtext.MathTopBotPositions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0|Not defined|
-|TOP|1|Top|
-|BOTTOM|2|Bottom|
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED|Not defined|
+|TOP|Top|
+|BOTTOM|Bottom|

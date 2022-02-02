@@ -11,12 +11,12 @@ Represents the tick mark type for the specified axis.
 
 **Full Name:** aspose.slides.charts.TickMarkType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|CROSS|0|Specifies the tick marks shall cross the axis.|
-|INSIDE|1|Specifies the tick marks shall be inside the plot area.|
-|NONE|2|Specifies there shall be no tick marks.|
-|OUTSIDE|3|Specifies the tick marks shall be outside the plot area.|
+|**Member name**|**Description**|
+| :- | :- |
+|CROSS|Specifies the tick marks shall cross the axis.|
+|INSIDE|Specifies the tick marks shall be inside the plot area.|
+|NONE|Specifies there shall be no tick marks.|
+|OUTSIDE|Specifies the tick marks shall be outside the plot area.|

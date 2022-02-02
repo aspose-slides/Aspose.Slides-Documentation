@@ -11,27 +11,27 @@ Constants which define the format of a saved presentation.
 
 **Full Name:** aspose.slides.export.SaveFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|PPT|0|Save presentation in PPT format.|
-|PDF|1|Save presentation in PDF format.|
-|XPS|2|Save presentation in XPS format.|
-|PPTX|3|Save presentation in PPTX format.|
-|PPSX|4|Save presentation in PPSX (slideshow) format.|
-|TIFF|5|Save presentation as multi-page TIFF image.|
-|ODP|6|Save presentation in ODP format.|
-|PPTM|7|Save presentation in PPTM (macro-enabled presentation) format.|
-|PPSM|8|Save presentation in PPSM (macro-enabled slideshow) format.|
-|POTX|9|Save presentation in POTX (template) format.|
-|POTM|10|Save presentation in POTM (macro-enabled template) format.|
-|HTML|11|Save presentation in HTML format.|
-|SWF|12|Save presentation in SWF format.|
-|OTP|13|Save presentation in OTP (presentation template) format.|
-|PPS|14|Save presentation in PPS format.|
-|POT|15|Save presentation in POT format.|
-|FODP|16|Save presentation in FODP format.|
-|GIF|17|Save presentation in GIF format.|
-|HTML5|18|Save presentation in HTML format using new HTML5 templating system.|
+|**Member name**|**Description**|
+| :- | :- |
+|PPT|Save presentation in PPT format.|
+|PDF|Save presentation in PDF format.|
+|XPS|Save presentation in XPS format.|
+|PPTX|Save presentation in PPTX format.|
+|PPSX|Save presentation in PPSX (slideshow) format.|
+|TIFF|Save presentation as multi-page TIFF image.|
+|ODP|Save presentation in ODP format.|
+|PPTM|Save presentation in PPTM (macro-enabled presentation) format.|
+|PPSM|Save presentation in PPSM (macro-enabled slideshow) format.|
+|POTX|Save presentation in POTX (template) format.|
+|POTM|Save presentation in POTM (macro-enabled template) format.|
+|HTML|Save presentation in HTML format.|
+|SWF|Save presentation in SWF format.|
+|OTP|Save presentation in OTP (presentation template) format.|
+|PPS|Save presentation in PPS format.|
+|POT|Save presentation in POT format.|
+|FODP|Save presentation in FODP format.|
+|GIF|Save presentation in GIF format.|
+|HTML5|Save presentation in HTML format using new HTML5 templating system.|

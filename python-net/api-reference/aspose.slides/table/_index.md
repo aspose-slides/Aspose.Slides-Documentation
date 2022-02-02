@@ -1,7 +1,7 @@
 ---
 title: Table Class
 type: docs
-weight: 3750
+weight: 3840
 url: /python-net/api-reference/aspose.slides/table/
 ---
 
@@ -11,7 +11,7 @@ Represents a table on a slide.
 
 **Full Class Name:** aspose.slides.Table
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Table type exposes the following members:
 ## **Properties**

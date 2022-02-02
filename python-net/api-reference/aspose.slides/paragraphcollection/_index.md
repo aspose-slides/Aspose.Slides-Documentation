@@ -1,7 +1,7 @@
 ---
 title: ParagraphCollection Class
 type: docs
-weight: 3210
+weight: 3260
 url: /python-net/api-reference/aspose.slides/paragraphcollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of a paragraphs.
 
 **Full Class Name:** aspose.slides.ParagraphCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ParagraphCollection type exposes the following members:
 ## **Properties**

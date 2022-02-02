@@ -11,7 +11,7 @@ Represents a notes slide in a presentation.
 
 **Full Class Name:** aspose.slides.INotesSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The INotesSlide type exposes the following members:
 ## **Properties**

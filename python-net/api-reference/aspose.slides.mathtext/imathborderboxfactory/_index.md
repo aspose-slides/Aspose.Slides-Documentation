@@ -11,7 +11,7 @@ Allows to create a math border box
 
 **Full Class Name:** aspose.slides.mathtext.IMathBorderBoxFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathBorderBoxFactory type exposes the following members:
 ## **Methods**

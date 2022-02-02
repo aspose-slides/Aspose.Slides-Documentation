@@ -11,7 +11,7 @@ Represents formatting options for DataLabel.
 
 **Full Class Name:** aspose.slides.charts.IDataLabelFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IDataLabelFormat type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ This class contains the paragraph formatting properties. Unlike [IParagraphForma
 
 **Full Class Name:** aspose.slides.IParagraphFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IParagraphFormat type exposes the following members:
 ## **Properties**

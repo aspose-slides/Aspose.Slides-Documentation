@@ -11,7 +11,7 @@ Digital signature in signed file.
 
 **Full Class Name:** aspose.slides.IDigitalSignature
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IDigitalSignature type exposes the following members:
 ## **Properties**

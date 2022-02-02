@@ -11,7 +11,7 @@ Fly-through slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.FlyThroughTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FlyThroughTransition type exposes the following members:
 ## **Properties**

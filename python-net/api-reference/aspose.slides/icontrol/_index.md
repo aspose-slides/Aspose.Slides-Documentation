@@ -11,7 +11,7 @@ Represents an ActiveX control.
 
 **Full Class Name:** aspose.slides.IControl
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IControl type exposes the following members:
 ## **Properties**

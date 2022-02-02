@@ -1,7 +1,7 @@
 ---
 title: NotesSlideManager Class
 type: docs
-weight: 3120
+weight: 3170
 url: /python-net/api-reference/aspose.slides/notesslidemanager/
 ---
 
@@ -11,7 +11,7 @@ Notes slide manager.
 
 **Full Class Name:** aspose.slides.NotesSlideManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NotesSlideManager type exposes the following members:
 ## **Properties**

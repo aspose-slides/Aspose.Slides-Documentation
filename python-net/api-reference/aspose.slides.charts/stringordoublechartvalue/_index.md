@@ -11,7 +11,7 @@ Represent string or double value which can be stored in pptx presentation docume
 
 **Full Class Name:** aspose.slides.charts.StringOrDoubleChartValue
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The StringOrDoubleChartValue type exposes the following members:
 ## **Properties**

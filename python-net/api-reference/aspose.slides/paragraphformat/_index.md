@@ -1,7 +1,7 @@
 ---
 title: ParagraphFormat Class
 type: docs
-weight: 3230
+weight: 3280
 url: /python-net/api-reference/aspose.slides/paragraphformat/
 ---
 
@@ -11,7 +11,7 @@ This class contains the paragraph formatting properties. Unlike [IParagraphForma
 
 **Full Class Name:** aspose.slides.ParagraphFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ParagraphFormat type exposes the following members:
 ## **Constructors**

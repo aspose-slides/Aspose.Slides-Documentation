@@ -11,7 +11,7 @@ Orientation slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.IOrientationTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IOrientationTransition type exposes the following members:
 ## **Properties**

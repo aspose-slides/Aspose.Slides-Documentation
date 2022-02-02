@@ -11,7 +11,7 @@ Immutable object which represents a reflection effect.
 
 **Full Class Name:** aspose.slides.effects.ReflectionEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ReflectionEffectiveData type exposes the following members:
 ## **Properties**

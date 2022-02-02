@@ -11,7 +11,7 @@ Represents a collection of SmartArt shapes
 
 **Full Class Name:** aspose.slides.smartart.ISmartArtShapeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISmartArtShapeCollection type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: PortionFactory Class
 type: docs
-weight: 3330
+weight: 3380
 url: /python-net/api-reference/aspose.slides/portionfactory/
 ---
 
@@ -11,7 +11,7 @@ Allows to create test portions
 
 **Full Class Name:** aspose.slides.PortionFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PortionFactory type exposes the following members:
 ## **Constructors**

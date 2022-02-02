@@ -11,7 +11,7 @@ Provides access to presentation master theme.
 
 **Full Class Name:** aspose.slides.theme.MasterThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MasterThemeManager type exposes the following members:
 ## **Properties**

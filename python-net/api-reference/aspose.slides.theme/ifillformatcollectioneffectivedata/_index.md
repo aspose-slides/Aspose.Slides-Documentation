@@ -11,7 +11,7 @@ Immutable object that represents a readonly collection of effective fill formats
 
 **Full Class Name:** aspose.slides.theme.IFillFormatCollectionEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFillFormatCollectionEffectiveData type exposes the following members:
 ## **Properties**

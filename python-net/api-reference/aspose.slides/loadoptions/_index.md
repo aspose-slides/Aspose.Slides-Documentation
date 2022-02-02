@@ -1,7 +1,7 @@
 ---
 title: LoadOptions Class
 type: docs
-weight: 2960
+weight: 3010
 url: /python-net/api-reference/aspose.slides/loadoptions/
 ---
 
@@ -11,7 +11,7 @@ Allows to specify additional options (such as format or default font) when loadi
 
 **Full Class Name:** aspose.slides.LoadOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LoadOptions type exposes the following members:
 ## **Constructors**

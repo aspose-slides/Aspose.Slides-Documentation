@@ -11,7 +11,7 @@ Represent motion path.
 
 **Full Class Name:** aspose.slides.animation.MotionPath
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MotionPath type exposes the following members:
 ## **Constructors**

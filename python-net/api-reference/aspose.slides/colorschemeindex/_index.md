@@ -1,7 +1,7 @@
 ---
 title: ColorSchemeIndex Enumeration
 type: docs
-weight: 9340
+weight: 9470
 url: /python-net/api-reference/aspose.slides/colorschemeindex/
 ---
 
@@ -11,20 +11,20 @@ Represents an index in a colorscheme.
 
 **Full Name:** aspose.slides.ColorSchemeIndex
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|DARK1|0|Dark 1.|
-|LIGHT1|1|Light 1.|
-|DARK2|2|Dark 2.|
-|LIGHT2|3|Light 2.|
-|ACCENT1|4|Accent 1.|
-|ACCENT2|5|Accent 2.|
-|ACCENT3|6|Accent 3.|
-|ACCENT4|7|Accent 4.|
-|ACCENT5|8|Accent 5.|
-|ACCENT6|9|Accent 6.|
-|HYPERLINK|10|Hyperlink.|
-|FOLLOWED_HYPERLINK|11|Followed Hyperlink.|
+|**Member name**|**Description**|
+| :- | :- |
+|DARK1|Dark 1.|
+|LIGHT1|Light 1.|
+|DARK2|Dark 2.|
+|LIGHT2|Light 2.|
+|ACCENT1|Accent 1.|
+|ACCENT2|Accent 2.|
+|ACCENT3|Accent 3.|
+|ACCENT4|Accent 4.|
+|ACCENT5|Accent 5.|
+|ACCENT6|Accent 6.|
+|HYPERLINK|Hyperlink.|
+|FOLLOWED_HYPERLINK|Followed Hyperlink.|

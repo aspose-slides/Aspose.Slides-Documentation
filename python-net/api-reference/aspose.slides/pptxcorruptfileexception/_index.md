@@ -1,7 +1,7 @@
 ---
 title: PptxCorruptFileException Class
 type: docs
-weight: 3400
+weight: 3450
 url: /python-net/api-reference/aspose.slides/pptxcorruptfileexception/
 ---
 
@@ -11,7 +11,7 @@ url: /python-net/api-reference/aspose.slides/pptxcorruptfileexception/
 
 **Full Class Name:** aspose.slides.PptxCorruptFileException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PptxCorruptFileException type exposes the following members:
 ## **Constructors**

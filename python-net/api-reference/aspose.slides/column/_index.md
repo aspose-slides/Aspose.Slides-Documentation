@@ -11,7 +11,7 @@ Represents a column in a table.
 
 **Full Class Name:** aspose.slides.Column
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Column type exposes the following members:
 ## **Properties**

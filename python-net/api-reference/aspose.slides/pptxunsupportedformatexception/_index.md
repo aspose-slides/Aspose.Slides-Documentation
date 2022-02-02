@@ -1,7 +1,7 @@
 ---
 title: PptxUnsupportedFormatException Class
 type: docs
-weight: 3440
+weight: 3490
 url: /python-net/api-reference/aspose.slides/pptxunsupportedformatexception/
 ---
 
@@ -11,7 +11,7 @@ Exception which thrown when presentation file format is unsupported.
 
 **Full Class Name:** aspose.slides.PptxUnsupportedFormatException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PptxUnsupportedFormatException type exposes the following members:
 ## **Constructors**

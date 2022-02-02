@@ -11,7 +11,7 @@ Represents a collection of effects apllied to an image.
 
 **Full Class Name:** aspose.slides.effects.IImageTransformOperationCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IImageTransformOperationCollection type exposes the following members:
 ## **Properties**

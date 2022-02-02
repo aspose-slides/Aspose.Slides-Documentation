@@ -1,7 +1,7 @@
 ---
 title: TextFrame Class
 type: docs
-weight: 3780
+weight: 3870
 url: /python-net/api-reference/aspose.slides/textframe/
 ---
 
@@ -11,7 +11,7 @@ Represents a TextFrame.
 
 **Full Class Name:** aspose.slides.TextFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The TextFrame type exposes the following members:
 ## **Properties**

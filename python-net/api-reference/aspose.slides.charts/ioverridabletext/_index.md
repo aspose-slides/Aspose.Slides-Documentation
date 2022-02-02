@@ -11,7 +11,7 @@ Represents overridable text for a chart.
 
 **Full Class Name:** aspose.slides.charts.IOverridableText
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IOverridableText type exposes the following members:
 ## **Properties**

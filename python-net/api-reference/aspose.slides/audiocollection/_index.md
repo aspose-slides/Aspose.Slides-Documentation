@@ -11,7 +11,7 @@ Represents a collection of embedded audio files.
 
 **Full Class Name:** aspose.slides.AudioCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AudioCollection type exposes the following members:
 ## **Properties**

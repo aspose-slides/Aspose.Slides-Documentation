@@ -1,7 +1,7 @@
 ---
 title: ITab Class
 type: docs
-weight: 2600
+weight: 2640
 url: /python-net/api-reference/aspose.slides/itab/
 ---
 
@@ -11,7 +11,7 @@ Represents a tabulation for a text.
 
 **Full Class Name:** aspose.slides.ITab
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITab type exposes the following members:
 ## **Properties**

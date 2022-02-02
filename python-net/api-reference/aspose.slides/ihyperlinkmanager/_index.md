@@ -11,7 +11,7 @@ Provide hyperlinks management (adding, removing).
 
 **Full Class Name:** aspose.slides.IHyperlinkManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IHyperlinkManager type exposes the following members:
 ## **Methods**

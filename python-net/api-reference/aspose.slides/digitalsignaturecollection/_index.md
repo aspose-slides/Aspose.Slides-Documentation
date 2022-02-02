@@ -11,7 +11,7 @@ Represents a collection of digital signatures attached to a document.
 
 **Full Class Name:** aspose.slides.DigitalSignatureCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The DigitalSignatureCollection type exposes the following members:
 ## **Properties**

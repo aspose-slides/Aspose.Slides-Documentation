@@ -11,7 +11,7 @@ Represents a Duotone effect.
 
 **Full Class Name:** aspose.slides.effects.IDuotone
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IDuotone type exposes the following members:
 ## **Properties**

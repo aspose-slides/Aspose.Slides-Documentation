@@ -11,7 +11,7 @@ Represents a collections of all layout slides of defined master slide.<br/>     
 
 **Full Class Name:** aspose.slides.IMasterLayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterLayoutSlideCollection type exposes the following members:
 ## **Properties**

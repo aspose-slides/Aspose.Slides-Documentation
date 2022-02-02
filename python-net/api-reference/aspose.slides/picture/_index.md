@@ -1,7 +1,7 @@
 ---
 title: Picture Class
 type: docs
-weight: 3260
+weight: 3310
 url: /python-net/api-reference/aspose.slides/picture/
 ---
 
@@ -11,7 +11,7 @@ Represents a picture in a presentation.
 
 **Full Class Name:** aspose.slides.Picture
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Picture type exposes the following members:
 ## **Properties**

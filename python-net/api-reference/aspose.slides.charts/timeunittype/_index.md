@@ -11,11 +11,12 @@ Represents the base unit for the category axis
 
 **Full Name:** aspose.slides.charts.TimeUnitType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|DAYS|0|Specifies the chart data shall be shown in days.|
-|MONTHS|1|Specifies the chart data shall be shown in months.|
-|YEARS|2|Specifies the chart data shall be shown in years.|
+|**Member name**|**Description**|
+| :- | :- |
+|NONE|Values will displayed as is.|
+|DAYS|Specifies the chart data shall be shown in days.|
+|MONTHS|Specifies the chart data shall be shown in months.|
+|YEARS|Specifies the chart data shall be shown in years.|

@@ -11,7 +11,7 @@ Represents a collection of TrendlineEx
 
 **Full Class Name:** aspose.slides.charts.ITrendlineCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITrendlineCollection type exposes the following members:
 ## **Properties**

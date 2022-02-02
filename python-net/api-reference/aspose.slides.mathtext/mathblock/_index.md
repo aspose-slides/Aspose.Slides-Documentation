@@ -11,7 +11,7 @@ Specifies an instance of mathematical text that contained within a MathParagraph
 
 **Full Class Name:** aspose.slides.mathtext.MathBlock
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathBlock type exposes the following members:
 ## **Constructors**

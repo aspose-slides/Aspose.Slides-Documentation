@@ -1,7 +1,7 @@
 ---
 title: MasterHandoutSlide Class
 type: docs
-weight: 2970
+weight: 3020
 url: /python-net/api-reference/aspose.slides/masterhandoutslide/
 ---
 
@@ -11,7 +11,7 @@ Represents master slide for handouts.
 
 **Full Class Name:** aspose.slides.MasterHandoutSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MasterHandoutSlide type exposes the following members:
 ## **Properties**

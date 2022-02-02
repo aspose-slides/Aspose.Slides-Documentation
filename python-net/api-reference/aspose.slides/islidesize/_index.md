@@ -1,7 +1,7 @@
 ---
 title: ISlideSize Class
 type: docs
-weight: 2530
+weight: 2540
 url: /python-net/api-reference/aspose.slides/islidesize/
 ---
 
@@ -11,7 +11,7 @@ Represents a size of slide.
 
 **Full Class Name:** aspose.slides.ISlideSize
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISlideSize type exposes the following members:
 ## **Properties**

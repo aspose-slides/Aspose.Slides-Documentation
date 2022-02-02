@@ -11,7 +11,7 @@ Represents legend properties of a chart.
 
 **Full Class Name:** aspose.slides.charts.ILegendEntryProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILegendEntryProperties type exposes the following members:
 ## **Properties**

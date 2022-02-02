@@ -1,7 +1,7 @@
 ---
 title: IViewProperties Class
 type: docs
-weight: 2800
+weight: 2840
 url: /python-net/api-reference/aspose.slides/iviewproperties/
 ---
 
@@ -11,7 +11,7 @@ Presentation wide view properties.
 
 **Full Class Name:** aspose.slides.IViewProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IViewProperties type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a master theme.
 
 **Full Class Name:** aspose.slides.theme.IMasterTheme
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterTheme type exposes the following members:
 ## **Properties**

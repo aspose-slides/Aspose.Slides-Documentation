@@ -1,7 +1,7 @@
 ---
 title: TabAlignment Enumeration
 type: docs
-weight: 9920
+weight: 10050
 url: /python-net/api-reference/aspose.slides/tabalignment/
 ---
 
@@ -11,12 +11,12 @@ Represents the tab alignment.
 
 **Full Name:** aspose.slides.TabAlignment
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|LEFT|0|Left alignment|
-|CENTER|1|Center alignment|
-|RIGHT|2|Right alignment|
-|DECIMAL|3|Decimal alignment|
+|**Member name**|**Description**|
+| :- | :- |
+|LEFT|Left alignment|
+|CENTER|Center alignment|
+|RIGHT|Right alignment|
+|DECIMAL|Decimal alignment|

@@ -11,7 +11,7 @@ Represent a gradient format.
 
 **Full Class Name:** aspose.slides.IGradientFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IGradientFormat type exposes the following members:
 ## **Properties**

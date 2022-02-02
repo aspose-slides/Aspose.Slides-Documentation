@@ -11,7 +11,7 @@ Specifies the Limit object, consisting of text on the baseline and reduced-size 
 
 **Full Class Name:** aspose.slides.mathtext.IMathLimit
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathLimit type exposes the following members:
 ## **Properties**

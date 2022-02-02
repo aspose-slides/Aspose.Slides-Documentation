@@ -11,7 +11,7 @@ Represent base class behavior of effect.
 
 **Full Class Name:** aspose.slides.animation.Behavior
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Behavior type exposes the following members:
 ## **Properties**

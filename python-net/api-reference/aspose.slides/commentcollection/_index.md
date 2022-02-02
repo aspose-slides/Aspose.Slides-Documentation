@@ -11,7 +11,7 @@ Represents a collection of comments of one author.
 
 **Full Class Name:** aspose.slides.CommentCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The CommentCollection type exposes the following members:
 ## **Properties**

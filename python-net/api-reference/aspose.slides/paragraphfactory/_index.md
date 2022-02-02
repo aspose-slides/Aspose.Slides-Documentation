@@ -1,7 +1,7 @@
 ---
 title: ParagraphFactory Class
 type: docs
-weight: 3220
+weight: 3270
 url: /python-net/api-reference/aspose.slides/paragraphfactory/
 ---
 
@@ -11,7 +11,7 @@ Allows to create paragraphs
 
 **Full Class Name:** aspose.slides.ParagraphFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ParagraphFactory type exposes the following members:
 ## **Constructors**

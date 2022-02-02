@@ -11,7 +11,7 @@ Specifies types of values in ChartDataPoint.ErrorBarsCustomValues properties lis
 
 **Full Class Name:** aspose.slides.charts.IDataSourceTypeForErrorBarsCustomValues
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IDataSourceTypeForErrorBarsCustomValues type exposes the following members:
 ## **Properties**

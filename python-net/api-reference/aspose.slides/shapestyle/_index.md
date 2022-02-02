@@ -1,7 +1,7 @@
 ---
 title: ShapeStyle Class
 type: docs
-weight: 3620
+weight: 3680
 url: /python-net/api-reference/aspose.slides/shapestyle/
 ---
 
@@ -11,7 +11,7 @@ Represent shape's style reference.
 
 **Full Class Name:** aspose.slides.ShapeStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ShapeStyle type exposes the following members:
 ## **Properties**

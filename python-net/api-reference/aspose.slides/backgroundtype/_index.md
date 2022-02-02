@@ -1,7 +1,7 @@
 ---
 title: BackgroundType Enumeration
 type: docs
-weight: 9290
+weight: 9420
 url: /python-net/api-reference/aspose.slides/backgroundtype/
 ---
 
@@ -11,11 +11,11 @@ Defines the slide background fill source.
 
 **Full Name:** aspose.slides.BackgroundType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|THEMED|1||
-|OWN_BACKGROUND|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|THEMED||
+|OWN_BACKGROUND||

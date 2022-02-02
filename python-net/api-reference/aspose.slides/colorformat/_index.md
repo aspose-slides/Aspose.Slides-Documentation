@@ -11,7 +11,7 @@ Represents a color used in a presentation.
 
 **Full Class Name:** aspose.slides.ColorFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ColorFormat type exposes the following members:
 ## **Properties**

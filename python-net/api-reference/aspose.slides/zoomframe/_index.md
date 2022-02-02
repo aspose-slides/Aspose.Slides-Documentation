@@ -1,17 +1,17 @@
 ---
 title: ZoomFrame Class
 type: docs
-weight: 3870
+weight: 3960
 url: /python-net/api-reference/aspose.slides/zoomframe/
 ---
 
-Represents an Zoom object on a slide.
+Represents a Slide Zoom object in a slide.
 
 **Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.ZoomFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ZoomFrame type exposes the following members:
 ## **Properties**
@@ -51,10 +51,10 @@ The ZoomFrame type exposes the following members:
 |graphical_object_lock|Returns shape's locks.<br/>            Read-only [IGraphicalObjectLock](/slides/python-net/api-reference/aspose.slides/igraphicalobjectlock/).|
 |image_type|Gets or sets the image type of a zoom object.<br/>            Read/write [ZoomImageType](/slides/python-net/api-reference/aspose.slides/zoomimagetype/).<br/>            Default value: Preview|
 |return_to_parent|Gets or sets the navigation behavior in slideshow.<br/>            Read/write bool.<br/>            Default value: false|
-|target_slide|Gets or sets the slide object that the Slide Zoom object links to.<br/>            Read/write [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|
 |show_background|Gets or sets value that specifies whether the Zoom will use the background of the destination slide.<br/>            Read/write bool.<br/>            Default value: true|
 |image|Gets or sets image for zoom object.<br/>            Read/write [IPPImage](/slides/python-net/api-reference/aspose.slides/ippimage/).|
 |transition_duration|Gets or sets the duration of the transition between Zoom and slide.<br/>            Read/write|
+|target_slide|Gets or sets the slide object that the Slide Zoom object links to.<br/>            Read/write [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|
 |as_ihyperlink_container|Allows to get base IHyperlinkContainer interface.<br/>            Read-only [IHyperlinkContainer](/slides/python-net/api-reference/aspose.slides/ihyperlinkcontainer/).|
 |as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|

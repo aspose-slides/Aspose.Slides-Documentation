@@ -1,7 +1,7 @@
 ---
 title: aspose.slides.warnings
 type: docs
-weight: 190
+weight: 200
 url: /python-net/api-reference/aspose.slides.warnings/
 ---
 

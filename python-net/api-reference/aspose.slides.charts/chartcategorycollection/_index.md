@@ -11,7 +11,7 @@ Represents collection of [ChartCategory](/slides/python-net/api-reference/aspose
 
 **Full Class Name:** aspose.slides.charts.ChartCategoryCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartCategoryCollection type exposes the following members:
 ## **Properties**

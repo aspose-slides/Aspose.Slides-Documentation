@@ -11,7 +11,7 @@ Manages fonts across the presentation.
 
 **Full Class Name:** aspose.slides.IFontsManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFontsManager type exposes the following members:
 ## **Properties**

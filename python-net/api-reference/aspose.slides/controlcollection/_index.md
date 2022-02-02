@@ -11,7 +11,7 @@ A collection of ActiveX controls.
 
 **Full Class Name:** aspose.slides.ControlCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ControlCollection type exposes the following members:
 ## **Properties**

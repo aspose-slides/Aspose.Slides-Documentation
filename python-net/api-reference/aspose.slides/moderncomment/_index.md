@@ -1,7 +1,7 @@
 ---
 title: ModernComment Class
 type: docs
-weight: 3060
+weight: 3110
 url: /python-net/api-reference/aspose.slides/moderncomment/
 ---
 
@@ -11,7 +11,7 @@ Represents a comment on a slide.
 
 **Full Class Name:** aspose.slides.ModernComment
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ModernComment type exposes the following members:
 ## **Properties**

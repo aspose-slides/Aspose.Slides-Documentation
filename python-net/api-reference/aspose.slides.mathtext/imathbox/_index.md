@@ -11,7 +11,7 @@ Specifies the logical boxing (packaging) of mathematical element.<br/>          
 
 **Full Class Name:** aspose.slides.mathtext.IMathBox
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathBox type exposes the following members:
 ## **Properties**

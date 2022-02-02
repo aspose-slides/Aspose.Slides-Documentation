@@ -11,7 +11,7 @@ Specifies the subscript object, which consists of a base <br/>            and a 
 
 **Full Class Name:** aspose.slides.mathtext.MathSubscriptElement
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathSubscriptElement type exposes the following members:
 ## **Constructors**

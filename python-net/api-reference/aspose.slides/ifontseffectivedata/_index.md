@@ -11,7 +11,7 @@ Immutable object which contains effective fonts set.
 
 **Full Class Name:** aspose.slides.IFontsEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFontsEffectiveData type exposes the following members:
 ## **Properties**

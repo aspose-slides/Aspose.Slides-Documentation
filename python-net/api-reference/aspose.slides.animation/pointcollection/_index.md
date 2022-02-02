@@ -11,7 +11,7 @@ Represent collection of animation points.
 
 **Full Class Name:** aspose.slides.animation.PointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PointCollection type exposes the following members:
 ## **Constructors**

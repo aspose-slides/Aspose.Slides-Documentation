@@ -11,7 +11,7 @@ Immutable object which represents a soft edge effect. <br/>            The edges
 
 **Full Class Name:** aspose.slides.effects.SoftEdgeEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SoftEdgeEffectiveData type exposes the following members:
 ## **Properties**

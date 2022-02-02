@@ -11,7 +11,7 @@ Represents an Outer Shadow effect.
 
 **Full Class Name:** aspose.slides.effects.IOuterShadow
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IOuterShadow type exposes the following members:
 ## **Properties**

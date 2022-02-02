@@ -11,7 +11,7 @@ Represent filter effect of behavior.
 
 **Full Class Name:** aspose.slides.animation.IFilterEffect
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFilterEffect type exposes the following members:
 ## **Properties**

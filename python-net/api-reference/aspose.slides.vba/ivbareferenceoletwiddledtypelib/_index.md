@@ -11,7 +11,7 @@ Represents modified OLE Automation type library reference in which <br/>        
 
 **Full Class Name:** aspose.slides.vba.IVbaReferenceOleTwiddledTypeLib
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IVbaReferenceOleTwiddledTypeLib type exposes the following members:
 ## **Properties**

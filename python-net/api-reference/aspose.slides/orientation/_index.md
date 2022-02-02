@@ -1,7 +1,7 @@
 ---
 title: Orientation Enumeration
 type: docs
-weight: 9650
+weight: 9780
 url: /python-net/api-reference/aspose.slides/orientation/
 ---
 
@@ -11,10 +11,10 @@ Represents the orientation of a shape.
 
 **Full Name:** aspose.slides.Orientation
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|HORIZONTAL|0|Horizontal.|
-|VERTICAL|1|Vertical.|
+|**Member name**|**Description**|
+| :- | :- |
+|HORIZONTAL|Horizontal.|
+|VERTICAL|Vertical.|

@@ -1,7 +1,7 @@
 ---
 title: ITextStyle Class
 type: docs
-weight: 2720
+weight: 2760
 url: /python-net/api-reference/aspose.slides/itextstyle/
 ---
 
@@ -11,7 +11,7 @@ Text style formatting properties.
 
 **Full Class Name:** aspose.slides.ITextStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITextStyle type exposes the following members:
 ## **Properties**

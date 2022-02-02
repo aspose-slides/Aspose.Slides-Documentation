@@ -11,7 +11,7 @@ Represents a paragraph of a text.
 
 **Full Class Name:** aspose.slides.IParagraph
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IParagraph type exposes the following members:
 ## **Properties**

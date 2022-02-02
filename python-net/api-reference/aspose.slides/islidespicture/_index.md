@@ -1,7 +1,7 @@
 ---
 title: ISlidesPicture Class
 type: docs
-weight: 2550
+weight: 2560
 url: /python-net/api-reference/aspose.slides/islidespicture/
 ---
 
@@ -11,7 +11,7 @@ Represents a picture in a presentation.
 
 **Full Class Name:** aspose.slides.ISlidesPicture
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISlidesPicture type exposes the following members:
 ## **Properties**

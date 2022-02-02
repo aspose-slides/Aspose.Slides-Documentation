@@ -1,7 +1,7 @@
 ---
 title: PPImageFormat Enumeration
 type: docs
-weight: 9660
+weight: 9790
 url: /python-net/api-reference/aspose.slides/ppimageformat/
 ---
 
@@ -11,18 +11,18 @@ Image formats. This enum is replacement for
 
 **Full Name:** aspose.slides.PPImageFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|BMP|0|Gets the bitmap (BMP) image format.|
-|EMF|1|Gets the enhanced metafile (EMF) image format.|
-|EXIF|2|Gets the Exchangeable Image File (Exif) format.|
-|GIF|3|Gets the Graphics Interchange Format (GIF) image format.|
-|ICON|4|Gets the Windows icon image format.|
-|JPEG|5|Gets the Joint Photographic Experts Group (JPEG) image format.|
-|MEMORY_BMP|6|Gets the format of a bitmap in memory.|
-|PNG|7|Gets the W3C Portable Network Graphics (PNG) image format.|
-|TIFF|8|Gets the Tagged Image File Format (TIFF) image format.|
-|WMF|9|Gets the Windows metafile (WMF) image format.|
+|**Member name**|**Description**|
+| :- | :- |
+|BMP|Gets the bitmap (BMP) image format.|
+|EMF|Gets the enhanced metafile (EMF) image format.|
+|EXIF|Gets the Exchangeable Image File (Exif) format.|
+|GIF|Gets the Graphics Interchange Format (GIF) image format.|
+|ICON|Gets the Windows icon image format.|
+|JPEG|Gets the Joint Photographic Experts Group (JPEG) image format.|
+|MEMORY_BMP|Gets the format of a bitmap in memory.|
+|PNG|Gets the W3C Portable Network Graphics (PNG) image format.|
+|TIFF|Gets the Tagged Image File Format (TIFF) image format.|
+|WMF|Gets the Windows metafile (WMF) image format.|

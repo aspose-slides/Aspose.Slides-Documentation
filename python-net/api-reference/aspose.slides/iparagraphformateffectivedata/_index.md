@@ -11,7 +11,7 @@ Immutable object which contains effective paragraph formatting properties.
 
 **Full Class Name:** aspose.slides.IParagraphFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IParagraphFormatEffectiveData type exposes the following members:
 ## **Properties**

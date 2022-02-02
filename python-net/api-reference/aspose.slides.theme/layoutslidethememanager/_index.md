@@ -11,7 +11,7 @@ Provides access to layout slide theme overriden.
 
 **Full Class Name:** aspose.slides.theme.LayoutSlideThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LayoutSlideThemeManager type exposes the following members:
 ## **Properties**

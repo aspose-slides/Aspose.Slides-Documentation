@@ -1,7 +1,7 @@
 ---
 title: PPImage Class
 type: docs
-weight: 3180
+weight: 3230
 url: /python-net/api-reference/aspose.slides/ppimage/
 ---
 
@@ -11,7 +11,7 @@ Represents an image in a presentation.
 
 **Full Class Name:** aspose.slides.PPImage
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PPImage type exposes the following members:
 ## **Properties**

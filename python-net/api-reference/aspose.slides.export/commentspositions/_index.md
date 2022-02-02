@@ -11,11 +11,11 @@ Represents the rule to render comments into exported document
 
 **Full Name:** aspose.slides.export.CommentsPositions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NONE|0|Specifies that comments should not be displayed at all.|
-|BOTTOM|1|Specifies that comments should be displayed at the bottom of the page.|
-|RIGHT|2|Specifies that comments should be displayed to the right of the page.|
+|**Member name**|**Description**|
+| :- | :- |
+|NONE|Specifies that comments should not be displayed at all.|
+|BOTTOM|Specifies that comments should be displayed at the bottom of the page.|
+|RIGHT|Specifies that comments should be displayed to the right of the page.|

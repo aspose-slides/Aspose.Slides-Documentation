@@ -11,7 +11,7 @@ Callback interface used by HTML import routine to obtain referrenced objects suc
 
 **Full Class Name:** aspose.slides.import.IHtmlExternalResolver
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IHtmlExternalResolver type exposes the following members:
 ## **Properties**

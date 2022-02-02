@@ -11,7 +11,7 @@ Represents a field.
 
 **Full Class Name:** aspose.slides.IField
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IField type exposes the following members:
 ## **Properties**

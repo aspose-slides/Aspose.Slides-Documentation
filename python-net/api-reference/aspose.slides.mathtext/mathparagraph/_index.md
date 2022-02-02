@@ -11,7 +11,7 @@ Mathematical paragraph that is a container for mathematical blocks (IMathBlock)
 
 **Full Class Name:** aspose.slides.mathtext.MathParagraph
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathParagraph type exposes the following members:
 ## **Constructors**

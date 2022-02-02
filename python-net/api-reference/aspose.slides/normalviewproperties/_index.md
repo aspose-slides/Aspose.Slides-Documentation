@@ -1,7 +1,7 @@
 ---
 title: NormalViewProperties Class
 type: docs
-weight: 3070
+weight: 3120
 url: /python-net/api-reference/aspose.slides/normalviewproperties/
 ---
 
@@ -11,7 +11,7 @@ Represents normal view properties. The normal view consists of<br/>            t
 
 **Full Class Name:** aspose.slides.NormalViewProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NormalViewProperties type exposes the following members:
 ## **Properties**

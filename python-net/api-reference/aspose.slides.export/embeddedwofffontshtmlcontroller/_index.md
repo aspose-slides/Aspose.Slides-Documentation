@@ -11,7 +11,7 @@ The formatting controller class to use for fonts embedding in WOFF format
 
 **Full Class Name:** aspose.slides.export.EmbeddedWoffFontsHtmlController
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The EmbeddedWoffFontsHtmlController type exposes the following members:
 ## **Constructors**

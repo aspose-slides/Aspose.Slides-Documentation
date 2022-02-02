@@ -11,7 +11,7 @@ Represents format of a table row.
 
 **Full Class Name:** aspose.slides.IRowFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IRowFormat type exposes the following members:
 ## **Methods**

@@ -1,7 +1,7 @@
 ---
 title: License Class
 type: docs
-weight: 2920
+weight: 2970
 url: /python-net/api-reference/aspose.slides/license/
 ---
 
@@ -11,7 +11,7 @@ Provides methods to license the component.
 
 **Full Class Name:** aspose.slides.License
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The License type exposes the following members:
 ## **Constructors**

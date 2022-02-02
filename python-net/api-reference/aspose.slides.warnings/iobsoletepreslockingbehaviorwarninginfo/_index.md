@@ -11,7 +11,7 @@ This warning indicates that an obsolete presentation locking behavior is used.
 
 **Full Class Name:** aspose.slides.warnings.IObsoletePresLockingBehaviorWarningInfo
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IObsoletePresLockingBehaviorWarningInfo type exposes the following members:
 ## **Properties**

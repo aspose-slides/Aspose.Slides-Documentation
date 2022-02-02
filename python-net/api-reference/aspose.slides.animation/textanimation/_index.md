@@ -11,7 +11,7 @@ Represent text animation.
 
 **Full Class Name:** aspose.slides.animation.TextAnimation
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The TextAnimation type exposes the following members:
 ## **Constructors**

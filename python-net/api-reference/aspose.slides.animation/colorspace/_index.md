@@ -11,11 +11,11 @@ Represents color space for color effect behavior.
 
 **Full Name:** aspose.slides.animation.ColorSpace
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|RGB|1||
-|HSL|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|RGB||
+|HSL||

@@ -11,7 +11,7 @@ Represents a collection of a slides in the section.
 
 **Full Class Name:** aspose.slides.ISectionSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISectionSlideCollection type exposes the following members:
 ## **Properties**

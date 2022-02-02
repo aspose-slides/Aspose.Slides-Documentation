@@ -1,25 +1,25 @@
 ---
 title: IZoomFrame Class
 type: docs
-weight: 2810
+weight: 2850
 url: /python-net/api-reference/aspose.slides/izoomframe/
 ---
 
-Represents a Zoom object on a slide.
+Represents a Slide Zoom object in a slide.
 
 **Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 
 **Full Class Name:** aspose.slides.IZoomFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IZoomFrame type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
+|target_slide|Gets or sets the slide object that the Slide Zoom object links to.<br/>            Read/write [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|
 |image_type|Gets or sets the image type of a zoom object.<br/>            Read/write [ZoomImageType](/slides/python-net/api-reference/aspose.slides/zoomimagetype/).<br/>            Default value: Preview|
 |return_to_parent|Gets or sets the navigation behavior in slideshow.<br/>            Read/write bool.<br/>            Default value: false|
-|target_slide|Gets or sets the slide object that the Slide Zoom object links to.<br/>            Read/write [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|
 |show_background|Gets or sets value that specifies whether the Zoom will use the background of the destination slide.<br/>            Read/write bool.<br/>            Default value: true|
 |image|Gets or sets image for zoom object.<br/>            Read/write [IPPImage](/slides/python-net/api-reference/aspose.slides/ippimage/).|
 |transition_duration|Gets or sets the duration of the transition between Zoom and slide.<br/>            Read/write|

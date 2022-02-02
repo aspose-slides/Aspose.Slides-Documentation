@@ -1,7 +1,7 @@
 ---
 title: ITable Class
 type: docs
-weight: 2640
+weight: 2680
 url: /python-net/api-reference/aspose.slides/itable/
 ---
 
@@ -11,7 +11,7 @@ Represents a table on a slide.
 
 **Full Class Name:** aspose.slides.ITable
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITable type exposes the following members:
 ## **Properties**

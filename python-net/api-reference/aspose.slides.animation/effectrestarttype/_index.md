@@ -11,12 +11,12 @@ Represent restart types for timing.
 
 **Full Name:** aspose.slides.animation.EffectRestartType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|ALWAYS|1||
-|WHEN_NOT_ACTIVE|2||
-|NEVER|3||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|ALWAYS||
+|WHEN_NOT_ACTIVE||
+|NEVER||

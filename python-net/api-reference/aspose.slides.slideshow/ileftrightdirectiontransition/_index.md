@@ -11,7 +11,7 @@ Left-right direction slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.ILeftRightDirectionTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILeftRightDirectionTransition type exposes the following members:
 ## **Properties**

@@ -11,10 +11,10 @@ The location and size of the delimiters relative to the content of the operands
 
 **Full Name:** aspose.slides.mathtext.MathDelimiterShape
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|CENTERED|0|Centered to math axis|
-|MATCH|1|Match to content|
+|**Member name**|**Description**|
+| :- | :- |
+|CENTERED|Centered to math axis|
+|MATCH|Match to content|

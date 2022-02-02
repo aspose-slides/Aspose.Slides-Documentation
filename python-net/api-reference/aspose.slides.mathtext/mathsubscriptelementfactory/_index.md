@@ -11,7 +11,7 @@ Allows to create IMathSubscriptElement
 
 **Full Class Name:** aspose.slides.mathtext.MathSubscriptElementFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathSubscriptElementFactory type exposes the following members:
 ## **Constructors**

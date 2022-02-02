@@ -11,7 +11,7 @@ Contains information about version of Aspose.Slides.
 
 **Full Class Name:** aspose.slides.BuildVersionInfo
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BuildVersionInfo type exposes the following members:
 ## **Properties**

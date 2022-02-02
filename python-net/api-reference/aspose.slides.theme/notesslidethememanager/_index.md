@@ -11,7 +11,7 @@ Provides access to notes slide theme overriden.
 
 **Full Class Name:** aspose.slides.theme.NotesSlideThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NotesSlideThemeManager type exposes the following members:
 ## **Properties**

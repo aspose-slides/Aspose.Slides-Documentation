@@ -11,11 +11,11 @@ Determines how missing data will be displayed.
 
 **Full Name:** aspose.slides.charts.DisplayBlanksAsType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|GAP|0|Specifies that blank values shall be left as a gap.|
-|SPAN|1|Specifies that blank values shall be spanned with a line.|
-|ZERO|2|Specifies that blank values shall be treated as zero.|
+|**Member name**|**Description**|
+| :- | :- |
+|GAP|Specifies that blank values shall be left as a gap.|
+|SPAN|Specifies that blank values shall be spanned with a line.|
+|ZERO|Specifies that blank values shall be treated as zero.|

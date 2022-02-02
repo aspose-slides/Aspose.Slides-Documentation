@@ -11,7 +11,7 @@ Represents collection of interactive sequences.
 
 **Full Class Name:** aspose.slides.animation.SequenceCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SequenceCollection type exposes the following members:
 ## **Properties**

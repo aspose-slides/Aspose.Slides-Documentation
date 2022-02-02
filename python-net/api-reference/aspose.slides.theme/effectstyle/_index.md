@@ -11,7 +11,7 @@ Represents an effect style.
 
 **Full Class Name:** aspose.slides.theme.EffectStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The EffectStyle type exposes the following members:
 ## **Properties**

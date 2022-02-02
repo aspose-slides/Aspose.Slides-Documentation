@@ -11,7 +11,7 @@ Corner direction slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.ICornerDirectionTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICornerDirectionTransition type exposes the following members:
 ## **Properties**

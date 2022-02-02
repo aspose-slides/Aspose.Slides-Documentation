@@ -11,12 +11,12 @@ Determines a position of axis.
 
 **Full Name:** aspose.slides.charts.AxisPositionType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|BOTTOM|0|Specifies that the axis shall be displayed at the bottom of the plot area.|
-|LEFT|1|Specifies that the axis shall be displayed at the left of the plot area.|
-|RIGHT|2|Specifies that the axis shall be displayed at the right of the plot area.|
-|TOP|3|Specifies that the axis shall be displayed at the top of the plot area.|
+|**Member name**|**Description**|
+| :- | :- |
+|BOTTOM|Specifies that the axis shall be displayed at the bottom of the plot area.|
+|LEFT|Specifies that the axis shall be displayed at the left of the plot area.|
+|RIGHT|Specifies that the axis shall be displayed at the right of the plot area.|
+|TOP|Specifies that the axis shall be displayed at the top of the plot area.|

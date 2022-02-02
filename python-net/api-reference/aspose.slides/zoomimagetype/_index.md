@@ -1,7 +1,7 @@
 ---
 title: ZoomImageType Enumeration
 type: docs
-weight: 10070
+weight: 10200
 url: /python-net/api-reference/aspose.slides/zoomimagetype/
 ---
 
@@ -11,10 +11,10 @@ Defines whether the Zoom object is using the slide preview or a cover image.
 
 **Full Name:** aspose.slides.ZoomImageType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|PREVIEW|0|Use the image of the slide or section.|
-|COVER|1|Use a custom image.|
+|**Member name**|**Description**|
+| :- | :- |
+|PREVIEW|Use the image of the slide or section.|
+|COVER|Use a custom image.|

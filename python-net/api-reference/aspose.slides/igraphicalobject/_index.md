@@ -11,7 +11,7 @@ Represents abstract graphical object.
 
 **Full Class Name:** aspose.slides.IGraphicalObject
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IGraphicalObject type exposes the following members:
 ## **Properties**

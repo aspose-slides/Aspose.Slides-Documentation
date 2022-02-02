@@ -11,6 +11,6 @@ Auxiliary line parameters interface.
 
 **Full Class Name:** aspose.slides.ILineParamSource
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILineParamSource type exposes the following members:

@@ -1,7 +1,7 @@
 ---
 title: ISvgImage Class
 type: docs
-weight: 2590
+weight: 2630
 url: /python-net/api-reference/aspose.slides/isvgimage/
 ---
 
@@ -11,7 +11,7 @@ Represents an SVG image.
 
 **Full Class Name:** aspose.slides.ISvgImage
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISvgImage type exposes the following members:
 ## **Properties**

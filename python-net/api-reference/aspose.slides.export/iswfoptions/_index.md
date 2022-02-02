@@ -11,7 +11,7 @@ Provides options that control how a presentation is saved in SWF format.
 
 **Full Class Name:** aspose.slides.export.ISwfOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISwfOptions type exposes the following members:
 ## **Properties**

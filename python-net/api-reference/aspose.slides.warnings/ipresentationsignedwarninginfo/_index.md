@@ -11,7 +11,7 @@ This warning indicates that the presentation being read has the signature <br/> 
 
 **Full Class Name:** aspose.slides.warnings.IPresentationSignedWarningInfo
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IPresentationSignedWarningInfo type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Glitter slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.GlitterTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The GlitterTransition type exposes the following members:
 ## **Properties**

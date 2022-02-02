@@ -11,7 +11,7 @@ A Binary Large Object (BLOB) is a binary data stored as a single entity - i.e. B
 
 **Full Class Name:** aspose.slides.IBlobManagementOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBlobManagementOptions type exposes the following members:
 ## **Properties**

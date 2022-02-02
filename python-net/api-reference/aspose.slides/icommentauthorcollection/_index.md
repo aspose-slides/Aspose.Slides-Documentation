@@ -11,7 +11,7 @@ Represents a collection of comment authors.
 
 **Full Class Name:** aspose.slides.ICommentAuthorCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICommentAuthorCollection type exposes the following members:
 ## **Properties**

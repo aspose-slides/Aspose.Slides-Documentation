@@ -11,12 +11,12 @@ Fraction Types
 
 **Full Name:** aspose.slides.mathtext.MathFractionTypes
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|BAR|0|Bar Fraction|
-|SKEWED|1|Skewed|
-|LINEAR|2|Linear Fraction|
-|NO_BAR|3|No-Bar Fraction (Stack)|
+|**Member name**|**Description**|
+| :- | :- |
+|BAR|Bar Fraction|
+|SKEWED|Skewed|
+|LINEAR|Linear Fraction|
+|NO_BAR|No-Bar Fraction (Stack)|

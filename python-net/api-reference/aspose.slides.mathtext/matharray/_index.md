@@ -11,7 +11,7 @@ Specifies a vertical array of equations or any mathematical objects
 
 **Full Class Name:** aspose.slides.mathtext.MathArray
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathArray type exposes the following members:
 ## **Constructors**

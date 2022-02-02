@@ -11,7 +11,7 @@ Represents timeline of animation.
 
 **Full Class Name:** aspose.slides.animation.AnimationTimeLine
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AnimationTimeLine type exposes the following members:
 ## **Properties**

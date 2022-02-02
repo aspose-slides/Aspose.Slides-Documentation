@@ -11,7 +11,7 @@ Immutable object which represents a preset shadow effect.
 
 **Full Class Name:** aspose.slides.effects.PresetShadowEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PresetShadowEffectiveData type exposes the following members:
 ## **Properties**

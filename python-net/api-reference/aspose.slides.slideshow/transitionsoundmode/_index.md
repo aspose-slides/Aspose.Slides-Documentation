@@ -11,11 +11,11 @@ Represent sound mode of transition.
 
 **Full Name:** aspose.slides.slideshow.TransitionSoundMode
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|START_SOUND|1||
-|STOP_PREVOIUS_SOUND|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|START_SOUND||
+|STOP_PREVOIUS_SOUND||

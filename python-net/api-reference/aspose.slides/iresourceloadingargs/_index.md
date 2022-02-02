@@ -11,7 +11,7 @@ Interface for external resource loading arguments.
 
 **Full Class Name:** aspose.slides.IResourceLoadingArgs
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IResourceLoadingArgs type exposes the following members:
 ## **Properties**

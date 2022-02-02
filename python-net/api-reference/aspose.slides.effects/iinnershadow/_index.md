@@ -11,7 +11,7 @@ Represents a inner shadow effect.
 
 **Full Class Name:** aspose.slides.effects.IInnerShadow
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IInnerShadow type exposes the following members:
 ## **Properties**

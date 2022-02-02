@@ -11,12 +11,12 @@ Common mathematical functions of two arguments
 
 **Full Name:** aspose.slides.mathtext.MathFunctionsOfTwoArguments
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|LOG|0|Log|
-|LIM|1|Limit|
-|MIN|2|Minimum|
-|MAX|3|Maximum|
+|**Member name**|**Description**|
+| :- | :- |
+|LOG|Log|
+|LIM|Limit|
+|MIN|Minimum|
+|MAX|Maximum|

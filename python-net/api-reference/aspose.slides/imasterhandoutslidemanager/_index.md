@@ -11,7 +11,7 @@ Master handout slide manager.
 
 **Full Class Name:** aspose.slides.IMasterHandoutSlideManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterHandoutSlideManager type exposes the following members:
 ## **Properties**

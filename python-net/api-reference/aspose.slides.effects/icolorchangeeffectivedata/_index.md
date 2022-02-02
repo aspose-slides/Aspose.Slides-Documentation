@@ -11,7 +11,7 @@ Immutable object which represents a Color Change effect.<br/>            Instanc
 
 **Full Class Name:** aspose.slides.effects.IColorChangeEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IColorChangeEffectiveData type exposes the following members:
 ## **Properties**

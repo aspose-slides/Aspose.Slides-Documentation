@@ -11,13 +11,13 @@ Represent fill types.
 
 **Full Name:** aspose.slides.animation.EffectFillType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|REMOVE|1||
-|FREEZE|2||
-|HOLD|3||
-|TRANSITION|4||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|REMOVE||
+|FREEZE||
+|HOLD||
+|TRANSITION||

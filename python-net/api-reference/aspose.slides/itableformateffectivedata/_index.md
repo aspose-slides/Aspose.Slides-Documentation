@@ -1,7 +1,7 @@
 ---
 title: ITableFormatEffectiveData Class
 type: docs
-weight: 2660
+weight: 2700
 url: /python-net/api-reference/aspose.slides/itableformateffectivedata/
 ---
 
@@ -11,7 +11,7 @@ Immutable object which contains effective table formatting properties.
 
 **Full Class Name:** aspose.slides.ITableFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITableFormatEffectiveData type exposes the following members:
 ## **Properties**

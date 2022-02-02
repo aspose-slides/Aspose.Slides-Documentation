@@ -11,7 +11,7 @@ Represents the parent class for all geometric shapes.
 
 **Full Class Name:** aspose.slides.IGeometryShape
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IGeometryShape type exposes the following members:
 ## **Properties**

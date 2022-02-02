@@ -1,7 +1,7 @@
 ---
 title: SpreadsheetOptions Class
 type: docs
-weight: 3680
+weight: 3740
 url: /python-net/api-reference/aspose.slides/spreadsheetoptions/
 ---
 
@@ -11,7 +11,7 @@ Represents options which can be used to specify additional spreadsheets behavior
 
 **Full Class Name:** aspose.slides.SpreadsheetOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SpreadsheetOptions type exposes the following members:
 ## **Constructors**

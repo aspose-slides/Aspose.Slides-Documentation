@@ -11,7 +11,7 @@ Represents a collection of additional color schemes.
 
 **Full Class Name:** aspose.slides.theme.ExtraColorSchemeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ExtraColorSchemeCollection type exposes the following members:
 ## **Properties**

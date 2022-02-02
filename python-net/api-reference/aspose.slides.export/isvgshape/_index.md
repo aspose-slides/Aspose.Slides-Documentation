@@ -11,7 +11,7 @@ Represents options for SVG shape.
 
 **Full Class Name:** aspose.slides.export.ISvgShape
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISvgShape type exposes the following members:
 ## **Properties**

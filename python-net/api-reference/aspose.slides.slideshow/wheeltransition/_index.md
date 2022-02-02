@@ -11,7 +11,7 @@ Wheel slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.WheelTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The WheelTransition type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Allows to create image transform operations
 
 **Full Class Name:** aspose.slides.effects.ImageTransformOperationFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ImageTransformOperationFactory type exposes the following members:
 ## **Constructors**

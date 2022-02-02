@@ -1,7 +1,7 @@
 ---
 title: ImageWrapper Class
 type: docs
-weight: 2830
+weight: 2880
 url: /python-net/api-reference/aspose.slides/imagewrapper/
 ---
 
@@ -11,7 +11,7 @@ System.Drawing.Image wrapper for COM interface.
 
 **Full Class Name:** aspose.slides.ImageWrapper
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ImageWrapper type exposes the following members:
 ## **Properties**

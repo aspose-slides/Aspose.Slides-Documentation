@@ -11,7 +11,7 @@ Reveal slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.RevealTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The RevealTransition type exposes the following members:
 ## **Properties**

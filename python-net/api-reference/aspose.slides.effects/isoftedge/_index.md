@@ -11,7 +11,7 @@ Represents a Soft Edge effect. <br/>            The edges of the shape are blurr
 
 **Full Class Name:** aspose.slides.effects.ISoftEdge
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISoftEdge type exposes the following members:
 ## **Properties**

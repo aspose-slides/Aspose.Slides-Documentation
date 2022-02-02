@@ -11,7 +11,7 @@ Imutable object which contains effective effect formatting properties.
 
 **Full Class Name:** aspose.slides.IEffectFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IEffectFormatEffectiveData type exposes the following members:
 ## **Properties**

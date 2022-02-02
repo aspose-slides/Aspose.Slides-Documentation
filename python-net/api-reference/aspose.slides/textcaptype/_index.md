@@ -1,7 +1,7 @@
 ---
 title: TextCapType Enumeration
 type: docs
-weight: 9970
+weight: 10100
 url: /python-net/api-reference/aspose.slides/textcaptype/
 ---
 
@@ -11,12 +11,12 @@ Represents the type of text capitalisation.
 
 **Full Name:** aspose.slides.TextCapType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|NONE|1||
-|SMALL|2||
-|ALL|3||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|NONE||
+|SMALL||
+|ALL||

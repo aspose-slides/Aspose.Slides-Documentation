@@ -11,7 +11,7 @@ Represents collection of  [ChartSeries](/slides/python-net/api-reference/aspose.
 
 **Full Class Name:** aspose.slides.charts.ChartSeriesCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartSeriesCollection type exposes the following members:
 ## **Properties**

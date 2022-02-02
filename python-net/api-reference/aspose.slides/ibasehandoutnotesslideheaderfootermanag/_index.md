@@ -11,7 +11,7 @@ Represents manager which holds behavior of the placeholders, including header pl
 
 **Full Class Name:** aspose.slides.IBaseHandoutNotesSlideHeaderFooterManag
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBaseHandoutNotesSlideHeaderFooterManag type exposes the following members:
 ## **Properties**

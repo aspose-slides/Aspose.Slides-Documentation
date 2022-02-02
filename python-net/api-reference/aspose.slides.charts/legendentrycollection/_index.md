@@ -11,7 +11,7 @@ Represents legends collection.
 
 **Full Class Name:** aspose.slides.charts.LegendEntryCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LegendEntryCollection type exposes the following members:
 ## **Properties**

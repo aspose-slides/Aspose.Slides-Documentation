@@ -11,7 +11,7 @@ Represents common data for all slide types.
 
 **Full Class Name:** aspose.slides.IBaseSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBaseSlide type exposes the following members:
 ## **Properties**

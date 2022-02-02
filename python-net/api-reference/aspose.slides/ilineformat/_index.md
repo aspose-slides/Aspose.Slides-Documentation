@@ -11,7 +11,7 @@ Represents format of a line.
 
 **Full Class Name:** aspose.slides.ILineFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILineFormat type exposes the following members:
 ## **Properties**

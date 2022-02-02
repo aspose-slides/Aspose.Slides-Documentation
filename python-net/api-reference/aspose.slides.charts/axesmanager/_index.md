@@ -11,7 +11,7 @@ Provides access to chart axes.
 
 **Full Class Name:** aspose.slides.charts.AxesManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AxesManager type exposes the following members:
 ## **Properties**

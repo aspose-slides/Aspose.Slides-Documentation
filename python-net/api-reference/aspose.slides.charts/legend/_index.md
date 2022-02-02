@@ -11,7 +11,7 @@ Represents chart's legend properties.
 
 **Full Class Name:** aspose.slides.charts.Legend
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Legend type exposes the following members:
 ## **Properties**

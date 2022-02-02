@@ -11,7 +11,7 @@ Callback object used by HTML import routine to obtain referrenced objects such a
 
 **Full Class Name:** aspose.slides.import.HtmlExternalResolver
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The HtmlExternalResolver type exposes the following members:
 ## **Constructors**

@@ -1,7 +1,7 @@
 ---
 title: Presentation Class
 type: docs
-weight: 3450
+weight: 3500
 url: /python-net/api-reference/aspose.slides/presentation/
 ---
 
@@ -11,7 +11,7 @@ Represents a Microsoft PowerPoint presentation.
 
 **Full Class Name:** aspose.slides.Presentation
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Presentation type exposes the following members:
 ## **Constructors**

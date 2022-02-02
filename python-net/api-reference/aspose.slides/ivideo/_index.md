@@ -1,7 +1,7 @@
 ---
 title: IVideo Class
 type: docs
-weight: 2770
+weight: 2810
 url: /python-net/api-reference/aspose.slides/ivideo/
 ---
 
@@ -11,7 +11,7 @@ Represents a video embedded into a presentation.
 
 **Full Class Name:** aspose.slides.IVideo
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IVideo type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: LayoutSlideCollection Class
 type: docs
-weight: 2890
+weight: 2940
 url: /python-net/api-reference/aspose.slides/layoutslidecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a base class for collection of a layout slides.
 
 **Full Class Name:** aspose.slides.LayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LayoutSlideCollection type exposes the following members:
 ## **Properties**

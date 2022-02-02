@@ -11,7 +11,7 @@ Represents a cell in a table.
 
 **Full Class Name:** aspose.slides.ICell
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICell type exposes the following members:
 ## **Properties**

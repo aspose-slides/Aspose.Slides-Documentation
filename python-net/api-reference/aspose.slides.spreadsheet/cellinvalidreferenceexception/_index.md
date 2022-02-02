@@ -11,7 +11,7 @@ The exception that is thrown when an invalid cell reference is encountered.
 
 **Full Class Name:** aspose.slides.spreadsheet.CellInvalidReferenceException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The CellInvalidReferenceException type exposes the following members:
 ## **Constructors**

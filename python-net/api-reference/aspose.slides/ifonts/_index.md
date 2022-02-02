@@ -11,7 +11,7 @@ Represents fonts collection.
 
 **Full Class Name:** aspose.slides.IFonts
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFonts type exposes the following members:
 ## **Properties**

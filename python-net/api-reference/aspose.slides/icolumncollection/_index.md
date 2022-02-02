@@ -11,7 +11,7 @@ Represents collection of columns in a table.
 
 **Full Class Name:** aspose.slides.IColumnCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IColumnCollection type exposes the following members:
 ## **Properties**

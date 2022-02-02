@@ -11,7 +11,7 @@ Represents an Alpha Bi-Level effect.<br/>            Alpha (Opacity) values less
 
 **Full Class Name:** aspose.slides.effects.AlphaBiLevel
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AlphaBiLevel type exposes the following members:
 ## **Properties**

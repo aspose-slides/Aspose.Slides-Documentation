@@ -1,7 +1,7 @@
 ---
 title: Portion Class
 type: docs
-weight: 3310
+weight: 3360
 url: /python-net/api-reference/aspose.slides/portion/
 ---
 
@@ -11,7 +11,7 @@ Represents a portion of text inside a text paragraph.
 
 **Full Class Name:** aspose.slides.Portion
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Portion type exposes the following members:
 ## **Constructors**

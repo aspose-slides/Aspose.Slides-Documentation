@@ -11,7 +11,7 @@ Represents master slide for notes.
 
 **Full Class Name:** aspose.slides.IMasterNotesSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterNotesSlide type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Specifies the bar function, consisting of a base argument and an overbar or unde
 
 **Full Class Name:** aspose.slides.mathtext.IMathBar
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathBar type exposes the following members:
 ## **Properties**

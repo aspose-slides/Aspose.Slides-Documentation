@@ -1,7 +1,7 @@
 ---
 title: IShapeCollection Class
 type: docs
-weight: 2420
+weight: 2430
 url: /python-net/api-reference/aspose.slides/ishapecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of a shapes.
 
 **Full Class Name:** aspose.slides.IShapeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IShapeCollection type exposes the following members:
 ## **Properties**
@@ -39,6 +39,10 @@ The IShapeCollection type exposes the following members:
 |add_zoom_frame(x, y, width, height, slide, image)|Adds a new Zoom object to the end of a collection.|
 |insert_zoom_frame(index, x, y, width, height, slide)|Creates a new Zoom object and inserts it to a collection at the specified index.|
 |insert_zoom_frame(index, x, y, width, height, slide, image)|Creates a new Zoom object and inserts it to a collection at the specified index.|
+|add_section_zoom_frame(x, y, width, height, section)|Adds a new Section Zoom object to the end of a collection.|
+|add_section_zoom_frame(x, y, width, height, section, image)|Adds a new Section Zoom object to the end of a collection with a predefined image.|
+|insert_section_zoom_frame(index, x, y, width, height, section)|Creates a new Section Zoom object and inserts into to a collection at the specified index.|
+|insert_section_zoom_frame(index, x, y, width, height, section, image)|Creates a new Section Zoom object and inserts it to a collection at the specified index.|
 |add_video_frame(x, y, width, height, fname)|Adds a new video frame to the end of a collection.|
 |add_video_frame(x, y, width, height, video)|Adds a new video frame to the end of a collection.|
 |add_audio_frame_embedded(x, y, width, height, audio_stream)|Adds a new audio frame with embedded audio file to the end of a collection.<br/>            Embedded audio file can be a WAV only.<br/>            It adds new audio into Presentation.Audios list.|
@@ -66,6 +70,8 @@ The IShapeCollection type exposes the following members:
 |insert_clone(index, source_shape, x, y)|Inserts a copy of a specified shape to specified position of the collection.|
 |insert_clone(index, source_shape)|Inserts a copy of a specified shape to specified position of the collection.|
 |add_smart_art(x, y, width, height, layout_type)|Add SmartArt diagram.|
+|add_summary_zoom_frame(x, y, width, height)|Adds a new Summary Zoom object to the end of a collection.|
+|insert_summary_zoom_frame(index, x, y, width, height)|Creates a new Summary Zoom object and inserts it to a collection at the specified index.|
 |insert_video_frame(index, x, y, width, height, fname)|Creates a new video frame and inserts it to a collection at the specified index.|
 |add_audio_frame_cd(x, y, width, height)|Adds an AudioFrame with CD to the end of collection.|
 |insert_audio_frame_cd(index, x, y, width, height)|Insert an AudioFrame with CD.|

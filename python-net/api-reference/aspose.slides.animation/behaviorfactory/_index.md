@@ -11,7 +11,7 @@ Allows to create animation effects
 
 **Full Class Name:** aspose.slides.animation.BehaviorFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BehaviorFactory type exposes the following members:
 ## **Constructors**

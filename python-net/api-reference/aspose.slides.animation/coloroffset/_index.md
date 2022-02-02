@@ -11,7 +11,7 @@ Represent color offset.
 
 **Full Class Name:** aspose.slides.animation.ColorOffset
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ColorOffset type exposes the following members:
 ## **Constructors**

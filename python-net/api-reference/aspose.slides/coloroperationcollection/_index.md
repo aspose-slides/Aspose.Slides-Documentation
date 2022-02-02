@@ -11,7 +11,7 @@ Represents a collection of color transform operations.
 
 **Full Class Name:** aspose.slides.ColorOperationCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ColorOperationCollection type exposes the following members:
 ## **Properties**

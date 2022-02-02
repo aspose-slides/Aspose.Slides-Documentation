@@ -11,10 +11,10 @@ Represents a type of a category axis.
 
 **Full Name:** aspose.slides.charts.CategoryAxisType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|TEXT|0|Specifies category axis is a text axis.|
-|DATE|1|Specifies category axis is a date axis.|
+|**Member name**|**Description**|
+| :- | :- |
+|TEXT|Specifies category axis is a text axis.|
+|DATE|Specifies category axis is a date axis.|

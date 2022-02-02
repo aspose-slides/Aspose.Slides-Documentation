@@ -1,7 +1,7 @@
 ---
 title: PortionCollection Class
 type: docs
-weight: 3320
+weight: 3370
 url: /python-net/api-reference/aspose.slides/portioncollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of portions.
 
 **Full Class Name:** aspose.slides.PortionCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PortionCollection type exposes the following members:
 ## **Properties**

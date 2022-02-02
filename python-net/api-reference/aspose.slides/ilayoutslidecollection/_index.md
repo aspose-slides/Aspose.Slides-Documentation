@@ -11,7 +11,7 @@ Represents a base class for collection of a layout slides.
 
 **Full Class Name:** aspose.slides.ILayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILayoutSlideCollection type exposes the following members:
 ## **Properties**

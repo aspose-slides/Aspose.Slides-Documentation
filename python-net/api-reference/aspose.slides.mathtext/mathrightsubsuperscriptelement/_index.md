@@ -11,7 +11,7 @@ Specifies the Sub-Superscript object, which consists of a base <br/>            
 
 **Full Class Name:** aspose.slides.mathtext.MathRightSubSuperscriptElement
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathRightSubSuperscriptElement type exposes the following members:
 ## **Constructors**

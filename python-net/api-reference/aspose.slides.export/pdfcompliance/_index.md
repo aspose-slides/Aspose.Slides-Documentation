@@ -11,12 +11,12 @@ Constants which define the PDF standards compliance level.
 
 **Full Name:** aspose.slides.export.PdfCompliance
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|PDF15|0|The output file will comply with the PDF 1.5 standard.|
-|PDF_A1B|1|The output file will comply with the PDF/A-1b standard.|
-|PDF_A1A|2|The output file will comply with the PDF/A-1a standard.|
-|PDF_UA|3|The output file will comply with the PDF/UA standard.|
+|**Member name**|**Description**|
+| :- | :- |
+|PDF15|The output file will comply with the PDF 1.5 standard.|
+|PDF_A1B|The output file will comply with the PDF/A-1b standard.|
+|PDF_A1A|The output file will comply with the PDF/A-1a standard.|
+|PDF_UA|The output file will comply with the PDF/UA standard.|

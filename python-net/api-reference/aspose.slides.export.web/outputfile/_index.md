@@ -11,7 +11,7 @@ Represents an output file.
 
 **Full Class Name:** aspose.slides.export.web.OutputFile
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The OutputFile type exposes the following members:
 ## **Methods**

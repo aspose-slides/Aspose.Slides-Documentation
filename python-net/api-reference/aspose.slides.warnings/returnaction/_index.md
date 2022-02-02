@@ -11,10 +11,10 @@ Represents warning callback decision options.
 
 **Full Name:** aspose.slides.warnings.ReturnAction
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|CONTINUE|0|Operation should be continued.|
-|ABORT|1|Operation should be aborted.|
+|**Member name**|**Description**|
+| :- | :- |
+|CONTINUE|Operation should be continued.|
+|ABORT|Operation should be aborted.|

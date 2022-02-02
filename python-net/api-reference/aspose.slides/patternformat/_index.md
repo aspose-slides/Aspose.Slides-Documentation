@@ -1,7 +1,7 @@
 ---
 title: PatternFormat Class
 type: docs
-weight: 3250
+weight: 3300
 url: /python-net/api-reference/aspose.slides/patternformat/
 ---
 
@@ -11,7 +11,7 @@ Represents a pattern to fill a shape.
 
 **Full Class Name:** aspose.slides.PatternFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PatternFormat type exposes the following members:
 ## **Properties**

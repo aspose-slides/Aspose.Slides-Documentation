@@ -11,7 +11,7 @@ Represents objects that can be themed with [ITheme](/slides/python-net/api-refer
 
 **Full Class Name:** aspose.slides.theme.IThemeable
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IThemeable type exposes the following members:
 ## **Properties**

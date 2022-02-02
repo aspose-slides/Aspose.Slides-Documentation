@@ -1,7 +1,7 @@
 ---
 title: LightRig Class
 type: docs
-weight: 2930
+weight: 2980
 url: /python-net/api-reference/aspose.slides/lightrig/
 ---
 
@@ -11,7 +11,7 @@ Represents LightRig.
 
 **Full Class Name:** aspose.slides.LightRig
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LightRig type exposes the following members:
 ## **Properties**

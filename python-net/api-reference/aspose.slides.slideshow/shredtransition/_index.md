@@ -11,7 +11,7 @@ Shred slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.ShredTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ShredTransition type exposes the following members:
 ## **Properties**

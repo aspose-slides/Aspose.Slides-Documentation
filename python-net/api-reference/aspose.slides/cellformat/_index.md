@@ -11,7 +11,7 @@ Represents format of a table cell.
 
 **Full Class Name:** aspose.slides.CellFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The CellFormat type exposes the following members:
 ## **Properties**

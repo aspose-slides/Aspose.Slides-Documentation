@@ -11,7 +11,7 @@ Represents geometry path of GeometryShape
 
 **Full Class Name:** aspose.slides.IGeometryPath
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IGeometryPath type exposes the following members:
 ## **Properties**

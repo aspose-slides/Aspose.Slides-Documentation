@@ -11,7 +11,7 @@ Represents a Tint effect.<br/>            Shifts effect color values towards/awa
 
 **Full Class Name:** aspose.slides.effects.ITint
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITint type exposes the following members:
 ## **Properties**

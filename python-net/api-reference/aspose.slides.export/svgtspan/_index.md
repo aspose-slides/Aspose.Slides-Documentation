@@ -11,7 +11,7 @@ Represents options for SVG text portion ("tspan").
 
 **Full Class Name:** aspose.slides.export.SvgTSpan
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SvgTSpan type exposes the following members:
 ## **Properties**

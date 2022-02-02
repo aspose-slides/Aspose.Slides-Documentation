@@ -11,7 +11,7 @@ Interface for classes which receive warning
 
 **Full Class Name:** aspose.slides.warnings.IWarningCallback
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IWarningCallback type exposes the following members:
 ## **Methods**

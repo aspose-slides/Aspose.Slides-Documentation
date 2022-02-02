@@ -11,7 +11,7 @@ Represent motion effect behavior of effect.
 
 **Full Class Name:** aspose.slides.animation.IMotionEffect
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMotionEffect type exposes the following members:
 ## **Properties**

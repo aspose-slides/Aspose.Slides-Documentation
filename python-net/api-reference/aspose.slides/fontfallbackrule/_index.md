@@ -11,7 +11,7 @@ Represents font fallback rule
 
 **Full Class Name:** aspose.slides.FontFallBackRule
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FontFallBackRule type exposes the following members:
 ## **Constructors**

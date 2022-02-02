@@ -5,6 +5,8 @@ weight: 50
 url: /python-net/api-reference/
 ---
 
+**Assembly:**  Aspose.Slides Version: 22.1.0.0
+
 ## **Namespaces**
 |**Namespace**|**Description**|
 | :- | :- |
@@ -19,6 +21,7 @@ url: /python-net/api-reference/
 |[aspose.slides.export.xaml](/slides/python-net/api-reference/aspose.slides.export.xaml/)|Contains classes for exporting Microsoft PowerPoint presentations to XAML.|
 |[aspose.slides.import](/slides/python-net/api-reference/aspose.slides.import/)|Contains classes importing data into Microsoft PowerPoint presentations.|
 |[aspose.slides.ink](/slides/python-net/api-reference/aspose.slides.ink/)|Contains classes for work with Ink|
+|[aspose.slides.lowcode](/slides/python-net/api-reference/aspose.slides.lowcode/)||
 |[aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)|Contains classes for work with mathematical text in Microsoft PowerPoint presentations.|
 |[aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)|Contains classes for managing slideshows and slide transitions.|
 |[aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)|Contains classes for work with SmartArt objects.|
