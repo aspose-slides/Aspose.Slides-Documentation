@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 22.1 Release Notes
+title: Aspose.Slides for Python 22.1 Release Notes
 type: docs
 weight: 100
 url: /python-net/aspose-slides-for-python-net-22-1-release-notes/
