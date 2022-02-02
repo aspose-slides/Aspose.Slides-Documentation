@@ -11,7 +11,7 @@ Immutable object which contains effective line filling properties.
 
 **Full Class Name:** aspose.slides.ILineFillFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILineFillFormatEffectiveData type exposes the following members:
 ## **Properties**

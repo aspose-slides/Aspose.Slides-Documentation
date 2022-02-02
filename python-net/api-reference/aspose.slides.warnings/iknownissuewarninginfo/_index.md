@@ -11,7 +11,7 @@ Represents a warning about known issue which won't be fixed in the near future.
 
 **Full Class Name:** aspose.slides.warnings.IKnownIssueWarningInfo
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IKnownIssueWarningInfo type exposes the following members:
 ## **Properties**

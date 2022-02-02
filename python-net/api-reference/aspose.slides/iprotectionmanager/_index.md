@@ -11,7 +11,7 @@ Presentation password protestion management.
 
 **Full Class Name:** aspose.slides.IProtectionManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IProtectionManager type exposes the following members:
 ## **Properties**

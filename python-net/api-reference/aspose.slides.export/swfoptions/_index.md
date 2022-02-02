@@ -11,7 +11,7 @@ Provides options that control how a presentation is saved in Swf format.
 
 **Full Class Name:** aspose.slides.export.SwfOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SwfOptions type exposes the following members:
 ## **Constructors**

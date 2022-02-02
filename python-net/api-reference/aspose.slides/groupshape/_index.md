@@ -11,7 +11,7 @@ Represents a group of shapes on a slide.
 
 **Full Class Name:** aspose.slides.GroupShape
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The GroupShape type exposes the following members:
 ## **Properties**

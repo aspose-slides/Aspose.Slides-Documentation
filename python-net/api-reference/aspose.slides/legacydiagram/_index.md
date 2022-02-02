@@ -1,7 +1,7 @@
 ---
 title: LegacyDiagram Class
 type: docs
-weight: 2910
+weight: 2960
 url: /python-net/api-reference/aspose.slides/legacydiagram/
 ---
 
@@ -11,7 +11,7 @@ Represents a legacy diagram object.
 
 **Full Class Name:** aspose.slides.LegacyDiagram
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LegacyDiagram type exposes the following members:
 ## **Properties**

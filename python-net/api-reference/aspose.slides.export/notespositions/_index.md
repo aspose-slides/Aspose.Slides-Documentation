@@ -11,11 +11,11 @@ Represents the rule to render notes into exported document
 
 **Full Name:** aspose.slides.export.NotesPositions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NONE|0|Specifies that notes should not be displayed at all.|
-|BOTTOM_FULL|1|Specifies that notes should be full displayed using additional pages as it is needed.|
-|BOTTOM_TRUNCATED|2|Specifies that notes should be displayed in only one page.|
+|**Member name**|**Description**|
+| :- | :- |
+|NONE|Specifies that notes should not be displayed at all.|
+|BOTTOM_FULL|Specifies that notes should be full displayed using additional pages as it is needed.|
+|BOTTOM_TRUNCATED|Specifies that notes should be displayed in only one page.|

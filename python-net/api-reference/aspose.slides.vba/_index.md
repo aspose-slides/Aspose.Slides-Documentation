@@ -1,7 +1,7 @@
 ---
 title: aspose.slides.vba
 type: docs
-weight: 180
+weight: 190
 url: /python-net/api-reference/aspose.slides.vba/
 ---
 

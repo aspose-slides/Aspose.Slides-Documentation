@@ -11,7 +11,7 @@ Represents a collection of a chart cells.
 
 **Full Class Name:** aspose.slides.charts.IMultipleCellChartValue
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMultipleCellChartValue type exposes the following members:
 ## **Properties**

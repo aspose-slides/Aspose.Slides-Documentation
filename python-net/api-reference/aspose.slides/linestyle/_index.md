@@ -1,7 +1,7 @@
 ---
 title: LineStyle Enumeration
 type: docs
-weight: 9580
+weight: 9710
 url: /python-net/api-reference/aspose.slides/linestyle/
 ---
 
@@ -11,14 +11,14 @@ Represents the style of a line.
 
 **Full Name:** aspose.slides.LineStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|SINGLE|1||
-|THIN_THIN|2||
-|THICK_THIN|3||
-|THIN_THICK|4||
-|THICK_BETWEEN_THIN|5||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|SINGLE||
+|THIN_THIN||
+|THICK_THIN||
+|THIN_THICK||
+|THICK_BETWEEN_THIN||

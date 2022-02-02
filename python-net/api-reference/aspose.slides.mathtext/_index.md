@@ -1,7 +1,7 @@
 ---
 title: aspose.slides.mathtext
 type: docs
-weight: 120
+weight: 130
 url: /python-net/api-reference/aspose.slides.mathtext/
 ---
 

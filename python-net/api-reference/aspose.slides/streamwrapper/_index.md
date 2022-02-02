@@ -1,7 +1,7 @@
 ---
 title: StreamWrapper Class
 type: docs
-weight: 3690
+weight: 3750
 url: /python-net/api-reference/aspose.slides/streamwrapper/
 ---
 
@@ -11,7 +11,7 @@ Aspose.IO.Stream wrapper for COM interface.
 
 **Full Class Name:** aspose.slides.StreamWrapper
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The StreamWrapper type exposes the following members:
 ## **Properties**

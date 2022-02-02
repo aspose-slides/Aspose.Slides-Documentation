@@ -1,7 +1,7 @@
 ---
 title: PlaceholderSize Enumeration
 type: docs
-weight: 9720
+weight: 9850
 url: /python-net/api-reference/aspose.slides/placeholdersize/
 ---
 
@@ -11,11 +11,11 @@ Represents the size of a placeholder.
 
 **Full Name:** aspose.slides.PlaceholderSize
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|FULL|0|Full.|
-|HALF|1|Half.|
-|QUARTER|2|Quarter.|
+|**Member name**|**Description**|
+| :- | :- |
+|FULL|Full.|
+|HALF|Half.|
+|QUARTER|Quarter.|

@@ -11,7 +11,7 @@ Represents timing properties for the effect behavior.
 
 **Full Class Name:** aspose.slides.animation.BehaviorPropertyCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BehaviorPropertyCollection type exposes the following members:
 ## **Properties**

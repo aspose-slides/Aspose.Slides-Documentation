@@ -11,7 +11,7 @@ Immutable object which represents a inner shadow effect.
 
 **Full Class Name:** aspose.slides.effects.InnerShadowEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The InnerShadowEffectiveData type exposes the following members:
 ## **Properties**

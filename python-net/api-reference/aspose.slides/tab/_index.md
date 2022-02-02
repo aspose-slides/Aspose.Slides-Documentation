@@ -1,7 +1,7 @@
 ---
 title: Tab Class
 type: docs
-weight: 3720
+weight: 3810
 url: /python-net/api-reference/aspose.slides/tab/
 ---
 
@@ -11,7 +11,7 @@ Represents a tabulation for a text.
 
 **Full Class Name:** aspose.slides.Tab
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Tab type exposes the following members:
 ## **Constructors**

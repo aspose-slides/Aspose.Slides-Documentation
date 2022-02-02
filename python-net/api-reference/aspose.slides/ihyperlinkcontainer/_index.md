@@ -11,7 +11,7 @@ Represents hyperlink object.
 
 **Full Class Name:** aspose.slides.IHyperlinkContainer
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IHyperlinkContainer type exposes the following members:
 ## **Properties**

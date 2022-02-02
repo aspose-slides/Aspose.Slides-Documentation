@@ -1,7 +1,7 @@
 ---
 title: FontSubstCondition Enumeration
 type: docs
-weight: 9430
+weight: 9560
 url: /python-net/api-reference/aspose.slides/fontsubstcondition/
 ---
 
@@ -11,10 +11,10 @@ Represents a rule fot font substitution
 
 **Full Name:** aspose.slides.FontSubstCondition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|WHEN_INACCESSIBLE|0|Substitute when font is not found|
-|ALWAYS|1|Substitute always|
+|**Member name**|**Description**|
+| :- | :- |
+|WHEN_INACCESSIBLE|Substitute when font is not found|
+|ALWAYS|Substitute always|

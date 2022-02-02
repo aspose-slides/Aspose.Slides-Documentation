@@ -1,7 +1,7 @@
 ---
 title: ISlideText Class
 type: docs
-weight: 2540
+weight: 2550
 url: /python-net/api-reference/aspose.slides/islidetext/
 ---
 
@@ -11,7 +11,7 @@ Represents the text extracted from the slide
 
 **Full Class Name:** aspose.slides.ISlideText
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISlideText type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents collection of fonts substitution.
 
 **Full Class Name:** aspose.slides.IFontSubstRuleCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFontSubstRuleCollection type exposes the following members:
 ## **Properties**

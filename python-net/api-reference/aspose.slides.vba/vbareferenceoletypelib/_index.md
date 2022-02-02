@@ -11,7 +11,7 @@ Represents OLE Automation type library reference.
 
 **Full Class Name:** aspose.slides.vba.VbaReferenceOleTypeLib
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The VbaReferenceOleTypeLib type exposes the following members:
 ## **Constructors**

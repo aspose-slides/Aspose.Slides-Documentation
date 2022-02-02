@@ -11,7 +11,7 @@ Represents a collection of GradientStopDataEx objects.
 
 **Full Class Name:** aspose.slides.IGradientStopCollectionEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IGradientStopCollectionEffectiveData type exposes the following members:
 ## **Properties**

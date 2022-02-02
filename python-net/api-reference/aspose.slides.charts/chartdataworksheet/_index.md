@@ -11,7 +11,7 @@ Represents worksheet associated with [IChartDataCell](/slides/python-net/api-ref
 
 **Full Class Name:** aspose.slides.charts.ChartDataWorksheet
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartDataWorksheet type exposes the following members:
 ## **Properties**

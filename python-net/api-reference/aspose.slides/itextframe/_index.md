@@ -1,7 +1,7 @@
 ---
 title: ITextFrame Class
 type: docs
-weight: 2680
+weight: 2720
 url: /python-net/api-reference/aspose.slides/itextframe/
 ---
 
@@ -11,7 +11,7 @@ Represents a TextFrame.
 
 **Full Class Name:** aspose.slides.ITextFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITextFrame type exposes the following members:
 ## **Properties**

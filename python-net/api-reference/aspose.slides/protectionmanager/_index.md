@@ -1,7 +1,7 @@
 ---
 title: ProtectionManager Class
 type: docs
-weight: 3500
+weight: 3550
 url: /python-net/api-reference/aspose.slides/protectionmanager/
 ---
 
@@ -11,7 +11,7 @@ Presentation password protection management.
 
 **Full Class Name:** aspose.slides.ProtectionManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ProtectionManager type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: MasterHandoutSlideHeaderFooterManager Class
 type: docs
-weight: 2980
+weight: 3030
 url: /python-net/api-reference/aspose.slides/masterhandoutslideheaderfootermanager/
 ---
 
@@ -11,7 +11,7 @@ Represents manager which holds behavior of the master handout slide placeholders
 
 **Full Class Name:** aspose.slides.MasterHandoutSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MasterHandoutSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

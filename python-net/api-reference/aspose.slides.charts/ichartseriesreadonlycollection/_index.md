@@ -11,7 +11,7 @@ Represents a readonly collection of  [IChartSeries](/slides/python-net/api-refer
 
 **Full Class Name:** aspose.slides.charts.IChartSeriesReadonlyCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartSeriesReadonlyCollection type exposes the following members:
 ## **Properties**

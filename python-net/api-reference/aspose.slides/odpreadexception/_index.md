@@ -1,7 +1,7 @@
 ---
 title: OdpReadException Class
 type: docs
-weight: 3160
+weight: 3210
 url: /python-net/api-reference/aspose.slides/odpreadexception/
 ---
 
@@ -11,7 +11,7 @@ Represents an exception which thrown on presentation reading errors.
 
 **Full Class Name:** aspose.slides.OdpReadException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The OdpReadException type exposes the following members:
 ## **Constructors**

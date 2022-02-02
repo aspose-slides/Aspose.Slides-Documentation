@@ -11,12 +11,12 @@ Represent side direction transition types.
 
 **Full Name:** aspose.slides.slideshow.TransitionSideDirectionType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|LEFT|0||
-|UP|1||
-|DOWN|2||
-|RIGHT|3||
+|**Member name**|**Description**|
+| :- | :- |
+|LEFT||
+|UP||
+|DOWN||
+|RIGHT||

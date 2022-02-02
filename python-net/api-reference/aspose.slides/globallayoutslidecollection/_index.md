@@ -11,7 +11,7 @@ Represents a collection of all layout slides in presentation.<br/>            Ex
 
 **Full Class Name:** aspose.slides.GlobalLayoutSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The GlobalLayoutSlideCollection type exposes the following members:
 ## **Properties**

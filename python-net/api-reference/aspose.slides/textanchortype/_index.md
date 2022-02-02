@@ -1,7 +1,7 @@
 ---
 title: TextAnchorType Enumeration
 type: docs
-weight: 9950
+weight: 10080
 url: /python-net/api-reference/aspose.slides/textanchortype/
 ---
 
@@ -11,14 +11,14 @@ text box alignment within a text area.
 
 **Full Name:** aspose.slides.TextAnchorType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|TOP|1||
-|CENTER|2||
-|BOTTOM|3||
-|JUSTIFIED|4||
-|DISTRIBUTED|5||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|TOP||
+|CENTER||
+|BOTTOM||
+|JUSTIFIED||
+|DISTRIBUTED||

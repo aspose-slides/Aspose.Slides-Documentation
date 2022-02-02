@@ -1,7 +1,7 @@
 ---
 title: SectionSlideCollection Class
 type: docs
-weight: 3560
+weight: 3610
 url: /python-net/api-reference/aspose.slides/sectionslidecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of slides in the section.
 
 **Full Class Name:** aspose.slides.SectionSlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SectionSlideCollection type exposes the following members:
 ## **Properties**

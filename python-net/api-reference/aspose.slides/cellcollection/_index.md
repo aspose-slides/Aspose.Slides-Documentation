@@ -11,7 +11,7 @@ Represents a collection of cells.
 
 **Full Class Name:** aspose.slides.CellCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The CellCollection type exposes the following members:
 ## **Properties**

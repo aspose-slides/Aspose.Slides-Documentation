@@ -11,7 +11,7 @@ Stores theme-defined colors.
 
 **Full Class Name:** aspose.slides.theme.ColorScheme
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ColorScheme type exposes the following members:
 ## **Properties**

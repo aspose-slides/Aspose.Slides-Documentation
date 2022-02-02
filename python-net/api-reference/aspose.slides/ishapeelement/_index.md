@@ -1,7 +1,7 @@
 ---
 title: IShapeElement Class
 type: docs
-weight: 2430
+weight: 2440
 url: /python-net/api-reference/aspose.slides/ishapeelement/
 ---
 
@@ -11,6 +11,6 @@ Represents a part of shape with same outline and fill properties.
 
 **Full Class Name:** aspose.slides.IShapeElement
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IShapeElement type exposes the following members:

@@ -1,7 +1,7 @@
 ---
 title: PptCorruptFileException Class
 type: docs
-weight: 3350
+weight: 3400
 url: /python-net/api-reference/aspose.slides/pptcorruptfileexception/
 ---
 
@@ -11,7 +11,7 @@ Exception which thrown when presentation file is probably corrupt.
 
 **Full Class Name:** aspose.slides.PptCorruptFileException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PptCorruptFileException type exposes the following members:
 ## **Constructors**

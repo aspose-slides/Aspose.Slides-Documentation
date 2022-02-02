@@ -11,7 +11,7 @@ Represents a SmartArt diagram
 
 **Full Class Name:** aspose.slides.smartart.SmartArt
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SmartArt type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a portion with mathematical context inside.
 
 **Full Class Name:** aspose.slides.mathtext.MathPortion
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathPortion type exposes the following members:
 ## **Constructors**

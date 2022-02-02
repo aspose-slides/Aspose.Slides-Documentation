@@ -1,7 +1,7 @@
 ---
 title: ISpreadsheetOptions Class
 type: docs
-weight: 2560
+weight: 2570
 url: /python-net/api-reference/aspose.slides/ispreadsheetoptions/
 ---
 
@@ -11,7 +11,7 @@ Represents options which can be used to specify additional spreadsheets behavior
 
 **Full Class Name:** aspose.slides.ISpreadsheetOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISpreadsheetOptions type exposes the following members:
 ## **Properties**

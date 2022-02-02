@@ -11,7 +11,7 @@ Provide access to up/down bars of Line- or Stock-chart.
 
 **Full Class Name:** aspose.slides.charts.IUpDownBarsManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IUpDownBarsManager type exposes the following members:
 ## **Properties**

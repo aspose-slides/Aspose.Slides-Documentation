@@ -11,7 +11,7 @@ Allows to create a math accent
 
 **Full Class Name:** aspose.slides.mathtext.IMathAccentFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathAccentFactory type exposes the following members:
 ## **Methods**

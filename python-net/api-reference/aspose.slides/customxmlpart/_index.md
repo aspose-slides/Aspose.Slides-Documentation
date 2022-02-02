@@ -11,7 +11,7 @@ Represents custom xml part.
 
 **Full Class Name:** aspose.slides.CustomXmlPart
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The CustomXmlPart type exposes the following members:
 ## **Properties**

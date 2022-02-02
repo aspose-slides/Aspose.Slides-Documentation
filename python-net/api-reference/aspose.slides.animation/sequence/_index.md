@@ -11,7 +11,7 @@ Represents sequence (collection of effects).
 
 **Full Class Name:** aspose.slides.animation.Sequence
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Sequence type exposes the following members:
 ## **Properties**

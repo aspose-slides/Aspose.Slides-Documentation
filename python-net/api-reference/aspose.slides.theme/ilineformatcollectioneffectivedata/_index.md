@@ -11,7 +11,7 @@ Immutable object that represents a readonly collection of effective line formats
 
 **Full Class Name:** aspose.slides.theme.ILineFormatCollectionEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILineFormatCollectionEffectiveData type exposes the following members:
 ## **Properties**

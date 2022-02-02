@@ -11,12 +11,12 @@ Represent calc mode for animation property.
 
 **Full Name:** aspose.slides.animation.PropertyCalcModeType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|DISCRETE|1||
-|LINEAR|2||
-|FORMULA|3||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|DISCRETE||
+|LINEAR||
+|FORMULA||

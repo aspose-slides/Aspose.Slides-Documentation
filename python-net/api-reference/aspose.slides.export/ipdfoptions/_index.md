@@ -11,7 +11,7 @@ Provides options that control how a presentation is saved in Pdf format.
 
 **Full Class Name:** aspose.slides.export.IPdfOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IPdfOptions type exposes the following members:
 ## **Properties**

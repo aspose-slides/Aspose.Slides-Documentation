@@ -11,7 +11,7 @@ Options that control how a XAML document is saved.
 
 **Full Class Name:** aspose.slides.export.xaml.XamlOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The XamlOptions type exposes the following members:
 ## **Constructors**

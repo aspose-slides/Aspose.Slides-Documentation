@@ -11,7 +11,7 @@ Ripple slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.MorphTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MorphTransition type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represent one command of a path.
 
 **Full Class Name:** aspose.slides.animation.IMotionCmdPath
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMotionCmdPath type exposes the following members:
 ## **Properties**

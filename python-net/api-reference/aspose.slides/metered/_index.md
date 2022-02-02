@@ -1,7 +1,7 @@
 ---
 title: Metered Class
 type: docs
-weight: 3050
+weight: 3100
 url: /python-net/api-reference/aspose.slides/metered/
 ---
 
@@ -11,7 +11,7 @@ Provides methods to set metered key.
 
 **Full Class Name:** aspose.slides.Metered
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Metered type exposes the following members:
 ## **Constructors**

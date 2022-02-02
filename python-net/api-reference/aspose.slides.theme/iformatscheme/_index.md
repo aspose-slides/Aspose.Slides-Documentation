@@ -11,7 +11,7 @@ Stores theme-defined formats for the shapes.
 
 **Full Class Name:** aspose.slides.theme.IFormatScheme
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFormatScheme type exposes the following members:
 ## **Properties**

@@ -11,14 +11,14 @@ Represents additive type for effect behavior.
 
 **Full Name:** aspose.slides.animation.BehaviorAdditiveType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|NONE|1||
-|BASE|2||
-|SUM|3||
-|REPLACE|4||
-|MULTIPLY|5||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|NONE||
+|BASE||
+|SUM||
+|REPLACE||
+|MULTIPLY||

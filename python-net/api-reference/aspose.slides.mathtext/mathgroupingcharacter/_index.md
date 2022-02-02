@@ -11,7 +11,7 @@ Specifies a grouping symbol above or below an expression, usually to highlight t
 
 **Full Class Name:** aspose.slides.mathtext.MathGroupingCharacter
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathGroupingCharacter type exposes the following members:
 ## **Constructors**

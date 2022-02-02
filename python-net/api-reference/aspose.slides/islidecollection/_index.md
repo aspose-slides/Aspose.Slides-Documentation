@@ -1,7 +1,7 @@
 ---
 title: ISlideCollection Class
 type: docs
-weight: 2490
+weight: 2500
 url: /python-net/api-reference/aspose.slides/islidecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of a slides.
 
 **Full Class Name:** aspose.slides.ISlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISlideCollection type exposes the following members:
 ## **Properties**

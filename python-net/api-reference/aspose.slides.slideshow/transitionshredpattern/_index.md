@@ -11,10 +11,10 @@ Specifies a geometric shape that tiles together to fill a larger area.
 
 **Full Name:** aspose.slides.slideshow.TransitionShredPattern
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|STRIP|0|Vertical strips|
-|RECTANGLE|1|Small rectangles|
+|**Member name**|**Description**|
+| :- | :- |
+|STRIP|Vertical strips|
+|RECTANGLE|Small rectangles|

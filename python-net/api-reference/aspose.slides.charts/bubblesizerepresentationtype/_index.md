@@ -11,10 +11,10 @@ Specifies the possible ways to represent data as bubble chart sizes.
 
 **Full Name:** aspose.slides.charts.BubbleSizeRepresentationType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|AREA|0|Specifies the area of the bubbles shall be proportional to the bubble size value.|
-|WIDTH|1|Specifies the radius of the bubbles shall be proportional to the bubble size value.|
+|**Member name**|**Description**|
+| :- | :- |
+|AREA|Specifies the area of the bubbles shall be proportional to the bubble size value.|
+|WIDTH|Specifies the radius of the bubbles shall be proportional to the bubble size value.|

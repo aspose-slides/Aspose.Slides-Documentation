@@ -11,7 +11,7 @@ Represents a size of notes slide.
 
 **Full Class Name:** aspose.slides.INotesSize
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The INotesSize type exposes the following members:
 ## **Properties**

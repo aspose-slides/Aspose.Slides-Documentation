@@ -11,7 +11,7 @@ Represents override theme manager.
 
 **Full Class Name:** aspose.slides.theme.IOverrideThemeable
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IOverrideThemeable type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a collection of portions.
 
 **Full Class Name:** aspose.slides.animation.IPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IPointCollection type exposes the following members:
 ## **Properties**

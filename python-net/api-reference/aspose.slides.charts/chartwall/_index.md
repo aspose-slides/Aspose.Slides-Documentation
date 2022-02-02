@@ -11,7 +11,7 @@ Represents walls on 3d charts.
 
 **Full Class Name:** aspose.slides.charts.ChartWall
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartWall type exposes the following members:
 ## **Properties**

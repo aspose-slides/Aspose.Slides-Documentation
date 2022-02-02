@@ -11,7 +11,7 @@ Empty slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.IEmptyTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IEmptyTransition type exposes the following members:
 ## **Properties**

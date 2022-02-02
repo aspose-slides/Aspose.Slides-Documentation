@@ -11,11 +11,11 @@ Represents types of accumulation of effect behaviors.
 
 **Full Name:** aspose.slides.animation.BehaviorAccumulateType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|ALWAYS|1||
-|NONE|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|ALWAYS||
+|NONE||

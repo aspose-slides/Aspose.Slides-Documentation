@@ -11,7 +11,7 @@ Represents background of a slide.
 
 **Full Class Name:** aspose.slides.Background
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Background type exposes the following members:
 ## **Properties**

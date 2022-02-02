@@ -1,7 +1,7 @@
 ---
 title: Row Class
 type: docs
-weight: 3510
+weight: 3560
 url: /python-net/api-reference/aspose.slides/row/
 ---
 
@@ -11,7 +11,7 @@ Represents a row in a table.
 
 **Full Class Name:** aspose.slides.Row
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Row type exposes the following members:
 ## **Properties**

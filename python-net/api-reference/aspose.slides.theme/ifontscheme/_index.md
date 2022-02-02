@@ -11,7 +11,7 @@ Stores theme-defined fonts.
 
 **Full Class Name:** aspose.slides.theme.IFontScheme
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IFontScheme type exposes the following members:
 ## **Properties**

@@ -11,11 +11,11 @@ Represents layout of category data labels. Used with Treemap series only.
 
 **Full Name:** aspose.slides.charts.ParentLabelLayoutType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|BANNER|0|Specifies that parent category labels are shown as banner|
-|NONE|1|Specifies that parent category labels are not drawn|
-|OVERLAPPING|2|Specifies that parent category labels are shown as overlapping|
+|**Member name**|**Description**|
+| :- | :- |
+|BANNER|Specifies that parent category labels are shown as banner|
+|NONE|Specifies that parent category labels are not drawn|
+|OVERLAPPING|Specifies that parent category labels are shown as overlapping|

@@ -11,7 +11,7 @@ Represents collection of behavior effects.
 
 **Full Class Name:** aspose.slides.animation.BehaviorCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BehaviorCollection type exposes the following members:
 ## **Properties**

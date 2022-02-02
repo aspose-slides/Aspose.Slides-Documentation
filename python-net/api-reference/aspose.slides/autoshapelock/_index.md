@@ -11,7 +11,7 @@ Determines which operations are disabled on the parent AutoshapeEx.
 
 **Full Class Name:** aspose.slides.AutoShapeLock
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AutoShapeLock type exposes the following members:
 ## **Properties**

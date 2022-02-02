@@ -1,7 +1,7 @@
 ---
 title: IShapeStyle Class
 type: docs
-weight: 2450
+weight: 2460
 url: /python-net/api-reference/aspose.slides/ishapestyle/
 ---
 
@@ -11,7 +11,7 @@ Represent shape's style reference.
 
 **Full Class Name:** aspose.slides.IShapeStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IShapeStyle type exposes the following members:
 ## **Properties**

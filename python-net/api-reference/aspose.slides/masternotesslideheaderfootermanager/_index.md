@@ -1,7 +1,7 @@
 ---
 title: MasterNotesSlideHeaderFooterManager Class
 type: docs
-weight: 3010
+weight: 3060
 url: /python-net/api-reference/aspose.slides/masternotesslideheaderfootermanager/
 ---
 
@@ -11,7 +11,7 @@ Represents manager which holds behavior of the master notes slide footer, date-t
 
 **Full Class Name:** aspose.slides.MasterNotesSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MasterNotesSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

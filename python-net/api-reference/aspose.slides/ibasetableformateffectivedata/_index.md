@@ -11,7 +11,7 @@ Base interface for immutable objects which contain effective table formatting pr
 
 **Full Class Name:** aspose.slides.IBaseTableFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBaseTableFormatEffectiveData type exposes the following members:
 ## **Properties**

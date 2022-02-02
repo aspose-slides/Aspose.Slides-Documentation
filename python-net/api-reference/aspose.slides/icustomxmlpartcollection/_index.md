@@ -11,7 +11,7 @@ Represents collection of custom xml parts.
 
 **Full Class Name:** aspose.slides.ICustomXmlPartCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICustomXmlPartCollection type exposes the following members:
 ## **Properties**

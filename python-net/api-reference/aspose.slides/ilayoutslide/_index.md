@@ -11,7 +11,7 @@ Represents a layout slide.
 
 **Full Class Name:** aspose.slides.ILayoutSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILayoutSlide type exposes the following members:
 ## **Properties**

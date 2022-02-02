@@ -1,7 +1,7 @@
 ---
 title: BevelPresetType Enumeration
 type: docs
-weight: 9300
+weight: 9430
 url: /python-net/api-reference/aspose.slides/bevelpresettype/
 ---
 
@@ -11,21 +11,21 @@ Constants which define 3D bevel of shape.
 
 **Full Name:** aspose.slides.BevelPresetType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|ANGLE|1||
-|ART_DECO|2||
-|CIRCLE|3||
-|CONVEX|4||
-|COOL_SLANT|5||
-|CROSS|6||
-|DIVOT|7||
-|HARD_EDGE|8||
-|RELAXED_INSET|9||
-|RIBLET|10||
-|SLOPE|11||
-|SOFT_ROUND|12||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|ANGLE||
+|ART_DECO||
+|CIRCLE||
+|CONVEX||
+|COOL_SLANT||
+|CROSS||
+|DIVOT||
+|HARD_EDGE||
+|RELAXED_INSET||
+|RIBLET||
+|SLOPE||
+|SOFT_ROUND||

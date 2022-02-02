@@ -11,7 +11,7 @@ Represents paragraph bullet formatting properties.
 
 **Full Class Name:** aspose.slides.BulletFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BulletFormat type exposes the following members:
 ## **Properties**

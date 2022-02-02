@@ -11,7 +11,7 @@ Represent property effect behavior.
 
 **Full Class Name:** aspose.slides.animation.IPropertyEffect
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IPropertyEffect type exposes the following members:
 ## **Properties**

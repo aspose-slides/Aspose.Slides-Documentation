@@ -1,7 +1,7 @@
 ---
 title: InterruptionTokenSource Class
 type: docs
-weight: 2860
+weight: 2910
 url: /python-net/api-reference/aspose.slides/interruptiontokensource/
 ---
 
@@ -11,7 +11,7 @@ Represents the source of [InterruptionToken](/slides/python-net/api-reference/as
 
 **Full Class Name:** aspose.slides.InterruptionTokenSource
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The InterruptionTokenSource type exposes the following members:
 ## **Constructors**

@@ -11,7 +11,7 @@ Represents a collection of FontFallBack rules, defined by user
 
 **Full Class Name:** aspose.slides.FontFallBackRulesCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FontFallBackRulesCollection type exposes the following members:
 ## **Constructors**

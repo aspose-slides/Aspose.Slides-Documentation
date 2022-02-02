@@ -11,7 +11,7 @@ Represents the source of [IInterruptionToken](/slides/python-net/api-reference/a
 
 **Full Class Name:** aspose.slides.IInterruptionTokenSource
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IInterruptionTokenSource type exposes the following members:
 ## **Properties**

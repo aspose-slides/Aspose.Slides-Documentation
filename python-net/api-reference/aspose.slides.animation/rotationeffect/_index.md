@@ -11,7 +11,7 @@ Represent rotation behavior of effect.
 
 **Full Class Name:** aspose.slides.animation.RotationEffect
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The RotationEffect type exposes the following members:
 ## **Constructors**

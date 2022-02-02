@@ -11,7 +11,7 @@ Immutable object that represents a readonly collection of effective image transf
 
 **Full Class Name:** aspose.slides.effects.ImageTransformOCollectionEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ImageTransformOCollectionEffectiveData type exposes the following members:
 ## **Constructors**

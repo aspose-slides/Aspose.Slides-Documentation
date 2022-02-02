@@ -1,7 +1,7 @@
 ---
 title: Video Class
 type: docs
-weight: 3830
+weight: 3920
 url: /python-net/api-reference/aspose.slides/video/
 ---
 
@@ -11,7 +11,7 @@ Represents an image embedded into a presentation.
 
 **Full Class Name:** aspose.slides.Video
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Video type exposes the following members:
 ## **Properties**

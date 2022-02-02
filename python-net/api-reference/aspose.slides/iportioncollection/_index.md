@@ -11,7 +11,7 @@ Represents a collection of a portions.
 
 **Full Class Name:** aspose.slides.IPortionCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IPortionCollection type exposes the following members:
 ## **Properties**

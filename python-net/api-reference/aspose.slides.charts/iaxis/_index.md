@@ -11,7 +11,7 @@ Encapsulates the object that represents a chart's axis.
 
 **Full Class Name:** aspose.slides.charts.IAxis
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IAxis type exposes the following members:
 ## **Properties**

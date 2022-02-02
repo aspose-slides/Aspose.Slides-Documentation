@@ -1,7 +1,7 @@
 ---
 title: ShapeElement Class
 type: docs
-weight: 3600
+weight: 3660
 url: /python-net/api-reference/aspose.slides/shapeelement/
 ---
 
@@ -11,7 +11,7 @@ Represents a part of shape with same outline and fill properties.
 
 **Full Class Name:** aspose.slides.ShapeElement
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ShapeElement type exposes the following members:
 ## **Properties**

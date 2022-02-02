@@ -11,7 +11,7 @@ Represents an author of comments.
 
 **Full Class Name:** aspose.slides.ICommentAuthor
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ICommentAuthor type exposes the following members:
 ## **Properties**

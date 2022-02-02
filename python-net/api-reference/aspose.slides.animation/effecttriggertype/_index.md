@@ -11,11 +11,11 @@ Represent trigger type of effect.
 
 **Full Name:** aspose.slides.animation.EffectTriggerType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|AFTER_PREVIOUS|0||
-|ON_CLICK|1||
-|WITH_PREVIOUS|2||
+|**Member name**|**Description**|
+| :- | :- |
+|AFTER_PREVIOUS||
+|ON_CLICK||
+|WITH_PREVIOUS||

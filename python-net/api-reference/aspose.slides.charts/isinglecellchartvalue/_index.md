@@ -11,7 +11,7 @@ Represents a chart data cell.
 
 **Full Class Name:** aspose.slides.charts.ISingleCellChartValue
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISingleCellChartValue type exposes the following members:
 ## **Properties**

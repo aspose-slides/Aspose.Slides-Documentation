@@ -1,7 +1,7 @@
 ---
 title: TabCollection Class
 type: docs
-weight: 3730
+weight: 3820
 url: /python-net/api-reference/aspose.slides/tabcollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of tabs.
 
 **Full Class Name:** aspose.slides.TabCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The TabCollection type exposes the following members:
 ## **Properties**

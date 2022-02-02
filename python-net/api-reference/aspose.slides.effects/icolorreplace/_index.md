@@ -11,7 +11,7 @@ Represents a Color Replacement effect.
 
 **Full Class Name:** aspose.slides.effects.IColorReplace
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IColorReplace type exposes the following members:
 ## **Properties**

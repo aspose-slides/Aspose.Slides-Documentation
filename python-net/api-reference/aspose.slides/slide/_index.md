@@ -1,7 +1,7 @@
 ---
 title: Slide Class
 type: docs
-weight: 3640
+weight: 3700
 url: /python-net/api-reference/aspose.slides/slide/
 ---
 
@@ -11,7 +11,7 @@ Represents a slide in a presentation.
 
 **Full Class Name:** aspose.slides.Slide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Slide type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a collection of points for splitting point in a bar-of-pie or pie-of-
 
 **Full Class Name:** aspose.slides.charts.PieSplitCustomPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PieSplitCustomPointCollection type exposes the following members:
 ## **Properties**

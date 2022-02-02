@@ -1,7 +1,7 @@
 ---
 title: TileFlip Enumeration
 type: docs
-weight: 10040
+weight: 10170
 url: /python-net/api-reference/aspose.slides/tileflip/
 ---
 
@@ -11,13 +11,13 @@ Defines tile flipping mode.
 
 **Full Name:** aspose.slides.TileFlip
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|NO_FLIP|1||
-|FLIP_X|2||
-|FLIP_Y|3||
-|FLIP_BOTH|4||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|NO_FLIP||
+|FLIP_X||
+|FLIP_Y||
+|FLIP_BOTH||

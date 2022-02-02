@@ -11,7 +11,7 @@ Represents a value of a chart.
 
 **Full Class Name:** aspose.slides.charts.IBaseChartValue
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBaseChartValue type exposes the following members:
 ## **Properties**

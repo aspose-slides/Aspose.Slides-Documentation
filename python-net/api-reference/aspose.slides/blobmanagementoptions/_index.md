@@ -11,7 +11,7 @@ Represents options which can be used to manage BLOB handling rules and other BLO
 
 **Full Class Name:** aspose.slides.BlobManagementOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BlobManagementOptions type exposes the following members:
 ## **Constructors**

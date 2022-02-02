@@ -1,7 +1,7 @@
 ---
 title: IVideoCollection Class
 type: docs
-weight: 2780
+weight: 2820
 url: /python-net/api-reference/aspose.slides/ivideocollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of Video objects.
 
 **Full Class Name:** aspose.slides.IVideoCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IVideoCollection type exposes the following members:
 ## **Properties**

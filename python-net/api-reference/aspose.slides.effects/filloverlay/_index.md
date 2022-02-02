@@ -11,7 +11,7 @@ Represents a Fill Overlay effect. A fill overlay may be used to specify<br/>    
 
 **Full Class Name:** aspose.slides.effects.FillOverlay
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FillOverlay type exposes the following members:
 ## **Properties**

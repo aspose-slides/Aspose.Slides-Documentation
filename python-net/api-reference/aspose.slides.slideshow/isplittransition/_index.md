@@ -11,7 +11,7 @@ Split slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.ISplitTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISplitTransition type exposes the following members:
 ## **Properties**

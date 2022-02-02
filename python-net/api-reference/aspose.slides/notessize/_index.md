@@ -1,7 +1,7 @@
 ---
 title: NotesSize Class
 type: docs
-weight: 3090
+weight: 3140
 url: /python-net/api-reference/aspose.slides/notessize/
 ---
 
@@ -11,7 +11,7 @@ Represents a size of notes slide.
 
 **Full Class Name:** aspose.slides.NotesSize
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NotesSize type exposes the following members:
 ## **Constructors**

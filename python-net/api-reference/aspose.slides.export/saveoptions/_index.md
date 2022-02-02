@@ -11,7 +11,7 @@ Abstract class with options that control how a presentation is saved.
 
 **Full Class Name:** aspose.slides.export.SaveOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SaveOptions type exposes the following members:
 ## **Properties**

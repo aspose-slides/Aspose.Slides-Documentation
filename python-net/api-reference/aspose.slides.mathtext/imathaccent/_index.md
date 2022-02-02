@@ -11,7 +11,7 @@ Specifies the accent function, consisting of a base and a combining diacritical 
 
 **Full Class Name:** aspose.slides.mathtext.IMathAccent
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathAccent type exposes the following members:
 ## **Properties**

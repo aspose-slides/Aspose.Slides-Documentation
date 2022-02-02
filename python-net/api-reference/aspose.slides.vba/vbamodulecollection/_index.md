@@ -11,7 +11,7 @@ Represents a collection of a VBA Project modules.
 
 **Full Class Name:** aspose.slides.vba.VbaModuleCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The VbaModuleCollection type exposes the following members:
 ## **Properties**

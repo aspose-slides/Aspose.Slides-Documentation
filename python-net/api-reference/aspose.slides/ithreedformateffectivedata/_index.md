@@ -1,7 +1,7 @@
 ---
 title: IThreeDFormatEffectiveData Class
 type: docs
-weight: 2750
+weight: 2790
 url: /python-net/api-reference/aspose.slides/ithreedformateffectivedata/
 ---
 
@@ -11,7 +11,7 @@ Immutable object which represents effective 3-D formatting properties.
 
 **Full Class Name:** aspose.slides.IThreeDFormatEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IThreeDFormatEffectiveData type exposes the following members:
 ## **Properties**

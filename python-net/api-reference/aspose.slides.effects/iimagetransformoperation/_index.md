@@ -11,6 +11,6 @@ Represents abstract image transformation effect.
 
 **Full Class Name:** aspose.slides.effects.IImageTransformOperation
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IImageTransformOperation type exposes the following members:

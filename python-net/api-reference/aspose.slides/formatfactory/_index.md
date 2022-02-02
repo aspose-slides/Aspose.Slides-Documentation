@@ -11,7 +11,7 @@ Allows to create formats via COM interface.
 
 **Full Class Name:** aspose.slides.FormatFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FormatFactory type exposes the following members:
 ## **Constructors**

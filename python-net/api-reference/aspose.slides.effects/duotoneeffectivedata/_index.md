@@ -11,7 +11,7 @@ Immutable object which represents a Duotone effect.<br/>            For each pix
 
 **Full Class Name:** aspose.slides.effects.DuotoneEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The DuotoneEffectiveData type exposes the following members:
 ## **Properties**

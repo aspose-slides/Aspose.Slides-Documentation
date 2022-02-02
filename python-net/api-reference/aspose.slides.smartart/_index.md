@@ -1,7 +1,7 @@
 ---
 title: aspose.slides.smartart
 type: docs
-weight: 140
+weight: 150
 url: /python-net/api-reference/aspose.slides.smartart/
 ---
 

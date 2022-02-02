@@ -1,7 +1,7 @@
 ---
 title: TextVerticalOverflowType Enumeration
 type: docs
-weight: 10020
+weight: 10150
 url: /python-net/api-reference/aspose.slides/textverticaloverflowtype/
 ---
 
@@ -11,12 +11,12 @@ Represents text vertical overflow type.
 
 **Full Name:** aspose.slides.TextVerticalOverflowType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|OVERFLOW|1||
-|ELLIPSIS|2||
-|CLIP|3||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|OVERFLOW||
+|ELLIPSIS||
+|CLIP||

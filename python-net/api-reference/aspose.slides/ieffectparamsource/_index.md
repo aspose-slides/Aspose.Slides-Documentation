@@ -11,6 +11,6 @@ Auxiliary effect parameters interface.
 
 **Full Class Name:** aspose.slides.IEffectParamSource
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IEffectParamSource type exposes the following members:

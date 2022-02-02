@@ -11,7 +11,7 @@ Exception which thrown when axes composition of the series is not combinable wit
 
 **Full Class Name:** aspose.slides.charts.AxesCompositionNotCombinableException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AxesCompositionNotCombinableException type exposes the following members:
 ## **Constructors**

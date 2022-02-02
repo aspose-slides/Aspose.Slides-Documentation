@@ -11,10 +11,10 @@ Returns type of quartile method
 
 **Full Name:** aspose.slides.charts.QuartileMethodType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|EXCLUSIVE|0|Represents exclusive quartile method.|
-|INCLUSIVE|1|Represents inclusive quartile method.|
+|**Member name**|**Description**|
+| :- | :- |
+|EXCLUSIVE|Represents exclusive quartile method.|
+|INCLUSIVE|Represents inclusive quartile method.|

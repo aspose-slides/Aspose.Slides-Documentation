@@ -11,7 +11,7 @@ Represents animation effect.
 
 **Full Class Name:** aspose.slides.animation.IEffect
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IEffect type exposes the following members:
 ## **Properties**

@@ -249,6 +249,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[ISection](/slides/python-net/api-reference/aspose.slides/isection/)|Represents section of slides.|
 |[ISectionCollection](/slides/python-net/api-reference/aspose.slides/isectioncollection/)|Represents a collection of sections.|
 |[ISectionSlideCollection](/slides/python-net/api-reference/aspose.slides/isectionslidecollection/)|Represents a collection of a slides in the section.|
+|[ISectionZoomFrame](/slides/python-net/api-reference/aspose.slides/isectionzoomframe/)|Represents a Section Zoom object in a slide.|
 |[IShape](/slides/python-net/api-reference/aspose.slides/ishape/)|Represents a shape on a slide.|
 |[IShapeBevel](/slides/python-net/api-reference/aspose.slides/ishapebevel/)|Represents properties of shape's main face relief.|
 |[IShapeBevelEffectiveData](/slides/python-net/api-reference/aspose.slides/ishapebeveleffectivedata/)|Immutable object which contains effective shape's face relief properties.|
@@ -269,6 +270,9 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[ISpreadsheetOptions](/slides/python-net/api-reference/aspose.slides/ispreadsheetoptions/)|Represents options which can be used to specify additional spreadsheets behavior.|
 |[IStreamWrapper](/slides/python-net/api-reference/aspose.slides/istreamwrapper/)|Aspose.IO.Stream wrapper for COM interface.|
 |[IStreamWrapperFactory](/slides/python-net/api-reference/aspose.slides/istreamwrapperfactory/)|Factory of StreamWrappers. For COM interface.|
+|[ISummaryZoomFrame](/slides/python-net/api-reference/aspose.slides/isummaryzoomframe/)|Represents a Summary Zoom frame in a slide.|
+|[ISummaryZoomSection](/slides/python-net/api-reference/aspose.slides/isummaryzoomsection/)|Represents a Summary Zoom Section object in a Summary Zoom frame.|
+|[ISummaryZoomSectionCollection](/slides/python-net/api-reference/aspose.slides/isummaryzoomsectioncollection/)|Represents a collection of Summary Zoom Section objects.|
 |[ISvgImage](/slides/python-net/api-reference/aspose.slides/isvgimage/)|Represents an SVG image.|
 |[ITab](/slides/python-net/api-reference/aspose.slides/itab/)|Represents a tabulation for a text.|
 |[ITabCollection](/slides/python-net/api-reference/aspose.slides/itabcollection/)|Represents a collection of tabs.|
@@ -291,7 +295,8 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[IVideoCollection](/slides/python-net/api-reference/aspose.slides/ivideocollection/)|Represents a collection of Video objects.|
 |[IVideoFrame](/slides/python-net/api-reference/aspose.slides/ivideoframe/)|Represents a video clip on a slide.|
 |[IViewProperties](/slides/python-net/api-reference/aspose.slides/iviewproperties/)|Presentation wide view properties.|
-|[IZoomFrame](/slides/python-net/api-reference/aspose.slides/izoomframe/)|Represents a Zoom object on a slide.|
+|[IZoomFrame](/slides/python-net/api-reference/aspose.slides/izoomframe/)|Represents a Slide Zoom object in a slide.|
+|[IZoomObject](/slides/python-net/api-reference/aspose.slides/izoomobject/)|Represents a Zoom object in a slide.|
 |[ImageCollection](/slides/python-net/api-reference/aspose.slides/imagecollection/)|Represents collection of PPImage.|
 |[ImageWrapper](/slides/python-net/api-reference/aspose.slides/imagewrapper/)|System.Drawing.Image wrapper for COM interface.|
 |[ImageWrapperFactory](/slides/python-net/api-reference/aspose.slides/imagewrapperfactory/)|This class allows to initialize IBitmapWrapper.|
@@ -367,6 +372,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[Section](/slides/python-net/api-reference/aspose.slides/section/)|Represents section of slides.|
 |[SectionCollection](/slides/python-net/api-reference/aspose.slides/sectioncollection/)|Represents a collection of sections.|
 |[SectionSlideCollection](/slides/python-net/api-reference/aspose.slides/sectionslidecollection/)|Represents a collection of slides in the section.|
+|[SectionZoomFrame](/slides/python-net/api-reference/aspose.slides/sectionzoomframe/)|Represents a Section Zoom object in a slide.|
 |[Shape](/slides/python-net/api-reference/aspose.slides/shape/)|Represents a shape on a slide.|
 |[ShapeBevel](/slides/python-net/api-reference/aspose.slides/shapebevel/)|Contains the properties of shape's main face relief.|
 |[ShapeCollection](/slides/python-net/api-reference/aspose.slides/shapecollection/)|Represents a collection of a shapes.|
@@ -381,6 +387,9 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[SpreadsheetOptions](/slides/python-net/api-reference/aspose.slides/spreadsheetoptions/)|Represents options which can be used to specify additional spreadsheets behavior.|
 |[StreamWrapper](/slides/python-net/api-reference/aspose.slides/streamwrapper/)|Aspose.IO.Stream wrapper for COM interface.|
 |[StreamWrapperFactory](/slides/python-net/api-reference/aspose.slides/streamwrapperfactory/)|Factory of StreamWrappers. For COM interface.|
+|[SummaryZoomFrame](/slides/python-net/api-reference/aspose.slides/summaryzoomframe/)|Represents a Summary Zoom object in a slide.|
+|[SummaryZoomSection](/slides/python-net/api-reference/aspose.slides/summaryzoomsection/)|Represents a Summary Zoom Section object in a Summary Zoom frame.|
+|[SummaryZoomSectionCollection](/slides/python-net/api-reference/aspose.slides/summaryzoomsectioncollection/)|Represents a collection of Summary Zoom Section objects.|
 |[SvgImage](/slides/python-net/api-reference/aspose.slides/svgimage/)|Represents an SVG image.|
 |[Tab](/slides/python-net/api-reference/aspose.slides/tab/)|Represents a tabulation for a text.|
 |[TabCollection](/slides/python-net/api-reference/aspose.slides/tabcollection/)|Represents a collection of tabs.|
@@ -397,7 +406,8 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[VideoCollection](/slides/python-net/api-reference/aspose.slides/videocollection/)|Represents a collection of Video objects.|
 |[VideoFrame](/slides/python-net/api-reference/aspose.slides/videoframe/)|Represents a video clip on a slide.|
 |[ViewProperties](/slides/python-net/api-reference/aspose.slides/viewproperties/)|Presentation wide view properties.|
-|[ZoomFrame](/slides/python-net/api-reference/aspose.slides/zoomframe/)|Represents an Zoom object on a slide.|
+|[ZoomFrame](/slides/python-net/api-reference/aspose.slides/zoomframe/)|Represents a Slide Zoom object in a slide.|
+|[ZoomObject](/slides/python-net/api-reference/aspose.slides/zoomobject/)|Represents an Zoom object in a slide.|
 ## **Enumerations**
 |**Enumeration**|**Description**|
 | :- | :- |
@@ -482,3 +492,4 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[VideoPlayModePreset](/slides/python-net/api-reference/aspose.slides/videoplaymodepreset/)|Constants which define how a video is played.|
 |[ViewType](/slides/python-net/api-reference/aspose.slides/viewtype/)|Presentation view types|
 |[ZoomImageType](/slides/python-net/api-reference/aspose.slides/zoomimagetype/)|Defines whether the Zoom object is using the slide preview or a cover image.|
+|[ZoomLayout](/slides/python-net/api-reference/aspose.slides/zoomlayout/)|Specifies the summary zoom layout.|

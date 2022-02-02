@@ -11,6 +11,6 @@ Base class for immutable objects, which represent effect.
 
 **Full Class Name:** aspose.slides.effects.IEffectEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IEffectEffectiveData type exposes the following members:

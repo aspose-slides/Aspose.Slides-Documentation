@@ -1,7 +1,7 @@
 ---
 title: LineFormat Class
 type: docs
-weight: 2950
+weight: 3000
 url: /python-net/api-reference/aspose.slides/lineformat/
 ---
 
@@ -11,7 +11,7 @@ Represents format of a line.
 
 **Full Class Name:** aspose.slides.LineFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LineFormat type exposes the following members:
 ## **Properties**

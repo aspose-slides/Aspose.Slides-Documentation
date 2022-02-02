@@ -11,10 +11,10 @@ Represents the type of an animation effect for chart's element.
 
 **Full Name:** aspose.slides.animation.EffectChartMajorGroupingType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|BY_SERIES|0|Animate chart by series|
-|BY_CATEGORY|1|Animate chart by category|
+|**Member name**|**Description**|
+| :- | :- |
+|BY_SERIES|Animate chart by series|
+|BY_CATEGORY|Animate chart by category|

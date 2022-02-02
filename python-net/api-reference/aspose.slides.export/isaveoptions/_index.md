@@ -11,7 +11,7 @@ Options that control how a presentation is saved.
 
 **Full Class Name:** aspose.slides.export.ISaveOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISaveOptions type exposes the following members:
 ## **Properties**

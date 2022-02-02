@@ -11,7 +11,7 @@ Represents a gradient format.
 
 **Full Class Name:** aspose.slides.GradientStop
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The GradientStop type exposes the following members:
 ## **Properties**

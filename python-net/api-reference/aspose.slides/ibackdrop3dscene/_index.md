@@ -11,7 +11,7 @@ Defines a plane in which effects, such as glow and shadow, are applied in relati
 
 **Full Class Name:** aspose.slides.IBackdrop3DScene
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBackdrop3DScene type exposes the following members:
 ## **Properties**

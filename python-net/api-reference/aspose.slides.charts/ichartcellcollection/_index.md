@@ -11,7 +11,7 @@ Represents collection of a cells with data.
 
 **Full Class Name:** aspose.slides.charts.IChartCellCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartCellCollection type exposes the following members:
 ## **Properties**

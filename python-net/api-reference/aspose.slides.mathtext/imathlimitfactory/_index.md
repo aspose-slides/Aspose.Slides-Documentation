@@ -11,7 +11,7 @@ Allows to create IMathLimit
 
 **Full Class Name:** aspose.slides.mathtext.IMathLimitFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathLimitFactory type exposes the following members:
 ## **Methods**

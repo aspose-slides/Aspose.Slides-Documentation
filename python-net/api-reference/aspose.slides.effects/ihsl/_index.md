@@ -11,7 +11,7 @@ Represents a Hue/Saturation/Luminance effect.<br/>            The hue, saturatio
 
 **Full Class Name:** aspose.slides.effects.IHSL
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IHSL type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents group of series.
 
 **Full Class Name:** aspose.slides.charts.ChartSeriesGroup
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartSeriesGroup type exposes the following members:
 ## **Properties**

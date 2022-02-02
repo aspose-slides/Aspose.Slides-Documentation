@@ -11,7 +11,7 @@ Eight direction slide transition effect.
 
 **Full Class Name:** aspose.slides.slideshow.EightDirectionTransition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The EightDirectionTransition type exposes the following members:
 ## **Properties**

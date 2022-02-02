@@ -11,7 +11,7 @@ Represents a Blur effect that is applied to the entire shape, including its fill
 
 **Full Class Name:** aspose.slides.effects.Blur
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Blur type exposes the following members:
 ## **Properties**

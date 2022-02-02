@@ -11,7 +11,7 @@ Allows to create paragraphs
 
 **Full Class Name:** aspose.slides.IParagraphFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IParagraphFactory type exposes the following members:
 ## **Methods**

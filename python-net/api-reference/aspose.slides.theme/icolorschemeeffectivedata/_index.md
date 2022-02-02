@@ -11,7 +11,7 @@ Immutable object which contains effective color scheme properties.
 
 **Full Class Name:** aspose.slides.theme.IColorSchemeEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IColorSchemeEffectiveData type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ This class allows export of video and audio files into a HTML
 
 **Full Class Name:** aspose.slides.export.IVideoPlayerHtmlController
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IVideoPlayerHtmlController type exposes the following members:
 ## **Properties**

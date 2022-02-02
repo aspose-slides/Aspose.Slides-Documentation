@@ -11,7 +11,7 @@ Responsive HTML Controller
 
 **Full Class Name:** aspose.slides.export.IResponsiveHtmlController
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IResponsiveHtmlController type exposes the following members:
 ## **Properties**

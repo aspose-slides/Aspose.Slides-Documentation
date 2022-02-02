@@ -11,7 +11,7 @@ Represents collection of  [IChartSeries](/slides/python-net/api-reference/aspose
 
 **Full Class Name:** aspose.slides.charts.IChartSeriesCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartSeriesCollection type exposes the following members:
 ## **Properties**

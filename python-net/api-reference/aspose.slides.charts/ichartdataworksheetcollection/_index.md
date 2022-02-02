@@ -11,7 +11,7 @@ Represents the collection of worksheets of chart data workbook.
 
 **Full Class Name:** aspose.slides.charts.IChartDataWorksheetCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartDataWorksheetCollection type exposes the following members:
 ## **Properties**

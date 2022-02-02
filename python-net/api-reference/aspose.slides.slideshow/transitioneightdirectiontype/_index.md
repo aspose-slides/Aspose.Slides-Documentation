@@ -11,16 +11,16 @@ Represent eight direction transition types.
 
 **Full Name:** aspose.slides.slideshow.TransitionEightDirectionType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|LEFT_DOWN|0||
-|LEFT_UP|1||
-|RIGHT_DOWN|2||
-|RIGHT_UP|3||
-|LEFT|4||
-|UP|5||
-|DOWN|6||
-|RIGHT|7||
+|**Member name**|**Description**|
+| :- | :- |
+|LEFT_DOWN||
+|LEFT_UP||
+|RIGHT_DOWN||
+|RIGHT_UP||
+|LEFT||
+|UP||
+|DOWN||
+|RIGHT||

@@ -11,7 +11,7 @@ Allows to specify additional options (such as format or default font) when loadi
 
 **Full Class Name:** aspose.slides.ILoadOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILoadOptions type exposes the following members:
 ## **Properties**

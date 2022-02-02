@@ -11,7 +11,7 @@ Represents properties of a presentation.
 
 **Full Class Name:** aspose.slides.DocumentProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The DocumentProperties type exposes the following members:
 ## **Constructors**

@@ -1,7 +1,7 @@
 ---
 title: SlideSizeScaleType Enumeration
 type: docs
-weight: 9870
+weight: 10000
 url: /python-net/api-reference/aspose.slides/slidesizescaletype/
 ---
 
@@ -11,11 +11,11 @@ Represents the scale type of slide content.
 
 **Full Name:** aspose.slides.SlideSizeScaleType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|DO_NOT_SCALE|0|Do not scale.|
-|ENSURE_FIT|1|Scale to ensure fit.|
-|MAXIMIZE|2|Maximize size of content.|
+|**Member name**|**Description**|
+| :- | :- |
+|DO_NOT_SCALE|Do not scale.|
+|ENSURE_FIT|Scale to ensure fit.|
+|MAXIMIZE|Maximize size of content.|

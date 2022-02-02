@@ -11,7 +11,7 @@ Represents chart format properties.
 
 **Full Class Name:** aspose.slides.charts.AxisFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AxisFormat type exposes the following members:
 ## **Properties**

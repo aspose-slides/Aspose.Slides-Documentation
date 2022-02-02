@@ -1,7 +1,7 @@
 ---
 title: LineFillFormat Class
 type: docs
-weight: 2940
+weight: 2990
 url: /python-net/api-reference/aspose.slides/linefillformat/
 ---
 
@@ -11,7 +11,7 @@ Represents properties for lines filling.
 
 **Full Class Name:** aspose.slides.LineFillFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LineFillFormat type exposes the following members:
 ## **Properties**

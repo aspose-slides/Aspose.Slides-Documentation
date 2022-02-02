@@ -11,11 +11,11 @@ Controls the depth of the text properties inheritance.
 
 **Full Name:** aspose.slides.export.TextInheritanceLimit
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|ALL|0|Inherit all text properties.|
-|TEXT_BOX|1|Inherit only from TextFrameEx's style.|
-|PARAGRAPH_ONLY|2|Use only properties defined for paragraph.|
+|**Member name**|**Description**|
+| :- | :- |
+|ALL|Inherit all text properties.|
+|TEXT_BOX|Inherit only from TextFrameEx's style.|
+|PARAGRAPH_ONLY|Use only properties defined for paragraph.|

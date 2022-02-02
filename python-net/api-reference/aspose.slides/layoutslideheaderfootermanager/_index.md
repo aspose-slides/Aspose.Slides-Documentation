@@ -1,7 +1,7 @@
 ---
 title: LayoutSlideHeaderFooterManager Class
 type: docs
-weight: 2900
+weight: 2950
 url: /python-net/api-reference/aspose.slides/layoutslideheaderfootermanager/
 ---
 
@@ -11,7 +11,7 @@ Represents manager which holds behavior of the layout slide footer, date-time, p
 
 **Full Class Name:** aspose.slides.LayoutSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The LayoutSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

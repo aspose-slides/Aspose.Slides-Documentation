@@ -11,7 +11,7 @@ Represents a Glow effect, in which a color blurred outline <br/>            is a
 
 **Full Class Name:** aspose.slides.effects.Glow
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Glow type exposes the following members:
 ## **Properties**

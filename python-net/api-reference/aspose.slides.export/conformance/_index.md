@@ -11,11 +11,11 @@ Specifies the conformance class to which the PresentationML document conforms.
 
 **Full Name:** aspose.slides.export.Conformance
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|ECMA376_2006|0|Specifies that the document conforms to the ECMA376:2006.|
-|ISO29500_2008_TRANSITIONAL|1|Specifies that the document conforms to the ISO/IEC 29500:2008 Transitional conformance class.|
-|ISO29500_2008_STRICT|2|Specifies that the document conforms to the ISO/IEC 29500:2008 Strict conformance class.|
+|**Member name**|**Description**|
+| :- | :- |
+|ECMA376_2006|Specifies that the document conforms to the ECMA376:2006.|
+|ISO29500_2008_TRANSITIONAL|Specifies that the document conforms to the ISO/IEC 29500:2008 Transitional conformance class.|
+|ISO29500_2008_STRICT|Specifies that the document conforms to the ISO/IEC 29500:2008 Strict conformance class.|

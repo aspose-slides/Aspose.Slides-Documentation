@@ -11,7 +11,7 @@ Represents the collection of fill styles.
 
 **Full Class Name:** aspose.slides.theme.FillFormatCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The FillFormatCollection type exposes the following members:
 ## **Properties**

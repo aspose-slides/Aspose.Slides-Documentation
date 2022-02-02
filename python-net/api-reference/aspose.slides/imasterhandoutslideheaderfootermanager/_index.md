@@ -11,7 +11,7 @@ Represents manager which holds behavior of the master handout slide placeholders
 
 **Full Class Name:** aspose.slides.IMasterHandoutSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterHandoutSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

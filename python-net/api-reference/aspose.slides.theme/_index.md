@@ -1,7 +1,7 @@
 ---
 title: aspose.slides.theme
 type: docs
-weight: 160
+weight: 170
 url: /python-net/api-reference/aspose.slides.theme/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: PresentationFactory Class
 type: docs
-weight: 3460
+weight: 3510
 url: /python-net/api-reference/aspose.slides/presentationfactory/
 ---
 
@@ -11,7 +11,7 @@ Allows to create presentation via COM interface
 
 **Full Class Name:** aspose.slides.PresentationFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PresentationFactory type exposes the following members:
 ## **Constructors**

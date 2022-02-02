@@ -11,7 +11,7 @@ Immutable object which represents a Blur effect that is applied to the entire sh
 
 **Full Class Name:** aspose.slides.effects.IBlurEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IBlurEffectiveData type exposes the following members:
 ## **Properties**

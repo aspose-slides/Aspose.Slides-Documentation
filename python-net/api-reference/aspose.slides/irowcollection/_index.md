@@ -11,7 +11,7 @@ Represents table row collection.
 
 **Full Class Name:** aspose.slides.IRowCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IRowCollection type exposes the following members:
 ## **Properties**

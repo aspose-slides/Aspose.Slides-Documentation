@@ -11,6 +11,6 @@ Represents HTML file template.
 
 **Full Class Name:** aspose.slides.export.IHtmlFormatter
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IHtmlFormatter type exposes the following members:

@@ -11,7 +11,7 @@ Provides access to chart theme overriden.
 
 **Full Class Name:** aspose.slides.theme.ChartThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartThemeManager type exposes the following members:
 ## **Properties**

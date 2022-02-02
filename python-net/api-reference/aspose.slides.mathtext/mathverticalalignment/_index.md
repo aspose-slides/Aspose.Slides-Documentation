@@ -11,12 +11,12 @@ Vertical Alignment
 
 **Full Name:** aspose.slides.mathtext.MathVerticalAlignment
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0|Value is not defined|
-|TOP|1|Top|
-|CENTER|2|Center|
-|BOTTOM|3|Bottom|
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED|Value is not defined|
+|TOP|Top|
+|CENTER|Center|
+|BOTTOM|Bottom|

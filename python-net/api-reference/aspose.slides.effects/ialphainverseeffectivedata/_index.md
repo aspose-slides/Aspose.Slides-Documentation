@@ -11,7 +11,7 @@ Immutable object which represents an Alpha Inverse effect.<br/>            Alpha
 
 **Full Class Name:** aspose.slides.effects.IAlphaInverseEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IAlphaInverseEffectiveData type exposes the following members:
 ## **Properties**

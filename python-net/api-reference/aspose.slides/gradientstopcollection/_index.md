@@ -11,7 +11,7 @@ Represnts a collection of gradient stops.
 
 **Full Class Name:** aspose.slides.GradientStopCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The GradientStopCollection type exposes the following members:
 ## **Properties**

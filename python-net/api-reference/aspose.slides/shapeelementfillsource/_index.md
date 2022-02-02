@@ -1,7 +1,7 @@
 ---
 title: ShapeElementFillSource Enumeration
 type: docs
-weight: 9800
+weight: 9930
 url: /python-net/api-reference/aspose.slides/shapeelementfillsource/
 ---
 
@@ -11,14 +11,14 @@ Represents how shape element should be filled.
 
 **Full Name:** aspose.slides.ShapeElementFillSource
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NO_FILL|0|Don't fill primitive.|
-|SHAPE|1|Use shape's fill.|
-|LIGHTEN|2|Use lighten shape's fill.|
-|LIGHTEN_LESS|3|Use less lighten shape's fill.|
-|DARKEN|4|Use darken shape's fill.|
-|DARKEN_LESS|5|Use less darken shape's fill.|
+|**Member name**|**Description**|
+| :- | :- |
+|NO_FILL|Don't fill primitive.|
+|SHAPE|Use shape's fill.|
+|LIGHTEN|Use lighten shape's fill.|
+|LIGHTEN_LESS|Use less lighten shape's fill.|
+|DARKEN|Use darken shape's fill.|
+|DARKEN_LESS|Use less darken shape's fill.|

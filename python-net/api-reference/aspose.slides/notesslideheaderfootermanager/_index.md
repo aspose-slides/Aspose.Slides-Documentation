@@ -1,7 +1,7 @@
 ---
 title: NotesSlideHeaderFooterManager Class
 type: docs
-weight: 3110
+weight: 3160
 url: /python-net/api-reference/aspose.slides/notesslideheaderfootermanager/
 ---
 
@@ -11,7 +11,7 @@ Represents manager which holds behavior of the notes slide placeholders, includi
 
 **Full Class Name:** aspose.slides.NotesSlideHeaderFooterManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The NotesSlideHeaderFooterManager type exposes the following members:
 ## **Properties**

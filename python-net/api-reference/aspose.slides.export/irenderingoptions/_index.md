@@ -11,7 +11,7 @@ Provides options that control how a presentation/slide is rendered.
 
 **Full Class Name:** aspose.slides.export.IRenderingOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IRenderingOptions type exposes the following members:
 ## **Properties**

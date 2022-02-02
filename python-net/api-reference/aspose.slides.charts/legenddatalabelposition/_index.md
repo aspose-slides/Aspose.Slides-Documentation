@@ -11,18 +11,18 @@ Determines position of data labels.
 
 **Full Name:** aspose.slides.charts.LegendDataLabelPosition
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0|Position is not defined.|
-|BOTTOM|1|Specifies that data labels shall be displayed below the data marker.|
-|BEST_FIT|2|Specifies that data labels shall be displayed in the best position.|
-|CENTER|3|Specifies that data labels shall be displayed centered on the data marker.|
-|INSIDE_BASE|4|Specifies that data labels shall be displayed inside the base of the data marker.|
-|INSIDE_END|5|Specifies that data labels shall be displayed inside the end of the data marker.|
-|LEFT|6|Specifies that data labels shall be displayed to the left of the data marker.|
-|OUTSIDE_END|7|Specifies that data labels shall be displayed outside the end of the data marker.|
-|RIGHT|8|Specifies that data labels shall be displayed to the right of the data marker.|
-|TOP|9|Specifies that data labels shall be displayed above the data marker.|
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED|Position is not defined.|
+|BOTTOM|Specifies that data labels shall be displayed below the data marker.|
+|BEST_FIT|Specifies that data labels shall be displayed in the best position.|
+|CENTER|Specifies that data labels shall be displayed centered on the data marker.|
+|INSIDE_BASE|Specifies that data labels shall be displayed inside the base of the data marker.|
+|INSIDE_END|Specifies that data labels shall be displayed inside the end of the data marker.|
+|LEFT|Specifies that data labels shall be displayed to the left of the data marker.|
+|OUTSIDE_END|Specifies that data labels shall be displayed outside the end of the data marker.|
+|RIGHT|Specifies that data labels shall be displayed to the right of the data marker.|
+|TOP|Specifies that data labels shall be displayed above the data marker.|

@@ -11,7 +11,7 @@ Represents a collection of effect styles.
 
 **Full Class Name:** aspose.slides.theme.EffectStyleCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The EffectStyleCollection type exposes the following members:
 ## **Properties**

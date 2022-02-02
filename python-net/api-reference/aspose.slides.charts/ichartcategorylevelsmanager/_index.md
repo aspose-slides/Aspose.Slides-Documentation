@@ -11,7 +11,7 @@ Managed container of the values of the chart category levels.
 
 **Full Class Name:** aspose.slides.charts.IChartCategoryLevelsManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartCategoryLevelsManager type exposes the following members:
 ## **Indexer**

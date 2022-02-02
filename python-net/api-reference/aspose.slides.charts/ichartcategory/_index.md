@@ -11,7 +11,7 @@ Represents chart categories.
 
 **Full Class Name:** aspose.slides.charts.IChartCategory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartCategory type exposes the following members:
 ## **Properties**

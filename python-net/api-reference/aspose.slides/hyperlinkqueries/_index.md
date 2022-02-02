@@ -11,7 +11,7 @@ Provide easy access to contained hyperlinks.
 
 **Full Class Name:** aspose.slides.HyperlinkQueries
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The HyperlinkQueries type exposes the following members:
 ## **Methods**

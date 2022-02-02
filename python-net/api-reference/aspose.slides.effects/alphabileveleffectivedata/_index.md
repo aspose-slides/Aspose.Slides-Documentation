@@ -11,7 +11,7 @@ Immutable object which represents an Alpha Bi-Level effect.<br/>            Alph
 
 **Full Class Name:** aspose.slides.effects.AlphaBiLevelEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The AlphaBiLevelEffectiveData type exposes the following members:
 ## **Properties**

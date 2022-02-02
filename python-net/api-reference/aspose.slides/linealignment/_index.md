@@ -1,7 +1,7 @@
 ---
 title: LineAlignment Enumeration
 type: docs
-weight: 9500
+weight: 9630
 url: /python-net/api-reference/aspose.slides/linealignment/
 ---
 
@@ -11,11 +11,11 @@ Represents the lines alignment type.
 
 **Full Name:** aspose.slides.LineAlignment
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|CENTER|1||
-|INSET|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|CENTER||
+|INSET||

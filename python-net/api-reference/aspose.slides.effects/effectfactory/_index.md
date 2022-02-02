@@ -11,7 +11,7 @@ Allows to create effects
 
 **Full Class Name:** aspose.slides.effects.EffectFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The EffectFactory type exposes the following members:
 ## **Constructors**

@@ -11,13 +11,13 @@ Represent types of command for animation motion effect behavior.
 
 **Full Name:** aspose.slides.animation.MotionCommandPathType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|MOVE_TO|0||
-|LINE_TO|1||
-|CURVE_TO|2||
-|CLOSE_LOOP|3||
-|END|4||
+|**Member name**|**Description**|
+| :- | :- |
+|MOVE_TO||
+|LINE_TO||
+|CURVE_TO||
+|CLOSE_LOOP||
+|END||

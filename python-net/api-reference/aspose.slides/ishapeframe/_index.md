@@ -1,7 +1,7 @@
 ---
 title: IShapeFrame Class
 type: docs
-weight: 2440
+weight: 2450
 url: /python-net/api-reference/aspose.slides/ishapeframe/
 ---
 
@@ -11,7 +11,7 @@ Represents shape frame's properties.
 
 **Full Class Name:** aspose.slides.IShapeFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IShapeFrame type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents a warning about known not implemented feature which won't be implemen
 
 **Full Class Name:** aspose.slides.warnings.INotImplementedWarningInfo
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The INotImplementedWarningInfo type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents animation scale effect.
 
 **Full Class Name:** aspose.slides.animation.IScaleEffect
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IScaleEffect type exposes the following members:
 ## **Properties**

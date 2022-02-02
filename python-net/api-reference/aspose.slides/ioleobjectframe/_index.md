@@ -11,7 +11,7 @@ Represents an OLE object on a slide.
 
 **Full Class Name:** aspose.slides.IOleObjectFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IOleObjectFrame type exposes the following members:
 ## **Properties**
@@ -21,13 +21,10 @@ The IOleObjectFrame type exposes the following members:
 |object_name|Returns or sets the name of an object.<br/>            Read/write string.|
 |embedded_data|Gets information about OLE embedded data.<br/>            Read only [IOleEmbeddedDataInfo](/slides/python-net/api-reference/aspose.slides/ioleembeddeddatainfo/).|
 |object_prog_id|Returns the ProgID of an object.<br/>            Read olny string.|
-|object_data|Gets or sets embedded object as byte array.<br/>            Read/write int[].|
 |link_file_name|Returns the full path to a linked file. Short file name will be used.<br/>            Read-only string.|
 |link_path_long|Returns the full path to a linked file. Long file name will be used.<br/>            Read/write string.|
 |embedded_file_label|Returns the file name of embedded OLE object|
 |embedded_file_name|Returns the path of embedded OLE object|
-|embedded_file_extension|Returns the file extension for the current embedded object or empty string if object is not a link|
-|embedded_file_data|Returns the file data of embedded OLE object|
 |is_object_icon|Determines whether an object is visible as icon.<br/>            Read/write bool.|
 |is_object_link|Determines whether an object is linked to external file.<br/>            Read-only bool.|
 |update_automatic|Determines if the linked embedded object is automatically updated when the presentation is opened or printed.<br/>            Read/write bool.|

@@ -11,7 +11,7 @@ Specifies the Matrix object, consisting of child elements laid out in one or mor
 
 **Full Class Name:** aspose.slides.mathtext.IMathMatrix
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathMatrix type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Collection of math blocks (IMathBlock)
 
 **Full Class Name:** aspose.slides.mathtext.IMathBlockCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathBlockCollection type exposes the following members:
 ## **Properties**

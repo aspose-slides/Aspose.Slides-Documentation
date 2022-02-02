@@ -1,7 +1,7 @@
 ---
 title: SlideOrientation Enumeration
 type: docs
-weight: 9860
+weight: 9990
 url: /python-net/api-reference/aspose.slides/slideorientation/
 ---
 
@@ -11,10 +11,10 @@ Represents the slide orientation.
 
 **Full Name:** aspose.slides.SlideOrientation
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|LANDSCAPE|0|Landscape orientation.|
-|PORTRAIT|1|Portrait orientation.|
+|**Member name**|**Description**|
+| :- | :- |
+|LANDSCAPE|Landscape orientation.|
+|PORTRAIT|Portrait orientation.|

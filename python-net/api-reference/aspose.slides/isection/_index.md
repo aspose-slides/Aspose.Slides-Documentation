@@ -11,13 +11,14 @@ Represents section of slides.
 
 **Full Class Name:** aspose.slides.ISection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISection type exposes the following members:
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |
 |name|Name of the section.|
+|section_id|Section Id.|
 |started_from_slide|Returns first slide of the section.|
 ## **Methods**
 |**Name**|**Description**|

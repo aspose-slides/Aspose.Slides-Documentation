@@ -1,7 +1,7 @@
 ---
 title: Placeholder Class
 type: docs
-weight: 3300
+weight: 3350
 url: /python-net/api-reference/aspose.slides/placeholder/
 ---
 
@@ -11,7 +11,7 @@ Represents a placeholder on a slide.
 
 **Full Class Name:** aspose.slides.Placeholder
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Placeholder type exposes the following members:
 ## **Properties**

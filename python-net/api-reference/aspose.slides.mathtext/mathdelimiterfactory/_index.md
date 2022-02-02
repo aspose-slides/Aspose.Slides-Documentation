@@ -11,7 +11,7 @@ Allows to create a math delimiter
 
 **Full Class Name:** aspose.slides.mathtext.MathDelimiterFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathDelimiterFactory type exposes the following members:
 ## **Constructors**

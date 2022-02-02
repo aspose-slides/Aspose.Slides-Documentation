@@ -1,7 +1,7 @@
 ---
 title: VideoCollection Class
 type: docs
-weight: 3840
+weight: 3930
 url: /python-net/api-reference/aspose.slides/videocollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of Video objects.
 
 **Full Class Name:** aspose.slides.VideoCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The VideoCollection type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: ISlide Class
 type: docs
-weight: 2480
+weight: 2490
 url: /python-net/api-reference/aspose.slides/islide/
 ---
 
@@ -11,7 +11,7 @@ Represents a slide in a presentation.
 
 **Full Class Name:** aspose.slides.ISlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ISlide type exposes the following members:
 ## **Properties**

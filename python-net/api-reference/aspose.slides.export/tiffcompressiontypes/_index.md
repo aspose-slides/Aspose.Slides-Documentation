@@ -11,14 +11,14 @@ Provides options that control how a presentation is compressed in TIFF format.
 
 **Full Name:** aspose.slides.export.TiffCompressionTypes
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|DEFAULT|0|Specifies the default compression scheme (LZW).|
-|NONE|1|Specifies no compression.|
-|CCITT3|2|Specifies the CCITT3 compression scheme.|
-|CCITT4|3|Specifies the CCITT4 compression scheme.|
-|LZW|4|Specifies the LZW compression scheme (Default).|
-|RLE|5|Specifies the RLE compression scheme.|
+|**Member name**|**Description**|
+| :- | :- |
+|DEFAULT|Specifies the default compression scheme (LZW).|
+|NONE|Specifies no compression.|
+|CCITT3|Specifies the CCITT3 compression scheme.|
+|CCITT4|Specifies the CCITT4 compression scheme.|
+|LZW|Specifies the LZW compression scheme (Default).|
+|RLE|Specifies the RLE compression scheme.|

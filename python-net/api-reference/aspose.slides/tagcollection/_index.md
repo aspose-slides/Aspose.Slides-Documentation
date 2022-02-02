@@ -1,7 +1,7 @@
 ---
 title: TagCollection Class
 type: docs
-weight: 3770
+weight: 3860
 url: /python-net/api-reference/aspose.slides/tagcollection/
 ---
 
@@ -11,7 +11,7 @@ Represents the collection of tags (user defined pairs of strings)
 
 **Full Class Name:** aspose.slides.TagCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The TagCollection type exposes the following members:
 ## **Properties**

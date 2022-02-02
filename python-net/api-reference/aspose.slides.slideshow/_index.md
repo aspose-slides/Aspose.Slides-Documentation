@@ -1,7 +1,7 @@
 ---
 title: aspose.slides.slideshow
 type: docs
-weight: 130
+weight: 140
 url: /python-net/api-reference/aspose.slides.slideshow/
 ---
 

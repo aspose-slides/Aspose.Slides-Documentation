@@ -11,7 +11,7 @@ Allows to create a math box
 
 **Full Class Name:** aspose.slides.mathtext.IMathBoxFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathBoxFactory type exposes the following members:
 ## **Methods**

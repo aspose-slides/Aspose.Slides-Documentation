@@ -11,7 +11,7 @@ Represents a collection of a VBA Project references.
 
 **Full Class Name:** aspose.slides.vba.IVbaReferenceCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IVbaReferenceCollection type exposes the following members:
 ## **Properties**

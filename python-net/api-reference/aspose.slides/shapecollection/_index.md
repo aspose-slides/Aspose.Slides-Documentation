@@ -1,7 +1,7 @@
 ---
 title: ShapeCollection Class
 type: docs
-weight: 3590
+weight: 3650
 url: /python-net/api-reference/aspose.slides/shapecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of a shapes.
 
 **Full Class Name:** aspose.slides.ShapeCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ShapeCollection type exposes the following members:
 ## **Properties**
@@ -35,6 +35,10 @@ The ShapeCollection type exposes the following members:
 |add_zoom_frame(x, y, width, height, slide, image)|Adds a new Zoom object to the end of a collection.|
 |insert_zoom_frame(index, x, y, width, height, slide)|Creates a new Zoom object and inserts it to a collection at the specified index.|
 |insert_zoom_frame(index, x, y, width, height, slide, image)|Creates a new Zoom object and inserts it to a collection at the specified index.|
+|add_section_zoom_frame(x, y, width, height, section)|Adds a new Section Zoom object to the end of a collection.|
+|add_section_zoom_frame(x, y, width, height, section, image)|Adds a new Section Zoom object to the end of a collection with a predefined image.|
+|insert_section_zoom_frame(index, x, y, width, height, section)|Creates a new Section Zoom object and inserts into to a collection at the specified index.|
+|insert_section_zoom_frame(index, x, y, width, height, section, image)|Creates a new Section Zoom object and inserts it to a collection at the specified index.|
 |add_ole_object_frame(x, y, width, height, data_info)|Adds a new OLE object to the end of a collection.|
 |add_ole_object_frame(x, y, width, height, class_name, path)|Adds a new OLE object to the end of a collection.|
 |insert_ole_object_frame(index, x, y, width, height, data_info)|Creates a new OLE object and inserts it to a collection at the specified index.|
@@ -66,6 +70,8 @@ The ShapeCollection type exposes the following members:
 |insert_clone(index, source_shape, x, y)|Inserts a copy of a specified shape to specified position of the collection.|
 |insert_clone(index, source_shape)|Inserts a copy of a specified shape to specified position of the collection.|
 |add_smart_art(x, y, width, height, layout_type)|Add SmartArt diagram.|
+|add_summary_zoom_frame(x, y, width, height)|Adds a new Summary Zoom object to the end of a collection.|
+|insert_summary_zoom_frame(index, x, y, width, height)|Creates a new Summary Zoom object and inserts it to a collection at the specified index.|
 |insert_video_frame(index, x, y, width, height, fname)|Creates a new video frame and inserts it to a collection at the specified index.|
 |add_audio_frame_cd(x, y, width, height)|Adds an AudioFrame with CD to the end of collection.|
 |insert_audio_frame_cd(index, x, y, width, height)|Insert an AudioFrame with CD.|

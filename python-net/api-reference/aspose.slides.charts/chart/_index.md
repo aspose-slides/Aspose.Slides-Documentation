@@ -11,7 +11,7 @@ Represents an graphic chart on a slide.
 
 **Full Class Name:** aspose.slides.charts.Chart
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Chart type exposes the following members:
 ## **Properties**
@@ -65,7 +65,7 @@ The Chart type exposes the following members:
 |back_wall|Returns an object which allows to change format of the back wall of a 3D chart.<br/>            Read-only [IChartWall](/slides/python-net/api-reference/aspose.slides.charts/ichartwall/).|
 |side_wall|Returns an object which allows to change format of the side wall of a 3D chart.<br/>            Read-only [IChartWall](/slides/python-net/api-reference/aspose.slides.charts/ichartwall/).|
 |floor|Returns an object which allows to change format of the floor of a 3D chart.<br/>            Read-only [IChartWall](/slides/python-net/api-reference/aspose.slides.charts/ichartwall/).|
-|text_format|Returns chart text format.<br/>            Read-only [IChartTextFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextformat/).|
+|text_format|Returns chart text format.<br/>            The property is not applicable for the following types: [TREEMAP](/slides/python-net/api-reference/aspose.slides.charts/charttype/), [SUNBURST](/slides/python-net/api-reference/aspose.slides.charts/charttype/),<br/>            [WATERFALL](/slides/python-net/api-reference/aspose.slides.charts/charttype/), [HISTOGRAM](/slides/python-net/api-reference/aspose.slides.charts/charttype/), [FUNNEL](/slides/python-net/api-reference/aspose.slides.charts/charttype/),[BOX_AND_WHISKER](/slides/python-net/api-reference/aspose.slides.charts/charttype/).<br/>            Read-only [IChartTextFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextformat/).|
 |theme_manager|Returns theme manager.<br/>            Read-only [IOverrideThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ioverridethememanager/).|
 |user_shapes|Specify the shapes drawn on top of the chart.<br/>            Read-only [IGroupShape](/slides/python-net/api-reference/aspose.slides/igroupshape/).|
 |axes|Provide access to chart axes.<br/>            Read-only [IAxesManager](/slides/python-net/api-reference/aspose.slides.charts/iaxesmanager/).|

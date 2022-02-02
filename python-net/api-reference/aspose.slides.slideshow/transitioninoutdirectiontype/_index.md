@@ -11,10 +11,10 @@ Represent in or out direction transition types.
 
 **Full Name:** aspose.slides.slideshow.TransitionInOutDirectionType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|IN|0||
-|OUT|1||
+|**Member name**|**Description**|
+| :- | :- |
+|IN||
+|OUT||

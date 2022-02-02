@@ -11,7 +11,7 @@ Represents a Luminance effect.<br/>            Brightness linearly shifts all co
 
 **Full Class Name:** aspose.slides.effects.Luminance
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Luminance type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: GradientDirection Enumeration
 type: docs
-weight: 9440
+weight: 9570
 url: /python-net/api-reference/aspose.slides/gradientdirection/
 ---
 
@@ -11,14 +11,14 @@ Represents the gradient style.
 
 **Full Name:** aspose.slides.GradientDirection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0|Not defined|
-|FROM_CORNER1|1|From Top Left Corner|
-|FROM_CORNER2|2|From Top Right Corner|
-|FROM_CORNER3|3|From Bottom Left Corner|
-|FROM_CORNER4|4|From Bottom Right Corner|
-|FROM_CENTER|5|From Center|
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED|Not defined|
+|FROM_CORNER1|From Top Left Corner|
+|FROM_CORNER2|From Top Right Corner|
+|FROM_CORNER3|From Bottom Left Corner|
+|FROM_CORNER4|From Bottom Right Corner|
+|FROM_CENTER|From Center|

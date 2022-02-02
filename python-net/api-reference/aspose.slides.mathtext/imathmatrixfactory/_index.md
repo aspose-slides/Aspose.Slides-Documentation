@@ -11,7 +11,7 @@ Allows to create a math matrix
 
 **Full Class Name:** aspose.slides.mathtext.IMathMatrixFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathMatrixFactory type exposes the following members:
 ## **Methods**

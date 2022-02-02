@@ -11,7 +11,7 @@ Represents an AutoShape.
 
 **Full Class Name:** aspose.slides.IAutoShape
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IAutoShape type exposes the following members:
 ## **Properties**

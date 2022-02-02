@@ -11,11 +11,11 @@ Specifies what the origin of the motion path is relative to.<br/>            Suc
 
 **Full Name:** aspose.slides.animation.MotionOriginType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|PARENT|1||
-|LAYOUT|2||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|PARENT||
+|LAYOUT||

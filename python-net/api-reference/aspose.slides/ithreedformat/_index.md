@@ -1,7 +1,7 @@
 ---
 title: IThreeDFormat Class
 type: docs
-weight: 2740
+weight: 2780
 url: /python-net/api-reference/aspose.slides/ithreedformat/
 ---
 
@@ -11,7 +11,7 @@ Represents 3-D properties.
 
 **Full Class Name:** aspose.slides.IThreeDFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IThreeDFormat type exposes the following members:
 ## **Properties**

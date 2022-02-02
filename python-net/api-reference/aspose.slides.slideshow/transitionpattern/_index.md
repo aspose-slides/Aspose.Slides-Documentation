@@ -11,10 +11,10 @@ Specifies a geometric pattern that tiles together to fill a larger area.
 
 **Full Name:** aspose.slides.slideshow.TransitionPattern
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|DIAMOND|0|Diamond tile pattern|
-|HEXAGON|1|Hexagon tile pattern|
+|**Member name**|**Description**|
+| :- | :- |
+|DIAMOND|Diamond tile pattern|
+|HEXAGON|Hexagon tile pattern|

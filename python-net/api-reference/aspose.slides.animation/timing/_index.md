@@ -11,7 +11,7 @@ Represents animation timing.
 
 **Full Class Name:** aspose.slides.animation.Timing
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Timing type exposes the following members:
 ## **Constructors**

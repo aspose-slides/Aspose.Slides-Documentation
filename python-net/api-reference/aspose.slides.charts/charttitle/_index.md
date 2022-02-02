@@ -11,7 +11,7 @@ Represents chart title properties.
 
 **Full Class Name:** aspose.slides.charts.ChartTitle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartTitle type exposes the following members:
 ## **Properties**

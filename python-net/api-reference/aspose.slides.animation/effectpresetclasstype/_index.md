@@ -11,14 +11,14 @@ Represent effect class types.
 
 **Full Name:** aspose.slides.animation.EffectPresetClassType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|ENTRANCE|0|Entrance effects class.<br/>        Target shape types: All|
-|EXIT|1|Exit effects class.<br/>        Target shape types: All|
-|EMPHASIS|2|Emphasis effects class.<br/>        Target shape types: All|
-|PATH|3|Motion Paths class.<br/>        Target shape types: All|
-|MEDIA_CALL|4|Media effects class.<br/>        Target shape types: [IVideoFrame](/slides/python-net/api-reference/aspose.slides/ivideoframe/), [IAudioFrame](/slides/python-net/api-reference/aspose.slides/iaudioframe/)|
-|OLEACTION_VERBS|5|OLE Action Verbs class.<br/>        Target shape types: [IOleObjectFrame](/slides/python-net/api-reference/aspose.slides/ioleobjectframe/)|
+|**Member name**|**Description**|
+| :- | :- |
+|ENTRANCE|Entrance effects class.<br/>        Target shape types: All|
+|EXIT|Exit effects class.<br/>        Target shape types: All|
+|EMPHASIS|Emphasis effects class.<br/>        Target shape types: All|
+|PATH|Motion Paths class.<br/>        Target shape types: All|
+|MEDIA_CALL|Media effects class.<br/>        Target shape types: [IVideoFrame](/slides/python-net/api-reference/aspose.slides/ivideoframe/), [IAudioFrame](/slides/python-net/api-reference/aspose.slides/iaudioframe/)|
+|OLEACTION_VERBS|OLE Action Verbs class.<br/>        Target shape types: [IOleObjectFrame](/slides/python-net/api-reference/aspose.slides/ioleobjectframe/)|

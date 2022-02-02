@@ -11,11 +11,11 @@ Represent transition speed types.
 
 **Full Name:** aspose.slides.slideshow.TransitionSpeed
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|FAST|0||
-|MEDIUM|1||
-|SLOW|2||
+|**Member name**|**Description**|
+| :- | :- |
+|FAST||
+|MEDIUM||
+|SLOW||

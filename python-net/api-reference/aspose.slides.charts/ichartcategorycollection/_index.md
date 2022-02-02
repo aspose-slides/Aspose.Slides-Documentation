@@ -11,7 +11,7 @@ Represents collection of [IChartCategory](/slides/python-net/api-reference/aspos
 
 **Full Class Name:** aspose.slides.charts.IChartCategoryCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartCategoryCollection type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents master slide for handouts.
 
 **Full Class Name:** aspose.slides.IMasterHandoutSlide
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMasterHandoutSlide type exposes the following members:
 ## **Properties**

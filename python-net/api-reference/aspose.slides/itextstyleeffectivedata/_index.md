@@ -1,7 +1,7 @@
 ---
 title: ITextStyleEffectiveData Class
 type: docs
-weight: 2730
+weight: 2770
 url: /python-net/api-reference/aspose.slides/itextstyleeffectivedata/
 ---
 
@@ -11,7 +11,7 @@ Immutable object which contains effective text style properties.
 
 **Full Class Name:** aspose.slides.ITextStyleEffectiveData
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITextStyleEffectiveData type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Class represents trend line of chart series
 
 **Full Class Name:** aspose.slides.charts.ITrendline
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITrendline type exposes the following members:
 ## **Properties**

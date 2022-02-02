@@ -1,7 +1,7 @@
 ---
 title: ShapeFrame Class
 type: docs
-weight: 3610
+weight: 3670
 url: /python-net/api-reference/aspose.slides/shapeframe/
 ---
 
@@ -11,7 +11,7 @@ Represents shape frame's properties.
 
 **Full Class Name:** aspose.slides.ShapeFrame
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ShapeFrame type exposes the following members:
 ## **Constructors**

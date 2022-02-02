@@ -11,17 +11,17 @@ Represent types of points in animation motion path.
 
 **Full Name:** aspose.slides.animation.MotionPathPointsType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NONE|0||
-|AUTO|1||
-|CORNER|2||
-|STRAIGHT|3||
-|SMOOTH|4||
-|CURVE_AUTO|5||
-|CURVE_CORNER|6||
-|CURVE_STRAIGHT|7||
-|CURVE_SMOOTH|8||
+|**Member name**|**Description**|
+| :- | :- |
+|NONE||
+|AUTO||
+|CORNER||
+|STRAIGHT||
+|SMOOTH||
+|CURVE_AUTO||
+|CURVE_CORNER||
+|CURVE_STRAIGHT||
+|CURVE_SMOOTH||

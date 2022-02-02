@@ -11,12 +11,12 @@ Represent corner direction transition types.
 
 **Full Name:** aspose.slides.slideshow.TransitionCornerDirectionType
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|LEFT_DOWN|0||
-|LEFT_UP|1||
-|RIGHT_DOWN|2||
-|RIGHT_UP|3||
+|**Member name**|**Description**|
+| :- | :- |
+|LEFT_DOWN||
+|LEFT_UP||
+|RIGHT_DOWN||
+|RIGHT_UP||

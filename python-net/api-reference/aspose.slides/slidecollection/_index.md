@@ -1,7 +1,7 @@
 ---
 title: SlideCollection Class
 type: docs
-weight: 3650
+weight: 3710
 url: /python-net/api-reference/aspose.slides/slidecollection/
 ---
 
@@ -11,7 +11,7 @@ Represents a collection of a slides.
 
 **Full Class Name:** aspose.slides.SlideCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The SlideCollection type exposes the following members:
 ## **Properties**

@@ -1,7 +1,7 @@
 ---
 title: LineCapStyle Enumeration
 type: docs
-weight: 9540
+weight: 9670
 url: /python-net/api-reference/aspose.slides/linecapstyle/
 ---
 
@@ -11,12 +11,12 @@ Represents the line cap style.
 
 **Full Name:** aspose.slides.LineCapStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|ROUND|1||
-|SQUARE|2||
-|FLAT|3||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|ROUND||
+|SQUARE||
+|FLAT||

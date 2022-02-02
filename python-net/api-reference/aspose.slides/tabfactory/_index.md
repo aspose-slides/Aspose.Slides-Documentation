@@ -1,7 +1,7 @@
 ---
 title: TabFactory Class
 type: docs
-weight: 3740
+weight: 3830
 url: /python-net/api-reference/aspose.slides/tabfactory/
 ---
 
@@ -11,7 +11,7 @@ Allows to create ITab instances
 
 **Full Class Name:** aspose.slides.TabFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The TabFactory type exposes the following members:
 ## **Constructors**

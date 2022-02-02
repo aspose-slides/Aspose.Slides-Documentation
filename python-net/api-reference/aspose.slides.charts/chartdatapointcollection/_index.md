@@ -11,7 +11,7 @@ Represents collection of a series data point.
 
 **Full Class Name:** aspose.slides.charts.ChartDataPointCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartDataPointCollection type exposes the following members:
 ## **Properties**

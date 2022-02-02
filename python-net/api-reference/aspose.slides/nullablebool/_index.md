@@ -1,7 +1,7 @@
 ---
 title: NullableBool Enumeration
 type: docs
-weight: 9630
+weight: 9760
 url: /python-net/api-reference/aspose.slides/nullablebool/
 ---
 
@@ -11,11 +11,11 @@ Represents triple boolean values.
 
 **Full Name:** aspose.slides.NullableBool
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0|Boolean value is undefined.|
-|FALSE|1|False value.|
-|TRUE|2|True value.|
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED|Boolean value is undefined.|
+|FALSE|False value.|
+|TRUE|True value.|

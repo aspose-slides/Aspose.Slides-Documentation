@@ -11,7 +11,7 @@ Base class for classes that provide access to different types of overriden theme
 
 **Full Class Name:** aspose.slides.theme.BaseOverrideThemeManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The BaseOverrideThemeManager type exposes the following members:
 ## **Properties**

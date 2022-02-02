@@ -11,7 +11,7 @@ Represents the chart portion formatting properties used in charts.
 
 **Full Class Name:** aspose.slides.charts.IChartPortionFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartPortionFormat type exposes the following members:
 ## **Properties**

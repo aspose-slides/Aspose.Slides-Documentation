@@ -1,7 +1,7 @@
 ---
 title: LineArrowheadStyle Enumeration
 type: docs
-weight: 9520
+weight: 9650
 url: /python-net/api-reference/aspose.slides/linearrowheadstyle/
 ---
 
@@ -11,15 +11,15 @@ Represents the style of an arrowhead.
 
 **Full Name:** aspose.slides.LineArrowheadStyle
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 ## **Members**
-|**Member name**|**Value**|**Description**|
-| :- | :- | :- |
-|NOT_DEFINED|0||
-|NONE|1||
-|TRIANGLE|2||
-|STEALTH|3||
-|DIAMOND|4||
-|OVAL|5||
-|OPEN|6||
+|**Member name**|**Description**|
+| :- | :- |
+|NOT_DEFINED||
+|NONE||
+|TRIANGLE||
+|STEALTH||
+|DIAMOND||
+|OVAL||
+|OPEN||

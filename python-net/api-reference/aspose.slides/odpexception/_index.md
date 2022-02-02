@@ -1,7 +1,7 @@
 ---
 title: OdpException Class
 type: docs
-weight: 3150
+weight: 3200
 url: /python-net/api-reference/aspose.slides/odpexception/
 ---
 
@@ -11,7 +11,7 @@ Represents a standard internal exception type.
 
 **Full Class Name:** aspose.slides.OdpException
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The OdpException type exposes the following members:
 ## **Constructors**

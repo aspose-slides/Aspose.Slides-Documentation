@@ -1,7 +1,7 @@
 ---
 title: PresentationText Class
 type: docs
-weight: 3490
+weight: 3540
 url: /python-net/api-reference/aspose.slides/presentationtext/
 ---
 
@@ -11,7 +11,7 @@ Represents the text extracted from the presentation
 
 **Full Class Name:** aspose.slides.PresentationText
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PresentationText type exposes the following members:
 ## **Properties**

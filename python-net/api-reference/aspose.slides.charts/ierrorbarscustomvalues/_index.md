@@ -11,7 +11,7 @@ Specifies the errors bar values. It shall be used only when the Error bars value
 
 **Full Class Name:** aspose.slides.charts.IErrorBarsCustomValues
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IErrorBarsCustomValues type exposes the following members:
 ## **Properties**

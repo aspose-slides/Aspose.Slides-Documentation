@@ -11,7 +11,7 @@ Allows to create IMathNaryOperator
 
 **Full Class Name:** aspose.slides.mathtext.MathNaryOperatorFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathNaryOperatorFactory type exposes the following members:
 ## **Constructors**

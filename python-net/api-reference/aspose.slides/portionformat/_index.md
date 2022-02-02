@@ -1,7 +1,7 @@
 ---
 title: PortionFormat Class
 type: docs
-weight: 3340
+weight: 3390
 url: /python-net/api-reference/aspose.slides/portionformat/
 ---
 
@@ -11,7 +11,7 @@ This class contains the text portion formatting properties. Unlike [IPortionForm
 
 **Full Class Name:** aspose.slides.PortionFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The PortionFormat type exposes the following members:
 ## **Constructors**

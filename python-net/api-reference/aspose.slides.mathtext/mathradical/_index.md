@@ -11,7 +11,7 @@ Specifies the radical function, consisting of a base, and an optional degree.<br
 
 **Full Class Name:** aspose.slides.mathtext.MathRadical
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathRadical type exposes the following members:
 ## **Constructors**

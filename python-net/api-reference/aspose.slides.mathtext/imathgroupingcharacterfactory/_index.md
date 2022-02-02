@@ -11,7 +11,7 @@ Allows to create a math grouping character
 
 **Full Class Name:** aspose.slides.mathtext.IMathGroupingCharacterFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IMathGroupingCharacterFactory type exposes the following members:
 ## **Methods**

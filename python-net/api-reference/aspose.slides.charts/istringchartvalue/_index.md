@@ -11,7 +11,7 @@ Represent string value which can be stored in pptx presentation document in two 
 
 **Full Class Name:** aspose.slides.charts.IStringChartValue
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IStringChartValue type exposes the following members:
 ## **Properties**

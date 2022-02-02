@@ -11,7 +11,7 @@ Container of data point levels. Applied for Treeamp and Sunburst series.<br/>   
 
 **Full Class Name:** aspose.slides.charts.ChartDataPointLevelsManager
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ChartDataPointLevelsManager type exposes the following members:
 ## **Properties**

@@ -11,7 +11,7 @@ Represents the collection of line styles.
 
 **Full Class Name:** aspose.slides.theme.ILineFormatCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ILineFormatCollection type exposes the following members:
 ## **Properties**

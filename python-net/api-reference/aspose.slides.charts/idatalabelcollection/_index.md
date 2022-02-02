@@ -11,7 +11,7 @@ Represents a series labels.
 
 **Full Class Name:** aspose.slides.charts.IDataLabelCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IDataLabelCollection type exposes the following members:
 ## **Properties**

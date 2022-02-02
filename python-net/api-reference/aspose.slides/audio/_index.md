@@ -11,7 +11,7 @@ Represents an embedded audio file.
 
 **Full Class Name:** aspose.slides.Audio
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The Audio type exposes the following members:
 ## **Properties**

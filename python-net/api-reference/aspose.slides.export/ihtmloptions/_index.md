@@ -11,7 +11,7 @@ Represents a HTML exporting options.
 
 **Full Class Name:** aspose.slides.export.IHtmlOptions
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IHtmlOptions type exposes the following members:
 ## **Properties**

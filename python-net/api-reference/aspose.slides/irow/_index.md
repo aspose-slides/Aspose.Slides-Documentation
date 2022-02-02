@@ -11,7 +11,7 @@ Represents a row in a table.
 
 **Full Class Name:** aspose.slides.IRow
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IRow type exposes the following members:
 ## **Properties**

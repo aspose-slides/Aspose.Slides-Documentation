@@ -11,7 +11,7 @@ Mathematical text
 
 **Full Class Name:** aspose.slides.mathtext.MathematicalText
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The MathematicalText type exposes the following members:
 ## **Constructors**

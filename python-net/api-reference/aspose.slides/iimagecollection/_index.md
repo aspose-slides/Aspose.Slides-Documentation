@@ -11,7 +11,7 @@ Represents collection of PPImage.
 
 **Full Class Name:** aspose.slides.IImageCollection
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IImageCollection type exposes the following members:
 ## **Properties**

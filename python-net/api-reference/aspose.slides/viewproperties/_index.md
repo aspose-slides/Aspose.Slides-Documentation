@@ -1,7 +1,7 @@
 ---
 title: ViewProperties Class
 type: docs
-weight: 3860
+weight: 3950
 url: /python-net/api-reference/aspose.slides/viewproperties/
 ---
 
@@ -11,7 +11,7 @@ Presentation wide view properties.
 
 **Full Class Name:** aspose.slides.ViewProperties
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ViewProperties type exposes the following members:
 ## **Properties**

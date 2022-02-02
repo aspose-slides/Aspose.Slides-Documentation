@@ -11,7 +11,7 @@ Represents a template engine that transforms template and data pair into resulti
 
 **Full Class Name:** aspose.slides.export.web.ITemplateEngine
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITemplateEngine type exposes the following members:
 ## **Methods**

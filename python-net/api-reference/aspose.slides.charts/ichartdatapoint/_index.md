@@ -11,7 +11,7 @@ Represents series data point.
 
 **Full Class Name:** aspose.slides.charts.IChartDataPoint
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartDataPoint type exposes the following members:
 ## **Properties**

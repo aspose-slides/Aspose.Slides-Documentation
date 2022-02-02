@@ -11,7 +11,7 @@ Chart operate with restricted set of text format properties.<br/>            ICh
 
 **Full Class Name:** aspose.slides.charts.IChartTextFormat
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The IChartTextFormat type exposes the following members:
 ## **Properties**

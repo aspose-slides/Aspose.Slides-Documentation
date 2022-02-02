@@ -1,7 +1,7 @@
 ---
 title: ITabFactory Class
 type: docs
-weight: 2630
+weight: 2670
 url: /python-net/api-reference/aspose.slides/itabfactory/
 ---
 
@@ -11,7 +11,7 @@ Allow to create ITab instances
 
 **Full Class Name:** aspose.slides.ITabFactory
 
-**Assembly:**  Aspose.Slides Version: 21.12.0.0
+
 
 The ITabFactory type exposes the following members:
 ## **Methods**
