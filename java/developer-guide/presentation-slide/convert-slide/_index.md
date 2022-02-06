@@ -23,6 +23,12 @@ To convert a slide to an image, do this:
 
 In Java, a [BufferedImage](https://docs.oracle.com/javase/7/docs/api/java/awt/image/BufferedImage.html) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
 
+{{% alert title="Info" color="info" %}}
+
+Aspose recently developed an online [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter. 
+
+{{% /alert %}}
+
 ## **Converting Slides to Bitmap and Saving the Images in PNG**
 
 This Java code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:

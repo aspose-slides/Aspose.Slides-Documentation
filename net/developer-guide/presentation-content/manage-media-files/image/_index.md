@@ -203,3 +203,9 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
     }
 }
 ```
+
+{{% alert title="Info" color="info" %}}
+
+Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
+
+{{% /alert %}}

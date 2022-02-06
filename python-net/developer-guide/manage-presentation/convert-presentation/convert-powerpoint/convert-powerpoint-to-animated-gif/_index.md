@@ -42,3 +42,9 @@ options.transition_fps = 35  # increase FPS to better transition animation quali
 
 pres.save("pres.gif", slides.export.SaveFormat.GIF, options)
 ```
+
+{{% alert title="Info" color="info" %}}
+
+You may want to check out a FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter developed by Aspose. 
+
+{{% /alert %}}

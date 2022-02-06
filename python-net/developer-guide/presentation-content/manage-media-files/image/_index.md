@@ -161,3 +161,9 @@ with slides.Presentation() as pres:
     
     pres.save("pres_with_emf.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+{{% alert title="Info" color="info" %}}
+
+Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
+
+{{% /alert %}}
