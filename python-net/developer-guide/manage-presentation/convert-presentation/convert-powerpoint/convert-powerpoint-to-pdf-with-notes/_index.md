@@ -29,3 +29,8 @@ pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPosition
 auxPresentation.save("PDFnotes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
+{{% alert color="primary" %}} 
+
+You may want to check out Aspose [PowerPoint to PDF](https://products.aspose.app/slides/conversion) or [PPT to PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) converter. 
+
+{{% /alert %}}
