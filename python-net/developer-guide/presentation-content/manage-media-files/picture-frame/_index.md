@@ -105,7 +105,7 @@ The picture frame that we created in the above section is simple. We can also co
 - Obtain the reference of a slide by using its index.
 - Create an [IPPImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ippimage) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
 - Calculate the width and height of image.
-- Create a PictureFrame according to the width and height of the image by using the [AddPictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection) object associated with the referenced slide.
+- Create a PictureFrame according to the width and height of the image by using the [AddPictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) method exposed by the [IShapes](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection) object associated with the referenced slide.
 - Add the picture frame (containing the picture) to the slide.
 - Set the picture frame's line color.
 - Set the picture frame's line width.

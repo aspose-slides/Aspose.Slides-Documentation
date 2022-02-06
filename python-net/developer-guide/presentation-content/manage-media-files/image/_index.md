@@ -122,7 +122,7 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [add_group_shape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.ishapecollection/addgroupshape/) method of the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface that takes an [ISvgImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/isvgimage/) object as the first argument.
+The functionality is provided by one of the overloads of the [add_group_shape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/addgroupshape/) method of the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface that takes an [ISvgImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/isvgimage/) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 

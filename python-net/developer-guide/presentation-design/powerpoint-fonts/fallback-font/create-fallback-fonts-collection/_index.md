@@ -9,7 +9,7 @@ description: "Fallback fonts collection in PowerPoint in Python"
 
 Instances of [FontFallBackRule](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/FontFallBackRule/) class can be organized into [FontFallBackRulesCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontfallbackrulescollection/), that implements [IFontFallBackRulesCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ifontfallbackrulescollection/) interface. It is possible to add or remove rules from the collection.
 
-Then this collection may be assigned to [FontFallBackRulesCollection ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontsmanager/properties/fontfallbackrulescollection/)property of the [FontsManager](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontsmanager/) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/python-net/about-fontsmanager-and-fontsloader/).
+Then this collection may be assigned to [FontFallBackRulesCollection ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontsmanager/)property of the [FontsManager](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontsmanager/) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/python-net/about-fontsmanager-and-fontsloader/).
 
 Each [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)has a [FontsManager ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)property with its own instance of the FontsManager class.
 

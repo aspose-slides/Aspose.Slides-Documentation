@@ -43,7 +43,7 @@ The following functionality is supported for formulas in Aspose.Slides:
 Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - **IChartDataCell.Value** property it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the **CellUnsupportedDataException** for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
 ## **Add Chart Spreadsheet Formula to Presentation**
 First, add a chart with some sample data to the first slide of a new presentation with 
-[add_chart](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.ishapecollection/). 
+[add_chart](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/). 
 The worksheet of the chart is automatically created and can be accessed with 
 [**chart_data_workbook**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdata/) property:
 

@@ -71,7 +71,7 @@ remove_at(index)
 ```
 Properties [IGeometryPath.Stroke](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) and [IGeometryPath.FillMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) set an appearance of the geometry path.
 
-Property [IGeometryPath.PathData](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/properties/pathdata) returns the geometry path of [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape) as an array of path segments.
+Property [IGeometryPath.PathData](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/igeometrypath/) returns the geometry path of [GeometryShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometryshape) as an array of path segments.
 
 
 *To provide more options of shape geometry customization [ShapeUtil](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.util/shapeutil/) class has been added. Methods of this class allow to convert [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth.*

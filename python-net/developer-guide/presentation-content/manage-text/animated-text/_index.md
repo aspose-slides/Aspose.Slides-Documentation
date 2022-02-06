@@ -9,7 +9,7 @@ description: "Add animated text and effects to PowerPoint presentation in Python
 
 ## Adding Animation Effects to Paragraphs
 
-We added the [**add_effect()**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/sequence/methods/) method to the [**Sequence**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/sequence/) and [**ISequence**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/isequence/) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
+We added the [**add_effect()**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/sequence/) method to the [**Sequence**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/sequence/) and [**ISequence**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/isequence/) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```py
 import aspose.slides as slides
