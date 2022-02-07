@@ -199,3 +199,9 @@ for (int32_t j = 0; j < sr->GetPageCount(); j++)
 
 pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
 ```
+
+{{% alert title="Info" color="info" %}}
+
+Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
+
+{{% /alert %}}

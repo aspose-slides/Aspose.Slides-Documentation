@@ -39,3 +39,9 @@ gifOptions->set_TransitionFps(35);
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif, gifOptions);
 ```
+
+{{% alert title="Info" color="info" %}}
+
+You may want to check out a FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter developed by Aspose. 
+
+{{% /alert %}}
