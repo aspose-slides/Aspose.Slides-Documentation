@@ -364,29 +364,31 @@ This C# code shows you how to add 3D bevel effects to a shape:
 
 ```c#
 // Creates an instance of the Presentation class
-Presentation pres = new Presentation();
-ISlide slide = pres.Slides[0];
-
-// Adds a shape to the slide
-IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
-shape.FillFormat.FillType = FillType.Solid;
-shape.FillFormat.SolidFillColor.Color = Color.Green;
-ILineFillFormat format = shape.LineFormat.FillFormat;
-format.FillType = FillType.Solid;
-format.SolidFillColor.Color = Color.Orange;
-shape.LineFormat.Width = 2.0;
-
-// Sets the shape's ThreeDFormat properties
-shape.ThreeDFormat.Depth = 4;
-shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-shape.ThreeDFormat.BevelTop.Height = 6;
-shape.ThreeDFormat.BevelTop.Width = 6;
-shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
-shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-
-// Writes the presentation as a PPTX file
-pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+    
+    // Adds a shape to the slide
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.FillFormat.SolidFillColor.Color = Color.Green;
+    ILineFillFormat format = shape.LineFormat.FillFormat;
+    format.FillType = FillType.Solid;
+    format.SolidFillColor.Color = Color.Orange;
+    shape.LineFormat.Width = 2.0;
+    
+    // Sets the shape's ThreeDFormat properties
+    shape.ThreeDFormat.Depth = 4;
+    shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+    shape.ThreeDFormat.BevelTop.Height = 6;
+    shape.ThreeDFormat.BevelTop.Width = 6;
+    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
+    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    
+    // Writes the presentation as a PPTX file
+    pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -402,21 +404,23 @@ This C# code shows you how to apply 3D rotation effects to a shape:
 
 ```c#
 // Creates an instance of the Presentation class
-Presentation pres = new Presentation();
-IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
-
-autoShape.ThreeDFormat.Depth = 6;
-autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-
-autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-autoShape.ThreeDFormat.Depth = 6;
-autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-
-// Writes the presentation as a PPTX file
-pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+using (Presentation pres = new Presentation())
+{
+    IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
+    
+    autoShape.ThreeDFormat.Depth = 6;
+    autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
+    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
+    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    
+    autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
+    autoShape.ThreeDFormat.Depth = 6;
+    autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
+    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
+    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    
+    // Writes the presentation as a PPTX file
+    pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+}
 ```
 
