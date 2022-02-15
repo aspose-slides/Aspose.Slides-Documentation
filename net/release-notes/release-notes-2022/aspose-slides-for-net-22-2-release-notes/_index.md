@@ -28,6 +28,6 @@ This page contains release notes for [ Aspose.Slides for .NET 22.2](https://www
 |SLIDESNET-42895|Text wrapping is not applied when converting PPT to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-42880|Reading values of chart data labels that are not linked to cell|Bug|<https://docs.aspose.com/slides/net/chart-workbook/>
 |SLIDESNET-42803|WordArt shapes improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42562|"No Image" error while converting PPTX to PDF|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
+|SLIDESNET-42562|"No Image" error while converting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-35513|Slide background is lost after saving PPTX to PPS|Bug|<https://docs.aspose.com/slides/net/save-presentation/>
 |SLIDESNET-35033|Presentation is improperly rendered in generated PDF and thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
