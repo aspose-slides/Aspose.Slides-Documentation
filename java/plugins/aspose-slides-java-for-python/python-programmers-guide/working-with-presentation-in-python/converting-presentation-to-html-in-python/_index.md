@@ -3,11 +3,12 @@ title: Converting Presentation to HTML in Python
 type: docs
 weight: 20
 url: /java/converting-presentation-to-html-in-python/
-keywords: powerpoint to html python, convert to html python, convert powerpoint html, ppt to html python
+keywords: powerpoint to html python, convert to html python, convert powerpoint html, ppt to html python, convert pptx to html python
+description: Convert PowerPoint Presentation PPT or PPTX to HTML in Python
 ---
 
 ## **PowerPoint Presentations in Python - Converting To HTML**
-To convert PowerPoint Presentation to HTML in Python, please use Aspose.Slides Java for Python with the following example code.
+To convert PowerPoint Presentation (PPT or PPTX) to HTML in Python, please use Aspose.Slides Java for Python with the following example code.
 
 **Python Code**
 
