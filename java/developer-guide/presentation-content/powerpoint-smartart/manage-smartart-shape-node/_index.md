@@ -3,6 +3,8 @@ title: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /java/manage-smartart-shape-node/
+keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
+description: Manage smart art node and child node in PowerPoint Presentations in Java
 ---
 
 ## **Add SmartArt Node in PowerPoint Presentation using Java**
