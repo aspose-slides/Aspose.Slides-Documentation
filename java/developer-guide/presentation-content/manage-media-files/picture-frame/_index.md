@@ -3,6 +3,7 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /java/picture-frame/
+description: Create Picture Frame in PowerPoint Slides using Java. Control Picture Frame Formatting in PowerPoint Slides using Java.
 ---
 
 
