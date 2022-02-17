@@ -7,13 +7,13 @@ keywords: "Add blob, Export blob, Add image as blob, PowerPoint Presentation, C#
 description: "Add blob to PowerPoint presentation in C# or .NET. Export blob. Add Image as blob"
 ---
 
-### **About BLOB**
+## **About BLOB**
 
 **BLOB** (**Binary Large Object**) is usually a large item—a large photo, presentation, document, or media—saved in binary formats. 
 
 Aspose.Slides for .NET allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
 
-# **Use BLOB to Reduce Memory Consumption**
+## **Use BLOB to Reduce Memory Consumption**
 
 ### **Add Large File through BLOB to a Presentation**
 
@@ -93,7 +93,7 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 }
 ```
 
-### **Add Image as BLOB in Presentation**
+## **Add Image as BLOB in Presentation**
 With methods from the [**IImageCollection**](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) interface and [**ImageCollection** ](https://apireference.aspose.com/slides/net/aspose.slides/imagecollection)class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This C# code shows you how to add a large image through the BLOB process:
@@ -133,7 +133,7 @@ using (Presentation pres = new Presentation("large.pptx"))
 
 But this method consumes around 1.6 GB of temporary memory. 
 
-### **Load a Large Presentation as BLOB**
+## **Load a Large Presentation as BLOB**
 
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This C# code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
@@ -153,7 +153,7 @@ using (Presentation pres = new Presentation("large.pptx", loadOptions))
 }
 ```
 
-#### **Change the Folder for Temporary Files**
+### **Change the Folder for Temporary Files**
 
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
 
