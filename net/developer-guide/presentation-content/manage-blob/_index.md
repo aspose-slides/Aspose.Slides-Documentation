@@ -93,7 +93,7 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 }
 ```
 
-## **Add Image as BLOB in Presentation**
+### **Add Image as BLOB in Presentation**
 With methods from the [**IImageCollection**](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) interface and [**ImageCollection** ](https://apireference.aspose.com/slides/net/aspose.slides/imagecollection)class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This C# code shows you how to add a large image through the BLOB process:
@@ -133,7 +133,7 @@ using (Presentation pres = new Presentation("large.pptx"))
 
 But this method consumes around 1.6 GB of temporary memory. 
 
-## **Load a Large Presentation as BLOB**
+### **Load a Large Presentation as BLOB**
 
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This C# code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
