@@ -51,7 +51,7 @@ try {
 
 ## **Export PowerPoint to HTML**
 
-This Java demonstrates the standard PowerPoint to HTML5 process:
+This Java demonstrates the standard PowerPoint to HTML process:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
