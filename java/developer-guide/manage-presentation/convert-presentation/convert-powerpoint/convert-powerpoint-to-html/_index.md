@@ -371,6 +371,7 @@ try {
 
     // Saving the file
     pres.save(fileName, SaveFormat.Html, htmlOptions);
+} catch(Exception e) {
 } finally {
     if (pres != null) pres.dispose();
 }
