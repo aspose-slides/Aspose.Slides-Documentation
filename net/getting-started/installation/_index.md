@@ -9,7 +9,7 @@ description: "Install Aspose.Slides for .NET in Windows or macOS"
 
 ## **Windows**
 NuGet provides the easiest path to downloading and installing Aspose APIs for .NET on PCs. 
-{{% image img="installation_1.png" alt="alt text of image" %}}
+{{% image img="installation_1.png" alt="alt text of image" width="200" height="200" %}}
 
 ### **Method 1: Install or Update Aspose.Slides from the NuGet Package Manager**
 
