@@ -1,6 +1,6 @@
 ---
-title: Manage SmartArt Shape Node
-linktitle: Smart Art Shapes in Java
+title: Create or Manage PowerPoint SmartArt in Java
+linktitle: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /java/manage-smartart-shape-node/
