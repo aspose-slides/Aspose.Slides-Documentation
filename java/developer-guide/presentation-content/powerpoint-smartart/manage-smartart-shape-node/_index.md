@@ -1,5 +1,6 @@
 ---
 title: Manage SmartArt Shape Node
+linktitle: Smart Art Shapes in Java
 type: docs
 weight: 30
 url: /java/manage-smartart-shape-node/
