@@ -1,5 +1,6 @@
 ---
-title: Create Chart
+title: Create PowerPoint Presentations Charts in Java
+linktitle: Create Chart
 type: docs
 weight: 10
 url: /java/create-chart/
