@@ -1,5 +1,6 @@
 ---
-title: Adding Audio Frame to Slide in Python
+title: Add Audio Frame to PowerPoint Slides in Python
+linktitle: Adding Audio Frame to Slide in Python
 type: docs
 weight: 10
 url: /java/adding-audio-frame-to-slide-in-python/
@@ -58,5 +59,4 @@ print "Added audio frame to slide, please check the output file."
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 
-- [CodePlex](https://asposeslidesjavapython.codeplex.com/releases/view/620922)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Python-v1.0)
