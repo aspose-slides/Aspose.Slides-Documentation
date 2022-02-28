@@ -1,5 +1,6 @@
 ---
-title: Filling Shapes with Pattern in Python
+title: Fill PowerPoint Slide Shapes with Pattern in Python
+linktitle: Filling Shapes with Pattern in Python
 type: docs
 weight: 50
 url: /java/filling-shapes-with-pattern-in-python/
@@ -58,5 +59,4 @@ print "Filled shapes with Pattern, please check the output file."
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 
-- [CodePlex](https://asposeslidesjavapython.codeplex.com/releases/view/620922)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Python-v1.0)
