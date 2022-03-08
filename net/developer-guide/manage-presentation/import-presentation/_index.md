@@ -1,5 +1,6 @@
 ---
-title: Import Presentation
+title: Convert or Import PDF files into PowerPoint Presentation in C#
+linktitle: Import Presentation
 type: docs
 weight: 60
 url: /net/import-presentation/
