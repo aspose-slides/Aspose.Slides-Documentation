@@ -1,5 +1,6 @@
 ---
-title: Convert PowerPoint to PDF
+title: Convert or Save PowerPoint PPT or PPTX to PDF using C#
+linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /net/convert-powerpoint-to-pdf/
