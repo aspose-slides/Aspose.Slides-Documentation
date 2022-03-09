@@ -19,8 +19,11 @@ The export to HTML5 process here allows you to convert PowerPoint to HTML withou
 
 This python code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
-```python
+```py
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("index.html", slides.export.SaveFormat.HTML5)
 ```
 
 {{% alert color="primary" %}} 
@@ -31,16 +34,26 @@ In this case, you get clean HTML.
 
 You may want to specify settings for shape animations and slide transitions this way:
 
-```python
+```py
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as presentation:
+    options = slides.export.Html5Options()
+    options.animate_shapes = False
+    options.animate_transitions = False
+
+    presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
 ```
 
 #### **Export PowerPoint to HTML**
 
-This python code demonstrates the standard PowerPoint to HTML5 process:
+This python code demonstrates the standard PowerPoint to HTML process:
 
-```python
+```py
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.save("index.html", slides.export.SaveFormat.HTML)
 ```
 
 In this case, the presentation content is rendered through SVG in a form like this:

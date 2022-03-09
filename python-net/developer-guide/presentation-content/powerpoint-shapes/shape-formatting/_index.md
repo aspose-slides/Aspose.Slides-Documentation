@@ -281,6 +281,21 @@ Aspose.Slides allows you to set the transparency level for a shape this way:
 This python code demonstrates the process:
 
 ```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    # add solid shape
+    solidShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 75, 175, 75, 150)
+
+    # add transparent shape over solid
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
+    
+    presentation.save("ShapeTransparentOverSolid_out.pptx", slides.export.SaveFormat.PPTX)
 
 ```
 

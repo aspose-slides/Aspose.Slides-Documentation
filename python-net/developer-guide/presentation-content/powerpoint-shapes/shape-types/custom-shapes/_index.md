@@ -231,8 +231,47 @@ with slides.Presentation() as pres:
 
 This python code shows you how to create a custom shape with curved corners (inwards):
 
-```python
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+shapeX = 20
+shapeY = 20
+shapeWidth = 300
+shapeHeight = 200
+
+leftTopSize = 50
+rightTopSize = 20
+rightBottomSize = 40
+leftBottomSize = 10
+
+with slides.Presentation() as presentation:
+    childShape = presentation.slides[0].shapes.add_auto_shape(
+        slides.ShapeType.CUSTOM, shapeX, shapeY, shapeWidth, shapeHeight)
+
+    geometryPath = slides.GeometryPath()
+
+    point1 = draw.PointF(leftTopSize, 0)
+    point2 = draw.PointF(shapeWidth - rightTopSize, 0)
+    point3 = draw.PointF(shapeWidth, shapeHeight - rightBottomSize)
+    point4 = draw.PointF(leftBottomSize, shapeHeight)
+    point5 = draw.PointF(0, leftTopSize)
+
+    geometryPath.move_to(point1)
+    geometryPath.line_to(point2)
+    geometryPath.arc_to(rightTopSize, rightTopSize, 180, -90)
+    geometryPath.line_to(point3)
+    geometryPath.arc_to(rightBottomSize, rightBottomSize, -90, -90)
+    geometryPath.line_to(point4)
+    geometryPath.arc_to(leftBottomSize, leftBottomSize, 0, -90)
+    geometryPath.line_to(point5)
+    geometryPath.arc_to(leftTopSize, leftTopSize, 90, -90)
+
+    geometryPath.close_figure()
+
+    childShape.set_geometry_path(geometryPath)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 

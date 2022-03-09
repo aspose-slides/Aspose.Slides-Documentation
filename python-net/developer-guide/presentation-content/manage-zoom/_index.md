@@ -195,8 +195,27 @@ You can add a section zoom frame to a slide this way:
 
 This python code shows you how to create a zoom frame on a slide:
 
-``` python
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation() as pres:
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
+
+
+    # Adds a new Section to the presentation
+    pres.sections.add_section("Section 1", slide)
+
+    # Adds a SectionZoomFrame object
+    sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
+
+    # Saves the presentation
+    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Creating Section Zoom Frames with Custom Images**
@@ -213,8 +232,30 @@ Using Aspose.Slides for Python, you can create a section zoom frame with a diffe
 
 This python code shows you how to create a zoom frame with a different image:
 
-``` python
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation() as pres:
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
+
+
+    # Adds a new Section to the presentation
+    pres.sections.add_section("Section 1", slide)
+
+    # Creates a new image for the zoom object
+    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+
+    # Adds a SectionZoomFrame object
+    sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1], image)
+
+    # Saves the presentation
+    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Formatting Section Zoom Frames**
@@ -239,8 +280,45 @@ You can control a section zoom frame's formatting on a slide this way:
 
 This python code shows you how to change a section zoom frame's formatting:
 
-``` python
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+
+with slides.Presentation() as pres:
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    # Adds a new Section to the presentation
+    pres.sections.add_section("Section 1", slide)
+
+    # Add SectionZoomFrame object
+    sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
+
+    # Formatting for SectionZoomFrame
+    sectionZoomFrame.x = 100
+    sectionZoomFrame.y = 300
+    sectionZoomFrame.width = 100
+    sectionZoomFrame.height = 75
+
+    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    sectionZoomFrame.image = image
+
+    sectionZoomFrame.return_to_parent = True
+    sectionZoomFrame.show_background = False
+
+    sectionZoomFrame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    sectionZoomFrame.line_format.fill_format.solid_fill_color.color = draw.Color.brown
+    sectionZoomFrame.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    sectionZoomFrame.line_format.width = 2.5
+
+    sectionZoomFrame.transition_duration = 1.5
+
+    # Saves the presentation
+    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Summary Zoom**
@@ -309,7 +387,49 @@ All sections in a summary zoom frame are represented by [ISummaryZoomFrameSectio
 This python code shows you how to add and remove sections in a summary zoom frame:
 
 ``` python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+
+with slides.Presentation() as pres:
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    # Adds a new section to the presentation
+    pres.sections.add_section("Section 1", slide)
+
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    # Adds a new section to the presentation
+    pres.sections.add_section("Section 2", slide)
+
+    # Adds SummaryZoomFrame object
+    summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
+
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    # Adds a new section to the presentation
+    section3 = pres.sections.add_section("Section 3", slide)
+
+    # Adds a section to the Summary Zoom
+    summaryZoomFrame.summary_zoom_collection.add_summary_zoom_section(section3)
+
+    # Removes section from the Summary Zoom
+    summaryZoomFrame.summary_zoom_collection.remove_summary_zoom_section(pres.sections[1])
+
+    # Saves the presentation
+    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Formatting Summary Zoom Sections**
@@ -331,7 +451,49 @@ You can control the formatting for a summary zoom section object in a summary zo
 
 This python code shows you how to change the formatting for a summary zoom section object:
 
-```python
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation() as pres:
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.brown
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    # Adds a new section to the presentation
+    pres.sections.add_section("Section 1", slide)
+
+    #Adds a new slide to the presentation
+    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    # Adds a new section to the presentation
+    pres.sections.add_section("Section 2", slide)
+
+    # Adds a SummaryZoomFrame object
+    summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
+
+    # Gets the first SummaryZoomSection object
+    summarySection = summaryZoomFrame.summary_zoom_collection[0]
+
+    # Formatting for SummaryZoomSection object
+    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    summarySection.image = image
+
+    summarySection.return_to_parent = False
+
+    summarySection.line_format.fill_format.fill_type = slides.FillType.SOLID
+    summarySection.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    summarySection.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    summarySection.line_format.width = 1.5
+
+    summarySection.transition_duration = 1.5
+
+    # Saves the presentation
+    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
