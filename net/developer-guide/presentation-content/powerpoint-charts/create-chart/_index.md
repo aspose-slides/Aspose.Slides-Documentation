@@ -396,18 +396,13 @@ using (Presentation presentation = new Presentation())
 1. Specify HiLowLines format.
 1. Write the modified presentation to a PPTX file
 
-XXX. ~~Check out the stock chart code - I corrected it but it still did not create the stock chart that I was expecting.~~
-
 Sample code used to create a chart:
 
 ```c#
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
-
-	chart.ChartData.Series.Clear();
-	chart.ChartData.Categories.Clear();
-
+    
 	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
 
 	chart.ChartData.Categories.Add(wb.GetCell(0, 1, 0, "A"));
