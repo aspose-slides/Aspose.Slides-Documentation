@@ -51,11 +51,11 @@ This page contains release notes for [ Aspose.Slides for .NET 22.3](https://www
 
 ### AutoShape.IsTextBox property was added ###
 
-AutoShape.IsTextBox property was added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
+[AutoShape.IsTextBox](https://apireference.aspose.com/slides/net/aspose.slides/autoshape/properties/istextbox) property was added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
 
 ![Text box and shape](istextbox.png)
 
-This code snippet demonstrates iteration over all Presentation shapes and out to console if the shape is a text box or not (if the shape is AutoShape).
+This code snippet demonstrates iteration over all [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) shapes and out to console if the shape is a text box or not (if the shape is [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape)).
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -74,24 +74,24 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 The follwoing classes that inherited from EffectEffectiveData were removed from the public API:
 
-* AlphaBiLevelEffectiveData.Threshold
-* AlphaModulateFixedEffectiveData.Amount
-* AlphaReplaceEffectiveData.Alpha
-* BiLevelEffectiveData.Threshold
-* BlurEffectiveData.Grow
-* ColorChangeEffectiveData.FromColor
-* ColorReplaceEffectiveData.Color
-* DuotoneEffectiveData.Color2
-* FillOverlayEffectiveData.FillFormat
-* GlowEffectiveData.Radius
-* HSLEffectiveData.Saturation
-* InnerShadowEffectiveData.ShadowColor
-* LuminanceEffectiveData.Contrast
-* OuterShadowEffectiveData.SkewVertical
-* PresetShadowEffectiveData.ShadowColor
-* ReflectionEffectiveData.StartReflectionOpacity
-* SoftEdgeEffectiveData.Radius
-* TintEffectiveData.Hue
+* AlphaBiLevelEffectiveData
+* AlphaModulateFixedEffectiveData
+* AlphaReplaceEffectiveData
+* BiLevelEffectiveData
+* BlurEffectiveData
+* ColorChangeEffectiveData
+* ColorReplaceEffectiveData
+* DuotoneEffectiveData
+* FillOverlayEffectiveData
+* GlowEffectiveData
+* HSLEffectiveData
+* InnerShadowEffectiveData
+* LuminanceEffectiveData
+* OuterShadowEffectiveData
+* PresetShadowEffectiveData
+* ReflectionEffectiveData
+* SoftEdgeEffectiveData
+* TintEffectiveData
 
 All effective values are still available via corresponding public interfaces, e.g.:
 
