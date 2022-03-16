@@ -268,7 +268,36 @@ with slides.Presentation() as presentation:
     presentation.save("RectShpSolid_out-6.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## Set Transparency
 
+Aspose.Slides allows you to set the transparency level for a shape this way:
+
+1. Create an instance of the [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
+2. Obtain the reference of a slide through its Index.
+3. Add an [IShape](/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Use Color.FromArgb with the alpha component set.
+5. Save the object as a PowerPoint file. 
+
+This python code demonstrates the process:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    # add solid shape
+    solidShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 75, 175, 75, 150)
+
+    # add transparent shape over solid
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
+    
+    presentation.save("ShapeTransparentOverSolid_out.pptx", slides.export.SaveFormat.PPTX)
+
+```
 
 ## **Rotate Shapes**
 Aspose.Slides for Python via .NET allows developers to you rotate shapes as well in this topic, we will see how developers can rotate their shapes. Rotating a shape using Aspose.Slides for Python via .NET is as easy as ABC. To rotate a shape added to the slide, please follow the steps below:
