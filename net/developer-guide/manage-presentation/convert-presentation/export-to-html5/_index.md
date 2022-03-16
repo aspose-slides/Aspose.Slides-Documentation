@@ -9,7 +9,7 @@ description: "Export PowerPoint to HTML5 in C# or .NET"
 
 {{% alert title="Info" color="info" %}}
 
-In [Aspose.Slides 21.9](slides/net/aspose-slides-for-net-21-9-release-notes/), we implemented support for HTML5 export. However, if you prefer to export your PowerPoint to HTML using WebExtensions, see [this article](/slides/net/web-extensions/) instead. 
+In [Aspose.Slides 21.9](/slides/net/aspose-slides-for-net-21-9-release-notes/), we implemented support for HTML5 export. However, if you prefer to export your PowerPoint to HTML using WebExtensions, see [this article](/slides/net/web-extensions/) instead. 
 
 {{% /alert %}} 
 
