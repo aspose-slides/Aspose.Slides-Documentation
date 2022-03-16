@@ -8,40 +8,39 @@ keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX
 description: "Convert PowerPoint Presentation to PDF in C# or .NET. Save PowerPoint as PDF with compliance or accessibility standards"
 ---
 
-## How to Convert PPT to PDF Online
+## **How to Convert PPT to PDF Online**
 You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/ppt-to-pdf) to convert PPT or PPTX files to PDF quickly.
 
 Go through these steps:
 
 1. Go to our [PowerPoint Online Converter page](https://products.aspose.app/slides/conversion/powerpoint-to-pdf). 
-
 2. Click **Drop or upload your files**. 
-
 3. Select the PPT or PPTX file you want to convert on your computer. 
-
 4. Click **Convert**. 
-
 5. Click **DOWNLOAD NOW**. 
 
-   Your browser now saves the converted file. 
-   
-   
 
-## PowerPoint to PDF Conversion in .NET
+Your browser now saves the converted file. 
+
+{{% alert color="primary" %}} 
+
+You may want to check out our free [**PPT to PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), [**PPTX to PDF**](https://products.aspose.app/slides/conversion/pptx-to-pdf), [**ODP to PDF**](https://products.aspose.app/slides/conversion/odp-to-pdf) converters.
+
+{{% /alert %}} 
+
+## **PowerPoint to PDF Conversion in .NET**
 
 [**Aspose.Slides** ](https://products.aspose.com/slides/net/)allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
 
 To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.Save**](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method. The [**Presentation**](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class exposes the [**Save**](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/slides/net/aspose.slides.export/pdfoptions) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
 
-**Note**: Aspose.Slides for .NET directly writes the information about API and Version Number in output documents. For example, when rendering Document to PDF, Aspose.Slides for .NET populates the Application field with the value 'Aspose.Slides' and the PDF Producer field with a value, e.g. 'Aspose.Slides v 17.10'. Please note that you cannot instruct Aspose.Slides for .NET to change or remove this information from output Documents.
+{{%  alert title="NOTE"  color="warning"   %}} 
 
-{{% alert color="primary" %}} 
+Aspose.Slides for .NET directly writes the information about API and Version Number in output documents. For example, when rendering Document to PDF, Aspose.Slides for .NET populates the Application field with the value 'Aspose.Slides' and the PDF Producer field with a value, e.g. 'Aspose.Slides v 17.10'. Please note that you cannot instruct Aspose.Slides for .NET to change or remove this information from output Documents
 
-You can try our **free online demo apps** to test the [**PPT to PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), [**PPTX to PDF**](https://products.aspose.app/slides/conversion/pptx-to-pdf), [**ODP to PDF** ](https://products.aspose.app/slides/conversion/odp-to-pdf)features by Aspose.
+{{% /alert %}}
 
-{{% /alert %}} 
-
-## Accessibility and Compliance Standards for PDF
+## **Accessibility and Compliance Standards for PDF**
 
 With Aspose.Slides, you can use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html).
 
@@ -117,7 +116,7 @@ presentation.Save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 
 
 
-## Convert PowerPoint to PDF with Custom Options
+## **Convert PowerPoint to PDF with Custom Options**
 The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/net/aspose.slides.export/pdfoptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression** ](https://apireference.aspose.com/slides/net/aspose.slides.export/pdftextcompression)enumeration and sets PDF standard.
 
 ```c#
