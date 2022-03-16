@@ -280,8 +280,6 @@ using (Presentation presentation = new Presentation())
 
 This C# code shows you how to place an image inside a table cell when creating a table:
 
-~~Please check and confirm that this code works and review the steps.~~ XXX
-
 ```c#
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
