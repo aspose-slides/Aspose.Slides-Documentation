@@ -7,31 +7,38 @@ keywords: "Font, replace font, PowerPoint presentation, C#, Csharp, Aspose.Slide
 description: "Replace fonts explicitly in PowerPoint in C# or .NET"
 ---
 
-## **Replacing Fonts Explicitly**
-To replace the fonts using explicit replacement following steps are used:
+If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 
 
-- Load the desired presentation.
-- Load the font that is to replace inside the presentation.
-- Load the replacing font.
-- Replace the fonts.
-- Write the modified presentation as a PPTX file.
+Aspose.Slides allows you to replace a font this way:
 
-The implementation of the above steps is given below.
+1. Load the relevant presentation. 
+2. Load the font that will be replaced.
+3. Load the new font. 
+4. Replace the font. 
+5. Write the modified presentation as a PPTX file.
+
+This C# code demonstrates font replacement:
 
 ```c#
-// Load presentation
+// Loads a presentation
 Presentation presentation = new Presentation("Fonts.pptx");
 
-// Load source font to be replaced
+// Loads the source font that will be replaced
 IFontData sourceFont = new FontData("Arial");
 
-// Load the replacing font
+// Loads the new font
 IFontData destFont = new FontData("Times New Roman");
 
-// Replace the fonts
+// Replaces the fonts
 presentation.FontsManager.ReplaceFont(sourceFont, destFont);
 
-// Save the presentation
+// Saves the presentation
 presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 ```
+
+{{% alert title="Note" color="warning" %}} 
+
+To set rules that determine what happens in certain conditions (if a font cannot be accessed, for example), see [**Font Substitution**](/slides/net/font-substitution/). 
+
+{{% /alert %}}
 
