@@ -32,7 +32,7 @@ In this case, you get clean HTML.
 
 {{% /alert %}}
 
-You may want to specify settings for shape animations and slide transitions this way:
+You may want to specify the settings for shape animations and slide transitions this way:
 
 ```py
 import aspose.slides as slides
@@ -70,6 +70,6 @@ In this case, the presentation content is rendered through SVG in a form like th
 
 {{% alert title="Note" color="warning" %}} 
 
-When you use this method to export PowerPoint to HTML, due to the SVG rendering, you will not be to apply styles or animate specific elements. 
+When you use this method to export PowerPoint to HTML, due to the SVG rendering, you will not be able to apply styles or animate specific elements. 
 
 {{% /alert %}}

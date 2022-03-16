@@ -73,8 +73,6 @@ htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter
 pres.save("ConvertPresentationToResponsiveHTML_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
 
-
-
 ## **Convert PowerPoint to HTML with Notes**
 This code shows you how to convert a PowerPoint to HTML with notes in python:
 
@@ -88,8 +86,6 @@ opt.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTO
 
 pres.save("Output.html", slides.export.SaveFormat.HTML, opt)
 ```
-
-
 
 ## **Convert PowerPoint to HTML with Original Fonts**
 Aspose.Slides provides the [EmbedAllFontsHtmlController](/slides/python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.

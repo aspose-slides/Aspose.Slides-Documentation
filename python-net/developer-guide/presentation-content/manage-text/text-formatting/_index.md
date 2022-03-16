@@ -30,7 +30,7 @@ with slides.Presentation(path + "SomePresentation.pptx") as presentation:
 
 {{% alert color="primary" %}} 
 
-Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor)
+Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor).
 
 {{% /alert %}} 
 
