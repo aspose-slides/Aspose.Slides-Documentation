@@ -72,7 +72,7 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **Reply Comments**
-A new property [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/properties/parentcomment/) has been added to [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface and [**Comment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/comment/) class in Aspose.Slides for Python via .NET. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
+A new property [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) has been added to [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface and [**Comment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/comment/) class in Aspose.Slides for Python via .NET. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
 
 The code snippet below shows a sample of adding some comments and some replies to them:
 
@@ -130,5 +130,5 @@ Remove method of [**IComment**](https://docs.aspose.com/slides/python-net/api-
 {{% /alert %}}
 
 {{% alert color="info" title="Note" %}} 
-If setting [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/properties/parentcomment/) leads to a circular reference, the exception of type **PptxEditException** will be thrown.
+If setting [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) leads to a circular reference, the exception of type **PptxEditException** will be thrown.
 {{% /alert %}}

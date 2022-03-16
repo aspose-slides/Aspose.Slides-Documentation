@@ -3,6 +3,7 @@ title: Manage Paragraph
 type: docs
 weight: 40
 url: /java/manage-paragraph/
+description: Manage Paragraph in PowerPoint Slides using Java. Manage Paragraph Portions in PowerPoint Slides using Java. Indent Paragraph in PowerPoint Slides using Java. Import HTML Text in Paragraphs in PowerPoint Slides using Java.
 ---
 
 

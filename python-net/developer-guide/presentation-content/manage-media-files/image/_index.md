@@ -122,7 +122,7 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [add_group_shape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.ishapecollection/addgroupshape/) method of the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface that takes an [ISvgImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/isvgimage/) object as the first argument.
+The functionality is provided by one of the overloads of the [add_group_shape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/addgroupshape/) method of the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface that takes an [ISvgImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/isvgimage/) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
@@ -161,3 +161,9 @@ with slides.Presentation() as pres:
     
     pres.save("pres_with_emf.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+{{% alert title="Info" color="info" %}}
+
+Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
+
+{{% /alert %}}

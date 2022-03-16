@@ -1,5 +1,6 @@
 ---
-title: Finding a Shape in a Slide in Python
+title: Find a Shape in PowerPoint Slide using Python
+linktitle: Finding a Shape in a Slide in Python
 type: docs
 weight: 80
 url: /java/finding-a-shape-in-a-slide-in-python/
@@ -56,5 +57,4 @@ return None
 ## **Download Running Code**
 Download **Finding a Shape in a Slide (Aspose.Slides)** from any of the below mentioned social coding sites:
 
-- [CodePlex](https://asposeslidesjavapython.codeplex.com/releases/view/620922)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Python-v1.0)

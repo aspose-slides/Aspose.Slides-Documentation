@@ -11,8 +11,8 @@ The following example includes these steps:
 
 1. We [create fallback font rules collection](/slides/python-net/create-fallback-fonts-collection/).
 1. [Remove()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontfallbackrule/) a fallback font rule and [AddFallBackFonts()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontfallbackrule/) to another rule.
-1. Set rules collection to [FontsManager.FontFallBackRulesCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontsmanager/properties/fontfallbackrulescollection/) property.
-1. With [Presentation.Save()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.presentation/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
+1. Set rules collection to [FontsManager.FontFallBackRulesCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fontsmanager/) property.
+1. With [Presentation.Save()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```py
 import aspose.pydrawing as draw

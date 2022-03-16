@@ -14,8 +14,8 @@ Aspose.Slides for Python via .NET allows you to import presentations from PDFs. 
 Go through these steps:
 
 1. Instantiate an object of the presentation class. 
-2. Call the [add_from_pdf](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.slidecollection/addfrompdf/) method and pass the PDF file. 
-3. Use the [save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.presentation/) method to save the file in the PowerPoint format.
+2. Call the [add_from_pdf](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidecollection/) method and pass the PDF file. 
+3. Use the [save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) method to save the file in the PowerPoint format.
 
 This Python code demonstrates the PDF to PowerPoint process:
 

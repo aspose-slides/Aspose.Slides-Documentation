@@ -3,6 +3,7 @@ title: Audio Frame
 type: docs
 weight: 10
 url: /java/audio-frame/
+description: Creating Audio Frame from PowerPoint using Java. Change Audio Frame properties in PowerPoint using Java. Extract Audio from PowerPoint in Java.
 ---
 
 ## **Creating Audio Frame**

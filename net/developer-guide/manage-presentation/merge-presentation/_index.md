@@ -1,5 +1,6 @@
 ---
-title: Merge Presentation
+title: Merge PowerPoint Presentations PPT, PPTX using C#
+linktitle: Merge Presentation
 type: docs
 weight: 40
 url: /net/merge-presentation/

@@ -1,11 +1,14 @@
 ---
-title: Manage SmartArt Shape Node
+title: Create or Manage PowerPoint SmartArt in Java
+linktitle: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /java/manage-smartart-shape-node/
+keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
+description: Manage smart art node and child node in PowerPoint Presentations in Java
 ---
 
-## **Add SmartArt Node**
+## **Add SmartArt Node in PowerPoint Presentation using Java**
 Aspose.Slides for Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
@@ -86,7 +89,7 @@ try {
 }
 ```
 
-## **Access SmartArt Node**
+## **Access SmartArt Node in PowerPoint Presentation using Java**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
@@ -214,7 +217,7 @@ try {
 }
 ```
 
-## **Remove SmartArt Node**
+## **Remove SmartArt Node in PowerPoint Presentation using Java**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.

@@ -1,8 +1,11 @@
 ---
-title: Create Presentation
+title: Create PowerPoint Presentation using Java
+linktitle: Create Presentation
 type: docs
 weight: 10
 url: /java/create-presentation/
+keywords: create ppt java, create ppt presentation, create pptx java
+description: Learn how to create PowerPoint Presentations e.g. PPT, PPTX using Java from scratch.
 ---
 
 ## **Create PowerPoint Presentation**

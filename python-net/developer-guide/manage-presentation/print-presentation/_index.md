@@ -29,10 +29,10 @@ presentation.print()
 
 
 ## **Print to Specific Printer**
-Printing of the presentation to the specific printer requires the name of the printer as a parameter to the [**Print**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.ipresentation/print/methods/1) method of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/). Perform the following steps in order to print the presentation to the desired printer:
+Printing of the presentation to the specific printer requires the name of the printer as a parameter to the [**Print**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipresentation) method of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/). Perform the following steps in order to print the presentation to the desired printer:
 
 1. Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class to load a presentation that is to be printed.
-1. Call the [print method](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipresentation/) of the Presentation class with the printer name as a string parameter to the Print method.
+2. Call the [print method](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipresentation/) of the Presentation class with the printer name as a string parameter to the Print method.
 
 In the example given below, we have called the Print method with the printer name as a string parameter to the Print method.
 

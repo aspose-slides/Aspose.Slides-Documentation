@@ -44,3 +44,9 @@ try {
 	if (pres != null) pres.dispose();
 }
 ```
+
+{{% alert title="Info" color="info" %}}
+
+You may want to check out a FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter developed by Aspose. 
+
+{{% /alert %}}

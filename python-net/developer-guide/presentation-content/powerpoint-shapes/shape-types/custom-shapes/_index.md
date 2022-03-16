@@ -107,7 +107,7 @@ remove_at(index)
 2. Get an instance of the [GeometryPath](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/geometrypath/) class from the shape.
 3. Add a new point between the two top points on the path.
 4. Add a new point between the two bottom points on the path.
-5. Apply the path to the shape.
+6. Apply the path to the shape.
 
 This python code shows you how to add custom points to a shape:
 

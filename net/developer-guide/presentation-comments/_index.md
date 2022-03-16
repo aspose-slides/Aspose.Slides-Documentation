@@ -164,3 +164,60 @@ using (Presentation pres = new Presentation())
      pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **Remove Comment**
+
+This C# code shows you how to remove all comments and authors in a presentation:
+
+```c#
+using (var presentation = new Presentation("example.pptx"))
+{
+    // Deletes all comments from the presentation
+    foreach (var author in presentation.CommentAuthors)
+    {
+        author.Comments.Clear();
+    }
+
+    // Deletes all authors
+    presentation.CommentAuthors.Clear();
+
+    presentation.Save("example_out.pptx", SaveFormat.Pptx);
+}
+```
+
+This C# code shows you how to delete specific comments on a slide:
+
+```c#
+using (var presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+    
+    // add comments...
+    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
+    author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
+    author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
+    
+    // remove all comments that contain "comment 1" text
+    foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
+    {
+        List<IComment> toRemove = new List<IComment>();
+        foreach (IComment comment in slide.GetSlideComments(commentAuthor))
+        {
+            if (comment.Text == "comment 1")
+            {
+                toRemove.Add(comment);
+            }
+        }
+        
+        foreach (IComment comment in toRemove)
+        {
+            commentAuthor.Comments.Remove(comment);
+        }
+    }
+    
+    presentation.Save("pres.pptx", SaveFormat.Pptx);
+}
+```
+
+
+

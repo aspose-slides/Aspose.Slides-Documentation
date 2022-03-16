@@ -3,6 +3,7 @@ title: Image
 type: docs
 weight: 10
 url: /java/image/
+description: Work with images in Slides in PowerPoint Presentation using Java. Add images from disk or from web in PowerPoint Slides using Java. Add images to Slide Masters or as Slide Background using Java. Add SVG to PowerPoint Presentation using Java. Convert SVG to Shapes in PowerPoint using Java. Add images as EMF in Slides using Java.
 ---
 
 ## **Images in Slides In Presentations**
@@ -205,3 +206,9 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+{{% alert title="Info" color="info" %}}
+
+Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
+
+{{% /alert %}}

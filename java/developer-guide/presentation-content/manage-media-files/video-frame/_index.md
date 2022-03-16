@@ -3,6 +3,7 @@ title: Video Frame
 type: docs
 weight: 10
 url: /java/video-frame/
+description: Create Embedded Video Frame in PowerPoint Slides using Java. Create Video Frame from Web Source in PowerPoint Slides using Java. Extract Video from PowerPoint Slides using Java.
 ---
 
 ## **Create Embedded Video Frame**

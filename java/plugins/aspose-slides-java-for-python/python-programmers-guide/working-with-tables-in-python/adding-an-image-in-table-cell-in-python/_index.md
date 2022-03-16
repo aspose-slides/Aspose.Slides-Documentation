@@ -3,10 +3,12 @@ title: Adding an Image in Table Cell in Python
 type: docs
 weight: 10
 url: /java/adding-an-image-in-table-cell-in-python/
+keywords: powerpoint add image to table cell, python pptx table cell, powerpoint image in cell
+description: Add image in table cell inside the PowerPoint Presentation using Python
 ---
 
-## **Aspose.Slides - Adding an Image in Table Cell**
-To Add an Image in Table Cell using **Aspose.Slides Java for Python**. Here you can see example code.
+## **PowerPoint Presentations in Python - Adding an Image in Table Cell**
+To Add an Image in Table Cell inside the PowerPoint Presentation (e.g. PPT or PPTX), you can use **Aspose.Slides Java for Python**. Here you can see example code.
 
 **Python Code**
 

@@ -1,5 +1,6 @@
 ---
-title: Formatting Lines of the Shapes in Python
+title: Formatting Lines of PowerPoint Slide Shapes in Python
+linktitle: Formatting Lines of the Shapes in Python
 type: docs
 weight: 90
 url: /java/formatting-lines-of-the-shapes-in-python/
@@ -154,5 +155,4 @@ print "Formatted join styles, please check the output file."
 ## **Download Running Code**
 Download running code from any of the below mentioned social coding sites:
 
-- [CodePlex](https://asposeslidesjavapython.codeplex.com/releases/view/620922)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Python-v1.0)
