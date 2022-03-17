@@ -51,11 +51,14 @@ This page contains release notes for [ Aspose.Slides for .NET 22.3](https://www
 
 ### AutoShape.IsTextBox property was added ###
 
-[AutoShape.IsTextBox](https://apireference.aspose.com/slides/net/aspose.slides/autoshape/properties/istextbox) property was added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
+[AutoShape.IsTextBox](https://apireference.aspose.com/slides/net/aspose.slides/autoshape/properties/istextbox) property was added to indicate whether a shape was created as a text box or not. The image below demonstrates the two scenarios where a shape will be created as a 
+
+* text box 
+* regular shape:
 
 ![Text box and shape](istextbox.png)
 
-This code snippet demonstrates iteration over all [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) shapes and out to console if the shape is a text box or not (if the shape is [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape)).
+This C# code demonstrates the iteration over all [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) shapes and outs to console if the shape is a text box or not (if the shape is [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape)).
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -72,7 +75,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### Classes inherited from EffectEffectiveData removed from public API ###
 
-The follwoing classes that inherited from EffectEffectiveData were removed from the public API:
+These classes that were inherited from `EffectEffectiveData` have been removed from the public API:
 
 * AlphaBiLevelEffectiveData
 * AlphaModulateFixedEffectiveData
@@ -93,7 +96,7 @@ The follwoing classes that inherited from EffectEffectiveData were removed from 
 * SoftEdgeEffectiveData
 * TintEffectiveData
 
-All effective values are still available via corresponding public interfaces, e.g.:
+All effective values can still be accessed through their corresponding public interfaces, e.g.:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
