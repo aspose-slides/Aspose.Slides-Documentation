@@ -7,7 +7,9 @@ keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint p
 description: "Apply PowerPoint animation in C# or .NET"
 ---
 
-Animations are visual effects that can be applied to texts, images, shapes, or charts. They give life to presentations or its constituents. 
+Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/net/animated-charts/). They give life to presentations or its constituents. 
+
+
 
 ### Why Use Animations in Presentations?
 
@@ -27,17 +29,89 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://apireference.aspose.com/slides/net/aspose.slides.animation/effecttype) enumeration. These effects are effectively the same effects used in PowerPoint or their equivalents.
 
-## **Apply Animation to Object or Textbox or XXX**
+## **Apply Animation to TextBox**
 
-~~XXX~~
+Aspose.Slides for .NET allows you to apply animation not only to shape, but also to its text.
 
-This C# code shows you how to add ~~XXX~~:
+To apply animation to the shape with text, please follow these steps:
+
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
+2. Obtain a slide reference through its index.
+3. Add a `rectangle` [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape). 
+4. Add text to [IAutoShape.TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe).
+5. Get a main sequence of effects.
+6. Add an animation effect to [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape).
+7. Change an effect [TextAnimation.BuildType](https://apireference.aspose.com/slides/net/aspose.slides.animation/textanimation/properties/buildtype) property to the value from [BuildType Enumeration](https://apireference.aspose.com/slides/net/aspose.slides.animation/buildtype).
+8. Write the presentation to disk as a PPTX file.
+
+This C# code shows you how to apply the `Fade` effect to AutoShape and set the text animation to `By 1st Level Paragraphs` value:
 
 ```c#
+// Instantiates a presentation class that represents a presentation file.
+using (Presentation pres = new Presentation())
+{
+    ISlide sld = pres.Slides[0];
+    
+    // Adds new AutoShape with text
+    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+
+    // Gets the main sequence of the slide.
+    ISequence sequence = sld.Timeline.MainSequence;
+
+    // Adds Fade animation effect to shape
+    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // Animates shape text by 1st level paragraphs
+    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
+
+    // Save the PPTX file to disk
+    pres.Save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+}
 ```
 
+### **Apply Animation to text Paragraph**
 
+Except animated text, it is also possible to apply animation to a single [Paragraph](https://apireference.aspose.com/slides/net/aspose.slides/iparagraph).
+
+Read more [**About Animated Text**](/slides/net/animated-text/).
+
+## **Apply Animation to PictureFrame**
+
+To apply animation to a [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ipictureframe), please follow these steps:
+
+1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
+2. Obtain a slide reference through its index.
+3. Add or get a [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ipictureframe) on slide. 
+5. Get a main sequence of effects.
+6. Add an animation effect to [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ipictureframe).
+8. Write the presentation to disk as a PPTX file.
+
+This C# code shows you how to apply the `Fly` effect to a picture frame:
+
+```c#
+// Instantiates a presentation class that represents a presentation file.
+using (Presentation pres = new Presentation())
+{
+    // Load Image to be added in presentaiton image collection
+    Image img = new Bitmap("aspose-logo.jpg");
+    IPPImage image = pres.Images.AddImage(img);
+
+    // Adds picture frame to slide
+    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+
+    // Gets the main sequence of the slide.
+    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+
+    // Adds Fly from Left animation effect to picture frame
+    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
+
+    // Save the PPTX file to disk
+    pres.Save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **Apply Animation to Shape**
 
@@ -91,12 +165,73 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Get Duration of Animation**
+## **Getting the Animation Effects applied to Shape**
 
-The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. ~~XXX - What is duration of an animation?~~
+You may decide to find out the all animation effects applied to a single shape. 
 
-This C# code shows you how to get the duration for an animation:
+This C# code shows you how to get the all effects of the specified shape:
 
 ```c#
+// Instantiates a presentation class that represents a presentation file.
+using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+{
+    ISlide firstSlide = pres.Slides[0];
 
+    // Gets the main sequence of the slide.
+    ISequence sequence = firstSlide.Timeline.MainSequence;
+
+    // Gets the first shape on slide.
+    IShape shape = firstSlide.Shapes[0];
+
+    // Gets all animation effects applied to the shape.
+    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
+
+    if (shapeEffects.Length > 0)
+        Console.WriteLine("The shape " + shape.Name + " has " + shapeEffects.Length + " animation effects.");
+}
+```
+
+## **Change Animation Effect Timing properties**
+
+Aspose.Slides for .NET allows you to change the Timing properties of animation effect.
+
+This is the Animation Timing pane in Microsoft PowerPoint:
+
+![example1_image](shape-animation-0.png)
+
+These are the correspondences between PowerPoint Timing and [Effect.Timing](https://apireference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing) properties:
+- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://apireference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggertype) property. 
+- PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://apireference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/duration) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. 
+- PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://apireference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggerdelaytime) property. 
+
+To change the Effect Timing properties, please follow these steps:
+
+1. [Apply](#apply-animation-to-shape) or get the animation effect.
+2. Set new values for the [Effect.Timing](https://apireference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing) properties you need. 
+3. Save the modified PPTX file.
+
+This sample code demonstrates the operation:
+
+```c#
+// Instantiates a presentation class that represents a presentation file.
+using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+{
+    // Gets the main sequence of the slide.
+    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+
+    // Gets the first effect of main sequence.
+    IEffect effect = sequence[0];
+
+    // Changes effect TriggerType to start on click
+    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+
+    // Changes effect Duration
+    effect.Timing.Duration = 3f;
+
+    // Changes effect TriggerDelayTime
+    effect.Timing.TriggerDelayTime = 0.5f;
+
+    // Save the PPTX file to disk
+    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+}
 ```
