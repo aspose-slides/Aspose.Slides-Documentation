@@ -49,7 +49,7 @@ for (auto&& slide : pres->get_Slides())
         auto autoShape = System::DynamicCast_noexcept<Aspose::Slides::AutoShape>(shape);
         if (autoShape != nullptr)
         {
-            System::Console::WriteLine(autoShape->get_IsTextBox() ? System::String(u"shape is text box") : System::String(u"shape is text not box"));
+            System::Console::WriteLine(autoShape->get_IsTextBox() ? System::String(u"shape is text box") : System::String(u"shape is not text box"));
         }
     }
 }
