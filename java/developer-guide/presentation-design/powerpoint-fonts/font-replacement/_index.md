@@ -1,8 +1,10 @@
 ---
-title: Font Replacement
+title: Font Replacement - PowerPoint Java API
+linktitle: Font Replacement
 type: docs
 weight: 60
 url: /java/font-replacement/
+description: Learn how to replace fonts using the explicit replacement method in PowerPoint using the Java API.
 ---
 
 ## **Replacing Fonts Explicitly**
