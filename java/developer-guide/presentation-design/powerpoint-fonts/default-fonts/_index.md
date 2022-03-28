@@ -1,8 +1,10 @@
 ---
-title: Default Fonts
+title: Default Fonts - PowerPoint Java API
+linktitle: Default Fonts
 type: docs
 weight: 30
 url: /java/default-font/
+description: PowerPoint Java API lets you set the default font for rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular Font and DefaultAsian Font for use as default fonts.
 ---
 
 
