@@ -1,8 +1,10 @@
 ---
-title: Custom Font
+title: Custom Font - PowerPoint Java API
+linktitle: Custom Font
 type: docs
 weight: 20
 url: /java/custom-font/
+description: PowerPoint Java API lets you load fonts for rendering in presentations without even installing them. This article shows how to load fonts from custom directories without installing them.
 ---
 
 {{% alert color="primary" %}} 
