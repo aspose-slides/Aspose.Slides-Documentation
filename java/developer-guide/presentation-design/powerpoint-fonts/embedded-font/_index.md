@@ -1,8 +1,10 @@
 ---
-title: Embedded Font
+title: Embedded Font - PowerPoint Java API
+linktitle: Embedded Font
 type: docs
 weight: 40
 url: /java/embedded-font/
+description: Learn how to get or remove embedded fonts from Presentation and how to add them using PowerPoint Java API.
 ---
 
 ## **Get or Remove Embedded Fonts from Presentation**
