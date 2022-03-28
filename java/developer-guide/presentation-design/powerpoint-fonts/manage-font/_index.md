@@ -1,8 +1,10 @@
 ---
-title: Manage Fonts
+title: Manage Fonts - PowerPoint Java API
+linktitle: Manage Fonts
 type: docs
 weight: 10
 url: /java/manage-fonts/
+description: Presentations usually contain both text and images. This article shows how to use PowerPoint Java API to configure the font properties of paragraphs of text on slides.
 ---
 
 ## **Manage Font Related Properties**
