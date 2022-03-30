@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Reporting Services 22.1 Release Notes
+title: Aspose.Slides for Reporting Services 22.3 Release Notes
 type: docs
 weight: 50
 url: /reportingservices/aspose-slides-for-reporting-services-22-3-release-notes/
