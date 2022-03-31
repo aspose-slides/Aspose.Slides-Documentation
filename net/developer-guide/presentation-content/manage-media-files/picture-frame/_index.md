@@ -84,7 +84,7 @@ using (Presentation presentation = new Presentation())
     pf.RelativeScaleHeight = 0.8f;
     pf.RelativeScaleWidth = 1.35f;
 
-    // Saves presentation
+    // Saves the presentation
     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
 }
 ```

@@ -3,11 +3,13 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /cpp/picture-frame/
+keywords: "Add picture frame, create picture frame, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
+description: "Add picture frame to PowerPoint presentation in C++"
 ---
 
+A picture is a shape that contains an image—it is like a picture in a frame. 
 
-## **Create Picture Frame**
-Picture frame is also one of the shapes offered by Aspose.Slides for C++. Adding picture frame to a slide is bit trickier than simple shapes. 
+You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
 {{% alert  title="Tip" color="primary" %}} 
 
@@ -15,61 +17,143 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% /alert %}} 
 
-A picture frame is like a picture in a frame. You can add any desired picture to your slide as a picture frame. Let's see, how can we do it.
-This article explains how picture frames can be used in different ways:
+## **Create Picture Frame**
 
-- Adding Simple Picture Frames to Slides.
-- Controlling Picture Frame Formatting.
-- Adding Picture Frame with Relative Scale.
+1. Create an instance of the [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Get a slide's reference through its index. 
+3. Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
+4. Specify the image's width and height.
+5. Create a [PictureFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
+6. Add a picture frame (containing the picture) to the slide.
+7. Write the modified presentation as a PPTX file.
 
-To add a simple picture frame to your slide, please follow the steps below:
+This C++ code shows you how to create a picture frame:
 
-- Create an instance of [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Obtain the reference of a slide by using its index.
-- Create an Image object by adding an image to the Images collection associated with the Presentation object that will be used to fill the Shape.
-- Calculate the width and height of the image.
-- Create a PictureFrame according to the width and height of the image by using the AddPictureFrame method exposed by the Shapes object associated with the referenced slide.
-- Add a picture frame (containing the picture) to the slide.
-- Write the modified presentation as a PPTX file.
+```c++
+// The path to the documents directory.
+const String outPath = u"../out/PictureFrameFormatting_out.pptx";
+const String filePath = u"../templates/Tulips.jpg";
 
-The above steps are implemented in the example given below.
+// LoadS the desired the presentation
+SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PictureFrameFormatting-PictureFrameFormatting.cpp" >}}
+// Accesses first slide
+SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+// Loads the Image that will be added in presentaiton image collection
+// Gets the picture
+auto bitmap = MakeObject<System::Drawing::Bitmap>(filePath);
+
+// Adds an image to presentation's images collection
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+
+// Adds a picture frame to the slide
+SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
+
+// Sets relative scale width and height
+pf->set_RelativeScaleHeight(0.8);
+pf->set_RelativeScaleWidth(1.35);
+// Applies some formatting to PictureFrame
+pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pf->get_LineFormat()->set_Width ( 20);
+pf->set_Rotation( 45);
+
+//Writes the PPTX file to disk
+pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
 
 ## **Create Picture Frame with Relative Scale**
-The picture frame that we created in the above section were simple as well as well formatted. We can also control the relative scaling of image added in picture frame as well. In order to control the relative scaling of the image in a picture frame, please follow the steps below:
+By altering an image's relative scaling, you can create a more complicated picture frame. 
 
-- Create an instance of [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Obtain the reference of a slide by using its index.
-- Add an image to the presentation image collection.
-- Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
-- Set the relative width and height of the image in the picture frame.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Get a slide's reference through its index. 
+3. Add an image to the presentation image collection.
+4. Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
+5. Specify the image's relative width and height in the picture frame.
+6. Write the modified presentation as a PPTX file.
 
-The above steps are implemented in the example given below.
+This C++ code shows you how to create a picture frame with relative scale:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddRelativeScaleHeightPictureFrame-AddRelativeScaleHeightPictureFrame.cpp" >}}
+```c++
+// The path to the documents directory.
+const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
+const String filePath = u"../templates/Tulips.jpg";
+
+// Loads the desired the presentation
+SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+// Accesses the first slide
+SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+// Loads the Image to be added in presentaiton image collection
+// Gets the picture
+auto bitmap = MakeObject<System::Drawing::Bitmap>(filePath);
+
+// Adds an image to the presentation's images collection
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+
+// Adds a picture frame to the slide
+SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
+
+// Sets relative scale width and height
+pf->set_RelativeScaleHeight (0.8);
+pf->set_RelativeScaleWidth(1.35);
+
+//Writes the PPTX file to disk
+pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
 
 
 ## **Picture Frame Formatting**
-The picture frame that we created in the above section is simple. We can also control the formatting of a picture frame according to the requirement. There are many formatting settings that can be applied on a picture frame. To control the formatting of a picture frame in a slide, please follow the steps below:
+Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
-- Create an instance of [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-- Obtain the reference of a slide by using its index.
-- Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the shape.
-- Calculate the width and height of the image.
-- Create a PictureFrame according to the width and height of the image by using the [AddPictureFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) method exposed by the [IShapes](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) object associated with the referenced slide.
-- Add the picture frame (containing the picture) to the slide.
-- Set the picture frame's line color.
-- Set the picture frame's line width.
-- Rotate the picture frame by giving it either a positive or negative value.
-- A positive value rotates it clockwise; a negative value rotates it anti-clockwise.
-- Add the picture frame (containing the picture) to the slide.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+2. Get a slide's reference through its index. 
+3. Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
+4. Specify the image's width and height.
+5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) method exposed by the [IShapes](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) object associated with the referenced slide.
+6. Add the picture frame (containing the picture) to the slide.
+7. Set the picture frame's line color.
+8. Set the picture frame's line width.
+9. Rotate the picture frame by giving it either a positive or negative value.
+   * A positive value rotates the image clockwise. 
+   * A negative value rotates the image anti-clockwise.
+10. Add the picture frame (containing the picture) to the slide.
+11. Write the modified presentation as a PPTX file.
 
-The above steps are implemented in the example given below.
+This C++ code demonstrates the picture frame formatting process:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-PictureFrameFormatting-PictureFrameFormatting.cpp" >}}
+```c++
+// The path to the documents directory.
+const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
+const String filePath = u"../templates/Tulips.jpg";
+
+// Loads the desired the presentation
+SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+// Accesses the first slide
+SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+// Loads the Image to be added in presentaiton image collection
+// Gets the picture
+auto bitmap = MakeObject<System::Drawing::Bitmap>(filePath);
+
+// Adds the image to presentation's images collection
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+
+// Adds a picture frame to the slide
+SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
+
+// Sets relative scale width and height
+pf->set_RelativeScaleHeight (0.8);
+pf->set_RelativeScaleWidth(1.35);
+
+//Writes the PPTX file to disk
+pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
 
 {{% alert title="Tip" color="primary" %}}
 
@@ -77,35 +161,43 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
+## **Crop Image**
 
-## **Add StretchOff Property**
-The methods get(set)_StretchOffsetLeft(), get(set)_StretchOffsetTop(), get(set)_StretchOffsetRight() and get(set)_StretchOffsetBottom() has been added to IPictureFillFormat interface and PictureFillFormat class respectively. These methods specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
+This C++ code shows you how to crop an existing image on a slide: 
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-- Obtain the reference of a slide by using its index.
-- Add an AutoShape of Rectangle type.
-- Create Image.
-- Set shape's fill type.
-- Set shape's picture fill mode.
-- Add Set image to fill the shape.
-- Specify image offsets from the corresponding edge of the shape's bounding box
-- Write the modified presentation as a PPTX file.
+```c++
 
-The above steps are implemented in the example given below.
+```
+
+## **Use StretchOff Property**
+
+Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) and [StretchOffsetBottom](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) interface and [PictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset. A negative percentage specifies an outset.
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+2. Get a slide's reference through its index.
+3. Add a rectangle `AutoShape`. 
+4. Create an image.
+5. Set the shape's fill type.
+6. Set the shape's picture fill mode.
+7. Add a set image to fill the shape.
+8. Specify image offsets from the corresponding edge of the shape's bounding box
+9. Write the modified presentation as a PPTX file.
+
+This C++ code demonstrates the process:
 
 ``` cpp
-// Instantiate Prseetation class that represents the PPTX
+// Instantiates the Presentation class that represents a PPTX file
 auto pres = System::MakeObject<Presentation>();
-// Get the first slide
+// Gets the first slide
 auto sld = pres->get_Slides()->idx_get(0);
 
-// Instantiate the Bitmap class
+// Instantiates the Bitmap class
 auto img = System::MakeObject<Bitmap>(u"aspose-logo.jpg");
 auto imgx = pres->get_Images()->AddImage(img);
 
-// Add Picture Frame with height and width equivalent of Picture
+// Adds a picture frame with the picture's equivalent height and width
 sld->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(imgx->get_Width()), static_cast<float>(imgx->get_Height()), imgx);
 
-//Write the PPTX file to disk
+//Writes the PPTX file to disk
 pres->Save(u"AddStretchOffsetForImageFill_out.pptx", SaveFormat::Pptx);
 ```
