@@ -24,7 +24,7 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for .NET, you can do it this way:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Obtain the reference of the slide by using its index.
+2. Get a slide's reference through its index.
 3. Open the Excel file containing the Excel chart object and save it to `MemoryStream`.
 4. Add the [OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe) to the slide containing the array of bytes and other information about the OLE object.
 5. Write the modified presentation as a PPTX file.
@@ -33,7 +33,7 @@ In the example below, we added a chart from an Excel file to a slide as an [OleO
 **Note** that the [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ``` csharp 
-// Instantiates the Presentation class that represents the PPTX
+// Instantiates the Presentation class that represents the PPTX file
 using (Presentation pres = new Presentation())
 {
     // Accesses the first slide
@@ -81,7 +81,7 @@ If an OLE object is already embedded in a slide, you can find or access that obj
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file:
 
 ``` csharp 
-// Loads the PPTX to Presentation object
+// Loads the PPTX to a presentation object
 using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 {
     // Accesses the first slide
@@ -113,11 +113,11 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 
 ## **Changing OLE Object Data**
 
-If an OLE object is already embedded in a slide, you can easily access that object with and modify its data this way:
+If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
 
 1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
 
-2. Obtain the reference of the slide by using its index.
+2. Get the slide's reference through its index. 
 
 3. Access the [OLEObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe) shape.
 
@@ -230,7 +230,7 @@ using (Presentation pres = new Presentation("embeddedOle.pptx"))
 
 After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what users see before they access or open the OLE object. 
 
-If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides.  
+If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for .NET.
 
 This C# code shows you how to set the icon image and title for an embedded object: 
 
