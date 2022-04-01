@@ -147,7 +147,27 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 This Python code shows you how to crop an existing image on a slide:
 
-```python
+``` py
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
+
+with slides.Presentation() as presentation:
+    # Creates new image object
+    newImage = presentation.images.add_image(drawing.Image.from_file(imagePath))
+
+    # Adds a PictureFrame to a Slide
+    picFrame = presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 100, 100, 420, 250, newImage)
+
+    # Crops the image (percentage values)
+    picFrame.picture_format.crop_left = 23.6
+    picFrame.picture_format.crop_right = 21.5
+    picFrame.picture_format.crop_top = 3
+    picFrame.picture_format.crop_bottom = 31
+
+    # Saves the result
+    presentation.save(outPptxFile, slides.export.SaveFormat.PPTX)
 
 ```
 
