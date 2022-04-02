@@ -226,7 +226,24 @@ with slides.Presentation() as presentation:
 This Python code shows you how to change a table cell's background color:
 
 ```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    dblCols = [ 150, 150, 150, 150 ]
+    dblRows = [ 50, 50, 50, 50, 50 ]
+
+    # create a new table
+    table = slide.shapes.add_table(50, 50, dblCols, dblRows)
+
+    # set the background color for a cell 
+    cell = table.rows[2][3]
+    cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
+    cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
+
+    presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Add Image Inside Table Cell**
