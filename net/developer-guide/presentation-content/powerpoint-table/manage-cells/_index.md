@@ -72,7 +72,7 @@ using (Presentation pres = new Presentation())
             cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
         }
 
-    // Writes PPTX file to Disk
+    // Writes the PPTX file to disk
     pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
