@@ -7,47 +7,57 @@ keywords: "Comments, PowerPoint comments, PowerPoint presentation, Python, Aspos
 description: "Add comments and replies in PowerPoint presentation in Python"
 ---
 
+In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
+### **Why Add Comments to Presentations?**
 
-Slide comment is like an annotation in PDF file or a note that one can attach with a slide. Slide comments are generally used while reviewing the slides in PowerPoint. However, they can also serve as a useful utility for highlighting something important in the presentation slide and giving the needed explanation for that.
+You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
+
+To allow you to use comments in PowerPoint presentations, Aspose.Slides for Python via .NET provides
+
+* The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class , which contains the collections of authors (from the [CommentAuthorCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentauthorcollection/) property). The authors add comments to slides. 
+* The  [ICommentCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icommentcollection/) interface, which contains the collection of comments for individual authors. 
+* The [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
+* The [CommentAuthor](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentauthor/) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
+
 ## **Add Slide Comment**
-In Aspose.Slides for Python via .NET, the presentation slide comment are associated with a particular author. The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class holds the collection of authors in [**ICommentAuthorCollection** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icommentauthorcollection/)that are responsible for adding slide comments. For each author, there is a collection of comments in [**ICommentCollection**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icommentcollection/). The [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) class includes information like an author who added slide comment, time of creation, slide where a comment is added, the position of slide comment on the selected slide and the comment text. The [**CommentAuthor**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentauthor/) class includes the author's name, his initials and list of associated comments. In the following example, we have added the code snippet for adding the slide comments.
+This Python code shows you how to add a comment to a slide in a PowerPoint presentation:
 
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import datetime
 
-# Instantiate Presentation class
+# Instantiates the Presentation class
 with slides.Presentation() as presentation:
-    # Adding Empty slide
+    # Adds an empty slide
     presentation.slides.add_empty_slide(presentation.layout_slides[0])
 
-    # Adding Author
+    # Adds an author
     author = presentation.comment_authors.add_author("Jawad", "MF")
 
-    # Position of comments
+    # Sets the position for comments
     point = draw.PointF(0.2, 0.2)
 
-    # Adding slide comment for an author on slide 1
+    # Adds slide comment for an author on slide 1
     author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
 
-    # Adding slide comment for an author on slide 1
+    # Adds slide comment for an author on slide 2
     author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
 
     # Accessing ISlide 1
     slide = presentation.slides[0]
 
-    # if null is passed as an argument then it will bring comments from all authors on selected slide
+    # When null is passed as an argument, comments from all authors are brought to the selected slide
     comments = slide.get_slide_comments(author)
 
-    # Accessin the comment at index 0 for slide 1
+    # Accesses the comment at index 0 for slide 1
     str = comments[0].text
 
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 
     if comments.length > 0:
-        # Select comments collection of Author at index 0
+        # Selects the Author's comments collection at index 0
         commentCollection = comments[0].author.comments
         print(commentCollection[0].text)
 ```
@@ -55,12 +65,12 @@ with slides.Presentation() as presentation:
 
 
 ## **Access Slide Comments**
-In the following example, we will learn how to access the existing slide comments and can even modify the comments as well.
+This Python code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
-```py
+```python
 import aspose.slides as slides
 
-# Instantiate Presentation class
+# Instantiates the Presentation class
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
@@ -72,30 +82,30 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **Reply Comments**
-A new property [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) has been added to [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface and [**Comment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/comment/) class in Aspose.Slides for Python via .NET. It allows to get or set the parent comment, thus creating a dialog in the form of a hierarchy of comments and replies.
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `ParentComment` property (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface), you can set or get a parent comment. 
 
-The code snippet below shows a sample of adding some comments and some replies to them:
+This Python code shows you how to add comments and get replies to them:
 
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import datetime
 
 with slides.Presentation() as pres:
-    # Add comment
+    # Adds a comment
     author1 = pres.comment_authors.add_author("Author_1", "A.A.")
     comment1 = author1.comments.add_comment("comment1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
 
-    # Add reply for comment1
+    # Adds a reply to comment1
     author2 = pres.comment_authors.add_author("Autror_2", "B.B.")
     reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply1.parent_comment = comment1
 
-    # Add reply for comment1
+    # Adds another reply to comment1
     reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply2.parent_comment = comment1
 
-    # Add reply to reply
+    # Adds a reply to existing reply
     subReply = author1.comments.add_comment("subreply 3 for reply 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     subReply.parent_comment = reply2
 
@@ -105,7 +115,7 @@ with slides.Presentation() as pres:
     reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
     reply3.parent_comment = comment3
 
-    # Display hierarchy on console
+    # Displays the comments hierarchy on console
     slide = pres.slides[0]
     comments = slide.get_slide_comments(None)
     for i in range(comments.length):
@@ -119,16 +129,46 @@ with slides.Presentation() as pres:
 
     pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    # Remove comment1 and all its replies
+    # Removes comment1 and all replies to it
     comment1.remove()
 
     pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-Remove method of [**IComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface removes the comment with all its replies.
+
+* When the `Remove` method (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* If the `ParentComment` setting results in a circular reference, `PptxEditException` will be thrown.
+
 {{% /alert %}}
 
-{{% alert color="info" title="Note" %}} 
-If setting [**ParentComment**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) leads to a circular reference, the exception of type **PptxEditException** will be thrown.
-{{% /alert %}}
+## **Add Modern Comment**
+
+In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
+
+We implemented support for modern comments by adding the [ModernComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/moderncomment/) class. The `AddModernComment` and `InsertModernComment` methods were added to the [CommentCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentcollection/) class. 
+
+This Python code shows you how to add a modern comment to a slide in a PowerPoint presentation:
+
+```python
+
+```
+
+## **Remove Comment**
+
+### **Delete All Comments and Authors**
+
+This Python code shows you how to remove all comments and authors in a presentation:
+
+```python
+
+```
+
+### **Delete Specific Comments**
+
+This Python code shows you how to delete specific comments on a slide:
+
+```python
+
+```
+

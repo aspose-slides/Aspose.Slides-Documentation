@@ -45,7 +45,7 @@ auto slide2 = presentation->get_Slides()->idx_get(1);
 // Adds slide comment for an author on slide 1
 author->get_Comments()->AddComment(u"Hello Jawad, this is slide comment", slide1, point, DateTime::get_Now());
 
-// Adds slide comment for an author on slide 1
+// Adds slide comment for an author on slide 2
 author->get_Comments()->AddComment(u"Hello Jawad, this is second slide comment", slide2, point, DateTime::get_Now());
 
 // When null is passed as an argument, comments from all authors are brought to the selected slide
@@ -169,3 +169,22 @@ auto modernComment = newAuthor->get_Comments()->AddModernComment(u"This is a mod
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
+
+## **Remove Comment**
+
+### **Delete All Comments and Authors**
+
+This C++ code shows you how to remove all comments and authors in a presentation:
+
+```c++
+
+```
+
+### **Delete Specific Comments**
+
+This C++ code shows you how to delete specific comments on a slide:
+
+```c++
+
+```
+

@@ -41,7 +41,7 @@ using (Presentation presentation = new Presentation())
     // Adds slide comment for an author on slide 1
     author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
 
-    // Adds slide comment for an author on slide 1
+    // Adds slide comment for an author on slide 2
     author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
 
     // Accesses ISlide 1
@@ -167,6 +167,8 @@ using (Presentation pres = new Presentation())
 
 ## **Remove Comment**
 
+### **Delete All Comments and Authors**
+
 This C# code shows you how to remove all comments and authors in a presentation:
 
 ```c#
@@ -184,6 +186,8 @@ using (var presentation = new Presentation("example.pptx"))
     presentation.Save("example_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+### **Delete Specific Comments**
 
 This C# code shows you how to delete specific comments on a slide:
 
@@ -218,6 +222,5 @@ using (var presentation = new Presentation())
     presentation.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
-
 
 

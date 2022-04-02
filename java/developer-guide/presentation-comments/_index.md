@@ -39,7 +39,7 @@ try {
     // Adds slide comment for an author on slide 1
     author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
 
-    // Adds slide comment for an author on slide 1
+    // Adds slide comment for an author on slide 2
     author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
 
     // Accesses ISlide 1
@@ -170,3 +170,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **Remove Comment**
+
+### **Delete All Comments and Authors**
+
+This Java code shows you how to remove all comments and authors in a presentation:
+
+```java
+
+```
+
+### **Delete Specific Comments**
+
+This Java code shows you how to delete specific comments on a slide:
+
+```java
+
+```
+
