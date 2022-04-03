@@ -82,7 +82,7 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `ParentComment` property (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface), you can set or get a parent comment. 
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `parent_comment` property (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface), you can set or get a parent comment. 
 
 This Python code shows you how to add comments and get replies to them:
 
@@ -138,7 +138,7 @@ with slides.Presentation() as pres:
 {{% alert color="warning" title="Attention" %}} 
 
 * When the `Remove` method (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface) is used to delete a comment, the replies to the comment also get deleted. 
-* If the `ParentComment` setting results in a circular reference, `PptxEditException` will be thrown.
+* If the `parent_comment` setting results in a circular reference, `PptxEditException` will be thrown.
 
 {{% /alert %}}
 
@@ -146,12 +146,20 @@ with slides.Presentation() as pres:
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-We implemented support for modern comments by adding the [ModernComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/moderncomment/) class. The `AddModernComment` and `InsertModernComment` methods were added to the [CommentCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentcollection/) class. 
+We implemented support for modern comments by adding the [ModernComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/moderncomment/) class. The `add_modern_comment` and `insert_modern_comment` methods were added to the [CommentCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentcollection/) class. 
 
 This Python code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 
 ```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+from datetime import date
 
+with slides.Presentation() as pres:
+    newAuthor = pres.comment_authors.add_author("Some Author", "SA")
+    modernComment = newAuthor.comments.add_modern_comment("This is a modern comment", pres.slides[0], None, draw.PointF(100, 100), date.today())
+
+    pres.save("example.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Remove Comment**
@@ -161,7 +169,17 @@ This Python code shows you how to add a modern comment to a slide in a PowerPoin
 This Python code shows you how to remove all comments and authors in a presentation:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation("example.pptx") as presentation:
+    # Deletes all comments from the presentation
+    for author in presentation.comment_authors:
+        author.comments.clear()
+
+    # Deletes all authors
+    presentation.comment_authors.clear()
+
+    presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Delete Specific Comments**
@@ -169,6 +187,28 @@ This Python code shows you how to remove all comments and authors in a presentat
 This Python code shows you how to delete specific comments on a slide:
 
 ```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+from datetime import date
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    # add comments...
+    author = presentation.comment_authors.add_author("Author", "A")
+    author.comments.add_comment("comment 1", slide, draw.PointF(0.2, 0.2), date.today())
+    author.comments.add_comment("comment 2", slide, draw.PointF(0.3, 0.2), date.today())
+    
+    # remove all comments that contain "comment 1" text
+    for commentAuthor in presentation.comment_authors:
+        toRemove = []
+        for comment in slide.get_slide_comments(commentAuthor):
+            if comment.text == "comment 1":
+                toRemove.append(comment)
+        
+        for comment in toRemove:
+            commentAuthor.comments.remove(comment)
+    
+    presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
