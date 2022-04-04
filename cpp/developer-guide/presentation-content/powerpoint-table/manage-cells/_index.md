@@ -261,7 +261,27 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 This C++ code shows you how to change a table cell's background color:
 
-```c++
+``` cpp
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->idx_get(0);
+        
+auto dblCols = System::MakeArray<double>({150, 150, 150, 150});
+auto dblRows = System::MakeArray<double>({50, 50, 50, 50, 50});
+        
+// create a new table
+auto table = slide->get_Shapes()->AddTable(50.0f, 50.0f, dblCols, dblRows);
+        
+// set the background color for a cell 
+System::SharedPtr<ICell> cell = table->idx_get(2, 3);
+cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType::Solid);
+cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        
+presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
