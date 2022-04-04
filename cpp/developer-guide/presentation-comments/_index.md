@@ -176,7 +176,22 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 This C++ code shows you how to remove all comments and authors in a presentation:
 
-```c++
+```cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>(u"example.pptx");
+
+// Deletes all comments from the presentation
+for (auto author : presentation->get_CommentAuthors())
+{
+    author->get_Comments()->Clear();
+}
+        
+// Deletes all authors
+presentation->get_CommentAuthors()->Clear();
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 
 ```
 
@@ -184,7 +199,37 @@ This C++ code shows you how to remove all comments and authors in a presentation
 
 This C++ code shows you how to delete specific comments on a slide:
 
-```c++
+```cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->idx_get(0);
+        
+// add comments...
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
+author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
+author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
+        
+// remove all comments that contain "comment 1" text
+for (auto commentAuthor : presentation->get_CommentAuthors())
+{
+    auto toRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IComment>>>();
+    for (auto comment : slide->GetSlideComments(commentAuthor))
+    {
+        if (comment->get_Text() == u"comment 1")
+        {
+            toRemove->Add(comment);
+        }
+    }
+    for (auto comment : toRemove)
+    {
+        commentAuthor->get_Comments()->Remove(comment);
+    }
+}
+        
+presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ```
 
