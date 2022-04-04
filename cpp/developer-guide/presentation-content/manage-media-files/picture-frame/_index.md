@@ -165,7 +165,26 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 This C++ code shows you how to crop an existing image on a slide: 
 
-```c++
+``` CPP
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+    
+auto presentation = System::MakeObject<Presentation>();
+// Creates new image object
+auto newImage = presentation->get_Images()->AddImage(System::Drawing::Image::FromFile(imagePath));
+
+// Adds a PictureFrame to a Slide
+auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
+
+// Crops the image (percentage values)
+picFrame->get_PictureFormat()->set_CropLeft(23.6f);
+picFrame->get_PictureFormat()->set_CropRight(21.5f);
+picFrame->get_PictureFormat()->set_CropTop(3.0f);
+picFrame->get_PictureFormat()->set_CropBottom(31.0f);
+
+// Saves the result
+presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
