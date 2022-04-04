@@ -198,9 +198,30 @@ void ChangeOLEObjectData()
 
 Besides Excel charts, Aspose.Slides for C++ allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object. 
 
-This C++ code shows you how to embed HTML and ZIP in a slide: XXX
+This C++ code shows you how to embed HTML and ZIP in a slide:
 
-```c++
+``` cpp
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+    
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+
+auto htmlBytes = System::IO::File::ReadAllBytes(u"embedOle.html");
+
+auto dataInfoHtml = System::MakeObject<OleEmbeddedDataInfo>(htmlBytes, u"html");
+auto oleFrameHtml = slide->get_Shapes()->AddOleObjectFrame(150.0f, 120.0f, 50.0f, 50.0f, dataInfoHtml);
+oleFrameHtml->set_IsObjectIcon(true);
+        
+auto zipBytes = System::IO::File::ReadAllBytes(u"embedOle.zip");
+auto dataInfoZip = System::MakeObject<OleEmbeddedDataInfo>(zipBytes, u"zip");
+auto oleFrameZip = slide->get_Shapes()->AddOleObjectFrame(150.0f, 220.0f, 50.0f, 50.0f, dataInfoZip);
+oleFrameZip->set_IsObjectIcon(true);
+        
+pres->Save(u"embeddedOle.pptx", SaveFormat::Pptx);
 
 ```
 
