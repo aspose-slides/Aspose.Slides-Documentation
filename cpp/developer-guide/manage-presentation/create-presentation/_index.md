@@ -1,8 +1,10 @@
 ---
-title: Create Presentation
+title: Create Presentation - C++ PowerPoint API
+linktitle: Create Presentation
 type: docs
 weight: 10
 url: /cpp/create-presentation/
+description: To create PowerPoint Presentation in C++ API, please follow the steps mentioned in this article. The code adds a line to the first slide of the presentation.
 ---
 
 ## **Create PowerPoint Presentation**
