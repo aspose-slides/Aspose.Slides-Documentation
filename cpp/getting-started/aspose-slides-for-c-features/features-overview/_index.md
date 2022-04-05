@@ -3,6 +3,7 @@ title: Features Overview
 type: docs
 weight: 10
 url: /cpp/features-overview/
+description: C++ PowerPoint API supports most of the PowerPoint document formats and also exports them to popular formats. Key features include conversions, rendering, content manipulation and formatting.
 ---
 
 ## **File Formats and Conversions**
