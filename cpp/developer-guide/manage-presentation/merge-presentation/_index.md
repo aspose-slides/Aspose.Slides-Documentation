@@ -1,5 +1,6 @@
 ---
 title: Merge Presentation - C++ PowerPoint API
+linktitle: Merge Presentation
 type: docs
 weight: 40
 url: /cpp/merge-presentation/
