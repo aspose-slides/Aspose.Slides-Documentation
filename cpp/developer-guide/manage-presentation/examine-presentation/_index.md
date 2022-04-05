@@ -1,9 +1,10 @@
 ---
-title: Examine Presentation
+title: Examine Presentation - C++ PowerPoint API
+linktitle: Examine Presentation
 type: docs
 weight: 30
 url: /cpp/examine-presentation/
-
+description: C++ PowerPoint API allows you to examine a presentation to find out its properties and understand its behavior.
 ---
 
 Aspose.Slides for C++ allows you to examine a presentation to find out its properties and understand its behavior. 
