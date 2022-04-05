@@ -1,8 +1,10 @@
 ---
-title: Save Presentation
+title: Save Presentation - C++ PowerPoint Library
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /cpp/save-presentation/
+description: C++ PowerPoint API or Library allows you to save presentation to file or stream. You can create a presentation from scratch or modify an existing one.
 ---
 
 {{% alert title="Info" color="info" %}}
