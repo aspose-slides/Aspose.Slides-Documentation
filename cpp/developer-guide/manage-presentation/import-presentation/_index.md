@@ -1,5 +1,6 @@
 ---
 title: Import Presentation - C++ PowerPoint API
+linktitle: Import Presentation
 type: docs
 weight: 60
 url: /cpp/import-presentation/
