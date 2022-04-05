@@ -3,6 +3,8 @@ title: Supported File Formats
 type: docs
 weight: 20
 url: /cpp/supported-file-formats/
+keywords: C++ PowerPoint Library, C++ PowerPoint API, PowerPoint Formats
+description: C++ PowerPoint Library or API can load and save various PowerPoint file formats including PPT, PPTX, POT, PPS, PPSX, ODP, OTP, PDF, XPS, SVG etc.
 ---
 
 ## **Supported Microsoft PowerPoint Versions**
