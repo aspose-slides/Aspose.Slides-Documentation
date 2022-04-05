@@ -1,8 +1,10 @@
 ---
-title: Open Presentation
+title: Open Presentation - C++ PowerPoint API
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /cpp/open-presentation/
+description: You can not only create PowerPoint presentations in C++ API from scratch but also can access or modify the existing ones.
 ---
 
 ## **Open Presentation**
