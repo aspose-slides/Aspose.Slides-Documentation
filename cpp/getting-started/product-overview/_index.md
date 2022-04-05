@@ -3,6 +3,8 @@ title: Product Overview
 type: docs
 weight: 10
 url: /cpp/product-overview/
+keywords: C++ PowerPoint API
+description: C++ PowerPoint API enables C++ applications to read and write PowerPoint documents without using Microsoft PowerPoint and provides key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 ---
 
 ## **Product Overview**
