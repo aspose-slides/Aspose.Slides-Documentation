@@ -1,10 +1,10 @@
 ---
-title: Merge Presentation
+title: Merge Presentation - C++ PowerPoint API
 type: docs
 weight: 40
 url: /cpp/merge-presentation/
 keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, C++"
-description: "Merge or combine PowerPoint Presentation in C++"
+description: The article explains how you can merge or combine PowerPoint Presentations using C++ PowerPoint API or Library.
 ---
 
 {{% alert  title="Tip" color="primary" %}} 
