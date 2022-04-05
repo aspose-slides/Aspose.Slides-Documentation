@@ -1,5 +1,6 @@
 ---
 title: Convert Presentation - C++ PowerPoint Library
+linktitle: Convert Presentation
 type: docs
 weight: 70
 url: /cpp/convert-presentation/
