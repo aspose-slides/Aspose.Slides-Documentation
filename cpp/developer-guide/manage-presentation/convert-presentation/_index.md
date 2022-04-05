@@ -1,8 +1,9 @@
 ---
-title: Convert Presentation
+title: Convert Presentation - C++ PowerPoint Library
 type: docs
 weight: 70
 url: /cpp/convert-presentation/
+description: Using C++ PowerPoint Library or API, you can convert PPT to PPTX, PDF, XPS and Tiff formats.
 ---
 
 ## **PPT to PPTX Conversion**
