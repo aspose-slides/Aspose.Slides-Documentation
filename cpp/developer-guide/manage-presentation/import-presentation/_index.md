@@ -1,5 +1,5 @@
 ---
-title: Import Presentation
+title: Import Presentation - C++ PowerPoint API
 type: docs
 weight: 60
 url: /cpp/import-presentation/
