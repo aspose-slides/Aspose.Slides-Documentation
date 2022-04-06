@@ -146,7 +146,28 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 This Java code shows you how to crop an existing image on a slide:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    byte[] imageBytes = Files.readAllBytes(Paths.get(imagePath));
+    // Creates new image object
+    IPPImage newImage = pres.getImages().addImage(imageBytes);
 
+    // Adds a PictureFrame to a Slide
+    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
+            ShapeType.Rectangle, 100, 100, 420, 250, newImage);
+
+    // Crops the image (percentage values)
+    picFrame.getPictureFormat().setCropLeft(23.6f);
+    picFrame.getPictureFormat().setCropRight(21.5f);
+    picFrame.getPictureFormat().setCropTop(3);
+    picFrame.getPictureFormat().setCropBottom(31);
+
+    // Saves the result
+    pres.save(outPptxFile, SaveFormat.Pptx);
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Use StretchOff Property**
