@@ -253,7 +253,25 @@ try {
 This Java code shows you how to change a table cell's background color:
 
 ```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    double[] dblCols = { 150, 150, 150, 150 };
+    double[] dblRows = { 50, 50, 50, 50, 50 };
+
+    // create a new table
+    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+
+    // set the background color for a cell 
+    ICell cell = table.get_Item(2, 3);
+    cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
+    cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Add Image Inside Table Cell**
