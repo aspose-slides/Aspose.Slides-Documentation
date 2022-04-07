@@ -3,39 +3,47 @@ title: Manage OLE
 type: docs
 weight: 40
 url: /cpp/manage-ole/
+keywords: "Add OLE, Add object, Embed object Object Linking & Embedding, OLE Object Frame, Embed OLE, PowerPoint presentation, C++, CPP, Aspose.Slides for C++ "
+description: "Add OLE object to PowerPoint presentation in C++"
 ---
 
+{{% alert title="Info" color="info" %}}
 
-OLE stands for Object Linking & Embedding. It's a Microsoft technology that allows objects created in one application to be embedded in another application.
+OLE  (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
-For example, you can create a chart in an Excel Worksheet and then embed that chart object into your PowerPoint slide. After the chart object is embedded, you just double click the object and the chart object will be opened in editable form as you see in MS Excel. 
+{{% /alert %}} 
 
-Aspose.Slides for С++ supports inserting OLE Objects into the slide as OLE Object Frames. 
-In this topic, we will work with OLE Object Frames to see how these objects can be added and manipulated via 
-Aspose.Slides for С++. This article explains different examples of working with OLE Object Frames.
+Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
 
-## **Add OLE Object Frame to Slide**
-Suppose, you have created a Microsoft Excel Chart in an Excel file and want to embed that chart object in a slide as an OLE Object Frame using Aspose.Slides for C++. It can be done with the following steps:
+- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
+- An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app.
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Obtain the reference of a slide by using its index.
-1. Open the Excel file containing Microsoft Excel Chart object and save it to MemoryStream.
-1. Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
-1. Write the modified presentation as a PPTX file.
+[Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame)).
 
-In the example given below, a Microsoft Excel Chart object in an Excel file is added to a slide as an OLE Object Frame using Aspose.Slides for C++.  
-**Note** that [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_embedded_data_info) 
-constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly 
-interpret the file type and, choose the right application to open this OLE object.
+
+
+## **Adding OLE Object Frames to Slides**
+
+Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for C++, you can do it this way:
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+2. Get a slide's reference through its index.
+3. Open the Excel file containing the Excel chart object and save it to `MemoryStream`.
+4. Add the [OleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) to the slide containing the array of bytes and other information about the OLE object.
+5. Write the modified presentation as a PPTX file.
+
+In the example below, we added a chart from an Excel file to a slide as an [OleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) using Aspose.Slides for C++.  
+**Note** that the [IOleEmbeddedDataInfo](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_embedded_data_info) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+
 ``` cpp
 // The path to the documents directory.
 String dataDir = u"";
-// Instantiate Presentation class that represents the PPTX
+// Instantiates the Presentation class that represents the PPTX
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
-// Access the first slide
+// Accesses the the first slide
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-// Load an cel file to stream
+// Loads an excel file to stream
 SharedPtr<MemoryStream> mstream = System::MakeObject<MemoryStream>();
 
 SharedPtr<FileStream> fs = System::MakeObject<FileStream>(dataDir + u"book1.xlsx", FileMode::Open, FileAccess::Read);
@@ -51,69 +59,82 @@ while (true)
     mstream->Write(buf, 0, bytesRead);
 }
 
-// Create data object for embedding
+// Creates a data object for embedding
 SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(mstream->ToArray(), u"xlsx");
-// Add an Ole Object Frame shape
+// Adds an Ole Object Frame shape
 SharedPtr<IOleObjectFrame> oleObjectFrame = sld->get_Shapes()->AddOleObjectFrame(0.0f, 0.0f, pres->get_SlideSize()->get_Size().get_Width(), pres->get_SlideSize()->get_Size().get_Height(), dataInfo);
-// Write the PPTX to disk
+// Writes the PPTX file to disk
 pres->Save(dataDir + u"OleEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Access OLE Object Frame**
-If an OLE object is already embedded in a slide, you can access that object easily using Aspose.Slides for C++. Please follow the steps below to find or access an OLE object from a slide:
+## **Accessing OLE Object Frames**
+If an OLE object is already embedded in a slide, you can find or access that object easily this way:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Obtain the reference of a slide by using its index.
-1. Access OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
-1. Once OLE Object Frame is accessed, you can perform any operation on it.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then all of its Object Data is written to an Excel file.
+2. Obtain the reference of the slide by using its index.
+
+3. Access the [OleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) shape.
+
+   In our example, we used the previously created PPTX that has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame). This was the desired OLE Object Frame to be accessed.
+
+4. Once the OLE Object Frame is accessed, you can perform any operation on it.
+
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file:
 
 ``` cpp
 // The path to the documents directory.
 const String templatePath = u"../templates/AccessingOLEObjectFrame.pptx";
 
-// Load the desired the presentation
+// Loads the desired presentation
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-// Access the first slide
+// Accesses the first slide
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Cast the shape to OleObjectFrame
+// Casts the shape to OleObjectFrame
 SharedPtr<OleObjectFrame> oleObjectFrame = System::DynamicCast_noexcept<OleObjectFrame>(sld->get_Shapes()->idx_get(0));
 
-// Read the OLE Object and write it to disk
+// Reads the OLE Object and write it to disk
 if (oleObjectFrame != nullptr)
 {
-    // Get embedded file data
+    // Gets embedded file data
     ArrayPtr<uint8_t> data = oleObjectFrame->get_EmbeddedFileData();
 
-    // Get embedded file extention
+    // Gets embedded file extention
     String fileExtention = oleObjectFrame->get_EmbeddedFileExtension();
 
-    // Create path for saving the extracted file
+    // Creates path for saving the extracted file
     String extractedPath = Path::Combine(GetOutPath(), u"excelFromOLE_out" + fileExtention);
 
-    // Save extracted data
+    // Saves extracted data
     SharedPtr<FileStream> fstr = System::MakeObject<FileStream>(extractedPath, FileMode::Create, FileAccess::Write);
     fstr->Write(data, 0, data->get_Length());
 }
 ```
 
-## **Change OLE Object Data**
-If an OLE object is already embedded in a slide, you can access that object easily using Aspose.Slides for C++ and can 
-modify its data. Please follow the steps below to find how to modify an OLE object data from a slide:
+## **Changing OLE Object Data**
+If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
 
-1. Open the desired presentation with embedded OLE Object by creating an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Obtain the reference of a slide by using its index.
-1. Access the OLE Object Frame shape (in this example, we have used the PPTX created above which has only one shape at first slide) and typecast that object as an OLE Object Frame. This was the desired OLE Object Frame to be accessed.
-1. Once the OLE Object Frame is accessed, you can perform any operation on it.
-1. Create the Workbook object and access the OLE Data.
-1. Access the desired Worksheet and amend the data.
-1. Save the updated Workbook in streams.
-1. Change the OLE object data from stream data.
+1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 
-In the example given below, an OLE Object Frame (that is a Microsoft Excel Chart object embedded in a slide) is accessed and then its file data is modified to change the chart data.
+2. Get the slide's reference through its index. 
+
+3. Access the [OLEObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) shape.
+
+   In our example, we used the previously created PPTX that has one shape on the first slide. We then *cast* that object as an [OLEObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame). This was the desired OLE Object Frame to be accessed.
+
+4. Once the OLE Object Frame is accessed, you can perform any operation on it.
+
+5. Create the Workbook object and access the OLE Data.
+
+6. Access the desired Worksheet and amend the data.
+
+7. Save the updated Workbook in streams.
+
+8. Change the OLE object data from stream data.
+
+In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data:
 
 ``` cpp
 intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> ToCellsMemoryStream(System::ArrayPtr<uint8_t> buffer)
@@ -139,7 +160,7 @@ void ChangeOLEObjectData()
 
     System::SharedPtr<OleObjectFrame> ole;
 
-    // Traversing all shapes for Ole frame
+    // Traverses all shapes for Ole frame
     for (auto shape : IterateOver(slide->get_Shapes()))
     {
         if (System::ObjectExt::Is<OleObjectFrame>(shape))
@@ -150,11 +171,11 @@ void ChangeOLEObjectData()
     
     if (ole != nullptr)
     {
-        // Reading object data in Workbook
+        // Reads object data in Workbook
         intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> cellsInputStream = ToCellsMemoryStream(ole->get_ObjectData());
         intrusive_ptr<Aspose::Cells::IWorkbook> Wb = Aspose::Cells::Factory::CreateIWorkbook(cellsInputStream);
 
-        // Modifying the workbook data
+        // Modifies the workbook data
         Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(0,4)->PutValue(u"E");
         Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(1, 4)->PutValue(12);
         Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(2, 4)->PutValue(14);
@@ -163,7 +184,7 @@ void ChangeOLEObjectData()
         intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
         Wb->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
         
-        // Changing Ole frame object data
+        // Changes Ole frame object data
         cellsOutputStream->SetPosition(0);
         System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
         ole->set_ObjectData(msout->ToArray());
@@ -173,12 +194,44 @@ void ChangeOLEObjectData()
 }
 ```
 
-## **Set File Type for Embedded Object**
-Using Aspose.Slides for C++ you can set file type for an embedding object. For this purpose, new **addOleObjectFrame** and **insertOleObjectFrame** methods have been added into **IShapeCollection**.
+## Embedding Other File Types in Slides
 
-These methods allow to get **IOleEmbeddedDataInfo** object as a parameter so now OLE object knows its type and PowerPoint can open created OLE objects.
+Besides Excel charts, Aspose.Slides for C++ allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object. 
 
-The following example shows how to set file type for an embedding object:
+This C++ code shows you how to embed HTML and ZIP in a slide:
+
+``` cpp
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+    
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+
+auto htmlBytes = System::IO::File::ReadAllBytes(u"embedOle.html");
+
+auto dataInfoHtml = System::MakeObject<OleEmbeddedDataInfo>(htmlBytes, u"html");
+auto oleFrameHtml = slide->get_Shapes()->AddOleObjectFrame(150.0f, 120.0f, 50.0f, 50.0f, dataInfoHtml);
+oleFrameHtml->set_IsObjectIcon(true);
+        
+auto zipBytes = System::IO::File::ReadAllBytes(u"embedOle.zip");
+auto dataInfoZip = System::MakeObject<OleEmbeddedDataInfo>(zipBytes, u"zip");
+auto oleFrameZip = slide->get_Shapes()->AddOleObjectFrame(150.0f, 220.0f, 50.0f, 50.0f, dataInfoZip);
+oleFrameZip->set_IsObjectIcon(true);
+        
+pres->Save(u"embeddedOle.pptx", SaveFormat::Pptx);
+
+```
+
+## Setting File Types for Embedded Objects
+
+When working on presentations, you may need to replace old OLE objects with new ones. Or you may need to replace an unsupported OLE object with a supported one. 
+
+Aspose.Slides for C++ allows you to set the file type for an embedded object. This way, you get to change the OLE frame data or its extension. 
+
+This C++ code shows you how to set the file type for an embedded OLE object:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
@@ -195,7 +248,7 @@ pres->Save(u"embeddedChanged.pptx", SaveFormat::Pptx);
 
 After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what users see before they access or open the OLE object. 
 
-If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for C++. 
+If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for C++.
 
 This C++ code shows you how to set the icon image and title for an embedded object: 
 
@@ -212,14 +265,15 @@ oleObjectFrame->set_IsObjectIcon(false);
 pres->Save(u"embeddedOle-newImage.pptx", SaveFormat::Pptx);
 ```
 
-## **Extract Embedded Files from OLE Object**
-Aspose.Slides for C++ supports extracting embedded files from OLE Object. In order to extract embedded files, please follow the steps below:
+## Extracting Embedded Files
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and Load a presentation containing OLE Object.
-- Loop through all the shapes in a presentation and access the OLE Object Frame shape.
-- Access the data of the Embedded file from OLE Object Frame and write it to disk.
+Aspose.Slides for C++ allows you to extract the files embedded in slides as OLE objects this way:
 
-The implementation of the above steps is demonstrated in the example below.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class containing the OLE object you intend to extract.
+2. Loop through all the shapes in the presentation and access the  [OLEObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) shape.
+3. Access the embedded file's data from the OLE Object Frame and write it to disk. 
+
+This C++ code shows you how to extract a file embedded in a slide as an OLE object:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
