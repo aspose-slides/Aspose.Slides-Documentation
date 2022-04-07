@@ -39,7 +39,7 @@ try {
     // Adds slide comment for an author on slide 1
     author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
 
-    // Adds slide comment for an author on slide 1
+    // Adds slide comment for an author on slide 2
     author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
 
     // Accesses ISlide 1
@@ -170,3 +170,66 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **Remove Comment**
+
+### **Delete All Comments and Authors**
+
+This Java code shows you how to remove all comments and authors in a presentation:
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    // Deletes all comments from the presentation
+    for (ICommentAuthor author : presentation.getCommentAuthors())
+    {
+        author.getComments().clear();
+    }
+
+    // Deletes all authors
+    presentation.getCommentAuthors().clear();
+
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+### **Delete Specific Comments**
+
+This Java code shows you how to delete specific comments on a slide:
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // add comments...
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
+    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
+    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+
+    // remove all comments that contain "comment 1" text
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
+    {
+        ArrayList<IComment> toRemove = new ArrayList<IComment>();
+        for (IComment comment : slide.getSlideComments(commentAuthor))
+        {
+            if (comment.getText().equals("comment 1"))
+            {
+                toRemove.add(comment);
+            }
+        }
+
+        for (IComment comment : toRemove)
+        {
+            commentAuthor.getComments().remove(comment);
+        }
+    }
+
+    presentation.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
