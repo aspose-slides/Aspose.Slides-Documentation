@@ -3,16 +3,18 @@ title: Manage Cells
 type: docs
 weight: 30
 url: /java/manage-cells/
+keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for Java"
+description: "Table cells in PowerPoint presentations in Java"
 ---
 
 
 ## **Identify Merged Table Cell**
-Aspose.Slides for Java has provided the simplest API to identify merge table cells in an easiest way. To identify merge cells in table, please follow the steps below:
+1. Create an instance of the  [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Get the table from the first slide. 
+3. Iterate through the table's rows and columns to find merge cells.
+4. Print message when merged cells are found.
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the the table from first slide.
-- Iterate through row and columns of table to find out merge cells.
-- Print Message if cells are merged.
+This Java code shows you how to identify merged table cells in a presentation:
 
 ```java
 Presentation pres = new Presentation("SomePresentationWithTable.pptx");
@@ -36,33 +38,31 @@ try {
 ```
 
 ## **Remove Table Cells Border**
-Aspose.Slides for Java has provided the simplest API to create tables in an easiest way. In order to remove the borders from table cells, please follow the steps below:
+1. Create an instance of the  [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Get a slide's reference through its index. 
+3. Define an array of columns with width.
+4. Define an array of rows with height.
+5. Add a table to the slide through the [addTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
+6. Iterate through every cell to clear the top, bottom, right, and left borders.
+7. Save the modified presentation as a PPTX file.
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Define Array of Columns with Width.
-- Define Array of Rows with Height.
-- Add a Table to the slide using [addTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
-- Iterate through each Cell to clear the Top, Bottom, Right, Left Borders.
-- Save the modified presentation as a PPTX file.
+This Java code shows you how to remove the borders from table cells:
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses the first slide
     Slide sld = (Slide)pres.getSlides().get_Item(0);
 
-    // Define columns with widths and rows with heights
+    // Defines columns with widths and rows with heights
     double[] dblCols = { 50, 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
-    // Add table shape to slide
-
-    // Add table shape to slide
+    // Adds table shape to slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Set border format for each cell
+    // Sets the border format for each cell
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -74,7 +74,7 @@ try {
         }
     }
 
-    // Write PPTX to Disk
+    // Writes the PPTX to disk
     pres.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -82,23 +82,23 @@ try {
 ```
 
 ## **Numbering in Merged Cells**
-If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2) then table will be numbered and look like this:
+If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Java code demonstrates the process:
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Define columns with widths and rows with heights
+    // Defines columns with widths and rows with heights
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // Add table shape to slide
+    // Adds a table shape to the slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Set border format for each cell
+    // Sets the border format for each cell
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -121,10 +121,10 @@ try {
         }
     }
 
-    // Merging cells (1, 1) x (2, 1)
+    // Merges cells (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
 
-    // Merging cells (1, 2) x (2, 2)
+    // Merges cells (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
     pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
@@ -133,23 +133,23 @@ try {
 }
 ```
 
-Let's continue merging cells. Now we merge (1, 1) and (1, 2). As a result we have table with large merged cell in the middle:
+We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Define columns with widths and rows with heights
+    // Defines columns with widths and rows with heights
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // Add table shape to slide
+    // Adds a table shape to the slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Set border format for each cell
+    // Sets the border format for each cell
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -172,15 +172,16 @@ try {
         }
     }
 
-    // Merging cells (1, 1) x (2, 1)
+    // Merges cells (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
 
-    // Merging cells (1, 2) x (2, 2)
+    // Merges cells (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
-    // Merging cells (1, 1) x (1, 2)
+    // Merges cells (1, 1) x (1, 2)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-
+    
+	//Writes the PPTX file to disk
     pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -188,23 +189,27 @@ try {
 ```
 
 ## **Numbering in Splitted Cell**
-We could see in previous example when table cells are merged then numeration of other cells is not changed.Now let's return to our normal table (without merged cells) and try to split cell (1, 1). The result is strange enough but that is the way MS PowerPoint and Aspose.Slides for Java numerate table cells.
+In previous examples, when table cells got merged, the numeration or number system in other cells did not change. 
+
+This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
+
+This Java code demonstrates the process we described:
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates the Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses the first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Define columns with widths and rows with heights
+    // Defines columns with widths and rows with heights
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // Add table shape to slide
+    // Adds a table shape to the slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Set border format for each cell
+    // Sets the border format for each cell
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -227,62 +232,90 @@ try {
         }
     }
 
-    // Merging cells (1, 1) x (2, 1)
+    // Merges cells (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
 
-    // Merging cells (1, 2) x (2, 2)
+    // Merges cells (1, 2) x (2, 2)
     tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
 
-    // Spliting cell (1, 1)
+    // Splits cell (1, 1)
     tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
 
+    //Writes the PPTX file to disk
     pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Add Image Inside Table Cell**
-Aspose.Slides for Java has provided the simplest API to create tables in an easiest way. To add image in a table cell while creating a new table, please follow the steps below:
+## **Change Table Cell Background Color**
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Define Array of Columns with Width.
-- Define Array of Rows with Height.
-- Add a Table to the slide using [addTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
-- Create a BufferedImage object to hold the image file.
-- Add the BufferedImage image to IPPImage Object.
-- Set Fill Format of the Table Cell as Picture.
-- Add the image to the first cell of the table.
-- Save the modified presentation as a PPTX file
+This Java code shows you how to change a table cell's background color:
 
 ```java
-// Instantiate Presentation class object
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] dblCols = { 150, 150, 150, 150 };
+    double[] dblRows = { 50, 50, 50, 50, 50 };
+
+    // create a new table
+    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+
+    // set the background color for a cell 
+    ICell cell = table.get_Item(2, 3);
+    cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
+    cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+## **Add Image Inside Table Cell**
+
+1. Create an instance of the  [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Get a slide's reference through its index.
+3. Define an array of columns with width.
+4. Define an array of rows with height.
+5. Add a table to the slide through the [AddTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
+6. Create a `BufferedImage` object to hold the image file.
+7. Add the `BufferedImage` image to `IPPImage` Object.
+8. Set the `FillFormat` for the Table Cell to `Picture`.
+9. Add the image to the table's first cell.
+10. Save the modified presentation as a PPTX file
+
+This Java code shows you how to place an image inside a table cell when creating a table:
+
+```java
+// Instantiates the Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses the first slide
     ISlide islide = pres.getSlides().get_Item(0);
 
-    // Define columns with widths and rows with heights
+    // Defines columns with widths and rows with heights
     double[] dblCols = {150, 150, 150, 150};
     double[] dblRows = {100, 100, 100, 100, 90};
 
-    // Add table shape to slide
+    // Adds a table shape to the slide
     ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
 
-    // Creating a Bitmap Image object to hold the image file
+    // Creates a BufferedImage object to hold the image file
     BufferedImage image = ImageIO.read(new File("image.jpg"));
 
-    // Create an IPPImage object using the bitmap object
+    // Create an IPPImage object using the BufferedImage object
     IPPImage imgx1 = pres.getImages().addImage(image);
 
-    // Add image to first table cell
+    // Adds the image to the first table cell
     ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
     cellFormat.getFillFormat().setFillType(FillType.Picture);
     cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
     cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(imgx1);
 
-    // Save PPTX to Disk
+    // Saves the PPTX file to Disk
     pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
