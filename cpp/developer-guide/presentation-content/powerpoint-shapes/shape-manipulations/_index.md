@@ -73,6 +73,20 @@ Aspose.Slides for C++ allows developers to get a unique shape identifier in sli
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-InterlopShapeID-InterlopShapeID.cpp" >}}
 
 
+## **Set AlternativeText Property**
+Aspose.Slides for C++ allows developers to set AlternateText of any shape. To set the AlternateText of a shape, please follow the steps below:
+
+1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Access the first slide.
+1. Add any shape to the slide.
+1. Do some work with the newly added shape.
+1. Traverse through shapes to find a shape.
+1. Set the AlternativeText.
+1. Save file to disk.
+
+{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAlternativeText-SetAlternativeText.cpp" >}}
+
+
 ## **Access Layout Formats for Shape**
 Aspose.Slides for C++ allows developers to access layout formats for a shape. This article demonstrates how you can access **FillFormat** and **LineFormat** properties for a shape.
 
