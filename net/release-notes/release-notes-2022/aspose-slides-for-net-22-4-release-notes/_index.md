@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for .NET 22.4 Release Notes
 type: docs
-weight: 50
+weight: 45
 url: /net/aspose-slides-for-net-22-4-release-notes/
 ---
 
