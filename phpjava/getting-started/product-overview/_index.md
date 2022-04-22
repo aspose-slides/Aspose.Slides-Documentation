@@ -116,7 +116,7 @@ If you have an issue with Aspose.Slides for PHP via Java, follow these guideline
 
 - Check and confirm that you are using the latest Aspose.Slides for PHP via Java version first before reporting the issue. Perhaps, the issue you experienced was already resolved in an update.  
 
-  See [Aspose.Slides download](https://packagist.org/packages/aspose/slides) to get information on the latest product version.
+  See [Aspose.Slides download](https://downloads.aspose.com/slides/phpjava) to get information on the latest product version.
 
 - Before reporting an issue, you may want to go through our forums, this documentation, and the API Reference. Perhaps, the answer to your question was provided already. 
 

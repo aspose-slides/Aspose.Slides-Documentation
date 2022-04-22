@@ -78,7 +78,7 @@ This code snippet is used to set a license file:
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("aspose.slides.php");
+require_once("lib/aspose.slides.php");
 
 use aspose\slides\License;
 
@@ -98,7 +98,7 @@ This code snippet is used to apply a license from a stream:
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("aspose.slides.php");
+require_once("lib/aspose.slides.php");
 
 use aspose\slides\License;
 
