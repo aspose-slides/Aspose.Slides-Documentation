@@ -141,6 +141,14 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
+## **Add Image as Link**
+
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Java code shows you how to add an image and video into a placeholder:
+
+```java
+
+```
+
 ## **Crop Image**
 
 This Java code shows you how to crop an existing image on a slide:

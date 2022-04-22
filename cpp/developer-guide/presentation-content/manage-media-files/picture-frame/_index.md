@@ -161,6 +161,16 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
+## **Add Image as Link**
+
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C++ code shows you how to add an image and video into a placeholder:
+
+```c++
+
+```
+
+
+
 ## **Crop Image**
 
 This C++ code shows you how to crop an existing image on a slide: 

@@ -141,6 +141,60 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
+## **Add Image as Link**
+
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C# code shows you how to add an image and video into a placeholder:
+
+```c#
+using (var presentation = new Presentation("input.pptx"))
+{
+    var shapesToRemove = new List<IShape>();
+    int shapesCount = presentation.Slides[0].Shapes.Count;
+
+    for (var i = 0; i < shapesCount; i++)
+    {
+        var autoShape = presentation.Slides[0].Shapes[i];
+
+        if (autoShape.Placeholder == null)
+        {
+            continue;
+        }
+
+        switch (autoShape.Placeholder.Type)
+        {
+            case PlaceholderType.Picture:
+                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
+                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
+
+                pictureFrame.PictureFormat.Picture.LinkPathLong =
+                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
+
+                shapesToRemove.Add(autoShape);
+                break;
+
+            case PlaceholderType.Media:
+                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
+                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
+
+                videoFrame.PictureFormat.Picture.LinkPathLong =
+                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
+
+                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
+
+                shapesToRemove.Add(autoShape);
+                break;
+        }
+    }
+
+    foreach (var shape in shapesToRemove)
+    {
+        presentation.Slides[0].Shapes.Remove(shape);
+    }
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
 ## **Crop Image**
 
 This C# code shows you how to crop an existing image on a slide:

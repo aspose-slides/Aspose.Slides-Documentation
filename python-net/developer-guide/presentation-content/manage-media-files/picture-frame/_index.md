@@ -17,8 +17,6 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% /alert %}} 
 
-
-
 ## **Create Picture Frame**
 
 1. Create an instance of the [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class. 
@@ -142,6 +140,16 @@ with slides.Presentation() as pres:
 Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
 
 {{% /alert %}}
+
+## **Add Image as Link**
+
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Python code shows you how to add an image and video into a placeholder:
+
+```python
+
+```
+
+
 
 ## **Crop Image**
 
