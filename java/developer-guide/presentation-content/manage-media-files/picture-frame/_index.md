@@ -146,7 +146,55 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Java code shows you how to add an image and video into a placeholder:
 
 ```java
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
+    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
 
+    for (int i = 0; i < shapesCount; i++)
+    {
+        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
+
+        if (autoShape.getPlaceholder() == null)
+        {
+            continue;
+        }
+
+        switch (autoShape.getPlaceholder().getType())
+        {
+            case PlaceholderType.Picture:
+                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
+                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+
+                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
+                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+
+                shapesToRemove.add(autoShape);
+                break;
+
+            case PlaceholderType.Media:
+                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
+                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+
+                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
+                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+
+                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+
+                shapesToRemove.add(autoShape);
+                break;
+        }
+    }
+
+    for (IShape shape : shapesToRemove)
+    {
+        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Crop Image**
