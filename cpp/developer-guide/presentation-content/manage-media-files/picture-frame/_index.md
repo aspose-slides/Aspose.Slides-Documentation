@@ -165,8 +165,43 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C++ code shows you how to add an image and video into a placeholder:
 
-```c++
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"input.pptx");
+auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
+auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
+for (auto& autoShape : shapes)
+{
+    if (autoShape->get_Placeholder() == nullptr)
+        continue;
+
+    switch (autoShape->get_Placeholder()->get_Type())
+    {
+        case Aspose::Slides::PlaceholderType::Picture:
+        {
+            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
+            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+            shapesToRemove->Add(autoShape);
+            break;
+        }
+
+        case Aspose::Slides::PlaceholderType::Media:
+        {
+            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
+            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
+            shapesToRemove->Add(autoShape);
+            break;
+        }
+    }
+}
+
+for (auto& shape : shapesToRemove)
+{
+    shapes->Remove(shape);
+}
+
+presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
