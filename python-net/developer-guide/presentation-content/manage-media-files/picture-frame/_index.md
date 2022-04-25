@@ -7,7 +7,7 @@ keywords: "Add picture frame, create picture frame, StretchOff property, picture
 description: "Add picture frame to PowerPoint presentation in Python"
 ---
 
-A picture is a shape that contains an image—it is like a picture in a frame. 
+A picture frame is a shape that contains an image—it is like a picture in a frame. 
 
 You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
@@ -87,8 +87,6 @@ with slides.Presentation() as presentation:
         # Saves the presentation
         presentation.save("Adding Picture Frame with Relative Scale_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
 
 
 ## **Picture Frame Formatting**
@@ -181,8 +179,6 @@ with slides.Presentation("input.pptx") as presentation:
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
 
 ## **Crop Image**
 

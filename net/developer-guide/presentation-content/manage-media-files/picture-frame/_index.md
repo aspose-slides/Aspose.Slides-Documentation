@@ -7,7 +7,7 @@ keywords: "Add picture frame, create picture frame, StretchOff property, picture
 description: "Add picture frame to PowerPoint presentation in C# or .NET"
 ---
 
-A picture is a shape that contains an image—it is like a picture in a frame. 
+A picture frame is a shape that contains an image—it is like a picture in a frame. 
 
 You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
