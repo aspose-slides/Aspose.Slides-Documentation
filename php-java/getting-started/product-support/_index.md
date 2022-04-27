@@ -2,7 +2,7 @@
 title: Product Support
 type: docs
 weight: 100
-url: /phpjava/product-support/
+url: /php-java/product-support/
 ---
 
 ## **Technical support**
@@ -23,7 +23,7 @@ When you experience an issue with Aspose.Slides for PHP via Java, follow these g
 
 - Check and confirm that you are using the latest Aspose.Slides for PHP via Java version before reporting the issue. Perhaps, the issue you experienced was already resolved in an update. 
 
-  See [Aspose.Slides download](https://downloads.aspose.com/slides/phpjava) to get information on the latest version.
+  See [Aspose.Slides download](https://downloads.aspose.com/slides/php-java) to get information on the latest version.
 
 - Before reporting an issue, you may want to go through our forums, this documentation, and the API Reference. Perhaps, the answer to your question was provided already. 
 
@@ -37,8 +37,8 @@ This table list useful Aspose.Slides for PHP via Java technical resources.
 
 |**Resource**|**Description**|
 | :- | :- |
-|[Aspose.Slides for PHP via Java home page](https://products.aspose.com/slides/phpjava/)|Product home page.|
+|[Aspose.Slides for PHP via Java home page](https://products.aspose.com/slides/php-java/)|Product home page.|
 |[Aspose.Slides blog](https://blog.aspose.com/category/slides/)|Check this section regularly for information on new releases and useful tips on Aspose.Slides.|
 |[Aspose.Slides for PHP via Java download](https://packagist.org/packages/aspose/slides)|Download the latest version of Aspose.Slides from this page. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
-|[Aspose.Slides for PHP via Java product documentation](/slides/phpjava/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|
+|[Aspose.Slides for PHP via Java product documentation](/slides/php-java/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|

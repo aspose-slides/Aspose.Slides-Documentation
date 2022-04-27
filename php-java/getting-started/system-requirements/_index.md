@@ -2,7 +2,7 @@
 title: System Requirements
 type: docs
 weight: 60
-url: /phpjava/system-requirements/
+url: /php-java/system-requirements/
 ---
 
 Aspose.Slides for PHP via Java does not require any third party product such as Microsoft PowerPoint to be installed. Aspose.Slides itself is an engine for creating, modifying, converting, and rendering of documents in various formats, including Microsoft PowerPoint presentation formats.

@@ -2,7 +2,7 @@
 title: Features Overview
 type: docs
 weight: 20
-url: /phpjava/features-overview/
+url: /php-java/features-overview/
 ---
 
 ## **Supported Platforms**

@@ -2,7 +2,7 @@
 title: Product Overview
 type: docs
 weight: 10
-url: /phpjava/product-overview/
+url: /php-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-php-via-java.png)
@@ -116,7 +116,7 @@ If you have an issue with Aspose.Slides for PHP via Java, follow these guideline
 
 - Check and confirm that you are using the latest Aspose.Slides for PHP via Java version first before reporting the issue. Perhaps, the issue you experienced was already resolved in an update.  
 
-  See [Aspose.Slides download](https://downloads.aspose.com/slides/phpjava) to get information on the latest product version.
+  See [Aspose.Slides download](https://downloads.aspose.com/slides/php-java) to get information on the latest product version.
 
 - Before reporting an issue, you may want to go through our forums, this documentation, and the API Reference. Perhaps, the answer to your question was provided already. 
 
@@ -130,8 +130,8 @@ This table lists important Aspose.Slides for PHP via Java technical resources.
 
 |**Resource**|**Description**|
 | :- | :- |
-|[Aspose.Slides for PHP via Java home page](https://products.aspose.com/slides/phpjava/)|Product home page.|
+|[Aspose.Slides for PHP via Java home page](https://products.aspose.com/slides/php-java/)|Product home page.|
 |[Aspose.Slide blog](https://blog.aspose.com/category/slides/)|Check this page regularly for information on new releases and useful tips on Aspose.Slides.|
 |[Aspose.Slides for PHP via Java download](https://packagist.org/packages/aspose/slides)|Download the latest version of Aspose.Slides here. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
-|[Aspose.Slides for PHP via Java product documentation](/slides/phpjava/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|
+|[Aspose.Slides for PHP via Java product documentation](/slides/php-java/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|

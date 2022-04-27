@@ -2,7 +2,7 @@
 title: Aspose.Slides for PHP via Java 22.4 Release Notes
 type: docs
 weight: 100
-url: /phpjava/aspose-slides-for-php-via-java-22-4-release-notes/
+url: /php-java/aspose-slides-for-php-via-java-22-4-release-notes/
 ---
 
 {{% alert color="primary" %}} 

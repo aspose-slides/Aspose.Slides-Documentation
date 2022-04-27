@@ -2,7 +2,7 @@
 title: Supported File Formats
 type: docs
 weight: 30
-url: /phpjava/supported-file-formats/
+url: /php-java/supported-file-formats/
 ---
 
 ## **Supported Microsoft PowerPoint Versions**

@@ -4,7 +4,7 @@ second_title: "Aspose.Slides for PHP Documentation"
 description: Aspose.Slides for PHP via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 type: docs
 weight: 45
-url: /phpjava/
+url: /php-java/
 is_root: true
 ---
 
@@ -27,12 +27,12 @@ Aspose.Slides for PHP via Java provides a lot of key features such as managing t
 These are links to useful resources:
 
 - [Aspose.Slides for PHP via Java Online Documentation](/slides/java/) (Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java. So, you can use the same documentation)
-- [Aspose.Slides for PHP via Java Features](/slides/phpjava/features-overview/)
-- [Aspose.Slides for PHP via Java Limitations and API Differences](/slides/phpjava/limitations-and-api-differences/)
-- [Aspose.Slides for PHP via Java Release Notes](/slides/phpjava/release-notes/)
-- [Aspose.Slides for PHP via Java Product Page](https://products.aspose.com/slides/phpjava/)
+- [Aspose.Slides for PHP via Java Features](/slides/php-java/features-overview/)
+- [Aspose.Slides for PHP via Java Limitations and API Differences](/slides/php-java/limitations-and-api-differences/)
+- [Aspose.Slides for PHP via Java Release Notes](/slides/php-java/release-notes/)
+- [Aspose.Slides for PHP via Java Product Page](https://products.aspose.com/slides/php-java/)
 - [Download Aspose.Slides for PHP via Java Package](https://packagist.org/packages/aspose/slides)
-- [Aspose.Slides for PHP via Java API Reference Guide](https://docs.aspose.com/slides/phpjava/api-reference/)
+- [Aspose.Slides for PHP via Java API Reference Guide](https://docs.aspose.com/slides/php-java/api-reference/)
 - [Aspose.Slides for PHP via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for PHP via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
