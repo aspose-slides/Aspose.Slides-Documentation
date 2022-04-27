@@ -4,46 +4,45 @@ linktitle: Font Substitution
 type: docs
 weight: 70
 url: /java/font-substitution/
-description: Learn how to replace fonts using PowerPoint Java API by setting some rules of replacement.
+keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Substitute font in PowerPoint in Java"
 ---
 
+Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:
 
-## **Rule Based Font Substitution**
-To replace the fonts by setting some rules of replacement following steps are used:
+1. Load the relevant presentation.
+2. Load the font that will be replaced.
+3. Load the new font.
+4. Add a rule for the replacement.
+5. Add the rule to the presentation font replacement rule collection.
+6. Generate the slide image to observe the effect.
 
-- Load the desired presentation.
-- Load the font that is to replaced inside the presentation.
-- Load the replacing font.
-- Add rule for replacement.
-- Add the rule to presentation font replacement rule collection.
-- Generate the slide image to observe the effect.
-
-The implementation of the above steps is given below.
+This Java code demonstrates the font substitution process:
 
 ```java
-// Load presentation
+// Loads a presentation
 Presentation pres = new Presentation("Fonts.pptx");
 try {
-    // Load source font to be replaced
+    // Loads the source font that will be replaced
     IFontData sourceFont = new FontData("SomeRareFont");
     
-    // Load the replacing font
+    // Loads the new font
     IFontData destFont = new FontData("Arial");
     
-    // Add font rule for font replacement
+    // Adds a font rule for font replacement
     IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
     
-    // Add rule to font substitute rules collection
+    // Adds the rule to font substitute rules collection
     IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
     fontSubstRuleCollection.add(fontSubstRule);
     
-    // Add font rule collection to rule list
+    // Adds a font rule collection to the rule list
     pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
     
-    // Arial font will be used instead of SomeRareFont when inaccessible
+    // Arial font will be used in place of SomeRareFont when the latter is inaccessible
     BufferedImage image = pres.getSlides().get_Item(0).getThumbnail(1f, 1f);
     
-    // Save the image to disk in JPEG format
+    // Saves the image to disk in the JPEG format
     ImageIO.write(image, "PNG", new File("Thumbnail_out.jpg"));
 } catch (IOException e) {
 } finally {
@@ -51,3 +50,8 @@ try {
 }
 ```
 
+{{%  alert title="NOTE"  color="warning"   %}} 
+
+You may want to see [**Font Replacement**](/slides/java/font-replacement/). 
+
+{{% /alert %}}

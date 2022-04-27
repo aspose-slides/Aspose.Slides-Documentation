@@ -7,33 +7,39 @@ keywords: "Font, replace font, PowerPoint presentation, Python, Aspose.Slides fo
 description: "Replace fonts explicitly in PowerPoint in Python"
 ---
 
-## **Replacing Fonts Explicitly**
-To replace the fonts using explicit replacement following steps are used:
+If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 
 
-- Load the desired presentation.
-- Load the font that is to replace inside the presentation.
-- Load the replacing font.
-- Replace the fonts.
-- Write the modified presentation as a PPTX file.
+Aspose.Slides allows you to replace a font this way:
 
-The implementation of the above steps is given below.
+1. Load the relevant presentation. 
+2. Load the font that will be replaced.
+3. Load the new font. 
+4. Replace the font. 
+5. Write the modified presentation as a PPTX file.
+
+This Python code demonstrates font replacement:
 
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Load presentation
+# Loads a presentation
 with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Load source font to be replaced
+    # Loads the source font that will be replaced
     sourceFont = slides.FontData("Arial")
 
-    # Load the replacing font
+    # Loads the new font
     destFont = slides.FontData("Times New Roman")
 
-    # Replace the fonts
+    # Replaces the fonts
     presentation.fonts_manager.replace_font(sourceFont, destFont)
 
-    # Save the presentation
+    # Saves the presentation
     presentation.save("UpdatedFont_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+{{% alert title="Note" color="warning" %}} 
+
+To set rules that determine what happens in certain conditions (if a font cannot be accessed, for example), see [**Font Substitution**](/slides/python-net/font-substitution/). 
+
+{{% /alert %}}
