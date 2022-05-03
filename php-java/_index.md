@@ -26,7 +26,7 @@ Aspose.Slides for PHP via Java provides a lot of key features such as managing t
 
 These are links to useful resources:
 
-- [Aspose.Slides for PHP via Java Online Documentation](/slides/java/) (Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java. So, you can use the same documentation)
+- [Aspose.Slides for PHP via Java Online Documentation](/slides/java/) (Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter documentation)
 - [Aspose.Slides for PHP via Java Features](/slides/php-java/features-overview/)
 - [Aspose.Slides for PHP via Java Limitations and API Differences](/slides/php-java/limitations-and-api-differences/)
 - [Aspose.Slides for PHP via Java Release Notes](/slides/php-java/release-notes/)

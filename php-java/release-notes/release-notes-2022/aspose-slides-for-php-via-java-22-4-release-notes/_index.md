@@ -20,7 +20,7 @@ This page contains release notes for [Aspose.Slides for PHP via Java](https://pa
 
 ## LowCode Compress - remove unused layout and master slides added ##
 
-A new  LowCode Compress methods were added:
+New LowCode Compress methods were added:
 
 * [void RemoveUnusedMasterSlides(Presentation pres)]()
 * [void RemoveUnusedLayoutSlides(Presentation pres)]()

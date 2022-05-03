@@ -10,7 +10,7 @@ description: "Install Aspose.Slides for PHP via Java in Windows, Linux or macOS"
 ## **Configure environment**
 
 1. Install PHP 7, add path to php\bin to system path variable and set `allow_url_include` to `On` in `php.ini` file.
-1. Install JRE 8, set the `JAVA_HOME` enviroment variable as a path to the installed JRE location.
+1. Install JRE 8. Set the `JAVA_HOME` enviroment variable as a path to the installed JRE location.
 1. Install Apache Tomcat 8.0.
 
 ## **Download Aspose.Slides for PHP via Java** 
@@ -25,7 +25,7 @@ To install Aspose.Slides using Packagist, run this command: `composer require as
 1. Start Apache Tomcat service.
 1. Download [“Aspose.Slides for PHP via Java”](https://downloads.aspose.com/slides/php-java) and extract it to aspose.slides folder. Copy `jar/aspose-slides-x.x-jdk16.jar` file to `webapps\JavaBridge\WEB-INF\lib` folder.
 1. Restart Apache Tomcat service.
-1. Run `example.php` in `aspose.slides` folder to run the example with below command:
+1. Run `example.php` in `aspose.slides` folder to run the example with this command:
 ```
 php example.php
 ```

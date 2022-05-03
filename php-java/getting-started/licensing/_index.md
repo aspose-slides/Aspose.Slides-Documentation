@@ -6,7 +6,7 @@ weight: 80
 url: /php-java/licensing/
 ---
 
-Sometimes, in order to study the system better, you want to dive into the code as fast as possible. To make this easier, Aspose.Slides provides different plans for purchase or offers a Free Trial and a 30-day Temporary License for evaluation.
+Sometimes, for the best evaluation outcomes, a hands-on approach might be needed. For this reason, Aspose.Slides provides different purchase plans and also offers a Free Trial and a 30-day Temporary License for evaluation.
 
 {{% alert color="primary" %}}
 
@@ -35,7 +35,7 @@ To avoid the limitations associated with the evaluation version, you need to set
 
 ## Purchased License
 
-After purchase, you need to apply the license file or stream. This section describes options of how this can be done, and also comments on some common questions.
+After purchase, you need to apply the license file or stream. 
 
 {{% alert color="primary" %}}
 
@@ -53,7 +53,7 @@ You can find pricing information on the [“Pricing Information”](https://purc
 
 ### **Setting a License in Aspose.Slides for PHP via Java**
 
-Licenses can be applied from various locations:
+Licenses can be applied from these locations:
 
 * Explicit path
 * Stream
@@ -63,11 +63,9 @@ Licenses can be applied from various locations:
 
 Use the **setLicense** method to license a component.
 
-Calling **setLicense** multiple times is not harmful, it just wastes processor time.
+While multiple calls to **setLicense** aren't harmful, they are a waste of resources (processor).
 
 {{% /alert %}}
-
-In the sections below, we will describe the two common methods used to set the license. 
 
 #### **Applying a License Using a File**
 
