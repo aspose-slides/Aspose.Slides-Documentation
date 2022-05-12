@@ -1,10 +1,11 @@
 ---
-title: Font Replacement
+title: Font Replacement - PowerPoint C# API
+linktitle: Font Replacement
 type: docs
 weight: 60
 url: /net/font-replacement/
 keywords: "Font, replace font, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Replace fonts explicitly in PowerPoint in C# or .NET"
+description: With C# PowerPoint API, you can replace font explicitly with another font insing the Presentation.
 ---
 
 If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 
