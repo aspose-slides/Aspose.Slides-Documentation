@@ -1,5 +1,6 @@
 ---
-title: Custom Font
+title: Custom Font - PowerPoint C# API
+linktitle: Custom Font
 type: docs
 weight: 20
 url: /net/custom-font/
