@@ -1,10 +1,11 @@
 ---
-title: Fallback Font
+title: Fallback Font - PowerPoint C# API
+linktitle: Fallback Font
 type: docs
 weight: 50
 url: /net/fallback-font/
 keywords: "Fallback font, font, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint fallback font in C# or .NET"
+description: When font does not contain a necessary glyph, PowePoint C# API will let you use one of the specified fallback fonts for the glyph replacement.
 ---
 
 ## **Fallback Font**
