@@ -1,10 +1,11 @@
 ---
-title: Embedded Font
+title: Embedded Font - PowerPoint C# API
+linktitle: Embedded Font
 type: docs
 weight: 40
 url: /net/embedded-font/
 keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint embedded fonts in C# or .NET"
+description: Using C# PowerPoint API, you can get or remove embedded fonts from Presentation
 ---
 
 ## **Get or Remove Embedded Fonts from Presentation**
