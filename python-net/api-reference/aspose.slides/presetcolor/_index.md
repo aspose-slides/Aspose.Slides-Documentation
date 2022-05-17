@@ -1,7 +1,7 @@
 ---
 title: PresetColor Enumeration
 type: docs
-weight: 9880
+weight: 9660
 url: /python-net/api-reference/aspose.slides/presetcolor/
 ---
 

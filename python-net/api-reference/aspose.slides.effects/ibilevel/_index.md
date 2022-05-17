@@ -1,7 +1,7 @@
 ---
 title: IBiLevel Class
 type: docs
-weight: 480
+weight: 320
 url: /python-net/api-reference/aspose.slides.effects/ibilevel/
 ---
 

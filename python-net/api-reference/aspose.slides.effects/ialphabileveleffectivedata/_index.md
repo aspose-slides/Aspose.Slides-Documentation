@@ -1,7 +1,7 @@
 ---
 title: IAlphaBiLevelEffectiveData Class
 type: docs
-weight: 350
+weight: 190
 url: /python-net/api-reference/aspose.slides.effects/ialphabileveleffectivedata/
 ---
 

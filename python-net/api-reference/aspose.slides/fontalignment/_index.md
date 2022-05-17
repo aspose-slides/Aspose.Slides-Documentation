@@ -1,7 +1,7 @@
 ---
 title: FontAlignment Enumeration
 type: docs
-weight: 9540
+weight: 9320
 url: /python-net/api-reference/aspose.slides/fontalignment/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: BiLevel Class
 type: docs
-weight: 150
+weight: 80
 url: /python-net/api-reference/aspose.slides.effects/bilevel/
 ---
 

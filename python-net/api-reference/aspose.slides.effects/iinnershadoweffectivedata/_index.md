@@ -1,7 +1,7 @@
 ---
 title: IInnerShadowEffectiveData Class
 type: docs
-weight: 730
+weight: 570
 url: /python-net/api-reference/aspose.slides.effects/iinnershadoweffectivedata/
 ---
 

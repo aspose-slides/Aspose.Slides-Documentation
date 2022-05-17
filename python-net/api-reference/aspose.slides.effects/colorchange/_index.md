@@ -1,7 +1,7 @@
 ---
 title: ColorChange Class
 type: docs
-weight: 190
+weight: 100
 url: /python-net/api-reference/aspose.slides.effects/colorchange/
 ---
 

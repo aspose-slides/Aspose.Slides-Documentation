@@ -5,7 +5,7 @@ weight: 50
 url: /python-net/api-reference/
 ---
 
-**Assembly:**  Aspose.Slides Version: 22.1.0.0
+**Assembly:**  Aspose.Slides Version: 22.4.0.0
 
 ## **Namespaces**
 |**Namespace**|**Description**|

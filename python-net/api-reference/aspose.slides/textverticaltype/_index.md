@@ -1,7 +1,7 @@
 ---
 title: TextVerticalType Enumeration
 type: docs
-weight: 10160
+weight: 9940
 url: /python-net/api-reference/aspose.slides/textverticaltype/
 ---
 

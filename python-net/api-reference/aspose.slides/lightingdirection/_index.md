@@ -1,7 +1,7 @@
 ---
 title: LightingDirection Enumeration
 type: docs
-weight: 9620
+weight: 9400
 url: /python-net/api-reference/aspose.slides/lightingdirection/
 ---
 

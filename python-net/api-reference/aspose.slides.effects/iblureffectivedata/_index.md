@@ -1,7 +1,7 @@
 ---
 title: IBlurEffectiveData Class
 type: docs
-weight: 510
+weight: 350
 url: /python-net/api-reference/aspose.slides.effects/iblureffectivedata/
 ---
 

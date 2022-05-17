@@ -1,7 +1,7 @@
 ---
 title: BlackWhiteMode Enumeration
 type: docs
-weight: 9440
+weight: 9220
 url: /python-net/api-reference/aspose.slides/blackwhitemode/
 ---
 

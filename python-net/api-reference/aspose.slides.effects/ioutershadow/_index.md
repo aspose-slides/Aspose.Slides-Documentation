@@ -1,7 +1,7 @@
 ---
 title: IOuterShadow Class
 type: docs
-weight: 760
+weight: 600
 url: /python-net/api-reference/aspose.slides.effects/ioutershadow/
 ---
 

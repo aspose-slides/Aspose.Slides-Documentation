@@ -1,7 +1,7 @@
 ---
 title: IHSLEffectiveData Class
 type: docs
-weight: 670
+weight: 510
 url: /python-net/api-reference/aspose.slides.effects/ihsleffectivedata/
 ---
 

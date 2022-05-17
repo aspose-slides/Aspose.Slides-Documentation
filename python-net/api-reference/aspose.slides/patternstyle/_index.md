@@ -1,7 +1,7 @@
 ---
 title: PatternStyle Enumeration
 type: docs
-weight: 9820
+weight: 9600
 url: /python-net/api-reference/aspose.slides/patternstyle/
 ---
 

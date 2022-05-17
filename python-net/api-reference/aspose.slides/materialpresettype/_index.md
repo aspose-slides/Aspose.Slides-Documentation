@@ -1,7 +1,7 @@
 ---
 title: MaterialPresetType Enumeration
 type: docs
-weight: 9740
+weight: 9520
 url: /python-net/api-reference/aspose.slides/materialpresettype/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: IImageTransformOCollectionEffectiveData Class
 type: docs
-weight: 680
+weight: 520
 url: /python-net/api-reference/aspose.slides.effects/iimagetransformocollectioneffectivedata/
 ---
 

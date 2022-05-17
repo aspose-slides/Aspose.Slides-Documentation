@@ -1,7 +1,7 @@
 ---
 title: PresetShadowType Enumeration
 type: docs
-weight: 9890
+weight: 9670
 url: /python-net/api-reference/aspose.slides/presetshadowtype/
 ---
 

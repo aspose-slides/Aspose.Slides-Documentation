@@ -1,7 +1,7 @@
 ---
 title: IDuotoneEffectiveData Class
 type: docs
-weight: 570
+weight: 410
 url: /python-net/api-reference/aspose.slides.effects/iduotoneeffectivedata/
 ---
 

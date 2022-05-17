@@ -1,7 +1,7 @@
 ---
 title: RectangleAlignment Enumeration
 type: docs
-weight: 9900
+weight: 9680
 url: /python-net/api-reference/aspose.slides/rectanglealignment/
 ---
 

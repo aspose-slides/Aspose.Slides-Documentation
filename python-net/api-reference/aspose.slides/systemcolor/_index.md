@@ -1,7 +1,7 @@
 ---
 title: SystemColor Enumeration
 type: docs
-weight: 10040
+weight: 9820
 url: /python-net/api-reference/aspose.slides/systemcolor/
 ---
 

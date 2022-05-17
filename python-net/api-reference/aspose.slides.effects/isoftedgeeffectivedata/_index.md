@@ -1,7 +1,7 @@
 ---
 title: ISoftEdgeEffectiveData Class
 type: docs
-weight: 830
+weight: 670
 url: /python-net/api-reference/aspose.slides.effects/isoftedgeeffectivedata/
 ---
 

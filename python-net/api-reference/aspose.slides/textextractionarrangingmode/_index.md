@@ -1,7 +1,7 @@
 ---
 title: TextExtractionArrangingMode Enumeration
 type: docs
-weight: 10110
+weight: 9890
 url: /python-net/api-reference/aspose.slides/textextractionarrangingmode/
 ---
 

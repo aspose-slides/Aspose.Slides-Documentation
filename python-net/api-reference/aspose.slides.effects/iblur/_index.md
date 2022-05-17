@@ -1,7 +1,7 @@
 ---
 title: IBlur Class
 type: docs
-weight: 500
+weight: 340
 url: /python-net/api-reference/aspose.slides.effects/iblur/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: PathCommandType Enumeration
 type: docs
-weight: 9800
+weight: 9580
 url: /python-net/api-reference/aspose.slides/pathcommandtype/
 ---
 

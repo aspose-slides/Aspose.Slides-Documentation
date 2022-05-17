@@ -1,7 +1,7 @@
 ---
 title: LoadingStreamBehavior Enumeration
 type: docs
-weight: 9730
+weight: 9510
 url: /python-net/api-reference/aspose.slides/loadingstreambehavior/
 ---
 

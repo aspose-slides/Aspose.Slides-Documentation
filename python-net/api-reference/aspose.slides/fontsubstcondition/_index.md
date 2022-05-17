@@ -1,7 +1,7 @@
 ---
 title: FontSubstCondition Enumeration
 type: docs
-weight: 9560
+weight: 9340
 url: /python-net/api-reference/aspose.slides/fontsubstcondition/
 ---
 

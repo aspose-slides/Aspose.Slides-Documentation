@@ -1,7 +1,7 @@
 ---
 title: IAlphaBiLevel Class
 type: docs
-weight: 340
+weight: 180
 url: /python-net/api-reference/aspose.slides.effects/ialphabilevel/
 ---
 

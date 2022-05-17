@@ -1,7 +1,7 @@
 ---
 title: SlideOrientation Enumeration
 type: docs
-weight: 9990
+weight: 9770
 url: /python-net/api-reference/aspose.slides/slideorientation/
 ---
 

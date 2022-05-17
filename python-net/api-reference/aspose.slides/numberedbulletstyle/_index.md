@@ -1,7 +1,7 @@
 ---
 title: NumberedBulletStyle Enumeration
 type: docs
-weight: 9770
+weight: 9550
 url: /python-net/api-reference/aspose.slides/numberedbulletstyle/
 ---
 

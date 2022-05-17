@@ -1,7 +1,7 @@
 ---
 title: SoftEdge Class
 type: docs
-weight: 1000
+weight: 790
 url: /python-net/api-reference/aspose.slides.effects/softedge/
 ---
 

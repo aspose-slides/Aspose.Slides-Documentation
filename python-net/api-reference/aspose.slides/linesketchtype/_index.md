@@ -1,7 +1,7 @@
 ---
 title: LineSketchType Enumeration
 type: docs
-weight: 9700
+weight: 9480
 url: /python-net/api-reference/aspose.slides/linesketchtype/
 ---
 

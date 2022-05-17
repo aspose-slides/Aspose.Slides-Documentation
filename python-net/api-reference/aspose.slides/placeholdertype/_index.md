@@ -1,7 +1,7 @@
 ---
 title: PlaceholderType Enumeration
 type: docs
-weight: 9860
+weight: 9640
 url: /python-net/api-reference/aspose.slides/placeholdertype/
 ---
 

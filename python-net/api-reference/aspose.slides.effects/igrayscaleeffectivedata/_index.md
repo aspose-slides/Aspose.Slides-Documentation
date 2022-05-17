@@ -1,7 +1,7 @@
 ---
 title: IGrayScaleEffectiveData Class
 type: docs
-weight: 650
+weight: 490
 url: /python-net/api-reference/aspose.slides.effects/igrayscaleeffectivedata/
 ---
 

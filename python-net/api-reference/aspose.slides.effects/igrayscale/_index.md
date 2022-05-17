@@ -1,7 +1,7 @@
 ---
 title: IGrayScale Class
 type: docs
-weight: 640
+weight: 480
 url: /python-net/api-reference/aspose.slides.effects/igrayscale/
 ---
 

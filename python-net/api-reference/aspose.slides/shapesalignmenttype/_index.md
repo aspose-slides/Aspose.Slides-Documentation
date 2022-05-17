@@ -1,7 +1,7 @@
 ---
 title: ShapesAlignmentType Enumeration
 type: docs
-weight: 9970
+weight: 9750
 url: /python-net/api-reference/aspose.slides/shapesalignmenttype/
 ---
 

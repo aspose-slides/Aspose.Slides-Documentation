@@ -1,7 +1,7 @@
 ---
 title: SlideSizeScaleType Enumeration
 type: docs
-weight: 10000
+weight: 9780
 url: /python-net/api-reference/aspose.slides/slidesizescaletype/
 ---
 

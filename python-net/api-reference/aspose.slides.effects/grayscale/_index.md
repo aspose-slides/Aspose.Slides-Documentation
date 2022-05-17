@@ -1,7 +1,7 @@
 ---
 title: GrayScale Class
 type: docs
-weight: 300
+weight: 160
 url: /python-net/api-reference/aspose.slides.effects/grayscale/
 ---
 

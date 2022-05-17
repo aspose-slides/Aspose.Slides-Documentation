@@ -1,7 +1,7 @@
 ---
 title: SourceFormat Enumeration
 type: docs
-weight: 10020
+weight: 9800
 url: /python-net/api-reference/aspose.slides/sourceformat/
 ---
 

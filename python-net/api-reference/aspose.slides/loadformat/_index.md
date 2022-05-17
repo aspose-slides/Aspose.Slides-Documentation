@@ -1,7 +1,7 @@
 ---
 title: LoadFormat Enumeration
 type: docs
-weight: 9720
+weight: 9500
 url: /python-net/api-reference/aspose.slides/loadformat/
 ---
 

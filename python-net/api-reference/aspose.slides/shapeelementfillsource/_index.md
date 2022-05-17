@@ -1,7 +1,7 @@
 ---
 title: ShapeElementFillSource Enumeration
 type: docs
-weight: 9930
+weight: 9710
 url: /python-net/api-reference/aspose.slides/shapeelementfillsource/
 ---
 

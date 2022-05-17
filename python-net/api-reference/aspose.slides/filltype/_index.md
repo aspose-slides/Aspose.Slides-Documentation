@@ -1,7 +1,7 @@
 ---
 title: FillType Enumeration
 type: docs
-weight: 9530
+weight: 9310
 url: /python-net/api-reference/aspose.slides/filltype/
 ---
 

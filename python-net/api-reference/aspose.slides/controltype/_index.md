@@ -1,7 +1,7 @@
 ---
 title: ControlType Enumeration
 type: docs
-weight: 9510
+weight: 9290
 url: /python-net/api-reference/aspose.slides/controltype/
 ---
 

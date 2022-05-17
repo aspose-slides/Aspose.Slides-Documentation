@@ -1,7 +1,7 @@
 ---
 title: SlideLayoutType Enumeration
 type: docs
-weight: 9980
+weight: 9760
 url: /python-net/api-reference/aspose.slides/slidelayouttype/
 ---
 

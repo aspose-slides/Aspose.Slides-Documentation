@@ -1,7 +1,7 @@
 ---
 title: ILuminanceEffectiveData Class
 type: docs
-weight: 750
+weight: 590
 url: /python-net/api-reference/aspose.slides.effects/iluminanceeffectivedata/
 ---
 

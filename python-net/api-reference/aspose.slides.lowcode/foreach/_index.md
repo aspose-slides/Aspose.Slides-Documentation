@@ -1,7 +1,7 @@
 ---
 title: ForEach Class
 type: docs
-weight: 30
+weight: 40
 url: /python-net/api-reference/aspose.slides.lowcode/foreach/
 ---
 
