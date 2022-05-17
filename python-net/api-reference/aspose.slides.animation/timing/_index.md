@@ -14,10 +14,6 @@ Represents animation timing.
 
 
 The Timing type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
-| :- | :- |
-|Timing()|Initializes a new instance of the Timing class|
 ## **Properties**
 |**Name**|**Description**|
 | :- | :- |

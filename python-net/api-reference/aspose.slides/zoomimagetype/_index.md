@@ -1,7 +1,7 @@
 ---
 title: ZoomImageType Enumeration
 type: docs
-weight: 10200
+weight: 9980
 url: /python-net/api-reference/aspose.slides/zoomimagetype/
 ---
 

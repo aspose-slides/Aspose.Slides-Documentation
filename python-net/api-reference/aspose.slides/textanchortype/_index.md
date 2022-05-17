@@ -1,7 +1,7 @@
 ---
 title: TextAnchorType Enumeration
 type: docs
-weight: 10080
+weight: 9860
 url: /python-net/api-reference/aspose.slides/textanchortype/
 ---
 

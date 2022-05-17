@@ -1,7 +1,7 @@
 ---
 title: PlaceholderSize Enumeration
 type: docs
-weight: 9850
+weight: 9630
 url: /python-net/api-reference/aspose.slides/placeholdersize/
 ---
 

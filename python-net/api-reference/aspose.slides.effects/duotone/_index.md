@@ -1,7 +1,7 @@
 ---
 title: Duotone Class
 type: docs
-weight: 230
+weight: 120
 url: /python-net/api-reference/aspose.slides.effects/duotone/
 ---
 

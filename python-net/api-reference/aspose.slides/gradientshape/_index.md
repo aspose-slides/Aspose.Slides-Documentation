@@ -1,7 +1,7 @@
 ---
 title: GradientShape Enumeration
 type: docs
-weight: 9580
+weight: 9360
 url: /python-net/api-reference/aspose.slides/gradientshape/
 ---
 

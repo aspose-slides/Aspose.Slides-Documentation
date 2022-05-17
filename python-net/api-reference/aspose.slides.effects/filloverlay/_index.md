@@ -1,7 +1,7 @@
 ---
 title: FillOverlay Class
 type: docs
-weight: 260
+weight: 140
 url: /python-net/api-reference/aspose.slides.effects/filloverlay/
 ---
 

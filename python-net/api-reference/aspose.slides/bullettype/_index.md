@@ -1,7 +1,7 @@
 ---
 title: BulletType Enumeration
 type: docs
-weight: 9450
+weight: 9230
 url: /python-net/api-reference/aspose.slides/bullettype/
 ---
 

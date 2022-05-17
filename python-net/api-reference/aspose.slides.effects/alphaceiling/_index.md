@@ -1,7 +1,7 @@
 ---
 title: AlphaCeiling Class
 type: docs
-weight: 30
+weight: 20
 url: /python-net/api-reference/aspose.slides.effects/alphaceiling/
 ---
 

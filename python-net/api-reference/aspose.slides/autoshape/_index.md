@@ -54,6 +54,7 @@ The AutoShape type exposes the following members:
 |auto_shape_lock|Returns autoshape's locks.<br/>            Read-only [IAutoShapeLock](/slides/python-net/api-reference/aspose.slides/iautoshapelock/).|
 |text_frame|Returns TextFrame object for the AutoShape.<br/>            Read-only [ITextFrame](/slides/python-net/api-reference/aspose.slides/itextframe/).|
 |use_background_fill|Determines whether this autoshape should be filled with slide's background fill instead of specified by style or fill format.<br/>            Read/write bool.|
+|is_text_box|Specifies if the shape is a text box.|
 |as_ihyperlink_container|Allows to get base IHyperlinkContainer interface.<br/>            Read-only [IHyperlinkContainer](/slides/python-net/api-reference/aspose.slides/ihyperlinkcontainer/).|
 |as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|

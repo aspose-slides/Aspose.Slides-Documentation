@@ -1,7 +1,7 @@
 ---
 title: IAlphaModulateEffectiveData Class
 type: docs
-weight: 430
+weight: 270
 url: /python-net/api-reference/aspose.slides.effects/ialphamodulateeffectivedata/
 ---
 

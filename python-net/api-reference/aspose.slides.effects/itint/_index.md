@@ -1,7 +1,7 @@
 ---
 title: ITint Class
 type: docs
-weight: 840
+weight: 680
 url: /python-net/api-reference/aspose.slides.effects/itint/
 ---
 

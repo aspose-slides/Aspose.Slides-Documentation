@@ -5,7 +5,7 @@ weight: 2290
 url: /python-net/api-reference/aspose.slides/iprotectionmanager/
 ---
 
-Presentation password protestion management.
+Presentation password protection management.
 
 **Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
 

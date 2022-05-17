@@ -1,7 +1,7 @@
 ---
 title: TextVerticalOverflowType Enumeration
 type: docs
-weight: 10150
+weight: 9930
 url: /python-net/api-reference/aspose.slides/textverticaloverflowtype/
 ---
 

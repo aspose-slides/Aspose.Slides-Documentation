@@ -1,7 +1,7 @@
 ---
 title: IImageTransformOperationFactory Class
 type: docs
-weight: 710
+weight: 550
 url: /python-net/api-reference/aspose.slides.effects/iimagetransformoperationfactory/
 ---
 

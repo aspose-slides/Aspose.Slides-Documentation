@@ -1,7 +1,7 @@
 ---
 title: ShapeType Enumeration
 type: docs
-weight: 9960
+weight: 9740
 url: /python-net/api-reference/aspose.slides/shapetype/
 ---
 

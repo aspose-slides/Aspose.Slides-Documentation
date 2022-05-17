@@ -1,7 +1,7 @@
 ---
 title: IAlphaCeilingEffectiveData Class
 type: docs
-weight: 370
+weight: 210
 url: /python-net/api-reference/aspose.slides.effects/ialphaceilingeffectivedata/
 ---
 

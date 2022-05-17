@@ -1,7 +1,7 @@
 ---
 title: IAlphaFloorEffectiveData Class
 type: docs
-weight: 390
+weight: 230
 url: /python-net/api-reference/aspose.slides.effects/ialphaflooreffectivedata/
 ---
 

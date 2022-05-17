@@ -1,7 +1,7 @@
 ---
 title: EffectFactory Class
 type: docs
-weight: 250
+weight: 130
 url: /python-net/api-reference/aspose.slides.effects/effectfactory/
 ---
 

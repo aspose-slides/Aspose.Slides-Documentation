@@ -1,7 +1,7 @@
 ---
 title: AlphaReplace Class
 type: docs
-weight: 130
+weight: 70
 url: /python-net/api-reference/aspose.slides.effects/alphareplace/
 ---
 

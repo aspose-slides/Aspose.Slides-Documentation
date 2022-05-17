@@ -1,7 +1,7 @@
 ---
 title: ColorTransformOperation Enumeration
 type: docs
-weight: 9490
+weight: 9270
 url: /python-net/api-reference/aspose.slides/colortransformoperation/
 ---
 

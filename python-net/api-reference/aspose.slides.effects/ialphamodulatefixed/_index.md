@@ -1,7 +1,7 @@
 ---
 title: IAlphaModulateFixed Class
 type: docs
-weight: 440
+weight: 280
 url: /python-net/api-reference/aspose.slides.effects/ialphamodulatefixed/
 ---
 

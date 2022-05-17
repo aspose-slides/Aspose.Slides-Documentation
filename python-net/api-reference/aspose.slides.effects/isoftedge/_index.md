@@ -1,7 +1,7 @@
 ---
 title: ISoftEdge Class
 type: docs
-weight: 820
+weight: 660
 url: /python-net/api-reference/aspose.slides.effects/isoftedge/
 ---
 

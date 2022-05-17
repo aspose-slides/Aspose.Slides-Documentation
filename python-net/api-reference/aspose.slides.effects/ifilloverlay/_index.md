@@ -1,7 +1,7 @@
 ---
 title: IFillOverlay Class
 type: docs
-weight: 600
+weight: 440
 url: /python-net/api-reference/aspose.slides.effects/ifilloverlay/
 ---
 

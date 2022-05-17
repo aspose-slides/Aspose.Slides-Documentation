@@ -1,7 +1,7 @@
 ---
 title: SchemeColor Enumeration
 type: docs
-weight: 9920
+weight: 9700
 url: /python-net/api-reference/aspose.slides/schemecolor/
 ---
 

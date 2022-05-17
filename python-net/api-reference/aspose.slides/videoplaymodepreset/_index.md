@@ -1,7 +1,7 @@
 ---
 title: VideoPlayModePreset Enumeration
 type: docs
-weight: 10180
+weight: 9960
 url: /python-net/api-reference/aspose.slides/videoplaymodepreset/
 ---
 

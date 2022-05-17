@@ -1,7 +1,7 @@
 ---
 title: ModernCommentStatus Enumeration
 type: docs
-weight: 9750
+weight: 9530
 url: /python-net/api-reference/aspose.slides/moderncommentstatus/
 ---
 

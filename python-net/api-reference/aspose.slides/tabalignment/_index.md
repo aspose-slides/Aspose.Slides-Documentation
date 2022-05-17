@@ -1,7 +1,7 @@
 ---
 title: TabAlignment Enumeration
 type: docs
-weight: 10050
+weight: 9830
 url: /python-net/api-reference/aspose.slides/tabalignment/
 ---
 

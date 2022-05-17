@@ -1,7 +1,7 @@
 ---
 title: ShapeThumbnailBounds Enumeration
 type: docs
-weight: 9950
+weight: 9730
 url: /python-net/api-reference/aspose.slides/shapethumbnailbounds/
 ---
 

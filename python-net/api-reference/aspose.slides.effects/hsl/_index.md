@@ -1,7 +1,7 @@
 ---
 title: HSL Class
 type: docs
-weight: 320
+weight: 170
 url: /python-net/api-reference/aspose.slides.effects/hsl/
 ---
 

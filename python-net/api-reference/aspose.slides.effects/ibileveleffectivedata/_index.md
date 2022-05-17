@@ -1,7 +1,7 @@
 ---
 title: IBiLevelEffectiveData Class
 type: docs
-weight: 490
+weight: 330
 url: /python-net/api-reference/aspose.slides.effects/ibileveleffectivedata/
 ---
 

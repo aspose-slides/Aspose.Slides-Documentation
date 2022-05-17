@@ -1,7 +1,7 @@
 ---
 title: IAlphaInverseEffectiveData Class
 type: docs
-weight: 410
+weight: 250
 url: /python-net/api-reference/aspose.slides.effects/ialphainverseeffectivedata/
 ---
 

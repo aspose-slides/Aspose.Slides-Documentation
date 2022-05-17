@@ -1,7 +1,7 @@
 ---
 title: Tint Class
 type: docs
-weight: 1020
+weight: 800
 url: /python-net/api-reference/aspose.slides.effects/tint/
 ---
 

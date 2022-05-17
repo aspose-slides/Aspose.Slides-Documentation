@@ -1,7 +1,7 @@
 ---
 title: ILuminance Class
 type: docs
-weight: 740
+weight: 580
 url: /python-net/api-reference/aspose.slides.effects/iluminance/
 ---
 

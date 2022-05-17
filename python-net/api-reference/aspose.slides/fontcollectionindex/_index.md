@@ -1,7 +1,7 @@
 ---
 title: FontCollectionIndex Enumeration
 type: docs
-weight: 9550
+weight: 9330
 url: /python-net/api-reference/aspose.slides/fontcollectionindex/
 ---
 

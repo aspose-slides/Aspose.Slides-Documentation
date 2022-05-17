@@ -1,7 +1,7 @@
 ---
 title: LineArrowheadStyle Enumeration
 type: docs
-weight: 9650
+weight: 9430
 url: /python-net/api-reference/aspose.slides/linearrowheadstyle/
 ---
 

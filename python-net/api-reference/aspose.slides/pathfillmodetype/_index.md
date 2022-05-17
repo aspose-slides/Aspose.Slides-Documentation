@@ -1,7 +1,7 @@
 ---
 title: PathFillModeType Enumeration
 type: docs
-weight: 9810
+weight: 9590
 url: /python-net/api-reference/aspose.slides/pathfillmodetype/
 ---
 

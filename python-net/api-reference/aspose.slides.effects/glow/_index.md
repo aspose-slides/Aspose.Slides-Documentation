@@ -1,7 +1,7 @@
 ---
 title: Glow Class
 type: docs
-weight: 280
+weight: 150
 url: /python-net/api-reference/aspose.slides.effects/glow/
 ---
 

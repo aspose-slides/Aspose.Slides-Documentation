@@ -1,7 +1,7 @@
 ---
 title: ITintEffectiveData Class
 type: docs
-weight: 850
+weight: 690
 url: /python-net/api-reference/aspose.slides.effects/itinteffectivedata/
 ---
 

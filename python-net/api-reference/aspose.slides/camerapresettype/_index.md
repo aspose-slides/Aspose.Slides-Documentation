@@ -1,7 +1,7 @@
 ---
 title: CameraPresetType Enumeration
 type: docs
-weight: 9460
+weight: 9240
 url: /python-net/api-reference/aspose.slides/camerapresettype/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: SplitterBarStateType Enumeration
 type: docs
-weight: 10030
+weight: 9810
 url: /python-net/api-reference/aspose.slides/splitterbarstatetype/
 ---
 

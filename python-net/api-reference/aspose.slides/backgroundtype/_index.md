@@ -1,7 +1,7 @@
 ---
 title: BackgroundType Enumeration
 type: docs
-weight: 9420
+weight: 9200
 url: /python-net/api-reference/aspose.slides/backgroundtype/
 ---
 

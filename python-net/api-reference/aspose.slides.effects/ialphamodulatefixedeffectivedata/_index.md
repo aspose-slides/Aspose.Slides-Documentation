@@ -1,7 +1,7 @@
 ---
 title: IAlphaModulateFixedEffectiveData Class
 type: docs
-weight: 450
+weight: 290
 url: /python-net/api-reference/aspose.slides.effects/ialphamodulatefixedeffectivedata/
 ---
 

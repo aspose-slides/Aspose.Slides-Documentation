@@ -1,7 +1,7 @@
 ---
 title: IColorChange Class
 type: docs
-weight: 520
+weight: 360
 url: /python-net/api-reference/aspose.slides.effects/icolorchange/
 ---
 

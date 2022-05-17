@@ -1,7 +1,7 @@
 ---
 title: IAlphaCeiling Class
 type: docs
-weight: 360
+weight: 200
 url: /python-net/api-reference/aspose.slides.effects/ialphaceiling/
 ---
 

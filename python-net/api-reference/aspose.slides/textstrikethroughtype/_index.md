@@ -1,7 +1,7 @@
 ---
 title: TextStrikethroughType Enumeration
 type: docs
-weight: 10130
+weight: 9910
 url: /python-net/api-reference/aspose.slides/textstrikethroughtype/
 ---
 

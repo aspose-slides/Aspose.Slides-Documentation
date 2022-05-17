@@ -1,7 +1,7 @@
 ---
 title: IReflection Class
 type: docs
-weight: 800
+weight: 640
 url: /python-net/api-reference/aspose.slides.effects/ireflection/
 ---
 
