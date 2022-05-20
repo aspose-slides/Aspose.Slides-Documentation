@@ -1,7 +1,7 @@
 ---
 title: LineJoinStyle Enumeration
 type: docs
-weight: 9690
+weight: 9470
 url: /python-net/api-reference/aspose.slides/linejoinstyle/
 ---
 

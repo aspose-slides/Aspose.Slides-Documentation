@@ -1,7 +1,7 @@
 ---
 title: LineAlignment Enumeration
 type: docs
-weight: 9630
+weight: 9410
 url: /python-net/api-reference/aspose.slides/linealignment/
 ---
 

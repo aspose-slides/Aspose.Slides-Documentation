@@ -1,7 +1,7 @@
 ---
 title: GradientDirection Enumeration
 type: docs
-weight: 9570
+weight: 9350
 url: /python-net/api-reference/aspose.slides/gradientdirection/
 ---
 

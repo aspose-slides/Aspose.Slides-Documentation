@@ -1,7 +1,7 @@
 ---
 title: IAlphaReplaceEffectiveData Class
 type: docs
-weight: 470
+weight: 310
 url: /python-net/api-reference/aspose.slides.effects/ialphareplaceeffectivedata/
 ---
 

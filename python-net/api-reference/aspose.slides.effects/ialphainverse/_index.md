@@ -1,7 +1,7 @@
 ---
 title: IAlphaInverse Class
 type: docs
-weight: 400
+weight: 240
 url: /python-net/api-reference/aspose.slides.effects/ialphainverse/
 ---
 

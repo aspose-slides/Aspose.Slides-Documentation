@@ -1,7 +1,7 @@
 ---
 title: IEffectEffectiveData Class
 type: docs
-weight: 580
+weight: 420
 url: /python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: IGlowEffectiveData Class
 type: docs
-weight: 630
+weight: 470
 url: /python-net/api-reference/aspose.slides.effects/igloweffectivedata/
 ---
 

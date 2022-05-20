@@ -1,7 +1,7 @@
 ---
 title: IHSL Class
 type: docs
-weight: 660
+weight: 500
 url: /python-net/api-reference/aspose.slides.effects/ihsl/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: IPresetShadowEffectiveData Class
 type: docs
-weight: 790
+weight: 630
 url: /python-net/api-reference/aspose.slides.effects/ipresetshadoweffectivedata/
 ---
 

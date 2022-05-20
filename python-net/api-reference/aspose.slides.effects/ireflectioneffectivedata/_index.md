@@ -1,7 +1,7 @@
 ---
 title: IReflectionEffectiveData Class
 type: docs
-weight: 810
+weight: 650
 url: /python-net/api-reference/aspose.slides.effects/ireflectioneffectivedata/
 ---
 

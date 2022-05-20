@@ -1,7 +1,7 @@
 ---
 title: ZoomLayout Enumeration
 type: docs
-weight: 10210
+weight: 9990
 url: /python-net/api-reference/aspose.slides/zoomlayout/
 ---
 

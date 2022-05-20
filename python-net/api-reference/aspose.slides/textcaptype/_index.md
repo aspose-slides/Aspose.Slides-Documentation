@@ -1,7 +1,7 @@
 ---
 title: TextCapType Enumeration
 type: docs
-weight: 10100
+weight: 9880
 url: /python-net/api-reference/aspose.slides/textcaptype/
 ---
 

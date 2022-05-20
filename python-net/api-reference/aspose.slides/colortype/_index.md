@@ -1,7 +1,7 @@
 ---
 title: ColorType Enumeration
 type: docs
-weight: 9500
+weight: 9280
 url: /python-net/api-reference/aspose.slides/colortype/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: IImageTransformOperation Class
 type: docs
-weight: 690
+weight: 530
 url: /python-net/api-reference/aspose.slides.effects/iimagetransformoperation/
 ---
 

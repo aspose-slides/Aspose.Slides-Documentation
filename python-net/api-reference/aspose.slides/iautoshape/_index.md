@@ -21,6 +21,7 @@ The IAutoShape type exposes the following members:
 |auto_shape_lock|Returns AutoShape's locks.<br/>            Read-only [IAutoShapeLock](/slides/python-net/api-reference/aspose.slides/iautoshapelock/).|
 |text_frame|Returns TextFrameEx object for the AutoShapeEx.<br/>            Read-only [ITextFrame](/slides/python-net/api-reference/aspose.slides/itextframe/).|
 |use_background_fill|Determines whether this autoshape should be filled with slide's background fill instead of specified by style or fill format.<br/>            Read/write bool.|
+|is_text_box|Specifies if the shape is a text box.|
 |as_igeometry_shape|Allows to get base IGeometryShape interface.<br/>            Read-only [IGeometryShape](/slides/python-net/api-reference/aspose.slides/igeometryshape/).|
 |shape_style|Returns shape's style object.<br/>            Read-only [IShapeStyle](/slides/python-net/api-reference/aspose.slides/ishapestyle/).|
 |shape_type|Returns or sets the geometry preset type.<br/>            Note: on value changing all adjustment values will reset to their default values.<br/>            Read/write [ShapeType](/slides/python-net/api-reference/aspose.slides/shapetype/).|

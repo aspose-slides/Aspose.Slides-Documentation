@@ -1,7 +1,7 @@
 ---
 title: AudioVolumeMode Enumeration
 type: docs
-weight: 9410
+weight: 9190
 url: /python-net/api-reference/aspose.slides/audiovolumemode/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: AlphaModulateFixed Class
 type: docs
-weight: 110
+weight: 60
 url: /python-net/api-reference/aspose.slides.effects/alphamodulatefixed/
 ---
 

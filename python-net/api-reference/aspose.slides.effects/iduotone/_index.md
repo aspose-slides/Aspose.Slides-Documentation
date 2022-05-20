@@ -1,7 +1,7 @@
 ---
 title: IDuotone Class
 type: docs
-weight: 560
+weight: 400
 url: /python-net/api-reference/aspose.slides.effects/iduotone/
 ---
 

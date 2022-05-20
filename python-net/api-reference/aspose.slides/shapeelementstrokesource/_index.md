@@ -1,7 +1,7 @@
 ---
 title: ShapeElementStrokeSource Enumeration
 type: docs
-weight: 9940
+weight: 9720
 url: /python-net/api-reference/aspose.slides/shapeelementstrokesource/
 ---
 

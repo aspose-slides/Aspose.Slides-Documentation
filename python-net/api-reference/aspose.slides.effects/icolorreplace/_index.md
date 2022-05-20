@@ -1,7 +1,7 @@
 ---
 title: IColorReplace Class
 type: docs
-weight: 540
+weight: 380
 url: /python-net/api-reference/aspose.slides.effects/icolorreplace/
 ---
 

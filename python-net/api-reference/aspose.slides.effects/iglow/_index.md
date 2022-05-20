@@ -1,7 +1,7 @@
 ---
 title: IGlow Class
 type: docs
-weight: 620
+weight: 460
 url: /python-net/api-reference/aspose.slides.effects/iglow/
 ---
 

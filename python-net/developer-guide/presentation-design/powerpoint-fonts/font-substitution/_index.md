@@ -7,44 +7,48 @@ keywords: "Font, substitute font, PowerPoint presentation, Python, Aspose.Slides
 description: "Substitute font in PowerPoint in Python"
 ---
 
-## **Rule Based Font Substitution**
-To replace the fonts by setting some rules of replacement following steps are used:
+Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:
 
-- Load the desired presentation.
-- Load the font that is to replaced inside the presentation.
-- Load the replacing font.
-- Add rule for replacement.
-- Add the rule to presentation font replacement rule collection.
-- Generate the slide image to observe the effect.
+1. Load the relevant presentation.
+2. Load the font that will be replaced.
+3. Load the new font.
+4. Add a rule for the replacement.
+5. Add the rule to the presentation font replacement rule collection.
+6. Generate the slide image to observe the effect.
 
-The implementation of the above steps is given below.
+This Python code demonstrates the font substitution process:
 
-```py
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Load presentation
+# Loads a presentation
 with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Load source font to be replaced
+    # Loads the source font that will be replaced
     sourceFont = slides.FontData("SomeRareFont")
 
-    # Load the replacing font
+    # Load the new font
     destFont = slides.FontData("Arial")
 
-    # Add font rule for font replacement
+    # Adds a font rule for font replacement
     fontSubstRule = slides.FontSubstRule(sourceFont, destFont, slides.FontSubstCondition.WHEN_INACCESSIBLE)
 
-    # Add rule to font substitute rules collection
+    # Adds the rule to font substitute rules collection
     fontSubstRuleCollection = slides.FontSubstRuleCollection()
     fontSubstRuleCollection.add(fontSubstRule)
 
-    # Add font rule collection to rule list
+    # Adds the font rule collection to rule list
     presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
 
-    # Arial font will be used instead of SomeRareFont when inaccessible
+    #Arial font will be used in place of SomeRareFont when the latter is inaccessible
     bmp = presentation.slides[0].get_thumbnail(1, 1)
 
-    # Save the image to disk in JPEG format
+    # Saves the image to disk in the JPEG format
     bmp.save("Thumbnail_out.jpg", draw.imaging.ImageFormat.jpeg)
 ```
 
+{{%  alert title="NOTE"  color="warning"   %}} 
+
+You may want to see [**Font Replacement**](/slides/python-net/font-replacement/). 
+
+{{% /alert %}}

@@ -1,7 +1,7 @@
 ---
 title: LineCapStyle Enumeration
 type: docs
-weight: 9670
+weight: 9450
 url: /python-net/api-reference/aspose.slides/linecapstyle/
 ---
 

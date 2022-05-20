@@ -1,7 +1,7 @@
 ---
 title: ColorSchemeIndex Enumeration
 type: docs
-weight: 9470
+weight: 9250
 url: /python-net/api-reference/aspose.slides/colorschemeindex/
 ---
 

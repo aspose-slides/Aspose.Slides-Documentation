@@ -1,7 +1,7 @@
 ---
 title: PresentationLockingBehavior Enumeration
 type: docs
-weight: 9870
+weight: 9650
 url: /python-net/api-reference/aspose.slides/presentationlockingbehavior/
 ---
 

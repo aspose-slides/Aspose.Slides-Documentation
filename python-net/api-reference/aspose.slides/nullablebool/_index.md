@@ -1,7 +1,7 @@
 ---
 title: NullableBool Enumeration
 type: docs
-weight: 9760
+weight: 9540
 url: /python-net/api-reference/aspose.slides/nullablebool/
 ---
 

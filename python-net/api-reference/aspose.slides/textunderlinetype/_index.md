@@ -1,7 +1,7 @@
 ---
 title: TextUnderlineType Enumeration
 type: docs
-weight: 10140
+weight: 9920
 url: /python-net/api-reference/aspose.slides/textunderlinetype/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: IColorChangeEffectiveData Class
 type: docs
-weight: 530
+weight: 370
 url: /python-net/api-reference/aspose.slides.effects/icolorchangeeffectivedata/
 ---
 

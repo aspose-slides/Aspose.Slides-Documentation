@@ -1,7 +1,7 @@
 ---
 title: LineStyle Enumeration
 type: docs
-weight: 9710
+weight: 9490
 url: /python-net/api-reference/aspose.slides/linestyle/
 ---
 

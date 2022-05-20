@@ -1,7 +1,7 @@
 ---
 title: IOuterShadowEffectiveData Class
 type: docs
-weight: 770
+weight: 610
 url: /python-net/api-reference/aspose.slides.effects/ioutershadoweffectivedata/
 ---
 

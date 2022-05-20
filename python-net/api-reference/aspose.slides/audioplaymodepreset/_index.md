@@ -1,7 +1,7 @@
 ---
 title: AudioPlayModePreset Enumeration
 type: docs
-weight: 9400
+weight: 9180
 url: /python-net/api-reference/aspose.slides/audioplaymodepreset/
 ---
 

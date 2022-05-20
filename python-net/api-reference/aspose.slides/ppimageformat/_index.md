@@ -1,7 +1,7 @@
 ---
 title: PPImageFormat Enumeration
 type: docs
-weight: 9790
+weight: 9570
 url: /python-net/api-reference/aspose.slides/ppimageformat/
 ---
 

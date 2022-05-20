@@ -1,7 +1,7 @@
 ---
 title: Blur Class
 type: docs
-weight: 170
+weight: 90
 url: /python-net/api-reference/aspose.slides.effects/blur/
 ---
 

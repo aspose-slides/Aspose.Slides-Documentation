@@ -1,7 +1,7 @@
 ---
 title: ResourceLoadingAction Enumeration
 type: docs
-weight: 9910
+weight: 9690
 url: /python-net/api-reference/aspose.slides/resourceloadingaction/
 ---
 

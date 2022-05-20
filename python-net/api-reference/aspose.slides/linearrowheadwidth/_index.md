@@ -1,7 +1,7 @@
 ---
 title: LineArrowheadWidth Enumeration
 type: docs
-weight: 9660
+weight: 9440
 url: /python-net/api-reference/aspose.slides/linearrowheadwidth/
 ---
 

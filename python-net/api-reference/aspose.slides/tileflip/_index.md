@@ -1,7 +1,7 @@
 ---
 title: TileFlip Enumeration
 type: docs
-weight: 10170
+weight: 9950
 url: /python-net/api-reference/aspose.slides/tileflip/
 ---
 

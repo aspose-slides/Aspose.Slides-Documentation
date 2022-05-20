@@ -1,7 +1,7 @@
 ---
 title: PersistenceType Enumeration
 type: docs
-weight: 9830
+weight: 9610
 url: /python-net/api-reference/aspose.slides/persistencetype/
 ---
 

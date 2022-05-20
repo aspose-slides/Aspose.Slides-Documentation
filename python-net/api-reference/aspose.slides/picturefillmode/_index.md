@@ -1,7 +1,7 @@
 ---
 title: PictureFillMode Enumeration
 type: docs
-weight: 9840
+weight: 9620
 url: /python-net/api-reference/aspose.slides/picturefillmode/
 ---
 

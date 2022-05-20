@@ -7,7 +7,7 @@ keywords: "Add picture frame, create picture frame, StretchOff property, picture
 description: "Add picture frame to PowerPoint presentation in Python"
 ---
 
-A picture is a shape that contains an image—it is like a picture in a frame. 
+A picture frame is a shape that contains an image—it is like a picture in a frame. 
 
 You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
@@ -16,8 +16,6 @@ You can add an image to a slide through a picture frame. This way, you get to fo
 Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
 
 {{% /alert %}} 
-
-
 
 ## **Create Picture Frame**
 
@@ -91,8 +89,6 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-
 ## **Picture Frame Formatting**
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
@@ -142,6 +138,47 @@ with slides.Presentation() as pres:
 Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
 
 {{% /alert %}}
+
+## **Add Image as Link**
+
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Python code shows you how to add an image and video into a placeholder:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    shapesToRemove = []
+
+    for autoShape in presentation.slides[0].shapes:
+        if autoShape.placeholder is None:
+            continue
+        
+        if autoShape.placeholder.type == slides.PlaceholderType.PICTURE:
+            pictureFrame = presentation.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE,
+                    autoShape.x, autoShape.y, autoShape.width, autoShape.height, None)
+
+            pictureFrame.picture_format.picture.link_path_long = \
+                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
+
+            shapesToRemove.append(autoShape)
+
+        elif autoShape.placeholder.type == slides.PlaceholderType.MEDIA:
+            videoFrame = presentation.slides[0].shapes.add_video_frame(
+                autoShape.X, autoShape.Y, autoShape.width, autoShape.height, "")
+
+            videoFrame.picture_format.picture.link_path_long = \
+                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
+
+            videoFrame.link_path_long = "https://youtu.be/t_1LYZ102RA"
+            shapesToRemove.append(autoShape)
+        
+    
+
+    for shape in shapesToRemove:
+        presentation.slides[0].shapes.remove(shape)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **Crop Image**
 

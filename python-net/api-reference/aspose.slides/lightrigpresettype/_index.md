@@ -1,7 +1,7 @@
 ---
 title: LightRigPresetType Enumeration
 type: docs
-weight: 9610
+weight: 9390
 url: /python-net/api-reference/aspose.slides/lightrigpresettype/
 ---
 

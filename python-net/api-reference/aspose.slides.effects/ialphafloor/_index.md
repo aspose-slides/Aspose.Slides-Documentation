@@ -1,7 +1,7 @@
 ---
 title: IAlphaFloor Class
 type: docs
-weight: 380
+weight: 220
 url: /python-net/api-reference/aspose.slides.effects/ialphafloor/
 ---
 

@@ -239,7 +239,7 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[IPresentationInfo](/slides/python-net/api-reference/aspose.slides/ipresentationinfo/)|Information about presentation file|
 |[IPresentationText](/slides/python-net/api-reference/aspose.slides/ipresentationtext/)|Represents the text extracted from the slide|
 |[IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/)|Represents a callback object for saving progress updates in percentage.|
-|[IProtectionManager](/slides/python-net/api-reference/aspose.slides/iprotectionmanager/)|Presentation password protestion management.|
+|[IProtectionManager](/slides/python-net/api-reference/aspose.slides/iprotectionmanager/)|Presentation password protection management.|
 |[IResourceLoadingArgs](/slides/python-net/api-reference/aspose.slides/iresourceloadingargs/)|Interface for external resource loading arguments.|
 |[IResourceLoadingCallback](/slides/python-net/api-reference/aspose.slides/iresourceloadingcallback/)|Callback interface used to manage external resources loading.|
 |[IRow](/slides/python-net/api-reference/aspose.slides/irow/)|Represents a row in a table.|

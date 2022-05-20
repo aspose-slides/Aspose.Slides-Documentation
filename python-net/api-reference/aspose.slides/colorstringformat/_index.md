@@ -1,7 +1,7 @@
 ---
 title: ColorStringFormat Enumeration
 type: docs
-weight: 9480
+weight: 9260
 url: /python-net/api-reference/aspose.slides/colorstringformat/
 ---
 

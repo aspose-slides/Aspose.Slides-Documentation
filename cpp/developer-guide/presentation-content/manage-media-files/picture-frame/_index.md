@@ -7,7 +7,7 @@ keywords: "Add picture frame, create picture frame, StretchOff property, picture
 description: "Add picture frame to PowerPoint presentation in C++"
 ---
 
-A picture is a shape that contains an image—it is like a picture in a frame. 
+A picture frame is a shape that contains an image—it is like a picture in a frame. 
 
 You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
@@ -62,8 +62,6 @@ pf->set_Rotation( 45);
 //Writes the PPTX file to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
-
-
 
 ## **Create Picture Frame with Relative Scale**
 By altering an image's relative scaling, you can create a more complicated picture frame. 
@@ -160,6 +158,49 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
 
 {{% /alert %}}
+
+## **Add Image as Link**
+
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C++ code shows you how to add an image and video into a placeholder:
+
+```cpp
+auto presentation = System::MakeObject<Presentation>(u"input.pptx");
+auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
+auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+
+for (auto& autoShape : shapes)
+{
+    if (autoShape->get_Placeholder() == nullptr)
+        continue;
+
+    switch (autoShape->get_Placeholder()->get_Type())
+    {
+        case Aspose::Slides::PlaceholderType::Picture:
+        {
+            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
+            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+            shapesToRemove->Add(autoShape);
+            break;
+        }
+
+        case Aspose::Slides::PlaceholderType::Media:
+        {
+            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
+            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
+            shapesToRemove->Add(autoShape);
+            break;
+        }
+    }
+}
+
+for (auto& shape : shapesToRemove)
+{
+    shapes->Remove(shape);
+}
+
+presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+```
 
 ## **Crop Image**
 

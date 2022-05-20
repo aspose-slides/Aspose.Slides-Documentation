@@ -35,6 +35,6 @@ The PresentationFactory type exposes the following members:
 |read_presentation(stream, options)|Reads an existing presentation from stream with additional load options|
 |read_presentation(file)|Reads an existing presentation from file|
 |read_presentation(file, options)|Reads an existing presentation from stream with additional load options|
-|get_presentation_text(file, mode)|Retreieves the raw text from the slides|
-|get_presentation_text(stream, mode)|Retreieves the raw text from the slides|
-|get_presentation_text(stream, mode, options)|Retreieves the raw text from the slides|
+|get_presentation_text(file, mode)|Retrieves the raw text from the slides|
+|get_presentation_text(stream, mode)|Retrieves the raw text from the slides|
+|get_presentation_text(stream, mode, options)|Retrieves the raw text from the slides|

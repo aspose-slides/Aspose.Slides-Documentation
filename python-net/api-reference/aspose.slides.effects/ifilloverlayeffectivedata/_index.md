@@ -1,7 +1,7 @@
 ---
 title: IFillOverlayEffectiveData Class
 type: docs
-weight: 610
+weight: 450
 url: /python-net/api-reference/aspose.slides.effects/ifilloverlayeffectivedata/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: ColorReplace Class
 type: docs
-weight: 210
+weight: 110
 url: /python-net/api-reference/aspose.slides.effects/colorreplace/
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: InnerShadow Class
 type: docs
-weight: 900
+weight: 740
 url: /python-net/api-reference/aspose.slides.effects/innershadow/
 ---
 

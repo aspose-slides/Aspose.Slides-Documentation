@@ -1,7 +1,7 @@
 ---
 title: TextShapeType Enumeration
 type: docs
-weight: 10120
+weight: 9900
 url: /python-net/api-reference/aspose.slides/textshapetype/
 ---
 

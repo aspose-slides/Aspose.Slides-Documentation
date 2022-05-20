@@ -1,7 +1,7 @@
 ---
 title: BevelPresetType Enumeration
 type: docs
-weight: 9430
+weight: 9210
 url: /python-net/api-reference/aspose.slides/bevelpresettype/
 ---
 
