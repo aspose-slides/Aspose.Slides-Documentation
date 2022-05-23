@@ -9,7 +9,7 @@ description: "Install Aspose.Slides for PHP via Java in Windows, Linux or macOS"
 
 ## **Configure environment**
 
-1. Install PHP 7, add path to php\bin to system path variable and set `allow_url_include` to `On` in `php.ini` file.
+1. Install PHP 7, add path to PHP to system `PATH` variable and set `allow_url_include` to `On` in `php.ini` file.
 1. Install JRE 8. Set the `JAVA_HOME` enviroment variable as a path to the installed JRE location.
 1. Install Apache Tomcat 8.0.
 

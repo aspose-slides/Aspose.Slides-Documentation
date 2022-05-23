@@ -32,7 +32,7 @@ These are links to useful resources:
 - [Aspose.Slides for PHP via Java Release Notes](/slides/php-java/release-notes/)
 - [Aspose.Slides for PHP via Java Product Page](https://products.aspose.com/slides/php-java/)
 - [Download Aspose.Slides for PHP via Java Package](https://packagist.org/packages/aspose/slides)
-- [Aspose.Slides for PHP via Java API Reference Guide](https://docs.aspose.com/slides/php-java/api-reference/)
+- [Aspose.Slides for PHP via Java API Reference Guide](https://docs.aspose.com/slides/java/api-reference/) (Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter API references)
 - [Aspose.Slides for PHP via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for PHP via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
