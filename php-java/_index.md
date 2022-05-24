@@ -24,15 +24,22 @@ Aspose.Slides for PHP via Java provides a lot of key features such as managing t
 
 ## Aspose.Slides for PHP via Java Resources
 
-These are links to useful resources:
+{{% alert color="primary" %}}
 
-- [Aspose.Slides for PHP via Java Online Documentation](/slides/java/) (Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter documentation)
+Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter documentation and API reference.
+
+{{% /alert %}} 
+
+These are links to useful to resources:
+
+- [Aspose.Slides for PHP via Java Online Documentation](/slides/java/)
 - [Aspose.Slides for PHP via Java Features](/slides/php-java/features-overview/)
 - [Aspose.Slides for PHP via Java Limitations and API Differences](/slides/php-java/limitations-and-api-differences/)
 - [Aspose.Slides for PHP via Java Release Notes](/slides/php-java/release-notes/)
 - [Aspose.Slides for PHP via Java Product Page](https://products.aspose.com/slides/php-java/)
-- [Download Aspose.Slides for PHP via Java Package](https://packagist.org/packages/aspose/slides)
-- [Aspose.Slides for PHP via Java API Reference Guide](https://docs.aspose.com/slides/java/api-reference/) (Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter API references)
+- [Download Aspose.Slides for PHP via Java Package](https://downloads.aspose.com/slides/php-java))
+- [Install Aspose.Slides for PHP via Java](/slides/php-java/installation/)
+- [Aspose.Slides for PHP via Java API Reference](https://docs.aspose.com/slides/php-java/api-reference/)
 - [Aspose.Slides for PHP via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for PHP via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
