@@ -233,25 +233,9 @@ Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.
 8. Specify image offsets from the corresponding edge of the shape's bounding box
 9. Write the modified presentation as a PPTX file.
 
-This C# code demonstrates the process:
+This C# code demonstrates a process in which a StretchOff property is used:
 
 ```c#
-// Instantiates the Presentation class that represents a PPTX file
-using (Presentation pres = new Presentation())
-{
 
-    // Gets the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Instantiates the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
-
-    // Adds a picture frame with the picture's equivalent height and width
-    sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
-
-    //Writes the PPTX file to disk
-    pres.Save("AddStretchOffsetForImageFill_out.pptx", SaveFormat.Pptx);
-}
 ```
 
