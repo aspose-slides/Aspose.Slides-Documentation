@@ -64,7 +64,7 @@ using (Presentation input = new Presentation())
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // Call reroute that sets the automatic shortest path between shapes
+    // Calls reroute that sets the automatic shortest path between shapes
     connector.Reroute();
 
     // Saves the presenation
@@ -130,7 +130,7 @@ using (Presentation presentation = new Presentation())
 
 You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/net/connector/#types-of-connectors)** 
 
-### **Simple Case**
+#### **Simple Case**
 
 Consider a case where a connector between two shapes (A and B) passes through a third shape (C):
 
@@ -156,7 +156,7 @@ connector.EndShapeConnectedTo = shapeTo;
 connector.StartShapeConnectionSiteIndex = 2;
 ```
 
-To avoid the third shape, we can adjust the connector by moving its vertical line to the left this way:
+To avoid or bypass the third shape, we can adjust the connector by moving its vertical line to the left this way:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
@@ -165,14 +165,157 @@ IAdjustValue adj2 = connector.Adjustments[1];
 adj2.RawValue += 10000;
 ```
 
-### **Other Cases** 
+### **Complex Cases** 
 
 To perform more complicated adjustments, you have to take these things into account:
 
 * A connector's adjustable point is strongly linked to a formula that calculates and determines its position. So changes to the point's location may alter the connector's shape.
 * A connector's adjustment points are defined in a strict order in an array. The adjustment points are numbered from a connector's start point to its end.
-* The number of adjustment points a connector has is obtained from its width and height based on certain formulas.
+* Adjustment point values reflect the percentage of a connector shape's width/height. 
+  * The shape is bounded by the connector's start and end points multiplied by 1000. 
+  * The first point, second point, and third point defines the percentage from the width, the percentage from the height, and the percentage from the width (again) respectively.
 * For calculations that determine the coordinates of a connector's adjustment points, you have to take the connector's rotation and its reflection into account. **Note** that the rotation angle for all connectors shown under **[Types of connectors](/slides/net/connector/#types-of-connectors)** is 0.
+
+#### **Case 1**
+
+Consider this case where two text frame objects are linked together through a connector:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Code:
+
+```c#
+// Instantiates a presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+// Gets the first slide in the presentation
+ISlide sld = pres.Slides[0];
+// Adds shapes that will be joined together through a connector
+IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+shapeFrom.TextFrame.Text = "From";
+IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+shapeTo.TextFrame.Text = "To";
+// Adds a connector
+IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+// Specifies the connector's direction
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+// Specifies the connector's color
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
+// Specifies the thickness of the connector's line
+connector.LineFormat.Width = 3;
+
+// Links the shapes together with the connector
+connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectionSiteIndex = 2;
+
+// Gets adjustment points for the connector
+IAdjustValue adjValue_0 = connector.Adjustments[0];
+IAdjustValue adjValue_1 = connector.Adjustments[1];
+```
+
+**Adjustment**
+
+We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
+
+```c#
+// Changes the values of the adjustment points
+adjValue_0.RawValue += 20000;
+adjValue_1.RawValue += 200000;
+```
+
+The result:
+
+![connector-adjusted-1](connector-adjusted-1.png):
+
+To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point:
+
+```c#
+// Draw the vertical component of the connector
+
+float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
+float y = connector.Y;
+float height = connector.Height * adjValue_1.RawValue / 100000;
+sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+```
+
+The result:
+
+![connector-adjusted-2](connector-adjusted-2.png)
+
+#### **Case 2**
+
+In **Case 1**, we demonstrated a simple connector adjustment operation using basic principles. In normal situations, you have to take the connector rotation and its display (which are set by the connector.Rotation, connector.Frame.FlipH, and connector.Frame.FlipV) into account. We will now demonstrate the process.
+
+First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
+
+```c#
+// Creates a new binding object
+IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+shapeTo_1.TextFrame.Text = "To 1";
+// Creates a new connector
+connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
+connector.LineFormat.Width = 3;
+// Connects objects using the newly created connector
+connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectionSiteIndex = 3;
+// Gets the connector adjustment points
+adjValue_0 = connector.Adjustments[0];
+adjValue_1 = connector.Adjustments[1];
+// Changes the values of the adjustment points 
+adjValue_0.RawValue += 20000;
+adjValue_1.RawValue += 200000;
+```
+
+The result:
+
+![connector-adjusted-3](connector-adjusted-3.png)
+
+Second, let's create a shape that will correspond to the horizonal component of the connector that passes through the new connector's adjustment point connector.Adjustments[0]. We will use the values from the connector data for connector.Rotation, connector.Frame.FlipH и connector.Frame.FlipV and apply the popular coordinate conversion formula for rotation round a given point x0:
+
+X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+
+Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+
+In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
+
+```c#
+// Saves the connector coordinates
+x = connector.X;
+y = connector.Y;
+// Corrects the connector coordinates in case it appears
+if (connector.Frame.FlipH == NullableBool.True)
+{
+    x += connector.Width;
+}
+if (connector.Frame.FlipV == NullableBool.True)
+{
+    y += connector.Height;
+}
+// Takes in the adjustment point value as the coordinate
+x += connector.Width * adjValue_0.RawValue / 100000;
+//  Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
+float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
+float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
+// Determines the width of the horizontal component using the second adjustment point value
+float width = connector.Height * adjValue_1.RawValue / 100000;
+IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+```
+
+The result:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+We demonstrated calculations involving simple adjustments and complicated adjustment points (adjustment points with rotation angles). Using the knowledge acquired, you can develop your own model (or write a code) to get a `GraphicsPath` object or even set a connector's adjustment point values based on specific slide coordinates.
 
 ## **Find Angle of Connector Lines**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
