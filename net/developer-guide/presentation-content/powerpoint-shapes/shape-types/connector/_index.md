@@ -64,7 +64,7 @@ using (Presentation input = new Presentation())
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // Call reroute that sets the automatic shortest path between shapes
+    // Calls reroute that sets the automatic shortest path between shapes
     connector.Reroute();
 
     // Saves the presenation
@@ -156,7 +156,7 @@ connector.EndShapeConnectedTo = shapeTo;
 connector.StartShapeConnectionSiteIndex = 2;
 ```
 
-To avoid the third shape, we can adjust the connector by moving its vertical line to the left this way:
+To avoid or bypass the third shape, we can adjust the connector by moving its vertical line to the left this way:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
@@ -189,12 +189,12 @@ Code:
 Presentation pres = new Presentation();
 // Gets the first slide in the presentation
 ISlide sld = pres.Slides[0];
-// Add shapes that will be joined together through a connector
+// Adds shapes that will be joined together through a connector
 IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
 shapeFrom.TextFrame.Text = "From";
 IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
 shapeTo.TextFrame.Text = "To";
-// Add a connector
+// Adds a connector
 IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 // Specifies the connector's direction
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
@@ -221,7 +221,6 @@ We can change the connector's adjustment point values by increasing the correspo
 
 ```c#
 // Changes the values of the adjustment points
-
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
 ```
@@ -287,7 +286,7 @@ Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
 
 ```c#
-// Saves connector coordinates
+// Saves the connector coordinates
 x = connector.X;
 y = connector.Y;
 // Corrects the connector coordinates in case it appears
@@ -299,12 +298,12 @@ if (connector.Frame.FlipV == NullableBool.True)
 {
     y += connector.Height;
 }
-// / Takes in the adjustment point value as the coordinate
+// Takes in the adjustment point value as the coordinate
 x += connector.Width * adjValue_0.RawValue / 100000;
 //  Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
 float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
 float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Determine The width Of The horizontal component using the second adjustment point value
+// Determines the width of the horizontal component using the second adjustment point value
 float width = connector.Height * adjValue_1.RawValue / 100000;
 IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
