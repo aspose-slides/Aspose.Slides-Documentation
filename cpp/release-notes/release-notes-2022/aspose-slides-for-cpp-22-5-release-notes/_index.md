@@ -25,6 +25,7 @@ This page contains release notes for [Aspose.Slides for C++ 22.5](https://www.nu
 ## Other Improvements and Changes
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
+|SLIDESCPP-1651|Support for Slides C++ in Mac|Enhancement||
 |SLIDESCPP-3229|Use Aspose.Slides for .NET 22.5 features|Enhancement|<https://docs.aspose.com/slides/net/aspose-slides-for-net-22-5-release-notes/>|
 |SLIDESCPP-3457|Error loading embedded MetricHPE font|Bug|<https://docs.aspose.com/slides/cpp/embedded-font/>|
 
