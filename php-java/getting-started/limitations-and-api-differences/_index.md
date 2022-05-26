@@ -1,5 +1,5 @@
 ---
-title: Limitations and API Differences
+title: Aspose.Slides for PHP via Java Limitations and API Differences
 type: docs
 weight: 100
 url: /php-java/limitations-and-api-differences/
