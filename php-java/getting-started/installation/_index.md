@@ -23,7 +23,7 @@ To install Aspose.Slides using Packagist, run this command: `composer require as
 
 1. Download PHP/Java Bridge (php-java-bridge_x.x.x_documentation.zip) from http://php-java-bridge.sourceforge.net/pjb/download.php and extract `JavaBridge.war` file to tomcat `webapps` folder.
 1. Start Apache Tomcat service.
-1. Download [“Aspose.Slides for PHP via Java”](https://downloads.aspose.com/slides/php-java) and extract it to aspose.slides folder. Copy `jar/aspose-slides-x.x-jdk16.jar` file to `webapps\JavaBridge\WEB-INF\lib` folder.
+1. Download [“Aspose.Slides for PHP via Java”](https://downloads.aspose.com/slides/php-java) and extract it to aspose.slides folder. Copy `jar/aspose-slides-x.x-php.jar` file to `webapps\JavaBridge\WEB-INF\lib` folder.
 1. Restart Apache Tomcat service.
 1. Run `example.php` in `aspose.slides` folder to run the example with this command:
 ```
