@@ -121,6 +121,28 @@ These are links to some useful resources:
 - [Aspose.Slides for Python via .NET Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
+## Aspose.Slides for PHP via Java
+
+{{% alert color="primary" %}} 
+
+![Aspose.Slides for PHP via Java Product Logo](aspose_slides-for-php-via-java.png)
+
+Aspose.Slides for PHP via Java is a class library that enables your applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. Aspose.Slides for PHP via Java is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for PHP via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
+
+{{% /alert %}}
+
+These are links to some useful resources:
+- [Aspose.Slides for PHP via Java Online Documentation](/slides/java/)
+- [Aspose.Slides for PHP via Java Features](/slides/php-java/features-overview/)
+- [Aspose.Slides for PHP via Java Limitations and API Differences](/slides/php-java/limitations-and-api-differences/)
+- [Aspose.Slides for PHP via Java Release Notes](/slides/php-java/release-notes/)
+- [Aspose.Slides for PHP via Java Product Page](https://products.aspose.com/slides/php-java/)
+- [Download Aspose.Slides for PHP via Java Package](https://downloads.aspose.com/slides/php-java)
+- [Install Aspose.Slides for PHP via Java](/slides/php-java/installation/)
+- [Aspose.Slides for PHP via Java API Reference](https://docs.aspose.com/slides/php-java/api-reference/)
+- [Aspose.Slides for PHP via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
+- [Aspose.Slides for PHP via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
+
 ## Aspose.Slides for Reporting Services
 
 {{% alert color="primary" %}} 
