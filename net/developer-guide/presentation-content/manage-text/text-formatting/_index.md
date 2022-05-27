@@ -47,8 +47,6 @@ presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
 ```
 
 
-
-
 ## **Align Text Paragraphs**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for .NET supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for .NET :
 
@@ -118,8 +116,6 @@ using (Presentation pres = new Presentation("transparency.pptx"))
     pres.Save("transparency-2.pptx", SaveFormat.Pptx);
 }
 ```
-
-
 
 
 ## **Manage Paragraph's Font Properties**
@@ -249,8 +245,6 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-
 ## **Set Text Rotation**
 Aspose.Slides for .NET allows developers to rotate the text. Text could be set to appear as Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical or WordArtVerticalRightToLeft. To rotate the text of any TextFrame, please follow the steps below:
 
@@ -323,14 +317,23 @@ presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
 
 
 ## **Line Spacing of Paragraph**
-Aspose.Slides for .NET lets developers to set the properties of ParagraphFormat to deal with line spacing of the paragraph. The properties SpaceAfter, SpaceBefore and SpaceWithin could be set for different line spacing. This article explains how to set these properties of ParagraphFormat. Aspose.Slides for .NET provides a simple API for setting properties of ParagraphFormat:
+Aspose.Slides provides properties under `ParagraphFormat`—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
-1. Load a presentation with an AutoShape having some text in it.
-2. Obtain a slide's reference by its index.
+* To specify the line spacing for a paragraph in percentage, use a positive value. 
+* To specify the line spacing for a paragraph in points, use a negative value.
+
+For example, you can apply a 16pt line spacing for a paragraph by setting the `SpaceBefore` property to -16.
+
+This is how you specify the line spacing for a specific paragraph:
+
+1. Load a presentation containing an AutoShape with some text in it.
+2. Get a slide's reference through its index.
 3. Access the TextFrame.
 4. Access the Paragraph.
-5. Set properties of Paragraph.
-6. Save the presentation to disk.
+5. Set the Paragraph properties.
+6. Save the presentation.
+
+This C# code shows you how to specify the line spacing for a paragraph:
 
 ```c#
 // Create an instance of Presentation class
@@ -352,8 +355,6 @@ para1.ParagraphFormat.SpaceAfter = 40;
 // Save Presentation
 presentation.Save("LineSpacing_out.pptx", SaveFormat.Pptx);
 ```
-
-
 
 
 ## **Set the AutofitType Property for TextFrame**
@@ -438,8 +439,6 @@ portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 // Save Presentation
 presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
 ```
-
-
 
 ## **Set Text Tabulation**
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
