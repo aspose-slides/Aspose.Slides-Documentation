@@ -121,7 +121,9 @@ finally
 
 ### **Other Limitations of Aspose.Slides for PHP via Java API compared to Aspose.Slides for Java API**
 
-#### 1. **Aspose.Slides namespaces and the java classes they use are wrappers created by the php-java bridge on top of the Java classes with the same name from the com.aspose.slides package**
+Aspose.Slides namespaces and the java classes they use are wrappers created by the PhpJavaBridge on top of the Java classes with the same name from the com.aspose.slides package.
+
+#### 1. **Wrapping java parameters and arguments**
 
 The parameters and arguments they return and accept are wrappers on top of the Java classes with the same names. Only strings and numeric types are converted automatically. Arrays, collections, bytes, and booleans are not converted.  
 
@@ -131,7 +133,7 @@ if ($node->isAssistant()) - wrong!
 if (java_values($node->isAssistant())) - correct!
 ```
 
-#### 2. **Extending Java class**
+#### 2. **Extending Java class and instanceof operator**
 
 You cannot extend a Java class from a PHP class. As a workaround, you can implement composition when needed.
 The instanceof operator only works for a concrete class. It does not work for a class’s interface or parent class. 
@@ -140,7 +142,7 @@ The instanceof operator only works for a concrete class. It does not work for a 
 
 #### 3. **A Java array is NOT a PHP array**
 
-Java array creation:
+Java array creation in PHP:
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Integer = new JavaClass("java.lang.Integer");
@@ -160,7 +162,7 @@ $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
 ```
 
-#### 5. **The Java method Files.readAllBytes does NOT work**
+#### 5. **The Java method Files.readAllBytes**
 
 ``` php
 $htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
