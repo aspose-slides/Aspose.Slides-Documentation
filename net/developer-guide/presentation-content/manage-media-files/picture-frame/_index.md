@@ -236,6 +236,24 @@ Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.
 This C# code demonstrates a process in which a StretchOff property is used:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    IPPImage ppImage;
+    using (Image bitmap = new Bitmap("image.png"))
+    {
+        ppImage = pres.Images.AddImage(bitmap);
+    }
 
+    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
+    
+    // set image stretched from each side in the shape body
+    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
+    pictureFrame.PictureFormat.StretchOffsetRight = 24;
+    pictureFrame.PictureFormat.StretchOffsetTop = 24;
+    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
+    
+    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+}
 ```
 
