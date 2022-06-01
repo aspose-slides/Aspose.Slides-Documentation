@@ -11,7 +11,7 @@ A PowerPoint connector is a special line that connects or links two shapes toget
 
 Connectors are typically connected to *connection dots* (green dots), which exist on all shapes by default. Connection dots appear when a cursor comes close to them.
 
-Adjustment points (orange dots), which exist only on certain connectors, are used to modify connectors' positions and shapes.
+*Adjustment points* (orange dots), which exist only on certain connectors, are used to modify connectors' positions and shapes.
 
 ## **Types of Connectors**
 
@@ -74,7 +74,7 @@ using (Presentation input = new Presentation())
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-The `Connector.Reroute` method reroutes a connector and forces it to take the shortest possible path between shapes. To achieve its goal, the method may change the `StartShapeConnectionSiteIndex` and `EndShapeConnectionSiteIndex` points. 
+The `Connector.Reroute` method reroutes a connector and forces it to take the shortest possible path between shapes. To achieve its aim, the method may change the `StartShapeConnectionSiteIndex` and `EndShapeConnectionSiteIndex` points. 
 
 {{% /alert %}} 
 
@@ -89,7 +89,7 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 1. Set your preferred connection dots on the shapes. 
 1. Save the presentation.
 
-This C# code demonstrates an operation
+This C# code demonstrates an operation where a preferred connection dot is specified:
 
 ```c#
 // Instantiates a presentation class that represents a PPTX file
@@ -178,7 +178,7 @@ To perform more complicated adjustments, you have to take these things into acco
 
 #### **Case 1**
 
-Consider this case where two text frame objects are linked together through a connector:
+Consider a case where two text frame objects are linked together through a connector:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
@@ -277,7 +277,7 @@ The result:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Second, let's create a shape that will correspond to the horizonal component of the connector that passes through the new connector's adjustment point connector.Adjustments[0]. We will use the values from the connector data for connector.Rotation, connector.Frame.FlipH и connector.Frame.FlipV and apply the popular coordinate conversion formula for rotation round a given point x0:
+Second, let's create a shape that will correspond to the horizonal component of the connector that passes through the new connector's adjustment point connector.Adjustments[0]. We will use the values from the connector data for connector.Rotation, connector.Frame.FlipH, and connector.Frame.FlipV and apply the popular coordinate conversion formula for rotation round a given point x0:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 
