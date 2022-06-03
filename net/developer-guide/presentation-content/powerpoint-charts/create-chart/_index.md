@@ -11,7 +11,7 @@ description: "Create chart in PowerPoint presentation in C# or .NET"
 ## **Create Chart**
 Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 
 
-#### **Why Create Charts?**
+### **Why Create Charts?**
 
 Using charts, you get to
 
@@ -199,7 +199,7 @@ pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead. 
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.Pie`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -263,7 +263,7 @@ chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 IChartDataPoint point = series.DataPoints[0];
 point.Format.Fill.FillType = FillType.Solid;
 point.Format.Fill.SolidFillColor.Color = Color.Cyan;
-// Setting Sector border
+// Sets the Sector border
 point.Format.Line.FillFormat.FillType = FillType.Solid;
 point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
 point.Format.Line.Width = 3.0;
@@ -274,7 +274,7 @@ IChartDataPoint point1 = series.DataPoints[1];
 point1.Format.Fill.FillType = FillType.Solid;
 point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-// Setting Sector border
+// Sets the Sector border
 point1.Format.Line.FillFormat.FillType = FillType.Solid;
 point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 point1.Format.Line.Width = 3.0;
@@ -285,14 +285,14 @@ IChartDataPoint point2 = series.DataPoints[2];
 point2.Format.Fill.FillType = FillType.Solid;
 point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-// Setting Sector border
+// Sets the Sector border
 point2.Format.Line.FillFormat.FillType = FillType.Solid;
 point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 point2.Format.Line.Width = 2.0;
 point2.Format.Line.Style = LineStyle.ThinThin;
 point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-// Create custom labels for each of categories for new series
+// Creates custom labels for each of categories for new series
 IDataLabel lbl1 = series.DataPoints[0].Label;
 
 // lbl.ShowCategoryName = true;
@@ -322,8 +322,8 @@ presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.TreeMap).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, `ChartType.TreeMap`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -343,7 +343,7 @@ using (Presentation presentation = new Presentation())
 
 	wb.Clear(0);
 
-	//branch 1
+	// Branch 1
 	IChartCategory leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C1", "Leaf1"));
 	leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
 	leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
@@ -356,7 +356,7 @@ using (Presentation presentation = new Presentation())
 	chart.ChartData.Categories.Add(wb.GetCell(0, "C4", "Leaf4"));
 
 
-	//branch 2
+	// Branch 2
 	leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C5", "Leaf5"));
 	leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
 	leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
@@ -388,7 +388,7 @@ using (Presentation presentation = new Presentation())
 
 ### **Creating Stock Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -397,7 +397,7 @@ using (Presentation presentation = new Presentation())
 1. Specify HiLowLines format.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a chart:
+Sample C# code used to create a stock chart:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -451,7 +451,7 @@ using (Presentation pres = new Presentation())
 
 ### **Creating Box and Whisker Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.BoxAndWhisker).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -505,7 +505,7 @@ public static void Run()
 
 ### **Creating Funnel Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.Funnel).
 1. Write the modified presentation to a PPTX file
 
@@ -547,8 +547,8 @@ public static void Run()
 
 ### **Creating Sunburst Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.sunburst).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, `ChartType.sunburst`).
 1. Write the modified presentation to a PPTX file
 
 This C# code shows you how to create a sunburst chart:
@@ -566,7 +566,7 @@ public static void Run()
 
 		wb.Clear(0);
 
-		//branch 1
+		// Branch 1
 		IChartCategory leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C1", "Leaf1"));
 		leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
 		leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
@@ -578,7 +578,7 @@ public static void Run()
 
 		chart.ChartData.Categories.Add(wb.GetCell(0, "C4", "Leaf4"));
 
-		//branch 2
+		// Branch 2
 		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C5", "Leaf5"));
 		leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
 		leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
@@ -648,12 +648,12 @@ public static void Run()
 
 ### **Creating Radar Charts**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class
 1. Get a slide's reference through its index. 
 1. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
 1. Write the modified presentation to a PPTX file
 
-This C# code shows you how to create an histogram chart:
+This C# code shows you how to create a radar chart:
 
 ```c#
 using (Presentation presentation = new Presentation())
@@ -666,7 +666,7 @@ using (Presentation presentation = new Presentation())
 ### **Creating Multi Category Charts**
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.ClusteredColumn).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -674,7 +674,7 @@ using (Presentation presentation = new Presentation())
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file.
 
-This C# shows you how to create a multicategory chart:
+This C# code shows you how to create a multicategory chart:
 
 ```c#
 Presentation pres = new Presentation();
@@ -705,7 +705,7 @@ category = ch.ChartData.Categories.Add(fact.GetCell(0, "c8", "G"));
 category.GroupingLevels.SetGroupingItem(1, "Group4");
 category = ch.ChartData.Categories.Add(fact.GetCell(0, "c9", "H"));
 
-//            Adding Series
+// Adds the Series
 IChartSeries series = ch.ChartData.Series.Add(fact.GetCell(0, "D1", "Series 1"),
     ChartType.ClusteredColumn);
 
@@ -723,8 +723,8 @@ pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 
 ## **Updating Charts**
-1. Open an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class containing the chart.
-2. Obtain the reference of a slide by using its Index.
+1. Instantiate a [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
+2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data worksheet.
 5. Modify the chart data series data by changing series values.
@@ -734,31 +734,31 @@ pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 This C# code shows you how to update a chart:
 
 ```c#
-// Instantiate Presentation class that represents PPTX file// Instantiate Presentation class that represents PPTX file
+// Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation("ExistingChart.pptx");
 
-// Access first slideMarker
+// Accesses the first slideMarker
 ISlide sld = pres.Slides[0];
 
-// Add chart with default data
+// Adds a chart with default data
 IChart chart = (IChart)sld.Shapes[0];
 
-// Setting the index of chart data sheet
+// Sets the index for the chart data sheet
 int defaultWorksheetIndex = 0;
 
-// Getting the chart data worksheet
+// Gets the chart data worksheet
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
 
-// Changing chart Category Name
+// Changes the chart Category Name
 fact.GetCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
 fact.GetCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
 
-// Take first chart series
+// Takes the first chart series
 IChartSeries series = chart.ChartData.Series[0];
 
-// Now updating series data
+// Updates the series data
 fact.GetCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifying series name
 series.DataPoints[0].Value.Data = 90;
 series.DataPoints[1].Value.Data = 123;
@@ -793,10 +793,8 @@ pres.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 
 ## **Setting Data Range for Charts**
 
-To set the data range for a chart, do this:
-
-1. Open an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class containing the chart.
-2. Obtain the reference of a slide by using its Index.
+1. Instantiate a [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
+2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.
 5. Save the modified presentation as a PPTX file.
@@ -804,10 +802,10 @@ To set the data range for a chart, do this:
 This C# code shows you how to set the data range for a chart:
 
 ```c#
-// Instantiate Presentation class that represents PPTX file
+// Instantiates a Presentation class that represents a PPTX file
 Presentation presentation = new Presentation("ExistingChart.pptx");
 
-// Access first slideMarker and add chart with default data
+// Accesses the first slideMarker and adds a chart with default data
 ISlide slide = presentation.Slides[0];
 IChart chart = (IChart)slide.Shapes[0];
 chart.ChartData.SetRange("Sheet1!A1:B4");
@@ -843,10 +841,10 @@ using (Presentation pres = new Presentation())
     series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 4, 1, null));
 
     chart.ChartData.Series.Add(fact.GetCell(0, 0, 2, "Series 2"), chart.Type);
-    //Take second chart series
+    // Takes the second chart series
     IChartSeries series2 = chart.ChartData.Series[1];
 
-    //Now populating series data
+    // Populates the series data
     series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 3, 2, 60));
