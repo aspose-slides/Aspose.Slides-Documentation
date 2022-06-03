@@ -656,7 +656,13 @@ try {
 This Java code shows you how to create an radar chart:
 
 ```java
-
+Presentation pres = new Presentation();
+try {
+    pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
+    pres.save("Radar-chart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ### **Creating Multi Category Charts**
