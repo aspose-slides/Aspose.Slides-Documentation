@@ -7,52 +7,111 @@ keywords: "PowerPoint animation, PowerPoint presentation, Python, Aspose.Slides 
 description: "Create PowerPoint animation in Python"
 ---
 
-Animation is one of the most important parts of the presentations that make them more attractive and meaningful. Aspose.Slides for Python via .NET also allows developers to apply different kinds of animation effects on different kinds of shapes. There is a separate namespace [Aspose.Slides.Animation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/) that provides classes to handle the animations on PPTX presentations. In this topic, we will show how to apply animation effects on shapes.
+Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/python-net/animated-charts/). They give life to presentations or its constituents. 
 
-Here we will apply the PathFootball effect (one of more than 150 available effects) on a TextBox that will be activated on clicking the bevel shape (some sort of button). To apply such animation effect, please follow the steps below:
+### **Why Use Animations in Presentations?**
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add an IAutoShape of Rectangle type.
-- Add an IAutoShape of [Bevel type](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/shapetype/) (clicking on which, animations will take effect).
-- Create sequence of effects on this Bevel shape.
-- Create custom User Path.
-- Add commands to the Path for moving.
-- Write the presentation to the disk as a PPTX file.
+Using animations, you can 
 
-```py
+* control the flow of information
+* emphasize important points
+* increase interest or participation among your audience
+* make content easier to read or assimilate or process
+* draw your readers or viewers attention to important parts in a presentation
+
+PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
+
+### **Animations in Aspose.Slides**
+
+* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/) namespace,
+* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/effecttype/) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
+
+## **Apply Animation to TextBox**
+
+Aspose.Slides for Python via .NET allows you to apply animation to the text in a shape. 
+
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index.
+3. Add a `rectangle` [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
+4. Add text to `IAutoShape.TextFrame`.
+5. Get a main sequence of effects.
+6. Add an animation effect to [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
+7. Set the`TextAnimation.BuildType` property to the value from BuildType Enumeration.
+8. Write the presentation to disk as a PPTX file.
+
+This Python code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:
+
+```python
+
+```
+
+{{%  alert color="primary"  %}} 
+
+Besides applying animations to text, you can also apply animations to a single [Paragraph](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iparagraph/). See [**Animated Text**](/slides/python-net/animated-text/).
+
+{{% /alert %}} 
+
+## **Apply Animation to PictureFrame**
+
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index.
+3. Add or get a [PictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/pictureframe/) on the slide. 
+4. Get the main sequence of effects.
+5. Add an animation effect to [PictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/pictureframe/).
+6. Write the presentation to disk as a PPTX file.
+
+This Python code shows you how to apply the `Fly` effect to a picture frame:
+
+```python
+
+```
+
+## **Apply Animation to Shape**
+
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index.
+3. Add a `rectangle` [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
+4. Add a `Bevel` [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/) (when this object is clicked, the animation gets played).
+5. Create a sequence of effects on the bevel shape.
+6. Create a custom `UserPath`.
+7. Add commands for moving to the `UserPath`.
+8. Write the presentation to disk as a PPTX file.
+
+This Python code shows you how to apply the `PathFootball` (path football) effect to a shape:
+
+```python
 import aspose.slides.animation as anim
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate PrseetationEx class that represents the PPTX
+# Instantiates a Prseetation class that represents a PPTX file
 with slides.Presentation() as pres:
     sld = pres.slides[0]
 
-    # Now create effect "PathFootball" for existing shape from scratch.
+    # Creates PathFootball effect for existing shape from scratch.
     ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
 
     ashp.add_text_frame("Animated TextBox")
 
-    # Add PathFootBall animation effect
+    # Adds the PathFootBall animation effect.
     pres.slides[0].timeline.main_sequence.add_effect(ashp, 
         anim.EffectType.PATH_FOOTBALL,
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # Create some kind of "button".
+    # Creates some kind of "button".
     shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
 
-    # Create sequence of effects for this button.
+    # Creates a sequence of effects for the button.
     seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
 
-    # Create custom user path. Our object will be moved only after "button" click.
+    # Creates a custom user path. Our object will be moved only after the button is clicked.
     fxUserPath = seqInter.add_effect(ashp, 
         anim.EffectType.PATH_USER, 
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.ON_CLICK)
 
-    # Created path is empty so we should add commands for moving.
+    # Adds commands for moving since created path is empty.
     motionBhv = fxUserPath.behaviors[0]
 
     pts = [draw.PointF(0.076, 0.59)]
@@ -61,7 +120,39 @@ with slides.Presentation() as pres:
     motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
     motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
 
-    #Write the presentation as PPTX to disk
+    # Writes the PPTX file to disk
     pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Get the Animation Effects Applied to Shape**
+
+You may decide to find out the all animation effects applied to a single shape. 
+
+This Python code shows you how to get the all effects applied to a specific shape:
+
+```python
+
+```
+
+## **Change Animation Effect Timing properties**
+
+Aspose.Slides for Python via .NET allows you to change the Timing properties of an animation effect.
+
+This is the Animation Timing pane in Microsoft PowerPoint:
+
+![example1_image](shape-animation.png)
+
+These are the correspondences between PowerPoint Timing and `Effect.Timing` properties:
+
+- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/effecttriggertype/) property. 
+- PowerPoint Timing **Duration** matches the `Effect.Timing.Duration` property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. 
+- PowerPoint Timing **Delay** matches the `Effect.Timing.TriggerDelayTime` property. 
+
+This is how you change the Effect Timing properties:
+
+1. [Apply](#apply-animation-to-shape) or get the animation effect.
+2. Set new values for the `Effect.Timing` properties you need. 
+3. Save the modified PPTX file.
+
+This Python code demonstrates the operation:
 

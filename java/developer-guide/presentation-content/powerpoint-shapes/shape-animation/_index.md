@@ -3,47 +3,106 @@ title: Shape Animation
 type: docs
 weight: 50
 url: /java/shape-animation/
+keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Apply PowerPoint animation in Java"
 ---
 
-Animation is one of the most important parts of the presentations that make them more attractive and meaningful. Aspose.Slides for Java also allows developers to apply different kinds of animation effects on different kinds of shapes. In this topic, we will show how to apply animation effects on shapes.
+Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/java/animated-charts/). They give life to presentations or its constituents. 
 
-Here we will apply the PathFootball effect (one of more than 150 available effects) on a TextBox that will be activated on clicking the bevel shape (some sort of button). To apply such animation effect, please follow the steps below:
+### **Why Use Animations in Presentations?**
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type.
-- Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of [Bevel](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Bevel) type (which when clicked causes the animations to take effect).
-- Create a sequence of effects on this [Bevel](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType#Bevel) shape.
-- Create a custom User Path.
-- Add commands to the Path for moving.
-- Write the presentation to the disk as a PPTX file.
+Using animations, you can 
 
-This sample code, based on the steps above, shows you how to apply the PathFootball effect to a TextBox activated when the bevel shape gets clicked:
+* control the flow of information
+* emphasize important points
+* increase interest or participation among your audience
+* make content easier to read or assimilate or process
+* draw your readers or viewers attention to important parts in a presentation
+
+PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
+
+### **Animations in Aspose.Slides**
+
+* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](http://www.aspose.com/api/net/slides/aspose.slides.animation/) namespace,
+* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
+
+## **Apply Animation to TextBox**
+
+Aspose.Slides for Java allows you to apply animation to the text in a shape. 
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Obtain a slide reference through its index.
+3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape). 
+4. Add text to [IAutoShape.TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
+5. Get a main sequence of effects.
+6. Add an animation effect to [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape). 
+7. Set the `TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
+8. Write the presentation to disk as a PPTX file.
+
+This Java code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
 
 ```java
-// Instantiate PrseetationEx class that represents the PPTX
+
+```
+
+{{%  alert color="primary"  %}} 
+
+Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph). See [**Animated Text**](/slides/java/animated-text/).
+
+{{% /alert %}} 
+
+## **Apply Animation to PictureFrame**
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Get a slide's reference through its index.
+3. Add or get a [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe) on the slide. 
+4. Get the main sequence of effects.
+5. Add an animation effect to [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe).
+6. Write the presentation to disk as a PPTX file.
+
+This Java code shows you how to apply the `Fly` effect to a picture frame:
+
+```java
+
+```
+
+## **Apply Animation to Shape**
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Get a slide's reference through its index.
+3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape). 
+4. Add a `Bevel` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape) (when this object is clicked, the animation gets played).
+5. Create a sequence of effects on the bevel shape.
+6. Create a custom `UserPath`.
+7. Add commands for moving to the `UserPath`.
+8. Write the presentation to disk as a PPTX file.
+
+This Java code shows you how to apply the `PathFootball` (path football) effect to a shape:
+
+```java
+// Instantiate a Presentation class that represents a PPTX file.
 Presentation pres = new Presentation();
 try {
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Now create effect "PathFootball" for existing shape from scratch.
+    // Creates PathFootball effect for existing shape from scratch.
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
     ashp.addTextFrame("Animated TextBox");
 
-    // Add PathFootBall animation effect
+    // Adds the PathFootBall animation effect
     pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
             EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Create some kind of "button".
+    // Creates some kind of "button".
     IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
 
-    // Create sequence of effects for this button.
+    // Creates a sequence of effects for this button.
     ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
 
-    // Create custom user path. Our object will be moved only after "button" click.
+     // Creates a custom user path. Our object will be moved only after the button is clicked.
     IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Created path is empty so we should add commands for moving.
+     // Adds commands for moving since created path is empty.
     IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
 
     Point2D.Float[] pts = new Point2D.Float[1];
@@ -53,9 +112,46 @@ try {
     motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
     motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-    //Write the presentation as PPTX to disk
+     // Writes the PPTX file to disk
     pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **Get the Animation Effects Applied to Shape**
+
+You may decide to find out the all animation effects applied to a single shape. 
+
+This Java code shows you how to get the all effects applied to a specific shape:
+
+```java
+
+```
+
+## **Change Animation Effect Timing properties**
+
+Aspose.Slides for Java allows you to change the Timing properties of an animation effect.
+
+This is the Animation Timing pane in Microsoft PowerPoint:
+
+![example1_image](shape-animation.png)
+
+These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/java/com.aspose.slides/IEffect#getTiming--) properties:
+
+- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/java/com.aspose.slides/ITiming#getTriggerType--) property. 
+- PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://reference.aspose.com/slides/java/com.aspose.slides/ITiming#getDuration--) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. 
+- PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/java/com.aspose.slides/ITiming#getTriggerDelayTime--) property. 
+
+This is how you change the Effect Timing properties:
+
+1. [Apply](#apply-animation-to-shape) or get the animation effect.
+2. Set new values for the [Effect.Timing](https://reference.aspose.com/slides/java/com.aspose.slides/IEffect#getTiming--) properties you need. 
+3. Save the modified PPTX file.
+
+This Java code demonstrates the operation:
+
+```java
+
+```
+
