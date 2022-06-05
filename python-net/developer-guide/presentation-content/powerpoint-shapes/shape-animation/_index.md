@@ -36,7 +36,7 @@ Aspose.Slides for Python via .NET allows you to apply animation to the text in a
 4. Add text to `IAutoShape.TextFrame`.
 5. Get a main sequence of effects.
 6. Add an animation effect to [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
-7. Set the`TextAnimation.BuildType` property to the value from BuildType Enumeration.
+7. Set the`TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
 8. Write the presentation to disk as a PPTX file.
 
 This Python code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:

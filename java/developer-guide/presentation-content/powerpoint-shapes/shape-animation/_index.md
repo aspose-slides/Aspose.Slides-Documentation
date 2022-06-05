@@ -23,7 +23,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 ### **Animations in Aspose.Slides**
 
-* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](http://www.aspose.com/api/net/slides/aspose.slides.animation/) namespace,
+* Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
 ## **Apply Animation to TextBox**

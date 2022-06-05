@@ -143,7 +143,7 @@ This C++ code shows you how to get the all effects applied to a specific shape:
 
 ## **Change Animation Effect Timing properties**
 
-Aspose.Slides for .NET allows you to change the Timing properties of an animation effect.
+Aspose.Slides for C++ allows you to change the Timing properties of an animation effect.
 
 This is the Animation Timing pane in Microsoft PowerPoint:
 
