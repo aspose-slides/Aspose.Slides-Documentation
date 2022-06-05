@@ -129,7 +129,7 @@ This Java code shows you how to get the all effects applied to a specific shape:
 
 ```
 
-## **Change Animation Effect Timing properties**
+## **Change Animation Effect Timing Properties**
 
 Aspose.Slides for Java allows you to change the Timing properties of an animation effect.
 

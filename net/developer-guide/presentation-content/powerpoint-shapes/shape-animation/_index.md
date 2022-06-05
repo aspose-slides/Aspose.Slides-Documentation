@@ -184,7 +184,7 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
-## **Change Animation Effect Timing properties**
+## **Change Animation Effect Timing Properties**
 
 Aspose.Slides for .NET allows you to change the Timing properties of an animation effect.
 

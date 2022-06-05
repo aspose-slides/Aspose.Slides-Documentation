@@ -134,7 +134,7 @@ This Python code shows you how to get the all effects applied to a specific shap
 
 ```
 
-## **Change Animation Effect Timing properties**
+## **Change Animation Effect Timing Properties**
 
 Aspose.Slides for Python via .NET allows you to change the Timing properties of an animation effect.
 
