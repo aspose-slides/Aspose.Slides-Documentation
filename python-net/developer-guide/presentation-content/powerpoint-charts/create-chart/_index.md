@@ -662,13 +662,17 @@ with slides.Presentation() as pres:
 
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index. 
-1. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
+1. Add a chart with some data and specify your preferred chart type (`ChartType.RADAR` in this case).
 1. Write the modified presentation to a PPTX file
 
 This Python code shows you how to create a radar chart:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    pres.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 400, 300)
+    pres.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Creating Multi Category Charts**
