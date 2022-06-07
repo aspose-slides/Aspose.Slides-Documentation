@@ -7,74 +7,85 @@ keywords: "Format shape, format lines, format join styles, gradient fill, patter
 description: "Format shape in PowerPoint presentation in Python"
 ---
 
+In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 
+
+![format-shape-powerpoint](format-shape-powerpoint.png)
+
+**Aspose.Slides for Python via .NET** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint. 
+
 ## **Format Lines**
-Using Aspose.Slides for Python via .NET developers can add different kinds of shapes to their slides like line, rectangle. All of these shapes are made up of lines and Aspose.Slides for Python via .NET allows developers to control the format of these lines of the shapes. This is what we are going to discuss in this topic. One such line style is the Join Style supported by MS-PowerPoint 2007. This topic also discusses how to set this style with Aspose.Slides for Python via .NET. It is possible to change the format settings of the lines with which a shape is obtained. For example, you can change the width of the line, modify the color of the line, apply different kinds of styles on the lines etc. To understand the use of this feature, please follow the steps below:
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add an IShape to the slide.
-- Set the Color of the shape lines.
-- Set the Width of the shape lines.
-- Set the Line Style of the shape lines to one of the styles offered by Aspose.Slides for Python via .NET.
-- Set the [Dash Style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linedashstyle/) of the shape lines to one of the styles offered by Aspose.Slides for Python via .NET.
-- Write the modified presentation as a PPTX file.
+Using Aspose.Slides, you can specify your preferred line style for a shape. These steps outline such a procedure:
 
-In the example given below, we have selected an AutoShape of Rectangle type whose lines are formatted using Aspose.Slides for Python via .NET .
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Set a color for the shape lines.
+5. Set the width for the shape lines.
+6. Set the [line style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linestyle/) for the shape line
+7. Set the [dash style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linedashstyle/) for the shape line. 
+8. Write the modified presentation as a PPTX file.
 
-```py
+This Python code demonstrates an operation where we formatted a rectangle `AutoShape`:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate Prseetation class that represents the PPTX
+# Instantiates a Prseetation class that represents a PPTX file
 with slides.Presentation() as pres:
-    # Get the first slide
+    # Gets the first slide
     sld = pres.slides[0]
 
-    # Add autoshape of rectangle type
+    # Adds a rectangle autoshape
     shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-    # Set the fill color of the rectangle shape
+    # Sets the fill color for the rectangle shape
     shp.fill_format.fill_type = slides.FillType.SOLID
     shp.fill_format.solid_fill_color.color = draw.Color.white
 
-    # Apply some formatting on the line of the rectangle
+    # Applies some formatting on the rectangle's lines
     shp.line_format.style = slides.LineStyle.THICK_THIN
     shp.line_format.width = 7
     shp.line_format.dash_style = slides.LineDashStyle.DASH
 
-    # Set the color of the line of rectangle
+    # Sets the color for the rectangle's line
     shp.line_format.fill_format.fill_type = slides.FillType.SOLID
     shp.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    #Write the PPTX file to disk
+    # Writes the PPTX file to disk
     pres.save("RectShpLn_out-1.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Format Join Styles**
-Join Style is the style of the outer corners of the shape. They are of three types.
 
-- Mitter
-- Bevel
-- Round
+These are the 3 join type options:
 
-In the example given below, we will create three rectangles with each of the Join Style mentioned above and show the resulting output of the code.
+* Round
+* Miter
+* Bevel
 
-```py
+By default, when PowerPoint joins two lines at an angle (or a shape's corner), it uses the **Round** setting. However, if you are looking to draw a shape with very sharp angles, you may want to select **Miter**.
+
+![join-style-powerpoint](join-style-powerpoint.png)
+
+This Python code demonstrates an operation where 3 rectangles (the image above) were created with the Miter, Bevel, and Round join type settings:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate Prseetation class that represents the PPTX
+# Instantiates a Prseetation class that represents a PPTX file
 with slides.Presentation() as pres:
-	# Get the first slide
+	# Gets the first slide
 	sld = pres.slides[0]
 
-	# Add three autoshapes of rectangle type
+	# Adds 3 rectangle autoshapes
 	shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 100, 150, 75)
 	shp2 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 150, 75)
 	shp3 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 150, 75)
 
-	# Set the fill color of the rectangle shape
+	# Sets the fill color for the rectangle shape
 	shp1.fill_format.fill_type = slides.FillType.SOLID
 	shp1.fill_format.solid_fill_color.color = draw.Color.black
 	shp2.fill_format.fill_type = slides.FillType.SOLID
@@ -82,12 +93,12 @@ with slides.Presentation() as pres:
 	shp3.fill_format.fill_type = slides.FillType.SOLID
 	shp3.fill_format.solid_fill_color.color = draw.Color.black
 
-	# Set the line width
+	# Sets the line's width
 	shp1.line_format.width = 15
 	shp2.line_format.width = 15
 	shp3.line_format.width = 15
 
-	# Set the color of the line of rectangle
+	# Sets the color for the rectangle's line
 	shp1.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shp1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 	shp2.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -95,187 +106,199 @@ with slides.Presentation() as pres:
 	shp3.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shp3.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-	# Set the Join style
+	# Sets the Join Style
 	shp1.line_format.join_style = slides.LineJoinStyle.MITER
 	shp2.line_format.join_style = slides.LineJoinStyle.BEVEL
 	shp3.line_format.join_style = slides.LineJoinStyle.ROUND
 
-	# Add text to each rectangle
+	# Adds text to each rectangle
 	shp1.text_frame.text = "This is Miter Join style"
 	shp2.text_frame.text = "This is Bevel Join style"
 	shp3.text_frame.text = "This is Round Join style"
 
-	#Write the PPTX file to disk
+	# Writes the PPTX file to disk
 	pres.save("RectShpLnJoin_out-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Gradient Fill**
-Aspose.Slides for Python via .NET supports different features while filling shapes in slides in topics in upcoming topics we will cover how we can Filling Shapes with pattern, gradient, pictures , solid colors. In this topic, we will discuss about gradient effects by describing the use of two colors with gradient effects offered by Aspose.Slides for Python via .NET. To fill a shape with a gradient of two colors, GradientStops can be used. Please follow the steps below to achieve this:
+In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply a two or more colors in a setup where one color gradually fades and changes into another color. 
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add an IShape to the slide.
-- Set the Fill Type of the Shape to Gradient.
-- Add two desired colors with the defined position using Add methods exposed by GradientStops collection associated with GradientFormat class.
-- Write the modified presentation as a PPTX file.
+This is how you use Aspose.Slides to apply a gradient fill to a shape:
 
-In the example given below, we have selected the ellipse shape for the demonstration purpose.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Gradient`.
+5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
+6. Write the modified presentation as a PPTX file.
 
-```py
+This Python code demonstrates an operation where the gradient fill effect was used on an ellipse:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate Prseetation class that represents the PPTX
+# Instantiates a presentation class that represents a presentation file
 with slides.Presentation() as pres:
-    # Get the first slide
+    # Gets the first slide
     sld = pres.slides[0]
 
-    # Add autoshape of ellipse type
+    # Adds an ellipse autoshape
     shp = sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 75, 150)
 
-    # Apply some gradiant formatting to ellipse shape
+    # Applies the gradient formatting to the ellipse
     shp.fill_format.fill_type = slides.FillType.GRADIENT
     shp.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
 
-    # Set the Gradient Direction
+    # Sets the direction of the gradient
     shp.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
 
-    # Add two Gradiant Stops
+    # Adds 2 Gradiant Stops
     shp.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
     shp.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
 
-    #Write the PPTX file to disk
+    # Writes the PPTX file to disk
     pres.save("EllipseShpGrad_out-3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Pattern Fill**
-This topic covers about patterns that can also be used by developers to fill their shapes in more attractive styles. Aspose.Slides for Python via .NET offers more than 45 pre-defined pattern styles that can be used by developers to enrich their presentations. To fill a shape with some pattern using Aspose.Slides for Python via .NET, please follow the steps below:
+In PowerPoint, Pattern Fill is a formatting option that allows you to apply a two-color design comprising of dots, stripes, cross-hatches, or checks to a shape. Additionally, you get to select your preferred colors for your pattern's foreground and background. 
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add an IShape to the slide.
-- Set the Fill Type of the Shape to Pattern.
-- Set the Pattern Style of the Shape.
-- Set the [Background Color ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/)of the [PatternFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/).
-- Set the [Foreground Color ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/)of the [PatternFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/).
-- Write the modified presentation as a PPTX file.
+Aspose.Slides provides over 45 predefined styles that can be used to format shapes and enrich presentations. Even after you choose a predefined pattern, you can still specify the colors the pattern must contain.
 
-The above steps are implemented in the example given below.
+This is how you use Aspose.Slides to apply a pattern fill to a shape:
 
-```py
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Pattern`.
+5. Set your preferred pattern style for the shape. 
+6. Set the Background Color  for the [PatternFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/).
+7. Set the Foreground Color  for the [PatternFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/).
+8. Write the modified presentation as a PPTX file.
+
+This Python code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate Prseetation class that represents the PPTX
+# Instantiates a presentation class that represents a presentation file
 with slides.Presentation() as pres:
-    # Get the first slide
+    # Gets the first slide
     sld = pres.slides[0]
 
-    # Add autoshape of rectangle type
+    # Adds a rectangle autoshape
     shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
-    # Set the fill type to Pattern
+    # Sets the fill type to Pattern
     shp.fill_format.fill_type = slides.FillType.PATTERN
 
-    # Set the pattern style
+    # Sets the pattern style
     shp.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
 
-    # Set the pattern back and fore colors
+    # Sets the pattern back and fore colors
     shp.fill_format.pattern_format.back_color.color = draw.Color.light_gray
     shp.fill_format.pattern_format.fore_color.color = draw.Color.yellow
 
-    #Write the PPTX file to disk
+    #Writes the PPTX file to disk
     pres.save("RectShpPatt_out-4.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Picture Fill**
-In our previous topics, we have discussed about using pre-defined gradient and pattern styles to fill shapes. But, what if a developer needs to fill a shape with an image of his own choice? Well, to answer this question, Aspose.Slides for Python via .NET gives full freedom to its users to fill a shape with any desired image. In this topic, we will discuss that how can this be achieved. To fill a shape with a picture using Aspose.Slides for Python via .NET, please follow the steps below:
+In PowerPoint, Picture Fill is a formatting option that allows you to place a picture inside a shape. Essentially, you get to use a picture as a shape's background. 
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add an IShape to the slide.
-- Set the Fill Type of the Shape to Picture.
-- Set the Picture Fill Mode to Tile.
-- Create an IPPImage object using an image that will be used to fill the Shape.
-- Set the Picture.Image property of the PictureFillFormat object to the IPPImage object created in above step.
-- Write the modified presentation as a PPTX file.
+This is how you use Aspose.Slides to fill a shape with a picture:
 
-The above steps are implemented in the example given below.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Picture`.
+5. Set the Picture Fill Mode to Tile.
+6. Create an `IPPImage` object using the image that will be used to fill the shape.
+7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
+8. Write the modified presentation as a PPTX file.
 
-```py
+This Python code shows you how to fill a shape with a picture:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate PrseetationEx class that represents the PPTX
+# Instantiates a Prseetation class that represents a PPTX file
 with slides.Presentation() as pres:
-    # Get the first slide
+    # Gets the first slide
     sld = pres.slides[0]
 
-    # Add autoshape of rectangle type
+    # Adds a rectangle autoshape
     shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
 
-    # Set the fill type to Picture
+    # Sets the fill type to Picture
     shp.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Set the picture fill mode
+    # Sets the picture fill mode
     shp.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    # Set the picture
+    # Sets the picture
     img = draw.Bitmap(path + "Tulips.jpg")
     imgx = pres.images.add_image(img)
     shp.fill_format.picture_fill_format.picture.image = imgx
 
-    #Write the PPTX file to disk
+    # Writes the PPTX file to disk
     pres.save("RectShpPic_out-5.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Solid Color Fill**
-In this topic, we will discuss that how can developers fill their shapes with solid colors. A solid color is in fact a plain color without any kind of effects like gradient, pattern etc. Aspose.Slides for Python via .NET provides the simplest API to perform this task. To fill a shape with some solid color using Aspose.Slides for Python via .NET, please follow the steps below:
+In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a shape with a single color. The chosen color is typically a plain color. The color gets applied to the shape background with any special effects or modifications. 
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add an IShape to the slide.
-- Set the Fill Type of the Shape to Solid.
-- Set the color of the Shape.
-- Write the modified presentation as a PPTX file.
+This is how you use Aspose.Slides to apply solid color fill to a shape:
 
-The above steps are implemented in the example given below.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Solid`.
+5. Set your preferred color for the Shape.
+6. Write the modified presentation as a PPTX file.
 
-```py
+This Python code shows you how to apply the solid color fill to a box in PowerPoint:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
 
-    # Get the first slide
+    # Gets the first slide
     slide = presentation.slides[0]
 
-    # Add autoshape of rectangle type
+    # Adds a rectangle autoshape
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
-    # Set the fill type to Solid
+    # Sets the fill type to Solid
     shape.fill_format.fill_type = slides.FillType.SOLID
 
-    # Set the color of the rectangle
+    # Sets the color for the rectangle
     shape.fill_format.solid_fill_color.color = draw.Color.yellow
 
-    #Write the PPTX file to disk
+    # Writes the PPTX file to disk
     presentation.save("RectShpSolid_out-6.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## Set Transparency
 
+In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or textures, you can specify the transparency level that determines the opacity of a fill. This way, for example, if you set a low transparency level, the slide object or background behind (the shape) shows through. 
+
 Aspose.Slides allows you to set the transparency level for a shape this way:
 
-1. Create an instance of the [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-2. Obtain the reference of a slide through its Index.
-3. Add an [IShape](/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
-4. Use Color.FromArgb with the alpha component set.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Use `Color.FromArgb` with the alpha component set.
 5. Save the object as a PowerPoint file. 
 
 This python code demonstrates the process:
@@ -287,10 +310,10 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     
-    # add solid shape
+    # Adds a solid shape
     solidShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 75, 175, 75, 150)
 
-    # add transparent shape over solid
+    # Adds a transparent shape over solid
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
@@ -300,53 +323,55 @@ with slides.Presentation() as presentation:
 ```
 
 ## **Rotate Shapes**
-Aspose.Slides for Python via .NET allows developers to you rotate shapes as well in this topic, we will see how developers can rotate their shapes. Rotating a shape using Aspose.Slides for Python via .NET is as easy as ABC. To rotate a shape added to the slide, please follow the steps below:
+Aspose.Slides allows you to rotate a shape added to a slide this way: 
 
-- Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-- Obtain the reference of a slide by using its Index.
-- Add a Shape to the slide.
-- Rotate the Shape to some degrees.
-- Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Rotate the shape by the needed degrees. 
+5. Write the modified presentation as a PPTX file.
 
-In the example given below, we have rotated a rectangle shape to 90 degrees for the demonstration purpose.
+This Python code shows you how to rotate a shape by 90 degrees:
 
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # Get the first slide
+    # Gets the first slide
     sld = pres.slides[0]
 
-    # Add autoshape of rectangle type
+    # Adds a rectangle autoshape
     shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
 
-    # Rotate the shape to 90 degree
+    # Rotates the shape by 90 degrees
     shp.rotation = 90
 
-    # Write the PPTX file to disk
+    # Writes the PPTX file to disk
     pres.save("RectShpRot_out-7.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Add 3D Bevel Effects**
-Aspose.Slides for Python via .NET now supports adding 3D bevel effects to a shape. This could be done by setting ThreeDFormat properties of a shape programatically. In this topic, we will see with example how to set the 3D Bevel Effects to a shape in Aspose.Slides. In order to set the ThreeDFormat properties. Please follow the steps below:
+Aspose.Slides for Python via .NET allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties this way:
 
-1. Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-1. Add a shape on slide.
-1. Set ThreeDFormat properties of shape.
-1. Write the presentation to disk.
-   In the example given below, we have applied 3D bevel effects on a shape.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Set your preferred parameters for the shape's [ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties. 
+5. Write the presentation to disk.
 
-```py
+This Python code shows you how to add 3D bevel effects to a shape:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Create an instance of Presentation class
+# Creates an instance of the Presentation class
 with slides.Presentation() as pres:
     slide = pres.slides[0]
 
-    # Add a shape on slide
+    # Adds a shape tp the slide
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 30, 30, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.green
@@ -355,7 +380,7 @@ with slides.Presentation() as pres:
     format.solid_fill_color.color = draw.Color.orange
     shape.line_format.width = 2.0
 
-    # Set three_dformat properties of shape
+    # Sets the shape's ThreeDFormat properties
     shape.three_dformat.depth = 4
     shape.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
     shape.three_dformat.bevel_top.height = 6
@@ -364,25 +389,27 @@ with slides.Presentation() as pres:
     shape.three_dformat.light_rig.light_type = slides.LightRigPresetType.THREE_PT
     shape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
 
-    # Write the presentation as a PPTX file
+    # Writes the presentation as a PPTX file
     pres.save("Bavel_out-8.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Add 3D Rotation Effect**
-Aspose.Slides for Python via .NET now supports adding 3D Rotation effects to a shape. This could be done by setting ThreeDFormat properties of a shape programatically. In this topic, we will see with example how to set the 3D Rotation Effects to a shape in Aspose.Slides. In order to set the ThreeDFormat properties. Please follow the steps below:
+Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties this way:
 
-1. Create an instance of [Presentation class](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/).
-1. Add a shape on slide.
-1. Set ThreeDFormat properties of CameraType and LightType properties to shape.
-1. Write the presentation to disk.
-   In the example given below, we have applied 3D Rotation effects on a shape.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index. 
+3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+4. Specify your preferred figures for CameraType and LightType.
+5. Write the presentation to disk. 
 
-```py
+This Python code shows you how to apply 3D rotation effects to a shape:
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Create an instance of Presentation class
+# Creates an instance of the Presentation class
 with slides.Presentation() as pres:
     autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 200, 200)
 
