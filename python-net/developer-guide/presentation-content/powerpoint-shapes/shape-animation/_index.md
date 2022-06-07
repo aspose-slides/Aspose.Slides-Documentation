@@ -42,7 +42,29 @@ Aspose.Slides for Python via .NET allows you to apply animation to the text in a
 This Python code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:
 
 ```python
+import aspose.slides as slides
 
+# Instantiates a presentation class that represents a presentation file.
+with slides.Presentation() as pres:
+    sld = pres.slides[0]
+    
+    # Adds new AutoShape with text
+    autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
+
+    textFrame = autoShape.text_frame
+    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+
+    # Gets the main sequence of the slide.
+    sequence = sld.timeline.main_sequence
+
+    # Adds Fade animation effect to shape
+    effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    # Animates shape text by 1st level paragraphs
+    effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
+
+    # Save the PPTX file to disk
+    pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{%  alert color="primary"  %}} 
@@ -63,7 +85,29 @@ Besides applying animations to text, you can also apply animations to a single [
 This Python code shows you how to apply the `Fly` effect to a picture frame:
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+
+# Instantiates a presentation class that represents a presentation file.
+with slides.Presentation() as pres:
+    # Load Image to be added in presentaiton image collection
+    img = draw.Bitmap("aspose-logo.jpg")
+    image = pres.images.add_image(img)
+
+    # Adds picture frame to slide
+    picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+
+    # Gets the main sequence of the slide.
+    sequence = pres.slides[0].timeline.main_sequence
+
+    # Adds Fly from Left animation effect to picture frame
+    effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
+        slides.animation.EffectSubtype.LEFT, 
+        slides.animation.EffectTriggerType.ON_CLICK)
+
+    # Save the PPTX file to disk
+    pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Apply Animation to Shape**
@@ -131,7 +175,23 @@ You may decide to find out the all animation effects applied to a single shape.
 This Python code shows you how to get the all effects applied to a specific shape:
 
 ```python
+import aspose.slides as slides
 
+# Instantiates a presentation class that represents a presentation file.
+with slides.Presentation("AnimExample_out.pptx") as pres:
+    firstSlide = pres.slides[0]
+
+    # Gets the main sequence of the slide.
+    sequence = firstSlide.timeline.main_sequence
+
+    # Gets the first shape on slide.
+    shape = firstSlide.shapes[0]
+
+    # Gets all animation effects applied to the shape.
+    shapeEffects = sequence.get_effects_by_shape(shape)
+
+    if len(shapeEffects) > 0:
+        print("The shape " + shape.name + " has " + str(len(shapeEffects)) + " animation effects.")
 ```
 
 ## **Change Animation Effect Timing Properties**
@@ -156,3 +216,26 @@ This is how you change the Effect Timing properties:
 
 This Python code demonstrates the operation:
 
+```py
+import aspose.slides as slides
+
+# Instantiates a presentation class that represents a presentation file.
+with slides.Presentation("AnimExample_out.pptx") as pres:
+    # Gets the main sequence of the slide.
+    sequence = pres.slides[0].timeline.main_sequence
+
+    # Gets the first effect of main sequence.
+    effect = sequence[0]
+
+    # Changes effect TriggerType to start on click
+    effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
+
+    # Changes effect Duration
+    effect.timing.duration = 3
+
+    # Changes effect TriggerDelayTime
+    effect.timing.trigger_delay_time = 0.5
+
+    # Saves the PPTX file to disk
+    pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
+```
