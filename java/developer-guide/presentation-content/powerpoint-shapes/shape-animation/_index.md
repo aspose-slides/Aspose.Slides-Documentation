@@ -42,7 +42,31 @@ Aspose.Slides for Java allows you to apply animation to the text in a shape.
 This Java code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
 
 ```java
+// Instantiates a presentation class that represents a presentation file.
+Presentation pres = new Presentation();
+try {
+    ISlide sld = pres.getSlides().get_Item(0);
 
+    // Adds new AutoShape with text
+    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+
+    ITextFrame textFrame = autoShape.getTextFrame();
+    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
+
+    // Gets the main sequence of the slide.
+    ISequence sequence = sld.getTimeline().getMainSequence();
+
+    // Adds Fade animation effect to shape
+    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+    // Animates shape text by 1st level paragraphs
+    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
+
+    // Save the PPTX file to disk
+    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 {{%  alert color="primary"  %}} 
@@ -63,7 +87,28 @@ Besides applying animations to text, you can also apply animations to a single [
 This Java code shows you how to apply the `Fly` effect to a picture frame:
 
 ```java
+// Instantiates a presentation class that represents a presentation file.
+Presentation pres = new Presentation();
+try {
+    // Load Image to be added in presentaiton image collection
+    byte[] imageBytes = Files.readAllBytes(Paths.get("aspose-logo.jpg"));
+    IPPImage image = pres.getImages().addImage(imageBytes);
 
+    // Adds picture frame to slide
+    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+
+    // Gets the main sequence of the slide.
+    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+
+    // Adds Fly from Left animation effect to picture frame
+    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
+
+    // Save the PPTX file to disk
+    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
+} catch(IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Apply Animation to Shape**
@@ -126,7 +171,25 @@ You may decide to find out the all animation effects applied to a single shape.
 This Java code shows you how to get the all effects applied to a specific shape:
 
 ```java
+// Instantiates a presentation class that represents a presentation file.
+Presentation pres = new Presentation("AnimExample_out.pptx");
+try {
+    ISlide firstSlide = pres.getSlides().get_Item(0);
 
+    // Gets the main sequence of the slide.
+    ISequence sequence = firstSlide.getTimeline().getMainSequence();
+
+    // Gets the first shape on slide.
+    IShape shape = firstSlide.getShapes().get_Item(0);
+
+    // Gets all animation effects applied to the shape.
+    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
+
+    if (shapeEffects.length > 0)
+        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Change Animation Effect Timing Properties**
@@ -152,6 +215,28 @@ This is how you change the Effect Timing properties:
 This Java code demonstrates the operation:
 
 ```java
+// Instantiates a presentation class that represents a presentation file.
+Presentation pres = new Presentation("AnimExample_out.pptx");
+try {
+    // Gets the main sequence of the slide.
+    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
 
+    // Gets the first effect of main sequence.
+    IEffect effect = sequence.get_Item(0);
+
+    // Changes effect TriggerType to start on click
+    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+
+    // Changes effect Duration
+    effect.getTiming().setDuration(3f);
+
+    // Changes effect TriggerDelayTime
+    effect.getTiming().setTriggerDelayTime(0.5f);
+
+    // Saves the PPTX file to disk
+    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
