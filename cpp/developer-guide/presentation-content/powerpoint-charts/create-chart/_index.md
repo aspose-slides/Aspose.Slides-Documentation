@@ -789,7 +789,10 @@ This C++ code shows you how to create an histogram chart:
 This C++ code shows you how to create a radar chart:
 
 ```c++
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
+presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Creating Multi Category Charts**
@@ -879,7 +882,62 @@ This C++ code shows you how to create a multicategory chart:
 This C++ code shows you how to update a chart:
 
 ```c++
+// Instantiates a Presentation class that represents a PPTX file
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
+// Accesses the first slideMarker
+System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+
+// Adds a chart with default data
+System::SharedPtr<IChart> chart = System::DynamicCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
+
+// Sets the index for the chart data sheet
+int32_t defaultWorksheetIndex = 0;
+
+// Gets the chart data worksheet
+System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+
+
+// Changes the chart Category Name
+fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
+fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
+
+// Takes the first chart series
+System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+// Updates the series data
+fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
+// Modifying series name
+series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
+series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
+series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
+
+// Take Second chart series
+series = chart->get_ChartData()->get_Series()->idx_get(1);
+
+// Now updating series data
+fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
+// Modifying series name
+series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
+series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
+series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
+
+
+// Now, Adding a new series
+chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
+
+// Take 3rd chart series
+series = chart->get_ChartData()->get_Series()->idx_get(2);
+
+// Now populating series data
+series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
+series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
+series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
+
+chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
+
+// Save presentation with chart
+pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
