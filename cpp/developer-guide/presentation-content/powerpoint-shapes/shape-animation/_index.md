@@ -42,7 +42,30 @@ Aspose.Slides for C++ allows you to apply animation to the text in a shape.
 This C++ code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
+System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+
+// Adds new AutoShape with text
+System::SharedPtr<IAutoShape> autoShape =
+    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+
+System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
+
+// Gets the main sequence of the slide.
+System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
+
+// Adds Fade animation effect to shape
+System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
+    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
+
+// Animates shape text by 1st level paragraphs
+effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
+
+// Save the PPTX file to disk
+pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{%  alert color="primary"  %}} 
@@ -63,7 +86,26 @@ Besides applying animations to text, you can also apply animations to a single [
 This C++ code shows you how to apply the `Fly` effect to a picture frame:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
+// Load Image to be added in presentaiton image collection
+System::SharedPtr<System::Drawing::Image> img = System::MakeObject<System::Drawing::Bitmap>(u"aspose-logo.jpg");
+System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
+
+// Adds picture frame to slide
+System::SharedPtr<IPictureFrame> picFrame =
+    pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
+
+// Gets the main sequence of the slide.
+System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
+
+// Adds Fly from Left animation effect to picture frame
+System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides::Animation::EffectType::Fly,
+    Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
+
+// Save the PPTX file to disk
+pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Apply Animation to Shape**
@@ -138,7 +180,24 @@ You may decide to find out the all animation effects applied to a single shape.
 This C++ code shows you how to get the all effects applied to a specific shape:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
+System::SharedPtr<ISlide> firstSlide = pres->get_Slides()->idx_get(0);
+
+// Gets the main sequence of the slide.
+System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+
+// Gets the first shape on slide.
+System::SharedPtr<IShape> shape = firstSlide->get_Shapes()->idx_get(0);
+
+// Gets all animation effects applied to the shape.
+System::ArrayPtr<System::SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
+
+if (shapeEffects->get_Length() > 0)
+{
+    System::Console::WriteLine(System::String(u"The shape ") + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
+}
 ```
 
 ## **Change Animation Effect Timing Properties**
@@ -164,6 +223,25 @@ This is how you change the Effect Timing properties:
 This C++ code demonstrates the operation:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
+// Gets the main sequence of the slide.
+System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
+
+// Gets the first effect of main sequence.
+System::SharedPtr<IEffect> effect = sequence->idx_get(0);
+
+// Changes effect TriggerType to start on click
+effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
+
+// Changes effect Duration
+effect->get_Timing()->set_Duration(3.f);
+
+// Changes effect TriggerDelayTime
+effect->get_Timing()->set_TriggerDelayTime(0.5f);
+
+// Saves the PPTX file to disk
+pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
