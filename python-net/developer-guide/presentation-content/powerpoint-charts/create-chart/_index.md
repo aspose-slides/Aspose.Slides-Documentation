@@ -8,26 +8,35 @@ description: "Create chart in PowerPoint presentation in Python"
 ---
 
 ## **Create Chart**
-Aspose.Slides for Python via .NET allows developers to create custom charts from slides. Aspose.Slides for Python via .NET creates charts independently of Aspose.Cells. 
 
-Aspose.Slides for Python via .NET has simple APIs that allow you to create different types of charts, update charts, and perform other tasks involving charts. 
+Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 
 
+### **Why Create Charts?**
 
+Using charts, you get to
 
-## **Creating Normal Charts**
+* aggregate, condense, or summarize large amounts of data on a single slide in a presentation
+* expose patterns and trends in data
+* deduce the direction and momentum of data over time or with respect to a specific unit of measurement 
+* spots outliers, aberrations, deviations, errors, nonsensical data, etc. 
+* communicate or present complex data
+
+In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
+
+### **Creating Normal Charts**
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain the reference of a slide by index.
-1. Add a chart with default data along with the desired type.
-1. Add a chart title.
+1. Get a slide's reference through its index.
+1. Add a chart with some data and specify your preferred chart type. 
+1. Add a title for the chart. 
 1. Access the chart data worksheet.
 1. Clear all the default series and categories.
 1. Add new series and categories.
-1. Add new chart data for chart series.
-1. Add fill color for chart series.
-1. Add chart series labels.
+1. Add some new chart data for the chart series.
+1. Add a fill color for chart series.
+1. Add labels for the chart series. 
 1. Write the modified presentation as a PPTX file.
 
-Sample code used to create a normal chart:
+This Python code shows you how to create a normal chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -117,8 +126,17 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Creating Scattered Charts**
-Sample code used to create a scatter chart with different series of markers:
+### **Creating Scattered Charts**
+Scattered charts (also known as scattered plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables. 
+
+You may want to use a scattered chart when 
+
+* you have paired numerical data
+* you have 2 variables that pair well together
+* you want to determine whether 2 variables are related
+* you have an independent variable that has multiple values for a dependent variable
+
+This Python code shows you how to create a scattered charts with a different series of markers: 
 
 ```py
 import aspose.slides.charts as charts
@@ -183,11 +201,13 @@ with slides.Presentation() as pres:
     pres.save("AsposeChart_out-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Creating Pie Charts**
 
-## **Creating Pie Charts**
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead. 
+
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.Pie).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, `ChartType.Pie`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -198,7 +218,7 @@ with slides.Presentation() as pres:
 1. Set the rotation angle for pie chart slides.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a pie chart:
+This Python code shows you how to create a pie chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -308,18 +328,20 @@ with slides.Presentation() as presentation:
     presentation.save("PieChart_out-3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Creating Tree Map Charts**
 
-## **Creating Tree Map Charts**
+Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
+
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.TreeMap).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, `ChartType.TreeMap`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a chart:
+This Python code shows you how to create a tree map chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -377,9 +399,9 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Creating Stock Charts**
+### **Creating Stock Charts**
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -388,7 +410,7 @@ with slides.Presentation() as pres:
 1. Specify HiLowLines format.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a chart:
+Sample Python code used to create a stock chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -443,9 +465,9 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Creating Box and Whisker Charts**
+### **Creating Box and Whisker Charts**
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.BoxAndWhisker).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -453,7 +475,7 @@ with slides.Presentation() as pres:
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Python code shows you how to create a box and whisker chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -496,13 +518,13 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Creating Funnel Charts**
+### **Creating Funnel Charts**
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType.Funnel).
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Python code shows you how to create a funnel chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -537,15 +559,13 @@ with slides.Presentation() as pres:
     pres.save("Funnel-7.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
-## **Creating Sunburst Charts**
+### **Creating Sunburst Charts**
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.sunburst).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, `ChartType.sunburst`).
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Python code shows you how to create a sunburst chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -600,16 +620,16 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Creating Histogram Charts**
+### **Creating Histogram Charts**
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.Histogram).
-1. Access the chart data IChartDataWorkbook.
+1. Get a slide's reference through its index. 
+1. Add some chart with some data and specify your preferred chart type (`ChartType.Histogram` in this case).
+1. Access the chart data `IChartDataWorkbook`.
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Python code shows you how to create an histogram chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -638,10 +658,27 @@ with slides.Presentation() as pres:
     pres.save("Histogram-9.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Creating Radar Charts**
 
-## **Creating Multi Category Charts**
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Get a slide's reference through its index. 
+1. Add a chart with some data and specify your preferred chart type (`ChartType.RADAR` in this case).
+1. Write the modified presentation to a PPTX file
+
+This Python code shows you how to create a radar chart:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    pres.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 400, 300)
+    pres.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Creating Multi Category Charts**
+
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.ClusteredColumn).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
@@ -649,7 +686,7 @@ with slides.Presentation() as pres:
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file.
 
-The following code is used to create a chart.
+This Python code shows you how to create a multicategory chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -699,19 +736,17 @@ with slides.Presentation() as pres:
     pres.save("AsposeChart_out-10.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Updating Charts**
-To update a chart, do this:
 
-- Open an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class containing the chart.
-- Obtain the reference of a slide by using its Index.
-- Traverse through all shapes to find the desired chart.
-- Access the chart data worksheet.
-- Modify the chart data series data by changing series values.
-- Add a new series and populate the data in it.
-- Write the modified presentation as a PPTX file.
+1. Instantiate a [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class that represents the presentation containing the chart.
+2. Get a slide's reference through its index.
+3. Traverse through all shapes to find the desired chart.
+4. Access the chart data worksheet.
+5. Modify the chart data series data by changing series values.
+6. Add a new series and populate the data in it.
+7. Write the modified presentation as a PPTX file.
 
-Code sample used to update a chart:
+This Python code shows you how to update a chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -775,19 +810,15 @@ with slides.Presentation(path + "ExistingChart.pptx") as pres:
     pres.save("AsposeChartModified_out-11.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
 ## **Setting Data Range for Charts**
 
-To set the data range for a chart, do this:
+1. Instantiate a [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class that represents the presentation containing the chart.
+2. Get a slide's reference through its index.
+3. Traverse through all shapes to find the desired chart.
+4. Access the chart data and set the range.
+5. Save the modified presentation as a PPTX file.
 
-- Open an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class containing the chart.
-- Obtain the reference of a slide by using its Index.
-- Traverse through all shapes to find the desired chart.
-- Access the chart data and set the range.
-- Save the modified presentation as a PPTX file.
-
-Code sample used to set data range for a chart:
+This Python code shows you how to set the data range for a chart:
 
 ```py
 import aspose.slides.charts as charts
@@ -805,9 +836,9 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
 
 
 ## **Using Default Markers in Charts**
-Aspose.Slides for Python via .NET has a simple API that can help you set the chart series marker automatically. When you use a default marker in charts, each chart series get different default marker symbols automatically.
+When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
-Code sample used to set a chart series marker automatically:
+This Python code shows you how to set a chart series market automatically:
 
 ```py
 import aspose.slides.charts as charts
@@ -849,12 +880,4 @@ with slides.Presentation() as pres:
 
     pres.save("DefaultMarkersInChart-13.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
-
-
-
-
-
-
 

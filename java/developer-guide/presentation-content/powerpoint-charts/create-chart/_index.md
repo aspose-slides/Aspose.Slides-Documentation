@@ -7,170 +7,187 @@ url: /java/create-chart/
 ---
 
 ## **Create Chart**
-Aspose.Slides for Java allows developers to create custom charts from slides. Aspose.Slides for Java creates charts independently of Aspose.Cells. 
+Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 
 
-Aspose.Slides for Java has simple APIs that allow you to create different types of charts, update charts, and perform other tasks involving charts. 
+#### **Why Create Charts?**
 
+Using charts, you get to
 
+* aggregate, condense, or summarize large amounts of data on a single slide in a presentation
+* expose patterns and trends in data
+* deduce the direction and momentum of data over time or with respect to a specific unit of measurement 
+* spots outliers, aberrations, deviations, errors, nonsensical data, etc. 
+* communicate or present complex data
 
-## **Creating Normal Charts**
+In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
+
+### **Creating Normal Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain the reference of a slide by index.
-1. Add a chart with default data along with the desired type.
-1. Add a chart title.
+1. Get a slide's reference through its index.
+1. Add a chart with some data and specify your preferred chart type. 
+1. Add a title for the chart. 
 1. Access the chart data worksheet.
 1. Clear all the default series and categories.
 1. Add new series and categories.
-1. Add new chart data for chart series.
-1. Add fill color for chart series.
-1. Add chart series labels.
+1. Add some new chart data for the chart series.
+1. Add a fill color for chart series.
+1. Add labels for the chart series. 
 1. Write the modified presentation as a PPTX file.
 
-Sample code used to create a normal chart:
+This Java code shows you how to create a normal chart:
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses the first slide
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Add chart with default data
+    // Adds a chart with its default data
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // Setting chart Title
+    // Sets the chart Title
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.hasTitle();
     
-    // Set first series to Show Values
+    // Sets the first series to show values
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Setting the index of chart data sheet
+    // Sets the index for the chart data sheet
     int defaultWorksheetIndex = 0;
     
-    // Getting the chart data WorkSheet
+    // Gets the chart data WorkSheet
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Delete default generated series and categories
+    // Deletes the default generated series and categories
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // Adding new series
+    // Adds new series
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // Adding new categories
+    // Adds new categories
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Take first chart series
+    // Takes the first chart series
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Now populating series data
+    // Now populates the series data
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Setting fill color for series
+    // Sets the fill color for series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Take second chart series
+    // Takes the second chart series
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Now populating series data
+    // Populates series data
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Setting fill color for series
+    // Sets the fill color for the series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // create custom labels for each of categories for new series
-    // first label will be show Category name
+    //Create custom labels for each categories for the new series
+    // Sets the first label to show Category name
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // Show value for third label
+    // Shows value for the third label
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Save presentation with chart
+    // Saves the presentation with chart
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Creating Scattered Charts**
-Sample code used to create a scatter chart with different series of markers:
+### **Creating Scattered Charts**
+Scattered charts (also known as scattered plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables. 
+
+You may want to use a scattered chart when 
+
+* you have paired numerical data
+* you have 2 variables that pair well together
+* you want to determine whether 2 variables are related
+* you have an independent variable that has multiple values for a dependent variable
+
+This Java code shows you how to create a scattered charts with a different series of markers: 
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses the first slide
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Creating the default chart
+    // Creates the default chart
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Getting the default chart data worksheet index
+    // Gets the default chart data worksheet index
     int defaultWorksheetIndex = 0;
     
-    // Getting the chart data worksheet
+    // Gets the chart data worksheet
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Delete demo series
+    // Deletes the demo series
     chart.getChartData().getSeries().clear();
     
-    // Add new series
+    // Adds new series
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Take first chart series
+    // Takes first chart series
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Add new point (1:3) there.
+    // Adds a new point (1:3) to the series
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
-    // Add new point (2:10)
+    // Adds a new point (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Edit the type of series
+    // Changes the series type
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Changing the chart series marker
+    // Changes the chart series marker
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Take second chart series
+    // Takes the second chart series
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Add new point (5:2) there.
+    // Adds a new point (5:2) there
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
-    // Add new point (3:1)
+    // Adds a new point (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
     
-    // Add new point (2:2)
+    // Adds a new point (2:2)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
     
-    // Add new point (5:1)
+    // Adds a new point (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Changing the chart series marker
+    // Changes the chart series marker
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -180,10 +197,13 @@ try {
 }
 ```
 
-## **Creating Pie Charts**
+### **Creating Pie Charts**
+
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead
+
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
+1. Add a chart with default data along with the desired type (in this case, [ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
 1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -194,46 +214,46 @@ try {
 1. Set the rotation angle for pie chart slides.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a pie chart:
+This Java code shows you how to create a pie chart:
 
 ```java
-// Instantiate Presentation class that represents PPTX file
+// Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Accesses the first slide
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // Add chart with default data
+    // Adds a chart with default data
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // Setting chart Title
+    // Sets the chart Title
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Set first series to Show Values
+    // Sets the first series to show values
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Setting the index of chart data sheet
+    // Sets the index for the chart data sheet
     int defaultWorksheetIndex = 0;
     
-    // Getting the chart data worksheet
+    // Gets the chart data worksheet
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Delete default generated series and categories
+    // Deletes the default generated series and categories
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // Adding new categories
+    // Adds new categories
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Adding new series
+    // Adds new series
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Now populating series data
+    //Populates the series data
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -247,7 +267,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // Setting Sector border
+    // Sets the Sector border
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -258,7 +278,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Setting Sector border
+    // Sets the Sector border
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -269,14 +289,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Setting Sector border
+    // Sets the Sector border
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Create custom labels for each of categories for new series
+    // Creates custom labels for each of categories for new series
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -291,30 +311,33 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Showing Leader Lines for Chart
+    // Shows Leader Lines for Chart
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Setting Rotation Angle for Pie Chart Sectors
+    // Sets the Rotation Angle for Pie Chart Sectors
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Save presentation with chart
+    // Saves the presentation with a chart
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Creating Tree Map Charts**
+### **Creating Tree Map Charts**
+
+Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
+
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, [ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
 1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a chart:
+This Java code shows you how to create a tree map chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -369,7 +392,7 @@ try {
 }
 ```
 
-## **Creating Stock Charts**
+### **Creating Stock Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
@@ -380,7 +403,7 @@ try {
 1. Specify HiLowLines format.
 1. Write the modified presentation to a PPTX file
 
-Sample code used to create a chart:
+Sample Java code used to create a stock chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -436,9 +459,9 @@ try {
 }
 ```
 
-## **Creating Box and Whisker Charts**
+### **Creating Box and Whisker Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
 1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
@@ -446,7 +469,7 @@ try {
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Java code shows you how to create a box and whisker chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -486,13 +509,13 @@ try {
 }
 ```
 
-## **Creating Funnel Charts**
+### **Creating Funnel Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+The Java code shows you how to create a funnel chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -527,13 +550,13 @@ try {
 }
 ```
 
-## **Creating Sunburst Charts**
+### **Creating Sunburst Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case,[ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Java code shows you how to create a sunburst chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -586,16 +609,16 @@ try {
 }
 ```
 
-## **Creating Histogram Charts**
+### **Creating Histogram Charts**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
 1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Write the modified presentation to a PPTX file
 
-The following code is used to create a chart.
+This Java code shows you how to create an histogram chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -623,9 +646,29 @@ try {
 }
 ```
 
-## **Creating Multi Category Charts**
+### **Creating Radar Charts**
+
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
+1. Get a slide's reference through its index. 
+1. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
+1. Write the modified presentation to a PPTX file
+
+This Java code shows you how to create an radar chart:
+
+```java
+Presentation pres = new Presentation();
+try {
+    pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
+    pres.save("Radar-chart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+### **Creating Multi Category Charts**
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Get a slide's reference through its index. 
 1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
 1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
@@ -633,7 +676,7 @@ try {
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file.
 
-The following code is used to create a chart.
+This Java code shows you how to create a multicategory chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -683,17 +726,15 @@ try {
 ```
 
 ## **Updating Charts**
-To update a chart, do this:
+1. Instantiate a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update. 
+2. Obtain the reference of a slide by using its Index.
+3. Traverse through all shapes to find the desired chart.
+4. Access the chart data worksheet.
+5. Modify the chart data series data by changing series values.
+6. Add a new series and populate the data in it.
+7. Write the modified presentation as a PPTX file.
 
-- Open an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class containing the chart.
-- Obtain the reference of a slide by using its Index.
-- Traverse through all shapes to find the desired chart.
-- Access the chart data worksheet.
-- Modify the chart data series data by changing series values.
-- Add a new series and populate the data in it.
-- Write the modified presentation as a PPTX file.
-
-Code sample used to update a chart:
+This Java code shows you how to update a chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -756,13 +797,13 @@ try {
 
 To set the data range for a chart, do this:
 
-- Open an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class containing the chart.
-- Obtain the reference of a slide by using its Index.
-- Traverse through all shapes to find the desired chart.
-- Access the chart data and set the range.
-- Save the modified presentation as a PPTX file.
+1. Instantiate a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart.
+2. Get a slide's reference through its index.
+3. Traverse through all shapes to find the desired chart.
+4. Access the chart data and set the range.
+5. Save the modified presentation as a PPTX file.
 
-Code sample used to set data range for a chart:
+This Java code shows you how to set the data range for a chart:
 
 ```java
 Presentation pres = new Presentation();
@@ -779,9 +820,9 @@ try {
 ```
 
 ## **Using Default Markers in Charts**
-Aspose.Slides for Java has a simple API that can help you set the chart series marker automatically. When you use a default marker in charts, each chart series get different default marker symbols automatically.
+When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
-Code sample used to set a chart series marker automatically:
+This Java code shows you how to set a chart series market automatically:
 
 ```java
 Presentation pres = new Presentation();
