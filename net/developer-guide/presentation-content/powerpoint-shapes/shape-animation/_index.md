@@ -7,9 +7,9 @@ keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint p
 description: "Apply PowerPoint animation in C# or .NET"
 ---
 
-Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/net/animated-charts/). They give life to presentations or its constituents. 
+Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/net/animated-charts/). They give life to presentations or its constituents. 
 
-### Why Use Animations in Presentations?
+### **Why Use Animations in Presentations?**
 
 Using animations, you can 
 
@@ -23,24 +23,23 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 ### **Animations in Aspose.Slides**
 
-* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](http://www.aspose.com/api/net/slides/aspose.slides.animation/) namespace,
-
-* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://apireference.aspose.com/slides/net/aspose.slides.animation/effecttype) enumeration. These effects are effectively the same effects used in PowerPoint or their equivalents.
+* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/) namespace,
+* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://apireference.aspose.com/slides/net/aspose.slides.animation/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
 ## **Apply Animation to TextBox**
 
 Aspose.Slides for .NET allows you to apply animation to the text in a shape. 
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-2. Obtain a slide reference through its index.
+2. Get a slide's reference through its index.
 3. Add a `rectangle` [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape). 
 4. Add text to [IAutoShape.TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe).
 5. Get a main sequence of effects.
 6. Add an animation effect to [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape).
-7. Change an effect [TextAnimation.BuildType](https://apireference.aspose.com/slides/net/aspose.slides.animation/textanimation/properties/buildtype) property to the value from [BuildType Enumeration](https://apireference.aspose.com/slides/net/aspose.slides.animation/buildtype).
+7. Set the [TextAnimation.BuildType](https://apireference.aspose.com/slides/net/aspose.slides.animation/textanimation/properties/buildtype) property to the value from [BuildType Enumeration](https://apireference.aspose.com/slides/net/aspose.slides.animation/buildtype).
 8. Write the presentation to disk as a PPTX file.
 
-This C# code shows you how to apply the `Fade` effect to AutoShape and set the text animation to `By 1st Level Paragraphs` value:
+This C# code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:
 
 ```c#
 // Instantiates a presentation class that represents a presentation file.
@@ -77,9 +76,9 @@ Besides applying animations to text, you can also apply animations to a single [
 ## **Apply Animation to PictureFrame**
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-2. Get a slide reference through its index.
+2. Get a slide's reference through its index.
 3. Add or get a [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ipictureframe) on the slide. 
-5. Get a main sequence of effects.
+5. Get the main sequence of effects.
 6. Add an animation effect to [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/ipictureframe).
 8. Write the presentation to disk as a PPTX file.
 
@@ -110,7 +109,7 @@ using (Presentation pres = new Presentation())
 ## **Apply Animation to Shape**
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-2. Obtain a slide reference through its index.
+2. Get a slide's reference through its index.
 3. Add a `rectangle` [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape). 
 4. Add a `Bevel` [IAutoShape](https://apireference.aspose.com/slides/net/aspose.slides/iautoshape) (when this object is clicked, the animation gets played).
 5. Create a sequence of effects on the bevel shape.
@@ -121,7 +120,7 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to apply the `PathFootball` (path football) effect to a shape:
 
 ```c#
-// Instantiates a presentation class that represents a presentation file.
+// Instantiates a Presentation class that represents a presentation file.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
@@ -131,7 +130,7 @@ using (Presentation pres = new Presentation())
 
     ashp.AddTextFrame("Animated TextBox");
 
-    // Adds PathFootBall animation effect.
+    // Adds the PathFootBall animation effect.
     pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
                            EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
@@ -144,7 +143,7 @@ using (Presentation pres = new Presentation())
     // Creates a custom user path. Our object will be moved only after the button is clicked.
     IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Adds commands for moving since created path is empty
+    // Adds commands for moving since created path is empty.
     IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
 
     PointF[] pts = new PointF[1];
@@ -185,13 +184,13 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
-## **Change Animation Effect Timing properties**
+## **Change Animation Effect Timing Properties**
 
-Aspose.Slides for .NET allows you to change the Timing properties of animation effect.
+Aspose.Slides for .NET allows you to change the Timing properties of an animation effect.
 
 This is the Animation Timing pane in Microsoft PowerPoint:
 
-![example1_image](shape-animation-0.png)
+![example1_image](shape-animation.png)
 
 These are the correspondences between PowerPoint Timing and [Effect.Timing](https://apireference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing) properties:
 - PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://apireference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggertype) property. 
