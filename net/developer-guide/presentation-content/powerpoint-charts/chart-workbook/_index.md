@@ -93,7 +93,7 @@ using (Presentation pres = new Presentation())
 
 ## **Specify Data Source Type**
 
-This C# code shows you how to specify a type for a data source:
+This C# code shows you how to specify a type for a data source: xxx
 
 ```
 
