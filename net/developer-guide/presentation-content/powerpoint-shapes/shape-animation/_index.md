@@ -1,7 +1,7 @@
 ---
 title: Shape Animation
 type: docs
-weight: 50
+weight: 60
 url: /net/shape-animation/
 keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Apply PowerPoint animation in C# or .NET"
