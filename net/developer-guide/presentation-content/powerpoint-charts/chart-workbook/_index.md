@@ -7,9 +7,10 @@ keywords: "Chart workbook, chart data, PowerPoint presentation, C#, Csharp, Aspo
 description: "Chart workbook in PowerPoint presentation in C# or .NET"
 ---
 
-## **Chart Workbook**
-### **Set Chart Data from Workbook**
-A new property has been added to set chart data from workbook. Now Aspose.Slides does allow ReadWorkbookStream() and WrtiteWorkbookStream() methods to read and write chart data workbooks containing chart data edited using Aspose.Cells. However, the chart data needs to be organized in same way or of similar type as of source type. Below sample example is given.
+## **Set Chart Data from Workbook**
+Aspose.Slides provides the [ReadWorkbookStream](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+
+This C# code demonstrates a sample operation:
 
 ```c#
 Presentation pres = new Presentation(dataDir+"Test.pptx");
@@ -38,22 +39,22 @@ pres.Save(dataDir+"response2.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
-### **Set WorkBook Cell as Chart DataLabel**
-Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cell used as DataLabel:
-
+## **Set WorkBook Cell as Chart DataLabel**
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the Bubble type.
-1. Accessing the chart series.
-1. Setting Workbook cell as data label.
-1. Save the presentation to a PPTX file.
+1. Get a slide's reference through its index.
+1. Add a Bubble chart with some data.
+1. Access the chart series.
+1. Set the workbook cell as a data label.
+1. Save the presentation.
+
+This C# code shows you to set a workbook cell as a chart data label:
 
 ```c#
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// Instantiate Presentation class that represents a presentation file 
+// Instantiates a presentation class that represents a presentation file 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -76,34 +77,9 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
+## Manage Worksheets
 
-### **Get Chart External Data Source Workbook Path**
-Aspose.Slides for .NET provides a simple API for getting value from WorkBook Cell used as DataLabel:
-
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
-1. Create object for chart shape
-1. Create object for source type of ChartDataSourceType which represents data source of the chart.
-1. If Source Type is equal to external workbook the get chart external data source workbook path.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-	ISlide slide = pres.Slides[1];
-	IChart chart = (IChart)slide.Shapes[0];
-	ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
-	if (sourceType == ChartDataSourceType.ExternalWorkbook)
-	{
-		string path = chart.ChartData.ExternalWorkbookPath;
-	}
-}
-// Saving presentation
-pres.Save("Result.pptx", SaveFormat.Pptx);
-```
-
-### **Manage Worksheets**
-
-To gain access to a worksheet collection, use the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property. See the C# code below. 
+This C# code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property is used to access a worksheet collection:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -115,15 +91,39 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Specify Data Source Type**
+
+This C# code shows you how to specify a type for a data source:
+
+```
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+    IChartSeriesCollection series = chart.ChartData.Series;
+    
+    IChartDataPoint point = series[0].DataPoints.GetOrCreateDataPointByIdx(2);
+    point = series[0].DataPoints.GetOrCreateDataPointByIdx(4);
+   
+    // set data source type as "double literals"
+    point.Value.DataSourceType = DataSourceType.DoubleLiterals;
+    point.Value.AsLiteralDouble = 5;
+
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
+```
+
+
 
 ## **External Workbook**
-{{% alert color="primary" %}} 
-Aspose.Slides for .NET for 19.4 supports external workbooks as a data source for charts.
-{{% /alert %}} 
-### **Create External Workbook**
-This article demonstrates how to create an external workbook from scratch using Aspose.Slides for .NET. **IChartData.ReadWorkbookStream()** and **IChartData.SetExternalWorkbook()** methods can be used to create an external workbook from scratch or to make an internal workbook external.
 
-The implementation is demonstrated below in an example.
+{{% alert color="primary" %}} 
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
+{{% /alert %}} 
+
+### **Create External Workbook**
+Using the **`IChartData.ReadWorkbookStream`** and **`IChartData.SetExternalWorkbook`** methods, you can either create an external workbook from scratch or make an internal workbook external.
+
+This C# code demonstrates the external workbook creation process:
 
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
@@ -148,14 +148,12 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 ```
 
 
-
-
 ### **Set External Workbook**
-Using Aspose.Slides for .NET, an external workbook can be assigned to a chart as a data source. For this purpose **IChartData.SetExternalWorkbook** method has been added.
+Using the **`IChartData.SetExternalWorkbook`** method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
-**SetExternalWorkbook()** method can be also used to update a path to the external workbook if it has been moved. Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. If the relative path was provided for an external workbook, it converts to full path automatically.
+While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-The implementation is demonstrated below in an example.
+This C# code shows you how to an external workbook:
 
 ```c#
 // The path to the documents directory.
@@ -179,9 +177,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-The **SetExternalWorkbook(System::String workbookPath, bool updateChartData)** method has been added with **updateChartData** parameter to the **ChartData** and **IChartData** classes.
+The `updateChartData` parameter (under the `SetExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
 
-The **updateChartData** parameter defines whether an excel workbook will be loaded or not. If the value is ***false*** only the workbook path will be updated. Chart data will not be loaded and updated from the target workbook. This is useful when the target workbook does not yet exist or is not available. If the value is **true** chart data will be updated from the target workbook as the **SetExternalWorkbook(System::String)** method does.
+* When `updateChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
+* When `updateChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -195,11 +194,36 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+### **Get Chart External Data Source Workbook Path**
+
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Get a slide's reference through its index.
+1. Create an object for the chart shape.
+1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.
+1. Specify the relevant condition based on the source type being the same as the external workbook data source type.
+
+This C# code demonstrates the operation:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+	ISlide slide = pres.Slides[1];
+	IChart chart = (IChart)slide.Shapes[0];
+	ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
+	if (sourceType == ChartDataSourceType.ExternalWorkbook)
+	{
+		string path = chart.ChartData.ExternalWorkbookPath;
+	}
+}
+// Saves the presentation
+pres.Save("Result.pptx", SaveFormat.Pptx);
+```
 
 ### **Edit Chart Data**
-Using Aspose.Slides for .NET, Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook cannot be loaded an exception is thrown.
 
-The implementation is demonstrated below in an example.
+You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an  exception is thrown.
+
+This C# code is an implementation of the described process:
 
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
@@ -212,6 +236,3 @@ using (Presentation pres = new Presentation("presentation.pptx"))
     pres.Save("presentation_out.pptx", SaveFormat.Pptx);
 }
 ```
-
-
-
