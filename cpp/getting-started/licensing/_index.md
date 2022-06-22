@@ -89,3 +89,11 @@ if(!isLicensed)
 
 
 ```
+
+## **Thread Safety**
+
+{{% alert title="Note" color="warning" %}} 
+
+The `license->SetLicense` method is not thread safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+
+{{% /alert %}}

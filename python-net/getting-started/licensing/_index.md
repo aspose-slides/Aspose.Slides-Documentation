@@ -145,5 +145,10 @@ Please note that you must have a stable Internet connection for the correct use 
 
 {{% /alert %}}
 
+## **Thread Safety**
 
+{{% alert title="Note" color="warning" %}} 
 
+The `license.set_license` method is not thread safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+
+{{% /alert %}}
