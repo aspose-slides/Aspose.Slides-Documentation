@@ -37,4 +37,4 @@ This page contains release notes for [ Aspose.Slides for .NET 22.6](https://www
 
 ### Obsolete PresentationLockingBehavior LoadAndRelease_Legacy_TemporaryDefault was removed ###
 
-The obsolete [PresentationLockingBehavior](https://reference2.aspose.com/slides/net/aspose.slides/presentationlockingbehavior/) LoadAndRelease_Legacy_TemporaryDefault enum member was removed. LoadAndRelease	is a default presentation locking behavior now.
+The obsolete [PresentationLockingBehavior](https://reference.aspose.com/slides/net/aspose.slides/presentationlockingbehavior/) LoadAndRelease_Legacy_TemporaryDefault enum member was removed. LoadAndRelease	is a default presentation locking behavior now.
