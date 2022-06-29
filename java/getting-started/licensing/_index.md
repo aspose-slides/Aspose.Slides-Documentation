@@ -100,3 +100,10 @@ if (License.isLicensed())
 }
 ```
 
+## **Thread Safety**
+
+{{% alert title="Note" color="warning" %}} 
+
+The [`license.setLicense`](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.io.InputStream-) method is not thread safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+
+{{% /alert %}}
