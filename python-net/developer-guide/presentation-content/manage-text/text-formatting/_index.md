@@ -333,14 +333,23 @@ with slides.Presentation() as presentation:
 
 
 ## **Line Spacing of Paragraph**
-Aspose.Slides for Python via .NET lets developers to set the properties of ParagraphFormat to deal with line spacing of the paragraph. The properties SpaceAfter, SpaceBefore and SpaceWithin could be set for different line spacing. This article explains how to set these properties of ParagraphFormat. Aspose.Slides for Python via .NET provides a simple API for setting properties of ParagraphFormat:
+Aspose.Slides provides properties under `paragraph_format`—`space_after`, `space_before` and `space_within`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
-1. Load a presentation with an AutoShape having some text in it.
-2. Obtain a slide's reference by its index.
+* To specify the line spacing for a paragraph in percentage, use a positive value. 
+* To specify the line spacing for a paragraph in points, use a negative value.
+
+For example, you can apply a 16pt line spacing for a paragraph by setting the `space_before` property to -16.
+
+This is how you specify the line spacing for a specific paragraph:
+
+1. Load a presentation containing an AutoShape with some text in it.
+2. Get a slide's reference through its index.
 3. Access the TextFrame.
 4. Access the Paragraph.
-5. Set properties of Paragraph.
-6. Save the presentation to disk.
+5. Set the Paragraph properties.
+6. Save the presentation.
+
+This Python code shows you how to specify the line spacing for a paragraph:
 
 ```py
 import aspose.slides as slides

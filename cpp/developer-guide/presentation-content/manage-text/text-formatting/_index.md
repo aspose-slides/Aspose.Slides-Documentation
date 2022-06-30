@@ -117,14 +117,24 @@ Aspose.Slides for C++ allows developers to rotate the text. Text could be set to
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
 
 ## **Line Spacing of Paragraph**
-Aspose.Slides for C++ lets developers to set the values of ParagraphFormat to deal with line spacing of the paragraph. The methods set_SpaceAfter(), set_SpaceBefore() and Set_SpaceWithin() could be use for different line spacing. Aspose.Slides for C++ provides a simple API for setting values of ParagraphFormat:
 
-1. Load a presentation with an AutoShape having some text in it.
-2. Obtain a slide's reference by its index.
+Aspose.Slides provides properties under `ParagraphFormat`—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
+
+* To specify the line spacing for a paragraph in percentage, use a positive value. 
+* To specify the line spacing for a paragraph in points, use a negative value.
+
+For example, you can apply a 16pt line spacing for a paragraph by setting the `SpaceBefore` property to -16.
+
+This is how you specify the line spacing for a specific paragraph:
+
+1. Load a presentation containing an AutoShape with some text in it.
+2. Get a slide's reference through its index.
 3. Access the TextFrame.
 4. Access the Paragraph.
-5. Set values of Paragraph.
-6. Save the presentation to disk.
+5. Set the Paragraph properties.
+6. Save the presentation.
+
+This C++ code shows you how to specify the line spacing for a paragraph:
 
 ``` cpp
 // The path to the documents directory.
