@@ -8,47 +8,57 @@ description: "Add audio to PowerPoint presentation in Python"
 ---
 
 ## **Creating Audio Frame**
-Aspose.Slides for Python via .NET allows you to add audio files to slides. Audio files are embedded in slides as audio frames. 
-To add an audio file in a slide using Aspose.Slides for Python via .NET, please follow these steps:
+Aspose.Slides for Python via .NET allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
 
-1. Create an instance of the [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class.
-2. Obtain the reference of a slide by using its Index.
-3. Open the audio file stream to be embedded in the slide.
-4. Add the embedded audio Frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioplaymodepreset) and Volume exposed by [IAudioFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) object.
-6. Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+2. Get a slide's reference through its index.
+3. Load the audio file stream you want to embed in the slide.
+4. Add the embedded audio frame (containing the audio file) to the slide.
+5. Set [PlayMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioplaymodepreset) and `Volume` exposed by the [IAudioFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) object.
+6. Save the modified presentation.
 
-This Python shows you how to add an embedded audio frame into a slide:
+This Python code shows you how to add an embedded audio frame to a slide:
 
-```py
+```python
 import aspose.slides as slides
 
-# Instantiate Presentation class that represents the presentation file
+# InstantiateS a presentation class that represents a presentation file
 with slides.Presentation() as pres:
-    # Get the first slide
+    # Gets the first slide
     sld = pres.slides[0]
 
-    # Load the wav sound file to stream
+    # Loads the wav sound file to stream
     with open(path + "sampleaudio.wav", "rb") as in_file:
-        # Add Audio Frame
+        # Adds the Audio Frame
         audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
 
-        # Set Play Mode and Volume of the Audio
+        # Sets the Play Mode and Volume of the Audio
         audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
         audio_frame.volume = slides.AudioVolumeMode.LOUD
 
-        # Write the PPTX file to disk
+        # Writes the PowerPoint file to disk
         pres.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Change Audio Frame properties**
-Aspose.Slides for Python via .NET allows you to change the properties for audio frames. 
+## **Change Audio Frame Thumbnail**
 
-This is the Audio Options pane in Microsoft PowerPoint:
+When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You change the audio frame's thumbnail (set your preferred image).
+
+This Python code shows you how to change an audio frame's thumbnail or preview image:
+
+```python
+
+```
+
+## **Change Audio Play Options**
+
+Aspose.Slides for Python via .NET allows you to change options that control an audio's playback or properties. For example, you can adjust an audio's volume, set the audio to play looped, or even hide the audio icon.
+
+The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-These are the correspondences between PowerPoint Audio Options and [AudioFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) properties:
+PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) properties:
 - Audio Options **Start** drop-down list matches the [AudioFrame.PlayMode](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) property 
 - Audio Options **Volume** matches the [AudioFrame.Volume](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
 - Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
@@ -56,67 +66,65 @@ These are the correspondences between PowerPoint Audio Options and [AudioFrame](
 - Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/)  property 
 - Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/audioframe/) property 
 
-To change the Audio Frame properties, please follow these steps:
+This is how you change the Audio Play options:
 
 1. [Сreate](#create-audio-frame) or get the Audio Frame.
-2. Set new values for the Audio Frame properties you need. 
-3. Save the modified PPTX file.
+2. Set new values for the Audio Frame properties you want to adjust.
+3. Save the modified PowerPoint file.
 
-This sample code demonstrates the operation:
+This Python code demonstrates an operation in which an audio's options are adjusted:
 
-```py 
+```python
 import aspose.slides as slides
 
 with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # Get the AudioFrame shape
+    # Gets the AudioFrame shape
     audioFrame = pres.slides[0].shapes[0]
 
-    # Change Play mode to play on click
+    # Sets the Play mode to play on click
     audioFrame.play_mode = slides.AudioPlayModePreset.ON_CLICK
 
-    # Set Volume to Low
+    # Sets the Volume to Low
     audioFrame.volume = slides.AudioVolumeMode.LOW
 
-    # Set audio to play across slides
+    # Sets the audio to play across slides
     audioFrame.play_across_slides = True
 
-    # Set audio to not loop
+    # Disables loop for the audio
     audioFrame.play_loop_mode = False
 
-    # Hide AudioFrame during the slide show
+    # Hides the AudioFrame during the slide show
     audioFrame.hide_at_showing = True
 
-    # Rewind audio to start after playing
+    # Rewinds the audio to start after playing
     audioFrame.rewind_audio = True
 
-    # Save the PPTX file to disk
+    # Saves the PowerPoint file to disk
     pres.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Extract Audio**
-Aspose.Slides for Python via .NET allows you to extract the sound used in slide show transitions. The sound is associated with slides.
+Aspose.Slides for Python via .NET allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
-To extract the audio, please follow these steps:
-
-1. Create an instance of the Presentation class and load the presentation with slide transitions.
-2. Access the desired slide.
+1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class and load the presentation containing the audio.
+2. Get the relevant slide's reference through its index.
 3. Access the slideshow transitions for the slide.
 4. Extract the sound in byte data.
 
-This code in Python shows you how to extract the audio used in a slide:
+This Python code shows you how to extract the audio used in a slide:
 
-```py
+```python
 import aspose.slides as slides
 
 #with slides.Presentation("AudioSlide.pptx") as pres:
 with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
-    # Access the desired slide
+    # Accesses the desired slide
     slide = pres.slides[0]  
 
-    # Get the slideshow transition effects for slide
+    # Gets the slideshow transition effects for the slide
     transition = slide.slide_show_transition
 
-    #Extract sound in byte array
+    #Extracts the sound in byte array
     audio = transition.sound.binary_data
 
     print("Length: " + str(len(audio)))
