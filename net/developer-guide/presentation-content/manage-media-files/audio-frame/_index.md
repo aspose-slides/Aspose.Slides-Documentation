@@ -127,7 +127,7 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 ## **Extract Audio**
 Aspose.Slides for .NET allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
-1. Create an instance of the [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class and load the presentation containing the audio.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation containing the audio.
 2. Get the relevant slide's reference through its index.
 3. Access the slideshow transitions for the slide.
 4. Extract the sound in byte data.
