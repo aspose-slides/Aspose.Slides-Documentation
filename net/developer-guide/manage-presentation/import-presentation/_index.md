@@ -44,7 +44,7 @@ Aspose.Slides allows you to import presentations from HTML files. In this case, 
 2. Call the [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/) method and pass the HTML file. 
 3. Use the [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file as a PowerPoint document.
 
-This C# code demonstrates the HTML to PowerPoint operation:
+This C# code demonstrates the HTML to PowerPoint operation: xxx 
 
 ```c#
 using (var presentation = new Presentation())
