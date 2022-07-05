@@ -1,21 +1,19 @@
 ---
-title: EffectFormat Class
+title: EffectFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 450
 url: /python-net/api-reference/aspose.slides/effectformat/
 ---
 
+## EffectFormat class
+
 Represents effect properties of shape.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.EffectFormat
-
-
-
 The EffectFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |is_no_effects|Returns true if all effects are disabled (as just created, default EffectFormat object).<br/>            Read-only bool.|
@@ -30,8 +28,8 @@ The EffectFormat type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_ieffect_param_source|Allows to get base IEffectParamSource interface.<br/>            Read-only [IEffectParamSource](/slides/python-net/api-reference/aspose.slides/ieffectparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |set_blur_effect(radius, grow)|Sets blur effect.|
 |enable_fill_overlay_effect()|Enables fill overlay effect.|
@@ -50,3 +48,9 @@ The EffectFormat type exposes the following members:
 |disable_reflection_effect()|Disables reflection effect.|
 |disable_soft_edge_effect()|Disables soft edge effect.|
 |get_effective()|Gets effective effect formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

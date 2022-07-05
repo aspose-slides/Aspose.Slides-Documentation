@@ -1,20 +1,18 @@
 ---
-title: NumberedBulletStyle Enumeration
+title: NumberedBulletStyle
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9550
 url: /python-net/api-reference/aspose.slides/numberedbulletstyle/
 ---
 
+## NumberedBulletStyle enumeration
+
 Represents the style of the numbered bullets.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.NumberedBulletStyle
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED|Not defined.|
 |BULLET_ALPHA_LCPERIOD|Lowercase alphabetical characters with a period. Sample: a., b., c., ...|
@@ -58,3 +56,9 @@ Represents the style of the numbered bullets.
 |BULLET_KANJI_SIMP_CHIN_DBPERIOD|Kanji Simple Chinese DBPeriod.|
 |BULLET_HINDI_NUM_PAREN_RIGHT|Hindi numerical parentheses - right.|
 |BULLET_HINDI_ALPHA1_PERIOD|Hindi alphabet period - consonants.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

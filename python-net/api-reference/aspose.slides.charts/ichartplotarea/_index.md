@@ -1,21 +1,19 @@
 ---
-title: IChartPlotArea Class
+title: IChartPlotArea
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 620
 url: /python-net/api-reference/aspose.slides.charts/ichartplotarea/
 ---
 
+## IChartPlotArea class
+
 Represents chart title properties.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartPlotArea
-
-
-
 The IChartPlotArea type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |format|Returns the format of a plot area.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |as_ilayoutable|Allows to get base ILayoutable interface.<br/>            Read-only [ILayoutable](/slides/python-net/api-reference/aspose.slides.charts/ilayoutable/).|
@@ -37,3 +35,9 @@ The IChartPlotArea type exposes the following members:
 |actual_y|Specifies actual top of the chart element relative to the left top corner of the chart.<br/>            Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_width|Specifies actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_height|Specifies actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

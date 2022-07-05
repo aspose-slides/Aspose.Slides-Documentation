@@ -1,21 +1,19 @@
 ---
-title: IVideoFrame Class
+title: IVideoFrame
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2830
 url: /python-net/api-reference/aspose.slides/ivideoframe/
 ---
 
+## IVideoFrame class
+
 Represents a video clip on a slide.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IVideoFrame
-
-
-
 The IVideoFrame type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |rewind_video|Determines whether a video is automatically rewinded to start<br/>            as soon as the movie has finished playing.<br/>            Read/write bool.|
 |play_loop_mode|Determines whether a video is looped.<br/>            Read/write bool.|
@@ -69,8 +67,8 @@ The IVideoFrame type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -82,3 +80,9 @@ The IVideoFrame type exposes the following members:
 |create_shape_elements()|Creates and returns array of shape's elements.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

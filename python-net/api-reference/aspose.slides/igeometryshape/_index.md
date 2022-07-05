@@ -1,21 +1,19 @@
 ---
-title: IGeometryShape Class
+title: IGeometryShape
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1480
 url: /python-net/api-reference/aspose.slides/igeometryshape/
 ---
 
+## IGeometryShape class
+
 Represents the parent class for all geometric shapes.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IGeometryShape
-
-
-
 The IGeometryShape type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |shape_style|Returns shape's style object.<br/>            Read-only [IShapeStyle](/slides/python-net/api-reference/aspose.slides/ishapestyle/).|
 |shape_type|Returns or sets the geometry preset type.<br/>            Note: on value changing all adjustment values will reset to their default values.<br/>            Read/write [ShapeType](/slides/python-net/api-reference/aspose.slides/shapetype/).|
@@ -55,8 +53,8 @@ The IGeometryShape type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -68,3 +66,9 @@ The IGeometryShape type exposes the following members:
 |create_shape_elements()|Creates and returns array of shape's elements.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

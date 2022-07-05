@@ -1,20 +1,18 @@
 ---
-title: SlideSizeType Enumeration
+title: SlideSizeType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9790
 url: /python-net/api-reference/aspose.slides/slidesizetype/
 ---
 
+## SlideSizeType enumeration
+
 Represents the slide size preset.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.SlideSizeType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |ON_SCREEN|On screen 4x3|
 |LETTER_PAPER|Letter|
@@ -33,3 +31,9 @@ Represents the slide size preset.
 |ON_SCREEN16X9|On screen 16x9|
 |ON_SCREEN16X10|On Screen 16x10|
 |WIDESCREEN|Widescreen|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

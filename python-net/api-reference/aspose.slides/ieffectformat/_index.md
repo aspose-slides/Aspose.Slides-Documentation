@@ -1,21 +1,19 @@
 ---
-title: IEffectFormat Class
+title: IEffectFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1270
 url: /python-net/api-reference/aspose.slides/ieffectformat/
 ---
 
+## IEffectFormat class
+
 Represents effect properties of shape.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IEffectFormat
-
-
-
 The IEffectFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_no_effects|Returns true if all effects are disabled (as just created, default EffectFormat object).<br/>            Read-only bool.|
 |blur_effect|Blur effect.<br/>            Read/write [IBlur](/slides/python-net/api-reference/aspose.slides.effects/iblur/).|
@@ -27,8 +25,8 @@ The IEffectFormat type exposes the following members:
 |reflection_effect|Reflection. <br/>            Read/write [IReflection](/slides/python-net/api-reference/aspose.slides.effects/ireflection/).|
 |soft_edge_effect|Soft edge.<br/>            Read/write [ISoftEdge](/slides/python-net/api-reference/aspose.slides.effects/isoftedge/).|
 |as_ieffect_param_source|Allows to get base IEffectParamSource interface.<br/>            Read-only [IEffectParamSource](/slides/python-net/api-reference/aspose.slides/ieffectparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |set_blur_effect(radius, grow)|Sets blur effect.|
 |enable_fill_overlay_effect()|Enables fill overlay effect.|
@@ -47,3 +45,9 @@ The IEffectFormat type exposes the following members:
 |disable_reflection_effect()|Disables reflection effect.|
 |disable_soft_edge_effect()|Disables soft edge effect.|
 |get_effective()|Gets effective effect formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

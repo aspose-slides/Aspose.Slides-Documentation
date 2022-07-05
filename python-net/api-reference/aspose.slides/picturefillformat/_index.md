@@ -1,21 +1,19 @@
 ---
-title: PictureFillFormat Class
+title: PictureFillFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3320
 url: /python-net/api-reference/aspose.slides/picturefillformat/
 ---
 
+## PictureFillFormat class
+
 Represents a picture fill style.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.PictureFillFormat
-
-
-
 The PictureFillFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |dpi|Returns or sets the dpi which is used to fill a picture.<br/>            Read/write|
@@ -32,3 +30,9 @@ The PictureFillFormat type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

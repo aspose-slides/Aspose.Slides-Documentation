@@ -1,20 +1,18 @@
 ---
-title: EffectSubtype Enumeration
+title: EffectSubtype
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 610
 url: /python-net/api-reference/aspose.slides.animation/effectsubtype/
 ---
 
+## EffectSubtype enumeration
+
 Represents subtypes of animation effect.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Name:** aspose.slides.animation.EffectSubtype
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NONE||
 |ACROSS||
@@ -66,3 +64,9 @@ Represents subtypes of animation effect.
 |WHEEL3||
 |WHEEL4||
 |WHEEL8||
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

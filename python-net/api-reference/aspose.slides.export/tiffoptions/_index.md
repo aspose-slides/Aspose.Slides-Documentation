@@ -1,25 +1,23 @@
 ---
-title: TiffOptions Class
+title: TiffOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 520
 url: /python-net/api-reference/aspose.slides.export/tiffoptions/
 ---
 
+## TiffOptions class
+
 Provides options that control how a presentation is saved in TIFF format.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.TiffOptions
-
-
-
 The TiffOptions type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |TiffOptions()|Default constructor.|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |warning_callback|Returns of sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage.<br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
@@ -32,3 +30,9 @@ The TiffOptions type exposes the following members:
 |compression_type|Specifies the compression type.<br/>            Read/write [TiffCompressionTypes](/slides/python-net/api-reference/aspose.slides.export/tiffcompressiontypes/).|
 |pixel_format|Specifies the pixel format for the generated images.<br/>            Read/write [ImagePixelFormat](/slides/python-net/api-reference/aspose.slides.export/imagepixelformat/).|
 |as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

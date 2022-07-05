@@ -1,21 +1,19 @@
 ---
-title: Chart Class
+title: Chart
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 70
 url: /python-net/api-reference/aspose.slides.charts/chart/
 ---
 
+## Chart class
+
 Represents an graphic chart on a slide.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.Chart
-
-
-
 The Chart type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_text_holder|Determines whether the shape is TextHolder.<br/>            Read-only bool.|
 |placeholder|Returns the placeholder for a shape.<br/>            Read-only [IPlaceholder](/slides/python-net/api-reference/aspose.slides/iplaceholder/).|
@@ -80,8 +78,8 @@ The Chart type exposes the following members:
 |as_ioverride_themeable|Returns IOverrideThemeable interface.<br/>            Read-only [IOverrideThemeable](/slides/python-net/api-reference/aspose.slides.theme/ioverridethemeable/).|
 |as_ichart_component|Returns IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
 |chart|Returns the chart.<br/>            Read-only [IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -91,3 +89,9 @@ The Chart type exposes the following members:
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |validate_chart_layout()|Calculates actual values of chart elements. The actual values include position of elements that implement IActualLayout interface <br/>            (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight)<br/>            and actual axes values (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, <br/>            IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale)|
 |create_theme_effective()|Returns an effective theme for this chart.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

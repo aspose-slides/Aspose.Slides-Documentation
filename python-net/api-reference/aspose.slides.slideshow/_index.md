@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.slideshow
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 140
 url: /python-net/api-reference/aspose.slides.slideshow/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.slideshow/
 
 Contains classes for managing slideshows and slide transitions.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[CornerDirectionTransition](/slides/python-net/api-reference/aspose.slides.slideshow/cornerdirectiontransition/)|Corner direction slide transition effect.|
 |[EightDirectionTransition](/slides/python-net/api-reference/aspose.slides.slideshow/eightdirectiontransition/)|Eight direction slide transition effect.|
@@ -46,8 +48,8 @@ Contains classes for managing slideshows and slide transitions.
 |[SplitTransition](/slides/python-net/api-reference/aspose.slides.slideshow/splittransition/)|Split slide transition effect.|
 |[TransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/transitionvaluebase/)|Base class for slide transition effects.|
 |[WheelTransition](/slides/python-net/api-reference/aspose.slides.slideshow/wheeltransition/)|Wheel slide transition effect.|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[TransitionCornerAndCenterDirectionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitioncornerandcenterdirectiontype/)|Specifies a direction restricted to the corners and center.|
 |[TransitionCornerDirectionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitioncornerdirectiontype/)|Represent corner direction transition types.|

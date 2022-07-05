@@ -1,30 +1,28 @@
 ---
-title: IGradientStopCollection Class
+title: IGradientStopCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1530
 url: /python-net/api-reference/aspose.slides/igradientstopcollection/
 ---
 
+## IGradientStopCollection class
+
 Represnts a collection of gradient stops.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IGradientStopCollection
-
-
-
 The IGradientStopCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Returns the gradient stop by index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(position, color)|Creates the new gradient stop and adds it to the end of collection.|
 |add(position, preset_color)|Creates the new gradient stop and adds it to the end of collection.|
@@ -34,3 +32,9 @@ The IGradientStopCollection type exposes the following members:
 |insert(index, position, scheme_color)|Creates the new gradient stop and inserts it at the specified index to the collection.|
 |remove_at(index)|Removes a gradient stop at the specified index.|
 |clear()|Removes all gradient stops from a collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: Trendline Class
+title: Trendline
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1060
 url: /python-net/api-reference/aspose.slides.charts/trendline/
 ---
 
+## Trendline class
+
 Class represents trend line of chart series
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.Trendline
-
-
-
 The Trendline type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |trendline_name|Gets or sets  name of the trendline.<br/>            Read/write string.|
 |trendline_type|Gets or sets type of trend line.<br/>            Read/write [TrendlineType](/slides/python-net/api-reference/aspose.slides.charts/trendlinetype/).|
@@ -38,7 +36,13 @@ The Trendline type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_text_frame_for_overriding(text)|Initialize TextFrameForOverriding with the text in paramener "text".<br/>            If TextFrameForOverriding is already initialized then simply changes its text.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

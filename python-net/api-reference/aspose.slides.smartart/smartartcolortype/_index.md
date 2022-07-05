@@ -1,20 +1,18 @@
 ---
-title: SmartArtColorType Enumeration
+title: SmartArtColorType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 120
 url: /python-net/api-reference/aspose.slides.smartart/smartartcolortype/
 ---
 
+## SmartArtColorType enumeration
+
 Represents color scheme of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
-
-**Full Name:** aspose.slides.smartart.SmartArtColorType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |DARK1_OUTLINE|Dark1Outline|
 |DARK2_OUTLINE|Dark2Outline|
@@ -54,3 +52,9 @@ Represents color scheme of a SmartArt diagram.
 |GRADIENT_RANGE_ACCENT6|GradientRangeAccent6|
 |GRADIENT_LOOP_ACCENT6|GradientLoopAccent6|
 |TRANSPARENT_GRADIENT_RANGE_ACCENT6|TransparentGradientRangeAccent6|
+
+### See Also
+
+* namespace [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

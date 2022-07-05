@@ -1,21 +1,19 @@
 ---
-title: Presentation Class
+title: Presentation
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3500
 url: /python-net/api-reference/aspose.slides/presentation/
 ---
 
+## Presentation class
+
 Represents a Microsoft PowerPoint presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.Presentation
-
-
-
 The Presentation type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |Presentation()|This constructor creates new presentation from scratch.<br/>            Created presentation has one empty slide.|
 |Presentation(load_options)|Initializes a new instance of the Presentation class|
@@ -23,8 +21,8 @@ The Presentation type exposes the following members:
 |Presentation(stream, load_options)|Initializes a new instance of the Presentation class|
 |Presentation(file)|Initializes a new instance of the Presentation class|
 |Presentation(file, load_options)|Initializes a new instance of the Presentation class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |current_date_time|Returns or sets date and time which will substitute content of datetime fields.<br/>            Time of this Presentation object creation by default.<br/>            Read/write datetime.|
 |header_footer_manager|Returns actual HeaderFooter manager.<br/>            Read-only [IPresentationHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/ipresentationheaderfootermanager/).|
@@ -56,8 +54,8 @@ The Presentation type exposes the following members:
 |as_idisposable|Returns IDisposable interface.<br/>            Read-only disposable.|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |save(fname, format)|Saves all slides of a presentation to a file with the specified format.|
 |save(stream, format)|Saves all slides of a presentation to a stream in the specified format.|
@@ -86,3 +84,9 @@ The Presentation type exposes the following members:
 |print(printer_settings, pres_name)|Prints the document according to the specified printer settings, using<br/>            the standard (no User Interface) print controller and a presentation name.|
 |get_slide_by_id(id)|Returns a Slide, MasterSlide or LayoutSlide by Id.|
 |join_portions_with_same_formatting()|Joins runs with same formatting in all paragraphs in all acceptable shapes in all slides.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,25 +1,23 @@
 ---
-title: MotionEffect Class
+title: MotionEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 370
 url: /python-net/api-reference/aspose.slides.animation/motioneffect/
 ---
 
+## MotionEffect class
+
 Represent motion effect behavior of effect.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.MotionEffect
-
-
-
 The MotionEffect type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |MotionEffect()|Initializes a new instance of the MotionEffect class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
@@ -34,3 +32,9 @@ The MotionEffect type exposes the following members:
 |path_edit_mode|Specifies how the motion path moves when shape is moved.<br/>            Read/write [MotionPathEditMode](/slides/python-net/api-reference/aspose.slides.animation/motionpatheditmode/).|
 |angle|Describes the relative angle of the motion path.<br/>            Read/write|
 |as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

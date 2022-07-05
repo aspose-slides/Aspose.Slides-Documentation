@@ -1,21 +1,19 @@
 ---
-title: IChart Class
+title: IChart
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 450
 url: /python-net/api-reference/aspose.slides.charts/ichart/
 ---
 
+## IChart class
+
 Represents an graphic chart on a slide.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChart
-
-
-
 The IChart type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |plot_visible_cells_only|Determines whether the only visible cells are plotted. False to plot both visible and hidden cells.<br/>            Read/write bool.|
 |display_blanks_as|Returns or sets the way to plot blank cells on a chart.<br/>            Read/write [DisplayBlanksAsType](/slides/python-net/api-reference/aspose.slides.charts/displayblanksastype/).|
@@ -80,8 +78,8 @@ The IChart type exposes the following members:
 |chart|Returns the chart.<br/>            Read-only [IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/).|
 |theme_manager|Returns override theme manager.<br/>            Read-only [IOverrideThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ioverridethememanager/).|
 |as_ithemeable|Returns IThemeable interface.<br/>            Read-only [IThemeable](/slides/python-net/api-reference/aspose.slides.theme/ithemeable/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -91,3 +89,9 @@ The IChart type exposes the following members:
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
 |create_theme_effective()|Returns an effective theme for this themeable object.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

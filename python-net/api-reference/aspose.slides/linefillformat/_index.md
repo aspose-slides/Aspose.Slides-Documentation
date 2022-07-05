@@ -1,21 +1,19 @@
 ---
-title: LineFillFormat Class
+title: LineFillFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2990
 url: /python-net/api-reference/aspose.slides/linefillformat/
 ---
 
+## LineFillFormat class
+
 Represents properties for lines filling.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.LineFillFormat
-
-
-
 The LineFillFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |fill_type|Returns or sets the fill type.<br/>            Read/write [FillType](/slides/python-net/api-reference/aspose.slides/filltype/).|
@@ -26,3 +24,9 @@ The LineFillFormat type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

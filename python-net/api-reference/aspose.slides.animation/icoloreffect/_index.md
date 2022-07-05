@@ -1,21 +1,19 @@
 ---
-title: IColorEffect Class
+title: IColorEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 170
 url: /python-net/api-reference/aspose.slides.animation/icoloreffect/
 ---
 
+## IColorEffect class
+
 Represents a color effect for an animation behavior.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.IColorEffect
-
-
-
 The IColorEffect type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |from_address|This value is used to specify the starting color of behavior.<br/>            Read/write [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 |to|Describes resulting color for the animation color change.<br/>            Read/write [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
@@ -27,3 +25,9 @@ The IColorEffect type exposes the following members:
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
 |properties|Represents properties of behavior.<br/>            Read-only [IBehaviorPropertyCollection](/slides/python-net/api-reference/aspose.slides.animation/ibehaviorpropertycollection/).|
 |timing|Represents timing properties for the effect behavior.<br/>            Read/write [ITiming](/slides/python-net/api-reference/aspose.slides.animation/itiming/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

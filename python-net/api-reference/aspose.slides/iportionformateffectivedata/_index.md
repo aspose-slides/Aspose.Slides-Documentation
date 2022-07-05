@@ -1,21 +1,19 @@
 ---
-title: IPortionFormatEffectiveData Class
+title: IPortionFormatEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2210
 url: /python-net/api-reference/aspose.slides/iportionformateffectivedata/
 ---
 
+## IPortionFormatEffectiveData class
+
 Immutable object which contains effective text portion formatting properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IPortionFormatEffectiveData
-
-
-
 The IPortionFormatEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |bookmark_id|Returns bookmark identifier.<br/>            Read-only string.|
 |hyperlink_click|Returns the hyperlink defined for mouse click.<br/>            Read-only [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
@@ -48,3 +46,9 @@ The IPortionFormatEffectiveData type exposes the following members:
 |language_id|Returns the Id of a language.<br/>            Read-only string.|
 |alternative_language_id|Returns the Id of an alternative language.<br/>            Read-only string.|
 |spacing|Returns the intercharacter spacing increment.<br/>            Read-only|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

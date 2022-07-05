@@ -1,21 +1,19 @@
 ---
-title: CellCollection Class
+title: CellCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 210
 url: /python-net/api-reference/aspose.slides/cellcollection/
 ---
 
+## CellCollection class
+
 Represents a collection of cells.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.CellCollection
-
-
-
 The CellCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |slide|Returns the parent slide of a CellCollection.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the parent presentation of a CellCollection.<br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
@@ -23,7 +21,13 @@ The CellCollection type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Returns a cell by it's position.<br/>            Read-only [Cell](/slides/python-net/api-reference/aspose.slides/cell/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: ChartPlotArea Class
+title: ChartPlotArea
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 220
 url: /python-net/api-reference/aspose.slides.charts/chartplotarea/
 ---
 
+## ChartPlotArea class
+
 Represents rectangle where chart should be plotted.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartPlotArea
-
-
-
 The ChartPlotArea type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |format|Returns the format of a plot area.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |x|Returns or sets the x coordinate of the upper left corner of plot area bounding box as a fraction of the width of the chart (from 0 to 1).<br/>            Read/write|
@@ -38,3 +36,9 @@ The ChartPlotArea type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

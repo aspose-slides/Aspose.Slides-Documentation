@@ -1,20 +1,18 @@
 ---
-title: ChartType Enumeration
+title: ChartType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1150
 url: /python-net/api-reference/aspose.slides.charts/charttype/
 ---
 
+## ChartType enumeration
+
 Represents a type of chart.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Name:** aspose.slides.charts.ChartType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |CLUSTERED_COLUMN|Represents Clustered Column Chart.|
 |STACKED_COLUMN|Represents Stacked Column Chart.|
@@ -98,3 +96,9 @@ Represents a type of chart.
 |WATERFALL|Represents Waterfall chart.|
 |FUNNEL|Represents Funnel chart.|
 |MAP|Represents Map chart.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

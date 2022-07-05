@@ -1,21 +1,19 @@
 ---
-title: IOleObjectFrame Class
+title: IOleObjectFrame
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2010
 url: /python-net/api-reference/aspose.slides/ioleobjectframe/
 ---
 
+## IOleObjectFrame class
+
 Represents an OLE object on a slide.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IOleObjectFrame
-
-
-
 The IOleObjectFrame type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |substitute_picture_format|Returns OleObject image fill properties object.<br/>            Read-only [IPictureFillFormat](/slides/python-net/api-reference/aspose.slides/ipicturefillformat/).|
 |object_name|Returns or sets the name of an object.<br/>            Read/write string.|
@@ -66,8 +64,8 @@ The IOleObjectFrame type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -76,3 +74,9 @@ The IOleObjectFrame type exposes the following members:
 |set_embedded_data(embedded_data)|Sets information about OLE embedded data.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

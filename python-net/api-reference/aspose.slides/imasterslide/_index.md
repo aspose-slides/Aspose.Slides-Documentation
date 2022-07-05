@@ -1,21 +1,19 @@
 ---
-title: IMasterSlide Class
+title: IMasterSlide
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1890
 url: /python-net/api-reference/aspose.slides/imasterslide/
 ---
 
+## IMasterSlide class
+
 Represents a master slide in a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IMasterSlide
-
-
-
 The IMasterSlide type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |header_footer_manager|Returns HeaderFooter manager of the master slide.<br/>            Read-only [IMasterSlideHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/imasterslideheaderfootermanager/).|
 |title_style|Returns the style of a title text.<br/>            Read-only [ITextStyle](/slides/python-net/api-reference/aspose.slides/itextstyle/).|
@@ -41,8 +39,8 @@ The IMasterSlide type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |theme_manager|Returns master theme manager.<br/>            Read-only [IMasterThemeManager](/slides/python-net/api-reference/aspose.slides.theme/imasterthememanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |apply_external_theme_to_depending_slides(fname)|Creates a new master slide based on the current one, applying an external theme to it <br/>            and applies the created master slide to all dependent slides.|
 |get_depending_slides()|Returns an array with all slides, which depend on this master slide.|
@@ -50,3 +48,9 @@ The IMasterSlide type exposes the following members:
 |join_portions_with_same_formatting()|Joins runs with same formatting in all paragraphs in all acceptable shapes.|
 |equals(slide)|Determines whether the two IBaseSlide instances are equal.<br/>            Returning value is calculated based on slide's structure and static content.<br/>            Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.|
 |create_theme_effective()|Returns an effective theme for this themeable object.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

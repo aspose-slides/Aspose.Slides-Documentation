@@ -1,21 +1,19 @@
 ---
-title: IGraphicalObjectLock Class
+title: IGraphicalObjectLock
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1570
 url: /python-net/api-reference/aspose.slides/igraphicalobjectlock/
 ---
 
+## IGraphicalObjectLock class
+
 Determines which operations are disabled on the parent GraphicalObjectEx.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IGraphicalObjectLock
-
-
-
 The IGraphicalObjectLock type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |grouping_locked|Determines whether adding this shape to a group is forbidden.<br/>            Read/write bool.|
 |drilldown_locked|Determines whether selecting subshapes of this object is forbidden.<br/>            Read/write bool.|
@@ -25,3 +23,9 @@ The IGraphicalObjectLock type exposes the following members:
 |size_locked|Determines whether resizing this shape is forbidden.<br/>            Read/write bool.|
 |as_ibase_shape_lock|Allows to get base IBaseShapeLock interface.<br/>            Read-only [IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/).|
 |no_locks|Return true if all lock-flags are disabled.<br/>            Read-only bool.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

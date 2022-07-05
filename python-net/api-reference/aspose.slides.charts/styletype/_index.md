@@ -1,20 +1,18 @@
 ---
-title: StyleType Enumeration
+title: StyleType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1310
 url: /python-net/api-reference/aspose.slides.charts/styletype/
 ---
 
+## StyleType enumeration
+
 Represents chart style.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Name:** aspose.slides.charts.StyleType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |STYLE1|Style 1|
 |STYLE2|Style 2|
@@ -64,3 +62,9 @@ Represents chart style.
 |STYLE46|Style 46|
 |STYLE47|Style 47|
 |STYLE48|Style 48|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

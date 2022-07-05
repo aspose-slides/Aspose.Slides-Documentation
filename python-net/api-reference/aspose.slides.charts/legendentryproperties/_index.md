@@ -1,21 +1,19 @@
 ---
-title: LegendEntryProperties Class
+title: LegendEntryProperties
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1000
 url: /python-net/api-reference/aspose.slides.charts/legendentryproperties/
 ---
 
+## LegendEntryProperties class
+
 Represents legend properties of a chart.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.LegendEntryProperties
-
-
-
 The LegendEntryProperties type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |text_format|Returns text format.<br/>            Read-only [IChartTextFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextformat/).|
 |hide|Determines whether the legend entry is hide.<br/>            Read/write bool.|
@@ -26,3 +24,9 @@ The LegendEntryProperties type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

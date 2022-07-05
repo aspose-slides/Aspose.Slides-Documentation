@@ -1,32 +1,30 @@
 ---
-title: IMathBlock Class
+title: IMathBlock
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 80
 url: /python-net/api-reference/aspose.slides.mathtext/imathblock/
 ---
 
+## IMathBlock class
+
 Specifies an instance of mathematical text that contained within a MathParagraph and starts on its own line.<br/>            All math zones, including equations, expressions, arrays of equations or expressions, and formulas are represented by math block.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.IMathBlock
-
-
-
 The IMathBlock type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/slides/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.<br/>            Read-only [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |enclose(beginning_character, ending_character, separator_character)|Encloses child elements of this block in specified characters such as parenthesis or another as framing<br/>            and delimit with a separator character|
 |enclose()|Encloses child elements of this block in specified characters such as parenthesis or another as framing<br/>            and delimit with a separator character|
@@ -86,3 +84,9 @@ The IMathBlock type exposes the following members:
 |overbar()|Sets a bar on the top of this element|
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

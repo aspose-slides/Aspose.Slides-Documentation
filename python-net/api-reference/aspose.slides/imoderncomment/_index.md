@@ -1,21 +1,19 @@
 ---
-title: IModernComment Class
+title: IModernComment
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1930
 url: /python-net/api-reference/aspose.slides/imoderncomment/
 ---
 
+## IModernComment class
+
 Represents a comment on a slide.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IModernComment
-
-
-
 The IModernComment type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |shape|Returns a shape associated with the comment.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
 |text_selection_start|Returns or sets starting position of text selection in text frame if the comment associated with AutoShape.<br/>            Read/write|
@@ -28,7 +26,13 @@ The IModernComment type exposes the following members:
 |author|Returns the author of a comment.<br/>            Read-only [ICommentAuthor](/slides/python-net/api-reference/aspose.slides/icommentauthor/).|
 |position|Returns or sets the position of a comment on a slide.<br/>            Read/write aspose.pydrawing.PointF.|
 |parent_comment|Gets or sets parent comment.<br/>            Read/write [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |remove()|Removes comment and all its replies from the parent collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

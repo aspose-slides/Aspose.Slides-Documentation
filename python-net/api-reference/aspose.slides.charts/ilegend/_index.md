@@ -1,21 +1,19 @@
 ---
-title: ILegend Class
+title: ILegend
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 840
 url: /python-net/api-reference/aspose.slides.charts/ilegend/
 ---
 
+## ILegend class
+
 Represents chart's legend properties.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ILegend
-
-
-
 The ILegend type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |overlay|Determines whether other chart elements shall be allowed to overlap legend.<br/>            Read/write bool.|
 |position|Specifies the position of the legend on a chart.<br/>            Non-NaN values of X, Y, Width, Heigt properties override effect of this property.<br/>            Read/write [LegendPositionType](/slides/python-net/api-reference/aspose.slides.charts/legendpositiontype/).|
@@ -35,3 +33,9 @@ The ILegend type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |text_format|Returns chart text format.<br/>            Read-only [IChartTextFormat](/slides/python-net/api-reference/aspose.slides.charts/icharttextformat/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

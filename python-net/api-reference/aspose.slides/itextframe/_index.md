@@ -1,21 +1,19 @@
 ---
-title: ITextFrame Class
+title: ITextFrame
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2720
 url: /python-net/api-reference/aspose.slides/itextframe/
 ---
 
+## ITextFrame class
+
 Represents a TextFrame.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ITextFrame
-
-
-
 The ITextFrame type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |paragraphs|Returns the list of all paragraphs in a frame.<br/>            Read-only [IParagraphCollection](/slides/python-net/api-reference/aspose.slides/iparagraphcollection/).|
 |text|Gets or sets the plain text for a TextFrame.<br/>            Read/write string.|
@@ -25,10 +23,16 @@ The ITextFrame type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |highlight_text(text, highlight_color)|Highlight all matches of sample in text frame text using specified color.|
 |highlight_text(text, highlight_color, options)|Highlight all matches of sample in text frame text using specified color.|
 |join_portions_with_same_formatting()|Joins runs with same formatting in all paragraphs.|
 |highlight_regex(regex, highlight_color, options)|Highlight all matches of regular expression in text frame text using specified color.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

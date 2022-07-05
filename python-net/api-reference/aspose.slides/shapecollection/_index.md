@@ -1,31 +1,29 @@
 ---
-title: ShapeCollection Class
+title: ShapeCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3650
 url: /python-net/api-reference/aspose.slides/shapecollection/
 ---
 
+## ShapeCollection class
+
 Represents a collection of a shapes.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ShapeCollection
-
-
-
 The ShapeCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |parent_group|Returns parent GroupShape object for a shapes collection.<br/>            Read-only [IGroupShape](/slides/python-net/api-reference/aspose.slides/igroupshape/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_chart(type, x, y, width, height)|Creates a new Chart, initialize it with sample series data and settings and adds <br/>            it to the end of the collection.|
 |add_chart(type, x, y, width, height, init_with_sample)|Creates a new Chart and adds it to the end of the collection.|
@@ -87,3 +85,9 @@ The ShapeCollection type exposes the following members:
 |remove_at(index)|Removes the element at the specified index of the collection.|
 |remove(shape)|Removes the first occurrence of a specific shape from the collection.|
 |clear()|Removes all shapes from the collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

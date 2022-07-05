@@ -1,25 +1,23 @@
 ---
-title: PropertyEffect Class
+title: PropertyEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 410
 url: /python-net/api-reference/aspose.slides.animation/propertyeffect/
 ---
 
+## PropertyEffect class
+
 Represent property effect behavior.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.PropertyEffect
-
-
-
 The PropertyEffect type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |PropertyEffect()|Initializes a new instance of the PropertyEffect class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
@@ -32,3 +30,9 @@ The PropertyEffect type exposes the following members:
 |calc_mode|Specifies the interpolation mode for the animation<br/>            Read/write [PropertyCalcModeType](/slides/python-net/api-reference/aspose.slides.animation/propertycalcmodetype/).|
 |points|Specifies the points of the animation.<br/>            Read/write [IPointCollection](/slides/python-net/api-reference/aspose.slides.animation/ipointcollection/).|
 |as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

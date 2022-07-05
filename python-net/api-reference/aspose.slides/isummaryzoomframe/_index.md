@@ -1,21 +1,19 @@
 ---
-title: ISummaryZoomFrame Class
+title: ISummaryZoomFrame
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2600
 url: /python-net/api-reference/aspose.slides/isummaryzoomframe/
 ---
 
+## ISummaryZoomFrame class
+
 Represents a Summary Zoom frame in a slide.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ISummaryZoomFrame
-
-
-
 The ISummaryZoomFrame type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |layout|Gets layout of Summary Zoom Sections in the frame.<br/>            Default value is GridLayout.|
 |summary_zoom_collection|Gets [ISummaryZoomSectionCollection](/slides/python-net/api-reference/aspose.slides/isummaryzoomsectioncollection/) for the Summary Zoom Frame object.|
@@ -55,8 +53,8 @@ The ISummaryZoomFrame type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -64,3 +62,9 @@ The ISummaryZoomFrame type exposes the following members:
 |write_as_svg(stream, svg_options)|Saves content of Shape as SVG file.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

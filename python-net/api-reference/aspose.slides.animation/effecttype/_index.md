@@ -1,20 +1,18 @@
 ---
-title: EffectType Enumeration
+title: EffectType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 630
 url: /python-net/api-reference/aspose.slides.animation/effecttype/
 ---
 
+## EffectType enumeration
+
 Represents the type of an animation effect.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Name:** aspose.slides.animation.EffectType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |APPEAR|Appear effect. Class Entrance or Exit.<br/>        Valid subtypes:|
 |CURVE_UP_DOWN|CurveUpDown effect. Class Entrance or Exit.<br/>        Valid subtypes:|
@@ -171,3 +169,9 @@ Represents the type of an animation effect.
 |OLEOBJECT_SHOW|OLEObjectShow effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
 |OLEOBJECT_EDIT|OLEObjectEdit effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
 |OLEOBJECT_OPEN|OLEObjectOpen effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: ISmartArt Class
+title: ISmartArt
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 10
 url: /python-net/api-reference/aspose.slides.smartart/ismartart/
 ---
 
+## ISmartArt class
+
 Represents a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
-
-**Full Class Name:** aspose.slides.smartart.ISmartArt
-
-
-
 The ISmartArt type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |all_nodes|Returns collections of all nodes in SmartArt object.<br/>            Read-only [ISmartArtNodeCollection](/slides/python-net/api-reference/aspose.slides.smartart/ismartartnodecollection/).|
 |nodes|Returns collections of root nodes in SmartArt object.<br/>            Read-only [ISmartArtNodeCollection](/slides/python-net/api-reference/aspose.slides.smartart/ismartartnodecollection/).|
@@ -60,8 +58,8 @@ The ISmartArt type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -69,3 +67,9 @@ The ISmartArt type exposes the following members:
 |write_as_svg(stream, svg_options)|Saves content of Shape as SVG file.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

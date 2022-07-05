@@ -1,21 +1,19 @@
 ---
-title: IReflection Class
+title: IReflection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 640
 url: /python-net/api-reference/aspose.slides.effects/ireflection/
 ---
 
+## IReflection class
+
 Represents a reflection effect.
 
-**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
-
-**Full Class Name:** aspose.slides.effects.IReflection
-
-
-
 The IReflection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |start_pos_alpha|Specifies the start position (along the alpha gradient ramp) of the start alpha value (percents).<br/>            Read/write|
 |end_pos_alpha|Specifies the end position (along the alpha gradient ramp) of the end alpha value (percents).<br/>            Read/write|
@@ -32,7 +30,13 @@ The IReflection type exposes the following members:
 |scale_horizontal|Specifies the horizontal scaling factor, negative scaling causes a flip. (percents)<br/>            Read/write float.|
 |scale_vertical|Specifies the vertical scaling factor, negative scaling causes a flip. (percents)<br/>            Read/write float.|
 |as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_effective()|Gets effective object formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

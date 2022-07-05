@@ -1,21 +1,19 @@
 ---
-title: Cell Class
+title: Cell
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 200
 url: /python-net/api-reference/aspose.slides/cell/
 ---
 
+## Cell class
+
 Represents a cell of a table.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.Cell
-
-
-
 The Cell type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |offset_x|Returns a distance from left side of a table to left side of a cell.<br/>            Read-only float.|
 |offset_y|Returns a distance from top side of a table to top side of a cell.<br/>            Read-only float.|
@@ -43,10 +41,16 @@ The Cell type exposes the following members:
 |presentation|Returns the parent presentation of a cell.<br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |split_by_col_span(index)|Splits the cell to two cells by index of column.|
 |split_by_row_span(index)|Splits the cell to two cells by index of row.|
 |split_by_height(height)|Splits the cell by height.|
 |split_by_width(width)|Splits the cell by width.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

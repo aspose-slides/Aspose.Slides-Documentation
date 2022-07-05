@@ -1,25 +1,23 @@
 ---
-title: SwfOptions Class
+title: SwfOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 500
 url: /python-net/api-reference/aspose.slides.export/swfoptions/
 ---
 
+## SwfOptions class
+
 Provides options that control how a presentation is saved in Swf format.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.SwfOptions
-
-
-
 The SwfOptions type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |SwfOptions()|Default constructor.|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |warning_callback|Returns of sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage.<br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
@@ -41,3 +39,9 @@ The SwfOptions type exposes the following members:
 |jpeg_quality|Specifies the quality of JPEG images.<br/>            Default is 95.|
 |notes_comments_layouting|Provides options that control how notes and comments is placed in exported document.|
 |as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

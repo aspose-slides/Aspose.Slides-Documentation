@@ -1,21 +1,19 @@
 ---
-title: Connector Class
+title: Connector
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 340
 url: /python-net/api-reference/aspose.slides/connector/
 ---
 
+## Connector class
+
 Represents a connector.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.Connector
-
-
-
 The Connector type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_text_holder|Determines whether the shape is TextHolder.<br/>            Read-only bool.|
 |placeholder|Returns the placeholder for a shape.<br/>            Read-only [IPlaceholder](/slides/python-net/api-reference/aspose.slides/iplaceholder/).|
@@ -61,8 +59,8 @@ The Connector type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |as_ishape|Allows to get base IShape interface.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
 |as_igeometry_shape|Allows to get base IGeometryShape interface.<br/>            Read-only [IGeometryShape](/slides/python-net/api-reference/aspose.slides/igeometryshape/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -75,3 +73,9 @@ The Connector type exposes the following members:
 |set_geometry_paths(geometry_paths)|Updates shape geometry from array of [IGeometryPath](/slides/python-net/api-reference/aspose.slides/igeometrypath/). Coordinates must be relative to the left<br/>             top corner of the shape.<br/>             Changes the type of the shape ([shape_type](/slides/python-net/api-reference/aspose.slides/geometryshape/)) to [CUSTOM](/slides/python-net/api-reference/aspose.slides/shapetype/).|
 |create_shape_elements()|Creates and returns array of shape's elements.|
 |reroute()|Reroutes connector so that it take the shortest possible path between the shapes it connect.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

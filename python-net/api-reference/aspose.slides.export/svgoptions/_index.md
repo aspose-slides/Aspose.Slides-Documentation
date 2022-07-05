@@ -1,26 +1,24 @@
 ---
-title: SVGOptions Class
+title: SVGOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 440
 url: /python-net/api-reference/aspose.slides.export/svgoptions/
 ---
 
+## SVGOptions class
+
 Represents an SVG options.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.SVGOptions
-
-
-
 The SVGOptions type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |SVGOptions()|Initializes a new instance of the SVGOptions class.|
 |SVGOptions(link_embed_controller)|Initializes a new instance of the SVGOptions class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |warning_callback|Returns of sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage.<br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
@@ -39,3 +37,9 @@ The SVGOptions type exposes the following members:
 |delete_pictures_cropped_areas|A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped <br/>            parts will removed, if false they will be serialized in the document (which can possible lead to a <br/>            larger file)|
 |external_fonts_handling|Determines a way of handling externally loaded fonts.<br/>            Read/write [SvgExternalFontsHandling](/slides/python-net/api-reference/aspose.slides.export/svgexternalfontshandling/).|
 |as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

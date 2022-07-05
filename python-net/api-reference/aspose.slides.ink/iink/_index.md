@@ -1,21 +1,19 @@
 ---
-title: IInk Class
+title: IInk
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 10
 url: /python-net/api-reference/aspose.slides.ink/iink/
 ---
 
+## IInk class
+
 Represents an ink object on a slide.
 
-**Namespace:** [aspose.slides.ink](/slides/python-net/api-reference/aspose.slides.ink/)
-
-**Full Class Name:** aspose.slides.ink.IInk
-
-
-
 The IInk type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_igraphical_object|Allows to get base IGraphicalObject interface.<br/>            Read-only [IGraphicalObject](/slides/python-net/api-reference/aspose.slides/igraphicalobject/).|
 |shape_lock|Returns shape's locks.<br/>            Read-only [IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/).|
@@ -54,8 +52,8 @@ The IInk type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -63,3 +61,9 @@ The IInk type exposes the following members:
 |write_as_svg(stream, svg_options)|Saves content of Shape as SVG file.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides.ink](/slides/python-net/api-reference/aspose.slides.ink/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

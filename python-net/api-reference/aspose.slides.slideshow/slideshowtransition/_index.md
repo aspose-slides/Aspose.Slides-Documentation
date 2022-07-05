@@ -1,21 +1,19 @@
 ---
-title: SlideShowTransition Class
+title: SlideShowTransition
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 320
 url: /python-net/api-reference/aspose.slides.slideshow/slideshowtransition/
 ---
 
+## SlideShowTransition class
+
 Represents slide show transition.
 
-**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
-
-**Full Class Name:** aspose.slides.slideshow.SlideShowTransition
-
-
-
 The SlideShowTransition type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |sound|Returns or sets the embedded audio data.<br/>            Read/write [IAudio](/slides/python-net/api-reference/aspose.slides/iaudio/).|
 |sound_mode|Set or returns sound mode for slide transition.<br/>            Read/write [TransitionSoundMode](/slides/python-net/api-reference/aspose.slides.slideshow/transitionsoundmode/).|
@@ -27,3 +25,9 @@ The SlideShowTransition type exposes the following members:
 |type|Type of transition.<br/>            Read/write [TransitionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitiontype/).|
 |sound_is_built_in|Specifies whether or not this sound is a built-in sound. If this attribute is set to true then<br/>            the generating application is alerted to check the name attribute specified for this sound<br/>            in it's list of built-in sounds and can then surface a custom name or UI as needed.<br/>            Read-write bool.|
 |sound_name|Specifies a human readable name for the sound of the transition. The [sound](/slides/python-net/api-reference/aspose.slides.slideshow/slideshowtransition/) property must be assigned to get or set the sound name.<br/>            Read-write string.|
+
+### See Also
+
+* namespace [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IDoubleChartValue Class
+title: IDoubleChartValue
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 780
 url: /python-net/api-reference/aspose.slides.charts/idoublechartvalue/
 ---
 
+## IDoubleChartValue class
+
 Represent double value which can be stored in pptx presentation document in two ways:<br/>            1) in cell/cells of workbook related to chart;<br/>            2) as literal value.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IDoubleChartValue
-
-
-
 The IDoubleChartValue type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_literal_double|Returns or sets literal double value if DataSourceType = Charts.DataSourceType.DoubleLiterals.<br/>            Read/write float.|
 |as_isingle_cell_chart_value|Allows to get base ISingleCellChartValue interface.<br/>            Read-only [ISingleCellChartValue](/slides/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/).|
@@ -23,7 +21,13 @@ The IDoubleChartValue type exposes the following members:
 |as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
 |data_source_type|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual. In other words it specifies the type of value of the Data property.<br/>            This property is read-only. For changing value of this property you can use<br/>            one of the ChartDataPointCollection.DataSourceTypeFor<...> properties.<br/>            Read/write [data_source_type](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
 |data|Read/write object.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |to_double()|Converst to double.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

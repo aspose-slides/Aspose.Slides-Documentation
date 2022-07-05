@@ -1,21 +1,19 @@
 ---
-title: ChartTitle Class
+title: ChartTitle
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 280
 url: /python-net/api-reference/aspose.slides.charts/charttitle/
 ---
 
+## ChartTitle class
+
 Represents chart title properties.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartTitle
-
-
-
 The ChartTitle type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |x|Returns or sets the x coordinate of a title as a fraction of the width of the chart.<br/>            Read/write|
 |y|Returns or sets the y coordinate of a title as a fraction of the height of the chart.<br/>            Read/write|
@@ -35,7 +33,13 @@ The ChartTitle type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_iformatted_text_container|Allows to get base IFormattedTextContainer interface.<br/>            Read-only [IFormattedTextContainer](/slides/python-net/api-reference/aspose.slides.charts/iformattedtextcontainer/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_text_frame_for_overriding(text)|Initialize TextFrameForOverriding with the text in paramener "text".<br/>            If TextFrameForOverriding is already initialized then simply changes its text.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

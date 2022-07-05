@@ -1,21 +1,19 @@
 ---
-title: ITiffOptions Class
+title: ITiffOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 340
 url: /python-net/api-reference/aspose.slides.export/itiffoptions/
 ---
 
+## ITiffOptions class
+
 Provides options that control how a presentation is saved in TIFF format.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.ITiffOptions
-
-
-
 The ITiffOptions type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |image_size|Specifies size of a generated TIFF image.<br/>            Default value is 0x0, what means that generated image sizes will be calculated based on presentation slide size value.<br/>            Read/write aspose.pydrawing.Size.|
 |dpi_x|Specifies the horizontal resolution in dots per inch.<br/>            Read/write int.|
@@ -28,3 +26,9 @@ The ITiffOptions type exposes the following members:
 |warning_callback|Returns or sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage. <br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
 |default_regular_font|Returns or sets font used in case source font is not found.<br/>            Read-write string.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

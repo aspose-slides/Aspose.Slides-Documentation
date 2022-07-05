@@ -1,20 +1,18 @@
 ---
-title: CombinableSeriesTypesGroup Enumeration
+title: CombinableSeriesTypesGroup
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1160
 url: /python-net/api-reference/aspose.slides.charts/combinableseriestypesgroup/
 ---
 
+## CombinableSeriesTypesGroup enumeration
+
 Enumeration of groups of combinable series types.<br/>            Each element relates to group of types of chart series that can persist simultaneously in one ChartSeriesGroup.<br/>            For example: ChartType.PercentsStackedArea series cannot be simultaneously with ChartType.StackedArea series <br/>            in one ChartSeriesGroup. But two or more ChartType.PercentsStackedArea can be in one ChartSeriesGroup <br/>            simultaneously (CombinableSeriesTypesGroup.AreaChart_PercentsStackedArea). And ChartType.Line series can be <br/>            with ChartType.LineWithMarkers series simultaneously in one CombinableSeriesTypesGroup.LineChart_Line <br/>            ChartSeriesGroup.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Name:** aspose.slides.charts.CombinableSeriesTypesGroup
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |AREA_CHART_AREA|Groups this set of series types:<br/>            { ChartType.Area }|
 |AREA_CHART_PERCENTS_STACKED_AREA|Groups this set of series types:<br/>            { ChartType.PercentsStackedArea }|
@@ -77,3 +75,9 @@ Enumeration of groups of combinable series types.<br/>            Each element r
 |TREEMAP_CHART|Groups this set of series types:<br/>            { ChartType.Treemap }|
 |MAP_CHART|Groups this set of series types:<br/>            { ChartType.Map }|
 |SUNBURST_CHART|Groups this set of series types:<br/>            { ChartType.Sunburst }|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

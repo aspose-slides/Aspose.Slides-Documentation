@@ -1,21 +1,19 @@
 ---
-title: Ink Class
+title: Ink
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 20
 url: /python-net/api-reference/aspose.slides.ink/ink/
 ---
 
+## Ink class
+
 Represents an ink object on a slide.
 
-**Namespace:** [aspose.slides.ink](/slides/python-net/api-reference/aspose.slides.ink/)
-
-**Full Class Name:** aspose.slides.ink.Ink
-
-
-
 The Ink type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_text_holder|Determines whether the shape is TextHolder.<br/>            Read-only bool.|
 |placeholder|Returns the placeholder for a shape.<br/>            Read-only [IPlaceholder](/slides/python-net/api-reference/aspose.slides/iplaceholder/).|
@@ -54,8 +52,8 @@ The Ink type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |as_ishape|Allows to get base IShape interface.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
 |as_igraphical_object|Allows to get base IGraphicalObject interface.<br/>            Read-only [IGraphicalObject](/slides/python-net/api-reference/aspose.slides/igraphicalobject/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -63,3 +61,9 @@ The Ink type exposes the following members:
 |write_as_svg(stream, svg_options)|Saves content of Shape as SVG file.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
+
+### See Also
+
+* namespace [aspose.slides.ink](/slides/python-net/api-reference/aspose.slides.ink/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

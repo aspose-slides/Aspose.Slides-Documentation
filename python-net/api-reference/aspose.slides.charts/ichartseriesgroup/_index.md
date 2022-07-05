@@ -1,21 +1,19 @@
 ---
-title: IChartSeriesGroup Class
+title: IChartSeriesGroup
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 660
 url: /python-net/api-reference/aspose.slides.charts/ichartseriesgroup/
 ---
 
+## IChartSeriesGroup class
+
 Represents group of series.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartSeriesGroup
-
-
-
 The IChartSeriesGroup type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |type|Returns a type of this series group.<br/>            Read-only [CombinableSeriesTypesGroup](/slides/python-net/api-reference/aspose.slides.charts/combinableseriestypesgroup/).|
 |plot_on_second_axis|Indicates if series of this group is plotted on secondary axis.<br/>            Read-only bool.|
@@ -41,7 +39,13 @@ The IChartSeriesGroup type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

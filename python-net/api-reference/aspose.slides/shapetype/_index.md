@@ -1,20 +1,18 @@
 ---
-title: ShapeType Enumeration
+title: ShapeType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9740
 url: /python-net/api-reference/aspose.slides/shapetype/
 ---
 
+## ShapeType enumeration
+
 Represents preset geometry of geometry shapes.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.ShapeType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED|Not defined.|
 |CUSTOM|Custom shape.<br/>            This is return-only value.|
@@ -205,3 +203,9 @@ Represents preset geometry of geometry shapes.
 |CHART_X|Chart X Shape.|
 |CHART_STAR|Chart Star Shape.|
 |CHART_PLUS|Chart Plus Shape.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

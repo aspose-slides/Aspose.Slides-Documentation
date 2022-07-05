@@ -1,33 +1,31 @@
 ---
-title: MathFraction Class
+title: MathFraction
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 610
 url: /python-net/api-reference/aspose.slides.mathtext/mathfraction/
 ---
 
+## MathFraction class
+
 Specifies the fraction object, consisting of a numerator and denominator separated by a fraction bar.<br/>            The fraction bar can be horizontal or diagonal, depending on the fraction properties.<br/>            The fraction object is also used to represent the stack function, which places one element above another, with no fraction bar.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.MathFraction
-
-
-
 The MathFraction type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |MathFraction(numerator, denominator, fraction_type)|Initializes a new instance of the MathFraction class|
 |MathFraction(numerator, denominator)|Initializes a new instance of the MathFraction class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |fraction_type|Fraction type<br/>            Default: Bar|
 |numerator|Numerator|
 |denominator|Denominator|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -75,3 +73,9 @@ The MathFraction type exposes the following members:
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
 |get_children()|Get children elements|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: AutoShapeLock Class
+title: AutoShapeLock
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 70
 url: /python-net/api-reference/aspose.slides/autoshapelock/
 ---
 
+## AutoShapeLock class
+
 Determines which operations are disabled on the parent AutoshapeEx.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.AutoShapeLock
-
-
-
 The AutoShapeLock type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |no_locks|Return true if all lock-flags are disabled.<br/>            Read-only bool.|
 |grouping_locked|Determines whether an adding this shape to a group is forbidden.<br/>            Read/write bool.|
@@ -30,3 +28,9 @@ The AutoShapeLock type exposes the following members:
 |shape_type_locked|Determines whether a changing of a shape type is forbidden.<br/>            Read/write bool.|
 |text_locked|Determines whether an editing of text is forbidden.<br/>            Read/write bool.|
 |as_ibase_shape_lock|Allows to get base IBaseShapeLock interface.<br/>            Read-only [IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

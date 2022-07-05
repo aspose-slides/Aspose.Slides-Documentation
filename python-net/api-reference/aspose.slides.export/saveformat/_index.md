@@ -1,20 +1,18 @@
 ---
-title: SaveFormat Enumeration
+title: SaveFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 780
 url: /python-net/api-reference/aspose.slides.export/saveformat/
 ---
 
+## SaveFormat enumeration
+
 Constants which define the format of a saved presentation.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Name:** aspose.slides.export.SaveFormat
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |PPT|Save presentation in PPT format.|
 |PDF|Save presentation in PDF format.|
@@ -35,3 +33,9 @@ Constants which define the format of a saved presentation.
 |FODP|Save presentation in FODP format.|
 |GIF|Save presentation in GIF format.|
 |HTML5|Save presentation in HTML format using new HTML5 templating system.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

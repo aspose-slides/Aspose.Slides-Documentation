@@ -1,21 +1,19 @@
 ---
-title: IDataTable Class
+title: IDataTable
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 770
 url: /python-net/api-reference/aspose.slides.charts/idatatable/
 ---
 
+## IDataTable class
+
 Represents data table properties.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IDataTable
-
-
-
 The IDataTable type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |format|Returns the line, fill, and effect styles of an object.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |has_border_horizontal|True if the chart data table has horizontal cell borders.<br/>            Read/write bool.|
@@ -30,3 +28,9 @@ The IDataTable type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

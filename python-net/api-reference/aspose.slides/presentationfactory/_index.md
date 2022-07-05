@@ -1,29 +1,27 @@
 ---
-title: PresentationFactory Class
+title: PresentationFactory
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3510
 url: /python-net/api-reference/aspose.slides/presentationfactory/
 ---
 
+## PresentationFactory class
+
 Allows to create presentation via COM interface
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.PresentationFactory
-
-
-
 The PresentationFactory type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |PresentationFactory()|Initializes a new instance of the PresentationFactory class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |instance|Presentation factory static instance.<br/>            Read-only [PresentationFactory](/slides/python-net/api-reference/aspose.slides/presentationfactory/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |create_presentation()|Creates new presentation.|
 |create_presentation(options)|Creates new presentation with additional load options|
@@ -38,3 +36,9 @@ The PresentationFactory type exposes the following members:
 |get_presentation_text(file, mode)|Retrieves the raw text from the slides|
 |get_presentation_text(stream, mode)|Retrieves the raw text from the slides|
 |get_presentation_text(stream, mode, options)|Retrieves the raw text from the slides|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

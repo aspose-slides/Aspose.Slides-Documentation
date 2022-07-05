@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.warnings
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 200
 url: /python-net/api-reference/aspose.slides.warnings/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.warnings/
 
 Contains classes that represents various kind of warnings.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[IKnownIssueWarningInfo](/slides/python-net/api-reference/aspose.slides.warnings/iknownissuewarninginfo/)|Represents a warning about known issue which won't be fixed in the near future.|
 |[INotImplementedWarningInfo](/slides/python-net/api-reference/aspose.slides.warnings/inotimplementedwarninginfo/)|Represents a warning about known not implemented feature which won't be implemented in the near future.|
@@ -17,8 +19,8 @@ Contains classes that represents various kind of warnings.
 |[IPresentationSignedWarningInfo](/slides/python-net/api-reference/aspose.slides.warnings/ipresentationsignedwarninginfo/)|This warning indicates that the presentation being read has the signature <br/>            and this signature will be removed during processing.|
 |[IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/)|Interface for classes which receive warning|
 |[IWarningInfo](/slides/python-net/api-reference/aspose.slides.warnings/iwarninginfo/)|Represents a base interface for all warnings.|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[ReturnAction](/slides/python-net/api-reference/aspose.slides.warnings/returnaction/)|Represents warning callback decision options.|
 |[WarningType](/slides/python-net/api-reference/aspose.slides.warnings/warningtype/)|Represents a type of warning.|

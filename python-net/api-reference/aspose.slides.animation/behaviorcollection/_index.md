@@ -1,31 +1,29 @@
 ---
-title: BehaviorCollection Class
+title: BehaviorCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 30
 url: /python-net/api-reference/aspose.slides.animation/behaviorcollection/
 ---
 
+## BehaviorCollection class
+
 Represents collection of behavior effects.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.BehaviorCollection
-
-
-
 The BehaviorCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |count|Returns the number of behaviors in a collection.<br/>            Read-only|
 |is_read_only|Gets a value indicating whether the list is read-only.<br/>            Read-only bool.|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Retirns a behavior at the specified index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(item)|Add new behavior to a collection.|
 |index_of(item)|Determines the index of a specific item in the list.|
@@ -35,3 +33,9 @@ The BehaviorCollection type exposes the following members:
 |remove_at(index)|Removes behavior from a collection at the specified index.|
 |clear()|Removes all behaviors from a collection.|
 |contains(item)|Determines whether the list contains a specific value.|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

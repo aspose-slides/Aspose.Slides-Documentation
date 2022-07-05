@@ -1,21 +1,19 @@
 ---
-title: IOverrideTheme Class
+title: IOverrideTheme
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 310
 url: /python-net/api-reference/aspose.slides.theme/ioverridetheme/
 ---
 
+## IOverrideTheme class
+
 Represents a overriding theme.
 
-**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
-
-**Full Class Name:** aspose.slides.theme.IOverrideTheme
-
-
-
 The IOverrideTheme type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_empty|True value means that ColorScheme, FontScheme, FormatScheme is null and any overriding with this theme object are disabled.<br/>            Read-only bool.|
 |as_itheme|Allows to get base ITheme interface.<br/>            Read-only [ITheme](/slides/python-net/api-reference/aspose.slides.theme/itheme/).|
@@ -24,8 +22,8 @@ The IOverrideTheme type exposes the following members:
 |format_scheme|Returns the shape format scheme.<br/>            Read-only [IFormatScheme](/slides/python-net/api-reference/aspose.slides.theme/iformatscheme/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |init_color_scheme()|Init ColorScheme with new object for overriding ColorScheme of InheritedTheme.|
 |init_color_scheme_from(color_scheme)|Init ColorScheme with new object for overriding ColorScheme of InheritedTheme.|
@@ -38,3 +36,9 @@ The IOverrideTheme type exposes the following members:
 |init_format_scheme_from_inherited()|Init FormatScheme with new object for overriding FormatScheme of InheritedTheme. And initialize data of this new object with data of the FormatScheme of InheritedTheme.|
 |clear()|Set ColorScheme, FontScheme, FormatScheme to null to disable any overriding with this theme object.|
 |get_effective()|Gets effective theme data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

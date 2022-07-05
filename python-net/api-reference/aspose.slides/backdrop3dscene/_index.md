@@ -1,21 +1,19 @@
 ---
-title: Backdrop3DScene Class
+title: Backdrop3DScene
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 80
 url: /python-net/api-reference/aspose.slides/backdrop3dscene/
 ---
 
+## Backdrop3DScene class
+
 Defines a plane in which effects, such as glow and shadow, are applied in relation to the shape they are being applied to.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.Backdrop3DScene
-
-
-
 The Backdrop3DScene type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |normal_vector|Returns or sets a normal vector. To be more precise, this attribute defines a vector<br/>            normal to the face of the backdrop plane. Vector represented by array of 3 float values<br/>            which define X, Y and Z coordinates.<br/>            Read/write|
@@ -23,3 +21,9 @@ The Backdrop3DScene type exposes the following members:
 |up_vector|Returns or sets a vector representing up. To be more precise, this attribute defines a vector<br/>            representing up in relation to the face of the backdrop plane. Vector represented by array<br/>            of 3 float values which define X, Y and Z coordinates.<br/>            Read/write|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

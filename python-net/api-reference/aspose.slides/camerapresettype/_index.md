@@ -1,20 +1,18 @@
 ---
-title: CameraPresetType Enumeration
+title: CameraPresetType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9240
 url: /python-net/api-reference/aspose.slides/camerapresettype/
 ---
 
+## CameraPresetType enumeration
+
 Constants which define camera preset type.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.CameraPresetType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |ISOMETRIC_BOTTOM_DOWN||
@@ -79,3 +77,9 @@ Constants which define camera preset type.
 |PERSPECTIVE_RELAXED||
 |PERSPECTIVE_RELAXED_MODERATELY||
 |PERSPECTIVE_RIGHT||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

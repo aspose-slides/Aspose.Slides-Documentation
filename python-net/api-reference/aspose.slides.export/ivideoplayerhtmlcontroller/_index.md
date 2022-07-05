@@ -1,27 +1,25 @@
 ---
-title: IVideoPlayerHtmlController Class
+title: IVideoPlayerHtmlController
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 350
 url: /python-net/api-reference/aspose.slides.export/ivideoplayerhtmlcontroller/
 ---
 
+## IVideoPlayerHtmlController class
+
 This class allows export of video and audio files into a HTML
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.IVideoPlayerHtmlController
-
-
-
 The IVideoPlayerHtmlController type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_ihtml_formatting_controller|Allows to get base IHtmlFormattingController interface.<br/>            Read-only [IHtmlFormattingController](/slides/python-net/api-reference/aspose.slides.export/ihtmlformattingcontroller/).|
 |as_isvg_shape_formatting_controller|Allows to get base ISvgShapeFormattingController interface.<br/>            Read-only [ISvgShapeFormattingController](/slides/python-net/api-reference/aspose.slides.export/isvgshapeformattingcontroller/).|
 |as_ilink_embed_controller|Allows to get base ILinkEmbedController interface.<br/>            Read-only [ILinkEmbedController](/slides/python-net/api-reference/aspose.slides.export/ilinkembedcontroller/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |write_document_start(generator, presentation)|Called to write html document header. Called once per presentation conversion.|
 |write_document_end(generator, presentation)|Called to write html document footer. Called once per presentation conversion.|
@@ -33,3 +31,9 @@ The IVideoPlayerHtmlController type exposes the following members:
 |get_object_storing_location(id, entity_data, semantic_name, content_type, recomended_extension)|Determines where object should be stored.<br/>            This method is called once for each object id.<br/>            It is not guaranteed that there won't be two objects with same data, semanticName and contentType but with different id.|
 |get_url(id, referrer)|Returns an URL to an external object.<br/>            This method always called if|
 |save_external(id, entity_data)|Saves external object.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

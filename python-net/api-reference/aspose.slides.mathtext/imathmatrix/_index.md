@@ -1,21 +1,19 @@
 ---
-title: IMathMatrix Class
+title: IMathMatrix
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 280
 url: /python-net/api-reference/aspose.slides.mathtext/imathmatrix/
 ---
 
+## IMathMatrix class
+
 Specifies the Matrix object, consisting of child elements laid out in one or more rows and columns. <br/>            It is important to note that matrices do not have built in delimiters. <br/>            To place the matrix in the brackets you should use the delimiter object (IMathDelimiter).<br/>            Null arguments can be used to create gaps in matrices.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.IMathMatrix
-
-
-
 The IMathMatrix type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |row_count|Number of rows in the matrix|
 |column_count|Number of columns in the matrix|
@@ -27,8 +25,8 @@ The IMathMatrix type exposes the following members:
 |row_gap_rule|The type of vertical spacing between rows of a matrix; <br/>            Vertical spacing units can be lines or points (stored as twips).<br/>            Default: SingleSpacingGap (0)|
 |row_gap|The value of vertical spacing between rows of a matrix;<br/>            If the RowGapRule is set to 3 ("Exactly"), then the unit is interpreted as twips (1/20th of a point)<br/>            If the RowGapRule is set to 4 ("Multiple"), then the unit is interpreted as half-lines.<br/>            Default: 0|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -85,3 +83,9 @@ The IMathMatrix type exposes the following members:
 |overbar()|Sets a bar on the top of this element|
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

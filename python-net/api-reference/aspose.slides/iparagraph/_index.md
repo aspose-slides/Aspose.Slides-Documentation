@@ -1,21 +1,19 @@
 ---
-title: IParagraph Class
+title: IParagraph
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2030
 url: /python-net/api-reference/aspose.slides/iparagraph/
 ---
 
+## IParagraph class
+
 Represents a paragraph of a text.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IParagraph
-
-
-
 The IParagraph type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |portions|Returns the collection of a text portions.<br/>            Read-only [IPortionCollection](/slides/python-net/api-reference/aspose.slides/iportioncollection/).|
 |paragraph_format|Returns the formatting object for this paragraph.<br/>            Read-only [IParagraphFormat](/slides/python-net/api-reference/aspose.slides/iparagraphformat/).|
@@ -25,8 +23,14 @@ The IParagraph type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join_portions_with_same_formatting()|Joins runs with same formatting.|
 |get_rect()|Get coordinates of rect that bounds paragraph. The rect includes all the lines of<br/>            text in paragraph, including empty ones.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

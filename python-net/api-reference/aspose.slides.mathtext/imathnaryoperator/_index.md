@@ -1,21 +1,19 @@
 ---
-title: IMathNaryOperator Class
+title: IMathNaryOperator
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 300
 url: /python-net/api-reference/aspose.slides.mathtext/imathnaryoperator/
 ---
 
+## IMathNaryOperator class
+
 Specifies an N-ary mathematical object, such as Summation and Integral.<br/>            It consists of an operator, a base (or operand), and optional upper and lower limits. <br/>            Examples of N-ary operators are: Summation, Union, Intersection, Integral
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.IMathNaryOperator
-
-
-
 The IMathNaryOperator type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |base|Base argument|
 |subscript|Specifies a subscript argument that, for example, in the case of an integral, sets the lower limit|
@@ -27,8 +25,8 @@ The IMathNaryOperator type exposes the following members:
 |grow_to_match_operand_height|Operator Character grows vertically to match its operand height|
 |hide_subscript|Hide Subscript|
 |hide_superscript|Hide Superscript|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -76,3 +74,9 @@ The IMathNaryOperator type exposes the following members:
 |overbar()|Sets a bar on the top of this element|
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

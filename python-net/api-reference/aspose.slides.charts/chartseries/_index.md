@@ -1,21 +1,19 @@
 ---
-title: ChartSeries Class
+title: ChartSeries
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 240
 url: /python-net/api-reference/aspose.slides.charts/chartseries/
 ---
 
+## ChartSeries class
+
 Represents a chart series.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartSeries
-
-
-
 The ChartSeries type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |chart|Returns the parent chart.<br/>            Read-only [IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/).|
 |explosion|The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.<br/>             Read/write|
@@ -66,7 +64,13 @@ The ChartSeries type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_automatic_series_color()|Returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

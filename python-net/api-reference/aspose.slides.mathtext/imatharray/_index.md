@@ -1,21 +1,19 @@
 ---
-title: IMathArray Class
+title: IMathArray
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 40
 url: /python-net/api-reference/aspose.slides.mathtext/imatharray/
 ---
 
+## IMathArray class
+
 Specifies a vertical array of equations or any mathematical objects
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.IMathArray
-
-
-
 The IMathArray type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |arguments|The set of items of the array|
 |base_justification|Specifies alignment of the array relative to surrounding text<br/>            Text outside of the array can be aligned with the bottom, top, or center of a array object.<br/>            Default value: Center|
@@ -24,8 +22,8 @@ The IMathArray type exposes the following members:
 |row_spacing_rule|The type of vertical spacing between array elements|
 |row_spacing|Spacing between rows of an array<br/>            It is used only when RowSpacingRule is set to 3 Exactly in which case the unit of measure is points <br/>            or Multiple in which case the unit of measure is half-lines.<br/>            Default: 0|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -73,3 +71,9 @@ The IMathArray type exposes the following members:
 |overbar()|Sets a bar on the top of this element|
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

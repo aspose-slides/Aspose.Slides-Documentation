@@ -1,30 +1,28 @@
 ---
-title: ICommentAuthorCollection Class
+title: ICommentAuthorCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1130
 url: /python-net/api-reference/aspose.slides/icommentauthorcollection/
 ---
 
+## ICommentAuthorCollection class
+
 Represents a collection of comment authors.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ICommentAuthorCollection
-
-
-
 The ICommentAuthorCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.<br/>            Read-only [ICommentAuthor](/slides/python-net/api-reference/aspose.slides/icommentauthor/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_author(name, initials)|Add new author at the end of a collection.|
 |to_array()|Creates and returns an array with all authors.|
@@ -33,3 +31,9 @@ The ICommentAuthorCollection type exposes the following members:
 |remove_at(index)|Removes the author at the specified index of the collection.|
 |remove(author)|Removes the author at the specified index of the collection.|
 |clear()|Removes all authors from a collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

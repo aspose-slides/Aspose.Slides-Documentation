@@ -1,21 +1,19 @@
 ---
-title: IControl Class
+title: IControl
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1180
 url: /python-net/api-reference/aspose.slides/icontrol/
 ---
 
+## IControl class
+
 Represents an ActiveX control.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IControl
-
-
-
 The IControl type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |name|Returns the name of this control.<br/>            Read/write string.|
 |class_id|Gets class id of this control.<br/>            Read-only string.|
@@ -28,3 +26,9 @@ The IControl type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

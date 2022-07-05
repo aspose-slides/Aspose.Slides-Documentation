@@ -1,20 +1,18 @@
 ---
-title: SystemColor Enumeration
+title: SystemColor
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9820
 url: /python-net/api-reference/aspose.slides/systemcolor/
 ---
 
+## SystemColor enumeration
+
 Represents predefined system colors.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.SystemColor
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED|System color is not defined.|
 |SCROLL_BAR||
@@ -47,3 +45,9 @@ Represents predefined system colors.
 |GRADIENT_INACTIVE_CAPTION||
 |MENU_HIGHLIGHT||
 |MENU_BAR||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

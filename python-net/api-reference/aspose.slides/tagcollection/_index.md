@@ -1,26 +1,24 @@
 ---
-title: TagCollection Class
+title: TagCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3860
 url: /python-net/api-reference/aspose.slides/tagcollection/
 ---
 
+## TagCollection class
+
 Represents the collection of tags (user defined pairs of strings)
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.TagCollection
-
-
-
 The TagCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(name, value)|Adds a new tag to collection.|
 |remove(name)|Removes the tag with a specified name from the collection.|
@@ -30,3 +28,9 @@ The TagCollection type exposes the following members:
 |get_value_by_index(index)|Returns value of a tag at the specified index.|
 |get_name_by_index(index)|Returns key of a tag at the specified index.|
 |get_names_of_tags()|Returns names of tags.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

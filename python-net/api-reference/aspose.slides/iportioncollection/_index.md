@@ -1,30 +1,28 @@
 ---
-title: IPortionCollection Class
+title: IPortionCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2180
 url: /python-net/api-reference/aspose.slides/iportioncollection/
 ---
 
+## IPortionCollection class
+
 Represents a collection of a portions.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IPortionCollection
-
-
-
 The IPortionCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(value)|Adds a Portion to the end of collection.|
 |index_of(item)|Determines the index of a specific portion in collection.|
@@ -33,3 +31,9 @@ The IPortionCollection type exposes the following members:
 |contains(item)|Determines whether the list contains a specific value.|
 |remove(item)|Removes the first occurrence of a specific object from the list.|
 |remove_at(index)|Removes the element at the specified index of the collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

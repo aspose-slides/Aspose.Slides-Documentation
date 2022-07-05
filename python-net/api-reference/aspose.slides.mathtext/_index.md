@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.mathtext
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 130
 url: /python-net/api-reference/aspose.slides.mathtext/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.mathtext/
 
 Contains classes for work with mathematical text in Microsoft PowerPoint presentations.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[BaseScript](/slides/python-net/api-reference/aspose.slides.mathtext/basescript/)|Math script|
 |[IMathAccent](/slides/python-net/api-reference/aspose.slides.mathtext/imathaccent/)|Specifies the accent function, consisting of a base and a combining diacritical mark<br/>            Example: 𝑎́|
@@ -97,8 +99,8 @@ Contains classes for work with mathematical text in Microsoft PowerPoint present
 |[MathSuperscriptElementFactory](/slides/python-net/api-reference/aspose.slides.mathtext/mathsuperscriptelementfactory/)|Allows to create IMathSuperscriptElement|
 |[MathematicalText](/slides/python-net/api-reference/aspose.slides.mathtext/mathematicaltext/)|Mathematical text|
 |[MathematicalTextFactory](/slides/python-net/api-reference/aspose.slides.mathtext/mathematicaltextfactory/)|Allows to create a MathematicalText element|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[MathDelimiterShape](/slides/python-net/api-reference/aspose.slides.mathtext/mathdelimitershape/)|The location and size of the delimiters relative to the content of the operands|
 |[MathFractionTypes](/slides/python-net/api-reference/aspose.slides.mathtext/mathfractiontypes/)|Fraction Types|

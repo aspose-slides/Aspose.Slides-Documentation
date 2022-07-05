@@ -1,21 +1,19 @@
 ---
-title: ParagraphCollection Class
+title: ParagraphCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3260
 url: /python-net/api-reference/aspose.slides/paragraphcollection/
 ---
 
+## ParagraphCollection class
+
 Represents a collection of a paragraphs.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ParagraphCollection
-
-
-
 The ParagraphCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |is_read_only|Gets a value indicating whether the list is read-only.<br/>            Read-only bool.|
@@ -24,12 +22,12 @@ The ParagraphCollection type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(value)|Adds a Paragraph to the end of collection.|
 |add(value)|Adds a content of ParagraphCollection to the end of collection.|
@@ -44,3 +42,9 @@ The ParagraphCollection type exposes the following members:
 |remove_at(index)|Removes the element at the specified index of the collection.|
 |remove(item)|Removes the first occurrence of a specific object from the list.|
 |export_to_html(first_paragraph_index, paragraphs_count, options)|Converts specifying paragraphs to the HTML and returns it as String object.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

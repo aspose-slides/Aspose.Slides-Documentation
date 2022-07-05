@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.animation
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 20
 url: /python-net/api-reference/aspose.slides.animation/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.animation/
 
 Contains classes for work with animation in Microsoft PowerPoint presentations.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[AnimationTimeLine](/slides/python-net/api-reference/aspose.slides.animation/animationtimeline/)|Represents timeline of animation.|
 |[Behavior](/slides/python-net/api-reference/aspose.slides.animation/behavior/)|Represent base class behavior of effect.|
@@ -60,8 +62,8 @@ Contains classes for work with animation in Microsoft PowerPoint presentations.
 |[TextAnimation](/slides/python-net/api-reference/aspose.slides.animation/textanimation/)|Represent text animation.|
 |[TextAnimationCollection](/slides/python-net/api-reference/aspose.slides.animation/textanimationcollection/)|Represents collection of text animations.|
 |[Timing](/slides/python-net/api-reference/aspose.slides.animation/timing/)|Represents animation timing.|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[BehaviorAccumulateType](/slides/python-net/api-reference/aspose.slides.animation/behavioraccumulatetype/)|Represents types of accumulation of effect behaviors.|
 |[BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/)|Represents additive type for effect behavior.|

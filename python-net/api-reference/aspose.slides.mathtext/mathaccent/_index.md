@@ -1,32 +1,30 @@
 ---
-title: MathAccent Class
+title: MathAccent
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 460
 url: /python-net/api-reference/aspose.slides.mathtext/mathaccent/
 ---
 
+## MathAccent class
+
 Specifies the accent function, consisting of a base and a combining diacritical mark<br/>            Example: 𝑎́
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.MathAccent
-
-
-
 The MathAccent type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |MathAccent(element)|Initializes a new instance of the MathAccent class|
 |MathAccent(element, accent_character)|Initializes a new instance of the MathAccent class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |base|The argument to which the accent was applied|
 |character|Accent Character<br/>            The value should be within the range of (U+0300–U+036F) or(U+20D0–U+20EF)<br/>            Default value: Combining Circumflex Accent (U+0302)|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -74,3 +72,9 @@ The MathAccent type exposes the following members:
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
 |get_children()|Get children elements|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IXpsOptions Class
+title: IXpsOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 370
 url: /python-net/api-reference/aspose.slides.export/ixpsoptions/
 ---
 
+## IXpsOptions class
+
 Provides options that control how a presentation is saved in XPS format.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.IXpsOptions
-
-
-
 The IXpsOptions type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |save_metafiles_as_png|True to convert all metafiles used in a presentation to the PNG images.<br/>            Read/write bool.|
 |draw_slides_frame|True to draw black frame around each slide.<br/>             Read/write bool.|
@@ -24,3 +22,9 @@ The IXpsOptions type exposes the following members:
 |warning_callback|Returns or sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage. <br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
 |default_regular_font|Returns or sets font used in case source font is not found.<br/>            Read-write string.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

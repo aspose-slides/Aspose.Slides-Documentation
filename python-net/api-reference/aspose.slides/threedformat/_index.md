@@ -1,21 +1,19 @@
 ---
-title: ThreeDFormat Class
+title: ThreeDFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3910
 url: /python-net/api-reference/aspose.slides/threedformat/
 ---
 
+## ThreeDFormat class
+
 Represents 3-D properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ThreeDFormat
-
-
-
 The ThreeDFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |contour_width|Returns or sets the width of a 3D contour.<br/>            Read/write float.|
@@ -31,7 +29,13 @@ The ThreeDFormat type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_effective()|Gets effective 3-D formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

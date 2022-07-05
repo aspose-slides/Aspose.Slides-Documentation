@@ -1,20 +1,18 @@
 ---
-title: SmartArtLayoutType Enumeration
+title: SmartArtLayoutType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 130
 url: /python-net/api-reference/aspose.slides.smartart/smartartlayouttype/
 ---
 
+## SmartArtLayoutType enumeration
+
 Represents layout type of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
-
-**Full Name:** aspose.slides.smartart.SmartArtLayoutType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |ACCENT_PROCESS|Use to show a progression, a timeline, or sequential steps in a task, process, or workflow. Works well for illustrating both Level 1 and Level 2 text.|
 |ACCENTED_PICTURE|Use to show a central, photographic idea with related ideas on the side. The top Level 1 text appears over the central picture. Corresponding text for other Level 1 shapes appear next to the small circular pictures. This layout also works well with no text.|
@@ -152,3 +150,9 @@ Represents layout type of a SmartArt diagram.
 |VERTICAL_PROCESS|Use to show a progression or sequential steps in a task, process, or workflow from top to bottom. Works best with Level 1 text, since the vertical space is limited.|
 |CUSTOM|Represents a SmartArt diagram with custom layout template|
 |PICTURE_ORGANIZATION_CHART|Use to show hierarchical information or reporting relationships in an organization, with corresponding pictures. The assistant shape and Org Chart hanging layouts are available with this layout.|
+
+### See Also
+
+* namespace [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

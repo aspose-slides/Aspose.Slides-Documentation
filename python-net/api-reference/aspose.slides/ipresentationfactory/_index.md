@@ -1,21 +1,19 @@
 ---
-title: IPresentationFactory Class
+title: IPresentationFactory
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2240
 url: /python-net/api-reference/aspose.slides/ipresentationfactory/
 ---
 
+## IPresentationFactory class
+
 Allows to create presentation via COM interface
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IPresentationFactory
-
-
-
 The IPresentationFactory type exposes the following members:
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |create_presentation()|Creates new presentation.|
 |create_presentation(options)|Creates new presentation with additional load options|
@@ -30,3 +28,9 @@ The IPresentationFactory type exposes the following members:
 |get_presentation_text(file, mode)|Retrieves the raw text from the slides|
 |get_presentation_text(stream, mode)|Retrieves the raw text from the slides|
 |get_presentation_text(stream, mode, options)|Retrieves the raw text from the slides|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

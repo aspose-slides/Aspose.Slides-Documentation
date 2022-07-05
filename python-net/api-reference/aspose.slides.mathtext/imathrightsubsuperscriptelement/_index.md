@@ -1,29 +1,27 @@
 ---
-title: IMathRightSubSuperscriptElement Class
+title: IMathRightSubSuperscriptElement
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 380
 url: /python-net/api-reference/aspose.slides.mathtext/imathrightsubsuperscriptelement/
 ---
 
+## IMathRightSubSuperscriptElement class
+
 Specifies the Sub-Superscript object, which consists of a base <br/>            and a subscript and superscript placed to the right of the base.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.IMathRightSubSuperscriptElement
-
-
-
 The IMathRightSubSuperscriptElement type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |base|Base argument|
 |subscript|Subscript argument|
 |superscript|Superscript argument|
 |align_scripts|Specifies the alignment of subscript/superscript. <br/>            When true, subscript and superscript are aligned horizontally to each other.<br/>            When false, they are kerned to the shape of the base.<br/>            Default value is false.|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -71,3 +69,9 @@ The IMathRightSubSuperscriptElement type exposes the following members:
 |overbar()|Sets a bar on the top of this element|
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: GeometryShape Class
+title: GeometryShape
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 610
 url: /python-net/api-reference/aspose.slides/geometryshape/
 ---
 
+## GeometryShape class
+
 Represents the parent class for all geometric shapes.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.GeometryShape
-
-
-
 The GeometryShape type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_text_holder|Determines whether the shape is TextHolder_PPT.<br/>            Read-only bool.|
 |placeholder|Returns the placeholder for a shape. Returns null if the shape has no placeholder.<br/>            Read-only [IPlaceholder](/slides/python-net/api-reference/aspose.slides/iplaceholder/).|
@@ -55,8 +53,8 @@ The GeometryShape type exposes the following members:
 |as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |as_ishape|Allows to get base IShape interface.<br/>            Read-only [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -68,3 +66,9 @@ The GeometryShape type exposes the following members:
 |set_geometry_path(geometry_path)|Updates shape geometry from [IGeometryPath](/slides/python-net/api-reference/aspose.slides/igeometrypath/) object. Coordinates must be relative to the left<br/>             top corner of the shape.<br/>             Changes the type of the shape ([shape_type](/slides/python-net/api-reference/aspose.slides/geometryshape/)) to [CUSTOM](/slides/python-net/api-reference/aspose.slides/shapetype/).|
 |set_geometry_paths(geometry_paths)|Updates shape geometry from array of [IGeometryPath](/slides/python-net/api-reference/aspose.slides/igeometrypath/). Coordinates must be relative to the left<br/>             top corner of the shape.<br/>             Changes the type of the shape ([shape_type](/slides/python-net/api-reference/aspose.slides/geometryshape/)) to [CUSTOM](/slides/python-net/api-reference/aspose.slides/shapetype/).|
 |create_shape_elements()|Creates and returns array of shape's elements.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

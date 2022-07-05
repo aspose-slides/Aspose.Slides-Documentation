@@ -1,21 +1,19 @@
 ---
-title: IChartData Class
+title: IChartData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 510
 url: /python-net/api-reference/aspose.slides.charts/ichartdata/
 ---
 
+## IChartData class
+
 Represents data used for a chart plotting.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartData
-
-
-
 The IChartData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |chart_data_workbook|Gets the cells factory to create cells used for chart series or categories.<br/>            Read-only [IChartDataWorkbook](/slides/python-net/api-reference/aspose.slides.charts/ichartdataworkbook/).|
 |series|Gets the series.<br/>            Read-only [IChartSeriesCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartseriescollection/).|
@@ -25,11 +23,17 @@ The IChartData type exposes the following members:
 |secondary_categories|Gets the secondary categories if [use_secondary_categories](/slides/python-net/api-reference/aspose.slides.charts/ichartdata/) property is true.<br/>            Read-only [IChartCategoryCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartcategorycollection/).|
 |data_source_type|Represents data source of the chart|
 |external_workbook_path|Represents external workbook path if data source is external, null otherwise|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |set_external_workbook(workbook_path)|Sets external workbook as a data source for the chart. Chart data will be updated from the target workbook.|
 |set_external_workbook(workbook_path, update_chart_data)|Sets external workbook as a data source for the chart.|
 |set_range(formula)|Set chart data range. Series and categories will be updated based on new data range.<br/>            If amount of series in data range greater than count of series in the chart data then additional series with the same type<br/>            as a last series in the current collection will be added to the end of the collection.|
 |get_range()|Gets chart data range.|
 |switch_row_column()|Swap the data over the axis.<br/>            Data being charted on the X axis will move to the Y axis and vice versa.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

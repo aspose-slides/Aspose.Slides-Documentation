@@ -1,21 +1,19 @@
 ---
-title: IErrorBarsFormat Class
+title: IErrorBarsFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 800
 url: /python-net/api-reference/aspose.slides.charts/ierrorbarsformat/
 ---
 
+## IErrorBarsFormat class
+
 Represents error bars of chart series. ErrorBars custom values are in IChartDataPointCollection<br/>            (in [error_bars_custom_values](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property).
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IErrorBarsFormat
-
-
-
 The IErrorBarsFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |type|Gets or sets type of error bars. <br/>            Read/write [ErrorBarType](/slides/python-net/api-reference/aspose.slides.charts/errorbartype/).|
 |value_type|Represents possible ways to determine the length of the error bars. <br/>            In case of custom value type to specify value use [error_bars_custom_values](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property of specific data point in DataPoints collection of series.  <br/>            Read/write [ErrorBarValueType](/slides/python-net/api-reference/aspose.slides.charts/errorbarvaluetype/).|
@@ -29,3 +27,9 @@ The IErrorBarsFormat type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: Timing Class
+title: Timing
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 490
 url: /python-net/api-reference/aspose.slides.animation/timing/
 ---
 
+## Timing class
+
 Represents animation timing.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.Timing
-
-
-
 The Timing type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |accelerate|Describes the percentage of duration accelerate behavior effect.<br/>            Read/write|
 |decelerate|Describes the percentage of duration decelerate behavior effect.<br/>            Read/write|
@@ -27,3 +25,9 @@ The Timing type exposes the following members:
 |speed|Specifies the percentage by which to speed up (or slow down) the timing.<br/>            Read/write|
 |trigger_delay_time|Describes delay time after trigger.<br/>            Read/write|
 |trigger_type|Describes trigger type.<br/>            Read/write [EffectTriggerType](/slides/python-net/api-reference/aspose.slides.animation/effecttriggertype/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: Control Class
+title: Control
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 360
 url: /python-net/api-reference/aspose.slides/control/
 ---
 
+## Control class
+
 Represents an ActiveX control.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.Control
-
-
-
 The Control type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |persistence|Gets the method used to store properties of the ActiveX control.<br/>            Read only [PersistenceType](/slides/python-net/api-reference/aspose.slides/persistencetype/).|
 |name|Gets or sets the name of this control.<br/>            Read/write string.|
@@ -28,3 +26,9 @@ The Control type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

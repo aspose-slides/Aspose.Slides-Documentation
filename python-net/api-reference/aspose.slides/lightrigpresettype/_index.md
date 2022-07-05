@@ -1,20 +1,18 @@
 ---
-title: LightRigPresetType Enumeration
+title: LightRigPresetType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9390
 url: /python-net/api-reference/aspose.slides/lightrigpresettype/
 ---
 
+## LightRigPresetType enumeration
+
 Constants which define light preset types.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.LightRigPresetType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |BALANCED||
@@ -44,3 +42,9 @@ Constants which define light preset types.
 |SUNSET||
 |THREE_PT||
 |TWO_PT||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

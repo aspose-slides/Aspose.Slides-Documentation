@@ -1,21 +1,19 @@
 ---
-title: ChartTypeCharacterizer Class
+title: ChartTypeCharacterizer
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 290
 url: /python-net/api-reference/aspose.slides.charts/charttypecharacterizer/
 ---
 
+## ChartTypeCharacterizer class
+
 Helper for getting additional information about charts and series by its ChartType.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartTypeCharacterizer
-
-
-
 The ChartTypeCharacterizer type exposes the following members:
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |is_bar3_dchart(chart_type)|Return true if chartType is one of bar3DChart subtypes (3D columns or bars).|
 |is2_dchart(chart_type)|Return true if|
@@ -38,3 +36,9 @@ The ChartTypeCharacterizer type exposes the following members:
 |has_series_trend_lines(series_type)|Returns if there are series trend lines for specified series type.|
 |is_error_bars_xallowed(series_type)|Returns if error bars X allowed for specified series type.|
 |is_error_bars_yallowed(series_type)|Returns if error bars Y allowed for specified series type.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

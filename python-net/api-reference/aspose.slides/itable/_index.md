@@ -1,21 +1,19 @@
 ---
-title: ITable Class
+title: ITable
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2680
 url: /python-net/api-reference/aspose.slides/itable/
 ---
 
+## ITable class
+
 Represents a table on a slide.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ITable
-
-
-
 The ITable type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |rows|Returns the collectoin of rows.<br/>            Read-only [IRowCollection](/slides/python-net/api-reference/aspose.slides/irowcollection/).|
 |columns|Returns the collectoin of columns.<br/>            Read-only [IColumnCollection](/slides/python-net/api-reference/aspose.slides/icolumncollection/).|
@@ -66,8 +64,8 @@ The ITable type exposes the following members:
 |hyperlink_click|Returns or sets the hyperlink defined for mouse click.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns or sets the hyperlink defined for mouse over.<br/>            Read/write [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_manager|Hyperlinks manager<br/>            Read-only [IHyperlinkManager](/slides/python-net/api-reference/aspose.slides/ihyperlinkmanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_thumbnail()|Returns shape thumbnail.<br/>            ShapeThumbnailBounds.Shape shape thumbnail bounds type is used by default.|
 |get_thumbnail(bounds, scale_x, scale_y)|Returns shape thumbnail.|
@@ -79,3 +77,9 @@ The ITable type exposes the following members:
 |merge_cells(cell1, cell2, allow_splitting)|Merges neighbour cells.|
 |add_placeholder(placeholder_to_copy_from)|Adds a new placeholder if there is no and sets placeholder properties to a specified one.|
 |remove_placeholder()|Defines that this shape isn't a placeholder.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IPdfOptions Class
+title: IPdfOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 190
 url: /python-net/api-reference/aspose.slides.export/ipdfoptions/
 ---
 
+## IPdfOptions class
+
 Provides options that control how a presentation is saved in Pdf format.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.IPdfOptions
-
-
-
 The IPdfOptions type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |text_compression|Specifies compression type to be used for all textual content in the document.<br/>            Read/write [PdfTextCompression](/slides/python-net/api-reference/aspose.slides.export/pdftextcompression/).|
 |best_images_compression_ratio|Indicates if the most effective compression (instead of the default one) for each image must be selected <br/>            automatically. If set to bool.true, for every image in presentation the most appropriate compression <br/>            algorithm will be chosen, what will lead to the smaller size of the resulting PDF document.|
@@ -37,3 +35,9 @@ The IPdfOptions type exposes the following members:
 |warning_callback|Returns or sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage. <br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
 |default_regular_font|Returns or sets font used in case source font is not found.<br/>            Read-write string.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

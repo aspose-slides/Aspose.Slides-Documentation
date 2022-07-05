@@ -1,21 +1,19 @@
 ---
-title: IChartDataPointCollection Class
+title: IChartDataPointCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 540
 url: /python-net/api-reference/aspose.slides.charts/ichartdatapointcollection/
 ---
 
+## IChartDataPointCollection class
+
 Represents collection of a series data point.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartDataPointCollection
-
-
-
 The IChartDataPointCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |data_source_type_for_xvalues|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points XValue property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.XValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_yvalues|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points YValue property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.YValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
@@ -24,12 +22,12 @@ The IChartDataPointCollection type exposes the following members:
 |data_source_type_for_error_bars_custom_values|Specifies the type of values in ChartDataPoint.ErrorBarsCustomValues properties listþ<br/>            Read-only [IDataSourceTypeForErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/idatasourcetypeforerrorbarscustomvalues/).|
 |as_icollection|Returns ICollection class.|
 |as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Returns the series data point by index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_data_point_for_stock_series(value)|Creates the new data point and adds it to the end of collection.<br/>            Applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer.IsChartTypeStock(ChartType) method).|
 |add_data_point_for_stock_series(value)|Creates the new data point and adds it to the end of collection.<br/>            Applicable for series which chartType is one of Stock subtypes (see also ChartTypeCharacterizer.IsChartTypeStock(ChartType) method).|
@@ -76,3 +74,9 @@ The IChartDataPointCollection type exposes the following members:
 |clear()|Removes all elements from the collection.|
 |remove(value)|Removes the specified value.|
 |remove_at(index)|Removes the element at the given index.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

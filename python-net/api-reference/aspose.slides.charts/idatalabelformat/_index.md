@@ -1,21 +1,19 @@
 ---
-title: IDataLabelFormat Class
+title: IDataLabelFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 750
 url: /python-net/api-reference/aspose.slides.charts/idatalabelformat/
 ---
 
+## IDataLabelFormat class
+
 Represents formatting options for DataLabel.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IDataLabelFormat
-
-
-
 The IDataLabelFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_number_format_linked_to_source|Read/write bool.|
 |number_format|Represents the format string for the DataLabels object.<br/>            Read/write string.|
@@ -39,3 +37,9 @@ The IDataLabelFormat type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

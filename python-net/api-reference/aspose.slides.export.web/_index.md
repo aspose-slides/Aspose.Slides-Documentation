@@ -1,15 +1,17 @@
 ---
 title: aspose.slides.export.web
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 80
 url: /python-net/api-reference/aspose.slides.export.web/
 ---
 
 
-Contains classes for exporting Microsoft PowerPoint presentations to Html with extension projects.
+Contains classes for exporting Microsoft PowerPoint presentations to HTML with extension projects.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[IOutputFile](/slides/python-net/api-reference/aspose.slides.export.web/ioutputfile/)|Represents an output file.|
 |[IOutputSaver](/slides/python-net/api-reference/aspose.slides.export.web/ioutputsaver/)|Represents an output saving service.|

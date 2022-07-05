@@ -1,20 +1,18 @@
 ---
-title: MotionPathPointsType Enumeration
+title: MotionPathPointsType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 700
 url: /python-net/api-reference/aspose.slides.animation/motionpathpointstype/
 ---
 
+## MotionPathPointsType enumeration
+
 Represent types of points in animation motion path.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Name:** aspose.slides.animation.MotionPathPointsType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NONE||
 |AUTO||
@@ -25,3 +23,9 @@ Represent types of points in animation motion path.
 |CURVE_CORNER||
 |CURVE_STRAIGHT||
 |CURVE_SMOOTH||
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,20 +1,18 @@
 ---
-title: PdfAccessPermissions Enumeration
+title: PdfAccessPermissions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 740
 url: /python-net/api-reference/aspose.slides.export/pdfaccesspermissions/
 ---
 
+## PdfAccessPermissions enumeration
+
 Contains a set of flags specifying which access permissions should be granted when the document is opened with <br/>            user access.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Name:** aspose.slides.export.PdfAccessPermissions
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NONE|Specifies that a user does not have access permissions.|
 |PRINT_DOCUMENT|Specifies whether a user may print the document (possibly not at the highest quality level, depending on <br/>            whether bit [HIGH_QUALITY_PRINT](/slides/python-net/api-reference/aspose.slides.export/pdfaccesspermissions/) is also set).|
@@ -25,3 +23,9 @@ Contains a set of flags specifying which access permissions should be granted wh
 |EXTRACT_TEXT_AND_GRAPHICS|Specifies whether a user may extract text and graphics in support of accessibility to users with disabilities<br/>            or for other purposes.|
 |ASSEMBLE_DOCUMENT|Specifies whether a user may assemble the document (insert, rotate, or delete pages and create bookmarks or<br/>            thumbnail images), even if bit [MODIFY_CONTENT](/slides/python-net/api-reference/aspose.slides.export/pdfaccesspermissions/) is clear.|
 |HIGH_QUALITY_PRINT|Specifies whether a user may print the document to a representation from which a faithful digital copy of<br/>            the PDF content could be generated. When this bit is clear (and bit [PRINT_DOCUMENT](/slides/python-net/api-reference/aspose.slides.export/pdfaccesspermissions/) is set),<br/>            printing is limited to a low-level representation of the appearance, possibly of degraded quality.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

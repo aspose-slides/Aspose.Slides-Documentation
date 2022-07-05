@@ -1,20 +1,18 @@
 ---
-title: MarkerStyleType Enumeration
+title: MarkerStyleType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1260
 url: /python-net/api-reference/aspose.slides.charts/markerstyletype/
 ---
 
+## MarkerStyleType enumeration
+
 Determines form of marker on chart's data point.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Name:** aspose.slides.charts.MarkerStyleType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |CIRCLE|Specifies a circle shall be drawn at each data point.|
@@ -28,3 +26,9 @@ Determines form of marker on chart's data point.
 |STAR|Specifies a star shall be drawn at each data point.|
 |TRIANGLE|Specifies a triangle shall be drawn at each data point.|
 |X|Specifies an X shall be drawn at each data point.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

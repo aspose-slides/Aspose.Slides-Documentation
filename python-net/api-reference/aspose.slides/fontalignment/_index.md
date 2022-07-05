@@ -1,20 +1,18 @@
 ---
-title: FontAlignment Enumeration
+title: FontAlignment
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9320
 url: /python-net/api-reference/aspose.slides/fontalignment/
 ---
 
+## FontAlignment enumeration
+
 Represents vertical font alignment.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.FontAlignment
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |DEFAULT||
 |AUTOMATIC||
@@ -22,3 +20,9 @@ Represents vertical font alignment.
 |CENTER||
 |BOTTOM||
 |BASELINE||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IAxis Class
+title: IAxis
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 420
 url: /python-net/api-reference/aspose.slides.charts/iaxis/
 ---
 
+## IAxis class
+
 Encapsulates the object that represents a chart's axis.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IAxis
-
-
-
 The IAxis type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |axis_between_categories|Represents if the value axis crosses the category axis between categories.<br/>            This property applies only to category axes, and it doesn't apply to 3-D charts.<br/>            Read/write bool.|
 |cross_at|Represents the point on the axis where the perpendicular axis crosses it.<br/>            Read/write|
@@ -79,7 +77,13 @@ The IAxis type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |set_category_axis_type_automatically()|Sets IAxis.CategoryAxisType property with a value that is automatically determined based on axis data.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IScaleEffect Class
+title: IScaleEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 290
 url: /python-net/api-reference/aspose.slides.animation/iscaleeffect/
 ---
 
+## IScaleEffect class
+
 Represents animation scale effect.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.IScaleEffect
-
-
-
 The IScaleEffect type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |zoom_content|Determines whether a content should be zoomed.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |from_address|Specifies an x/y co-ordinate to start the animation from (in percents).<br/>            Read/write aspose.pydrawing.PointF.|
@@ -26,3 +24,9 @@ The IScaleEffect type exposes the following members:
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
 |properties|Represents properties of behavior.<br/>            Read-only [IBehaviorPropertyCollection](/slides/python-net/api-reference/aspose.slides.animation/ibehaviorpropertycollection/).|
 |timing|Represents timing properties for the effect behavior.<br/>            Read/write [ITiming](/slides/python-net/api-reference/aspose.slides.animation/itiming/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

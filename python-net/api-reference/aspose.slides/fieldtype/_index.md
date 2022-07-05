@@ -1,25 +1,23 @@
 ---
-title: FieldType Class
+title: FieldType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 470
 url: /python-net/api-reference/aspose.slides/fieldtype/
 ---
 
+## FieldType class
+
 Represents a type of field. <br/>            This value determines which text will be set to the field portion when it will be updated.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.FieldType
-
-
-
 The FieldType type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |FieldType(str)|Initializes a new instance of the FieldType class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |internal_string|Returns the internal name of this FieldType object.<br/>            Read/write string.|
 |slide_number|Current slide's number.<br/>            Read-only [FieldType](/slides/python-net/api-reference/aspose.slides/fieldtype/).|
@@ -39,3 +37,9 @@ The FieldType type exposes the following members:
 |date_time11|Current date and time in a eleventh predefined format (hh:mm:ss for english).<br/>            Read-only [FieldType](/slides/python-net/api-reference/aspose.slides/fieldtype/).|
 |date_time12|Current date and time in a twelfth predefined format (hh:mm AM/PM for english).<br/>            Read-only [FieldType](/slides/python-net/api-reference/aspose.slides/fieldtype/).|
 |date_time13|Current date and time in a thirteenth predefined format (hh:mm:ss AM/PM for english).<br/>            Read-only [FieldType](/slides/python-net/api-reference/aspose.slides/fieldtype/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

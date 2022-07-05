@@ -1,21 +1,19 @@
 ---
-title: ISwfOptions Class
+title: ISwfOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 320
 url: /python-net/api-reference/aspose.slides.export/iswfoptions/
 ---
 
+## ISwfOptions class
+
 Provides options that control how a presentation is saved in SWF format.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.ISwfOptions
-
-
-
 The ISwfOptions type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |compressed|Specifies whether the generated SWF document should be compressed or not.<br/>            Default is|
 |viewer_included|Specifies whether the generated SWF document should include the integrated document viewer or not.<br/>            Default is|
@@ -37,3 +35,9 @@ The ISwfOptions type exposes the following members:
 |warning_callback|Returns or sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage. <br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
 |default_regular_font|Returns or sets font used in case source font is not found.<br/>            Read-write string.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

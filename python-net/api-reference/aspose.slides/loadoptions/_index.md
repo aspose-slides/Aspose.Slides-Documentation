@@ -1,26 +1,24 @@
 ---
-title: LoadOptions Class
+title: LoadOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3010
 url: /python-net/api-reference/aspose.slides/loadoptions/
 ---
 
+## LoadOptions class
+
 Allows to specify additional options (such as format or default font) when loading a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.LoadOptions
-
-
-
 The LoadOptions type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |LoadOptions()|Creates new default load options.|
 |LoadOptions(load_format)|Initializes a new instance of the LoadOptions class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |load_format|Returns or sets format of a presentation to load.<br/>            Read/write [LoadFormat](/slides/python-net/api-reference/aspose.slides/loadformat/).|
 |default_regular_font|Returns or sets Regular font used in case source font is not found.<br/>            Read/write string.|
@@ -34,3 +32,9 @@ The LoadOptions type exposes the following members:
 |interruption_token|The token to monitor for interruption requests.|
 |resource_loading_callback|Returns or sets callback interface which manages external resources loading.<br/>            Read/write [IResourceLoadingCallback](/slides/python-net/api-reference/aspose.slides/iresourceloadingcallback/).|
 |spreadsheet_options|Gets options for spreadsheets. For example, these options affect calculating formulas for charts.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IMotionEffect Class
+title: IMotionEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 230
 url: /python-net/api-reference/aspose.slides.animation/imotioneffect/
 ---
 
+## IMotionEffect class
+
 Represent motion effect behavior of effect.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.IMotionEffect
-
-
-
 The IMotionEffect type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |from_address|Specifies an x/y co-ordinate to start the animation from (in percents). <br/>            Read/write aspose.pydrawing.PointF.|
 |to|Specifies the target location for an animation motion effect (in percents).<br/>            Read/write aspose.pydrawing.PointF.|
@@ -30,3 +28,9 @@ The IMotionEffect type exposes the following members:
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
 |properties|Represents properties of behavior.<br/>            Read-only [IBehaviorPropertyCollection](/slides/python-net/api-reference/aspose.slides.animation/ibehaviorpropertycollection/).|
 |timing|Represents timing properties for the effect behavior.<br/>            Read/write [ITiming](/slides/python-net/api-reference/aspose.slides.animation/itiming/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

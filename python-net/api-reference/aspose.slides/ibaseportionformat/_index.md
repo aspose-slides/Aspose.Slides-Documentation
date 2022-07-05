@@ -1,21 +1,19 @@
 ---
-title: IBasePortionFormat Class
+title: IBasePortionFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 880
 url: /python-net/api-reference/aspose.slides/ibaseportionformat/
 ---
 
+## IBasePortionFormat class
+
 This class contains the text portion formatting properties. Unlike [IPortionFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iportionformateffectivedata/), all properties of this class are writeable.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IBasePortionFormat
-
-
-
 The IBasePortionFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |line_format|Returns the LineFormat properties for text outlining. No inheritance applied.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|
 |fill_format|Returns the text FillFormat properties. No inheritance applied.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|
@@ -43,3 +41,9 @@ The IBasePortionFormat type exposes the following members:
 |language_id|Returns or sets the Id of a proofing language. Used for checking spelling and grammar.<br/>            Read/write string.|
 |alternative_language_id|Returns or sets the Id of an alternative language.<br/>            Read/write string.|
 |spacing|Returns or sets the intercharacter spacing increment.<br/>            float.NaN means value is undefined and should be inherited from the Master.<br/>            Read/write|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

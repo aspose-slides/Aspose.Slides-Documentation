@@ -1,14 +1,14 @@
 ---
-title: API Reference
+title: Aspose.Slides for Python via .NET
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
-weight: 50
+weight: 10
 url: /python-net/api-reference/
 ---
 
-**Assembly:**  Aspose.Slides Version: 22.4.0.0
-
-## **Namespaces**
-|**Namespace**|**Description**|
+## Namespaces
+| Namespace | Description |
 | :- | :- |
 |[aspose.slides](/slides/python-net/api-reference/aspose.slides/)|Contains classes for work with Microsoft PowerPoint presentations without utilizing Microsoft PowerPoint.|
 |[aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)|Contains classes for work with animation in Microsoft PowerPoint presentations.|

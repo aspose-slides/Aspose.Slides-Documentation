@@ -1,21 +1,19 @@
 ---
-title: ChartDataPoint Class
+title: ChartDataPoint
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 140
 url: /python-net/api-reference/aspose.slides.charts/chartdatapoint/
 ---
 
+## ChartDataPoint class
+
 Represents series data point.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartDataPoint
-
-
-
 The ChartDataPoint type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |xvalue|XValue.<br/>            Read-only [IStringOrDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringordoublechartvalue/).|
 |yvalue|YValue.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
@@ -38,8 +36,14 @@ The ChartDataPoint type exposes the following members:
 |actual_width|Specifies actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_height|Specifies actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |as_iactual_layout|Returns IActualLayout interface.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |remove()|Removes DataPoint from chart series.|
 |get_automatic_data_point_color()|Returns an automatic color of data point based on series index, data point index, ParentSeriesGroup.IsColorVaried propery and chart style. <br/>            This color is used by default if FillType equals NotDefined.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IHtmlOptions Class
+title: IHtmlOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 160
 url: /python-net/api-reference/aspose.slides.export/ihtmloptions/
 ---
 
+## IHtmlOptions class
+
 Represents a HTML exporting options.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.IHtmlOptions
-
-
-
 The IHtmlOptions type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |html_formatter|Returns or sets HTML template.<br/>            Read/write [IHtmlFormatter](/slides/python-net/api-reference/aspose.slides.export/ihtmlformatter/).|
 |slide_image_format|Returns or sets slide image format options.<br/>            Read/write [ISlideImageFormat](/slides/python-net/api-reference/aspose.slides.export/islideimageformat/).|
@@ -29,3 +27,9 @@ The IHtmlOptions type exposes the following members:
 |warning_callback|Returns or sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage. <br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
 |default_regular_font|Returns or sets font used in case source font is not found.<br/>            Read-write string.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

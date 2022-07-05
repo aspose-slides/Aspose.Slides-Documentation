@@ -1,20 +1,18 @@
 ---
-title: SvgCoordinateUnit Enumeration
+title: SvgCoordinateUnit
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 790
 url: /python-net/api-reference/aspose.slides.export/svgcoordinateunit/
 ---
 
+## SvgCoordinateUnit enumeration
+
 Represents CSS2 coordinate units used to define SVG coordinates.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Name:** aspose.slides.export.SvgCoordinateUnit
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |INCH|Inch|
 |CENTIMETER|Centimeter.|
@@ -25,3 +23,9 @@ Represents CSS2 coordinate units used to define SVG coordinates.
 |EX|Ex size (size of lowercase letter, usualy "x") of font of containing element.|
 |PIXEL|Pixel size.|
 |PERCENT|Percent.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

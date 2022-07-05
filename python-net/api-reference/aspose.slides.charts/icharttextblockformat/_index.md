@@ -1,21 +1,19 @@
 ---
-title: IChartTextBlockFormat Class
+title: IChartTextBlockFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 690
 url: /python-net/api-reference/aspose.slides.charts/icharttextblockformat/
 ---
 
+## IChartTextBlockFormat class
+
 Represents formatting properties for chart text elements.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartTextBlockFormat
-
-
-
 The IChartTextBlockFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |anchoring_type|Returns or sets vertical anchor text in a TextFrame.<br/>            Read/write [TextAnchorType](/slides/python-net/api-reference/aspose.slides/textanchortype/).|
 |center_text|If NullableBool.True then text should be centered in box horizontally.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
@@ -27,3 +25,9 @@ The IChartTextBlockFormat type exposes the following members:
 |wrap_text|True if text is wrapped at TextFrame's margins.<br/>            Changing of this property can produce a certain influence only for these chart parts: <br/>            DataLabel and DataLabelFormat (full suport in PowerPoint 2007/2013).<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |autofit_type|Returns or sets text's autofit mode.<br/>            Changing of this property can produce a certain influence only for these chart parts: <br/>            DataLabel and DataLabelFormat (full suport in PowerPoint 2013; in PowerPoint 2007 there is no effect for rendering).<br/>            Read/write [TextAutofitType](/slides/python-net/api-reference/aspose.slides/textautofittype/).|
 |rotation_angle|Specifies the custom rotation that is being applied to the text within the bounding box. If it not<br/>            specified, the rotation of the accompanying shape is used. If it is specified, then this is<br/>            applied independently from the shape. That is the shape can have a rotation applied in<br/>            addition to the text itself having a rotation applied to it.<br/>            The resulted value of visual text rotation summarized from this property and predefined<br/>            vertical type in property TextVerticalType.<br/>            Read/write|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

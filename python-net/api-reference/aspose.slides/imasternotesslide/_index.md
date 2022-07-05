@@ -1,21 +1,19 @@
 ---
-title: IMasterNotesSlide Class
+title: IMasterNotesSlide
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1860
 url: /python-net/api-reference/aspose.slides/imasternotesslide/
 ---
 
+## IMasterNotesSlide class
+
 Represents master slide for notes.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IMasterNotesSlide
-
-
-
 The IMasterNotesSlide type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |header_footer_manager|Returns HeaderFooter manager of the master notes slide.<br/>            Read-only [IMasterNotesSlideHeaderFooterManager](/slides/python-net/api-reference/aspose.slides/imasternotesslideheaderfootermanager/).|
 |notes_style|Returns the style of a notes text.<br/>            Read-only [ITextStyle](/slides/python-net/api-reference/aspose.slides/itextstyle/).|
@@ -36,10 +34,16 @@ The IMasterNotesSlide type exposes the following members:
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |theme_manager|Returns master theme manager.<br/>            Read-only [IMasterThemeManager](/slides/python-net/api-reference/aspose.slides.theme/imasterthememanager/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |find_shape_by_alt_text(alt_text)|Finds first occurrence of a shape with the specified alternative text.|
 |join_portions_with_same_formatting()|Joins runs with same formatting in all paragraphs in all acceptable shapes.|
 |equals(slide)|Determines whether the two IBaseSlide instances are equal.<br/>            Returning value is calculated based on slide's structure and static content.<br/>            Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.|
 |create_theme_effective()|Returns an effective theme for this themeable object.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

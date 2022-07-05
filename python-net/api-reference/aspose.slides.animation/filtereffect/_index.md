@@ -1,25 +1,23 @@
 ---
-title: FilterEffect Class
+title: FilterEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 110
 url: /python-net/api-reference/aspose.slides.animation/filtereffect/
 ---
 
+## FilterEffect class
+
 Represent filter effect of behavior.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.FilterEffect
-
-
-
 The FilterEffect type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |FilterEffect()|Default constructor.|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
@@ -29,3 +27,9 @@ The FilterEffect type exposes the following members:
 |type|Represents type of filter effect.<br/>            Read/write [FilterEffectType](/slides/python-net/api-reference/aspose.slides.animation/filtereffecttype/).|
 |subtype|Represents subtype of filter effect.<br/>            Read/write [FilterEffectSubtype](/slides/python-net/api-reference/aspose.slides.animation/filtereffectsubtype/).|
 |as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

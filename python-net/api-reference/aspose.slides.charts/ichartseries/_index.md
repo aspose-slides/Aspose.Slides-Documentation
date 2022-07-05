@@ -1,21 +1,19 @@
 ---
-title: IChartSeries Class
+title: IChartSeries
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 640
 url: /python-net/api-reference/aspose.slides.charts/ichartseries/
 ---
 
+## IChartSeries class
+
 Represents a chart series.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartSeries
-
-
-
 The IChartSeries type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |explosion|The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.<br/>             Read/write|
 |smooth|Represents curve smoothing. True if curve smoothing is turned on for the line chart or scatter chart. Applies only to line and scatter connected by lines charts.<br/>            Read/write bool.|
@@ -66,7 +64,13 @@ The IChartSeries type exposes the following members:
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_automatic_series_color()|Returns an automatic color of series based on series index and chart style. <br/>            This color is used by default if FillType equals NotDefined.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

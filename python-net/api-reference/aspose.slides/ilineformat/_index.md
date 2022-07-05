@@ -1,21 +1,19 @@
 ---
-title: ILineFormat Class
+title: ILineFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1780
 url: /python-net/api-reference/aspose.slides/ilineformat/
 ---
 
+## ILineFormat class
+
 Represents format of a line.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ILineFormat
-
-
-
 The ILineFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_format_not_defined|Returns true if line format is not defined (as just created, default).<br/>            Read-only bool.|
 |fill_format|Returns the fill format of a line.<br/>            Read-only [ILineFillFormat](/slides/python-net/api-reference/aspose.slides/ilinefillformat/).|
@@ -35,8 +33,14 @@ The ILineFormat type exposes the following members:
 |begin_arrowhead_length|Returns or sets the arrowhead length at the beginning of a line.<br/>            Read/write [LineArrowheadLength](/slides/python-net/api-reference/aspose.slides/linearrowheadlength/).|
 |end_arrowhead_length|Returns or sets the arrowhead length at the end of a line.<br/>            Read/write [LineArrowheadLength](/slides/python-net/api-reference/aspose.slides/linearrowheadlength/).|
 |as_iline_param_source|Allows to get base ILineParamSource interface.<br/>            Read-only [ILineParamSource](/slides/python-net/api-reference/aspose.slides/ilineparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |equals(line_format)|Determines whether the two LineFormat instances are equal.|
 |get_effective()|Gets effective line formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

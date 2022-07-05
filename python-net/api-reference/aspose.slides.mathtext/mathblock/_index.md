@@ -1,39 +1,37 @@
 ---
-title: MathBlock Class
+title: MathBlock
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 520
 url: /python-net/api-reference/aspose.slides.mathtext/mathblock/
 ---
 
+## MathBlock class
+
 Specifies an instance of mathematical text that contained within a MathParagraph and starts on its own line.<br/>            All math zones, including equations, expressions, arrays of equations or expressions, and formulas are represented by math block.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.MathBlock
-
-
-
 The MathBlock type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |MathBlock()|Initializes a new instance of the MathBlock class.|
 |MathBlock(math_element)|Initializes a new instance of the MathBlock class|
 |MathBlock(math_elements)|Initializes a new instance of the MathBlock class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |count|Gets the number of child math elements actually contained in the collection.<br/>            Read-only|
 |is_read_only|Returns false because child elements collection can be modified.|
 |as_imath_element_collection|Allows to get base IMathElementCollection interface<br/>            [IMathElementCollection](/slides/python-net/api-reference/aspose.slides.mathtext/imathelementcollection/)|
 |as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets or sets IMathElement at the specified index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element with this mathematical block|
 |join(math_text)|Joins a mathematical text with this mathematical block|
@@ -93,3 +91,9 @@ The MathBlock type exposes the following members:
 |join_block(other)|Joins another mathematical block with this one|
 |delimit(separator_character)|Delimits child elements with separator character (without the brackets)|
 |write_as_math_ml(stream)|Saves content of this [MathBlock](/slides/python-net/api-reference/aspose.slides.mathtext/mathblock/) as MathML|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

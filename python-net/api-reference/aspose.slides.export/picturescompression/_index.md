@@ -1,20 +1,18 @@
 ---
-title: PicturesCompression Enumeration
+title: PicturesCompression
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 770
 url: /python-net/api-reference/aspose.slides.export/picturescompression/
 ---
 
+## PicturesCompression enumeration
+
 Represents the pictures compression level
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Name:** aspose.slides.export.PicturesCompression
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |DPI330|Good quality for high-definition (HD) displays|
 |DPI220|Excellent quality on most printers and screens|
@@ -22,3 +20,9 @@ Represents the pictures compression level
 |DPI96|Minimize document size for sharing|
 |DPI72|Default compression level|
 |DOCUMENT_RESOLUTION|Use document resolution - the picture will not be compressed and used in document as-is|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

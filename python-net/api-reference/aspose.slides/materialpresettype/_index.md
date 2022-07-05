@@ -1,20 +1,18 @@
 ---
-title: MaterialPresetType Enumeration
+title: MaterialPresetType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9520
 url: /python-net/api-reference/aspose.slides/materialpresettype/
 ---
 
+## MaterialPresetType enumeration
+
 Constants which define material of shape.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.MaterialPresetType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |CLEAR||
@@ -32,3 +30,9 @@ Constants which define material of shape.
 |SOFTMETAL||
 |TRANSLUCENT_POWDER||
 |WARM_MATTE||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

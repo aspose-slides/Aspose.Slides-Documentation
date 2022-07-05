@@ -1,20 +1,18 @@
 ---
-title: TableStylePreset Enumeration
+title: TableStylePreset
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9840
 url: /python-net/api-reference/aspose.slides/tablestylepreset/
 ---
 
+## TableStylePreset enumeration
+
 Represents builtin table styles.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.TableStylePreset
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |CUSTOM|Table has a custom style.<br/>            This is return-only value.|
 |NONE|No style.|
@@ -92,3 +90,9 @@ Represents builtin table styles.
 |DARK_STYLE2_ACCENT3_ACCENT4|Dark Style 2 - Accent 3/Accent 4.|
 |DARK_STYLE2_ACCENT5_ACCENT6|Dark Style 2 - Accent 5/Accent 6.|
 |LIGHT_STYLE1_ACCENT5|Light Style 1 - Accent 5.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

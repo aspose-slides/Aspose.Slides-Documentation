@@ -1,21 +1,19 @@
 ---
-title: NotesSlideHeaderFooterManager Class
+title: NotesSlideHeaderFooterManager
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3160
 url: /python-net/api-reference/aspose.slides/notesslideheaderfootermanager/
 ---
 
+## NotesSlideHeaderFooterManager class
+
 Represents manager which holds behavior of the notes slide placeholders, including header placeholder.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.NotesSlideHeaderFooterManager
-
-
-
 The NotesSlideHeaderFooterManager type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |is_footer_visible|Gets value indicating that a footer placeholder is present.<br/>            Read bool.|
 |is_slide_number_visible|Gets value indicating that a page number placeholder is present.<br/>            Readbool.|
@@ -24,8 +22,8 @@ The NotesSlideHeaderFooterManager type exposes the following members:
 |as_ibase_slide_header_footer_manager|Returns IBaseSlideHeaderFooterManager interface.|
 |as_ibase_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
 |as_ibase_handout_notes_slide_header_footer_manag|Returns IBaseHandoutNotesSlideHeaderFooterManag interface.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |set_footer_visibility(is_visible)|Changes slide footer placeholder visibility.|
 |set_slide_number_visibility(is_visible)|Changes slide page number placeholder visibility.|
@@ -34,3 +32,9 @@ The NotesSlideHeaderFooterManager type exposes the following members:
 |set_date_time_text(text)|Sets text to slide date-time placeholder.|
 |set_header_visibility(is_visible)|Changes slide header placeholder visibility.|
 |set_header_text(text)|Sets text to slide header placeholder.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

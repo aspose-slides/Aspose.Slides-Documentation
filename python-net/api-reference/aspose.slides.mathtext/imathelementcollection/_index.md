@@ -1,30 +1,28 @@
 ---
-title: IMathElementCollection Class
+title: IMathElementCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 180
 url: /python-net/api-reference/aspose.slides.mathtext/imathelementcollection/
 ---
 
+## IMathElementCollection class
+
 Represents a collection of mathematical elements (MathElement).
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.IMathElementCollection
-
-
-
 The IMathElementCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
-## **Indexer**
-|**Name**|**Description**|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.<br/>            Read-only [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(item)|Adds a math element to the end of the collection.|
 |index_of(item)|Determines the index of a specific math element in collection.|
@@ -34,3 +32,9 @@ The IMathElementCollection type exposes the following members:
 |remove(item)|Removes the first occurrence of a specific object from the collection.|
 |remove_at(index)|Removes the element at the specified index of the collection.|
 |copy_to(array, array_index)|Copy to specified array.|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,25 +1,23 @@
 ---
-title: ColorEffect Class
+title: ColorEffect
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 70
 url: /python-net/api-reference/aspose.slides.animation/coloreffect/
 ---
 
+## ColorEffect class
+
 Represents a color effect for an animation behavior.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Class Name:** aspose.slides.animation.ColorEffect
-
-
-
 The ColorEffect type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |ColorEffect()|Creates new instance.|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
@@ -31,3 +29,9 @@ The ColorEffect type exposes the following members:
 |color_space|Represent color space of behavior.<br/>            Read/write [ColorSpace](/slides/python-net/api-reference/aspose.slides.animation/colorspace/).|
 |direction|Specifies which direction to cycle the hue around the color wheel.<br/>            Read/write [ColorDirection](/slides/python-net/api-reference/aspose.slides.animation/colordirection/).|
 |as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

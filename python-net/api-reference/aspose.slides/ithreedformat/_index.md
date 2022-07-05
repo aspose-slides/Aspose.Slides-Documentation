@@ -1,21 +1,19 @@
 ---
-title: IThreeDFormat Class
+title: IThreeDFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2780
 url: /python-net/api-reference/aspose.slides/ithreedformat/
 ---
 
+## IThreeDFormat class
+
 Represents 3-D properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IThreeDFormat
-
-
-
 The IThreeDFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |contour_width|Returns or sets the width of a 3D contour.<br/>            Read/write float.|
 |extrusion_height|Returns or sets the height of an extrusion effect.<br/>            Read/write float.|
@@ -28,7 +26,13 @@ The IThreeDFormat type exposes the following members:
 |light_rig|Returns or sets the type of a light.<br/>            Read-only [ILightRig](/slides/python-net/api-reference/aspose.slides/ilightrig/).|
 |material|Returns or sets the type of a material.<br/>            Read/write [MaterialPresetType](/slides/python-net/api-reference/aspose.slides/materialpresettype/).|
 |as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_effective()|Gets effective 3-D formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

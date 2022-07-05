@@ -1,21 +1,19 @@
 ---
-title: IColorFormat Class
+title: IColorFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1040
 url: /python-net/api-reference/aspose.slides/icolorformat/
 ---
 
+## IColorFormat class
+
 Represents a color used in a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IColorFormat
-
-
-
 The IColorFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |color_type|Returns or sets the color definition method.<br/>            Read/write [ColorType](/slides/python-net/api-reference/aspose.slides/colortype/).|
 |color|Returns resulting color (with all color transformations applied).<br/>            Sets RGB colors and clears all color transformations.<br/>            Read/write aspose.pydrawing.Color.|
@@ -33,8 +31,14 @@ The IColorFormat type exposes the following members:
 |luminance|Returns or sets the luminance component of a color in HSL representation.<br/>            All color transformations are ignored.<br/>            Read/write|
 |color_transform|Returns the collection of color transformations applied to a color.<br/>            Read-only [IColorOperationCollection](/slides/python-net/api-reference/aspose.slides/icoloroperationcollection/).|
 |as_ifill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |to_string(format)|Returns a string that represents the current color format.|
 |copy_from(color)|Copy color format from "color".|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

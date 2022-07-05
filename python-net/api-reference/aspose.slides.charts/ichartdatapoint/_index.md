@@ -1,21 +1,19 @@
 ---
-title: IChartDataPoint Class
+title: IChartDataPoint
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 530
 url: /python-net/api-reference/aspose.slides.charts/ichartdatapoint/
 ---
 
+## IChartDataPoint class
+
 Represents series data point.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartDataPoint
-
-
-
 The IChartDataPoint type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |xvalue|Returns the x value of chart data point.<br/>            Read-only [IStringOrDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringordoublechartvalue/).|
 |yvalue|Returns the y value of chart data point.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
@@ -38,8 +36,14 @@ The IChartDataPoint type exposes the following members:
 |actual_y|Specifies actual top of the chart element relative to the left top corner of the chart.<br/>            Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_width|Specifies actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_height|Specifies actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |remove()|Removes DataPoint from chart series.|
 |get_automatic_data_point_color()|Returns an automatic color of data point based on series index, data point index, ParentSeriesGroup.IsColorVaried propery and chart style. <br/>            This color is used by default if FillType equals NotDefined.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+
