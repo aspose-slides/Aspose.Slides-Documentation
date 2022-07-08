@@ -76,5 +76,13 @@ using (var pres = new Presentation())
 This C# code shows you how to apply the soft edges to a shape: xxx 
 
 ```c#
+using (var pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.EffectFormat.EnableSoftEdgeEffect();
+    shape.EffectFormat.SoftEdgeEffect.Radius = 15;
+
+    pres.Save("softEdges.pptx", SaveFormat.Pptx);
+}
 ```
