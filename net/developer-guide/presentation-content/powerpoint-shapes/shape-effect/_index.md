@@ -37,10 +37,21 @@ using (var pres = new Presentation())
 
 ## Apply Reflection Effect
 
-This C# code shows you how to apply the reflection effect to a shape: xxx 
+This C# code shows you how to apply the reflection effect to a shape: 
 
 ```c#
+using (var pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.EffectFormat.EnableReflectionEffect();
+    shape.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.Bottom;
+    shape.EffectFormat.ReflectionEffect.Direction = 90;
+    shape.EffectFormat.ReflectionEffect.Distance = 55;
+    shape.EffectFormat.ReflectionEffect.BlurRadius = 4;
+
+    pres.Save("reflection.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## Apply Glow Effect
