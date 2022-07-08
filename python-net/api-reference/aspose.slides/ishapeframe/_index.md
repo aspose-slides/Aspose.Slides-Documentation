@@ -1,21 +1,19 @@
 ---
-title: IShapeFrame Class
+title: IShapeFrame
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2450
 url: /python-net/api-reference/aspose.slides/ishapeframe/
 ---
 
+## IShapeFrame class
+
 Represents shape frame's properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IShapeFrame
-
-
-
 The IShapeFrame type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |x|Returns the X coordinate of the upper-left corner of a frame.<br/>            Read-only|
 |y|Returns the Y coordinate of the upper-left corner of a frame.<br/>            Read-only|
@@ -27,7 +25,13 @@ The IShapeFrame type exposes the following members:
 |flip_h|Determines whether a frame is flipped horizontally.<br/>            Read-only [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |flip_v|Determines whether a frame is flipped vertically.<br/>            Read-only [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |rectangle|Returns the coordinates of a frame.<br/>            Read-only aspose.pydrawing.RectangleF.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |clone_t()|Creates a new object that is a copy of the current instance.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

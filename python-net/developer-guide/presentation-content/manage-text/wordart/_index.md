@@ -198,29 +198,29 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```py 
-    autoShape.three_dformat.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_dformat.bevel_bottom.height = 10.5
-    autoShape.three_dformat.bevel_bottom.width = 10.5
+    autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    autoShape.three_d_format.bevel_bottom.height = 10.5
+    autoShape.three_d_format.bevel_bottom.width = 10.5
 
-    autoShape.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_dformat.bevel_top.height = 12.5
-    autoShape.three_dformat.bevel_top.width = 11
+    autoShape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    autoShape.three_d_format.bevel_top.height = 12.5
+    autoShape.three_d_format.bevel_top.width = 11
 
-    autoShape.three_dformat.extrusion_color.color = draw.Color.orange
-    autoShape.three_dformat.extrusion_height = 6
+    autoShape.three_d_format.extrusion_color.color = draw.Color.orange
+    autoShape.three_d_format.extrusion_height = 6
 
-    autoShape.three_dformat.contour_color.color = draw.Color.dark_red
-    autoShape.three_dformat.contour_width = 1.5
+    autoShape.three_d_format.contour_color.color = draw.Color.dark_red
+    autoShape.three_d_format.contour_width = 1.5
 
-    autoShape.three_dformat.depth = 3
+    autoShape.three_d_format.depth = 3
 
-    autoShape.three_dformat.material = slides.MaterialPresetType.PLASTIC
+    autoShape.three_d_format.material = slides.MaterialPresetType.PLASTIC
 
-    autoShape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
-    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    autoShape.three_dformat.light_rig.set_rotation(0, 0, 40)
+    autoShape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    autoShape.three_d_format.light_rig.set_rotation(0, 0, 40)
 
-    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
 The resulting text and its shape:
@@ -230,29 +230,29 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this Python code:
 
 ```py 
-    textFrame.text_frame_format.three_dformat.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_dformat.bevel_bottom.height = 3.5
-    textFrame.text_frame_format.three_dformat.bevel_bottom.width = 3.5
+    textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
+    textFrame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
 
-    textFrame.text_frame_format.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_dformat.bevel_top.height = 4
-    textFrame.text_frame_format.three_dformat.bevel_top.width = 4
+    textFrame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    textFrame.text_frame_format.three_d_format.bevel_top.height = 4
+    textFrame.text_frame_format.three_d_format.bevel_top.width = 4
 
-    textFrame.text_frame_format.three_dformat.extrusion_color.color = draw.Color.orange
-    textFrame.text_frame_format.three_dformat.extrusion_height= 6
+    textFrame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
+    textFrame.text_frame_format.three_d_format.extrusion_height= 6
 
-    textFrame.text_frame_format.three_dformat.contour_color.color = draw.Color.dark_red
-    textFrame.text_frame_format.three_dformat.contour_width = 1.5
+    textFrame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
+    textFrame.text_frame_format.three_d_format.contour_width = 1.5
 
-    textFrame.text_frame_format.three_dformat.depth= 3
+    textFrame.text_frame_format.three_d_format.depth= 3
 
-    textFrame.text_frame_format.three_dformat.material = slides.MaterialPresetType.PLASTIC
+    textFrame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
 
-    textFrame.text_frame_format.three_dformat.light_rig.direction = slides.LightingDirection.TOP
-    textFrame.text_frame_format.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    textFrame.text_frame_format.three_dformat.light_rig.set_rotation(0, 0, 40)
+    textFrame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    textFrame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    textFrame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
 
-    textFrame.text_frame_format.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+    textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
 The result of the operation:

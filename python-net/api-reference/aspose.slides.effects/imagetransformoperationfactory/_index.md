@@ -1,25 +1,23 @@
 ---
-title: ImageTransformOperationFactory Class
+title: ImageTransformOperationFactory
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 730
 url: /python-net/api-reference/aspose.slides.effects/imagetransformoperationfactory/
 ---
 
+## ImageTransformOperationFactory class
+
 Allows to create image transform operations
 
-**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
-
-**Full Class Name:** aspose.slides.effects.ImageTransformOperationFactory
-
-
-
 The ImageTransformOperationFactory type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |ImageTransformOperationFactory()|Initializes a new instance of the ImageTransformOperationFactory class|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |create_alpha_bi_level(threshold)|Creates Alpha BiLevel effect.|
 |create_alph_ceiling()|Creates Alpha Ceiling effect.|
@@ -38,3 +36,9 @@ The ImageTransformOperationFactory type exposes the following members:
 |create_hsl(hue, saturation, luminance)|Creates Hue Saturation Luminance effect.|
 |create_luminance(brightness, contrast)|Createtes Luminance effect.|
 |create_tint(hue, amount)|Creates Tint effect.|
+
+### See Also
+
+* namespace [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,20 +1,18 @@
 ---
-title: DisplayUnitType Enumeration
+title: DisplayUnitType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1200
 url: /python-net/api-reference/aspose.slides.charts/displayunittype/
 ---
 
+## DisplayUnitType enumeration
+
 Determines multiplicity of the displayed data.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Name:** aspose.slides.charts.DisplayUnitType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NONE|Values will dislayed as is.|
 |HUNDREDS|Specifies the values on the chart shall be divided by 100.|
@@ -27,3 +25,9 @@ Determines multiplicity of the displayed data.
 |BILLIONS|Specifies the values on the chart shall be divided by 1,000,000,000.|
 |TRILLIONS|Specifies the values on the chart shall be divided by 1,000,000,000.|
 |CUSTOM_VALUE|Specifies the values on the chart shall be divided by a custom value.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

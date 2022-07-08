@@ -1,27 +1,25 @@
 ---
-title: ParagraphFormat Class
+title: ParagraphFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3280
 url: /python-net/api-reference/aspose.slides/paragraphformat/
 ---
 
+## ParagraphFormat class
+
 This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ParagraphFormat
-
-
-
 The ParagraphFormat type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |ParagraphFormat()|Initializes a new instance of [ParagraphFormat](/slides/python-net/api-reference/aspose.slides/paragraphformat/) class.|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |alignment|Returns or sets the text alignment in a paragraph with no inheritance.<br/>            Read/write [TextAlignment](/slides/python-net/api-reference/aspose.slides/textalignment/).|
 |space_within|Returns or sets the amount of space between base lines in a paragraph. Positive value means percentage, negative - size in points. No inheritance applied.<br/>            Read/write|
 |space_before|Returns or sets the amount of space before the first line in a paragraph with no inheritance.<br/>            A positive value specifies the percentage of the font size that the white space should be.<br/>            A negative value specifies the size of the white space in point size.<br/>            Read/write|
@@ -41,7 +39,13 @@ The ParagraphFormat type exposes the following members:
 |bullet|Returns bullet format of the paragraph.<br/>            Read-only [IBulletFormat](/slides/python-net/api-reference/aspose.slides/ibulletformat/).|
 |depth|Returns or sets depth of the paragraph.<br/>            Value 0 means undefined value.<br/>            Read/write int.|
 |default_portion_format|Returns default portion format of a paragraph. No inheritance applied.<br/>            Read-only [IPortionFormat](/slides/python-net/api-reference/aspose.slides/iportionformat/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_effective()|Gets effective paragraph formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

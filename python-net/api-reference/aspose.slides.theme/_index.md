@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.theme
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 170
 url: /python-net/api-reference/aspose.slides.theme/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.theme/
 
 Contains classes for work with different types of themes.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[BaseOverrideThemeManager](/slides/python-net/api-reference/aspose.slides.theme/baseoverridethememanager/)|Base class for classes that provide access to different types of overriden themes.|
 |[BaseThemeManager](/slides/python-net/api-reference/aspose.slides.theme/basethememanager/)|Base class for classes that provide access to different types of themes.|

@@ -1,22 +1,26 @@
 ---
-title: FilterEffectRevealType Enumeration
+title: FilterEffectRevealType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 640
 url: /python-net/api-reference/aspose.slides.animation/filtereffectrevealtype/
 ---
 
+## FilterEffectRevealType enumeration
+
 Represents filter reveal type.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Name:** aspose.slides.animation.FilterEffectRevealType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |NONE||
 |IN||
 |OUT||
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

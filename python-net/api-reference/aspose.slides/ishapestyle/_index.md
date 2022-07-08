@@ -1,21 +1,19 @@
 ---
-title: IShapeStyle Class
+title: IShapeStyle
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2460
 url: /python-net/api-reference/aspose.slides/ishapestyle/
 ---
 
+## IShapeStyle class
+
 Represent shape's style reference.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IShapeStyle
-
-
-
 The IShapeStyle type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |line_color|Returns a shape's outline color.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 |line_style_index|Returns or sets line's column index in a style matrix.<br/>            Read/write int.|
@@ -25,3 +23,9 @@ The IShapeStyle type exposes the following members:
 |effect_style_index|Returns or sets shape's effect column index in a style matrix.<br/>            Read/write int.|
 |font_color|Returns a shape's font color.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 |font_collection_index|Returns or sets shape's font index in a font collection.<br/>            Read/write [FontCollectionIndex](/slides/python-net/api-reference/aspose.slides/fontcollectionindex/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

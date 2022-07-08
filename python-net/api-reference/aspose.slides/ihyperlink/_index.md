@@ -1,21 +1,19 @@
 ---
-title: IHyperlink Class
+title: IHyperlink
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1600
 url: /python-net/api-reference/aspose.slides/ihyperlink/
 ---
 
+## IHyperlink class
+
 Represents a hyperlink.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IHyperlink
-
-
-
 The IHyperlink type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |action_type|Returns type of HyperLinkEx's action.<br/>            Read-only [HyperlinkActionType](/slides/python-net/api-reference/aspose.slides/hyperlinkactiontype/).|
 |external_url|Specifies the external URL<br/>            If this property become not null then property TargetSlide become null.<br/>            Read-only string.|
@@ -26,7 +24,13 @@ The IHyperlink type exposes the following members:
 |highlight_click|Determines whether the hyperlink should be highlighted on click.<br/>            Read/write bool.|
 |stop_sound_on_click|Determines whether the sound should be stopped on hyperlink click.<br/>            Read/write bool.|
 |color_source|Represents the source of hyperlink color - either styles or portion format.<br/>            Read/write [HyperlinkColorSource](/slides/python-net/api-reference/aspose.slides/hyperlinkcolorsource/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |equals(hlink)|Determines whether the two Hyperlink instances are equal.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

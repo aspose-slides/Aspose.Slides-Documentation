@@ -1,21 +1,19 @@
 ---
-title: IOuterShadowEffectiveData Class
+title: IOuterShadowEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 610
 url: /python-net/api-reference/aspose.slides.effects/ioutershadoweffectivedata/
 ---
 
+## IOuterShadowEffectiveData class
+
 Immutable object which represents an Outer Shadow effect.
 
-**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
-
-**Full Class Name:** aspose.slides.effects.IOuterShadowEffectiveData
-
-
-
 The IOuterShadowEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |blur_radius|Blur radius.<br/>            Read-only float.|
 |direction|Direction of shadow.<br/>            Read-only|
@@ -27,4 +25,10 @@ The IOuterShadowEffectiveData type exposes the following members:
 |rotate_shadow_with_shape|Specifies whether the shadow should rotate with the shape if the shape is rotated.<br/>            Read-only bool.|
 |scale_horizontal|Specifies the horizontal scaling factor, negative scaling causes a flip.<br/>            Read-only float.|
 |scale_vertical|Specifies the vertical scaling factor, negative scaling causes a flip.<br/>            Read-only float.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+
+### See Also
+
+* namespace [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

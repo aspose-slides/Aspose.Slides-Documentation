@@ -75,7 +75,7 @@ pres = slides.Presentation("pres.pptx")
 # Instantiate the TiffOptions class
 options = slides.export.TiffOptions()
 
-options.pixel_format = slides.export.ImagePixelFormat.FORMAT8BPP_INDEXED
+options.pixel_format = slides.export.ImagePixelFormat.FORMAT_8BPP_INDEXED
 
 # Save the presentation to TIFF with specified image size
 pres.save("Tiff_With_Custom_Image_Pixel_Format_out.tiff", slides.export.SaveFormat.TIFF, options)

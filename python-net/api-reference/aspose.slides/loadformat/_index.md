@@ -1,20 +1,18 @@
 ---
-title: LoadFormat Enumeration
+title: LoadFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9500
 url: /python-net/api-reference/aspose.slides/loadformat/
 ---
 
+## LoadFormat enumeration
+
 Indicates the format of the document that is to be loaded.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.LoadFormat
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |AUTO|Instructs Aspose.Slides to recognize the format automatically.|
 |PPT|Microsoft PowerPoint 97-2003 Presentation.|
@@ -31,3 +29,9 @@ Indicates the format of the document that is to be loaded.
 |POT|Microsoft PowerPoint 97-2003 Presentation Template.|
 |FODP|Flat XML ODF Presentation.|
 |UNKNOWN|Unknown file format|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

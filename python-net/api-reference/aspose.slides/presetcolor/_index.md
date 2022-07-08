@@ -1,20 +1,18 @@
 ---
-title: PresetColor Enumeration
+title: PresetColor
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9660
 url: /python-net/api-reference/aspose.slides/presetcolor/
 ---
 
+## PresetColor enumeration
+
 Represents predefined color presets.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.PresetColor
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED|Color preset is not defined.|
 |ALICE_BLUE||
@@ -157,3 +155,9 @@ Represents predefined color presets.
 |WHITE_SMOKE||
 |YELLOW||
 |YELLOW_GREEN||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

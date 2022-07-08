@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.ink
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 110
 url: /python-net/api-reference/aspose.slides.ink/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.ink/
 
 Contains classes for work with Ink
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[IInk](/slides/python-net/api-reference/aspose.slides.ink/iink/)|Represents an ink object on a slide.|
 |[Ink](/slides/python-net/api-reference/aspose.slides.ink/ink/)|Represents an ink object on a slide.|

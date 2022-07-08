@@ -1,20 +1,18 @@
 ---
-title: LineDashStyle Enumeration
+title: LineDashStyle
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9460
 url: /python-net/api-reference/aspose.slides/linedashstyle/
 ---
 
+## LineDashStyle enumeration
+
 Represents the line dash style.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.LineDashStyle
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |SOLID||
@@ -29,3 +27,9 @@ Represents the line dash style.
 |SYSTEM_DASH_DOT||
 |SYSTEM_DASH_DOT_DOT||
 |CUSTOM||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

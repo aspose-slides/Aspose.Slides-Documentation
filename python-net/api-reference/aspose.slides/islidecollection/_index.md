@@ -1,30 +1,28 @@
 ---
-title: ISlideCollection Class
+title: ISlideCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2500
 url: /python-net/api-reference/aspose.slides/islidecollection/
 ---
 
+## ISlideCollection class
+
 Represents a collection of a slides.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ISlideCollection
-
-
-
 The ISlideCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.<br/>            Read-only [ISlide](/slides/python-net/api-reference/aspose.slides/islide/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_clone(source_slide)|Adds a copy of a specified slide to the end of the collection.|
 |add_clone(source_slide, section)|Adds a copy of a specified slide to the end of the specified section.|
@@ -52,3 +50,9 @@ The ISlideCollection type exposes the following members:
 |remove(value)|Removes the first occurrence of a specific object from the collection.|
 |remove_at(index)|Removes the element at the specified index of the collection.|
 |index_of(slide)|Returns an index of the specified slide in the collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

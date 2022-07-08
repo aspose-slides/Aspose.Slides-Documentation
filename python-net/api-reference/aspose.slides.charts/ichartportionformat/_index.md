@@ -1,23 +1,21 @@
 ---
-title: IChartPortionFormat Class
+title: IChartPortionFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 630
 url: /python-net/api-reference/aspose.slides.charts/ichartportionformat/
 ---
 
+## IChartPortionFormat class
+
 Represents the chart portion formatting properties used in charts.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartPortionFormat
-
-
-
 The IChartPortionFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
-|as_ibase_portion_format|Returns IBasePortionFormat interface.|
+|as_i_base_portion_format|Returns IBasePortionFormat interface.|
 |line_format|Returns the LineFormat properties for text outlining. No inheritance applied.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|
 |fill_format|Returns the text FillFormat properties. No inheritance applied.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|
 |effect_format|Returns the text EffectFormat properties. No inheritance applied.<br/>            Read-only [IEffectFormat](/slides/python-net/api-reference/aspose.slides/ieffectformat/).|
@@ -44,3 +42,9 @@ The IChartPortionFormat type exposes the following members:
 |language_id|Returns or sets the Id of a proofing language. Used for checking spelling and grammar.<br/>            Read/write string.|
 |alternative_language_id|Returns or sets the Id of an alternative language.<br/>            Read/write string.|
 |spacing|Returns or sets the intercharacter spacing increment.<br/>            float.NaN means value is undefined and should be inherited from the Master.<br/>            Read/write|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

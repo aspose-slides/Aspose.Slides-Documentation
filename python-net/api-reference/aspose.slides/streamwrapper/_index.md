@@ -1,21 +1,19 @@
 ---
-title: StreamWrapper Class
+title: StreamWrapper
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3750
 url: /python-net/api-reference/aspose.slides/streamwrapper/
 ---
 
+## StreamWrapper class
+
 Aspose.IO.Stream wrapper for COM interface.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.StreamWrapper
-
-
-
 The StreamWrapper type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |stream|Gets a stream.<br/>            Read-only stream.|
 |can_read|Gets a value indicating whether the current stream supports reading.<br/>            Read-only bool.|
@@ -23,9 +21,9 @@ The StreamWrapper type exposes the following members:
 |can_write|Gets a value indicating whether the current stream supports writing.<br/>            Read-only bool.|
 |length|Gets the length in bytes of the stream.<br/>            Read-only int.|
 |position|Gets or sets the position within the current stream.<br/>            Read-only int.|
-|as_idisposable|Allows to get base IDisposable interface.<br/>            Read-only disposable.|
-## **Methods**
-|**Name**|**Description**|
+|as_i_disposable|Allows to get base IDisposable interface.<br/>            Read-only disposable.|
+## Methods
+| Name | Description |
 | :- | :- |
 |close()|Closes the current stream and releases any resources.|
 |flush()|Clears all buffers for this stream and causes any buffered data to be written to the underlying device.|
@@ -34,3 +32,9 @@ The StreamWrapper type exposes the following members:
 |seek(offset, origin)|Sets the position within the current stream|
 |write(buffer, offset, count)|writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.|
 |write_byte(value)|Writes a byte to the current position in the stream and advances the position within the stream by one byte.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

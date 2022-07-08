@@ -1,21 +1,19 @@
 ---
-title: MasterSlide Class
+title: MasterSlide
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3070
 url: /python-net/api-reference/aspose.slides/masterslide/
 ---
 
+## MasterSlide class
+
 Represents a master slide in a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.MasterSlide
-
-
-
 The MasterSlide type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |shapes|Returns the shapes of a slide.<br/>            Read-only [IShapeCollection](/slides/python-net/api-reference/aspose.slides/ishapecollection/).|
 |controls|Returns the collection of ActiveX controls on a slide.<br/>            Read-only [IControlCollection](/slides/python-net/api-reference/aspose.slides/icontrolcollection/).|
@@ -36,13 +34,13 @@ The MasterSlide type exposes the following members:
 |preserve|Determines whether the corresponding master is deleted when all the slides that follow that master are deleted.<br/>            Note: Aspose.Slides will never remove any unused master by itself, to actually remove unused masters call|
 |has_depending_slides|Returns true if there exists at least one slide that depends on this master slide.<br/>            Read-only bool.|
 |theme_manager|Returns the theme manager.<br/>            Read-only [IMasterThemeManager](/slides/python-net/api-reference/aspose.slides.theme/imasterthememanager/).|
-|as_islide_component|Returns ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_slide_component|Returns ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|as_ibase_slide|Allows to get base IBaseSlide interface.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_imaster_themeable|Returns IMasterThemeable interface.<br/>            Read-only [IMasterThemeable](/slides/python-net/api-reference/aspose.slides.theme/imasterthemeable/).|
-## **Methods**
-|**Name**|**Description**|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_base_slide|Allows to get base IBaseSlide interface.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|as_i_master_themeable|Returns IMasterThemeable interface.<br/>            Read-only [IMasterThemeable](/slides/python-net/api-reference/aspose.slides.theme/imasterthemeable/).|
+## Methods
+| Name | Description |
 | :- | :- |
 |join_portions_with_same_formatting()|Joins runs with same formatting in all paragraphs all acceptable shapes.|
 |join_portions_with_same_formatting(collection)|Joins runs with same formatting in all paragraphs in all acceptable shapes.|
@@ -51,3 +49,9 @@ The MasterSlide type exposes the following members:
 |find_shape_by_alt_text(alt_text)|Finds first occurrence of a shape with the specified alternative text.|
 |apply_external_theme_to_depending_slides(fname)|Creates a new master slide based on the current one, applying an external theme to it <br/>            and applies the created master slide to all dependent slides.|
 |get_depending_slides()|Returns an array with all slides, which depend on this master slide.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

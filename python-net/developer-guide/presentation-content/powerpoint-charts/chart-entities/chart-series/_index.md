@@ -111,7 +111,7 @@ import aspose.slides.charts as charts
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN3_D, 50, 50, 600, 400, True)
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
     
     seriesCell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
     seriesCell.value = "New name"
@@ -126,7 +126,7 @@ import aspose.slides.charts as charts
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN3_D, 50, 50, 600, 400, True)
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
     series = chart.chart_data.series[0]
     
     series.name.as_cells[0].value = "New name"
@@ -239,7 +239,7 @@ Aspose.Slides for Python via .NET allows you to clear the `data_points` data for
 1. Create an instance of the `Presentation` class.
 2. Obtain the reference of a slide through its index.
 3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `data_points` and set `xvalue` and `yvalue` to null.
+4. Iterate through all the chart `data_points` and set `x_value` and `y_value` to null.
 5. Clear all`data_points` for specific chart series.
 6. Write the modified presentation to a PPTX file.
 
@@ -254,8 +254,8 @@ with slides.Presentation(path + "TestChart.pptx") as pres:
     chart = sl.shapes[0]
 
     for dataPoint in chart.chart_data.series[0].data_points:
-        dataPoint.xvalue.as_cell.value = None
-        dataPoint.yvalue.as_cell.value = None
+        dataPoint.x_value.as_cell.value = None
+        dataPoint.y_value.as_cell.value = None
 
     chart.chart_data.series[0].data_points.clear()
 

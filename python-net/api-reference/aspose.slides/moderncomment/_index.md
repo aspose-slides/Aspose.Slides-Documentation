@@ -1,21 +1,19 @@
 ---
-title: ModernComment Class
+title: ModernComment
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3110
 url: /python-net/api-reference/aspose.slides/moderncomment/
 ---
 
+## ModernComment class
+
 Represents a comment on a slide.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ModernComment
-
-
-
 The ModernComment type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |text|Returns or sets the plain text of a slide comment.<br/>            Read/write string.|
 |created_time|Returns or sets the time of a comment creation.<br/>            Setting this property to min date value means no comment time is set.<br/>            Read/write datetime.|
@@ -27,8 +25,14 @@ The ModernComment type exposes the following members:
 |text_selection_start|Gets or sets starting position of text selection in text frame if the comment associated with AutoShape.<br/>            Read/write|
 |text_selection_length|Gets or sets text selection length in text frame if the comment associated with AutoShape.<br/>            Read/write|
 |status|Gets or sets the status of the comment.<br/>            Read/write [ModernCommentStatus](/slides/python-net/api-reference/aspose.slides/moderncommentstatus/).|
-|as_icomment|Allows to get base IComment interface.<br/>            Read-only [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
-## **Methods**
-|**Name**|**Description**|
+|as_i_comment|Allows to get base IComment interface.<br/>            Read-only [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
+## Methods
+| Name | Description |
 | :- | :- |
 |remove()|Removes comment and all its replies from the parent collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

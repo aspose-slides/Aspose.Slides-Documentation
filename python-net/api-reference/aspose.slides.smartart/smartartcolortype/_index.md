@@ -1,29 +1,27 @@
 ---
-title: SmartArtColorType Enumeration
+title: SmartArtColorType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 120
 url: /python-net/api-reference/aspose.slides.smartart/smartartcolortype/
 ---
 
+## SmartArtColorType enumeration
+
 Represents color scheme of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
-
-**Full Name:** aspose.slides.smartart.SmartArtColorType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
-|DARK1_OUTLINE|Dark1Outline|
-|DARK2_OUTLINE|Dark2Outline|
+|DARK_1_OUTLINE|Dark1Outline|
+|DARK_2_OUTLINE|Dark2Outline|
 |DARK_FILL|DarkFill|
 |COLORFUL_ACCENT_COLORS|ColorfulAccentColors|
-|COLORFUL_ACCENT_COLORS2TO3|ColorfulAccentColors2to3|
-|COLORFUL_ACCENT_COLORS3TO4|ColorfulAccentColors3to4|
-|COLORFUL_ACCENT_COLORS4TO5|ColorfulAccentColors4to5|
-|COLORFUL_ACCENT_COLORS5TO6|ColorfulAccentColors5to6|
+|COLORFUL_ACCENT_COLORS_2TO_3|ColorfulAccentColors2to3|
+|COLORFUL_ACCENT_COLORS_3TO_4|ColorfulAccentColors3to4|
+|COLORFUL_ACCENT_COLORS_4TO_5|ColorfulAccentColors4to5|
+|COLORFUL_ACCENT_COLORS_5TO_6|ColorfulAccentColors5to6|
 |COLORED_OUTLINE_ACCENT1|ColoredOutlineAccent1|
 |COLORED_FILL_ACCENT1|ColoredFillAccent1|
 |GRADIENT_RANGE_ACCENT1|GradientRangeAccent1|
@@ -54,3 +52,9 @@ Represents color scheme of a SmartArt diagram.
 |GRADIENT_RANGE_ACCENT6|GradientRangeAccent6|
 |GRADIENT_LOOP_ACCENT6|GradientLoopAccent6|
 |TRANSPARENT_GRADIENT_RANGE_ACCENT6|TransparentGradientRangeAccent6|
+
+### See Also
+
+* namespace [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

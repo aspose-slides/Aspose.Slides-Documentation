@@ -1,20 +1,18 @@
 ---
-title: BlackWhiteMode Enumeration
+title: BlackWhiteMode
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9220
 url: /python-net/api-reference/aspose.slides/blackwhitemode/
 ---
 
+## BlackWhiteMode enumeration
+
 Determines how colored shape should be transformed into black and white.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.BlackWhiteMode
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED|The property isn't set|
 |COLOR|The object is rendered with normal coloring|
@@ -28,3 +26,9 @@ Determines how colored shape should be transformed into black and white.
 |BLACK|The object is rendered only with black coloring|
 |WHITE|The object is rendered with white coloring|
 |HIDDEN|The object is not rendered|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

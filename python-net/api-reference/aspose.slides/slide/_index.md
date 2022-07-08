@@ -1,21 +1,19 @@
 ---
-title: Slide Class
+title: Slide
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3700
 url: /python-net/api-reference/aspose.slides/slide/
 ---
 
+## Slide class
+
 Represents a slide in a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.Slide
-
-
-
 The Slide type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |shapes|Returns the shapes of a slide.<br/>            Read-only [IShapeCollection](/slides/python-net/api-reference/aspose.slides/ishapecollection/).|
 |controls|Returns the collection of ActiveX controls on a slide.<br/>            Read-only [IControlCollection](/slides/python-net/api-reference/aspose.slides/icontrolcollection/).|
@@ -34,13 +32,13 @@ The Slide type exposes the following members:
 |hidden|Determines whether the specified slide is hidden during a slide show.<br/>            Read/write bool.|
 |layout_slide|Returns or sets the layout slide for the current slide.<br/>            Read/write [ILayoutSlide](/slides/python-net/api-reference/aspose.slides/ilayoutslide/).|
 |notes_slide_manager|Allow to access notes slide, add and remove it.<br/>            Read-only [INotesSlideManager](/slides/python-net/api-reference/aspose.slides/inotesslidemanager/).|
-|as_islide_component|Returns ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_slide_component|Returns ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|as_ibase_slide|Allows to get base IBaseSlide interface.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_ioverride_themeable|Returns IOverrideThemeable interface.<br/>            Read-only [IOverrideThemeable](/slides/python-net/api-reference/aspose.slides.theme/ioverridethemeable/).|
-## **Methods**
-|**Name**|**Description**|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_base_slide|Allows to get base IBaseSlide interface.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
+|as_i_override_themeable|Returns IOverrideThemeable interface.<br/>            Read-only [IOverrideThemeable](/slides/python-net/api-reference/aspose.slides.theme/ioverridethemeable/).|
+## Methods
+| Name | Description |
 | :- | :- |
 |join_portions_with_same_formatting()|Joins runs with same formatting in all paragraphs in all acceptable shapes.|
 |join_portions_with_same_formatting(collection)|Joins runs with same formatting in all paragraphs in all acceptable shapes.|
@@ -68,3 +66,9 @@ The Slide type exposes the following members:
 |remove()|Removes slide from presentation.|
 |reset()|Resets position, size and formatting of every shape that has a prototype on LayoutSlide.|
 |get_slide_comments(author)|Returns all slide comments added by specific author.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

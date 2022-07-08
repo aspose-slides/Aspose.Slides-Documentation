@@ -1,59 +1,57 @@
 ---
-title: ChartType Enumeration
+title: ChartType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1150
 url: /python-net/api-reference/aspose.slides.charts/charttype/
 ---
 
+## ChartType enumeration
+
 Represents a type of chart.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Name:** aspose.slides.charts.ChartType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |CLUSTERED_COLUMN|Represents Clustered Column Chart.|
 |STACKED_COLUMN|Represents Stacked Column Chart.|
 |PERCENTS_STACKED_COLUMN|Represents 100% Stacked Column Chart.|
-|CLUSTERED_COLUMN3_D|Represents 3D Colustered Column Chart.|
-|STACKED_COLUMN3_D|Represents 3D Stacked Column Chart.|
-|PERCENTS_STACKED_COLUMN3_D|Represents 3D 100% Stacked Column Chart.|
-|COLUMN3_D|Represents 3D Column Chart.|
+|CLUSTERED_COLUMN_3D|Represents 3D Colustered Column Chart.|
+|STACKED_COLUMN_3D|Represents 3D Stacked Column Chart.|
+|PERCENTS_STACKED_COLUMN_3D|Represents 3D 100% Stacked Column Chart.|
+|COLUMN_3D|Represents 3D Column Chart.|
 |CLUSTERED_CYLINDER|Represents Cylinder Chart.|
 |STACKED_CYLINDER|Represents Stacked Cylinder Chart.|
 |PERCENTS_STACKED_CYLINDER|Represents 100% Stacked Cylinder Chart.|
-|CYLINDER3_D|Represents 3D Cylindrical Column Chart.|
+|CYLINDER_3D|Represents 3D Cylindrical Column Chart.|
 |CLUSTERED_CONE|Represents Cone Chart.|
 |STACKED_CONE|Represents Stacked Cone Chart.|
 |PERCENTS_STACKED_CONE|Represents 100% Stacked Cone Chart.|
-|CONE3_D|Represents 3D Conical Column Chart.|
+|CONE_3D|Represents 3D Conical Column Chart.|
 |CLUSTERED_PYRAMID|Represents Pyramid Chart.|
 |STACKED_PYRAMID|Represents Stacked Pyramid Chart.|
 |PERCENTS_STACKED_PYRAMID|Represents 100% Stacked Pyramid Chart.|
-|PYRAMID3_D|Represents 3D Pyramid Column Chart.|
+|PYRAMID_3D|Represents 3D Pyramid Column Chart.|
 |LINE|Represents Line Chart.|
 |STACKED_LINE|Represents Stacked Line Chart.|
 |PERCENTS_STACKED_LINE|Represents 100% Stacked Line Chart.|
 |LINE_WITH_MARKERS|Represents Line Chart with data markers.|
 |STACKED_LINE_WITH_MARKERS|Represents Stacked Line Chart with data markers.|
 |PERCENTS_STACKED_LINE_WITH_MARKERS|Represents 100% Stacked Line Chart with data markers.|
-|LINE3_D|Represents 3D Line Chart.|
+|LINE_3D|Represents 3D Line Chart.|
 |PIE|Represents Pie Chart.|
-|PIE3_D|Represents 3D Pie Chart.|
+|PIE_3D|Represents 3D Pie Chart.|
 |PIE_OF_PIE|Represents Pie of Pie Chart.|
 |EXPLODED_PIE|Represents Exploded Pie Chart.|
-|EXPLODED_PIE3_D|Represents 3D Exploded Pie Chart.|
+|EXPLODED_PIE_3D|Represents 3D Exploded Pie Chart.|
 |BAR_OF_PIE|Represents Bar of Pie Chart.|
 |PERCENTS_STACKED_BAR|Represents 100% Stacked Bar Chart.|
-|CLUSTERED_BAR3_D|Represents 3D Colustered Bar Chart.|
+|CLUSTERED_BAR_3D|Represents 3D Colustered Bar Chart.|
 |CLUSTERED_BAR|Represents Clustered Bar Chart.|
 |STACKED_BAR|Represents Stacked Bar Chart.|
-|STACKED_BAR3_D|Represents 3D Stacked Bar Chart.|
-|PERCENTS_STACKED_BAR3_D|Represents 3D 100% Stacked Bar Chart.|
+|STACKED_BAR_3D|Represents 3D Stacked Bar Chart.|
+|PERCENTS_STACKED_BAR_3D|Represents 3D 100% Stacked Bar Chart.|
 |CLUSTERED_HORIZONTAL_CYLINDER|Represents Cylindrical Bar Chart.|
 |STACKED_HORIZONTAL_CYLINDER|Represents Stacked Cylindrical Bar Chart.|
 |PERCENTS_STACKED_HORIZONTAL_CYLINDER|Represents 100% Stacked Cylindrical Bar Chart.|
@@ -66,9 +64,9 @@ Represents a type of chart.
 |AREA|Represents Area Chart.|
 |STACKED_AREA|Represents Stacked Area Chart.|
 |PERCENTS_STACKED_AREA|Represents 100% Stacked Area Chart.|
-|AREA3_D|Represents 3D Area Chart.|
-|STACKED_AREA3_D|Represents 3D Stacked Area Chart.|
-|PERCENTS_STACKED_AREA3_D|Represents 3D 100% Stacked Area Chart.|
+|AREA_3D|Represents 3D Area Chart.|
+|STACKED_AREA_3D|Represents 3D Stacked Area Chart.|
+|PERCENTS_STACKED_AREA_3D|Represents 3D 100% Stacked Area Chart.|
 |SCATTER_WITH_MARKERS|Represents Scatter Chart.|
 |SCATTER_WITH_SMOOTH_LINES_AND_MARKERS|Represents Scatter Chart connected by curves, with data markers.|
 |SCATTER_WITH_SMOOTH_LINES|Represents Scatter Chart connected by curves, without data markers.|
@@ -78,14 +76,14 @@ Represents a type of chart.
 |OPEN_HIGH_LOW_CLOSE|Represents Open-High-Low-Close Stock Chart.|
 |VOLUME_HIGH_LOW_CLOSE|Represents Volume-High-Low-Close Stock Chart.|
 |VOLUME_OPEN_HIGH_LOW_CLOSE|Represents Volume-Open-High-Low-Close Stock Chart.|
-|SURFACE3_D|Represents 3D Surface Chart.|
-|WIREFRAME_SURFACE3_D|Represents Wireframe 3D Surface Chart.|
+|SURFACE_3D|Represents 3D Surface Chart.|
+|WIREFRAME_SURFACE_3D|Represents Wireframe 3D Surface Chart.|
 |CONTOUR|Represents Contour Chart.|
 |WIREFRAME_CONTOUR|Represents Wireframe Contour Chart.|
 |DOUGHNUT|Represents Doughnut Chart.|
 |EXPLODED_DOUGHNUT|Represents Exploded Doughnut Chart.|
 |BUBBLE|Represents Bubble Chart.|
-|BUBBLE_WITH3_D|Represents 3D Bubble Chart.|
+|BUBBLE_WITH_3D|Represents 3D Bubble Chart.|
 |RADAR|Represents Radar Chart.|
 |RADAR_WITH_MARKERS|Represents Radar Chart with data markers.|
 |FILLED_RADAR|Represents Filled Radar Chart.|
@@ -98,3 +96,9 @@ Represents a type of chart.
 |WATERFALL|Represents Waterfall chart.|
 |FUNNEL|Represents Funnel chart.|
 |MAP|Represents Map chart.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

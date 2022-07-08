@@ -1,38 +1,36 @@
 ---
-title: CameraPresetType Enumeration
+title: CameraPresetType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9240
 url: /python-net/api-reference/aspose.slides/camerapresettype/
 ---
 
+## CameraPresetType enumeration
+
 Constants which define camera preset type.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.CameraPresetType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |ISOMETRIC_BOTTOM_DOWN||
 |ISOMETRIC_BOTTOM_UP||
 |ISOMETRIC_LEFT_DOWN||
 |ISOMETRIC_LEFT_UP||
-|ISOMETRIC_OFF_AXIS1_LEFT||
-|ISOMETRIC_OFF_AXIS1_RIGHT||
-|ISOMETRIC_OFF_AXIS1_TOP||
-|ISOMETRIC_OFF_AXIS2_LEFT||
-|ISOMETRIC_OFF_AXIS2_RIGHT||
-|ISOMETRIC_OFF_AXIS2_TOP||
-|ISOMETRIC_OFF_AXIS3_BOTTOM||
-|ISOMETRIC_OFF_AXIS3_LEFT||
-|ISOMETRIC_OFF_AXIS3_RIGHT||
-|ISOMETRIC_OFF_AXIS4_BOTTOM||
-|ISOMETRIC_OFF_AXIS4_LEFT||
-|ISOMETRIC_OFF_AXIS4_RIGHT||
+|ISOMETRIC_OFF_AXIS_1_LEFT||
+|ISOMETRIC_OFF_AXIS_1_RIGHT||
+|ISOMETRIC_OFF_AXIS_1_TOP||
+|ISOMETRIC_OFF_AXIS_2_LEFT||
+|ISOMETRIC_OFF_AXIS_2_RIGHT||
+|ISOMETRIC_OFF_AXIS_2_TOP||
+|ISOMETRIC_OFF_AXIS_3_BOTTOM||
+|ISOMETRIC_OFF_AXIS_3_LEFT||
+|ISOMETRIC_OFF_AXIS_3_RIGHT||
+|ISOMETRIC_OFF_AXIS_4_BOTTOM||
+|ISOMETRIC_OFF_AXIS_4_LEFT||
+|ISOMETRIC_OFF_AXIS_4_RIGHT||
 |ISOMETRIC_RIGHT_DOWN||
 |ISOMETRIC_RIGHT_UP||
 |ISOMETRIC_TOP_DOWN||
@@ -79,3 +77,9 @@ Constants which define camera preset type.
 |PERSPECTIVE_RELAXED||
 |PERSPECTIVE_RELAXED_MODERATELY||
 |PERSPECTIVE_RIGHT||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

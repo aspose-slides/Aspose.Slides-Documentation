@@ -1,20 +1,18 @@
 ---
-title: PatternStyle Enumeration
+title: PatternStyle
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9600
 url: /python-net/api-reference/aspose.slides/patternstyle/
 ---
 
+## PatternStyle enumeration
+
 Represents the pattern style.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.PatternStyle
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |UNKNOWN||
@@ -72,3 +70,9 @@ Represents the pattern style.
 |DOWNWARD_DIAGONAL||
 |UPWARD_DIAGONAL||
 |DIAGONAL_CROSS||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

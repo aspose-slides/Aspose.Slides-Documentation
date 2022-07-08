@@ -1,32 +1,30 @@
 ---
-title: MathFunction Class
+title: MathFunction
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 630
 url: /python-net/api-reference/aspose.slides.mathtext/mathfunction/
 ---
 
+## MathFunction class
+
 Specifies a function of an argument.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.MathFunction
-
-
-
 The MathFunction type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |MathFunction(func_name, base_argument)|Initializes a new instance of the MathFunction class|
 |MathFunction(func_name, base_argument)|Initializes a new instance of the MathFunction class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |name|Function name<br/>            For example, function names are sin and cos|
 |base|Function Argument|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+|as_i_math_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -74,3 +72,9 @@ The MathFunction type exposes the following members:
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
 |get_children()|Get children elements|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

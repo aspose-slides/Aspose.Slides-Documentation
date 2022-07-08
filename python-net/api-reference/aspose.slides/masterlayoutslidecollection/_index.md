@@ -1,31 +1,29 @@
 ---
-title: MasterLayoutSlideCollection Class
+title: MasterLayoutSlideCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3040
 url: /python-net/api-reference/aspose.slides/masterlayoutslidecollection/
 ---
 
+## MasterLayoutSlideCollection class
+
 Represents a collections of all layout slides of defined master slide.<br/>            Extends LayoutSlideCollection class with methods for adding/inserting/removing/cloning/reordering <br/>            layout slides in context of the individual collections of master's layout slides.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.MasterLayoutSlideCollection
-
-
-
 The MasterLayoutSlideCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
-|as_ilayout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
-## **Indexer**
-|**Name**|**Description**|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
+|as_i_layout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Returns the layout slide by index.<br/>            Read-only [LayoutSlide](/slides/python-net/api-reference/aspose.slides/layoutslide/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_by_type(type)|Returns the first layout slide of specified type.|
 |remove(value)|Removes the element at the specified index of the collection.|
@@ -36,3 +34,9 @@ The MasterLayoutSlideCollection type exposes the following members:
 |insert(index, layout_type, layout_name)|Inserts a new layout slide to specified position of the collection.|
 |remove_at(index)|Removes the element at the specified index of the collection.|
 |reorder(index, layout_slide)|Moves layout slide from the collection to the specified position.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

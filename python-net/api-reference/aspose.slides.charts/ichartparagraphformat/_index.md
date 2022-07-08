@@ -1,21 +1,19 @@
 ---
-title: IChartParagraphFormat Class
+title: IChartParagraphFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 610
 url: /python-net/api-reference/aspose.slides.charts/ichartparagraphformat/
 ---
 
+## IChartParagraphFormat class
+
 Represents a paragraph formatting properties of a chart.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IChartParagraphFormat
-
-
-
 The IChartParagraphFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |alignment|Returns or sets the text alignment in a paragraph.<br/>            Read/write [TextAlignment](/slides/python-net/api-reference/aspose.slides/textalignment/).|
 |space_within|Returns or sets the amount of space between base lines in a paragraph.<br/>            Read/write|
@@ -31,3 +29,9 @@ The IChartParagraphFormat type exposes the following members:
 |default_tab_size|Returns or sets default tabulation size.<br/>            Read/write|
 |tabs|Returns tabulations of a paragraph.<br/>            Read-only [ITabCollection](/slides/python-net/api-reference/aspose.slides/itabcollection/).|
 |font_alignment|Returns or sets a font alignment in a paragraph.<br/>            Read/write [FontAlignment](/slides/python-net/api-reference/aspose.slides/fontalignment/).|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

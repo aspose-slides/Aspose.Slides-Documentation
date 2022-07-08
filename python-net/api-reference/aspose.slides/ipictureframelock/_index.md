@@ -1,21 +1,19 @@
 ---
-title: IPictureFrameLock Class
+title: IPictureFrameLock
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2150
 url: /python-net/api-reference/aspose.slides/ipictureframelock/
 ---
 
+## IPictureFrameLock class
+
 Determines which operations are disabled on the parent PictureFrameEx.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IPictureFrameLock
-
-
-
 The IPictureFrameLock type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |grouping_locked|Determines whether an adding this shape to a group is forbidden.<br/>            Read/write bool.|
 |select_locked|Determines whether a selecting this shape is forbidden.<br/>            Read/write bool.|
@@ -28,5 +26,11 @@ The IPictureFrameLock type exposes the following members:
 |arrowheads_locked|Determines whether a changing arrowheads is forbidden.<br/>            Read/write bool.|
 |shape_type_locked|Determines whether a changing of a shape type is forbidden.<br/>            Read/write bool.|
 |crop_locked|Determines whether an image cropping is forbidden.<br/>            Read/write bool.|
-|as_ibase_shape_lock|Allows to get base IBaseShapeLock interface.<br/>            Read-only [IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/).|
+|as_i_base_shape_lock|Allows to get base IBaseShapeLock interface.<br/>            Read-only [IBaseShapeLock](/slides/python-net/api-reference/aspose.slides/ibaseshapelock/).|
 |no_locks|Return true if all lock-flags are disabled.<br/>            Read-only bool.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

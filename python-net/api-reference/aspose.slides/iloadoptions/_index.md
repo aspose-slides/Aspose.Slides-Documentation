@@ -1,21 +1,19 @@
 ---
-title: ILoadOptions Class
+title: ILoadOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1810
 url: /python-net/api-reference/aspose.slides/iloadoptions/
 ---
 
+## ILoadOptions class
+
 Allows to specify additional options (such as format or default font) when loading a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ILoadOptions
-
-
-
 The ILoadOptions type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |load_format|Returns or sets format of a presentation to load.<br/>            Read/write [LoadFormat](/slides/python-net/api-reference/aspose.slides/loadformat/).|
 |default_regular_font|Returns or sets Regular font used in case source font is not found.<br/>            Read-write string.|
@@ -29,3 +27,9 @@ The ILoadOptions type exposes the following members:
 |interruption_token|The token to monitor for interruption requests.|
 |resource_loading_callback|Returns or sets callback interface which manages external resources loading.<br/>            Read/write [IResourceLoadingCallback](/slides/python-net/api-reference/aspose.slides/iresourceloadingcallback/).|
 |spreadsheet_options|Represents options which can be used to specify additional spreadsheets behavior.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

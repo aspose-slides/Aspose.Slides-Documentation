@@ -1,26 +1,24 @@
 ---
-title: MathBorderBox Class
+title: MathBorderBox
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 540
 url: /python-net/api-reference/aspose.slides.mathtext/mathborderbox/
 ---
 
+## MathBorderBox class
+
 Draws a rectangular or some other border around the IMathElement.
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Class Name:** aspose.slides.mathtext.MathBorderBox
-
-
-
 The MathBorderBox type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |MathBorderBox(element)|Initializes a new instance of the MathBorderBox class|
 |MathBorderBox(element, hide_top, hide_bottom, hide_left, hide_right, strikethrough_horizontal, strikethrough_vertical, strikethrough_bottom_left_to_top_right, strikethrough_top_left_to_bottom_right)|Initializes a new instance of the MathBorderBox class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |base|Base argument|
 |hide_top|Hide Top Edge (default is false) - specifies the hidden or shown state of the top edge of border box.|
@@ -31,9 +29,9 @@ The MathBorderBox type exposes the following members:
 |strikethrough_vertical|Strikethrough Vertical (default is false) - specifies the hidden or shown state of a strikethrough vertical line.|
 |strikethrough_bottom_left_to_top_right|Strikethrough Bottom-Left to Top-Right (default is false).<br/>            Specifies the hidden or shown state of a strikethrough diagonal line from the bottom-left corner to the top-right corner of border box.|
 |strikethrough_top_left_to_bottom_right|Strikethrough Top-Left to Bottom-Right (default is false).<br/>            Specifies the hidden or shown state of a strikethrough diagonal line from the top-left corner to the bottom-right corner of border box.|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-## **Methods**
-|**Name**|**Description**|
+|as_i_math_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+## Methods
+| Name | Description |
 | :- | :- |
 |join(math_element)|Joins a mathematical element and forms a mathematical block|
 |join(math_text)|Joins a mathematical text and forms a mathematical block|
@@ -81,3 +79,9 @@ The MathBorderBox type exposes the following members:
 |underbar()|Sets a bar on the bottom of this element|
 |to_box()|Places this element in a non-visual box (logical grouping) <br/>            which is used to group components of an equation or other instance of mathematical text.<br/>            A boxed object can (for example) serve as an operator emulator with or without an alignment point, <br/>            serve as a line break point, or be grouped such as not to allow line breaks within.|
 |get_children()|Get children elements|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.charts
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 30
 url: /python-net/api-reference/aspose.slides.charts/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.charts/
 
 Contains classes for work with charts in Microsoft PowerPoint presentations.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[AxesCompositionNotCombinableException](/slides/python-net/api-reference/aspose.slides.charts/axescompositionnotcombinableexception/)|Exception which thrown when axes composition of the series is not combinable with present axes <br/>            composition in chart.|
 |[AxesManager](/slides/python-net/api-reference/aspose.slides.charts/axesmanager/)|Provides access to chart axes.|
@@ -119,8 +121,8 @@ Contains classes for work with charts in Microsoft PowerPoint presentations.
 |[Trendline](/slides/python-net/api-reference/aspose.slides.charts/trendline/)|Class represents trend line of chart series|
 |[TrendlineCollection](/slides/python-net/api-reference/aspose.slides.charts/trendlinecollection/)|Represents a collection of Trendline|
 |[UpDownBarsManager](/slides/python-net/api-reference/aspose.slides.charts/updownbarsmanager/)|Provide access to up/down bars of Line- or Stock-chart.|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[AxisAggregationType](/slides/python-net/api-reference/aspose.slides.charts/axisaggregationtype/)|Represents aggregation type of category axis. Used with Histogram or HistogramPareto series only.|
 |[AxisPositionType](/slides/python-net/api-reference/aspose.slides.charts/axispositiontype/)|Determines a position of axis.|

@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.vba
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 190
 url: /python-net/api-reference/aspose.slides.vba/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.vba/
 
 Contains classes for work with VBA macros.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[IVbaModule](/slides/python-net/api-reference/aspose.slides.vba/ivbamodule/)|Represents module that is contained in VBA project.|
 |[IVbaModuleCollection](/slides/python-net/api-reference/aspose.slides.vba/ivbamodulecollection/)|Represents a collection of a VBA Project modules.|

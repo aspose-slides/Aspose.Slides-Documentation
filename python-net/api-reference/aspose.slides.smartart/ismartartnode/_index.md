@@ -1,21 +1,19 @@
 ---
-title: ISmartArtNode Class
+title: ISmartArtNode
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 20
 url: /python-net/api-reference/aspose.slides.smartart/ismartartnode/
 ---
 
+## ISmartArtNode class
+
 Represents node of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
-
-**Full Class Name:** aspose.slides.smartart.ISmartArtNode
-
-
-
 The ISmartArtNode type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |child_nodes|Returns collections of all child nodes of current node.<br/>            Read-only [ISmartArtNodeCollection](/slides/python-net/api-reference/aspose.slides.smartart/ismartartnodecollection/).|
 |shapes|Returns collections of all shapes associated with the node.<br/>            Read-only [ISmartArtShapeCollection](/slides/python-net/api-reference/aspose.slides.smartart/ismartartshapecollection/).|
@@ -26,7 +24,13 @@ The ISmartArtNode type exposes the following members:
 |position|Returns or sets zero-based position of the node among sibling nodes.<br/>            Read/write|
 |is_hidden|Returns true if this node is a hidden node in the data model.<br/>            Read-only bool.|
 |organization_chart_layout|Returns or sets organization chart layout type associated with current node.<br/>            Read/write [OrganizationChartLayoutType](/slides/python-net/api-reference/aspose.slides.smartart/organizationchartlayouttype/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |remove()|Remove current node.|
+
+### See Also
+
+* namespace [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

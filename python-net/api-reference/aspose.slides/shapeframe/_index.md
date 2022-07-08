@@ -1,25 +1,23 @@
 ---
-title: ShapeFrame Class
+title: ShapeFrame
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3670
 url: /python-net/api-reference/aspose.slides/shapeframe/
 ---
 
+## ShapeFrame class
+
 Represents shape frame's properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ShapeFrame
-
-
-
 The ShapeFrame type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |ShapeFrame(x, y, width, height, flip_h, flip_v, rotation_angle)|Initializes a new instance of the ShapeFrame class|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |x|Returns the X coordinate of the upper-left corner of a frame.<br/>            Read-only|
 |y|Returns the Y coordinate of the upper-left corner of a frame.<br/>            Read-only|
@@ -31,9 +29,15 @@ The ShapeFrame type exposes the following members:
 |flip_h|Determines whether a frame is flipped horizontally.<br/>            Read-only [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |flip_v|Determines whether a frame is flipped vertically.<br/>            Read-only [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |rectangle|Returns the coordinates of a frame.<br/>            Read-only aspose.pydrawing.RectangleF.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |clone()|Clones|
 |clone_t()|Clones.|
 |equals(value)|Returns a value indicating whether this instance is equal to a specified object.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

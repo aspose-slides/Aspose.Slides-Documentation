@@ -1,21 +1,19 @@
 ---
-title: IColorSchemeEffectiveData Class
+title: IColorSchemeEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 130
 url: /python-net/api-reference/aspose.slides.theme/icolorschemeeffectivedata/
 ---
 
+## IColorSchemeEffectiveData class
+
 Immutable object which contains effective color scheme properties.
 
-**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
-
-**Full Class Name:** aspose.slides.theme.IColorSchemeEffectiveData
-
-
-
 The IColorSchemeEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |dark1|First dark color in the scheme.<br/>            Read-only aspose.pydrawing.Color.|
 |light1|First light color in the scheme.<br/>            Read-only aspose.pydrawing.Color.|
@@ -29,3 +27,9 @@ The IColorSchemeEffectiveData type exposes the following members:
 |accent6|Sixth accent color in the scheme.<br/>            Read-only aspose.pydrawing.Color.|
 |hyperlink|Color for the hyperlinks.<br/>            Read-only aspose.pydrawing.Color.|
 |followed_hyperlink|Color for the visited hyperlinks.<br/>            Read-only aspose.pydrawing.Color.|
+
+### See Also
+
+* namespace [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

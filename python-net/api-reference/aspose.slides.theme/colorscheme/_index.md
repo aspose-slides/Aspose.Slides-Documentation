@@ -1,21 +1,19 @@
 ---
-title: ColorScheme Class
+title: ColorScheme
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 40
 url: /python-net/api-reference/aspose.slides.theme/colorscheme/
 ---
 
+## ColorScheme class
+
 Stores theme-defined colors.
 
-**Namespace:** [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
-
-**Full Class Name:** aspose.slides.theme.ColorScheme
-
-
-
 The ColorScheme type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |dark1|First dark color in the scheme.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 |light1|First light color in the scheme.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
@@ -31,5 +29,11 @@ The ColorScheme type exposes the following members:
 |followed_hyperlink|Color for the visited hyperlinks.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 |slide|Returns the parent slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the parent presentation.<br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_islide_component|Returns ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_slide_component|Returns ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+
+### See Also
+
+* namespace [aspose.slides.theme](/slides/python-net/api-reference/aspose.slides.theme/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

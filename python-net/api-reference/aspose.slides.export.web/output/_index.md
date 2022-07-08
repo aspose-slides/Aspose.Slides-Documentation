@@ -1,21 +1,19 @@
 ---
-title: Output Class
+title: Output
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 50
 url: /python-net/api-reference/aspose.slides.export.web/output/
 ---
 
+## Output class
+
 Represents a collection of output elements for IWebDocument.
 
-**Namespace:** [aspose.slides.export.web](/slides/python-net/api-reference/aspose.slides.export.web/)
-
-**Full Class Name:** aspose.slides.export.web.Output
-
-
-
 The Output type exposes the following members:
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(path, image)|Adds an output element for the image.|
 |add(path, image)|Adds an output element for the image.|
@@ -24,3 +22,9 @@ The Output type exposes the following members:
 |add(path, text_content)|Adds an output element for the image.|
 |bind_resource(output_file, obj)|Binds resource to output file.|
 |get_resource_path(obj)|Returns the path for a given resource.|
+
+### See Also
+
+* namespace [aspose.slides.export.web](/slides/python-net/api-reference/aspose.slides.export.web/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

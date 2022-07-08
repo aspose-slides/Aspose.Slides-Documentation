@@ -207,7 +207,7 @@ with slides.Presentation(path + "Comments1.pptx") as pres:
     options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
 
     # Sets the pixel format (black and white)
-    options.pixel_format = slides.export.ImagePixelFormat.FORMAT1BPP_INDEXED
+    options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED
 
     # Sets the resolution
     options.dpi_x = 300

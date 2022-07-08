@@ -1,26 +1,24 @@
 ---
-title: IFontsManager Class
+title: IFontsManager
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1450
 url: /python-net/api-reference/aspose.slides/ifontsmanager/
 ---
 
+## IFontsManager class
+
 Manages fonts across the presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IFontsManager
-
-
-
 The IFontsManager type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |font_subst_rule_list|Font substitutions to use when rendering<br/>            Read/write [IFontSubstRuleCollection](/slides/python-net/api-reference/aspose.slides/ifontsubstrulecollection/).|
 |font_fall_back_rules_collection|Represents a user's collection of FontFallBack rules for managing of collections of fonts for proper substitutions by fallback functionality<br/>            Read/write [IFontFallBackRulesCollection](/slides/python-net/api-reference/aspose.slides/ifontfallbackrulescollection/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_embedded_font(font_data, embed_font_rule)|Adds the embedded font.|
 |add_embedded_font(font_data, embed_font_rule)|Adds the embedded font|
@@ -30,3 +28,9 @@ The IFontsManager type exposes the following members:
 |get_fonts()|Returns the fonts used in the presentation|
 |get_embedded_fonts()|Returns the fonts embedded in the presentation|
 |remove_embedded_font(font_data)|Removes the embedded font|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

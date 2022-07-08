@@ -1,5 +1,7 @@
 ---
 title: aspose.slides.smartart
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 150
 url: /python-net/api-reference/aspose.slides.smartart/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides.smartart/
 
 Contains classes for work with SmartArt objects.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[ISmartArt](/slides/python-net/api-reference/aspose.slides.smartart/ismartart/)|Represents a SmartArt diagram.|
 |[ISmartArtNode](/slides/python-net/api-reference/aspose.slides.smartart/ismartartnode/)|Represents node of a SmartArt diagram.|
@@ -21,8 +23,8 @@ Contains classes for work with SmartArt objects.
 |[SmartArtNodeCollection](/slides/python-net/api-reference/aspose.slides.smartart/smartartnodecollection/)|Represents a collection of SmartArt nodes.|
 |[SmartArtShape](/slides/python-net/api-reference/aspose.slides.smartart/smartartshape/)|Represents SmartArt shape|
 |[SmartArtShapeCollection](/slides/python-net/api-reference/aspose.slides.smartart/smartartshapecollection/)|Represents a collection of a SmartArt shapes|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[OrganizationChartLayoutType](/slides/python-net/api-reference/aspose.slides.smartart/organizationchartlayouttype/)|Represents formatting type the child nodes in an organization chart|
 |[SmartArtColorType](/slides/python-net/api-reference/aspose.slides.smartart/smartartcolortype/)|Represents color scheme of a SmartArt diagram.|

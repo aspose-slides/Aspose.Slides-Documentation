@@ -1,5 +1,7 @@
 ---
 title: aspose.slides
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 10
 url: /python-net/api-reference/aspose.slides/
@@ -8,8 +10,8 @@ url: /python-net/api-reference/aspose.slides/
 
 Contains classes for work with Microsoft PowerPoint presentations without utilizing Microsoft PowerPoint.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[AdjustValue](/slides/python-net/api-reference/aspose.slides/adjustvalue/)|Represents a geometry shape's adjustment value.<br/>            These values affect shape's form.|
 |[AdjustValueCollection](/slides/python-net/api-reference/aspose.slides/adjustvaluecollection/)|Reprasents a collection of shape's adjustments.|
@@ -408,8 +410,8 @@ Contains classes for work with Microsoft PowerPoint presentations without utiliz
 |[ViewProperties](/slides/python-net/api-reference/aspose.slides/viewproperties/)|Presentation wide view properties.|
 |[ZoomFrame](/slides/python-net/api-reference/aspose.slides/zoomframe/)|Represents a Slide Zoom object in a slide.|
 |[ZoomObject](/slides/python-net/api-reference/aspose.slides/zoomobject/)|Represents an Zoom object in a slide.|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[AudioPlayModePreset](/slides/python-net/api-reference/aspose.slides/audioplaymodepreset/)|Constants which define how a sound is played.|
 |[AudioVolumeMode](/slides/python-net/api-reference/aspose.slides/audiovolumemode/)|Constants which define audio volume.|

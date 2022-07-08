@@ -1,21 +1,25 @@
 ---
-title: TransitionSpeed Enumeration
+title: TransitionSpeed
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 460
 url: /python-net/api-reference/aspose.slides.slideshow/transitionspeed/
 ---
 
+## TransitionSpeed enumeration
+
 Represent transition speed types.
 
-**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
-
-**Full Name:** aspose.slides.slideshow.TransitionSpeed
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |FAST||
 |MEDIUM||
 |SLOW||
+
+### See Also
+
+* namespace [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,25 +1,23 @@
 ---
-title: DocumentProperties Class
+title: DocumentProperties
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 440
 url: /python-net/api-reference/aspose.slides/documentproperties/
 ---
 
+## DocumentProperties class
+
 Represents properties of a presentation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.DocumentProperties
-
-
-
 The DocumentProperties type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |DocumentProperties()|Initializes new instance of class [DocumentProperties](/slides/python-net/api-reference/aspose.slides/documentproperties/).|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |app_version|Returns the app version.<br/>            Read-only string.|
 |name_of_application|Returns or sets the name of the application.<br/>            Read/write string.|
@@ -44,8 +42,8 @@ The DocumentProperties type exposes the following members:
 |content_type|Returns or sets the content type of a presentation.<br/>            Read/write string.|
 |hyperlink_base|Returns or sets the HyperlinkBase document property.<br/>            Read/write string.|
 |count_of_custom_properties|Returns the number of custom properties actually contained in a collection.<br/>            Read-only|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_custom_property_value(name, value)|  |
 |get_custom_property_value(name, value)|  |
@@ -66,3 +64,9 @@ The DocumentProperties type exposes the following members:
 |clear_built_in_properties()|Clears and sets default values for all builtIn properties.|
 |clone()|Clones current object|
 |clone_t()|Clones current object|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

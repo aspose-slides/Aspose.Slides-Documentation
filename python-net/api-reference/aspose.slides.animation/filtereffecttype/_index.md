@@ -1,20 +1,18 @@
 ---
-title: FilterEffectType Enumeration
+title: FilterEffectType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 660
 url: /python-net/api-reference/aspose.slides.animation/filtereffecttype/
 ---
 
+## FilterEffectType enumeration
+
 Represents filter effect types.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Name:** aspose.slides.animation.FilterEffectType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NONE||
 |BARN||
@@ -35,3 +33,9 @@ Represents filter effect types.
 |WEDGE||
 |WHEEL||
 |WIPE||
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

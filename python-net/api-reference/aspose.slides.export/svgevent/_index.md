@@ -1,20 +1,18 @@
 ---
-title: SvgEvent Enumeration
+title: SvgEvent
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 800
 url: /python-net/api-reference/aspose.slides.export/svgevent/
 ---
 
+## SvgEvent enumeration
+
 Represents options for SVG shape.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Name:** aspose.slides.export.SvgEvent
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |ON_FOCUS_IN|Occurs when an element receives focus, such as when a text becomes selected.|
 |ON_FOCUS_OUT|Occurs when an element loses focus, such as when a text becomes unselected.|
@@ -35,3 +33,9 @@ Represents options for SVG shape.
 |ON_BEGIN|Occurs when an animation element begins.|
 |ON_END|Occurs when an animation element ends.|
 |ON_REPEAT|Occurs when an animation element repeats.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

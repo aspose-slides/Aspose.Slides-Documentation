@@ -1,21 +1,19 @@
 ---
-title: ChartSeries Class
+title: ChartSeries
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 240
 url: /python-net/api-reference/aspose.slides.charts/chartseries/
 ---
 
+## ChartSeries class
+
 Represents a chart series.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartSeries
-
-
-
 The ChartSeries type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |chart|Returns the parent chart.<br/>            Read-only [IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/).|
 |explosion|The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.<br/>             Read/write|
@@ -29,15 +27,15 @@ The ChartSeries type exposes the following members:
 |order|Returns the order of a series.<br/>            Read/write|
 |labels|Returns the Labels of a series.<br/>            Read-only [IDataLabelCollection](/slides/python-net/api-reference/aspose.slides.charts/idatalabelcollection/).|
 |trend_lines|Collection of series trend lines.<br/>            Read-only [ITrendlineCollection](/slides/python-net/api-reference/aspose.slides.charts/itrendlinecollection/).|
-|error_bars_xformat|Represents ErrorBars of series with derection X.|
-|error_bars_yformat|Represents ErrorBars of series with derection Y.|
+|error_bars_x_format|Represents ErrorBars of series with derection X.|
+|error_bars_y_format|Represents ErrorBars of series with derection Y.|
 |related_legend_entry|Represents legend entry related with this series<br/>            Read-only [ILegendEntryProperties](/slides/python-net/api-reference/aspose.slides.charts/ilegendentryproperties/).|
 |number_format_of_values|NumberFormatOfValues.<br/>            Read/write string.|
-|number_format_of_xvalues|NumberFormatOfXValues.<br/>            Read/write string.|
-|number_format_of_yvalues|NumberFormatOfYValues.<br/>            Read/write string.|
+|number_format_of_x_values|NumberFormatOfXValues.<br/>            Read/write string.|
+|number_format_of_y_values|NumberFormatOfYValues.<br/>            Read/write string.|
 |number_format_of_bubble_sizes|NumberFormatOfBubbleSizes.<br/>            Read/write string.|
 |marker|Marker.<br/>            Read-only [IMarker](/slides/python-net/api-reference/aspose.slides.charts/imarker/).|
-|bar3_dshape|Specifies the shape of a series of a 3-D bar chart.<br/>            Changing of value of this property can cause to automatically changing Type of series.<br/>            Read/write [ChartShapeType](/slides/python-net/api-reference/aspose.slides.charts/chartshapetype/).|
+|bar_3d_shape|Specifies the shape of a series of a 3-D bar chart.<br/>            Changing of value of this property can cause to automatically changing Type of series.<br/>            Read/write [ChartShapeType](/slides/python-net/api-reference/aspose.slides.charts/chartshapetype/).|
 |invert_if_negative|Specifies the bar, column or bubble series shall invert its colors if the value is negative.<br/>            Read/write bool.|
 |inverted_solid_fill_color|Specifies invert solid color for series. To apply color setting set series format FillType to FillType.Solid.<br/>            Read/write [ColorFormat](/slides/python-net/api-reference/aspose.slides/colorformat/).|
 |show_inner_points|Represents inner points. True if inner points are shown on the BoxAndWhisker chart. Applies only to BoxAndWhisker charts.<br/>            Read/write bool.|
@@ -61,12 +59,18 @@ The ChartSeries type exposes the following members:
 |pie_split_custom_points|The custom split information for a pie-of-pie or bar-of-pie chart with a custom split.<br/>            Contains data points that shall be drawn in the second pie or bar in a pie-of-pie or <br/>            bar-of-pie chart.<br/>            This is the property not only of this series but of all series of parent series <br/>            group - this is projection of appropriate group property<br/>            Read-only [PieSplitCustomPointCollection](/slides/python-net/api-reference/aspose.slides.charts/piesplitcustompointcollection/).|
 |is_color_varied|Specifies that each data marker in the series has a different color.<br/>            This is the property not only of this series but of all series of parent series <br/>            group - this is projection of appropriate group property. And so this property <br/>            is read-only.<br/>            Use ParentSeriesGroup property for access to parent series group.<br/>            Use ParentSeriesGroup.IsColorVaried read/write property for change value.<br/>            Read-only bool.|
 |bubble_size_scale|Specifies the scale factor for the bubble chart (can be <br/>            between 0 and 300 percents of the default size).<br/>            This is the property not only of this series but of all series of parent series <br/>            group - this is projection of appropriate group property. And so this property <br/>            is read-only.<br/>            Use ParentSeriesGroup property for access to parent series group.<br/>            Use ParentSeriesGroup.BubbleSizeScale read/write property for change value.|
-|as_ichart_component|Allows to get base IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
-|as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_chart_component|Allows to get base IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
+|as_i_slide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_automatic_series_color()|Returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,20 +1,18 @@
 ---
-title: HyperlinkActionType Enumeration
+title: HyperlinkActionType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9370
 url: /python-net/api-reference/aspose.slides/hyperlinkactiontype/
 ---
 
+## HyperlinkActionType enumeration
+
 Represents a type of hyperlink action.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.HyperlinkActionType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |UNKNOWN|Unrecognized action type.|
 |NO_ACTION|No action.|
@@ -32,3 +30,9 @@ Represents a type of hyperlink action.
 |START_STOP_MEDIA|Start/stop playing mediafile.|
 |START_MACRO|Start executing macro script.|
 |START_PROGRAM|Start program.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

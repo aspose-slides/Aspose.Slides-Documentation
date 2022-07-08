@@ -1,20 +1,18 @@
 ---
-title: SlideLayoutType Enumeration
+title: SlideLayoutType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9760
 url: /python-net/api-reference/aspose.slides/slidelayouttype/
 ---
 
+## SlideLayoutType enumeration
+
 Represents the slide layout type.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.SlideLayoutType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |CUSTOM|Custom|
 |TITLE|Title|
@@ -52,3 +50,9 @@ Represents the slide layout type.
 |TWO_TEXT_AND_TWO_OBJECTS|Two Text and Two Objects|
 |TITLE_OBJECT_AND_CAPTION|Title, Object, and Caption|
 |PICTURE_AND_CAPTION|Picture and Caption|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,35 +1,33 @@
 ---
-title: ChartDataPointCollection Class
+title: ChartDataPointCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 150
 url: /python-net/api-reference/aspose.slides.charts/chartdatapointcollection/
 ---
 
+## ChartDataPointCollection class
+
 Represents collection of a series data point.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.ChartDataPointCollection
-
-
-
 The ChartDataPointCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
-|data_source_type_for_xvalues|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points XValue property object. In other words it specifies <br/>            the type of value of ChartDataPoint.XValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
-|data_source_type_for_yvalues|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points YValue property object. In other words it specifies <br/>            the type of value of ChartDataPoint.YValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
+|data_source_type_for_x_values|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points XValue property object. In other words it specifies <br/>            the type of value of ChartDataPoint.XValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
+|data_source_type_for_y_values|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points YValue property object. In other words it specifies <br/>            the type of value of ChartDataPoint.YValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_bubble_sizes|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points BubbleSize property object. In other words it specifies <br/>            the type of value of ChartDataPoint.BubbleSize.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_values|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points Value property object. In other words it specifies <br/>            the type of value of ChartDataPoint.Value.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_error_bars_custom_values|Specifies types of values in ChartDataPoint.ErrorBarsCustomValues properties list.<br/>            Read-only [IDataSourceTypeForErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/idatasourcetypeforerrorbarscustomvalues/).|
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
-## **Indexer**
-|**Name**|**Description**|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Returns the series data point by index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_data_point_for_stock_series(value)|Creates the new data point and adds it to the end of collection.<br/>            Applicable for series which chartType is one of Stock subtypes<br/>            (see also|
 |add_data_point_for_stock_series(value)|Creates the new data point and adds it to the end of collection.<br/>            Applicable for series which chartType is one of Stock subtypes <br/>            (see also|
@@ -76,3 +74,9 @@ The ChartDataPointCollection type exposes the following members:
 |clear()|Removes all elements from the collection.|
 |remove(value)|Removes the specified value.|
 |remove_at(index)|Removes the element at the given index.|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

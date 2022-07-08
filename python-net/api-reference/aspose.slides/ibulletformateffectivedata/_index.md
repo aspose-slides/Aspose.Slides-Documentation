@@ -1,21 +1,19 @@
 ---
-title: IBulletFormatEffectiveData Class
+title: IBulletFormatEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 970
 url: /python-net/api-reference/aspose.slides/ibulletformateffectivedata/
 ---
 
+## IBulletFormatEffectiveData class
+
 Immutable object which contains effective paragraph bullet formatting properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IBulletFormatEffectiveData
-
-
-
 The IBulletFormatEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |type|Returns the bullet type of a paragraph.<br/>            Read-only [BulletType](/slides/python-net/api-reference/aspose.slides/bullettype/).|
 |char|Returns the bullet char of a paragraph.<br/>            Read-only char.|
@@ -29,3 +27,9 @@ The IBulletFormatEffectiveData type exposes the following members:
 |is_bullet_hard_font|Determines whether the bullet has own font or inherits it from the first portion in the paragraph.<br/>            Returns true if bullet has own font and true if bullet inherits font from the first portion in the paragraph.<br/>            Read-only bool.|
 |picture|Returns the picture used as a bullet in the paragraph.<br/>            Read-only [IPictureEffectiveData](/slides/python-net/api-reference/aspose.slides/ipictureeffectivedata/).|
 |fill_format|Returns the bullet fill format of a paragraph.<br/>            Read-only [IFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

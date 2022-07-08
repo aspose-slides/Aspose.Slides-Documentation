@@ -1,31 +1,29 @@
 ---
-title: PortionCollection Class
+title: PortionCollection
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 3370
 url: /python-net/api-reference/aspose.slides/portioncollection/
 ---
 
+## PortionCollection class
+
 Represents a collection of portions.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.PortionCollection
-
-
-
 The PortionCollection type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
 |is_read_only|Gets a value indicating whether the list is read-only.<br/>            Read-only bool.|
-|as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
-## **Indexer**
-|**Name**|**Description**|
+|as_i_enumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+## Indexer
+| Name | Description |
 | :- | :- |
 |[index]|Gets the element at the specified index.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add(value)|Adds a Portion to the end of collection.|
 |index_of(item)|Determines the index of a specific item in the list.|
@@ -35,3 +33,9 @@ The PortionCollection type exposes the following members:
 |copy_to(array, array_index)|Copies the elements of the list to an array, starting at a particular array index.|
 |remove(item)|Removes the first occurrence of a specific object from the list.|
 |remove_at(index)|Removes the element at the specified index of the collection.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

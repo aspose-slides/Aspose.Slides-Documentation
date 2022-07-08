@@ -1,20 +1,18 @@
 ---
-title: BevelPresetType Enumeration
+title: BevelPresetType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9210
 url: /python-net/api-reference/aspose.slides/bevelpresettype/
 ---
 
+## BevelPresetType enumeration
+
 Constants which define 3D bevel of shape.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.BevelPresetType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NOT_DEFINED||
 |ANGLE||
@@ -29,3 +27,9 @@ Constants which define 3D bevel of shape.
 |RIBLET||
 |SLOPE||
 |SOFT_ROUND||
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,22 +1,26 @@
 ---
-title: IMarker Class
+title: IMarker
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 870
 url: /python-net/api-reference/aspose.slides.charts/imarker/
 ---
 
+## IMarker class
+
 Represents marker of a chert.
 
-**Namespace:** [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
-
-**Full Class Name:** aspose.slides.charts.IMarker
-
-
-
 The IMarker type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |symbol|Represents the marker style in a line chart, scatter chart, or radar chart.<br/>            Read/write [MarkerStyleType](/slides/python-net/api-reference/aspose.slides.charts/markerstyletype/).|
 |format|Gets the marker fill.<br/>            Read-only [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |size|Represents the marker size in a line chart, scatter chart, or radar chart.<br/>            Read/write|
+
+### See Also
+
+* namespace [aspose.slides.charts](/slides/python-net/api-reference/aspose.slides.charts/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

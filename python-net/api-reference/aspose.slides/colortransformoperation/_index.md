@@ -1,20 +1,18 @@
 ---
-title: ColorTransformOperation Enumeration
+title: ColorTransformOperation
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9270
 url: /python-net/api-reference/aspose.slides/colortransformoperation/
 ---
 
+## ColorTransformOperation enumeration
+
 Defines color transform operation.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.ColorTransformOperation
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |TINT|Tints the color. Parameter is in range between 0 (original color) and 1 (white).|
 |SHADE|Shades the color. Parameter is in range between 0 (original color) and 1 (black).|
@@ -44,3 +42,9 @@ Defines color transform operation.
 |MULTIPLY_BLUE|Multiplies a blue component of the color to a parameter's value.|
 |GAMMA|Gamma correction. Parameter ignored.|
 |INVERSE_GAMMA|Inverse gamma correction. Parameter ignored.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

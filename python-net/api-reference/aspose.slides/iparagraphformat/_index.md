@@ -1,21 +1,19 @@
 ---
-title: IParagraphFormat Class
+title: IParagraphFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2060
 url: /python-net/api-reference/aspose.slides/iparagraphformat/
 ---
 
+## IParagraphFormat class
+
 This class contains the paragraph formatting properties. Unlike [IParagraphFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/iparagraphformateffectivedata/), all properties of this class are writeable.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IParagraphFormat
-
-
-
 The IParagraphFormat type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |bullet|Returns bullet format of the paragraph.<br/>            Read-only [IBulletFormat](/slides/python-net/api-reference/aspose.slides/ibulletformat/).|
 |depth|Returns or sets depth of the paragraph.<br/>            Value 0 means undefined value.<br/>            Read/write int.|
@@ -34,7 +32,13 @@ The IParagraphFormat type exposes the following members:
 |tabs|Returns tabulations of a paragraph. No inheritance applied.<br/>            Read-only [ITabCollection](/slides/python-net/api-reference/aspose.slides/itabcollection/).|
 |font_alignment|Returns or sets a font alignment in a paragraph with no inheritance.<br/>            Read/write [FontAlignment](/slides/python-net/api-reference/aspose.slides/fontalignment/).|
 |default_portion_format|Returns default portion format of a paragraph. No inheritance applied.<br/>            Read-only [IPortionFormat](/slides/python-net/api-reference/aspose.slides/iportionformat/).|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |get_effective()|Gets effective paragraph formatting data with the inheritance applied.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

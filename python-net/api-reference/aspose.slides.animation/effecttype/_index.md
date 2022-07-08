@@ -1,20 +1,18 @@
 ---
-title: EffectType Enumeration
+title: EffectType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 630
 url: /python-net/api-reference/aspose.slides.animation/effecttype/
 ---
 
+## EffectType enumeration
+
 Represents the type of an animation effect.
 
-**Namespace:** [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
-
-**Full Name:** aspose.slides.animation.EffectType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |APPEAR|Appear effect. Class Entrance or Exit.<br/>        Valid subtypes:|
 |CURVE_UP_DOWN|CurveUpDown effect. Class Entrance or Exit.<br/>        Valid subtypes:|
@@ -74,10 +72,10 @@ Represents the type of an animation effect.
 |MEDIA_PAUSE|MediaPause effect. Class Media.<br/>        Valid subtypes:|
 |MEDIA_PLAY|MediaPlay effect. Class Media.<br/>        Valid subtypes:|
 |MEDIA_STOP|MediaStop effect. Class Media.<br/>        Valid subtypes:|
-|PATH4_POINT_STAR|Path4PointStar effect. Class Path.<br/>        Valid subtypes:|
-|PATH5_POINT_STAR|Path5PointStar effect. Class Path.<br/>        Valid subtypes:|
-|PATH6_POINT_STAR|Path6PointStar effect. Class Path.<br/>        Valid subtypes:|
-|PATH8_POINT_STAR|Path8PointStar effect. Class Path.<br/>        Valid subtypes:|
+|PATH_4_POINT_STAR|Path4PointStar effect. Class Path.<br/>        Valid subtypes:|
+|PATH_5_POINT_STAR|Path5PointStar effect. Class Path.<br/>        Valid subtypes:|
+|PATH_6_POINT_STAR|Path6PointStar effect. Class Path.<br/>        Valid subtypes:|
+|PATH_8_POINT_STAR|Path8PointStar effect. Class Path.<br/>        Valid subtypes:|
 |PATH_ARC_DOWN|PathArcDown effect. Class Path.<br/>        Valid subtypes:|
 |PATH_ARC_LEFT|PathArcLeft effect. Class Path.<br/>        Valid subtypes:|
 |PATH_ARC_RIGHT|PathArcRight effect. Class Path.<br/>        Valid subtypes:|
@@ -99,7 +97,7 @@ Represents the type of an animation effect.
 |PATH_DIAMOND|PathDiamond effect. Class Path.<br/>        Valid subtypes:|
 |PATH_DOWN|PathDown effect. Class Path.<br/>        Valid subtypes:|
 |PATH_EQUAL_TRIANGLE|PathEqualTriangle effect. Class Path.<br/>        Valid subtypes:|
-|PATH_FIGURE8_FOUR|PathFigure8Four effect. Class Path.<br/>        Valid subtypes:|
+|PATH_FIGURE_8_FOUR|PathFigure8Four effect. Class Path.<br/>        Valid subtypes:|
 |PATH_FOOTBALL|PathFootball effect. Class Path.<br/>        Valid subtypes:|
 |PATH_FUNNEL|PathFunnel effect. Class Path.<br/>        Valid subtypes:|
 |PATH_HEART|PathHeart effect. Class Path.<br/>        Valid subtypes:|
@@ -119,8 +117,8 @@ Represents the type of an animation effect.
 |PATH_POINTY_STAR|PathPointyStar effect. Class Path.<br/>        Valid subtypes:|
 |PATH_RIGHT|PathRight effect. Class Path.<br/>        Valid subtypes:|
 |PATH_RIGHT_TRIANGLE|PathRightTriangle effect. Class Path.<br/>        Valid subtypes:|
-|PATH_SCURVE1|PathSCurve1 effect. Class Path.<br/>        Valid subtypes:|
-|PATH_SCURVE2|PathSCurve2 effect. Class Path.<br/>        Valid subtypes:|
+|PATH_S_CURVE1|PathSCurve1 effect. Class Path.<br/>        Valid subtypes:|
+|PATH_S_CURVE2|PathSCurve2 effect. Class Path.<br/>        Valid subtypes:|
 |PATH_SINE_WAVE|PathSineWave effect. Class Path.<br/>        Valid subtypes:|
 |PATH_SPIRAL_LEFT|PathSpiralLeft effect. Class Path.<br/>        Valid subtypes:|
 |PATH_SPIRAL_RIGHT|PathSpiralRight effect. Class Path.<br/>        Valid subtypes:|
@@ -168,6 +166,12 @@ Represents the type of an animation effect.
 |WIPE|Wedge effect. Class Entrance or Exit.<br/>        Valid subtypes:|
 |MAGNIFY|Magnify effect. Class Entrance or Exit.<br/>        Valid subtypes:|
 |ZOOM|Zoom effect. Class Entrance or Exit.<br/>        Valid subtypes:|
-|OLEOBJECT_SHOW|OLEObjectShow effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
-|OLEOBJECT_EDIT|OLEObjectEdit effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
-|OLEOBJECT_OPEN|OLEObjectOpen effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
+|OLE_OBJECT_SHOW|OLEObjectShow effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
+|OLE_OBJECT_EDIT|OLEObjectEdit effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
+|OLE_OBJECT_OPEN|OLEObjectOpen effect. Class OLEActionVerbs.<br/>        Valid subtypes:|
+
+### See Also
+
+* namespace [aspose.slides.animation](/slides/python-net/api-reference/aspose.slides.animation/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,26 +1,24 @@
 ---
-title: HtmlOptions Class
+title: HtmlOptions
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 80
 url: /python-net/api-reference/aspose.slides.export/htmloptions/
 ---
 
+## HtmlOptions class
+
 Represents a HTML exporting options.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.HtmlOptions
-
-
-
 The HtmlOptions type exposes the following members:
-## **Constructors**
-|**Name**|**Description**|
+## Constructors
+| Name | Description |
 | :- | :- |
 |HtmlOptions(link_embed_controller)|Initializes a new instance of the HtmlOptions class|
 |HtmlOptions()|Creates a new HtmlOptions object for saving into single HTML file.|
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |warning_callback|Returns of sets an object which receives warnings and decides whether loading process will continue or will be aborted.<br/>            Read/write [IWarningCallback](/slides/python-net/api-reference/aspose.slides.warnings/iwarningcallback/).|
 |progress_callback|Represents a callback object for saving progress updates in percentage.<br/>            See [IProgressCallback](/slides/python-net/api-reference/aspose.slides/iprogresscallback/).|
@@ -33,4 +31,10 @@ The HtmlOptions type exposes the following members:
 |pictures_compression|Represents the pictures compression level|
 |delete_pictures_cropped_areas|A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped <br/>            parts will removed, if false they will be serialized in the document (which can possible lead to a <br/>            larger file)|
 |svg_responsive_layout|True to exclude width and height attributes from svg container - that will make layout responsive. False - otherwise.<br/>            Read/write bool.|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

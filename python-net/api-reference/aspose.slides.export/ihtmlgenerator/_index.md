@@ -1,21 +1,19 @@
 ---
-title: IHtmlGenerator Class
+title: IHtmlGenerator
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 150
 url: /python-net/api-reference/aspose.slides.export/ihtmlgenerator/
 ---
 
+## IHtmlGenerator class
+
 Html generator.
 
-**Namespace:** [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
-
-**Full Class Name:** aspose.slides.export.IHtmlGenerator
-
-
-
 The IHtmlGenerator type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |slide_image_size|Returns slide image size.<br/>            Read-only aspose.pydrawing.SizeF.|
 |slide_image_size_unit|Returns a unit in which slide image size is specified.<br/>            Read-only [SvgCoordinateUnit](/slides/python-net/api-reference/aspose.slides.export/svgcoordinateunit/).|
@@ -23,8 +21,8 @@ The IHtmlGenerator type exposes the following members:
 |previous_slide_index|Returns index of previously rendered slide or -1 if first slide is rendering.<br/>            Read-only|
 |slide_index|Returns index of currently rendering slide.<br/>            Read-only|
 |next_slide_index|Returns index of a slide, which will be rendered after the current slide or -1 if currently rendering last slide.<br/>            Read-only|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |add_html(html)|Adds formatted HTML text.|
 |add_html(html)|Adds formatted HTML text.|
@@ -35,3 +33,9 @@ The IHtmlGenerator type exposes the following members:
 |add_attribute_value(value)|Quotes attribute value and adds it to the html file.|
 |add_attribute_value(value)|Quotes attribute value and adds it to the html file.|
 |add_attribute_value(value, start_index, length)|Quotes attribute value and adds it to the html file.|
+
+### See Also
+
+* namespace [aspose.slides.export](/slides/python-net/api-reference/aspose.slides.export/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

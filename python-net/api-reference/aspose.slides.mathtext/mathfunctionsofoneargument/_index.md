@@ -1,20 +1,18 @@
 ---
-title: MathFunctionsOfOneArgument Enumeration
+title: MathFunctionsOfOneArgument
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 890
 url: /python-net/api-reference/aspose.slides.mathtext/mathfunctionsofoneargument/
 ---
 
+## MathFunctionsOfOneArgument enumeration
+
 Common mathematical functions of one argument
 
-**Namespace:** [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
-
-**Full Name:** aspose.slides.mathtext.MathFunctionsOfOneArgument
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |SIN|Sine|
 |COS|Cosine|
@@ -42,3 +40,9 @@ Common mathematical functions of one argument
 |HYPERBOLIC_ARC_CSC|Hyperbolic arccosecant|
 |HYPERBOLIC_ARC_SEC|Hyperbolic arcsecant|
 |HYPERBOLIC_ARC_COT|Hyperbolic arccotangent|
+
+### See Also
+
+* namespace [aspose.slides.mathtext](/slides/python-net/api-reference/aspose.slides.mathtext/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

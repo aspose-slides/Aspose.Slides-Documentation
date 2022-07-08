@@ -1,20 +1,18 @@
 ---
-title: SmartArtQuickStyleType Enumeration
+title: SmartArtQuickStyleType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 140
 url: /python-net/api-reference/aspose.slides.smartart/smartartquickstyletype/
 ---
 
+## SmartArtQuickStyleType enumeration
+
 Represents style scheme of a SmartArt diagram.
 
-**Namespace:** [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
-
-**Full Name:** aspose.slides.smartart.SmartArtQuickStyleType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |SIMPLE_FILL|SimpleFill|
 |WHITE_OUTLINE|WhiteOutline|
@@ -30,3 +28,9 @@ Represents style scheme of a SmartArt diagram.
 |METALLIC_SCENE|MetallicScene|
 |SUNSET_SCENE|SunsetScene|
 |BIRDS_EYE_SCENE|BirdsEyeScene|
+
+### See Also
+
+* namespace [aspose.slides.smartart](/slides/python-net/api-reference/aspose.slides.smartart/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

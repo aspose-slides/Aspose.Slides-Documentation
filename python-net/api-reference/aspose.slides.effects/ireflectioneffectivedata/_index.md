@@ -1,21 +1,19 @@
 ---
-title: IReflectionEffectiveData Class
+title: IReflectionEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 650
 url: /python-net/api-reference/aspose.slides.effects/ireflectioneffectivedata/
 ---
 
+## IReflectionEffectiveData class
+
 Immutable object which represents a Reflection effect.
 
-**Namespace:** [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
-
-**Full Class Name:** aspose.slides.effects.IReflectionEffectiveData
-
-
-
 The IReflectionEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |start_pos_alpha|Specifies the start position (along the alpha gradient ramp) of the start alpha value (percents).<br/>            Read-only|
 |end_pos_alpha|Specifies the end position (along the alpha gradient ramp) of the end alpha value (percents).<br/>            Read-only|
@@ -31,4 +29,10 @@ The IReflectionEffectiveData type exposes the following members:
 |rotate_shadow_with_shape|Specifies whether the reflection should rotate with the shape if the shape is rotated.<br/>            Read-only bool.|
 |scale_horizontal|Specifies the horizontal scaling factor, negative scaling causes a flip. (percents)<br/>            Read-only float.|
 |scale_vertical|Specifies the vertical scaling factor, negative scaling causes a flip. (percents)<br/>            Read-only float.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+
+### See Also
+
+* namespace [aspose.slides.effects](/slides/python-net/api-reference/aspose.slides.effects/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

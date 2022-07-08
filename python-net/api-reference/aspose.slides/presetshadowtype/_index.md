@@ -1,20 +1,18 @@
 ---
-title: PresetShadowType Enumeration
+title: PresetShadowType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9670
 url: /python-net/api-reference/aspose.slides/presetshadowtype/
 ---
 
+## PresetShadowType enumeration
+
 Represents a preset for a shadow effect.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.PresetShadowType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |TOP_LEFT_DROP_SHADOW|Represents Top Left Drop Shadow.|
 |TOP_LEFT_LARGE_DROP_SHADOW|Represents Top Left Large Drop Shadow.|
@@ -24,8 +22,8 @@ Represents a preset for a shadow effect.
 |BOTTOM_RIGHT_SMALL_DROP_SHADOW|Represents Bottom Right Small Drop Shadow.|
 |FRONT_LEFT_LONG_PERSPECTIVE_SHADOW|Represents Front Left Long Perspective Shadow.|
 |FRONT_RIGHT_LONG_PERSPECTIVE_SHADOW|Represents Front Right Long Perspective Shadow.|
-|OUTER_BOX_SHADOW3_D|Represents Outer Box Shadow 3D.|
-|INNER_BOX_SHADOW3_D|Represents Inner Box Shadow 3D.|
+|OUTER_BOX_SHADOW_3D|Represents Outer Box Shadow 3D.|
+|INNER_BOX_SHADOW_3D|Represents Inner Box Shadow 3D.|
 |BACK_CENTER_PERSPECTIVE_SHADOW|Represents Back Center Perspective Shadow.|
 |TOP_RIGHT_DROP_SHADOW|Represents Top Right Drop Shadow.|
 |FRONT_BOTTOM_SHADOW|Represents Front Bottom Shadow.|
@@ -36,3 +34,9 @@ Represents a preset for a shadow effect.
 |FRONT_LEFT_PERSPECTIVE_SHADOW|Represents Front Left Perspective Shadow.|
 |FRONT_RIGHT_PERSPECTIVE_SHADOW|Represents Front Right Perspective Shadow.|
 |TOP_LEFT_SMALL_DROP_SHADOW|Represents Top Left Small Drop Shadow.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

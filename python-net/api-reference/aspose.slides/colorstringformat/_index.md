@@ -1,19 +1,23 @@
 ---
-title: ColorStringFormat Enumeration
+title: ColorStringFormat
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 9260
 url: /python-net/api-reference/aspose.slides/colorstringformat/
 ---
 
+## ColorStringFormat enumeration
+
 Represents a type of hyperlink action.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Name:** aspose.slides.ColorStringFormat
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |VML|VML color string format.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

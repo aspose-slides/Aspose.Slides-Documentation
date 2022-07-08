@@ -1,21 +1,19 @@
 ---
-title: IProtectionManager Class
+title: IProtectionManager
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2290
 url: /python-net/api-reference/aspose.slides/iprotectionmanager/
 ---
 
+## IProtectionManager class
+
 Presentation password protection management.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IProtectionManager
-
-
-
 The IProtectionManager type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |encrypt_document_properties|This property makes sense, if presentation is password protected.<br/>            If true then document properties is encrypted in presentation file.<br/>            If false then document properties is public while presentation is encrypted.<br/>            Read/write bool.|
 |is_encrypted|Gets a value indicating whether this instance is encrypted.<br/>            Read-only bool.|
@@ -23,11 +21,17 @@ The IProtectionManager type exposes the following members:
 |is_write_protected|Gets a value indicating whether this presentation is write protected.<br/>            Read-only bool.|
 |encryption_password|Returns encryption password.<br/>            Read-only string.|
 |read_only_recommended|Gets or sets read-only recommendation.<br/>            Read/write bool.|
-## **Methods**
-|**Name**|**Description**|
+## Methods
+| Name | Description |
 | :- | :- |
 |encrypt(encryption_password)|Encrypts Presentation with specified password.|
 |remove_encryption()|Removes the encryption.|
 |set_write_protection(password)|Set write protection for this presentation with specified password.|
 |remove_write_protection()|Removes write protection for this presentation.|
 |check_write_protection(password)|Determines whether a presentation is a password protected to modify.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

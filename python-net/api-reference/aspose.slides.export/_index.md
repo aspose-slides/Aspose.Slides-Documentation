@@ -1,15 +1,17 @@
 ---
 title: aspose.slides.export
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 70
 url: /python-net/api-reference/aspose.slides.export/
 ---
 
 
-Contains classes for exporting Microsoft PowerPoint presentations to different formats like Html, Pdf, Svg, Xps and others.
+Contains classes for exporting Microsoft PowerPoint presentations to different formats like HTML, PDF, SVG, XPS and others.
 
-## **Classes**
-|**Class**|**Description**|
+## Classes
+| Class | Description |
 | :- | :- |
 |[EmbedAllFontsHtmlController](/slides/python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/)|The formatting controller class to use for embedding all presentation fonts in WOFF format.|
 |[EmbeddedEotFontsHtmlController](/slides/python-net/api-reference/aspose.slides.export/embeddedeotfontshtmlcontroller/)|The formatting controller class to use for fonts embedding in EOT format|
@@ -66,8 +68,8 @@ Contains classes for exporting Microsoft PowerPoint presentations to different f
 |[VideoPlayerHtmlController](/slides/python-net/api-reference/aspose.slides.export/videoplayerhtmlcontroller/)|This class allows export of video and audio files into a HTML|
 |[VideoPlayerHtmlControllerFactory](/slides/python-net/api-reference/aspose.slides.export/videoplayerhtmlcontrollerfactory/)|Allows to create VideoPlayerHtmlController.|
 |[XpsOptions](/slides/python-net/api-reference/aspose.slides.export/xpsoptions/)|Provides options that control how a presentation is saved in XPS format.|
-## **Enumerations**
-|**Enumeration**|**Description**|
+## Enumerations
+| Enumeration | Description |
 | :- | :- |
 |[CommentsPositions](/slides/python-net/api-reference/aspose.slides.export/commentspositions/)|Represents the rule to render comments into exported document|
 |[Conformance](/slides/python-net/api-reference/aspose.slides.export/conformance/)|Specifies the conformance class to which the PresentationML document conforms.|

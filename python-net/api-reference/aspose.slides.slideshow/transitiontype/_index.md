@@ -1,20 +1,18 @@
 ---
-title: TransitionType Enumeration
+title: TransitionType
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 470
 url: /python-net/api-reference/aspose.slides.slideshow/transitiontype/
 ---
 
+## TransitionType enumeration
+
 Represent slide show transition type.
 
-**Namespace:** [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
-
-**Full Name:** aspose.slides.slideshow.TransitionType
-
-
-
-## **Members**
-|**Member name**|**Description**|
+## Members
+| Member name | Description |
 | :- | :- |
 |NONE||
 |BLINDS||
@@ -73,3 +71,9 @@ Represent slide show transition type.
 |AIRPLANE|Available in PowerPoint 2013.|
 |ORIGAMI|Available in PowerPoint 2013.|
 |MORPH|Relates to transition Morph (with option Type) in PowerPoint 2019.|
+
+### See Also
+
+* namespace [aspose.slides.slideshow](/slides/python-net/api-reference/aspose.slides.slideshow/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

@@ -1,21 +1,19 @@
 ---
-title: IPictureFillFormatEffectiveData Class
+title: IPictureFillFormatEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 2130
 url: /python-net/api-reference/aspose.slides/ipicturefillformateffectivedata/
 ---
 
+## IPictureFillFormatEffectiveData class
+
 Immutable object which contains the properties of picture fill.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.IPictureFillFormatEffectiveData
-
-
-
 The IPictureFillFormatEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |dpi|Returns the dpi which is used to fill a picture.<br/>            Read-only|
 |picture_fill_mode|Returns the picture fill mode.<br/>            Read-only [PictureFillMode](/slides/python-net/api-reference/aspose.slides/picturefillmode/).|
@@ -24,4 +22,10 @@ The IPictureFillFormatEffectiveData type exposes the following members:
 |crop_top|Returns the number of percents of real image height that are cropped off<br/>            the top of the picture. <br/>            Read-only|
 |crop_right|Returns the number of percents of real image width that are cropped off<br/>            the right of the picture. <br/>            Read-only|
 |crop_bottom|Returns the number of percents of real image height that are cropped off<br/>            the bottom of the picture. <br/>            Read-only|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+

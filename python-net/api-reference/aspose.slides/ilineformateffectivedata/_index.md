@@ -1,21 +1,19 @@
 ---
-title: ILineFormatEffectiveData Class
+title: ILineFormatEffectiveData
+second_title: Aspose.Sildes for Python via .NET API Reference
+description: 
 type: docs
 weight: 1790
 url: /python-net/api-reference/aspose.slides/ilineformateffectivedata/
 ---
 
+## ILineFormatEffectiveData class
+
 Immutable object which contains effective line formatting properties.
 
-**Namespace:** [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
-
-**Full Class Name:** aspose.slides.ILineFormatEffectiveData
-
-
-
 The ILineFormatEffectiveData type exposes the following members:
-## **Properties**
-|**Name**|**Description**|
+## Properties
+| Name | Description |
 | :- | :- |
 |fill_format|Returns the fill format of a line.<br/>            Read-only [ILineFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ilinefillformateffectivedata/).|
 |sketch_format|Returns the sketch format of a line.<br/>            Read-only [ISketchFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/isketchformateffectivedata/).|
@@ -33,8 +31,14 @@ The ILineFormatEffectiveData type exposes the following members:
 |end_arrowhead_width|Returns the arrowhead width at the end of a line.<br/>            Read-only [LineArrowheadWidth](/slides/python-net/api-reference/aspose.slides/linearrowheadwidth/).|
 |begin_arrowhead_length|Returns the arrowhead length at the beginning of a line.<br/>            Read-only [LineArrowheadLength](/slides/python-net/api-reference/aspose.slides/linearrowheadlength/).|
 |end_arrowhead_length|Returns the arrowhead length at the end of a line.<br/>            Read-only [LineArrowheadLength](/slides/python-net/api-reference/aspose.slides/linearrowheadlength/).|
-|as_iline_param_source|Allows to get base ILineParamSource interface.<br/>            Read-only [ILineParamSource](/slides/python-net/api-reference/aspose.slides/ilineparamsource/).|
-## **Methods**
-|**Name**|**Description**|
+|as_i_line_param_source|Allows to get base ILineParamSource interface.<br/>            Read-only [ILineParamSource](/slides/python-net/api-reference/aspose.slides/ilineparamsource/).|
+## Methods
+| Name | Description |
 | :- | :- |
 |equals(lf)|Determines whether the two ILineFormatEffectiveData instances are equal.|
+
+### See Also
+
+* namespace [aspose.slides](/slides/python-net/api-reference/aspose.slides/)
+* assembly [Aspose.Slides](/slides/python-net/api-reference/)
+
