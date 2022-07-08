@@ -177,10 +177,40 @@ We are going to change the formatting of Title and Subtitle on Slides Master thi
 
 
 
-With Aspose.Slides to change the formatting of title placeholder, we first retrieve it from Slide Master object, and then use PlaceHolder.FillFormat field: xxx
+With Aspose.Slides to change the formatting of title placeholder, we first retrieve it from Slide Master object, and then use PlaceHolder.FillFormat field: 
 
 ```c#
+public static void Main()
+{
+    using (var pres = new Presentation())
+    {
+        IMasterSlide master = pres.Masters[0];
+        IAutoShape placeHolder = FindPlaceholder(master, PlaceholderType.Title);
+        placeHolder.FillFormat.FillType = FillType.Gradient;
+        placeHolder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+        placeHolder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
+        placeHolder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
+        
+        pres.Save("pres.pptx", SaveFormat.Pptx);
+    }
+}
 
+static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
+{
+    foreach (IShape shape in master.Shapes)
+    {
+        IAutoShape autoShape = shape as IAutoShape;
+        if (autoShape != null)
+        {
+            if (autoShape.Placeholder.Type == type)
+            {
+                return autoShape;
+            }
+        }
+    }
+
+    return null;
+}
 ```
 
 The style and formatting of the title will change for all slides, based on this Slide Master:
@@ -195,10 +225,18 @@ The style and formatting of the title will change for all slides, based on this 
 
 
 ## **Change Background on Slide Master**
-It is possible to change the background of Slide Master and make it apply to all presentation slides this way. If you change the background color of the master slide, all normal slides in the presentation will receive the same background color settings. Follow the steps below to change the background color of the master slide: xxx
+It is possible to change the background of Slide Master and make it apply to all presentation slides this way. If you change the background color of the master slide, all normal slides in the presentation will receive the same background color settings. Follow the steps below to change the background color of the master slide:
 
-```c
-
+```c#
+using (var pres = new Presentation())
+{
+    IMasterSlide master = pres.Masters[0];
+    master.Background.Type = BackgroundType.OwnBackground;
+    master.Background.FillFormat.FillType = FillType.Solid;
+    master.Background.FillFormat.SolidFillColor.Color = Color.Green;
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -212,7 +250,10 @@ To clone Slide Master to another presentation, 
 [**AddClone**](https://apireference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) method is called from destination presentation with a Slide Master passed into it:
 
 ```c#
-
+using (Presentation presSource = new Presentation(), presTarget = new Presentation())
+{
+    IMasterSlide master = presTarget.Masters.AddClone(presSource.Masters[0]);
+}
 ```
 
 
@@ -225,10 +266,10 @@ In PowerPoint you can add new Slide Masters and Layouts in "Slide Master menu" t
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-With Aspose.Slides you can add new Slide Master by calling Presentation.Masters.AddClone method: xxx
+With Aspose.Slides you can add new Slide Master by calling Presentation.Masters.AddClone method:
 
 ```c#
-
+pres.Masters.AddClone(pres.Masters[0]);
 ```
 
 
@@ -241,9 +282,9 @@ Master Slide implements [IBaseSlide](https://apireference.aspose.com/slides/net
 
 
 ## **Set Slide Master as Presentation Default View**
-Its possible to set Slide Master as a default view, when you open the Aspose.Slides generated saved presentation: xxx 
+Its possible to set Slide Master as a default view, when you open the Aspose.Slides generated saved presentation:  
 
 ```c#
-
+pres.ViewProperties.LastView = ViewType.SlideMasterView;
 ```
 
