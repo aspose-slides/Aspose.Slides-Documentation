@@ -59,7 +59,16 @@ using (var pres = new Presentation())
 This C# code shows you how to apply the glow effect to a shape: xxx
 
 ```c#
+using (var pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.EffectFormat.EnableGlowEffect();
+    shape.EffectFormat.GlowEffect.Color.Color = Color.Magenta;
+    shape.EffectFormat.GlowEffect.Radius = 15;
+
+    pres.Save("glow.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## Apply Soft Edges Effect
