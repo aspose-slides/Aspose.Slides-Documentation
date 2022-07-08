@@ -22,7 +22,7 @@ Aspose.Slides for Java supports any 32-bit or 64-bit operating system that runs 
 - Microsoft Windows 8, 8.1 ( x64, x86)
 - Microsoft Windows 10 ( x64, x86)
 
- 
+
 ### **Linux**
 - Linux (Ubuntu, OpenSUSE, CentOS and others)
 
@@ -30,11 +30,5 @@ Aspose.Slides for Java supports any 32-bit or 64-bit operating system that runs 
 - Mac OS X
 
 ## **Supported Java Versions**
-Aspose.Slides for Java supports the following Java versions:
+Aspose.Slides for Java supports J2SE 6.0 (Java 1.6) and higher.
 
-- J2SE 6.0 (1.6)
-- J2SE 7.0 (1.7)
-- J2SE 8.0 (1.8)
-- JDK9
-- JDK10
-- JDK11
