@@ -725,10 +725,14 @@ pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 
-This C# code shows you how to create a map chart: xxx
+This C# code shows you how to create a map chart:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Map, 50, 50, 500, 400);
+    pres.Save("mapChart.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Updating Charts**
