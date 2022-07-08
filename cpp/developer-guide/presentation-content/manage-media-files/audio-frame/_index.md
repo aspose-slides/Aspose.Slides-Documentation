@@ -46,8 +46,26 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 
 This C++ code shows you how to change an audio frame's thumbnail or preview image:
 
-```c++
-
+```cpp
+auto presentation = System::MakeObject<Presentation>();
+        
+auto slide = presentation->get_Slides()->idx_get(0);
+        
+// Adds an audio frame to the slide with a specified position and size.
+auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
+    System::IO::FileMode::Open, System::IO::FileAccess::Read);
+    
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
+            
+// Adds an image to presentation resources.
+auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
+auto audioImage = presentation->get_Images()->AddImage(imageStream);
+            
+// Sets the image for the audio frame.
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
+        
+//Saves the modified presentation to disk
+presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Change Audio Play Options**
