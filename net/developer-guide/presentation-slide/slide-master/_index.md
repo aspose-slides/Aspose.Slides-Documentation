@@ -115,10 +115,10 @@ In PowerPoint, Slide Master can be found in "View -> Slide Master" menu:
 
 
 
-With Aspose.Slides its possible to access Slide Master this way: xxx
+With Aspose.Slides its possible to access Slide Master this way:
 
 ```c#
-
+IMasterSlide master = pres.Masters[0];
 ```
 
 Slide Master is represented by [IMasterSlide](https://apireference.aspose.com/slides/net/aspose.slides/imasterslide) type. What you need is to get [Masters ](https://apireference.aspose.com/slides/net/aspose.slides/presentation/properties/masters)list from [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)object. Masters list has a type of [IMasterSlideCollection](https://apireference.aspose.com/slides/net/aspose.slides/imasterslidecollection) and contains a list of all Slide Masters that are defined in the presentation. 
@@ -131,10 +131,16 @@ Place your company logo and few images to Slide Master, then switch back to slid
 
 ![todo:image_alt_text](slide-master_4.png)
 
-The same can be achieved with Aspose.Slides for .NET: xxx 
+The same can be achieved with Aspose.Slides for .NET: 
 
 ```c#
-
+using (var pres = new Presentation())
+{
+    foreach (IMasterSlide master in pres.Masters)
+    {
+        // work with each master slide in the presentation
+    }
+}
 ```
 
 First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [AddPictureFrame ](https://apireference.aspose.com/slides/net/aspose.slides/shapecollection/methods/addpictureframe)method. After that, we add new slides, which are based on this Slide Master with [AddEmptySlide ](https://apireference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addemptyslide)method. Info AddEmptySlide method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
