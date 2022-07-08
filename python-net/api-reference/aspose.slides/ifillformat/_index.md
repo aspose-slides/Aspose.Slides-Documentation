@@ -21,7 +21,7 @@ The IFillFormat type exposes the following members:
 |pattern_format|Returns the pattern fill format.<br/>            Read-only [IPatternFormat](/slides/python-net/api-reference/aspose.slides/ipatternformat/).|
 |picture_fill_format|Returns the picture fill format.<br/>            Read-only [IPictureFillFormat](/slides/python-net/api-reference/aspose.slides/ipicturefillformat/).|
 |rotate_with_shape|Determines whether the fill should be rotated with shape.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

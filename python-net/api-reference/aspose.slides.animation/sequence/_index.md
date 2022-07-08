@@ -17,7 +17,7 @@ The Sequence type exposes the following members:
 | :- | :- |
 |count|Returns the number of effects in a sequense.<br/>            Read-only|
 |trigger_shape|Returns or sets shape target for INTERACTIVE sequence.<br/>            If sequence is not interactive then returns null.<br/>            Read/write [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
-|as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+|as_i_enumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

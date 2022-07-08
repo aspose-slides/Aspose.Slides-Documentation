@@ -16,7 +16,7 @@ The IAlphaBiLevel type exposes the following members:
 | Name | Description |
 | :- | :- |
 |threshold|Returns effect threshold.<br/>            Read/write|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_i_image_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## Methods
 | Name | Description |
 | :- | :- |

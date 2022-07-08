@@ -16,7 +16,7 @@ Represents different color modes.
 | :- | :- |
 |NOT_DEFINED|Color is not defined at all.|
 |RGB|Standard 24bit RGB color.|
-|RGBPERCENTAGE|High definition RGB color.|
+|RGB_PERCENTAGE|High definition RGB color.|
 |HSL|High definition HSL color.|
 |SCHEME|Scheme color.|
 |SYSTEM|System color.|

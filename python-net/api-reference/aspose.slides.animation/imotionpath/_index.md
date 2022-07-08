@@ -16,7 +16,7 @@ The IMotionPath type exposes the following members:
 | Name | Description |
 | :- | :- |
 |count|Returns the number of paths in the collection.<br/>            Read-only|
-|as_ienumerable|Allows to get base IBehavior interface.<br/>            Read-only list.|
+|as_i_enumerable|Allows to get base IBehavior interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

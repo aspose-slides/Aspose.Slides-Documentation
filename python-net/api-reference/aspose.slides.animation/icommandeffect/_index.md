@@ -18,7 +18,7 @@ The ICommandEffect type exposes the following members:
 |type|Defines command effect type of behavior.<br/>            Read/write [CommandEffectType](/slides/python-net/api-reference/aspose.slides.animation/commandeffecttype/).|
 |command_string|Defines command string.<br/>            Read/write string.|
 |shape_target|Defines shape target of command effect.<br/>            Read/write [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
 |properties|Represents properties of behavior.<br/>            Read-only [IBehaviorPropertyCollection](/slides/python-net/api-reference/aspose.slides.animation/ibehaviorpropertycollection/).|

@@ -18,7 +18,7 @@ The IPortionFormatEffectiveData type exposes the following members:
 |bookmark_id|Returns bookmark identifier.<br/>            Read-only string.|
 |hyperlink_click|Returns the hyperlink defined for mouse click.<br/>            Read-only [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
 |hyperlink_mouse_over|Returns the hyperlink defined for mouse over.<br/>            Read-only [IHyperlink](/slides/python-net/api-reference/aspose.slides/ihyperlink/).|
-|as_ibase_portion_format_effective_data|Returns IBasePortionFormatEffectiveData interface.|
+|as_i_base_portion_format_effective_data|Returns IBasePortionFormatEffectiveData interface.|
 |line_format|Returns the LineFormat properties for text outlining.<br/>            Read-only [ILineFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ilineformateffectivedata/).|
 |fill_format|Returns the text FillFormat properties.<br/>            Read-only [IFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
 |effect_format|Returns the text EffectFormat properties.<br/>            Read-only [IEffectFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ieffectformateffectivedata/).|

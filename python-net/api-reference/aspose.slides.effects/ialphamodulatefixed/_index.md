@@ -16,7 +16,7 @@ The IAlphaModulateFixed type exposes the following members:
 | Name | Description |
 | :- | :- |
 |amount|Returns an amount of effect in percents.<br/>            Read/write|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_i_image_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## Methods
 | Name | Description |
 | :- | :- |

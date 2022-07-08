@@ -18,7 +18,7 @@ The IBaseSlideHeaderFooterManager type exposes the following members:
 |is_footer_visible|Gets value indicating that a footer placeholder is present.<br/>            Read bool.|
 |is_slide_number_visible|Gets value indicating that a page number placeholder is present.<br/>            Readbool.|
 |is_date_time_visible|Gets value indicating that a date-time placeholder is present.<br/>            Readbool.|
-|as_ibase_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
+|as_i_base_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
 ## Methods
 | Name | Description |
 | :- | :- |

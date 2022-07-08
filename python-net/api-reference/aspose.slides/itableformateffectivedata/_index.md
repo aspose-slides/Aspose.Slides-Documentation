@@ -15,7 +15,7 @@ The ITableFormatEffectiveData type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ibase_table_format_effective_data|Allows to get base IBaseTableFormatEffectiveData interface.<br/>            Read-only [IBaseTableFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ibasetableformateffectivedata/).|
+|as_i_base_table_format_effective_data|Allows to get base IBaseTableFormatEffectiveData interface.<br/>            Read-only [IBaseTableFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ibasetableformateffectivedata/).|
 |fill_format|Returns fill format effective value.<br/>            Read-only [IFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
 |border_left|Returns left border line format effective value.<br/>            Read-only [ILineFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ilineformateffectivedata/).|
 |border_top|Returns top border line format effective value.<br/>            Read-only [ILineFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ilineformateffectivedata/).|

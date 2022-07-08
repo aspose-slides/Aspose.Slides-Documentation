@@ -17,8 +17,8 @@ The IPortionFormat type exposes the following members:
 | :- | :- |
 |bookmark_id|Returns or sets bookmark identifier.<br/>            Read/write string.|
 |smart_tag_clean|Determines whether the smart tag should be cleaned. No inheritance applied.<br/>            Read/write bool.|
-|as_ibase_portion_format|Returns IBasePortionFormat interface.<br/>            Read-only [IBasePortionFormat](/slides/python-net/api-reference/aspose.slides/ibaseportionformat/).|
-|as_ihyperlink_container|Allows to get base IHyperlinkContainer interface.<br/>            Read-only [IHyperlinkContainer](/slides/python-net/api-reference/aspose.slides/ihyperlinkcontainer/).|
+|as_i_base_portion_format|Returns IBasePortionFormat interface.<br/>            Read-only [IBasePortionFormat](/slides/python-net/api-reference/aspose.slides/ibaseportionformat/).|
+|as_i_hyperlink_container|Allows to get base IHyperlinkContainer interface.<br/>            Read-only [IHyperlinkContainer](/slides/python-net/api-reference/aspose.slides/ihyperlinkcontainer/).|
 |line_format|Returns the LineFormat properties for text outlining. No inheritance applied.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|
 |fill_format|Returns the text FillFormat properties. No inheritance applied.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|
 |effect_format|Returns the text EffectFormat properties. No inheritance applied.<br/>            Read-only [IEffectFormat](/slides/python-net/api-reference/aspose.slides/ieffectformat/).|

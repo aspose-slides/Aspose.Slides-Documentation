@@ -17,7 +17,7 @@ The MasterThemeManager type exposes the following members:
 | :- | :- |
 |override_theme|Returns the overriding theme object.<br/>            Read/write [IMasterTheme](/slides/python-net/api-reference/aspose.slides.theme/imastertheme/).|
 |is_override_theme_enabled|Determines whether OverrideTheme overrides inherited effective theme (Presentation.MasterTheme) or not.<br/>            Read/write bool.|
-|as_itheme_manager|Allows to get base IThemeManager interface.<br/>            Read-only [IThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ithememanager/).|
+|as_i_theme_manager|Allows to get base IThemeManager interface.<br/>            Read-only [IThemeManager](/slides/python-net/api-reference/aspose.slides.theme/ithememanager/).|
 ## Methods
 | Name | Description |
 | :- | :- |

@@ -15,7 +15,7 @@ The EffectFormat type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |is_no_effects|Returns true if all effects are disabled (as just created, default EffectFormat object).<br/>            Read-only bool.|
 |blur_effect|Blur effect.<br/>            Read/write [IBlur](/slides/python-net/api-reference/aspose.slides.effects/iblur/).|
 |fill_overlay_effect|Fill overlay effect.<br/>            Read/write [IFillOverlay](/slides/python-net/api-reference/aspose.slides.effects/ifilloverlay/).|
@@ -27,7 +27,7 @@ The EffectFormat type exposes the following members:
 |soft_edge_effect|Soft edge.<br/>            Read/write [ISoftEdge](/slides/python-net/api-reference/aspose.slides.effects/isoftedge/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ieffect_param_source|Allows to get base IEffectParamSource interface.<br/>            Read-only [IEffectParamSource](/slides/python-net/api-reference/aspose.slides/ieffectparamsource/).|
+|as_i_effect_param_source|Allows to get base IEffectParamSource interface.<br/>            Read-only [IEffectParamSource](/slides/python-net/api-reference/aspose.slides/ieffectparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

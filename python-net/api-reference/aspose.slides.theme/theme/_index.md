@@ -19,7 +19,7 @@ The Theme type exposes the following members:
 |font_scheme|Returns the font scheme.<br/>            Read-only [IFontScheme](/slides/python-net/api-reference/aspose.slides.theme/ifontscheme/).|
 |format_scheme|Returns the shape format scheme.<br/>            Read-only [IFormatScheme](/slides/python-net/api-reference/aspose.slides.theme/iformatscheme/).|
 |presentation|Returns the parent presentation.<br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 ## Methods
 | Name | Description |
 | :- | :- |

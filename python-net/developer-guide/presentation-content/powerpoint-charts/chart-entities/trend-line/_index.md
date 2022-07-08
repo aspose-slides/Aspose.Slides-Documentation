@@ -36,7 +36,7 @@ with slides.Presentation() as pres:
     # Adding ponential trend line for chart series 1
     tredLinep = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.EXPONENTIAL)
     tredLinep.display_equation = False
-    tredLinep.display_rsquared_value = False
+    tredLinep.display_r_squared_value = False
 
     # Adding Linear trend line for chart series 1
     tredLineLin = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.LINEAR)

@@ -20,8 +20,8 @@ The StringOrDoubleChartValue type exposes the following members:
 |as_cell|Returns or sets chart data cell.<br/>            Read/write [IChartDataCell](/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/).|
 |as_literal_string|Returns or sets value as literal string.<br/>            Read/write string.|
 |as_literal_double|Returns or sets value as literal double.<br/>            Read/write float.|
-|as_isingle_cell_chart_value|Allows to get base ISingleCellChartValue interface.<br/>            Read-only [ISingleCellChartValue](/slides/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/).|
-|as_ibase_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
+|as_i_single_cell_chart_value|Allows to get base ISingleCellChartValue interface.<br/>            Read-only [ISingleCellChartValue](/slides/python-net/api-reference/aspose.slides.charts/isinglecellchartvalue/).|
+|as_i_base_chart_value|Allows to get base IBaseChartValue interface.<br/>            Read-only [IBaseChartValue](/slides/python-net/api-reference/aspose.slides.charts/ibasechartvalue/).|
 ## Methods
 | Name | Description |
 | :- | :- |

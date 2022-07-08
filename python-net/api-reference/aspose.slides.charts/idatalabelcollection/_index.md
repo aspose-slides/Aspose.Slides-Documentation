@@ -20,12 +20,12 @@ The IDataLabelCollection type exposes the following members:
 |count_of_visible_data_labels|Gets the number of visible data labels in the collection.<br/>            Read-only|
 |count|Gets the number of all data labels in the collection.<br/>            Read-only|
 |parent_series|Returns parent chart series.<br/>            Read-only [IChartSeries](/slides/python-net/api-reference/aspose.slides.charts/ichartseries/).|
-|as_ichart_component|Allows to get base IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
-|as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+|as_i_chart_component|Allows to get base IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
+|as_i_enumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
 |chart|Returns the chart.<br/>            Read-only [IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/).|
-|as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_slide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## Indexer
 | Name | Description |

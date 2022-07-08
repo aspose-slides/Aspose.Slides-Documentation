@@ -21,7 +21,7 @@ The IGradientFormat type exposes the following members:
 |linear_gradient_scaled|Determines whether a gradient is scaled.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |gradient_shape|Returns or sets the shape of a gradient.<br/>            Read/write [GradientShape](/slides/python-net/api-reference/aspose.slides/gradientshape/).|
 |gradient_stops|Returns the collection of gradient stops.<br/>            Read-only [IGradientStopCollection](/slides/python-net/api-reference/aspose.slides/igradientstopcollection/).|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

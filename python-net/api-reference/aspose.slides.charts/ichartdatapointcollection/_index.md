@@ -15,13 +15,13 @@ The IChartDataPointCollection type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|data_source_type_for_xvalues|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points XValue property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.XValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
-|data_source_type_for_yvalues|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points YValue property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.YValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
+|data_source_type_for_x_values|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points XValue property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.XValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
+|data_source_type_for_y_values|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points YValue property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.YValue.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_bubble_sizes|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points BubbleSize property object. In other words it specifies <br/>            the type of value of ChartDataPointEx.BubbleSize.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_values|Specifies whether AsCell or AsLiteralString or AsLiteralDouble property <br/>            is actual in data points Value property object. In other words it specifies <br/>            the type of value of ChartDataPoint.Value.Data property.<br/>            Read/write [DataSourceType](/slides/python-net/api-reference/aspose.slides.charts/datasourcetype/).|
 |data_source_type_for_error_bars_custom_values|Specifies the type of values in ChartDataPoint.ErrorBarsCustomValues properties listþ<br/>            Read-only [IDataSourceTypeForErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/idatasourcetypeforerrorbarscustomvalues/).|
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
 ## Indexer
 | Name | Description |
 | :- | :- |

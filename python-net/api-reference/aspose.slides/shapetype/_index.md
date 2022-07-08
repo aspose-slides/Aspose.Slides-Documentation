@@ -79,7 +79,7 @@ Represents preset geometry of geometry shapes.
 |CALLOUT_UP_DOWN_ARROW|Callout Up Down Arrow Shape.|
 |CALLOUT_QUAD_ARROW|Callout Quad-Arrow Shape.|
 |BENT_ARROW|Bent Arrow Shape.|
-|UTURN_ARROW|U-Turn Arrow Shape.|
+|U_TURN_ARROW|U-Turn Arrow Shape.|
 |CIRCULAR_ARROW|Circular Arrow Shape.|
 |LEFT_CIRCULAR_ARROW|Left Circular Arrow Shape.|
 |LEFT_RIGHT_CIRCULAR_ARROW|Left Right Circular Arrow Shape.|
@@ -123,15 +123,15 @@ Represents preset geometry of geometry shapes.
 |CALLOUT1|Callout 1 Shape.|
 |CALLOUT2|Callout 2 Shape.|
 |CALLOUT3|Callout 3 Shape.|
-|CALLOUT1_WITH_ACCENT|Callout 1 with Accent Shape.|
-|CALLOUT2_WITH_ACCENT|Callout 2 with Accent Shape.|
-|CALLOUT3_WITH_ACCENT|Callout 3 with Accent Shape.|
-|CALLOUT1_WITH_BORDER|Callout 1 with Border Shape.|
-|CALLOUT2_WITH_BORDER|Callout 2 with Border Shape.|
-|CALLOUT3_WITH_BORDER|Callout 3 with Border Shape.|
-|CALLOUT1_WITH_BORDER_AND_ACCENT|Callout 1 with Border and Accent Shape.|
-|CALLOUT2_WITH_BORDER_AND_ACCENT|Callout 2 with Border and Accent Shape.|
-|CALLOUT3_WITH_BORDER_AND_ACCENT|Callout 3 with Border and Accent Shape.|
+|CALLOUT_1_WITH_ACCENT|Callout 1 with Accent Shape.|
+|CALLOUT_2_WITH_ACCENT|Callout 2 with Accent Shape.|
+|CALLOUT_3_WITH_ACCENT|Callout 3 with Accent Shape.|
+|CALLOUT_1_WITH_BORDER|Callout 1 with Border Shape.|
+|CALLOUT_2_WITH_BORDER|Callout 2 with Border Shape.|
+|CALLOUT_3_WITH_BORDER|Callout 3 with Border Shape.|
+|CALLOUT_1_WITH_BORDER_AND_ACCENT|Callout 1 with Border and Accent Shape.|
+|CALLOUT_2_WITH_BORDER_AND_ACCENT|Callout 2 with Border and Accent Shape.|
+|CALLOUT_3_WITH_BORDER_AND_ACCENT|Callout 3 with Border and Accent Shape.|
 |CALLOUT_WEDGE_RECTANGLE|Callout Wedge Rectangle Shape.|
 |CALLOUT_WEDGE_ROUND_RECTANGLE|Callout Wedge Round Rectangle Shape.|
 |CALLOUT_WEDGE_ELLIPSE|Callout Wedge Ellipse Shape.|

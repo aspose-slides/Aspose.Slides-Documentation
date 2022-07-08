@@ -26,7 +26,7 @@ The FilterEffect type exposes the following members:
 |reveal|Represents that effect with behavior must reveal (in/out)<br/>            Read/write [FilterEffectRevealType](/slides/python-net/api-reference/aspose.slides.animation/filtereffectrevealtype/).|
 |type|Represents type of filter effect.<br/>            Read/write [FilterEffectType](/slides/python-net/api-reference/aspose.slides.animation/filtereffecttype/).|
 |subtype|Represents subtype of filter effect.<br/>            Read/write [FilterEffectSubtype](/slides/python-net/api-reference/aspose.slides.animation/filtereffectsubtype/).|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 
 ### See Also
 

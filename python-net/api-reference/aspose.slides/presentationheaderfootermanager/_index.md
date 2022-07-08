@@ -15,7 +15,7 @@ The PresentationHeaderFooterManager type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ibase_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
+|as_i_base_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
 ## Methods
 | Name | Description |
 | :- | :- |

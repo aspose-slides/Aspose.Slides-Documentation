@@ -16,7 +16,7 @@ The IAlphaReplaceEffectiveData type exposes the following members:
 | Name | Description |
 | :- | :- |
 |alpha|Returns new alpha value in the interval [0..1]<br/>            Read-only|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
 
 ### See Also
 

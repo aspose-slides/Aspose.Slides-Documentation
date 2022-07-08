@@ -26,7 +26,7 @@ The IPictureFillFormat type exposes the following members:
 |stretch_offset_top|Returns or sets top edge of the fill rectangle that is defined by a percentage offset <br/>            from the top edge of the shape's bounding box. <br/>            A positive percentage specifies an inset, while a negative percentage specifies an outset.<br/>            Read/write|
 |stretch_offset_right|Returns or sets right edge of the fill rectangle that is defined by a percentage offset <br/>            from the right edge of the shape's bounding box. <br/>            A positive percentage specifies an inset, while a negative percentage specifies an outset.<br/>            Read/write|
 |stretch_offset_bottom|Returns or sets bottom edge of the fill rectangle that is defined by a percentage offset <br/>            from the bottom edge of the shape's bounding box. <br/>            A positive percentage specifies an inset, while a negative percentage specifies an outset.<br/>            Read/write|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

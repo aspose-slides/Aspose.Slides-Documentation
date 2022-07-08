@@ -38,7 +38,7 @@ The SwfOptions type exposes the following members:
 |logo_link|Gets or sets the full hyperlink address for a logo.<br/>            Has an effect only if a [logo_image_bytes](/slides/python-net/api-reference/aspose.slides.export/swfoptions/) is specified.|
 |jpeg_quality|Specifies the quality of JPEG images.<br/>            Default is 95.|
 |notes_comments_layouting|Provides options that control how notes and comments is placed in exported document.|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

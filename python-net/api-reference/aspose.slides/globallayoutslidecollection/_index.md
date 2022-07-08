@@ -15,9 +15,9 @@ The GlobalLayoutSlideCollection type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
-|as_ilayout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
+|as_i_layout_slide_collection|Returns ILayoutSlideCollection interface.<br/>            Read-only [ILayoutSlideCollection](/slides/python-net/api-reference/aspose.slides/ilayoutslidecollection/).|
 ## Indexer
 | Name | Description |
 | :- | :- |

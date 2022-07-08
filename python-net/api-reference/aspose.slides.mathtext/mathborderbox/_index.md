@@ -29,7 +29,7 @@ The MathBorderBox type exposes the following members:
 |strikethrough_vertical|Strikethrough Vertical (default is false) - specifies the hidden or shown state of a strikethrough vertical line.|
 |strikethrough_bottom_left_to_top_right|Strikethrough Bottom-Left to Top-Right (default is false).<br/>            Specifies the hidden or shown state of a strikethrough diagonal line from the bottom-left corner to the top-right corner of border box.|
 |strikethrough_top_left_to_bottom_right|Strikethrough Top-Left to Bottom-Right (default is false).<br/>            Specifies the hidden or shown state of a strikethrough diagonal line from the top-left corner to the bottom-right corner of border box.|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_i_math_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## Methods
 | Name | Description |
 | :- | :- |

@@ -16,8 +16,8 @@ The ShapeCollection type exposes the following members:
 | Name | Description |
 | :- | :- |
 |parent_group|Returns parent GroupShape object for a shapes collection.<br/>            Read-only [IGroupShape](/slides/python-net/api-reference/aspose.slides/igroupshape/).|
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
 ## Indexer
 | Name | Description |
 | :- | :- |

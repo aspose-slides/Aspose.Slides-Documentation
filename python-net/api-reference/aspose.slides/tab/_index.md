@@ -19,7 +19,7 @@ The Tab type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |position|Returns or sets position of a tab.<br/>            Assigning this property can change tab's index in collection and invalidate Enumerator.<br/>            Read/write float.|
 |alignment|Returns or sets align style of a tab.<br/>            Read/write [TabAlignment](/slides/python-net/api-reference/aspose.slides/tabalignment/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|

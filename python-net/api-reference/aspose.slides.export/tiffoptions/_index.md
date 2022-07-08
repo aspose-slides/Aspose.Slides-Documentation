@@ -29,7 +29,7 @@ The TiffOptions type exposes the following members:
 |dpi_y|Specifies the vertical resolution in dots per inch.<br/>            Read/write int.|
 |compression_type|Specifies the compression type.<br/>            Read/write [TiffCompressionTypes](/slides/python-net/api-reference/aspose.slides.export/tiffcompressiontypes/).|
 |pixel_format|Specifies the pixel format for the generated images.<br/>            Read/write [ImagePixelFormat](/slides/python-net/api-reference/aspose.slides.export/imagepixelformat/).|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

@@ -27,7 +27,7 @@ The ScaleEffect type exposes the following members:
 |from_address|Specifies an x/y co-ordinate to start the animation from (in percents).<br/>            Read/write aspose.pydrawing.PointF.|
 |to|Specifies the target location for an animation scale effect (in percents).<br/>            Read/write aspose.pydrawing.PointF.|
 |by|describes the relative offset value for the animation (in percents).<br/>            Read/write aspose.pydrawing.PointF.|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 
 ### See Also
 

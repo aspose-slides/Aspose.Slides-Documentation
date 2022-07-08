@@ -19,7 +19,7 @@ The ShapeBevel type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |width|Bevel width.<br/>            Read/write float.|
 |height|Bevel height.<br/>            Read/write float.|
 |bevel_type|Bevel type.<br/>            Read/write [BevelPresetType](/slides/python-net/api-reference/aspose.slides/bevelpresettype/).|

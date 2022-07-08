@@ -26,7 +26,7 @@ The GifOptions type exposes the following members:
 |export_hidden_slides|Determines whether hidden slides will be exported.<br/>            The default value is false.|
 |transition_fps|Gets or sets transition FPS [frames/sec]<br/>            The default value is 25.|
 |default_delay|Gets or sets default delay time [ms]. This value will be used if [advance_after_time](/slides/python-net/api-reference/aspose.slides/islideshowtransition/) is not set.<br/>            The default value is 1000.|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

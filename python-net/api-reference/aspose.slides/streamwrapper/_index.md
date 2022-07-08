@@ -21,7 +21,7 @@ The StreamWrapper type exposes the following members:
 |can_write|Gets a value indicating whether the current stream supports writing.<br/>            Read-only bool.|
 |length|Gets the length in bytes of the stream.<br/>            Read-only int.|
 |position|Gets or sets the position within the current stream.<br/>            Read-only int.|
-|as_idisposable|Allows to get base IDisposable interface.<br/>            Read-only disposable.|
+|as_i_disposable|Allows to get base IDisposable interface.<br/>            Read-only disposable.|
 ## Methods
 | Name | Description |
 | :- | :- |

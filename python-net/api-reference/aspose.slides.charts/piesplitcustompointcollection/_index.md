@@ -17,7 +17,7 @@ The PieSplitCustomPointCollection type exposes the following members:
 | :- | :- |
 |is_synchronized|Returns a value indicating whether access to the collection is synchronized (thread-safe).<br/>            Read-only bool.|
 |sync_root|Returns a synchronization root.<br/>            Read-only object.|
-|as_ienumerable|Returns IEnumerable interface.|
+|as_i_enumerable|Returns IEnumerable interface.|
 ## Indexer
 | Name | Description |
 | :- | :- |

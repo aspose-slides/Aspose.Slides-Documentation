@@ -16,7 +16,7 @@ The ISoftEdge type exposes the following members:
 | Name | Description |
 | :- | :- |
 |radius|Specifies the radius of blur to apply to the edges.<br/>            Read/write float.|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_i_image_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## Methods
 | Name | Description |
 | :- | :- |

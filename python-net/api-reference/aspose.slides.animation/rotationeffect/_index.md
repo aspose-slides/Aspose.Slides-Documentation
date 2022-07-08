@@ -26,7 +26,7 @@ The RotationEffect type exposes the following members:
 |from_address|Describes the starting value for the animation.<br/>            Read/write|
 |to|Describes the ending value for the animation.<br/>            Read/write|
 |by|Describes the relative offset value for the animation.<br/>            Read/write|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 
 ### See Also
 

@@ -21,7 +21,7 @@ The IFillFormatEffectiveData type exposes the following members:
 |pattern_format|Returns the pattern fill format.<br/>            Read-only [IPatternFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ipatternformateffectivedata/).|
 |picture_fill_format|Returns the picture fill format.<br/>            Read-only [IPictureFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ipicturefillformateffectivedata/).|
 |rotate_with_shape|Determines whether the fill should be rotated with shape.<br/>            Read-only bool.|
-|as_ifill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

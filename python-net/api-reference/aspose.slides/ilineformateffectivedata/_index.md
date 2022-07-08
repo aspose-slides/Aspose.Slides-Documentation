@@ -31,7 +31,7 @@ The ILineFormatEffectiveData type exposes the following members:
 |end_arrowhead_width|Returns the arrowhead width at the end of a line.<br/>            Read-only [LineArrowheadWidth](/slides/python-net/api-reference/aspose.slides/linearrowheadwidth/).|
 |begin_arrowhead_length|Returns the arrowhead length at the beginning of a line.<br/>            Read-only [LineArrowheadLength](/slides/python-net/api-reference/aspose.slides/linearrowheadlength/).|
 |end_arrowhead_length|Returns the arrowhead length at the end of a line.<br/>            Read-only [LineArrowheadLength](/slides/python-net/api-reference/aspose.slides/linearrowheadlength/).|
-|as_iline_param_source|Allows to get base ILineParamSource interface.<br/>            Read-only [ILineParamSource](/slides/python-net/api-reference/aspose.slides/ilineparamsource/).|
+|as_i_line_param_source|Allows to get base ILineParamSource interface.<br/>            Read-only [ILineParamSource](/slides/python-net/api-reference/aspose.slides/ilineparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

@@ -25,7 +25,7 @@ The XpsOptions type exposes the following members:
 |show_hidden_slides|Specifies whether the generated document should include hidden slides or not.<br/>            Default is|
 |save_metafiles_as_png|True to convert all metafiles used in a presentation to the PNG images.<br/>            Read/write bool.|
 |draw_slides_frame|True to draw black frame around each slide.<br/>             Read/write bool.|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

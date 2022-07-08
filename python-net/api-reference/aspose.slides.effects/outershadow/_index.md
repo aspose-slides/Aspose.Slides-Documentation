@@ -25,7 +25,7 @@ The OuterShadow type exposes the following members:
 |rotate_shadow_with_shape|Specifies whether the shadow should rotate with the shape if the shape is rotated.<br/>            Read/write bool.|
 |scale_horizontal|Specifies the horizontal scaling factor, negative scaling causes a flip.<br/>            Read/write float.|
 |scale_vertical|Specifies the vertical scaling factor, negative scaling causes a flip.<br/>            Read/write float.|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_i_image_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## Methods
 | Name | Description |
 | :- | :- |

@@ -15,7 +15,7 @@ The ThreeDFormat type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |contour_width|Returns or sets the width of a 3D contour.<br/>            Read/write float.|
 |extrusion_height|Returns or sets the height of an extrusion effect.<br/>            Read/write float.|
 |depth|Returns or sets the depth of a 3D shape.<br/>            Read/write float.|
@@ -28,7 +28,7 @@ The ThreeDFormat type exposes the following members:
 |material|Returns or sets the type of a material.<br/>            Read/write [MaterialPresetType](/slides/python-net/api-reference/aspose.slides/materialpresettype/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
+|as_i_three_d_param_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

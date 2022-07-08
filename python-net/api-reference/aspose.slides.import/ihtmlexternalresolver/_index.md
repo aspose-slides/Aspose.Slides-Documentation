@@ -15,7 +15,7 @@ The IHtmlExternalResolver type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_iexternal_resource_resolver|Returns IExternalResourceResolver interface.|
+|as_i_external_resource_resolver|Returns IExternalResourceResolver interface.|
 ## Methods
 | Name | Description |
 | :- | :- |

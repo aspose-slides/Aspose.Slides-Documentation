@@ -23,8 +23,8 @@ The BehaviorProperty type exposes the following members:
 |ppt_h|Represents 'ppt_h' property|
 |ppt_c|Represents 'ppt_c' property|
 |ppt_r|Represents 'ppt_r' property|
-|xshear|Represents 'xshear' property|
-|yshear|Represents 'yshear' property|
+|x_shear|Represents 'xshear' property|
+|y_shear|Represents 'yshear' property|
 |image|Represents 'image' property|
 |scale_x|Represents 'ScaleX' property|
 |scale_y|Represents 'ScaleY' property|
@@ -43,7 +43,7 @@ The BehaviorProperty type exposes the following members:
 |style_text_decoration_underline|Represents 'style.textDecorationUnderline' property|
 |style_text_effect_outline|Represents 'style.textEffectOutline' property|
 |style_text_decoration_line_through|Represents 'style.textDecorationLineThrough' property|
-|style_srotation|Represents 'style.sRotation' property|
+|style_s_rotation|Represents 'style.sRotation' property|
 |image_data_crop_top|Represents 'imageData.cropTop' property|
 |image_data_crop_bottom|Represents 'imageData.cropBottom' property|
 |image_data_crop_left|Represents 'imageData.cropLeft' property|
@@ -89,8 +89,8 @@ The BehaviorProperty type exposes the following members:
 |shadow_opacity|Represents 'shadow.opacity' property|
 |shadow_offset_x|Represents 'shadow.offset.x' property|
 |shadow_offset_y|Represents 'shadow.offset.y' property|
-|shadow_offset2_x|Represents 'shadow.offset2.x' property|
-|shadow_offset2_y|Represents 'shadow.offset2.y' property|
+|shadow_offset_2x|Represents 'shadow.offset2.x' property|
+|shadow_offset_2y|Represents 'shadow.offset2.y' property|
 |shadow_origin_x|Represents 'shadow.origin.x' property|
 |shadow_origin_y|Represents 'shadow.origin.y' property|
 |shadow_matrix_xto_x|Represents 'shadow.matrix.xtox' property|

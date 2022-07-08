@@ -28,7 +28,7 @@ The ColorEffect type exposes the following members:
 |by|Describes the relative offset value for the color animation.<br/>            Read/write [IColorOffset](/slides/python-net/api-reference/aspose.slides.animation/icoloroffset/).|
 |color_space|Represent color space of behavior.<br/>            Read/write [ColorSpace](/slides/python-net/api-reference/aspose.slides.animation/colorspace/).|
 |direction|Specifies which direction to cycle the hue around the color wheel.<br/>            Read/write [ColorDirection](/slides/python-net/api-reference/aspose.slides.animation/colordirection/).|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 
 ### See Also
 

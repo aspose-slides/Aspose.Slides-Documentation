@@ -17,7 +17,7 @@ The IControlPropertiesCollection type exposes the following members:
 | :- | :- |
 |count|Returns a number of properties in the collection.<br/>            Read-only|
 |names_of_properties|Returns a number of properties in the collection.<br/>            Read-only list.|
-|as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+|as_i_enumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## Methods
 | Name | Description |
 | :- | :- |

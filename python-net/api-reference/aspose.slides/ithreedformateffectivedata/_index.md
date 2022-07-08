@@ -25,7 +25,7 @@ The IThreeDFormatEffectiveData type exposes the following members:
 |camera|Returns the settings of a camera.<br/>            Read-only [ICameraEffectiveData](/slides/python-net/api-reference/aspose.slides/icameraeffectivedata/).|
 |light_rig|Returns the type of a light.<br/>            Read-only [ILightRigEffectiveData](/slides/python-net/api-reference/aspose.slides/ilightrigeffectivedata/).|
 |material|Returns the type of a material.<br/>            Read-only [MaterialPresetType](/slides/python-net/api-reference/aspose.slides/materialpresettype/).|
-|as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
+|as_i_three_d_param_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
 
 ### See Also
 

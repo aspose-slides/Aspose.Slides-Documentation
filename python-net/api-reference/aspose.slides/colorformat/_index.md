@@ -15,7 +15,7 @@ The ColorFormat type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |color_type|Returns or sets the color definition method.<br/>            Read/write [ColorType](/slides/python-net/api-reference/aspose.slides/colortype/).|
 |color|Returns resulting color (with all color transformations applied).<br/>            Sets RGB colors and clears all color transformations.<br/>            Read/write aspose.pydrawing.Color.|
 |preset_color|Returns or sets the color preset.<br/>            Read/write [PresetColor](/slides/python-net/api-reference/aspose.slides/presetcolor/).|
@@ -33,7 +33,7 @@ The ColorFormat type exposes the following members:
 |color_transform|Returns the collection of color transformations applied to a color.<br/>            Read-only [IColorOperationCollection](/slides/python-net/api-reference/aspose.slides/icoloroperationcollection/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ifill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

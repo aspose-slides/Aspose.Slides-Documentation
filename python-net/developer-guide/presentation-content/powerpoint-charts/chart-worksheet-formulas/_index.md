@@ -86,10 +86,10 @@ Now to write formula to the cell, you can use the
 
 
 
-To set the [r1_c1_formula](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/) cell reference, you can use the [**r1_c1_formula**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/) property:
+To set the [r1c1_formula](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/) cell reference, you can use the [**r1c1_formula**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatacell/) property:
 
 ```py
-    workbook.get_cell(0, "C2").r1_c1_formula = "R[1]C[4]/R[2]C[5]"
+    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
 ```
 
 Then use the [**calculate_formulas**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/chartdataworkbook/) method to calculate all formulas within the workbook and update corresponding cells values:

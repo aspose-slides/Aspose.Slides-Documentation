@@ -25,7 +25,7 @@ The ModernComment type exposes the following members:
 |text_selection_start|Gets or sets starting position of text selection in text frame if the comment associated with AutoShape.<br/>            Read/write|
 |text_selection_length|Gets or sets text selection length in text frame if the comment associated with AutoShape.<br/>            Read/write|
 |status|Gets or sets the status of the comment.<br/>            Read/write [ModernCommentStatus](/slides/python-net/api-reference/aspose.slides/moderncommentstatus/).|
-|as_icomment|Allows to get base IComment interface.<br/>            Read-only [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
+|as_i_comment|Allows to get base IComment interface.<br/>            Read-only [IComment](/slides/python-net/api-reference/aspose.slides/icomment/).|
 ## Methods
 | Name | Description |
 | :- | :- |

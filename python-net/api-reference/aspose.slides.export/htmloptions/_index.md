@@ -31,7 +31,7 @@ The HtmlOptions type exposes the following members:
 |pictures_compression|Represents the pictures compression level|
 |delete_pictures_cropped_areas|A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped <br/>            parts will removed, if false they will be serialized in the document (which can possible lead to a <br/>            larger file)|
 |svg_responsive_layout|True to exclude width and height attributes from svg container - that will make layout responsive. False - otherwise.<br/>            Read/write bool.|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

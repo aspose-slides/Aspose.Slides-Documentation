@@ -16,7 +16,7 @@ The IPointCollection type exposes the following members:
 | Name | Description |
 | :- | :- |
 |count|Returns the number of points in the collection.<br/>            Read-only|
-|as_ienumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
+|as_i_enumerable|Allows to get base IEnumerable interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

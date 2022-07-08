@@ -17,7 +17,7 @@ The ITintEffectiveData type exposes the following members:
 | :- | :- |
 |hue|Returns hue.<br/>            Read-only|
 |amount|Returns effect amount.<br/>            Read-only|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
 
 ### See Also
 

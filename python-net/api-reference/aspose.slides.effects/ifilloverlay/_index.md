@@ -17,7 +17,7 @@ The IFillOverlay type exposes the following members:
 | :- | :- |
 |blend|FillBlendMode.<br/>            Read/write [FillBlendMode](/slides/python-net/api-reference/aspose.slides/fillblendmode/).|
 |fill_format|Fill format.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_i_image_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## Methods
 | Name | Description |
 | :- | :- |

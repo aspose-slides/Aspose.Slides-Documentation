@@ -17,8 +17,8 @@ The IChartCategoryCollection type exposes the following members:
 | :- | :- |
 |use_cells|If true then worksheet is used for storing categories (this case supports a multi-level categories).<br/>            If false then worksheet is NOT used for storing values (and this case doesn't support a <br/>            multi-level categories).<br/>            Read/write bool.|
 |grouping_level_count|Returns count of category grouping levels used.<br/>            Is more then one for multilevel categories.<br/>            Read-only|
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
 ## Indexer
 | Name | Description |
 | :- | :- |

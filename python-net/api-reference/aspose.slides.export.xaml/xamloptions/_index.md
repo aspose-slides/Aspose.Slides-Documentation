@@ -24,7 +24,7 @@ The XamlOptions type exposes the following members:
 |default_regular_font|Returns or sets font used in case source font is not found.<br/>            Read-write string.|
 |export_hidden_slides|Determines whether hidden slides will be exported.|
 |output_saver|Represents an implementation of IOutputSaver interface.|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

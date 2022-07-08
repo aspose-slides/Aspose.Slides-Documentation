@@ -22,7 +22,7 @@ The MathBar type exposes the following members:
 | :- | :- |
 |base|Base argument|
 |position|Position of the bar line. <br/>            Default: Top|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_i_math_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
 ## Methods
 | Name | Description |
 | :- | :- |

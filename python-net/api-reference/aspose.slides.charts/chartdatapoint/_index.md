@@ -15,15 +15,15 @@ The ChartDataPoint type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|xvalue|XValue.<br/>            Read-only [IStringOrDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringordoublechartvalue/).|
-|yvalue|YValue.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
+|x_value|XValue.<br/>            Read-only [IStringOrDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringordoublechartvalue/).|
+|y_value|YValue.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |bubble_size|BubbleSize.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |value|Value.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |size_value|Returns the size value of chart data point.<br/>            Used with Treemap and Sunburst charts. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |color_value|Returns the color value of chart data point.<br/>            Used with Map charts. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |error_bars_custom_values|Represents series error bars values in case of Custom value type.<br/>            Read-only [IErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/ierrorbarscustomvalues/).|
 |label|Label.<br/>            Read-only [IDataLabel](/slides/python-net/api-reference/aspose.slides.charts/idatalabel/).|
-|is_bubble3_d|Specifies that the bubbles have a 3-D effect applied to them.<br/>            Read/write bool.|
+|is_bubble_3d|Specifies that the bubbles have a 3-D effect applied to them.<br/>            Read/write bool.|
 |explosion|Specifies the amount the data point shall be moved from the center of the pie.<br/>            Read/write|
 |format|Represents the formatting properties.<br/>            Read/write [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |marker|Specifies a data marker.<br/>            Read-only [IMarker](/slides/python-net/api-reference/aspose.slides.charts/imarker/).|
@@ -35,7 +35,7 @@ The ChartDataPoint type exposes the following members:
 |actual_y|Specifies actual top of the chart element relative to the left top corner of the chart.<br/>            Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_width|Specifies actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_height|Specifies actual height of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
-|as_iactual_layout|Returns IActualLayout interface.|
+|as_i_actual_layout|Returns IActualLayout interface.|
 ## Methods
 | Name | Description |
 | :- | :- |

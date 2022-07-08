@@ -16,7 +16,7 @@ The IBehaviorCollection type exposes the following members:
 | Name | Description |
 | :- | :- |
 |count|Returns the number of behaviors in a collection.<br/>            Read-only|
-|as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+|as_i_enumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

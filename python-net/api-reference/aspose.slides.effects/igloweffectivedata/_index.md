@@ -17,7 +17,7 @@ The IGlowEffectiveData type exposes the following members:
 | :- | :- |
 |radius|Radius.<br/>            Read-only float.|
 |color|Color.<br/>            Read-only aspose.pydrawing.Color.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
 
 ### See Also
 

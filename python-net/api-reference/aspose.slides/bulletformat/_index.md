@@ -15,7 +15,7 @@ The BulletFormat type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |type|Returns or sets the bullet type of a paragraph with no inheritance.<br/>            Read/write [BulletType](/slides/python-net/api-reference/aspose.slides/bullettype/).|
 |char|Returns or sets the bullet char of a paragraph with no inheritance.<br/>            Read/write char.|
 |font|Returns or sets the bullet font of a paragraph with no inheritance.<br/>            Read/write [IFontData](/slides/python-net/api-reference/aspose.slides/ifontdata/).|

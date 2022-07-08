@@ -20,7 +20,7 @@ The ILineFillFormat type exposes the following members:
 |gradient_format|Returns the gradient fill format.<br/>            Read-only [IGradientFormat](/slides/python-net/api-reference/aspose.slides/igradientformat/).|
 |pattern_format|Returns the pattern fill format.<br/>            Read-only [IPatternFormat](/slides/python-net/api-reference/aspose.slides/ipatternformat/).|
 |rotate_with_shape|Determines whether the fill should be rotated with a shape.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

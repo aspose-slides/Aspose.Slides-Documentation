@@ -20,12 +20,12 @@ The Row type exposes the following members:
 |height|Returns the height of a row.<br/>            Read-only float.|
 |minimal_height|Returns or sets the minimal possible height of a row.<br/>            Read/write float.|
 |row_format|Returns the RowFormat object that contains formatting properties for this row.<br/>            Read-only [IRowFormat](/slides/python-net/api-reference/aspose.slides/irowformat/).|
-|as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|as_icollection|Returns ICollection class.|
-|as_ienumerable|Returns IEnumerable class.|
-|as_icell_collection|Allows to get base ICellCollection interface.<br/>            Read-only [ICellCollection](/slides/python-net/api-reference/aspose.slides/icellcollection/).|
-|as_ibulk_text_formattable|Allows to get base IBulkTextFormattable interface.<br/>            Read-only [IBulkTextFormattable](/slides/python-net/api-reference/aspose.slides/ibulktextformattable/).|
+|as_i_slide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_collection|Returns ICollection class.|
+|as_i_enumerable|Returns IEnumerable class.|
+|as_i_cell_collection|Allows to get base ICellCollection interface.<br/>            Read-only [ICellCollection](/slides/python-net/api-reference/aspose.slides/icellcollection/).|
+|as_i_bulk_text_formattable|Allows to get base IBulkTextFormattable interface.<br/>            Read-only [IBulkTextFormattable](/slides/python-net/api-reference/aspose.slides/ibulktextformattable/).|
 ## Indexer
 | Name | Description |
 | :- | :- |

@@ -31,7 +31,7 @@ The MotionEffect type exposes the following members:
 |path|Specifies the path primitive followed by coordinates for the animation motion.<br/>            Read/write [IMotionPath](/slides/python-net/api-reference/aspose.slides.animation/imotionpath/).|
 |path_edit_mode|Specifies how the motion path moves when shape is moved.<br/>            Read/write [MotionPathEditMode](/slides/python-net/api-reference/aspose.slides.animation/motionpatheditmode/).|
 |angle|Describes the relative angle of the motion path.<br/>            Read/write|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 
 ### See Also
 

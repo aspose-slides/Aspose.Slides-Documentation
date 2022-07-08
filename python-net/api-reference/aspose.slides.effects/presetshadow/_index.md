@@ -19,7 +19,7 @@ The PresetShadow type exposes the following members:
 |distance|Distance of shadow.<br/>            Read/write float.|
 |shadow_color|Color of shadow.<br/>            Read-only [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
 |preset|Preset.<br/>            Read/write [PresetShadowType](/slides/python-net/api-reference/aspose.slides/presetshadowtype/).|
-|as_iimage_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
+|as_i_image_transform_operation|Allows to get base IImageTransformOperation interface.<br/>            Read-only [IImageTransformOperation](/slides/python-net/api-reference/aspose.slides.effects/iimagetransformoperation/).|
 ## Methods
 | Name | Description |
 | :- | :- |

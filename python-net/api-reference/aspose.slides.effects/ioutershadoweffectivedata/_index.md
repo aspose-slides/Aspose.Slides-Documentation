@@ -25,7 +25,7 @@ The IOuterShadowEffectiveData type exposes the following members:
 |rotate_shadow_with_shape|Specifies whether the shadow should rotate with the shape if the shape is rotated.<br/>            Read-only bool.|
 |scale_horizontal|Specifies the horizontal scaling factor, negative scaling causes a flip.<br/>            Read-only float.|
 |scale_vertical|Specifies the vertical scaling factor, negative scaling causes a flip.<br/>            Read-only float.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
 
 ### See Also
 

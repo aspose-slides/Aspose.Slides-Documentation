@@ -20,7 +20,7 @@ The ILineFillFormatEffectiveData type exposes the following members:
 |gradient_format|Returns the gradient fill format.<br/>            Read-only [IGradientFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/igradientformateffectivedata/).|
 |pattern_format|Returns the pattern fill format.<br/>            Read-only [IPatternFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ipatternformateffectivedata/).|
 |rotate_with_shape|Determines whether the fill should be rotated with a shape.<br/>            Read-only bool.|
-|as_ifill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

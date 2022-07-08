@@ -21,7 +21,7 @@ The IGradientFormatEffectiveData type exposes the following members:
 |linear_gradient_scaled|Determines whether a gradient is scaled.<br/>            Read-only bool.|
 |gradient_shape|Returns the shape of a gradient.<br/>            Read-only [GradientShape](/slides/python-net/api-reference/aspose.slides/gradientshape/).|
 |gradient_stops|Returns the collection of gradient stops.<br/>            Read-only [IGradientStopCollectionEffectiveData](/slides/python-net/api-reference/aspose.slides/igradientstopcollectioneffectivedata/).|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

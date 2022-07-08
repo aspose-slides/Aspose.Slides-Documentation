@@ -21,7 +21,7 @@ The Hyperlink type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |no_action|Returns a special "do nothing" hyperlink.<br/>            Read-only [Hyperlink](/slides/python-net/api-reference/aspose.slides/hyperlink/).|
 |media|Returns a special "play mediafile" hyperlink. Used in AudioFrame and VideoFrame.<br/>            Read-only [Hyperlink](/slides/python-net/api-reference/aspose.slides/hyperlink/).|
 |next_slide|Returns a hyperlink to the next slide.<br/>            Read-only [Hyperlink](/slides/python-net/api-reference/aspose.slides/hyperlink/).|

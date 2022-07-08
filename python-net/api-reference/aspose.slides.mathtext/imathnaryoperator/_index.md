@@ -18,8 +18,8 @@ The IMathNaryOperator type exposes the following members:
 |base|Base argument|
 |subscript|Specifies a subscript argument that, for example, in the case of an integral, sets the lower limit|
 |superscript|Specifies a supersript argument that, for example, in the case of an integral, sets the upper limit|
-|as_imath_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
-|as_imath_nary_operator_properties|Allows to get base IMathNaryOperatorProperties interface<br/>            [IMathNaryOperatorProperties](/slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/)|
+|as_i_math_element|Allows to get base IMathElement interface<br/>            [IMathElement](/slides/python-net/api-reference/aspose.slides.mathtext/imathelement/)|
+|as_i_math_nary_operator_properties|Allows to get base IMathNaryOperatorProperties interface<br/>            [IMathNaryOperatorProperties](/slides/python-net/api-reference/aspose.slides.mathtext/imathnaryoperatorproperties/)|
 |operator|Nary Operator Character<br/>            For example: '∑', '∫'|
 |limit_location|The location of limits (subscript and superscript)|
 |grow_to_match_operand_height|Operator Character grows vertically to match its operand height|

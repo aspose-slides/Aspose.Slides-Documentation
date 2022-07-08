@@ -22,8 +22,8 @@ The MathParagraph type exposes the following members:
 | :- | :- |
 |justification|Paragraph Justification <br/>            Default value: CenteredAsGroup|
 |count|Gets the number of elements actually contained in the collection.<br/>            Read-only|
-|as_imath_block_collection|Allows to get base IMathBlockCollection interface<br/>            [IMathBlockCollection](/slides/python-net/api-reference/aspose.slides.mathtext/imathblockcollection/)|
-|as_ienumerable|Allows to get base IEnumerable interface<br/>            list|
+|as_i_math_block_collection|Allows to get base IMathBlockCollection interface<br/>            [IMathBlockCollection](/slides/python-net/api-reference/aspose.slides.mathtext/imathblockcollection/)|
+|as_i_enumerable|Allows to get base IEnumerable interface<br/>            list|
 ## Indexer
 | Name | Description |
 | :- | :- |

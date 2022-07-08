@@ -22,7 +22,7 @@ The IPictureFillFormatEffectiveData type exposes the following members:
 |crop_top|Returns the number of percents of real image height that are cropped off<br/>            the top of the picture. <br/>            Read-only|
 |crop_right|Returns the number of percents of real image width that are cropped off<br/>            the right of the picture. <br/>            Read-only|
 |crop_bottom|Returns the number of percents of real image height that are cropped off<br/>            the bottom of the picture. <br/>            Read-only|
-|as_ifill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Allows to get base IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 
 ### See Also
 

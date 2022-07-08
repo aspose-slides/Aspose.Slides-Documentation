@@ -17,7 +17,7 @@ The IDuotoneEffectiveData type exposes the following members:
 | :- | :- |
 |color1|Returns target color format for dark pixels.<br/>            Read-only aspose.pydrawing.Color.|
 |color2|Returns target color format for light pixels.<br/>            Read-only aspose.pydrawing.Color.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
 
 ### See Also
 

@@ -381,13 +381,13 @@ with slides.Presentation() as pres:
     shape.line_format.width = 2.0
 
     # Sets the shape's ThreeDFormat properties
-    shape.three_dformat.depth = 4
-    shape.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    shape.three_dformat.bevel_top.height = 6
-    shape.three_dformat.bevel_top.width = 6
-    shape.three_dformat.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
-    shape.three_dformat.light_rig.light_type = slides.LightRigPresetType.THREE_PT
-    shape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
+    shape.three_d_format.depth = 4
+    shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    shape.three_d_format.bevel_top.height = 6
+    shape.three_d_format.bevel_top.width = 6
+    shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
+    shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.THREE_PT
+    shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
 
     # Writes the presentation as a PPTX file
     pres.save("Bavel_out-8.pptx", slides.export.SaveFormat.PPTX)
@@ -413,16 +413,16 @@ import aspose.pydrawing as draw
 with slides.Presentation() as pres:
     autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 200, 200)
 
-    autoShape.three_dformat.depth = 6
-    autoShape.three_dformat.camera.set_rotation(40, 35, 20)
-    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
-    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    autoShape.three_d_format.depth = 6
+    autoShape.three_d_format.camera.set_rotation(40, 35, 20)
+    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
+    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
     autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.LINE, 30, 300, 200, 200)
-    autoShape.three_dformat.depth = 6
-    autoShape.three_dformat.camera.set_rotation(0, 35, 20)
-    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
-    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    autoShape.three_d_format.depth = 6
+    autoShape.three_d_format.camera.set_rotation(0, 35, 20)
+    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
+    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
             
     pres.save("Rotation_out-9.pptx", slides.export.SaveFormat.PPTX)

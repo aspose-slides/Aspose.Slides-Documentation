@@ -17,7 +17,7 @@ The BehaviorCollection type exposes the following members:
 | :- | :- |
 |count|Returns the number of behaviors in a collection.<br/>            Read-only|
 |is_read_only|Gets a value indicating whether the list is read-only.<br/>            Read-only bool.|
-|as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+|as_i_enumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

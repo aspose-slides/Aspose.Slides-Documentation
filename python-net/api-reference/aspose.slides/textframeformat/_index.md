@@ -19,8 +19,8 @@ The TextFrameFormat type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|three_dformat|Returns the ThreeDFormat object that represents 3d effect properties for a text.<br/>            Read-only [IThreeDFormat](/slides/python-net/api-reference/aspose.slides/ithreedformat/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|three_d_format|Returns the ThreeDFormat object that represents 3d effect properties for a text.<br/>            Read-only [IThreeDFormat](/slides/python-net/api-reference/aspose.slides/ithreedformat/).|
 |margin_left|Returns or sets the left margin (points) in a TextFrame.<br/>            Read/write float.|
 |margin_right|Returns or sets the right margin (points) in a TextFrame.<br/>            Read/write float.|
 |margin_top|Returns or sets the top margin (points) in a TextFrame.<br/>            Read/write float.|

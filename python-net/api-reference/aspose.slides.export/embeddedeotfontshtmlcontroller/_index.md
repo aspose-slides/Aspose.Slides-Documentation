@@ -20,7 +20,7 @@ The EmbeddedEotFontsHtmlController type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ihtml_formatting_controller|Returns IHtmlFormattingController interface.|
+|as_i_html_formatting_controller|Returns IHtmlFormattingController interface.|
 ## Methods
 | Name | Description |
 | :- | :- |

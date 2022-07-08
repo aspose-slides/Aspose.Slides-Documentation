@@ -19,9 +19,9 @@ The MasterNotesSlideHeaderFooterManager type exposes the following members:
 |is_slide_number_visible|Gets value indicating that a page number placeholder is present.<br/>            Readbool.|
 |is_date_time_visible|Gets value indicating that a date-time placeholder is present.<br/>            Readbool.|
 |is_header_visible|Gets value indicating that a header placeholder is present.<br/>            Read bool.|
-|as_ibase_slide_header_footer_manager|Returns IBaseSlideHeaderFooterManager interface.|
-|as_ibase_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
-|as_ibase_handout_notes_slide_header_footer_manag|Returns IBaseHandoutNotesSlideHeaderFooterManag interface.|
+|as_i_base_slide_header_footer_manager|Returns IBaseSlideHeaderFooterManager interface.|
+|as_i_base_header_footer_manager|Returns IBaseHeaderFooterManager interface.|
+|as_i_base_handout_notes_slide_header_footer_manag|Returns IBaseHandoutNotesSlideHeaderFooterManag interface.|
 ## Methods
 | Name | Description |
 | :- | :- |

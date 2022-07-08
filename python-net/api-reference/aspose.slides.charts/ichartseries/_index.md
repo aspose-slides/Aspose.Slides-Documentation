@@ -18,7 +18,7 @@ The IChartSeries type exposes the following members:
 |explosion|The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.<br/>             Read/write|
 |smooth|Represents curve smoothing. True if curve smoothing is turned on for the line chart or scatter chart. Applies only to line and scatter connected by lines charts.<br/>            Read/write bool.|
 |marker|Return series marker.<br/>            Read-only [IMarker](/slides/python-net/api-reference/aspose.slides.charts/imarker/).|
-|bar3_dshape|Specifies the shape of a series of a 3-D bar chart.<br/>            Changing of value of this property can cause to automatically changing Type of series.<br/>            Read/write [ChartShapeType](/slides/python-net/api-reference/aspose.slides.charts/chartshapetype/).|
+|bar_3d_shape|Specifies the shape of a series of a 3-D bar chart.<br/>            Changing of value of this property can cause to automatically changing Type of series.<br/>            Read/write [ChartShapeType](/slides/python-net/api-reference/aspose.slides.charts/chartshapetype/).|
 |name|Return series name.<br/>            Read-only [IStringChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringchartvalue/).|
 |data_points|Returns collection of data points of this series.<br/>            Read-only [IChartDataPointCollection](/slides/python-net/api-reference/aspose.slides.charts/ichartdatapointcollection/).|
 |type|Returns a type of this series.<br/>            Read/write [ChartType](/slides/python-net/api-reference/aspose.slides.charts/charttype/).|
@@ -27,12 +27,12 @@ The IChartSeries type exposes the following members:
 |order|Returns the order of a series.<br/>            Read/write|
 |labels|Returns the Labels of a series.<br/>            Read-only [IDataLabelCollection](/slides/python-net/api-reference/aspose.slides.charts/idatalabelcollection/).|
 |trend_lines|Collection of series trend lines<br/>            Read-only [ITrendlineCollection](/slides/python-net/api-reference/aspose.slides.charts/itrendlinecollection/).|
-|error_bars_xformat|Represents ErrorBars of series with derection X.|
-|error_bars_yformat|Represents ErrorBars of series with derection Y.|
+|error_bars_x_format|Represents ErrorBars of series with derection X.|
+|error_bars_y_format|Represents ErrorBars of series with derection Y.|
 |plot_on_second_axis|Indicates if this series is plotted on second value axis.<br/>            Read/write bool.|
 |number_format_of_values|Returns or sets the number format for series values.<br/>            Read/write string.|
-|number_format_of_xvalues|Returns or sets the number format for series x values.<br/>            Read/write string.|
-|number_format_of_yvalues|Returns or sets the number format for series y values.<br/>            Read/write string.|
+|number_format_of_x_values|Returns or sets the number format for series x values.<br/>            Read/write string.|
+|number_format_of_y_values|Returns or sets the number format for series y values.<br/>            Read/write string.|
 |number_format_of_bubble_sizes|Returns or sets the number format for series bubble sizes.<br/>            Read/write string.|
 |invert_if_negative|Specifies the bar, column or bubble series shall invert its colors if the value is negative.<br/>            Read/write bool.|
 |inverted_solid_fill_color|Specifies invert solid color for series. To apply color setting set series format FillType to FillType.Solid.<br/>            Read/write [IColorFormat](/slides/python-net/api-reference/aspose.slides/icolorformat/).|
@@ -58,11 +58,11 @@ The IChartSeries type exposes the following members:
 |first_slice_angle|Specifies the angle of the first pie or doughnut chart slice, <br/>            in degrees (clockwise from up, from 0 to 360 degrees).<br/>            This is the property not only of this series but of all series of parent series <br/>            group - this is projection of appropriate group property. And so this property <br/>            is read-only.<br/>            Use ParentSeriesGroup property for access to parent series group.<br/>            Use ParentSeriesGroup.FirstSliceAngle read/write property for change value.<br/>            Read-only int.|
 |pie_split_custom_points|The custom split information for a pie-of-pie or bar-of-pie chart with a custom split.<br/>            Contains data points that shall be drawn in the second pie or bar in a pie-of-pie or <br/>            bar-of-pie chart.<br/>            This is the property not only of this series but of all series of parent series <br/>            group - this is projection of appropriate group property<br/>            Read-only [IPieSplitCustomPointCollection](/slides/python-net/api-reference/aspose.slides.charts/ipiesplitcustompointcollection/).|
 |bubble_size_representation|Specifies how the bubble size values are represented on the bubble chart.<br/>            This is the property not only of this series but of all series of parent series <br/>            group - this is projection of appropriate group property. And so this property <br/>            is read-only.<br/>            Use ParentSeriesGroup property for access to parent series group.<br/>            Use ParentSeriesGroup.BubbleSizeRepresentation read/write property for change value.|
-|as_ichart_component|Allows to get base IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
+|as_i_chart_component|Allows to get base IChartComponent interface.<br/>            Read-only [IChartComponent](/slides/python-net/api-reference/aspose.slides.charts/ichartcomponent/).|
 |chart|Returns the chart.<br/>            Read-only [IChart](/slides/python-net/api-reference/aspose.slides.charts/ichart/).|
-|as_islide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
+|as_i_slide_component|Allows to get base ISlideComponent interface.<br/>            Read-only [ISlideComponent](/slides/python-net/api-reference/aspose.slides/islidecomponent/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## Methods
 | Name | Description |

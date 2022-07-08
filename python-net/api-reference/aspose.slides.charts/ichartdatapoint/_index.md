@@ -15,15 +15,15 @@ The IChartDataPoint type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|xvalue|Returns the x value of chart data point.<br/>            Read-only [IStringOrDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringordoublechartvalue/).|
-|yvalue|Returns the y value of chart data point.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
+|x_value|Returns the x value of chart data point.<br/>            Read-only [IStringOrDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/istringordoublechartvalue/).|
+|y_value|Returns the y value of chart data point.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |bubble_size|Returns the bubble size of chart data point.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |value|Returns the value of chart data point.<br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |size_value|Returns the size value of chart data point.<br/>            Used with Treemap and Sunburst charts. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |color_value|Returns the color value of chart data point.<br/>            Used with Map charts. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 |error_bars_custom_values|Represents series error bars values in case of Custom value type.<br/>            Read-only [IErrorBarsCustomValues](/slides/python-net/api-reference/aspose.slides.charts/ierrorbarscustomvalues/).|
 |label|Represents the lable of chart data point.<br/>            Read-only [IDataLabel](/slides/python-net/api-reference/aspose.slides.charts/idatalabel/).|
-|is_bubble3_d|Specifies that the bubbles have a 3-D effect applied to them.<br/>            Read/write bool.|
+|is_bubble_3d|Specifies that the bubbles have a 3-D effect applied to them.<br/>            Read/write bool.|
 |explosion|Specifies the amount the data point shall be moved from the center of the pie.<br/>            Read/write|
 |format|Represents the formatting properties.<br/>            Read/write [IFormat](/slides/python-net/api-reference/aspose.slides.charts/iformat/).|
 |marker|Specifies a data marker.<br/>            Read-only [IMarker](/slides/python-net/api-reference/aspose.slides.charts/imarker/).|
@@ -31,7 +31,7 @@ The IChartDataPoint type exposes the following members:
 |set_as_total|Sets data point as total. Applied for Waterfall series type only.|
 |invert_if_negative|Specifies the data point shall invert its colors if the value is negative.<br/>            Read/write bool.|
 |data_point_levels|Returns container of  data point levels. Applied for Treeamp and Sunburst series.<br/>            Data point levels indexing is zero-based.|
-|as_iactual_layout|Returns IActualLayout interface.|
+|as_i_actual_layout|Returns IActualLayout interface.|
 |actual_x|Specifies actual x location (left) of the chart element relative to the left top corner of the chart.<br/>            Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_y|Specifies actual top of the chart element relative to the left top corner of the chart.<br/>            Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|
 |actual_width|Specifies actual width of the chart element. Call method IChart.ValidateChartLayout() before to get actual values. <br/>            Read|

@@ -16,7 +16,7 @@ The ChartCellCollection type exposes the following members:
 | Name | Description |
 | :- | :- |
 |count|Gets the count of cells in collection.<br/>            Read-only|
-|as_ienumerable|Returns ICollection interface.<br/>            Read-only list.|
+|as_i_enumerable|Returns ICollection interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

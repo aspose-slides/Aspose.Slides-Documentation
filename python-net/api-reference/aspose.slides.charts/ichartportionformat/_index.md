@@ -15,7 +15,7 @@ The IChartPortionFormat type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ibase_portion_format|Returns IBasePortionFormat interface.|
+|as_i_base_portion_format|Returns IBasePortionFormat interface.|
 |line_format|Returns the LineFormat properties for text outlining. No inheritance applied.<br/>            Read-only [ILineFormat](/slides/python-net/api-reference/aspose.slides/ilineformat/).|
 |fill_format|Returns the text FillFormat properties. No inheritance applied.<br/>            Read-only [IFillFormat](/slides/python-net/api-reference/aspose.slides/ifillformat/).|
 |effect_format|Returns the text EffectFormat properties. No inheritance applied.<br/>            Read-only [IEffectFormat](/slides/python-net/api-reference/aspose.slides/ieffectformat/).|

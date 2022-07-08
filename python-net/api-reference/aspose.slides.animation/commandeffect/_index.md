@@ -26,7 +26,7 @@ The CommandEffect type exposes the following members:
 |type|Defines command effect type of behavior.<br/>            Read/write [CommandEffectType](/slides/python-net/api-reference/aspose.slides.animation/commandeffecttype/).|
 |command_string|Defines command string.<br/>            Read/write string.|
 |shape_target|Defines shape target of command effect.<br/>            Read/write [IShape](/slides/python-net/api-reference/aspose.slides/ishape/).|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 
 ### See Also
 

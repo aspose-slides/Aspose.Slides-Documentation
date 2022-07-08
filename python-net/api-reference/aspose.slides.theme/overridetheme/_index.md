@@ -20,8 +20,8 @@ The OverrideTheme type exposes the following members:
 |format_scheme|Returns the shape format scheme.<br/>            Read-only [IFormatScheme](/slides/python-net/api-reference/aspose.slides.theme/iformatscheme/).|
 |presentation|Returns the parent presentation.<br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 |is_empty|True value means that ColorScheme, FontScheme, FormatScheme is null and any overriding with this theme object are disabled.<br/>            Read-only bool.|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
-|as_itheme|Allows to get base ITheme interface.<br/>            Read-only [ITheme](/slides/python-net/api-reference/aspose.slides.theme/itheme/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_theme|Allows to get base ITheme interface.<br/>            Read-only [ITheme](/slides/python-net/api-reference/aspose.slides.theme/itheme/).|
 ## Methods
 | Name | Description |
 | :- | :- |

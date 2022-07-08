@@ -51,8 +51,8 @@ The Presentation type exposes the following members:
 |first_slide_number|Represents the first slide number in the presentation|
 |source_format|Returns information about from which format presentation was loaded.<br/>            Read-only [SourceFormat](/slides/python-net/api-reference/aspose.slides/sourceformat/).|
 |master_theme|Returns master theme.<br/>            Read-only [IMasterTheme](/slides/python-net/api-reference/aspose.slides.theme/imastertheme/).|
-|as_idisposable|Returns IDisposable interface.<br/>            Read-only disposable.|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_disposable|Returns IDisposable interface.<br/>            Read-only disposable.|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## Methods
 | Name | Description |

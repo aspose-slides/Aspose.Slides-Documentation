@@ -23,7 +23,7 @@ The IMotionEffect type exposes the following members:
 |path|Specifies the path primitive followed by coordinates for the animation motion.<br/>            Read/write [IMotionPath](/slides/python-net/api-reference/aspose.slides.animation/imotionpath/).|
 |path_edit_mode|Specifies how the motion path moves when shape is moved.<br/>            Read/write [MotionPathEditMode](/slides/python-net/api-reference/aspose.slides.animation/motionpatheditmode/).|
 |angle|Describes the relative angle of the motion path.<br/>            Read/write|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
 |properties|Represents properties of behavior.<br/>            Read-only [IBehaviorPropertyCollection](/slides/python-net/api-reference/aspose.slides.animation/ibehaviorpropertycollection/).|

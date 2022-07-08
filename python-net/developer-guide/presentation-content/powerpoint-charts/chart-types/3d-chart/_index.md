@@ -27,7 +27,7 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     # Add chart with default data
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN3_D, 0, 0, 500, 500)
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN_3D, 0, 0, 500, 500)
 
     # Setting the index of chart data sheet
     defaultWorksheetIndex = 0
@@ -45,10 +45,10 @@ with slides.Presentation() as presentation:
     chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
 
     # Set Rotation3D properties
-    chart.rotation3_d.right_angle_axes = True
-    chart.rotation3_d.rotation_x = 40
-    chart.rotation3_d.rotation_y = 270
-    chart.rotation3_d.depth_percents = 150
+    chart.rotation_3d.right_angle_axes = True
+    chart.rotation_3d.rotation_x = 40
+    chart.rotation_3d.rotation_y = 270
+    chart.rotation_3d.depth_percents = 150
 
     # Take second chart series
     series = chart.chart_data.series[1]

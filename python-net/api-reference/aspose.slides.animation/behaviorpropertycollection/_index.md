@@ -15,7 +15,7 @@ The BehaviorPropertyCollection type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ienumerable|Returns IEnumerable interfaces.<br/>            Read-only list.|
+|as_i_enumerable|Returns IEnumerable interfaces.<br/>            Read-only list.|
 ## Methods
 | Name | Description |
 | :- | :- |

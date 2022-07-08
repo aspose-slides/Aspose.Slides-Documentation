@@ -17,7 +17,7 @@ The IBackgroundEffectiveData type exposes the following members:
 | :- | :- |
 |fill_format|Returns effective fill format.<br/>            Read-only [IFillFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ifillformateffectivedata/).|
 |effect_format|Returns effective effect format.<br/>            Read-only [IEffectFormatEffectiveData](/slides/python-net/api-reference/aspose.slides/ieffectformateffectivedata/).|
-|as_ifill_param_source|Returns IFillParamSource interface.|
+|as_i_fill_param_source|Returns IFillParamSource interface.|
 
 ### See Also
 

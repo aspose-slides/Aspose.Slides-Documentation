@@ -42,8 +42,8 @@ The IPresentation type exposes the following members:
 |first_slide_number|Represents the first slide number in the presentation.<br/>            Read/write|
 |all_custom_xml_parts|Returns all custom data parts in the presentaion.<br/>            Read-only [ICustomXmlPart](/slides/python-net/api-reference/aspose.slides/icustomxmlpart/)[].|
 |digital_signatures|Returns the collection of signatures used to sign the presentation.<br/>            Read-only [IDigitalSignatureCollection](/slides/python-net/api-reference/aspose.slides/idigitalsignaturecollection/).|
-|as_idisposable|Returns IDisposable interface.<br/>            Read-only disposable.|
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_disposable|Returns IDisposable interface.<br/>            Read-only disposable.|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
 ## Methods
 | Name | Description |

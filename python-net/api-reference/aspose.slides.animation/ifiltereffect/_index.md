@@ -18,7 +18,7 @@ The IFilterEffect type exposes the following members:
 |reveal|Represents that effect with behavior must reveal (in/out)<br/>            Read/write [FilterEffectRevealType](/slides/python-net/api-reference/aspose.slides.animation/filtereffectrevealtype/).|
 |type|Represents type of filter effect.<br/>            Read/write [FilterEffectType](/slides/python-net/api-reference/aspose.slides.animation/filtereffecttype/).|
 |subtype|Represents subtype of filter effect.<br/>            Read/write [FilterEffectSubtype](/slides/python-net/api-reference/aspose.slides.animation/filtereffectsubtype/).|
-|as_ibehavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
+|as_i_behavior|Allows to get base IBehavior interface.<br/>            Read-only [IBehavior](/slides/python-net/api-reference/aspose.slides.animation/ibehavior/).|
 |accumulate|Represents whether animation behaviors are accumulated.<br/>            Read/write [NullableBool](/slides/python-net/api-reference/aspose.slides/nullablebool/).|
 |additive|Represents whether the current animation behavior is combined with other running animations.<br/>            Read/write [BehaviorAdditiveType](/slides/python-net/api-reference/aspose.slides.animation/behavioradditivetype/).|
 |properties|Represents properties of behavior.<br/>            Read-only [IBehaviorPropertyCollection](/slides/python-net/api-reference/aspose.slides.animation/ibehaviorpropertycollection/).|

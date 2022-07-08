@@ -17,7 +17,7 @@ The IFlyThroughTransition type exposes the following members:
 | :- | :- |
 |direction|Direction of transition.<br/>            Read/write [TransitionInOutDirectionType](/slides/python-net/api-reference/aspose.slides.slideshow/transitioninoutdirectiontype/).|
 |has_bounce|Specifies that the movement of the presentation slides during the transition includes a bounce.<br/>            Read/write bool.|
-|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
+|as_i_transition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
 
 ### See Also
 

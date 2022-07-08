@@ -25,7 +25,7 @@ The IThreeDFormat type exposes the following members:
 |camera|Returns or sets the settings of a camera.<br/>            Read-only [ICamera](/slides/python-net/api-reference/aspose.slides/icamera/).|
 |light_rig|Returns or sets the type of a light.<br/>            Read-only [ILightRig](/slides/python-net/api-reference/aspose.slides/ilightrig/).|
 |material|Returns or sets the type of a material.<br/>            Read/write [MaterialPresetType](/slides/python-net/api-reference/aspose.slides/materialpresettype/).|
-|as_ithree_dparam_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
+|as_i_three_d_param_source|Allows to get base IThreeDParamSource interface.<br/>            Read-only [IThreeDParamSource](/slides/python-net/api-reference/aspose.slides/ithreedparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

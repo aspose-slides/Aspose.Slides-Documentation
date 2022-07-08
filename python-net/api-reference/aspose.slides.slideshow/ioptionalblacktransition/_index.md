@@ -16,7 +16,7 @@ The IOptionalBlackTransition type exposes the following members:
 | Name | Description |
 | :- | :- |
 |from_black|This attribute specifies if the transition will start from a black screen<br/>            (and then transition the new slide over black).<br/>            Read/write bool.|
-|as_itransition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
+|as_i_transition_value_base|Allows to get base ITransitionValueBase interface.<br/>            Read-only [ITransitionValueBase](/slides/python-net/api-reference/aspose.slides.slideshow/itransitionvaluebase/).|
 
 ### See Also
 

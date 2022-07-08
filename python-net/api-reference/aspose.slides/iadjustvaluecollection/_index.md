@@ -15,8 +15,8 @@ The IAdjustValueCollection type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_icollection|Allows to get base ICollection interface.<br/>            Read-only list.|
-|as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+|as_i_collection|Allows to get base ICollection interface.<br/>            Read-only list.|
+|as_i_enumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |

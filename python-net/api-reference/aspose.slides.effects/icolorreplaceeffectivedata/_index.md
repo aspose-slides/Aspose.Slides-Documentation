@@ -16,7 +16,7 @@ The IColorReplaceEffectiveData type exposes the following members:
 | Name | Description |
 | :- | :- |
 |color|Returns color format which will replace color of every pixel.<br/>            Read-only aspose.pydrawing.Color.|
-|as_ieffect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
+|as_i_effect_effective_data|Allows to get base IEffectEffectiveData interface.<br/>            Read-only [IEffectEffectiveData](/slides/python-net/api-reference/aspose.slides.effects/ieffecteffectivedata/).|
 
 ### See Also
 

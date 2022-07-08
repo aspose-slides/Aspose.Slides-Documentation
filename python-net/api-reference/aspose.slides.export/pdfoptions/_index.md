@@ -38,7 +38,7 @@ The PdfOptions type exposes the following members:
 |draw_slides_frame|True to draw black frame around each slide.<br/>             Read/write bool.|
 |image_transparent_color|Gets or sets the image transparent color.|
 |apply_image_transparent|Applies the specified transparent color to an image if|
-|as_isave_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
+|as_i_save_options|Returns ISaveOptions interface.<br/>            Read-only [ISaveOptions](/slides/python-net/api-reference/aspose.slides.export/isaveoptions/).|
 
 ### See Also
 

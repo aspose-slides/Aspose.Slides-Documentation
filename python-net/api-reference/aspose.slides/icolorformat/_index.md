@@ -30,7 +30,7 @@ The IColorFormat type exposes the following members:
 |saturation|Returns or sets the saturation component of a color in HSL representation.<br/>            All color transformations are ignored.<br/>            Read/write|
 |luminance|Returns or sets the luminance component of a color in HSL representation.<br/>            All color transformations are ignored.<br/>            Read/write|
 |color_transform|Returns the collection of color transformations applied to a color.<br/>            Read-only [IColorOperationCollection](/slides/python-net/api-reference/aspose.slides/icoloroperationcollection/).|
-|as_ifill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
+|as_i_fill_param_source|Returns IFillParamSource interface.<br/>            Read-only [IFillParamSource](/slides/python-net/api-reference/aspose.slides/ifillparamsource/).|
 ## Methods
 | Name | Description |
 | :- | :- |

@@ -15,7 +15,7 @@ The IPieSplitCustomPointCollection type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ienumerable|Returns IEnumerable interface.|
+|as_i_enumerable|Returns IEnumerable interface.|
 ## Indexer
 | Name | Description |
 | :- | :- |

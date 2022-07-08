@@ -15,10 +15,10 @@ The ImageTransformOperationCollection type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|as_ipresentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
+|as_i_presentation_component|Allows to get base IPresentationComponent interface.<br/>            Read-only [IPresentationComponent](/slides/python-net/api-reference/aspose.slides/ipresentationcomponent/).|
 |slide|Returns the base slide.<br/>            Read-only [IBaseSlide](/slides/python-net/api-reference/aspose.slides/ibaseslide/).|
 |presentation|Returns the presentation. <br/>            Read-only [IPresentation](/slides/python-net/api-reference/aspose.slides/ipresentation/).|
-|as_ienumerable|Returns IEnumerable interface.<br/>            Read-only list.|
+|as_i_enumerable|Returns IEnumerable interface.<br/>            Read-only list.|
 ## Indexer
 | Name | Description |
 | :- | :- |
@@ -41,7 +41,7 @@ The ImageTransformOperationCollection type exposes the following members:
 |add_duotone_effect()|Adds the new Duotone effect to the end of a collection.|
 |add_fill_overlay_effect()|Adds the new Fill Overlay effect to the end of a collection.|
 |add_gray_scale_effect()|Adds the new Gray Scale effect to the end of a collection.|
-|add_hsleffect(hue, saturation, luminance)|Adds the new Hue/Saturation/Luminance effect to the end of a collection.|
+|add_hsl_effect(hue, saturation, luminance)|Adds the new Hue/Saturation/Luminance effect to the end of a collection.|
 |add_luminance_effect(brightness, contrast)|Adds the new Luminance effect to the end of a collection.|
 |add_tint_effect(hue, amount)|Adds the new Tint effect to the end of a collection.|
 

@@ -15,10 +15,10 @@ The IErrorBarsCustomValues type exposes the following members:
 ## Properties
 | Name | Description |
 | :- | :- |
-|xminus|Specifies the error bar value in the negative direction. <br/>            Avalible if error bars value type is Custom and ErrorBarsXFormat is allowed.<br/>            In any other case this property returns null.  <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
-|yminus|Specifies the error bar value in the negative direction. <br/>             Avalible if error bars value type is Custom and ErrorBarsYFormat is allowed. <br/>            In any other case this property returns null. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
-|xplus|Specifies the error bar value in the positive direction. <br/>            Avalible if error bars value type is Custom and ErrorBarsXFormat is allowed. <br/>            In any other case this property returns null. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
-|yplus|Specifies the error bar value in the positive direction. <br/>            Avalible if error bars value type is Custom and ErrorBarsYFormat is allowed.<br/>            In any other case this property returns null. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
+|x_minus|Specifies the error bar value in the negative direction. <br/>            Avalible if error bars value type is Custom and ErrorBarsXFormat is allowed.<br/>            In any other case this property returns null.  <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
+|y_minus|Specifies the error bar value in the negative direction. <br/>             Avalible if error bars value type is Custom and ErrorBarsYFormat is allowed. <br/>            In any other case this property returns null. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
+|x_plus|Specifies the error bar value in the positive direction. <br/>            Avalible if error bars value type is Custom and ErrorBarsXFormat is allowed. <br/>            In any other case this property returns null. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
+|y_plus|Specifies the error bar value in the positive direction. <br/>            Avalible if error bars value type is Custom and ErrorBarsYFormat is allowed.<br/>            In any other case this property returns null. <br/>            Read-only [IDoubleChartValue](/slides/python-net/api-reference/aspose.slides.charts/idoublechartvalue/).|
 
 ### See Also
 
