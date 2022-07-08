@@ -52,7 +52,28 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This Java code shows you how to change an audio frame's thumbnail or preview image:
 
 ```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    // Adds an audio frame to the slide with a specified position and size.
+    FileInputStream audioStream = new FileInputStream("sample2.mp3");
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+    audioStream.close();
+
+    // Adds an image to presentation resources.
+    byte[] imageBytes = Files.readAllBytes(Paths.get("eagle.jpeg"));
+    IPPImage audioImage = presentation.getImages().addImage(imageBytes);
+
+    // Sets the image for the audio frame.
+    audioFrame.getPictureFormat().getPicture().setImage(audioImage); // <-----
+
+    //Saves the modified presentation to disk
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} catch(IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Change Audio Play Options**
