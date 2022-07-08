@@ -84,6 +84,14 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This C# code shows you how to set the transparency for a picture background (inside a shape): xxx
 
 ```c#
-
+using (var presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    
+    autoShape.FillFormat.FillType = FillType.Picture;
+    autoShape.FillFormat.PictureFillFormat.Picture.Image = presentation.Images.AddImage(File.ReadAllBytes("image.png"));
+    autoShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
+}
 ```
 
