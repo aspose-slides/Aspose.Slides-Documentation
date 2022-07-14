@@ -56,7 +56,7 @@ using (var pres = new Presentation())
 
 ## Apply Glow Effect
 
-This C# code shows you how to apply the glow effect to a shape: xxx
+This C# code shows you how to apply the glow effect to a shape: 
 
 ```c#
 using (var pres = new Presentation())
@@ -73,7 +73,7 @@ using (var pres = new Presentation())
 
 ## Apply Soft Edges Effect
 
-This C# code shows you how to apply the soft edges to a shape: xxx 
+This C# code shows you how to apply the soft edges to a shape: 
 
 ```c#
 using (var pres = new Presentation())
