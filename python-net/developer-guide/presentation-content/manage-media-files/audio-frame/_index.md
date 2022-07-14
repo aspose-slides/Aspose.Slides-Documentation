@@ -47,7 +47,26 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This Python code shows you how to change an audio frame's thumbnail or preview image:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Adds an audio frame to the slide with a specified position and size.
+    with open("sample2.mp3", "rb") as audio_fs:
+        audioFrame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_fs)
+
+        # Adds an image to presentation resources.
+        with open("eagle.jpeg", "rb") as image_fs:
+            data = image_fs.read()
+        
+        audioImage = presentation.images.add_image(data)
+
+        # Sets the image for the audio frame.
+        audioFrame.picture_format.picture.image = audioImage
+        
+        #Saves the modified presentation to disk
+        presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Change Audio Play Options**
