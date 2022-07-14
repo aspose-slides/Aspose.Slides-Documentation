@@ -74,6 +74,17 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This Python code shows you how to set the transparency for a picture background (inside a shape):
 
 ```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    autoShape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    
+    autoShape.fill_format.fill_type = slides.FillType.PICTURE
+    with open("image.png", "rb") as in_file:
+        autoShape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(in_file)
+
+        autoShape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+        autoShape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
 
 ```
 
