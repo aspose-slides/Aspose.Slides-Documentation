@@ -1,7 +1,7 @@
 ---
 title: Create Shape Thumbnails
 type: docs
-weight: 60
+weight: 70
 url: /net/create-shape-thumbnails/
 keywords: "Shape thumbnail. PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Shape thumbnail in PowerPoint presentation in C# or .NET"
