@@ -52,33 +52,27 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This C++ code shows you how to set the prompt text in a placeholder:
 
 ```c++
-const String templatePath = u"../templates/Presentation2.pptx";
+const System::String templatePath = u"../templates/Presentation2.pptx";
+    
+auto pres = System::MakeObject<Presentation>(templatePath);
+auto slide = pres->get_Slides()->idx_get(0);
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-
-System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-for (int x = 0; x < slide->get_Slide()->get_Shapes()->get_Count(); x++)
-	{
-		System::SharedPtr<IShape> shape = slide->get_Slide()->get_Shapes()->idx_get(x);
-
-	if (shape->get_Placeholder() != NULL) {
-
-		String text = u"";
-		if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // When there is no text in it, PowerPoint displays "Click to add title". 
-		{
-			text = u"Click to add title";
-		}
-		else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // Does the same thing for subtitle.
-		{
-				text = u"Click to add subtitle";
-		}
-					
-			System::Console::WriteLine(u"Placeholder : {0}", text);
-			
-		}
-
-	}
+for (auto& shape : slide->get_Slide()->get_Shapes())
+{
+    if (shape->get_Placeholder() != NULL)
+    {
+        System::String text = u"";
+        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // When there is no text in it, PowerPoint displays "Click to add title". 
+        {
+            text = u"Click to add title";
+        }
+        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // Does the same thing for subtitle.
+        {
+            text = u"Click to add subtitle";
+        }
+        System::Console::WriteLine(u"Placeholder : {0}", text);
+    }
+}
 
 pres->Save(u"../out/Placeholders_PromptText.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
