@@ -90,6 +90,16 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This C++ code shows you how to set the transparency for a picture background (inside a shape):
 
 ```c++
+auto presentation = System::MakeObject<Presentation>();
+    
+auto autoShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+    
+auto fillFormat = autoShape->get_FillFormat();
+fillFormat->set_FillType(Aspose::Slides::FillType::Picture);
+fillFormat->get_PictureFillFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png")));
 
+auto pictureFillFormat = fillFormat->get_PictureFillFormat();
+pictureFillFormat->set_PictureFillMode(Aspose::Slides::PictureFillMode::Stretch);
+pictureFillFormat->get_Picture()->get_ImageTransform()->AddAlphaModulateFixedEffect(75.0f);
 ```
 
