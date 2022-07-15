@@ -57,7 +57,7 @@ const System::String templatePath = u"../templates/Presentation2.pptx";
 auto pres = System::MakeObject<Presentation>(templatePath);
 auto slide = pres->get_Slides()->idx_get(0);
 
-for (auto& shape : slide->get_Slide()->get_Shapes())
+for (auto& shape : slide->get_Shapes())
 {
     if (shape->get_Placeholder() != NULL)
     {
