@@ -11,7 +11,7 @@ description: "Create rectangle in PowerPoint presentation in C# or .NET"
 ## **Create Simple Rectangle**
 Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is Rectangle. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for .NET . To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class.
+1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
 1. Obtain the reference of a slide by using its Index.
 1. Add an IAutoShape of Rectangle type using AddAutoShape method exposed by IShapes object.
 1. Write the modified presentation as a PPTX file.
@@ -38,7 +38,7 @@ using (Presentation pres = new Presentation())
 ## **Create Formatted Rectangle**
 To add a formatted rectangle to a slide, please follow the steps below:
 
-1. Create an instance of [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class.
+1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
 1. Obtain the reference of a slide by using its Index.
 1. Add an IAutoShape of Rectangle type using AddAutoShape method exposed by IShapes object.
 1. Set the Fill Type of the Rectangle to Solid.

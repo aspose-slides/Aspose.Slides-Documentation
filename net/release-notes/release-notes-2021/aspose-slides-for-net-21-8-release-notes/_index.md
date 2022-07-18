@@ -14,7 +14,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.8](https://www.n
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESNET-42670|Using the same animation type on the same shape|Investigation|<https://docs.aspose.com/slides/net/shape-animation/>
-|SLIDESNET-42646|ChartData.GetRange method throws "Chart data doesn?t have workbook reference" exception|Investigation|<https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/methods/getrange>
+|SLIDESNET-42646|ChartData.GetRange method throws "Chart data doesn?t have workbook reference" exception|Investigation|<https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/methods/getrange>
 |SLIDESNET-42636|Slide.GetThumbnail method fails in docker|Investigation|<https://docs.aspose.com/slides/net/convert-slide/#convert-slide-to-bitmap>
 |SLIDESNET-42741|Support for converting presentations to animated GIF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-animated-gif/>
 |SLIDESNET-36751|Support for PowerPoint like scaling - Ensure Fit & Maximize|Feature|<https://docs.aspose.com/slides/net/slide-size/>
@@ -75,7 +75,7 @@ The MSI and zip packages at [Aspose Downloads](https://downloads.aspose.com/slid
 
 ### Support for exporting or converting presentations to animated GIF  ###
 
-We implemented support for converting [presentations](https://apireference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export. Using this new functionality, you can export a [presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) into an animated GIF with slides changes and even animated transitions:
+We implemented support for converting [presentations](https://reference.aspose.com/slides/net/aspose.slides/presentation) to animated GIF export. Using this new functionality, you can export a [presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) into an animated GIF with slides changes and even animated transitions:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -95,7 +95,7 @@ Export result:
 
 ### IChartDataWorkbook.CalculateFormulas and ChartDataWorkbook.CalculateFormulas methods have been added ###
 
-[IChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. With these methods, you can perform calculations with explicit formulas within a workbook. The operation is executed in two steps:
+[IChartDataWorkbook.CalulateFormulas](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/methods/calculateformulas) and [ChartDataWorkbook.CalulateFormulas](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) methods have been added. With these methods, you can perform calculations with explicit formulas within a workbook. The operation is executed in two steps:
 
 - **Check for unsupported formulas within the entire workbook:** If unsupported formulas are found, CellUnsupportedDataException will be thrown—and values will not be updated. 
 - **Formula calculations and updating:** If unsupported formulas are not found, the formulas will be calculated for the workbook—and cells values will be updated.

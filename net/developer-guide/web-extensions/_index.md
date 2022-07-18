@@ -26,7 +26,7 @@ Your can go through PowerPoint to HTML examples in the [Aspose.Slides.WebExtensi
 
 ### **Templates**
 
-To further extend the capabilities of HTML export, we recommend you use the ASP.NET Razor template system. The [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class instance can be used alongside a set of templates to get an HTML document as the export result.
+To further extend the capabilities of HTML export, we recommend you use the ASP.NET Razor template system. The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class instance can be used alongside a set of templates to get an HTML document as the export result.
 
 **Demonstration**
 

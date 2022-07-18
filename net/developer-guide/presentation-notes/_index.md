@@ -49,7 +49,7 @@ presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 
 
 ## **Add NotesStyle**
-NotesStyle property has been added to [IMasterNotesSlide](https://apireference.aspose.com/slides/net/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://apireference.aspose.com/slides/net/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
+NotesStyle property has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
 ```c#
 // Instantiate Presentation class that represents the presentation file

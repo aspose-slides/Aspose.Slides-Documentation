@@ -165,6 +165,6 @@ Methods RenderToGraphics (bool withNotes, Graphics graphics, int width, int heig
 ## **Property Paragraph.EndParagraphPortionFormat has been added**
 A new property EndParagraphPortionFormat has been added. This property specifies the portion properties that are to be used if another portion is inserted after the last one.
 ``` csharp
-IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];//[see more](https://apireference.aspose.com/slides/net/aspose.slides/iparagraphcollection)
+IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];//[see more](https://reference.aspose.com/slides/net/aspose.slides/iparagraphcollection)
 IPortionFormat endParaPortionFormat = paragraph.EndParagraphPortionFormat;
 ```

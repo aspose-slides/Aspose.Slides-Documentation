@@ -7,7 +7,7 @@ url: /net/object-changed-issue-when-adding-oleobjectframe/
 
 {{% alert color="primary" %}} 
 
-Using Aspose.Slides for .NET, when you add **[OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe)** to a slide, an **Object Changed** message is shown on the output slide (and NOT on the OLE object). The described process is a deliberate action and NOT a bug. 
+Using Aspose.Slides for .NET, when you add **[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)** to a slide, an **Object Changed** message is shown on the output slide (and NOT on the OLE object). The described process is a deliberate action and NOT a bug. 
 
 For more information on working with OLE objects, see [Manage OLE](/slides/net/manage-ole/). 
 
@@ -15,7 +15,7 @@ For more information on working with OLE objects, see [Manage OLE](/slides/net/m
 ## **Explanation** and Solution
 Aspose.Slides displays the **Object Changed** message to notify you that the OLE object has been changed and the preview image has to be updated. 
 
-For example, if you add a Microsoft Excel Chart as an [OleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe) to a slide (for more details, see the Manage OLE article) and then open the presentation in the Microsoft PowerPoint app, you will see this image on the slide:
+For example, if you add a Microsoft Excel Chart as an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) to a slide (for more details, see the Manage OLE article) and then open the presentation in the Microsoft PowerPoint app, you will see this image on the slide:
 
 ~~Replace all images with new images~~
 

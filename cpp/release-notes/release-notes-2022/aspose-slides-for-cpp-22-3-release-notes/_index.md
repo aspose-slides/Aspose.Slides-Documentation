@@ -34,11 +34,11 @@ This page contains release notes for [Aspose.Slides for C++ 22.3](https://www.nu
 
 ### AutoShape::get_IsTextBox() method has been added ###
 
-[AutoShape::get_IsTextBox()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.auto_shape#a3c71d3be5224c8b0aadea92dc103da15) method has been added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
+[AutoShape::get_IsTextBox()](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape#a3c71d3be5224c8b0aadea92dc103da15) method has been added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
 
 ![Text box and shape](istextbox.png)
 
-This code snippet demonstrates iteration over all [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) shapes and out to console if the shape is a text box or not (if the shape is [AutoShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.auto_shape)).
+This code snippet demonstrates iteration over all [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) shapes and out to console if the shape is a text box or not (if the shape is [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape)).
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");

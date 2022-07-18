@@ -7,7 +7,7 @@ url: /cpp/chart-data-table/
 ## **Set Font Properties for Chart Data Table**
 Aspose.Slides for C++ allows to change font properties for a chart data table. 
 
-1. Instantiate [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class object.
 1. Add chart on the slide.
 1. Set chart table.
 1. Set font height.

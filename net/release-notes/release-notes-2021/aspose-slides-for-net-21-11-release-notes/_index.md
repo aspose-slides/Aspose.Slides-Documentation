@@ -44,7 +44,7 @@ This page contains release notes for [Aspose.Slides for .NET 21.11](https://www.
 
 We implemented support for PowerPoint **Modern Comments**.
 
-For modern comments, we added the [ModernComment](https://apireference.aspose.com/slides/net/aspose.slides/moderncomment) class. We added the [AddModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods to [CommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection). Using these methods, you can add a modern comment to a slide.
+For modern comments, we added the [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) class. We added the [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods to [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection). Using these methods, you can add a modern comment to a slide.
 
 This code snippet demonstrates the addition of a modern comment to a slide:
 
@@ -60,11 +60,11 @@ using (Presentation pres = new Presentation())
 
 ### Obsolete enumeration SlideOrienation has been removed ###
 
-Obsolete enumeration `SlideOrienation` has been removed. Use the [SlideOrientation](https://apireference.aspose.com/slides/net/aspose.slides/slideorientation) enumeration instead.
+Obsolete enumeration `SlideOrienation` has been removed. Use the [SlideOrientation](https://reference.aspose.com/slides/net/aspose.slides/slideorientation) enumeration instead.
 
 ### IMathElement.GetChildren has been added ###
 
-[GetChildren](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/getchildren) method has been added to the [IMathElement](https://apireference.aspose.com/slides/net/aspose.slides.mathtext/imathelement) interface.
+[GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/methods/getchildren) method has been added to the [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement) interface.
 
 Method declaration:
 

@@ -30,7 +30,7 @@ You may want to check out our free [**PPT to PDF**](https://products.aspose.app/
 
 [**Aspose.Slides**](https://products.aspose.com/slides/java/) allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
 
-To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. The [**Presentation**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [**save**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
+To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. The [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [**save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
@@ -42,7 +42,7 @@ Aspose.Slides for Java directly writes the information about API and Version Num
 
 With Aspose.Slides, you can use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html).
 
-When converting a PPT document to PDF, Aspose.Slides allows you to export a PPT document to the PDF format using any of these compliance standards: [**PDF/A1a**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1a), [**PDF/A1b**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1b), and [**PDF/UA**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfUa). 
+When converting a PPT document to PDF, Aspose.Slides allows you to export a PPT document to the PDF format using any of these compliance standards: [**PDF/A1a**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1a), [**PDF/A1b**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1b), and [**PDF/UA**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfUa). 
 
 This sample code shows you how to specify your preferred PDF compliance standard when converting PPT to PDF:
 
@@ -111,7 +111,7 @@ try {
 ```
 
 ## Convert PowerPoint to PDF with Custom Options
-The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfTextCompression) enumeration and sets PDF standard.
+The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfTextCompression) enumeration and sets PDF standard.
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file
@@ -140,11 +140,11 @@ try {
 ```
 
 ## **Convert PowerPoint to PDF with Hidden Slides Included**
-The following example shows how to convert a PowerPoint PPT, PPTX and OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. You can also include comments in generated HTML by using [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. 
+The following example shows how to convert a PowerPoint PPT, PPTX and OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. You can also include comments in generated HTML by using [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. 
 It sets the ShowHiddenSlides property to generate PDF with hidden slides. 
-Methods [**getShowHiddenSlides**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions#getShowHiddenSlides--) and [**setShowHiddenSlides**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions#setShowHiddenSlides-boolean-) have been added to [**IHtmlOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IHtmlOptions), [**IPdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPdfOptions), [**ISwfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISwfOptions), 
-[**ITiffOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/ITiffOptions), [**IXpsOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/IXpsOptions) interfaces and [**HtmlOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/HtmlOptions), 
-[**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions), [**SwfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/SwfOptions), [**TiffOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/TiffOptions), [**XpsOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/XpsOptions) classes. 
+Methods [**getShowHiddenSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions#getShowHiddenSlides--) and [**setShowHiddenSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions#setShowHiddenSlides-boolean-) have been added to [**IHtmlOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/IHtmlOptions), [**IPdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/IPdfOptions), [**ISwfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISwfOptions), 
+[**ITiffOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions), [**IXpsOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/IXpsOptions) interfaces and [**HtmlOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/HtmlOptions), 
+[**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions), [**SwfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/SwfOptions), [**TiffOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/TiffOptions), [**XpsOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/XpsOptions) classes. 
 This property specifies whether the exported document should include hidden slides or not. 
 Default value is **"false"**.
 
@@ -166,7 +166,7 @@ try {
 ```
 
 ## **Convert PowerPoint to Password Protected PDF**
-The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class.
+The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class.
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file

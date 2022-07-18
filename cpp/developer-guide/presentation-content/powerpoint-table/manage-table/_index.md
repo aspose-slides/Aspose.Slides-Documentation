@@ -10,7 +10,7 @@ description: "Create and manage table in PowerPoint presentations in C++"
 ## **Create Table from Scratch**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -74,7 +74,7 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 ## **Access Existing Table**
 To access a table that already exists in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide (that contains the table) by using its Position.
 - Create an ITable object and set it to null.
 - Iterate through all Shapes until you find the Table. If a slide contains only one table then you can simply check a shape and if it is found to be a Table then just typecast it as a Table object. But, if the slide contains more than one tables then it's better to find your desired table using its Alternative Text.
@@ -113,7 +113,7 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 ## **Align Text in Table**
 Aspose.Slides for C++ has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Insert table in the slide.
 - Access text frame.
@@ -164,7 +164,7 @@ presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ## **Set Text Formatting on Table Level**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set Table Cells Font Height.

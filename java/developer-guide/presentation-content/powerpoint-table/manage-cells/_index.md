@@ -9,7 +9,7 @@ description: "Table cells in PowerPoint presentations in Java"
 
 
 ## **Identify Merged Table Cell**
-1. Create an instance of the  [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get the table from the first slide. 
 3. Iterate through the table's rows and columns to find merge cells.
 4. Print message when merged cells are found.
@@ -38,11 +38,11 @@ try {
 ```
 
 ## **Remove Table Cells Border**
-1. Create an instance of the  [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Define an array of columns with width.
 4. Define an array of rows with height.
-5. Add a table to the slide through the [addTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
+5. Add a table to the slide through the [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Iterate through every cell to clear the top, bottom, right, and left borders.
 7. Save the modified presentation as a PPTX file.
 
@@ -276,11 +276,11 @@ try {
 
 ## **Add Image Inside Table Cell**
 
-1. Create an instance of the  [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Define an array of columns with width.
 4. Define an array of rows with height.
-5. Add a table to the slide through the [AddTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
+5. Add a table to the slide through the [AddTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Create a `BufferedImage` object to hold the image file.
 7. Add the `BufferedImage` image to `IPPImage` Object.
 8. Set the `FillFormat` for the Table Cell to `Picture`.

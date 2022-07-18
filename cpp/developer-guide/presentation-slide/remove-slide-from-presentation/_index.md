@@ -6,7 +6,7 @@ url: /cpp/remove-slide-from-presentation/
 ---
 
 
-Sometimes, developers may need to remove a slide from the presentation due to any reason. Aspose.Slides for C++ offers few methods to do so. In this topic, we will explore these methods to accomplish this task. We know that [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class in Aspose.Slides for C++ represents a presentation file. `Presentation` class encapsulates a [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
+Sometimes, developers may need to remove a slide from the presentation due to any reason. Aspose.Slides for C++ offers few methods to do so. In this topic, we will explore these methods to accomplish this task. We know that [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class in Aspose.Slides for C++ represents a presentation file. `Presentation` class encapsulates a [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
 
 1. Using Slide Reference
 1. Using Slide Index

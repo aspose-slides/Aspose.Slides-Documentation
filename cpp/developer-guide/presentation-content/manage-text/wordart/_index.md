@@ -285,9 +285,9 @@ Consider a scene for a text and the shape containing that text. The 3D effect co
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for C++ provides the [**IOuterShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) and [**IInnerShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
+Aspose.Slides for C++ provides the [**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) and [**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -333,7 +333,7 @@ pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.

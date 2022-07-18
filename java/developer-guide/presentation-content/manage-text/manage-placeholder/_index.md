@@ -17,10 +17,10 @@ Step 2: Replace Text of the Placeholder
 
 To replace the text of a Placeholder, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Iterate through the Shapes and find the Placeholder shapes.
-- Typecast the Placeholder shape to [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+- Typecast the Placeholder shape to [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
 - Write the modified presentation as a PPTX file.
 
 ```java

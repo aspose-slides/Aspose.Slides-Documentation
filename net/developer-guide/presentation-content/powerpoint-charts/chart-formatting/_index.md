@@ -210,7 +210,7 @@ using (Presentation pres = new Presentation())
 ## **Set Format of Numerics**
 Aspose.Slides for .NET provides a simple API for managing chart data format:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
 1. Set the preset number format from the possible preset values.

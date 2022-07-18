@@ -9,7 +9,7 @@ description: "Animated text in PowerPoint presentation with Aspose.Slides"
 
 ## Adding Animation Effects to Paragraphs
 
-We added the [**AddEffect()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence#a255eb5aaf90861b01980047bc06ead4f) method to the [**Sequence**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence) and [**ISequence**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.i_sequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
+We added the [**AddEffect()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence#a255eb5aaf90861b01980047bc06ead4f) method to the [**Sequence**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence) and [**ISequence**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.i_sequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ``` cpp
 String dataDir = GetDataPath();

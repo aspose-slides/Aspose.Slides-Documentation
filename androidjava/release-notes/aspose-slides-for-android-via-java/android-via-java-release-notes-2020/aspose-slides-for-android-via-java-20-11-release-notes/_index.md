@@ -56,9 +56,9 @@ The rendered thumbnail will look like that:
 ![todo:image_alt_text](img_01_01.png)
 
 ### Checking password to open via IPresentationInfo interface
-**[checkPassword()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkPassword-java.lang.String-)** 
-method has been added to **[IPresentationInfo](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo)** 
-interface and **[PresentationInfo](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo)** class. 
+**[checkPassword()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkPassword-java.lang.String-)** 
+method has been added to **[IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo)** 
+interface and **[PresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo)** class. 
 This method allows checking whether a presentation is protected by a password to open.
 
 Method declaration:
@@ -84,9 +84,9 @@ boolean isPasswordCorrect = info.checkPassword("my_password");
 ```
 
 ### getKeepTextFlat() and setKeepTextFlat() methods have been added to ITextFrameFormat
-New methods **[getKeepTextFlat()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getKeepTextFlat--)** 
-and **[setKeepTextFlat()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setKeepTextFlat-boolean-)** 
-have been added to **[ITextFrameFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)** interface.
+New methods **[getKeepTextFlat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getKeepTextFlat--)** 
+and **[setKeepTextFlat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setKeepTextFlat-boolean-)** 
+have been added to **[ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat)** interface.
 
 Using these methods allows to keep text out of 3D scene entirely.
 
@@ -128,15 +128,15 @@ If the chart was loaded from an input file, the cached image from the PPTX packa
 
 Following enum values have been added:
 
-- **[CombinableSeriesTypesGroup.MapChart](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/CombinableSeriesTypesGroup#MapChart)**
+- **[CombinableSeriesTypesGroup.MapChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CombinableSeriesTypesGroup#MapChart)**
 
-- **[ChartType.Map](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ChartType#Map)**
+- **[ChartType.Map](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType#Map)**
 
 Methods:
 
-- **[IChartDataPointCollection.addDataPointForMapSeries(IChartDataCell)](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointCollection#addDataPointForMapSeries-com.aspose.slides.IChartDataCell-)**
+- **[IChartDataPointCollection.addDataPointForMapSeries(IChartDataCell)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPointCollection#addDataPointForMapSeries-com.aspose.slides.IChartDataCell-)**
 
-- **[IChartDataPoint.getColorValue()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPoint#getColorValue--)**
+- **[IChartDataPoint.getColorValue()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataPoint#getColorValue--)**
 
 Following **example** shows how to create a map chart from scratch:
 ```java

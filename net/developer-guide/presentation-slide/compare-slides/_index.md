@@ -8,7 +8,7 @@ description: "Compare PowerPoint presentation slides in C# or .NET"
 ---
 
 ## **Compare Two Slides**
-Equals method has been added to [IBaseSlide](https://apireference.aspose.com/slides/net/aspose.slides/ibaseslide) interface and [BaseSlide](https://apireference.aspose.com/slides/net/aspose.slides/baseslide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content.
+Equals method has been added to [IBaseSlide](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide) interface and [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content.
 
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 

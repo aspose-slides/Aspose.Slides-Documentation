@@ -33,16 +33,16 @@ Before you start editing PowerPoint shapes through edit points, you might want t
   * A straight point is a point where 2 handles exist in a straight line and that line's line segments joins in a smooth curve. In this case, the handles don't have to be separated from the anchor point by an equal distance. 
 * By moving or editing anchor points (which changes the angle of lines), you can change the way a shape looks. 
 
-To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class and [**IGeometryPath**](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath) interface. 
+To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class and [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) interface. 
 
-* A [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
-* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape.GetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) method. 
-* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape.SetGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) for *solid shapes* and [IGeometryShape.SetGeometryPaths](https://apireference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) for *composite shapes*.
-* To add segments, you can use the methods under [IGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath). 
-* Using the [IGeometryPath.Stroke](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) and [IGeometryPath.FillMode](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) properties, you can set the appearance for a geometry path.
-* Using the [IGeometryPath.PathData](https://apireference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) property, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
-* To access additional shape geometry customization options, you can convert [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)
-* Use [GeometryPathToGraphicsPath](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) and [GraphicsPathToGeometryPath](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) methods (from the [ShapeUtil](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil) class) to convert [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth. 
+* A [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) instance represents a geometry path of the [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape) object. 
+* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) method. 
+* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) for *solid shapes* and [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) for *composite shapes*.
+* To add segments, you can use the methods under [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath). 
+* Using the [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) and [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) properties, you can set the appearance for a geometry path.
+* Using the [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) property, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
+* To access additional shape geometry customization options, you can convert [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)
+* Use [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) and [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) methods (from the [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) class) to convert [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) back and forth. 
 
 ## **Simple Editing Operations**
 
@@ -106,8 +106,8 @@ void MoveTo(float x, float y);
 void RemoveAt(int index);
 ```
 ## **Add Custom Points to Shape**
-1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Rectangle](https://apireference.aspose.com/slides/net/aspose.slides/shapetype) type.
-2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype) type.
+2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
 3. Add a new point between the two top points on the path.
 4. Add a new point between the two bottom points on the path.
 5. Apply the path to the shape.
@@ -130,8 +130,8 @@ using (Presentation pres = new Presentation())
 
 ##  Remove Points From Shape
 
-1. Create an instance of [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Heart](https://apireference.aspose.com/slides/net/aspose.slides/shapetype) type. 
-2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
+1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype) type. 
+2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
 3. Remove the segment for the path.
 4. Apply the path to the shape.
 
@@ -152,9 +152,9 @@ using (Presentation pres = new Presentation())
 ##  **Create Custom Shape**
 
 1. Calculate the points for the shape.
-2. Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class. 
+2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class. 
 3. Fill the path with the points.
-4. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class. 
+4. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class. 
 5. Apply the path to the shape.
 
 This C# shows you how to create a custom shape:
@@ -200,9 +200,9 @@ using (Presentation pres = new Presentation())
 
 ## **Create Composite Custom Shape**
 
-  1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class.
-  2. Create a first instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class.
-  3. Create a second instance of the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) class.
+  1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class.
+  2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class.
+  3. Create a second instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class.
   4. Apply the paths to the shape.
 
 This C# code shows you to create a composite custom shape:
@@ -279,9 +279,9 @@ using (var presentation = new Presentation())
 
 ## **Convert GeometryPath to GraphicsPath (System.Drawing.Drawing2D)** 
 
-1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/net/aspose.slides/geometryshape) class.
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class.
 2. Create an instance of the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) class of the [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) namespace.
-3. Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the [GeometryPath](https://apireference.aspose.com/slides/net/aspose.slides/geometrypath) instance using [ShapeUtil](https://apireference.aspose.com/slides/net/aspose.slides.util/shapeutil).
+3. Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) instance using [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil).
 4. Apply the paths to the shape.
 
 This C# code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:

@@ -15,10 +15,10 @@ You may want to use comments to provide feedback or communicate with your collea
 
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for C++ provides
 
-* The [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class, which contains the collections of authors (from the [get_CommentAuthors()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d) method). The authors add comments to slides. 
-* The  [ICommentCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment_collection) interface, which contains the collection of comments for individual authors. 
-* The  [IComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
-* The [CommentAuthor](https://apireference.aspose.com/slides/cpp/class/aspose.slides.comment_author) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
+* The [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class, which contains the collections of authors (from the [get_CommentAuthors()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d) method). The authors add comments to slides. 
+* The  [ICommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment_collection) interface, which contains the collection of comments for individual authors. 
+* The  [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
+* The [CommentAuthor](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_author) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
 
 ## **Add Slide Comment**
 This C++ code shows you how to add a comment to a slide in a PowerPoint presentation:
@@ -88,7 +88,7 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [ParentComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) property (from the [IComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment) interface), you can set or get a parent comment. 
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) property (from the [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) interface), you can set or get a parent comment. 
 
 This C++ code shows you how to add comments and get replies to them:
 
@@ -146,8 +146,8 @@ pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 
 {{% alert color="warning" title="Attention" %}} 
 
-* When the [Remove](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment#a8bb818ae804d142195c4edcf9012cccb) method (from the [IComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment) interface) is used to delete a comment, the replies to the comment also get deleted. 
-* If the [ParentComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) setting results in a circular reference, [PptxEditException](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) will be thrown.
+* When the [Remove](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#a8bb818ae804d142195c4edcf9012cccb) method (from the [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* If the [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) setting results in a circular reference, [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) will be thrown.
 
 {{% /alert %}}
 
@@ -155,7 +155,7 @@ pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-In [Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.modern_comment) class. The [AddModernComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#a3627fcb3b05cd639fd430bd8248fe66b) and [InsertModernComment](https://apireference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#ad11c3efb52f3c17f63238447dcc03c94) methods were added to the [CommentCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.comment_collection) class.
+In [Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.modern_comment) class. The [AddModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#a3627fcb3b05cd639fd430bd8248fe66b) and [InsertModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#ad11c3efb52f3c17f63238447dcc03c94) methods were added to the [CommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection) class.
 
 This C++ code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 

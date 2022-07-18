@@ -40,27 +40,27 @@ While working with Slide Masters, its important to understand how they are used 
 By default, each presentation has at least one Slide Master. However, its possible to add several Slide Masters into one presentation. Several Slide Masters can be used to make different parts of presentations to be stylized in different ways. 
 
 In **Aspose.Slides** Slide Master is represented by 
-[**IMasterSlide**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) type. 
-[Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation
+[**IMasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) type. 
+[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation
 ) object has 
-[**get_Masters()** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) method that returns [**IMasterSlideCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) type, 
+[**get_Masters()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) method that returns [**IMasterSlideCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) type, 
 which contains a list of all master slides that are defined in this presentation. Appart from 
 CRUD operations, 
-[IMasterSlideCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) type is interesting with 
-[**AddClone()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) 
-and [**InsertClone()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311) methods. 
+[IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) type is interesting with 
+[**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#aaf86ba9a1c55969e7d5f4dbc8cb233a1) 
+and [**InsertClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection#af297b1c8e31fbcef821f1554b1fbc311) methods. 
 These methods are inherited from basic slides clone functionality. 
 But, in case of Slide Masters, the methods allow to implement complicated abovementioned scenarios.
 
 
 
-When a new slide is added into presentation, Slide Master is applied to it automatically. By default, the Slide Master of previous slide is choosed for that. (*Note: you can get presentation slides by calling [get_Slides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) method, and each new slide is added to the end of collection, by default.*)  In case, there is only one Slide Master in presentation - it is choosed for all new slides. So, there is no need to define the Slide Master for each new slide created.
+When a new slide is added into presentation, Slide Master is applied to it automatically. By default, the Slide Master of previous slide is choosed for that. (*Note: you can get presentation slides by calling [get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) method, and each new slide is added to the end of collection, by default.*)  In case, there is only one Slide Master in presentation - it is choosed for all new slides. So, there is no need to define the Slide Master for each new slide created.
 
 This logic is the same for both Aspose.Slides and PowerPoint. For example, in PowerPoint when you add a new presentation, you can just press on a bottom line under the last slide. In this case, a new slide, with a Slide Master of last presentation, will be created:
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-In Aspose.Slides, the same is achieved with [AddClone()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method of [Presentation ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation)object.
+In Aspose.Slides, the same is achieved with [AddClone()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method of [Presentation ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)object.
 
 
 ## **Slide Master in Slides hierarchy**
@@ -72,16 +72,16 @@ Slide Master stands over all, which can be illustrated as "Slide Master -> Slid
 
 
 
-Each [IMasterSlide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) 
-object has [**get_LayoutSlides()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) method 
-with a list of Slide Layouts. [Slide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide) type has 
-[**get_LayoutSlide()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) method with a link on a 
+Each [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) 
+object has [**get_LayoutSlides()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a200db12188121c969627e4c4c0253a37) method 
+with a list of Slide Layouts. [Slide](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide) type has 
+[**get_LayoutSlide()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide#a56b36c32cb9e5db97cdbc7e8248f6fa8) method with a link on a 
 Slide Layout applied to this slide. The relation between Slide and Slide Master occurs through Slide Layout.
 
 
 {{% alert color="info" title="Note" %}} 
 In Aspose.Slides all Slide Masters, Slide Layouts and Slides - are actually Slide objects, 
-implementing [**IBaseSlide**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) interface.
+implementing [**IBaseSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) interface.
 {{% /alert %}}
 
 Therefore, Slide Master and Slide Layout may implement the same methods, and its important to know how their value will be applied to Slide. First, Slide Master is applied to Slide, then Slide Layouts are applied. For example, if Slide Master and Slide Layout both have background value, the Slide will get background from Slide Layout.
@@ -90,14 +90,14 @@ Therefore, Slide Master and Slide Layout may implement the same methods, and it
 ## **What Slide Master consists from**
 To understand how Slide Master can be changed, we should know what it consists from. Following are the core methods of ISlideMaster, that worth to know:
 
-- [get(set)_Background()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - get/set slide background.
-- [get(set)_BodyStyle](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - get/set text styles of the slide’s body.
-- [get(set)_Shapes](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
-- [get(set)_Controls](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - get/set ActiveX controls.
-- [get_ThemeManager()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - get theme manager.
-- [get_HeaderFooterManager()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - get header and footer manager.
-- [GetDependingSlides](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - get all Slides depending on Slide Master.
-- [ApplyExternalThemeToDependingSlides](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - allows to create a new Slide Master based on current Slide Master and a new theme. New Slide Master is being applied to all dependent slides.
+- [get(set)_Background()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aeac7142751858f0a68de92f259eb8d35) - get/set slide background.
+- [get(set)_BodyStyle](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a51b96aee050a04e6d36b9d08b85dcf55) - get/set text styles of the slide’s body.
+- [get(set)_Shapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#aa6b93a3863b7516d4a1a751a0ca885c7) - get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
+- [get(set)_Controls](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#ae05f1e1b686a52728ae94e47f308ff08) - get/set ActiveX controls.
+- [get_ThemeManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.i_master_themeable#a70c68d34412e96f3cc24273fde826ecf) - get theme manager.
+- [get_HeaderFooterManager()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a755d0d7cc3c677e746499f2a4e33a5cc) - get header and footer manager.
+- [GetDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a9026e22b68087238cc73348e303c6d90) - get all Slides depending on Slide Master.
+- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide#a8d519dd31014fcbb2be0ab72061f94dc) - allows to create a new Slide Master based on current Slide Master and a new theme. New Slide Master is being applied to all dependent slides.
 
 
 ## **Get Slide Master**
@@ -111,7 +111,7 @@ With Aspose.Slides its possible to access Slide Master this way:
 
 
 
-Slide Master is represented by [IMasterSlide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) type. What you need is to call [get_Masters()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) method to get Masters list from [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) object. Masters list has a type of [IMasterSlideCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) and contains a list of all Slide Masters that are defined in the presentation. 
+Slide Master is represented by [IMasterSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide) type. What you need is to call [get_Masters()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8fda502eacdf2fe4ccfc1ab0bf185d29) method to get Masters list from [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object. Masters list has a type of [IMasterSlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_master_slide_collection) and contains a list of all Slide Masters that are defined in the presentation. 
 
 
 ## **Add Image to Slide Master**
@@ -128,7 +128,7 @@ The same can be achieved with Aspose.Slides for C++:
 
 
 
-First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [AddPictureFrame() ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#a4d76d3fc1f3a719b44bb5f45b72ed6e0)method. After that, we add new slides, which are based on this Slide Master with [AddEmptySlide() ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#acf62d1550db1688caeef1eaf23e124ef)method. Info AddEmptySlide method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
+First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [AddPictureFrame() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#a4d76d3fc1f3a719b44bb5f45b72ed6e0)method. After that, we add new slides, which are based on this Slide Master with [AddEmptySlide() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#acf62d1550db1688caeef1eaf23e124ef)method. Info AddEmptySlide method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
 
 
 
@@ -192,7 +192,7 @@ It is possible to change the background of Slide Master and make it apply to all
 
 ## **Clone Slide Master to Another Presentation**
 To clone Slide Master to another presentation, 
-[**AddClone()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method is called from destination presentation with a Slide Master passed into it:
+[**AddClone()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a4c03a2193e89401782bf690bc5e22b48) method is called from destination presentation with a Slide Master passed into it:
 
 
 ## **Add Multiple Slide Masters to Presentation**
@@ -209,7 +209,7 @@ With Aspose.Slides you can add new Slide Master by calling presentation->get_Mas
 
 
 ## **Compare Slide Masters**
-Master Slide implements [IBaseSlide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) interface, containing [**Equals()** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f)method, which can be used to compare slides. It returns true for Master Slides, that are identical by the structure and static content. Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
+Master Slide implements [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide) interface, containing [**Equals()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#afb1febe7cf3991c06f4d96e017c22b6f)method, which can be used to compare slides. It returns true for Master Slides, that are identical by the structure and static content. Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
 
 

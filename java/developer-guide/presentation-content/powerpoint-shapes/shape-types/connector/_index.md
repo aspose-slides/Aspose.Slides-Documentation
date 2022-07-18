@@ -8,13 +8,13 @@ url: /java/connector/
 ## **Connect Shapes Using Connectors**
 In order to add a connector shape for joining two shapes. Please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Index.
-1. Add two add AutoShape's in selected slide using [addAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
-1. Add Connector using [addConnector](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addConnector-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object by defining Connector Type.
+1. Add two add AutoShape's in selected slide using [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
+1. Add Connector using [addConnector](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addConnector-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object by defining Connector Type.
 1. Join the added shape using connectors.
 1. Call Reroute() method to create shortest automatic connection path.
-1. Write the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) as a PPTX file.
+1. Write the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) as a PPTX file.
    In the example given below, we have added a connector between two shapes.
 
 ```java
@@ -49,17 +49,17 @@ try {
 
 {{% alert color="primary" %}} 
 
-Method [IConnector.reroute()](https://apireference.aspose.com/slides/java/com.aspose.slides/IConnector#reroute--) reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the [reroute()](https://apireference.aspose.com/slides/java/com.aspose.slides/IConnector#reroute--) method may change the [StartShapeConnectionSiteIndex](https://apireference.aspose.com/slides/java/com.aspose.slides/IConnector#setStartShapeConnectionSiteIndex-long-) and [EndShapeConnectionSiteIndex](https://apireference.aspose.com/slides/java/com.aspose.slides/IConnector#setEndShapeConnectionSiteIndex-long-).
+Method [IConnector.reroute()](https://reference.aspose.com/slides/java/com.aspose.slides/IConnector#reroute--) reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the [reroute()](https://reference.aspose.com/slides/java/com.aspose.slides/IConnector#reroute--) method may change the [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/java/com.aspose.slides/IConnector#setStartShapeConnectionSiteIndex-long-) and [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/java/com.aspose.slides/IConnector#setEndShapeConnectionSiteIndex-long-).
 
 {{% /alert %}} 
 
 ## **Use Desired Connection Site**
 In order to add a connector shape for joining two shapes. Please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Index.
-1. Add two add AutoShape's in selected slide using [addAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
-1. Add Connector using [addConnector](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addConnector-int-float-float-float-float-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object by defining Connector Type.
+1. Add two add AutoShape's in selected slide using [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
+1. Add Connector using [addConnector](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addConnector-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object by defining Connector Type.
 1. Join the added shape using connectors.
 1. Setting the desired connection site on shape for connector.
 1. Write the presentation as a PPTX file.
@@ -107,7 +107,7 @@ try {
 ## **Find Angle of Connector Lines**
 In order to calculate the angle for connector line, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the presentation.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the presentation.
 1. Obtain the reference of a slide by using its Index.
 1. Access the Connector Line shape.
 1. Use the line width, height, shape frame height and shape frame width to calculate the angle.

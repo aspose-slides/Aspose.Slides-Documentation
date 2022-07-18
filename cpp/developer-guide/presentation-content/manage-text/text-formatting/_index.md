@@ -32,7 +32,7 @@ The code snippet below shows how to use this feature:
 ## **Align Text Paragraph**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for C++ supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for C++ :
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its Index.
 3. Access the Placeholder shapes present in the slide and typecast them as an AutoShape.
 4. Get the Paragraph (that needs to be aligned) from the TextFrame exposed by AutoShape.

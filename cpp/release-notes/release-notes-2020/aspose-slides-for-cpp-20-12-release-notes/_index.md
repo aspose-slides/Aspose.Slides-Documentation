@@ -33,8 +33,8 @@ This page contains release notes for Aspose.Slides for C++ 20.12.
 ## **Public API Changes**
 ### PDF Import
 PDF Import feature has been added. This feature allows importing a PDF document into 
-[Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-A new **[SlideCollection::AddFromPdf](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5)** 
+[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
+A new **[SlideCollection::AddFromPdf](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5)** 
 method creates slides from the PDF document and adds them to the end of the collection:
 
 ```cpp
@@ -44,11 +44,11 @@ pres->Save(u"fromPdfDocument.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### IInk interface has been added
-**[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)** 
-interface and Ink implementer class have been added. They represent an **[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)** 
+**[IInk](https://reference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)** 
+interface and Ink implementer class have been added. They represent an **[IInk](https://reference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)** 
 graphical element.
 
-**[IInk](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)**  declaration:
+**[IInk](https://reference.aspose.com/slides/cpp/class/aspose.slides.ink.i_ink)**  declaration:
 
 ```cpp
 /// <summary>

@@ -40,13 +40,13 @@ When you create a Zoom transition in PowerPoint, you can jump to (and from) spec
 
 ![Zoom in PowerPoint](1619798273734-617.png)
 
-In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2), a new interface [IZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame), and some new additional methods in [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
+In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2), a new interface [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame), and some new additional methods in [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection).
 
 #### ZoomImageType Enum ####
 
-The [ZoomImageType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) determines whether the Zoom object uses the slide preview or a cover image.
+The [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) determines whether the Zoom object uses the slide preview or a cover image.
 
-This is the [ZoomImageType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) enum definition: 
+This is the [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) enum definition: 
 
 ``` cpp
 enum class ZoomImageType
@@ -64,7 +64,7 @@ enum class ZoomImageType
 
 #### IZoomFrame Interface ####
 
-The [IZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) interface with the [ZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.zoom_frame) implementation class has been added:
+The [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) interface with the [ZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.zoom_frame) implementation class has been added:
 
 ``` cpp
 class IZoomFrame : public virtual Aspose::Slides::IGraphicalObject
@@ -154,7 +154,7 @@ public:
 
 #### New methods in IShapeCollection interface have been added ####
 
-These new methods create [ZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.zoom_frame) objects:
+These new methods create [ZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.zoom_frame) objects:
 
 ``` cpp
 /// <summary>
@@ -180,7 +180,7 @@ virtual System::SharedPtr<IZoomFrame> InsertZoomFrame(int32_t index, float x, fl
 
 #### Example ####
 
-This example shows you how to create a [ZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.zoom_frame) object with a custom image and specified image frame:
+This example shows you how to create a [ZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.zoom_frame) object with a custom image and specified image frame:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -201,9 +201,9 @@ pres->Save(u"presentation.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 
 ### IHyperlinkManager::SetMacroHyperlinkClick method has been added ###
 
-A new method, [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_manager#a7717fd76e815b2a1d222d7be13077b17), has been added to the [IHyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager) interface and [HyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/hyperlinkmanager) class.
+A new method, [SetMacroHyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_manager#a7717fd76e815b2a1d222d7be13077b17), has been added to the [IHyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager) interface and [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkmanager) class.
 
-The [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_manager#a7717fd76e815b2a1d222d7be13077b17) method is used to set a macro hyperlink on a click for a shape.
+The [SetMacroHyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_manager#a7717fd76e815b2a1d222d7be13077b17) method is used to set a macro hyperlink on a click for a shape.
 
 Method declaration:
 
@@ -214,7 +214,7 @@ Method declaration:
 virtual System::SharedPtr<IHyperlink> SetMacroHyperlinkClick(System::String macroName) = 0;
 ```
 
-This code snippet shows you how the [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_manager#a7717fd76e815b2a1d222d7be13077b17) method is used to set a macro hyperlink click on a shape:
+This code snippet shows you how the [SetMacroHyperlinkClick](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_manager#a7717fd76e815b2a1d222d7be13077b17) method is used to set a macro hyperlink click on a shape:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -224,7 +224,7 @@ shape->get_HyperlinkManager()->SetMacroHyperlinkClick(u"MacroName");
 
 ### IPptOptions::get_RootDirectoryClsid() and IPptOptions::set_RootDirectoryClsid() methods have been added
 
-New [get_RootDirectoryClsid()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options#a11784c14d151573ac9dd6eaa8539866e) and [set_RootDirectoryClsid()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options#a959357e06ce79d748c81fb43b08e22a1) methods have been added to [IPptOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options) interface and [PptOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options) class.
+New [get_RootDirectoryClsid()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options#a11784c14d151573ac9dd6eaa8539866e) and [set_RootDirectoryClsid()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options#a959357e06ce79d748c81fb43b08e22a1) methods have been added to [IPptOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options) interface and [PptOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_ppt_options) class.
 The RootDirectoryClsid property represents the object class GUID (CLSID) that is stored in the root directory entry. It can be used for COM activation of the document's application.
 
 Methods declaration:

@@ -18,7 +18,7 @@ Step 2: Replace Text of the Placeholder
 
 To replace the text of a Placeholder, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Iterate through the Shapes and find the Placeholder shapes.
 - Typecast the Placeholder shape to AutoShape and change the text using the TextFrame associated with the AutoShape.

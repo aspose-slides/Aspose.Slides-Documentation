@@ -37,18 +37,18 @@ This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** p
 
 To create a bullet list, through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access the slide (in which you want to add a bullet list) in slide collection through the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/index) object.
-3. Add an [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape) in the selected slide.
-4. Access the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) of the added shape.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+2. Access the slide (in which you want to add a bullet list) in slide collection through the [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index) object.
+3. Add an [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) in the selected slide.
+4. Access the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) of the added shape.
 5. Remove the default paragraph in the [TextFrame]().
-6. Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/net/aspose.slides/paragraph) class.
+6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) class.
 8. Set the bullet type to Symbol and then set the bullet character.
 9. Set the Paragraph Text.
 10. Set the Paragraph Indent to set the bullet.
 11. Set the Color of the Bullet.
 12. Set the Height of the Bullet.
-13. Add the created paragraph in the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) paragraph collection.
+13. Add the created paragraph in the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) paragraph collection.
 14. Add the second paragraph and repeat steps 7-12.
 15. Save the presentation.
 
@@ -95,19 +95,19 @@ In any case, the image you choose will be reduced to a very small size, so we st
 
 To create a picture bullet, go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access the desired slide in slide collection using the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/index) object.
-3. Add an [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape) in the selected slide.
-4. Access the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) of the added shape.
-5. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe).
-6. Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/net/aspose.slides/paragraph) class.
-7. Load Image from disk and add it to [Presentation.Images](https://apireference.aspose.com/slides/net/aspose.slides/presentation/properties/images) and then use the [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) instance that was returned from the [AddImage](https://apireference.aspose.com/slides/net/aspose.slides/imagecollection/methods/addimage/index) method.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+2. Access the desired slide in slide collection using the [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index) object.
+3. Add an [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) in the selected slide.
+4. Access the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) of the added shape.
+5. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
+6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) class.
+7. Load Image from disk and add it to [Presentation.Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/images) and then use the [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) instance that was returned from the [AddImage](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/methods/addimage/index) method.
 8. Set the bullet type to Picture and then set the image.
 9. Set the Paragraph Text.
 10. Set the Paragraph Indent to set the bullet.
 11. Set the Color of Bullet.
 12. Set the Height of Bullets.
-13. Add the created paragraph in the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) paragraph collection.
+13. Add the created paragraph in the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) paragraph collection.
 14. Add the second paragraph and repeat steps 7-13.
 15. Save the presentation.
 
@@ -144,16 +144,16 @@ using (Presentation pres = new Presentation())
 
 To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access the desired slide in slide collection using the [ISlide](https://apireference.aspose.com/slides/net/aspose.slides/islide/methods/index) object.
-3. Add an [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape) in the selected slide.
-4. Access the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) of the added shape.
-5. Remove the default paragraph in the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe).
-6. Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/net/aspose.slides/paragraph) class and with depth set to 0.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+2. Access the desired slide in slide collection using the [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index) object.
+3. Add an [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) in the selected slide.
+4. Access the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) of the added shape.
+5. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
+6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) class and with depth set to 0.
 7. Create the second paragraph instance using the Paragraph class and the depth set to 1.
 8. Create the third paragraph instance using the Paragraph class and the depth set to 2.
 9. Create the fourth paragraph instance using the Paragraph class and the depth set to 3.
-10. Add the created paragraphs in the [TextFrame](https://apireference.aspose.com/slides/net/aspose.slides/textframe) paragraph collection.
+10. Add the created paragraphs in the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) paragraph collection.
 11. Save the presentation.
 
 This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in C#:

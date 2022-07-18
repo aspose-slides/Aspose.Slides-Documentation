@@ -7,7 +7,7 @@ url: /cpp/access-slide-in-presentation/
 
 
 ## **Access Slide in Presentation**
-In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) associated with a [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) object.
+In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) associated with a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object.
 
 Aspose.Slides for C++ provides `Presentation` class that can be used to find and access any desired slide present in the presentation. Currently, developers can access a slide in following two ways.
 
@@ -20,7 +20,7 @@ Aspose.Slides for C++ provides `Presentation` class that can be used to find a
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessSlidebyIndex-AccessSlidebyIndex.cpp" >}}
 
 ### **Access Slide by ID**
-Every slide in presentation has a unique ID associated with it. The `Presentation` class exposes the [GetSlideById(id)](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [GetSlideById(id)](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method as shown below in the example.
+Every slide in presentation has a unique ID associated with it. The `Presentation` class exposes the [GetSlideById(id)](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [GetSlideById(id)](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method as shown below in the example.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessSlidebyID-AccessSlidebyID.cpp" >}}
 
@@ -39,7 +39,7 @@ The example given below moves the slide (that was at position 1 to the second po
 
 
 ## **Set Slide Number**
-Aspose.Slides for C++ now supports, setting the Slide Number. In this topic, we will see with an example how to get and set the slide number property in Aspose.Slides. The new methods added to `Presentation` allows to get or to set the number of the first slide in a presentation. When a new [FirstSlideNumber](https://apireference.aspose.com/slides/net/aspose.slides/presentation/properties/firstslidenumber) value is specified all slide numbers are recalculated. In order to get or set the Slide Number, please follow the steps below:
+Aspose.Slides for C++ now supports, setting the Slide Number. In this topic, we will see with an example how to get and set the slide number property in Aspose.Slides. The new methods added to `Presentation` allows to get or to set the number of the first slide in a presentation. When a new [FirstSlideNumber](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/firstslidenumber) value is specified all slide numbers are recalculated. In order to get or set the Slide Number, please follow the steps below:
 
 1. Create an instance of `Presentation` class.
 1. Get the slide number.

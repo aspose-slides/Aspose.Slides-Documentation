@@ -10,7 +10,7 @@ Aspose.Slides for Java provides a simple API for managing error bar values.
 
 The sample code applies when using a custom value type. To specify a value, use theErrorBarCustomValues property of a specific data point in the DataPoints collection of series:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Add a bubble chart on desired slide.
 1. Access the first chart series and set the error bar X format.
 1. Access the first chart series and set the error bar Y format.
