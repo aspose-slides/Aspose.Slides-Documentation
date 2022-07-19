@@ -5,7 +5,6 @@ weight: 80
 url: /cpp/system-requirements/
 ---
 
-
 ## **Supported Operating Systems**
 Aspose.Slides for C++ is a native C++ library. Aspose.Slides for C++ supports the following 64-bit and 32-bit operating system and platforms:
 
@@ -31,6 +30,7 @@ Aspose.Slides for C++ is a native C++ library. Aspose.Slides for C++ supports th
 - macOS Monterey 12.1 or later.
 
 ## **Development Environments**
+You can use Aspose.Slides for C++ when developing applications for Windows, Linux or macOS.
 
 ### **Windows**
 - Microsoft Visual Studio 2017 or later.
