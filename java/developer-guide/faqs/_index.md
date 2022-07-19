@@ -1,6 +1,6 @@
 ---
 title: FAQs
 type: docs
-weight: 20
+weight: 340
 url: /java/faqs/
 ---
