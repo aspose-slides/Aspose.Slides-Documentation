@@ -1,7 +1,7 @@
 ---
 title: Multithreading in Aspose.Slides
 type: docs
-weight: 70
+weight: 310
 url: /net/multithreading/
 ---
 
