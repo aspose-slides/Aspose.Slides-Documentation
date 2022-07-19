@@ -87,6 +87,15 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This Java code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    Html5Options html5Options = new Html5Options();
+    html5Options.setAnimateShapes(true);
+    html5Options.setAnimateTransitions(true);
 
+    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
