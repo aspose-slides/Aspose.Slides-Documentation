@@ -32,6 +32,12 @@ Extended operations with Slide Master can be:
 - Set Slide Master as presentation default view.
 - ... and many others.
 
+{{% alert color="primary" %}} 
+
+You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
+
+{{% /alert %}} 
+
 ## **How is Slide Master applied**
 While working with Slide Masters, its important to understand how they are used in presentations and applied to slides.
 
@@ -142,7 +148,7 @@ pres.getSlides().addEmptySlide(masterSlide.getLayoutSlides().get_Item(1));
 First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [addPictureFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) method. After that, we add new slides, which are based on this Slide Master with [addEmptySlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addEmptySlide-com.aspose.slides.ILayoutSlide-) method. Info AddEmptySlide method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
 
 {{% alert color="primary" title="See also" %}} 
-- [Add Picure Frame to Slide](/slides/java/picture-frame/#add-picture-frame-to-slide)
+- [Add Picture Frame to Slide](/slides/net/picture-frame/#create-picture-frame)
 {{% /alert %}}
 
 ## **Add Placeholder to Slide Master**
@@ -240,6 +246,3 @@ try {
 }
 ```
 
-## **Live Example**
-You can take a look at presentation from the examples above with [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/):
-[![todo:image_alt_text](slides-master.png)](https://products.aspose.app/slides/viewer/)

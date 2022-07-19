@@ -33,6 +33,12 @@ Extended operations with Slide Master can be:
 - Set Slide Master as presentation default view.
 - ... and many others.
 
+{{% alert color="primary" %}} 
+
+You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
+
+{{% /alert %}} 
+
 
 ## **How is Slide Master applied**
 While working with Slide Masters, its important to understand how they are used in presentations and applied to slides.
@@ -280,8 +286,3 @@ with slides.Presentation() as presentation:
     # Save presentation
     presentation.save("PresView.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
-## **Live Example**
-You can take a look at presentation from the examples above with [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/):
-[![todo:image_alt_text](slides-master.png)](https://products.aspose.app/slides/viewer/)
