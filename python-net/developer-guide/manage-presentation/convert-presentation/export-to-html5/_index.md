@@ -81,6 +81,15 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This Python code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as pres:
+    # Export a presentation containing slides transitions, animations, and shapes animations to HTML5
+    options = slides.export.Html5Options()
+    options.animate_shapes = True
+    options.animate_transitions = True
+
+    # Save presentation
+    pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
 ```
 
