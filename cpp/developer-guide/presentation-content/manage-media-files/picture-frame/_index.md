@@ -231,7 +231,9 @@ presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Use StretchOff Property**
 
-Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) and [StretchOffsetBottom](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) interface and [PictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset. A negative percentage specifies an outset.
+Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) and [StretchOffsetBottom](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) interface and [PictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format) class, you can specify a fill rectangle. 
+
+When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index.
@@ -243,21 +245,8 @@ Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/cpp/class/a
 8. Specify image offsets from the corresponding edge of the shape's bounding box
 9. Write the modified presentation as a PPTX file.
 
-This C++ code demonstrates the process:
+This C++ code demonstrates a process in which a StretchOff property is used:
 
 ``` cpp
-// Instantiates the Presentation class that represents a PPTX file
-auto pres = System::MakeObject<Presentation>();
-// Gets the first slide
-auto sld = pres->get_Slides()->idx_get(0);
 
-// Instantiates the Bitmap class
-auto img = System::MakeObject<Bitmap>(u"aspose-logo.jpg");
-auto imgx = pres->get_Images()->AddImage(img);
-
-// Adds a picture frame with the picture's equivalent height and width
-sld->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(imgx->get_Width()), static_cast<float>(imgx->get_Height()), imgx);
-
-//Writes the PPTX file to disk
-pres->Save(u"AddStretchOffsetForImageFill_out.pptx", SaveFormat::Pptx);
 ```

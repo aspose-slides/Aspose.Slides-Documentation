@@ -210,7 +210,9 @@ with slides.Presentation() as presentation:
 
 ## **Use StretchOff Property**
 
-Using the `StretchOffsetLeft`, `StretchOffsetTop`, `StretchOffsetRight` and `StretchOffsetBottom` properties from the [IPictureFillFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/picturefillformat/) class, you can specify a fill rectangle. When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset. A negative percentage specifies an outset.
+Using the `StretchOffsetLeft`, `StretchOffsetTop`, `StretchOffsetRight` and `StretchOffsetBottom` properties from the [IPictureFillFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/picturefillformat/) class, you can specify a fill rectangle. 
+
+When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
 
 1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/) class.
 2. Get a slide's reference through its index.
@@ -222,7 +224,7 @@ Using the `StretchOffsetLeft`, `StretchOffsetTop`, `StretchOffsetRight` and `Str
 8. Specify image offsets from the corresponding edge of the shape's bounding box
 9. Write the modified presentation as a PPTX file.
 
-This Python code demonstrates the process:
+This Python code demonstrates a process in which a StretchOff property is used:
 
 ```py
 import aspose.slides as slides
