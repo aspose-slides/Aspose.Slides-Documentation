@@ -15,10 +15,10 @@ You may want to use comments to provide feedback or communicate with your collea
 
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for Python via .NET provides
 
-* The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class , which contains the collections of authors (from the [CommentAuthorCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentauthorcollection/) property). The authors add comments to slides. 
-* The  [ICommentCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icommentcollection/) interface, which contains the collection of comments for individual authors. 
-* The [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
-* The [CommentAuthor](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentauthor/) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
+* The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class , which contains the collections of authors (from the [CommentAuthorCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/) property). The authors add comments to slides. 
+* The  [ICommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icommentcollection/) interface, which contains the collection of comments for individual authors. 
+* The [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
+* The [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
 
 ## **Add Slide Comment**
 This Python code shows you how to add a comment to a slide in a PowerPoint presentation:
@@ -82,7 +82,7 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `parent_comment` property (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface), you can set or get a parent comment. 
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the `parent_comment` property (from the [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) interface), you can set or get a parent comment. 
 
 This Python code shows you how to add comments and get replies to them:
 
@@ -137,7 +137,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="warning" title="Attention" %}} 
 
-* When the `Remove` method (from the [IComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/icomment/) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* When the `Remove` method (from the [IComment](https://reference.aspose.com/slides/python-net/aspose.slides/icomment/) interface) is used to delete a comment, the replies to the comment also get deleted. 
 * If the `parent_comment` setting results in a circular reference, `PptxEditException` will be thrown.
 
 {{% /alert %}}
@@ -146,7 +146,7 @@ with slides.Presentation() as pres:
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-We implemented support for modern comments by adding the [ModernComment](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/moderncomment/) class. The `add_modern_comment` and `insert_modern_comment` methods were added to the [CommentCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/commentcollection/) class. 
+We implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) class. The `add_modern_comment` and `insert_modern_comment` methods were added to the [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) class. 
 
 This Python code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 

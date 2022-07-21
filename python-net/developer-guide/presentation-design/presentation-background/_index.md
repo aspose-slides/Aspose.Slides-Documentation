@@ -12,10 +12,10 @@ In this topic, we will see that how can we set the background color of a slide. 
 ## **Setting Background Color for Master Slides**
 We know that Aspose.Slides for Python via .NET may contain two types of slides: Master Slide & Normal Slide. It is possible to change the background colors of both types of slides. Master Slide is like a template that contains all formatting settings, which are applied on all other normal slides contained inside the presentation. It means that if you change the background color of the master slide, all normal slides in the presentation would receive the same background color settings. Please follow the steps below to change the background color of the master slide:
 
-1. Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Set the Background Type of the Slide to OwnBackground.
 1. Set the FillType of the Slide Background to Solid.
-1. Set the Background Color of the Master Slide of the presentation to any desired color using the [SolidFillColor.Color](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fillformat/) property exposed by [FillFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/fillformat/) object.
+1. Set the Background Color of the Master Slide of the presentation to any desired color using the [SolidFillColor.Color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) property exposed by [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) object.
 1. Write the modified presentation as a presentation file.
 
 ```py
@@ -37,7 +37,7 @@ with slides.Presentation() as pres:
 ## **Setting Background Color to Normal Slides**
 A Normal Slide is the one which inherits its format settings from the master slide. If you want to modify its background settings, you would have to modify the slide settings. Please follow the steps below to perform this task:
 
-- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 - Set the Background Type of the Slide to OwnBackground.
 - Set the FillType of the Slide Background to Solid.
 - Set the Background Color of the Normal Slide of the presentation to any desired color using the **SolidFillColor.Color** property exposed by FillFormat object.
@@ -62,7 +62,7 @@ with slides.Presentation() as pres:
 
 To apply the simple gradient effect on the background of a slide using Aspose.Slides for Python via .NET, please follow the steps below:
 
-- Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 - Set the Background Type of the Slide to OwnBackground.
 - Set the FillType of the Slide Background to Gradient.
 - Apply any desired gradient effect from the available options provided by GradientFormatEx object.
@@ -89,7 +89,7 @@ Sometimes, developers may need to use an image as the background of the slide. T
 
 To use an image as the background of a slide using Aspose.Slides for Python via .NET, please follow the steps below:
 
-1. Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Set the Background Type of the Slide to OwnBackground.
 1. Set the FillType of the Slide Background FillFormat to Picture.
 1. Set the PictureFillMode using the options provided by PictureFillMode enum.

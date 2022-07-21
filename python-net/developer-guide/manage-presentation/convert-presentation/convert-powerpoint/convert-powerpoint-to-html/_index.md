@@ -10,7 +10,7 @@ description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as 
 ## **About PowerPoint to HTML Conversion**
 Using [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**. 
 
-**Aspose.Slides** provides many options (mostly from the [**HtmlOptions**](/slides/python-net/api-reference/aspose.slides.export/htmloptions/) class) that define the PowerPoint to HTML conversion process:
+**Aspose.Slides** provides many options (mostly from the [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) class) that define the PowerPoint to HTML conversion process:
 
 * Convert an entire PowerPoint presentation to HTML.
 * Convert a specific slide in a PowerPoint presentation to HTML.
@@ -35,8 +35,8 @@ You may want to check out other [free converters from Aspose](https://products.a
 ## **Convert PowerPoint to HTML**
 Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class
-1. Use the [Save ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)method  to save the object as an HTML file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
+1. Use the [Save ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)method  to save the object as an HTML file.
 
 This code shows you how to convert a PowerPoint to HTML in python:
 
@@ -57,7 +57,7 @@ pres.save("ConvertWholePresentationToHTML_out.html", slides.export.SaveFormat.HT
 
 ## **Convert PowerPoint to Responsive HTML**
 
-Aspose.Slides provides the [ResponsiveHtmlController](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/responsivehtmlcontroller/) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in python:
+Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/responsivehtmlcontroller/) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in python:
 
 ```py
 # Instantiate a Presentation object that represents a presentation file
@@ -88,11 +88,11 @@ pres.save("Output.html", slides.export.SaveFormat.HTML, opt)
 ```
 
 ## **Convert PowerPoint to HTML with Original Fonts**
-Aspose.Slides provides the [EmbedAllFontsHtmlController](/slides/python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
+Aspose.Slides provides the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
 
-To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController](/slides/python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/) class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
+To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
 
-The [EmbedAllFontsHtmlController](/slides/python-net/api-reference/aspose.slides.export/embedallfontshtmlcontroller/) class  supports inheritance and provides the `WriteFont` method, which is meant to be overwritten. 
+The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) class  supports inheritance and provides the `WriteFont` method, which is meant to be overwritten. 
 
 ```py
 import aspose.slides as slides
@@ -109,7 +109,7 @@ pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveForm
 ```
 
 ## **Convert Slide to HTML**
-Convert a separate presentation slide to HTML. For that use the same [**Save**](/slides/python-net/api-reference/aspose.slides/presentation/) method exposed by the [Presentation](/slides/python-net/api-reference/aspose.slides/presentation/) class that is used to convert the whole PPT(X) presentation into a HTML document. The [**HtmlOptions**](/slides/python-net/api-reference/aspose.slides.export/htmloptions/) class can be also used to set the additional conversion options:
+Convert a separate presentation slide to HTML. For that use the same [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class that is used to convert the whole PPT(X) presentation into a HTML document. The [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) class can be also used to set the additional conversion options:
 
 ```py
 # [TODO[not_supported_yet]: python implementation of .net interface]
@@ -150,7 +150,7 @@ presentation.save("SomePresentation-out.html", slides.export.SaveFormat.HTML, sa
 ## **Export Media Files to HTML file**
 Using Aspose.Slides for python, you can export media files this way:
 
-1. Create an instance of of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a reference to the slide.
 1. Add a video to the slide.
 1. Write the presentation as a HTML file.
