@@ -3,12 +3,14 @@ title: Chart Workbook
 type: docs
 weight: 70
 url: /java/chart-workbook/
+keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Chart workbook in PowerPoint presentation in Java"
 ---
 
+## **Set Chart Data from Workbook**
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
-## **Chart Workbook**
-### **Set Chart Data from Workbook**
-A new property has been added to set chart data from workbook. Now Aspose.Slides does allow [readWorkbookStream()](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) and [wrtiteWorkbookStream()](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods to read and write chart data workbooks containing chart data edited using Aspose.Cells. However, the chart data needs to be organized in same way or of similar type as of source type. Below sample example is given.
+This Java code demonstrates a sample operation:
 
 ```java
 Presentation pres = new Presentation();
@@ -34,18 +36,19 @@ try {
 }
 ```
 
-### **Set WorkBook Cell as Chart DataLabel**
-Aspose.Slides for Java provides a simple API for getting value from WorkBook Cell used as DataLabel:
+## **Set WorkBook Cell as Chart DataLabel**
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the Bubble type.
-1. Accessing the chart series.
-1. Setting Workbook cell as data label.
-1. Save the presentation to a PPTX file.
+1. Get a slide's reference through its index.
+1. Add a Bubble chart with some data.
+1. Access the chart series.
+1. Set the workbook cell as a data label.
+1. Save the presentation.
+
+This Java code shows you to set a workbook cell as a chart data label:
 
 ```java
-// Create an instance of Presentation class
+// Instantiates a presentation class that represents a presentation file
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
@@ -66,44 +69,36 @@ try {
 }
 ```
 
-### **Get Chart External Data Source Workbook Path**
-Aspose.Slides for Java provides a simple API for getting value from WorkBook Cell used as DataLabel:
+## Manage Worksheets
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Obtain a slide's reference by its index.
-1. Create object for chart shape
-1. Create object for source type of ChartDataSourceType which represents data source of the chart.
-1. If Source Type is equal to external workbook the get chart external data source workbook path.
+This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) property is used to access a worksheet collection: xxx
 
 ```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation("chart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
+
+```
+
+## **Specify Data Source Type**
+
+This Java code shows you how to specify a type for a data source: xxx
+
+```java
+
 ```
 
 ## **External Workbook**
+
 {{% alert color="primary" %}} 
-Aspose.Slides for Java for 19.4 supports external workbooks as a data source for charts.
+In [Aspose.Slides](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
 ### **Create External Workbook**
-This article demonstrates how to create an external workbook from scratch using Aspose.Slides for Java. [**IChartData.readWorkbookStream()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) and [**IChartData.setExternalWorkbook()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#setExternalWorkbook-java.lang.String-) methods can be used to create an external workbook from scratch or to make an internal workbook external.
 
-The implementation is demonstrated below in an example.
+Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you can either create an external workbook from scratch or make an internal workbook external.
+
+This Java code demonstrates the external workbook creation process:
 
 ```java
-// Create an instance of Presentation class
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
     String externalWbPath = dataPath + "externalWorkbook1.xlsx";
@@ -129,14 +124,15 @@ try {
 ```
 
 ### **Set External Workbook**
-Using Aspose.Slides for Java, an external workbook can be assigned to a chart as a data source. For this purpose [**IChartData.SetExternalWorkbook**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#setExternalWorkbook-java.lang.String-) method has been added.
 
-The method [**setExternalWorkbook()**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#setExternalWorkbook-java.lang.String-) can be also used to update a path to the external workbook if it has been moved. Workbooks placed on remote resources unavailable for data editing but still can be assigned as an external data source. If the relative path was provided for an external workbook, it converts to full path automatically.
+Using the **`setExternalWorkbook`** method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
-The implementation is demonstrated below in an example.
+While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
+
+This Java code shows you how to set an external workbook:
 
 ```java
-// Create an instance of Presentation class
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -159,12 +155,13 @@ try {
 }
 ```
 
-The [**setExternalWorkbook(System workbookPath, boolean updateChartData)**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#setExternalWorkbook-java.lang.String-boolean-) method has been added with **updateChartData** parameter to the [**IChartData**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData) interface and [**ChartData**](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartData) class.
+The `ChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
 
-The **updateChartData** parameter defines whether an excel workbook will be loaded or not. If the value is ***false*** only the workbook path will be updated. Chart data will not be loaded and updated from the target workbook. This is useful when the target workbook does not yet exist or is not available. If the value is **true** chart data will be updated from the target workbook as the [**setExternalWorkbook(String)**](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartData#setExternalWorkbook-java.lang.String-) method does.
+* When `ChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
+* When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```java
-// Create an instance of Presentation class
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -178,13 +175,41 @@ try {
 }
 ```
 
-### **Edit Chart Data**
-Using Aspose.Slides for Java, Chart data in external workbooks can be edited the same way it works for internal workbooks. If external workbook cannot be loaded an exception is thrown.
+### **Get Chart External Data Source Workbook Path**
 
-The implementation is demonstrated below in an example.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Get a slide's reference through its index.
+1. Create an object for the chart shape.
+1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.
+1. Specify the relevant condition based on the source type being the same as the external workbook data source type.
+
+This Java code demonstrates the operation:
 
 ```java
-// Create an instance of Presentation class
+// Creates an instance of the Presentation class
+Presentation pres = new Presentation("chart.pptx");
+try {
+    ISlide slide = pres.getSlides().get_Item(1);
+    IChart chart = (IChart)slide.getShapes().get_Item(0);
+    int sourceType = chart.getChartData().getDataSourceType();
+    
+    if (sourceType == ChartDataSourceType.ExternalWorkbook)
+    {
+        String path = chart.getChartData().getExternalWorkbookPath();
+    }
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+### **Edit Chart Data**
+
+You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
+
+This Java code is an implementation of the described process:
+
+```java
+// Creates an instance of tthe Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
