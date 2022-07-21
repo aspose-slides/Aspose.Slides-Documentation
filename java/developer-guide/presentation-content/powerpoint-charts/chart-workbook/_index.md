@@ -69,7 +69,7 @@ try {
 }
 ```
 
-## Manage Worksheets
+## **Manage Worksheets**
 
 This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) property is used to access a worksheet collection: xxx
 

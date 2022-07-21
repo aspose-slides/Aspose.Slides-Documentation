@@ -89,7 +89,7 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## Manage Worksheets
+## **Manage Worksheets**
 
 This C++ code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) property is used to access a worksheet collection: xxx
 

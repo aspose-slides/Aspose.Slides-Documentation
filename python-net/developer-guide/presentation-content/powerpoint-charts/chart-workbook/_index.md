@@ -49,7 +49,7 @@ This Python code shows you to set a workbook cell as a chart data label: xxx
 
 ```
 
-## Manage Worksheets
+## **Manage Worksheets**
 
 This Python code demonstrates an operation where the `worksheets` property is used to access a worksheet collection:
 

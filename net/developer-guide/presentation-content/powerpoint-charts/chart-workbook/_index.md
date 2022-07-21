@@ -77,7 +77,7 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
-## Manage Worksheets
+## **Manage Worksheets**
 
 This C# code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property is used to access a worksheet collection:
 
@@ -111,8 +111,6 @@ using (Presentation pres = new Presentation())
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
-
-
 
 ## **External Workbook**
 
