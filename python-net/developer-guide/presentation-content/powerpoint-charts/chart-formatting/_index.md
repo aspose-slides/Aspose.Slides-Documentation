@@ -207,7 +207,7 @@ with slides.Presentation() as pres:
 ## **Set Format of Numerics**
 Aspose.Slides for Python via .NET provides a simple API for managing chart data format:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
 1. Set the preset number format from the possible preset values.

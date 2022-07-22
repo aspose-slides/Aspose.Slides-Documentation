@@ -17,7 +17,7 @@ This article explains how to generate slide thumbnails in different ways:
 ## **Generate Shape Thumbnail from Slide**
 To generate a shape thumbnail from any slide using Aspose.Slides for .NET:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
 1. Get the shape thumbnail image of the referenced slide on default scale.
 1. Save the thumbnail image to any desired image format.

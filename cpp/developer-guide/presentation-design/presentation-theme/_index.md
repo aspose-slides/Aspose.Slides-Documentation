@@ -72,7 +72,7 @@ Here is the same theme color set, with all its color names, available in "*Desig
 
 Here is possible to add new colors not defined in presentation theme, or change existing ones. For example, "Hyperlink” and ”Followed Hyperlink” colors were added manually. 
 ## **Change Theme Colors with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) to choose the appropriate color from the theme color set and set it to the element, use [**IFillFormat::get_SolidFillColor()::set_SchemeColor()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28) method:
+In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) to choose the appropriate color from the theme color set and set it to the element, use [**IFillFormat::get_SolidFillColor()::set_SchemeColor()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28) method:
 
 
 ``` cpp
@@ -189,7 +189,7 @@ Presentation theme may also contain a set of background styles, which can be cha
 
 
 ## **Change Theme Background Style with Aspose.Slides**
-In **Aspose.Slides** its possible to access Background Style with [**IPresentation::get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#a57cdf506f7f5a5bc6e91829c1f524be6) method. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
+In **Aspose.Slides** its possible to access Background Style with [**IPresentation::get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#a57cdf506f7f5a5bc6e91829c1f524be6) method. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
 
 On the images above you can see, that to design the Background Style in PowerPoint, there are 12 predefined backgrounds available. However, if we upload the presentation, saved in PowerPoint through Aspose.Slides, then execute the following code - we will see only 3 predefined backgrounds in the resulting presentation:
 
@@ -201,7 +201,7 @@ int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->g
 Console::WriteLine(u"Number of background fill styles for theme is {0}", numberOfBackgroundFills);
 ``` 
 
-The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation::get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#a57cdf506f7f5a5bc6e91829c1f524be6) method.
+The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [IPresentation::get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#a57cdf506f7f5a5bc6e91829c1f524be6) method.
 
 To define which background should be used for presentation, set the needed presentation index (**Note**: the index starts from 1, not from 0. 0 is used to define "*no fill*" value):
 
@@ -219,7 +219,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 ## **Change Theme Effects with Aspose.Slides**
 
 
-An important difference in **Aspose.Slides** to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme)type. [FormatScheme ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
+An important difference in **Aspose.Slides** to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme)type. [FormatScheme ](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
 
 - fill styles
 - line styles
@@ -240,7 +240,7 @@ For example, 3 shapes will look this way after we apply 3 different effects on t
 
 
 
-In **Aspose.Slides** there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [IPresentation::get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#a57cdf506f7f5a5bc6e91829c1f524be6)method available, but it can only change the background fill style.
+In **Aspose.Slides** there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [IPresentation::get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()](https://reference.aspose.com/slides/cpp/class/aspose.slides.theme.format_scheme#a57cdf506f7f5a5bc6e91829c1f524be6)method available, but it can only change the background fill style.
 
 
 So, the effects you can use in PowerPoint are strictly limited. While, in Aspose.Slides it is possible to change them in a flexible way by changing their composite parts. In the following example, we will change the outlook of the abovementioned elements with Aspose.Slides:

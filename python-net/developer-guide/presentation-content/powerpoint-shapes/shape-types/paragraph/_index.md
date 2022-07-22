@@ -25,7 +25,7 @@ with slides.Presentation(path + "Shapes.pptx") as presentation:
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 
-To get the [Portion](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/portion/) or [Paragraph](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/paragraph/) size and coordinates in a table cell text frame, you can use the [IPortion.GetRect](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iportion/) and [IParagraph.GetRect](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iparagraph/) methods.
+To get the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) or [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) size and coordinates in a table cell text frame, you can use the [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) and [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) methods.
 
 This sample code demonstrates the described operation:
 

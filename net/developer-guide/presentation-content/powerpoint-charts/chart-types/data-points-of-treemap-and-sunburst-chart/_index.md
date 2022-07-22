@@ -31,19 +31,19 @@ using (Presentation pres = new Presentation())
 
 If there is a need to format data points of the chart, we should use the following:
 
-[**IChartDataPointLevelsManager**](https://apireference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel) classes 
-and [**IChartDataPoint.DataPointLevels**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) property 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager), 
+[IChartDataPointLevel](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel) classes 
+and [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) property 
 provide access to format data points of Treemap and Sunburst charts. 
-[**IChartDataPointLevelsManager**](https://apireference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager) 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager) 
 is used for accessing multi-level categories - it represents the container of 
-[**IChartDataPointLevel**](https://apireference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel) objects. 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel) objects. 
 Basically it is a wrapper for 
-[**IChartCategoryLevelsManager**](https://apireference.aspose.com/slides/net/aspose.slides.charts/IChartCategoryLevelsManager) with 
+[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartCategoryLevelsManager) with 
 the properties added specific for data points. 
-[**IChartDataPointLevel**](https://apireference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel) class has 
-two properties: [**Format**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/format) and 
-[**DataLabel** ](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/label)which 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel) class has 
+two properties: [**Format**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/format) and 
+[**DataLabel** ](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/label)which 
 provide access to corresponding settings.
 ## **Show Data Point Value**
 Show value of "Leaf 4" data point:

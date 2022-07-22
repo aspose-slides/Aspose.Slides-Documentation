@@ -14,8 +14,8 @@ Aspose.Slides for Java allows you to import presentations from PDFs. Essentially
 Go through these steps:
 
 1. Instantiate an object of the presentation class. 
-2. Call the [addFromPdf()](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) method and pass the PDF file. 
-3. Use the [save()](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
+2. Call the [addFromPdf()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) method and pass the PDF file. 
+3. Use the [save()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
 
 This Java code demonstrates the PDF to PowerPoint process:
 

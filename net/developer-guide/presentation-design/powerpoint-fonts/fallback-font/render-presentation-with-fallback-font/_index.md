@@ -10,9 +10,9 @@ description: "Render PowerPoint with fallback font in C# or .NET"
 The following example includes these steps:
 
 1. We [create fallback font rules collection](/slides/net/create-fallback-fonts-collection/).
-1. [Remove()](https://apireference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) a fallback font rule and [AddFallBackFonts()](https://apireference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) to another rule.
-1. Set rules collection to [FontsManager.FontFallBackRulesCollection](https://apireference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) property.
-1. With [Presentation.Save()](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
+1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) a fallback font rule and [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) to another rule.
+1. Set rules collection to [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) property.
+1. With [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```c#
 // Create new instance of a rules collection

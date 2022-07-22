@@ -13,7 +13,7 @@ Aspose.Slides for C++ provides a simple API for setting precision of data in cha
 ## **Display Percentage as Labels**
 Aspose.Slides for C++ supports displaying the percentage as labels. In this topic, we will see with an example of how to display the percentage as labels using Aspose.Slides. In order to set percentage as a display. Please follow the steps below.
 
-1. Instantiate [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object.
 1. Add a stacked column chart.
 1. Calculate the series data point values for particular categories.
 1. Displaying the percentage as labels.
@@ -28,7 +28,7 @@ In the example given below, we have set the percentage as a label.
 ## **Set Percentage Sign with Chart Data Label**
 In order to set the percentage sign with chart data labels. Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Get the reference of the slide.
 - Add PercentsStackedColumn chart on a slide.
 - Set NumberFormatLinkedToSource to false.
@@ -44,7 +44,7 @@ In order to set the percentage sign with chart data labels. Please follow the st
 ## **Set Label Distances**
 In order to set the Label Distance. Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Get the reference of the slide.
 - Adding a chart on slide.
 - Setting the position of a label from axis.

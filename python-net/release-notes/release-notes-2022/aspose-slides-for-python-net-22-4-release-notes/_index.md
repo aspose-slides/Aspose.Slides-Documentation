@@ -22,8 +22,8 @@ This page contains release notes for [Aspose.Slides for Python via .NET 22.4](ht
 
 A new  LowCode Compress methods were added:
 
-* [void RemoveUnusedMasterSlides(Presentation pres)](/slides/python-net/api-reference/aspose.slides.lowcode/compress/methods/removeunusedmasterslides)
-* [void RemoveUnusedLayoutSlides(Presentation pres)](/slides/python-net/api-reference/aspose.slides.lowcode/compress/methods/removeunusedlayoutslides)
+* [void RemoveUnusedMasterSlides(Presentation pres)](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/methods/removeunusedmasterslides)
+* [void RemoveUnusedLayoutSlides(Presentation pres)](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/methods/removeunusedlayoutslides)
 
 ### Remove unused master slides from Presentation
 

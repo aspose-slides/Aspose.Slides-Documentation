@@ -49,7 +49,7 @@ with slides.Presentation("combined_with_master.pptx") as pres:
 ## **Manage Header and Footer in Handout and Notes Slides**
 Aspose.Slides for Python via .NET supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
-- Load a [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)containing a video.
+- Load a [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)containing a video.
 - Change Header and Footer settings for notes master and all notes slides.
 - Set master notes slide and all child Footer placeholders visible.
 - Set master notes slide and all child Date and time placeholders visible.

@@ -51,17 +51,17 @@ If the chart was loaded from an input file, the cached image from the PPTX packa
 
 Following enum values have been added:
 
-- **[CombinableSeriesTypesGroup](https://apireference.aspose.com/slides/net/aspose.slides.charts/combinableseriestypesgroup).MapChart**
+- **[CombinableSeriesTypesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/combinableseriestypesgroup).MapChart**
 
-- **[ChartType](https://apireference.aspose.com/cells/net/aspose.cells.charts/charttype).Map**
+- **[ChartType](https://reference.aspose.com/cells/net/aspose.cells.charts/charttype).Map**
 
 Methods:
 
-- **[IChartDataPointCollection.AddDataPointForMapSeries(Aspose.Slides.Charts.IChartDataCell)](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/methods/adddatapointformapseries)**
+- **[IChartDataPointCollection.AddDataPointForMapSeries(Aspose.Slides.Charts.IChartDataCell)](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/methods/adddatapointformapseries)**
 
 Properties:
 
-- **[IChartDataPoint.ColorValue](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/colorvalue)**
+- **[IChartDataPoint.ColorValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/colorvalue)**
 
 Following **example** shows how to create a map chart from scratch:
 ```csharp
@@ -101,9 +101,9 @@ using (Presentation presentation = new Presentation())
 ![todo:image_alt_text](mapchart.png)
 
 ### Checking password to open via IPresentationInfo interface
-**[CheckPassword](https://apireference.aspose.com/slides/net/aspose.slides/ipresentationinfo/methods/checkpassword)** 
-method has been added to **[IPresentationInfo](https://apireference.aspose.com/slides/net/aspose.slides/ipresentationinfo)** 
-interface and **[PresentationInfo](https://apireference.aspose.com/slides/net/aspose.slides/presentationinfo)** class. 
+**[CheckPassword](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/methods/checkpassword)** 
+method has been added to **[IPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo)** 
+interface and **[PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo)** class. 
 This method allows checking whether a presentation is protected by a password to open.
 
 Method declaration:
@@ -128,8 +128,8 @@ bool isPasswordCorrect = info.CheckPassword("my_password");
 ```
 
 ### ITextFrameFormat.KeepTextFlat property has been added
-A new property **[KeepTextFlat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/keeptextflat)** 
-has been added to **[ITextFrameFormat](https://apireference.aspose.com/slides/net/aspose.slides/itextframeformat)** interface.
+A new property **[KeepTextFlat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/keeptextflat)** 
+has been added to **[ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)** interface.
 
 Using this property allows to keep text out of 3D scene entirely.
 

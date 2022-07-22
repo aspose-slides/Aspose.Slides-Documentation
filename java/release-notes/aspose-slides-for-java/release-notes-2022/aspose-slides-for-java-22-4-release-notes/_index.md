@@ -32,8 +32,8 @@ This page contains release notes for [Aspose.Slides for Java 22.4](https://repo
 
 A new  LowCode Compress methods were added:
 
-* [void RemoveUnusedMasterSlides(Presentation pres)](https://apireference.aspose.com/slides/java/com.aspose.slides/Compress#removeUnusedMasterSlides-com.aspose.slides.Presentation-)
-* [void RemoveUnusedLayoutSlides(Presentation pres)](https://apireference.aspose.com/slides/java/com.aspose.slides/Compress#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)
+* [void RemoveUnusedMasterSlides(Presentation pres)](https://reference.aspose.com/slides/java/com.aspose.slides/Compress#removeUnusedMasterSlides-com.aspose.slides.Presentation-)
+* [void RemoveUnusedLayoutSlides(Presentation pres)](https://reference.aspose.com/slides/java/com.aspose.slides/Compress#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)
 
 ### Remove unused master slides from Presentation
 

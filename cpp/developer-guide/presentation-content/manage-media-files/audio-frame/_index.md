@@ -10,11 +10,11 @@ description: "Add audio to PowerPoint presentation in C++"
 ## **Creating Audio Frame**
 Aspose.Slides for C++ allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index.
 3. Load the audio file stream you want to embed in the slide.
 4. Add the embedded audio frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) and `Volume` exposed by the [IAudioFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame) object.
+5. Set [PlayMode](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) and `Volume` exposed by the [IAudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame) object.
 6. Save the modified presentation.
 
 This C++ code shows you how to add an embedded audio frame to a slide:
@@ -76,13 +76,13 @@ The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) methods:
-- Audio Options **Start** drop-down list matches the [AudioFrame::get_PlayMode()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a5379c1a9c1166234d674b32413215a2b) method 
-- Audio Options **Volume** matches the [AudioFrame::get_Volume()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#af06a3176684b6a13326bc8526747d9f3)  method 
-- Audio Options **Play Across Slides** matches the [AudioFrame::get_PlayAcrossSlides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a3c6ffc45b319ce127384fc37e188f7b0)  method 
-- Audio Options **Loop until Stopped** matches the [AudioFrame::get_PlayLoopMode()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a99b5b9cc650e93eba813bd8b2371315b)  method 
-- Audio Options **Hide During Show** matches the  [AudioFrame::get_HideAtShowing() ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#abd008322e6a3d7d06bed527e329a9082)  method 
-- Audio Options **Rewind after Playing** matches the [AudioFrame::get_RewindAudio() ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a4900e1df6477db16e8cdd859ad54e637) method 
+PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) methods:
+- Audio Options **Start** drop-down list matches the [AudioFrame::get_PlayMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a5379c1a9c1166234d674b32413215a2b) method 
+- Audio Options **Volume** matches the [AudioFrame::get_Volume()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#af06a3176684b6a13326bc8526747d9f3)  method 
+- Audio Options **Play Across Slides** matches the [AudioFrame::get_PlayAcrossSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a3c6ffc45b319ce127384fc37e188f7b0)  method 
+- Audio Options **Loop until Stopped** matches the [AudioFrame::get_PlayLoopMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a99b5b9cc650e93eba813bd8b2371315b)  method 
+- Audio Options **Hide During Show** matches the  [AudioFrame::get_HideAtShowing() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#abd008322e6a3d7d06bed527e329a9082)  method 
+- Audio Options **Rewind after Playing** matches the [AudioFrame::get_RewindAudio() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a4900e1df6477db16e8cdd859ad54e637) method 
 
 This is how you change the Audio Play options:
 
@@ -126,7 +126,7 @@ pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
 ## **Extract Audio**
 Aspose.Slides for .NET allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and load the presentation containing the audio.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and load the presentation containing the audio.
 2. Get the relevant slide's reference through its index.
 3. Access the slideshow transitions for the slide.
 4. Extract the sound in byte data.

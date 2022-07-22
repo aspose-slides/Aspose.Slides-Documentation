@@ -20,9 +20,9 @@ This page contains release notes for [Aspose.Slides for Android via Java 21.6](
 
 ### Support of Presentation to XAML export ###
 
-To support [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) export to XAML, we added new API members.
+To support [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) export to XAML, we added new API members.
 
-[IXamlOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions) interface and [XamlOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/XamlOptions) class. IXamlOptions definition:
+[IXamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOptions) interface and [XamlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/XamlOptions) class. IXamlOptions definition:
 
 ``` java
 /**
@@ -60,7 +60,7 @@ public interface IXamlOptions extends ISaveOptions
 }
 ```
 
-For [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) export to XAML, a new Save method overload got added to the [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class:
+For [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) export to XAML, a new Save method overload got added to the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class:
 
 ``` java
 /**
@@ -71,7 +71,7 @@ For [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose
 public final void save(IXamlOptions options)
 ```
 
-This code sample demonstrates the exporting of a [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) to a set of XAML files:
+This code sample demonstrates the exporting of a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) to a set of XAML files:
 
 ``` java
 Presentation pres = new Presentation("pres.pptx");
@@ -87,7 +87,7 @@ try {
 
 The XAML files get saved in a newly created folder—"pres".
 
-The [IXamlOutputSaver](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOutputSaver) interface allows you to define your own output-saving service. [IXamlOutputSaver](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOutputSaver) definition:
+The [IXamlOutputSaver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOutputSaver) interface allows you to define your own output-saving service. [IXamlOutputSaver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IXamlOutputSaver) definition:
 
 ``` java
 /**
@@ -110,7 +110,7 @@ public interface IXamlOutputSaver
 
 ### IEffect.getTargetShape() method has been added ###
 
-The [IEffect.getTargetShape()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTargetShape--) method has been added. It returns the shape affected by the effect.
+The [IEffect.getTargetShape()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTargetShape--) method has been added. It returns the shape affected by the effect.
 
 Method declaration:
 

@@ -83,7 +83,7 @@ for (int32_t index = 0; index < pres->get_Videos()->get_Count(); ++index)
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) interface and [**ImageCollection** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.image_collection)class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**IImageCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.image_collection)class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This C++ code shows you how to add a large image through the BLOB process:
 

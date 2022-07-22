@@ -7,7 +7,7 @@ url: /java/chart-data-marker/
 ## **Set Chart Marker Options**
 The markers can be set on chart data points inside particular series. In order to set chart marker options. Please follow the steps below:
 
-- Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Creating the default chart.
 - Set the picture.
 - Take first chart series.

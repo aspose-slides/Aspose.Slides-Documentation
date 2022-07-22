@@ -16,9 +16,9 @@ Aspose.Slides let you load fonts for rendering in presentations without even ins
 ## **Load Custom Fonts from .TTF**
 Please follow the steps below to loading Fonts from external directories by using Aspose.Slides for Java API:
 
-- Create an instance of [FontsLoader](https://apireference.aspose.com/slides/java/com.aspose.slides/FontsLoader) class and call the static method [loadExternalFonts](https://apireference.aspose.com/slides/java/com.aspose.slides/FontsLoader#loadExternalFonts-java.lang.String:A-).
+- Create an instance of [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) class and call the static method [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#loadExternalFonts-java.lang.String:A-).
 - Perform render the presentation.
-- [Clear the cache](https://apireference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) in the [FontsLoader](https://apireference.aspose.com/slides/java/com.aspose.slides/FontsLoader) class.
+- [Clear the cache](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) in the [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) class.
 
 The implementation of the above is given below.
 
@@ -42,7 +42,7 @@ try {
 ```
 
 ## **Get Custom Fonts Folder**
-A new method has been added that returns folders where font files are searched. Those are folders that have been added with [loadExternalFonts](https://apireference.aspose.com/slides/java/com.aspose.slides/FontsLoader#loadExternalFonts-java.lang.String:A-) method as well as system font folders.
+A new method has been added that returns folders where font files are searched. Those are folders that have been added with [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#loadExternalFonts-java.lang.String:A-) method as well as system font folders.
 
 ```java
 //The following line shall return folders where font files are searched.
@@ -51,7 +51,7 @@ String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
 ## **Specify Custom Fonts Used With Presentation**
-A new [getDocumentLevelFontSources](https://apireference.aspose.com/slides/java/com.aspose.slides/ILoadOptions#getDocumentLevelFontSources--) method has been added to [ILoadOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/ILoadOptions) interface. It allows to specify external fonts that are used with the presentation.
+A new [getDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/ILoadOptions#getDocumentLevelFontSources--) method has been added to [ILoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ILoadOptions) interface. It allows to specify external fonts that are used with the presentation.
 
 ```java
 byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");

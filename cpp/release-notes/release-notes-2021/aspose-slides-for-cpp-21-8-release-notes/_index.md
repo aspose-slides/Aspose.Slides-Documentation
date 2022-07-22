@@ -34,7 +34,7 @@ This page contains release notes for [Aspose.Slides for C++ 21.8](https://www.nu
 
 ### Support of Presentation to animated GIF export ### 
 
-Support of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) into animated GIF with slides changes, including animated transitions:
+Support of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) into animated GIF with slides changes, including animated transitions:
 
 ``` cpp
 using namespace Aspose::Slides;
@@ -61,7 +61,7 @@ Export result:
 
 ### IChartDataWorkbook::CalculateFormulas() and ChartDataWorkbook::CalculateFormulas() methods have been added ###
 
-[IChartDataWorkbook::CalulateFormulas()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a5d502a766705d527a25f3360b3816c7d) and [ChartDataWorkbook::CalulateFormulas()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data_workbook#a268487dc87cb80b17dc2ce8a9903fbc7) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
+[IChartDataWorkbook::CalulateFormulas()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a5d502a766705d527a25f3360b3816c7d) and [ChartDataWorkbook::CalulateFormulas()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data_workbook#a268487dc87cb80b17dc2ce8a9903fbc7) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
 
 - check for unsupported formulas within the entire workbook. If found, the CellUnsupportedDataException will be thrown. Values will not be updated. 
 - if the unsupported formulas check was passed, formulas will be calculated for the workbook, and cells values will be updated.

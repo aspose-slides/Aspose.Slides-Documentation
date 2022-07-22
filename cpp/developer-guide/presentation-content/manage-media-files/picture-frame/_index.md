@@ -19,11 +19,11 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 ## **Create Picture Frame**
 
-1. Create an instance of the [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Create an instance of the [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 2. Get a slide's reference through its index. 
-3. Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
+3. Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
-5. Create a [PictureFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
+5. Create a [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
 6. Add a picture frame (containing the picture) to the slide.
 7. Write the modified presentation as a PPTX file.
 
@@ -66,10 +66,10 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ## **Create Picture Frame with Relative Scale**
 By altering an image's relative scaling, you can create a more complicated picture frame. 
 
-1. Create an instance of the [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Create an instance of the [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 2. Get a slide's reference through its index. 
 3. Add an image to the presentation image collection.
-4. Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
+4. Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
 5. Specify the image's relative width and height in the picture frame.
 6. Write the modified presentation as a PPTX file.
 
@@ -108,11 +108,11 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ## **Picture Frame Formatting**
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
-1. Create an instance of the [Presentation class](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Create an instance of the [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 2. Get a slide's reference through its index. 
-3. Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
+3. Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
-5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) method exposed by the [IShapes](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) object associated with the referenced slide.
+5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) method exposed by the [IShapes](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) object associated with the referenced slide.
 6. Add the picture frame (containing the picture) to the slide.
 7. Set the picture frame's line color.
 8. Set the picture frame's line width.
@@ -231,11 +231,11 @@ presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Use StretchOff Property**
 
-Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) and [StretchOffsetBottom](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) interface and [PictureFillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format) class, you can specify a fill rectangle. 
+Using the [StretchOffsetLeft](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) and [StretchOffsetBottom](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_picture_fill_format) interface and [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_fill_format) class, you can specify a fill rectangle. 
 
-When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
+When stretching of an image is specified, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset. A negative percentage specifies an outset.
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index.
 3. Add a rectangle `AutoShape`. 
 4. Create an image.
@@ -245,7 +245,7 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 8. Specify image offsets from the corresponding edge of the shape's bounding box
 9. Write the modified presentation as a PPTX file.
 
-This C++ code demonstrates a process in which a StretchOff property is used:
+This C++ code demonstrates a process in which a StretchOff property is used: xxx
 
 ``` cpp
 

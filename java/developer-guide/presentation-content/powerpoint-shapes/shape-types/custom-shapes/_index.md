@@ -33,16 +33,16 @@ Before you start editing PowerPoint shapes through edit points, you might want t
   * A straight point is a point where 2 handles exist in a straight line and that line's line segments joins in a smooth curve. In this case, the handles don't have to be separated from the anchor point by an equal distance. 
 * By moving or editing anchor points (which changes the angle of lines), you can change the way a shape looks. 
 
-To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [**IGeometryPath**](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface. 
+To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class and [**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) interface. 
 
-* A [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
-* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape.getGeometryPaths](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) method. 
-* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape.setGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) for *solid shapes* and [IGeometryShape.setGeometryPaths](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) for *composite shapes*.
-* To add segments, you can use the methods under [IGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath). 
-* Using the [IGeometryPath.setStroke](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) and [IGeometryPath.setFillMode](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) methods, you can set the appearance for a geometry path.
-* Using the [IGeometryPath.getPathData](https://apireference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) method, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
-* To access additional shape geometry customization options, you can convert [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* Use [geometryPathToGraphicsPath](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) and [graphicsPathToGeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) methods (from the [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) class) to convert [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) back and forth. 
+* A [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance represents a geometry path of the [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) object. 
+* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) method. 
+* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) for *solid shapes* and [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) for *composite shapes*.
+* To add segments, you can use the methods under [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath). 
+* Using the [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) and [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) methods, you can set the appearance for a geometry path.
+* Using the [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) method, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
+* To access additional shape geometry customization options, you can convert [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
+* Use [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) and [graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) methods (from the [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) class) to convert [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) back and forth. 
 
 ## **Simple Editing Operations**
 
@@ -107,8 +107,8 @@ public void removeAt(int index);
 ```
 
 ## **Add Custom Points to Shape**
-1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Rectangle](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType) type.
-2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) type.
+2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
 3. Add a new point between the two top points on the path.
 4. Add a new point between the two bottom points on the path.
 5. Apply the path to the shape.
@@ -133,8 +133,8 @@ try {
 
 ##  Remove Points From Shape
 
-1. Create an instance of [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Heart](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeType) type. 
-2. Get an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
+1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) type. 
+2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
 3. Remove the segment for the path.
 4. Apply the path to the shape.
 
@@ -158,9 +158,9 @@ try {
 ##  **Create Custom Shape**
 
 1. Calculate the points for the shape.
-2. Create an instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class. 
+2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class. 
 3. Fill the path with the points.
-4. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class. 
+4. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class. 
 5. Apply the path to the shape.
 
 This Java shows you how to create a custom shape:
@@ -210,9 +210,9 @@ try {
 
 ## **Create Composite Custom Shape**
 
-  1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
-  2. Create a first instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
-  3. Create a second instance of the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
+  1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
+  2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
+  3. Create a second instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
   4. Apply the paths to the shape.
 
 This Java code shows you to create a composite custom shape:
@@ -294,9 +294,9 @@ try {
 
 ## **Convert GeometryPath to java.awt.Shape** 
 
-1. Create an instance of the [GeometryShape](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
 2. Create an instance of the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) class.
-3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://apireference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://apireference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
+3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
 4. Apply the paths to the shape.
 
 This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:

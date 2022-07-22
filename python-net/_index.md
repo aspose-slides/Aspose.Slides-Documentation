@@ -31,7 +31,7 @@ These are links to useful resources:
 - [Aspose.Slides for Python via .NET Release Notes](/slides/python-net/release-notes/)
 - [Aspose.Slides for Python via .NET Product Page](https://products.aspose.com/slides/python-net/)
 - [Install Aspose.Slides for Python via .NET PyPi Package](https://pypi.org/project/aspose.slides/)
-- [Aspose.Slides for Python via .NET API Reference Guide](https://docs.aspose.com/slides/python-net/api-reference/)
+- [Aspose.Slides for Python via .NET API Reference Guide](https://reference.aspose.com/slides/python-net/)
 - [Aspose.Slides for Python via .NET Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
 

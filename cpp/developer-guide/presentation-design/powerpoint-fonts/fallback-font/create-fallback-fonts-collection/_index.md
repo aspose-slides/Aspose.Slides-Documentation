@@ -5,11 +5,11 @@ weight: 20
 url: /cpp/create-fallback-fonts-collection/
 ---
 
-Instances of [FontFallBackRule](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) class can be organized into [FontFallBackRulesCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection), that implements [IFontFallBackRulesCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rules_collection) interface. It is possible to add or remove rules from the collection.
+Instances of [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rules_collection) interface. It is possible to add or remove rules from the collection.
 
-Then this collection may be passed to [set_FontFallBackRulesCollection() ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924)method of the [FontsManager](https://apireference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/cpp/about-fontsmanager-and-fontsloader/).
+Then this collection may be passed to [set_FontFallBackRulesCollection() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924)method of the [FontsManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/cpp/about-fontsmanager-and-fontsloader/).
 
-Each [Presentation ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation)has a [get_FontsManager() ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#acee582a9c243cbd63e30634c9714514a)method with its own instance of the FontsManager class.
+Each [Presentation ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)has a [get_FontsManager() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#acee582a9c243cbd63e30634c9714514a)method with its own instance of the FontsManager class.
 
 Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 

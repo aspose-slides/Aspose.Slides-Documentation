@@ -8,17 +8,17 @@ url: /java/access-slide-in-presentation/
 ## **Access Slides in Presentation**
 {{% alert color="primary" %}} 
 
-In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) associated with a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) object.
+In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) associated with a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object.
 
 {{% /alert %}} 
 
-Aspose.Slides for Java provides [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class that can be used to find and access any desired slide present in the presentation. Currently, developers can access a slide in two ways:
+Aspose.Slides for Java provides [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class that can be used to find and access any desired slide present in the presentation. Currently, developers can access a slide in two ways:
 
 1. Accessing Slide by Index
 1. Accessing Slide by ID
 
 ### **Access Slide by Index**
-[Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) collection (that is a collection of [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) objects). All of these slides can be accessed from this [**Slides**](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection using a slide index as shown below in the example.
+[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) collection (that is a collection of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) objects). All of these slides can be accessed from this [**Slides**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection using a slide index as shown below in the example.
 
 ```java
 // Instantiate a Presentation object that represents a presentation file
@@ -32,7 +32,7 @@ try {
 ```
 
 ### **Access Slide by ID**
-Every slide in the presentation has a unique ID associated with it. The [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class exposes the [**getSlideById(id)**](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation#getSlideById-long-) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [**getSlideById(id)**](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation#getSlideById-long-) method as shown below in the example.
+Every slide in the presentation has a unique ID associated with it. The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class exposes the [**getSlideById(id)**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation#getSlideById-long-) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [**getSlideById(id)**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation#getSlideById-long-) method as shown below in the example.
 
 ```java
 // Instantiate a Presentation object that represents a presentation file
@@ -57,9 +57,9 @@ If you create a presentation using **MS PowerPoint**, you would have experienced
 
 It's very simple to change the position of a slide in the presentation. Just follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Change the [SlideNumber](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#setSlideNumber-int-) of the referenced slide.
+- Change the [SlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#setSlideNumber-int-) of the referenced slide.
 - Write the modified presentation file.
 
 In the example given below, we have changed the position of a slide (lying at the zero index position 1) of the presentation) to index 1 (Position 2).
@@ -90,9 +90,9 @@ Aspose.Slides for Java now supports, setting the Slide Number. In this topic, we
 
 {{% /alert %}} 
 
-The new methods added to [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class allow to get or to set the number of the first slide in a presentation. When a new [FirstSlideNumber](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#setFirstSlideNumber-int-) value is specified all slide numbers are recalculated. In order to get or set the Slide Number, please follow the steps below:
+The new methods added to [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class allow to get or to set the number of the first slide in a presentation. When a new [FirstSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#setFirstSlideNumber-int-) value is specified all slide numbers are recalculated. In order to get or set the Slide Number, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class
 1. Get the slide number
 1. Set the slide number
 1. Write the presentation as a PPTX file

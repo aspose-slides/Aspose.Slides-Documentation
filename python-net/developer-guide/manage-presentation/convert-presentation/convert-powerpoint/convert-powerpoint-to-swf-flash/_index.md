@@ -7,7 +7,7 @@ keywords: "Convert PowerPoint, Presentation, PowerPoint to SWF, SWF flash PPT to
 description: "Convert PowerPoint Presentation to SWF Flash in Python"
 ---
 
-The [Save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) method exposed by [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/swfoptions/) class and [INotesCommentsLayoutingOptions ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.export/inotescommentslayoutingoptions/)interface. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
+The [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method exposed by [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/swfoptions/) class and [INotesCommentsLayoutingOptions ](https://reference.aspose.com/slides/python-net/aspose.slides.export/inotescommentslayoutingoptions/)interface. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
 
 ```py
 import aspose.slides as slides

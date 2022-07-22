@@ -35,7 +35,7 @@ This page contains release notes for [Aspose.Slides for C++ 21.9](https://www.nu
 
 We implemented support for HTML5 Export in Slides (enhanced customizable version of HTML5 Support). 
 
-The new Html5 value has been added to [SaveFormat](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.export#a12b0b11e8b938085403b010e6d789c12) enumerations. This value represents the HTML5 format for exporting.
+The new Html5 value has been added to [SaveFormat](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#a12b0b11e8b938085403b010e6d789c12) enumerations. This value represents the HTML5 format for exporting.
 
 The code snippet below demonstrates the saving presentation in HTML5 operation:
 
@@ -47,7 +47,7 @@ auto presentation = System::MakeObject<Presentation>(u"SomePresentation.pptx");
 presentation->Save(u"index.html", SaveFormat::Html5);
 ```
 
-Using the [Html5Options](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.html5_options) configuration, you can export a presentation containing slides transitions, animations, and shapes animations to HTML5:
+Using the [Html5Options](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html5_options) configuration, you can export a presentation containing slides transitions, animations, and shapes animations to HTML5:
 
 ``` cpp
 using namespace Aspose::Slides;
@@ -62,7 +62,7 @@ pres->Save(u"demo-animate.html", SaveFormat::Html5, options);
 
 ### Access to the ChartDataWorksheetCollection has been added ###
 
-To provide access to worksheets, we added the [IChartDataWorksheetCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_worksheet_collection) interface, [ChartDataWorksheetCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data_worksheet_collection) class, and [IChartDataWorkbook::get_Worksheets()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a11454023261dcd92630be0bd0017a186) method. 
+To provide access to worksheets, we added the [IChartDataWorksheetCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_worksheet_collection) interface, [ChartDataWorksheetCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data_worksheet_collection) class, and [IChartDataWorkbook::get_Worksheets()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a11454023261dcd92630be0bd0017a186) method. 
 
 ``` cpp
 using namespace Aspose::Slides;
@@ -80,9 +80,9 @@ for (int32_t i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ### IAccessiblePVIObject interface has been added ###
 
-[IAccessiblePVIObject](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_accessible_p_v_i_object) interface has been added to [Aspose::Slides](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides) namespace. It represents a type that can be a source of an effective version of its data.
+[IAccessiblePVIObject](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_accessible_p_v_i_object) interface has been added to [Aspose::Slides](https://reference.aspose.com/slides/cpp/namespace/aspose.slides) namespace. It represents a type that can be a source of an effective version of its data.
 
-[IAccessiblePVIObject](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_accessible_p_v_i_object) declaration:
+[IAccessiblePVIObject](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_accessible_p_v_i_object) declaration:
 
 ``` cpp
 /// <summary>
@@ -101,9 +101,9 @@ public:
 };
 ```
 
-Currently, all effect types from the [Aspose::Slides::Effects](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.effects) namespace implement the [IAccessiblePVIObject](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_accessible_p_v_i_object) interface—and this means you can get effective values for effects with styled colors resolved.
+Currently, all effect types from the [Aspose::Slides::Effects](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.effects) namespace implement the [IAccessiblePVIObject](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_accessible_p_v_i_object) interface—and this means you can get effective values for effects with styled colors resolved.
 
-This code demonstrates an operation where we added a picture for a slide background, added [Duotone](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.duotone) effect with styled colors, and then we got the effective duotone colors with which the background will be rendered:
+This code demonstrates an operation where we added a picture for a slide background, added [Duotone](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.duotone) effect with styled colors, and then we got the effective duotone colors with which the background will be rendered:
 
 ``` cpp
 using namespace Aspose::Slides;

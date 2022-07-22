@@ -21,9 +21,9 @@ This page contains release notes for [Aspose.Slides for Android via Java 21.4](
 
 ### IAudioFrame.getPlayAcrossSlides, IAudioFrame.setPlayAcrossSlides, IAudioFrame.setRewindAudio and IAudioFrame.getRewindAudio methods have been added ###
 
-New methods [IAudioFrame.getPlayAcrossSlides](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getPlayAcrossSlides--), [IAudioFrame.setPlayAcrossSlides](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setPlayAcrossSlides-boolean-), [IAudioFrame.getRewindAudio](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getRewindAudio--) and [IAudioFrame.setRewindAudio](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setRewindAudio-boolean-) have been added to the [**IAudioFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame) interface and [**AudioFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) class.
+New methods [IAudioFrame.getPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getPlayAcrossSlides--), [IAudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setPlayAcrossSlides-boolean-), [IAudioFrame.getRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getRewindAudio--) and [IAudioFrame.setRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setRewindAudio-boolean-) have been added to the [**IAudioFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame) interface and [**AudioFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) class.
 
-The [IAudioFrame.getPlayAcrossSlides](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getPlayAcrossSlides--) and [IAudioFrame.setPlayAcrossSlides](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setPlayAcrossSlides-boolean-) methods allows determining whether audio is playing across the slides.
+The [IAudioFrame.getPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getPlayAcrossSlides--) and [IAudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setPlayAcrossSlides-boolean-) methods allows determining whether audio is playing across the slides.
 
 Methods declaration:
 ``` java
@@ -43,7 +43,7 @@ public final boolean getPlayAcrossSlides()
 public final void setPlayAcrossSlides(boolean value)
 ```
 
-The [IAudioFrame.getRewindAudio](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getRewindAudio--) and [IAudioFrame.setRewindAudio](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setRewindAudio-boolean-) methods allows determining whether audio is automatically rewinded to start after playing.
+The [IAudioFrame.getRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#getRewindAudio--) and [IAudioFrame.setRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAudioFrame#setRewindAudio-boolean-) methods allows determining whether audio is automatically rewinded to start after playing.
 
 Methods declaration:
 
@@ -64,7 +64,7 @@ public final boolean getRewindAudio()
 public final void setRewindAudio(boolean value)
 ```
 
-The code snippet below demonstrates adding the [**AudioFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) and changing its properties:
+The code snippet below demonstrates adding the [**AudioFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) and changing its properties:
 
 ``` java
 Presentation pres = new Presentation();
@@ -88,9 +88,9 @@ try {
 
 ### InClickSequence value has been added to AudioPlayModePreset enumeration ###
 
-[**InClickSequence**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset#InClickSequence) value has been added to [**AudioPlayModePreset**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset) enumeration. It represents In Click Sequence audio start play mode. 
+[**InClickSequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset#InClickSequence) value has been added to [**AudioPlayModePreset**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioPlayModePreset) enumeration. It represents In Click Sequence audio start play mode. 
 
-The code snippet below demonstrates adding the [**AudioFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) and changing its play mode: 
+The code snippet below demonstrates adding the [**AudioFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) and changing its play mode: 
 
 ``` java
 Presentation pres = new Presentation();
@@ -111,10 +111,10 @@ try {
 
 ### InClickSequence value has been added to VideoPlayModePreset enumeration ###
 
-[**InClickSequence**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/VideoPlayModePreset#InClickSequence) value has been added to [**VideoPlayModePreset**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/VideoPlayModePreset) enumeration.
+[**InClickSequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/VideoPlayModePreset#InClickSequence) value has been added to [**VideoPlayModePreset**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/VideoPlayModePreset) enumeration.
 It represents In Click Sequence video start play mode.
 
-The code snippet below demonstrates adding the [**VideoFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/VideoFrame) and changing its play mode:
+The code snippet below demonstrates adding the [**VideoFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/VideoFrame) and changing its play mode:
 
 ``` java
 Presentation pres = new Presentation();
@@ -135,7 +135,7 @@ try {
 
 ### IOleObjectFrame.setEmbeddedData and IOleObjectFrame.getEmbeddedData methods have been added ###
 
-New methods [**setEmbeddedData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#setEmbeddedData-com.aspose.slides.IOleEmbeddedDataInfo-) and [**getEmbeddedData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedData--) have been added to the [**IOleObjectFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame) interface and [**OleObjectFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) class.
+New methods [**setEmbeddedData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#setEmbeddedData-com.aspose.slides.IOleEmbeddedDataInfo-) and [**getEmbeddedData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedData--) have been added to the [**IOleObjectFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame) interface and [**OleObjectFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) class.
 
 These methods allow to get, set and change an embedded data and its type of OLE object.
 
@@ -201,13 +201,13 @@ try {
 }
 ```
 
-Please note that methods [**getObjectData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getObjectData--), [**getEmbeddedFileExtension**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedFileExtension--) and [**getEmbeddedFileData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedFileData--) of [**IOleObjectFrame**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame) interface marked as obsolete now so please use [**IOleObjectFrame.setEmbeddedData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#setEmbeddedData-com.aspose.slides.IOleEmbeddedDataInfo-) and [**IOleObjectFrame.getEmbeddedData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedData--) methods instead of them. These obsolete methods will be removed after the release of version 21.11.
+Please note that methods [**getObjectData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getObjectData--), [**getEmbeddedFileExtension**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedFileExtension--) and [**getEmbeddedFileData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedFileData--) of [**IOleObjectFrame**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame) interface marked as obsolete now so please use [**IOleObjectFrame.setEmbeddedData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#setEmbeddedData-com.aspose.slides.IOleEmbeddedDataInfo-) and [**IOleObjectFrame.getEmbeddedData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleObjectFrame#getEmbeddedData--) methods instead of them. These obsolete methods will be removed after the release of version 21.11.
 
 ### New overloadings for the SlideUtil.alignShapes method have been added ###
 
-Method [**SlideUtil.alignShapes**(ShapesAlignmentType alignmentType, boolean alignToSlide, IBaseSlide slide)](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-) has been added. 
+Method [**SlideUtil.alignShapes**(ShapesAlignmentType alignmentType, boolean alignToSlide, IBaseSlide slide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-) has been added. 
 
-This overloading allows aligning all shapes within [**IBaseSlide**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide). 
+This overloading allows aligning all shapes within [**IBaseSlide**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide). 
 
 ``` java
 Presentation pres = new Presentation();
@@ -223,9 +223,9 @@ try {
 }
 ```
 
-Method [**SlideUtil.alignShapes**(ShapesAlignmentType alignmentType, boolean alignToSlide, IGroupShape shapes)](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IGroupShape-) has been added. 
+Method [**SlideUtil.alignShapes**(ShapesAlignmentType alignmentType, boolean alignToSlide, IGroupShape shapes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IGroupShape-) has been added. 
 
-This overloading allows aligning all shapes within [**IGroupShape**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IGroupShape). 
+This overloading allows aligning all shapes within [**IGroupShape**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGroupShape). 
 
 ``` java
 Presentation pres = new Presentation();
@@ -243,9 +243,9 @@ try {
 }
 ```
 
-Method [**SlideUtil.alignShapes**(ShapesAlignmentType alignmentType, boolean alignToSlide, IGroupShape shapes, int[] shapeIndexes)](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IGroupShape-int:A-) has been added. 
+Method [**SlideUtil.alignShapes**(ShapesAlignmentType alignmentType, boolean alignToSlide, IGroupShape shapes, int[] shapeIndexes)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IGroupShape-int:A-) has been added. 
 
-This overloading allows aligning shapes with specified indexes within [**IGroupShape**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IGroupShape). 
+This overloading allows aligning shapes with specified indexes within [**IGroupShape**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGroupShape). 
 
 ``` java
 Presentation pres = new Presentation();

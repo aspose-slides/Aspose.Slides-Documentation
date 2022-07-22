@@ -6,7 +6,7 @@ url: /java/slides-poi/create-new-presentation/
 ---
 
 ## **Aspose.Slides - New Presentation**
-The [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**.
+The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**.
 
 ```java
 //Instantiate a Presentation object that represents a PPT file

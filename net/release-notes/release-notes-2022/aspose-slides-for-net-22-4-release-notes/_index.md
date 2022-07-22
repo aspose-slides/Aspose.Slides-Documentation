@@ -51,8 +51,8 @@ This page contains release notes for [ Aspose.Slides for .NET 22.4](https://www
 
 A new  LowCode Compress methods were added:
 
-* [void RemoveUnusedMasterSlides(Presentation pres)](https://apireference.aspose.com/slides/net/aspose.slides.lowcode/compress/methods/removeunusedmasterslides)
-* [void RemoveUnusedLayoutSlides(Presentation pres)](https://apireference.aspose.com/slides/net/aspose.slides.lowcode/compress/methods/removeunusedlayoutslides)
+* [void RemoveUnusedMasterSlides(Presentation pres)](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/methods/removeunusedmasterslides)
+* [void RemoveUnusedLayoutSlides(Presentation pres)](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/methods/removeunusedlayoutslides)
 
 ### Remove unused master slides from Presentation
 

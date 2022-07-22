@@ -30,7 +30,7 @@ You may want to check out our free [**PPT to PDF**](https://products.aspose.app/
 
 [**Aspose.Slides for C++** ](https://products.aspose.com/slides/cpp/)allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
 
-To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.Save**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method. The [**Presentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class exposes the [**Save**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
+To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.Save**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method. The [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class exposes the [**Save**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
@@ -108,7 +108,7 @@ presentation->Save(u"PPT-to-PDF.pdf", SaveFormat::Pdf);
 ```
 
 ## **Convert PowerPoint to PDF with Custom Options**
-The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression** ](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.export#aeca6b27c8c207f9b0fe317689b25568e)enumeration and sets PDF standard.
+The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression** ](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#aeca6b27c8c207f9b0fe317689b25568e)enumeration and sets PDF standard.
 
 ``` cpp
 // Instantiate a Presentation object that represents a PPTX file
@@ -135,7 +135,7 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 
 ## **Convert PowerPoint to PDF with Hidden Slides Included**
-The following example shows how to convert a PowerPoint PPT, PPTX and OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class. You can also include comments in generated HTML by using [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class. 
+The following example shows how to convert a PowerPoint PPT, PPTX and OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class. You can also include comments in generated HTML by using [**PdfOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class. 
 It calls the set_ShowHiddenSlides() method to generate PDF with hidden slides. 
 Method **set_ShowHiddenSlides()** has been added to **IHtmlOptions**, **IPdfOption**, **ISwfOptions**, 
 **ITiffOptions**, **IXpsOption** interfaces and **HtmlOptions**, 
@@ -159,7 +159,7 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 
 ## **Convert PowerPoint to Password Protected PDF**
-The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class.
+The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options) class.
 
 
 
@@ -218,7 +218,7 @@ auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
-The [**Save**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [**Presentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for C++ is a two-line process. First, you open the presentation. Second, you save it out to PDF notes. The code snippet below updates the sample presentation to PDF in Notes Slide view.
+The [**Save**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for C++ is a two-line process. First, you open the presentation. Second, you save it out to PDF notes. The code snippet below updates the sample presentation to PDF in Notes Slide view.
 
 ``` cpp
 // The path to the documents directory.

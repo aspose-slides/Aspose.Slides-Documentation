@@ -35,13 +35,13 @@ This page contains release notes for Aspose.Slides for C++ 21.2.
 ### **Obsolete methods have been removed** ###
 
 - *IShapeCollection::AddOleObjectFrame(float x, float y, float width, float height, System::String className, System::ArrayPtr<uint8_t> objectData)* method has been removed.
-Use [IShapeCollection::AddOleObjectFrame(float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a3404769f708d3fba8705074126a4f72b) method instead.
+Use [IShapeCollection::AddOleObjectFrame(float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a3404769f708d3fba8705074126a4f72b) method instead.
 
 - *IShapeCollection::InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::String className, System::ArrayPtr<uint8_t> objectData)* method has been removed.
-Use [IShapeCollection::InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a65ac9a995dde3b8ac6457cc491598916) method instead.
+Use [IShapeCollection::InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a65ac9a995dde3b8ac6457cc491598916) method instead.
 
 - *ShapeCollection::AddOleObjectFrame(float x, float y, float width, float height, System::String className, System::ArrayPtr<uint8_t> objectData)* method has been removed.
-Use [ShapeCollection::AddOleObjectFrame(float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#a95a125837c0e513a7beb3e3a3465620c) method instead.
+Use [ShapeCollection::AddOleObjectFrame(float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#a95a125837c0e513a7beb3e3a3465620c) method instead.
 
 - *ShapeCollection::InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::String className, System::ArrayPtr<uint8_t> objectData)* method has been removed.
-Use [ShapeCollection::InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#aba404bdb41394e054deaf2faf7493eea) method instead.
+Use [ShapeCollection::InsertOleObjectFrame(int32_t index, float x, float y, float width, float height, System::SharedPtr<IOleEmbeddedDataInfo> dataInfo)](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#aba404bdb41394e054deaf2faf7493eea) method instead.

@@ -11,7 +11,7 @@ Aspose.Slides for C++ allows you to examine a presentation to find out its prope
 
 {{% alert title="Info" color="info" %}}
 
-The [PresentationInfo](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) class contains most of the methods needed for operations here. 
+The [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) class contains most of the methods needed for operations here. 
 
 {{% /alert %}} 
 
@@ -50,7 +50,7 @@ Console::WriteLine(props->get_Title());
 
 ## **Updating the Properties of a Presentation**
 
-Aspose.Slides provides the [PresentationInfo::UpdateDocumentProperties()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation_info#ac9fce3667003cdb8bf05816c589a6f88) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo::UpdateDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info#ac9fce3667003cdb8bf05816c589a6f88) method that allows you to make changes to a presentation’s properties.
 
 This sample code shows you how to edit the properties for a presentation in C++:
 

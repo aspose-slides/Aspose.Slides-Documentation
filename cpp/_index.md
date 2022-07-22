@@ -27,7 +27,7 @@ These are links to useful resources:
 - [Aspose.Slides for C++ Release Notes](/slides/cpp/release-notes/)
 - [Aspose.Slides for C++ Product Page](https://products.aspose.com/slides/cpp/)
 - [Install Aspose.Slides for C++ NuGet Package](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Aspose.Slides for C++ API Reference Guide](https://apireference.aspose.com/slides/cpp)
+- [Aspose.Slides for C++ API Reference Guide](https://reference.aspose.com/slides/cpp)
 - [Download Examples from a GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-C)
 - [Aspose.Slides for C++ Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for C++ Paid Support Helpdesk](https://helpdesk.aspose.com/)

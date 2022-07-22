@@ -19,11 +19,11 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 ## **Create Picture Frame**
 
-1. Create an instance of the [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class. 
+1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class. 
 2. Get a slide's reference through its index. 
-3. Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
+3. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
-5. Create a [PictureFrame](https://apireference.aspose.com/slides/net/aspose.slides/pictureframe) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
+5. Create a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
 6. Add a picture frame (containing the picture) to the slide.
 7. Write the modified presentation as a PPTX file.
 
@@ -59,10 +59,10 @@ using (Presentation pres = new Presentation())
 ## **Create Picture Frame with Relative Scale**
 By altering an image's relative scaling, you can create a more complicated picture frame. 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a slide's reference through its index. 
 3. Add an image to the presentation image collection.
-4. Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
+4. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
 5. Specify the image's relative width and height in the picture frame.
 6. Write the modified presentation as a PPTX file.
 
@@ -95,7 +95,7 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
 2. Get a slide's reference through its index. 
-3. Create an [IPPImage](https://apireference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://apireference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
+3. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
 5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection) object associated with the referenced slide.
 6. Add the picture frame (containing the picture) to the slide.
@@ -221,7 +221,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 ## **Use StretchOff Property**
-Using the [StretchOffsetLeft](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://apireference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. 
+
+Using the [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. 
 
 When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
 

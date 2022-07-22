@@ -20,7 +20,7 @@ This page contains release notes for [Aspose.Slides for Python via .NET 22.1](ht
 
 ### `NONE` member have been added to TimeUnitType enumeration ###
 
-A new *NONE* member have been added to [TimeUnitType](/slides/python-net/api-reference/aspose.slides.charts/timeunittype/) enumeration. This member indicates that no unit should be set for the appropriate unit scale.
+A new *NONE* member have been added to [TimeUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/timeunittype/) enumeration. This member indicates that no unit should be set for the appropriate unit scale.
 
 ```py
 import aspose.slides as slides

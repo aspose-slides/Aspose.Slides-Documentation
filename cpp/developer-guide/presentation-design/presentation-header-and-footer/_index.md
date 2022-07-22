@@ -56,7 +56,7 @@ pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
 ## **Manage Header and Footer in Handout and Notes Slides**
 Aspose.Slides for C++ supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
-- Load a [Presentation ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation)containing a video.
+- Load a [Presentation ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)containing a video.
 - Change Header and Footer settings for notes master and all notes slides.
 - Set master notes slide and all child Footer placeholders visible.
 - Set master notes slide and all child Date and time placeholders visible.
