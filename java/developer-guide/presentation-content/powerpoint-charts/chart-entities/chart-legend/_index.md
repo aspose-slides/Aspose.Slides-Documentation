@@ -7,7 +7,7 @@ url: /java/chart-legend/
 ## **Legend Positioning**
 In order to set the legend properties. Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Get reference of the slide.
 - Adding a chart on slide.
 - Setting the properties of legend.
@@ -41,7 +41,7 @@ try {
 ## **Set Font Size of Legend**
 The Aspose.Slides for Java lets developers allow to set font size of legend. Please follow the steps below: 
 
-- Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Creating the default chart.
 - Set the Font Size.
 - Set minimum axis value.
@@ -70,7 +70,7 @@ try {
 ## **Set Font Size of Individual Legend**
 The Aspose.Slides for Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
-- Instantiate [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Creating the default chart.
 - Access legend entry.
 - Set the Font Size.

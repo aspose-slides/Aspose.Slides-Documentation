@@ -8,7 +8,7 @@ url: /cpp/shape-manipulations/
 ## **Find Shape in Slide**
 This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
 
-After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for C++ and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) that does the trick to find a specific shape in a slide and then simply returns that shape.
+After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for C++ and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FindShapeInSlide-FindShapeInSlide.cpp" >}}
 
@@ -16,7 +16,7 @@ After setting the alternative text of any desired shape, you can then open that 
 ## **Clone Shape**
 To clone a shape to a slide using Aspose.Slides for C++:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Obtain the reference of a slide by using its index.
 1. Access the source slide shape collection.
 1. Add a new slide to the presentation.
@@ -31,7 +31,7 @@ The example below adds a group shape to a slide.
 ## **Remove Shape**
 Aspose.Slides for C++ allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Access the first slide.
 1. Find the shape with specific AlternativeText.
 1. Remove the shape.
@@ -43,7 +43,7 @@ Aspose.Slides for C++ allows developers to remove any shape. To remove the shape
 ## **Hide Shape**
 Aspose.Slides for C++ allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Access the first slide.
 1. Find the shape with specific AlternativeText.
 1. Hide the shape.
@@ -56,7 +56,7 @@ Aspose.Slides for C++ allows developers to hide any shape. To hide the shape fro
 ## **Change Shape Order**
 Aspose.Slides for C++ allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Access the first slide.
 1. Add a shape.
 1. Add some text in shape's text frame.
@@ -76,7 +76,7 @@ Aspose.Slides for C++ allows developers to get a unique shape identifier in sli
 ## **Set AlternativeText Property**
 Aspose.Slides for C++ allows developers to set AlternateText of any shape. To set the AlternateText of a shape, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Access the first slide.
 1. Add any shape to the slide.
 1. Do some work with the newly added shape.
@@ -107,7 +107,7 @@ pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0)->WriteAsSvg(stream);
 ```
 
 ## **Shapes Alignment**
-Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, an overloaded [SlidesUtil.AlignShapes()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) method has been added. The [ShapesAlignmentType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) enumeration  defines possible alignment options.
+Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, an overloaded [SlidesUtil.AlignShapes()](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) method has been added. The [ShapesAlignmentType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) enumeration  defines possible alignment options.
 
 **Example 1**
 

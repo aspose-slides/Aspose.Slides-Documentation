@@ -18,4 +18,4 @@ This page contains release notes for [Aspose.Slides for Python via .NET 22.6](ht
 
 ### Obsolete PresentationLockingBehavior LoadAndRelease_Legacy_TemporaryDefault was removed ###
 
-The obsolete [PresentationLockingBehavior](/slides/python-net/api-reference/aspose.slides/presentationlockingbehavior/) LOAD_AND_RELEASE_LEGACY_TEMPORARY_DEFAULT enum member was removed. LOAD_AND_RELEASE	is a default presentation locking behavior now.
+The obsolete [PresentationLockingBehavior](https://reference.aspose.com/slides/python-net/aspose.slides/presentationlockingbehavior/) LOAD_AND_RELEASE_LEGACY_TEMPORARY_DEFAULT enum member was removed. LOAD_AND_RELEASE	is a default presentation locking behavior now.

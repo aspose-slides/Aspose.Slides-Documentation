@@ -22,7 +22,7 @@ Using charts, you get to
 In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
 
 ### **Creating Normal Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with some data and specify your preferred chart type. 
 1. Add a title for the chart. 
@@ -201,10 +201,10 @@ try {
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (in this case, [ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
-1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
+1. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -328,10 +328,10 @@ try {
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, [ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
-1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
+1. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -393,10 +393,10 @@ try {
 ```
 
 ### **Creating Stock Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
-1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
+1. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -460,10 +460,10 @@ try {
 ```
 
 ### **Creating Box and Whisker Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
-1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
+1. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -510,9 +510,9 @@ try {
 ```
 
 ### **Creating Funnel Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
+1. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
 1. Write the modified presentation to a PPTX file
 
 The Java code shows you how to create a funnel chart:
@@ -551,9 +551,9 @@ try {
 ```
 
 ### **Creating Sunburst Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case,[ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
+1. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
 1. Write the modified presentation to a PPTX file
 
 This Java code shows you how to create a sunburst chart:
@@ -610,10 +610,10 @@ try {
 ```
 
 ### **Creating Histogram Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
-1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
+1. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Write the modified presentation to a PPTX file
@@ -648,7 +648,7 @@ try {
 
 ### **Creating Radar Charts**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index. 
 1. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
 1. Write the modified presentation to a PPTX file
@@ -667,10 +667,10 @@ try {
 
 ### **Creating Multi Category Charts**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index. 
-1. Add a chart with default data along with the desired type ([ChartType](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
-1. Access the chart data [IChartDataWorkbook](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
+1. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
 1. Clear the default series and categories.
 1. Add new series and categories.
 1. Add new chart data for the chart series.
@@ -726,7 +726,7 @@ try {
 ```
 
 ## **Updating Charts**
-1. Instantiate a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update. 
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update. 
 2. Obtain the reference of a slide by using its Index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data worksheet.
@@ -797,7 +797,7 @@ try {
 
 To set the data range for a chart, do this:
 
-1. Instantiate a [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart.
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart.
 2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.

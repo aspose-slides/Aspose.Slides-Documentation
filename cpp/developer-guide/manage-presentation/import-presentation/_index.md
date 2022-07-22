@@ -15,8 +15,8 @@ Aspose.Slides for C++ allows you to import presentations from PDFs. Essentially,
 Go through these steps:
 
 1. Instantiate an object of the presentation class. 
-2. Call the [AddFromPdf](https://apireference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) method and pass the PDF file. 
-3. Use the [Save](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method to save the file in the PowerPoint format.
+2. Call the [AddFromPdf](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) method and pass the PDF file. 
+3. Use the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method to save the file in the PowerPoint format.
 
 This C++ code demonstrates the PDF to PowerPoint process:
 

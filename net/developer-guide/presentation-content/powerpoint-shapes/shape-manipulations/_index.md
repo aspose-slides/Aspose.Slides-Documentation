@@ -49,7 +49,7 @@ public static IShape FindShape(ISlide slide, string alttext)
 ## **Clone Shape**
 To clone a shape to a slide using Aspose.Slides for .NET:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain the reference of a slide by using its index.
 1. Access the source slide shape collection.
 1. Add new slide to the presentation.
@@ -274,12 +274,12 @@ public static void Run()
 
 ## Align Shape
 
-Through the [SlidesUtil.AlignShape()](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) overloaded method, you can 
+Through the [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) overloaded method, you can 
 
 * align shapes relative to a slide's margins. See Example 1. 
 * align shapes relative to each other. See Example 2. 
 
-The [ShapesAlignmentType](https://apireference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration defines the available alignment options.
+The [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) enumeration defines the available alignment options.
 
 ### Example 1
 

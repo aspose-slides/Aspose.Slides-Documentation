@@ -8,7 +8,7 @@ description: "Chart workbook in PowerPoint presentation in C# or .NET"
 ---
 
 ## **Set Chart Data from Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 This C# code demonstrates a sample operation:
 
@@ -79,7 +79,7 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 ## **Manage Worksheets**
 
-This C# code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property is used to access a worksheet collection:
+This C# code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property is used to access a worksheet collection:
 
 ``` csharp
 using (Presentation pres = new Presentation())

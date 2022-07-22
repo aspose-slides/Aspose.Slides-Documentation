@@ -9,9 +9,9 @@ url: /java/slide-layout/
 ## **Add Slide Layout to Presentation**
 Aspose.Slides also offer to add Layout slides in presentation. There are cases when there is missing Layout slide in presentation and once can now add the Layout Slides in presentation. Each slide has unique Id and Layout slides are maintained inside presentation Masters. One can access the Layout slide either by Type or by Name. Aspose.Slides for Java allows developers to add new Layout slides in presentation. To add a Layout Slide, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Access the [Master Slide](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) collection.
-1. Try to find existing Layout slides to see if the required one is already available in [Layout Slide](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) collection or not.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Access the [Master Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) collection.
+1. Try to find existing Layout slides to see if the required one is already available in [Layout Slide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) collection or not.
 1. Add a new Layout slide if the desired layout is unavailable.
 1. Add an empty slide with a newly added Layout slide.
 1. Finally, write the presentation file using the Presentation object.
@@ -71,7 +71,7 @@ try {
 ```
 
 ## **Set Size and Type of Slide**
-[SlideSize.getType](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#setSize-float-float-int-) are the properties of presentation class which could be set or get as shown below in the example.
+[SlideSize.getType](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#setSize-float-float-int-) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```java
 // Instantiate Presentation objects that represent presentation files
@@ -101,10 +101,10 @@ try {
 ## **Set Footer Visibility Inside Slide**
 To set footer in a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide by its reference index.
 1. Set Footer visible by making slide footer placeholder visible.
-1. Set date-time placeholder visible by using the [setDateTimeText](https://apireference.aspose.com/slides/java/com.aspose.slides/IBaseSlideHeaderFooterManager#setDateTimeText-java.lang.String-) method.
+1. Set date-time placeholder visible by using the [setDateTimeText](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlideHeaderFooterManager#setDateTimeText-java.lang.String-) method.
 1. Write the modified presentation file.
 
 ```java
@@ -133,11 +133,11 @@ try {
 ## **Set Child Footer Visibility Inside Slide**
 To set footer and child footer a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the master slide by using its index.
 1. Set Footer and child footer visibility by making a master slide and all child footer placeholder visible.
-1. Set text to master slide and all child footer placeholder by using [setFooterAndChildFootersText](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterSlideHeaderFooterManager#setFooterAndChildFootersText-java.lang.String-) method.
-1. Set text to master slide and all child date-time placeholder by using [setDateTimeAndChildDateTimesText](https://apireference.aspose.com/slides/java/com.aspose.slides/IMasterSlideHeaderFooterManager#setDateTimeAndChildDateTimesText-java.lang.String-) method.
+1. Set text to master slide and all child footer placeholder by using [setFooterAndChildFootersText](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideHeaderFooterManager#setFooterAndChildFootersText-java.lang.String-) method.
+1. Set text to master slide and all child date-time placeholder by using [setDateTimeAndChildDateTimesText](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideHeaderFooterManager#setDateTimeAndChildDateTimesText-java.lang.String-) method.
 1. Write the modified presentation file.
 
 ```java
@@ -156,7 +156,7 @@ try {
 ```
 
 ## **Set Slide Size with Respect to Content Scaling**
-You can also set the slide size by using it with different ways of content scaling. [SlideSize.getType](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#setSize-int-int-) are the methods of presentation class which could be set or get as shown below in the example.
+You can also set the slide size by using it with different ways of content scaling. [SlideSize.getType](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#setSize-int-int-) are the methods of presentation class which could be set or get as shown below in the example.
 
 ```java
 // Instantiate Presentation objects that represent presentation files
@@ -174,7 +174,7 @@ try {
 ```
 
 ## **Set Page Size when Generating PDF**
-Slides in presentation could be set as different paper sizes. The [SlideSize.getType](https://apireference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) method can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
+Slides in presentation could be set as different paper sizes. The [SlideSize.getType](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) method can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
 ```java
 // Instantiate a Presentation object that represents a presentation file 

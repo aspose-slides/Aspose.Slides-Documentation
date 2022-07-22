@@ -6,7 +6,7 @@ url: /cpp/manage-rows-and-columns/
 ---
 
 ## **Set First Row as Header**
-Aspose.Slides for C++ provides the feature to set the first row as header using the following methods of [ITable](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_table) interface. Below code example shows how to set the first row as a header.
+Aspose.Slides for C++ provides the feature to set the first row as header using the following methods of [ITable](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_table) interface. Below code example shows how to set the first row as a header.
 
 ``` cpp
 // Instantiate Presentation class that represents PPTX
@@ -34,7 +34,7 @@ tbl->set_FirstRow(true);
 ## **Remove Row or Column from Table**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -49,7 +49,7 @@ Aspose.Slides for C++ has provided the simplest API to create tables in an easie
 ## **Clone Row or Column of Table**
 Aspose.Slides for C++ has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
@@ -64,7 +64,7 @@ Aspose.Slides for C++ has provided the simplest API to work with tables in an ea
 ## **Set Text Formatting on Table Row Level**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells on row level, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set first row Cells Font Height.
@@ -103,7 +103,7 @@ presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ## **Set Text Formatting on Table Column Level**
 Aspose.Slides for C++ has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells on Column level, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set first Column Cells Font Height.

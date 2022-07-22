@@ -13,10 +13,10 @@ Using [Aspose.Slides for Java](/slides/java/), you can find and modify placehold
 
 This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
 
-1. Instantiate the [`Presentation`](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class. and pass the presentation as an argument.
+1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class. and pass the presentation as an argument.
 2. Get a slide reference through its index.
 3. Iterate through the shapes to find the placeholder.
-4. Typecast the placeholder shape to an [`AutoShape`](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with the [`AutoShape`](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with the [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
 5. Save the modified presentation.
 
 This Java code shows how to change the text in a placeholder:

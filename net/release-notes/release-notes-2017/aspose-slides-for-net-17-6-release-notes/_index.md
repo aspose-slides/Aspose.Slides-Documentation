@@ -89,7 +89,7 @@ ISectionCollection and SectionCollection represent a collection of sections.
 
 Methods and properties:
 
-- ISection this[int index](https://apireference.aspose.com/slides/net/aspose.slides/isection) - gets the element at the specified index.
+- ISection this[int index](https://reference.aspose.com/slides/net/aspose.slides/isection) - gets the element at the specified index.
 - ISection AddSection(string name, ISlide startedFromSlide) - adds a new section started form specific slide.
 - ISection AddEmptySection(string name, int index) - adds an empty section to the specified position of the collection.
 - RemoveSectionWithSlides(ISection section) - removes section and slides contained in the section.

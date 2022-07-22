@@ -19,10 +19,10 @@ The PNG (Portable Network Graphics) format is not as popular as JPEG (Joint Phot
 
 Go through these steps:
 
-1. Instantiate the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get the slide object from the [Presentation::get_Slides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) collection under the [ISlide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface. 
-3. Use a [ISlide::GetThumbnail()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method to get the thumbnail for each slide. 
-4. Use the [Image::Save(String, ImageFormatPtr](https://apireference.aspose.com/slides/cpp/class/system.drawing.image#a4db9d0686ee892f6fb8fd6aebb4beb69) method to save the slide thumbnail to the PNG format. 
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+2. Get the slide object from the [Presentation::get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) collection under the [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface. 
+3. Use a [ISlide::GetThumbnail()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method to get the thumbnail for each slide. 
+4. Use the [Image::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/class/system.drawing.image#a4db9d0686ee892f6fb8fd6aebb4beb69) method to save the slide thumbnail to the PNG format. 
 
 This C++ code shows you how to convert a PowerPoint presentation to PNG:
 

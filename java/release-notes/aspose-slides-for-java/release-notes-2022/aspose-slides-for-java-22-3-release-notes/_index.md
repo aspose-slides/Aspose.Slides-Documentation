@@ -33,11 +33,11 @@ This page contains release notes for [Aspose.Slides for Java 22.3](https://repo
 
 ### AutoShape.isTextBox method was added
 
-[AutoShape.isTextBox](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape#isTextBox--) method was added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
+[AutoShape.isTextBox](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape#isTextBox--) method was added to indicate if the shape was created as a text box or not. The screenshot below demonstrates two scenarios when a shape will be created as a text box and a regular shape:
 
 ![Text box and shape](istextbox.png)
 
-This code snippet demonstrates iteration over all [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) shapes and out to console if the shape is a text box or not (if the shape is [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/AutoShape)).
+This code snippet demonstrates iteration over all [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) shapes and out to console if the shape is a text box or not (if the shape is [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape)).
 
 ``` java
 Presentation pres = new Presentation("pres.pptx");

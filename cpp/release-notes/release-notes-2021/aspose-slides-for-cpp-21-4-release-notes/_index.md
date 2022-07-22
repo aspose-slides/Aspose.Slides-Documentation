@@ -37,13 +37,13 @@ This page contains release notes for Aspose.Slides for C++ 21.4.
 
 ### get_PlayAcrossSlides(), set_PlayAcrossSlides(), get_RewindAudio() and set_RewindAudio() methods have been added to IAudioFrame interface ###
 
-New [get_PlayAcrossSlides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a565341f38d7483cceb697b820a077d43), [set_PlayAcrossSlides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#ac06b8b3b0dc0154e9bce334d3560219c), [get_RewindAudio()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#acad8b374349bf39acbba30fb0d59b8b3) and [set_RewindAudio()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a69f9ede43a095720454676f51a36a29e) methods have been added to [IAudioFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame) interface and  [AudioFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) class.
+New [get_PlayAcrossSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a565341f38d7483cceb697b820a077d43), [set_PlayAcrossSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#ac06b8b3b0dc0154e9bce334d3560219c), [get_RewindAudio()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#acad8b374349bf39acbba30fb0d59b8b3) and [set_RewindAudio()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a69f9ede43a095720454676f51a36a29e) methods have been added to [IAudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame) interface and  [AudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) class.
 
-The [get_PlayAcrossSlides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a565341f38d7483cceb697b820a077d43) and [set_PlayAcrossSlides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#ac06b8b3b0dc0154e9bce334d3560219c) methods allow determining whether audio is playing across the slides.
+The [get_PlayAcrossSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a565341f38d7483cceb697b820a077d43) and [set_PlayAcrossSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#ac06b8b3b0dc0154e9bce334d3560219c) methods allow determining whether audio is playing across the slides.
 
-The [get_RewindAudio()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#acad8b374349bf39acbba30fb0d59b8b3) and [set_RewindAudio()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a69f9ede43a095720454676f51a36a29e) methods allow determining whether audio is automatically rewinded to start after playing.
+The [get_RewindAudio()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#acad8b374349bf39acbba30fb0d59b8b3) and [set_RewindAudio()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_audio_frame#a69f9ede43a095720454676f51a36a29e) methods allow determining whether audio is automatically rewinded to start after playing.
 
-The code snippet below demonstrates adding the [AudioFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) and changing its properties:
+The code snippet below demonstrates adding the [AudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) and changing its properties:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -63,9 +63,9 @@ pres->Save(u"AudioFrame_out.pptx", Export::SaveFormat::Pptx);
 
 ### InClickSequence value has been added to AudioPlayModePreset enumeration ###
 
-[InClickSequence](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) value has been added to [AudioPlayModePreset](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) enumeration. It represents In Click Sequence audio start play mode. 
+[InClickSequence](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) value has been added to [AudioPlayModePreset](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) enumeration. It represents In Click Sequence audio start play mode. 
 
-The code snippet below demonstrates adding the [AudioFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) and changing its play mode: 
+The code snippet below demonstrates adding the [AudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) and changing its play mode: 
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -82,10 +82,10 @@ pres->Save(u"AudioFrame_out.pptx", Export::SaveFormat::Pptx);
 
 ### InClickSequence value has been added to VideoPlayModePreset enumeration ###
 
-[InClickSequence](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a6c7fce466cc6d8b70562984dc9387753) value has been added to [VideoPlayModePreset](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a6c7fce466cc6d8b70562984dc9387753) enumeration.
+[InClickSequence](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a6c7fce466cc6d8b70562984dc9387753) value has been added to [VideoPlayModePreset](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a6c7fce466cc6d8b70562984dc9387753) enumeration.
 It represents In Click Sequence video start play mode.
 
-The code snippet below demonstrates adding the [VideoFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.video_frame) and changing its play mode:
+The code snippet below demonstrates adding the [VideoFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.video_frame) and changing its play mode:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -102,7 +102,7 @@ pres->Save(u"VideoFrame_out.pptx", Export::SaveFormat::Pptx);
 
 ### IOleObjectFrame::SetEmbeddedData() and IOleObjectFrame::get_EmbeddedData() methods have been added ###
 
-New [SetEmbeddedData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a5427663765ad2a83e5019f86bbe91da3) and [get_EmbeddedData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#ace22b23c587d5d8592e92d2b0357a9c0) methods have been added to the [IOleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface and [OleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) class.
+New [SetEmbeddedData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a5427663765ad2a83e5019f86bbe91da3) and [get_EmbeddedData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#ace22b23c587d5d8592e92d2b0357a9c0) methods have been added to the [IOleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface and [OleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.ole_object_frame) class.
 
 These methods allow to get, set and change an embedded data and its type of OLE object.
 
@@ -143,12 +143,12 @@ if (oleFrame != nullptr)
 pres->Save(u"OleEdit_out.pptx", Export::SaveFormat::Pptx);
 ```
 
-Please note that methods [get_ObjectData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a1b4736697deaadcaae64363ad25f27ed), [set_ObjectData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a35da2d06875b7f6f668b474bd45331da), [get_EmbeddedFileExtension()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a462141339c39f19a89a81a391dfe2000) and [get_EmbeddedFileData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#afafd5efa2746ff3a32f85754bb26ec04) of [IOleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface marked as deprecated now so please use [SetEmbeddedData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a5427663765ad2a83e5019f86bbe91da3) and [get_EmbeddedData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#ace22b23c587d5d8592e92d2b0357a9c0) methods instead of them. These deprecated methods will be removed after the release of version 21.11.
+Please note that methods [get_ObjectData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a1b4736697deaadcaae64363ad25f27ed), [set_ObjectData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a35da2d06875b7f6f668b474bd45331da), [get_EmbeddedFileExtension()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a462141339c39f19a89a81a391dfe2000) and [get_EmbeddedFileData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#afafd5efa2746ff3a32f85754bb26ec04) of [IOleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface marked as deprecated now so please use [SetEmbeddedData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a5427663765ad2a83e5019f86bbe91da3) and [get_EmbeddedData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#ace22b23c587d5d8592e92d2b0357a9c0) methods instead of them. These deprecated methods will be removed after the release of version 21.11.
 
 ### New overloads for the SlideUtil::AlignShapes() method have been added ###
 
-New [AlignShapes(ShapesAlignmentType alignmentType, bool alignToSlide, System::SharedPtr<IBaseSlide> slide)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#aa0a893a632f42ad87a8d06f3d59aa5c0) method has been added to the [SlideUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util) class.
-This overloading allows aligning all shapes within [IBaseSlide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide). 
+New [AlignShapes(ShapesAlignmentType alignmentType, bool alignToSlide, System::SharedPtr<IBaseSlide> slide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#aa0a893a632f42ad87a8d06f3d59aa5c0) method has been added to the [SlideUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util) class.
+This overloading allows aligning all shapes within [IBaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide). 
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -163,8 +163,8 @@ SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, true, pres->get_Slides(
 pres->Save(u"output.pptx", Export::SaveFormat::Pptx);
 ```
 
-New [AlignShapes(ShapesAlignmentType alignmentType, bool alignToSlide, System::SharedPtr<IGroupShape> groupShape)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a80021149ba1cee0b42f78bd1674a013e) method has been added to the [SlideUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util) class.
-This overloading allows aligning all shapes within [IGroupShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_group_shape). 
+New [AlignShapes(ShapesAlignmentType alignmentType, bool alignToSlide, System::SharedPtr<IGroupShape> groupShape)](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a80021149ba1cee0b42f78bd1674a013e) method has been added to the [SlideUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util) class.
+This overloading allows aligning all shapes within [IGroupShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_group_shape). 
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -181,8 +181,8 @@ SlideUtil::AlignShapes(ShapesAlignmentType::AlignLeft, false, groupShape);
 pres->Save(u"output.pptx", Export::SaveFormat::Pptx);
 ```
 
-New [AlignShapes(ShapesAlignmentType alignmentType, bool alignToSlide, System::SharedPtr<IGroupShape> groupShape, System::ArrayPtr<int32_t> shapeIndexes)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a3128c83050c3e184f60c208af894b152) method has been added to the [SlideUtil](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util) class.
-This overloading allows aligning shapes with specified indexes within [IGroupShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_group_shape). 
+New [AlignShapes(ShapesAlignmentType alignmentType, bool alignToSlide, System::SharedPtr<IGroupShape> groupShape, System::ArrayPtr<int32_t> shapeIndexes)](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a3128c83050c3e184f60c208af894b152) method has been added to the [SlideUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util) class.
+This overloading allows aligning shapes with specified indexes within [IGroupShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_group_shape). 
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();

@@ -267,14 +267,14 @@ Consider a scene for a text and the shape containing that text. The 3D effect co
 - When the figure lacks its own scene but has 3D representation, the text scene is used. 
 - Otherwise—when the shape originally has no 3D effect—the shape is flat and the 3D effect only gets applied to the text. 
 
-The descriptions are connected to the [ThreeDFormat.LightRig](https://apireference.aspose.com/slides/net/aspose.slides/threedformat/properties/lightrig) and [ThreeDFormat.Camera](https://apireference.aspose.com/slides/net/aspose.slides/threedformat/properties/camera) properties.
+The descriptions are connected to the [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/properties/lightrig) and [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/properties/camera) properties.
 
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for .NET provides the [**IOuterShadow**](https://apireference.aspose.com/slides/net/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://apireference.aspose.com/slides/net/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
+Aspose.Slides for .NET provides the [**IOuterShadow**](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow) and [**IInnerShadow**](https://reference.aspose.com/slides/net/aspose.slides.effects/iinnershadow) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -323,7 +323,7 @@ using (Presentation pres = new Presentation())
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.

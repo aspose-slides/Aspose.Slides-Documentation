@@ -12,16 +12,16 @@ Aspose.Slides for C++ allows you to convert slides (in presentations) to images.
 To convert a slide to an image, do this: 
 
 1. First,
-   * convert the slide to a Bitmap first by using the [GetThumbnail](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method or
-   * render the slide to a Graphics object by using the [RenderToGraphics](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method from the [ISlide](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface.
+   * convert the slide to a Bitmap first by using the [GetThumbnail](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method or
+   * render the slide to a Graphics object by using the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method from the [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface.
 
 2. Second, set additional options for conversion and convertible slide objects through
-   * the [ITiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) interface or
-   * the [IRenderingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) interface. 
+   * the [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) interface or
+   * the [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) interface. 
 
 ## **About Bitmap and Other Image Formats**
 
-A [Bitmap](https://apireference.aspose.com/slides/cpp/class/system.drawing.bitmap) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.).
+A [Bitmap](https://reference.aspose.com/slides/cpp/class/system.drawing.bitmap) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.).
 
 {{% alert title="Info" color="info" %}}
 
@@ -43,7 +43,7 @@ System::SharedPtr<Bitmap> bmp = pres->get_Slides()->idx_get(0)->GetThumbnail();
 bmp->Save(u"Slide_0.png", ImageFormat::get_Png());
 ```
 
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
+This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
@@ -68,9 +68,9 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) or [RenderToGraphics](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) or [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method, you can convert a slide to an image with specific dimensions (length and width). 
 
-This sample code demonstrates the proposed conversion using the [GetThumbnail](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method in C++:
+This sample code demonstrates the proposed conversion using the [GetThumbnail](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method in C++:
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
@@ -80,7 +80,7 @@ auto bmp = pres->get_Slides()->idx_get(0)->GetThumbnail(Size(1820, 1040));
 bmp->Save(u"Slide_0.jpg", ImageFormat::get_Jpeg());
 ```
 
-This C++ code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
+This C++ code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
@@ -105,11 +105,11 @@ slideImage->Save(u"FramedSlide_0.jpg", ImageFormat::get_Jpeg());
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[ITiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) and [IRenderingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) and [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface, you get to specify your preferred position for notes and comments in the resulting image. 
+With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) interface, you get to specify your preferred position for notes and comments in the resulting image. 
 
 {{% /alert %}} 
 
@@ -136,7 +136,7 @@ auto bmp = pres->get_Slides()->idx_get(0)->GetThumbnail(options, 2.f, 2.f);
 bmp->Save(u"Slide_Notes_Comments_0.gif", ImageFormat::get_Gif());
 ```
 
-This C++ code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
+This C++ code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>(u"PresentationNotes.pptx");
@@ -161,13 +161,13 @@ slideImage->Save(u"Slide_Notes_0.png", ImageFormat::get_Png());
 
 {{% alert title="Note" color="warning" %}} 
 
-In any slide to image conversion process, you cannot pass the BottomFull value (to specify the position for notes) to the [set_NotesPositions()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) method because a note's text may be large, which means it might not fit into the specified image size. 
+In any slide to image conversion process, you cannot pass the BottomFull value (to specify the position for notes) to the [set_NotesPositions()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) method because a note's text may be large, which means it might not fit into the specified image size. 
 
 {{% /alert %}} 
 
 ## **Converting Slides to Images Using ITiffOptions**
 
-The [ITiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
+The [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
 
 This C++ code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 

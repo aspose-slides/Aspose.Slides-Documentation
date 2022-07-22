@@ -6,7 +6,7 @@ url: /java/slides-poi/get-shapes-from-presentation-slide/
 ---
 
 ## **Aspose.Slides - Get Shapes from Presentation Slide**
-Aspose.Slides for Java supports adding different kinds of shapes to the slides. Using Aspose.Slides for Java, developers can not only create simple lines, but some fancy lines can also be drawn on the slides. These shapes can be obtained using [Slide.getShapes()](https://apireference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) in [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) class.
+Aspose.Slides for Java supports adding different kinds of shapes to the slides. Using Aspose.Slides for Java, developers can not only create simple lines, but some fancy lines can also be drawn on the slides. These shapes can be obtained using [Slide.getShapes()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) in [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) class.
 
 ```java
 ISlide slide =  pres.getSlides().get_Item(0);

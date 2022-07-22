@@ -9,7 +9,7 @@ description: "Pie chart plot options and slice colors in PowerPoint presentation
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
 Aspose.Slides for .NET now supports, second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to Specify these options using Aspose.Slides. In order to specify the properties. Please follow the steps below:
 
-1. Instantiate [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
 1. Add chart on the slide.
 1. Specify the second plot options of chart.
 1. Write presentation to disk.

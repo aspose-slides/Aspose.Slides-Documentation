@@ -34,7 +34,7 @@ This page contains release notes for [Aspose.Slides for C++ 21.12](https://www.n
 
 We implemented support for **Section zoom** and **Summary zoom**. See the [Manage Zoom](https://docs.aspose.com/slides/cpp/manage-zoom/) article.
 
-This C++ code demonstrates the creation of [SectionZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.section_zoom_frame) and [SummaryZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.summary_zoom_frame) objects:
+This C++ code demonstrates the creation of [SectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.section_zoom_frame) and [SummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.summary_zoom_frame) objects:
 
 ``` cpp
 using namespace Aspose::Slides;
@@ -119,5 +119,5 @@ int main()
 
 ### ObjectData, EmbeddedFileExtension, and EmbeddedFileData have been removed from the IOleObjectFrame interface ###
 
-Obsolete properties `ObjectData`, `EmbeddedFileExtension`, and `EmbeddedFileData` have been removed from [IOleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface. Use the [SetEmbeddedData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a5427663765ad2a83e5019f86bbe91da3) method and [get_EmbeddedData()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#ace22b23c587d5d8592e92d2b0357a9c0) method from the [IOleObjectFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface instead.
+Obsolete properties `ObjectData`, `EmbeddedFileExtension`, and `EmbeddedFileData` have been removed from [IOleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface. Use the [SetEmbeddedData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#a5427663765ad2a83e5019f86bbe91da3) method and [get_EmbeddedData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame#ace22b23c587d5d8592e92d2b0357a9c0) method from the [IOleObjectFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_ole_object_frame) interface instead.
 

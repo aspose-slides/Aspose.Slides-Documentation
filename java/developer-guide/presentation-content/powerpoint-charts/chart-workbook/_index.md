@@ -45,8 +45,6 @@ try {
 1. Set the workbook cell as a data label.
 1. Save the presentation.
 
-This Java code shows you to set a workbook cell as a chart data label:
-
 ```java
 // Instantiates a presentation class that represents a presentation file
 Presentation pres = new Presentation("chart.pptx");

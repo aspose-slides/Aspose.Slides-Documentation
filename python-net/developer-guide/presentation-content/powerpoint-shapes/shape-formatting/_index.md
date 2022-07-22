@@ -17,13 +17,13 @@ In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, 
 
 Using Aspose.Slides, you can specify your preferred line style for a shape. These steps outline such a procedure:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
 4. Set a color for the shape lines.
 5. Set the width for the shape lines.
-6. Set the [line style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linestyle/) for the shape line
-7. Set the [dash style](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/linedashstyle/) for the shape line. 
+6. Set the [line style](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/) for the shape line
+7. Set the [dash style](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) for the shape line. 
 8. Write the modified presentation as a PPTX file.
 
 This Python code demonstrates an operation where we formatted a rectangle `AutoShape`:
@@ -126,10 +126,10 @@ In PowerPoint, Gradient Fill is a formatting option that allows you to apply a c
 
 This is how you use Aspose.Slides to apply a gradient fill to a shape:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
-4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Gradient`.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) to `Gradient`.
 5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
 6. Write the modified presentation as a PPTX file.
 
@@ -170,13 +170,13 @@ Aspose.Slides provides over 45 predefined styles that can be used to format shap
 
 This is how you use Aspose.Slides to apply a pattern fill to a shape:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
-4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Pattern`.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) to `Pattern`.
 5. Set your preferred pattern style for the shape. 
-6. Set the Background Color  for the [PatternFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/).
-7. Set the Foreground Color  for the [PatternFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/patternformat/).
+6. Set the Background Color  for the [PatternFormat](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/).
+7. Set the Foreground Color  for the [PatternFormat](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/).
 8. Write the modified presentation as a PPTX file.
 
 This Python code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
@@ -213,10 +213,10 @@ In PowerPoint, Picture Fill is a formatting option that allows you to place a pi
 
 This is how you use Aspose.Slides to fill a shape with a picture:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
-4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Picture`.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) to `Picture`.
 5. Set the Picture Fill Mode to Tile.
 6. Create an `IPPImage` object using the image that will be used to fill the shape.
 7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
@@ -258,10 +258,10 @@ In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a
 
 This is how you use Aspose.Slides to apply solid color fill to a shape:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
-4. Set the Shape's [FillType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/filltype/) to `Solid`.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) to `Solid`.
 5. Set your preferred color for the Shape.
 6. Write the modified presentation as a PPTX file.
 
@@ -295,9 +295,9 @@ In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or t
 
 Aspose.Slides allows you to set the transparency level for a shape this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
 4. Use `Color.FromArgb` with the alpha component set.
 5. Save the object as a PowerPoint file. 
 
@@ -325,9 +325,9 @@ with slides.Presentation() as presentation:
 ## **Rotate Shapes**
 Aspose.Slides allows you to rotate a shape added to a slide this way: 
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
 4. Rotate the shape by the needed degrees. 
 5. Write the modified presentation as a PPTX file.
 
@@ -353,12 +353,12 @@ with slides.Presentation() as pres:
 
 
 ## **Add 3D Bevel Effects**
-Aspose.Slides for Python via .NET allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties this way:
+Aspose.Slides for Python via .NET allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) properties this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
-4. Set your preferred parameters for the shape's [ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties. 
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
+4. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) properties. 
 5. Write the presentation to disk.
 
 This Python code shows you how to add 3D bevel effects to a shape:
@@ -395,11 +395,11 @@ with slides.Presentation() as pres:
 
 
 ## **Add 3D Rotation Effect**
-Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties this way:
+Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) properties this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) to the slide.
 4. Specify your preferred figures for CameraType and LightType.
 5. Write the presentation to disk. 
 

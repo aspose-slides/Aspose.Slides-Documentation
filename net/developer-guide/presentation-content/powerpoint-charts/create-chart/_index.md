@@ -24,7 +24,7 @@ Using charts, you get to
 In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
 
 ### **Creating Normal Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with some data and specify your preferred chart type. 
 1. Add a title for the chart. 
@@ -198,7 +198,7 @@ pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead. 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.Pie`).
 1. Access the chart data IChartDataWorkbook.
@@ -321,7 +321,7 @@ presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.TreeMap`).
 1. Access the chart data IChartDataWorkbook.
@@ -387,7 +387,7 @@ using (Presentation presentation = new Presentation())
 
 
 ### **Creating Stock Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
 1. Access the chart data IChartDataWorkbook.
@@ -450,7 +450,7 @@ using (Presentation pres = new Presentation())
 
 
 ### **Creating Box and Whisker Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.BoxAndWhisker).
 1. Access the chart data IChartDataWorkbook.
@@ -504,7 +504,7 @@ public static void Run()
 
 
 ### **Creating Funnel Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.Funnel).
 1. Write the modified presentation to a PPTX file
@@ -546,7 +546,7 @@ public static void Run()
 ```
 
 ### **Creating Sunburst Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.sunburst`).
 1. Write the modified presentation to a PPTX file
@@ -608,7 +608,7 @@ public static void Run()
 
 
 ### **Creating Histogram Charts**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index. 
 1. Add some chart with some data and specify your preferred chart type (`ChartType.Histogram` in this case).
 1. Access the chart data `IChartDataWorkbook`.
@@ -648,7 +648,7 @@ public static void Run()
 
 ### **Creating Radar Charts**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class
 1. Get a slide's reference through its index. 
 1. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
 1. Write the modified presentation to a PPTX file
@@ -665,7 +665,7 @@ using (Presentation presentation = new Presentation())
 
 ### **Creating Multi Category Charts**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.ClusteredColumn).
 1. Access the chart data IChartDataWorkbook.
@@ -737,7 +737,7 @@ using (Presentation pres = new Presentation())
 
 ## **Updating Charts**
 
-1. Instantiate a [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
 2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data worksheet.
@@ -807,7 +807,7 @@ pres.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 
 ## **Setting Data Range for Charts**
 
-1. Instantiate a [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
 2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.

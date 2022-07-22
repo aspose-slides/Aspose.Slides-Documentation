@@ -11,14 +11,14 @@ description: Manage Paragraph in PowerPoint Slides using Java. Manage Paragraph 
 An ITextFame object can have one or more Paragraphs (every paragraph is created through a carriage return), that is a collection of IParagraph objects. Furthermore, an IParagraph object can have one or more Portions (a collection of IPortion objects. An IPortion object manages text and its formatting properties. So, it means that IParagraph object has capacity to handle text with different formatting properties through its underlying IPortion objects.
 Please follow the steps below to add TextFrame having 3 paragraphs and 3 portions for each paragraph using Aspose.Slides for Java:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type to the slide.
-- Access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) associated with the [IAutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- Create two [IParagraph](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph) objects and add it to the [IParagraphs](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph) collection of the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame).
-- Create three [IPortion](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion) objects for each new [IParagraph](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph) (two Portion objects for default Paragraph) and add each [IPortion](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion) object to the [IPortions](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion) collection of each [IParagraph](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph).
-- Set some text for each [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/Portion).
-- Apply the desired formatting features to each [Portion](https://apireference.aspose.com/slides/java/com.aspose.slides/Portion) using different formatting properties exposed by [IPortion](https://apireference.aspose.com/slides/java/com.aspose.slides/IPortion) object.
+- Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type to the slide.
+- Access the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) associated with the [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+- Create two [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph) objects and add it to the [IParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph) collection of the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame).
+- Create three [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion) objects for each new [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph) (two Portion objects for default Paragraph) and add each [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion) object to the [IPortions](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion) collection of each [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph).
+- Set some text for each [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion).
+- Apply the desired formatting features to each [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) using different formatting properties exposed by [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion) object.
 - Write the modified presentation as a PPTX file.
 
 The implementation of the above steps is given below.
@@ -91,12 +91,12 @@ try {
 ## **Paragraph Indent**
 This page will illustrate how we can manage paragraph indent. We will see how developers can use this feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph indent using Aspose.Slides for Java:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Position.
 1. Add a Rectangle shape in the slide.
-1. Add a [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) with three Paragraphs in the Rectangle.
+1. Add a [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) with three Paragraphs in the Rectangle.
 1. Hide the Lines of the Rectangle.
-1. Set indent of each [IParagraph](https://apireference.aspose.com/slides/java/com.aspose.slides/IParagraph) using its BulletOffset property.
+1. Set indent of each [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph) using its BulletOffset property.
 1. Write the modified presentation as a PPT file.
 
 The implementation of the above steps is given below.
@@ -156,10 +156,10 @@ try {
 ## **End Paragraph Run Properties for Paragraph**
 This page will illustrate how we can manage end paragraph run properties. We will see how developers can use this feature of Aspose.Slides for Java. Please follow the steps below to manage the End paragraph Run Properties using Aspose.Slides for Java:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Position.
 1. Add a Rectangle shape in the slide.
-1. Add a [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) with two Paragraphs in the Rectangle.
+1. Add a [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) with two Paragraphs in the Rectangle.
 1. Set Font Height and Font type of paragraphs.
 1. Set End properties of paragraphs.
 1. Write the modified presentation as a PPTX file.
@@ -194,13 +194,13 @@ try {
 ## **Import HTML Text in Paragraphs**
 This topic is also part of a series of topics about managing text paragraphs. Aspose.Slides for Java has enhanced support for adding HTML text or saving paragraphs text to HTML. This article shows how to manage paragraphs to use HTML data and shows how developers can use this small yet powerful feature. To manage paragraph bullets using Aspose.Slides for Java:
 
-- Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Access the desired slide in slide collection using the [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) object.
+- Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Access the desired slide in slide collection using the [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) object.
 - Add an autoshape to the selected slide.
-- Add and access the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame) of the added shape.
-- Remove the default paragraph in the [ITextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrame).
+- Add and access the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) of the added shape.
+- Remove the default paragraph in the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame).
 - Read the source HTML file in a TextReader.
-- Create the first paragraph instance using the [Paragraph](https://apireference.aspose.com/slides/java/com.aspose.slides/Paragraph) class.
+- Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) class.
 - Add the HTML file content in the read TextReader to the TextFrame's ParagraphCollection.
 - Save the presentation.
 
@@ -241,10 +241,10 @@ try {
 ## **Export Paragraphs Text to HTML**
 Please follow the steps below to see how to export the paragraph text to HTML using Aspose.Slides for Java:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the desired presentation.
-- Access the desired slide into the slide collection using [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) object.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the desired presentation.
+- Access the desired slide into the slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) object.
 - Access the desired shape for which text need to be exported to HTML.
-- Access the [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame) of the accessed shape.
+- Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) of the accessed shape.
 - Create an instance of StreamWriter and add the new HTML file.
 - Export the desired number of paragraphs data by providing starting index to the StreamWriter.
   

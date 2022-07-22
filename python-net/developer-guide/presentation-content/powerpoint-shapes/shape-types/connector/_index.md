@@ -10,7 +10,7 @@ description: "Connect PowerPoint shapes in Python"
 ## **Connect Shapes Using Connectors**
 In order to add a connector shape for joining two shapes. Please follow the steps below:
 
-1. Create an instance of [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Obtain the reference of a slide by using its Index.
 1. Add two add AutoShape's in selected slide using AddAutoShape method exposed by Shapes object.
 1. Add Connector using AddConnector method exposed by Shapes object by defining Connector Type.

@@ -78,7 +78,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 
 You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
 
-To encrypt or password protect a presentation, you have to use the encrypt method (from [ProtectionManager](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation. 
+To encrypt or password protect a presentation, you have to use the encrypt method (from [ProtectionManager](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation. 
 
 This sample code shows you how to encrypt a presentation:
 
@@ -108,7 +108,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 
 ## Decrypting a Presentation; Opening an Encrypted Presentation
 
-Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [RemoveEncryption](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removeencryption) method with no parameters. You will then have to enter the correct password to load the presentation. 
+Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [RemoveEncryption](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removeencryption) method with no parameters. You will then have to enter the correct password to load the presentation. 
 
 This sample code shows you how to decrypt a presentation: 
 
@@ -124,7 +124,7 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 
 You can remove the encryption or password protection on a presentation. This way, users become able to access or modify the presentation without restrictions. 
 
-To remove encryption or password protection, you have to call the [RemoveEncryption](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removeencryption) method. This sample code shows you to remove encryption from a presentation:
+To remove encryption or password protection, you have to call the [RemoveEncryption](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removeencryption) method. This sample code shows you to remove encryption from a presentation:
 
 ```c#
 LoadOptions loadOptions = new LoadOptions {Password = "123123"};
@@ -139,7 +139,7 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 
 You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
 
-You can remove the write protection from a presentation by using the [RemoveWriteProtection](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removewriteprotection) method. This sample code shows you to remove the write protection from a presentation:
+You can remove the write protection from a presentation by using the [RemoveWriteProtection](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removewriteprotection) method. This sample code shows you to remove the write protection from a presentation:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -155,7 +155,7 @@ Typically, users struggle to get the document properties of an encrypted or pass
 
 **Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
 
-If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [EncryptDocumentProperties](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
+If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -167,7 +167,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 
 ## Checking whether a Presentation is Encrypted
 
-Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
+Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
 
 This sample code shows you how to check whether a presentation is encrypted:
 
@@ -180,7 +180,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 
 ## Checking whether a Presentation is Write Protected
 
-Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [IsWriteProtected](https://apireference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/iswriteprotected) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
+Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [IsWriteProtected](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/iswriteprotected) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted. 
 
 This sample code shows you how to check whether a presentation is write-protected:
 
