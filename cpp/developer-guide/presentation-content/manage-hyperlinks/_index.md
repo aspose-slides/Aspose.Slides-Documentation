@@ -146,7 +146,7 @@ contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 
 ### **Color**
 
-With the [set_ColorSource()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) and [get_ColorSource()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) methods in the [IHyperlink](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
+With the [set_ColorSource()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) and [get_ColorSource()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) methods in the [IHyperlink](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
 
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
@@ -216,13 +216,13 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 
 ## **Mutable Hyperlink**
 
-The [Hyperlink](https://apireference.aspose.com/slides/cpp/class/aspose.slides.hyperlink) class is mutable. With this class, you can change the values for these methods:
+The [Hyperlink](https://reference.aspose.com/slides/cpp/class/aspose.slides.hyperlink) class is mutable. With this class, you can change the values for these methods:
 
-- [IHyperlink::set_TargetFrame()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
-- [IHyperlink::set_Tooltip()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
-- [IHyperlink.set_History()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#a1a4a96d280f54b641e3ada3557b6688d)
-- [IHyperlink.set_HighlightClick()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
-- [IHyperlink.set_StopSoundOnClick()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
+- [IHyperlink::set_TargetFrame()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
+- [IHyperlink::set_Tooltip()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
+- [IHyperlink.set_History()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#a1a4a96d280f54b641e3ada3557b6688d)
+- [IHyperlink.set_HighlightClick()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
+- [IHyperlink.set_StopSoundOnClick()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
 
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
@@ -248,14 +248,14 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 You can access IHyperlinkQueries from a presentation, slide, or text for which the hyperlink is defined. 
 
-- [IPresentation::get_HyperlinkQueries()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a7e84086f34ddc742ea9124ab11727691)
-- [IBaseSlide::get_HyperlinkQueries()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#a8593a5a5f6b7e051aa859ec373c66421)
-- [ITextFrame::get_HyperlinkQueries()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame#a1303ef71d3c50d471e35434dcaaa2e4e)
+- [IPresentation::get_HyperlinkQueries()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a7e84086f34ddc742ea9124ab11727691)
+- [IBaseSlide::get_HyperlinkQueries()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_base_slide#a8593a5a5f6b7e051aa859ec373c66421)
+- [ITextFrame::get_HyperlinkQueries()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame#a1303ef71d3c50d471e35434dcaaa2e4e)
 
 The IHyperlinkQueries class supports these methods: 
 
-- [IHyperlinkQueries::GetHyperlinkClicks()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#aaea0b1b68ff2e65240612fb1f08361c1)
-- [IHyperlinkQueries::GetHyperlinkMouseOvers()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#ac68ac55d183323f11e604b40760b0e4b)
-- [IHyperlinkQueries::GetAnyHyperlinks()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#acaf9ded3920056054e0e70c24129d73a)
-- [IHyperlinkQueries::RemoveAllHyperlinks()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#a289f52c992f939fe46282536cec7222d)
+- [IHyperlinkQueries::GetHyperlinkClicks()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#aaea0b1b68ff2e65240612fb1f08361c1)
+- [IHyperlinkQueries::GetHyperlinkMouseOvers()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#ac68ac55d183323f11e604b40760b0e4b)
+- [IHyperlinkQueries::GetAnyHyperlinks()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#acaf9ded3920056054e0e70c24129d73a)
+- [IHyperlinkQueries::RemoveAllHyperlinks()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#a289f52c992f939fe46282536cec7222d)
 

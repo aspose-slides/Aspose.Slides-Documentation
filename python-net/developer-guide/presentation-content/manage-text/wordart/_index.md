@@ -198,29 +198,29 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```py 
-    autoShape.three_dformat.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_dformat.bevel_bottom.height = 10.5
-    autoShape.three_dformat.bevel_bottom.width = 10.5
+    autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    autoShape.three_d_format.bevel_bottom.height = 10.5
+    autoShape.three_d_format.bevel_bottom.width = 10.5
 
-    autoShape.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    autoShape.three_dformat.bevel_top.height = 12.5
-    autoShape.three_dformat.bevel_top.width = 11
+    autoShape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    autoShape.three_d_format.bevel_top.height = 12.5
+    autoShape.three_d_format.bevel_top.width = 11
 
-    autoShape.three_dformat.extrusion_color.color = draw.Color.orange
-    autoShape.three_dformat.extrusion_height = 6
+    autoShape.three_d_format.extrusion_color.color = draw.Color.orange
+    autoShape.three_d_format.extrusion_height = 6
 
-    autoShape.three_dformat.contour_color.color = draw.Color.dark_red
-    autoShape.three_dformat.contour_width = 1.5
+    autoShape.three_d_format.contour_color.color = draw.Color.dark_red
+    autoShape.three_d_format.contour_width = 1.5
 
-    autoShape.three_dformat.depth = 3
+    autoShape.three_d_format.depth = 3
 
-    autoShape.three_dformat.material = slides.MaterialPresetType.PLASTIC
+    autoShape.three_d_format.material = slides.MaterialPresetType.PLASTIC
 
-    autoShape.three_dformat.light_rig.direction = slides.LightingDirection.TOP
-    autoShape.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    autoShape.three_dformat.light_rig.set_rotation(0, 0, 40)
+    autoShape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    autoShape.three_d_format.light_rig.set_rotation(0, 0, 40)
 
-    autoShape.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
 The resulting text and its shape:
@@ -230,29 +230,29 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this Python code:
 
 ```py 
-    textFrame.text_frame_format.three_dformat.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_dformat.bevel_bottom.height = 3.5
-    textFrame.text_frame_format.three_dformat.bevel_bottom.width = 3.5
+    textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
+    textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
+    textFrame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
 
-    textFrame.text_frame_format.three_dformat.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
-    textFrame.text_frame_format.three_dformat.bevel_top.height = 4
-    textFrame.text_frame_format.three_dformat.bevel_top.width = 4
+    textFrame.text_frame_format.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
+    textFrame.text_frame_format.three_d_format.bevel_top.height = 4
+    textFrame.text_frame_format.three_d_format.bevel_top.width = 4
 
-    textFrame.text_frame_format.three_dformat.extrusion_color.color = draw.Color.orange
-    textFrame.text_frame_format.three_dformat.extrusion_height= 6
+    textFrame.text_frame_format.three_d_format.extrusion_color.color = draw.Color.orange
+    textFrame.text_frame_format.three_d_format.extrusion_height= 6
 
-    textFrame.text_frame_format.three_dformat.contour_color.color = draw.Color.dark_red
-    textFrame.text_frame_format.three_dformat.contour_width = 1.5
+    textFrame.text_frame_format.three_d_format.contour_color.color = draw.Color.dark_red
+    textFrame.text_frame_format.three_d_format.contour_width = 1.5
 
-    textFrame.text_frame_format.three_dformat.depth= 3
+    textFrame.text_frame_format.three_d_format.depth= 3
 
-    textFrame.text_frame_format.three_dformat.material = slides.MaterialPresetType.PLASTIC
+    textFrame.text_frame_format.three_d_format.material = slides.MaterialPresetType.PLASTIC
 
-    textFrame.text_frame_format.three_dformat.light_rig.direction = slides.LightingDirection.TOP
-    textFrame.text_frame_format.three_dformat.light_rig.light_type = slides.LightRigPresetType.BALANCED
-    textFrame.text_frame_format.three_dformat.light_rig.set_rotation(0, 0, 40)
+    textFrame.text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
+    textFrame.text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    textFrame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
 
-    textFrame.text_frame_format.three_dformat.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+    textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
 The result of the operation:
@@ -269,14 +269,14 @@ Consider a scene for a text and the shape containing that text. The 3D effect co
 - When the figure lacks its own scene but has 3D representation, the text scene is used. 
 - Otherwise—when the shape originally has no 3D effect—the shape is flat and the 3D effect only gets applied to the text. 
 
-The descriptions are connected to the [ThreeDFormat.LightRig](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) and [ThreeDFormat.Camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/threedformat/) properties.
+The descriptions are connected to the [ThreeDFormat.LightRig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) and [ThreeDFormat.Camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) properties.
 
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for Python via .NET provides the [**IOuterShadow**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.effects/ioutershadow/) and [**IInnerShadow**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.effects/iinnershadow/) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
+Aspose.Slides for Python via .NET provides the [**IOuterShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/ioutershadow/) and [**IInnerShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/iinnershadow/) classes that allow you to apply shadow effects to a text carried by TextFrame. Go through these steps:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -326,7 +326,7 @@ with slides.Presentation() as pres:
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.

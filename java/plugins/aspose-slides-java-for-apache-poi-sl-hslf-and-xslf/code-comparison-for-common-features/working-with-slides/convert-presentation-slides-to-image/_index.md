@@ -16,7 +16,7 @@ Following are the steps involved for saving presentation slides as images.
 ## **Aspose.Slides - Convert Presentation Slides to Image**
 {{% alert color="primary" %}} 
 
-The [save](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/TiffOptions) class exposes [imageSize](https://apireference.aspose.com/slides/java/com.aspose.slides/TiffOptions#setImageSize-java.awt.Dimension-) property enabling the developer to define the size of the image if required.
+The [save](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/TiffOptions) class exposes [imageSize](https://reference.aspose.com/slides/java/com.aspose.slides/TiffOptions#setImageSize-java.awt.Dimension-) property enabling the developer to define the size of the image if required.
 
 {{% /alert %}} 
 

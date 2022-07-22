@@ -42,10 +42,10 @@ This page contains release notes for [Aspose.Slides for Java 20.10](https://repo
 ## **Public API Changes**
 
 ### **ITextFrameFormat.getThreeDFormat() and ITextFrameFormat.getTransform() methods have been added**
-New [getThreeDFormat()](https://apireference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getCamera--) and 
-[getTransform()](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getTransform--) methods have been added to 
-[ITextFrameFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface.
-These methods allow to set 3D effect to text in [TextFrame](https://apireference.aspose.com/slides/java/com.aspose.slides/TextFrame).
+New [getThreeDFormat()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getCamera--) and 
+[getTransform()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getTransform--) methods have been added to 
+[ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface.
+These methods allow to set 3D effect to text in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame).
 
 Methods declaration:
 
@@ -111,9 +111,9 @@ try {
 ```
 
 ### **IPresentation.getThumbnails, ISlide.getThumbnail and ISlide.renderToGraphics methods have been overloaded**
-New overloaded methods have been added to [IPresentation](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation) and [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) interfaces.
+New overloaded methods have been added to [IPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation) and [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) interfaces.
 
-Overloaded methods in [IPresentation](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation):
+Overloaded methods in [IPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation):
 
 ``` java 
 /**
@@ -159,7 +159,7 @@ public java.awt.image.BufferedImage[] getThumbnails(IRenderingOptions options,ja
 public java.awt.image.BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides,java.awt.Dimension imageSize);
 ```
 
-Overloaded methods in [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide):
+Overloaded methods in [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide):
 
 ``` java 
 /**
@@ -205,16 +205,16 @@ public void renderToGraphics(IRenderingOptions options,java.awt.Graphics2D graph
 public void renderToGraphics(IRenderingOptions options,java.awt.Graphics2D graphics,java.awt.Dimension renderingSize);
 ```
 
-All of these overloaded methods use [IRenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) as an argument 
-and are used instead of old methods with [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) 
+All of these overloaded methods use [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) as an argument 
+and are used instead of old methods with [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) 
 argument. Old methods are marked as obsolete and will be removed after Aspose.Slides 21.4 Release.
 
 ### **IRenderingOptions interface and RenderingOptions class have been added**
-[IRenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) interface and implementing it 
-[RenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/RenderingOptions) class have been added. 
+[IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) interface and implementing it 
+[RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/RenderingOptions) class have been added. 
 They aggregate options used during presentation or slide rendering.
 
-[IRenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) declaration:
+[IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) declaration:
 
 ``` java 
 /**
@@ -232,13 +232,13 @@ public interface IRenderingOptions extends ISaveOptions
     public INotesCommentsLayoutingOptions getNotesCommentsLayouting();
 }
 ```
-As it can be seen from the declaration, [IRenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) 
-inherits [ISaveOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions) which makes 
-[getWarningCallback()](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getWarningCallback--), 
-[getProgressCallback()](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getProgressCallback--) 
-and [getDefaultRegularFont()](https://apireference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) 
-methods available to specify in [RenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/RenderingOptions) 
-class instance together with [getNotesCommentsLayouting()](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions#getNotesCommentsLayouting--) options.
+As it can be seen from the declaration, [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) 
+inherits [ISaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions) which makes 
+[getWarningCallback()](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getWarningCallback--), 
+[getProgressCallback()](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getProgressCallback--) 
+and [getDefaultRegularFont()](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) 
+methods available to specify in [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/RenderingOptions) 
+class instance together with [getNotesCommentsLayouting()](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions#getNotesCommentsLayouting--) options.
 
 The following code sample demonstrates one of the possible use cases - getting slide thumbnails with different default font and slide's notes shown:
 

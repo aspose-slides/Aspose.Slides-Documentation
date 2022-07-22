@@ -72,8 +72,8 @@ with slides.Presentation() as pres:
                 lbl.data_label_format.show_leader_lines = True
                 lbl.data_label_format.show_label_as_data_callout = False
                 chart.validate_chart_layout()
-                lbl.as_ilayoutable.x += 0.5
-                lbl.as_ilayoutable.y += 0.5
+                lbl.as_i_layoutable.x += 0.5
+                lbl.as_i_layoutable.y += 0.5
             i += 1
         categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)

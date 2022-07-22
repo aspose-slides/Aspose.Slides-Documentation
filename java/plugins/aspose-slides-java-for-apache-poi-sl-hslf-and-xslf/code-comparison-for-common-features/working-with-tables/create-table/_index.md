@@ -8,11 +8,11 @@ url: /java/slides-poi/create-table/
 ## **Aspose.Slides - Create Table**
 Aspose.Slides for Java has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class
 - Obtain the reference of a slide by using its Index
 - Define Array of Columns with Width
 - Define Array of Rows with Height
-- Add a Table to the slide using [addTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object
+- Add a Table to the slide using [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object
 - Iterate through each Cell to apply formatting to the Top, Bottom, Right, Left Borders
 - Merge first two cells of the first row of the table
 - Access the Text Frame of a Cell

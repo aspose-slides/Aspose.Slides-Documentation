@@ -11,7 +11,7 @@ url: /cpp/manage-paragraph/
 An ITextFame object can have one or more Paragraphs (every paragraph is created through a carriage return), that is a collection of IParagraph objects. Furthermore, an IParagraph object can have one or more Portions (a collection of IPortion objects. An IPortion object manages text and its formatting properties. So, it means that IParagraph object has the capacity to handle text with different formatting properties through its underlying IPortion objects.
 Please follow the steps below to add TextFrame having 3 paragraphs and 3 portions for each paragraph using Aspose.Slides for C++ :
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an IAutoShape of Rectangle type to the slide.
 - Access the ITextFrame associated with the IAutoShape.

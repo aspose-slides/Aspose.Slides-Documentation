@@ -9,7 +9,7 @@ description: "Table cells in PowerPoint presentations in C# or .NET"
 
 ## **Identify Merged Table Cell**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get the table from the first slide. 
 3. Iterate through the table's rows and columns to find merge cells.
 4. Print message when merged cells are found.

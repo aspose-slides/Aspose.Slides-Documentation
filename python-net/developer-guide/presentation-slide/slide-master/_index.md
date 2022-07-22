@@ -33,6 +33,12 @@ Extended operations with Slide Master can be:
 - Set Slide Master as presentation default view.
 - ... and many others.
 
+{{% alert color="primary" %}} 
+
+You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
+
+{{% /alert %}} 
+
 
 ## **How is Slide Master applied**
 While working with Slide Masters, its important to understand how they are used in presentations and applied to slides.
@@ -40,26 +46,26 @@ While working with Slide Masters, its important to understand how they are used 
 By default, each presentation has at least one Slide Master. However, its possible to add several Slide Masters into one presentation. Several Slide Masters can be used to make different parts of presentations to be stylized in different ways. 
 
 In **Aspose.Slides** Slide Master is represented by 
-[**IMasterSlide**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) type. 
-[Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)object has 
-[**masters** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)list of [**IMasterSlideCollection**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslidecollection/) type, 
+[**IMasterSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) type. 
+[Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)object has 
+[**masters** ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) type, 
 which contains a list of all master slides that are defined in this presentation. Appart from 
 CRUD operations, 
-[IMasterSlideCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslidecollection/) type is interesting with 
-[**add_clone**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslidecollection/) 
-and [**insert_clone**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslidecollection/) methods. 
+[IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) type is interesting with 
+[**add_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) 
+and [**insert_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) methods. 
 These methods are inherited from basic slides clone functionality. 
 But, in case of Slide Masters, the methods allow to implement complicated abovementioned scenarios.
 
 
 
-When a new slide is added into presentation, Slide Master is applied to it automatically. By default, the Slide Master of previous slide is choosed for that. (*Note: presentation slides are stored in [Slides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) list, and each new slide is added to the end of collection, by default.*)  In case, there is only one Slide Master in presentation - it is choosed for all new slides. So, there is no need to define the Slide Master for each new slide created.
+When a new slide is added into presentation, Slide Master is applied to it automatically. By default, the Slide Master of previous slide is choosed for that. (*Note: presentation slides are stored in [Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) list, and each new slide is added to the end of collection, by default.*)  In case, there is only one Slide Master in presentation - it is choosed for all new slides. So, there is no need to define the Slide Master for each new slide created.
 
 This logic is the same for both Aspose.Slides and PowerPoint. For example, in PowerPoint when you add a new presentation, you can just press on a bottom line under the last slide. In this case, a new slide, with a Slide Master of last presentation, will be created:
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-In Aspose.Slides, the same is achieved with [add_clone(ISlide)](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidecollection/) method of [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)object.
+In Aspose.Slides, the same is achieved with [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) method of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)object.
 
 
 ## **Slide Master in Slides hierarchy**
@@ -71,16 +77,16 @@ Slide Master stands over all, which can be illustrated as "Slide Master -> Slid
 
 
 
-Each [IMasterSlide](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) 
-object has [**LayoutSlides**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) property 
-with a list of Slide Layouts. [Slide ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slide)type has 
-[**LayoutSlide**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islide/) with a link on a 
+Each [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) 
+object has [**LayoutSlides**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) property 
+with a list of Slide Layouts. [Slide ](https://reference.aspose.com/slides/python-net/aspose.slides/slide)type has 
+[**LayoutSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) with a link on a 
 Slide Layout applied to this slide. The relation between Slide and Slide Master occurs through Slide Layout.
 
 
 {{% alert color="info" title="Note" %}} 
 In Aspose.Slides all Slide Masters, Slide Layouts and Slides - are actually Slide objects, 
-implementing [**IBaseSlide**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/) interface.
+implementing [**IBaseSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) interface.
 {{% /alert %}}
 
 Therefore, Slide Master and Slide Layout may implement the same properties, and its important to know how their value will be applied to Slide. First, Slide Master is applied to Slide, then Slide Layouts are applied. For example, if Slide Master and Slide Layout both have background value, the Slide will get background from Slide Layout.
@@ -89,17 +95,17 @@ Therefore, Slide Master and Slide Layout may implement the same properties, and
 ## **What Slide Master consists from**
 To understand how Slide Master can be changed, we should know what it consists from. Following are the core properties of ISlideMaster, that worth to know:
 
-- [Background](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/) - get/set slide background.
-- [BodyStyle](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) - get/set text styles of the slide’s body.
-- [Shapes](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/) - get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
-- [Controls](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/) - get/set ActiveX controls.
-- [ThemeManager](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.theme/imasterthemeable/) - get theme manager.
-- [HeaderFooterManager](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) - get header and footer manager.
+- [Background](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) - get/set slide background.
+- [BodyStyle](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) - get/set text styles of the slide’s body.
+- [Shapes](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) - get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
+- [Controls](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) - get/set ActiveX controls.
+- [ThemeManager](https://reference.aspose.com/slides/python-net/aspose.slides.theme/imasterthemeable/) - get theme manager.
+- [HeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) - get header and footer manager.
 
 Slide Master methods:
 
-- [GetDependingSlides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) - get all Slides depending on Slide Master.
-- [ApplyExternalThemeToDependingSlides](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) - allows to create a new Slide Master based on current Slide Master and a new theme. New Slide Master is being applied to all dependent slides.
+- [GetDependingSlides](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) - get all Slides depending on Slide Master.
+- [ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) - allows to create a new Slide Master based on current Slide Master and a new theme. New Slide Master is being applied to all dependent slides.
 
 
 ## **Get Slide Master**
@@ -121,7 +127,7 @@ with slides.Presentation() as pres:
 
 
 
-Slide Master is represented by [IMasterSlide](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslide/) type. What you need is to get [Masters ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)list from [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)object. Masters list has a type of [IMasterSlideCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/imasterslidecollection/) and contains a list of all Slide Masters that are defined in the presentation. 
+Slide Master is represented by [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) type. What you need is to get [Masters ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)list from [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)object. Masters list has a type of [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) and contains a list of all Slide Masters that are defined in the presentation. 
 
 
 ## **Add Image to Slide Master**
@@ -160,7 +166,7 @@ pres.slides.add_empty_slide(masterSlide.layout_slides[1])
 
 
 
-First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [add_picture_frame ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/shapecollection/)method. After that, we add new slides, which are based on this Slide Master with [add_empty_slide ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/slidecollection/)method. Info `add_empty_slide` method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
+First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [add_picture_frame ](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/)method. After that, we add new slides, which are based on this Slide Master with [add_empty_slide ](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)method. Info `add_empty_slide` method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
 
 
 
@@ -237,7 +243,7 @@ masterSlide.background.fill_format.solid_fill_color.color = draw.Color.gray
 
 ## **Clone Slide Master to Another Presentation**
 To clone Slide Master to another presentation, 
-[**add_clone**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/islidecollection/) method is called from destination presentation with a Slide Master passed into it:
+[**add_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method is called from destination presentation with a Slide Master passed into it:
 
 ```py
 # add new master slide form another presentation
@@ -261,7 +267,7 @@ secondMasterSlide = pres.masters.add_clone(masterSlide)
 
 
 ## **Compare Slide Masters**
-Master Slide implements [IBaseSlide](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/) interface, containing [**equals** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ibaseslide/)method, which can be used to compare slides. It returns true for Master Slides, that are identical by the structure and static content. Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
+Master Slide implements [IBaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) interface, containing [**equals** ](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/)method, which can be used to compare slides. It returns true for Master Slides, that are identical by the structure and static content. Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
 
 
@@ -280,8 +286,3 @@ with slides.Presentation() as presentation:
     # Save presentation
     presentation.save("PresView.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
-## **Live Example**
-You can take a look at presentation from the examples above with [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/):
-[![todo:image_alt_text](slides-master.png)](https://products.aspose.app/slides/viewer/)

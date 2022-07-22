@@ -8,12 +8,12 @@ url: /java/slides-poi/text-box-with-hyperlink/
 ## **Aspose.Slides - Text Box with Hyperlink**
 Please follow the steps below to create a **TextBox** with **Hyperlink** by using Aspose.Slides for Java API:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation).
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 - Obtain the reference of the first slide in the presentation.
-- Add an [AutoShape](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) with ShapeType as Rectangle at a specified position of the slide and obtain the reference of that newly added AutoShape object.
+- Add an [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) with ShapeType as Rectangle at a specified position of the slide and obtain the reference of that newly added AutoShape object.
 - Add a TextFrame to the AutoShape.
-- Instantiate the [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager).
-- Assign the [IHyperlinkManager](https://apireference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) object to the HLinkClick property associated with the desired portion of the TextFrame.
+- Instantiate the [IHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager).
+- Assign the [IHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkManager) object to the HLinkClick property associated with the desired portion of the TextFrame.
 - Finally, save the PPTX file using the Presentation object
 
 ```java

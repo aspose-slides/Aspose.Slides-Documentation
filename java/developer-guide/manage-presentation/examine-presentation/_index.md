@@ -10,7 +10,7 @@ Aspose.Slides for Java allows you to examine a presentation to find out its prop
 
 {{% alert title="TIP" color="dark" %}} 
 
-The [PresentationInfo](https://apireference.aspose.com/slides/java/com.aspose.slides/PresentationInfo) class contains most of the properties and methods needed for operations here. 
+The [PresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/PresentationInfo) class contains most of the properties and methods needed for operations here. 
 
 {{% /alert %}} 
 
@@ -46,7 +46,7 @@ System.out.println(props.getTitle());
 
 ## **Updating the Properties of a Presentation**
 
-Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://apireference.aspose.com/slides/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
 
 This sample code shows you how to edit the properties for a presentation in Java:
 

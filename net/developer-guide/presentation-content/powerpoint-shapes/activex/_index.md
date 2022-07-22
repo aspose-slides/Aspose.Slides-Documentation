@@ -1,7 +1,7 @@
 ---
 title: ActiveX
 type: docs
-weight: 70
+weight: 80
 url: /net/activex/
 keywords: "ActiveX, ActiveX controls, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Manage ActiveX controls in PowerPoint presentation in C# or .NET"

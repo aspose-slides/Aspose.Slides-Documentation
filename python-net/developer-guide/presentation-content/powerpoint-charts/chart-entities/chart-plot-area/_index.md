@@ -9,7 +9,7 @@ description: "Get width, height of chart plot area. Set layout mode. PowerPoint 
 ## **Get Width, Height of Chart Plot Area**
 Aspose.Slides for Python via .NET provides a simple API for . 
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Call method IChart.ValidateChartLayout() before to get actual values.
@@ -53,10 +53,10 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
-    chart.plot_area.as_ilayoutable.x = 0.2
-    chart.plot_area.as_ilayoutable.y = 0.2
-    chart.plot_area.as_ilayoutable.width = 0.7
-    chart.plot_area.as_ilayoutable.height = 0.7
+    chart.plot_area.as_i_layoutable.x = 0.2
+    chart.plot_area.as_i_layoutable.y = 0.2
+    chart.plot_area.as_i_layoutable.width = 0.7
+    chart.plot_area.as_i_layoutable.height = 0.7
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
 
     presentation.save("SetLayoutMode_outer.pptx", slides.export.SaveFormat.PPTX)

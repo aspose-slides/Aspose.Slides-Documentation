@@ -22,7 +22,7 @@ This page contains release notes for [Aspose.Slides for Android via Java 21.11]
 
 We implemented support for PowerPoint **Modern Comments**.
 
-For modern comments, we added the [ModernComment](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment) class. We added the [AddModernComment](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) and [InsertModernComment](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) methods to [CommentCollection](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection). Using these methods, you can add a modern comment to a slide.
+For modern comments, we added the [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment) class. We added the [AddModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) and [InsertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) methods to [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection). Using these methods, you can add a modern comment to a slide.
 
 This code snippet demonstrates the addition of a modern comment to a slide:
 
@@ -40,11 +40,11 @@ try {
 
 ### Obsolete enumeration SlideOrienation has been removed ###
 
-Obsolete enumeration `SlideOrienation` has been removed. Use the [SlideOrientation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideOrientation) enumeration instead.
+Obsolete enumeration `SlideOrienation` has been removed. Use the [SlideOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideOrientation) enumeration instead.
 
 ### IMathElement.GetChildren has been added ###
 
-[GetChildren](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#getChildren--) method has been added to the [IMathElement](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) interface.
+[GetChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement#getChildren--) method has been added to the [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) interface.
 
 Method declaration:
 

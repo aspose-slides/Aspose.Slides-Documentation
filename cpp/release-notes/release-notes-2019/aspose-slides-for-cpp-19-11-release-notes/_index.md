@@ -31,6 +31,6 @@ Methods **System::SharedPtr<IPPImage> AddFromSvg(System::String svgContent)** an
 
 have been removed from **ImageCollection** class and corresponding **IImageCollection** interface.
 
-Please use [**AddImage(System::SharedPtr<ISvgImage> svgImage)**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection/#a6a806a0d01d16bb78e60625f3d5a6e4f) method instead.
+Please use [**AddImage(System::SharedPtr<ISvgImage> svgImage)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_image_collection/#a6a806a0d01d16bb78e60625f3d5a6e4f) method instead.
 
 

@@ -15,10 +15,10 @@ You may want to use comments to provide feedback or communicate with your collea
 
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for .NET provides
 
-* The [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class, which contains the collections of authors (from the [CommentAuthorCollection](https://apireference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) property). The authors add comments to slides. 
-* The  [ICommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/icommentcollection) interface, which contains the collection of comments for individual authors. 
-* The  [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
-* The [CommentAuthor](https://apireference.aspose.com/slides/net/aspose.slides/commentauthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class, which contains the collections of authors (from the [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) property). The authors add comments to slides. 
+* The  [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) interface, which contains the collection of comments for individual authors. 
+* The  [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
 
 ## **Add Slide Comment**
 This C# code shows you how to add a comment to a slide in a PowerPoint presentation:
@@ -85,7 +85,7 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) property (from the [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface), you can set or get a parent comment. 
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) property (from the [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface), you can set or get a parent comment. 
 
 This C# code shows you how to add comments and get replies to them:
 
@@ -142,8 +142,8 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" title="Attention" %}} 
 
-* When the [Remove](https://apireference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) method (from the [IComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment) interface) is used to delete a comment, the replies to the comment also get deleted. 
-* If the [ParentComment](https://apireference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) setting results in a circular reference, [PptxEditException](https://apireference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown.
+* When the [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) method (from the [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface) is used to delete a comment, the replies to the comment also get deleted. 
+* If the [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) setting results in a circular reference, [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown.
 
 {{% /alert %}}
 
@@ -151,7 +151,7 @@ using (Presentation pres = new Presentation())
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-In [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://apireference.aspose.com/slides/net/aspose.slides/moderncomment) class. The [AddModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods were added to the [CommentCollection](https://apireference.aspose.com/slides/net/aspose.slides/commentcollection) class. 
+In [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) class. The [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) and [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) methods were added to the [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) class. 
 
 This C# code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 

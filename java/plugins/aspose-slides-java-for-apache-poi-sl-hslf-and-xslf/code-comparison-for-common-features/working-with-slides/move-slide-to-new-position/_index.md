@@ -10,7 +10,7 @@ If you create a presentation using **MS PowerPoint**, you would have experience
 
 It's very simple to change the position of a slide in the presentation. Just follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class
 - Obtain the reference of a slide by using its Index
 - Change the SlideNumber of the referenced slide
 - Write the modified presentation file

@@ -18,8 +18,8 @@ This page contains release notes for Aspose.Slides for Android via Java 20.12
 
 ## **Public API Changes**
 ### IInk interface has been added
-**[IInk](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IInk)** interface and **[Ink](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Ink)** implementer class have been added. They represent an Ink graphical element.
-**[IInk](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IInk)** declaration:
+**[IInk](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IInk)** interface and **[Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Ink)** implementer class have been added. They represent an Ink graphical element.
+**[IInk](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IInk)** declaration:
 
 ```java
 /**
@@ -33,7 +33,7 @@ public interface IInk extends IGraphicalObject
 ```
 
 ### PDF Import
-PDF Import feature has been added. This feature allows importing a PDF document into **[Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)**. A new **[SlideCollection.addFromPdf()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-)** method creates slides from the PDF document and adds them to the end of the collection:
+PDF Import feature has been added. This feature allows importing a PDF document into **[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)**. A new **[SlideCollection.addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-)** method creates slides from the PDF document and adds them to the end of the collection:
 
 ```java
 Presentation pres = new Presentation();

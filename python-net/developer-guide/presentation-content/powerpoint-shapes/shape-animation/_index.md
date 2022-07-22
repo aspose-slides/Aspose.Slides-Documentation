@@ -23,19 +23,19 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 ### **Animations in Aspose.Slides**
 
-* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/) namespace,
-* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/effecttype/) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
+* Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) namespace,
+* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
 ## **Apply Animation to TextBox**
 
 Aspose.Slides for Python via .NET allows you to apply animation to the text in a shape. 
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index.
-3. Add a `rectangle` [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
+3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
 4. Add text to `IAutoShape.TextFrame`.
 5. Get a main sequence of effects.
-6. Add an animation effect to [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
+6. Add an animation effect to [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
 7. Set the`TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
 8. Write the presentation to disk as a PPTX file.
 
@@ -69,17 +69,17 @@ with slides.Presentation() as pres:
 
 {{%  alert color="primary"  %}} 
 
-Besides applying animations to text, you can also apply animations to a single [Paragraph](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iparagraph/). See [**Animated Text**](/slides/python-net/animated-text/).
+Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/). See [**Animated Text**](/slides/python-net/animated-text/).
 
 {{% /alert %}} 
 
 ## **Apply Animation to PictureFrame**
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index.
-3. Add or get a [PictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/pictureframe/) on the slide. 
+3. Add or get a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) on the slide. 
 4. Get the main sequence of effects.
-5. Add an animation effect to [PictureFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/pictureframe/).
+5. Add an animation effect to [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
 6. Write the presentation to disk as a PPTX file.
 
 This Python code shows you how to apply the `Fly` effect to a picture frame:
@@ -112,10 +112,10 @@ with slides.Presentation() as pres:
 
 ## **Apply Animation to Shape**
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index.
-3. Add a `rectangle` [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/). 
-4. Add a `Bevel` [IAutoShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/iautoshape/) (when this object is clicked, the animation gets played).
+3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
+4. Add a `Bevel` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) (when this object is clicked, the animation gets played).
 5. Create a sequence of effects on the bevel shape.
 6. Create a custom `UserPath`.
 7. Add commands for moving to the `UserPath`.
@@ -204,7 +204,7 @@ This is the Animation Timing pane in Microsoft PowerPoint:
 
 These are the correspondences between PowerPoint Timing and `Effect.Timing` properties:
 
-- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/effecttriggertype/) property. 
+- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/) property. 
 - PowerPoint Timing **Duration** matches the `Effect.Timing.Duration` property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. 
 - PowerPoint Timing **Delay** matches the `Effect.Timing.TriggerDelayTime` property. 
 

@@ -34,9 +34,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## Exporting Presentations to XAML With Custom Options
 
-You get to select options from the [IXamlOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
+You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://apireference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) property to true. See this sample C# code: 
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) property to true. See this sample C# code: 
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))

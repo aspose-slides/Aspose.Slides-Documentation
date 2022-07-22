@@ -34,7 +34,7 @@ The license can be loaded from a stream or file in the following locations:
 1. An explicit path.
 1. The folder containing Aspose.Slides.jar.
 
-Use the [License.setLicense](https://apireference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) method to license the component. The easiest way to set a license requires you to place the license file in the same folder as Aspose.Slides.jar and then specify the file name without its path as shown in the following example:
+Use the [License.setLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) method to license the component. The easiest way to set a license requires you to place the license file in the same folder as Aspose.Slides.jar and then specify the file name without its path as shown in the following example:
 
 **Example 1**
 
@@ -88,7 +88,7 @@ Setting the license in PHP using **PHP/Java Bridge** is similar to **Aspose.Slid
 ```
 
 ## **Validating a License**
-To check whether a license has been properly set, you can validate it. The [License](https://apireference.aspose.com/slides/java/com.aspose.slides/License) class has the [isLicensed](https://apireference.aspose.com/slides/java/com.aspose.slides/License#isLicensed--) method that will return true if the license has been properly set.
+To check whether a license has been properly set, you can validate it. The [License](https://reference.aspose.com/slides/java/com.aspose.slides/License) class has the [isLicensed](https://reference.aspose.com/slides/java/com.aspose.slides/License#isLicensed--) method that will return true if the license has been properly set.
 
 ``` java
 License license = new License();

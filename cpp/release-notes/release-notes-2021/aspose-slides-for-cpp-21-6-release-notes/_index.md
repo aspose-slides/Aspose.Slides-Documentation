@@ -34,9 +34,9 @@ This page contains release notes for Aspose.Slides for C++ 21.6.
 
 ### Support of Presentation to XAML export ###
 
-To support [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) export to XAML, we added new API members. 
+To support [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) export to XAML, we added new API members. 
 
-[IXamlOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options) interface and [XamlOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.xaml_options) class. IXamlOptions declaration:
+[IXamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options) interface and [XamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.xaml_options) class. IXamlOptions declaration:
 
 ``` cpp
 /// <summary>
@@ -64,13 +64,13 @@ public:
 };
 ```
 
-For [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) export to XAML, a new Save method overload got added to the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class:
+For [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) export to XAML, a new Save method overload got added to the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class:
 
 ``` cpp
 void Save(System::SharedPtr<Export::Xaml::IXamlOptions> options);
 ```
 
-This code sample demonstrates the exporting of a [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) to a set of XAML files:
+This code sample demonstrates the exporting of a [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) to a set of XAML files:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -81,7 +81,7 @@ pres->Save(options);
 
 The XAML files get saved in a newly created folder—"pres".
 
-The [IXamlOutputSaver](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_output_saver) interface allows you to define your own output-saving service. [IXamlOutputSaver](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_output_saver) declaration:
+The [IXamlOutputSaver](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_output_saver) interface allows you to define your own output-saving service. [IXamlOutputSaver](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_output_saver) declaration:
 
 ``` cpp
 /// <summary>
@@ -101,7 +101,7 @@ public:
 
 ### IEffect::get_TargetShape() method has been added ###
 
-The [IEffect::get_TargetShape()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.animation.i_effect#a62a29f6ebf13b3462cd95b5dbcf11c7b) method has been added. It returns the shape affected by the effect.
+The [IEffect::get_TargetShape()](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.i_effect#a62a29f6ebf13b3462cd95b5dbcf11c7b) method has been added. It returns the shape affected by the effect.
 
 Method declaration:
 

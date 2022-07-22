@@ -124,5 +124,5 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### ObjectData, EmbeddedFileExtension, and EmbeddedFileData have been removed from the IOleObjectFrame interface ###
 
-Obsolete properties `ObjectData`, `EmbeddedFileExtension`, and `EmbeddedFileData` have been removed from [IOleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface. Use the [SetEmbeddedData](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) method and [EmbeddedData](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) property from the [IOleObjectFrame](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface instead.
+Obsolete properties `ObjectData`, `EmbeddedFileExtension`, and `EmbeddedFileData` have been removed from [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface. Use the [SetEmbeddedData](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) method and [EmbeddedData](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) property from the [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface instead.
 

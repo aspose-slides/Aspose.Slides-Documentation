@@ -39,12 +39,12 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) for C++, you can use the [**Save**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class to convert the entire presentation into an XPS document. 
+In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) for C++, you can use the [**Save**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class to convert the entire presentation into an XPS document. 
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 
-- Default settings (without [**XPSOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xps_options))
-- Custom settings (with [**XPSOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xps_options))
+- Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xps_options))
+- Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xps_options))
 
 ### **Converting Presentations to XPS Using Default Settings**
 

@@ -33,9 +33,9 @@ This page contains release notes for Aspose.Slides for C++ 20.11.
 
 ## **Public API Changes**
 ### Checking password to open via IPresentationInfo interface
-**[CheckPassword](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a6f6d9c697959913eb8e239bf8254a475)** 
-method has been added to **[IPresentationInfo](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info)** 
-interface and **[PresentationInfo](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)** class. 
+**[CheckPassword](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a6f6d9c697959913eb8e239bf8254a475)** 
+method has been added to **[IPresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info)** 
+interface and **[PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)** class. 
 This method allows checking whether a presentation is protected by a password to open.
 
 Method declaration:
@@ -60,9 +60,9 @@ bool isPasswordCorrect = info->CheckPassword(u"my_password");
 ```
 
 ### get_KeepTextFlat() and set_KeepTextFlat() methods have been added to ITextFrameFormat interface
-New methods **[get_KeepTextFlat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ae4cb35f31bd5b1e1e589ca3ec62b59bd)** 
-and **[set_KeepTextFlat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#abcb0a0243ca69aa29704fe4072577651)**
-have been added to **[ITextFrameFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)** interface.
+New methods **[get_KeepTextFlat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ae4cb35f31bd5b1e1e589ca3ec62b59bd)** 
+and **[set_KeepTextFlat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#abcb0a0243ca69aa29704fe4072577651)**
+have been added to **[ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format)** interface.
 
 Using this property allows to keep text out of 3D scene entirely.
 
@@ -100,15 +100,15 @@ If the chart was loaded from an input file, the cached image from the PPTX packa
 
 Following enum values have been added:
 
-- **[CombinableSeriesTypesGroup::MapChart](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a77ec80b212557731ebdd2c4b565a4eb5)**
+- **[CombinableSeriesTypesGroup::MapChart](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a77ec80b212557731ebdd2c4b565a4eb5)**
 
-- **[ChartType::Map](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05)**
+- **[ChartType::Map](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05)**
 
 Methods:
 
-- **[IChartDataPointCollection::AddDataPointForMapSeries(System::SharedPtr<IChartDataCell> value)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_collection#a5329107aca4881d14cf98db752c4bbad)**
+- **[IChartDataPointCollection::AddDataPointForMapSeries(System::SharedPtr<IChartDataCell> value)](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_collection#a5329107aca4881d14cf98db752c4bbad)**
 
-- **[IChartDataPoint::get_ColorValue()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data_point#a30de320a8b9b311c4dc2f560b05183d4)**
+- **[IChartDataPoint::get_ColorValue()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data_point#a30de320a8b9b311c4dc2f560b05183d4)**
 
 Following **example** shows how to create a map chart from scratch:
 ```csharp

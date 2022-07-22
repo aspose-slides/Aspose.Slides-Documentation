@@ -23,13 +23,13 @@ Slide zooms help you drill into multiple pieces of information while you feel li
 
 ![overview_image](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) enumeration, the [IZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) interface, and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#ac0802a52a7f14a457b62e9761a77e8e2) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_zoom_frame) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
 
 ### **Creating Zoom Frames**
 
 You can add a zoom frame on a slide this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create new slides to which you intend to link the zoom frames. 
 3.	Add an identification text and background to the created slides.
 4.  Add zoom frames (containing the references to created slides) to the first slide.
@@ -78,10 +78,10 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ### **Creating Zoom Frames with Custom Images**
 With Aspose.Slides for C++, you can create a zoom frame with a different slide preview image this way: 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
 3.	Add an identification text and background to the slide.
-4.  Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
+4.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
 5.  Add zoom frames (containing the reference to created slide) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
@@ -116,11 +116,11 @@ In the previous sections, we showed you how to create simple zoom frames. To cre
 
 You can control a zoom frame's formatting on a slide this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create new slides to link to which you intend to link the zoom frame. 
 3.	Add some identification text and background to the created slides.
 4.  Add zoom frames (containing the references to the created slides) to the first slide.
-5.  Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
+5.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
 6.  Set a custom image for the first zoom frame object.
 7.  Change the line format for the second zoom frame object.
 8.  Remove the background from an image of the second zoom frame object.
@@ -177,13 +177,13 @@ A section zoom is a link to a section in your presentation. You can use section 
 
 ![overview_image](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) interface and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
+For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_section_zoom_frame) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
 
 ### **Creating Section Zoom Frames**
 
 You can add a section zoom frame to a slide this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create a new slide. 
 3.	Add an identification background to the created slide.
 4.  Create a new section to which you intend to link the zoom frame. 
@@ -213,11 +213,11 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 Using Aspose.Slides for C++, you can create a section zoom frame with a different slide preview image this way: 
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create a new slide.
 3.	Add an identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
-5.  Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
+5.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
 5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
@@ -250,13 +250,13 @@ To create more complicated section zoom frames, you have to alter a simple frame
 
 You can control a section zoom frame's formatting on a slide this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create a new slide.
 3.	Add identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
 5.	Add a section zoom frame (containing references to created section) to the first slide.
 6.	Change the size and position for the created section zoom object.
-7.	Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
+7.	Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
 8.	Set a custom image for the created section zoom frame object.
 9.	Set the *return to the original slide from the linked section* ability. 
 10.	Remove the background from an image of the section zoom frame object.
@@ -311,13 +311,13 @@ A summary zoom is like a landing page where all the pieces of your presentation 
 
 ![overview_image](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), and [ISummaryZoomSectionCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) interfaces and some methods under the [IShapeCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
+For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_frame), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) interface.
 
 ### **Creating Summary Zoom**
 
 You can add a summary zoom frame to a slide this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add the summary zoom frame to the first slide.
 4.	Write the modified presentation as a PPTX file.
@@ -365,9 +365,9 @@ pres->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ### **Adding and Removing Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section) objects, which are stored in the [ISummaryZoomSectionCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) interface this way:
+All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_summary_zoom_section_collection) interface this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add a summary zoom frame into the first slide.
 4.  Add a new slide and section to the presentation.
@@ -421,11 +421,11 @@ To create more complicated summary zoom section objects, you have to alter a sim
 
 You can control the formatting for a summary zoom section object in a summary zoom frame this way:
 
-1.	Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add a summary zoom frame to the first slide.
 4.  Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-7.  Create an [IPPImage](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the images collection associated with the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
+7.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_p_p_image) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object that will be used to fill the frame.
 8.  Set a custom image for the created section zoom frame object.
 9.  Set the *return to the original slide from the linked section* ability. 
 11. Change the line format for the second zoom frame object.

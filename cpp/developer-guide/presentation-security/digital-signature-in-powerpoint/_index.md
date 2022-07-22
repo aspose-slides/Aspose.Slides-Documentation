@@ -20,11 +20,11 @@ Presentation may contain more than one digital signatures. After the digital sig
 
 
 
-To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)interface, [**IDigitalSignatureCollection** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection)interface and[ **IPresentation.DigitalSignatures**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method. Currently, digital signatures are supported for PPTX format only.
+To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)interface, [**IDigitalSignatureCollection** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection)interface and[ **IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method. Currently, digital signatures are supported for PPTX format only.
 ## **Add Digital Signature from PFX Certificate**
 The code sample below demonstrates how to add digital signature from a PFX certificate:
 
-1. Open PFX file and pass PFX password to [**DigitalSignature** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)object.
+1. Open PFX file and pass PFX password to [**DigitalSignature** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)object.
 1. Add created signature to the presentation object.
 
 ``` cpp

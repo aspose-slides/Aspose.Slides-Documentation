@@ -8,11 +8,11 @@ url: /java/slides-poi/add-slides-to-presentation/
 ## **Aspose.Slides - Add Slides to Presentation**
 Aspose.Slides for Java allows developers to add empty slides to their presentation. To add an empty slide in the presentation, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class
-- Instantiate [ISlideCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) class by setting a reference to the Slides (collection of content Slide objects) property exposed by the Presentation object.
-- Add an empty slide to the presentation at the end of the content slides collection by calling the [AddEmptySlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addEmptySlide-com.aspose.slides.ILayoutSlide-) method exposed by [ISlideCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) object
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class
+- Instantiate [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) class by setting a reference to the Slides (collection of content Slide objects) property exposed by the Presentation object.
+- Add an empty slide to the presentation at the end of the content slides collection by calling the [AddEmptySlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addEmptySlide-com.aspose.slides.ILayoutSlide-) method exposed by [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) object
 - Do some work with the newly added empty slide
-- Finally, write the presentation file using the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) object
+- Finally, write the presentation file using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object
 
 ```java
 //Instantiate a PresentationEx object that represents a PPTX file

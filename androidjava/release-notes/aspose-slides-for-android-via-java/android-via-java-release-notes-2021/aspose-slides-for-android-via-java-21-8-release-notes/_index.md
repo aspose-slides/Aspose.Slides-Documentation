@@ -20,7 +20,7 @@ This page contains release notes for [Aspose.Slides for Android via Java 21.8](
 
 ### Support of Presentation to animated GIF export ###
 
-Support of [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) into animated GIF with slides changes, including animated transitions:
+Support of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) to animated GIF export has been added. Using this new functionality it is now possible to export [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) into animated GIF with slides changes, including animated transitions:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -42,7 +42,7 @@ Export result:
 
 ### IChartDataWorkbook.CalculateFormulas and ChartDataWorkbook.CalculateFormulas methods have been added ###
 
-[IChartDataWorkbook.calulateFormulas](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook#calculateFormulas--) and [ChartDataWorkbook.calulateFormulas](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ChartDataWorkbook#calculateFormulas--) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
+[IChartDataWorkbook.calulateFormulas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook#calculateFormulas--) and [ChartDataWorkbook.calulateFormulas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartDataWorkbook#calculateFormulas--) methods have been added. These methods provide the functionality of an explicit formulas calculation within the workbook. The calculation performers in two steps:
 
 - check for unsupported formulas within the entire workbook. If found, the CellUnsupportedDataException will be thrown. Values will not be updated. 
 - if the unsupported formulas check was passed, formulas will be calculated for the workbook, and cells values will be updated.

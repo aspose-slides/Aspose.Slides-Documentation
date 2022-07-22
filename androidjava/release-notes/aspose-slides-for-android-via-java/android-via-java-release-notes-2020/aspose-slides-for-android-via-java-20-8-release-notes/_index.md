@@ -20,8 +20,8 @@ This page contains release notes for Aspose.Slides for Android via Java 20.8
 
 ### **IChartData.getRange method has been added**
 
-[IChartData.GetRange](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getRange--) method has been added. 
-The method returns the workbook data range that is used by the chart. [IChartData.GetRange](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getRange--) method returns a string value. 
+[IChartData.GetRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getRange--) method has been added. 
+The method returns the workbook data range that is used by the chart. [IChartData.GetRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartData#getRange--) method returns a string value. 
 
 The returned value looks like **"Sheet1!$A$1:$D$5"** where "Sheet1" is a source worksheet and $A$1:$D$5 is a cell range. 
 
@@ -45,17 +45,17 @@ The picture below demonstrates PowerPoint UI elements to apply this effect to a 
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-20-8-release-notes_1.png) or ![todo:image_alt_text](aspose-slides-for-android-via-java-20-8-release-notes_2.png)
 
-In Aspose.Slides, to provide the same options for the Sketched Style effect, [LineSketchType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) class 
-and interface [ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) 
-interface have been added. [getSketchFormat()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat#getSketchFormat--) 
-method (of [ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) type) has been added to the 
-[ILineFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat) interface.
+In Aspose.Slides, to provide the same options for the Sketched Style effect, [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) class 
+and interface [ISketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) 
+interface have been added. [getSketchFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat#getSketchFormat--) 
+method (of [ISketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) type) has been added to the 
+[ILineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat) interface.
 
 #### **LineSketchType Enum**
 
-The [LineSketchType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) determines the preset sketched style.
+The [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) determines the preset sketched style.
 
-Below is the definition of the [LineSketchType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) class: 
+Below is the definition of the [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineSketchType) class: 
 
 ```java 
 /**
@@ -99,8 +99,8 @@ public final class LineSketchType
 ```
 
 #### **ISketchFormat Interface**
-The [ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) interface with the 
-[SketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SketchFormat) 
+The [ISketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) interface with the 
+[SketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SketchFormat) 
 implementation class has been added:
 
 ```java 
@@ -128,9 +128,9 @@ public interface ISketchFormat
 }
 ```
 
-[SketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SketchFormat) property of 
-[ISketchFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) type has been added into 
-[ILineFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat):
+[SketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SketchFormat) property of 
+[ISketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISketchFormat) type has been added into 
+[ILineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILineFormat):
 
 ```java 
 /**

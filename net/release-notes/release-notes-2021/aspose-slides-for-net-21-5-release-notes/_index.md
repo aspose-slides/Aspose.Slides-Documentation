@@ -50,13 +50,13 @@ When you create a Zoom transition in PowerPoint, you can jump to (and from) spec
 
 ![Zoom in PowerPoint](1619798273734-617.png)
 
-In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype), a new interface [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe), and some new additional methods in [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection).
+In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype), a new interface [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe), and some new additional methods in [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
 
-#### [ZoomImageType Enum](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) ####
+#### [ZoomImageType Enum](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) ####
 
-The [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) determines whether the Zoom object uses the slide preview or a cover image.
+The [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) determines whether the Zoom object uses the slide preview or a cover image.
 
-This is the [ZoomImageType](https://apireference.aspose.com/slides/net/aspose.slides/zoomimagetype) enum definition: 
+This is the [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) enum definition: 
 
 ``` csharp
 public enum ZoomImageType
@@ -73,9 +73,9 @@ public enum ZoomImageType
 }
 ```
 
-#### [IZoomFrame Interface](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) ####
+#### [IZoomFrame Interface](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) ####
 
-The [IZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) interface with the [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/zoomframe) implementation class has been added:
+The [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) interface with the [ZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe) implementation class has been added:
 
 ``` csharp
 public interface IZoomFrame : IGraphicalObject
@@ -122,9 +122,9 @@ public interface IZoomFrame : IGraphicalObject
 }
 ```
 
-#### New methods in [IShapeCollection](https://apireference.aspose.com/slides/net/aspose.slides/ishapecollection) interface have been added ####
+#### New methods in [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface have been added ####
 
-These new methods create [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) objects:
+These new methods create [ZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) objects:
 
 ``` csharp
 /// <summary>
@@ -150,7 +150,7 @@ IZoomFrame InsertZoomFrame(int index, float x, float y, float width, float heigh
 
 #### Example ####
 
-This example shows you how to create a [ZoomFrame](https://apireference.aspose.com/slides/net/aspose.slides/izoomframe) object with a custom image and specified image frame:
+This example shows you how to create a [ZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) object with a custom image and specified image frame:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -175,11 +175,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### [IHyperlinkManager SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method has been added ###
+### [IHyperlinkManager SetMacroHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method has been added ###
 
-A new method, [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick), has been added to the [IHyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager) interface and [HyperlinkManager](https://apireference.aspose.com/slides/net/aspose.slides/hyperlinkmanager) class.
+A new method, [SetMacroHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick), has been added to the [IHyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager) interface and [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkmanager) class.
 
-The [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink on a click for a shape.
+The [SetMacroHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink on a click for a shape.
 
 Method declaration:
 
@@ -192,7 +192,7 @@ Method declaration:
 IHyperlink SetMacroHyperlinkClick(string macroName);
 ```
 
-This code snippet shows you how the [SetMacroHyperlinkClick](https://apireference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink click on a shape:
+This code snippet shows you how the [SetMacroHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/methods/setmacrohyperlinkclick) method is used to set a macro hyperlink click on a shape:
 
 ``` csharp
 using (Presentation presentation = new Presentation())
@@ -202,11 +202,11 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### [IPptOptions RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property has been added ###
+### [IPptOptions RootDirectoryClsid](https://reference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property has been added ###
 
-A new property, [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid), has been added to the [IPptOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions) interface and [PptOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/pptoptions) class.
+A new property, [RootDirectoryClsid](https://reference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid), has been added to the [IPptOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ipptoptions) interface and [PptOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptoptions) class.
 
-The [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property represents the object class GUID (CLSID) that is stored in the root directory entry. It can be used for COM activation of the document's application.
+The [RootDirectoryClsid](https://reference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) property represents the object class GUID (CLSID) that is stored in the root directory entry. It can be used for COM activation of the document's application.
 
 Property declaration:
 
@@ -219,7 +219,7 @@ Property declaration:
 Guid RootDirectoryClsid { get; set; }
 ```
 
-This code snippet shows you how the custom [RootDirectoryClsid](https://apireference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) can be set:
+This code snippet shows you how the custom [RootDirectoryClsid](https://reference.aspose.com/slides/net/aspose.slides.export/ipptoptions/properties/rootdirectoryclsid) can be set:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -236,13 +236,13 @@ using (Presentation pres = new Presentation())
 ### Aspose.Slides.Export.Web.* interfaces will be removed ###
 
 The following interfaces will be removed from Aspose.Slides.Export.Web namespace:
-* [IInput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/iinput) (please use [Input](https://apireference.aspose.com/slides/net/aspose.slides.export.web/input) instead)
-* [IOutput](https://apireference.aspose.com/slides/net/aspose.slides.export.web/ioutput) (please use [Output](https://apireference.aspose.com/slides/net/aspose.slides.export.web/output) instead)
-* [IStorage](https://apireference.aspose.com/slides/net/aspose.slides.export.web/istorage) (please use [Storage](https://apireference.aspose.com/slides/net/aspose.slides.export.web/storage) instead)
-* [IWebDocument](https://apireference.aspose.com/slides/net/aspose.slides.export.web/iwebdocument) (please use [WebDocument](https://apireference.aspose.com/slides/net/aspose.slides.export.web/webdocument) instead)
-* [IWebDocumentOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.web/iwebdocumentoptions) (please use [WebDocumentOptions](https://apireference.aspose.com/slides/net/aspose.slides.export.web/webdocumentoptions) instead)
+* [IInput](https://reference.aspose.com/slides/net/aspose.slides.export.web/iinput) (please use [Input](https://reference.aspose.com/slides/net/aspose.slides.export.web/input) instead)
+* [IOutput](https://reference.aspose.com/slides/net/aspose.slides.export.web/ioutput) (please use [Output](https://reference.aspose.com/slides/net/aspose.slides.export.web/output) instead)
+* [IStorage](https://reference.aspose.com/slides/net/aspose.slides.export.web/istorage) (please use [Storage](https://reference.aspose.com/slides/net/aspose.slides.export.web/storage) instead)
+* [IWebDocument](https://reference.aspose.com/slides/net/aspose.slides.export.web/iwebdocument) (please use [WebDocument](https://reference.aspose.com/slides/net/aspose.slides.export.web/webdocument) instead)
+* [IWebDocumentOptions](https://reference.aspose.com/slides/net/aspose.slides.export.web/iwebdocumentoptions) (please use [WebDocumentOptions](https://reference.aspose.com/slides/net/aspose.slides.export.web/webdocumentoptions) instead)
 
-[ITemplateEngine](https://apireference.aspose.com/slides/net/aspose.slides.export.web/itemplateengine) method 
+[ITemplateEngine](https://reference.aspose.com/slides/net/aspose.slides.export.web/itemplateengine) method 
 ``` csharp
 string Compile<TModel>(string key, TModel model);
 ```

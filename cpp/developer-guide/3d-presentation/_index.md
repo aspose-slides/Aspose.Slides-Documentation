@@ -43,7 +43,7 @@ In PowerPoint shape rotation is available via:
 
 ![todo:image_alt_text](img_02_01.png)
 
-To rotate PowerPoint 3D models, it is necessary to create a camera view on the shape. This is done with [IThreeDFormat.get_Camera()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) 
+To rotate PowerPoint 3D models, it is necessary to create a camera view on the shape. This is done with [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) 
 method. The rotation method is called from the camera class as if you would be 
 rotating the camera. In fact, when you rotate the camera relatively to the shape, you rotate the shape on the 3D plane.
 
@@ -60,9 +60,9 @@ rotating the camera. In fact, when you rotate the camera relatively to the shape
 
 ## 3D Depth and Extrusion
 To add depth and extrusion for a PowerPoint 3D model use 
-[IThreeDFormat.set_ExtrusionHeight()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) method.
+[IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) method.
 For modifying extrusion color use 
-[IThreeDFormat.get_ExtrusionColor()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) method:
+[IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) method:
 
 ``` cpp
 {
@@ -84,7 +84,7 @@ Depth menu in PowerPoint:
 
 ## 3D Gradient
 Drawing a 3D gradient on PowerPoint 3D model can be done via 
-[Shape.get_FillFormat().get_GradientFormat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 
+[Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 
 method:
 
 ``` cpp
@@ -115,7 +115,7 @@ method:
 ![todo:image_alt_text](img_02_03.png)
   
 To create image gradient use 
-[Shape.get_FillFormat().get_PictureFillFormat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) method:
+[Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) method:
 ``` cpp
 {
     using namespace Aspose::Slides;
@@ -135,7 +135,7 @@ To create image gradient use
 ![todo:image_alt_text](img_02_04.png)
 
 ## 3D Text (WordArt)
-To apply rotation, extrusion, light, gradient on text and make it a 3D text(WordArt), you need to access [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) method:
+To apply rotation, extrusion, light, gradient on text and make it a 3D text(WordArt), you need to access [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) method:
 
 ``` cpp
 {

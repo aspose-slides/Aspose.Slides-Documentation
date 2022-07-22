@@ -6,7 +6,7 @@ url: /java/converting-presentation-to-pdf-in-aspose-slides/
 ---
 
 ## **Aspose.Slides - Converting Presentation to PDF**
-Aspose.Slides for Java offers the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents a presentation file. The Presentation class exposes the Save method that can be called to convert the whole presentation into a PDF document. The [PdfOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class provides options for creating the PDF such as JpegQuality, TextCompression, Compliance and others. These options can be used to get the desired standard of PDF.
+Aspose.Slides for Java offers the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents a presentation file. The Presentation class exposes the Save method that can be called to convert the whole presentation into a PDF document. The [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class provides options for creating the PDF such as JpegQuality, TextCompression, Compliance and others. These options can be used to get the desired standard of PDF.
 
 **Java**
 

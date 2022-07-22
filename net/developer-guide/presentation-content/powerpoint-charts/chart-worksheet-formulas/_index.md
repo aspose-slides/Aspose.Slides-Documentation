@@ -22,10 +22,10 @@ Usually, the chart represents complicated data (e.g. financial analysts, scienti
 **Chart spreadsheet formula** in presentation is an expression to automatically calculate and update chart spreadsheet data. Spreadsheet formula defines the data calculation logic for a certain cell or a set of cells. Spreadsheet formula is a math formula or a logical formula, which is using: cell references, math functions, logical operators, arithmetic operators, conversion functions, string constants, etc. The definition of the formula is written into a cell, and this cell does not contain a simple value. Spreadsheet formula calculates the value and returns it back, then this value is assigned to the cell. Chart spreadsheet formulas in presentations are actually the same as excel formulas, and there are supported the same default functions, operators and constants for their implementation.
 
 In [**Aspose.Slides** ](https://products.aspose.com/slides/net/)chart spreadsheet is represented with 
-[**Chart.ChartData.ChartDataWorkbook**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property of the
-[**IChartDataWorkbook**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook) type. 
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property of the
+[**IChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook) type. 
 Spreadsheet formula can be assigned and changed with 
-[**IChartDataCell.Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property. 
+[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property. 
 The following functionality is supported for formulas in Aspose.Slides:
 
 - Logical constants
@@ -43,9 +43,9 @@ The following functionality is supported for formulas in Aspose.Slides:
 Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - **IChartDataCell.Value** property it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the **CellUnsupportedDataException** for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
 ## **Add Chart Spreadsheet Formula to Presentation**
 First, add a chart with some sample data to the first slide of a new presentation with 
-[IShapeCollection.Shapes.AddChart](https://apireference.aspose.com/slides/net/aspose.slides.ishapecollection/addchart/methods/1). 
+[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addchart/methods/1). 
 The worksheet of the chart is automatically created and can be accessed with 
-[**Chart.ChartData.ChartDataWorkbook**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property:
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property:
 
 
 
@@ -68,7 +68,7 @@ using (var presentation = new Presentation())
 
 
 Let's write some values in cells with 
-[**IChartDataCell.Value**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) property 
+[**IChartDataCell.Value**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) property 
 of the **Object** type, which means you can set any value to the property:
 
 
@@ -86,23 +86,23 @@ workbook.GetCell(0, "H4").Value = 3;
 
 
 Now to write formula to the cell, you can use the 
-[**IChartDataCell.Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property:
+[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property:
 
 ``` csharp
 workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
 ```
 
-*Note*: [**IChartDataCell.Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property is used to set A1-style cell references. 
+*Note*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property is used to set A1-style cell references. 
 
 
 
-To set the [R1C1Formula](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) cell reference, you can use the [**IChartDataCell.R1C1Formula**](https://apireference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) property:
+To set the [R1C1Formula](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) cell reference, you can use the [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) property:
 
 ``` csharp
 workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
 ```
 
-Then use the [**IChartDataWorkbook.CalculateFormulas**](https://apireference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) method to calculate all formulas within the workbook and update corresponding cells values:
+Then use the [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) method to calculate all formulas within the workbook and update corresponding cells values:
 
 
 

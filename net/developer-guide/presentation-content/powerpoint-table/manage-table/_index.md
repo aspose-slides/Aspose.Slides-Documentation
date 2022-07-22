@@ -10,7 +10,7 @@ description: "Create and manage table in PowerPoint presentations in C# or .NET"
 ## **Create Table from Scratch**
 Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.

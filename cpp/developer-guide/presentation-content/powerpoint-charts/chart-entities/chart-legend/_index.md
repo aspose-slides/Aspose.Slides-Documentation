@@ -7,7 +7,7 @@ url: /cpp/chart-legend/
 ## **Legend Positioning**
 In order to set the legend properties. Please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Get the reference of the slide.
 - Adding a chart on slide.
 - Setting the properties of legend.

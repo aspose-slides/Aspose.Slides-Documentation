@@ -41,7 +41,7 @@ The following code sample shows how to get effective properties for the camera.
 import aspose.slides as slides
 
 with slides.Presentation(path + "Presentation1.pptx") as pres:
-	threeDEffectiveData = pres.slides[0].shapes[0].three_dformat.get_effective()
+	threeDEffectiveData = pres.slides[0].shapes[0].three_d_format.get_effective()
 
 	print("= Effective camera properties =")
 	print("Type: " + str(threeDEffectiveData.camera.camera_type))
@@ -59,7 +59,7 @@ The following code sample shows how to get effective properties for the Light Ri
 import aspose.slides as slides
 
 with slides.Presentation(path + "Presentation1.pptx") as pres:
-	threeDEffectiveData = pres.slides[0].shapes[0].three_dformat.get_effective()
+	threeDEffectiveData = pres.slides[0].shapes[0].three_d_format.get_effective()
 
 	print("= Effective light rig properties =")
 	print("Type: " + str(threeDEffectiveData.light_rig.light_type))
@@ -76,7 +76,7 @@ The following code sample shows how to get effective properties for the Bevel Sh
 import aspose.slides as slides
 
 with slides.Presentation(path + "Presentation1.pptx") as pres:
-	threeDEffectiveData = pres.slides[0].shapes[0].three_dformat.get_effective()
+	threeDEffectiveData = pres.slides[0].shapes[0].three_d_format.get_effective()
 
 	print("= Effective shape's top face relief properties =")
 	print("Type: " + str(threeDEffectiveData.bevel_top.bevel_type))

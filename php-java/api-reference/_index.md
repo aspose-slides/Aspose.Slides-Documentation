@@ -11,6 +11,6 @@ Aspose.Slides for PHP via Java is a class library that enables PHP applications 
 
 **Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter API reference.**
 
-Latest API Reference can be found at [Aspose.Slides for Java API Reference.](https://apireference.aspose.com/slides/java)
+Latest API Reference can be found at [Aspose.Slides for Java API Reference.](https://reference.aspose.com/slides/java)
 
 {{% /alert %}}

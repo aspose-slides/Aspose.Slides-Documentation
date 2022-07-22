@@ -86,7 +86,7 @@ with slides.Presentation() as pres:
 You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Adding SVG to Presentations**
-You can add or insert any image into a presentation by using the [add_picture_frame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) method that belongs to the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface.
+You can add or insert any image into a presentation by using the [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) interface.
 
 To create an image object based on SVG image, you can do it this way:
 
@@ -122,7 +122,7 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [add_group_shape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/addgroupshape/) method of the [IShapeCollection](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishapecollection/) interface that takes an [ISvgImage](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/isvgimage/) object as the first argument.
+The functionality is provided by one of the overloads of the [add_group_shape](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/addgroupshape/) method of the [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) interface that takes an [ISvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/isvgimage/) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
