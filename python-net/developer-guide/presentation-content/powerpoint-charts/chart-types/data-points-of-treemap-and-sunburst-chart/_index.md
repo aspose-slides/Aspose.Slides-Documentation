@@ -28,19 +28,19 @@ with slides.Presentation() as pres:
 
 If there is a need to format data points of the chart, we should use the following:
 
-[**IChartDataPointLevelsManager**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/IChartDataPointLevelsManager/), 
-[IChartDataPointLevel](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatapointlevel/) classes 
-and [**IChartDataPoint.DataPointLevels**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatapoint/) property 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevelsManager/), 
+[IChartDataPointLevel](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapointlevel/) classes 
+and [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/) property 
 provide access to format data points of Treemap and Sunburst charts. 
-[**IChartDataPointLevelsManager**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/IChartDataPointLevelsManager/) 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevelsManager/) 
 is used for accessing multi-level categories - it represents the container of 
-[**IChartDataPointLevel**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/IChartDataPointLevel/) objects. 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevel/) objects. 
 Basically it is a wrapper for 
-[**IChartCategoryLevelsManager**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/IChartCategoryLevelsManager/) with 
+[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartCategoryLevelsManager/) with 
 the properties added specific for data points. 
-[**IChartDataPointLevel**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/IChartDataPointLevel/) class has 
-two properties: [**Format**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatapointlevel/) and 
-[**DataLabel** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartdatapointlevel/)which 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevel/) class has 
+two properties: [**Format**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapointlevel/) and 
+[**DataLabel** ](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapointlevel/)which 
 provide access to corresponding settings.
 ## **Show Data Point Value**
 Show value of "Leaf 4" data point:

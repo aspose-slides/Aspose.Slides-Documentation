@@ -29,19 +29,19 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 
 If there is a need to format data points of the chart, we should use the following:
 
-[**IChartDataPointLevelsManager**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager), 
-[IChartDataPointLevel](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) classes 
-and [**IChartDataPoint::get_DataPointLevels()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point#ac619638c85f84a6127a7ce62523e0931) method 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager), 
+[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) classes 
+and [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point#ac619638c85f84a6127a7ce62523e0931) method 
 provide access to format data points of Treemap and Sunburst charts. 
-[**IChartDataPointLevelsManager**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) 
 is used for accessing multi-level categories - it represents the container of 
-[**IChartDataPointLevel**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) objects. 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) objects. 
 Basically it is a wrapper for 
-[**IChartCategoryLevelsManager**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_category_levels_manager) with 
+[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_category_levels_manager) with 
 the properties added specific for data points. 
-[**IChartDataPointLevel**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) class has 
-two methods: [**get_Format()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a00caa6a048ad98a66ab56a5ddb196697) and 
-[**get_Label()** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a5ab377b372199eb561792e9ba18acf25)which 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level) class has 
+two methods: [**get_Format()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a00caa6a048ad98a66ab56a5ddb196697) and 
+[**get_Label()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a5ab377b372199eb561792e9ba18acf25)which 
 provide access to corresponding settings.
 ## **Show Data Point Value**
 Show value of "Leaf 4" data point:

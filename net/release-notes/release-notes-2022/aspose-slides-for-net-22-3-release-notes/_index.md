@@ -51,14 +51,14 @@ This page contains release notes for [ Aspose.Slides for .NET 22.3](https://www
 
 ### AutoShape.IsTextBox property was added ###
 
-[AutoShape.IsTextBox](https://apireference.aspose.com/slides/net/aspose.slides/autoshape/properties/istextbox) property was added to indicate whether a shape was created as a text box or not. The image below demonstrates the two scenarios where a shape will be created as a 
+[AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/properties/istextbox) property was added to indicate whether a shape was created as a text box or not. The image below demonstrates the two scenarios where a shape will be created as a 
 
 * text box 
 * regular shape:
 
 ![Text box and shape](istextbox.png)
 
-This C# code demonstrates the iteration over all [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) shapes and outs to console if the shape is a text box or not (if the shape is [AutoShape](https://apireference.aspose.com/slides/net/aspose.slides/autoshape)).
+This C# code demonstrates the iteration over all [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) shapes and outs to console if the shape is a text box or not (if the shape is [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape)).
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))

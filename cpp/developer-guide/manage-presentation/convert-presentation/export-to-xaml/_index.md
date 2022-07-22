@@ -31,9 +31,9 @@ pres->Save(System::MakeObject<XamlOptions>());
 
 ## Exporting Presentations to XAML With Custom Options
 
-You get to select options from the [IXamlOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
+You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can pass true to the [set_ExportHiddenSlides()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313) method. See this sample C++ code: 
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can pass true to the [set_ExportHiddenSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313) method. See this sample C++ code: 
 
 ``` cpp
 auto xamlOptions = System::MakeObject<XamlOptions>();

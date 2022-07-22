@@ -21,7 +21,7 @@ auto rect = textFrame->get_Paragraphs()->idx_get(0)->GetRect();
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 
-To get the [Portion](https://apireference.aspose.com/slides/cpp/class/aspose.slides.portion) or [Paragraph](https://apireference.aspose.com/slides/cpp/class/aspose.slides.paragraph) size and coordinates in a table cell text frame, you can use the [IPortion::GetRect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_portion#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph#a56f6e0026bbb81aa948bb0b000b8cf08t) methods.
+To get the [Portion](https://reference.aspose.com/slides/cpp/class/aspose.slides.portion) or [Paragraph](https://reference.aspose.com/slides/cpp/class/aspose.slides.paragraph) size and coordinates in a table cell text frame, you can use the [IPortion::GetRect](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_portion#a9e2fd8b58529d493b40835b8463838a9) and [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph#a56f6e0026bbb81aa948bb0b000b8cf08t) methods.
 
 This sample code demonstrates the described operation:
 

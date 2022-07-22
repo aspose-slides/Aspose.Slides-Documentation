@@ -9,7 +9,7 @@ description: "Add trend line and custom line to PowerPoint presentations in Pyth
 ## **Add Trend Line**
 Aspose.Slides for Python via .NET provides a simple API for managing different chart Trend Lines:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (this example uses ChartType.CLUSTERED_COLUMN).
 1. Adding exponential trend line for chart series 1.

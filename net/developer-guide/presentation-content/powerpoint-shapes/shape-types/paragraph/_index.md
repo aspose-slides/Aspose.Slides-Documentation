@@ -25,7 +25,7 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 
-To get the [Portion](https://apireference.aspose.com/slides/net/aspose.slides/portion) or [Paragraph](https://apireference.aspose.com/slides/net/aspose.slides/paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.GetRect](https://apireference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) and [IParagraph.GetRect](https://apireference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) methods.
+To get the [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) or [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) and [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) methods.
 
 This sample code demonstrates the described operation:
 

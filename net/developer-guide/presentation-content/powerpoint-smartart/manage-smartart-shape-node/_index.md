@@ -11,7 +11,7 @@ description: "Smart node and child node in PowerPoint presentations in C# or .NE
 ## **Add SmartArt Node**
 Aspose.Slides for .NET has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.

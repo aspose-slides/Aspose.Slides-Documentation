@@ -14,7 +14,7 @@ Aspose.Slides for C++ makes it possible to get warning callbacks for fonts subst
 Aspose.Slides for C++ provides a simple API methods to get the Warning Callbacks during the rendering process. All you need is to follow the steps below to configure the Warning Callbacks on your end:
 
 1. Create a custom Callback class to receive the callbacks.
-1. Set the Warning Callbacks using [LoadOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.load_options) class.
+1. Set the Warning Callbacks using [LoadOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.load_options) class.
 1. Load the presentation file that is using a font for text inside that is unavailable on your target machine.
 1. Generate the slide thumbnail to see the effect.
 

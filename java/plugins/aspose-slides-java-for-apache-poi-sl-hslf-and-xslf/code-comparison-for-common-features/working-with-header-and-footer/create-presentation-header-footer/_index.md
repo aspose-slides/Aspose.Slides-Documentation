@@ -6,7 +6,7 @@ url: /java/slides-poi/create-presentation-header-footer/
 ---
 
 ## **Aspose.Slides - Create Presentation Header Footer**
-The method [getHeaderFooterManager()](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHeaderFooterManager--) gives you access to Headers and Footers using Aspose.Slides API.
+The method [getHeaderFooterManager()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHeaderFooterManager--) gives you access to Headers and Footers using Aspose.Slides API.
 
 ```java
 //Show date time placeholder

@@ -22,10 +22,10 @@ Usually, the chart represents complicated data (e.g. financial analysts, scienti
 **Chart spreadsheet formula** in presentation is an expression to automatically calculate and update chart spreadsheet data. Spreadsheet formula defines the data calculation logic for a certain cell or a set of cells. Spreadsheet formula is a math formula or a logical formula, which is using: cell references, math functions, logical operators, arithmetic operators, conversion functions, string constants, etc. The definition of the formula is written into a cell, and this cell does not contain a simple value. Spreadsheet formula calculates the value and returns it back, then this value is assigned to the cell. Chart spreadsheet formulas in presentations are actually the same as excel formulas, and there are supported the same default functions, operators and constants for their implementation.
 
 In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) chart spreadsheet is represented with 
-[**ChartData::get_ChartDataWorkbook()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) method of the
-[**IChartDataWorkbook**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook) type. 
+[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) method of the
+[**IChartDataWorkbook**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook) type. 
 Spreadsheet formula can be assigned and changed with 
-[**IChartDataCell::set_Formula()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) method. 
+[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) method. 
 The following functionality is supported for formulas in Aspose.Slides:
 
 - Logical constants
@@ -45,9 +45,9 @@ Typically, spreadsheets store the last calculated formula values. If after prese
 
 ## **Add Chart Spreadsheet Formula to Presentation**
 First, add a chart to the first slide of a new presentation with 
-[IShapeCollection::AddChart()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374). 
+[IShapeCollection::AddChart()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374). 
 The worksheet of the chart is automatically created and can be accessed with 
-[**ChartData::get_ChartDataWorkbook()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) method:
+[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) method:
 
 
 
@@ -63,7 +63,7 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
 Let's write some values in cells with 
-[**IChartDataCell.set_Value()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) method 
+[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) method 
 of the **Object** type, which means you can pass any value to the method:
 
 
@@ -77,17 +77,17 @@ workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
 
 
 Now to write formula to the cell, you can use the 
-[**IChartDataCell::set_Formula()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) method:
+[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) method:
 
 
 
 
 
-*Note*: [**IChartDataCell::set_Formula()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) method is used to set A1-style cell references. 
+*Note*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) method is used to set A1-style cell references. 
 
 
 
-To set the R1C1Formula cell reference, you can use the [**IChartDataCell::set_R1C1Formula()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) method:
+To set the R1C1Formula cell reference, you can use the [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) method:
 
 
 

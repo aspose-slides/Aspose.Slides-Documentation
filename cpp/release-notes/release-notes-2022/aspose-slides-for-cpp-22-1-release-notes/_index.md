@@ -31,7 +31,7 @@ This page contains release notes for [Aspose.Slides for C++ 22.1](https://www.nu
 
 ### None member have been added to TimeUnitType enumeration ###
 
-A new *None* member have been added to [TimeUnitType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a2dfce0172b32862bba9465b198c8a312) enumeration. This member indicates that no unit should be set for the appropriate unit scale.
+A new *None* member have been added to [TimeUnitType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a2dfce0172b32862bba9465b198c8a312) enumeration. This member indicates that no unit should be set for the appropriate unit scale.
 
 ``` cpp
 using namespace Aspose::Slides;

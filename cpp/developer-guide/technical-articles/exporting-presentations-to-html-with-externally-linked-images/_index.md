@@ -15,9 +15,9 @@ The default HTML export behavior is to embed any resource into the HTML file. Su
 
 - The size of output is significantly larger because of the base64 encoding. It is difficult to replace the images contained in the file.
 
-In this article we will see how we can change the default behavior using the **Aspose.Slides for C++** to link the images externally rather than embedding in the HTML file. We will use the [ILinkEmbedController](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface which contains three methods to control the resource embedding and saving process. We can pass this interface to the[HtmlOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class constructor when preparing the export.
+In this article we will see how we can change the default behavior using the **Aspose.Slides for C++** to link the images externally rather than embedding in the HTML file. We will use the [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface which contains three methods to control the resource embedding and saving process. We can pass this interface to the[HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class constructor when preparing the export.
 
-Following is the complete code of the **LinkController** class which implements the [ILinkEmbedController](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface. As mentioned before, the **LinkController** must implement the [ILinkEmbedController](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface. This interface specifies three methods:
+Following is the complete code of the **LinkController** class which implements the [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface. As mentioned before, the **LinkController** must implement the [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface. This interface specifies three methods:
 
 - **LinkEmbedDecision GetObjectStoringLocation(int32_t id, ArrayPtr<uint8_t> entityData, String semanticName, String contentType, String recomendedExtension)** It is called when the exporter encounters a resource and needs to decide how to store it. The most important parameters are ‘id’ – the resource unique identifier for the entire export operation and ‘contentType’ – contains the resource MIME type. If we decide to link the resource we should return LinkEmbedDecision::Link from this method. Otherwise, LinkEmbedDecision::Embed should be returned to embed the resource.
 - **String GetUrl(int32_t id, int32_t referrer)**
@@ -120,7 +120,7 @@ private:
 };
 ```
 
-After writing the **LinkController** class, now we will use it with [HtmlOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class to export the presentation to HTML having externally linked images using the following code.
+After writing the **LinkController** class, now we will use it with [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class to export the presentation to HTML having externally linked images using the following code.
 
 ``` cpp
 const String templatePath = u"../templates/image.pptx";

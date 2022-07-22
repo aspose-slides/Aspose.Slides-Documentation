@@ -19,10 +19,10 @@ This page contains release notes for Aspose.Slides for Android via Java 20.10
 ## **Public API Changes**
 
 ### **ITextFrameFormat.getThreeDFormat() and ITextFrameFormat.getTransform() methods have been added**
-New [getThreeDFormat()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getThreeDFormat--) and 
-[getTransform()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getTransform--) methods have been added to 
-[ITextFrameFormat](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) interface.
-These methods allow to set 3D effect to text in [TextFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame).
+New [getThreeDFormat()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getThreeDFormat--) and 
+[getTransform()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#getTransform--) methods have been added to 
+[ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) interface.
+These methods allow to set 3D effect to text in [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame).
 
 Methods declaration:
 
@@ -88,10 +88,10 @@ try {
 ```
 
 ### **IPresentation.getThumbnails, ISlide.getThumbnail and ISlide.renderToGraphics methods have been overloaded**
-New overloaded methods have been added to [IPresentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation) 
-and [ISlide](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) interfaces.
+New overloaded methods have been added to [IPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation) 
+and [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide) interfaces.
 
-Overloaded methods in [IPresentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation):
+Overloaded methods in [IPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation):
 
 ```java
 /**
@@ -138,7 +138,7 @@ public android.graphics.Bitmap[] getThumbnails(IRenderingOptions options, int[] 
 
 ```
 
-Overloaded methods in [ISlide](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISlide):
+Overloaded methods in [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlide):
 
 ```java
 /**
@@ -185,16 +185,16 @@ public void renderToGraphics(IRenderingOptions options,android.graphics.Canvas g
 ```
 
 
-All of these overloaded methods use [IRenderingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) as an argument 
-and are used instead of old methods with [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/INotesCommentsLayoutingOptions) 
+All of these overloaded methods use [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) as an argument 
+and are used instead of old methods with [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INotesCommentsLayoutingOptions) 
 argument. Old methods are marked as obsolete and will be removed after Aspose.Slides 21.4 Release.
 
 ### **IRenderingOptions interface and RenderingOptions class have been added**
-[IRenderingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) interface and implementing it 
-[RenderingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/RenderingOptions) class have been added. 
+[IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) interface and implementing it 
+[RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/RenderingOptions) class have been added. 
 They aggregate options used during presentation or slide rendering.
 
-[IRenderingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) declaration:
+[IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) declaration:
 
 ``` java 
 /**
@@ -213,13 +213,13 @@ public interface IRenderingOptions extends ISaveOptions
 }
 ```
 
-As it can be seen from the declaration, [IRenderingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) 
-inherits [ISaveOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions) which makes 
-[getWarningCallback()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions#getWarningCallback--), 
-[getProgressCallback()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions#getProgressCallback--) 
-and [getDefaultRegularFont()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) 
-methods available to specify in [RenderingOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/RenderingOptions) 
-class instance together with [getNotesCommentsLayouting()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/RenderingOptions#getNotesCommentsLayouting--) options.
+As it can be seen from the declaration, [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IRenderingOptions) 
+inherits [ISaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions) which makes 
+[getWarningCallback()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions#getWarningCallback--), 
+[getProgressCallback()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions#getProgressCallback--) 
+and [getDefaultRegularFont()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions#getDefaultRegularFont--) 
+methods available to specify in [RenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/RenderingOptions) 
+class instance together with [getNotesCommentsLayouting()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/RenderingOptions#getNotesCommentsLayouting--) options.
 
 The following code sample demonstrates one of the possible use cases - getting slide thumbnails with different default font and slide's notes shown:
 
@@ -467,5 +467,5 @@ This is important that 3D effect itself is divided into the object 3D representa
 So, there can be only one scene for the text and the shape containing it. Hence the following rule: if the scene is set for both the figure and the text, 
 the figure scene will have a higher priority (i.e. the text scene will be ignored). The next rule - if the figure does not have its own scene, 
 but have 3D representation - the text scene will be used. Otherwise (when the shape has no 3D effect at all), the shape will be flat and the 
-3D effect will only be applied to the text.  Please note that the scene is related to the [ThreeDFormat.getLightRig()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getLightRig--) 
-and [ThreeDFormat.getCamera()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--) methods.
+3D effect will only be applied to the text.  Please note that the scene is related to the [ThreeDFormat.getLightRig()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getLightRig--) 
+and [ThreeDFormat.getCamera()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ThreeDFormat#getCamera--) methods.

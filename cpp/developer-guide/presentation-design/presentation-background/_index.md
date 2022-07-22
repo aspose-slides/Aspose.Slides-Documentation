@@ -13,10 +13,10 @@ In this topic, we will see that how can we set the background color of a slide. 
 ## **Set Background Color of Master Slide**
 We know that Aspose.Slides for C++ may contain two types of slides: Master Slide & Normal Slide. It is possible to change the background colors of both types of slides. Master Slide is like a template that contains all formatting settings, which are applied on all other normal slides contained inside the presentation. It means that if you change the background color of the master slide, all normal slides in the presentation would receive the same background color settings. Please follow the steps below to change the background color of the master slide:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Set the Background Type of the Slide to OwnBackground.
 1. Set the FillType of the Slide Background to Solid.
-1. Set the Background Color of the Master Slide of the presentation to any desired color using the [get_SolidFillColor()->get_Color()](https://apireference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f535fba3591ce3d22392b613c575a95)method exposed by [FillFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.fill_format) object.
+1. Set the Background Color of the Master Slide of the presentation to any desired color using the [get_SolidFillColor()->get_Color()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f535fba3591ce3d22392b613c575a95)method exposed by [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) object.
 1. Write the modified presentation as a presentation file.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetBackground-SetSlideBackgroundMaster.cpp" >}}
@@ -24,7 +24,7 @@ We know that Aspose.Slides for C++ may contain two types of slides: Master Slide
 ## **Set Background Color of Normal Slide**
 A Normal Slide is the one which inherits its format settings from the master slide. If you want to modify its background settings, you would have to modify the slide settings. Please follow the steps below to perform this task:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Set the Background Type of the Slide to OwnBackground.
 - Set the FillType of the Slide Background to Solid.
 - Set the Background Color of the Normal Slide of the presentation to any desired color using the **SolidFillColor.Color** property exposed by FillFormat object.
@@ -59,7 +59,7 @@ pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
 ## **Set Simple Gradient Effect to Slide Background**
 To apply the simple gradient effect on the background of a slide using Aspose.Slides for C++, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 - Set the Background Type of the Slide to OwnBackground.
 - Set the FillType of the Slide Background to Gradient.
 - Apply any desired gradient effect from the available options provided by GradientFormatEx object.
@@ -70,7 +70,7 @@ To apply the simple gradient effect on the background of a slide using Aspose.Sl
 ## **Set Image Background to Slide**
 To use an image as the background of a slide using Aspose.Slides for C++, please follow the steps below:
 
-1. Create an instance of [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Set the Background Type of the Slide to OwnBackground.
 1. Set the FillType of the Slide Background FillFormat to Picture.
 1. Set the PictureFillMode using the options provided by PictureFillMode enum.

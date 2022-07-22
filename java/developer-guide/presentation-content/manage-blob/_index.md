@@ -98,7 +98,7 @@ try {
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://apireference.aspose.com/slides/java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This Java code shows you how to add a large image through the BLOB process:
 

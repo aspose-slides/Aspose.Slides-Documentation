@@ -37,8 +37,8 @@ This page contains release notes for [Aspose.Slides for .NET 20.12](https://www.
 ## **Public API Changes**
 ### PDF Import
 PDF Import feature has been added. This feature allows importing a PDF document into 
-[Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation). 
-A new **[SlideCollection.AddFromPdf](https://apireference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1)** 
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
+A new **[SlideCollection.AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1)** 
 method creates slides from the PDF document and adds them to the end of the collection:
 
 ```csharp
@@ -50,11 +50,11 @@ pres.Save("fromPdfDocument.pptx", SaveFormat.Pptx);
 ```
 
 ### IInk interface has been added
-**[IInk](https://apireference.aspose.com/slides/net/aspose.slides.ink/iink)** 
-interface and Ink implementer class have been added. They represent an **[IInk](https://apireference.aspose.com/slides/net/aspose.slides.ink/iink)** 
+**[IInk](https://reference.aspose.com/slides/net/aspose.slides.ink/iink)** 
+interface and Ink implementer class have been added. They represent an **[IInk](https://reference.aspose.com/slides/net/aspose.slides.ink/iink)** 
 graphical element.
 
-**[IInk](https://apireference.aspose.com/slides/net/aspose.slides.ink/iink)**  declaration:
+**[IInk](https://reference.aspose.com/slides/net/aspose.slides.ink/iink)**  declaration:
 
 ```csharp
 /// <summary>

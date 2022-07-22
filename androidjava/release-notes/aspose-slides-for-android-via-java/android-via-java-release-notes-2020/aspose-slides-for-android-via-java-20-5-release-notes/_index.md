@@ -32,16 +32,16 @@ The presentation may contain more than one digital signatures. After the digital
 
 
 To sign a presentation or check the authenticity of presentation signatures, 
-Aspose.Slides API provides [**IDigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) 
-interface, [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) 
-interface and[ ](https://apireference.aspose.com/slides/net/aspose.slides/ipresentation/properties/digitalsignatures)[**IPresentation**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation)**.[getDigitalSignatures()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--)** method. 
+Aspose.Slides API provides [**IDigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) 
+interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) 
+interface and[ ](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/properties/digitalsignatures)[**IPresentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation)**.[getDigitalSignatures()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--)** method. 
 Currently, digital signatures are supported for PPTX format only.
 
 
 #### **Add digital signature from PFX Certificate**
 The code sample below demonstrates how to add a digital signature from a PFX certificate:
 
-1. Open PFX file and pass the PFX password to [**DigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature) object.
+1. Open PFX file and pass the PFX password to [**DigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature) object.
 
 2. Add a created signature to the presentation object.
 
@@ -95,11 +95,11 @@ try {
 }
 ```
 ### **IDigitalSignatureCollection interface and DigitalSignatureCollection class have been added**
-[**DigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignatureCollection) class has been added. 
-It implements [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) interface 
+[**DigitalSignatureCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignatureCollection) class has been added. 
+It implements [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) interface 
 and represents a collection of digital signatures that were used or will be used to sign the presentation.
 
-[**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) declaration:
+[**IDigitalSignatureCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) declaration:
 
 ``` java
 
@@ -143,12 +143,12 @@ public interface IDigitalSignatureCollection extends IGenericCollection<IDigital
 ```
 Please see [this note](#DigitalSignature) for code samples.
 ### **IDigitalSignature interface and DigitalSignature class have been added**
-[**DigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature) 
+[**DigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature) 
 class has been added. It implements 
-[**IDigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) 
+[**IDigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) 
 interface and stores information about digital signature based on certificate used or will be used to sign the presentation.
 
-[**IDigitalSignature**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) declaration:
+[**IDigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature) declaration:
 
 ``` java
 
@@ -196,7 +196,7 @@ public interface IDigitalSignature
 ```
 Please see [this note](#DigitalSignature) for code samples.
 ### **IPresentation.getDigitalSignatures() method has been added**
-[**getDigitalSignatures()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--) method has been added to [**IPresentation**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation) interface and [**Presentation**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class. It allows to access a collection of digital signatures which have been used to sign or add digital signatures which will be used to sign the presentation.
+[**getDigitalSignatures()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--) method has been added to [**IPresentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation) interface and [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class. It allows to access a collection of digital signatures which have been used to sign or add digital signatures which will be used to sign the presentation.
 
 Method declaration:
 
@@ -214,15 +214,15 @@ Please see [this note](#DigitalSignature) for code samples.
 
 
 ### **Check a Write Protection Password via IPresentationInfo interface**
-[**isWriteProtected()** ](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isWriteProtected--)and [**checkWriteProtection()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-) 
-methods have been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) 
-interface and [**PresentationInfo**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) 
+[**isWriteProtected()** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isWriteProtected--)and [**checkWriteProtection()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-) 
+methods have been added to [**IPresentationInfo**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) 
+interface and [**PresentationInfo**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) 
 class. These methods allow checking whether a presentation is protected by a password to modify. 
 The password to modify is intended to set write protection on the presentation. Write protection restricts the ability 
 to save the presentation to the same path using host applications.
 
-[**isWriteProtected()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isWriteProtected--) 
-and [**checkWriteProtection()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-) declarations:
+[**isWriteProtected()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isWriteProtected--) 
+and [**checkWriteProtection()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#checkWriteProtection-java.lang.String-) declarations:
 
 ``` java
 
@@ -261,9 +261,9 @@ boolean isWriteProtectedByPassword = info.isWriteProtected() == NullableBool.Tru
 ```
 
 ### **Check a Write Protection Password via IProtectionManager interface**
-[**checkWriteProtection()** ](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#checkWriteProtection-java.lang.String-)method has 
-been added to the [**IProtectionManager**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager) 
-interface and [**ProtectionManager**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ProtectionManager) 
+[**checkWriteProtection()** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#checkWriteProtection-java.lang.String-)method has 
+been added to the [**IProtectionManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager) 
+interface and [**ProtectionManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ProtectionManager) 
 class. This method allows checking whether a presentation is protected by a password to modify. The password to modify 
 is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation 
 to the same path using host applications.
@@ -300,9 +300,9 @@ try {
 ```
 
 ### **Check Open Protection of Presentation via IPresentationInfo interface**
-[**isPasswordProtected()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isPasswordProtected--) 
-method has been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) interface 
-and [**PresentationInfo**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) 
+[**isPasswordProtected()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#isPasswordProtected--) 
+method has been added to [**IPresentationInfo**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) interface 
+and [**PresentationInfo**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) 
 class. This property allows checking whether a presentation is protected to open. The presentation has protection 
 to open when a password is set to the document.
 
@@ -334,22 +334,22 @@ The feature helps to change the placement of selected shapes on the slide. Alig
 
 ![todo:image_alt_text](aspose-slides-for-android-via-java-20-5-release-notes_3.png)
 
-To provide options from the picture above has been added overloaded method **[SlideUtil](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil).[alignShapes()](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)** and [**ShapesAlignmentType**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) class.
+To provide options from the picture above has been added overloaded method **[SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil).[alignShapes()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)** and [**ShapesAlignmentType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) class.
 
 
 #### **ShapesAlignmentType**
-The [**ShapesAlignmentType**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) 
-determines the way to align shapes. Possible values of [**ShapesAlignmentType**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType): [*AlignLeft*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignLeft)*, [AlignRight](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignRight), [AlignCenter](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignCenter), [AlignTop](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignTop), [AlignMiddle](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignMiddle), [AlignBottom](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignBottom), [DistributeHorizontally](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#DistributeHorizontally), [DistributeVertically](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#DistributeVertically)*.
+The [**ShapesAlignmentType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) 
+determines the way to align shapes. Possible values of [**ShapesAlignmentType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType): [*AlignLeft*](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignLeft)*, [AlignRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignRight), [AlignCenter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignCenter), [AlignTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignTop), [AlignMiddle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignMiddle), [AlignBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#AlignBottom), [DistributeHorizontally](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#DistributeHorizontally), [DistributeVertically](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType#DistributeVertically)*.
 
 
 #### **Method SlideUtil.alignShape()**
 The method changes the placement of selected shapes on the slide. Input parameters:
 
-- [*ShapesAlignmentType*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) **alignmentType** - determines which type of alignment will be applied.
+- [*ShapesAlignmentType*](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapesAlignmentType) **alignmentType** - determines which type of alignment will be applied.
 - *boolean* **alignToSlide**- if true, shapes will be aligned relative to the slide edges, otherwise shapes will be aligned relative to each other.
-- [*IBaseSlide*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) **slide** - parent slide.
+- [*IBaseSlide*](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide) **slide** - parent slide.
 - *int[]* **shapeIndexes** - indexes of shapes to be aligned.
-- [*IShapeCollection*](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) **shapes** - collection of shapes to be aligned.
+- [*IShapeCollection*](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) **shapes** - collection of shapes to be aligned.
 
 
 #### **Example 1**

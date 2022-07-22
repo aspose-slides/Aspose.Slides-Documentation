@@ -30,7 +30,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 Aspose.Slides for Java allows you to apply animation to the text in a shape. 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
 3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape). 
 4. Add text to [IAutoShape.TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
@@ -77,7 +77,7 @@ Besides applying animations to text, you can also apply animations to a single [
 
 ## **Apply Animation to PictureFrame**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add or get a [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe) on the slide. 
 4. Get the main sequence of effects.
@@ -113,7 +113,7 @@ try {
 
 ## **Apply Animation to Shape**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape). 
 4. Add a `Bevel` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape) (when this object is clicked, the animation gets played).

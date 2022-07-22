@@ -8,7 +8,7 @@ url: /java/slides-poi/delete-slides-from-presentation/
 ## **Aspose.Slides - Delete Slides from Presentation**
 Sometimes, developers may need to remove a slide from the presentation due to any reason. Aspose.Slides for Java offers few methods to do so. 
 
-We know that [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class in Aspose.Slides for Java represents a presentation file. [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class encapsulates a [**ISlideCollection**](https://apireference.aspose.com/slides/java/com.aspose.slides/IPresentation#getSlides--) that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
+We know that [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class in Aspose.Slides for Java represents a presentation file. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class encapsulates a [**ISlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getSlides--) that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
 
 - Using Slide Reference
 - Using Slide Index

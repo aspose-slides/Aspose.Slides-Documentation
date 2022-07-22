@@ -13,6 +13,7 @@ Using Aspose.Slides, you can convert presentations in these formats to PDF:
 * PPTX
 * ODP
 
+
 To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class and then save the presentation as a PDF using a [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method. The [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class exposes the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method that is typically used to convert a presentation to PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
@@ -112,6 +113,7 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
 ### **Convert PowerPoint to Password Protected PDF**
+
 
 This C++ code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options/) class):
 

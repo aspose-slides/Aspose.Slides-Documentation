@@ -8,11 +8,11 @@ url: /java/manage-table/
 ## **Create Table from Scratch**
 Aspose.Slides for Java has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Define Array of Columns with Width.
 - Define Array of Rows with Height.
-- Add a Table to the slide using [addTable](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method exposed by [IShapeCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
+- Add a Table to the slide using [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
 - Iterate through each Cell to apply formatting to the Top, Bottom, Right, Left Borders.
 - Merge first two cells of the first row of the table.
 - Access the Text Frame of a Cell.
@@ -73,11 +73,11 @@ try {
 ## **Access Existing Table**
 To access a table that already exists in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide (that contains the table) by using its Position.
-- Create an [ITable](https://apireference.aspose.com/slides/java/com.aspose.slides/ITable) object and set it to null.
-- Iterate through all Shapes until you find the Table. If a slide contains only one table then you can simply check a shape and if it is found to be a Table then just typecast it as a [Table](https://apireference.aspose.com/slides/java/com.aspose.slides/Table) object. But, if the slide contains more than one tables then it's better to find your desired table using its Alternative Text.
-- After the Table is found, you can use [ITable](https://apireference.aspose.com/slides/java/com.aspose.slides/ITable) object to control the table. For example, in our case, we have added a new row in the desired table.
+- Create an [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object and set it to null.
+- Iterate through all Shapes until you find the Table. If a slide contains only one table then you can simply check a shape and if it is found to be a Table then just typecast it as a [Table](https://reference.aspose.com/slides/java/com.aspose.slides/Table) object. But, if the slide contains more than one tables then it's better to find your desired table using its Alternative Text.
+- After the Table is found, you can use [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object to control the table. For example, in our case, we have added a new row in the desired table.
 - Save the modified presentation as a PPT file.
 
 ```java
@@ -112,7 +112,7 @@ try {
 ## **Align Text in Table**
 Aspose.Slides for Java has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Insert table in the slide.
 - Access text frame.
@@ -164,7 +164,7 @@ try {
 ## **Set Text Formatting on Table Level**
 Aspose.Slides for Java has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Access Table from Slide.
 - Set Table Cells Font Height.
@@ -255,7 +255,7 @@ try {
 ```
 
 ## **Lock Aspect Ratio of Table**
-The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. You can lock aspect ratio of table using [**setAspectRatioLocked**](https://apireference.aspose.com/slides/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) method. Below code example shows how to use this method.
+The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. You can lock aspect ratio of table using [**setAspectRatioLocked**](https://reference.aspose.com/slides/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) method. Below code example shows how to use this method.
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
