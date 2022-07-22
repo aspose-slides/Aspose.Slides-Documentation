@@ -53,7 +53,7 @@ This page contains release notes for [Aspose.Slides for Java 21.9](https://repo
 
 We implemented support for HTML5 Export in Slides (enhanced customizable version of HTML5 Support). 
 
-The new Html5 value has been added to [SaveFormat](https://apireference.aspose.com/slides/java/com.aspose.slides/SaveFormat) enumerations. This value represents the HTML5 format for exporting.
+The new Html5 value has been added to [SaveFormat](https://reference.aspose.com/slides/java/com.aspose.slides/SaveFormat) enumerations. This value represents the HTML5 format for exporting.
 
 The code snippet below demonstrates the saving presentation in HTML5 operation:
 
@@ -66,7 +66,7 @@ try {
 }
 ```
 
-Using the [Html5Options](https://apireference.aspose.com/slides/java/com.aspose.slides/Html5Options) configuration, you can export a presentation containing slides transitions, animations, and shapes animations to HTML5:
+Using the [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/Html5Options) configuration, you can export a presentation containing slides transitions, animations, and shapes animations to HTML5:
 
 ``` java
 Presentation pres = new Presentation("demo.pptx");
@@ -83,7 +83,7 @@ try {
 
 ### Access to the ChartDataWorksheetCollection has been added ###
 
-To provide access to worksheets, we added the [IChartDataWorksheetCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorksheetCollection) interface, [ChartDataWorksheetCollection](https://apireference.aspose.com/slides/java/com.aspose.slides/ChartDataWorksheetCollection) class, and [IChartDataWorkbook.getWorksheets()](https://apireference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method. 
+To provide access to worksheets, we added the [IChartDataWorksheetCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorksheetCollection) interface, [ChartDataWorksheetCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ChartDataWorksheetCollection) class, and [IChartDataWorkbook.getWorksheets()](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method. 
 
 ``` java
 Presentation pres = new Presentation();
@@ -102,9 +102,9 @@ try {
 
 ### IAccessiblePVIObject interface has been added ###
 
-[IAccessiblePVIObject](https://apireference.aspose.com/slides/java/com.aspose.slides/IAccessiblePVIObject) interface has been added. It represents a type that can be a source of an effective version of its data.
+[IAccessiblePVIObject](https://reference.aspose.com/slides/java/com.aspose.slides/IAccessiblePVIObject) interface has been added. It represents a type that can be a source of an effective version of its data.
 
-[IAccessiblePVIObject](https://apireference.aspose.com/slides/java/com.aspose.slides/IAccessiblePVIObject) declaration:
+[IAccessiblePVIObject](https://reference.aspose.com/slides/java/com.aspose.slides/IAccessiblePVIObject) declaration:
 
 ``` java
 /**
@@ -124,9 +124,9 @@ public interface IAccessiblePVIObject<T>
 }
 ```
 
-Currently, all effect types implement the [IAccessiblePVIObject](https://apireference.aspose.com/slides/java/com.aspose.slides/IAccessiblePVIObject) interface—and this means you can get effective values for effects with styled colors resolved.
+Currently, all effect types implement the [IAccessiblePVIObject](https://reference.aspose.com/slides/java/com.aspose.slides/IAccessiblePVIObject) interface—and this means you can get effective values for effects with styled colors resolved.
 
-This code demonstrates an operation where we added a picture for a slide background, added [Duotone](https://apireference.aspose.com/slides/java/com.aspose.slides/Duotone) effect with styled colors, and then we got the effective duotone colors with which the background will be rendered:
+This code demonstrates an operation where we added a picture for a slide background, added [Duotone](https://reference.aspose.com/slides/java/com.aspose.slides/Duotone) effect with styled colors, and then we got the effective duotone colors with which the background will be rendered:
 
 ``` java
 Presentation presentation = new Presentation();

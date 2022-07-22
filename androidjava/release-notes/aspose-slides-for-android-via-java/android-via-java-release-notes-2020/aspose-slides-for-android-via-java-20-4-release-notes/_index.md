@@ -17,7 +17,7 @@ This page contains release notes for Aspose.Slides for Android via Java 20.4
 ## **Public API Changes**
 -----
 ### **Fodp value has been added to LoadFormat and SaveFormat enumerations**
-The new **Fodp** value has been added to [**LoadFormat**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LoadFormat#Fodp) and [**SaveFormat**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SaveFormat#Fodp) enumerations. This value represents Flat XML ODF Presentation. 
+The new **Fodp** value has been added to [**LoadFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadFormat#Fodp) and [**SaveFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveFormat#Fodp) enumerations. This value represents Flat XML ODF Presentation. 
 The code snippet below demonstrates loading and saving presentation in Fodp format.
 
 ``` java
@@ -46,7 +46,7 @@ if(presInfo.getLoadFormat() == com.aspose.slides.LoadFormat.Fodp)
 ```
 
 ### **New methods getReadOnlyRecommended() and setReadOnlyRecommended() have been added to IProtectionManager**
-New methods [**getReadOnlyRecommended()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#getReadOnlyRecommended--) and [**setReadOnlyRecommended()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#setReadOnlyRecommended-boolean-) have been added to [**IProtectionManager**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager) interface and [**ProtectionManager**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ProtectionManager) class.
+New methods [**getReadOnlyRecommended()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#getReadOnlyRecommended--) and [**setReadOnlyRecommended()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#setReadOnlyRecommended-boolean-) have been added to [**IProtectionManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager) interface and [**ProtectionManager**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ProtectionManager) class.
 
 It allows to get or set read-only recommendation for presentation. This feature was introduced in PowerPoint 2019, and made it possible to open PowerPoint presentation in read-only mode first. If such a presentation is opened in earlier versions of PowerPoint, this recommendation is ignored.
 
@@ -76,7 +76,7 @@ try {
 ```
 
 ### **New methods R1C1Formula and Formula have been added to IChartDataCell**
-New methods [**getR1C1Formula()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--), [**setR1C1Formula()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-), [**getFormula()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getFormula--) and [**setFormula()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) have been added to [**ChartDataCell**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ChartDataCell) class and [**IChartDataCell**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell) interface. These properties provide a way to set a formula value for the chart data cell.
+New methods [**getR1C1Formula()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--), [**setR1C1Formula()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-), [**getFormula()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#getFormula--) and [**setFormula()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) have been added to [**ChartDataCell**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartDataCell) class and [**IChartDataCell**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataCell) interface. These properties provide a way to set a formula value for the chart data cell.
 
 ``` java
 Presentation presentation = new Presentation();
@@ -93,7 +93,7 @@ try {
 
 ```
 ### **PDF/A-1a and PDF/UA conformance options have been added to PdfCompliance class**
-New options [**PdfA1a**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PdfCompliance#PdfA1a) and [**PdfUa**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PdfCompliance#PdfUa) have been added to [**PdfCompliance**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PdfCompliance) enumeration. These options allow exporting a presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
+New options [**PdfA1a**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PdfCompliance#PdfA1a) and [**PdfUa**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PdfCompliance#PdfUa) have been added to [**PdfCompliance**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PdfCompliance) enumeration. These options allow exporting a presentation to PDF document conforming to PDF/A-1a and PDF/UA standards correspondingly.
 
 The code snippet below demonstrates saving presentation to PDF/A-1a compliant document.
 
@@ -109,9 +109,9 @@ try {
 ```
 
 ### **Spreadsheet options for formulas calculation**
-Calculated data of a spreadsheet can depend on many different parameters. To allow editing them the [**SpreadsheetOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SpreadsheetOptions) class has been added. It implements the [**ISpreadsheetOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISpreadsheetOptions) that intended to get and set spreadsheet parameters for formulas calculation.
+Calculated data of a spreadsheet can depend on many different parameters. To allow editing them the [**SpreadsheetOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SpreadsheetOptions) class has been added. It implements the [**ISpreadsheetOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISpreadsheetOptions) that intended to get and set spreadsheet parameters for formulas calculation.
 
-[**ISpreadsheetOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISpreadsheetOptions) interface declaration:
+[**ISpreadsheetOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISpreadsheetOptions) interface declaration:
 
 ``` java
 /**
@@ -132,7 +132,7 @@ public interface ISpreadsheetOptions
 }
 ```
 
-New methods [**getSpreadsheetOptions()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILoadOptions#getSpreadsheetOptions--) and [**setSpreadsheetOptions()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILoadOptions#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) have been added to the [**ILoadOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ILoadOptions) interface and [**LoadOptions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions) class:
+New methods [**getSpreadsheetOptions()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILoadOptions#getSpreadsheetOptions--) and [**setSpreadsheetOptions()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILoadOptions#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) have been added to the [**ILoadOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ILoadOptions) interface and [**LoadOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions) class:
 
 ``` java
 /**
@@ -190,7 +190,7 @@ try {
 }
 ```
 
-The [**addMathShape()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addMathShape-float-float-float-float-) method has been added to the [**IShapeCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface and the [**ShapeCollection**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ShapeCollection) class:
+The [**addMathShape()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addMathShape-float-float-float-float-) method has been added to the [**IShapeCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface and the [**ShapeCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeCollection) class:
 
 ``` java
  /**
@@ -201,7 +201,7 @@ The [**addMathShape()**](https://apireference.aspose.com/slides/androidjava/com.
 public final IAutoShape addMathShape(float x, float y, float width, float height)
 ```
 
-The [**IMathPortion**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathPortion) interface with the [**MathPortion**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) class have been added:
+The [**IMathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathPortion) interface with the [**MathPortion**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathPortion) class have been added:
 
 ``` java
  /**
@@ -220,7 +220,7 @@ public interface IMathPortion
 }
 ```
 
-The [**IMathParagraph**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathParagraph) interface with the [**MathParagraph**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) class have been added:
+The [**IMathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathParagraph) interface with the [**MathParagraph**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathParagraph) class have been added:
 
 ``` java
  /**
@@ -241,7 +241,7 @@ public interface IMathParagraph extends IMathBlockCollection
 }
 ```
 
-The [**IMathBlock**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathBlock) interface with the [**MathBlock**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) class have been added:
+The [**IMathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathBlock) interface with the [**MathBlock**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock) class have been added:
 
 ``` java
  /**
@@ -276,27 +276,27 @@ public interface IMathBlock extends IMathElementCollection, IMathElement
 }
 ```
 
-The [**IMathElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) interface has been added. This interface is implemented in all classes of different mathematical elements: [](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement)
+The [**IMathElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathElement) interface has been added. This interface is implemented in all classes of different mathematical elements: [](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement)
 
-- [MathSubscriptElement](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement)
-- [MathNaryOperator](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator)
-- [MathGroupingCharacter](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter)
-- [MathDelimiter](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter)
-- [MathematicalText](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText)
-- [MathBlock](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)
-- [MathRadical](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical)
-- [MathLimit](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit)
-- [MathArray](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathArray)
-- [MathAccent](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent)
-- [MathBar](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBar)
-- [MathLeftSubSuperscriptElement](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathLeftSubSuperscriptElement)
-- [MathMatrix](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix)
-- [MathRightSubSuperscriptElement](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathRightSubSuperscriptElement)
-- [MathBox](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBox)
-- [MathFraction](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction)
-- [MathFunction](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction)
-- [MathSuperscriptElement](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathSuperscriptElement)
-- [MathBorderBox](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox)
+- [MathSubscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement)
+- [MathNaryOperator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator)
+- [MathGroupingCharacter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter)
+- [MathDelimiter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter)
+- [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText)
+- [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBlock)
+- [MathRadical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical)
+- [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit)
+- [MathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathArray)
+- [MathAccent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent)
+- [MathBar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBar)
+- [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLeftSubSuperscriptElement)
+- [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix)
+- [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRightSubSuperscriptElement)
+- [MathBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBox)
+- [MathFraction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction)
+- [MathFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction)
+- [MathSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSuperscriptElement)
+- [MathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox)
 
 
 ``` java
@@ -629,7 +629,7 @@ public interface IMathElement
 }
 ```
 
-The [**IMathAccent**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathAccent) interface with the [**MathAccent**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent) class have been added:
+The [**IMathAccent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathAccent) interface with the [**MathAccent**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathAccent) class have been added:
 
 ``` java
 /**
@@ -659,7 +659,7 @@ public interface IMathAccent extends IMathElement
 }
 ```
 
-The [**IMathArray**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathArray) interface with the [**MathArray**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathArray) class have been added:
+The [**IMathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathArray) interface with the [**MathArray**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathArray) class have been added:
 
 ``` java
 /**
@@ -725,7 +725,7 @@ public interface IMathArray extends IMathElement
 }
 ```
 
-The [**IMathBar**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathBar) interface with the [**MathBar**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBar) class have been added:
+The [**IMathBar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathBar) interface with the [**MathBar**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBar) class have been added:
 
 ``` java
 /**
@@ -753,7 +753,7 @@ public interface IMathBar extends IMathElement
 }
 ```
 
-The [**IMathBorderBox**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathBorderBox) interface with the [**MathBorderBox**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox) class have been added:
+The [**IMathBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathBorderBox) interface with the [**MathBorderBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathBorderBox) class have been added:
 
 ``` java
 /**
@@ -839,7 +839,7 @@ public interface IMathBorderBox extends IMathElement
 }
 ```
 
-The [**IMathBox**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathBox) interface with the [**IMathBox**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathBox) class have been added:
+The [**IMathBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathBox) interface with the [**IMathBox**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathBox) class have been added:
 
 ``` java
 /**
@@ -918,7 +918,7 @@ public interface IMathBox extends IMathElement
 }
 ```
 
-The [**IMathDelimiter**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathDelimiter) interface with the [**MathDelimiter**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter) class have been added:
+The [**IMathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathDelimiter) interface with the [**MathDelimiter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiter) class have been added:
 
 ``` java
 /**
@@ -999,7 +999,7 @@ public interface IMathDelimiter extends IMathElement
 }
 ```
 
-The [**IMathematicalText**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathematicalText) interface with the [**MathematicalText**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) class have been added:
+The [**IMathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathematicalText) interface with the [**MathematicalText**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathematicalText) class have been added:
 
 ``` java
 /**
@@ -1026,7 +1026,7 @@ public interface IMathematicalText extends IMathElement
 }
 ```
 
-The [**IMathFraction**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathFraction) interface with the [**MathFraction**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction) class have been added:
+The [**IMathFraction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathFraction) interface with the [**MathFraction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFraction) class have been added:
 
 ``` java
 /**
@@ -1063,7 +1063,7 @@ public interface IMathFraction extends IMathElement
 }
 ```
 
-The [**IMathFunction**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathFunction) interface with the [**MathFunction**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) class have been added:
+The [**IMathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathFunction) interface with the [**MathFunction**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunction) class have been added:
 
 ``` java
 /**
@@ -1090,7 +1090,7 @@ public interface IMathFunction extends IMathElement
 }
 ```
 
-The [**IMathGroupingCharacter**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathGroupingCharacter) interface with the [**MathGroupingCharacter**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter) class have been added:
+The [**IMathGroupingCharacter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathGroupingCharacter) interface with the [**MathGroupingCharacter**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathGroupingCharacter) class have been added:
 
 ``` java
 /**
@@ -1141,7 +1141,7 @@ public interface IMathGroupingCharacter extends IMathElement
 }
 ```
 
-The [**IMathLeftSubSuperscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathLeftSubSuperscriptElement) interface with the [**MathLeftSubSuperscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathLeftSubSuperscriptElement) class have been added:
+The [**IMathLeftSubSuperscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathLeftSubSuperscriptElement) interface with the [**MathLeftSubSuperscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLeftSubSuperscriptElement) class have been added:
 
 ``` java
  /**
@@ -1175,7 +1175,7 @@ public interface IMathLeftSubSuperscriptElement extends IMathElement
 }
 ```
 
-The [**IMathLimit**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathLimit) interface with the [**MathLimit**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) class have been added:
+The [**IMathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathLimit) interface with the [**MathLimit**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimit) class have been added:
 
 ``` java
 /**
@@ -1209,7 +1209,7 @@ public interface IMathLimit extends IMathElement
 }
 ```
 
-The [**IMathMatrix**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathMatrix) interface with the [**MathMatrix**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix) class have been added:
+The [**IMathMatrix**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathMatrix) interface with the [**MathMatrix**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathMatrix) class have been added:
 
 ``` java
 /**
@@ -1393,7 +1393,7 @@ public interface IMathMatrix extends IMathElement
 }
 ```
 
-The [**IMathNaryOperator**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator) interface with the [**MathNaryOperator** ](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator)class have been added:
+The [**IMathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator) interface with the [**MathNaryOperator** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator)class have been added:
 
 ``` java
 /**
@@ -1427,7 +1427,7 @@ public interface IMathNaryOperator extends IMathElement, IMathNaryOperatorProper
 }
 ```
 
-The [**IMathNaryOperatorProperties**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperatorProperties) interface has been added as base interface of the [**IMathNaryOperator**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator) which is implemented in The [**MathNaryOperator**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator) :
+The [**IMathNaryOperatorProperties**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperatorProperties) interface has been added as base interface of the [**IMathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathNaryOperator) which is implemented in The [**MathNaryOperator**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperator) :
 
 ``` java
 /**
@@ -1480,7 +1480,7 @@ public interface IMathNaryOperatorProperties
 }
 ```
 
-The [**IMathRadical**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathRadical) interface with the [**MathRadical**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical) class have been added:
+The [**IMathRadical**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathRadical) interface with the [**MathRadical**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRadical) class have been added:
 
 ``` java
 /**
@@ -1516,7 +1516,7 @@ public interface IMathRadical extends IMathElement
 }
 ```
 
-The [**IMathRightSubSuperscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathRightSubSuperscriptElement) interface with the [**MathRightSubSuperscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathRightSubSuperscriptElement) class have been added:
+The [**IMathRightSubSuperscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathRightSubSuperscriptElement) interface with the [**MathRightSubSuperscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRightSubSuperscriptElement) class have been added:
 
 ``` java
 /**
@@ -1561,7 +1561,7 @@ public interface IMathRightSubSuperscriptElement extends IMathElement
 }
 ```
 
-The [**IMathSubscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathSubscriptElement) interface with the [**MathSubscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement) class have been added:
+The [**IMathSubscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathSubscriptElement) interface with the [**MathSubscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSubscriptElement) class have been added:
 
 ``` java
 /**
@@ -1588,7 +1588,7 @@ public interface IMathSubscriptElement extends IMathElement
 }
 ```
 
-The [**IMathSuperscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IMathSuperscriptElement) interface with the [**MathSuperscriptElement**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathSuperscriptElement) class have been added:
+The [**IMathSuperscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMathSuperscriptElement) interface with the [**MathSuperscriptElement**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSuperscriptElement) class have been added:
 
 ``` java
 /**
@@ -1615,7 +1615,7 @@ public interface IMathSuperscriptElement extends IMathElement
 }
 ```
 
-The [**MathDelimiterShape**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiterShape) class has been added:
+The [**MathDelimiterShape**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathDelimiterShape) class has been added:
 
 ``` java
 /**
@@ -1641,7 +1641,7 @@ public final class MathDelimiterShape
 }
 ```
 
-The [**MathFractionTypes**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFractionTypes) class has been added:
+The [**MathFractionTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFractionTypes) class has been added:
 
 ``` java
 /**
@@ -1681,7 +1681,7 @@ public final class MathFractionTypes
 }
 ```
 
-The [**MathFunctionsOfOneArgument**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument) class has been added:
+The [**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfOneArgument) class has been added:
 
 ``` java
 /**
@@ -1875,7 +1875,7 @@ public final class MathFunctionsOfOneArgument
 }
 ```
 
-The [**MathFunctionsOfTwoArguments**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfTwoArguments) class has been added:
+The [**MathFunctionsOfTwoArguments**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathFunctionsOfTwoArguments) class has been added:
 
 ``` java
 /**
@@ -1915,7 +1915,7 @@ public final class MathFunctionsOfTwoArguments
 }
 ```
 
-The [**MathHorizontalAlignment**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathHorizontalAlignment) class has been added:
+The [**MathHorizontalAlignment**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathHorizontalAlignment) class has been added:
 
 ``` java
 /**
@@ -1955,7 +1955,7 @@ public final class MathHorizontalAlignment
 }
 ```
 
-The [**MathIntegralTypes**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathIntegralTypes) class has been added:
+The [**MathIntegralTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathIntegralTypes) class has been added:
 
 ``` java
 /**
@@ -2009,7 +2009,7 @@ public final class MathIntegralTypes
 }
 ```
 
-The [**MathJustification**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathJustification) class has been added:
+The [**MathJustification**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathJustification) class has been added:
 
 ``` java
 /**
@@ -2051,7 +2051,7 @@ public final class MathJustification
 }
 ```
 
-The [**MathLimitLocations**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathLimitLocations) class has been added:
+The [**MathLimitLocations**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathLimitLocations) class has been added:
 
 ``` java
 /**
@@ -2084,7 +2084,7 @@ public final class MathLimitLocations
 }
 ```
 
-The [**MathNaryOperatorTypes**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperatorTypes) class has been added:
+The [**MathNaryOperatorTypes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathNaryOperatorTypes) class has been added:
 
 ``` java
 /**
@@ -2146,7 +2146,7 @@ public final class MathNaryOperatorTypes
 }
 ```
 
-The [**MathRowSpacingRule**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathRowSpacingRule) class has been added:
+The [**MathRowSpacingRule**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathRowSpacingRule) class has been added:
 
 ``` java
 /**
@@ -2193,7 +2193,7 @@ public final class MathRowSpacingRule
 }
 ```
 
-The [**MathSpacingRules**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathSpacingRules) class has been added:
+The [**MathSpacingRules**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathSpacingRules) class has been added:
 
 ``` java
 /**
@@ -2244,7 +2244,7 @@ public final class MathSpacingRules
 }
 ```
 
-The [**MathTopBotPositions**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathTopBotPositions) class has been added:
+The [**MathTopBotPositions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathTopBotPositions) class has been added:
 
 ``` java
 /**
@@ -2277,7 +2277,7 @@ public final class MathTopBotPositions
 }
 ```
 
-The [**MathVerticalAlignment**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/MathVerticalAlignment) class has been added:
+The [**MathVerticalAlignment**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MathVerticalAlignment) class has been added:
 
 ``` java
 /**

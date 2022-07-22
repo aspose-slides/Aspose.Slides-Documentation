@@ -12,6 +12,6 @@ documents without using Microsoft PowerPoint® or others. Aspose.Slides for C++ 
 tables & animations, add audio and video to slides, preview slides, export slides to SVG, PDF format and more.
 
 Latest API Reference can be found at 
-[Aspose.Slides for C++ API Reference.](https://apireference.aspose.com/slides/cpp/)
+[Aspose.Slides for C++ API Reference.](https://reference.aspose.com/slides/cpp/)
 
 {{% /alert %}}

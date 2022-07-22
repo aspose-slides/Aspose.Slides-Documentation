@@ -9,7 +9,7 @@ url: /cpp/manage-smartart-shape/
 ## **Create SmartArt Shape**
 Aspose.Slides for C++ now facilitates to add custom SmartArt shapes in their slides from scratch. Aspose.Slides for C++ has provided the simplest API to create SmartArt shapes in an easiest way. To create a SmartArt shape in a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add a SmartArt shape by setting it LayoutType.
 - Write the modified presentation as a PPTX file.

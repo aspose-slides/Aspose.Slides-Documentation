@@ -7,7 +7,7 @@ keywords: "Convert PowerPoint, Presentation, PowerPoint to SWF, SWF flash PPT to
 description: "Convert PowerPoint Presentation to SWF Flash in C# or .NET"
 ---
 
-The [Save](https://apireference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://apireference.aspose.com/slides/net/aspose.slides.export/swfoptions) class and [INotesCommentsLayoutingOptions ](https://apireference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions)interface. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
+The [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions) class and [INotesCommentsLayoutingOptions ](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions)interface. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
 
 ```c#
 // Instantiate a Presentation object that represents a presentation file

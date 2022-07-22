@@ -34,7 +34,7 @@ This page contains release notes for Aspose.Slides for C++ 20.6.
 |SLIDESCPP-2210|Use Aspose.Slides for .NET 20.6 features|Enhancement|
 ## **Public API Changes**
 ### **set_RecoverWorkbookFromChartCache() and get_RecoverWorkbookFromChartCache() methods have been added to SpreadsheetOption**
-[**set_RecoverWorkbookFromChartCache()** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.spreadsheet_options#a5031faddb2e5f30420448f7e266212b9) and [**get_RecoverWorkbookFromChartCache()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.spreadsheet_options#ae309fa50d9a3952d311f740ef52fa52f) methods have been added to [**SpreadsheetOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.spreadsheet_options) class. If the data source of the chart is an external workbook and it's not available, it will be recovered from the chart cache.
+[**set_RecoverWorkbookFromChartCache()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.spreadsheet_options#a5031faddb2e5f30420448f7e266212b9) and [**get_RecoverWorkbookFromChartCache()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.spreadsheet_options#ae309fa50d9a3952d311f740ef52fa52f) methods have been added to [**SpreadsheetOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.spreadsheet_options) class. If the data source of the chart is an external workbook and it's not available, it will be recovered from the chart cache.
 
 ```cpp
 System::SharedPtr<LoadOptions> lo = System::MakeObject<LoadOptions>();

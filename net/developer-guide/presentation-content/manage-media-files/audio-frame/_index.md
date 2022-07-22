@@ -10,11 +10,11 @@ description: "Add audio to PowerPoint presentation in C# or .NET"
 ## **Create Audio Frame**
 Aspose.Slides for .NET allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
 
-1. Create an instance of the [Presentation ](https://apireference.aspose.com/slides/net/aspose.slides/presentation)class.
+1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
 2. Get a slide's reference through its index.
 3. Load the audio file stream you want to embed in the slide.
 4. Add the embedded audio frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://apireference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) and `Volume` exposed by the [IAudioFrame](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) object.
+5. Set [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) and `Volume` exposed by the [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) object.
 6. Save the modified presentation.
 
 This C# code shows you how to add an embedded audio frame to a slide:
@@ -78,14 +78,14 @@ The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) properties:
+PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
 
-- Audio Options **Start** drop-down menu matches the [AudioFrame.PlayMode](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
-- Audio Options **Volume** matches the [AudioFrame.Volume](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) property 
-- Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) property 
-- Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) property 
-- Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) property 
-- Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://apireference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) property 
+- Audio Options **Start** drop-down menu matches the [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
+- Audio Options **Volume** matches the [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) property 
+- Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) property 
+- Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) property 
+- Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) property 
+- Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) property 
 
 This is how you change the Audio Play options:
 
@@ -127,7 +127,7 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 ## **Extract Audio**
 Aspose.Slides for .NET allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation containing the audio.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation containing the audio.
 2. Get the relevant slide's reference through its index.
 3. Access the slideshow transitions for the slide.
 4. Extract the sound in byte data.

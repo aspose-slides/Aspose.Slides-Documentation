@@ -32,7 +32,7 @@ This page contains release notes for Aspose.Slides for C++ 20.8.
 ## **Public API Changes**
 ### **IChartData::GetRange() method has been added**
 
-[**IChartData::GetRange()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a8299de9b9dbd6353bd5bd8f5b5da22c9) method has been added. The method returns the workbook data range that is used by the chart. [**IChartData::GetRange()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a8299de9b9dbd6353bd5bd8f5b5da22c9) method returns a string value. 
+[**IChartData::GetRange()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a8299de9b9dbd6353bd5bd8f5b5da22c9) method has been added. The method returns the workbook data range that is used by the chart. [**IChartData::GetRange()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a8299de9b9dbd6353bd5bd8f5b5da22c9) method returns a string value. 
 
 The returned value looks like **"Sheet1!$A$1:$D$5"** where "Sheet1" is a source worksheet and $A$1:$D$5 is a cell range. 
 
@@ -52,12 +52,12 @@ The picture below demonstrates PowerPoint UI elements to apply this effect to a 
 
 ![todo:image_alt_text](aspose-slides-for-cpp-20-8-release-notes_1.png) or ![todo:image_alt_text](aspose-slides-for-cpp-20-8-release-notes_2.png)
 
-In Aspose.Slides, to provide the same options for the Sketched Style effect, [**LineSketchType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a6b6b8f0be5682e56bc899f593d85dc72) enum and [**ISketchFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_sketch_format) interface have been added. [**get_SketchFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_line_format#aafb259af9c9909e16ff0a47ab6cfe7b9) method has been added to the [**ILineFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_line_format) interface.
+In Aspose.Slides, to provide the same options for the Sketched Style effect, [**LineSketchType**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a6b6b8f0be5682e56bc899f593d85dc72) enum and [**ISketchFormat**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_sketch_format) interface have been added. [**get_SketchFormat()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_line_format#aafb259af9c9909e16ff0a47ab6cfe7b9) method has been added to the [**ILineFormat**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_line_format) interface.
 
 #### **LineSketchType Enum**
-The [**LineSketchType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a6b6b8f0be5682e56bc899f593d85dc72) determines the preset sketched style.
+The [**LineSketchType**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a6b6b8f0be5682e56bc899f593d85dc72) determines the preset sketched style.
 
-Below is the definition of the [**LineSketchType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a6b6b8f0be5682e56bc899f593d85dc72) enum: 
+Below is the definition of the [**LineSketchType**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a6b6b8f0be5682e56bc899f593d85dc72) enum: 
 
 ``` cpp
 /// <summary>
@@ -89,7 +89,7 @@ enum class LineSketchType
 ```
 
 #### **ISketchFormat Interface**
-The [**ISketchFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_sketch_format) interface with the [**SketchFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.sketch_format) implementation class has been added:
+The [**ISketchFormat**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_sketch_format) interface with the [**SketchFormat**](https://reference.aspose.com/slides/cpp/class/aspose.slides.sketch_format) implementation class has been added:
 
 ```cpp
 /// <summary>
@@ -111,7 +111,7 @@ public:
 };
 ```
 
-[**get_SketchFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_line_format#aafb259af9c9909e16ff0a47ab6cfe7b9) method has been added into [**ILineFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_line_format):
+[**get_SketchFormat()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_line_format#aafb259af9c9909e16ff0a47ab6cfe7b9) method has been added into [**ILineFormat**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_line_format):
 
 ```cpp
 /// <summary>

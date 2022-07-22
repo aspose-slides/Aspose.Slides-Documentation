@@ -11,7 +11,7 @@ description: "Chart workbook in PowerPoint presentation in Python"
 ### **Set WorkBook Cell as Chart DataLabel**
 Aspose.Slides for Python via .NET provides a simple API for getting value from WorkBook Cell used as DataLabel:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the Bubble type.
 1. Accessing the chart series.
@@ -43,7 +43,7 @@ with slides.Presentation() as pres:
 ### **Get Chart External Data Source Workbook Path**
 Aspose.Slides for Python via .NET provides a simple API for getting value from WorkBook Cell used as DataLabel:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
 1. Create object for chart shape
 1. Create object for source type of ChartDataSourceType which represents data source of the chart.

@@ -12,12 +12,12 @@ Aspose.Slides for Java allows you to convert slides (in presentations) to images
 To convert a slide to an image, do this: 
 
 1. First,
-   * convert the slide to a BufferedImage first by using the [GetThumbnail](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail--) method or
-   * render the slide to a Graphics2D object by using the [RenderToGraphics](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method from the [ISlide](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide) interface.
+   * convert the slide to a BufferedImage first by using the [GetThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail--) method or
+   * render the slide to a Graphics2D object by using the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method from the [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) interface.
 
 2. Second, set additional options for conversion and convertible slide objects through
-   * the [ITiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface or
-   * the [IRenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) interface. 
+   * the [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface or
+   * the [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) interface. 
 
 ## **About Bitmap and Other Image Formats**
 
@@ -47,7 +47,7 @@ try {
 }
 ```
 
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method:
+This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method:
 
 ``` java 
 Presentation pres = new Presentation("Presentation.pptx");
@@ -80,9 +80,9 @@ You can convert a slide to a BufferedImage object and then use the object direct
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-com.aspose.slides.IRenderingOptions-) or [RenderToGraphics](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-com.aspose.slides.IRenderingOptions-) or [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method, you can convert a slide to an image with specific dimensions (length and width). 
 
-This sample code demonstrates the proposed conversion using the [GetThumbnail](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-java.awt.Dimension-) method in Java:
+This sample code demonstrates the proposed conversion using the [GetThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-java.awt.Dimension-) method in Java:
 
 ``` java 
 Presentation pres = new Presentation("Presentation.pptx");
@@ -98,7 +98,7 @@ try {
 }
 ```
 
-This Java code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-) method:
+This Java code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-) method:
 
 ``` java
 Presentation pres = new Presentation("Presentation.pptx");
@@ -131,11 +131,11 @@ try {
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[ITiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) and [IRenderingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) and [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [INotesCommentsLayoutingOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image. 
+With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image. 
 
 {{% /alert %}} 
 
@@ -170,7 +170,7 @@ try {
 }
 ```
 
-This Java code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-) method:
+This Java code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-) method:
 
 ``` java
 Presentation pres = new Presentation("PresentationNotes.pptx");
@@ -203,13 +203,13 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-In any slide to image conversion process, the [NotesPositions](https://apireference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions#setNotesPosition-int-) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size. 
+In any slide to image conversion process, the [NotesPositions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions#setNotesPosition-int-) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size. 
 
 {{% /alert %}} 
 
 ## **Converting Slides to Images Using ITiffOptions**
 
-The [ITiffOptions](https://apireference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
+The [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
 
 This Java code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 

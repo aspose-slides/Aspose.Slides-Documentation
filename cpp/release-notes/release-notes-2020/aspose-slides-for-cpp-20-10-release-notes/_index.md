@@ -33,9 +33,9 @@ This page contains release notes for Aspose.Slides for C++ 20.10.
 ## **Public API Changes**
 ### **get_Transform(), set_Transform() and get_ThreeDFormat() methods have been added to ITextFrameFormat interface**
 
-New methods [**get_Transform()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ac10b78baabde6bb6dda338d9e78c1f08), [**set_Transform()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a73fd50defc5acec7e314c8ed70450fb8) and [**get_ThreeDFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) have been added to [**ITextFrameFormat**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) interface.
+New methods [**get_Transform()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ac10b78baabde6bb6dda338d9e78c1f08), [**set_Transform()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a73fd50defc5acec7e314c8ed70450fb8) and [**get_ThreeDFormat()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) have been added to [**ITextFrameFormat**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) interface.
 
-Using these methods allows to set 3D effect to text in [**TextFrame**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.text_frame).
+Using these methods allows to set 3D effect to text in [**TextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame).
 
 Methods declaration:
 
@@ -104,7 +104,7 @@ textFrame3dFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveCon
 ```
 
 ### **IPresentation::GetThumbnails(), ISlide::GetThumbnail() and ISlide::RenderToGraphics() methods have been overloaded**
-New methods overloads were added to [**IPresentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation) and [**ISlide**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interfaces.
+New methods overloads were added to [**IPresentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation) and [**ISlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interfaces.
 
 **IPresentation** methods overloads:
 ```cpp
@@ -173,10 +173,10 @@ virtual void RenderToGraphics(SharedPtr<Export::IRenderingOptions> options, Shar
 virtual void RenderToGraphics(SharedPtr<Export::IRenderingOptions> options, SharedPtr<Drawing::Graphics> graphics, Drawing::Size renderingSize) = 0;
 ```
 
-All of these overloads use [**IRenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) as an argument and come instead of according old methods with [**INotesCommentsLayoutingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) argument. Old methods are marked as obsolete and will be removed after release of Aspose.Slides 21.4.
+All of these overloads use [**IRenderingOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) as an argument and come instead of according old methods with [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) argument. Old methods are marked as obsolete and will be removed after release of Aspose.Slides 21.4.
 
 ### **IRenderingOptions interface and RenderingOptions class have been added**
-[**IRenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options/) interface and implementing it [**RenderingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.rendering_options) class have been added. Their purpose is to aggregate options used during presentation or slide rendering.
+[**IRenderingOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options/) interface and implementing it [**RenderingOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.rendering_options) class have been added. Their purpose is to aggregate options used during presentation or slide rendering.
 
 **IRenderingOptions** declaration:
 
@@ -194,7 +194,7 @@ public:
 };
 ```
 
-As can be seen from the declaration, **IRenderingOptions** inherits [**ISaveOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options) what makes [**set_WarningCallback()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a7fb7ae56380f4f8c67cac4e95ce8faa2), [**set_ProgressCallback()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a3d763a3b05ecc02bea0e7365fc81006f) and [**set_DefaultRegularFont()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a9df129ea6e65c8196e08173799a10492) methods available to specify in **RenderingOptions** class instance together with [**NotesCommentsLayoutingOptions**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.notes_comments_layouting_options).
+As can be seen from the declaration, **IRenderingOptions** inherits [**ISaveOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options) what makes [**set_WarningCallback()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a7fb7ae56380f4f8c67cac4e95ce8faa2), [**set_ProgressCallback()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a3d763a3b05ecc02bea0e7365fc81006f) and [**set_DefaultRegularFont()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options#a9df129ea6e65c8196e08173799a10492) methods available to specify in **RenderingOptions** class instance together with [**NotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.notes_comments_layouting_options).
 
 The following code sample demonstrates one of the possible use cases (getting slide thumbnails with different default font and slide's notes shown):
 
@@ -320,7 +320,7 @@ shadowEffect->set_SkewVertical(0);
 shadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Note that the Aspose.Slides API provides three types of shadows: [**OuterShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.outer_shadow), [**InnerShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.inner_shadow), and [**PresetShadow**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.effects.preset_shadow). PresetShadow is the fastest way to set the desired shadow for text using preset values. These values ​​can be seen when writing code (Intellisense). Unlike PowerPoint, through the API it is possible to set two types of shadows at once InnerShadow and PresetShadow. This is how it will look:
+Note that the Aspose.Slides API provides three types of shadows: [**OuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.outer_shadow), [**InnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.inner_shadow), and [**PresetShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.preset_shadow). PresetShadow is the fastest way to set the desired shadow for text using preset values. These values ​​can be seen when writing code (Intellisense). Unlike PowerPoint, through the API it is possible to set two types of shadows at once InnerShadow and PresetShadow. This is how it will look:
 
 ![todo:image_alt_text](aspose-slides-for-cpp-20-10-release-notes-6.png)
 
@@ -359,7 +359,7 @@ As a result, we got the following result:
 You can experiment with shadow, display and glow yourself in order to fully determine the effect of the set parameters on the displayed result.
 It should be noted that the considered properties have an effect separately on each portion of the text, i.e. if the text block contains several portions of text, then for each portion these properties can take on their own values.
 
-Now let's move on to the properties that are inherent in the entire block of text, represented by methods: [**get_Transform()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ac10b78baabde6bb6dda338d9e78c1f08), [**set_Transform()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a73fd50defc5acec7e314c8ed70450fb8) and [**get_ThreeDFormat()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30). Let's start with the simplest one, Transform. In our case, this property can be set in one line:
+Now let's move on to the properties that are inherent in the entire block of text, represented by methods: [**get_Transform()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#ac10b78baabde6bb6dda338d9e78c1f08), [**set_Transform()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a73fd50defc5acec7e314c8ed70450fb8) and [**get_ThreeDFormat()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30). Let's start with the simplest one, Transform. In our case, this property can be set in one line:
 
 ```cpp
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
@@ -441,7 +441,7 @@ and get:
 
 When adding 3D effects for text and the shape where the text is placed, some considerations should be taken into account. There's some specific rule of the effect that these effects has on each other (and this is important if you want to display your effects exactly the way you want it).
 
-This is important that 3D effect itself is divided into the object 3D representation and the scene on which this object is placed. So, there can be only one scene for the text and the shape containing it. Hence the following rule: if the scene is set for both the figure and the text, the figure scene will have a higher priority (i.e. the text scene will be ignored). The next rule - if the figure does not have its own scene, but have 3D representation - the text scene will be used. Otherwise (when the shape has no 3D effect at all), the shape will be flat and the 3D effect will only be applied to the text.  Please note that the scene is related to the [**ThreeDFormat::get_LightRig()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ae0415fbb1f08f36505eda64143da77d8) and [**ThreeDFormat::get_Camera()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) properties.
+This is important that 3D effect itself is divided into the object 3D representation and the scene on which this object is placed. So, there can be only one scene for the text and the shape containing it. Hence the following rule: if the scene is set for both the figure and the text, the figure scene will have a higher priority (i.e. the text scene will be ignored). The next rule - if the figure does not have its own scene, but have 3D representation - the text scene will be used. Otherwise (when the shape has no 3D effect at all), the shape will be flat and the 3D effect will only be applied to the text.  Please note that the scene is related to the [**ThreeDFormat::get_LightRig()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ae0415fbb1f08f36505eda64143da77d8) and [**ThreeDFormat::get_Camera()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) properties.
 
 
 

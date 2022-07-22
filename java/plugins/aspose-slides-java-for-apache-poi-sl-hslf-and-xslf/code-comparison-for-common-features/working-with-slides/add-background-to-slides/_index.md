@@ -8,11 +8,11 @@ url: /java/slides-poi/add-background-to-slides/
 ## **Aspose.Slides - Add Background to Slides**
 To use an image as the background of a slide using Aspose.Slides for Java, please follow the steps below:
 
-- Create an instance of [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class
-- Set the [Background Type](https://apireference.aspose.com/slides/java/com.aspose.slides/BackgroundType) of the Slide to OwnBackground
-- Set the FillType of the [Slide Background](https://apireference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) FillFormat to Picture
-- Set the [PictureFillMode](https://apireference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setPictureFillMode-int-) using the options provided by PictureFillMode enum
-- Instantiate [IPPImage](https://apireference.aspose.com/slides/java/com.aspose.slides/IPPImage) class with an image that can be used as source picture for the Slide Background using [getPictureFillFormat().getPicture().setImage()](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlidesPicture).
+- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class
+- Set the [Background Type](https://reference.aspose.com/slides/java/com.aspose.slides/BackgroundType) of the Slide to OwnBackground
+- Set the FillType of the [Slide Background](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) FillFormat to Picture
+- Set the [PictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setPictureFillMode-int-) using the options provided by PictureFillMode enum
+- Instantiate [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) class with an image that can be used as source picture for the Slide Background using [getPictureFillFormat().getPicture().setImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlidesPicture).
 - Write the modified presentation file
 
 ```java

@@ -51,4 +51,4 @@ This page contains release notes for [ Aspose.Slides for .NET 19.11](https://w
 ### **Obsolete methods AddFromSvg have been deleted**
 Methods **IPPImage AddFromSvg(string svgContent)** and **IPPImage AddFromSvg(string svgContent, IExternalResourceResolver externalResResolver, string baseUri)** have been removed from **ImageCollection** class and corresponding **IImageCollection** interface.
 
-Please use method [**AddImage(ISvgImage svgImage)**](https://apireference.aspose.com/slides/net/aspose.slides.imagecollection/addimage/methods/1) instead.
+Please use method [**AddImage(ISvgImage svgImage)**](https://reference.aspose.com/slides/net/aspose.slides.imagecollection/addimage/methods/1) instead.

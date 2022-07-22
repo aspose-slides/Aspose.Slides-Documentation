@@ -37,8 +37,8 @@ This page contains release notes for [Aspose.Slides for C++ 22.4](https://www.nu
 
 A new  LowCode Compress methods were added:
 
-* [void RemoveUnusedMasterSlides(System::SharedPtr&lt;Presentation&gt; pres)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.low_code.compress#aa6dd303f0ae9a562b7bbb9ec467a22c6)
-* [void RemoveUnusedLayoutSlides(System::SharedPtr&lt;Presentation&gt; pres)](https://apireference.aspose.com/slides/cpp/class/aspose.slides.low_code.compress#a5f6aec2785600018ba7caea8ecc19c5b)
+* [void RemoveUnusedMasterSlides(System::SharedPtr&lt;Presentation&gt; pres)](https://reference.aspose.com/slides/cpp/class/aspose.slides.low_code.compress#aa6dd303f0ae9a562b7bbb9ec467a22c6)
+* [void RemoveUnusedLayoutSlides(System::SharedPtr&lt;Presentation&gt; pres)](https://reference.aspose.com/slides/cpp/class/aspose.slides.low_code.compress#a5f6aec2785600018ba7caea8ecc19c5b)
 
 **Remove unused master slides from Presentation**
 

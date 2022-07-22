@@ -40,7 +40,7 @@ This page contains release notes for [ Aspose.Slides for .NET 22.1](https://www
 
 ### None member have been added to TimeUnitType enumeration ###
 
-A new *None* member have been added to [TimeUnitType](https://apireference.aspose.com/slides/net/aspose.slides.charts/timeunittype) enumeration. This member indicates that no unit should be set for the appropriate unit scale.
+A new *None* member have been added to [TimeUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/timeunittype) enumeration. This member indicates that no unit should be set for the appropriate unit scale.
 
 ``` csharp
 using (Presentation pres = new Presentation())

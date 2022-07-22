@@ -6,7 +6,7 @@ url: /java/slides-poi/extract-header-footer-from-presentation/
 ---
 
 ## **Aspose.Slides - Extract Header Footer from Presentation**
-The method [getHeaderFooterManager()](https://apireference.aspose.com/slides/java/com.aspose.slides/ISlide#getHeaderFooterManager--) gives you access to Headers and Footers using Aspose.Slides API.
+The method [getHeaderFooterManager()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getHeaderFooterManager--) gives you access to Headers and Footers using Aspose.Slides API.
 
 ```java
 sourcePres.getSlides().get_Item(0).getHeaderFooterManager().isDateTimeVisible();

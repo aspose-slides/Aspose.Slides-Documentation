@@ -18,13 +18,13 @@ In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, 
 
 Using Aspose.Slides, you can specify your preferred line style for a shape. These steps outline such a procedure:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
 4. Set a color for the shape lines.
 5. Set the width for the shape lines.
-6. Set the [line style](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a837c78839bf6ebb16979455cd1de59e4) for the shape line
-7. Set the [dash style](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a7eaad354a35a3b567a7327d625be3c6e) for the shape line. 
+6. Set the [line style](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a837c78839bf6ebb16979455cd1de59e4) for the shape line
+7. Set the [dash style](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a7eaad354a35a3b567a7327d625be3c6e) for the shape line. 
 8. Write the modified presentation as a PPTX file.
 
 This C++ code demonstrates an operation where we formatted a rectangle `AutoShape`:
@@ -121,10 +121,10 @@ In PowerPoint, Gradient Fill is a formatting option that allows you to apply a c
 
 This is how you use Aspose.Slides to apply a gradient fill to a shape:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Gradient`.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Gradient`.
 5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
 6. Write the modified presentation as a PPTX file.
 
@@ -162,13 +162,13 @@ Aspose.Slides provides over 45 predefined styles that can be used to format shap
 
 This is how you use Aspose.Slides to apply a pattern fill to a shape:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Pattern`.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Pattern`.
 5. Set your preferred pattern style for the shape. 
-6. Set the [Background Color](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#af55b6343b7bd80d0ad95070e96b8766e) for the [PatternFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
-7. Set the [Foreground Color](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#a4121d8c2233df4b90cbfd6ea4c312cbe) for the [PatternFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
+6. Set the [Background Color](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#af55b6343b7bd80d0ad95070e96b8766e) for the [PatternFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
+7. Set the [Foreground Color](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#a4121d8c2233df4b90cbfd6ea4c312cbe) for the [PatternFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
 8. Write the modified presentation as a PPTX file.
 
 This C++ code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
@@ -202,10 +202,10 @@ In PowerPoint, Picture Fill is a formatting option that allows you to place a pi
 
 This is how you use Aspose.Slides to fill a shape with a picture:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Picture`.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Picture`.
 5. Set the Picture Fill Mode to Tile.
 6. Create an `IPPImage` object using the image that will be used to fill the shape.
 7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
@@ -243,10 +243,10 @@ In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a
 
 This is how you use Aspose.Slides to apply solid color fill to a shape:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Solid`.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Solid`.
 5. Set your preferred color for the Shape.
 6. Write the modified presentation as a PPTX file.
 
@@ -278,9 +278,9 @@ In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or t
 
 Aspose.Slides allows you to set the transparency level for a shape this way:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
 4. Use `Color.FromArgb` with the alpha component set.
 5. Save the object as a PowerPoint file. 
 
@@ -308,9 +308,9 @@ pres->Save(u"ShapeTransparentOverSolid_out.pptx", Export::SaveFormat::Pptx);
 ## **Rotate Shapes**
 Aspose.Slides allows you to rotate a shape added to a slide this way: 
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
 4. Rotate the shape by the needed degrees. 
 5. Write the modified presentation as a PPTX file.
 
@@ -334,12 +334,12 @@ pres->Save(u"RectShpRot_out.pptx", Export::SaveFormat::Pptx);
 ```
 
 ## **Add 3D Bevel Effects**
-Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties this way:
+Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties this way:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-3. Set your preferred parameters for the shape's [ThreeDFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties. 
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties. 
 4. Write the presentation to disk.
 
 This C++ code shows you how to add 3D bevel effects to a shape:
@@ -374,12 +374,12 @@ pres->Save(u"Bavel_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Add 3D Rotation Effect**
-Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://apireference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties this way:
+Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties this way:
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-3. Specify your preferred figures for [CameraType](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_camera#aea0717e8ef5f3199df99ed2cb2ea2dcb) and [LightType](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_light_rig#a2cd12029664967d0e2f93eee25a4963f).
+3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
+3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_camera#aea0717e8ef5f3199df99ed2cb2ea2dcb) and [LightType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_light_rig#a2cd12029664967d0e2f93eee25a4963f).
 4. Write the presentation to disk. 
 
 This C++ code shows you how to apply 3D rotation effects to a shape:

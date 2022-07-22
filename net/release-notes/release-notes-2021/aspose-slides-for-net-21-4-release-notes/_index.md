@@ -47,11 +47,11 @@ This page contains release notes for [Aspose.Slides for .NET 21.4](https://www.n
 
 ## Public API Changes ##
 
-### [IAudioFrame.PlayAcrossSlides](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/playacrossslides) and [IAudioFrame.RewindAudio](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/rewindaudio) properties have been added ###
+### [IAudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/playacrossslides) and [IAudioFrame.RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/rewindaudio) properties have been added ###
 
-New properties [**PlayAcrossSlides**](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/playacrossslides) and [**RewindAudio**](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/rewindaudio) have been added to the [**IAudioFrame**](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe) interface and [**AudioFrame**](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) class.
+New properties [**PlayAcrossSlides**](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/playacrossslides) and [**RewindAudio**](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/rewindaudio) have been added to the [**IAudioFrame**](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe) interface and [**AudioFrame**](https://reference.aspose.com/slides/net/aspose.slides/audioframe) class.
 
-The [**PlayAcrossSlides**](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/playacrossslides) property allows determining whether audio is playing across the slides.
+The [**PlayAcrossSlides**](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/playacrossslides) property allows determining whether audio is playing across the slides.
 
 Property declaration:
 ``` csharp
@@ -62,7 +62,7 @@ Property declaration:
 bool PlayAcrossSlides { get; set; }
 ```
 
-The [**RewindAudio**](https://apireference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/rewindaudio) property allows determining whether audio is automatically rewinded to start after playing.
+The [**RewindAudio**](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/properties/rewindaudio) property allows determining whether audio is automatically rewinded to start after playing.
 
 Property declaration:
 
@@ -74,7 +74,7 @@ Property declaration:
 bool RewindAudio { get; set; }
 ```
 
-The code snippet below demonstrates adding the [**AudioFrame**](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) and changing its properties:
+The code snippet below demonstrates adding the [**AudioFrame**](https://reference.aspose.com/slides/net/aspose.slides/audioframe) and changing its properties:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -94,11 +94,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### InClickSequence value has been added to [AudioPlayModePreset](https://apireference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) enumeration ###
+### InClickSequence value has been added to [AudioPlayModePreset](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) enumeration ###
 
-**InClickSequence** value has been added to [**AudioPlayModePreset**](https://apireference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) enumeration. It represents In Click Sequence audio start play mode. 
+**InClickSequence** value has been added to [**AudioPlayModePreset**](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) enumeration. It represents In Click Sequence audio start play mode. 
 
-The code snippet below demonstrates adding the [**AudioFrame**](https://apireference.aspose.com/slides/net/aspose.slides/audioframe) and changing its play mode: 
+The code snippet below demonstrates adding the [**AudioFrame**](https://reference.aspose.com/slides/net/aspose.slides/audioframe) and changing its play mode: 
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -115,12 +115,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### InClickSequence value has been added to [VideoPlayModePreset](https://apireference.aspose.com/slides/net/aspose.slides/videoplaymodepreset) enumeration ###
+### InClickSequence value has been added to [VideoPlayModePreset](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset) enumeration ###
 
-**InClickSequence** value has been added to [**VideoPlayModePreset**](https://apireference.aspose.com/slides/net/aspose.slides/videoplaymodepreset) enumeration.
+**InClickSequence** value has been added to [**VideoPlayModePreset**](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset) enumeration.
 It represents In Click Sequence video start play mode.
 
-The code snippet below demonstrates adding the [**VideoFrame**](https://apireference.aspose.com/slides/net/aspose.slides/videoframe) and changing its play mode:
+The code snippet below demonstrates adding the [**VideoFrame**](https://reference.aspose.com/slides/net/aspose.slides/videoframe) and changing its play mode:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -137,9 +137,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### [IOleObjectFrame.SetEmbeddedData](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) method and [IOleObjectFrame.EmbeddedData](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) property have been added ###
+### [IOleObjectFrame.SetEmbeddedData](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) method and [IOleObjectFrame.EmbeddedData](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) property have been added ###
 
-A new method [**SetEmbeddedData**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) and a new property [**EmbeddedData**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) have been added to the [**IOleObjectFrame**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface and [**OleObjectFrame**](https://apireference.aspose.com/slides/net/aspose.slides/oleobjectframe) class.
+A new method [**SetEmbeddedData**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) and a new property [**EmbeddedData**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) have been added to the [**IOleObjectFrame**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface and [**OleObjectFrame**](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) class.
 
 These method and property allow to get, set and change an embedded data and its type of OLE object.
 
@@ -207,13 +207,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-Please note that properties [**ObjectData**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/objectdata), [**EmbeddedFileExtension**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddedfileextension) and [**EmbeddedFileData**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddedfiledata) of [**IOleObjectFrame**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface marked as obsolete now so please use [**IOleObjectFrame.SetEmbeddedData**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) method and [**IOleObjectFrame.EmbeddedData**](https://apireference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) property instead of them. These obsolete properties will be removed after the release of version 21.11.
+Please note that properties [**ObjectData**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/objectdata), [**EmbeddedFileExtension**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddedfileextension) and [**EmbeddedFileData**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddedfiledata) of [**IOleObjectFrame**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) interface marked as obsolete now so please use [**IOleObjectFrame.SetEmbeddedData**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/methods/setembeddeddata) method and [**IOleObjectFrame.EmbeddedData**](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/properties/embeddeddata) property instead of them. These obsolete properties will be removed after the release of version 21.11.
 
 ### New overloadings for the SlideUtil.AlignShapes method have been added ###
 
-Method [**SlideUtil.AlignShapes**](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes) (ShapesAlignmentType alignmentType, bool alignToSlide, IBaseSlide slide) has been added. 
+Method [**SlideUtil.AlignShapes**](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes) (ShapesAlignmentType alignmentType, bool alignToSlide, IBaseSlide slide) has been added. 
 
-This overloading allows aligning all shapes within [**IBaseSlide**](https://apireference.aspose.com/slides/net/aspose.slides/ibaseslide). 
+This overloading allows aligning all shapes within [**IBaseSlide**](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide). 
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -227,9 +227,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Method [**SlideUtil.AlignShapes**](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes) (ShapesAlignmentType alignmentType, bool alignToSlide, IGroupShape shapes) has been added. 
+Method [**SlideUtil.AlignShapes**](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes) (ShapesAlignmentType alignmentType, bool alignToSlide, IGroupShape shapes) has been added. 
 
-This overloading allows aligning all shapes within [**IGroupShape**](https://apireference.aspose.com/slides/net/aspose.slides/igroupshape). 
+This overloading allows aligning all shapes within [**IGroupShape**](https://reference.aspose.com/slides/net/aspose.slides/igroupshape). 
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -245,9 +245,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Method [**SlideUtil.AlignShapes**](https://apireference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes)  (ShapesAlignmentType alignmentType, bool alignToSlide, IGroupShape shapes, int[] shapeIndexes) has been added. 
+Method [**SlideUtil.AlignShapes**](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes)  (ShapesAlignmentType alignmentType, bool alignToSlide, IGroupShape shapes, int[] shapeIndexes) has been added. 
 
-This overloading allows aligning shapes with specified indexes within [**IGroupShape**](https://apireference.aspose.com/slides/net/aspose.slides/igroupshape). 
+This overloading allows aligning shapes with specified indexes within [**IGroupShape**](https://reference.aspose.com/slides/net/aspose.slides/igroupshape). 
 
 ``` csharp
 using (Presentation pres = new Presentation())

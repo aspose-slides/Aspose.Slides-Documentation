@@ -8,7 +8,7 @@ description: "Table cells in PowerPoint presentations in C++"
 ---
 
 ## **Identify Merged Cell**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get the table from the first slide. 
 3. Iterate through the table's rows and columns to find merge cells.
 4. Print message when merged cells are found.
@@ -35,7 +35,7 @@ for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
 ```
 
 ## **Remove Table Cells Border**
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
 3. Define an array of columns with width.
 4. Define an array of rows with height.

@@ -8,7 +8,7 @@ url: /net/support-for-interruptable-library/
 
 ## **Interruptable Library**
 
-In [Aspose.Slides 18.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-18-4-release-notes/), we added the [InterruptionToken](https://apireference.aspose.com/slides/net/aspose.slides/interruptiontoken) class and [InterruptionTokenSource](https://apireference.aspose.com/slides/net/aspose.slides/interruptiontokensource) class. They provide support for the interruption of long-running tasks, such as deserialization, serialization, or rendering. 
+In [Aspose.Slides 18.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-18-4-release-notes/), we added the [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken) class and [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource) class. They provide support for the interruption of long-running tasks, such as deserialization, serialization, or rendering. 
 
 - InterruptionTokenSource represents the source of the token or multiple tokens passed to **ILoadOptions.InterruptionToken**. 
 - When the ILoadOptions.InterruptionToken is set and the LoadOptions instance is passed to the Presentation constructor, invoking the InterruptionTokenSource.Interrupt method causes the interruption of any long-running task related to the Presentation. 
@@ -43,7 +43,7 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 
 ## **.NET CancellationToken and Interruptable Library**
 
-When you need to use the [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) alongside Slides Interruptable Library, you can wrap the Presentation processing and interrupt [InterruptionToken](https://apireference.aspose.com/slides/net/aspose.slides/interruptiontoken) if [cancellationToken.IsCancellationRequested](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) is set to true. 
+When you need to use the [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) alongside Slides Interruptable Library, you can wrap the Presentation processing and interrupt [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken) if [cancellationToken.IsCancellationRequested](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) is set to true. 
 
 This C# code demonstrates the described operation:
 

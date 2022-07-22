@@ -39,7 +39,7 @@ Shapes alignment feature is used to change the placement of selected shapes on
 
 
 
-[**SlideUtil::AlignShapes()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a03a73955adaefd4d7a65d21ab0f68f77)** **method and [**ShapesAlignmentType**](https://apireference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f)** **enum has been added to provide options from the picture above.
+[**SlideUtil::AlignShapes()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a03a73955adaefd4d7a65d21ab0f68f77)** **method and [**ShapesAlignmentType**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f)** **enum has been added to provide options from the picture above.
 
 
 #### **ShapesAlignmentType enum**
@@ -93,9 +93,9 @@ SlideUtil::AlignShapes(Aspose::Slides::ShapesAlignmentType::AlignBottom, false, 
 ```
 
 ### **IDigitalSignature interface and DigitalSignature class have been added**
-[**DigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)** **class has been added, which implements [**IDigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)** **interface and stores information about digital signature based on the certificate, which is used or will be used to sign the presentation.
+[**DigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)** **class has been added, which implements [**IDigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)** **interface and stores information about digital signature based on the certificate, which is used or will be used to sign the presentation.
 
-[**IDigitalSignature**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature) interface declaration:
+[**IDigitalSignature**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature) interface declaration:
 
 ```cpp
 /// <summary>
@@ -127,9 +127,9 @@ public:
 
 
 ### **IDigitalSignatureCollection interface and DigitalSignatureCollection class have been added**
-[**DigitalSignatureCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature_collection) class has been added, which implements [**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) interface and represents a collection of digital signatures that were used or will be used to sign the presentation.
+[**DigitalSignatureCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature_collection) class has been added, which implements [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) interface and represents a collection of digital signatures that were used or will be used to sign the presentation.
 
-[**IDigitalSignatureCollection**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) interface declaration:
+[**IDigitalSignatureCollection**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection) interface declaration:
 
 ```cpp
 /// <summary>
@@ -160,9 +160,9 @@ public:
 ```
 
 ### **IPresentation::get_DigitalSignatures() method has been added**
-[**get_DigitalSignatures()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method has been added to [**IPresentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation) interface and [**Presentation**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class. It allows accessing a collection of digital signatures that have been used to sign the presentation or add digital signatures that will be used to sign the presentation.
+[**get_DigitalSignatures()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method has been added to [**IPresentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation) interface and [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class. It allows accessing a collection of digital signatures that have been used to sign the presentation or add digital signatures that will be used to sign the presentation.
 
-[**get_DigitalSignatures()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1)** **method declaration:
+[**get_DigitalSignatures()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1)** **method declaration:
 
 ```cpp
 /// <summary>
@@ -173,7 +173,7 @@ virtual System::SharedPtr<IDigitalSignatureCollection> get_DigitalSignatures() =
 ```
 
 ### **Check a write protection password via IPresentationInfo interface**
-[**get_IsWriteProtected()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a1090c43924c1236164b71a5010f35d54) and [**CheckWriteProtection()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#ac0ba85f36cee3b5355f99ccd20ecd297)** **methods have been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info)** **interface and [**PresentationInfo**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)** **class. These methods allow checking whether a presentation is protected by a password to modify. The password to modify is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
+[**get_IsWriteProtected()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a1090c43924c1236164b71a5010f35d54) and [**CheckWriteProtection()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#ac0ba85f36cee3b5355f99ccd20ecd297)** **methods have been added to [**IPresentationInfo**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info)** **interface and [**PresentationInfo**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)** **class. These methods allow checking whether a presentation is protected by a password to modify. The password to modify is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
 
 Methods declaration:
 
@@ -212,7 +212,7 @@ bool isWriteProtectedByPassword = info->get_IsWriteProtected() == Aspose::Slides
 
 
 ### **Check a write protection password via IProtectionManager interface**
-[**CheckWriteProtection()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_protection_manager#a8436871d0ea5ed66cc41aaec6a3786bf)** **method has been added to the [**IProtectionManager**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_protection_manager)** **interface and [**ProtectionManager**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.protection_manager)** **class. This method allows checking whether a presentation is password protected from modifying. The password against modifying is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
+[**CheckWriteProtection()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_protection_manager#a8436871d0ea5ed66cc41aaec6a3786bf)** **method has been added to the [**IProtectionManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_protection_manager)** **interface and [**ProtectionManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager)** **class. This method allows checking whether a presentation is password protected from modifying. The password against modifying is intended to set write protection on the presentation. Write protection restricts the ability to save the presentation to the same path using host applications.
 
 Method declaration:
 
@@ -240,9 +240,9 @@ bool isWriteProtected = presentation->get_ProtectionManager()->CheckWriteProtect
 ```
 
 ### **Check an open protection of the presentation via IPresentationInfo interface**
-[**get_IsPasswordProtected()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a52d021738cb020bd82f4324638f2e008) method has been added to [**IPresentationInfo**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info) interface and [**PresentationInfo**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)** **class. This property allows checking whether a presentation is protected from openning. The presentation has a protection from openning when the password is set to the document.
+[**get_IsPasswordProtected()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a52d021738cb020bd82f4324638f2e008) method has been added to [**IPresentationInfo**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info) interface and [**PresentationInfo**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info)** **class. This property allows checking whether a presentation is protected from openning. The presentation has a protection from openning when the password is set to the document.
 
-[**get_IsPasswordProtected()**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a52d021738cb020bd82f4324638f2e008)** **method declaration:
+[**get_IsPasswordProtected()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation_info#a52d021738cb020bd82f4324638f2e008)** **method declaration:
 
 ```cpp
 /// <summary>
@@ -276,13 +276,13 @@ The presentation may contain more than one digital signatures. After the digital
 
 
 
-To sign a presentation or check the authenticity of presentation signatures, Aspose.Slides API provides [**IDigitalSignature** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)interface, [**IDigitalSignatureCollection** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection)interface and[**IPresentation::get_DigitalSignatures**](https://apireference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method. Currently, digital signatures are supported for PPTX format only.
+To sign a presentation or check the authenticity of presentation signatures, Aspose.Slides API provides [**IDigitalSignature** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature)interface, [**IDigitalSignatureCollection** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_digital_signature_collection)interface and[**IPresentation::get_DigitalSignatures**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1) method. Currently, digital signatures are supported for PPTX format only.
 
 
 #### **Add digital signature from PFX Certificate**
 The code sample below demonstrates how to add a digital signature from a PFX certificate:
 
-\1. Open PFX file and pass the PFX password to [**DigitalSignature** ](https://apireference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)object.
+\1. Open PFX file and pass the PFX password to [**DigitalSignature** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.digital_signature)object.
 
 \2. Add a created signature to the presentation object.
 

@@ -9,7 +9,7 @@ description: "Convert PowerPoint PPT and PPTX to TIFF with Aspose.Slides API."
 
 TIFF format is known by its flexibility to accommodate multipage images and data. Keeping in view the importance and popularity of TIFF format, Aspose.Slides for C++ provides the support for converting presentations into TIFF document.
 ## **Convert PowerPoint to TIFF with default size**
-The [Save](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class exposes **set_ImageSize()** method enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
+The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be called by developers to convert the whole presentation into TIFF document. Further, [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class exposes **set_ImageSize()** method enabling the developer to define the size of the image if required. The following example shows how to convert a presentation into TIFF document with default options.
 
 ``` cpp
 // The path to the documents directory.
@@ -26,7 +26,7 @@ presentation->Save(dataDir + u"Tiffoutput_out.tiff", SaveFormat::Tiff);
 
 ## **Convert PowerPoint to TIFF with custom size**
 
-The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class. 
+The following example shows how to convert a presentation into TIFF document with customized image size using [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class. 
 
 ``` cpp
 // The path to the documents directory.
@@ -70,7 +70,7 @@ pres->Save(dataDir + u"TiffWithCustomSize_out.tiff", SaveFormat::Tiff, opts);
 
 
 ## **Convert PowerPoint to TIFF with custom Image Pixel Format**
-The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class. You can also include comments in generated HTML by using [TiffOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class and **INotesCommentsLayoutingOptions** interface.
+The following example shows how to convert a presentation into TIFF document with customized Image Pixel Format using [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class. You can also include comments in generated HTML by using [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class and **INotesCommentsLayoutingOptions** interface.
 
 ``` cpp
 // The path to the documents directory.

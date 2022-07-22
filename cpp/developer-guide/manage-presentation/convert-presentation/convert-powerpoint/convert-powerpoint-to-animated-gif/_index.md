@@ -20,7 +20,7 @@ The animated GIF will be created with default parameters.
 
 {{%  alert  title="TIP"  color="primary"  %}} 
 
-If you prefer to customize the parameters for the GIF, you can use the [GifOptions](https://apireference.aspose.com/slides/cpp/class/aspose.slides.export.gif_options) class. See the sample code below. 
+If you prefer to customize the parameters for the GIF, you can use the [GifOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.gif_options) class. See the sample code below. 
 
 {{% /alert %}} 
 

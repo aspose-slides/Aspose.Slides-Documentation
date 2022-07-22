@@ -40,7 +40,7 @@ Aspose.Slides for .NET typically tries to find the license in these locations:
 
 {{% alert color="primary" %}}
 
-For license operations, Aspose.Slides provides the [License](https://apireference.aspose.com/slides/net/aspose.slides/license) class. 
+For license operations, Aspose.Slides provides the [License](https://reference.aspose.com/slides/net/aspose.slides/license) class. 
 
 {{% /alert %}} 
 

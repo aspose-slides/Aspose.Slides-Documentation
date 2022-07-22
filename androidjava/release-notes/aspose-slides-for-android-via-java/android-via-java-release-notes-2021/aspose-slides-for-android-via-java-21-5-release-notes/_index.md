@@ -26,13 +26,13 @@ When you create a Zoom transition in PowerPoint, you can jump to (and from) spec
 
 ![Zoom in PowerPoint](1619798273734-617.png)
 
-In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType), a new interface [IZoomFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame), and some new additional methods in [IShapeCollection](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
+In Aspose.Slides, to provide the same functionality, we added a new enum [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType), a new interface [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame), and some new additional methods in [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection).
 
-#### [ZoomImageType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) Enum ####
+#### [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) Enum ####
 
-The [ZoomImageType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) determines whether the Zoom object uses the slide preview or a cover image.
+The [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) determines whether the Zoom object uses the slide preview or a cover image.
 
-This is the [ZoomImageType](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) enum definition: 
+This is the [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) enum definition: 
 
 ``` java
 public final class ZoomImageType
@@ -50,9 +50,9 @@ public final class ZoomImageType
 }
 ```
 
-#### [IZoomFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) Interface ####
+#### [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) Interface ####
 
-The [IZoomFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) interface with the [ZoomFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomFrame) implementation class has been added:
+The [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) interface with the [ZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomFrame) implementation class has been added:
 
 ``` java
 public interface IZoomFrame
@@ -105,9 +105,9 @@ public interface IZoomFrame
 }
 ```
 
-#### New methods in [IShapeCollection](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface have been added ####
+#### New methods in [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface have been added ####
 
-These new methods create [ZoomFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomFrame) objects:
+These new methods create [ZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomFrame) objects:
 
 ``` java
 /**
@@ -133,7 +133,7 @@ public IZoomFrame insertZoomFrame(int index, float x, float y, float width, floa
 
 **Example:**
 
-This example shows you how to create a [ZoomFrame](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ZoomFrame) object with a custom image and specified image frame:
+This example shows you how to create a [ZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomFrame) object with a custom image and specified image frame:
 
 ``` java
 Presentation pres = new Presentation();
@@ -162,11 +162,11 @@ try {
 }
 ```
 
-### [IHyperlinkManager](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager) [setMacroHyperlinkClick](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method has been added ###
+### [IHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager) [setMacroHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method has been added ###
 
-A new method, [setMacroHyperlinkClick](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-), has been added to the [IHyperlinkManager](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager) interface and [HyperlinkManager](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/HyperlinkManager) class.
+A new method, [setMacroHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-), has been added to the [IHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager) interface and [HyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HyperlinkManager) class.
 
-The [setMacroHyperlinkClick](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method is used to set a macro hyperlink on a click for a shape.
+The [setMacroHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method is used to set a macro hyperlink on a click for a shape.
 
 Method declaration:
 
@@ -177,7 +177,7 @@ Method declaration:
 public IHyperlink setMacroHyperlinkClick(String macroName);
 ```
 
-This code snippet shows you how the [setMacroHyperlinkClick](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method is used to set a macro hyperlink click on a shape:
+This code snippet shows you how the [setMacroHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkManager#setMacroHyperlinkClick-java.lang.String-) method is used to set a macro hyperlink click on a shape:
 
 ``` java
 Presentation pres = new Presentation();
@@ -189,11 +189,11 @@ try {
 }
 ```
 
-### New methods [setRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#getRootDirectoryClsid--) have been added to [IPptOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions) interface and  [PptOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PptOptions) class ###
+### New methods [setRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#getRootDirectoryClsid--) have been added to [IPptOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions) interface and  [PptOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptOptions) class ###
 
-New methods, [setRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#getRootDirectoryClsid--), have been added to the [IPptOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions) interface and [PptOptions](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/PptOptions) class.
+New methods, [setRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#getRootDirectoryClsid--), have been added to the [IPptOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions) interface and [PptOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptOptions) class.
 
-The [setRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#getRootDirectoryClsid--) methods represents the object class GUID (CLSID) that is stored in the root directory entry.
+The [setRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) and [getRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#getRootDirectoryClsid--) methods represents the object class GUID (CLSID) that is stored in the root directory entry.
 
 Methods declaration:
 
@@ -207,7 +207,7 @@ public java.util.UUID getRootDirectoryClsid();
 public void setRootDirectoryClsid(java.util.UUID value);
 ```
 
-This code snippet shows you how the custom [setRootDirectoryClsid](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) can be set:
+This code snippet shows you how the custom [setRootDirectoryClsid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPptOptions#setRootDirectoryClsid-java.util.UUID-) can be set:
 
 ``` java
 Presentation pres = new Presentation();

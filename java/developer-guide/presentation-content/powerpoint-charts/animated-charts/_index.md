@@ -8,7 +8,7 @@ url: /java/animated-charts/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**addEffect**](https://apireference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) method and two enums [**EffectChartMajorGroupingType**](https://apireference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) and [**EffectChartMinorGroupingType**](https://apireference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) method and two enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 

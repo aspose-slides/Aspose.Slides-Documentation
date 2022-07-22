@@ -18,8 +18,8 @@ This page contains release notes for Aspose.Slides for Android via Java 20.9
 ## **Public API Changes**
 ### **IBulletFormatEffectiveData.getFillFormat() method has been added**
 
-A new [**getFillFormat()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) method 
-has been added to [**IBulletFormatEffectiveData**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData) interface. 
+A new [**getFillFormat()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) method 
+has been added to [**IBulletFormatEffectiveData**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData) interface. 
 Using this method allows to get an effective value of paragraph bullet fill.
 
 Method declaration:
@@ -73,16 +73,16 @@ try {
 }
 ```
 
-Existing [**IBulletFormatEffectiveData.getColor()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getColor--) 
-and [**IBulletFormatEffectiveData.getPicture()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getPicture--) 
+Existing [**IBulletFormatEffectiveData.getColor()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getColor--) 
+and [**IBulletFormatEffectiveData.getPicture()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getPicture--) 
 methods have been marked as obsolete and will be removed since Aspose.Slides 21.9 release. 
-It is recommended to use [**IBulletFormatEffectiveData.getFillFormat().getSolidFillColor()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) 
-and [**IBulletFormatEffectiveData.getFillFormat().getPictureFillFormat()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) methods instead, as they return the same data accordingly.
+It is recommended to use [**IBulletFormatEffectiveData.getFillFormat().getSolidFillColor()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) 
+and [**IBulletFormatEffectiveData.getFillFormat().getPictureFillFormat()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormatEffectiveData#getFillFormat--) methods instead, as they return the same data accordingly.
 
 ### **IBulletFormat.getEffective() method has been added**
-A new [**getEffective()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormat#getEffective--) method has been added 
-to [**IBulletFormat**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormat) interface 
-and [**BulletFormat**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/BulletFormat) class. It allows to get an effective value of bullet formatting properties.
+A new [**getEffective()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormat#getEffective--) method has been added 
+to [**IBulletFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBulletFormat) interface 
+and [**BulletFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/BulletFormat) class. It allows to get an effective value of bullet formatting properties.
 
 Method declaration:
 
@@ -113,14 +113,14 @@ try {
 }
 ```
 
-Please note that an existing way of getting bullet's effective properties via [**IParagraph.createParagraphFormatEffective().getBullet()**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#createParagraphFormatEffective--) is also valid and still works.
+Please note that an existing way of getting bullet's effective properties via [**IParagraph.createParagraphFormatEffective().getBullet()**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraph#createParagraphFormatEffective--) is also valid and still works.
 
 ### **Support for Id attribute generation for the individual tspan in SVG has been added**
-The [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) interface, 
-[**ISvgTSpan**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISvgTSpan) interface and [**SvgTSpan**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/SvgTSpan) 
+The [**ISvgShapeAndTextFormattingController**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) interface, 
+[**ISvgTSpan**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgTSpan) interface and [**SvgTSpan**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SvgTSpan) 
 class have been added for tspan Id attribute manipulation in SVG.
 
-[**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) declaration:
+[**ISvgShapeAndTextFormattingController**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) declaration:
 
 ```java
 /**
@@ -143,7 +143,7 @@ public interface ISvgShapeAndTextFormattingController extends ISvgShapeFormattin
 }
 ```
 
-The code snippet below shows how to use [**ISvgShapeAndTextFormattingController**](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) interface:
+The code snippet below shows how to use [**ISvgShapeAndTextFormattingController**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShapeAndTextFormattingController) interface:
 ```java
 public void SaveSlideToSVG() throws Exception
 {

@@ -943,7 +943,7 @@ pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::
 
 ## **Setting Data Range for Charts**
 
-1. Open an instance of the [Presentation](https://apireference.aspose.com/slides/cpp/class/aspose.slides.presentation) class containing the chart.
+1. Open an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class containing the chart.
 2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.
