@@ -10,7 +10,7 @@ description: "Manipulate PowerPoint shapes in Python"
 ## **Find Shape in Slide**
 This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
 
-After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Python via .NET and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.util/slideutil/) that does the trick to find a specific shape in a slide and then simply returns that shape.
+After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Python via .NET and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 ```py
 import aspose.slides as slides
@@ -36,7 +36,7 @@ with slides.Presentation(path + "FindingShapeInSlide.pptx") as p:
 ## **Clone Shape**
 To clone a shape to a slide using Aspose.Slides for Python via .NET:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Obtain the reference of a slide by using its index.
 1. Access the source slide shape collection.
 1. Add new slide to the presentation.
@@ -241,12 +241,12 @@ with slides.Presentation("pres.pptx") as pres:
 
 ## Align Shape
 
-Through the [SlidesUtil.AlignShape()](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.util/slideutil/) overloaded method, you can 
+Through the [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) overloaded method, you can 
 
 * align shapes relative to a slide's margins. See Example 1. 
 * align shapes relative to each other. See Example 2. 
 
-The [ShapesAlignmentType](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/shapesalignmenttype/) enumeration defines the available alignment options.
+The [ShapesAlignmentType](https://reference.aspose.com/slides/python-net/aspose.slides/shapesalignmenttype/) enumeration defines the available alignment options.
 
 ### Example 1
 

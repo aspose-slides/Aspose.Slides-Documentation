@@ -9,7 +9,7 @@ description: "Add error bar to PowerPoint presentations in Python"
 ## **Add Error Bar**
 Aspose.Slides for Python via .NET provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Add a bubble chart on desired slide.
 1. Access the first chart series and set the error bar X format.
 1. Access the first chart series and set the error bar Y format.
@@ -47,7 +47,7 @@ with slides.Presentation() as presentation:
 ## **Add Custom Error Bar Value**
 Aspose.Slides for Python via .NET provides a simple API for managing custom error bar values. The sample code applies when the **IErrorBarsFormat.ValueType** property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Add a bubble chart on desired slide.
 1. Access the first chart series and set the error bar X format.
 1. Access the first chart series and set the error bar Y format.

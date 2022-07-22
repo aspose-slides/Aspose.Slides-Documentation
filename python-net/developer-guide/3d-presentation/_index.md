@@ -21,21 +21,21 @@ render shapes with a **full-fledged 3D**.
 Moreover, now it’s possible to create shapes with 3D effects via Slides public API.
 
 In Aspose.Slides API, to make 
-a shape become a PowerPoint 3D shape use [IShape.ThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ishape/) property, 
-which inherits the features of [IThreeDFormat](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat) interface:
-- [BevelBottom](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
-and [BevelTop](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
-- [camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
+a shape become a PowerPoint 3D shape use [IShape.ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) property, 
+which inherits the features of [IThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat) interface:
+- [BevelBottom](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
+and [BevelTop](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
+- [camera](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): is used to imitate camera movements around the object. In other words, by setting came rotation, zoom and other properties - you may entertain with your 
 shapes as with the 3D model in PowerPoint.
-- [ContourColor](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
-and [ContourWidth](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): set contour properties to make the shape look like 3D PowerPoint shape.
-- [depth](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/), 
-[extrusion_color](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
-and [extrusion_height](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
+- [ContourColor](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
+and [ContourWidth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): set contour properties to make the shape look like 3D PowerPoint shape.
+- [depth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/), 
+[extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
+and [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): are used to make the shape three-dimension, which means to convert a 2D shape into a 3D shape, 
 by setting its depth or extrusing it.
-- [light_rig](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
+- [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): can create a light effect on a 3D shape. The logic of this property is closed to Camera, you can set the rotation of the light 
 in relation to the #D shape and choose the light type.
-- [material](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/): setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
+- [material](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): setting the type of 3D shape material can bring more alive effect into it. The property provides a set of predefined materials, like: 
 Metal, Plastic, Powder, Matte, etc.  
 
 All 3D features can be applied to both shapes and text. Let us see how to access the properties mentioned above and then look on them in details step by step:
@@ -69,7 +69,7 @@ It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more inte
 
 ![todo:image_alt_text](img_02_01.png)
 
-In Aspose.Slides API 3D shape rotation can be managed using [camera](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) property:
+In Aspose.Slides API 3D shape rotation can be managed using [camera](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) property:
 
 ```py
 shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
@@ -79,8 +79,8 @@ pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
 ```
 
 ## 3D Depth and Extrusion
-To bring the third dimension to your shape and make it a 3D shape, use [IThreeDFormat.ExtrusionHeight](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) 
-and [extrusion_color.color](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ithreedformat/) properties:
+To bring the third dimension to your shape and make it a 3D shape, use [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
+and [extrusion_color.color](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) properties:
 
 ```py
 shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)

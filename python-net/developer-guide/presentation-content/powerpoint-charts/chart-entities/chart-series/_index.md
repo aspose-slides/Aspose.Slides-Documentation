@@ -12,11 +12,11 @@ A series is a row or column of numbers plotted in a chart.
 
 ## **Set Chart Series Overlap**
 
-With the [IChartSeriesOverlap](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.charts/ichartseries/) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
+With the [IChartSeriesOverlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
 
 Use the `parent_series_group.overlap` read/write property to set your preferred value for `overlap`. 
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Add a clustered column chart on a slide.
 1. Access the first chart series.
 1. Access the chart series' `parent_series_group` and set your preferred overlap value for the series. 

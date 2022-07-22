@@ -7,7 +7,7 @@ keywords: "Charts, Chart Series, Animation PowerPoint Presentation, PPTX, PPT, P
 description: "PowerPoint charts series and animations in Python"
 ---
 
-Aspose.Slides for Python via .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/isequence/)method and two enums [**EffectChartMajorGroupingType** ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/effectchartmajorgroupingtype/)and [**EffectChartMinorGroupingType**](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides.animation/effectchartminorgroupingtype/).
+Aspose.Slides for Python via .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/)method and two enums [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/)and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).
 ## **Chart Series Animation**
 If you want to animate a chart series, write the code according to the steps listed below:
 
