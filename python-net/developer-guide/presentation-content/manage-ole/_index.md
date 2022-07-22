@@ -18,19 +18,19 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 - An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
 - An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app.
 
-[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
 ## **Adding OLE Object Frames to Slides**
 Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for Python via .NET, you can do it this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
 1. Open the Excel file containing the Excel chart object and save it to `MemoryStream`.
 1. Add the OLE Object Frame to the slide containing the array of bytes and other information about the OLE object.
 1. Write the modified presentation as a PPTX file.
 
-In the example below, we added a chart from an Excel file to a slide as an [OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/) using Aspose.Slides for Python via .NET.  
-**Note** that the [IOleEmbeddedDataInfo](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/ioleembeddeddatainfo/) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+In the example below, we added a chart from an Excel file to a slide as an [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) using Aspose.Slides for Python via .NET.  
+**Note** that the [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```py 
 import aspose.slides as slides
@@ -56,13 +56,13 @@ with slides.Presentation() as pres:
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 
 1. Obtain the reference of the slide by using its index.
 
-1. Access the [OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/) shape.
+1. Access the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) shape.
 
-   In our example, we used the previously created PPTX that has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/). This was the desired OLE Object Frame to be accessed.
+   In our example, we used the previously created PPTX that has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). This was the desired OLE Object Frame to be accessed.
 
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
@@ -99,13 +99,13 @@ with slides.Presentation(path + "AccessingOLEObjectFrame.pptx") as pres:
 
 If an OLE object is already embedded in a slide, you can easily access that object with Aspose.Slides for Python via .NET and modify its data this way:
 
-1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class.
+1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 
 1. Get the slide's reference through its index.
 
-1. Access the [OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/) shape.
+1. Access the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) shape.
 
-   In our example, we used the previously created PPTX, which has only one shape on the first slide. We then *cast* that object as an [OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/). This was the desired OLE Object Frame to be accessed.
+   In our example, we used the previously created PPTX, which has only one shape on the first slide. We then *cast* that object as an [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). This was the desired OLE Object Frame to be accessed.
 
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
@@ -204,8 +204,8 @@ with slides.Presentation("embeddedOle.pptx") as pres:
 
 Aspose.Slides for Python via .NET allows you to extract the files embedded in slides as OLE objects this way:
 
-1. Create an instance of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) containing the OLE object you intend to extract.
-2. Loop through all the shapes in the presentation and access the [OleObjectFrame](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/oleobjectframe/) shape.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) containing the OLE object you intend to extract.
+2. Loop through all the shapes in the presentation and access the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) shape.
 3. Access the embedded file's data from the OLE Object Frame and write it to disk. 
 
 This python code shows you how to extract a file embedded in a slide as an OLE object:

@@ -33,6 +33,12 @@ Extended operations with Slide Master can be:
 - Set Slide Master as presentation default view.
 - ... and many others.
 
+{{% alert color="primary" %}} 
+
+You may want to check out Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) because it is a live implementation of some of the core processes described here.
+
+{{% /alert %}} 
+
 
 ## **How is Slide Master applied**
 While working with Slide Masters, its important to understand how they are used in presentations and applied to slides.
@@ -111,7 +117,9 @@ In PowerPoint, Slide Master can be found in "View -> Slide Master" menu:
 
 With Aspose.Slides its possible to access Slide Master this way:
 
-
+```c#
+IMasterSlide master = pres.Masters[0];
+```
 
 Slide Master is represented by [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide) type. What you need is to get [Masters ](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/masters)list from [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)object. Masters list has a type of [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) and contains a list of all Slide Masters that are defined in the presentation. 
 
@@ -123,20 +131,23 @@ Place your company logo and few images to Slide Master, then switch back to slid
 
 ![todo:image_alt_text](slide-master_4.png)
 
+The same can be achieved with Aspose.Slides for .NET: 
 
-The same can be achieved with Aspose.Slides for .NET:
-
-
-
-
+```c#
+using (var pres = new Presentation())
+{
+    foreach (IMasterSlide master in pres.Masters)
+    {
+        // work with each master slide in the presentation
+    }
+}
+```
 
 First, we add images into the image collection of presentation. Now these images can be used in shapes, so we create a picture frame on Slide Master with [AddPictureFrame ](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/methods/addpictureframe)method. After that, we add new slides, which are based on this Slide Master with [AddEmptySlide ](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/methods/addemptyslide)method. Info AddEmptySlide method we pass the layout of the Slide Master, so the new slides will be created with same master slide template.
 
-
-
-{{% alert color="primary" title="See also" %}} 
-- [Add Picure Frame](/slides/net/adding-shapes/#addingshapes-addpictureframe)[to ](/slides/net/adding-shapes/#addingshapes-addpictureframe)[Slide](/slides/net/adding-shapes/#addingshapes-addpictureframe)
-{{% /alert %}}
+- {{% alert color="primary" title="See also" %}} 
+  - [Add Picture Frame to Slide](/slides/net/picture-frame/#create-picture-frame)
+    {{% /alert %}}
 
 
 ## **Add Placeholder to Slide Master**
@@ -166,11 +177,41 @@ We are going to change the formatting of Title and Subtitle on Slides Master thi
 
 
 
-With Aspose.Slides to change the formatting of title placeholder, we first retrieve it from Slide Master object, and then use PlaceHolder.FillFormat field:
+With Aspose.Slides to change the formatting of title placeholder, we first retrieve it from Slide Master object, and then use PlaceHolder.FillFormat field: 
 
+```c#
+public static void Main()
+{
+    using (var pres = new Presentation())
+    {
+        IMasterSlide master = pres.Masters[0];
+        IAutoShape placeHolder = FindPlaceholder(master, PlaceholderType.Title);
+        placeHolder.FillFormat.FillType = FillType.Gradient;
+        placeHolder.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+        placeHolder.FillFormat.GradientFormat.GradientStops.Add(0, Color.FromArgb(255, 0, 0));
+        placeHolder.FillFormat.GradientFormat.GradientStops.Add(255, Color.FromArgb(128, 0, 128));
+        
+        pres.Save("pres.pptx", SaveFormat.Pptx);
+    }
+}
 
+static IAutoShape FindPlaceholder(IMasterSlide master, PlaceholderType type)
+{
+    foreach (IShape shape in master.Shapes)
+    {
+        IAutoShape autoShape = shape as IAutoShape;
+        if (autoShape != null)
+        {
+            if (autoShape.Placeholder.Type == type)
+            {
+                return autoShape;
+            }
+        }
+    }
 
-
+    return null;
+}
+```
 
 The style and formatting of the title will change for all slides, based on this Slide Master:
 
@@ -186,6 +227,18 @@ The style and formatting of the title will change for all slides, based on this 
 ## **Change Background on Slide Master**
 It is possible to change the background of Slide Master and make it apply to all presentation slides this way. If you change the background color of the master slide, all normal slides in the presentation will receive the same background color settings. Follow the steps below to change the background color of the master slide:
 
+```c#
+using (var pres = new Presentation())
+{
+    IMasterSlide master = pres.Masters[0];
+    master.Background.Type = BackgroundType.OwnBackground;
+    master.Background.FillFormat.FillType = FillType.Solid;
+    master.Background.FillFormat.SolidFillColor.Color = Color.Green;
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
+```
+
 
 
 {{% alert color="primary" title="See also" %}} 
@@ -196,6 +249,15 @@ It is possible to change the background of Slide Master and make it apply to all
 To clone Slide Master to another presentation, 
 [**AddClone**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) method is called from destination presentation with a Slide Master passed into it:
 
+```c#
+using (Presentation presSource = new Presentation(), presTarget = new Presentation())
+{
+    IMasterSlide master = presTarget.Masters.AddClone(presSource.Masters[0]);
+}
+```
+
+
+
 
 ## **Add Multiple Slide Masters to Presentation**
 It is possible to add any amount of Slide Masters and Layouts to presentation. Its useful, if you need maximum flexibility to set up the styles, layouts and formatting of presentation slides in multiple ways.
@@ -204,8 +266,11 @@ In PowerPoint you can add new Slide Masters and Layouts in "Slide Master menu" t
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-
 With Aspose.Slides you can add new Slide Master by calling Presentation.Masters.AddClone method:
+
+```c#
+pres.Masters.AddClone(pres.Masters[0]);
+```
 
 
 
@@ -217,11 +282,9 @@ Master Slide implements [IBaseSlide](https://reference.aspose.com/slides/net/as
 
 
 ## **Set Slide Master as Presentation Default View**
-Its possible to set Slide Master as a default view, when you open the Aspose.Slides generated saved presentation:
+Its possible to set Slide Master as a default view, when you open the Aspose.Slides generated saved presentation:  
 
+```c#
+pres.ViewProperties.LastView = ViewType.SlideMasterView;
+```
 
-
-
-## **Live Example**
-You can take a look at presentation from the examples above with [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/):
-[![todo:image_alt_text](slides-master.png)](https://products.aspose.app/slides/viewer/)

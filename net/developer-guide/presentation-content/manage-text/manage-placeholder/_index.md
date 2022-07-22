@@ -7,64 +7,62 @@ keywords: "Placeholder, Placeholder text, Prompt text, PowerPoint presentation, 
 description: "Change Placeholder text and prompt text in PowerPoint presentations in C# or .NET"
 ---
 
-## **Change Text in a Placeholder**
-Using [Aspose.Slides for .NET](/slides/net/), developers can also find and modify a specific Placeholder present in a slide. In this topic, we are going to demonstrate with the help of an example that how the text contained inside a Placeholder can be replaced or modified using Aspose.Slides for .NET. The following two steps will be used to modify text in Placeholder.
+## **Change Text in Placeholder**
+Using [Aspose.Slides for .NET](/slides/net/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 
-Step 1: Create a Slide Containing a Placeholder
+**Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
 
-First of all, create a presentation file with a slide containing a Placeholder. You can create this presentation either MS PowerPoint. This is just the demonstration of replacing text in a Placeholder, so, you can create this presentation by yourself. This presentation will be used in the next step and the text in its Placeholder will be replaced.
+This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
 
-Step 2: Replace Text of the Placeholder
+1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and pass the presentation as an argument.
+2. Get a slide reference through its index.
+3. Iterate through the shapes to find the placeholder.
+4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) associated with the [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/). 
+5. Save the modified presentation.
 
-To replace the text of a Placeholder, please follow the steps below:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Iterate through the Shapes and find the Placeholder shapes.
-- Typecast the Placeholder shape to AutoShape and change the text using the TextFrame associated with the AutoShape.
-- Write the modified presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+This C# code shows how to change the text in a placeholder:
 
 ```c#
-// Instantiate Presentation class that represents PPTX// Instantiate Presentation class that represents PPTX
+// Instantiates a Presentation class
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
-    // Access first slide
+    // Accesses the first slide
     ISlide sld = pres.Slides[0];
 
-    // Iterate through shapes to find the placeholder
+    // Iterates through shapes to find the placeholder
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
-            // Change the text of each placeholder
-            ((IAutoShape)shp).TextFrame.Text = "This is Placeholder";
+            // Changes the text in each placeholder
+            ((IAutoShape)shp).TextFrame.Text = "This is a Placeholder";
         }
 
-    // Save the PPTX to Disk
+    // Saves the presentation to disk
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **Set Prompt Text in a Placeholder**
-As we know that Standard and pre-built layouts contain placeholders with default text like **Click to add a title** or **Click to add subtitle**. Using Aspose.Slides you can add prompt text manually by accessing the default placeholders.
+## **Set Prompt Text in Placeholder**
+Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
 
-The code snippet below shows how to use this feature:
+This C# code shows you how to set the prompt text in a placeholder:
 
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // iterate through the slide
+    foreach (IShape shape in slide.Slide.Shapes) // Iterates through the slide
     {
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) //PowerPoint displays "Click to add title". 
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint displays "Click to add title"
             {
                 text = "Add Title";
             }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) //add subtitle.
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Adds subtitle
             {
                 text = "Add Subtitle";
             }
@@ -76,6 +74,24 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
     }
 
     pres.Save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Set Placeholder Image Transparency**
+
+Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
+
+This C# code shows you how to set the transparency for a picture background (inside a shape): xxx
+
+```c#
+using (var presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    
+    autoShape.FillFormat.FillType = FillType.Picture;
+    autoShape.FillFormat.PictureFillFormat.Picture.Image = presentation.Images.AddImage(File.ReadAllBytes("image.png"));
+    autoShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
 }
 ```
 

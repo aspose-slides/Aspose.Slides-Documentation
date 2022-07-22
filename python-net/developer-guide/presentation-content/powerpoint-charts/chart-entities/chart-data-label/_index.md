@@ -26,7 +26,7 @@ with slides.Presentation() as pres:
 ## **Display Percentage as Labels**
 Aspose.Slides for Python via .NET supports displaying the percentage as labels. In this topic, we will see with example how to display the percentage as labels using Aspose.Slides. In order to set percentage as display. Please follow the steps below.
 
-1. Instantiate [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
 1. Add stacked column chart.
 1. Calculate the series data point values for particular categories.
 1. Displaying the percentage as labels.

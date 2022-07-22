@@ -9,7 +9,7 @@ description: "Set font properties for chart database table in PowerPoint present
 ## **Set Font Properties for Chart Data Table**
 Aspose.Slides for Python via .NET provides support for changing color of categories in a series color. 
 
-1. Instantiate [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class object.
 1. Add chart on the slide.
 1. set chart table.
 1. Set font height.

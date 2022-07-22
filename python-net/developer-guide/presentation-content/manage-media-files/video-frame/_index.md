@@ -11,7 +11,7 @@ description: "Add Video frame to PowerPoint presentation in Python"
 ## **Create Embedded Video Frame**
 Developers can also add and play video files in the slides to enrich their presentations. Aspose.Slides for Python via .NET supports adding Video Frames to the slides that make it possible for developers to add videos to their presentations. This topic will help developers to follow the simple steps with examples for adding video frames in their slides. To add a Video Frame in a slide using Aspose.Slides for Python via .NET, please follow the steps below:
 
-1. Create an instance of [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class.
+1. Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
 1. Obtain the reference of a slide by using its Index.
 1. Add the Video Frame (containing the video file name) into the slide.
 1. Write the modified presentation as a PPTX file.
@@ -59,7 +59,7 @@ PowerPoint 2010 and newer versions support YouTube videos. To play these videos 
 
 Follow these steps:
 
-1. Create an instance of [Presentation ](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/)class
+1. Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class
 1. Obtain the reference of a slide by using its Index
 1. Add the Video Frame by passing video URL
 1. Set Image for Video Frame
@@ -91,7 +91,7 @@ with slides.Presentation() as pres:
 Aspose.Slides for Python via .NET supports extracting video from the slide. In order to extract the video. Please follow the steps below:
 
 - Load a Presentation containing a video.
-- Loop through all the slides of the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
+- Loop through all the slides of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 - Search for Video Frame.
 - Save the Video to disk.
   In the example given below, we have saved the video file from a slide.

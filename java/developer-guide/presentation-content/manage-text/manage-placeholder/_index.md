@@ -6,66 +6,64 @@ url: /java/manage-placeholder/
 description: Change Text in a Placeholder in PowerPoint Slides using Java. Set Prompt Text in a Placeholder in PowerPoint Slides using Java.
 ---
 
-## **Change Text in a Placeholder**
-Using [Aspose.Slides for Java](/slides/java/), developers can also find and modify a specific Placeholder present in a slide. In this topic, we are going to demonstrate with the help of an example that how the text contained inside a Placeholder can be replaced or modified using Aspose.Slides for Java. The following two steps will be used to modify text in Placeholder.
+## **Change Text in Placeholder**
+Using [Aspose.Slides for Java](/slides/java/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 
-Step 1: Create a Slide Containing a Placeholder
+**Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
 
-First of all, create a presentation file with a slide containing a Placeholder. You can create this presentation either MS PowerPoint. This is just the demonstration of replacing text in a Placeholder, so, you can create this presentation by yourself. This presentation will be used in the next step and the text in its Placeholder will be replaced.
+This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
 
-Step 2: Replace Text of the Placeholder
+1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class. and pass the presentation as an argument.
+2. Get a slide reference through its index.
+3. Iterate through the shapes to find the placeholder.
+4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with the [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+5. Save the modified presentation.
 
-To replace the text of a Placeholder, please follow the steps below:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Iterate through the Shapes and find the Placeholder shapes.
-- Typecast the Placeholder shape to [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-- Write the modified presentation as a PPTX file.
+This Java code shows how to change the text in a placeholder:
 
 ```java
-// Instantiate Presentation class that represents PPTX
+// Instantiates a Presentation class
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
 
-    // Access first slide
+    // Accesses the first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Iterate through shapes to find the placeholder
+    // Iterates through shapes to find the placeholder
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
-            // Change the text of each placeholder
+            // Changes the text in each placeholder
             ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
         }
     }
 
-    // Save the PPTX to Disk
+    // Saves the presentation to disk
     pres.save("output_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Set Prompt Text in a Placeholder**
-As we know that Standard and pre-built layouts contain placeholders with default text like **Click to add a title** or **Click to add subtitle**. Using Aspose.Slides you can add prompt text manually by accessing the default placeholders.
+## **Set Prompt Text in Placeholder**
+Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
 
-The code snippet below shows how to use this feature:
+This Java code shows you how to set the prompt text in a placeholder:
 
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // iterate through the slide
+    for (IShape shape : slide.getSlide().getShapes()) // Iterates through the slide
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) //PowerPoint displays "Click to add title". 
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint displays "Click to add title" 
             {
                 text = "Add Title";
             }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) //add subtitle.
+            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Adds subtitle
             {
                 text = "Add Subtitle";
             }
@@ -80,3 +78,32 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **Set Placeholder Image Transparency**
+
+Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
+
+This Java code shows you how to set the transparency for a picture background (inside a shape):
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+
+IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+for (int i = 0; i < operationCollection.size(); i++)
+{
+    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
+    {
+        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
+        float currentValue = 100 - alphaModulate.getAmount();
+        System.out.println("Current transparency value: " + currentValue);
+
+        int alphaValue = 40;
+        alphaModulate.setAmount(100 - alphaValue);
+    }
+}
+
+presentation.save("example_out.pptx", SaveFormat.Pptx);
+```
+
