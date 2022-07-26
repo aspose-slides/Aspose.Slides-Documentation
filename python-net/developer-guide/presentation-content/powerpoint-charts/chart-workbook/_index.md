@@ -66,10 +66,23 @@ with slides.Presentation() as pres:
 
 ## **Specify Data Source Type**
 
-This Python code shows you how to specify a type for a data source: xxx
+This Python code shows you how to specify a type for a data source: DOUBLE_LITERALS
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400, True)
+    series = chart.chart_data._series
+    
+    point = series[0].data_points.get_or_create_data_point_by_idx(2)
+    point = series[0].data_points.get_or_create_data_point_by_idx(4)
+
+    # set data source type as "double literals"
+    point.value._data_source_type = slides.charts.DataSourceType.DOUBLE_LITERALS
+    point.value.as_literal_double = 5
+
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **External Workbook**
