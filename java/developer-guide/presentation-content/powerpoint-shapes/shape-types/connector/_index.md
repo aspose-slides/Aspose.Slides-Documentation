@@ -36,10 +36,10 @@ Aspose.Slides provides these connectors:
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `AddAutoShape` method exposed by the `Shapes` object.
-1. Add a connector using the `AddConnector` method exposed by the `Shapes` object by defining the connector type.
+1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
+1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
-1. Call the `Reroute` method to apply the shortest connection path.
+1. Call the `reroute` method to apply the shortest connection path.
 1. Save the presentation. 
 
 This Java code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
@@ -86,8 +86,8 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `AddAutoShape` method exposed by the `Shapes` object.
-1. Add a connector using the `AddConnector` method exposed by the `Shapes` object by defining the connector type.
+1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
+1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Set your preferred connection dots on the shapes. 
 1. Save the presentation.
@@ -141,20 +141,36 @@ Consider a case where a connector between two shapes (A and B) passes through a 
 
 ![connector-obstruction](connector-obstruction.png)
 
-Code: xxx
+```java
+Presentation pres = new Presentation();
+try {
 
-```
+    ISlide sld = pres.getSlides().get_Item(0);
+    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
 
+    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectionSiteIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 To avoid or bypass the third shape, we can adjust the connector by moving its vertical line to the left this way:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-xxx
-
 ```java
-
+IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
+adj2.setRawValue(adj2.getRawValue() + 10000);
 ```
 
 ### **Complex Cases** 
@@ -174,28 +190,64 @@ Consider a case where two text frame objects are linked together through a conne
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Code: xxx
-
 ```java
+// Instantiates a presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+try {
+    // Gets the first slide in the presentation
+    ISlide sld = pres.getSlides().get_Item(0);
+    // Adds shapes that will be joined together through a connector
+    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    shapeFrom.getTextFrame().setText("From");
+    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    shapeTo.getTextFrame().setText("To");
+    // Adds a connector
+    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    // Specifies the connector's direction
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    // Specifies the connector's color
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    // Specifies the thickness of the connector's line
+    connector.getLineFormat().setWidth(3);
+    
+    // Links the shapes together with the connector
+    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectionSiteIndex(2);
+    
+    // Gets adjustment points for the connector
+    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
+    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 **Adjustment**
 
-We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively: xxx
+We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
 
 ```java
-
+// Changes the values of the adjustment points
+adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
+adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
 
 The result:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point: xxx
+To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.getAdjustments().get_Item(0) point:
 
 ```java
-
+// Draw the vertical component of the connector
+float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
+float y = connector.getY();
+float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
+sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
 ```
 
 The result:
@@ -204,28 +256,68 @@ The result:
 
 #### **Case 2**
 
-In **Case 1**, we demonstrated a simple connector adjustment operation using basic principles. In normal situations, you have to take the connector rotation and its display (which are set by the connector.Rotation, connector.Frame.FlipH, and connector.Frame.FlipV) into account. We will now demonstrate the process.
+In **Case 1**, we demonstrated a simple connector adjustment operation using basic principles. In normal situations, you have to take the connector rotation and its display (which are set by the connector.getRotation(), connector.getFrame().getFlipH(), and connector.getFrame().getFlipV()) into account. We will now demonstrate the process.
 
-First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created. xxx
+First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
 
-```
-
+```java
+// Creates a new binding object
+IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+shapeTo_1.getTextFrame().setText("To 1");
+// Creates a new connector
+connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
+connector.getLineFormat().setWidth(3);
+// Connects objects using the newly created connector
+connector.setStartShapeConnectedTo(shapeFrom);
+connector.setStartShapeConnectionSiteIndex(2);
+connector.setEndShapeConnectedTo(shapeTo_1);
+connector.setEndShapeConnectionSiteIndex(3);
+// Gets the connector adjustment points
+adjValue_0 = connector.getAdjustments().get_Item(0);
+adjValue_1 = connector.getAdjustments().get_Item(1);
+// Changes the values of the adjustment points
+adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
+adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
 ```
 
 The result:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Second, let's create a shape that will correspond to the horizonal component of the connector that passes through the new connector's adjustment point connector.Adjustments[0]. We will use the values from the connector data for connector.Rotation, connector.Frame.FlipH, and connector.Frame.FlipV and apply the popular coordinate conversion formula for rotation round a given point x0:
+Second, let's create a shape that will correspond to the horizonal component of the connector that passes through the new connector's adjustment point connector.getAdjustments().get_Item(0). We will use the values from the connector data for connector.getRotation(), connector.getFrame().getFlipH(), and connector.getFrame().getFlipV() and apply the popular coordinate conversion formula for rotation round a given point x0:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code: xxx
+In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
 
 ```java
-
+// Saves the connector coordinates
+x = connector.getX();
+y = connector.getY();
+// Corrects the connector coordinates in case it appears
+if (connector.getFrame().getFlipH() == NullableBool.True)
+{
+    x += connector.getWidth();
+}
+if (connector.getFrame().getFlipV() == NullableBool.True)
+{
+    y += connector.getHeight();
+}
+// Takes in the adjustment point value as the coordinate
+x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
+//  Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
+float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+// Determines the width of the horizontal component using the second adjustment point value
+float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
+IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
+shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
 The result:
