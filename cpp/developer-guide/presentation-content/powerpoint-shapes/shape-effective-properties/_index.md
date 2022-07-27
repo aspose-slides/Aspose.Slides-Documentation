@@ -1,7 +1,7 @@
 ---
 title: Shape Effective Properties
 type: docs
-weight: 40
+weight: 50
 url: /cpp/shape-effective-properties/
 ---
 
@@ -67,5 +67,4 @@ Using Aspose.Slides for C++, you can get effective fill formatting for different
 So finally **CellFormatEffectiveData** properties always used to draw the table. The following code sample shows how to get effective fill formatting for different table logic parts.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-GetEffectiveValuesOfTable-GetEffectiveValuesOfTable.cpp" >}}
-
 

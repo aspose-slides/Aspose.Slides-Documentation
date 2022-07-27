@@ -1,7 +1,7 @@
 ---
 title: Shape Animation
 type: docs
-weight: 50
+weight: 60
 url: /python-net/shape-animation/
 keywords: "PowerPoint animation, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Create PowerPoint animation in Python"

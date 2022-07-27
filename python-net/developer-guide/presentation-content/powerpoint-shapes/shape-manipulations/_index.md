@@ -1,7 +1,7 @@
 ---
 title: Shape Manipulations
 type: docs
-weight: 30
+weight: 40
 url: /python-net/shape-manipulations/
 keywords: "PowerPoint shape, shape on slide, find shape, clone shape, remove shape, hide shape, change shape order, get interlop shape ID, shape alternative text, shape layout formats, shape as SVG, align shape, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Manipulate PowerPoint shapes in Python"
