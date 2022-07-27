@@ -248,5 +248,18 @@ When stretching of an image is specified, a source rectangle is scaled to fit th
 This C++ code demonstrates a process in which a StretchOff property is used: xxx
 
 ``` cpp
+auto pres = System::MakeObject<Presentation>();
+auto ppImage = pres->get_Images()->AddImage(System::MakeObject<System::Drawing::Bitmap>(u"image.png"));
+auto slide = pres->get_Slides()->idx_get(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
 
+// Sets the image stretched from each side in the shape body
+auto pictureFormat = pictureFrame->get_PictureFormat();
+pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFormat->set_StretchOffsetLeft(24.0f);
+pictureFormat->set_StretchOffsetRight(24.0f);
+pictureFormat->set_StretchOffsetTop(24.0f);
+pictureFormat->set_StretchOffsetBottom(24.0f);
+
+pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
 ```
