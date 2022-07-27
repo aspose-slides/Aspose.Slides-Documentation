@@ -83,6 +83,10 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This C++ code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```c++
-
+auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+auto html5Options = System::MakeObject<Html5Options>();
+html5Options->set_AnimateShapes(true);
+html5Options->set_AnimateTransitions(true);
+pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
 ```
 
