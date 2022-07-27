@@ -91,18 +91,39 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Manage Worksheets**
 
-This C++ code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) property is used to access a worksheet collection: xxx
+This C++ code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook#a8a5bfd5f6d389c497fe0d9ff4037d928) property is used to access a worksheet collection:
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto worksheets = workbook->get_Worksheets();
 
+for (auto ws : System::IterateOver(worksheets))
+    System::Console::WriteLine(ws->get_Name());
 ```
 
 ## **Specify Data Source Type**
 
-This C++ code shows you how to specify a type for a data source: xxx
+This C++ code shows you how to specify a type for a data source:
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
+auto series = chart->get_ChartData()->get_Series();
 
+auto dataPoints = series->idx_get(0)->get_DataPoints();
+auto point = dataPoints->GetOrCreateDataPointByIdx(2);
+point = dataPoints->GetOrCreateDataPointByIdx(4);
+
+// set data source type as "double literals"
+auto pointValue = point->get_Value();
+pointValue->set_DataSourceType(DataSourceType::DoubleLiterals);
+pointValue->set_AsLiteralDouble(5);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **External Workbook**
@@ -173,10 +194,18 @@ const String templatePath = u"../templates/externalWorkbook.xlsx";
 The `updateChartData` parameter (under the `SetExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
 
 * When `updateChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
-* When `updateChartData` value is set to `true` , the chart data gets updated from the target workbook. xxx
+* When `updateChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
+System::SharedPtr<IChartData> chartData = chart->get_ChartData();
 
+System::SharedPtr<ChartData> concreteChartData = System::DynamicCast_noexcept<ChartData>(chartData);
+concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
+
+pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
 ### **Get Chart External Data Source Workbook Path**
