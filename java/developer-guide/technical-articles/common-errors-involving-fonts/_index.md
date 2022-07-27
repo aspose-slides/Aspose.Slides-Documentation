@@ -129,7 +129,7 @@ Additionally, some open-jdk versions (for example, **alpine JDK**) also **requir
 
 ## **Exception: UnsatisfiedLinkError: libfreetype.so.6: cannot open shared object file: No such file or directory**
 
-This exception occurs on a Linux system that lacks libfreetype library. 
+This exception occurs on a Linux system that lacks the libfreetype library. 
 
 ### Solution:
 
