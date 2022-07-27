@@ -1,5 +1,5 @@
 ---
-title: Create PowerPoint Presentations Charts in C# .NET
+title: Create PowerPoint Presentations Charts in C# or .NET
 linktitle: Create Chart
 type: docs
 weight: 10
@@ -721,7 +721,7 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "
 pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-### Creating Map Charts
+### **Creating Map Charts**
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 

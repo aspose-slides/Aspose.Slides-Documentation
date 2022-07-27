@@ -199,7 +199,7 @@ try {
 
 ### **Creating Pie Charts**
 
-Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
@@ -725,7 +725,18 @@ try {
 }
 ```
 
+### **Creating Map Charts**
+
+A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
+
+This Java code shows you how to create a map chart: xxx
+
+```java
+
+```
+
 ## **Updating Charts**
+
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update. 
 2. Obtain the reference of a slide by using its Index.
 3. Traverse through all shapes to find the desired chart.

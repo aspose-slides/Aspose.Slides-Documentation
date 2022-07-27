@@ -736,6 +736,18 @@ with slides.Presentation() as pres:
     pres.save("AsposeChart_out-10.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Creating Map Charts**
+
+A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
+
+This Python code shows you how to create a map chart: xxx
+
+```python
+
+```
+
+
+
 ## **Updating Charts**
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class that represents the presentation containing the chart.
