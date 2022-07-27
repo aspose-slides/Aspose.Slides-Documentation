@@ -1,5 +1,5 @@
 ---
-title: Convert or Save PowerPoint PPT or PPTX to PDF using C#
+title: Convert PowerPoint to PDF in C#
 linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
@@ -59,7 +59,7 @@ Aspose provides a free online [**PowerPoint to PDF converter**](https://products
 
 {{% /alert %}}
 
-## Convert PowerPoint to PDF with Options
+## **Convert PowerPoint to PDF with Options**
 
 Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class—that allow you to customize the PDF (resulting from the conversion process), lock the PDF with a password, or even specify how the conversion process should go.
 
@@ -102,7 +102,7 @@ This C# code shows you how to convert a PowerPoint presentation to PDF with hidd
 // Instantiates a Presentation class that represents a PowerPoint file
 Presentation presentation = new Presentation("PowerPoint.pptx");
 
-// Instantiates the the PdfOptions class
+// Instantiates the PdfOptions class
 PdfOptions pdfOptions = new PdfOptions();
 
 // Adds hidden slides

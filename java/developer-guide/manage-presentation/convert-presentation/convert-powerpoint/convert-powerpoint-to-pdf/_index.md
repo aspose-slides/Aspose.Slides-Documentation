@@ -3,48 +3,220 @@ title: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /java/convert-powerpoint-to-pdf/
-keywords: "PPT and PPTX to PDF in Java"
-description: "Convert PPT to PDF and PPTX to PDF. Convert PowerPoint to PDF document in Java."
+keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, Java"
+description: "Convert PowerPoint Presentation to PDF in Java. Save PowerPoint as PDF with compliance or accessibility standards"
+
 ---
 
-## **How to Convert PPT to PDF Online**
-You can use our [free PowerPoint Online Converter](https://products.aspose.app/slides/conversion/ppt-to-pdf) to convert PPT or PPTX files to PDF quickly.
+Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
-Go through these steps:
+* PPT
+* PPTX
+* ODP
 
-1. Go to our [PowerPoint Online Converter page](https://products.aspose.app/slides/conversion/powerpoint-to-pdf). 
-2. Click **Drop or upload your files**. 
-3. Select the PPT or PPTX file you want to convert on your computer. 
-4. Click **Convert**. 
-5. Click **DOWNLOAD NOW**. 
-
-Your browser now saves the converted file. 
-
-{{% alert color="primary" %}} 
-
-You may want to check out our free [**PPT to PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), [**PPTX to PDF**](https://products.aspose.app/slides/conversion/pptx-to-pdf), [**ODP to PDF**](https://products.aspose.app/slides/conversion/odp-to-pdf) converters.
-
-{{% /alert %}} 
-
-## **PowerPoint to PDF Conversion in Java**
-
-[**Aspose.Slides**](https://products.aspose.com/slides/java/) allows you to convert files in PowerPoint PPT, PPTX, and OpenOffice ODP formats to PDF. 
-
-To convert a presentation to PDF, simply pass the file name and save format to the [**Presentation.save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. The [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [**save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method that can be called to convert the whole PPT, PPTX, or ODP presentation into a PDF document. The [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) class provides options for creating the PDF such as **JpegQuality**, **TextCompression**, **Compliance**, and others. These options can be used to get the desired standard in a PDF.
+To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and then save the presentation as a PDF using a [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method. The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method that is typically used to convert a presentation to PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for Java directly writes the information about API and Version Number in output documents. For example, when rendering Document to PDF, Aspose.Slides for Java populates the Application field with the value 'Aspose.Slides' and the PDF Producer field with a value, e.g. 'Aspose.Slides v 17.10'. Please note that you cannot instruct Aspose.Slides for Java to change or remove this information from output Documents.
+Aspose.Slides for Java directly writes API information and Version Number in output documents. For example, when it converts a presentation to PDF, Aspose.Slides for Java populates the Application field with the '*Aspose.Slides*' value and the PDF Producer field with a value in '*Aspose.Slides v XX.XX*'  form. **Note** that you cannot instruct Aspose.Slides for Java to change or remove this information from output documents.
 
 {{% /alert %}}
 
+
+Aspose.Slides allows you to convert:
+
+* an entire presentation to PDF
+* specific slides in a presentation to PDF
+* a presentation 
+
+Aspose.Slides exports presentations to PDF in a way that makes the contents of the resulting PDFs very similar to those in the original presentations. These known elements and attributes are often rendered properly in presentation to PDF conversions:
+
+* images
+* text boxes and other shapes
+* texts and their formatting
+* paragraphs and their formatting
+* hyperlinks
+* headers and footers
+* bullets
+* tables
+
+## **Convert PowerPoint to PDF**
+
+The standard PowerPoint PDF conversion operation is executed using default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels.
+
+This Java code shows you how to convert a PowerPoint to PDF:
+
+```java
+// Instantiates a Presentation class that represents a PowerPoint file
+Presentation pres = new Presentation("PowerPoint.ppt");
+try {
+    // Saves the presentation as a PDF
+    pres.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+{{%  alert  color="primary"  %}} 
+
+Aspose provides a free online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) that demonstrates the presentation to PDF conversion process. For a live implementation of the procedure described here, you can do a test with the converter.
+
+{{% /alert %}}
+
+## **Convert PowerPoint to PDF with Options**
+
+Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class—that allow you to customize the PDF (resulting from the conversion process), lock the PDF with a password, or even specify how the conversion process should go.
+
+### **Convert PowerPoint to PDF with Custom Options**
+
+Using custom conversion options, you can set your preferred quality setting for JPG images, specify how metafiles should be handled, set a compression level for texts, etc.
+
+This Java code demonstrates an operation in which a PowerPoint is converted to PDF with several custom options:
+
+```java
+// Instantiates a Presentation class that represents a PowerPoint file
+Presentation pres = new Presentation("PowerPoint.pptx");
+try {
+    // Instantiates the PdfOptions class
+    PdfOptions pdfOptions = new PdfOptions();
+    
+    // Sets the Jpeg quality
+    pdfOptions.setJpegQuality((byte)90);
+    
+    // Sets the behavior for metafiles
+    pdfOptions.setSaveMetafilesAsPng(true);
+    
+    // Sets the text compression level
+    pdfOptions.setTextCompression(PdfTextCompression.Flate);
+    
+    // Defines the PDF standard
+    pdfOptions.setCompliance(PdfCompliance.Pdf15);
+    
+    // Saves the presentation as a PDF
+    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+### **Convert PowerPoint to PDF with Hidden Slides**
+
+If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
+
+This Java code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
+
+```java
+// Instantiates a Presentation class that represents a PowerPoint file
+Presentation pres = new Presentation("PowerPoint.pptx");
+try {
+    // Instantiates the PdfOptions class
+    PdfOptions pdfOptions = new PdfOptions();
+    
+    // Adds hidden slides
+    pdfOptions.setShowHiddenSlides(true);
+    
+    // Saves the presentation as a PDF
+    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+### **Convert PowerPoint to Password Protected PDF**
+
+This Java code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class):
+
+```java
+// Instantiates a Presentation object that represents a PowerPoint file
+Presentation pres = new Presentation("PowerPoint.pptx");
+try {
+    /// Instantiates the PdfOptions class
+    PdfOptions pdfOptions = new PdfOptions();
+    
+    // Sets PDF password and access permissions
+    pdfOptions.setPassword("password");
+    pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
+    
+    // Saves the presentation as a PDF
+    pres.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Convert Selected Slides in PowerPoint to PDF**
+
+This Java code shows you how to convert specific slides in a PowerPoint presentation to PDF:
+
+```java
+// Instantiates a Presentation object that represents a PowerPoint file
+Presentation pres = new Presentation("PowerPoint.pptx");
+try {
+    // Sets an array of slides positions
+    int[] slides = { 1, 3 };
+    
+    // Saves the presentation as a PDF
+    pres.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Convert PowerPoint to PDF with Custom Slide Size**
+
+This Java code shows you how to convert a PowerPoint when its slide size is specified to a PDF:
+
+```java
+// Instantiates a Presentation object that represents a PowerPoint file 
+Presentation pres = new Presentation("SelectedSlides.pptx");
+try {
+    Presentation outPres = new Presentation();
+    try {
+        ISlide slide = pres.getSlides().get_Item(0);
+
+        outPres.getSlides().insertClone(0, slide);
+        
+        // Sets the slide type and size 
+        outPres.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
+        
+        PdfOptions pdfOptions = new PdfOptions();
+        INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
+        options.setNotesPosition(NotesPositions.BottomFull);
+
+        outPres.save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+    } finally {
+        if (pres != null) pres.dispose();
+    }
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Convert PowerPoint to PDF in Notes Slide View**
+
+This Java code shows you how to convert a PowerPoint to PDF notes:
+
+```java
+// Instantiates a Presentation class that represents a PowerPoint file
+Presentation pres = new Presentation("SelectedSlides.pptx");
+try {
+    PdfOptions pdfOptions = new PdfOptions();
+    INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
+    options.setNotesPosition(NotesPositions.BottomFull);
+
+    pres.save("Pdf_With_Notes.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
 ## **Accessibility and Compliance Standards for PDF**
 
-With Aspose.Slides, you can use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html).
+Aspose.Slides allows you to use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). You can export a PowerPoint document to PDF using any of these compliance standards: **PDF/A1a**, **PDF/A1b**, and **PDF/UA**.
 
-When converting a PPT document to PDF, Aspose.Slides allows you to export a PPT document to the PDF format using any of these compliance standards: [**PDF/A1a**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1a), [**PDF/A1b**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfA1b), and [**PDF/UA**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfCompliance#PdfUa). 
+This Java code demonstrates a PowerPoint to PDF conversion operation in which multiple PDFs based on different compliance standards are obtained:
 
-This sample code shows you how to specify your preferred PDF compliance standard when converting PPT to PDF:
+
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -64,188 +236,7 @@ try {
 }
 ```
 
-Aspose.Slides for Java typically exports the presentation documents to PDF and makes it as similar as possible to the original presentation document. Aspose.Slides renders most elements in a presentation when converting it to PDF:
 
-- Images, Text Boxes, and other Shapes
-- Text and Formatting
-- Paragraphs and Formatting
-- Hyperlinks
-- Headers and Footers
-- Bullets
-- Tables
 
-## **PPT to PDF Conversion Process Options**
 
-Aspose.Slides for Java allows you to customize the presentation to PDF export with different options explained in this topic.
-
-With Aspose.Slides, you can use these options for PPT(X) to PDF conversion in a flexible way:
-
-- Convert the whole PPT(X) presentation to PDF.
-- Convert separate slides of PPT(X) to PDF.
-- Convert PPT(X) to PDF with default settings. To help you simplify PPT(X) to PDF conversion process, Aspose.Slides chooses the optimal conversion settings required to define them all.
-- Convert PPT(X) to PDF with custom settings. Change PDF file standard, set text compression level, choose the quality of JPEG images inside PDF document.
-- Convert PPT(X) to PDF with hidden slides included.
-- Set access permissions of the resulting PDF document. For example, you may convert PPT(X) to a password-protected PDF. This way, you can easily protect the resulting PDF document to prevent people from copying and editing it. 
-- Convert PPT(X) to PDF with speaker notes included. Additionally, you can define how speaker notes must be rendered into PDF.
-- Convert PPT(X) to PDF with comments included. You can also define comments rendering rules.
-- Export presentation metafiles to PNGs, while converting PPT(X) to PDF.
-- Choose font settings of PPT(X) to PDF conversion process. The API allows you to save the original fonts of the presentation during conversion. Otherwise, you can opt to define substitution fonts and rules. 
-
-Aspose.Slides allows you to convert PPT(X) presentations to PDF document without loss in quality:
-
-|<p>**Input PPT:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-pdf_1.png)**</p><p>** </p><p>** </p>|<p>**Output PDF:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-pdf_2.png)**</p>|
-| :- | :- |
-
-## **Convert PowerPoint to PDF with Default Options**
-The following example shows you how to convert a PowerPoint PPT, PPTX, and OpenOffice ODP document into a PDF document using the default options. The default options create a PDF document at the maximum quality levels
-
-```java
-// Instantiate a Presentation object that represents a PPT file
-Presentation pres = new Presentation("PowerPoint.ppt");
-try {
-    // Save the presentation as PDF
-    pres.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## Convert PowerPoint to PDF with Custom Options
-The following example shows you how to convert PowerPoint PPT, PPTX and OpenOffice ODP into a PDF document with customized options provided by the [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. It sets the JPEG quality, saves metafiles to PNG, sets text compression level with [**PdfTextCompression**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfTextCompression) enumeration and sets PDF standard.
-
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
-    // Instantiate the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
-    // Set Jpeg quality
-    pdfOptions.setJpegQuality((byte)90);
-    
-    // Set behavior for metafiles
-    pdfOptions.setSaveMetafilesAsPng(true);
-    
-    // Set text compression level
-    pdfOptions.setTextCompression(PdfTextCompression.Flate);
-    
-    // Define the PDF standard
-    pdfOptions.setCompliance(PdfCompliance.Pdf15);
-    
-    // Save the presentation as PDF
-    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Convert PowerPoint to PDF with Hidden Slides Included**
-The following example shows how to convert a PowerPoint PPT, PPTX and OpenOffice ODP file into a PDF document with hidden slides included as provided by the [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. You can also include comments in generated HTML by using [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class. 
-It sets the ShowHiddenSlides property to generate PDF with hidden slides. 
-Methods [**getShowHiddenSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions#getShowHiddenSlides--) and [**setShowHiddenSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions#setShowHiddenSlides-boolean-) have been added to [**IHtmlOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/IHtmlOptions), [**IPdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/IPdfOptions), [**ISwfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISwfOptions), 
-[**ITiffOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions), [**IXpsOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/IXpsOptions) interfaces and [**HtmlOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/HtmlOptions), 
-[**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions), [**SwfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/SwfOptions), [**TiffOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/TiffOptions), [**XpsOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/XpsOptions) classes. 
-This property specifies whether the exported document should include hidden slides or not. 
-Default value is **"false"**.
-
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
-    // Instantiate the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
-    // Include hidden slides
-    pdfOptions.setShowHiddenSlides(true);
-    
-    // Save the presentation as PDF
-    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Convert PowerPoint to Password Protected PDF**
-The following example shows you how to convert a presentation to a password-protected PDF document with customized options provided by the [**PdfOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class.
-
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
-    /// Instantiate the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
-    // Setting PDF password and access permissions
-    pdfOptions.setPassword("password");
-    pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
-    
-    // Save the presentation as PDF
-    pres.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Convert Selected Slides of PowerPoint to PDF**
-The following example shows you how to convert a specific presentation slide to a PDF document with custom options.
-
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
-    // Setting array of slides positions
-    int[] slides = { 1, 3 };
-    
-    // Save the presentation as PDF
-    pres.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Convert PowerPoint to PDF with Custom Slide Size**
-The following example shows you how to convert a presentation to a PDF notes document with custom slide size. Here, each inch equals 72.
-
-```java
-// Instantiate a Presentation object that represents a presentation file 
-Presentation pres = new Presentation("SelectedSlides.pptx");
-try {
-    Presentation outPres = new Presentation();
-    try {
-        ISlide slide = pres.getSlides().get_Item(0);
-
-        outPres.getSlides().insertClone(0, slide);
-        
-        // Setting Slide Type and Size
-        outPres.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-        
-        PdfOptions pdfOptions = new PdfOptions();
-        INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
-        options.setNotesPosition(NotesPositions.BottomFull);
-
-        outPres.save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Convert PowerPoint to PDF in Notes Slide View**
-The following example shows you how to convert a presentation to a PDF notes document:
-
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("SelectedSlides.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save("Pdf_With_Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
