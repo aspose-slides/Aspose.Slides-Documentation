@@ -151,20 +151,36 @@ Consider a case where a connector between two shapes (A and B) passes through a 
 
 ![connector-obstruction](connector-obstruction.png)
 
-Code: xxx
+Code:
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto shapes = slide->get_Shapes();
+auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
+auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
+auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
 
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+
+connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_StartShapeConnectionSiteIndex(2);
 ```
 
 To avoid or bypass the third shape, we can adjust the connector by moving its vertical line to the left this way:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-xxx
-
-```
-
+```c++
+auto adj2 = connector->get_Adjustments()->idx_get(1);
+adj2->set_RawValue(adj2->get_RawValue() + 10000);
 ```
 
 ### **Complex Cases** 
@@ -184,28 +200,66 @@ Consider a case where two text frame objects are linked together through a conne
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Code: xxx
+Code:
 
 ```c++
+// Instantiates a presentation class that represents a PPTX file
+auto pres = System::MakeObject<Presentation>();
+// Gets the first slide in the presentation
+auto slide = pres->get_Slides()->idx_get(0);
+// Get shapes from first slide
+auto shapes = slide->get_Shapes();
+// Adds shapes that will be joined together through a connector
+auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
+shapeFrom->get_TextFrame()->set_Text(u"From");
+auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
+shapeTo->get_TextFrame()->set_Text(u"To");
+// Adds a connector
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+auto lineFormat = connector->get_LineFormat();
+// Specifies the connector's direction
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+// Specifies the thickness of the connector's line
+lineFormat->set_Width(3);
+// Specifies the connector's color
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
 
+// Links the shapes together with the connector
+connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+// Gets adjustment points for the connector
+auto adjustments = connector->get_Adjustments();
+auto adjValue_0 = adjustments->idx_get(0);
+auto adjValue_1 = adjustments->idx_get(1);
 ```
 
 **Adjustment**
 
-We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively: xxx
+We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
 
 ```c++
-
+// Changes the values of the adjustment points
+adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
+adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
 ```
 
 The result:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point: xxx
+To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point:
 
 ```c++
-
+// Draw the vertical component of the connector
+float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
+float y = connector->get_Y();
+float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
+shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
 ```
 
 The result:
@@ -216,10 +270,29 @@ The result:
 
 In **Case 1**, we demonstrated a simple connector adjustment operation using basic principles. In normal situations, you have to take the connector rotation and its display (which are set by the connector.Rotation, connector.Frame.FlipH, and connector.Frame.FlipV) into account. We will now demonstrate the process.
 
-First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created. xxx
+First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
 
 ```c++
-
+// Creates a new binding object
+auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
+shapeTo_1->get_TextFrame()->set_Text(u"To 1");
+// Creates a new connector
+connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+lineFormat->set_Width(3);
+lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
+// Connects objects using the newly created connector
+connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectionSiteIndex(3);
+// Gets the connector adjustment points
+adjValue_0 = adjustments->idx_get(0);
+adjValue_1 = adjustments->idx_get(1);
+// Changes the values of the adjustment points
+adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
+adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
 ```
 
 
