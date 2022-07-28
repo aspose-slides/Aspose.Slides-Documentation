@@ -729,10 +729,16 @@ try {
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 
-This Java code shows you how to create a map chart: xxx
+This Java code shows you how to create a map chart:
 
 ```java
-
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
+    pres.save("mapChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Updating Charts**
