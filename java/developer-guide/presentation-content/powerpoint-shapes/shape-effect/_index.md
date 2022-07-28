@@ -19,32 +19,78 @@ Aspose.Slides provides properties and methods under the [EffectFormat](https://r
 
 ## **Apply Shadow Effect**
 
-This Java code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle: xxx
+This Java code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.getEffectFormat().enableOuterShadowEffect();
+    shape.getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.DARK_GRAY);
+    shape.getEffectFormat().getOuterShadowEffect().setDistance(10);
+    shape.getEffectFormat().getOuterShadowEffect().setDirection(45);
+
+    pres.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Apply Reflection Effect**
 
-This Java code shows you how to apply the reflection effect to a shape: xxx
+This Java code shows you how to apply the reflection effect to a shape:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.getEffectFormat().enableReflectionEffect();
+    shape.getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.Bottom);
+    shape.getEffectFormat().getReflectionEffect().setDirection(90);
+    shape.getEffectFormat().getReflectionEffect().setDistance(55);
+    shape.getEffectFormat().getReflectionEffect().setBlurRadius(4);
+
+    pres.save("reflection.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Apply Glow Effect**
 
-This Java code shows you how to apply the glow effect to a shape: xxx
+This Java code shows you how to apply the glow effect to a shape:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.getEffectFormat().enableGlowEffect();
+    shape.getEffectFormat().getGlowEffect().getColor().setColor(Color.MAGENTA);
+    shape.getEffectFormat().getGlowEffect().setRadius(15);
+
+    pres.save("glow.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Apply Soft Edges Effect**
 
-This Java code shows you how to apply the soft edges to a shape: xxx
+This Java code shows you how to apply the soft edges to a shape:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
 
+    shape.getEffectFormat().enableSoftEdgeEffect();
+    shape.getEffectFormat().getSoftEdgeEffect().setRadius(15);
+
+    pres.save("softEdges.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
