@@ -207,7 +207,7 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, `ChartType.Pie`).
+1. Add a chart with default data along with the desired type (in this case, `ChartType.PIE`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -334,7 +334,7 @@ Tree map charts are best used for sales data when you want to show the relative 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, `ChartType.TreeMap`).
+1. Add a chart with default data along with the desired type (in this case, `ChartType.TREEMAP`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -402,7 +402,7 @@ with slides.Presentation() as pres:
 ### **Creating Stock Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
+1. Add a chart with default data along with the desired type (ChartType.OPEN_HIGH_LOW_CLOSE).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -468,7 +468,7 @@ with slides.Presentation() as pres:
 ### **Creating Box and Whisker Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (ChartType.BoxAndWhisker).
+1. Add a chart with default data along with the desired type (ChartType.BOX_AND_WHISKER).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -562,7 +562,7 @@ with slides.Presentation() as pres:
 ### **Creating Sunburst Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, `ChartType.sunburst`).
+1. Add a chart with default data along with the desired type (in this case, `ChartType.SUNBURST`).
 1. Write the modified presentation to a PPTX file
 
 This Python code shows you how to create a sunburst chart:
@@ -623,7 +623,7 @@ with slides.Presentation() as pres:
 ### **Creating Histogram Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index. 
-1. Add some chart with some data and specify your preferred chart type (`ChartType.Histogram` in this case).
+1. Add some chart with some data and specify your preferred chart type (`ChartType.HISTOGRAM` in this case).
 1. Access the chart data `IChartDataWorkbook`.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -740,10 +740,14 @@ with slides.Presentation() as pres:
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 
-This Python code shows you how to create a map chart: xxx
+This Python code shows you how to create a map chart:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.MAP, 50, 50, 500, 400, False)
+    pres.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
