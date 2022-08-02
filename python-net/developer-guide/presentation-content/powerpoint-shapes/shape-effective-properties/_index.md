@@ -1,7 +1,7 @@
 ---
 title: Shape Effective Properties
 type: docs
-weight: 40
+weight: 50
 url: /python-net/shape-effective-properties/
 keywords: "Shape properties, Camera properties, light rig, bevel shape, text frame, text style, font height value, fill format for table, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Get effective shape properties in PowerPoint presentations in Python"

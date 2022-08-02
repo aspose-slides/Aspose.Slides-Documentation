@@ -1,7 +1,7 @@
 ---
 title: Shape Animation
 type: docs
-weight: 50
+weight: 60
 url: /cpp/shape-animation/
 keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
 description: "Apply PowerPoint animation in C++"

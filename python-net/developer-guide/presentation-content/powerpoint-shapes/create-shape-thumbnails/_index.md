@@ -1,7 +1,7 @@
 ---
 title: Create Shape Thumbnails
 type: docs
-weight: 60
+weight: 70
 url: /python-net/create-shape-thumbnails/
 keywords: "Shape thumbnail. PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Shape thumbnail in PowerPoint presentation in Python"

@@ -1,7 +1,7 @@
 ---
 title: ActiveX
 type: docs
-weight: 70
+weight: 80
 url: /java/activex/
 ---
 
