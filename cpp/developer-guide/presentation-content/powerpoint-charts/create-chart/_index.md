@@ -869,6 +869,19 @@ This C++ code shows you how to create a multicategory chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **Creating Map Charts**
+
+A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
+
+This C++ code shows you how to create a map chart:
+
+```c++
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
+pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
+```
+
 ## **Updating Charts**
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class that represents the presentation containing the chart.

@@ -81,7 +81,7 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 
 Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
 
-This C# code shows you how to set the transparency for a picture background (inside a shape): 
+This C# code shows you how to set the transparency for a picture background (inside a shape):
 
 ```c#
 using (var presentation = new Presentation())
