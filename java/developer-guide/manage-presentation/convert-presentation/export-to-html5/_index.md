@@ -79,3 +79,23 @@ In this case, the presentation content is rendered through SVG in a form like th
 When you use this method to export PowerPoint to HTML, due to the SVG rendering, you will not be to apply styles or animate specific elements. 
 
 {{% /alert %}}
+
+## **Export PowerPoint to HTML5 Slide View**
+
+**Aspose.Slides** allows you to convert a PowerPoint presentation to an HTML5 document in which the slides are presented in a slide view mode. In this case, when you open the resulting HTML5 file in a browser, you see the presentation in slide view mode on a web page. 
+
+This Java code demonstrates the PowerPoint to HTML5 Slide View export process:
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    Html5Options html5Options = new Html5Options();
+    html5Options.setAnimateShapes(true);
+    html5Options.setAnimateTransitions(true);
+
+    pres.save("HTML5-slide-view.html", SaveFormat.Html5, html5Options);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
