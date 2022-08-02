@@ -245,7 +245,7 @@ When stretching of an image is specified, a source rectangle is scaled to fit th
 8. Specify image offsets from the corresponding edge of the shape's bounding box
 9. Write the modified presentation as a PPTX file.
 
-This C++ code demonstrates a process in which a StretchOff property is used: xxx
+This C++ code demonstrates a process in which a StretchOff property is used:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
