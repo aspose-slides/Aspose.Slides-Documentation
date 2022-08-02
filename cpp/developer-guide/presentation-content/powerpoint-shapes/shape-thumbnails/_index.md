@@ -1,7 +1,7 @@
 ---
 title: Shape Thumbnails
 type: docs
-weight: 60
+weight: 70
 url: /cpp/shape-thumbnails/
 ---
 

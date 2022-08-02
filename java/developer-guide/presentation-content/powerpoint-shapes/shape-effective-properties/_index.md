@@ -1,7 +1,7 @@
 ---
 title: Shape Effective Properties
 type: docs
-weight: 40
+weight: 50
 url: /java/shape-effective-properties/
 ---
 

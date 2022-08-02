@@ -1,7 +1,7 @@
 ---
 title: Shape Animation
 type: docs
-weight: 50
+weight: 60
 url: /java/shape-animation/
 keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Apply PowerPoint animation in Java"

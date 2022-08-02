@@ -34,9 +34,9 @@ Aspose.Slides provides these connectors:
 
 ## **Connect Shapes Using Connectors**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) to the slide using the `AddAutoShape` method exposed by the `Shapes` object.
+1. Add two [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) to the slide using the `AddAutoShape` method exposed by the `Shapes` object.
 1. Add a connector using the `AddConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Call the `Reroute` method to apply the shortest connection path.
@@ -67,7 +67,7 @@ using (Presentation input = new Presentation())
     // Calls reroute that sets the automatic shortest path between shapes
     connector.Reroute();
 
-    // Saves the presenation
+    // Saves the presentation
     input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
 }
 ```
@@ -81,9 +81,9 @@ The `Connector.Reroute` method reroutes a connector and forces it to take the sh
 ## **Specify Connection Dot**
 If you want a connector to link two shapes using specific dots on the shapes, you have to specify your preferred connection dots this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) to the slide using the `AddAutoShape` method exposed by the `Shapes` object.
+1. Add two [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) to the slide using the `AddAutoShape` method exposed by the `Shapes` object.
 1. Add a connector using the `AddConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Set your preferred connection dots on the shapes. 
@@ -227,7 +227,7 @@ adjValue_1.RawValue += 200000;
 
 The result:
 
-![connector-adjusted-1](connector-adjusted-1.png):
+![connector-adjusted-1](connector-adjusted-1.png)
 
 To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point:
 
@@ -318,9 +318,9 @@ The result:
 We demonstrated calculations involving simple adjustments and complicated adjustment points (adjustment points with rotation angles). Using the knowledge acquired, you can develop your own model (or write a code) to get a `GraphicsPath` object or even set a connector's adjustment point values based on specific slide coordinates.
 
 ## **Find Angle of Connector Lines**
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
-1. Access the connector line shape.
+1. Access the connector line shape. 
 1. Use the line width, height, shape frame height, and shape frame width to calculate the angle.
 
 This C# code demonstrates an operation in which we calculated the angle for a connector line shape:
@@ -364,4 +364,3 @@ public static double getDirection(float w, float h, bool flipH, bool flipV)
     return angle * 180.0 / Math.PI;
 }
 ```
-
