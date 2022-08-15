@@ -9,7 +9,7 @@ url: /java/licensing/
 
 {{% alert color="primary" %}} 
 
-You can download an evaluation version of **Aspose.Slides for Java** from its [download page](https://repository.aspose.com/repo/com/aspose/aspose-slides/). The evaluation version provides the same functionalities as the licensed version of the product. he evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
+You can download an evaluation version of **Aspose.Slides for Java** from its [download page](https://repository.aspose.com/repo/com/aspose/aspose-slides/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
 
 Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
 
