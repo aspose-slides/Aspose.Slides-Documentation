@@ -298,7 +298,7 @@ try {
 }
 ```
 
-## Set Transparency
+## **Set Transparency**
 
 In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or textures, you can specify the transparency level that determines the opacity of a fill. This way, for example, if you set a low transparency level, the slide object or background behind (the shape) shows through. 
 
@@ -441,5 +441,13 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```
+
+## **Reset Formatting**
+
+This Java code shows you how to reset the formatting in a shape and revert its layout styles to their defaults:
+
+```java
+
 ```
 

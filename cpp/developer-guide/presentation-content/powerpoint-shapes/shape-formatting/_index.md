@@ -413,3 +413,11 @@ shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Bal
 pres->Save(u"Rotation_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Reset Formatting**
+
+This C++ code shows you how to reset the formatting in a shape and revert its layout styles to their defaults:
+
+```c++
+
+```
+
