@@ -6,41 +6,41 @@ url: /net/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, C#, Csharp, .NET, Printer, Print Options"
 description: "Print PowerPoint Presentation in C# or .NET"
 ---
-## Overview
-Aspose.Slides for .NET provides four overloads methods for the printing of the presentations. These methods are flexible enough to print the presentation to the default printer or to any of the available printers with customized settings. You only need to select the appropriate print method according to the requirement.
+Aspose.Slides for .NET provides 4 overloaded [Print](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/print) methods that allow you to print presentations. The overloaded methods take different arguments, so you will always find a method that suits your printing needs.
+
 ## **Print to Default Printer**
-Printing of the presentation to the default printer is quite simple in Aspose.Slides for .NET. Perform the following steps in order to print the presentation to default printer:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to load a presentation that is to be printed
-1. Call the [Print method](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/print/methods/1) with no parameters as exposed by the Presentation object
+This simple print operation is used to print all the slides in a PowerPoint presentation through a system's default printer.
 
-In the example given below, we have call the Print method with no parameters.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and pass the presentation you want to print.
+2. Call the [Print](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/print/#ipresentationprint-method-1-of-4) method (with no parameters). 
+
+This C# code shows you how to print a PowerPoint presentation:
 
 ```c#
-// Load the presentation
+// Loads the presentation
 Presentation presentation = new Presentation("Print.ppt");
 
-// Call the print method to print whole presentation to the default printer
+// Calls the print method with no parameters
 presentation.Print();
 ```
 
-
-
 ## **Print to Specific Printer**
-Printing of the presentation to the specific printer requires the name of the printer as a parameter to the [**Print**](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/print/methods/1) method of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). Perform the following steps in order to print the presentation to the desired printer:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to load a presentation that is to be printed.
-1. Call the [Print method](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/print/methods/1) of the Presentation class with the printer name as a string parameter to the Print method.
+This operation is used to print all the slides in a PowerPoint presentation through a specific printer.
 
-In the example given below, we have called the Print method with the printer name as a string parameter to the Print method.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and pass the presentation you want to print.
+2. Call the Print method and pass the printer name as a string.
+
+This C# code shows you how to print a PowerPoint presentation using a specific printer:
 
 ```c#
 try
 {
-    // Load the presentation
+    // Loads the presentation
     Presentation presentation = new Presentation("Print.ppt");
 
-    // Call the print method to print whole presentation to the desired printer
+    // Calls the print method with the printer name 
     presentation.Print("Please set your printer name here");
 
 }
@@ -50,19 +50,19 @@ catch (Exception ex)
 }
 ```
 
-
-
 ## **Set Print Options Dynamically**
-Aspose.Slides provides support for setting the print presentation dynamically with options involving setting Margin, Print copies and also provide an option to preview print setting dialog. To setup printer settings use an instance of [**System.Drawing.Printing.PrinterSettings**](https://reference.aspose.com/slides/net/aspose.slides.presentation/print/methods/1) class. Perform the following steps in order to print the presentation, set print option like Margin, Print copies and also you can set print option dynamically.
 
-1. Create an instance of [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to load a presentation that is to be printed
-1. Instantiate printer setting object to represent print settings.
-1. Set number of copies to be printed.
-1. Set orientation of page.
-1. Set margin for a page.
-1. Print preview and print setting dialog.
+Using properties from the [PrinterSettings](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings?view=dotnet-plat-ext-6.0) class, you can apply parameters that define the printing operation. You can specify how many copies should be printed, whether slides should be printed in landscape or portrait, your preferred margins, etc.
 
-In the example given below, we have called the Print method with no parameters.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and pass the presentation you want to print.
+2. Instantiate the [PrinterSettings](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings?view=dotnet-plat-ext-6.0) class.
+3. Specify your preferred parameters for the printing operation:
+   * the number of copies
+   * page orientation
+   * margin figures, etc.
+4. Call the `Print` method.
+
+This C# code shows you how to print a PowerPoint presentation with certain print options: 
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -75,4 +75,3 @@ using (Presentation pres = new Presentation())
 	pres.Print(printerSettings);
 }
 ```
-
