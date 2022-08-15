@@ -69,18 +69,40 @@ try {
 
 ## **Manage Worksheets**
 
-This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) property is used to access a worksheet collection: xxx
+This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) property is used to access a worksheet collection:
 
 ```java
-
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
+    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
+    for (int i = 0; i < wb.getWorksheets().size(); i++)
+        System.out.println(wb.getWorksheets().get_Item(i).getName());
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Specify Data Source Type**
 
-This Java code shows you how to specify a type for a data source: xxx
+This Java code shows you how to specify a type for a data source:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+    IChartSeriesCollection series = chart.getChartData().getSeries();
 
+    IChartDataPoint point = series.get_Item(0).getDataPoints().getOrCreateDataPointByIdx(2);
+
+    // set data source type as "double literals"
+    point.getValue().setDataSourceType(DataSourceType.DoubleLiterals);
+    point.getValue().setAsLiteralDouble(5);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **External Workbook**
