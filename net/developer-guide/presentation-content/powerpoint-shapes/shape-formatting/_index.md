@@ -428,7 +428,7 @@ using (Presentation pres = new Presentation())
 
 ## **Reset Formatting**
 
-This C# code shows you how to reset the formatting in a shape and revert its layout styles to their defaults:
+This C# code shows you how to reset the formatting in a shape and revert its layout styles to their defaults: xxx 
 
 ```c#
 
