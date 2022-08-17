@@ -2,7 +2,6 @@
 title: Aspose.Slides for .NET 22.8 Release Notes
 type: docs
 weight: 25
-
 url: /net/aspose-slides-for-net-22-8-release-notes/
 ---
 
