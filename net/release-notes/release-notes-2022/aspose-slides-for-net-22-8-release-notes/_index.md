@@ -62,19 +62,19 @@ Presentation Slide Show Settings support was added.
 
 The following classes and preoprties were addeded to support Slide Show Settings:
 
-* Presentation.SlideShowSettings property - provides the access to setup the slide show settings of the presentation.
-* SlideShowSettings class - represents the slide show settings for the presentation. It has the following properties:
-  - SlideShowType
-  - Loop
-  - ShowNarration
-  - ShowAnimation
-  - PenColor
-  - Slides
-  - UseTimings
-* BrowsedAtKiosk class - represents browsed at a kiosk (full screen) settings.
-* BrowsedByIndividual class - represents browsed by individual (window) settings.
-* PresentedBySpeaker class - represents presented by a speaker (full screen) settings.
-* SlidesRange class - represents a slides range.
+* [Presentation.SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/presentation/slideshowsettings/) property - provides the access to setup the slide show settings of the presentation.
+* [SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/) class - represents the slide show settings for the presentation. It has the following properties:
+  - [SlideShowType](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/slideshowtype)
+  - [Loop](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/loop)
+  - [ShowNarration](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/shownarration)
+  - [ShowAnimation](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/showanimation)
+  - [PenColor](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/pencolor)
+  - [Slides](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/slides)
+  - [UseTimings](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/usetimings)
+* [BrowsedAtKiosk](https://reference.aspose.com/slides/net/aspose.slides/browsedatkiosk) class - represents browsed at a kiosk (full screen) settings.
+* [BrowsedByIndividual](https://reference.aspose.com/slides/net/aspose.slides/browsedbyindividual) class - represents browsed by individual (window) settings.
+* [PresentedBySpeaker](https://reference.aspose.com/slides/net/aspose.slides/presentedbyspeaker) class - represents presented by a speaker (full screen) settings.
+* [SlidesRange](https://reference.aspose.com/slides/net/aspose.slides/slidesrange/) class - represents a slides range.
 
 Here is an example of setting "presented by a speaker" mode of a slide show:
 
@@ -99,7 +99,7 @@ using (Presentation pres = new Presentation())
 
 ### Animation Effect.Sound property added ###
 
-Embedded effect of the sound support was added - Effect.Sound property. 
+Embedded effect of the sound support was added - [Effect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) property. 
 
 ``` csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
