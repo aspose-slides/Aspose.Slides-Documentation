@@ -71,6 +71,5 @@ with slides.Presentation("pres.pptx") as pres:
     printerSettings.copies = 2
     printerSettings.default_page_settings.landscape = True
     printerSettings.default_page_settings.margins.left = 10
-    pres.print(printerSettings)
+    pres.print(printerettings)
 ```
-

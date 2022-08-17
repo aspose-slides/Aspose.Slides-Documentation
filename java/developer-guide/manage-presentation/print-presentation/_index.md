@@ -15,7 +15,7 @@ This simple print operation is used to print all the slides in a PowerPoint pres
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and pass the presentation you want to print.
 2. Call the `Print` method (with no parameters). 
 
-This Java code shows you how to print a PowerPoint presentation:
+This Java code shows you how to print a PowerPoint presentation: xxx
 
 ```java
 
@@ -28,7 +28,7 @@ This operation is used to print all the slides in a PowerPoint presentation thro
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and pass the presentation you want to print.
 2. Call the Print method and pass the printer name as a string.
 
-This Java code shows you how to print a PowerPoint presentation using a specific printer:
+This Java code shows you how to print a PowerPoint presentation using a specific printer: xxx
 
 ```java
 
@@ -46,7 +46,7 @@ Using properties from the `PrinterSettings` class, you can apply parameters that
    * margin figures, etc.
 4. Call the `Print` method.
 
-This Java code shows you how to print a PowerPoint presentation with certain print options: 
+This Java code shows you how to print a PowerPoint presentation with certain print options: xxx
 
 ```java
 

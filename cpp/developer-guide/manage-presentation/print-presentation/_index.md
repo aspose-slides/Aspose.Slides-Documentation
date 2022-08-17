@@ -15,7 +15,7 @@ This simple print operation is used to print all the slides in a PowerPoint pres
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class and pass the presentation you want to print.
 2. Call the `Print` method (with no parameters). 
 
-This C++ code shows you how to print a PowerPoint presentation:
+This C++ code shows you how to print a PowerPoint presentation: xxx
 
 ```c++
 
@@ -28,7 +28,7 @@ This operation is used to print all the slides in a PowerPoint presentation thro
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class and pass the presentation you want to print.
 2. Call the Print method and pass the printer name as a string.
 
-This C++ code shows you how to print a PowerPoint presentation using a specific printer:
+This C++ code shows you how to print a PowerPoint presentation using a specific printer: xxx
 
 ```c++
 
@@ -46,7 +46,7 @@ Using properties from the `PrinterSettings` class, you can apply parameters that
    * margin figures, etc.
 4. Call the `Print` method.
 
-This C++ code shows you how to print a PowerPoint presentation with certain print options: 
+This C++ code shows you how to print a PowerPoint presentation with certain print options: xxx
 
 ```c++
 
