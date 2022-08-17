@@ -91,7 +91,7 @@ You can get the latest source code from one of the following locations:
 ## **Sample Code Examples**
 **This section includes the following topics:**
 
-- [Download and Configure Aspose.Slides in Ruby](/slides/java/download-and-configure-aspose-slides-in-ruby/)
+- [Download and Configure Aspose.Slides in Ruby](/java/download-and-configure-aspose-slides-in-ruby/)
 - [Ruby Programmers Guide](/slides/java/ruby-programmers-guide/)
   - [Introduction to Presentation in Ruby](/slides/java/introduction-to-presentation-in-ruby/)
     - [Hello World Application in Ruby](/slides/java/hello-world-application-in-ruby/)
