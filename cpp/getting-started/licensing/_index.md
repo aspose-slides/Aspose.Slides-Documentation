@@ -37,7 +37,6 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
   * An explicit path
   * The folder containing the dll of the component (included in Aspose.Slides)
   * The folder containing the assembly that calls the dll of the component (included in Aspose.Slides)
-  * The folder containing the entry assembly (your .exe)
 * To avoid the limitations associated with the evaluation version, you need to set a license before using Aspose.Slides. You only have to set a license once per application or process.
 
 ## **Applying a License**
@@ -64,7 +63,7 @@ lic->SetLicense(L"Aspose.Slides.lic");
 
 {{% alert color="warning" %}} 
 
-When you call the `SetLicense` method, the string must have the same name as your license file. For example, you can change the license file name to "*Aspose.Slides.lic.xml*". Then, in your code, you have to pass the new license name *Aspose.Slides.lic.xml* to the `SetLicense` method.
+When you call the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method, the string must have the same name as your license file. For example, you can change the license file name to "*Aspose.Slides.lic.xml*". Then, in your code, you have to pass the new license name *Aspose.Slides.lic.xml* to the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method.
 
 {{% /alert %}}
 
