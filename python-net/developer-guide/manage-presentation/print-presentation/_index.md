@@ -6,17 +6,18 @@ url: /python-net/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Python, Printer, Print Options"
 description: "Print PowerPoint Presentation in Python"
 ---
-## Overview
-Aspose.Slides for Python via .NET provides four overloads methods for the printing of the presentations. These methods are flexible enough to print the presentation to the default printer or to any of the available printers with customized settings. You only need to select the appropriate print method according to the requirement.
+Aspose.Slides for Python provides 4 overloaded `Print` methods that allow you to print presentations. The overloaded methods take different arguments, so you will always find a method that suits your printing needs.
+
 ## **Print to Default Printer**
-Printing of the presentation to the default printer is quite simple in Aspose.Slides for Python via .NET. Perform the following steps in order to print the presentation to default printer:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to load a presentation that is to be printed
-1. Call the [print method](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) with no parameters as exposed by the Presentation object
+This simple print operation is used to print all the slides in a PowerPoint presentation through a system's default printer.
 
-In the example given below, we have call the Print method with no parameters.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation you want to print.
+2. Call the `Print` method (with no parameters). 
 
-```py
+This Python code shows you how to print a PowerPoint presentation:
+
+```python
 import aspose.slides as slides
 
 # Load the presentation
@@ -26,17 +27,16 @@ presentation = slides.Presentation("Print.ppt")
 presentation.print()
 ```
 
-
-
 ## **Print to Specific Printer**
-Printing of the presentation to the specific printer requires the name of the printer as a parameter to the [**Print**](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation) method of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Perform the following steps in order to print the presentation to the desired printer:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to load a presentation that is to be printed.
-2. Call the [print method](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) of the Presentation class with the printer name as a string parameter to the Print method.
+This operation is used to print all the slides in a PowerPoint presentation through a specific printer.
 
-In the example given below, we have called the Print method with the printer name as a string parameter to the Print method.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation you want to print.
+2. Call the `Print` method and pass the printer name as a string.
 
-```py
+This Python code shows you how to print a PowerPoint presentation using a specific printer:
+
+```python
 import aspose.slides as slides
 
 try:
@@ -48,21 +48,21 @@ except:
     print("Please set printer name as string parameter to the Presentation Print method")
 ```
 
-
-
 ## **Set Print Options Dynamically**
-Aspose.Slides provides support for setting the print presentation dynamically with options involving setting Margin, Print copies and also provide an option to preview print setting dialog. To setup printer settings use an instance of [**System.Drawing.Printing.PrinterSettings**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. Perform the following steps in order to print the presentation, set print option like Margin, Print copies and also you can set print option dynamically.
 
-1. Create an instance of [**Presentation**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to load a presentation that is to be printed
-1. Instantiate printer setting object to represent print settings.
-1. Set number of copies to be printed.
-1. Set orientation of page.
-1. Set margin for a page.
-1. Print preview and print setting dialog.
+Using properties from the `PrinterSettings` class, you can apply parameters that define the printing operation. You can specify how many copies should be printed, whether slides should be printed in landscape or portrait, your preferred margins, etc.
 
-In the example given below, we have called the Print method with no parameters.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation you want to print.
+2. Instantiate the `PrinterSettings` class.
+3. Specify your preferred parameters for the printing operation:
+   * the number of copies
+   * page orientation
+   * margin figures, etc.
+4. Call the `Print` method.
 
-```py
+This Python code shows you how to print a PowerPoint presentation with certain print options: 
+
+```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
