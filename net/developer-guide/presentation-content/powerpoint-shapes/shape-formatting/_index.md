@@ -428,9 +428,16 @@ using (Presentation pres = new Presentation())
 
 ## **Reset Formatting**
 
-This C# code shows you how to reset the formatting in a shape and revert its layout styles to their defaults: xxx 
+This C# code shows you how to reset the formatting in a slide and revert position, size and formatting of every shape that has a prototype on [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) to their defaults:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    foreach (ISlide slide in pres.Slides)
+    {
+        // each shape on the slide that has a placeholder on the layout will be reverted
+        slide.Reset();
+    }
+}
 ```
 
