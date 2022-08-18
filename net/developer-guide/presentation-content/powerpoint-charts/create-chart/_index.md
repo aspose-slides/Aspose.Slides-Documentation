@@ -1,5 +1,5 @@
 ---
-title: Create PowerPoint Presentations Charts in C# or .NET
+title: Create PowerPoint Presentation Charts in C# or .NET
 linktitle: Create Chart
 type: docs
 weight: 10
