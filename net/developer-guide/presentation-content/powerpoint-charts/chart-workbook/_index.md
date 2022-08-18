@@ -88,15 +88,14 @@ This C# code shows you how to specify a type for a data source:
 ```c#
 using (Presentation pres = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.ChartData.Series;
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue val = chart.ChartData.Series[0].Name;
     
-    IChartDataPoint point = series[0].DataPoints.GetOrCreateDataPointByIdx(2);
-    point = series[0].DataPoints.GetOrCreateDataPointByIdx(4);
-   
-    // set data source type as "double literals"
-    point.Value.DataSourceType = DataSourceType.DoubleLiterals;
-    point.Value.AsLiteralDouble = 5;
+    val.DataSourceType = DataSourceType.StringLiterals;
+    val.Data = "LiteralString";
+
+    val = chart.ChartData.Series[1].Name;
+    val.Data = chart.ChartData.ChartDataWorkbook.GetCell(0, "B1", "NewCell");
 
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
