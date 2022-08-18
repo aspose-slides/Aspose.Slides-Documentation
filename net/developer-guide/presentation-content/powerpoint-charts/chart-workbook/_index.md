@@ -13,29 +13,19 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 This C# code demonstrates a sample operation:
 
 ```c#
-Presentation pres = new Presentation(dataDir+"Test.pptx");
-
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
-chart.ChartData.ChartDataWorkbook.Clear(0);
-
-Workbook workbook = null;
-try
+using (Presentation pres = new Presentation("chart.pptx"))
 {
-	workbook = new Aspose.Cells.Workbook("a1.xlsx");
-}
-catch (Exception ex)
-{
-	Console.Write(ex);
-}
-MemoryStream mem = new MemoryStream();
-workbook.Save(mem, Aspose.Cells.SaveFormat.Xlsx);
+    Chart chart = (Chart) pres.Slides[0].Shapes[0];
+    IChartData data = chart.ChartData;
 
-chart.ChartData.WriteWorkbookStream(mem);
+    MemoryStream stream = data.ReadWorkbookStream();
 
-chart.ChartData.SetRange("Sheet1!$A$1:$B$9");
-IChartSeries series = chart.ChartData.Series[0];
-series.ParentSeriesGroup.IsColorVaried = true;
-pres.Save(dataDir+"response2.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    data.Series.Clear();
+    data.Categories.Clear();
+
+    stream.Position = 0;
+    data.WriteWorkbookStream(stream);
+}
 ```
 
 
@@ -124,24 +114,20 @@ Using the **`ReadWorkbookStream`** and **`SetExternalWorkbook`** methods, you ca
 This C# code demonstrates the external workbook creation process:
 
 ```c#
-using (Presentation pres = new Presentation("presentation.pptx"))
+using (Presentation pres = new Presentation())
 {
-    string externalWbPath = "externalWorkbook1.xlsx";
+    const string workbookPath = "externalWorkbook1.xlsx";
 
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600);
-
-    if (File.Exists(externalWbPath))
-        File.Delete(externalWbPath);
-
-    using (FileStream fileStream = new FileStream(externalWbPath, FileMode.CreateNew))
+    using (FileStream fileStream = new FileStream(workbookPath, FileMode.Create))
     {
-        byte[] worbookData = chart.ChartData.ReadWorkbookStream().ToArray();
-        fileStream.Write(worbookData, 0, worbookData.Length);
+        byte[] workbookData = chart.ChartData.ReadWorkbookStream().ToArray();
+        fileStream.Write(workbookData, 0, workbookData.Length);
     }
+    
+    chart.ChartData.SetExternalWorkbook(Path.GetFullPath(workbookPath));
 
-    chart.ChartData.SetExternalWorkbook(externalWbPath);
-
-    pres.Save("Presentation_with_externalWbPath.pptx", SaveFormat.Pptx);
+    pres.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -160,7 +146,7 @@ using (Presentation pres = new Presentation())
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
     IChartData chartData = chart.ChartData;
                     
-    chartData.SetExternalWorkbook("externalWorkbook.xlsx");
+    chartData.SetExternalWorkbook(Path.GetFullPath("externalWorkbook.xlsx"));
                   
 
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
@@ -205,16 +191,17 @@ This C# code demonstrates the operation:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
-	ISlide slide = pres.Slides[1];
-	IChart chart = (IChart)slide.Shapes[0];
-	ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
-	if (sourceType == ChartDataSourceType.ExternalWorkbook)
-	{
-		string path = chart.ChartData.ExternalWorkbookPath;
-	}
+    ISlide slide = pres.Slides[1];
+    IChart chart = (IChart)slide.Shapes[0];
+    ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
+    if (sourceType == ChartDataSourceType.ExternalWorkbook)
+    {
+        string path = chart.ChartData.ExternalWorkbookPath;
+    }
+    
+    // Saves the presentation
+    pres.Save("Result.pptx", SaveFormat.Pptx);
 }
-// Saves the presentation
-pres.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
 ### **Edit Chart Data**
