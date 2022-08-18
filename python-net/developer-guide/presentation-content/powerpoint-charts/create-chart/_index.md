@@ -348,13 +348,13 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-This Python code shows you how to create a line chart:
+This Python code shows you how to create a line chart: xxx
 
 ```python
 
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
+By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way: xxx
 
 ```python
 
