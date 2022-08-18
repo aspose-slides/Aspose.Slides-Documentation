@@ -42,7 +42,7 @@ We implemented support for Presentation Slide Show Settings.
 
 ![Slide Show Settings](slideShowSetup.png)
 
-These are the relevant classes and properties:
+These are the relevant classes and methods:
 
 * [Presentation::get_SlideShowSettings()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a8bf038a4010333d34bb41bd82db77db8) method - allows you to specify the slide show settings for a presentation.
 * [SlideShowSettings](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_show_settings/) class - represents the slide show settings for the presentation. It provides these methods:
