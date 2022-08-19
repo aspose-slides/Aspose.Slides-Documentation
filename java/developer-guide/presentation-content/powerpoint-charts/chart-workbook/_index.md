@@ -13,24 +13,17 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 This Java code demonstrates a sample operation:
 
 ```java
-Presentation pres = new Presentation();
+Presentation pres = new Presentation("chart.pptx");
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 500, 400);
-    chart.getChartData().getChartDataWorkbook().clear(0);
+    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = chart.getChartData();
 
-    Workbook workbook = new Workbook("a1.xlsx");
+    byte[] stream = data.readWorkbookStream();
 
-    ByteArrayOutputStream mem = new ByteArrayOutputStream();
-    workbook.save(mem, com.aspose.cells.SaveFormat.XLSX);
+    data.getSeries().clear();
+    data.getCategories().clear();
 
-    chart.getChartData().writeWorkbookStream(mem.toByteArray());
-
-    chart.getChartData().setRange("Sheet1!$A$1:$B$9");
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getParentSeriesGroup().setColorVaried(true);
-    pres.save("response2.pptx", SaveFormat.Pptx);
-} catch (Exception ex) {
-    ex.printStackTrace();
+    data.writeWorkbookStream(stream);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -45,21 +38,28 @@ try {
 1. Set the workbook cell as a data label.
 1. Save the presentation.
 
+This Java code shows you to set a workbook cell as a chart data label:
+
 ```java
+String lbl0 = "Label 0 cell value";
+String lbl1 = "Label 1 cell value";
+String lbl2 = "Label 2 cell value";
+
 // Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation("chart.pptx");
+Presentation pres = new Presentation("chart2.pptx");
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    ISlide slide = pres.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
+    IChartSeriesCollection series = chart.getChartData().getSeries();
+    
+    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
+    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
 
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
 
-    series.getLabels().get_Item(0).setValueFromCell(wb.getCell(0, "A10", "Label 0 cell value"));
-    series.getLabels().get_Item(1).setValueFromCell(wb.getCell(0, "A11", "Label 1 cell value"));
-    series.getLabels().get_Item(2).setValueFromCell(wb.getCell(0, "A12", "Label 2 cell value"));
+    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
+    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
+    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
 
     pres.save("resultchart.pptx", SaveFormat.Pptx);
 } finally {
@@ -69,7 +69,7 @@ try {
 
 ## **Manage Worksheets**
 
-This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) property is used to access a worksheet collection:
+This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```java
 Presentation pres = new Presentation();
@@ -108,7 +108,7 @@ try {
 ## **External Workbook**
 
 {{% alert color="primary" %}} 
-In [Aspose.Slides](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
 ### **Create External Workbook**
@@ -121,7 +121,7 @@ This Java code demonstrates the external workbook creation process:
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
-    String externalWbPath = dataPath + "externalWorkbook1.xlsx";
+    final String externalWbPath = dataPath + "externalWorkbook1.xlsx";
     
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
 
