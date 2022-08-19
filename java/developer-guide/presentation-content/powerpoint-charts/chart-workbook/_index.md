@@ -90,14 +90,14 @@ This Java code shows you how to specify a type for a data source:
 ```java
 Presentation pres = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
 
-    IChartDataPoint point = series.get_Item(0).getDataPoints().getOrCreateDataPointByIdx(2);
+    val.setDataSourceType(DataSourceType.StringLiterals);
+    val.setData("LiteralString");
 
-    // set data source type as "double literals"
-    point.getValue().setDataSourceType(DataSourceType.DoubleLiterals);
-    point.getValue().setAsLiteralDouble(5);
+    val = chart.getChartData().getSeries().get_Item(1).getName();
+    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -118,26 +118,23 @@ Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you ca
 This Java code demonstrates the external workbook creation process:
 
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("chart.pptx");
+Presentation pres = new Presentation();
 try {
-    final String externalWbPath = dataPath + "externalWorkbook1.xlsx";
-    
+    final String workbookPath = "externalWorkbook1.xlsx";
+
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
+    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+    try {
+        byte[] workbookData = chart.getChartData().readWorkbookStream();
+        fileStream.write(workbookData, 0, workbookData.length);
+    } finally {
+        if (fileStream != null) fileStream.close();
+    }
 
-    java.io.File file = new File(externalWbPath);
-    if (file.exists())
-        file.delete();
+    chart.getChartData().setExternalWorkbook(workbookPath);
 
-    byte[] worbookData = chart.getChartData().readWorkbookStream();
-    FileOutputStream outputStream = new FileOutputStream(file);
-    outputStream.write(worbookData);
-    outputStream.close();
-
-    chart.getChartData().setExternalWorkbook(externalWbPath);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
+    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
+} catch (IOException e) {    
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -158,7 +155,7 @@ try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
     IChartData chartData = chart.getChartData();
 
-    chartData.setExternalWorkbook(dataPath +"externalWorkbook.xlsx");
+    chartData.setExternalWorkbook("externalWorkbook.xlsx");
 
     chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
     chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
@@ -217,6 +214,9 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
+	
+	// Saves the presentation
+    pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
