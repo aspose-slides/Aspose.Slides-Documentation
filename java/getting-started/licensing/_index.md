@@ -93,35 +93,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 If you use Aspose.Slides for PHP via Java, you can set a license through a PHP/Java bridge. This bridge allows you to use Java classes in PHP syntax.
 
-This PHP code shows you how to set a license in PHP using the PHP/Java bridge:
-
-```php
-<?php
-	 //Uses spose.slides.jar file so that the classes inside the jar file
-	 //can be used
-	 java_require("aspose.slides.jar");
-
-	 try
-	 {
-	   // Creates a stream object containing the license file
-	   $fistream=new Java("java.io.FileInputStream", "Aspose.Slides.Java.lic");
-
-	   // Instantiates the License class
-	   $license=new Java("com.aspose.slides.License");
-
-	   // Sets the license through the stream object
-	   $license->setLicense($fistream);
-
-	   // Closes  the stream
-	   $fistream->close();
-	 }
-	 catch(JavaException $ex)
-	 {
-	   // Prints the exception (if it occurs)
-	   echo $ex->toString();
-	 }
-?>
-```
+For more information see the following article - [License in PHP](/slides/php-java/licensing/).
 
 ## **Validating a License**
 
