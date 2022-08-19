@@ -69,7 +69,9 @@ lic->SetLicense(L"Aspose.Slides.lic");
 
 {{% alert color="warning" %}} 
 
-When you call the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method, the string must have the same name as your license file. For example, you can change the license file name to "*Aspose.Slides.lic.xml*". Then, in your code, you have to pass the new license name *Aspose.Slides.lic.xml* to the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method.
+If you place the license file in a different directory, when you call the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method, the license file name at the end of the specified explicit must be the same as your license file.
+
+For example, you can change the license file name to *Aspose.Slides.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.lic.xml*) to the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method.
 
 {{% /alert %}}
 

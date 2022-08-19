@@ -71,7 +71,9 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" %}} 
 
-When you call the `SetLicense` method, the string must have the same name as your license file. For example, you can change the license file name to "*Aspose.Slides.lic.xml*". Then, in your code, you have to pass the new license name *Aspose.Slides.lic.xml* to the `SetLicense` method.
+If you place the license file in a different directory, when you call the [SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) method, the license file name at the end of the specified explicit must be the same as your license file.
+
+For example, you can change the license file name to *Aspose.Slides.Java.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.Java.lic.xml*) to the [SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) method.
 
 {{% /alert %}}
 
