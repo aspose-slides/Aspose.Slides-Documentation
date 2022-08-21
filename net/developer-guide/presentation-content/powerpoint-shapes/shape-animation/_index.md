@@ -230,12 +230,14 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 ```
 
 ### **Extract Animation Effect Sound**
-Aspose.Slides for .NET allows you to extract the sound embedded to an animation effect. 
+Aspose.Slides for .NET allows you to extract the sound embedded in an animation effect. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
 3. Get the main sequence of effects. 
 4. Extract the [Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) embedded to each animation effect. 
+
+This C# code shows you how to extract the sound embedded in an animation effect:
 
 ```c#
 // Instantiates a presentation class that represents a presentation file.
