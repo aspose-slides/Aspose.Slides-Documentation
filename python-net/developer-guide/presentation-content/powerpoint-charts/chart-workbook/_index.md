@@ -66,7 +66,7 @@ with slides.Presentation() as pres:
 
 ## **Specify Data Source Type**
 
-This Python code shows you how to specify a type for a data source: DOUBLE_LITERALS
+This Python code shows you how to specify a type for a data source: 
 
 ```python
 import aspose.slides as slides
