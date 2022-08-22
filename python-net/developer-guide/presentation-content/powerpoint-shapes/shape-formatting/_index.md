@@ -430,7 +430,7 @@ with slides.Presentation() as pres:
 
 ## **Reset Formatting**
 
-This Python code shows you how to reset the formatting in a shape and revert its layout styles to their defaults:
+This Python code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) to their defaults:
 
 ```python
 
