@@ -433,6 +433,11 @@ with slides.Presentation() as pres:
 This Python code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) to their defaults:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    for slide in pres.slides:
+        # each shape on the slide that has a placeholder on the layout will be reverted
+        slide.reset()
 ```
 
