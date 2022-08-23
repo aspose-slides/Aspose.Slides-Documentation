@@ -82,7 +82,7 @@ For example, you can change the license file name to *Aspose.Slides.lic.xml*. Th
 
 ### **Stream**
 
-You can load a license from a stream. This C# code shows you how to apply a license from a stream:
+You can load a license from a stream. This Python code shows you how to apply a license from a stream:
 
 ``` python
 import aspose.slides as slides
@@ -96,10 +96,17 @@ license.set_license(stream)
 
 ## **Validating a License**
 
-To check whether a license has been set properly, you can validate it. This Python code shows you how to validate a license: xxx
+To check whether a license has been set properly, you can validate it. This Python code shows you how to validate a license:
 
 ```python
+import aspose.slides as slides
 
+license = slides.License()
+
+license.set_license("Aspose.Slides.lic")
+
+if license.is_licensed():
+    print("License is good!")
 ```
 
 ## **Thread Safety**
