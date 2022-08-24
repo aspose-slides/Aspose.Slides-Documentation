@@ -448,6 +448,15 @@ try {
 This Java code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/LayoutSlide) to their defaults:
 
 ```java
-
+Presentation pres = new Presentation();
+try {
+    for (ISlide slide : pres.getSlides())
+    {
+        // each shape on the slide that has a placeholder on the layout will be reverted
+        slide.reset();
+    }
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
