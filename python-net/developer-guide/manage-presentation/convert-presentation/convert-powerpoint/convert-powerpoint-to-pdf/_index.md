@@ -1,5 +1,6 @@
 ---
-title: Convert PowerPoint to PDF
+title: Convert PowerPoint PPTX or PPT to PDF in Python
+linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /python-net/convert-powerpoint-to-pdf/
@@ -13,7 +14,7 @@ Using Aspose.Slides, you can convert presentations in these formats to PDF:
 * PPTX
 * ODP
 
-To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class and then save the presentation as a PDF using a [Save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/#methods) method. The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class exposes the  [Save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/#methods) method that is typically used to convert a presentation to PDF.
+To convert a presentation to PDF in Python, you simply have to pass the file name as an argument in the [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class and then save the presentation as a PDF using a [Save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/#methods) method. The [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) class exposes the  [Save](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/#methods) method that is typically used to convert a presentation to PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
