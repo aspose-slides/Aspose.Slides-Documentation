@@ -1,14 +1,15 @@
 ---
-title: Convert Powerpoint PPT to JPG
+title: Convert Powerpoint PPT to JPG in Python
+linktitle: Convert Powerpoint PPT to JPG
 type: docs
 weight: 60
 url: /python-net/convert-powerpoint-to-jpg/
-keywords: "Convert PowerPoint Presentation, JPG, JPEG, PowerPoint to JPG, PowerPoint to JPEG, PPT to JPG, PPTX to JPG, PPT to JPEG, PPTX to JPEG, Python, Aspose.Slides"
+keywords: "python ppt to image, Convert PowerPoint Presentation, JPG, JPEG, PowerPoint to JPG, PowerPoint to JPEG, PPT to JPG, PPTX to JPG, PPT to JPEG, PPTX to JPEG, Python, Aspose.Slides"
 description: "Convert PowerPoint to JPG in Python. Save slide as JPG image"
 ---
 
 ## **About PowerPoint to JPG Conversion**
-With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/python-net/) you can convert PowerPoint PPT or PPTX presentation to JPG image. It is also possible to convert PPT/PPTX to BMP, PNG or SVG. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
+With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/python-net/) you can convert PowerPoint PPT or PPTX presentation to JPG image in Python. It is also possible to convert PPT/PPTX to BMP, PNG or SVG in Python. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
 
 {{% alert color="primary" %}} 
 
