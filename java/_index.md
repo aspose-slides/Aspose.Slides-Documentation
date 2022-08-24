@@ -27,7 +27,7 @@ These are links to useful resources:
 - [Aspose.Slides for Java Limitations](/slides/java/known-issues/)
 - [Aspose.Slides for Java Release Notes](/slides/java/aspose-slides-for-java/)
 - [Aspose.Slides for Java Product Page](https://products.aspose.com/slides/java/)
-- [Download Aspose.Slides for Java](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides)
+- [Download Aspose.Slides for Java](https://repository.aspose.com/slides/)
 - [Install Aspose.Slides for Java from Maven Repository](https://repository.aspose.com/repo/com/aspose/)
 - [Aspose.Slides for Java API Reference Guide](https://reference.aspose.com/slides/java)
 - [Download Examples from a GitHub Repository](https://github.com/aspose-slides/Aspose.Slides-for-Java)
