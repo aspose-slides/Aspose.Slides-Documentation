@@ -9,7 +9,7 @@ description: "Add comments and replies in PowerPoint presentation in C# or .NET"
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
-### **Why Add Comments to Presentations?**
+## **Why Add Comments to Presentations?**
 
 You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
