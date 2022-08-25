@@ -1,6 +1,6 @@
 ---
-title: Convert Powerpoint PPT to JPG in Python
-linktitle: Convert Powerpoint PPT to JPG
+title: Convert PowerPoint PPT to JPG in Python
+linktitle: Convert PowerPoint PPT to JPG
 type: docs
 weight: 60
 url: /python-net/convert-powerpoint-to-jpg/
