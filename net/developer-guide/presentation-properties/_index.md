@@ -1,9 +1,10 @@
 ---
-title: Presentation Properties
+title: Presentation Properties - Access or Modify PowerPoint Presentation Properties in C#
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /net/presentation-properties/
-keywords: "PowerPoint properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: "how to remove last modified by in powerpoint, PowerPoint properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "PowerPoint presentation properties in C# or .NET"
 ---
 
