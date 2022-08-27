@@ -73,6 +73,34 @@ using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 }
 ```
 
+Additionally, you can use the [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) property to check or disable the slide transition after a specific time period. 
+
+This C# code demonstrates the operation:
+
+```c#
+// Instantiate Presentation class that represents a presentation file
+using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+{
+    foreach (ISlide slide in pres.Slides)
+    {
+        // Get the slide Transition
+        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+
+        // Check if the Advance After Time enabled
+        if (slideTransition.AdvanceAfter)
+        {
+            // Print the Advance After Time value
+            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+        }
+
+        // Disable the transition after a specific time if the AdvancedAfterTime value is greater than 2 seconds
+        if (slideTransition.AdvanceAfterTime > 2000)
+        {
+            slideTransition.AdvanceAfter = false;
+        }
+    }
+}
+```
 
 ## **Morph Transition**
 Aspose.Slides for .NET now supports the [Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition). They represent a new morph transition introduced in PowerPoint 2019. The Morph transition allows you to animate smooth movement from one slide to the next. This article describes the concept and how to use the Morph transition. To use the Morph transition effectively, you will need to have two slides with at least one object in common. The easiest way is to duplicate the slide and then move the object on the second slide to a different place.
