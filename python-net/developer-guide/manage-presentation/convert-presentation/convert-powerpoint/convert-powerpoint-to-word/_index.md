@@ -18,13 +18,13 @@ You may want to try out our [**Presentation to Word Online Converter**](https://
 
 {{% /alert %}} 
 
-### **Aspose.Slides and Aspose.Words**
+## **Aspose.Slides and Aspose.Words**
 
-To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net/) and [Aspose.Words for Python via .NET](https://products.aspose.com/words/python/).
+To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net/) and [Aspose.Words for Python via .NET](https://products.aspose.com/words/python-net/).
 
 As a standalone API, [Aspose.Slides](https://products.aspose.app/slides/python-net/) for Python via .NET provides functions that allow you to extract texts from presentations. 
 
-[Aspose.Words](https://docs.aspose.com/words/python/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
+[Aspose.Words](https://products.aspose.com/words/python-net/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
 
 ## **Convert PowerPoint to Word in Python**
 
