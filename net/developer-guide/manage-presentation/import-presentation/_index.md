@@ -15,6 +15,7 @@ Using [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/), you
 Aspose.Slides allows you to import presentations from PDF documents. In this case, you get to convert a PDF to a PowerPoint presentation.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
+
 1. Instantiate an object of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Call the [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) method and pass the PDF file. 
 3. Use the [Save](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file in the PowerPoint format.
@@ -43,7 +44,7 @@ Aspose.Slides allows you to import presentations from HTML files. In this case, 
 2. Call the [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/) method and pass the HTML file. 
 3. Use the [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file as a PowerPoint document.
 
-This C# code demonstrates the HTML to PowerPoint operation: xxx 
+This C# code demonstrates the HTML to PowerPoint operation: 
 
 ```c#
 using (var presentation = new Presentation())
