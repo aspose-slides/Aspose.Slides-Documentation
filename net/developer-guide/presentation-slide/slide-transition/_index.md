@@ -73,27 +73,27 @@ using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 }
 ```
 
-Additionally, you can use the [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) property to check or disable the slide transition after a specific time period. 
+Additionally, using the [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) property, you can check whether a slide transition has been configured to move to the next slide or disable the setting.
 
 This C# code demonstrates the operation:
 
 ```c#
-// Instantiate Presentation class that represents a presentation file
+// Instantiates a Presentation class that represents a presentation file
 using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
 {
     foreach (ISlide slide in pres.Slides)
     {
-        // Get the slide Transition
+        // Gets the slide Transition
         ISlideShowTransition slideTransition = slide.SlideShowTransition;
 
-        // Check if the Advance After Time enabled
+        // Checks wthether the Advance After Time setting is enabled
         if (slideTransition.AdvanceAfter)
         {
-            // Print the Advance After Time value
+            // Prints the Advance After Time value
             Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
         }
 
-        // Disable the transition after a specific time if the AdvancedAfterTime value is greater than 2 seconds
+        // Disables the transition after a specific time if the AdvancedAfterTime value is greater than 2 seconds
         if (slideTransition.AdvanceAfterTime > 2000)
         {
             slideTransition.AdvanceAfter = false;
