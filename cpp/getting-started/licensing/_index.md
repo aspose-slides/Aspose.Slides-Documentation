@@ -92,17 +92,12 @@ lic->SetLicense(stream); 
 To check whether a license has been set properly, you can validate it. This C++ code shows you how to validate a license:
 
 ```c++
-SharedPtr<Aspose::Slides::License> license= MakeObject<Aspose::Slides::License>();
-
-license->SetLicense(L"Aspose.Slides.lic");
-
-license->ResetLicense();
-
-auto isLicensed = license->IsLicensed();
-
-if(!isLicensed)
+System::SharedPtr<Aspose::Slides::License> license = System::MakeObject<Aspose::Slides::License>();
+license->SetLicense(u"Aspose.Slides.lic");
+if (license->IsLicensed())
 {
-    license->SetLicense(L"Aspose.Slides.lic");
+    System::Console::WriteLine(u"License is good!");
+    System::Console::Read();
 }
 ```
 
