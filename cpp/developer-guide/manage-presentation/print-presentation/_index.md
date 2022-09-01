@@ -15,10 +15,14 @@ This simple print operation is used to print all the slides in a PowerPoint pres
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class and pass the presentation you want to print.
 2. Call the `Print` method (with no parameters). 
 
-This C++ code shows you how to print a PowerPoint presentation: xxx
+This C++ code shows you how to print a PowerPoint presentation:
 
 ```c++
+// Loads the presentation
+auto presentation = System::MakeObject<Presentation>(u"Print.ppt");
 
+// Calls the print method with no parameters
+presentation->Print();
 ```
 
 ## **Print to Specific Printer**
@@ -28,10 +32,21 @@ This operation is used to print all the slides in a PowerPoint presentation thro
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class and pass the presentation you want to print.
 2. Call the Print method and pass the printer name as a string.
 
-This C++ code shows you how to print a PowerPoint presentation using a specific printer: xxx
+This C++ code shows you how to print a PowerPoint presentation using a specific printer:
 
 ```c++
+try
+{
+    // Loads the presentation
+    auto presentation = System::MakeObject<Presentation>(u"Print.ppt");
 
+    // Calls the print method with the printer name
+    presentation->Print(u"Please set your printer name here");
+}
+catch (System::Exception& ex)
+{
+    System::Console::WriteLine(ex->get_Message() + u"\nPlease set printer name as string parameter to the Presentation Print method");
+}
 ```
 
 ## **Set Print Options Dynamically**
@@ -46,8 +61,16 @@ Using properties from the `PrinterSettings` class, you can apply parameters that
    * margin figures, etc.
 4. Call the `Print` method.
 
-This C++ code shows you how to print a PowerPoint presentation with certain print options: xxx
+This C++ code shows you how to print a PowerPoint presentation with certain print options:
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
 
+auto printerSettings = System::MakeObject<System::Drawing::Printing::PrinterSettings>();
+printerSettings->set_Copies(static_cast<int16_t>(2));
+printerSettings->get_DefaultPageSettings()->set_Landscape(true);
+printerSettings->get_DefaultPageSettings()->get_Margins()->set_Left(10);
+
+// ...etc
+pres->Print(printerSettings);
 ```
