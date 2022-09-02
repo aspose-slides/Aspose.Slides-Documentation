@@ -40,7 +40,7 @@ These are the relevant classes and properties:
 * [PresentedBySpeaker](https://reference.aspose.com/slides/python-net/aspose.slides/presentedbyspeaker) class - represents the **Presented by a speaker (full screen)** parameter.
 * [SlidesRange](https://reference.aspose.com/slides/python-net/aspose.slides/slidesrange/) class - represents the slides range.
 
-This C# code shows you how to set the **Presented by a speaker** parameter for a slide show:
+This Python code shows you how to set the **Presented by a speaker** parameter for a slide show:
 
 ``` python
 import aspose.slides as slides
