@@ -12,13 +12,17 @@ description: "Chart workbook in PowerPoint presentation in C++"
 Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) and [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 ``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
-    return outputStream;
-}
+auto chart = System::DynamicCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto data = chart->get_ChartData();
+
+System::SharedPtr<System::IO::MemoryStream> stream = data->ReadWorkbookStream();
+data->get_Series()->Clear();
+data->get_Categories()->Clear();
+
+stream->set_Position(0);
+data->WriteWorkbookStream(stream);
 ```
 
 This C++ code demonstrates the operation to set a chart data workbook:
@@ -110,18 +114,15 @@ This C++ code shows you how to specify a type for a data source:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
 
-auto dataPoints = series->idx_get(0)->get_DataPoints();
-auto point = dataPoints->GetOrCreateDataPointByIdx(2);
-point = dataPoints->GetOrCreateDataPointByIdx(4);
+auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
+auto chartData = chart->get_ChartData();
+auto val = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
 
-// set data source type as "double literals"
-auto pointValue = point->get_Value();
-pointValue->set_DataSourceType(DataSourceType::DoubleLiterals);
-pointValue->set_AsLiteralDouble(5);
+val->set_DataSourceType(DataSourceType::StringLiterals);
+val->set_Data(System::ObjectExt::Box<System::String>(u"LiteralString"));
+val = chartData->get_Series()->idx_get(1)->get_Name();
+val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NewCell")));
 
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
@@ -139,24 +140,23 @@ Using the **`ReadWorkbookStream`** and **`SetExternalWorkbook`** methods, you ca
 This C++ code demonstrates the external workbook creation process:
 
 ```c++
-	const String templatePath = u"../templates/presentaion.pptx";
-	const String externalWbPath = u"../externalWorkbook1.pptx";
+auto pres = System::MakeObject<Presentation>();
 
+const System::String workbookPath = u"externalWorkbook1.xlsx";
 
-	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-	
+auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f);
+auto chartData = chart->get_ChartData();
 
-	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f);
+{
+    System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(workbookPath, System::IO::FileMode::Create);
 
-	if (System::IO::File::Exists(externalWbPath))
-		System::IO::File::Delete(externalWbPath);
+    System::ArrayPtr<uint8_t> workbookData = chartData->ReadWorkbookStream()->ToArray();
+    fileStream->Write(workbookData, 0, workbookData->get_Length());
+}
 
-	System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(externalWbPath, System::IO::FileMode::CreateNew);
-	System::ArrayPtr<uint8_t> worbookData = chart->get_ChartData()->ReadWorkbookStream()->ToArray();
-	fileStream->Write(worbookData, 0, worbookData->get_Length());
-	fileStream->Close();
+chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 
-	chart->get_ChartData()->SetExternalWorkbook(externalWbPath);
+pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
 ### **Set External Workbook**
@@ -168,27 +168,25 @@ While you cannot edit the data in workbooks stored in remote locations or resour
 This C++ code shows you how to set an external workbook:
 
 ```c++
-const String templatePath = u"../templates/externalWorkbook.xlsx";
-	const String outPath = u"../out/Presentation_with_externalWorkbook.pptx";
+auto pres = System::MakeObject<Presentation>();
 
+auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
+auto chartData = chart->get_ChartData();
 
-	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
-	System::SharedPtr<Aspose::Slides::Charts::IChartData> chartData = chart->get_ChartData();
+chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(u"externalWorkbook.xlsx"));
 
-	chartData->SetExternalWorkbook(templatePath);
+chartData->get_Series()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1"), ChartType::Pie);
+auto dataPoints = chartData->get_Series()->idx_get(0)->get_DataPoints();
+auto workbook = chartData->get_ChartDataWorkbook();
+dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B2"));
+dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B3"));
+dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B4"));
 
-	
-
-	chartData->get_Series()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1"), Aspose::Slides::Charts::ChartType::Pie);
-	chartData->get_Series()->idx_get(0)->get_DataPoints()->AddDataPointForPieSeries(chartData->get_ChartDataWorkbook()->GetCell(0, u"B2"));
-	chartData->get_Series()->idx_get(0)->get_DataPoints()->AddDataPointForPieSeries(chartData->get_ChartDataWorkbook()->GetCell(0, u"B3"));
-	chartData->get_Series()->idx_get(0)->get_DataPoints()->AddDataPointForPieSeries(chartData->get_ChartDataWorkbook()->GetCell(0, u"B4"));
-
-	chartData->get_Categories()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"A2"));
-	chartData->get_Categories()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"A3"));
-	chartData->get_Categories()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"A4"));
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto categories = chartData->get_Categories();
+categories->Add(workbook->GetCell(0, u"A2"));
+categories->Add(workbook->GetCell(0, u"A3"));
+categories->Add(workbook->GetCell(0, u"A4"));
+pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
 The `updateChartData` parameter (under the `SetExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
@@ -220,7 +218,7 @@ This C++ code demonstrates the operation:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-    
+
 auto slide = pres->get_Slides()->idx_get(1);
 auto chart = System::DynamicCast<IChart>(slide->get_Shapes()->idx_get(0));
 ChartDataSourceType sourceType = chart->get_ChartData()->get_DataSourceType();
