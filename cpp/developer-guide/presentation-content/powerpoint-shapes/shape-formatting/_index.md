@@ -418,6 +418,12 @@ pres->Save(u"Rotation_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 This C++ code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.layout_slide) to their defaults:
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
 
+for (auto slide : System::IterateOver(pres->get_Slides()))
+{
+    // each shape on the slide that has a placeholder on the layout will be reverted
+    slide->Reset();
+}
 ```
 
