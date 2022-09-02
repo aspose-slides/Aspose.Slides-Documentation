@@ -420,7 +420,7 @@ This C++ code shows you how to reset the formatting in a slide and revert the po
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
-for (auto slide : System::IterateOver(pres->get_Slides()))
+for (auto slide : pres->get_Slides())
 {
     // each shape on the slide that has a placeholder on the layout will be reverted
     slide->Reset();
