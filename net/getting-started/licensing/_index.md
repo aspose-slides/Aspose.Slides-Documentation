@@ -42,7 +42,7 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
 
 {{% alert color="primary" %}} 
 
-You may want to see [Metered Licensing](/slides/net/metered-licensing/).
+You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/metered-licensing/).
 
 {{% /alert %}} 
 
