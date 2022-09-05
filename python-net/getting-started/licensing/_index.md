@@ -74,7 +74,7 @@ license.set_license("Aspose.Slides.lic")
 
 {{% alert color="warning" %}} 
 
-If you place the license file in a different directory, when you call the [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/) method the license file name at the end of the specified explicit must be the same as your license file.
+If you place the license file in a different directory, when you call the [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/) method, the license file name at the end of the specified explicit must be the same as your license file.
 
 For example, you can change the license file name to *Aspose.Slides.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.lic.xml*) to the [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/) method.
 
