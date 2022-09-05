@@ -1,5 +1,5 @@
 ---
-title: Create or Manage PowerPoint SmartArt in Java
+title: Create or Manage PowerPoint SmartArt Shape Node in Java
 linktitle: Manage SmartArt Shape Node
 type: docs
 weight: 30
