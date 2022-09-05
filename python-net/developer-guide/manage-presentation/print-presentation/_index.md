@@ -6,14 +6,14 @@ url: /python-net/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Python, Printer, Print Options"
 description: "Print PowerPoint Presentation in Python"
 ---
-Aspose.Slides for Python provides 4 overloaded `Print` methods that allow you to print presentations. The overloaded methods take different arguments, so you will always find a method that suits your printing needs.
+Aspose.Slides for Python provides 4 overloaded `print` methods that allow you to print presentations. The overloaded methods take different arguments, so you will always find a method that suits your printing needs.
 
 ## **Print to Default Printer**
 
 This simple print operation is used to print all the slides in a PowerPoint presentation through a system's default printer.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation you want to print.
-2. Call the `Print` method (with no parameters). 
+2. Call the `print` method (with no parameters). 
 
 This Python code shows you how to print a PowerPoint presentation:
 
@@ -32,7 +32,7 @@ presentation.print()
 This operation is used to print all the slides in a PowerPoint presentation through a specific printer.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation you want to print.
-2. Call the `Print` method and pass the printer name as a string.
+2. Call the `print` method and pass the printer name as a string.
 
 This Python code shows you how to print a PowerPoint presentation using a specific printer:
 
@@ -58,7 +58,7 @@ Using properties from the `PrinterSettings` class, you can apply parameters that
    * the number of copies
    * page orientation
    * margin figures, etc.
-4. Call the `Print` method.
+4. Call the `print` method.
 
 This Python code shows you how to print a PowerPoint presentation with certain print options: 
 
@@ -71,5 +71,5 @@ with slides.Presentation("pres.pptx") as pres:
     printerSettings.copies = 2
     printerSettings.default_page_settings.landscape = True
     printerSettings.default_page_settings.margins.left = 10
-    pres.print(printerettings)
+    pres.print(printerSettings)
 ```
