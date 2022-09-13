@@ -10,14 +10,15 @@ description: "Convert PowerPoint Presentation to PDF in Python. Save PowerPoint 
 
 ## **Overview**
 
-This article explains how you can convert PowerPoint file formats into PDF using Python. It covers wide range of topics e.g.
+This article explains how you can convert PowerPoint file formats into PDF in Python. It covers wide range of topics e.g.
 
-- Convert PPT to PDF using Python
-- Convert PPTX to PDF using Python
-- Convert ODP to PDF using Python
-- Convert PowerPoint to PDF using Python
+- Convert PPT to PDF in Python
+- Convert PPTX to PDF in Python
+- Convert ODP to PDF in Python
+- Convert PowerPoint to PDF in Python
 
 ## **Python PowerPoint to PDF Conversions**
+
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
 * PPT
