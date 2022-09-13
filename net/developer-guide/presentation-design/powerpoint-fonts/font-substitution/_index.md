@@ -8,6 +8,24 @@ keywords: "Font, substitute font, PowerPoint presentation, C#, Csharp, Aspose.Sl
 description: C# PowerPoint API lets you substitute font inside the Presentation
 ---
 
+## **Getting Font Substitution**
+
+In some cases, it is needed to know which presentation fonts will be substituted during the presentation rendering process. For this purpose, Aspose.Slides provides [GetSubstitution](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) method of the [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) interface.
+
+The following example shows how to get all font substitutions that will be performed when rendering a presentation:
+```c#
+using (Presentation pres = new Presentation(@"Presentation.pptx"))
+{
+    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
+    {
+        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
+    }
+}
+```
+
+
+## **Setting Font Substitution Rules**
+
 Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:
 
 1. Load the relevant presentation.
