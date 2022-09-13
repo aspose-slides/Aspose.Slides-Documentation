@@ -1,11 +1,31 @@
 ---
-title: Convert PowerPoint to PNG
+title: Convert PowerPoint to PNG in C#
+linktitle: Convert PowerPoint to PNG
 type: docs
 weight: 30
 url: /net/convert-powerpoint-to-png/
-keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, C#, Csharp, Aspose.Slides for .NET
-description: Convert PowerPoint presentation to PNG
+keywords: c# powerpoint to png, c# ppt to png, c# pptx to png, c# odp to png, PowerPoint to PNG, PPT to PNG, PPTX to PNG, C#, Csharp, Aspose.Slides for .NET
+description: Convert PowerPoint presentation to PNG in C#. Convert PPT to PNG in C#. Convert PPTX to PNG in C#. Convert ODP to PNG in C#
 ---
+
+## **Overview**
+
+This article explains how to convert PowerPoint Presentation to PNG format using C#. It covers the following topics.
+
+- Convert PowerPoint to PNG in C#
+- Convert PPT to PNG in C#
+- Convert PPTX to PNG in C#
+- Convert ODP to PNG in C#
+- Convert Powerpoint Slide to Image in C#
+
+## **C# PowerPoint to PNG**
+
+For C# sample code to convert PowerPoint to PNG, please see the section below i.e. [Convert PowerPoint to PNG](#convert-powerpoint-to-png). The code can load number of formats like PPT, PPTX and ODP in Presentation object and then save its slide thumbnail to PNG format. The other PowerPoint to Image conversions which are sort of similar like JPG, BMP, TIFF and SVG are discussed in these articles.
+
+- [C# PowerPoint to JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint to BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint to TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
+- [C# PowerPoint to SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
 
 ## **About PowerPoint to PNG Conversion**
 
