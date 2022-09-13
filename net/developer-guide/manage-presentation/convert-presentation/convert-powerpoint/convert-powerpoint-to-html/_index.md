@@ -15,7 +15,7 @@ This article explains how to convert PowerPoint Presentation in HTML format usin
 - Convert PowerPoint to HTML in C#
 - Convert PPT to HTML in C#
 - Convert PPTX to HTML in C#
-- Convert ODF to HTML in C#
+- Convert ODP to HTML in C#
 - Convert PowerPoint Slide to HTML in C#
 
 ## **C# PowerPoint to HTML**
