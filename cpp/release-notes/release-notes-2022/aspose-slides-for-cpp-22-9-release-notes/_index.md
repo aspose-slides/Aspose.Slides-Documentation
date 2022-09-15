@@ -30,7 +30,7 @@ This page contains release notes for [Aspose.Slides for C++ 22.9](https://www.nu
 
 ## Public API Changes
 
-## New GetSubstitutions() method has been added to the IFontsManager interface ##
+### New GetSubstitutions() method has been added to the IFontsManager interface ###
 
 [GetSubstitutions()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_fonts_manager#adb1be68645af4ae42bbcde73f771053f), a new method, has been added to the [IFontsManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_fonts_manager) interface and [FontsManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager/) class.
 
@@ -81,7 +81,7 @@ for (auto fontSubstitution : pres->get_FontsManager()->GetSubstitutions())
 }
 ```
 
-## New Animation Timing properties have been added ##
+### New Animation Timing properties have been added ###
 
 These new methods have been added to the [Timing](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.timing/) class - [get_RepeatUntilEndSlide()](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.timing#ae3a6f063188f3b9cb6d5d9dfad3334e1), [set_RepeatUntilEndSlide()](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.timing#a088c735559f01150b100ee425881ab93), [get_RepeatUntilNextClick()](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.timing#abf47470c14de01ffc6aaf10f5873f8df) and [set_RepeatUntilNextClick()](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.timing#ac00918be9852cc8e5a3258a2a5765f89).
 
