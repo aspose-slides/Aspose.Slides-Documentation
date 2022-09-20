@@ -1,11 +1,26 @@
 ---
-title: Convert PowerPoint to HTML
+title: Convert PowerPoint to HTML in C++
+linktitle: Convert PowerPoint to HTML
 type: docs
 weight: 30
 url: /cpp/convert-powerpoint-to-html/
-keywords: "Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, C++, CPP, Aspose.Slides, HTML export"
-description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as HTML"
+keywords: "C++ PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, C++, CPP, Aspose.Slides, HTML export"
+description: "Convert PowerPoint HTML in C++. Save PPTX or PPT as HTML in C++. Save slides as HTML in C++"
 ---
+
+## **Overview**
+
+This article explains how to convert PowerPoint Presentation in HTML format using C++. It covers the following topics.
+
+- Convert PowerPoint to HTML in C++
+- Convert PPT to HTML in C++
+- Convert PPTX to HTML in C++
+- Convert ODP to HTML in C++
+- Convert PowerPoint Slide to HTML in C++
+
+## **C++ PowerPoint to HTML**
+
+For C++ sample code to convert PowerPoint to HTML, please see the section below i.e. [Convert PowerPoint to HTML](#convert-powerpoint-to-html). The code can load number of formats like PPT, PPTX and ODP in Presentation object and save it to HTML format.
 
 ## **About PowerPoint to HTML Conversion**
 Using [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**. 
