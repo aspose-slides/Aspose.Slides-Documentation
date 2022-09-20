@@ -1,6 +1,6 @@
 ---
 title: Different File Formats and Conversions
-type: docss
+type: docs
 weight: 50
 url: /cpp/different-file-formats-and-conversions/
 ---
