@@ -1,5 +1,5 @@
 ---
-title: Convert Powerpoint to HTML in Java
+title: Convert PowerPoint to HTML in Java
 linktitle: Convert Powerpoint to HTML
 type: docs
 weight: 30
