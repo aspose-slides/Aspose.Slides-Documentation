@@ -1,6 +1,6 @@
 ---
-title: Convert Powerpoint to JPG in C#
-linktitle: Convert Powerpoint PPT to JPG
+title: Convert PowerPoint to JPG in C#
+linktitle: Convert PowerPoint PPT to JPG
 type: docs
 weight: 60
 url: /net/convert-powerpoint-to-jpg/
