@@ -24,7 +24,7 @@ For Python sample code to convert PPTX to PPT, please see the section below i.e.
 - [Python Convert PPTX to ODP](https://docs.aspose.com/slides/python-net/save-presentation/)
 - [Python Convert PPTX to Image](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-png/)
 
-## **Convert PPT to PPTX**
+## **Convert PPTX to PPT**
 To convert a PPTX to PPT simply pass the file name and save format to the [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method of [**Presentation**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. The Python code sample below converts a Presentation from PPTX to PPT using default options.
 
 ```py
