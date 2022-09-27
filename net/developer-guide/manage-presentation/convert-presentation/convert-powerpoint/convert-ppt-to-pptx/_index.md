@@ -12,7 +12,7 @@ description: "Convert PowerPoint PPT to PPTX in C# or .NET"
 
 This article explains how to convert PowerPoint Presentation in PPT format into PPTX format using C# and with online PPT to PPTX conversion app. The following topic is covered.
 
-- Convert PPT to PPTX in C#
+- [Convert PPT to PPTX in C#](#convert-ppt-to-pptx)
 
 ## **C# Convert PPT to PPTX**
 
