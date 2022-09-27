@@ -12,11 +12,11 @@ description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as 
 
 This article explains how to convert PowerPoint Presentation in HTML format using C#. It covers the following topics.
 
-- Convert PowerPoint to HTML in C#
-- Convert PPT to HTML in C#
-- Convert PPTX to HTML in C#
-- Convert ODP to HTML in C#
-- Convert PowerPoint Slide to HTML in C#
+- [Convert PowerPoint to HTML in C#](#convert-powerpoint-to-html)
+- [Convert PPT to HTML in C#](#convert-powerpoint-to-html)
+- [Convert PPTX to HTML in C#](#convert-powerpoint-to-html)
+- [Convert ODP to HTML in C#](#convert-powerpoint-to-html)
+- [Convert PowerPoint Slide to HTML in C#](#convert-slide-to-html)
 
 ## **C# PowerPoint to HTML**
 
@@ -56,7 +56,7 @@ Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML t
 This code shows you how to convert a PowerPoint to HTML in C#:
 
 ```c#
-// Instantiates a presentation object that represents a presentation file
+// Instantiates a presentation object that represents a presentation file e.g. PPT, PPTX, ODP etc.
 using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
 {
     HtmlOptions htmlOpt = new HtmlOptions();
