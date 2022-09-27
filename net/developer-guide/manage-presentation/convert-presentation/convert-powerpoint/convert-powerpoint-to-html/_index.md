@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint (PPT, PPTX) to HTML in C# .NET
+title: Convert PowerPoint to HTML in C# .NET
 linktitle: Convert PowerPoint to HTML
 type: docs
 weight: 30
