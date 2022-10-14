@@ -241,7 +241,7 @@ This C++ code demonstrates the operation:
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
 auto sl = pres->get_Slides()->idx_get(0);
 
-auto chart = System::DynamicCast<IChart>(sl->get_Shapes()->idx_get(0));
+auto chart = System::ExplicitCast<IChart>(sl->get_Shapes()->idx_get(0));
 auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
 
 for (const auto& dataPoint : dataPoints)

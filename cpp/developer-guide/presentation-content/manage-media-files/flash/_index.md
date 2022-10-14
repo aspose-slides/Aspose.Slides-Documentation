@@ -16,7 +16,7 @@ for (const auto& control : controls)
 {
     if (control->get_Name() == u"ShockwaveFlash1")
     {
-        flashControl = System::DynamicCast<Control>(control);
+        flashControl = System::ExplicitCast<Control>(control);
     }
 }
 ```

@@ -96,7 +96,7 @@ for (const auto& shp : System::IterateOver(sld->get_Shapes()))
 {
     if (System::ObjectExt::Is<ITable>(shp))
     {
-        tbl = System::DynamicCast<ITable>(shp);
+        tbl = System::ExplicitCast<ITable>(shp);
     }
 }
 
@@ -178,7 +178,7 @@ auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
 
 // let's say that the first shape on the first slide is a table
-auto someTable = System::DynamicCast_noexcept<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
 // setting table cells' font height
 auto portionFormat = System::MakeObject<PortionFormat>();
@@ -261,7 +261,7 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::DynamicCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 

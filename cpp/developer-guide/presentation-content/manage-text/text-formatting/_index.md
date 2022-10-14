@@ -147,7 +147,7 @@ auto presentation = System::MakeObject<Presentation>(dataDir + u"Fonts.pptx");
 auto sld = presentation->get_Slides()->idx_get(0);
 
 // Access the TextFrame
-auto tf1 = (System::DynamicCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
+auto tf1 = (System::ExplicitCast<IAutoShape>(sld->get_Shapes()->idx_get(0)))->get_TextFrame();
 
 // Access the Paragraph
 auto para = tf1->get_Paragraphs()->idx_get(0);

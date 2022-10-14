@@ -14,7 +14,7 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
-auto chart = System::DynamicCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 auto data = chart->get_ChartData();
 
 System::SharedPtr<System::IO::MemoryStream> stream = data->ReadWorkbookStream();
@@ -200,7 +200,7 @@ auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
 System::SharedPtr<IChartData> chartData = chart->get_ChartData();
 
-System::SharedPtr<ChartData> concreteChartData = System::DynamicCast_noexcept<ChartData>(chartData);
+System::SharedPtr<ChartData> concreteChartData = System::AsCast<ChartData>(chartData);
 concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
@@ -220,7 +220,7 @@ This C++ code demonstrates the operation:
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto slide = pres->get_Slides()->idx_get(1);
-auto chart = System::DynamicCast<IChart>(slide->get_Shapes()->idx_get(0));
+auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 ChartDataSourceType sourceType = chart->get_ChartData()->get_DataSourceType();
 if (sourceType == ChartDataSourceType::ExternalWorkbook)
 {
@@ -243,8 +243,8 @@ const String templatePath = u"../templates/presentation.pptx";
 	
 
 	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::DynamicCast_noexcept<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::DynamicCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
+	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
 	
 
 	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));

@@ -350,7 +350,7 @@ void ConnectorLineAngle()
 
 		if (System::ObjectExt::Is<AutoShape>(shape))
 		{
-			SharedPtr<AutoShape> aShape = DynamicCast<Aspose::Slides::AutoShape>(shape);
+			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
 			if (aShape->get_ShapeType() == ShapeType::Line)
 			{
 //				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
@@ -361,7 +361,7 @@ void ConnectorLineAngle()
 
 		else if (System::ObjectExt::Is<Connector>(shape))
 		{
-				SharedPtr<Connector> aShape = DynamicCast<Aspose::Slides::Connector>(shape);
+				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
 //				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
 				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
 		}
