@@ -36,9 +36,9 @@ This page contains release notes for [ Aspose.Slides for .NET 22.10](https://ww
 
 ## ISVGOptions.UseFrameSize and ISVGOptions.UseFrameRotation have been added ##
 
-New properties UseFrameSize and UseFrameRotation have been added to the ISVGOptions interface and SVGOptions class.
+New properties [UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/isvgoptions/useframesize/) and [UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/isvgoptions/useframerotation/) have been added to the ISVGOptions interface and SVGOptions class.
 
-The UseFrameSize property allows determines whether the text frame will be included in a rendering area.
+The [UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/isvgoptions/useframesize/) property allows determines whether the text frame will be included in a rendering area.
 
 Property declaration:
 
@@ -51,7 +51,7 @@ Property declaration:
 bool UseFrameSize { get; set; }
 ```
 
-The UseFrameRotation property allows determines whether to perform the specified rotation of the shape when rendering.
+The [UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/isvgoptions/useframerotation/) property allows determines whether to perform the specified rotation of the shape when rendering.
 
 Property declaration:
 
@@ -87,7 +87,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## Embedded fonts compress feature added ##
 
-Embedded fonts can be compressed to decrease the size of the presentation that contains such fonts. To provide this functionality, the CompressEmbeddedFontsTest method was added to LowCode API.
+Embedded fonts can be compressed to decrease the size of the presentation that contains such fonts. To provide this functionality, the [CompressEmbeddedFontsTest](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) method was added to LowCode API.
 
 Below is the snippet demonstrating compression:
 
@@ -101,7 +101,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## LeaderLinesColor setter added ##
 
-The LeaderLinesColor property setter was addded, now the color of all leader lines in the collection can be changed:
+The [LeaderLinesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/leaderlinescolor/) property setter was addded, now the color of all leader lines in the collection can be changed:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
