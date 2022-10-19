@@ -78,7 +78,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
     svgOptions.UseFrameSize = true;
 
     // Save shape to SVG
-    using (FileStream stream = new FileStream("pres-out.pptx", FileMode.Create))
+    using (FileStream stream = new FileStream("pres-out.svg", FileMode.Create))
     {
         pres.Slides[0].Shapes[1].WriteAsSvg(stream, svgOptions);
     }
@@ -99,9 +99,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## LeaderLinesColor setter added ##
+## LeaderLinesColor porperty has been added ##
 
-The [LeaderLinesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/leaderlinescolor/) property setter was addded, now the color of all leader lines in the collection can be changed:
+The [LeaderLinesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/leaderlinescolor/) property has been addded, now the color of all leader lines in the collection can be managed via this property:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
