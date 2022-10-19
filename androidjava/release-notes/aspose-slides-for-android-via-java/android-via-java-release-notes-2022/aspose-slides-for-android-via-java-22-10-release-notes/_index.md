@@ -7,7 +7,7 @@ url: /androidjava/aspose-slides-for-android-via-java-22-10-release-notes/
 
 {{% alert color="primary" %}} 
 
-This page contains release notes for [Aspose.Slides for Android via Java 22.10](https://repository.aspose.com/list/repo/com/aspose/aspose-slides/22.10/)
+This page contains release notes for [Aspose.Slides for Android via Java 22.10](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/22.10/)
 
 {{% /alert %}} 
 
@@ -18,7 +18,12 @@ This page contains release notes for [Aspose.Slides for Android via Java 22.10]
 
 ## Public API Changes ##
 
-## ISVGOptions.UseFrameSize and ISVGOptions.UseFrameRotation have been added ##
+### Our Maven repository URL has been changed ###
+
+The Maven repository has been migrated from https://repository.aspose.com/repo/ to **https://releases.aspose.com/java/repo/**. Please, update all your settings and scripts accordingly.
+
+
+### ISVGOptions.UseFrameSize and ISVGOptions.UseFrameRotation have been added ###
 
 New methods [getUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISVGOptions#getUseFrameSize--), [setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISVGOptions#setUseFrameSize-boolean-), [getUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISVGOptions#getUseFrameRotation--) and [setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISVGOptions#setUseFrameRotation-boolean-) have been added to the [ISVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgOptions) interface and [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SvgOptions) class.
 
@@ -94,7 +99,7 @@ try {
 }
 ```
 
-## Embedded fonts compress feature has been added ##
+### Embedded fonts compress feature has been added ###
 
 Embedded fonts can be compressed to decrease the size of the presentation that contains such fonts. To provide this functionality, the [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Compress#compressEmbeddedFonts-com.aspose.slides.Presentation-) method has been added to LowCode API.
 
@@ -110,7 +115,7 @@ try {
 }
 ```
 
-## LeaderLinesColor have been added ##
+### LeaderLinesColor have been added ###
 
 The [getLeaderLinesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelCollection#getLeaderLinesColor--) and [setLeaderLinesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelCollection#setLeaderLinesColor-java.awt.Color-) methods have been addded to [IDataLabelCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDataLabelCollection) interface and [DataLabelCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/DataLabelCollection) class, now the color of all leader lines in the collection can be changed:
 
