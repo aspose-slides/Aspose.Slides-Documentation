@@ -43,10 +43,10 @@ It will open the project and download the dependencies automatically. From the P
 ![todo:image_alt_text](netbeans_run_example.png)
 
 ## **Adding Aspose.Slides Library into Maven Local Repository**
-When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://repository.aspose.com/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
+When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
 
 ### **mvn install**
-Download the [aspose.slides](https://repository.aspose.com/repo/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
+Download the [aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
 
 ```
 mvn install:install-file
