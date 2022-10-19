@@ -42,7 +42,7 @@ The [UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/
 
 Property declaration:
 
-``` sharp
+``` csharp
 /// <summary>
 /// Determines whether the text frame will be included in a rendering area or not.
 /// Read/write <see cref="bool"/>.
@@ -87,7 +87,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## Embedded fonts compress feature added ##
 
-Embedded fonts can be compressed to decrease the size of the presentation that contains such fonts. To provide this functionality, the [CompressEmbeddedFontsTest](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) method was added to LowCode API.
+Embedded fonts can be compressed to decrease the size of the presentation that contains such fonts. To provide this functionality, the [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) method was added to LowCode API.
 
 Below is the snippet demonstrating compression:
 
