@@ -28,7 +28,7 @@ This page contains release notes for [Aspose.Slides for Java 22.10](https://rel
 
 ### Our Maven repository URL has been changed ###
 
-The Maven repository has been migrated from https://releases.aspose.com/java/repo/ to **https://releases.aspose.com/java/repo/**. Please, update all your settings and scripts accordingly.
+The Maven repository has been migrated from https://repository.aspose.com/repo/ to **https://releases.aspose.com/java/repo/**. Please, update all your settings and scripts accordingly.
 
 
 ### ISVGOptions.UseFrameSize and ISVGOptions.UseFrameRotation have been added ###
