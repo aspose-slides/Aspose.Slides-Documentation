@@ -17,7 +17,7 @@ Java is a popular programming language that allows you to run programs on many p
 For information on installing and configuring Java on any operating system, go to https://java.com/.
 
 ## **Installing Aspose.Slides for Java from Maven Repository**
-Aspose hosts all Java APIs on [Maven repositories](https://repository.aspose.com/repo/com/aspose/). You can use [Aspose.Slides for Java](https://repository.aspose.com/repo/com/aspose/aspose-slides/) API directly in your Maven projects with simple configurations.
+Aspose hosts all Java APIs on [Maven repositories](https://releases.aspose.com/java/repo/com/aspose/). You can use [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) API directly in your Maven projects with simple configurations.
 
 1. **Specify Maven Repository Configuration**
 
@@ -28,7 +28,7 @@ Aspose hosts all Java APIs on [Maven repositories](https://repository.aspose.co
     <repository>
         <id>AsposeJavaAPI</id>
         <name>Aspose Java API</name>
-        <url>https://repository.aspose.com/repo/</url>
+        <url>https://releases.aspose.com/java/repo/</url>
     </repository>
 </repositories>
 ```
@@ -41,13 +41,13 @@ Aspose hosts all Java APIs on [Maven repositories](https://repository.aspose.co
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-slides</artifactId>
-        <version>21.10</version>
+        <version>XX.XX</version>
         <classifier>jdk16</classifier>
     </dependency>
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-slides</artifactId>
-        <version>21.10</version>
+        <version>XX.XX</version>
         <classifier>javadoc</classifier>
     </dependency>
 </dependencies>
