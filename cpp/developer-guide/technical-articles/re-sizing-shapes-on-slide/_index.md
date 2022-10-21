@@ -112,7 +112,7 @@ for (auto slide : presentation->get_Slides())
         shape->set_X(shape->get_X() * ratioWidth);
         if (ObjectExt::Is<ITable>(shape))
         {
-            SharedPtr<ITable> table = System::DynamicCast<ITable>(shape);
+            SharedPtr<ITable> table = System::ExplicitCast<ITable>(shape);
             for (auto row : table->get_Rows())
             {
                 row->set_MinimalHeight(row->get_MinimalHeight() * ratioHeight);

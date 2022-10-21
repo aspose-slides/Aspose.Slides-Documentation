@@ -36,7 +36,7 @@ SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 // Accesses the first and second placeholder in the slide and typecasts it as an AutoShape
 SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
-SharedPtr<AutoShape> ashp = DynamicCast<Aspose::Slides::AutoShape>(shape);
+SharedPtr<AutoShape> ashp = ExplicitCast<Aspose::Slides::AutoShape>(shape);
 
 SharedPtr<ITextFrame> textframe = ashp->get_TextFrame();
 

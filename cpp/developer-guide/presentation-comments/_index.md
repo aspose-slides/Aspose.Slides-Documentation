@@ -73,10 +73,10 @@ auto presentation = System::MakeObject<Presentation>(u"Comments1.pptx");
 
 for (auto&& commentAuthor : presentation->get_CommentAuthors())
 {
-    auto author = System::DynamicCast<CommentAuthor>(commentAuthor);
+    auto author = System::ExplicitCast<CommentAuthor>(commentAuthor);
     for (auto&& comment1 : System::IterateOver(author->get_Comments()))
     {
-        SmartPtr<Comment> comment = System::DynamicCast<Comment>(comment1);
+        SmartPtr<Comment> comment = System::ExplicitCast<Comment>(comment1);
         Console::WriteLine(String(u"ISlide :")
                         + comment->get_Slide()->get_SlideNumber()
                         + u" has comment: " + comment->get_Text()

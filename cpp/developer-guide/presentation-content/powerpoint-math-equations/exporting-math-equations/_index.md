@@ -24,7 +24,7 @@ This sample code shows you how to export a math equation from a presentation to 
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 auto autoShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddMathShape(0.0f, 0.0f, 500.0f, 50.0f);
-auto mathPortion = System::DynamicCast<IMathPortion>(autoShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0));
+auto mathPortion = System::ExplicitCast<IMathPortion>(autoShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0));
 auto mathParagraph = mathPortion->get_MathParagraph();
 
 mathParagraph->Add(System::MakeObject<MathematicalText>(u"a")
