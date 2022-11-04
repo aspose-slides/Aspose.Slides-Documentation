@@ -12,10 +12,10 @@ keywords: C# Convert PowerPoint to SVG, C# PPT to SVG, C# PPTX to SVG
 
 This article explains how to convert PowerPoint Presentation to SVG format using C#. It covers the following topics.
 
-- [C# Convert PowerPoint to SVG](#render-a-slide-as-an-svg-image)
-- [C# Convert PPT to SVG](#render-a-slide-as-an-svg-image)
-- [C# Convert PPTX to SVG](#render-a-slide-as-an-svg-image)
-- [C# Convert ODP to SVG](#render-a-slide-as-an-svg-image)
+- [C# Convert PowerPoint to SVG](#csharp-powerpoint-to-svg)
+- [C# Convert PPT to SVG](#csharp-ppt-to-svg)
+- [C# Convert PPTX to SVG](#csharp-pptx-to-svg)
+- [C# Convert ODP to SVG](#csharp-odp-to-svg)
 - [C# Convert PowerPoint Slide to SVG](#render-a-slide-as-an-svg-image)
 
 
@@ -33,6 +33,9 @@ You may want to use SVG files when you need to
 ## **Render a Slide as an SVG Image**
 
 Aspose.Slides for .NET allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
+
+<a name="csharp-powerpoint-to-svg"><strong>Steps: Convert PowerPoint to SVG in C#</strong></a> | <a name="csharp-ppt-to-svg"><strong>Steps: Convert PPT to SVG in C#</strong></a> | <a name="csharp-pptx-to-svg"><strong>Steps: Convert PPTX to SVG in C#</strong></a> | <a name="csharp-odp-to-svg"><strong>Steps: Convert ODP to SVG in C#</strong></a>
+
 
 1. Create an instance of the Presentation class.
 2. Iterate through all the slides in the presentation.
@@ -61,4 +64,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
     }
 }
 ```
+
+## See Also 
+
+This article also covers these topics. The codes are same as above.
+
+_Format_: **PowerPoint**
+- [C# PowerPoint to SVG Code](#csharp-powerpoint-to-svg)
+- [C# PowerPoint to SVG API](#csharp-powerpoint-to-svg)
+- [C# PowerPoint to SVG Programmatically](#csharp-powerpoint-to-svg)
+- [C# PowerPoint to SVG Library](#csharp-powerpoint-to-svg)
+- [C# Save PowerPoint as SVG](#csharp-powerpoint-to-svg)
+- [C# Generate SVG from PowerPoint](#csharp-powerpoint-to-svg)
+- [C# Create SVG from PowerPoint](#csharp-powerpoint-to-svg)
+- [C# PowerPoint to SVG Converter](#csharp-powerpoint-to-svg)
 
