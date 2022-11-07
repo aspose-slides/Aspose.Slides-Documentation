@@ -1,11 +1,30 @@
 ---
-title: Create Presentation
+title: Create Presentation in .NET
+linktitle: Create Presentation
 type: docs
 weight: 10
 url: /net/create-presentation/
 keywords: "Create PowerPoint, PPTX, PPT, Create Presentation, Initialize Presentation, C#, .NET"
 description: "Open PowerPoint Presentation in C# or .NET"
 ---
+
+## **Overview**
+
+This article is part of the following three articles.
+
+- [Create Presentation](https://docs.aspose.com/slides/net/create-presentation/)
+- [Open Presentation](https://docs.aspose.com/slides/net/open-presentation/)
+- [Save Presentation](https://docs.aspose.com/slides/net/save-presentation/)
+
+<strong>Topics Covered</strong>
+
+The above articles together cover many topics. e.g.
+
+- [C# Creating PowerPoint Presentations Programmatically](#csharp-create-save-presentation)
+- [C# Create PPT Presentation from Scratch](#csharp-create-save-presentation)
+- [C# Convert PPT to ODP](#csharp-open-save-presentation)
+- [C# Convert ODP to PPTX](#csharp-open-save-presentation)
+- [See Also](#see-also)
 
 ## **Create PowerPoint Presentation**
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
@@ -56,3 +75,7 @@ Presentation presentation = new Presentation("Sample.odp");
 
 presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
 ```
+
+## See Also 
+
+Other topics
