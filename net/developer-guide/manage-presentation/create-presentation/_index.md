@@ -5,10 +5,10 @@ type: docs
 weight: 10
 url: /net/create-presentation/
 keywords: "Create PowerPoint, PPTX, PPT, Create Presentation, Initialize Presentation, C#, .NET"
-description: "Open PowerPoint Presentation in C# or .NET"
+description: "Creating PowerPoint Presentations Programmatically in C# e.g. PPT, PPTX, ODP etc."
 ---
 
-## **Overview**
+## Overview
 
 This article is part of the following three articles.
 
@@ -26,7 +26,7 @@ The above articles together cover many topics. e.g.
 - [C# Convert ODP to PPTX](#csharp-open-save-presentation)
 - [See Also](#see-also)
 
-## **Create PowerPoint Presentation**
+## Create PowerPoint Presentation
 To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
 1. Create an instance of Presentation class.
@@ -49,12 +49,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Create and Save Presentation**
+## Create and Save Presentation
 
 <a name="csharp-create-save-presentation"><strong>Steps: Create and Save Presentation in C#</strong></a>
 
-1. Create an instance of [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Save _Presentation_ to any format supported by [**SaveFormat**](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+2. Save _Presentation_ to any format supported by [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
 
 ```c#
 Presentation presentation = new Presentation();
@@ -62,12 +62,12 @@ Presentation presentation = new Presentation();
 presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
 ```
 
-## **Open and Save Presentation**
+## Open and Save Presentation
 
 <a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
 
-1. Create an instance of [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with any format i.e. PPT, PPTX, ODP etc.
-2. Save _Presentation_ to any format supported by [**SaveFormat**](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with any format i.e. PPT, PPTX, ODP etc.
+2. Save _Presentation_ to any format supported by [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
 
 ```c#
 // Load any supported file in Presentation e.g. ppt, pptx, odp etc.
