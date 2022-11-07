@@ -30,3 +30,29 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Create and Save Presentation**
+
+<a name="csharp-create-save-presentation"><strong>Steps: Create and Save Presentation in C#</strong></a>
+
+1. Create an instance of [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+2. Save _Presentation_ to any format supported by [**SaveFormat**](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+
+```c#
+Presentation presentation = new Presentation();
+
+presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+```
+
+## **Open and Save Presentation**
+
+<a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
+
+1. Create an instance of [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with any format i.e. PPT, PPTX, ODP etc.
+2. Save _Presentation_ to any format supported by [**SaveFormat**](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+
+```c#
+// Load any supported file in Presentation e.g. ppt, pptx, odp etc.
+Presentation presentation = new Presentation("Sample.odp");
+
+presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
+```
