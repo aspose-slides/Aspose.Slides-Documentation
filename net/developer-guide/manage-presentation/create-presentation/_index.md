@@ -93,14 +93,33 @@ _Format_: **PPTX**
 - [C# PPTX to PPS](#csharp-open-save-presentation)
 - [C# PPTX to PDF](#csharp-open-save-presentation)
 - [C# PPTX to XPS](#csharp-open-save-presentation)
+- _Convert_
 - [C# Convert PPTX to PPT](#csharp-open-save-presentation)
 - [C# Convert PPTX to ODP](#csharp-open-save-presentation)
 - [C# Convert PPTX to PPS](#csharp-open-save-presentation)
 - [C# Convert PPTX to PDF](#csharp-open-save-presentation)
 - [C# Convert PPTX to XPS](#csharp-open-save-presentation)
-- _Format_: **PPTX**
+- _Programmatically_
 - [C# PPTX to PPT Programmatically](#csharp-open-save-presentation)
 - [C# PPTX to ODP Programmatically](#csharp-open-save-presentation)
 - [C# PPTX to PPS Programmatically](#csharp-open-save-presentation)
 - [C# PPTX to PDF Programmatically](#csharp-open-save-presentation)
 - [C# PPTX to XPS Programmatically](#csharp-open-save-presentation)
+- _API_
+- [C# PPTX to PPT API](#csharp-open-save-presentation)
+- [C# PPTX to ODP API](#csharp-open-save-presentation)
+- [C# PPTX to PPS API](#csharp-open-save-presentation)
+- [C# PPTX to PDF API](#csharp-open-save-presentation)
+- [C# PPTX to XPS API](#csharp-open-save-presentation)
+- _Code_
+- [C# PPTX to PPT Code](#csharp-open-save-presentation)
+- [C# PPTX to ODP Code](#csharp-open-save-presentation)
+- [C# PPTX to PPS Code](#csharp-open-save-presentation)
+- [C# PPTX to PDF Code](#csharp-open-save-presentation)
+- [C# PPTX to XPS Code](#csharp-open-save-presentation)
+- _Library_
+- [C# PPTX to PPT Library](#csharp-open-save-presentation)
+- [C# PPTX to ODP Library](#csharp-open-save-presentation)
+- [C# PPTX to PPS Library](#csharp-open-save-presentation)
+- [C# PPTX to PDF Library](#csharp-open-save-presentation)
+- [C# PPTX to XPS Library](#csharp-open-save-presentation)
