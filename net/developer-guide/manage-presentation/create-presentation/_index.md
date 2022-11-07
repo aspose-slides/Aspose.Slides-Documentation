@@ -161,7 +161,6 @@ _Format_: **PPT**
 - [C# PPT to PDF Library](#csharp-open-save-presentation)
 - [C# PPT to XPS Library](#csharp-open-save-presentation)
 
-==========
 _Format_: **ODP**
 - [C# ODP to PPTX](#csharp-open-save-presentation)
 - [C# ODP to PPT](#csharp-open-save-presentation)
