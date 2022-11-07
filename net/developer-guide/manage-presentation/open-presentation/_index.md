@@ -121,7 +121,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 }
 ```
 
-## Open and Save Presentation
+<h2>Open and Save Presentation</h2>
 
 <a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
 
