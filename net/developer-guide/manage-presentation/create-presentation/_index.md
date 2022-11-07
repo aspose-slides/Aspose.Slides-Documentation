@@ -78,4 +78,29 @@ presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
 
 ## See Also 
 
-Other topics
+This article also covers these topics. The codes are same as above.
+
+_Format_: **PowerPoint - Scratch**
+- [C# Create Presentation from Scratch](#csharp-open-save-presentation)
+- [Create PowerPoint from Scratch](#csharp-open-save-presentation)
+- [Create PPT from Scratch](#csharp-open-save-presentation)
+- [Create PPTX from Scratch](#csharp-open-save-presentation)
+- [Create ODP from Scratch](#csharp-open-save-presentation)
+
+_Format_: **PPTX**
+- [C# PPTX to PPT](#csharp-open-save-presentation)
+- [C# PPTX to ODP](#csharp-open-save-presentation)
+- [C# PPTX to PPS](#csharp-open-save-presentation)
+- [C# PPTX to PDF](#csharp-open-save-presentation)
+- [C# PPTX to XPS](#csharp-open-save-presentation)
+- [C# Convert PPTX to PPT](#csharp-open-save-presentation)
+- [C# Convert PPTX to ODP](#csharp-open-save-presentation)
+- [C# Convert PPTX to PPS](#csharp-open-save-presentation)
+- [C# Convert PPTX to PDF](#csharp-open-save-presentation)
+- [C# Convert PPTX to XPS](#csharp-open-save-presentation)
+- _Format_: **PPTX**
+- [C# PPTX to PPT Programmatically](#csharp-open-save-presentation)
+- [C# PPTX to ODP Programmatically](#csharp-open-save-presentation)
+- [C# PPTX to PPS Programmatically](#csharp-open-save-presentation)
+- [C# PPTX to PDF Programmatically](#csharp-open-save-presentation)
+- [C# PPTX to XPS Programmatically](#csharp-open-save-presentation)
