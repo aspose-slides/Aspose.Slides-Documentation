@@ -34,10 +34,21 @@ You may want to use SVG files when you need to
 
 Aspose.Slides for .NET allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
 
-<a name="csharp-powerpoint-to-svg"><strong>Steps: Convert PowerPoint to SVG in C#</strong></a> | <a name="csharp-ppt-to-svg"><strong>Steps: Convert PPT to SVG in C#</strong></a> | <a name="csharp-pptx-to-svg"><strong>Steps: Convert PPTX to SVG in C#</strong></a> | <a name="csharp-odp-to-svg"><strong>Steps: Convert ODP to SVG in C#</strong></a>
+_Steps: PowerPoint to SVG Conversions in Python_
 
+The following sample code explains these conversions using .NET.
+- <a name="csharp-powerpoint-to-svg"><strong>Steps: Convert PowerPoint to SVG in C#</strong></a>
+- <a name="csharp-ppt-to-svg"><strong>Steps: Convert PPT to SVG in C#</strong></a>
+- <a name="csharp-pptx-to-svg"><strong>Steps: Convert PPTX to SVG in C#</strong></a>
+- <a name="csharp-odp-to-svg"><strong>Steps: Convert ODP to SVG in C#</strong></a>
 
-1. Create an instance of the Presentation class.
+_Code Steps:_
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+   * _.ppt_ extension to load **PPT** file inside _Presentation_ class.
+   * _.pptx_ extension to load **PPTX** file inside _Presentation_ class.
+   * _.odp_ extension to load **ODP** file inside _Presentation_ class.
+   * _.pps_ extension to load **PPS** file inside _Presentation_ class.
 2. Iterate through all the slides in the presentation.
 3. Write every slide to its own SVG file through FileStream.
 
