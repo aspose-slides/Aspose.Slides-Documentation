@@ -52,18 +52,16 @@ Aspose.Slides exports presentations to PDF in a way that makes the contents of t
 
 ## **Convert PowerPoint to PDF**
 
-The standard PowerPoint PDF conversion operation is executed using default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels.
+The standard PowerPoint PDF conversion operation is executed using default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels. This Python code shows you how to convert a PowerPoint to PDF:
 
-This Python code shows you how to convert a PowerPoint to PDF:
-
-_Steps: PowerPoint to PDF Conversions_
+_Steps: PowerPoint to PDF Conversions in Python_
 
 The following sample code explains these conversions using Python via .NET
-- <a name="python-net-powerpoint-to-pdf"><strong>Steps: _Convert PowerPoint to PDF using Python via .NET_</a></strong>
-- <a name="python-net-ppt-to-pdf"><strong>Steps: _Convert PPT to PDF using Python via .NET_</a></strong>
-- <a name="python-net-pptx-to-pdf"><strong>Steps: _Convert PPTX to PDF using Python via .NET_</a></strong>
-- <a name="python-net-odp-to-pdf"><strong>Steps: _Convert ODP to PDF using Python via .NET_</a></strong>
-- <a name="python-net-odp-to-pdf"><strong>Steps: _Convert PPS to PDF using Python via .NET_</a></strong>
+- <a name="python-net-powerpoint-to-pdf"><strong>Steps: Convert PowerPoint to PDF using Python via .NET</a></strong>
+- <a name="python-net-ppt-to-pdf"><strong>Steps: Convert PPT to PDF using Python via .NET</a></strong>
+- <a name="python-net-pptx-to-pdf"><strong>Steps: Convert PPTX to PDF using Python via .NET</a></strong>
+- <a name="python-net-odp-to-pdf"><strong>Steps: Convert ODP to PDF using Python via .NET</a></strong>
+- <a name="python-net-odp-to-pdf"><strong>Steps: Convert PPS to PDF using Python via .NET</a></strong>
 
 _Code Steps:_
 
