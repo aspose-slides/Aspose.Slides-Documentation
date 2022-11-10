@@ -34,10 +34,12 @@ You can use Aspose.Slides for C++ when developing applications for Windows, Linu
 
 ### **Windows**
 - Microsoft Visual Studio 2017 or later.
+- CMake 3.18 or later.
 
 ### **Linux**
 - Clang 3.9 or later.
 - GCC 6.1 or later.
+- CMake 3.18 or later.
 
 ### **macOS**
 - Xcode 13.4 or later.
