@@ -98,7 +98,10 @@ Aspose.Slides for C++ features can be divided into following areas:
 
 
 ## **Supported Platforms**
-For now Aspose.Slides for C++ is built for Windows MSVS 2015 x64 (Release|Debug) environments. We are going to add more supported environments soon.
+- Windows x64/x86 (Microsoft Visual Studio 2017 or later).
+- Linux (Clang 3.9 or later, GCC 6.1 or later).
+- macOS (Xcode 13.4 or later).
+
 ## **Technical support**
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation. If you need help with Aspose.Slides for C++, consider the following:
 
