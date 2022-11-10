@@ -66,11 +66,13 @@ The following sample code explains these conversions using Python via .NET
 - <a name="python-net-odp-to-pdf"><strong>Steps: _Convert PPS to PDF using Python via .NET_</a></strong>
 
 _Code Steps:_
-  
-  - ss
-  - sss
-  - sss
-  
+
+- Create instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and provide it the PowerPoint file.
+  * _.ppt_ extension to load **PPT** file inside _Presentation_ class.
+  * _.pptx_ extension to load **PPTX** file inside _Presentation_ class.
+  * _.odp_ extension to load **ODP** file inside _Presentation_ class.
+  * _.pps_ extension to load **PPS** file inside _Presentation_ class.
+- Save the _Presentation_ to **PDF** format by calling **Save** method and using **SaveFormat.PDF** enumeration.
   
 
 ```python
