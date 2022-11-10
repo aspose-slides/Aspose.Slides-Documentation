@@ -56,6 +56,13 @@ The standard PowerPoint PDF conversion operation is executed using default optio
 
 This Python code shows you how to convert a PowerPoint to PDF:
 
+_Steps: PowerPoint to PDF Conversions_
+1. <a name="python-net-powerpoint-to-pdf"><strong>Steps: Convert PowerPoint to PDF using Python via .NET</strong></a> || ...
+2. <a name="python-net-pptx-to-pdf"><strong>Steps: </strong> _Convert PPTX to PDF using Python via .NET_</a> <strong>| or </strong>
+3. <a name="python-net-ppt-to-pdf"><strong>Steps: Convert PPT to PDF using Python via .NET_</strong></a> || next
+4. <a name="python-net-odp-to-pdf"><strong>Steps: Convert ODP to PDF using Python via .NET_</strong></a> || ...
+5. <a name="python-net-ppt-to-pdf"><strong>Steps: Convert PPS to PDF using Python via .NET_</strong></a>
+
 ```python
 import aspose.slides as slides
 
