@@ -8,7 +8,7 @@ description: This article explains how to convert PowerPoint Presentation to SVG
 keywords: C# Convert PowerPoint to SVG, C# PPT to SVG, C# PPTX to SVG
 ---
 
-## **Overview**
+## Overview
 
 This article explains how to convert PowerPoint Presentation to SVG format using C#. It covers the following topics.
 
@@ -19,7 +19,7 @@ This article explains how to convert PowerPoint Presentation to SVG format using
 - [C# Convert PowerPoint Slide to SVG](#render-a-slide-as-an-svg-image)
 
 
-## **SVG Format**
+## SVG Format
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 
 
 SVG is one of the few formats for images that meets very high standards in these terms: scalability, interactivity, performance, accessibility, programmability, and others. For these reasons, it is commonly used in web development. 
@@ -30,7 +30,7 @@ You may want to use SVG files when you need to
 - **use charts and graphs from your slides in *different mediums or platforms**.* Most readers can interpret SVG files. 
 - **use the *smallest possible sizes of images***. SVG files are generally smaller than their high-resolution equivalents in other formats, especially those formats based on bitmap (JPEG or PNG).
 
-## **Render a Slide as an SVG Image**
+## Render a Slide as an SVG Image
 
 Aspose.Slides for .NET allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
 
