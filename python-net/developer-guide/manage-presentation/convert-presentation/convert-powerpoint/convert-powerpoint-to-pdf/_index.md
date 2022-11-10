@@ -1,21 +1,21 @@
 ---
-title: Convert PowerPoint PPTX or PPT to PDF in Python
+title: Convert PowerPoint to PDF in Python
 linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /python-net/convert-powerpoint-to-pdf/
 keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, Python"
-description: "Convert PowerPoint Presentation to PDF in Python. Save PowerPoint as PDF with compliance or accessibility standards"
+description: "Convert PowerPoint Presentation to PDF in Python. Convert PPT, PPTX or ODP to PDF in Python."
 ---
 
 ## **Overview**
 
 This article explains how you can convert PowerPoint file formats into PDF in Python. It covers wide range of topics e.g.
 
-- Convert PPT to PDF in Python
-- Convert PPTX to PDF in Python
-- Convert ODP to PDF in Python
-- Convert PowerPoint to PDF in Python
+- [Convert PPT to PDF in Python](#python-net-ppt-to-pdf)
+- [Convert PPTX to PDF in Python](#python-net-pptx-to-pdf)
+- [Convert ODP to PDF in Python](#python-net-odp-to-pdf)
+- [Convert PowerPoint to PDF in Python](#python-net-powerpoint-to-pdf)
 
 ## **Python PowerPoint to PDF Conversions**
 
