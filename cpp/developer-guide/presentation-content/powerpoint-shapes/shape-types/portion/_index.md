@@ -10,7 +10,7 @@ url: /cpp/portion/
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"Shapes.pptx");
-auto shape = System::DynamicCast<IAutoShape>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 auto textFrame = shape->get_TextFrame();
 
 for (const auto& paragraph : textFrame->get_Paragraphs())

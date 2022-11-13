@@ -93,7 +93,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
 // Casts the shape to OleObjectFrame
-SharedPtr<OleObjectFrame> oleObjectFrame = System::DynamicCast_noexcept<OleObjectFrame>(sld->get_Shapes()->idx_get(0));
+SharedPtr<OleObjectFrame> oleObjectFrame = System::AsCast<OleObjectFrame>(sld->get_Shapes()->idx_get(0));
 
 // Reads the OLE Object and write it to disk
 if (oleObjectFrame != nullptr)
@@ -165,7 +165,7 @@ void ChangeOLEObjectData()
     {
         if (System::ObjectExt::Is<OleObjectFrame>(shape))
         {
-            ole = System::DynamicCast<OleObjectFrame>(shape);
+            ole = System::ExplicitCast<OleObjectFrame>(shape);
         }
     }
     
@@ -236,7 +236,7 @@ This C++ code shows you how to set the file type for an embedded OLE object:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
-auto oleObjectFrame = System::DynamicCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
+auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
 Console::WriteLine(u"Current embedded data extension is: {0}", oleObjectFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
 
 oleObjectFrame->SetEmbeddedData(System::MakeObject<OleEmbeddedDataInfo>(File::ReadAllBytes(u"embedOle.zip"), u"zip"));
@@ -255,7 +255,7 @@ This C++ code shows you how to set the icon image and title for an embedded obje
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
-auto oleObjectFrame = System::DynamicCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
+auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
 
 auto oleImage = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
 oleObjectFrame->set_SubstitutePictureTitle(u"My title");
@@ -283,7 +283,7 @@ for (int32_t index = 0; index < slide->get_Shapes()->get_Count(); index++)
 {
     auto shape = slide->get_Shapes()->idx_get(index);
 
-    auto oleFrame = System::DynamicCast_noexcept<IOleObjectFrame>(shape);
+    auto oleFrame = System::AsCast<IOleObjectFrame>(shape);
 
     if (oleFrame != nullptr)
     {

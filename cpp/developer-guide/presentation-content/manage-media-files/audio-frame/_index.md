@@ -99,7 +99,7 @@ auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
 
 // Casts the shape to an AudioFrame shape
-auto audioFrame = System::DynamicCast<AudioFrame>(shape);
+auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
 
 // Sets the Play mode to play on click
 audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);

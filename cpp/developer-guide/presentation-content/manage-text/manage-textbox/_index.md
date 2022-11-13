@@ -105,7 +105,7 @@ String outPptxFileName = u"ColumnsTest.pptx";
     
 auto pres = System::MakeObject<Presentation>();
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::DynamicCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
 
 format->set_ColumnCount(2);
 shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
@@ -116,7 +116,7 @@ pres->Save(outPptxFileName, SaveFormat::Pptx);
 
 {
     auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::DynamicCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
+    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
     CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
     CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
 }
@@ -126,7 +126,7 @@ pres->Save(outPptxFileName, SaveFormat::Pptx);
 
 {
     auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::DynamicCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
+    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
     CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
     CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
 }
@@ -137,7 +137,7 @@ pres->Save(outPptxFileName, SaveFormat::Pptx);
 
 {
     auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::DynamicCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
+    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
     CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
     CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
 }
@@ -157,7 +157,7 @@ for (const auto& slide : pres->get_Slides())
     {
         if (ObjectExt::Is<IAutoShape>(shape))
         {
-            auto autoShape = System::DynamicCast_noexcept<IAutoShape>(shape);
+            auto autoShape = System::AsCast<IAutoShape>(shape);
             for (const auto& paragraph : autoShape->get_TextFrame()->get_Paragraphs())
             {
                 for (const auto& portion : paragraph->get_Portions())
@@ -203,7 +203,7 @@ auto slide = presentation->get_Slides()->idx_get(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
 
 // Casts the shape to AutoShape
-auto autoShape = System::DynamicCast<IAutoShape>(shape);
+auto autoShape = System::ExplicitCast<IAutoShape>(shape);
 
 // Accesses the ITextFrame property associated with the AutoShape
 autoShape->AddTextFrame(u"");

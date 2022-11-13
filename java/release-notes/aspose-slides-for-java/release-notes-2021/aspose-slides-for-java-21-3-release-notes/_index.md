@@ -7,7 +7,7 @@ url: /java/aspose-slides-for-java-21-3-release-notes/
 
 {{% alert color="primary" %}} 
 
-This page contains release notes for [Aspose.Slides for Java 21.3](https://repository.aspose.com/repo/com/aspose/aspose-slides/21.3/)
+This page contains release notes for [Aspose.Slides for Java 21.3](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/21.3/)
 
 {{% /alert %}} 
 

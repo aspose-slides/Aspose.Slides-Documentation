@@ -46,7 +46,7 @@ for (const auto& slide : presentation->get_Slides())
     {
         if (ObjectExt::Is<AutoShape>(shape))
         {
-            auto autoShape = System::DynamicCast_noexcept<AutoShape>(shape);
+            auto autoShape = System::AsCast<AutoShape>(shape);
             builder->Writeln(autoShape->get_TextFrame()->get_Text());
         }
     }

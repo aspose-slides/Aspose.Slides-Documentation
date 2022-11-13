@@ -181,7 +181,7 @@ auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
 {
-    auto autoShape = System::DynamicCast_noexcept<IAutoShape>(shape);
+    auto autoShape = System::AsCast<IAutoShape>(shape);
     if (autoShape != nullptr)
     {
         for (const auto& paragraph : autoShape->get_TextFrame()->get_Paragraphs())

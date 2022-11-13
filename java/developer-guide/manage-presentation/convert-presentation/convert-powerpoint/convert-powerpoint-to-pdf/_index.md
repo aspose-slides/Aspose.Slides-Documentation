@@ -1,5 +1,6 @@
 ---
-title: Convert PowerPoint to PDF
+title: Convert PowerPoint to PDF in Java
+linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /java/convert-powerpoint-to-pdf/
@@ -7,6 +8,16 @@ keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX
 description: "Convert PowerPoint Presentation to PDF in Java. Save PowerPoint as PDF with compliance or accessibility standards"
 
 ---
+## **Overview**
+
+This article explains how you can convert PowerPoint file formats into PDF using Java. It covers wide range of topics e.g.
+
+- Convert PPT to PDF in Java
+- Convert PPTX to PDF in Java
+- Convert ODP to PDF in Java
+- Convert PowerPoint to PDF in Java
+
+## **Java PowerPoint to PDF Conversions**
 
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 

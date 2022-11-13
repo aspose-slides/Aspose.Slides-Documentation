@@ -194,7 +194,7 @@ To remove watermark shape and its child controls from slide, use [AutoShape.get_
 ``` cpp
 for (int32_t i = 0; i < slide->get_Shapes()->get_Count(); i++)
 {
-	auto shape = DynamicCast<AutoShape>(slide->get_Shapes()->idx_get(i));
+	auto shape = ExplicitCast<AutoShape>(slide->get_Shapes()->idx_get(i));
 	if (String::Compare(shape->get_Name(), u"watermark", StringComparison::Ordinal) == 0)
 	{
 		slide->get_Shapes()->Remove(watermarkShape);

@@ -935,7 +935,7 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"Existi
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
 // Adds a chart with default data
-System::SharedPtr<IChart> chart = System::DynamicCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
+System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
 // Sets the index for the chart data sheet
 int32_t defaultWorksheetIndex = 0;
@@ -1006,7 +1006,7 @@ auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.p
 
 // Accesses the first slideMarker and adds a chart with default data
 auto slide = presentation->get_Slides()->idx_get(0);
-auto chart = System::DynamicCast<IChart>(slide->get_Shapes()->idx_get(0));
+auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
