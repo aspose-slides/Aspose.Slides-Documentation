@@ -50,9 +50,17 @@ pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_
 
 The new color is applied automatically on both elements.
 
-### **Set Theme Color from Additional Palette - Luminance transformation**
+### **Set Theme Color from Additional Palette**
 
-Using colors from the additional palette, you can apply luminance transformations to the main color. This C++ code demonstrates the operation: xxx
+When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
+
+![additional-palette-colors](additional-palette-colors.png)
+
+**1**- Main theme colors
+
+**2** - Colors from the additional palette.
+
+This C++ code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes: xxx
 
 ```c++
 
