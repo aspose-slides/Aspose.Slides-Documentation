@@ -25,7 +25,7 @@ This sample code—an implementation of the steps above—shows you how to get t
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = System::DynamicCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
+auto chart = System::ExplicitCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
 chart->ValidateChartLayout();
 
 auto axes = chart->get_Axes();
@@ -91,7 +91,7 @@ Using the **set_CategoryAxisType()** method, you can specify your preferred cate
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
-auto chart = System::DynamicCast_noexcept<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
 
 horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);

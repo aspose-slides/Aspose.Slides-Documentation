@@ -7,7 +7,7 @@ url: /java/aspose-slides-for-java-20-2-release-notes/
 
 {{% alert color="primary" %}} 
 
-This page contains release notes for [Aspose.Slides for Java 20.2](https://repository.aspose.com/repo/com/aspose/aspose-slides/20.2/)
+This page contains release notes for [Aspose.Slides for Java 20.2](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/20.2/)
 
 {{% /alert %}} 
 

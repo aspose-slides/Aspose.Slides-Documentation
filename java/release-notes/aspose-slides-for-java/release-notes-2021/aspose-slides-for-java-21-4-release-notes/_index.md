@@ -7,7 +7,7 @@ url: /java/aspose-slides-for-java-21-4-release-notes/
 
 {{% alert color="primary" %}} 
 
-This page contains release notes for [Aspose.Slides for Java 21.4](https://repository.aspose.com/repo/com/aspose/aspose-slides/21.4/)
+This page contains release notes for [Aspose.Slides for Java 21.4](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/21.4/)
 
 {{% /alert %}} 
 

@@ -70,7 +70,7 @@ void Run()
 
             if (System::ObjectExt::Is<AutoShape>(sh))
             {
-                System::SharedPtr<AutoShape> ashp = System::DynamicCast<Aspose::Slides::AutoShape>(sh);
+                System::SharedPtr<AutoShape> ashp = System::ExplicitCast<Aspose::Slides::AutoShape>(sh);
                 if (ashp->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Picture)
                 {
                     img = ashp->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_Image();
@@ -82,7 +82,7 @@ void Run()
             }
             else if (System::ObjectExt::Is<PictureFrame>(sh))
             {
-                System::SharedPtr<IPictureFrame> pf = System::DynamicCast<Aspose::Slides::IPictureFrame>(sh);
+                System::SharedPtr<IPictureFrame> pf = System::ExplicitCast<Aspose::Slides::IPictureFrame>(sh);
                 if (pf->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Picture)
                 {
                     img = pf->get_PictureFormat()->get_Picture()->get_Image();

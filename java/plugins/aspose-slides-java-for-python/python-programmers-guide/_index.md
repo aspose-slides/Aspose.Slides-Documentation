@@ -7,7 +7,7 @@ url: /java/python-programmers-guide/
 
 This section shows different examples of Aspose.Slides Java Apis in Python using JPype.
 
-It is very helpful for developers who want to use Aspose.Slides Java Apis in Python.
+It is very helpful for developers who want to use Aspose.Slides Java Apis in Python...
 
 - [Introduction to Presentation in Python](/slides/java/introduction-to-presentation-in-python/)
   - [Hello World Application in Python](/slides/java/hello-world-application-in-python/)

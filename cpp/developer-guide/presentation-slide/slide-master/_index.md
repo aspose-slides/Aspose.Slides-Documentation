@@ -180,7 +180,7 @@ System::SharedPtr<IAutoShape> FindPlaceholder(System::SharedPtr<IMasterSlide> ma
 {
     for (auto& shape : master->get_Shapes())
     {
-        System::SharedPtr<IAutoShape> autoShape = System::DynamicCast_noexcept<Aspose::Slides::IAutoShape>(shape);
+        System::SharedPtr<IAutoShape> autoShape = System::AsCast<Aspose::Slides::IAutoShape>(shape);
         if (autoShape != nullptr)
         {
             if (autoShape->get_Placeholder()->get_Type() == type)

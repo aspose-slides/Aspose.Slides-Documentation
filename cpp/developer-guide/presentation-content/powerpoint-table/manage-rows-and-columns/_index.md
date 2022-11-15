@@ -23,7 +23,7 @@ for (const auto& shp : sld->get_Shapes())
 {
     if (ObjectExt::Is<ITable>(shp))
     {
-        tbl = System::DynamicCast<ITable>(shp);
+        tbl = System::ExplicitCast<ITable>(shp);
     }
 }
 
@@ -78,7 +78,7 @@ auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slides()->idx_get(0);
 
-auto someTable = System::DynamicCast_noexcept<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 // let's say that the first shape on the first slide is a table
 
 // setting first row cells' font height
@@ -117,7 +117,7 @@ auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);
 
-auto someTable = System::DynamicCast_noexcept<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 // let's say that the first shape on the first slide is a table
 
 // setting first column cells' font height

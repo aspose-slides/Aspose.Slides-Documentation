@@ -16,7 +16,7 @@ String dataDir = GetDataPath();
 auto presentation = System::MakeObject<Presentation>(dataDir + u"Presentation1.pptx");
 
 // select paragraph to add effect
-auto autoShape = System::DynamicCast<IAutoShape>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 auto paragraph = autoShape->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
 // add Fly animation effect to selected paragraph
@@ -38,7 +38,7 @@ String dataDir = GetDataPath();
 auto pres = System::MakeObject<Presentation>(dataDir + u"Test.pptx");
 
 auto sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-auto autoShape = System::DynamicCast<IAutoShape>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(1));
+auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(1));
 
 for (auto paragraph : autoShape->get_TextFrame()->get_Paragraphs())
 {

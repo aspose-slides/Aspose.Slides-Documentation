@@ -103,14 +103,13 @@ pres.save(dataDir + "AsposeChartModified.pptx", SaveFormat.Pptx);
 
 {{< /highlight >}}
 ## **Download Running Code**
-- [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/releases/view/618722)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Apache_POI-v1.0.0)
+
 ## **Download Sample Code**
-- [CodePlex](https://asposeslidesjavaapachepoi.codeplex.com/SourceControl/latest#src/main/java/com/aspose/slides/examples/asposefeatures/charts/updatecharts/AsposeUpdateExistingChart.java)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/blob/master/Plugins/Aspose_Slides_for_Apache_POI/src/main/java/com/aspose/slides/examples/asposefeatures/charts/updatecharts/AsposeUpdateExistingChart.java)
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Updating an Existing Chart](http://docs.aspose.com:8082/docs/display/slidesjava/Updating+an+Existing+Chart).
+For more details, visit [Create or Update PowerPoint Presentations Charts in Java](https://docs.aspose.com/slides/java/create-chart/).
 
 {{% /alert %}}

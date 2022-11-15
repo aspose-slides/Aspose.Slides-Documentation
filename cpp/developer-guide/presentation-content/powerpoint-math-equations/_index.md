@@ -52,7 +52,7 @@ auto mathShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddMathShape(0.0f
 After creating, the shape will already contain one paragraph with a mathematical portion by default. The [**MathPortion** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_portion)class is a portion that contains a mathematical text inside. To access mathematical content inside [**MathPortion**](https://reference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_portion), refer to the [**MathParagraph** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.math_text.math_paragraph)variable:
 
 ``` cpp
- auto mathParagraph = (System::DynamicCast_noexcept<MathPortion>(mathShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)))->get_MathParagraph();
+ auto mathParagraph = (System::AsCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)))->get_MathParagraph();
 ``` 
 
 
@@ -84,7 +84,7 @@ The full source code sample:
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto mathShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddMathShape(0.0f, 0.0f, 720.0f, 150.0f);
-auto mathParagraph = (System::DynamicCast_noexcept<MathPortion>(mathShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)))->get_MathParagraph();
+auto mathParagraph = (System::AsCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)))->get_MathParagraph();
 
 auto fraction = System::MakeObject<MathematicalText>(u"x")->Divide(u"y");
 mathParagraph->Add(System::MakeObject<MathBlock>(fraction));
@@ -247,7 +247,7 @@ For example:
 
 ``` cpp
 auto delimiter = System::MakeObject<MathematicalText>(u"x")->Enclose(u'[', u']');
-auto delimiter2 = System::StaticCast<IMathElement>(System::MakeObject<MathematicalText>(u"elem1")->Join(u"elem2"))->Enclose();
+auto delimiter2 = System::ExplicitCast<IMathElement>(System::MakeObject<MathematicalText>(u"elem1")->Join(u"elem2"))->Enclose();
 ``` 
 
 ### **Function method**
