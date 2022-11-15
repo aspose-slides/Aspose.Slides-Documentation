@@ -50,10 +50,59 @@ The new color is applied automatically on both elements.
 
 ### **Set Theme Color from Additional Palette - Luminance transformation**
 
-Using colors from the additional palette, you can apply luminance transformations to the main color. This Python code demonstrates the operation: xxx
+Using colors from the additional palette, you can apply luminance transformations to the main color. This Python code demonstrates the operation: 
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Accent 4
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 50, 50)
+
+    shape1.fill_format.fill_type = slides.FillType.SOLID
+    shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+
+    # Accent 4, Lighter 80%
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
+
+    shape2.fill_format.fill_type = slides.FillType.SOLID
+    shape2.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
+    shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
+
+    # Accent 4, Lighter 60%
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
+
+    shape3.fill_format.fill_type = slides.FillType.SOLID
+    shape3.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
+    shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
+
+    # Accent 4, Lighter 40%
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
+
+    shape4.fill_format.fill_type = slides.FillType.SOLID
+    shape4.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.6)
+    shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.4)
+
+    # Accent 4, Darker 25%
+    shape5 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 250, 50, 50)
+
+    shape5.fill_format.fill_type = slides.FillType.SOLID
+    shape5.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape5.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.75)
+
+    # Accent 4, Darker 50%
+    shape6 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 50, 50)
+
+    shape6.fill_format.fill_type = slides.FillType.SOLID
+    shape6.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape6.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.5)
+
+    presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Change Theme Font**
