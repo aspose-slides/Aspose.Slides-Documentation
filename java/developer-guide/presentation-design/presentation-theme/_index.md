@@ -59,10 +59,61 @@ The new color is applied automatically on both elements.
 
 ### **Set Theme Color from Additional Palette - Luminance transformation**
 
-Using colors from the additional palette, you can apply luminance transformations to the main color. This Java code demonstrates the operation: xxx
+Using colors from the additional palette, you can apply luminance transformations to the main color. This Java code demonstrates the operation:
 
 ```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    // Accent 4
+    IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
+
+    shape1.getFillFormat().setFillType(FillType.Solid);
+    shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    // Accent 4, Lighter 80%
+    IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
+
+    shape2.getFillFormat().setFillType(FillType.Solid);
+    shape2.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
+    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
+
+    // Accent 4, Lighter 60%
+    IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
+
+    shape3.getFillFormat().setFillType(FillType.Solid);
+    shape3.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
+    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
+
+    // Accent 4, Lighter 40%
+    IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
+
+    shape4.getFillFormat().setFillType(FillType.Solid);
+    shape4.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
+    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
+
+    // Accent 4, Darker 25%
+    IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
+
+    shape5.getFillFormat().setFillType(FillType.Solid);
+    shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
+
+    // Accent 4, Darker 50%
+    IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
+
+    shape6.getFillFormat().setFillType(FillType.Solid);
+    shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
+
+    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Change Theme Font**
