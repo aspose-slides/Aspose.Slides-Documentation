@@ -3,6 +3,8 @@ title: Cloning Row or Column in table in Python
 type: docs
 weight: 20
 url: /java/cloning-row-or-column-in-table-in-python/
+keywords: Clone Row in Slide Table using Python, Clone Column in PowerPoint Table using Python
+description: Learn how to clone row or column a Table inside a PowerPoint Slide using Python.
 ---
 
 ## **Aspose.Slides - Cloning Row or Column in table**
@@ -113,7 +115,6 @@ print "Cloned Row & Column from table, please check the output file."
 
 ```
 ## **Download Running Code**
-Download running code from any of the below mentioned social coding sites:
+Download running code the following social coding site:
 
-- [CodePlex](https://asposeslidesjavapython.codeplex.com/releases/view/620922)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Python-v1.0)
