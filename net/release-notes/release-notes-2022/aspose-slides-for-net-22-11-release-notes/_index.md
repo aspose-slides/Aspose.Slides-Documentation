@@ -54,14 +54,14 @@ This page contains release notes for [ Aspose.Slides for .NET 22.11](https://ww
 
 ## Convert PowerPoint Presentation to video with animations and transitions ##
 
-We've added a new feature - PowerPoint presentation-to-video conversion, which includes:
+We've added a new feature: PowerPoint presentation-to-video conversion. This feature includes:
 * animation of transitions between slides
 * shape animation 
 * text animation
 
-Slides can now play the presentation and generate a set of frames for the entire animation with a specific frame per second (FPS). These frames can then be used to create a video, using tools like FFmpeg.
+Aspose.Slides can now play presentations and generate a set of frames for an entire animation with a specific frame per second (FPS). Those frames can then be used to create a video through tools like FFmpeg.
 
-An example of exporting a presentation to video frames at 30 FPS:
+This C# code demonstrates a presentation to video export operation with frames set at 30FPS:
 
 ```csharp
 const int FPS = 30;
@@ -81,15 +81,15 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-The [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) class is a source that sequentially generates individual animation effects, which are then played back using the [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) class. For each frame, a [FrameTick](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/frametick/) event is generated that allows you to save the current frame to disk or write it to a video stream.
+The [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) class is a source that sequentially generates individual animation effects, which are then played back using the [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) class. A [FrameTick](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/frametick/) event is generated for each frame to allow you to save the current frame to disk or write the frame to a video stream.
 
 ## PDF 1.7 and PDF 1.6 export support added ##
 
-Added support for PDF export to formats 1.6 and 1.7:
+We implemented support for PDF export to formats 1.6 and 1.7:
 * PdfCompliance.Pdf16
 * PdfCompliance.Pdf17
 
-An example of exporting a presentation to [PDF 1.7](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/):
+This C# code demonstrates an export to [PDF 1.7](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) operation:
 
 ```csharp
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -103,14 +103,14 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 
 ## PDF A2a, A2b, A2u, A3a and A3b compliance levels export support added ##
 
-Added support for PDF export with A2a, A2b, A2u, A3a and A3b compliance levels:
+We implemented support for PDF export operations with A2a, A2b, A2u, A3a and A3b compliance levels:
 * PdfCompliance.PdfA2a
 * PdfCompliance.PdfA2b
 * PdfCompliance.PdfA2u
 * PdfCompliance.PdfA3a
 * PdfCompliance.PdfA3b
 
-An example of exporting a presentation with [PdfA2a](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) compliance level:
+This C# code demonstrates an operation where a PDF is saved based on the [PdfA2a](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) compliance level:
 
 ```csharp
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -124,19 +124,19 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 
 ## Hyperlink sound management support added ##
 
-New property [Sound](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/sound/) have been added to [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) class to represents the playing sound of the hyperlink. 
+[Sound](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/sound/), a new property, has been added to the [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) class to represent the played sound of an hyperlink. 
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     
-    // Get the first shape hyperlink
+    // Gets the first shape hyperlink
     IHyperlink link = presentation.Slides[0].Shapes[0].HyperlinkClick;
        
     if (link.Sound != null)
     {
-        // Extract the hyperlink sound in byte array
+        // Extracts the hyperlink sound in byte array
         byte[] audioData = link.Sound.BinaryData;
     }
 }
@@ -144,7 +144,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 
 ## OLE object frame relative path to a linked file support added ##
 
-Added the ability to access and change relative file path data for [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) using the new [LinkPathRelative](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/linkpathrelative/) property.
+We implemented a new ability that allows you to access and change the relative file path data for [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) using the new [LinkPathRelative](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/linkpathrelative/) property.
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.ppt"))
@@ -160,20 +160,20 @@ using (Presentation presentation = new Presentation("demo.ppt"))
 
 ## StopPreviousSound property added for animation effects ##
 
-The [StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) property of the [Effect](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/) class specifies if the animation effect stops the previous sound.
+The [StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) property of the [Effect](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/) class specifies whether the animation effect stops the previous sound.
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
-    // Get the first effect of the first slide.
+    // Gets the first effect of the first slide.
     IEffect firstSlideEffect = presentation.Slides[0].Timeline.MainSequence[0];
     
-    // Get the first effect of the second slide.
+    // Gets the first effect of the second slide.
     IEffect secondSlideEffect = presentation.Slides[1].Timeline.MainSequence[0];
        
     if (firstSlideEffect.Sound != null)
     {
-        // Change the second effect Enhancements/Sound to "Stop Previous Sound"
+        // Changes the second effect Enhancements/Sound to "Stop Previous Sound"
         secondSlideEffect.StopPreviousSound = true;
     }
 }
@@ -183,7 +183,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 
 The [Shape.GetBasePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/shape/getbaseplaceholder/) method has been added. It returns a basic placeholder shape (shape from the layout and/or master slide that the current shape is inherited from).
 
-Below is the example of getting all (master/layout/slide) animated effects of the placeholder shape.
+This C# code shows you how to get all (master/layout/slide) animated effects of a placeholder shape:
 
 ```csharp
 using (Presentation pres = new Presentation("sample.pptx"))
