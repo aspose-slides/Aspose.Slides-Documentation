@@ -66,4 +66,5 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for .NE
    
       builder.InsertBreak(BreakType.PageBreak);
    }
+   doc.Save("document.docx");
    ```
