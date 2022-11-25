@@ -113,7 +113,6 @@ You may want to see *[Manage OLE](https://docs.aspose.com/slides/net/manage-ole/
 {{% /alert %}}
 
 
-
 ## **Using Hyperlinks to Create Table of Contents**
 
 Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
@@ -147,8 +146,6 @@ using (var presentation = new Presentation())
 }
 ```
 
-
-
 ## **Formatting Hyperlinks**
 
 ### **Color**
@@ -174,16 +171,15 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
-
 ### **Sound**
 
-Aspose.Slides for .NET allows you to operate the hyperlink sound using the following properties:
+Aspose.Slides provides these properties to allow you emphasize a hyperlink with a sound:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 #### **Add Hyperlink Sound**
 
-This C# code shows you how to set the hyperlink playing sound and stop it with another hyperlink:
+This C# code shows you how to set the hyperlink that plays a sound and stop it with another hyperlink:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -200,7 +196,7 @@ using (Presentation pres = new Presentation())
 	// Сhecks the hyperlink for "No Sound"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// Sets the hyperlink playing sound
+		// Sets the hyperlink that plays sound
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
@@ -220,7 +216,7 @@ using (Presentation pres = new Presentation())
 
 #### **Extract Hyperlink Sound**
 
-This sample code shows you how to extract the playing sound of the hyperlink:
+This C# code shows you how to extract the sound used in an hyperlink:
 
 ```c#
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
@@ -237,8 +233,6 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 	}
 }
 ```
-
-
 
 ## **Removing Hyperlinks in Presentations**
 
@@ -284,8 +278,6 @@ using (Presentation pres = new Presentation("demo.pptx"))
    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx); 
 }
 ```
-
-
 
 ## **Mutable Hyperlink**
 
