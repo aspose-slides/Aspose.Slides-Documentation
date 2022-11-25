@@ -245,11 +245,9 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
-
-
 ## **Animation Effect Sound**
 
-Aspose.Slides for .NET allows you to operate the animation effect sound using the following properties:
+Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
 - [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) 
 - [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) 
 
@@ -290,8 +288,6 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 ```
 
 ### **Extract Animation Effect Sound**
-
-This C# code demonstrates how to extract the sound embedded in an animation effect. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
