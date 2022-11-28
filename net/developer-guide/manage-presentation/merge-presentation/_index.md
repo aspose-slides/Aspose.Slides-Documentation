@@ -19,7 +19,7 @@ You may want to check out **Aspose free online** [Merger app](https://products.a
 
 ## **Presentation Merging**
 
-When you merge one presentation to another, you are effectively combining their slides in a single presentation to obtain one file. 
+When you [merge one presentation to another](https://products.aspose.com/slides/net/merger/ppt/), you are effectively combining their slides in a single presentation to obtain one file. 
 
 {{% alert title="Info" color="info" %}}
 
