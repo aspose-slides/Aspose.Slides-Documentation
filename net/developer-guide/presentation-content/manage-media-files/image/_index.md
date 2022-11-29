@@ -23,6 +23,12 @@ If you want to add an image as a frame object—especially if you plan to use st
 
 {{% /alert %}} 
 
+{{% alert title="Note" color="warning" %}}
+
+You can manipulate input/output operations involving images and PowerPoint presentations to convert an image from one format to another. See these pages: convert [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
+
+{{% /alert %}}
+
 Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, BMP, GIF, and others. 
 
 ## **Adding Images Stored Locally to Slides**
