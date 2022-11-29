@@ -46,6 +46,17 @@ You may want to check out other [free converters from Aspose](https://products.a
 
 {{% /alert %}} 
 
+{{% alert title="Note" color="warning" %}} 
+
+Besides the conversion processes described here, Aspose.Slides also supports these conversion operations involving the HTML format: 
+
+* [HTML to image](https://products.aspose.com/slides/net/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
+
+{{% /alert %}}
+
 
 ## **Convert PowerPoint to HTML**
 Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML this way:
