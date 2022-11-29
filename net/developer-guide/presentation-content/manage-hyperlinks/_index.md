@@ -113,7 +113,6 @@ You may want to see *[Manage OLE](https://docs.aspose.com/slides/net/manage-ole/
 {{% /alert %}}
 
 
-
 ## **Using Hyperlinks to Create Table of Contents**
 
 Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
@@ -147,8 +146,6 @@ using (var presentation = new Presentation())
 }
 ```
 
-
-
 ## **Formatting Hyperlinks**
 
 ### **Color**
@@ -174,8 +171,68 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
+### **Sound**
 
+Aspose.Slides provides these properties to allow you emphasize a hyperlink with a sound:
+- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
+#### **Add Hyperlink Sound**
+
+This C# code shows you how to set the hyperlink that plays a sound and stop it with another hyperlink:
+
+```c#
+using (Presentation pres = new Presentation())
+{
+	// Adds new audio to the presentation audio collection
+	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+
+	ISlide firstSlide = pres.Slides[0];
+
+	// Adds new shape with the hyperlink to the next slide
+	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+	firstShape.HyperlinkClick = Hyperlink.NextSlide;
+
+	// Сhecks the hyperlink for "No Sound"
+	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
+	{
+		// Sets the hyperlink that plays sound
+		firstShape.HyperlinkClick.Sound = playSound;
+	}
+
+	// Adds the empty slide 
+	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
+
+	// Adds new shape with the NoAction hyperlink
+	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+	secondShape.HyperlinkClick = Hyperlink.NoAction;
+
+	// Sets the hyperlink "Stop previous sound" flag
+	secondShape.HyperlinkClick.StopSoundOnClick = true;
+
+	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
+}
+```
+
+#### **Extract Hyperlink Sound**
+
+This C# code shows you how to extract the sound used in an hyperlink:
+
+```c#
+using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
+{
+	ISlide firstSlide = pres.Slides[0];
+
+	// Gets the first shape hyperlink
+	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
+
+	if (link.Sound != null)
+	{
+		// Extracts the hyperlink sound in byte array
+		byte[] audioData = link.Sound.BinaryData;
+	}
+}
+```
 
 ## **Removing Hyperlinks in Presentations**
 
@@ -222,8 +279,6 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-
-
 ## **Mutable Hyperlink**
 
 The [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink) class is mutable. With this class, you can change the values for these properties:
@@ -232,7 +287,6 @@ The [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/highlightclick)
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
