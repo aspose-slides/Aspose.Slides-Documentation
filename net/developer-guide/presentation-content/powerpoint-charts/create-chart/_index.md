@@ -337,16 +337,26 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-This C# code shows you how to create a line chart: xxx
+This C# code shows you how to create a line chart:
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    IChart lineChart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 10, 50, 600, 350);
+    
+    pres.Save("lineChart.pptx", SaveFormat.Pptx);
+}
 ```
 
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:  xxx
 
 ```c#
+IChart lineChart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 10, 50, 600, 350);
 
+foreach (IChartSeries series in lineChart.ChartData.Series)
+{
+    series.Format.Line.DashStyle = LineDashStyle.Dash;
+}
 ```
 
 ### **Creating Tree Map Charts**
