@@ -289,7 +289,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## Set Transparency
+## **Set Transparency**
 
 In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or textures, you can specify the transparency level that determines the opacity of a fill. This way, for example, if you set a low transparency level, the slide object or background behind (the shape) shows through. 
 
@@ -426,3 +426,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Reset Formatting**
+
+This C# code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) to their defaults:
+
+```c#
+using (Presentation pres = new Presentation())
+{
+    foreach (ISlide slide in pres.Slides)
+    {
+        // each shape on the slide that has a placeholder on the layout will be reverted
+        slide.Reset();
+    }
+}
+```

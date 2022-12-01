@@ -1,12 +1,31 @@
 ---
-title: Convert Powerpoint PPT or PPTX to JPG in C#
-linktitle: Convert Powerpoint PPT to JPG
+title: Convert PowerPoint to JPG in C#
+linktitle: Convert PowerPoint PPT to JPG
 type: docs
 weight: 60
 url: /net/convert-powerpoint-to-jpg/
 keywords: "Convert PowerPoint Presentation, JPG, JPEG, PowerPoint to JPG, PowerPoint to JPEG, PPT to JPG, PPTX to JPG, PPT to JPEG, PPTX to JPEG, C#, Csharp, .NET, Aspose.Slides"
 description: "Convert PowerPoint to JPG in C# or .NET. Save slide as JPG image"
 ---
+
+## **Overview**
+
+This article explains how to convert PowerPoint Presentation to JPG format using C#. It covers the following topics.
+
+- [C# Convert PowerPoint to JPG](#convert-powerpoint-pptpptx-to-jpg)
+- [C# Convert PPT to JPG](#convert-powerpoint-pptpptx-to-jpg)
+- [C# Convert PPTX to JPG](#convert-powerpoint-pptpptx-to-jpg)
+- [C# Convert ODP to JPG](#convert-powerpoint-pptpptx-to-jpg)
+- [C# Convert PowerPoint Slide to Image](#convert-powerpoint-pptpptx-to-jpg)
+
+## **C# PowerPoint to JPG**
+
+For C# sample code to convert PowerPoint to JPG, please see the section below i.e. [Convert PowerPoint to JPG](#convert-powerpoint-pptpptx-to-jpg). The code can load number of formats like PPT, PPTX and ODP in Presentation object and then save its slide thumbnail to JPG format. The other PowerPoint to Image conversions which are sort of similar like PNG, BMP, TIFF and SVG are discussed in these articles.
+
+- [C# PowerPoint to PNG](https://docs.aspose.com/slides/net/convert-powerpoint-to-png/)
+- [C# PowerPoint to BMP](#convert-powerpoint-pptpptx-to-jpg)
+- [C# PowerPoint to TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
+- [C# PowerPoint to SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
 
 ## **About PowerPoint to JPG Conversion**
 With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net/) you can convert PowerPoint PPT or PPTX presentation to JPG image. It is also possible to convert PPT/PPTX to BMP, PNG or SVG. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
@@ -96,6 +115,8 @@ System.Diagnostics.Process.Start("OutPresBitmap.png");
 {{% alert title="Tip" color="primary" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+
+Using the same principles described in this article, you can convert images from one format to another. For more information, see these pages: convert [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
 
 {{% /alert %}}
 

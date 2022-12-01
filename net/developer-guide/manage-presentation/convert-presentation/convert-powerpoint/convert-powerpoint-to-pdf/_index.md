@@ -8,6 +8,17 @@ keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX
 description: "Convert PowerPoint Presentation to PDF in C# or .NET. Save PowerPoint as PDF with compliance or accessibility standards"
 ---
 
+## **Overview**
+
+This article explains how you can convert PowerPoint file formats into PDF in C#. It covers wide range of topics e.g.
+
+- [Convert PPT to PDF in C#](#convert-powerpoint-to-pdf)
+- [Convert PPTX to PDF in C#](#convert-powerpoint-to-pdf)
+- [Convert ODP to PDF in C#](#convert-powerpoint-to-pdf)
+- [Convert PowerPoint to PDF in C#](#convert-powerpoint-to-pdf)
+
+## **C# PowerPoint to PDF Conversions**
+
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
 * PPT
@@ -43,10 +54,10 @@ Aspose.Slides exports presentations to PDF in a way that makes the contents of t
 
 The standard PowerPoint PDF conversion operation is executed using default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels.
 
-This C# code shows you how to convert a PowerPoint to PDF:
+This C# code shows you how to convert a PowerPoint (PPT, PPTX, ODP) to PDF:
 
 ```c#
-// Instantiates a Presentation class that represents a PowerPoint file
+// Instantiates a Presentation class that represents a PowerPoint file, it could be PPT, PPTX, ODP etc.
 Presentation presentation = new Presentation("PowerPoint.ppt");
 
 // Saves the presentation as a PDF
@@ -212,3 +223,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+{{% alert title="Note" color="warning" %}} 
+
+Aspose.Slides support for PDF conversion operations extends to allowing you allow convert PDF to the most popular file formats. You can do [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—are also supported.
+
+{{% /alert %}}

@@ -11,7 +11,7 @@ Aspose.Slides for C++ provides a simple API for getting these properties. This w
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
     
-auto chart = System::DynamicCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 500.0f, 350.0f));
+auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 500.0f, 350.0f));
 chart->ValidateChartLayout();
 
 double x = chart->get_PlotArea()->get_ActualX();
@@ -31,7 +31,7 @@ Aspose.Slides for C++ provides a simple API for getting these properties. Method
 // Creating empty presentation
 auto pres = System::MakeObject<Presentation>();
 
-auto chart = System::DynamicCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 500.0f, 350.0f));
+auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 500.0f, 350.0f));
 chart->ValidateChartLayout();
 
 double x = chart->get_PlotArea()->get_ActualX();

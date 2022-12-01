@@ -118,7 +118,7 @@ This C++ code shows you how to add custom points to a shape:
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::DynamicCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
 
 SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
 
@@ -142,7 +142,7 @@ This C++ code shows you how to remove points from a shape:
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::DynamicCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
 
 SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
@@ -192,7 +192,7 @@ starPath->CloseFigure();
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::DynamicCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
+SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
 
 shape->SetGeometryPath(starPath);
 ```
@@ -212,7 +212,7 @@ This C++ code shows you to create a composite custom shape:
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::DynamicCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
 
 SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
 geometryPath0->MoveTo(0.0f, 0.0f);
@@ -289,7 +289,7 @@ This C++ code—an implementation of the steps above—demonstrates the **Geomet
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::DynamicCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
 
 SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
 originalPath->set_FillMode(PathFillModeType::None);

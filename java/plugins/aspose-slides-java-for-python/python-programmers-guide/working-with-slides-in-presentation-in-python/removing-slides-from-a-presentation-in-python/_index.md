@@ -54,7 +54,6 @@ print "Removed slide by ID, please check the output file."
 
 ```
 ## **Download Running Code**
-Download **Removing Slides from a Presentation (Aspose.Slides)** from any of the below mentioned social coding sites:
+Download **Removing Slides from a Presentation (Aspose.Slides)** from the following social coding site:
 
-- [CodePlex](https://asposeslidesjavapython.codeplex.com/releases/view/620922)
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java/releases/tag/Aspose.Slides_Java_for_Python-v1.0)

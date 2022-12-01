@@ -27,7 +27,7 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
         {
             if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
             {
-                (System::DynamicCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
+                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
             }
         }
     }

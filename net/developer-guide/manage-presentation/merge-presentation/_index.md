@@ -19,7 +19,7 @@ You may want to check out **Aspose free online** [Merger app](https://products.a
 
 ## **Presentation Merging**
 
-When you merge one presentation to another, you are effectively combining their slides in a single presentation to obtain one file. 
+When you [merge one presentation to another](https://products.aspose.com/slides/net/merger/ppt/), you are effectively combining their slides in a single presentation to obtain one file. 
 
 {{% alert title="Info" color="info" %}}
 
@@ -40,6 +40,16 @@ With Aspose.Slides, you can merge
 * entire presentations. All the slides from the presentations end up in one presentation
 * specific slides. Selected slides end up in one presentation
 * presentations in one format (PPT to PPT, PPTX to PPTX, etc) and in different formats (PPT to PPTX, PPTX to ODP, etc) to one another. 
+
+{{% alert title="Note" color="warning" %}} 
+
+Besides presentations, Aspose.Slides allows you to merge other files:
+
+* [Images](https://products.aspose.com/slides/net/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/net/merger/png-to-png/)
+* Documents, such as [PDF to PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/net/merger/html-to-html/)
+* And two different files such as [image to PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).
+
+{{% /alert %}}
 
 ### **Merging Options**
 

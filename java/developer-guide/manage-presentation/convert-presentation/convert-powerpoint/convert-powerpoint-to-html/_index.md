@@ -1,11 +1,26 @@
 ---
-title: Convert Powerpoint to HTML
+title: Convert PowerPoint to HTML in Java
+linktitle: Convert Powerpoint to HTML
 type: docs
 weight: 30
 url: /java/convert-powerpoint-to-html/
-keywords: "Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
-description: "Convert PowerPoint HTML: Save PPTX or PPT as HTML. Save slides as HTML"
+keywords: "Java PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
+description: "Convert PowerPoint HTML in Java: Save PPTX or PPT as HTML in Java. Save slides as HTML in Java"
 ---
+
+## **Overview**
+
+This article explains how to convert PowerPoint Presentation in HTML format using Java. It covers the following topics.
+
+- Convert PowerPoint to HTML in Java
+- Convert PPT to HTML in Java
+- Convert PPTX to HTML in Java
+- Convert ODP to HTML in Java
+- Convert PowerPoint Slide to HTML in Java
+
+## **Java PowerPoint to HTML**
+
+For Java sample code to convert PowerPoint to HTML, please see the section below i.e. [Convert PowerPoint to HTML](#convert-powerpoint-to-html). The code can load number of formats like PPT, PPTX and ODP in Presentation object and save it to HTML format.
 
 ## **About PowerPoint to HTML Conversion**
 Using [**Aspose.Slides for Java**](https://products.aspose.com/slides/java/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**. 

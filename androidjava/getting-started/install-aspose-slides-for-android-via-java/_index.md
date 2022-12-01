@@ -22,7 +22,7 @@ Previously, Aspose.Slides for Android via Java was distributed as a single ZIP 
 ![todo:image_alt_text](install-aspose-slides-for-android-via-java_2.png)
 ### **Install Aspose.Slides for Android via Java from Maven Repository**
 1. Add maven repository into your build.gradle. 
-1. Add '[Aspose.Slides for Android via Java](https://repository.aspose.com/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides/)' JAR as a dependency.
+1. Add [Aspose.Slides for Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) JAR as a dependency.
 
 ``` java
 
@@ -32,7 +32,7 @@ repositories {
 
     mavenCentral()
 
-    maven { url "https://repository.aspose.com/repo/" }
+    maven { url "https://releases.aspose.com/java/repo/" }
 
 }
 

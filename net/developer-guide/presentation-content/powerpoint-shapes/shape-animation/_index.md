@@ -188,7 +188,7 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 
 Aspose.Slides for .NET allows you to change the Timing properties of an animation effect.
 
-This is the Animation Timing pane in Microsoft PowerPoint:
+This is the Animation Timing pane and extended menu in Microsoft PowerPoint:
 
 ![example1_image](shape-animation.png)
 
@@ -196,6 +196,10 @@ These are the correspondences between PowerPoint Timing and [Effect.Timing](http
 - PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggertype) property. 
 - PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/duration) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. 
 - PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggerdelaytime) property. 
+- PowerPoint Timing **Repeat** drop-down list matches these properties: 
+  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatcount) property which describes the *number* of times the effect is repeated;
+  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilendslide) flag which specifies whether the effect is repeated until the end of the slide;
+  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilnextclick) flag which specifies whether the effect is repeated until the next click.
 
 This is how you change the Effect Timing properties:
 
@@ -224,7 +228,90 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
     // Changes effect TriggerDelayTime
     effect.Timing.TriggerDelayTime = 0.5f;
 
+    // If the effect Repeat value is "none"
+    if (effect.Timing.RepeatCount == 1f)
+    {
+        // Changes effect Repeat to "Until Next Click"
+        effect.Timing.RepeatUntilNextClick = true;
+    }
+    else
+    {
+        // Changes effect Repeat to "Until End of Slide"
+        effect.Timing.RepeatUntilEndSlide = true;
+    }
+
     // Saves the PPTX file to disk
     pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Animation Effect Sound**
+
+Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
+- [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) 
+- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) 
+
+### **Add Animation Effect Sound**
+
+This C# code shows you how to add an animation effect sound and stop it when the next effect starts:
+
+```c#
+using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+{
+	// Adds audio to presentation audio collection
+	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+
+	ISlide firstSlide = pres.Slides[0];
+
+	// Gets the main sequence of the slide.
+	ISequence sequence = firstSlide.Timeline.MainSequence;
+
+	// Gets the first effect of the main sequence
+	IEffect firstEffect = sequence[0];
+
+	// Сhecks the effect for "No Sound"
+	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
+	{
+		// Adds sound for the first effect
+		firstEffect.Sound = effectSound;
+	}
+
+	// Gets the first interactive sequence of the slide.
+	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
+
+	// Sets the effect "Stop previous sound" flag
+	interactiveSequence[0].StopPreviousSound = true;
+
+	// Writes the PPTX file to disk
+	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
+}
+```
+
+### **Extract Animation Effect Sound**
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+2. Get a slide’s reference through its index. 
+3. Get the main sequence of effects. 
+4. Extract the [Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) embedded to each animation effect. 
+
+This C# code shows you how to extract the sound embedded in an animation effect:
+
+```c#
+// Instantiates a presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation("EffectSound.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Gets the main sequence of the slide.
+    ISequence sequence = slide.Timeline.MainSequence;
+
+    foreach (IEffect effect in sequence)
+    {
+        if (effect.Sound == null)
+            continue;
+
+        // Extracts the effect sound in byte array
+        byte[] audio = effect.Sound.BinaryData;
+    }
 }
 ```

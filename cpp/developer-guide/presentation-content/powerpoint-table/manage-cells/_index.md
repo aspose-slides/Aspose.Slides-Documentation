@@ -17,7 +17,7 @@ This C++ code shows you how to identify merged table cells in a presentation:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"SomePresentationWithTable.pptx");
-auto table = System::DynamicCast_noexcept<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
 // assuming that Slide#0.Shape#0 is a table
 for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
