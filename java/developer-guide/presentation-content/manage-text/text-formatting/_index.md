@@ -131,10 +131,18 @@ try {
 
 Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
 
-This Java code shows you how to expand the spacing for one line of text and condense the spacing for another line: xxx
+This Java code shows you how to expand the spacing for one line of text and condense the spacing for another line:
 
 ```java
+Presentation presentation = new Presentation("in.pptx");
 
+IAutoShape textBox1 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+IAutoShape textBox2 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(1);
+
+textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20); // expand
+textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2); // condense
+
+presentation.save("out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Manage Paragraph's Font Properties**
