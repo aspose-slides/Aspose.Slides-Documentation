@@ -48,5 +48,18 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 This Java code demonstrates the HTML to PowerPoint operation: xxx
 
 ```java
+Presentation presentation = new Presentation();
+try {
+    FileInputStream htmlStream = new FileInputStream("page.html");
+    try {
+        presentation.getSlides().addFromHtml(htmlStream);
+    } finally {
+        if (htmlStream != null) htmlStream.close();
+    }
 
+    presentation.save("MyPresentation.pptx", SaveFormat.Pptx);
+} catch(IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
