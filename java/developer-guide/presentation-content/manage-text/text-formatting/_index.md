@@ -127,7 +127,18 @@ try {
 }
 ```
 
+## **Set Character Spacing for Text**
+
+Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
+
+This Java code shows you how to expand the spacing for one line of text and condense the spacing for another line: xxx
+
+```java
+
+```
+
 ## **Manage Paragraph's Font Properties**
+
 Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for Java to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
