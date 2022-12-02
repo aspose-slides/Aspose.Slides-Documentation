@@ -19,7 +19,7 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 2. Call the `add_from_pdf` method and pass the PDF file. 
 3. Use the `save` method to save the file in the PowerPoint format.
 
-This Python code demonstrates the PDF to PowerPoint process:
+This Python code demonstrates the PDF to PowerPoint operation:
 
 ```py
 import aspose.slides as slides
