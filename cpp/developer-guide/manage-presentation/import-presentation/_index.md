@@ -8,15 +8,17 @@ keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, C++,
 description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
 ---
 
-Aspose.Slides for C++ allows you to import presentations from PDFs. Essentially, you get to convert a PDF to a PowerPoint presentation.
+Using [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection) class to allow you to import presentations from PDF, HTML documents, etc.
 
-![pdf-to-powerpoint](pdf-to-powerpoint.png)
+## **Import PowerPoint from PDF**
 
-Go through these steps:
+In this case, you get to convert a PDF to a PowerPoint presentation.
+
+<img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
 1. Instantiate an object of the presentation class. 
-2. Call the [AddFromPdf](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) method and pass the PDF file. 
-3. Use the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method to save the file in the PowerPoint format.
+2. Call the [AddFromPdf()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) method and pass the PDF file. 
+3. Use the [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method to save the file in the PowerPoint format.
 
 This C++ code demonstrates the PDF to PowerPoint process:
 
@@ -32,4 +34,18 @@ pres->Save(u"OutputPresentation.pptx", SaveFormat::Pptx);
 You may want to check out **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) web app because it is a live implementation of the process described here. 
 
 {{% /alert %}} 
+
+## **Import PowerPoint from HTML**
+
+In this case, you get to convert a HTML document to a PowerPoint presentation.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class. 
+2. Call the [AddFromHtml()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#ad4337f6be235c230d5d422a6799ef965) method and pass the HTML file. 
+3. Use the [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method to save the file in the PowerPoint format.
+
+This C++ code demonstrates the HTML to PowerPoint operation: xxx
+
+```c++
+
+```
 

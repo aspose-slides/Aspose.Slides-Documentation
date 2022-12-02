@@ -7,17 +7,19 @@ keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, Java
 description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
 ---
 
-Aspose.Slides for Java allows you to import presentations from PDFs. Essentially, you get to convert a PDF to a PowerPoint presentation.
+Using [**Aspose.Slides for Java**](https://products.aspose.com/slides/java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
 
-![pdf-to-powerpoint](pdf-to-powerpoint.png)
+## **Import PowerPoint from PDF**
 
-Go through these steps:
+In this case, you get to convert a PDF to a PowerPoint presentation.
 
-1. Instantiate an object of the presentation class. 
+<img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/) class. 
 2. Call the [addFromPdf()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) method and pass the PDF file. 
 3. Use the [save()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
 
-This Java code demonstrates the PDF to PowerPoint process:
+This Java code demonstrates the PDF to PowerPoint operation:
 
 ```java
 Presentation pres = new Presentation();
@@ -35,3 +37,16 @@ You may want to check out **Aspose free** [PDF to PowerPoint](https://products.a
 
 {{% /alert %}} 
 
+## **Import PowerPoint from HTML**
+
+In this case, you get to convert a HTML document to a PowerPoint presentation.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/) class. 
+2. Call the [addFromHtml()](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) method and pass the PDF file. 
+3. Use the [save()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
+
+This Java code demonstrates the HTML to PowerPoint operation: xxx
+
+```java
+
+```
