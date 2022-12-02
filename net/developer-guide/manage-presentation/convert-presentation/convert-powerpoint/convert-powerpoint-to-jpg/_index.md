@@ -10,7 +10,7 @@ description: "Convert PowerPoint to JPG in C# or .NET. Save slide as JPG image"
 
 ## **Overview**
 
-This article explains how to convert PowerPoint Presentation to JPG format using C#. It covers the following topics.
+This article explains how to convert PowerPoint Presentation to JPG format using C#. It covers the following topics:
 
 - [C# Convert PowerPoint to JPG](#convert-powerpoint-pptpptx-to-jpg)
 - [C# Convert PPT to JPG](#convert-powerpoint-pptpptx-to-jpg)
@@ -41,10 +41,10 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 ## **Convert PowerPoint PPT/PPTX to JPG**
 Here are the steps to convert PPT/PPTX to JPG:
 
-- Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)type.
-- Get the slide object of [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) type from [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) collection.
-- Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) method is used to get a thumbnail of a slide, it returns [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) object as a result. [GetThumbnail](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) type, the scales of the resulting thumbnail are passed into the method.
-- After you get the slide thumbnail, call [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method from the thumbnail object. Pass the resulting file name and the image format into it. 
+1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)type.
+2. Get the slide object of [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) type from [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) collection.
+3. Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) method is used to get a thumbnail of a slide, it returns [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) object as a result. [GetThumbnail](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) type, the scales of the resulting thumbnail are passed into the method.
+4. After you get the slide thumbnail, call [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method from the thumbnail object. Pass the resulting file name and the image format into it. 
 
 {{% alert color="primary" %}} 
 **Note**: PPT/PPTX to JPG conversion differs from the conversion to other types in Aspose.Slides .NET API. For other types, you usually use [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)** ](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5)method, but here you need [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method.
@@ -55,44 +55,42 @@ using (Presentation pres = new Presentation("PowerPoint-Presentation.ppt"))
 {
 	foreach (ISlide sld in pres.Slides)
 	{
-		// Create a full scale image
+		// Creates a full scale image
 		Bitmap bmp = sld.GetThumbnail(1f, 1f);
 
-		// Save the image to disk in JPEG format
+		// Saves the image to disk in JPEG format
 		bmp.Save(string.Format("Slide_{0}.jpg", sld.SlideNumber), System.Drawing.Imaging.ImageFormat.Jpeg);
 	}
 }
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* for it. To do that, pass *ScaleX* and *ScaleY* values into [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) method:
+To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) methods:
 
 ```c#
 using (Presentation pres = new Presentation("PowerPoint-Presentation.pptx"))
 {
-	// Define dimensions
+	// Defines dimensions
 	int desiredX = 1200;
 	int desiredY = 800;
-	// Get scaled values of X and Y
+	// Gets scaled values of X and Y
 	float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
 	float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
 
 	foreach (ISlide sld in pres.Slides)
 	{
-		// Create a full scale image
+		// Creates a full scale image
 		Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
 
-		// Save the image to disk in JPEG format
+		// Saves the image to disk in JPEG format
 		bmp.Save(string.Format("Slide_{0}.jpg", sld.SlideNumber), System.Drawing.Imaging.ImageFormat.Jpeg);
 	}
 }
 ```
 
 
-
-
 ## **Render Comments when saving Presentation into Image**
-Aspose.Slides for .NET provides a facility to render comments of presentations or slide when converting those into images.  An example is given below that shows how to render comments of presentation into an image.
+Aspose.Slides for .NET provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This C# code demonstrates the operation:
 
 ```c#
 Presentation pres = new Presentation("test.pptx");
@@ -122,9 +120,9 @@ Using the same principles described in this article, you can convert images from
 
 ## **See also**
 
-See other options to convert PPT/PPTX into image, like:
+See other options to convert PPT/PPTX into image like:
 
-- [PPT/PPTX to SVG conversion](/slides/net/presentation-viewer/)
+- [PPT/PPTX to SVG conversion](/slides/net/render-a-slide-as-an-svg-image/).
 
 
 
