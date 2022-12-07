@@ -44,9 +44,15 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 2. Call the `add_from_html` method and pass the HTML file. 
 3. Use the `save` method to save the file as a PowerPoint document.
 
-This Python code demonstrates the HTML to PowerPoint operation: xxx
+This Python code demonstrates the HTML to PowerPoint operation: 
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    with open("page.html", "rb") as htmlStream:
+        pres.slides.add_from_html(htmlStream)
+
+    pres.save("MyPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
