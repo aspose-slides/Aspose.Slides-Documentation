@@ -133,7 +133,17 @@ Aspose.Slides allows you to set the space between letters in a textbox. This way
 This Python code shows you how to expand the spacing for one line of text and condense the spacing for another line: xxx
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation("in.pptx") as pres:
+
+    textBox1 = pres.slides[0].shapes[0]
+    textBox2 = pres.slides[0].shapes[1]
+
+    textBox1.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = 20 # expand
+    textBox2.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = -2 # condense
+
+    pres.save("out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
