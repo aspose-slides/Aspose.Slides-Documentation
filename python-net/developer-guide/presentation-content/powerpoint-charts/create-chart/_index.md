@@ -348,16 +348,24 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-This Python code shows you how to create a line chart: xxx
+This Python code shows you how to create a line chart: 
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    lineChart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+    
+    pres.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way: xxx
+By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way: 
 
 ```python
+lineChart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
 
+for series in lineChart.chart_data.series:
+    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
 ```
 
 ### **Creating Tree Map Charts**
