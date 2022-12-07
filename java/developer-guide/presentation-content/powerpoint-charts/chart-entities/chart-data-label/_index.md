@@ -2,10 +2,15 @@
 title: Chart Data Label
 type: docs
 url: /java/chart-data-label/
+keywords: "Chart data label,label distance, Java, Aspose.Slides for Java"
+description: "Set PowerPoint chart data label and distance in Java"
 ---
 
+Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
+
 ## **Set Precision of Data in Chart Data Labels**
-Aspose.Slides for Java provides a simple API for setting precision of data in chart data label. Below sample example is given. 
+
+This Java code shows you how to set the data precision in a chart data label:
 
 ```java
 Presentation pres = new Presentation();
@@ -22,22 +27,13 @@ try {
 ```
 
 ## **Display Percentage as Labels**
-Aspose.Slides for Java supports displaying the percentage as labels. In this topic, we will see with example how to display the percentage as labels using Aspose.Slides. In order to set percentage as display. Please follow the steps below.
-
-1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object.
-1. Add stacked column chart.
-1. Calculate the series data point values for particular categories.
-1. Displaying the percentage as labels.
-1. Set properties of label.
-1. Write presentation to disk.
-
-In the example given below, we have set the percentage as label.
+Aspose.Slides for Java allows you to set percentage labels on displayed charts. This Java code demonstrates the operation:
 
 ```java
-// Creating empty presentation
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
-    // Access first slide
+    // Gets the first slide
     ISlide slide = pres.getSlides().get_Item(0);
     
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
@@ -75,7 +71,7 @@ try {
         }
     }
     
-    // Save presentation with chart
+    // Saves the presentation containing the chart
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -83,50 +79,40 @@ try {
 ```
 
 ## **Set Percentage Sign with Chart Data Labels**
-In order to set the percentage sign with chart data labels. Please follow the steps below:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Get reference of the slide.
-- Add PercentsStackedColumn chart on a slide.
-- Set NumberFormatLinkedToSource to false.
-- Getting the chart data worksheet.
-- Add new series.
-- Setting the fill color of series.
-- Setting LabelFormat properties.
-- Write the presentation as a PPTX file.
+This Java code shows you to set the percentage sign for a chart data label:
 
 ```java
-// Creating empty presentation
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
-    // Get reference of the slide
+    // Gets a slide's reference through its index
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Add PercentsStackedColumn chart on a slide
+    // Creates the PercentsStackedColumn chart on a slide
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
     
-    // Set NumberFormatLinkedToSource to false
+    // Sets the NumberFormatLinkedToSource to false
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
     
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // Getting the chart data worksheet
+    // Gets the chart data worksheet
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
-    // Add new series
+    // Adds new series
     IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
     
-    // Setting the fill color of series
+    // Sets the fill color of series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Setting LabelFormat properties
+    // Sets the LabelFormat properties
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
@@ -135,14 +121,14 @@ try {
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Add new series
+    // Adds new series
     IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
     
-    // Setting Fill type and color
+    // Sets Fill type and color
     series2.getFormat().getFill().setFillType(FillType.Solid);
     series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
     series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -152,40 +138,42 @@ try {
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     
-    // Write presentation to disk
+    // Writes the presentation to disk
     pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Set Label Distances**
-In order to set the Label Distance. Please follow the steps below:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Get reference of the slide.
-- Adding a chart on slide.
-- Setting the position of label from axis.
-- Write the presentation as a PPTX file.
-
-In the example given below, we have set the label distance from category axis.
+## **Set Label Distances** From Axis
+This Java code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```java
-// Creating empty presentation
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
-    // Get reference of the slide
+    // Gets a slide's reference
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Adding a chart on slide
+    // Creates a chart on the slide
     IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     
-    // Setting the position of label from axis
+    // Sets the label distance from an axis
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
-    // Write the presentation to disk
+    // WriteS the presentation to disk
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
+```
+
+## **Adjust Label Location**
+
+When you are create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
+
+This Java code shows you how to adjust the label location on a pie chart:
+
+```java
+
 ```

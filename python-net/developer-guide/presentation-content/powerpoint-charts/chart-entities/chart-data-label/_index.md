@@ -6,8 +6,11 @@ keywords: "Chart data label,label distance, Python, Aspose.Slides for Python via
 description: "Set PowerPoint chart data label and distance in Python"
 ---
 
+Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
+
 ## **Set Precision of Data in Chart Data Labels**
-Aspose.Slides for Python via .NET provides a simple API for setting precision of data in chart data label. Below sample example is given. 
+
+This Python code shows you how to set the data precision in a chart data label:
 
 ```py
 import aspose.slides.charts as charts
@@ -21,25 +24,14 @@ with slides.Presentation() as pres:
 	pres.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
 ## **Display Percentage as Labels**
-Aspose.Slides for Python via .NET supports displaying the percentage as labels. In this topic, we will see with example how to display the percentage as labels using Aspose.Slides. In order to set percentage as display. Please follow the steps below.
-
-1. Instantiate [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
-1. Add stacked column chart.
-1. Calculate the series data point values for particular categories.
-1. Displaying the percentage as labels.
-1. Set properties of label.
-1. Write presentation to disk.
-
-In the example given below, we have set the percentage as label.
+Aspose.Slides for Python via .NET allows you to set percentage labels on displayed charts. This Python code demonstrates the operation:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Create an instance of Presentation class
+# Creates an instance of the Presentation class
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
@@ -73,61 +65,49 @@ for x in range(len(chart.chart_data.series)):
         lbl.data_label_format.show_category_name = False
         lbl.data_label_format.show_bubble_size = False
 
-# Save presentation with chart
+# Saves the presentation containing the chart
 presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
 ## **Set Percentage Sign with Chart Data Labels**
-In order to set the percentage sign with chart data labels. Please follow the steps below:
-
-- Create an instance of `Presentation` class.
-- Get reference of the slide.
-- Add PercentsStackedColumn chart on a slide.
-- Set NumberFormatLinkedToSource to false.
-- Getting the chart data worksheet.
-- Add new series.
-- Setting the fill color of series.
-- Setting LabelFormat properties.
-- Write the presentation as a PPTX file.
+This Python code shows you to set the percentage sign for a chart data label:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Create an instance of Presentation class
+# Creates an instance of Presentation class
 with slides.Presentation() as presentation:
 
-    # Get reference of the slide
+    # Gets a slide's reference through its index
     slide = presentation.slides[0]
 
-    # Add PercentsStackedColumn chart on a slide
+    # Creates the PercentsStackedColumn chart on a slide
     chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
 
-    # Set NumberFormatLinkedToSource to false
+    # Sets the NumberFormatLinkedToSource to false
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.number_format = "0.00%"
 
     chart.chart_data.series.clear()
     defaultWorksheetIndex = 0
 
-    # Getting the chart data worksheet
+    # Gets the chart data worksheet
     workbook = chart.chart_data.chart_data_workbook
 
-    # Add new series
+    # Adds new series
     series = chart.chart_data.series.add(workbook.get_cell(defaultWorksheetIndex, 0, 1, "Reds"), chart.type)
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 1, 1, 0.30))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 2, 1, 0.50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 3, 1, 0.80))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 4, 1, 0.65))
 
-    # Setting the fill color of series
+    # Sets the fill color of series
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # Setting LabelFormat properties
+    # Sets the LabelFormat properties
     series.labels.default_data_label_format.show_value = True
     series.labels.default_data_label_format.is_number_format_linked_to_source = False
     series.labels.default_data_label_format.number_format = "0.0%"
@@ -136,14 +116,14 @@ with slides.Presentation() as presentation:
     series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
     series.labels.default_data_label_format.show_value = True
 
-    # Add new series
+    # Adds new series
     series2 = chart.chart_data.series.add(workbook.get_cell(defaultWorksheetIndex, 0, 2, "Blues"), chart.type)
     series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 1, 2, 0.70))
     series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 2, 2, 0.50))
     series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 3, 2, 0.20))
     series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 4, 2, 0.35))
 
-    # Setting Fill type and color
+    # Sets Fill type and color
     series2.format.fill.fill_type = slides.FillType.SOLID
     series2.format.fill.solid_fill_color.color = draw.Color.blue
     series2.labels.default_data_label_format.show_value = True
@@ -153,38 +133,38 @@ with slides.Presentation() as presentation:
     series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
 
-    # Write presentation to disk
+    # Writes the presentation to disk
     presentation.save("SetDatalabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
-## **Set Label Distances**
-In order to set the Label Distance. Please follow the steps below:
-
-- Create an instance of `Presentation` class.
-- Get reference of the slide.
-- Adding a chart on slide.
-- Setting the position of label from axis.
-- Write the presentation as a PPTX file.
-
-In the example given below, we have set the label distance from category axis.
+## **Set Label Distance From Axis**
+This C++ code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
+	# Creates an instance of the Presentation class
 with slides.Presentation() as presentation:
-    # Get reference of the slide
+    # Gets a slide's reference
     sld = presentation.slides[0]
     
-    # Adding a chart on slide
+    # Creates a chart on the slide
     ch = sld.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # Setting the position of label from axis
+    # Sets the label distance from an axis
     ch.axes.horizontal_axis.label_offset = 500
 
-    # Write the presentation file to disk
+    # Writes the presentation to disk
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Adjust Label Location**
+
+When you are create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
+
+This C++ code shows you how to adjust the label location on a pie chart:
+
+```python
+
+```
