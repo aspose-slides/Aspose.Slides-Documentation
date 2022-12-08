@@ -59,10 +59,19 @@ The implementation of the above steps is given below.
 
 Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
 
-This C++ code shows you how to expand the spacing for one line of text and condense the spacing for another line: xxx
+This C++ code shows you how to expand the spacing for one line of text and condense the spacing for another line:
 
 ```c++
+auto presentation = System::MakeObject<Presentation>(u"in.pptx");
 
+auto slide = presentation->get_Slides()->idx_get(0);
+auto textBox1 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(0));
+auto textBox2 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(1));
+
+textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // expand
+textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // condense
+
+presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Manage Paragraph's Font Properties**
