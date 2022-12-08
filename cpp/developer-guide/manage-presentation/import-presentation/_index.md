@@ -43,9 +43,16 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 2. Call the [AddFromHtml()](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#ad4337f6be235c230d5d422a6799ef965) method and pass the HTML file. 
 3. Use the [Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method to save the file in the PowerPoint format.
 
-This C++ code demonstrates the HTML to PowerPoint operation: xxx
+This C++ code demonstrates the HTML to PowerPoint operation:
 
 ```c++
+auto presentation = System::MakeObject<Presentation>();
 
+{
+    auto htmlStream = System::IO::File::OpenRead(u"page.html");
+    presentation->get_Slides()->AddFromHtml(htmlStream);
+}
+
+presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 ```
 
