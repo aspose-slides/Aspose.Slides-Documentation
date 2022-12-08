@@ -420,16 +420,23 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-This C++ code shows you how to create a line chart: xxx
+This C++ code shows you how to create a line chart:
 
 ```c++
+auto pres = System::MakeObject<Presentation>();
 
+System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
+pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way: xxx
+By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
 
 ```c++
-
+System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
+for (auto&& series : lineChart->get_ChartData()->get_Series())
+{
+    series->get_Format()->get_Line()->set_DashStyle(LineDashStyle::Dash);
+}
 ```
 
 ### **Creating Tree Map Charts**
