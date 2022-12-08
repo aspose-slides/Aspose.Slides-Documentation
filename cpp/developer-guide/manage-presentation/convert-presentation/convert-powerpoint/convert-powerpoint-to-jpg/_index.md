@@ -10,10 +10,20 @@ description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in C++"
 ## **Convert Presentation to Set of Images**
 
 In some cases, it is necessary to convert the entire presentation into a set of images, 
-the same as PowerPoint allows. The C++ code shows you how to convert a presentation to JPG images: xxx
+the same as PowerPoint allows. The C++ code shows you how to convert a presentation to JPG images:
 
-``` cpp 
+```c++
+auto pres = System::MakeObject<Presentation>(u"PowerPoint-Presentation.ppt");
 
+for (auto&& sld : pres->get_Slides())
+{
+    // Creates a full scale image
+    System::SharedPtr<System::Drawing::Bitmap> bmp = sld->GetThumbnail(1.0f, 1.0f);
+
+    // Saves the image to disk in JPEG format
+    bmp->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
+              System::Drawing::Imaging::ImageFormat::get_Jpeg());
+}
 ```
 
 {{% alert color="primary" %}} 
@@ -24,10 +34,26 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 
 ## Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into `float scaleX, float Y` of the [**ISlide::GetThumbnail()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#ada75b519be73a2c84f6785b9c193a743) method: xxx
+To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into `float scaleX, float Y` of the [**ISlide::GetThumbnail()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#ada75b519be73a2c84f6785b9c193a743) method:
 
 ```c++
+auto pres = System::MakeObject<Presentation>(u"PowerPoint-Presentation.pptx");
 
+// Defines dimensions
+int32_t desiredX = 1200, desiredY = 800;
+// Gets scaled values of X and Y
+float ScaleX = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Width()) * desiredX;
+float ScaleY = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Height()) * desiredY;
+
+for (auto&& sld : pres->get_Slides())
+{
+    // Creates a full scale image
+    System::SharedPtr<System::Drawing::Bitmap> bmp = sld->GetThumbnail(ScaleX, ScaleY);
+
+    // Saves the image to disk in JPEG format
+    bmp->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
+              System::Drawing::Imaging::ImageFormat::get_Jpeg());
+}
 ```
 
 ## **Render Comments when Saving Presentation into Image**
