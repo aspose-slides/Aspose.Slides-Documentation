@@ -7,75 +7,19 @@ keywords: "Theme, PowerPoint theme, PowerPoint presentation, Python, Aspose.Slid
 description: "PowerPoint presentation theme in Python"
 ---
 
-## **About Presentation Design**
+A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
 
-In the **presentation design**, there are two types of elements:
+In PowerPoint, a theme comprises colors, [fonts](/slides/python-net/powerpoint-fonts/), [background styles](/slides/python-net/presentation-background/), and effects.
 
-- Data elements. Used to add an informational content into the presentation: text, titles, lists, charts, tables, videos, etc.
-- Design elements. Used to create a visual appearance of all presentation elements - the presentation design.
+![theme-constituents](theme-constituents.png)
 
-**Design elements** are the following:
+## **Change Theme Color**
 
-- Data elements layout. It depends on the type of the element. Elements of non-placeholder type have a fixed position. While elements of placeholder type (or a combination of elements with placeholder type, like: header and body) have a flexible position, which can be changed. They can be placed on different Slide Layouts, Slide Masters, that are applied to a slide.
-- Template elements. Which are only dedicated to quickly create the style of presentation. 
-- Colors. Used to paint elements and their parts. Usually, elements are designed with many colors, having one fill color and border color, etc.
-- Fonts. Used for the data elements, containing text.
-- Effects. Which are applied to various elements: shadow, glow, reflection, 3D-effects, ect.
-- Background. Fills the background of the slide or presentation, and can be used on Slide Master, Slide Layout or a certain slide. The background can be: solid, gradient, texture, etc.
+A PowerPoint theme uses a specific set of colors for different elements on a slide. If you don't like the colors, you change them colors by applying new colors for the theme. To allow you select a new theme color, Aspose.Slides provides values under the [SchemeColor](https://reference.aspose.com/slides/python-net/aspose.slides/schemecolor/) enumeration.
 
-All the design elements of presentation create the **presentation design**. The major properties of design elements are defined by the **presentation theme**. When you choose a certain presentation theme, you actually choose a set of visual elements and their properties, to build the presentation design.
+This Python code shows you how to change the accent color for a theme:
 
-
-In PowerPoint it is possible to change the whole presentation theme in one click:
-
-![todo:image_alt_text](presentation-design_1.png)
-
-
-
-It is also available to change a certain part of the presentation theme (colors, fonts, effects, background styles):
-
-![todo:image_alt_text](presentation-design_2.png)
-
-Through "*Design - ->View"* menu user can change a set of stylistic properties of visual elements. Apart from that, it's possible to add new elements into the presentation (e.g. into Slide Master), based on a certain template. However, newly added elements will be removed in case the presentation theme will be changed.
-
-For example, if you choose "Organic" template in PowerPoint, the following shape will be added into Slide Master:
-
-![todo:image_alt_text](presentation-design_3.png)
-
-After changing the presentation theme on "*Ion*", the abovementioned element will be removed. While that, a new element of "*Ion*" presentation theme will be added on the slide (see on the image). As you can see, this element is binded to a placeholder, which will show the slide number (in case, its switched on in "*Insert --> Header & Footer --> Slide Number"*):
-
-![todo:image_alt_text](presentation-design_4.png)
-
-However, if you will change the presentation theme on "*Office Theme*", the placeholder will be removed from the slide. This happens because presentation theme actually includes a **presentation template** as well. So, while we change the presentation theme, this action may also cause presentation template to be changed (e.g. add elements to Slide Master, change placeholders positions).
-
-
-
-
-## **Change Theme Colors**
-When a certain theme is chosen for presentation, the colors to apply on presentation are calculated based on the presentation theme. Each presentation theme has an ordered set of colors, where every color is destinated to different elements or parts of the slide. The actual value of the color is not used in theme color set. Instead, the color order number and color name are used. Colors for presentation elements are calculated based on default theme settings or chosen according to the pointer referring to a color from the theme colors set.
-
-In PowerPoint theme colors set looks this way on a color picker:
-
-
-
-![todo:image_alt_text](presentation-design_5.png)
-
-
-
-It is a set of theme colors, containing 10 main colors of the theme. A popup window shows the name of one color from this theme. 
-
-Here is the same theme color set, with all its color names, available in "*Design -> Variants -> Customize Colors -> “Theme Colors”* PowerPoint menu:
-
-![todo:image_alt_text](presentation-design_6.png)
-
-
-
-Here is possible to add new colors not defined in presentation theme, or change existing ones. For example, "Hyperlink” and ”Followed Hyperlink” colors were added manually. 
-## **Change Theme Colors with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) to choose the appropriate color from the theme color set and set it to the element, use [**scheme_color**](https://reference.aspose.com/slides/python-net/aspose.slides/icolorformat/) property:
-
-
-```py
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
@@ -85,35 +29,16 @@ with slides.Presentation() as pres:
     shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 ```
 
+You can determine the resulting color's effective value this way:
 
-
-In the example above, we have set a reference on *Accent4* color, taken from the **scheme color** (theme colors). If we want to know the real value of this color, it is necessary to calculate its effective value - the value of the element color, which user sees after all the styles applied to this element:
-
-
-
-```py
+```python
 fillEffective = shape.fill_format.get_effective()
 print("{0} ({1})".format(fillEffective.solid_fill_color.name, fillEffective.solid_fill_color)) # ff8064a2 (Color [A=255, R=128, G=100, B=162])
 ```
 
+To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
 
-
-We can check that color matches the one defined as *Accent4* for the presentation theme:
-
-
-
-```py
-themeAccent4 = pres.master_theme.color_scheme.accent4.color
-print("{0} - from theme".format(themeAccent4.name))
-```
-
-
-
-Lets us create one more element and assign it the same *Accent4* color from the scheme. Then we will change this color in the scheme:
-
-
-
-```py
+```python
 otherShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
 otherShape.fill_format.fill_type = slides.FillType.SOLID
 otherShape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
@@ -121,33 +46,85 @@ otherShape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT
 pres.master_theme.color_scheme.accent4.color = draw.Color.red
 ```
 
+The new color is applied automatically on both elements.
 
+### **Set Theme Color from Additional Palette**
 
-The color will change on both elements after we have changed it in the color theme. 
+When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
 
+![additional-palette-colors](additional-palette-colors.png)
 
+**1**- Main theme colors
 
-## **Change Theme Fonts**
-The presentation theme defines two main fonts, which will be used for presentation Heading and Body. It is possible to set Latin, Asian or Complex option for each presentation theme font. In PowerPoint it's done the following way:
+**2** - Colors from the additional palette.
 
-![todo:image_alt_text](presentation-design_7.png)
+This Python code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
+```python
+import aspose.slides as slides
 
-## **Change Theme Fonts with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) (the same as in PowerPoint) to choose the font from the **font scheme**, the special identifier is used:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-- "**+mn-lt**": Body Font Latin (Minor Latin Font)
-- "**+mj-lt**": Heading Font Latin (Major Latin Font)
-- "**+mn-ea**": Body Font East Asian (Minor East Asian Font)
-- "**+mj-ea**": Body Font East Asian (Minor East Asian Font)
+    # Accent 4
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 50, 50)
 
+    shape1.fill_format.fill_type = slides.FillType.SOLID
+    shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 
+    # Accent 4, Lighter 80%
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
 
-Let us create an element with the text, and assign the Latin font from the font scheme to it: 
+    shape2.fill_format.fill_type = slides.FillType.SOLID
+    shape2.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
+    shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
 
+    # Accent 4, Lighter 60%
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
 
+    shape3.fill_format.fill_type = slides.FillType.SOLID
+    shape3.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
+    shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
 
-```py
+    # Accent 4, Lighter 40%
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
+
+    shape4.fill_format.fill_type = slides.FillType.SOLID
+    shape4.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.6)
+    shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.4)
+
+    # Accent 4, Darker 25%
+    shape5 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 250, 50, 50)
+
+    shape5.fill_format.fill_type = slides.FillType.SOLID
+    shape5.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape5.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.75)
+
+    # Accent 4, Darker 50%
+    shape6 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 50, 50)
+
+    shape6.fill_format.fill_type = slides.FillType.SOLID
+    shape6.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    shape6.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.5)
+
+    presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Change Theme Font**
+
+To allow you select fonts for themes and other purposes, Aspose.Slides uses these special identifiers (similar to those used in PowerPoint):
+
+* **+mn-lt** - Body Font Latin (Minor Latin Font)
+* **+mj-lt** -Heading Font Latin (Major Latin Font)
+* **+mn-ea** - Body Font East Asian (Minor East Asian Font)
+* **+mj-ea** - Body Font East Asian (Major East Asian Font)
+
+This Python code shows you how to assign the Latin font to a theme element:
+
+```python
 shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
 
 paragraph = slides.Paragraph()
@@ -157,97 +134,65 @@ shape.text_frame.paragraphs.add(paragraph)
 portion.portion_format.latin_font = slides.FontData("+mn-lt")
 ```
 
+This Python code shows you how to change the presentation theme font:
 
-
-Now lets check that the same font is set for Body Latin:
-
-
-
-```py
-print("Portion Body Latin font is: {0}".format(portion.portion_format.get_effective().latin_font.font_name))
-print("Theme Body Latin font is: {0}".format(pres.master_theme.font_scheme.minor.latin_font))
-```
-
-
-
-It is possible to change the presentation theme font, which will be updated for all presentation text accordingly:
-
-
-
-```py
+```python
 pres.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 ```
 
+The font in all text boxes will be updated.
 
-{{% alert color="primary" title="See also" %}} 
-- [Working with Presentation Fonts](/slides/python-net/powerpoint-fonts/)
+{{% alert color="primary" title="TIP" %}} 
+
+You may want to see [PowerPoint fonts](/slides/python-net/powerpoint-fonts/).
+
 {{% /alert %}}
 
 ## **Change Theme Background Style**
-Presentation theme may also contain a set of background styles, which can be changed via "*Design -> Variants -> Background Styles*" menu:
+
+By default, the PowerPoint app provides 12 predefined backgrounds but only 3 from those 12 backgrounds are saved in a typical presentation. 
 
 ![todo:image_alt_text](presentation-design_8.png)
 
+For example, after you save a presentation in the PowerPoint app, you can run this Python code to find out the number of predefined backgrounds in the presentation:
 
-## **Change Theme Background Style with Aspose.Slides**
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) its possible to access Background Style with [**background_fill_styless**](https://reference.aspose.com/slides/python-net/aspose.slides.theme/iformatscheme/) property. There is a difference in the way Background Style is represented in presentation with Aspose.Slides comparing to PowerPoint. The logic difference affects the slide effects too. We will consider the Background Style logic difference below.
-
-On the images above you can see, that to design the Background Style in PowerPoint, there are 12 predefined backgrounds available. However, if we upload the presentation, saved in PowerPoint through Aspose.Slides, then execute the following code - we will see only 3 predefined backgrounds in the resulting presentation:
-
-```py
+```python
 with slides.Presentation() as pres:
     numberOfBackgroundFills = len(pres.master_theme.format_scheme.background_fill_styles)
     print("Number of background fill styles for theme is {0}".format(numberOfBackgroundFills))
 ```
 
-The reason is that,12 predefined backgrounds are used to design Background Style only, but they are not actually saved into the resulting presentation. However, its possible to add additional backgrounds to [background_fill_styles](https://reference.aspose.com/slides/python-net/aspose.slides.theme/iformatscheme/) property.
+{{% alert color="warning" %}} 
 
-To define which background should be used for presentation, set the needed presentation index (**Note**: the index starts from 1, not from 0. 0 is used to define "*no fill*" value):
+Using the `BackgroundFillStyles` property from the [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) class, you can add or access the background style in a PowerPoint theme. 
 
+{{% /alert %}}
 
+This Python code shows you how to set the background for a presentation:
 
-```py
+```python
 pres.masters[0].background.style_index = 2
 ```
 
+**Index guide**: 0 is used for no fill. The index starts from 1.
 
-{{% alert color="primary" title="See also" %}} 
-- [Working with Presentation Background](/slides/python-net/presentation-background/)
+{{% alert color="primary" title="TIP" %}} 
+
+You may want to see [PowerPoint Background](/slides/python-net/presentation-background/).
+
 {{% /alert %}}
 
-## **Change Theme Effects with Aspose.Slides**
+## **Change Theme Effect**
 
-
-An important difference in [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) to PowerPoint is in grouping theme properties into a [**FormatScheme** ](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/)type. In PowerPoint, *Theme Effect* and *Backgrounds* are represented as two separate lists in "*Design --> Variant"* menu. In Aspose.Slides they are both encapsulated into [FormatScheme ](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/)type. [FormatScheme ](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/)type is the core type to define the presentation theme properties, it is a "style matrix" containing style arrays of types:
-
-- fill styles
-- line styles
-- effect styles
-- background fill styles
-
-
-
-PowerPoint theme usually contains 3 values for each style array, which are combined into "*Subtle*", "*Moderate*" and "*Intense*” effects. Let's demonstrate it on the example of formatting shapes. The themes of individual shapes can be edited with "*PowerPoint's Format -> Shape Styles*" menu:
-
-
-
-![todo:image_alt_text](presentation-design_9.png)
-
-For example, 3 shapes will look this way after we apply 3 different effects on them:
+A PowerPoint theme usually contains 3 values for each style array. Those arrays are combined into these 3 effects: subtle, moderate, and intense. For example, this is the outcome when the effects are applied to a specific shape:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
+Using 3 properties (`FillStyles`, `LineStyles`, `EffectStyles`) from the  [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) class you can change the elements in a theme (even more flexibly than the options in PowerPoint).
 
+This Python code shows you how to change a theme effect by altering parts of elements:
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) there are no "*Subtle*", "*Moderate*" and "*Intense*” effects. Instead, you can operate the [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) style matrix, having 3 elements in each array (FillStyles, LineStyles, EffectStyles) to change the outlook of presentation elements. There is also the [background_fill_styles](https://reference.aspose.com/slides/python-net/aspose.slides.theme/iformatscheme/) property available, but it can only change the background fill style.
-
-
-
-So, the effects you can use in PowerPoint are strictly limited. While, in Aspose.Slides it is possible to change them in a flexible way by changing their composite parts. In the following example, we will change the outlook of the abovementioned elements with Aspose.Slides:
-
-
-
-```py
+```python
 with slides.Presentation("combined_with_master.pptx") as pres:
     pres.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
     pres.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
@@ -257,8 +202,7 @@ with slides.Presentation("combined_with_master.pptx") as pres:
     pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
-As you can see, we have changed the fill color, the fill type, shadow effect, etc of the elements:
+The resulting changes in fill color, fill type, shadow effect, etc:
 
 ![todo:image_alt_text](presentation-design_11.png)
+

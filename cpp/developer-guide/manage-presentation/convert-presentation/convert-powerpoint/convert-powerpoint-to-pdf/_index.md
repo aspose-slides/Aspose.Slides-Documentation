@@ -11,10 +11,10 @@ description: "Convert PowerPoint Presentation to PDF in C++. Save PowerPoint as 
 
 This article explains how you can convert PowerPoint file formats into PDF using C++. It covers wide range of topics e.g.
 
-- Convert PPT to PDF in C++
-- Convert PPTX to PDF in C++
-- Convert ODP to PDF in C++
-- Convert PowerPoint to PDF in C++
+- [Convert PPT to PDF in C++](#cpp-ppt-to-pdf)
+- [Convert PPTX to PDF in C++](#cpp-pptx-to-pdf)
+- [Convert ODP to PDF in C++](#cpp-odp-to-pdf)
+- [Convert PowerPoint to PDF in C++](#cpp-powerpoint-to-pdf)
 
 ## **C++ PowerPoint to PDF Conversions**
 
@@ -52,6 +52,11 @@ Aspose.Slides exports presentations to PDF in a way that makes the contents of t
 ## **Convert PowerPoint to PDF**
 
 The standard PowerPoint PDF conversion operation is executed using default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels.
+
+<a name="cpp-powerpoint-to-pdf" id="cpp-powerpoint-to-pdf"><strong>Steps: Convert PowerPoint to PDF in C++</strong></a> |
+<a name="cpp-ppt-to-pdf" id="cpp-ppt-to-pdf"><strong>Steps: Convert PPT to PDF in C++</strong></a> |
+<a name="cpp-pptx-to-pdf" id="cpp-pptx-to-pdf"><strong>Steps: Convert PPTX to PDF in C++</strong></a> |
+<a name="cpp-odp-to-pdf" id="cpp-odp-to-pdf"><strong>Steps: Convert ODP to PDF in C++</strong></a>
 
 This C++ code shows you how to convert a PowerPoint to PDF:
 

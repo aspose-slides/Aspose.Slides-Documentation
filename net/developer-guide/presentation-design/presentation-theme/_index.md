@@ -55,13 +55,13 @@ The new color is applied automatically on both elements.
 
 ### **Set Theme Color from Additional Palette**
 
-When you apply luminance transformations to the main color, colors from the additional palette are formed. You can then set and get those theme colors. 
+When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-1- Main theme colors
+**1** - Main theme colors
 
-2 - Colors from the additional palette.
+**2** - Colors from the additional palette.
 
 This C# code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 

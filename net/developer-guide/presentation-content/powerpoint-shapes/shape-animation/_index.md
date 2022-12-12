@@ -245,8 +245,49 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
+## **Animation Effect Sound**
+
+Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
+- [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) 
+- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) 
+
+### **Add Animation Effect Sound**
+
+This C# code shows you how to add an animation effect sound and stop it when the next effect starts:
+
+```c#
+using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+{
+	// Adds audio to presentation audio collection
+	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+
+	ISlide firstSlide = pres.Slides[0];
+
+	// Gets the main sequence of the slide.
+	ISequence sequence = firstSlide.Timeline.MainSequence;
+
+	// Gets the first effect of the main sequence
+	IEffect firstEffect = sequence[0];
+
+	// Сhecks the effect for "No Sound"
+	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
+	{
+		// Adds sound for the first effect
+		firstEffect.Sound = effectSound;
+	}
+
+	// Gets the first interactive sequence of the slide.
+	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
+
+	// Sets the effect "Stop previous sound" flag
+	interactiveSequence[0].StopPreviousSound = true;
+
+	// Writes the PPTX file to disk
+	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
+}
+```
+
 ### **Extract Animation Effect Sound**
-Aspose.Slides for .NET allows you to extract the sound embedded in an animation effect. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
