@@ -117,8 +117,26 @@ using (Presentation pres = new Presentation("transparency.pptx"))
 }
 ```
 
+## **Set Character Spacing for Text**
+
+Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
+
+This C# code shows you how to expand the spacing for one line of text and condense the spacing for another line:
+
+```c#
+var presentation = new Presentation("in.pptx");
+
+var textBox1 = (IAutoShape) presentation.Slides[0].Shapes[0];
+var textBox2 = (IAutoShape) presentation.Slides[0].Shapes[1];
+
+textBox1.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = 20; // expand
+textBox2.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = -2; // condense
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
 
 ## **Manage Paragraph's Font Properties**
+
 Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for .NET to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for .NET :
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.

@@ -126,7 +126,25 @@ with slides.Presentation(path + "transparency.pptx") as pres:
     pres.save("transparency-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Character Spacing for Text**
 
+Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
+
+This Python code shows you how to expand the spacing for one line of text and condense the spacing for another line: xxx
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("in.pptx") as pres:
+
+    textBox1 = pres.slides[0].shapes[0]
+    textBox2 = pres.slides[0].shapes[1]
+
+    textBox1.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = 20 # expand
+    textBox2.text_frame.paragraphs[0].paragraph_format.default_portion_format.spacing = -2 # condense
+
+    pres.save("out.pptx", slides.export.SaveFormat.PPTX)
+```
 
 
 ## **Manage Paragraph's Font Properties**

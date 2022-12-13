@@ -55,8 +55,27 @@ The implementation of the above steps is given below.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTransparencyOfTextInShadow-SetTransparencyOfTextInShadow.cpp" >}}
 
+## **Set Character Spacing for Text**
+
+Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
+
+This C++ code shows you how to expand the spacing for one line of text and condense the spacing for another line:
+
+```c++
+auto presentation = System::MakeObject<Presentation>(u"in.pptx");
+
+auto slide = presentation->get_Slides()->idx_get(0);
+auto textBox1 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(0));
+auto textBox2 = System::ExplicitCast<IAutoShape>(slide->get_Shapes()->idx_get(1));
+
+textBox1->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(20.0f); // expand
+textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(-2.0f); // condense
+
+presentation->Save(u"out.pptx", SaveFormat::Pptx);
+```
 
 ## **Manage Paragraph's Font Properties**
+
 Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for C++ to configure the font properties of paragraphs of text on slides. To manage the font properties of a paragraph using Aspose.Slides for C++ :
 
 1. Create an instance of the `Presentation` class.
