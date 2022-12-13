@@ -7,17 +7,19 @@ keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, Pyth
 description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
 ---
 
-Aspose.Slides for Python via .NET allows you to import presentations from PDFs. Essentially, you get to convert a PDF to a PowerPoint presentation.
+Using [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc. 
 
-![pdf-to-powerpoint](pdf-to-powerpoint.png)
+## **Import PowerPoint from PDF**
 
-Go through these steps:
+In this case, you get to convert a PDF to a PowerPoint presentation.
+
+<img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
 1. Instantiate an object of the presentation class. 
-2. Call the [add_from_pdf](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) method and pass the PDF file. 
-3. Use the [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method to save the file in the PowerPoint format.
+2. Call the `add_from_pdf` method and pass the PDF file. 
+3. Use the `save` method to save the file in the PowerPoint format.
 
-This Python code demonstrates the PDF to PowerPoint process:
+This Python code demonstrates the PDF to PowerPoint operation:
 
 ```py
 import aspose.slides as slides
@@ -33,4 +35,24 @@ with slides.Presentation() as pres:
 You may want to check out **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) web app because it is a live implementation of the process described here. 
 
 {{% /alert %}} 
+
+## **Import PowerPoint from HTML**
+
+In this case, you get to convert a HTML document to a PowerPoint presentation.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. 
+2. Call the `add_from_html` method and pass the HTML file. 
+3. Use the `save` method to save the file as a PowerPoint document.
+
+This Python code demonstrates the HTML to PowerPoint operation: 
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    with open("page.html", "rb") as htmlStream:
+        pres.slides.add_from_html(htmlStream)
+
+    pres.save("MyPresentation.pptx", slides.export.SaveFormat.PPTX)
+```
 
