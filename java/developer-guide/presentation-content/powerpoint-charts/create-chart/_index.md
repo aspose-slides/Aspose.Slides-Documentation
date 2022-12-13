@@ -1,10 +1,11 @@
 ---
-title: Create or Update PowerPoint Presentations Charts in Java
+title: Create or Update PowerPoint Presentation Charts in Java
 linktitle: Create Chart
 type: docs
 weight: 10
 url: /java/create-chart/
-description: This article describes how to create PowerPoint Presentation Charts in the Java. You can also update the charts in Java. 
+keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Create chart in PowerPoint presentation in Java"
 ---
 
 ## Overview
@@ -80,7 +81,8 @@ _Action_: **Update Chart**
 ## **Create Chart**
 Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 
 
-### **Why Create Charts?**
+
+**Why Create Charts?**
 
 Using charts, you get to
 
@@ -91,6 +93,12 @@ Using charts, you get to
 * communicate or present complex data
 
 In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
+
+{{% alert color="primary" %}} 
+
+To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType) class. The fields under this class correspond to different chart types. 
+
+{{% /alert %}} 
 
 ### **Creating Normal Charts**
 
@@ -416,6 +424,43 @@ try {
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
+}
+```
+
+### **Creating Line Charts**
+
+Line charts (also known as a line graphs) are best used in situations where you want demonstrate changes in value over time. Using a line chart, you can compare lots of data at once, track changes and trends over time, highlight anomalies in data series, etc.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Get a slide's reference through its index.
+1. Add a chart with default data along with the desired type (in this case, `ChartType.Line`).
+1. Access the chart data IChartDataWorkbook.
+1. Clear the default series and categories.
+1. Add new series and categories.
+1. Add new chart data for the chart series.
+1. Write the modified presentation to a PPTX file
+
+This Java code shows you how to create a line chart:
+
+```java
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
+
+```java
+IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+for (IChartSeries series : lineChart.getChartData().getSeries())
+{
+    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
 }
 ```
 
