@@ -22,10 +22,10 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 ## **Convert PowerPoint PPT/PPTX to JPG**
 Here are the steps to convert PPT/PPTX to JPG:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) type.
-- Get the slide object of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) type from [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection.
-- Create the thumbnail of each slide and then convert it into JPG. [**ISlide.getThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-float-float-) method is used to get a thumbnail of a slide, it returns [BufferedImage](https://docs.oracle.com/javase/7/docs/api/java/awt/image/BufferedImage.html) object as a result. [getThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-com.aspose.slides.IRenderingOptions-float-float-) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) type, the scales of the resulting thumbnail are passed into the method.
-- After you get the slide thumbnail, call [**ImageIO.write(RenderedImage im, String formatName, File output)**](https://docs.oracle.com/javase/7/docs/api/javax/imageio/ImageIO.html#write(java.awt.image.RenderedImage,%20java.lang.String,%20java.io.File)) method from the thumbnail object. Pass the resulting file name and the image format into it. 
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) type.
+2. Get the slide object of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) type from [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection.
+3. Create the thumbnail of each slide and then convert it into JPG. [**ISlide.getThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-float-float-) method is used to get a thumbnail of a slide, it returns [BufferedImage](https://docs.oracle.com/javase/7/docs/api/java/awt/image/BufferedImage.html) object as a result. [getThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-com.aspose.slides.IRenderingOptions-float-float-) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) type, the scales of the resulting thumbnail are passed into the method.
+4. After you get the slide thumbnail, call [**ImageIO.write(RenderedImage im, String formatName, File output)**](https://docs.oracle.com/javase/7/docs/api/javax/imageio/ImageIO.html#write(java.awt.image.RenderedImage,%20java.lang.String,%20java.io.File)) method from the thumbnail object. Pass the resulting file name and the image format into it. 
 
 {{% alert color="primary" %}}
 
@@ -37,10 +37,10 @@ Here are the steps to convert PPT/PPTX to JPG:
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     for (ISlide sld : pres.getSlides()) {
-        // Create a full scale image
+        // Creates a full scale image
         BufferedImage bmp = sld.getThumbnail(1f, 1f);
 
-        // Save the image to disk in JPEG format
+        // Saves the image to disk in JPEG format
         ImageIO.write(bmp, "JPEG", new java.io.File(String.format("Slide_%d.jpg", sld.getSlideNumber())));
     }
 } catch (IOException e) {
@@ -50,24 +50,24 @@ try {
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* for it. To do that, pass *ScaleX* and *ScaleY* values into [**ISlide.getThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-float-float-) method:
+To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.getThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-float-float-) methods:
 
 ```java
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
-    // Define dimensions
+    // Defines dimensions
     int desiredX = 1200;
     int desiredY = 800;
-    // Get scaled values of X and Y
+    // Gets scaled values of X and Y
     float ScaleX = (float) (1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
     float ScaleY = (float) (1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
 
     for (ISlide sld : pres.getSlides())
     {
-        // Create a full scale image
+        // Creates a full scale image
         BufferedImage bmp = sld.getThumbnail(ScaleX, ScaleY);
 
-        // Save the image to disk in JPEG format
+        // Saves the image to disk in JPEG format
         ImageIO.write(bmp, "JPEG", new java.io.File(String.format("Slide_%d.jpg", sld.getSlideNumber())));
     }
 } catch (IOException e) {
@@ -77,7 +77,7 @@ try {
 ```
 
 ## **Render Comments when saving Presentation into Image**
-Aspose.Slides for Java provides a facility to render comments of presentations or slide when converting those into images. An example is given below that shows how to render comments of presentation into an image.
+Aspose.Slides for Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
 ```java
 Presentation pres = new Presentation("presentation.pptx");
@@ -110,6 +110,6 @@ Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/coll
 
 ## **See also**
 
-See other options to convert PPT/PPTX into image, like:
+See other options to convert PPT/PPTX into image like:
 
-- [PPT/PPTX to SVG conversion](/slides/java/presentation-viewer/)
+- [PPT/PPTX to SVG conversion](/slides/java/render-a-slide-as-an-svg-image/).

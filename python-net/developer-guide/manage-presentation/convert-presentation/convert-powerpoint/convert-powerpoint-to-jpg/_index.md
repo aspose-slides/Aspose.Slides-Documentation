@@ -22,10 +22,10 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 ## **Convert PowerPoint PPT/PPTX to JPG**
 Here are the steps to convert PPT/PPTX to JPG:
 
-- Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)type.
-- Get the slide object of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type from [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) collection.
-- Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method is used to get a thumbnail of a slide, it returns [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) object as a result. [GetThumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type, the scales of the resulting thumbnail are passed into the method.
-- After you get the slide thumbnail, call [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method from the thumbnail object. Pass the resulting file name and the image format into it. 
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Get the slide object of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type from [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) collection.
+3. Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method is used to get a thumbnail of a slide, it returns [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) object as a result. [GetThumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type, the scales of the resulting thumbnail are passed into the method.
+4. After you get the slide thumbnail, call [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method from the thumbnail object. Pass the resulting file name and the image format into it. 
 
 {{% alert color="primary" %}} 
 **Note**: PPT/PPTX to JPG conversion differs from the conversion to other types in Aspose.Slides .NET API. For other types, you usually use [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)** ](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/)method, but here you need [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method.
@@ -43,7 +43,7 @@ for sld in pres.slides:
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* for it. To do that, pass *ScaleX* and *ScaleY* values into [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
+To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
 
 ```py
 import aspose.slides as slides
@@ -65,7 +65,7 @@ for sld in pres.slides:
 
 
 ## **Render Comments when saving Presentation into Image**
-Aspose.Slides for Python via .NET provides a facility to render comments of presentations or slide when converting those into images.  An example is given below that shows how to render comments of presentation into an image.
+Aspose.Slides for Python via .NET provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Python code demonstrates the operation:
 
 ```py
 import aspose.slides as slides
@@ -94,9 +94,9 @@ Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/coll
 
 ## **See also**
 
-See other options to convert PPT/PPTX into image, like:
+See other options to convert PPT/PPTX into image like:
 
-- [PPT/PPTX to SVG conversion](/slides/python-net/presentation-viewer/)
+- [PPT/PPTX to SVG conversion](/slides/python-net/render-a-slide-as-an-svg-image/).
 
 
 
