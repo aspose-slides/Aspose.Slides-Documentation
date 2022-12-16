@@ -39,7 +39,7 @@ This C# code shows you how to convert a presentation (containing a figure and tw
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore;
+using FFMpegCore; // will use FFmpeg binaries we extracted to "c:\tools\ffmpeg" before
 using Aspose.Slides.Animation;
 using (Presentation presentation = new Presentation())
 
