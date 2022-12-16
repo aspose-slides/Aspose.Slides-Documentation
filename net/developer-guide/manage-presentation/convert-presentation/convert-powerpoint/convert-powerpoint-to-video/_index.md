@@ -31,7 +31,7 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/net/aspose-slides-for-ne
    * run `dotnet add package Aspose.Slides.NET --version 22.11.0`
    * run `dotnet add package FFMpegCore --version 4.8.0`
 2. Dowload ffmpeg [here](https://ffmpeg.org/download.html).
-3. FFMpegCore requires you to specify the path to the downloaded ffmpeg:  `GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin",} );`
+3. FFMpegCore requires you to specify the path to the downloaded ffmpeg (e.g. extracted into "C:\tools\ffmpeg"):  `GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin",} );`
 4. Run the PowerPoint to video code.
 
 This C# code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
