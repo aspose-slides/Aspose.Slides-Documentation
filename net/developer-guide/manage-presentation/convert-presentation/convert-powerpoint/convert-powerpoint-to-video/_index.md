@@ -37,7 +37,7 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/net/aspose-slides-for-ne
 This C# code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```c#
-using Aspose.Slides.Export;
+using System.Collections.Generic;
 using Aspose.Slides;
 using FFMpegCore;
 using Aspose.Slides.Animation;
