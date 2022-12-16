@@ -11,6 +11,6 @@ This page contains release notes for [Aspose.Slides for PHP via Java](https://pa
 
 {{% /alert %}} 
 
-|**Key**|**Summary**|**Category**|**Related Documentation**|
-| :- | :- | :- | :- |
-|SLIDESPHP-7|[Use Aspose.Slides for Java 22.7 features](/slides/java/aspose-slides-for-java-22-7-release-notes/)|Enhancement| |
+|**Key**|**Summary**|**Category**|
+| :- | :- | :- |
+|SLIDESPHP-7|[Use Aspose.Slides for Java 22.7 features](/slides/java/aspose-slides-for-java-22-7-release-notes/)|Enhancement|
