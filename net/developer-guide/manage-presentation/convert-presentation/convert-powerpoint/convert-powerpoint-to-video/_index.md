@@ -229,68 +229,42 @@ Then the generated frames can be compiled to produce a video. See the [Convert P
 **Entrance**:
 
 * Fade
-
 * Fly In
-
 * Float In
-
-*  Split
-
-*  Wipe
-
-*  Shape
-
-*  Wheel
-
-*  Random Bars
-
-*  Zoom
-
-*  Swivel
-
-*  Bounce
+* Split
+* Wipe
+* Shape
+* Wheel
+* Random Bars
+* Zoom
+* Swivel
+* Bounce
 
 
 **Emphasis**:
 
-*  Teeter
-
-*  Spin
+* Teeter
+* Spin
 
 
 **Exit**:
 
-*  Fade
-
-*  Fly Out
-
-*  Float Out
-
-*  Split
-
-*  Wipe
-
-*  Shape
-
-*  Random Bars
-
-*  Zoom
-
-*  Swivel
-
-*  Bounce 
-
+* Fade
+* Fly Out
+* Float Out
+* Split
+* Wipe
+* Shape
+* Random Bars
+* Zoom
+* Swivel
+* Bounce 
 
 **Motion Paths:**
 
-*  Lines
-
-*  Arcs
-
-*  Turns
-
-*  Shapes
-
-*  Loops
-
-*  Custom Path
+* Lines
+* Arcs
+* Turns
+* Shapes
+* Loops
+* Custom Path
