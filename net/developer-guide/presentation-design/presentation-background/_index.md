@@ -100,7 +100,7 @@ Besides solid colors and gradient colors, Aspose.Slides also allows you to set i
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Set the [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
 3. Set the [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) enum for the master slide background to `Picture`.
-4. Load the image you want use as the slide background.
+4. Load the image you want to use as the slide background.
 5. Add the image to the presentation's image collection.
 6. Use the [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) property exposed by [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) to set the image as the background.
 7. Save the modified presentation.
