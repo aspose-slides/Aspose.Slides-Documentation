@@ -13,7 +13,13 @@ In PowerPoint Slides, the use of editable chats for graphical display of the dat
 ## **Required Steps**
 Following sequence of steps is required to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide:
 
-1. Create an Excel Chart using Aspose.Cells for .NET.# Set the OLE size of the Excel Chart. using Aspose.Cells for .NET.# Get the image of the Excel Chart with Aspose.Cells for .NET.# Embed the Excel Chart as an OLE Object inside PPTX presentation using Aspose.Slides for .NET.# Replace the object changed image with the image obtained in step 3 to cater Object Changed Issue# Write the output presentation to disk in PPTX format
+1. Create an Excel Chart using Aspose.Cells for .NET.
+2. Set the OLE size of the Excel Chart using Aspose.Cells for .NET.
+3. Get the image of the Excel Chart with Aspose.Cells for .NET.
+4. Embed the Excel Chart as an OLE Object inside PPTX presentation using Aspose.Slides for .NET.
+5. Replace the object changed image with the image obtained in step 3 to cater Object Changed Issue.
+6. Write the output presentation to disk in PPTX format.
+
 ## **Implementation of the Required Steps**
 The implementation of the above steps in C# and Visual Basic is as under:
 
