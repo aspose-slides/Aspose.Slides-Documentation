@@ -9,22 +9,20 @@ description: "Open PowerPoint Presentation and save into many supported formats 
 ---
 
 ## Open Presentation
-Using Aspose.Slides for .NET, developers can not only create PowerPoint presentations from scratch but also access or modify the existing ones. In this topic, we will discuss the simplest approach to open and access an existing presentation.
+Besides creating presentations from scratch, Aspose.Slides allows you to edit or modify existing presentations. First, you have to open the presentation using the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 
-Aspose.Slides for .NET provides Presentation class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of Presentation class to create its object based on an existing presentation. In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of Presentation class. After the file is opened, we get the total number of slides present in the presentation to print on the screen. The following example shows how to Open a Presentation.
+This C# code shows you how to open a PowerPoint presentation and then print out the number of its slides:
 
 ```c#
-// Opening the presentation file by passing the file path to the constructor of Presentation class
+// Opens the presentation file by passing the file path to the constructor of Presentation class
 Presentation pres = new Presentation("OpenPresentation.pptx");
 
-// Printing the total number of slides present in the presentation
+// Prints the total number of slides present in the presentation
 System.Console.WriteLine(pres.Slides.Count.ToString());
 ```
 
-
-
 ## Open Large Presentation
-Aspose.Slides for .NET provides facility to open very large presentations using Presentation class. Now you can load large presentations lets say presentation size is 2 Gb, you can easily open that with these sample codes provided below.
+Aspose.Slides provides a facility that allows you to open very large presentations. For example, if you have a 2 GB presentation, you can easily open it with this code:
 
 ```c#
 const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
@@ -43,7 +41,7 @@ using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loa
 {
     // the huge presentation is loaded and ready to use, but the memory consumption is still low.
 
-    // make any changes to the presentation.
+    // makes changes to the presentation.
     pres.Slides[0].Name = "Very large presentation";
 
     // presentation will be saved to the other file, the memory consumptions still low during saving.
@@ -58,14 +56,17 @@ using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loa
 File.Delete(pathToVeryLargePresentationFile);
 ```
 
+{{% alert color="info" title="Info" %}}
 
-{{% alert color="info" title="Info" %}}When you have to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/net/manage-blob/) to reduce memory consumption.{{%/alert %}} 
+When you have to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/net/manage-blob/) to reduce memory consumption.
+
+{{%/alert %}} 
 
 
 ## Load Presentation
-New IResourceLoadingCallback interface has been added. This callback interface is used to manage external resources loading and has one method:
+Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface to allow you to manage external resources loading for presentations. The interface has a single method.
 
-The code snippet below shows how to use IResourceLoadingCallback interface:
+These snippets how to use the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface to load presentations:
 
 ```c#
 LoadOptions opts = new LoadOptions();
@@ -80,7 +81,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
     {
         if (args.OriginalUri.EndsWith(".jpg"))
         {
-            try // load substitute image
+            try // loads substitute image
             {
                 byte[] imageBytes = File.ReadAllBytes("c:\\aspose-logo.jpg");
                 args.SetData(imageBytes);
@@ -93,12 +94,12 @@ public class ImageLoadingHandler : IResourceLoadingCallback
         }
         else if (args.OriginalUri.EndsWith(".png"))
         {
-            // set substitute url
+            // sets substitute url
             args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
             return ResourceLoadingAction.Default;
         }
 
-        // skip all other images
+        // skipsall other images
         return ResourceLoadingAction.Skip;
     }
 }
@@ -108,11 +109,11 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 
 <a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with any format i.e. PPT, PPTX, ODP etc.
-2. Save _Presentation_ to any format supported by [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with and load the presentation.
+2. Save the presentation.
 
 ```c#
-// Load any supported file in Presentation e.g. ppt, pptx, odp etc.
+// Load any supported resentation e.g. ppt, pptx, odp etc.
 Presentation presentation = new Presentation("Sample.odp");
 
 presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
