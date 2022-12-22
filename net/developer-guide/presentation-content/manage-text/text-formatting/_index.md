@@ -12,51 +12,10 @@ description: "This article describes how to work with PowerPoint Presentation Te
 
 This article describes how to **work with PowerPoint Presentation Text Formatting using C#** e.g. Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation. It covers these topics.
 
-_Category_: **Highlight Text**
- - [C# Highlight Presentation Text](#csharp-highlight-presentation-text)
- - [C# Highlight Presentation Slide Text](#csharp-highlight-presentation-slide-text)
- - [C# Highlight Slide AutoShape Text](#csharp-highlight-slide-autoshape-text)
- - [C# Highlight Slide Shape Text](#csharp-highlight-slide-shape-text)
-
-_Category_: **Align Text Paragraphs**
- - [C# Paragraph Alignment of Shape Text in Presentation](#csharp-paragraph-alignment-of-shape-text-in-presentation)
- - [C# Align Paragraphs in Presentation Slide](#csharp-align-paragraphs-in-presentation-slide)
- - [C# Paragraph Text Alignment in Slide AutoShape](#csharp-paragraph-text-alignment-in-slide-autoshape)
- - [C# Paragraph Text Alignment in Slide Shape Text](#csharp-paragraph-text-alignment-in-slide-shape-text)
-
-_Category_: **Set Transparency for Text**
- - [C# Set Text Transparency in Presentation](#csharp-set-text-transparency-in-presentation)
- - [C# Set Text Transparency for Presentation Slide Text](#csharp-set-text-transparency-for-presentation-slide-text)
- - [C# Set Transparency of Text in Slide AutoShape](#csharp-set-transparency-of-text-in-slide-autoshape)
- - [C# Set Transparency of Text in Slide Shape](#csharp-set-transparency-of-text-in-slide-shape)
- 
-_Category_: **Manage Paragraph's Font Properties**
-- [C# Control Presentation Text Font Properties for Paragraphs](#csharp-control-presentation-text-font-properties-for-paragraphs)
-- [C# Control the Presentation Slide Text Paragraph Font properties](#csharp-control-the-presentation-slide-text-paragraph-font-properties)
-- [C# Manage Slide AutoShape Text Font Properties for Paragraphs](#csharp-manage-slide-autoshape-text-font-properties-for-paragraphs)
-- [C# Manage Slide Shape Text Font Properties for Paragraphs](#csharp-manage-slide-shape-text-font-properties-for-paragraphs)
-
-Other topics covered by this article.
-- [See Also](#see-also)
-
 ## **Highlight Text**
 New HighlightText method has been added to ITextFrame interface and TextFrame class.
 
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
-
-The code snippet below shows how to use this feature:
-
-_Steps: Highlight Presentation Text_
-- <a name="csharp-highlight-presentation-text" id="csharp-highlight-presentation-text"><strong><em>Steps:</em> Highlight Presentation Text in C#</strong></a>
-- <a name="csharp-highlight-presentation-slide-text" id="csharp-highlight-presentation-slide-text"><strong><em>Steps:</em> Highlight Presentation Slide Text in C#</strong></a>
-- <a name="csharp-highlight-slide-autoshape-text" id="csharp-highlight-slide-autoshape-text"><strong><em>Steps:</em> Highlight Slide AutoShape Text in C#</strong></a>
-- <a name="csharp-highlight-slide-shape-text" id="csharp-highlight-slide-shape-text"><strong><em>Steps:</em> Highlight Slide Shape Text in C#</strong></a>
-- <a name="csharp-highlight-powerpoint-slide-shape-text" id="csharp-highlight-powerpoint-slide-shape-text"><strong><em>Steps:</em> Highlight PowerPoint Slide Shape Text in C#</strong></a>
-- <a name="csharp-highlight-pptx-slide-shape-text" id="csharp-highlight-pptx-slide-shape-text"><strong><em>Steps:</em> Highlight PPTX Slide Shape Text in C#</strong></a>
-- <a name="csharp-highlight-ppt-shape-text" id="csharp-highlight-ppt-shape-text"><strong><em>Steps:</em> Highlight PPT Shape Text in C#</strong></a>
-- <a name="csharp-highlight-odp-shape-text" id="csharp-highlight-odp-shape-text"><strong><em>Steps:</em> Highlight ODP Shape Text in C#</strong></a>
-
-_Code Steps:_
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with input file.
    - Input file could be PPT, PPTX, ODP etc.
@@ -103,18 +62,6 @@ presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
 ## **Align Text Paragraphs**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for .NET supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for .NET :
 
-_Steps: Align Text Paragraphs_
-- <a name="csharp-paragraph-alignment-of-shape-text-in-presentation" id="csharp-paragraph-alignment-of-shape-text-in-presentation"><strong><em>Steps:</em> Paragraph Alignment of Shape Text in Presentation using C#</strong></a>
-- <a name="csharp-align-paragraphs-in-presentation-slide" id="csharp-align-paragraphs-in-presentation-slide"><strong><em>Steps:</em> Align Paragraphs in Presentation Slide using C#</strong></a>
-- <a name="csharp-paragraph-text-alignment-in-slide-autoshape" id="csharp-paragraph-text-alignment-in-slide-autoshape"><strong><em>Steps:</em> Paragraph Text Alignment in Slide AutoShape in C#</strong></a>
-- <a name="csharp-paragraph-text-alignment-in-slide-shape-text" id="csharp-paragraph-text-alignment-in-slide-shape-text"><strong><em>Steps:</em> Paragraph Text Alignment in Slide Shape Text in C#</strong></a>
-- <a name="csharp-paragraph-text-alignment-in-powerpoint-slide-shape-text" id="csharp-paragraph-text-alignment-in-powerpoint-slide-shape-text"><strong><em>Steps:</em> Paragraph Text Alignment in PowerPoint Slide Shape Text in C#</strong></a>
-- <a name="csharp-align-text-paragraphs-in-pptx-slide-shape-text" id="csharp-align-text-paragraphs-in-pptx-slide-shape-text"><strong><em>Steps:</em> Align Text Paragraphs in PPTX Slide Shape Text in C#</strong></a>
-- <a name="csharp-align-text-paragraphs-in-ppt-slide-shape-text" id="csharp-align-text-paragraphs-in-ppt-slide-shape-text"><strong><em>Steps:</em> Align Text Paragraphs in PPT Slide Shape Text in C#</strong></a>
-- <a name="csharp-align-text-paragraphs-in-odp-slide-shape-text" id="csharp-align-text-paragraphs-in-odp-slide-shape-text"><strong><em>Steps:</em> Align Text Paragraphs in ODP Slide Shape Text in C#</strong></a>
-
-_Code Steps:_
-
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its Index.
 3. Access the Placeholder shapes present in the slide and typecast them as a AutoShape.
@@ -157,17 +104,6 @@ using (Presentation pres = new Presentation("ParagraphsAlignment.pptx"))
 ## **Set Transparency for Text**
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides for .NET. In order to set the transparency to text. Please follow the steps below:
 
-_Steps: Set Transparency for Text_
-- <a name="csharp-set-text-transparency-in-presentation" id="csharp-set-text-transparency-in-presentation"><strong><em>Steps:</em> Set Text Transparency in Presentation using C#</strong></a>
-- <a name="csharp-set-text-transparency-for-presentation-slide-text" id="csharp-set-text-transparency-for-presentation-slide-text"><strong><em>Steps:</em> Set Text Transparency for Presentation Slide Text in C#</strong></a>
-- <a name="csharp-set-transparency-of-text-in-slide-autoshape" id="csharp-set-transparency-of-text-in-slide-autoshape"><strong><em>Steps:</em> Set Transparency of Text in Slide AutoShape in C#</strong></a>
-- <a name="csharp-set-transparency-of-text-in-slide-shape" id="csharp-set-transparency-of-text-in-slide-shape"><strong><em>Steps:</em> Set Transparency of Text in Slide Shape in C#</strong></a>
-- <a name="csharp-set-transparency-for-text-in-pptx-slide-shape" id="csharp-set-transparency-for-text-in-pptx-slide-shape"><strong><em>Steps:</em> Set Transparency for Text in PPTX Slide Shape in C#</strong></a>
-- <a name="csharp-set-transparency-for-text-in-ppt-slide-shape" id="csharp-set-transparency-for-text-in-ppt-slide-shape"><strong><em>Steps:</em> Set Transparency for Text in PPT Slide Shape in C#</strong></a>
-- <a name="csharp-set-transparency-for-text-in-odp-slide-shape" id="csharp-set-transparency-for-text-in-odp-slide-shape"><strong><em>Steps:</em> Set Transparency for Text in ODP Slide Shape in C#</strong></a>
-
-_Code Steps:_
-     
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get the reference of a slide.
 3. Set shadow color
@@ -214,18 +150,6 @@ presentation.Save("out.pptx", SaveFormat.Pptx);
 ## **Manage Paragraph's Font Properties**
 
 Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for .NET to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for .NET :
-
-_Steps: Manage Paragraph's Font Properties_
-- <a name="csharp-control-presentation-text-font-properties-for-paragraphs" id="csharp-control-presentation-text-font-properties-for-paragraphs"><strong><em>Steps:</em> Control Presentation Text Font Properties for Paragraphs in C#</strong></a>
-- <a name="csharp-control-the-presentation-slide-text-paragraph-font-properties" id="csharp-control-the-presentation-slide-text-paragraph-font-properties"><strong><em>Steps:</em> Control the Presentation Slide Text Paragraph Font properties in C#</strong></a>
-- <a name="csharp-manage-slide-autoshape-text-font-properties-for-paragraphs" id="csharp-manage-slide-autoshape-text-font-properties-for-paragraphs"><strong><em>Steps:</em> Manage Slide AutoShape Text Font Properties for Paragraphs in C#</strong></a>
-- <a name="csharp-manage-slide-shape-text-font-properties-for-paragraphs" id="csharp-manage-slide-shape-text-font-properties-for-paragraphs"><strong><em>Steps:</em> Manage Slide Shape Text Font Properties for Paragraphs in C#</strong></a>
-- <a name="csharp-manage-powerpoint-slide-shape-text-font-properties-for-paragraphs" id="csharp-manage-powerpoint-slide-shape-text-font-properties-for-paragraphs"><strong><em>Steps:</em> Manage PowerPoint Slide Shape Text Font Properties for Paragraphs in C#</strong></a>
-- <a name="csharp-manage-paragraph-font-properties-of-pptx-slide-shape-text" id="csharp-manage-paragraph-font-properties-of-pptx-slide-shape-text"><strong><em>Steps:</em> Manage Paragraph Font Properties of PPTX Slide Shape Text in C#</strong></a>
-- <a name="csharp-manage-paragraph-font-properties-of-ppt-shape-text" id="csharp-manage-paragraph-font-properties-of-ppt-shape-text"><strong><em>Steps:</em> Manage Paragraph Font Properties of PPT Shape Text in C#</strong></a>
-- <a name="csharp-manage-paragraph-font-properties-of-odp-shape-text" id="csharp-manage-paragraph-font-properties-of-odp-shape-text"><strong><em>Steps:</em> Manage Paragraph Font Properties of ODP Shape Text in C#</strong></a>
-
-_Code Steps:_
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Obtain a slide's reference by using its index.
@@ -350,8 +274,38 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Set Font Size for Text**
+
+Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
+
+This C# shows you how to set the font size for texts contained in a paragraph:
+
+```c#
+var presentation = new Presentation("example.pptx");
+
+// Gets the first shape, for example.
+var shape = presentation.Slides[0].Shapes[0];
+
+if (shape is IAutoShape autoShape)
+{
+    // Gets the first paragraph, for example.
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    // Sets the default font size to 20 pt for all text portions in the paragraph. 
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+
+    // Sets the font size to 20 pt for current text portions in the paragraph. 
+    foreach (var portion in paragraph.Portions)
+    {
+        portion.PortionFormat.FontHeight = 20;
+    }
+}
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
 
 ## **Set Text Rotation**
+
 Aspose.Slides for .NET allows developers to rotate the text. Text could be set to appear as Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical or WordArtVerticalRightToLeft. To rotate the text of any TextFrame, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -423,7 +377,7 @@ presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
 
 
 ## **Line Spacing of Paragraph**
-Aspose.Slides provides properties under `ParagraphFormat`—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
+Aspose.Slides provides properties ([SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spaceafter), [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacebefore), and [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacewithin)) under the [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) class that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
 * To specify the line spacing for a paragraph in percentage, use a positive value. 
 * To specify the line spacing for a paragraph in points, use a negative value.
@@ -554,29 +508,3 @@ presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
 
-## See Also
-
-This article also covers these topics. The codes are same as above.
-
-_Category_: **Highlight Text**
- - [C# Highlight PowerPoint Slide Shape Text](#csharp-highlight-powerpoint-slide-shape-text)
- - [C# Highlight PPTX Slide Shape Text](#csharp-highlight-pptx-slide-shape-text)
- - [C# Highlight PPT Shape Text](#csharp-highlight-ppt-shape-text)
- - [C# Highlight ODP Shape Text](#csharp-highlight-odp-shape-text)
-
-_Category_: **Align Text Paragraphs**
- - [C# Paragraph Text Alignment in PowerPoint Slide Shape Text](#csharp-paragraph-text-alignment-in-powerpoint-slide-shape-text)
- - [C# Align Text Paragraphs in PPTX Slide Shape Text](#csharp-align-text-paragraphs-in-pptx-slide-shape-text)
- - [C# Align Text Paragraphs in PPT Slide Shape Text](#csharp-align-text-paragraphs-in-ppt-slide-shape-text)
- - [C# Align Text Paragraphs in ODP Slide Shape Text](#csharp-align-text-paragraphs-in-odp-slide-shape-text)
-
-_Category_: **Set Transparency for Text**
- - [C# Set Transparency for Text in PPTX Slide Shape](#csharp-set-transparency-for-text-in-pptx-slide-shape)
- - [C# Set Transparency for Text in PPT Slide Shape](#csharp-set-transparency-for-text-in-ppt-slide-shape)
- - [C# Set Transparency for Text in ODP Slide Shape](#csharp-set-transparency-for-text-in-odp-slide-shape)
-
-_Category_: **Manage Paragraph's Font Properties**
-- [C# Manage PowerPoint Slide Shape Text Font Properties for Paragraphs](#csharp-manage-powerpoint-slide-shape-text-font-properties-for-paragraphs)
-- [C# Manage Paragraph Font Properties of PPTX Slide Shape Text](#csharp-manage-paragraph-font-properties-of-pptx-slide-shape-text)
-- [C# Manage Paragraph Font Properties of PPT Shape Text](#csharp-manage-paragraph-font-properties-of-ppt-shape-text)
-- [C# Manage Paragraph Font Properties of ODP Shape Text](#csharp-manage-paragraph-font-properties-of-odp-shape-text)

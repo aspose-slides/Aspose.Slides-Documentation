@@ -113,8 +113,18 @@ The implementation of the above steps is given below.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTextFontProperties-SetTextFontProperties.cpp" >}}
 
+## **Set Font Size for Text**
+
+Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
+
+This C++ code shows you how to set the font size for texts contained in a paragraph:
+
+```c++
+
+```
 
 ## **Set Text Rotation**
+
 Aspose.Slides for C++ allows developers to rotate the text. Text could be set to appear as Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical or WordArtVerticalRightToLeft. To rotate the text of any TextFrame, please follow the steps below:
 
 1. Create an instance of `Presentation` class.

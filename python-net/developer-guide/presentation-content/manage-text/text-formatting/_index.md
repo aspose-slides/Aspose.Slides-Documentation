@@ -273,7 +273,15 @@ with slides.Presentation() as presentation:
     presentation.save("SetTextFontProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Font Size for Text**
 
+Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
+
+This Python code shows you how to set the font size for texts contained in a paragraph:
+
+```python
+
+```
 
 
 ## **Set Text Rotation**
