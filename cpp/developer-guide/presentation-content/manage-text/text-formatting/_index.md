@@ -117,7 +117,7 @@ The implementation of the above steps is given below.
 
 Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
 
-This C++ code shows you how to set the font size for texts contained in a paragraph:
+This C++ code shows you how to set the font size for texts contained in a paragraph: xxx
 
 ```c++
 

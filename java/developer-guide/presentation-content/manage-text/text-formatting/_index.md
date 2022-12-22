@@ -279,7 +279,7 @@ try {
 
 Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
 
-This Java code shows you how to set the font size for texts contained in a paragraph:
+This Java code shows you how to set the font size for texts contained in a paragraph: xxx
 
 ```java
 
