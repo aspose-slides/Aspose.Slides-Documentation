@@ -14,7 +14,7 @@ Besides creating presentations from scratch, Aspose.Slides allows you to edit or
 This C# code shows you how to open a PowerPoint presentation and then print out the number of its slides:
 
 ```c#
-// Opens the presentation file by passing the file path to the constructor of Presentation class
+// Opens the presentation file by passing the file path to the constructor of the Presentation class
 Presentation pres = new Presentation("OpenPresentation.pptx");
 
 // Prints the total number of slides present in the presentation
@@ -22,7 +22,7 @@ System.Console.WriteLine(pres.Slides.Count.ToString());
 ```
 
 ## Open Large Presentation
-Aspose.Slides provides a facility that allows you to open very large presentations. For example, if you have a 2 GB presentation, you can easily open it with this code:
+Aspose.Slides provides a facility that allows you to open large presentations. For example, if you have a 2 GB presentation, you can easily open it with this code:
 
 ```c#
 const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
@@ -32,27 +32,27 @@ LoadOptions loadOptions = new LoadOptions
     BlobManagementOptions = {
         // let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
         // the Presentation's instance lifetime, but we don't need to load it into memory or copy into
-        // thetemporary file
+        // the temporary file
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
     }
 };
 
 using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
 {
-    // the huge presentation is loaded and ready to use, but the memory consumption is still low.
+    // the huge presentation has been loaded and can be used, but the memory consumption is still low.
 
     // makes changes to the presentation.
     pres.Slides[0].Name = "Very large presentation";
 
-    // presentation will be saved to the other file, the memory consumptions still low during saving.
+    // presentation will be saved to the other file. The memory consumptions stays low during saving.
     pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
 
-    // can't do that! IO exception will be thrown, because the file is locked while pres objects will
+    // can't do that! IO exception will be thrown because the file is locked while pres objects will
     // not be disposed
     File.Delete(pathToVeryLargePresentationFile);
 }
 
-// it's ok to do it here, the source file is not locked by pres object
+// you can do it here. The source file is not locked by the pres object
 File.Delete(pathToVeryLargePresentationFile);
 ```
 
@@ -66,7 +66,7 @@ When you have to create a presentation that contains large objects (video, audio
 ## Load Presentation
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface to allow you to manage external resources loading for presentations. The interface has a single method.
 
-These snippets how to use the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface to load presentations:
+These snippets show you how to use the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface to load presentations:
 
 ```c#
 LoadOptions opts = new LoadOptions();
@@ -99,7 +99,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
             return ResourceLoadingAction.Default;
         }
 
-        // skipsall other images
+        // skips all other images
         return ResourceLoadingAction.Skip;
     }
 }
@@ -113,7 +113,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 2. Save the presentation.
 
 ```c#
-// Load any supported resentation e.g. ppt, pptx, odp etc.
+// Loads any supported presentation e.g., ppt, pptx, odp etc.
 Presentation presentation = new Presentation("Sample.odp");
 
 presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
