@@ -279,10 +279,32 @@ try {
 
 Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
 
-This Java code shows you how to set the font size for texts contained in a paragraph: xxx
+This Java code shows you how to set the font size for texts contained in a paragraph:
 
 ```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    // Gets the first shape, for example.
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
+    if (shape instanceof IAutoShape )
+    {
+        IAutoShape autoShape = (AutoShape) shape;
+        // Gets the first paragraph, for example.
+        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+
+        // Sets the default font size to 20 pt for all text portions in the paragraph. 
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+
+        // Sets the font size to 20 pt for current text portions in the paragraph. 
+        for(IPortion portion : paragraph.getPortions())
+        {
+            portion.getPortionFormat().setFontHeight(20);
+        }
+    }
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Set Text Rotation**
