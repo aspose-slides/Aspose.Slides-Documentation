@@ -29,7 +29,7 @@ Typically, you can set a password to enforce these restrictions on a presentatio
   
   **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
 
-## How to Password Protect a Presentation
+## How to Password Protect a Presentation Online
 
 1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
 
@@ -47,7 +47,7 @@ Typically, you can set a password to enforce these restrictions on a presentatio
 
 7. Click **DOWNLOAD NOW.**
 
-### **Password Protection for Presentations in Aspose.Slides**
+## **Password Protection for Presentations in Aspose.Slides**
 **Supported formats**
 
 Aspose.Slides supports password protection, encryption, and similar operations for presentations in these formats: 
@@ -74,7 +74,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 - Checking whether a presentation is encrypted
 - Checking whether a presentation is password protected.
 
-## Encrypting a Presentation
+## **Encrypting a Presentation**
 
 You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
 
@@ -90,7 +90,7 @@ with slides.Presentation() as pres:
     pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Setting Write Protection to a Presentation 
+## **Setting Write Protection to a Presentation** 
 
 You can add a mark stating “Do not modify” to a presentation. This way, you get to tell users that you do not want them to make changes to the presentation.  
 
@@ -106,7 +106,7 @@ with slides.Presentation() as pres:
     pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Decrypting a Presentation; Opening an Encrypted Presentation
+## **Decrypting a Presentation; Opening an Encrypted Presentation**
 
 Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) method with no parameters. You will then have to enter the correct password to load the presentation. 
 
@@ -121,7 +121,7 @@ with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
     print(pres.document_properties.author)
 ```
 
-## Removing Encryption; Disabling Password Protection
+## **Removing Encryption; Disabling Password Protection**
 
 You can remove the encryption or password protection on a presentation. This way, users become able to access or modify the presentation without restrictions. 
 
@@ -137,7 +137,7 @@ with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
     pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Removing Write Protection from a Presentation
+## **Removing Write Protection from a Presentation**
 
 You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
 
@@ -151,7 +151,7 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
     pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Getting the Properties of an Encrypted Presentation
+## **Getting the Properties of an Encrypted Presentation**
 
 Typically, users struggle to get the document properties of an encrypted or password-protected presentation. Aspose.Slides, however, offers a mechanism that allows you to password protect a presentation while retaining the means for users to access the properties of that presentation.
 
@@ -167,7 +167,17 @@ with slides.Presentation() as pres:
     pres.protection_manager.encrypt("123123")
 ```
 
-## Checking whether a Presentation is Encrypted
+## **Checking whether a Presentation is Password Protected Before Loading it**
+
+Before you load a presentation, you might want to check and confirm that the presentation has not been protected with a password. This way, you get to avoid errors and similar issues, which come up when a password protected presentation is loaded without its password.
+
+This Python code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself): xxx
+
+```python
+
+```
+
+## **Checking whether a Presentation is Encrypted**
 
 Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property, which returns `True` if the presentation is encrypted or `False` if the presentation isn't encrypted. 
 
@@ -180,7 +190,7 @@ with slides.Presentation() as pres:
     print(str(pres.protection_manager.is_encrypted))
 ```
 
-## Checking whether a Presentation is Write Protected
+## **Checking whether a Presentation is Write Protected**
 
 Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property, which returns `True` if the presentation is encrypted or `False` if the presentation isn't encrypted. 
 
