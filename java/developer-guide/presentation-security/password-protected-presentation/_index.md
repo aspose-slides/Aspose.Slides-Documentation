@@ -182,10 +182,11 @@ try {
 
 Before you load a presentation, you might want to check and confirm that the presentation has not been protected with a password. This way, you get to avoid errors and similar issues, which come up when a password protected presentation is loaded without its password.
 
-This Java code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself): xxx
+This Java code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
 
 ```java
-
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
+System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
 
 ## **Checking whether a Presentation is Encrypted**
