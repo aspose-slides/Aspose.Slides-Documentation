@@ -11,15 +11,15 @@ Aspose.Slides for C++ allows you to examine a presentation to find out its prope
 
 {{% alert title="Info" color="info" %}}
 
-The [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) class contains most of the methods needed for operations here. 
+The [PresentationInfo](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info) and [DocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.document_properties/) classes contain the properties and methods used in operations here.
 
 {{% /alert %}} 
 
-## **Checking a Presentation Format**
+## **Check a Presentation Format**
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
-You can check a presentation's format without loading the presentation. See this sample code:
+You can check a presentation's format without loading the presentation. See this C++ code:
 
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
@@ -35,9 +35,9 @@ auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
-## **Getting the Properties of a Presentation**
+## **Get a Presentation Properties**
 
-This sample code in C++ shows you how to get a presentation’s properties (information about the presentation):
+This C++ code shows you how to get a presentation’s properties (information about the presentation):
 
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
@@ -48,11 +48,11 @@ Console::WriteLine(props->get_Title());
 // .. 
 ```
 
-## **Updating the Properties of a Presentation**
+## **Update a Presentation Properties**
 
 Aspose.Slides provides the [PresentationInfo::UpdateDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info#ac9fce3667003cdb8bf05816c589a6f88) method that allows you to make changes to a presentation’s properties.
 
-This sample code shows you how to edit the properties for a presentation in C++:
+This C++ code shows you how to edit a presentation's properties:
 
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
@@ -68,4 +68,5 @@ To get more information about a presentation and its security attributes, you ma
 
 - [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
 - [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).

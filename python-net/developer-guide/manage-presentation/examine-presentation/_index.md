@@ -11,15 +11,15 @@ Aspose.Slides for Python via .NET allows you to examine a presentation to find o
 
 {{% alert title="Info" color="info" %}} 
 
-The [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) class contains most of the properties and methods needed for operations here. 
+The [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) and [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
 
 {{% /alert %}} 
 
-## **Checking a Presentation Format**
+## **Check a Presentation Format**
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
-You can check a presentation's format without loading the presentation. See this sample code:
+You can check a presentation's format without loading the presentation. See this Python code:
 
 ```py
 import aspose.slides as slides
@@ -34,9 +34,9 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
-## **Getting the Properties of a Presentation**
+## **Get a Presentation Properties**
 
-This sample code in Python shows you how to get a presentation’s properties (information about the presentation):
+This Python code shows you how to get a presentation’s properties (information about the presentation):
 
 ```py
 import aspose.slides as slides
@@ -48,11 +48,13 @@ print(props.subject)
 print(props.title)
 ```
 
-## **Updating the Properties of a Presentation**
+You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties) class.
+
+## **Update a Presentation Properties**
 
 Aspose.Slides provides the [PresentationInfoUpdateDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) method that allows you to make changes to a presentation’s properties.
 
-This sample code shows you how to edit the properties for a presentation in Python:
+This Python code shows you how to edit a presentation's properties:
 
 ```py
 import aspose.slides as slides
@@ -73,4 +75,5 @@ To get more information about a presentation and its security attributes, you ma
 
 - [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
 - [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
