@@ -130,7 +130,7 @@ with slides.Presentation(path + "transparency.pptx") as pres:
 
 Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
 
-This Python code shows you how to expand the spacing for one line of text and condense the spacing for another line: xxx
+This Python code shows you how to expand the spacing for one line of text and condense the spacing for another line: 
 
 ```python
 import aspose.slides as slides
@@ -277,9 +277,28 @@ with slides.Presentation() as presentation:
 
 Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
 
-This Python code shows you how to set the font size for texts contained in a paragraph: xxx 
+This Python code shows you how to set the font size for texts contained in a paragraph: 
 
 ```python
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as presentation:
+
+    # Gets the first shape, for example.
+    shape = presentation.slides[0].shapes[0]
+
+    if type(shape) is slides.AutoShape:
+        # Gets the first paragraph, for example.
+        paragraph = shape.text_frame.paragraphs[0]
+
+        # Sets the default font size to 20 pt for all text portions in the paragraph. 
+        paragraph.paragraph_format.default_portion_format.font_height = 20
+
+        # Sets the font size to 20 pt for current text portions in the paragraph. 
+        for portion in paragraph.portions:
+            portion.portion_format.font_height = 20
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 
 ```
 
