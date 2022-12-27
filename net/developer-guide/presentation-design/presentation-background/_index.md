@@ -55,7 +55,7 @@ This C# code shows you how to set a solid color (forest green) as the background
 using (Presentation pres = new Presentation())
 {
 
-    // SetS the background color for the Master ISlide to Forest Green
+    // Sets the background color for the Master ISlide to Forest Green
     pres.Masters[0].Background.Type = BackgroundType.OwnBackground;
     pres.Masters[0].Background.FillFormat.FillType = FillType.Solid;
     pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
@@ -73,7 +73,7 @@ A gradient is a graphical effect based on a gradual change in color. Gradient co
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Set the [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
 3. Set the [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) enum for the master slide background to `Gradient`.
-4. Use the [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) property exposed by [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) to specify your preferred gradient setting.
+4. Use the [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) property exposed by [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) to specify your preferred gradient setting.
 5. Save the modified presentation.
 
 This C# code shows you how to set a gradient color as the background for a slide:
@@ -83,12 +83,12 @@ This C# code shows you how to set a gradient color as the background for a slide
 using (Presentation pres = new Presentation("SetBackgroundToGradient.pptx"))
 {
 
-    // Apply Gradiant effect to the Background
+    // Apply Gradient effect to the Background
     pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
     pres.Slides[0].Background.FillFormat.FillType = FillType.Gradient;
     pres.Slides[0].Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    //Write the presentation to disk
+    // Writes the presentation to disk
     pres.Save("ContentBG_Grad_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -102,7 +102,7 @@ Besides solid colors and gradient colors, Aspose.Slides also allows you to set i
 3. Set the [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) enum for the master slide background to `Picture`.
 4. Load the image you want to use as the slide background.
 5. Add the image to the presentation's image collection.
-6. Use the [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) property exposed by [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) to set the image as the background.
+6. Use the [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) property exposed by [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) to set the image as the background.
 7. Save the modified presentation.
 
 This C# code shows you how to set an image as the background for a slide:
@@ -112,7 +112,7 @@ This C# code shows you how to set an image as the background for a slide:
 using (Presentation pres = new Presentation("SetImageAsBackground.pptx"))
 {
 
-    // Sets conditions background image
+    // Sets conditions for background image
     pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
     pres.Slides[0].Background.FillFormat.FillType = FillType.Picture;
     pres.Slides[0].Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
@@ -165,7 +165,7 @@ else
 
 ## **Get Value of Slide Background**
 
-Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) and effective [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
+Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat) and effective [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
 
 Using the [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/background/) property from the [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) class, you can get the effective value for a slide background.
 

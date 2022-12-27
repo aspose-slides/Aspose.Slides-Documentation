@@ -7,131 +7,148 @@ keywords: "PowerPoint background, set background, Python, Aspose.Slides for Pyth
 description: "Set background in PowerPoint presentation in Python"
 ---
 
-## Overview
-In this topic, we will see that how can we set the background color of a slide. We know that Aspose.Slides for Python via .NET may contain two types of slides: **Master Slide** & **Normal Slide**. It is possible to change the background colors of both types of slides, which will be explained in this topic.
-## **Setting Background Color for Master Slides**
-We know that Aspose.Slides for Python via .NET may contain two types of slides: Master Slide & Normal Slide. It is possible to change the background colors of both types of slides. Master Slide is like a template that contains all formatting settings, which are applied on all other normal slides contained inside the presentation. It means that if you change the background color of the master slide, all normal slides in the presentation would receive the same background color settings. Please follow the steps below to change the background color of the master slide:
+Solid colors, gradient colors, and pictures are often used as background images for slides. You can set the background either for a **normal slide** (single slide) or **master slide** (several slides at once).
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Set the Background Type of the Slide to OwnBackground.
-1. Set the FillType of the Slide Background to Solid.
-1. Set the Background Color of the Master Slide of the presentation to any desired color using the [SolidFillColor.Color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) property exposed by [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) object.
-1. Write the modified presentation as a presentation file.
+<img src="powerpoint-background.png" alt="powerpoint-background"  />
 
-```py
+## **Set Solid Color as Background for Normal Slide**
+
+Aspose.Slides allows you to set a solid color as the background for a specific slide in a presentation (even if that presentation contains a master slide). The background change affects only the selected slide.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) enum for the slide background to `Solid`.
+4. Use the [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) property exposed by [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to specify a solid color for the background.
+5. Save the modified presentation.
+
+This Python code shows you how to set a solid color (blue) as the background for a normal slide:
+
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents the presentation file
+# Creates an instance of the Presentation class
 with slides.Presentation() as pres:
-    # Set the background color of the Master ISlide to Forest Green
+    # Sets the background color for the first ISlide to Blue
+    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
+    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
+    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
+    # Writes the presentation to disk
+    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Set Solid Color as Background for Master Slide**
+
+Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that contains and controls formatting settings for all slides. Therefore, when you select a solid color as the background for the master slide, that new background will be used for all slides.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) enum for the master slide (`Masters`) to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) enum for the master slide background to `Solid`.
+4. Use the [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) property exposed by [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to specify a solid color for the background.
+5. Save the modified presentation.
+
+This Python code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+# Creates an instance of the Presentation class
+with slides.Presentation() as pres:
+    # Sets the background color for the Master ISlide to Forest Green
     pres.masters[0].background.type = slides.BackgroundType.OWN_BACKGROUND
     pres.masters[0].background.fill_format.fill_type = slides.FillType.SOLID
     pres.masters[0].background.fill_format.solid_fill_color.color = draw.Color.forest_green
 
-    # Write the presentation to disk
+    # Writes the presentation to disk
     pres.save("SetSlideBackgroundMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Gradient Color as Background for Slide**
 
-## **Setting Background Color to Normal Slides**
-A Normal Slide is the one which inherits its format settings from the master slide. If you want to modify its background settings, you would have to modify the slide settings. Please follow the steps below to perform this task:
+A gradient is a graphical effect based on a gradual change in color. Gradient colors, when used as backgrounds for slides, make presentations looks artistic and professional. Aspose.Slides allows you to set a gradient color as the background for slides in presentations.
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-- Set the Background Type of the Slide to OwnBackground.
-- Set the FillType of the Slide Background to Solid.
-- Set the Background Color of the Normal Slide of the presentation to any desired color using the **SolidFillColor.Color** property exposed by FillFormat object.
-- Write the modified presentation as a presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) enum for the master slide background to `Gradient`.
+4. Use the [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) property exposed by [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to specify your preferred gradient setting.
+5. Save the modified presentation.
 
-```py
+This Python code shows you how to set a gradient color as the background for a slide:
+
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents the presentation file
-with slides.Presentation() as pres:
-    # Set the background color of the first ISlide to Blue
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
-    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## Setting Gradient Background Color for Slides
-**Gradient** is a graphic effect consisting of a gradual change in color. It is great for creating depth and highlights to sections of the images. It is possible to apply gradient effect on the background of a slide using Aspose.Slides for Python via .NET that will be explained in the remaining discussion of this topic.
-
-To apply the simple gradient effect on the background of a slide using Aspose.Slides for Python via .NET, please follow the steps below:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-- Set the Background Type of the Slide to OwnBackground.
-- Set the FillType of the Slide Background to Gradient.
-- Apply any desired gradient effect from the available options provided by GradientFormatEx object.
-- Write the modified presentation file.
-
-```py
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# Instantiate the Presentation class that represents the presentation file
+# Creates an instance of the Presentation class
 with slides.Presentation(path + "SetBackgroundToGradient.pptx") as pres:
-    # Apply Gradiant effect to the background
+    # Apply Gradient effect to the Background
     pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
     pres.slides[0].background.fill_format.fill_type = slides.FillType.GRADIENT
     pres.slides[0].background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
-    #Write the presentation to disk
+    #Writes the presentation to disk
     pres.save("ContentBG_Grad_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Image as Background for Slide**
 
-## Setting Images as Background for Slides
-Sometimes, developers may need to use an image as the background of the slide. To fulfill such development needs, Aspose.Slides for Python via .NET also allows filling the slide background with any image.
+Besides solid colors and gradient colors, Aspose.Slides also allows you to set images as the background for slides in presentations.
 
-To use an image as the background of a slide using Aspose.Slides for Python via .NET, please follow the steps below:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) enum for the master slide background to `Picture`.
+4. Load the image you want to use as the slide background.
+5. Add the image to the presentation's image collection.
+6. Use the [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) property exposed by [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to set the image as the background.
+7. Save the modified presentation.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Set the Background Type of the Slide to OwnBackground.
-1. Set the FillType of the Slide Background FillFormat to Picture.
-1. Set the PictureFillMode using the options provided by PictureFillMode enum.
-1. Instantiate Image class with an image that can be used as source picture for the Slide Background using PictureFillFormat.Picture.Image.
-1. Write the modified presentation file.
+This Python code shows you how to set an image as the background for a slide:
 
-```py
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents the presentation file
+# Creates an instance of the Presentation class
 with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
-    # Set the background with Image
+    # Sets conditions for background image
     pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
     pres.slides[0].background.fill_format.fill_type = slides.FillType.PICTURE
     pres.slides[0].background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
-    # Set the picture
+    # Loads the image
     img = draw.Bitmap(path + "Tulips.jpg")
 
-    # Add image to presentation's images collection
+    # Adds image to presentation's images collection
     imgx = pres.images.add_image(img)
 
     pres.slides[0].background.fill_format.picture_fill_format.picture.image = imgx
 
-    # Write the presentation to disk
+    # Writes the presentation to disk
     pres.save("ContentBG_Img_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Change Transparency of Background Image**
 
-## **Getting Effective Background Values of Slides**
-**Aspose.Slides.IBackgroundEffectiveData** interface and its implementation by **Aspose.Slides.BackgroundEffectiveData** class have been added. They represent effective background of slide and contain information about effective fill format and effective effect format.
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Python code shows you how to change the transparency for a slide background image: xxx
 
-**CreateBackgroundEffective** method has been added to **IBaseSlide** interface and **BaseSlide** class. This method allows to get effective values for slides background.
+```python
 
-The following code snippet shows how to get effective background values of slide.
+```
 
-```py
+## **Get Value of Slide Background**
+
+Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) and effective [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties).
+
+Using the [Background](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/#properties) property from the [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) class, you can get the effective value for a slide background.
+
+This Python code shows you how to get a slide's effective background value:
+
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents the presentation file
+# Creates an instance of the Presentation class
 with slides.Presentation(path + "SamplePresentation.pptx") as pres:
 
     effBackground = pres.slides[0].background.get_effective()
