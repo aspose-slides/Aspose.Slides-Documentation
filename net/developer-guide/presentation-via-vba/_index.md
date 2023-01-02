@@ -11,16 +11,16 @@ The [Aspose.Slides.Vba](https://reference.aspose.com/slides/net/aspose.slides.vb
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides never runs the macros in a presentation. Additionally, in an operation where a PowerPoint presentation is converted to another file, Aspose.Slides ignores all macros (macros are not carried into  resulting file).
+Aspose.Slides never runs the macros in a presentation. Additionally, in an operation where a PowerPoint presentation is converted to another file, Aspose.Slides ignores all macros (macros are not carried into the resulting file).
 
 {{% /alert %}}
 
 ## **Add VBA Macros**
 
-Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/) class to allow you to create VBA projects (and project references) edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/) interface to manage VBA embedded in a presentation.
+Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/) interface to manage VBA embedded in a presentation.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-1. Use the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) contructor to add a new VBA project.
+1. Use the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) constructor to add a new VBA project.
 1. Add a module to the VbaProject.
 1. Set the module source code.
 1. Add references to <stdole>.
@@ -28,7 +28,7 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/net/
 1. Associate the references with the VBA project.
 1. Save the presentation.
 
-This C# code shows you how to add a VBA macro from scratch:
+This C# code shows you how to add a VBA macro from scratch to a presentation:
 
 ```c#
     // Creates an instance of the presentation class
@@ -68,7 +68,7 @@ You may want to check out **Aspose** [Macro Remover](https://products.aspose.app
 {{% /alert %}} 
 
 ## **Remove VBA Macros**
-Using the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides/presentation/vbaproject/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class, you can remove a VBA macro.
+Using the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides/presentation/vbaproject/) property under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class, you can remove a VBA macro.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and load the presentation containing the macro.
 1. Access the Macro module and remove it.
