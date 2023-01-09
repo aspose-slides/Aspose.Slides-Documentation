@@ -95,8 +95,6 @@ try {
 }
 ```
 
-
-
 ## **Set Image as Background for Slide**
 
 Besides solid colors and gradient colors, Aspose.Slides also allows you to set images as the background for slides in presentations.
