@@ -135,7 +135,7 @@ try {
 
 ### **Change Transparency of Background Image**
 
-You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Java code shows you how to change the transparency for a slide background image: xxx
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Java code shows you how to change the transparency for a slide background image:
 
 ```java
 int transparencyValue = 30; // for example
