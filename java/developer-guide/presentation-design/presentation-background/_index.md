@@ -138,7 +138,31 @@ try {
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Java code shows you how to change the transparency for a slide background image: xxx
 
 ```java
+int transparencyValue = 30; // for example
 
+// Gets a collection of picture transform operations
+IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+// Finds a transparency effect with fixed percentage.
+AlphaModulateFixed transparencyOperation = null;
+for (IImageTransformOperation operation : imageTransform)
+{
+    if (operation instanceof AlphaModulateFixed)
+    {
+        transparencyOperation = (AlphaModulateFixed)operation;
+        break;
+    }
+}
+
+// Sets the new transparency value.
+if (transparencyOperation == null)
+{
+    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+}
+else
+{
+    transparencyOperation.setAmount(100 - transparencyValue);
+}
 ```
 
 ## **Get Value of Slide Background**
