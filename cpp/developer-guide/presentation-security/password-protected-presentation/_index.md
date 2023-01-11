@@ -166,10 +166,12 @@ presentation->get_ProtectionManager()->Encrypt(u"123123");
 
 Before you load a presentation, you might want to check and confirm that the presentation has not been protected with a password. This way, you get to avoid errors and similar issues, which come up when a password protected presentation is loaded without its password.
 
-This C++ code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself): xxx
+This C++ code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
 
-```java
-
+```c++
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
+System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
+                           presentationInfo->get_IsPasswordProtected());
 ```
 
 ## **Checking whether a Presentation is Encrypted**
