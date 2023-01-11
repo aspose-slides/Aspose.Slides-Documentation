@@ -106,10 +106,20 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This C++ code demonstrates the operation: xxx
+Aspose.Slides allows you to get the transparency of an image. This C++ code demonstrates the operation:
 
 ```c++
-
+auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
+auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
+auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+for (auto&& effect : imageTransform)
+{
+    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
+    {
+        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
+        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
+    }
+}
 ```
 
 ## **Picture Frame Formatting**
