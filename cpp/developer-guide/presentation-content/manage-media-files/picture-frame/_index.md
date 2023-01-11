@@ -104,8 +104,16 @@ pf->set_RelativeScaleWidth(1.35);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Get Transparency of Image**
+
+Aspose.Slides allows you to get the transparency of an image. This C++ code demonstrates the operation: xxx
+
+```c++
+
+```
 
 ## **Picture Frame Formatting**
+
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
 1. Create an instance of the [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
