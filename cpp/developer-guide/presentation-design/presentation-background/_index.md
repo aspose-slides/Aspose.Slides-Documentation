@@ -140,10 +140,32 @@ pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ### **Change Transparency of Background Image**
 
-You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This C++ code shows you how to change the transparency for a slide background image: xxx
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This C++ code shows you how to change the transparency for a slide background image:
 
 ```c++
-
+int32_t transparencyValue = 30;
+// for example
+// Gets a collection of picture transform operations
+auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
+// Finds a transparency effect with fixed percentage.
+System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+for (auto&& operation : imageTransform)
+{
+    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    {
+        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        break;
+    }
+}
+// Sets the new transparency value.
+if (transparencyOperation == nullptr)
+{
+    imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
+}
+else
+{
+    transparencyOperation->set_Amount(100.0f - transparencyValue);
+}
 ```
 
 ## **Get Value of Slide Background**
