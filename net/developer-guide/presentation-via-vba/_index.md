@@ -11,7 +11,11 @@ The [Aspose.Slides.Vba](https://reference.aspose.com/slides/net/aspose.slides.vb
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides never runs the macros in a presentation. Additionally, in an operation where a PowerPoint presentation is converted to another file, Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+
+When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+
+Aspose.Slides **never** runs the macros in a presentation.
 
 {{% /alert %}}
 
