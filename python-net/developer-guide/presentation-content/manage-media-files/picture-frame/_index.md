@@ -90,10 +90,18 @@ with slides.Presentation() as presentation:
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This Python code demonstrates the operation: xxx
+Aspose.Slides allows you to get the transparency of an image. This Python code demonstrates the operation: 
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as presentation:
+    pictureFrame = presentation.slides[0].shapes[0]
+    imageTransform = pictureFrame.picture_format.picture.image_transform
+    for effect in imageTransform:
+        if type(effect) is slides.AlphaModulateFixed:
+            transparencyValue = 100 - effect.amount
+            print("Picture transparency: " + str(transparencyValue))
 ```
 
 ## **Picture Frame Formatting**
