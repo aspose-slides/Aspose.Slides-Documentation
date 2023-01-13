@@ -130,10 +130,26 @@ with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
 
 ### **Change Transparency of Background Image**
 
-You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Python code shows you how to change the transparency for a slide background image: xxx
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Python code shows you how to change the transparency for a slide background image:
 
 ```python
+transparencyValue = 30 # for example
 
+# Gets a collection of picture transform operations
+imageTransform = pres.slides[0].background.fill_format.picture_fill_format.picture.image_transform
+
+transparencyOperation = None
+# Finds a transparency effect with fixed percentage.
+for operation in imageTransform:
+    if type(operation) is slides.AlphaModulateFixed:
+        transparencyOperation = operation
+        break
+
+# Sets the new transparency value.
+if transparencyOperation is None:
+    imageTransform.add_alpha_modulate_fixed_effect(100 - transparencyValue)
+else:
+    transparencyOperation.amount = (100 - transparencyValue)
 ```
 
 ## **Get Value of Slide Background**
