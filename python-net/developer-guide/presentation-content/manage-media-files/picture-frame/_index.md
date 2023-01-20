@@ -88,8 +88,24 @@ with slides.Presentation() as presentation:
         presentation.save("Adding Picture Frame with Relative Scale_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Get Transparency of Image**
+
+Aspose.Slides allows you to get the transparency of an image. This Python code demonstrates the operation: 
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as presentation:
+    pictureFrame = presentation.slides[0].shapes[0]
+    imageTransform = pictureFrame.picture_format.picture.image_transform
+    for effect in imageTransform:
+        if type(effect) is slides.AlphaModulateFixed:
+            transparencyValue = 100 - effect.amount
+            print("Picture transparency: " + str(transparencyValue))
+```
 
 ## **Picture Frame Formatting**
+
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/) class.

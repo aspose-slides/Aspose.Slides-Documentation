@@ -50,7 +50,7 @@ using (Presentation pres = new Presentation())
     pf.LineFormat.Width = 20;
     pf.Rotation = 45;
 
-    //Write the PPTX file to disk
+    // Writes the PPTX file to disk
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -95,8 +95,28 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Get Transparency of Image**
+
+Aspose.Slides allows you to get the transparency of an image. This C# code demonstrates the operation:
+
+```c#
+using (var presentation = new Presentation(folderPath + "Test.pptx"))
+{
+    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
+    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
+    foreach (var effect in imageTransform)
+    {
+        if (effect is IAlphaModulateFixed alphaModulateFixed)
+        {
+            var transparencyValue = 100 - alphaModulateFixed.Amount;
+            Console.WriteLine("Picture transparency: " + transparencyValue);
+        }
+    }
+}
+```
 
 ## **Picture Frame Formatting**
+
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
@@ -136,7 +156,7 @@ using (Presentation pres = new Presentation())
     pf.LineFormat.Width = 20;
     pf.Rotation = 45;
 
-    //Writes the PPTX file to disk
+    // Writes the PPTX file to disk
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```

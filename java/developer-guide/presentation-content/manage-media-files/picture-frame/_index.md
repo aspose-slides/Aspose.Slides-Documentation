@@ -89,7 +89,26 @@ try {
 }
 ```
 
+## **Get Transparency of Image**
+
+Aspose.Slides allows you to get the transparency of an image. This Java code demonstrates the operation:
+
+```java
+Presentation presentation = new Presentation(folderPath + "Test.pptx");
+
+var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+for (var effect : imageTransform) {
+    if (effect instanceof IAlphaModulateFixed) {
+        var alphaModulateFixed = (IAlphaModulateFixed) effect;
+        var transparencyValue = 100 - alphaModulateFixed.getAmount();
+        System.out.println("Picture transparency: " + transparencyValue);
+    }
+}
+```
+
 ## **Picture Frame Formatting**
+
 Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
