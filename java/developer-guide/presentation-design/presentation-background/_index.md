@@ -3,76 +3,84 @@ title: Presentation Background
 type: docs
 weight: 20
 url: /java/presentation-background/
-keywords: "PowerPoint background in Java"
-description: "PowerPoint background in Java"
+keywords: "PowerPoint background, set background in Java"
+description: "Set background in PowerPoint presentation in Java"
 ---
 
+Solid colors, gradient colors, and pictures are often used as background images for slides. You can set the background either for a **normal slide** (single slide) or **master slide** (several slides at once)
 
-## Overview
-In this topic, we will see that how can we set the background color of a slide. We know that Aspose.Slides for Java may contain two types of slides: **Master Slide** & **Normal Slide**. It is possible to change the background colors of both types of slides, which will be explained in this topic.
+<img src="powerpoint-background.png" alt="powerpoint-background"  />
 
-## **Set Background Color to Master Slide**
-We know that Aspose.Slides for Java may contain two types of slides: Master Slide & Normal Slide. It is possible to change the background colors of both types of slides. Master Slide is like a template that contains all formatting settings, which are applied on all other normal slides contained inside the presentation. It means that if you change the background color of the master slide, all normal slides in the presentation would receive the same background color settings. Please follow the steps below to change the background color of the master slide:
+## **Set Solid Color as Background for Normal Slide**
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Set the Background Type of the Slide to OwnBackground.
-1. Set the FillType of the Slide Background to Solid.
-1. Set the Background Color of the Master Slide of the presentation to any desired color using the [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/FillFormat#getSolidFillColor--).[setColor](https://reference.aspose.com/slides/java/com.aspose.slides/IColorFormat#setColor-java.awt.Color-) method exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/FillFormat) object.
-1. Write the modified presentation as a presentation file.
+Aspose.Slides allows you to set a solid color as the background for a specific slide in a presentation (even if that presentation contains a master slide). The background change affects only the selected slide.
 
-```java
-// Instantiate the Presentation class that represents the presentation file
-Presentation pres = new Presentation();
-try {
-    // Set the background color of the Master ISlide to Green
-    pres.getMasters().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-    
-    // Write the presentation to disk
-    pres.save("MasterBG.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the slide background to `Solid`.
+4. Use the [SolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to specify a solid color for the background.
+5. Save the modified presentation.
 
-## **Set Background Color to Normal Slide**
-A Normal Slide is the one which inherits its format settings from the master slide. If you want to modify its background settings, you would have to modify the slide settings. Please follow the steps below to perform this task:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Set the Background Type of the Slide to OwnBackground.
-- Set the FillType of the Slide Background to Solid.
-- Set the Background Color of the Normal Slide of the presentation to any desired color using the [**getSolidFillColor**](https://reference.aspose.com/slides/java/com.aspose.slides/FillFormat#getSolidFillColor--).[setColor](https://reference.aspose.com/slides/java/com.aspose.slides/IColorFormat#setColor-java.awt.Color-) method exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/FillFormat) object.
-- Write the modified presentation as a presentation file.
+This Java code shows you how to set a solid color (blue) as the background for a normal slide: 
 
 ```java
-// Instantiate the PFresentation class that represents the presentation file
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation("MasterBG.pptx");
 try {
-    // Set the background color of the first ISlide to Blue
+    // Sets the background color for the first ISlide to Blue
     pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
     pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     
+    // Writes the presentation to disk
     pres.save("ContentBG.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## Set Gradient Background Color to Slide
-**Gradient** is a graphic effect consisting of a gradual change in color. It is great for creating depth and highlights to sections of the images. It is possible to apply gradient effect on the background of a slide using Aspose.Slides for Java that will be explained in the remaining discussion of this topic.
+## **Set Solid Color as Background for Master Slide**
 
-To apply the simple gradient effect on the background of a slide using Aspose.Slides for Java, please follow the steps below:
+Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that contains and controls formatting settings for all slides. Therefore, when you select a solid color as the background for the master slide, that new background will be used for all slides.
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Set the Background Type of the Slide to OwnBackground.
-- Set the FillType of the Slide Background to Gradient.
-- Apply any desired gradient effect from the available options provided by [GradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IGradientFormat) object.
-- Write the modified presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Set the  [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the master slide (`Masters`) to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the master slide background to `Solid`.
+4. Use the [SolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to specify a solid color for the background.
+5. Save the modified presentation.
+
+This Java code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
 
 ```java
-// Instantiate the Presentation class that represents the presentation file
+// Creates an instance of the Presentation class
+Presentation pres = new Presentation();
+try {
+    // Sets the background color for the Master ISlide to Forest Green
+    pres.getMasters().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
+    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
+    pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    
+    // Writes the presentation to disk
+    pres.save("MasterBG.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Set Gradient Color as Background for Slide**
+
+A gradient is a graphical effect based on a gradual change in color. Gradient colors, when used as backgrounds for slides, make presentations looks artistic and professional. Aspose.Slides allows you to set a gradient color as the background for slides in presentations.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the master slide background to `Gradient`.
+4. Use the [GradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getGradientFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to specify your preferred gradient setting.
+5. Save the modified presentation.
+
+This Java code shows you how to set a gradient color as the background for a slide:
+
+```java
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation("MasterBG.pptx");
 try {
     // Apply Gradient effect to the Background
@@ -80,42 +88,44 @@ try {
     pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Gradient);
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
     
-    // Write the presentation to disk
+    // Writes the presentation to disk
     pres.save("ContentBG_Grad.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## Set Image as Background to Slide
-Sometimes, developers may need to use an image as the background of the slide. To fulfill such development needs, Aspose.Slides for Java also allows filling the slide background with any image.
+## **Set Image as Background for Slide**
 
-To use an image as the background of a slide using Aspose.Slides for Java, please follow the steps below:
+Besides solid colors and gradient colors, Aspose.Slides also allows you to set images as the background for slides in presentations.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Set the Background Type of the Slide to OwnBackground.
-1. Set the FillType of the Slide Background FillFormat to Picture.
-1. Set the PictureFillMode using the options provided by PictureFillMode enum.
-1. Instantiate Image class with an image that can be used as source picture for the Slide Background using PictureFillFormat.Picture.Image.
-1. Write the modified presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the  [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the master slide background to `Picture`.
+4. Load the image you want to use as the slide background.
+5. Add the image to the presentation's image collection.
+6. Use the [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getPictureFillFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to set the image as the background.
+7. Save the modified presentation.
+
+This Java code shows you how to set an image as the background for a slide: 
 
 ```java
-// Instantiate the Presentation class that represents the presentation file
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
-    // Set the background with Image
+    // Sets conditions for background image
     pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
     pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Picture);
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat()
             .setPictureFillMode(PictureFillMode.Stretch);
     
-    // Set the picture
+    // Loads the image
     IPPImage imgx = pres.getImages().addImage(Files.readAllBytes(Paths.get("Desert.jpg")));
     
-    // Add image to presentation's images collection
+    // Adds image to presentation's images collection
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
     
-    // Write the presentation to disk
+    // Writes the presentation to disk
     pres.save("ContentBG_Img.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -123,15 +133,48 @@ try {
 }
 ```
 
-## **Get Effective Background Values of Slide**
-[**IBackgroundEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IBackgroundEffectiveData) interface and its implementation by [**BackgroundEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/BackgroundEffectiveData) class have been added. They represent effective background of slide and contain information about effective fill format and effective effect format.
+### **Change Transparency of Background Image**
 
-[**getBackground()**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--).[**getEffective()**](https://reference.aspose.com/slides/java/com.aspose.slides/IBackground#getEffective--) method has been added to [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) interface and [**BaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/BaseSlide) class. This method allows to get effective values for slides background.
-
-The following code snippet shows how to get effective background values of slide.
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Java code shows you how to change the transparency for a slide background image:
 
 ```java
-// Instantiate the Presentation class that represents the presentation file
+int transparencyValue = 30; // for example
+
+// Gets a collection of picture transform operations
+IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+// Finds a transparency effect with fixed percentage.
+AlphaModulateFixed transparencyOperation = null;
+for (IImageTransformOperation operation : imageTransform)
+{
+    if (operation instanceof AlphaModulateFixed)
+    {
+        transparencyOperation = (AlphaModulateFixed)operation;
+        break;
+    }
+}
+
+// Sets the new transparency value.
+if (transparencyOperation == null)
+{
+    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+}
+else
+{
+    transparencyOperation.setAmount(100 - transparencyValue);
+}
+```
+
+## **Get Value of Slide Background**
+
+Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) and effective [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+
+Using the [Background](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getBackground--) property from the [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/) class, you can get the effective value for a slide background.
+
+This Java code shows you how to get a slide's effective background value:
+
+```java
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation("SamplePresentation.pptx");
 try {
     IBackgroundEffectiveData effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
@@ -144,3 +187,6 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+

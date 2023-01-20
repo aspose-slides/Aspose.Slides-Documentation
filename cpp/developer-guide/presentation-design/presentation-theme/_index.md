@@ -60,7 +60,7 @@ When you apply luminance transformations to the main theme color(1), colors from
 
 **2** - Colors from the additional palette.
 
-This C++ code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes: xxx
+This C++ code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>();
