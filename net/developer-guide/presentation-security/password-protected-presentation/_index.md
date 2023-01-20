@@ -29,7 +29,7 @@ Typically, you can set a password to enforce these restrictions on a presentatio
   
   **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
 
-## How to Password Protect a Presentation
+## How to Password Protect a Presentation Online
 
 1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
 
@@ -71,6 +71,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 - Removing encryption; disabling password protection
 - Removing write protection from a presentation
 - Getting the properties of an encrypted presentation
+- Checking whether a presentation is password protected before loading it
 - Checking whether a presentation is encrypted
 - Checking whether a presentation is password protected.
 
@@ -164,6 +165,19 @@ using (Presentation presentation = new Presentation("pres.pptx"))
     presentation.ProtectionManager.Encrypt("123123");
 }
 ```
+
+## **Checking whether a Presentation is Password Protected Before Loading it**
+
+Before you load a presentation, you might want to check and confirm that the presentation has not been protected with a password. This way, you get to avoid errors and similar issues, which come up when a password protected presentation is loaded without its password.
+
+This C# code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
+
+```c#
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
+Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
+```
+
+
 
 ## Checking whether a Presentation is Encrypted
 
