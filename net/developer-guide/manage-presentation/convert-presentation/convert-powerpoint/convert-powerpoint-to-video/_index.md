@@ -226,45 +226,69 @@ Then the generated frames can be compiled to produce a video. See the [Convert P
 
 ## **Supported Animations and Effects**
 
+
 **Entrance**:
 
-* Fade
-* Fly In
-* Float In
-* Split
-* Wipe
-* Shape
-* Wheel
-* Random Bars
-* Zoom
-* Swivel
-* Bounce
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 
 **Emphasis**:
 
-* Teeter
-* Spin
-
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
 **Exit**:
 
-* Fade
-* Fly Out
-* Float Out
-* Split
-* Wipe
-* Shape
-* Random Bars
-* Zoom
-* Swivel
-* Bounce 
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Motion Paths:**
 
-* Lines
-* Arcs
-* Turns
-* Shapes
-* Loops
-* Custom Path
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+
