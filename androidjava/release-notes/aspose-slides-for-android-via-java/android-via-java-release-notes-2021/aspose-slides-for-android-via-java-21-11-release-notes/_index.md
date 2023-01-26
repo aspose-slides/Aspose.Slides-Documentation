@@ -13,7 +13,7 @@ This page contains release notes for [Aspose.Slides for Android via Java 21.11]
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESANDROID-332|[Use Aspose.Slides for Java 21.11 features](/slides/androidjava/aspose-slides-for-java-21-11-release-notes/)|Enhancement|
+|SLIDESANDROID-332|[Use Aspose.Slides for Java 21.11 features](/slides/java/aspose-slides-for-java-21-11-release-notes/)|Enhancement|
 
 
 ## Public API Changes ##
