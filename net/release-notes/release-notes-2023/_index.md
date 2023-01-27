@@ -1,8 +1,6 @@
 ---
-title: Release Notes
+title: Release Notes - 2023
 type: docs
-weight: 40
-url: /net/release-notes/
+weight: 8
+url: /net/release-notes-2023/
 ---
-
-
