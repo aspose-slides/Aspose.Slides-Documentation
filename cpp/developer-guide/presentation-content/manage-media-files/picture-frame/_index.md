@@ -63,7 +63,14 @@ pf->set_Rotation( 45);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+{{% alert color="warning" %}} 
+
+Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/cpp/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/cpp/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/cpp/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/cpp/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/cpp/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/cpp/conversion/svg-to-png/).
+
+{{% /alert %}}
+
 ## **Create Picture Frame with Relative Scale**
+
 By altering an image's relative scaling, you can create a more complicated picture frame. 
 
 1. Create an instance of the [Presentation class](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).

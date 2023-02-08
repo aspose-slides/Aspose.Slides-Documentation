@@ -56,3 +56,13 @@ with slides.Presentation() as pres:
     pres.save("MyPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+{{% alert title="Note" color="warning" %}} 
+
+You may also use Aspose.Slides to convert HTML to other popular file formats: 
+
+* [HTML to image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
+
+{{% /alert %}}

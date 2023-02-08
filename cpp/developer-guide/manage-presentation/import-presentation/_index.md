@@ -56,3 +56,13 @@ auto presentation = System::MakeObject<Presentation>();
 presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 ```
 
+{{% alert title="Note" color="warning" %}} 
+
+You may also use Aspose.Slides to convert HTML to other popular file formats: 
+
+* [HTML to image](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
+
+{{% /alert %}}
