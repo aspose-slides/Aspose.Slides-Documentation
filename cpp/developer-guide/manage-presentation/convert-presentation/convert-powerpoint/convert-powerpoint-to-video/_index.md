@@ -41,8 +41,9 @@ void Run()
 
     // Adds a smile shape and then animates it
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
-    System::SharedPtr<IEffect> effectIn = slide->get_Timeline()->get_MainSequence()->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
-    System::SharedPtr<IEffect> effectOut = slide->get_Timeline()->get_MainSequence()->AddEffect(smile, EffectType::Fly, EffectSubtype::BottomRight, EffectTriggerType::AfterPrevious);
+    auto sequence = slide->get_Timeline()->get_MainSequence();
+    System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
+    System::SharedPtr<IEffect> effectOut = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::BottomRight, EffectTriggerType::AfterPrevious);
     effectIn->get_Timing()->set_Duration(2.0f);
     effectOut->set_PresetClassType(EffectPresetClassType::Exit);
 
@@ -86,9 +87,11 @@ System::SharedPtr<IBackground> slideBackground = newSlide->get_Background();
 
 slideBackground->set_Type(BackgroundType::OwnBackground);
 
-slideBackground->get_FillFormat()->set_FillType(FillType::Solid);
+auto fillFormat = slideBackground->get_FillFormat();
 
-slideBackground->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo());
+fillFormat->set_FillType(FillType::Solid);
+
+fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo());
 
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
@@ -116,18 +119,20 @@ void Run()
 
     System::SharedPtr<Paragraph> para3 = System::MakeObject<Paragraph>();
     para3->get_Portions()->Add(System::MakeObject<Portion>(u"paragraph by paragraph"));
-    autoShape->get_TextFrame()->get_Paragraphs()->Add(para1);
-    autoShape->get_TextFrame()->get_Paragraphs()->Add(para2);
-    autoShape->get_TextFrame()->get_Paragraphs()->Add(para3);
-    autoShape->get_TextFrame()->get_Paragraphs()->Add(System::MakeObject<Paragraph>());
+    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+    paragraphs->Add(para1);
+    paragraphs->Add(para2);
+    paragraphs->Add(para3);
+    paragraphs->Add(System::MakeObject<Paragraph>());
 
-    System::SharedPtr<IEffect> effect = slide->get_Timeline()->get_MainSequence()->AddEffect(para1, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    auto sequence = slide->get_Timeline()->get_MainSequence();
+    System::SharedPtr<IEffect> effect = sequence->AddEffect(para1, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
 
-    System::SharedPtr<IEffect> effect2 = slide->get_Timeline()->get_MainSequence()->AddEffect(para2, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    System::SharedPtr<IEffect> effect2 = sequence->AddEffect(para2, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
 
-    System::SharedPtr<IEffect> effect3 = slide->get_Timeline()->get_MainSequence()->AddEffect(para3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    System::SharedPtr<IEffect> effect3 = sequence->AddEffect(para3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
 
-    System::SharedPtr<IEffect> effect4 = slide->get_Timeline()->get_MainSequence()->AddEffect(para3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    System::SharedPtr<IEffect> effect4 = sequence->AddEffect(para3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
 
     effect->get_Timing()->set_TriggerDelayTime(1.0f);
     effect2->get_Timing()->set_TriggerDelayTime(1.0f);
@@ -185,8 +190,9 @@ void Run()
 
     // Adds a smile shape and animates it
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
-    System::SharedPtr<IEffect> effectIn = slide->get_Timeline()->get_MainSequence()->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
-    System::SharedPtr<IEffect> effectOut = slide->get_Timeline()->get_MainSequence()->AddEffect(smile, EffectType::Fly, EffectSubtype::BottomRight, EffectTriggerType::AfterPrevious);
+    auto sequence = slide->get_Timeline()->get_MainSequence();
+    System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
+    System::SharedPtr<IEffect> effectOut = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::BottomRight, EffectTriggerType::AfterPrevious);
     effectIn->get_Timing()->set_Duration(2.0f);
     effectOut->set_PresetClassType(EffectPresetClassType::Exit);
 
