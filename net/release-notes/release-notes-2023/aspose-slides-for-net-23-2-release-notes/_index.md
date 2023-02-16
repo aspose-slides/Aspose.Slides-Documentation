@@ -38,7 +38,7 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 
 ## Public API Changes ##
 
-## Find and repace freeform formatted text with with other text without loosing the formatting ##
+## Find and replace text fragments with changes in formatting ##
 
 Added support for finding and replacing text fragments with changes in formatting. A new method in the public API has been added for this purpose: SlideUtil.FindAndReplaceText.
 
