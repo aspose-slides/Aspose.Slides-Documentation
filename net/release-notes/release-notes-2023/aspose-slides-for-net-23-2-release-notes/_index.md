@@ -13,7 +13,9 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
+|SLIDESNET-43059|Vulnerabilities in libgdiplus|Investigation|
 |SLIDESNET-43547|Replacing text with freeform formatting with other text|Feature|<https://docs.aspose.com/slides/net/find-and-replace-text-without-losing-format-in-presentation/>
+|SLIDESNET-43516|GetThumbnail to return byte array|Feature|
 |SLIDESNET-42778|.NET 6 Support|Feature|
 |SLIDESNET-43589|Math equations on images do not match the original presentation|Enhancement|<https://docs.aspose.com/slides/net/convert-slide/#converting-slides-to-bitmap-and-saving-the-images-in-png>
 |SLIDESNET-43574|Text changes when an external hyperlink is updated|Enhancement|<https://docs.aspose.com/slides/net/manage-textbox/#add-text-box-with-hyperlink>
@@ -31,12 +33,25 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 |SLIDESNET-43585|Shape is missing/corrupted when converting ODP to PPTX|Bug|<https://docs.aspose.com/slides/net/convert-odp-to-pptx/>
 |SLIDESNET-43573|Text missing in the tables when converting PPTX to HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-html/>
 |SLIDESNET-43466|Shape thumbnail with the mathematical equation is empty|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-png/>
+|SLIDESNET-42846|PPTX to PDF: Images are not converted|Bug|
+|SLIDESNET-42695|PPTX to PDF: On Azure charts/images not appearing|Bug|
+|SLIDESNET-42187|Overlapped text in generated PDF|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-40826|Chart is improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-38414|Thumbnails are not properly generated|Bug|<https://docs.aspose.com/slides/net/create-shape-thumbnails/>
 |SLIDESNET-37358|Incorrect text alignment in generated pdf|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-36439|WordArt is not rendered properly when created thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-png/>
+|SLIDESNET-36439|WordArt is not rendered properly when created thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-png/
 
 ## Public API Changes ##
+
+## .NET 6 Support ##
+
+Now has full support for .NET6 - without using dependencies on GDI/libgdiplus (System.Drawing.Common package). 
+
+Thus, when used in Azure/AWS or other cloud solutions, it is now preferable to use Aspose Slides for .NET 6, since this dependency is often either missing or limited in capability when used in services like AWS Lambda, Azure Function and others.
+
+## .NET 5 has been replaced by .NET 6 in the Nuget package ##
+
+For projects that require .NET5 support you can continue to use Aspose.Slides for .NETStandard (which is part of the NuGet package and continues to be supported). 
 
 ## Find and replace text fragments with changes in formatting ##
 
