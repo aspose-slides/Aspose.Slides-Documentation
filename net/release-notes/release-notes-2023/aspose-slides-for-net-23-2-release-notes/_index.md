@@ -40,9 +40,9 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 
 ## Find and replace text fragments with changes in formatting ##
 
-Added support for finding and replacing text fragments with changes in formatting. A new method in the public API has been added for this purpose: SlideUtil.FindAndReplaceText.
+We implemented support for finding and replacing text fragments with changes in formatting. A new method in the public API has been added for this purpose: `SlideUtil.FindAndReplaceText`.
 
-The example below searches for all portions of "[this block] " and replaces them with "my text" filled in red:
+This C# code demonstrates a search for all portions of "[this block] " and then replaces them with "my text" filled in red:
 
 ```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -60,9 +60,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
             }
         }
     };
-    Aspose.Slides.Util.SlideUtil.FindAndReplaceText(pres, true, "[this block] ", "my text ", format);
+    Aspose.Slides.Util.SlideUtil.FindAndReplaceText(pres, true, "[this block] ", "my text", format);
     pres.Save("replaced", SaveFormat.Pptx);
 }
 ```
-
 
