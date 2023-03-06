@@ -14,6 +14,7 @@ As of [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2
 Slides for .NET now work without dependencies on GDI/libgdiplus on:
 * Windows
 * Linux
+
 _MacOS_ support is in progress.
 
 ## Using Slides for .NET6 on AWS and Azure
