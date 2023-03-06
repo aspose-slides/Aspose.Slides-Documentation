@@ -9,9 +9,9 @@ description: ".NET6 Support"
 
 ## Introduction
 
-As of [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0), .NET6 is supported. The peculiarity of this support is that .NET6 no longer supports System.Drawing.Common for Linux ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)) and Slides implements this graphical subsystem itself as a C++ component.
+Starting in [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0), support for.NET6 was implemented. The peculiarity of this support is that .NET6 no longer supports System.Drawing.Common for Linux ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)) and Slides implements this graphical subsystem itself as a C++ component.
 
-Slides for .NET now work without dependencies on GDI/libgdiplus on:
+Aspose.Slides for .NET now work without dependencies on GDI/libgdiplus on:
 * Windows
 * Linux
 
@@ -19,26 +19,26 @@ _MacOS_ support is in progress.
 
 ## Using Slides for .NET6 on AWS and Azure
 
-When using Slides in the cloud (AWS, Azure, or other cloud solutions), using the .NET6 version is preferred.
+.NET6 is the preferred version for Aspose.Slides used on the cloud (AWS, Azure, or other cloud solutions).
 
-When using Slides when the host is Linux, it was often necessary to install additional dependencies (libgdiplus) and this was not always convenient or even possible to do (for example, when using [AWS Lambda](https://aws.amazon.com/lambda)). When using Slides for .NET6, these dependencies are no longer needed, which makes deployment much easier.
+Previously, when Aspose.Slides was used on a Linux host, additional dependencies (libgdiplus) had to be installed and this was often inconvenient or impractical (for example, when using [AWS Lambda](https://aws.amazon.com/lambda)). With Slides for .NET6, those dependencies are no longer needed, so deployment is much easier.
 
-When used on a cloud solution where the host is Windows, problems can also occur. For example, [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) have limitations for the process, which leads to problems when exporting to PDF, for [example](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks). Using Slides for .NET6 also solves this problem.
+Another consideration is problems that occurred when Aspose.Slides was used on a cloud solution with a Windows host. For example, [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) have limitations for the process and results in problems during a PDF export operation (see [this](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)). The usage of Aspose.Slides for .NET6 resolves this issue.
 
 ## Using the System.Drawing.Common package and Slides for .NET6 classes (CS0433: The type exists in both Slides and System.Drawing.Common error)
 
-Sometimes it is necessary to use both System.Drawing and Slides for .NET6 dependencies in a project (for example, if the .NET6 project has dependencies on other packages, which in turn depend on System.Drawing). 
+Sometimes, both System.Drawing and Slides for .NET6 dependencies have to be used in a project (for example, when the .NET6 project depends on other packages, which in turn depend on System.Drawing). This may cause complication errors like these:
 
-This can lead to compilation errors like these:
 * CS0433: The type 'Image' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
 * CS0433: The type 'Graphics' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
 
-In this case you can  use [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) for Slides:
-1) Select the Slides assembly from the project's dependencies and go to its properties:
-![Aspose Slides package properties](package_properties.png)
-2) Set alias (for example, "Slides"):
-![Aspose Slides alias](set_alias.png)
-3) After that the types from System.Drawing.Common will be used by default. Where Slides types are needed, external assembly alias should be specified:
+In this case, you can use [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) for Slides:
+1) Select Aspose.Slides assembly from the project's dependencies and then click **Properties**.
+  ![Aspose Slides package properties](package_properties.png)
+2) Set an alias (for example, "Slides").
+  ![Aspose Slides alias](set_alias.png)
+
+Now, the types from System.Drawing.Common will be used by default. External assembly alias should be specified where Aspose.Slides types are needed.
 
 ```c#
 extern alias Slides;
