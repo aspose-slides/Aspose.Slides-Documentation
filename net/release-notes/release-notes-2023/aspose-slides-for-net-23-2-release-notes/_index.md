@@ -13,10 +13,10 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-43059|Vulnerabilities in libgdiplus|Investigation|
+|SLIDESNET-42778|.NET 6 Support|Feature|<https://docs.aspose.com/slides/net/net6/>
+|SLIDESNET-43059|Vulnerabilities in libgdiplus|Investigation|<https://docs.aspose.com/slides/net/net6/>
 |SLIDESNET-43547|Replacing text with freeform formatting with other text|Feature|<https://docs.aspose.com/slides/net/find-and-replace-text-without-losing-format-in-presentation/>
-|SLIDESNET-43516|GetThumbnail to return byte array|Feature|
-|SLIDESNET-42778|.NET 6 Support|Feature|
+|SLIDESNET-43516|GetThumbnail to return byte array|Feature|<https://docs.aspose.com/slides/net/net6/>
 |SLIDESNET-43589|Math equations on images do not match the original presentation|Enhancement|<https://docs.aspose.com/slides/net/convert-slide/#converting-slides-to-bitmap-and-saving-the-images-in-png>
 |SLIDESNET-43574|Text changes when an external hyperlink is updated|Enhancement|<https://docs.aspose.com/slides/net/manage-textbox/#add-text-box-with-hyperlink>
 |SLIDESNET-43530|Creating a real TextBox|Enhancement|<https://docs.aspose.com/slides/net/manage-textbox/#create-text-box-on-slide>
@@ -33,8 +33,8 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 |SLIDESNET-43585|Shape is missing/corrupted when converting ODP to PPTX|Bug|<https://docs.aspose.com/slides/net/convert-odp-to-pptx/>
 |SLIDESNET-43573|Text missing in the tables when converting PPTX to HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-html/>
 |SLIDESNET-43466|Shape thumbnail with the mathematical equation is empty|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-png/>
-|SLIDESNET-42846|PPTX to PDF: Images are not converted|Bug|
-|SLIDESNET-42695|PPTX to PDF: On Azure charts/images not appearing|Bug|
+|SLIDESNET-42846|PPTX to PDF: Images are not converted|Bug|<https://docs.aspose.com/slides/net/net6/>
+|SLIDESNET-42695|PPTX to PDF: On Azure charts/images not appearing|Bug|<https://docs.aspose.com/slides/net/net6/>
 |SLIDESNET-42187|Overlapped text in generated PDF|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-40826|Chart is improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-38414|Thumbnails are not properly generated|Bug|<https://docs.aspose.com/slides/net/create-shape-thumbnails/>
