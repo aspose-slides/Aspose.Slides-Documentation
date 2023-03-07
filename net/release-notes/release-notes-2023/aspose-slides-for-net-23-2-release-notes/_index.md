@@ -21,7 +21,7 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 |SLIDESNET-43574|Text changes when an external hyperlink is updated|Enhancement|<https://docs.aspose.com/slides/net/manage-textbox/#add-text-box-with-hyperlink>
 |SLIDESNET-43530|Creating a real TextBox|Enhancement|<https://docs.aspose.com/slides/net/manage-textbox/#create-text-box-on-slide>
 |SLIDESNET-43679|Image not displaying correctly in generated HTML|Bug|<https://docs.aspose.com/slides/net/export-to-html5/>
-|SLIDESNET-43660|PptxReadException: Empty content in the AlternateContent|Bug|<https://docs.aspose.com/slides/net/open-presentation/ Tags: category:PPTX, 2023/04, 2023/03>
+|SLIDESNET-43660|PptxReadException: Empty content in the AlternateContent|Bug|<https://docs.aspose.com/slides/net/open-presentation/
 |SLIDESNET-43654|PptReadException is thrown when reading PPT files|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
 |SLIDESNET-43653|PptReadException is thrown when reading PPT files|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
 |SLIDESNET-43652|PptReadException is thrown when reading PPT files|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
@@ -39,7 +39,7 @@ This page contains release notes for [ Aspose.Slides for .NET 23.2](https://www
 |SLIDESNET-40826|Chart is improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-38414|Thumbnails are not properly generated|Bug|<https://docs.aspose.com/slides/net/create-shape-thumbnails/>
 |SLIDESNET-37358|Incorrect text alignment in generated pdf|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-36439|WordArt is not rendered properly when created thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-png/
+|SLIDESNET-36439|WordArt is not rendered properly when created thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-png/>
 
 ## Public API Changes ##
 
