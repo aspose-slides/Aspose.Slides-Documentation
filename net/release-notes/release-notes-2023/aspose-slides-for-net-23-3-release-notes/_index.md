@@ -44,9 +44,9 @@ This page contains release notes for [ Aspose.Slides for .NET 23.3](https://www
 
 ## Public API Changes ##
 
-## Animation timing settings - Rewind when done playing - ITiming.Rewind has been added ##
+## Animation timing settings: Rewind when done playing - ITiming.Rewind has been added ##
 
-The ITiming.Rewind attribute have been added to specify if the effect will rewind when done playing.
+The ITiming.Rewind attribute has been added to specify whether an effect will rewind after playing.
 
 ![Rewind when done playing](rewind.png)
 
@@ -55,20 +55,20 @@ Example:
 ``` csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
-    // Get the effects sequence for the first slide
+    // Gets the effects sequence for the first slide
     ISequence effectsSequence = presentation.Slides[0].Timeline.MainSequence;
     
-    // Get the first effect of main sequence.
+    // Gets the first effect of the main sequence.
     IEffect effect = effectsSequence[0];
     
-    // Turn the effect Timing/Rewind on.
+    // Turns the effect Timing/Rewind on.
     effect.Timing.Rewind = true;
 }
 ```
 
-## Trim Video Settings - IVideoFrame TrimFromEnd and TrimFromStart have been added ##
+## Trim Video Settings: IVideoFrame TrimFromEnd and TrimFromStart have been added ##
 
-IVideoFrame.TrimFromEnd and IVideoFrame.TrimFromStart have been added to manage Trim Video settings.
+`IVideoFrame.TrimFromEnd` and `IVideoFrame.TrimFromStart` have been added to manage Trim Video settings.
 
 ![Trim Video settings](trim_video.png)
 
@@ -81,17 +81,17 @@ using (Presentation pres = new Presentation())
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.mp4"));
     var videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
 
-    //set trimming start time 1sec
+    // sets the trimming start time to 1sec
     videoFrame.TrimFromStart = 1000f;
 
-    //set trim,ing end time 2sec
+    // sets the triming end time to 2sec
     videoFrame.TrimFromEnd = 2000f;
 }
 ```
 
 ## IChartDataPoint.Index property has been added ##
 
-To allow to determine which of the parent's children collection this data point applies to, IChartDataPoint.Index property has been added.
+To allow you determine what parent's children collection this data point applies to, the `IChartDataPoint.Index` property has been added.
 
 Example:
 
