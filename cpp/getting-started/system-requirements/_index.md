@@ -21,10 +21,9 @@ Aspose.Slides for C++ is a native C++ library. Aspose.Slides for C++ supports th
 
 ### **Linux**
 - OS Ubuntu 16.04 or later.
-- CentOS
-- Fedora
-- OpenSUSE
-- and others
+- CentOS 8 or later.
+- Fedora 24 or later.
+- And other Linux x86_64 with glibc 2.23 or later.
 
 ### **macOS**
 - macOS Monterey 12.1 or later.
