@@ -18,7 +18,7 @@ This page contains release notes for [Aspose.Slides for PHP via Java](https://pa
 
 ## Public API Changes ##
 
-## Find and replace text fragments with changes in formatting ##
+### Find and replace text fragments with changes in formatting ###
 
 Added support for finding and replacing text fragments with changes in formatting. A new method in the public API has been added for this purpose: [SlideUtil.findAndReplaceText](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/findandreplacetext/).
 

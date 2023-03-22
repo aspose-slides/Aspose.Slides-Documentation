@@ -35,7 +35,7 @@ This page contains release notes for [Aspose.Slides for Java 23.2](https://rele
 
 ## Public API Changes ##
 
-## Find and replace text fragments with changes in formatting ##
+### Find and replace text fragments with changes in formatting ###
 
 Added support for finding and replacing text fragments with changes in formatting. A new method in the public API has been added for this purpose: [SlideUtil.findAndReplaceText](https://reference.aspose.com/slides/java/com.aspose.slides/slideutil/#findAndReplaceText-com.aspose.slides.IPresentation-boolean-java.lang.String-java.lang.String-com.aspose.slides.PortionFormat-).
 
