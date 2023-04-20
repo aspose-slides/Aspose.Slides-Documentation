@@ -22,6 +22,13 @@ Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET
 
 ### **Linux**
 - Linux (Ubuntu, OpenSUSE, CentOS, and others)
+
+{{%  alert  title="Note"  color="primary"  %}} 
+
+While CentOS 7 GLIBC version is 2.14, Aspose.Slides for .NET 6 requires Linux x86_x64 with GLIBC 2.23 and higher.
+
+{{% /alert %}} 
+
 ### **Mac**
 - Mac OS X
 ## **Supported Frameworks**
@@ -43,6 +50,7 @@ Aspose.Slides for .NET supports .NET and Mono frameworks:
 - .NET Framework 4.7
 - .NET Framework 4.7.2
 - .NET 5
+- .NET 6
 - .NET Core
 - COM Interop support (COM, C++, VBScript)
 ### **Mono Framework**

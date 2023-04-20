@@ -49,6 +49,8 @@ Now has full support for .NET6 - without using dependencies on GDI/libgdiplus (S
 
 Thus, when used in Azure/AWS or other cloud solutions, it is now preferable to use Aspose Slides for .NET 6, since this dependency is often either missing or limited in capability when used in services like AWS Lambda, Azure Function and others.
 
+**Specific Linux case**: While CentOS 7 GLIBC version is 2.14, Aspose.Slides for .NET 6 requires Linux x86_x64 with GLIBC 2.23 and higher.
+
 ## .NET 5 has been replaced by .NET 6 in the Nuget package ##
 
 For projects that require .NET5 support you can continue to use Aspose.Slides for .NETStandard (which is part of the NuGet package and continues to be supported). 
