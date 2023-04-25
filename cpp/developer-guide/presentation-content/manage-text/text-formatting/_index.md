@@ -27,7 +27,21 @@ The code snippet below shows how to use this feature:
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HighlightTextUsingRegx-HighlightTextUsingRegx.cpp" >}}
 
+## **Set Text Background Color**
 
+Aspose.Slides allows you to specify your preferred color for the background of a text.
+
+This C++ code shows you how to set the background color for an entire text: xxx
+
+```c++
+
+```
+
+This C++ code shows you how to set the background color for only a portion of a text: xxx
+
+```c++
+
+```
 
 ## **Align Text Paragraph**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for C++ supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for C++ :

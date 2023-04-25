@@ -54,7 +54,21 @@ with slides.Presentation(path + "SomePresentation.pptx") as presentation:
     presentation.save("SomePresentation-out3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Text Background Color**
 
+Aspose.Slides allows you to specify your preferred color for the background of a text.
+
+This Python code shows you how to set the background color for an entire text: xxx
+
+```python
+
+```
+
+This Python code shows you how to set the background color for only a portion of a text: xxx
+
+```python
+
+```
 
 
 ## **Align Text Paragraphs**

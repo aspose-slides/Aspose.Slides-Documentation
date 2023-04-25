@@ -55,7 +55,24 @@ try {
 }
 ```
 
+## **Set Text Background Color**
+
+Aspose.Slides allows you to specify your preferred color for the background of a text.
+
+This Java code shows you how to set the background color for an entire text: xxx
+
+```java
+
+```
+
+This Java code shows you how to set the background color for only a portion of a text: xxx
+
+```java
+
+```
+
 ## **Align Text Paragraphs**
+
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for Java supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for Java:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
