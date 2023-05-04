@@ -62,7 +62,7 @@ presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
 
 Aspose.Slides allows you to specify your preferred color for the background of a text.
 
-This C# code shows you how to set the background color for an entire text: xxx 
+This C# code shows you how to set the background color for an entire text: 
 
 ```c#
 using (Presentation pres = new Presentation())
