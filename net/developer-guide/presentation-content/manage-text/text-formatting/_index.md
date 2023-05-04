@@ -65,13 +65,79 @@ Aspose.Slides allows you to specify your preferred color for the background of a
 This C# code shows you how to set the background color for an entire text: xxx 
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    autoShape.TextFrame.Paragraphs.Clear();
 
+    Paragraph para = new Paragraph();
+
+    var portion1 = new Portion("Black");
+    portion1.PortionFormat.FontBold = NullableBool.True;
+    
+    var portion2 = new Portion(" Red ");
+    
+    var portion3 = new Portion("Black");
+    portion3.PortionFormat.FontBold = NullableBool.True;
+    
+    para.Portions.Add(portion1);
+    para.Portions.Add(portion2);
+    para.Portions.Add(portion3);
+    autoShape.TextFrame.Paragraphs.Add(para);
+    
+    pres.Save("text.pptx", SaveFormat.Pptx);
+}
+
+using (Presentation pres = new Presentation("text.pptx"))
+{
+    var autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
+
+    foreach (IPortion portion in autoShape.TextFrame.Paragraphs[0].Portions)
+    {
+        portion.PortionFormat.HighlightColor.Color = Color.Blue;
+    }
+
+    pres.Save("text-red.pptx", SaveFormat.Pptx);
+}
 ```
 
-This C# code shows you how to set the background color for only a portion of a text: xxx
+This C# code shows you how to set the background color for only a portion of a text:
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    autoShape.TextFrame.Paragraphs.Clear();
 
+    Paragraph para = new Paragraph();
+
+    var portion1 = new Portion("Black");
+    portion1.PortionFormat.FontBold = NullableBool.True;
+    
+    var portion2 = new Portion(" Red ");
+    
+    var portion3 = new Portion("Black");
+    portion3.PortionFormat.FontBold = NullableBool.True;
+    
+    para.Portions.Add(portion1);
+    para.Portions.Add(portion2);
+    para.Portions.Add(portion3);
+    autoShape.TextFrame.Paragraphs.Add(para);
+    
+    pres.Save("text.pptx", SaveFormat.Pptx);
+}
+
+using (Presentation pres = new Presentation("text.pptx"))
+{
+    var autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
+
+    IPortion redPortion = autoShape.TextFrame.Paragraphs[0].Portions
+        .First(p => p.Text.Contains("Red"));
+
+    redPortion.PortionFormat.HighlightColor.Color = Color.Red;
+    
+    pres.Save("text-red.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Align Text Paragraphs**
