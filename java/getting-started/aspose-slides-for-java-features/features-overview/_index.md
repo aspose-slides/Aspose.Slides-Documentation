@@ -23,9 +23,9 @@ Aspose.Slides for Java supports most of the Microsoft PowerPoint document format
 |[PPT to PPTX conversion](/slides/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java supports conversion from PPT to PPTX.|
 |[Portable Document Format (PDF)](/slides/java/developer-guide/)|The supported file formats can be exported to Adobe Portable Document Format (PDF) documents with a single method.|
 |[XML Parser Specification (XPS)](/slides/java/xml-parser-specification-xps/)|All of the supported file formats can be exported to XML Parser Specification (XPS) documents with a single method.|
-|[Tagged Image File Format (TIFF)](/slides/java/tagged-image-file-format-28tiff-29/)|The presentation file formats supported by Aspose.Slides for Java can also be exported to Tagged Image File Format (TIFF).|
-|[ODP to PPTX Conversion](/slides/java/accessing-opendocument-presentation/)|Aspose.Slides for Java supports loading Accessing OpenDocument Presentation (ODP) and converting then to PPTX.|
-|[Presentation To HTML Conversion](/slides/java/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for Java supports the conversion of PresentationEx to HTML format.|
+|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/java/convert-powerpoint-to-tiff/)|The presentation file formats supported by Aspose.Slides for Java can also be exported to Tagged Image File Format (TIFF).|
+|[ODP to PPTX Conversion](https://docs.aspose.com/slides/java/convert-odp-to-pptx/)|Aspose.Slides for Java supports loading Accessing OpenDocument Presentation (ODP) and converting then to PPTX.|
+|[Presentation To HTML Conversion](https://docs.aspose.com/slides/java/convert-powerpoint-to-html/)|Aspose.Slides for Java supports the conversion of PresentationEx to HTML format.|
 ## **Presentation Rendering**
 Aspose .Slides for Java supports high fidelity rendering of slides in the presentations to various graphics formats:
 

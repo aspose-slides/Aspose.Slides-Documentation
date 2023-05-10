@@ -23,9 +23,9 @@ Aspose.Slides for Python via .NET supports most PowerPoint document formats. It 
 |[Microsoft PowerPoint (PPT)](/slides/python-net/ppt-vs-pptx/)|Aspose.Slides for Python via .NET provides the fastest processing for this presentation document format.|
 |[PPT to PPTX conversion](/slides/python-net/convert-ppt-to-pptx/)|Aspose.Slides for Python via .NET supports conversion of PPT to PPTX.|
 |[Portable Document Format (PDF)](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|You can export all supported file formats to Adobe Portable Document Format (PDF) documents with a single method.|
-|[XML Parser Specification (XPS)](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)|You can export all supported file formats to XML Parser Specification (XPS) documents with a single method.|
+|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)|You can export all supported file formats to XML Parser Specification (XPS) documents with a single method.|
 |[Tagged Image File Format (TIFF)](/slides/python-net/convert-powerpoint-to-tiff/)|You can export all supported presentation file formats to Tagged Image File Format (TIFF).|
-|[PPTX To HTML Conversion](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for Python via .NET supports the conversion of PresentationEx to HTML format.|
+|[PPTX To HTML Conversion](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)|Aspose.Slides for Python via .NET supports the conversion of PresentationEx to HTML format.|
 
 ## **Rendering and Printing**
 Aspose.Slides for Python via .NET supports high fidelity rendering of slides in the presentation documents to various graphics formats. Go through these details:
