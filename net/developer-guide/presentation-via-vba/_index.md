@@ -7,47 +7,60 @@ keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remo
 description: "Add, remove, and extract VBA macros in PowerPoint presentations in C# or .NET"
 ---
 
-## **Add VBA Macros**
-The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class previous [VbaProject](http://www.aspose.com/api/net/slides/aspose.slides.vba/vbaproject) property has been replaced. Now instead of the raw bytes of the [VbaProject](http://www.aspose.com/api/net/slides/aspose.slides.vba/vbaproject) property representation of VBA project, the new **IVbaProject** interface implementation has been added. Use **IVbaProject** to manage VBA embedded in a presentation. You can add new project references, edit existing modules and create new ones. Also, you can create a new VBA project using the **VbaProject** class which implements the **VbaProject** interface. The following example shows how to create a simple VBA project. It contains one module and adds two required references to the libraries.
+The [Aspose.Slides.Vba](https://reference.aspose.com/slides/net/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
 
-1. Create an instance of the `Presentation` class.
-1. Add a new VbaProject with the **Presentation.VbaProject** property.
-1. Add a module to the [VbaProject](http://www.aspose.com/api/net/slides/aspose.slides.vba/vbaproject).
+{{% alert title="Note" color="warning" %}} 
+
+When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+
+When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+
+Aspose.Slides **never** runs the macros in a presentation.
+
+{{% /alert %}}
+
+## **Add VBA Macros**
+
+Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/) interface to manage VBA embedded in a presentation.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Use the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) constructor to add a new VBA project.
+1. Add a module to the VbaProject.
 1. Set the module source code.
 1. Add references to <stdole>.
 1. Add references to **Microsoft Office**.
-1. Associate the references with the **VbaProject**.
-1. Finally, write the PPTX file using the `Presentation` object.
+1. Associate the references with the VBA project.
+1. Save the presentation.
 
-The implementation of the above steps is demonstrated in the example below.
+This C# code shows you how to add a VBA macro from scratch to a presentation:
 
 ```c#
-// Instantiate Presentation
+    // Creates an instance of the presentation class
 using (Presentation presentation = new Presentation())
 {
-    // Create new VBA Project
+    // Creates a new VBA Project
     presentation.VbaProject = new VbaProject();
 
-    // Add empty module to the VBA project
+    // Adds an empty module to the VBA project
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
   
-    // Set module source code
+    // Sets the module source code
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
-    // Create reference to <stdole>
+    // Creates a reference to <stdole>
     VbaReferenceOleTypeLib stdoleReference =
         new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-    // Create reference to Office
+    // Creates a reference to Office
     VbaReferenceOleTypeLib officeReference =
         new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-    // Add references to the VBA project
+    // Adds references to the VBA project
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
             
-    // Save Presentation
+    // Saves the Presentation
     presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
@@ -59,40 +72,39 @@ You may want to check out **Aspose** [Macro Remover](https://products.aspose.app
 {{% /alert %}} 
 
 ## **Remove VBA Macros**
-The `Presentation` class now has included the support to remove the VBA macros inside presentation. The following example shows how to access and remove a VBA macro in presentation.
+Using the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides/presentation/vbaproject/) property under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class, you can remove a VBA macro.
 
-1. Create an instance of the `Presentation` class and load presentation with Macro.
-1. Access the Macro module and remove that
-1. Finally, write the PPTX file using the `Presentation` class object.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and load the presentation containing the macro.
+1. Access the Macro module and remove it.
+1. Save the modified presentation.
 
-The implementation of the above steps is demonstrated in the example below.
+This C# code shows you how to remove a VBA macro:
 
 ```c#
-// Instantiate Presentation
+    // Loads the presentation containing the macro
 using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
 {
-    // Access the Vba module and remove 
+    // Accesses the Vba module and removes it 
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
-    // Save Presentation
+    // Saves the Presentation
     presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
 
 ## **Extract VBA Macros**
-Aspose.Slides for .NET supports extracting VBA Macros from the slide. In order to extract VBA Macros, please follow the steps below:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and load the presentation containing the macro.
+2. Check if the presentation contains a VBA Project.
+3. Loop through all the modules contained in the VBA Project to view the macros.
 
-- Load a Presentation containing a VBA Macros
-- Check if Presentation contains VBA Project
-- Loop through all the modules that are contained in the VBA Project
-
-The implementation of the above steps is demonstrated in the example below.
+This C# code shows you how to extract VBA macros from a presentation containing macros:
 
 ```c#
+    // Loads the presentation containing the macro
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
-	if (pres.VbaProject != null) // check if Presentation contains VBA Project
+	if (pres.VbaProject != null) // Checks whether the Presentation contains a VBA Project
 	{
 		foreach (IVbaModule module in pres.VbaProject.Modules)
 		{
@@ -102,4 +114,3 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 	}
 }
 ```
-

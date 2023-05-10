@@ -3,25 +3,70 @@ title: Presentation via VBA
 type: docs
 weight: 250
 url: /cpp/presentation-via-vba/
+keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remove VBA, extract macro, extract VBA, PowerPoint macro, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
+description: "Add, remove, and extract VBA macros in PowerPoint presentations in C++"
 ---
 
-## **Add VBA Macros**
-The [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class previous [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project) property has been replaced. Now instead of the raw bytes of the [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project) property representation of VBA project, the new [IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project) interface implementation has been added. Use `IVbaProject` to manage VBA embedded in a presentation. You can add new project references, edit existing modules and create new ones. Also, you can create a new VBA project using the `VbaProject` class which implements the `VbaProject` interface. The following example shows how to create a simple VBA project. It contains one module and adds two required references to the libraries.
+The [Aspose.Slides.Vba](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Add a new `VbaProject` with the `Presentation.VbaProject` property.
-1. Add a module to the [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project).
+{{% alert title="Note" color="warning" %}} 
+
+When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+
+When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+
+Aspose.Slides **never** runs the macros in a presentation.
+
+{{% /alert %}}
+
+## **Add VBA Macros**
+
+Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project/) interface to manage VBA embedded in a presentation.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+1. Use the [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) constructor to add a new VBA project.
+1. Add a module to the VbaProject.
 1. Set the module source code.
 1. Add references to <stdole>.
 1. Add references to **Microsoft Office**.
-1. Associate the references with the `VbaProject`.
-1. Finally, write the PPTX file using the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) object.
+1. Associate the references with the VBA project.
+1. Save the presentation.
 
-The implementation of the above steps is demonstrated in the example below.
+This C++ code shows you how to add a VBA macro from scratch to a presentation: 
+
+```c++
+
+// The path to the documents directory.
+const String outPath = u"../out/AddVBAMacros_out.pptm";
+
+// Creates an instance of the presentation class
+SharedPtr<Presentation> presentation = MakeObject<Presentation>();
+// Creates a new VBA Project
+presentation->set_VbaProject(MakeObject<VbaProject>());
+
+// Adds an empty module to the VBA project
+SharedPtr<IVbaModule> module = presentation->get_VbaProject()->get_Modules()->AddEmptyModule(u"Module");
+
+// Sets the module source code
+module->set_SourceCode(u"Sub Test(oShape As Shape) MsgBox \"Test\" End Sub");
+
+// Creates a reference to <stdole>
+SharedPtr<VbaReferenceOleTypeLib> stdoleReference =
+	MakeObject<VbaReferenceOleTypeLib>(u"stdole", u"*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
+
+// Creates a reference to Office
+SharedPtr<VbaReferenceOleTypeLib> officeReference =
+	MakeObject<VbaReferenceOleTypeLib>(u"Office", u"*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
+
+// Adds references to the VBA project
+presentation->get_VbaProject()->get_References()->Add(stdoleReference);
+presentation->get_VbaProject()->get_References()->Add(officeReference);
+
+// Saves the Presentation
+presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 
 
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddVBAMacros-AddVBAMacros.cpp" >}}
+```
 
 {{% alert color="primary" %}} 
 
@@ -30,23 +75,61 @@ You may want to check out **Aspose** [Macro Remover](https://products.aspose.app
 {{% /alert %}} 
 
 ## **Remove VBA Macros**
-The [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class now has included the support to remove the VBA macros inside presentation. The following example shows how to access and remove a VBA macro in presentation.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and load presentation with Macro.
-1. Access the Macro module and remove that
-1. Finally, write the PPTX file using the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class object.
+Using the [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) property under the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class, you can remove a VBA macro.
 
-The implementation of the above steps is demonstrated in the example below.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and load the presentation containing the macro.
+1. Access the Macro module and remove it.
+1. Save the modified presentation.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveVBAMacros-RemoveVBAMacros.cpp" >}}
+This C++ code shows you how to remove a VBA macro: 
+
+```c++
+
+// The path to the documents directory.
+const String outPath = u"../out/RemoveVBAMacros_out.pptm";
+const String templatePath = u"../templates/vba.pptm";
+
+// Loads the presentation containing the macro
+SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
+
+// Accesses the Vba module and removes it 
+presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
+
+// Saves the Presentation
+presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
+
+
+```
+
 ## **Extract VBA Macros**
-Aspose.Slides for C++ supports extracting VBA Macros from the slide. In order to extract VBA Macros, please follow the steps below:
 
-- Load a Presentation containing a VBA Macros
-- Check if Presentation contains VBA Project
-- Loop through all the modules that are contained in the VBA Project
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class and load the presentation containing the macro.
+2. Check if the presentation contains a VBA Project.
+3. Loop through all the modules contained in the VBA Project to view the macros.
 
-The implementation of the above steps is demonstrated in the example below.
+This C++ code shows you how to extract VBA macros from a presentation containing macros: 
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ExtractingVBAMacros-ExtractingVBAMacros.cpp" >}}
+```c++
+
+	// The path to the documents directory.
+	const String templatePath = u"../templates/VBA.pptm";
+
+	// Loads the presentation containing the macro
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+
+
+	if (pres->get_VbaProject() != NULL) // Checks whether the Presentation contains a VBA Project
+	{
+		
+		//for (SharedPtr<IVbaModule> module : pres->get_VbaProject()->get_Modules())
+		for (int i = 0; i < pres->get_VbaProject()->get_Modules()->get_Count(); i++)
+		{
+			SharedPtr<IVbaModule> module = pres->get_VbaProject()->get_Modules()->idx_get(i);
+
+			System::Console::WriteLine(module->get_Name());
+			System::Console::WriteLine(module->get_SourceCode());
+		}
+	}
+```
 

@@ -3,55 +3,60 @@ title: Presentation via VBA
 type: docs
 weight: 250
 url: /java/presentation-via-vba/
+keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remove VBA, extract macro, extract VBA, PowerPoint macro, PowerPoint presentation, Java, Aspose.Slides for Java"
+description: "Add, remove, and extract VBA macros in PowerPoint presentations in Java"
 ---
 
-## **Add VBA Macros to Presentation**
-{{% alert color="primary" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides for Java allows developers to manage VBA macros in a presentation. All you have to do is to add a VBA using the [IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/IVbaProject) interface associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class using the [Presentation.getVbaProject()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/methods/getVbaProject\(\)/) method.
+When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
 
-{{% /alert %}} 
+When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
 
-The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class previous **getVbaProject()** method has been replaced. Now instead of the raw bytes of the [**getVbaProject()**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getVbaProject--) method representation of VBA project, the new [IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/IVbaProject) interface implementation has been added.
-Use IVbaProject to manage VBA embedded in a presentation. You can add new project references, edit existing modules and create new ones.
-Also, you can create a new VBA project using the [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/classes/VbaProject) class which implements the `IVbaProject` interface.
-The following example shows how to create a simple VBA project. It contains one module and adds two required references to the libraries.
+Aspose.Slides **never** runs the macros in a presentation.
+
+{{% /alert %}}
+
+## **Add VBA Macros**
+
+Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/) interface to manage VBA embedded in a presentation.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Add a new [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/classes/VbaProject) with the [Presentation.setVbaProject()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#setVbaProject-com.aspose.slides.IVbaProject-) method.
-1. Add a module to the [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/classes/VbaProject).
+1. Use the [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/#VbaProject--) constructor to add a new VBA project.
+1. Add a module to the VbaProject.
 1. Set the module source code.
-1. Add references to <stdole>.
-1. Add references to **Microsoft Office**.
-1. Associate the references with the [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/classes/VbaProject).
-1. Finally, write the PPTX file using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object.
+1. Add references to <stdole>.
+1. Add references to **Microsoft Office**.
+1. Associate the references with the VBA project.
+1. Save the presentation.
 
-The implementation of the above steps is demonstrated in the example below.
+This Java code shows you how to add a VBA macro from scratch to a presentation:
 
 ```java
-// Instantiate Presentation
+// Creates an instance of the presentation class
 Presentation pres = new Presentation();
 try {
-    // Create new VBA Project
+    // Creates a new VBA Project
     pres.setVbaProject(new VbaProject());
     
-    // Add empty module to the VBA project
+    // Adds an empty module to the VBA project
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
-    // Set module source code
+    // Sets the module source code
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // Create reference to <stdole>
+    // Creates a reference to <stdole>
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // Create reference to Office
+    // Creates a reference to Office
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // Add references to the VBA project
+    // Adds references to the VBA project
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
-    
+   
+    // Saves the Presentation
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
@@ -64,30 +69,24 @@ You may want to check out **Aspose** [Macro Remover](https://products.aspose.app
 
 {{% /alert %}} 
 
-## **Remove VBA Macros from Presentation**
+## **Remove VBA Macros**
 
-{{% alert color="primary" %}} 
+Using the [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getVbaProject--) property under the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class, you can remove a VBA macro.
 
-Aspose.Slides for Java allows developers to remove VBA macros in a presentation. All you have to do is to add a VBA using the `1IVbaProject` interface associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class using the [Presentation.getVbaProject()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getVbaProject--) method.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation containing the macro.
+1. Access the Macro module and remove it.
+1. Save the modified presentation.
 
-{{% /alert %}} 
-
-The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class now has included the support to remove the VBA macros inside presentation. The following example shows how to access and remove a VBA macro in presentation.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class and load presentation with Macro.
-1. Access the Macro module and remove that
-1. Finally, write the PPTX file using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object.
-
-The implementation of the above steps is demonstrated in the example below.
+This Java code shows you how to remove a VBA macro:
 
 ```java
-// Load Presentation
+// Loads the presentation containing the macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Access the Vba module and remove
+    // Accesses the Vba module and removes it 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
-    // Save Presentation
+    // Saves the Presentation
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
@@ -95,19 +94,18 @@ try {
 ```
 
 ## **Extract VBA Macros**
-Aspose.Slides for Java supports extracting VBA Macros from the slide. In order to extract VBA Macros, please follow the steps below:
 
-- Load a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) containing a VBA Macros
-- Check if [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) contains VBA Project
-- Loop through all the modules that are contained in the VBA Project
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation containing the macro.
+2. Check if the presentation contains a VBA Project.
+3. Loop through all the modules contained in the VBA Project to view the macros.
 
-The implementation of the above steps is demonstrated in the example below.
+This Java code shows you how to extract VBA macros from a presentation containing macros:
 
 ```java
-// Load Presentation
+// Loads the presentation containing the macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // check if Presentation contains VBA Project
+    if (pres.getVbaProject() != null) // Checks whether the Presentation contains a VBA Project
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
