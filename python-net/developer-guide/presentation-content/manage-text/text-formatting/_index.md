@@ -58,16 +58,79 @@ with slides.Presentation(path + "SomePresentation.pptx") as presentation:
 
 Aspose.Slides allows you to specify your preferred color for the background of a text.
 
-This Python code shows you how to set the background color for an entire text: xxx
+This Python code shows you how to set the background color for an entire text: 
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation() as pres:
+    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
+    autoShape.text_frame.paragraphs.clear()
+
+    para = slides.Paragraph()
+
+    portion1 = slides.Portion("Black")
+    portion1.portion_format.font_bold = 1
+    
+    portion2 = slides.Portion(" Red ")
+    
+    portion3 = slides.Portion("Black")
+    portion3.portion_format.font_bold = 1
+    
+    para.portions.add(portion1)
+    para.portions.add(portion2)
+    para.portions.add(portion3)
+    autoShape.text_frame.paragraphs.add(para)
+    
+    pres.save("text.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("text.pptx") as pres:
+    autoShape = pres.slides[0].shapes[0]
+
+    for portion in autoShape.text_frame.paragraphs[0].portions:
+        portion.portion_format.highlight_color.color = draw.Color.blue
+
+    pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-This Python code shows you how to set the background color for only a portion of a text: xxx
+This Python code shows you how to set the background color for only a portion of a text:
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation() as pres:
+    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
+    autoShape.text_frame.paragraphs.clear()
+
+    para = slides.Paragraph()
+
+    portion1 = slides.Portion("Black")
+    portion1.portion_format.font_bold = 1
+    
+    portion2 = slides.Portion(" Red ")
+    
+    portion3 = slides.Portion("Black")
+    portion3.portion_format.font_bold = 1
+    
+    para.portions.add(portion1)
+    para.portions.add(portion2)
+    para.portions.add(portion3)
+    autoShape.text_frame.paragraphs.add(para)
+    
+    pres.save("text.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("text.pptx") as pres:
+    autoShape = pres.slides[0].shapes[0]
+
+    for portion in autoShape.text_frame.paragraphs[0].portions:
+        print (portion.text)
+
+    redPortion = list(p for p in autoShape.text_frame.paragraphs[0].portions if 'Red' in p.text)[0]
+    redPortion.portion_format.highlight_color.color = draw.Color.blue
+
+    pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
