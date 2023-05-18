@@ -24,8 +24,6 @@ It allows to highlight text part with background color using text sample, simila
 5. Highlight the text using [TextFrame.Highlight()](https://reference.aspose.com/slides/net/aspose.slides/textframe/highlighttext/#highlighttext) method.
 6. Save the presentation in the desired output format i.e. PPT, PPTX or ODP etc.
 
-
-
 ```c#
 Presentation presentation = new Presentation("SomePresentation.pptx");
 ((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // highlighting all words 'important'
