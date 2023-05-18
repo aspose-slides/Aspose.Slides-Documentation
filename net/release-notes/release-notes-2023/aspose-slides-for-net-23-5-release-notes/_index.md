@@ -36,7 +36,7 @@ This page contains release notes for [ Aspose.Slides for .NET 23.5](https://www
 
 ## AfterAnimationType enum, Effect.AfterAnimationType, and Effect.AfterAnimationColor have been added ##
 
-A new `AfterAnimationType` enum has been added. It represents the after animation type of an animation effect and can be used with `Effect.AfterAnimationType` and `Effect.AfterAnimationColor`:
+`AfterAnimationType`, a new enum, has been added. It represents the after animation type of an animation effect and can be used with `Effect.AfterAnimationType` and `Effect.AfterAnimationColor`:
 
 ``` csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
