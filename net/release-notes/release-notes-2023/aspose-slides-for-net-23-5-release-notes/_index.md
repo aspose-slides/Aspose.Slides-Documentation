@@ -7,7 +7,7 @@ url: /net/aspose-slides-for-net-23-5-release-notes/
 
 {{% alert color="primary" %}} 
 
-This page contains release notes for [ Aspose.Slides for .NET 23.5](https://www.nuget.org/packages/Aspose.Slides.NET/)
+This page contains release notes for [ Aspose.Slides for .NET 23.5](https://www.nuget.org/packages/Aspose.Slides.NET/).
 
 {{% /alert %}} 
 
@@ -34,40 +34,40 @@ This page contains release notes for [ Aspose.Slides for .NET 23.5](https://www
 
 ## Public API Changes ##
 
-## AfterAnimationType enum, Effect.AfterAnimationType and Effect.AfterAnimationColor has been added ##
+## AfterAnimationType enum, Effect.AfterAnimationType, and Effect.AfterAnimationColor have been added ##
 
-A new AfterAnimationType enum has been added. It represents the after animation type of an animation effect and can be used with Effect.AfterAnimationType and Effect.AfterAnimationColor:
+A new `AfterAnimationType` enum has been added. It represents the after animation type of an animation effect and can be used with `Effect.AfterAnimationType` and `Effect.AfterAnimationColor`:
 
 ``` csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
-    // Get the first effect of the first slide.
+    // Get the first effect of the first slide
     IEffect firstSlideEffect = presentation.Slides[0].Timeline.MainSequence[0];
     
-    // Change the effect After animation to "Hide on Next Mouse Click"
+    // Change the After animation effect to "Hide on Next Mouse Click"
     firstSlideEffect.AfterAnimationType = AfterAnimationType.HideOnNextClick;
 }
 ```
 
-Example how to use Effect.AfterAnimationColor combined with AfterAnimationType 
+Example that shows you how to use `Effect.AfterAnimationColor` alongside `AfterAnimationType`:
 
 ``` csharp 
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
-    // Get the first effect of the first slide.
+    // Get the first effect of the first slide
     IEffect firstSlideEffect = presentation.Slides[0].Timeline.MainSequence[0];
 
-    // Change the effect After animation type to "Color"
+    // Change the After animation effect type to "Color"
     firstSlideEffect.AfterAnimationType = AfterAnimationType.Color;
 
-    // Set the effect After animation color.
+    // Set the After animation effect color
     firstSlideEffect.AfterAnimationColor.Color = Color.Blue;
 }
 ```
 
-## DataLabelCollection.LeaderLinesFormat has been added, DataLabelCollection.LeaderLinesColor declared as obsollete ##
+## DataLabelCollection.LeaderLinesFormat has been added, DataLabelCollection.LeaderLinesColor declared as obsolete ##
 
-To allow format the chart's leader lines a new property LeaderLinesFormat has been added to DataLabelCollection. This is how it can be formatted:
+To allow you to format a chart's leader lines, `LeaderLinesFormat`has been added to [DataLabelCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/). This is how you format a chart's lines using the new property:
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -81,11 +81,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-DataLabelCollection.LeaderLinesColor declared as obsollete and will be removed after release of version 23.8.
+`DataLabelCollection.LeaderLinesColor` is now obsolete and will be removed in Aspose.Slides 23.8.
 
 ## LowCode.ForEach for shape, paragraph and portion now support include notes ##
 
-LowCode.ForEach for shape, paragraph and portion now suppor overrides to include notes. That is represented as a boolean flag that indicates whether NotesSlides should be included in processing.
+LowCode.ForEach for shape, paragraph and portion now support overrides to include notes. A boolean flag is used as an indicator that specifies whether NotesSlides is included in processing.
 
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
