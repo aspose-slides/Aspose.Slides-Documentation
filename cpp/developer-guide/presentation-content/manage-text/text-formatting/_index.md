@@ -31,16 +31,89 @@ The code snippet below shows how to use this feature:
 
 Aspose.Slides allows you to specify your preferred color for the background of a text.
 
-This C++ code shows you how to set the background color for an entire text: xxx
+This C++ code shows you how to set the background color for an entire text:
 
 ```c++
+{
+    auto pres = System::MakeObject<Presentation>();
+    System::SharedPtr<IAutoShape> autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 200.0f, 100.0f);
+    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+    paragraphs->Clear();
+    System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
+    auto portion1 = System::MakeObject<Portion>(u"Black");
+    portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
 
+    auto portion2 = System::MakeObject<Portion>(u" Red ");
+
+    auto portion3 = System::MakeObject<Portion>(u"Black");
+    portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
+
+    auto paragraphPortions = para->get_Portions();
+    paragraphPortions->Add(portion1);
+    paragraphPortions->Add(portion2);
+    paragraphPortions->Add(portion3);
+    paragraphs->Add(para);
+
+    pres->Save(u"text.pptx", SaveFormat::Pptx);
+}
+
+{
+    auto pres = System::MakeObject<Presentation>(u"text.pptx");
+    auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
+    auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
+    for (auto&& portion : portions)
+    {
+        portion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_Blue());
+    }
+    pres->Save(u"text-red.pptx", SaveFormat::Pptx);
+}
 ```
 
-This C++ code shows you how to set the background color for only a portion of a text: xxx
+This C++ code shows you how to set the background color for only a portion of a text:
 
 ```c++
+{
+    auto pres = System::MakeObject<Presentation>();
+    System::SharedPtr<IAutoShape> autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 200.0f, 100.0f);
 
+    auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+    paragraphs->Clear();
+    System::SharedPtr<Paragraph> para = System::MakeObject<Paragraph>();
+    auto portion1 = System::MakeObject<Portion>(u"Black");
+    portion1->get_PortionFormat()->set_FontBold(NullableBool::True);
+
+    auto portion2 = System::MakeObject<Portion>(u" Red ");
+
+    auto portion3 = System::MakeObject<Portion>(u"Black");
+    portion3->get_PortionFormat()->set_FontBold(NullableBool::True);
+
+    auto paragraphPortions = para->get_Portions();
+    paragraphPortions->Add(portion1);
+    paragraphPortions->Add(portion2);
+    paragraphPortions->Add(portion3);
+    paragraphs->Add(para);
+
+    pres->Save(u"text.pptx", SaveFormat::Pptx);
+}
+
+{
+    auto pres = System::MakeObject<Presentation>(u"text.pptx");
+    auto autoShape = System::ExplicitCast<IAutoShape>(pres->get_Slide(0)->get_Shape(0));
+
+	auto predicate = [](System::SharedPtr<IPortion> portion) -> bool {
+        return portion->get_Text().Contains(u"Red");
+	};
+
+	auto portions = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portions();
+    System::SharedPtr<IPortion> redPortion;
+	for (auto&& portion : portions)
+        if (predicate(portion))
+            redPortion = portion;
+
+    redPortion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_Red());
+
+    pres->Save(u"text-red.pptx", SaveFormat::Pptx);
+}
 ```
 
 ## **Align Text Paragraph**
