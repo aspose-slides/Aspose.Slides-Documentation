@@ -45,7 +45,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     IEffect firstSlideEffect = presentation.Slides[0].Timeline.MainSequence[0];
     
     // Change the After animation effect to "Hide on Next Mouse Click"
-    firstSlideEffect.AfterAnimationType = AfterAnimationType.HideOnNextClick;
+    firstSlideEffect.AfterAnimationType = AfterAnimationType.HideOnNextMouseClick;
 }
 ```
 
