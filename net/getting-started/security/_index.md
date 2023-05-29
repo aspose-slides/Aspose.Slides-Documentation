@@ -1,5 +1,5 @@
 ---
-title: Licensing
+title: Security
 type: docs
 weight: 160
 url: /net/security/
