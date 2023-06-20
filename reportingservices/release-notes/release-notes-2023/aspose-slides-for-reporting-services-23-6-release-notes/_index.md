@@ -13,6 +13,6 @@ This page contains release notes for Aspose.Slides for Reporting Services 23.6
 
 |**Key** |**Summary** |**Category** |
 | :-: | :- | :-: |
-|SLIDESRS-33704|[Use Aspose.Slides for .NET 23.5 features](/slides/net/aspose-slides-for-net-23-6-release-notes/)|Enhancement|
+|SLIDESRS-33704|[Use Aspose.Slides for .NET 23.6 features](/slides/net/aspose-slides-for-net-23-6-release-notes/)|Enhancement|
 
 
