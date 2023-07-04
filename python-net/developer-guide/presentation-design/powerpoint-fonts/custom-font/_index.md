@@ -1,5 +1,6 @@
 ---
-title: Custom Font
+title: Custom PowerPoint Font in Python
+linktitle: Custom Font
 type: docs
 weight: 20
 url: /python-net/custom-font/
@@ -7,16 +8,27 @@ keywords: "Fonts, custom fonts, PowerPoint presentation, Python, Aspose.Slides f
 description: "PowerPoint custom fonts in Python"
 ---
 
-## **Load Custom Fonts from .TTF**
-Aspose.Slides lets you load fonts for rendering in presentations without even installing them. This article shows how to load fonts from custom directories without installing them. Please follow the steps below to loading Fonts from external directories by using Aspose.Slides for Python via .NET API:
+{{% alert color="primary" %}} 
 
-- Create an instance of FontsLoader Class and call the static method LoadExternalFonts.
-- Perform render the presentation.
-- Clear the cache in the FontsLoader Class.
+Aspose Slides allows you to load these fonts using `load_external_fonts` under the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class:
 
-The implementation of the above is given below.
+* TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-```py
+* OpenType (.otf) fonts. See [OpenType](https://en.wikipedia.org/wiki/OpenType).
+
+{{% /alert %}}
+
+## **Load Custom Fonts**
+
+Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
+
+1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) Class and call the `LoadExternalFonts` static method.
+2. Load the presentation that will be rendered.
+3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) Class.
+
+This Python code demonstrates the font loading process:
+
+```python
 import aspose.slides as slides
 
 # The path to the documents directory.
@@ -25,32 +37,36 @@ dataDir = "C:\\"
 # folders to seek fonts
 folders = [ dataDir ]
 
-# Load the custom font directory fonts
+# Loads the custom font directory fonts
 slides.FontsLoader.load_external_fonts(folders)
 
-# Do Some work and perform presentation/slides rendering
+# Do some work and perform presentation/slide rendering
 with slides.Presentation(path + "DefaultFonts.pptx") as presentation:
     presentation.save("NewFonts_out.pptx", slides.export.SaveFormat.PPTX)
 
-# Clear Font Cachce
+# Clears the font Cachce
 slides.FontsLoader.clear_cache()
 ```
 
 ## **Get Custom Fonts Folder**
-A new property has been added that returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+Aspose.Slides provides the `get_font_folders()` method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
-```py
-# The following line shall return folders where font files are searched.
-# Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+This Python code shows you how to use `get_font_folders()`:
+
+```python
+#  This line outputs the folders that are checked for font files.
+# Those are folders added through the load_external_fonts method and system font folders.
 fontFolders = slides.FontsLoader.get_font_folders()
 
 ```
 
 
 ## **Specify Custom Fonts Used With Presentation**
-A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
+Aspose.Slides provides the `document_level_font_sources` property to allow you to specify external fonts that will be used with the presentation.
 
-```py
+This Python code shows you how to use the `document_level_font_sources` property:
+
+```python
 import aspose.slides as slides
 
 with open(path + "CustomFont1.ttf", "br") as font1:
@@ -62,9 +78,18 @@ with open(path + "CustomFont1.ttf", "br") as font1:
         loadOptions.document_level_font_sources.font_folders =  ["assets\\fonts", "global\\fonts"] 
         loadOptions.document_level_font_sources.memory_fonts = [ memoryFont1, memoryFont2 ]
         with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as presentation:
-            #work with the presentation
-            #CustomFont1, CustomFont2 as well as fonts from assets\fonts
-            #  & global\fonts folders and their subfolders are available to the presentation
+            # Work with the presentation
+            # CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
             print(len(presentation.slides))
+```
+
+## **Manage Fonts Externally**
+
+Aspose.Slides provides the `load_external_font`(data) method to allow you to load external fonts from binary data.
+
+This Python code demonstrates the byte array font loading process: xxx
+
+```python
+
 ```
 

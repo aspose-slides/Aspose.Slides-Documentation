@@ -1,53 +1,67 @@
 ---
-title: Custom Font - PowerPoint C# API
+title: Custom PowerPoint Font in C#
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /net/custom-font/
 keywords: "Fonts, custom fonts, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint custom fonts in C# or .NET"
+description: "PowerPoint custom fonts in C#"
 ---
 
-## **Load Custom Fonts from .TTF**
-Aspose.Slides lets you load fonts for rendering in presentations without even installing them. This article shows how to load fonts from custom directories without installing them. Please follow the steps below to loading Fonts from external directories by using Aspose.Slides for .NET API:
+{{% alert color="primary" %}} 
 
-- Create an instance of FontsLoader Class and call the static method LoadExternalFonts.
-- Perform render the presentation.
-- Clear the cache in the FontsLoader Class.
+Aspose Slides allows you to load these fonts using [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/):
 
-The implementation of the above is given below.
+* TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
+* OpenType (.otf) fonts. See [OpenType](https://en.wikipedia.org/wiki/OpenType).
+
+{{% /alert %}}
+
+## **Load Custom Fonts**
+
+Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
+
+1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class and call the `LoadExternalFonts` static method.
+2. Load the presentation that will be rendered.
+3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class.
+
+This C# code demonstrates the font loading process:
 
 ``` csharp
-// The path to the documents directory.
+// The path to the documents directory
 string dataDir = "C:\\";
 
 // folders to seek fonts
 String[] folders = new String[] { dataDir };
 
-// Load the custom font directory fonts
+// Loads the custom font directory fonts
 FontsLoader.LoadExternalFonts(folders);
 
-// Do Some work and perform presentation/slides rendering
+// Do some work and perform presentation/slide rendering
 using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx"))
     presentation.Save(dataDir + "NewFonts_out.pptx", SaveFormat.Pptx);
 
-// Clear Font Cachce
+// Clears the font cache
 FontsLoader.ClearCache();
 ```
 
 ## **Get Custom Fonts Folder**
-A new property has been added that returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
+
+This C# code shows you how to use [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/):
 
 ```c#
-//The following line shall return folders where font files are searched.
-//Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+// This line outputs the folders that are checked for font files.
+// Those are folders added through the LoadExternalFonts method and system font folders.
 string[] fontFolders = FontsLoader.GetFontFolders();
-
 ```
 
 
 ## **Specify Custom Fonts Used With Presentation**
-A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
+Aspose.Slides provides the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
+
+This C# code shows you how to use the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property:
 
 ```c#
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
@@ -58,8 +72,18 @@ loadOptions.DocumentLevelFontSources.FontFolders = new string[] { "assets\\fonts
 loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, memoryFont2 };
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
-    //work with the presentation
-    //CustomFont1, CustomFont2 as well as fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
+    // Work with the presentation
+    // CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
 }
+```
+
+## **Manage Fonts Externally**
+
+Aspose.Slides provides the [LoadExternalFont](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) method to allow you to load external fonts from binary data.
+
+This C# code demonstrates the byte array font loading process: xxx
+
+```c#
+
 ```
 
