@@ -246,22 +246,6 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Lock Aspect Ratio**
-
-If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) property to set the *Lock Aspect Ratio* setting. 
-
-This C# code shows you how to lock a shape's aspect ratio: xxx
-
-```c#
-
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
-
-{{% /alert %}}
-
 ## **Use StretchOff Property**
 
 Using the [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. 
