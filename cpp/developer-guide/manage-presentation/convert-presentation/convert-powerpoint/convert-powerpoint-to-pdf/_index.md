@@ -147,6 +147,24 @@ pdfOptions->set_AccessPermissions(PdfAccessPermissions::PrintDocument | PdfAcces
 presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
+### Detect Font Substitutions**
+
+Aspose.Slides provides the [get_WarningCallback()](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/get_warningcallback/) method under the [SaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
+
+This C++ code shows you how to detect font substitutions: xxx 
+
+```c++
+
+```
+
+{{%  alert color="primary"  %}} 
+
+For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+
+For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/cpp/font-substitution/) article.
+
+{{% /alert %}} 
+
 ## **Convert Selected Slides in PowerPoint to PDF**
 
 This C++ code shows you how to convert specific slides in a PowerPoint presentation to PDF:

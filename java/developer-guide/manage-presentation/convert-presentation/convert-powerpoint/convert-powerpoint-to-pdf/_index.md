@@ -155,6 +155,24 @@ try {
 }
 ```
 
+### Detect Font Substitutions**
+
+Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
+
+This Java code shows you how to detect font substitutions: xxx 
+
+```java
+
+```
+
+{{%  alert color="primary"  %}} 
+
+For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+
+For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/java/font-substitution/) article.
+
+{{% /alert %}} 
+
 ## **Convert Selected Slides in PowerPoint to PDF**
 
 This Java code shows you how to convert specific slides in a PowerPoint presentation to PDF:
