@@ -230,6 +230,22 @@ with slides.Presentation() as presentation:
 
 ```
 
+## **Lock Aspect Ratio**
+
+If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the *aspect_ratio_locked* property to set the *Lock Aspect Ratio* setting. 
+
+This Python code shows you how to lock a shape's aspect ratio: xxx
+
+```python
+
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
+
+{{% /alert %}}
+
 ## **Use StretchOff Property**
 
 Using the `StretchOffsetLeft`, `StretchOffsetTop`, `StretchOffsetRight` and `StretchOffsetBottom` properties from the [IPictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) class, you can specify a fill rectangle. 
