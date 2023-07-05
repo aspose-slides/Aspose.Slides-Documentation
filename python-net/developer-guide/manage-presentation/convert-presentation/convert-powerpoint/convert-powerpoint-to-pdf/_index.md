@@ -167,22 +167,6 @@ pdfOptions.access_permissions = slides.export.PdfAccessPermissions.PRINT_DOCUMEN
 presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
-### Detect Font Substitutions**
-
-Aspose.Slides provides the `warning_callback` property under the [SaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
-
-This Python code shows you how to detect font substitutions: xxx 
-
-```python
-
-```
-
-{{%  alert color="primary"  %}} 
-
-For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/python-net/font-substitution/) article.
-
-{{% /alert %}} 
-
 ## **Convert Selected Slides in PowerPoint to PDF**
 
 This Python code shows you how to convert specific slides in a PowerPoint presentation to PDF:

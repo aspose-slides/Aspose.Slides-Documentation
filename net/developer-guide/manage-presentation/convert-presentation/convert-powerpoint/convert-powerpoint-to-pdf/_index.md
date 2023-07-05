@@ -142,24 +142,6 @@ pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPer
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Detect Font Substitutions**
-
-Aspose.Slides provides the [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) property under the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
-
-This C# code shows you how to detect font substitutions: xxx 
-
-```c#
-
-```
-
-{{%  alert color="primary"  %}} 
-
-For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
-
-For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/net/font-substitution/) article.
-
-{{% /alert %}} 
-
 ## **Convert Selected Slides in PowerPoint to PDF**
 
 This C# code shows you how to convert specific slides in a PowerPoint presentation to PDF:
