@@ -13,7 +13,6 @@ This page contains release notes for [ Aspose.Slides for .NET 23.6](https://www
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-42005|Glyph-based Fonts are not Substituted as Expected|Investigation|<https://docs.aspose.com/slides/net/fallback-font/>
 |SLIDESNET-43700|Setting a default language for an entire PowerPoint document|Feature|<https://docs.aspose.com/slides/net/presentation-localization/>
 |SLIDESNET-43870|Quality of images is low when converting a presentation to PDF|Enhancement|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
 |SLIDESNET-43807|Loading corrupted presentation throws PptUnsupportedFormatException|Enhancement|<https://docs.aspose.com/slides/net/open-presentation/>
