@@ -126,8 +126,8 @@ with Presentation("pres.pptx") as pres:
 
 ```
 
-## Added compatibility with both "a shared library" Pythons and statically linked Pythons ##
-- No more need to configure access to the shared Python library for "Aspose.Slides for Python via .NET";
+## Added compatibility with both 'a shared library' Pythons and statically linked Pythons ##
+- No more need to configure access to the shared Python library for 'Aspose.Slides for Python via .NET';
 - No more '...libpython not found' errors;
 
 ## Compatibility with PyInstaller and cx_Freeze ##
