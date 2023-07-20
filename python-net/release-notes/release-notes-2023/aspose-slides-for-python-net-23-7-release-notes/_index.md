@@ -14,7 +14,7 @@ This page contains release notes for [Aspose.Slides for Python via .NET 23.7](ht
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESPYNET-109|[Use Aspose.Slides for Net 23.7 features](/slides/net/aspose-slides-for-net-23-7-release-notes/)|Enhancement| |
-|SLIDESPYNET-86|Arrow appears when exporting a presentation to PDF and thumbnails|Bug| |
+|SLIDESPYNET-58|"zsh segmentation fault" error on macOS|Bug| |
 
 ## Public API Changes ##
 
@@ -125,6 +125,10 @@ with Presentation("pres.pptx") as pres:
     pres.save(outPath + "\\" + "pres.html", SaveFormat.HTML5, options)
 
 ```
+
+## Added compatibility with both "a shared library" Pythons and statically linked Pythons ##
+- No more need to configure access to the shared Python library for "Aspose.Slides for Python via .NET";
+- No more '...libpython not found' errors;
 
 ## Compatibility with PyInstaller and cx_Freeze ##
 
