@@ -25,6 +25,7 @@ This page contains release notes for [Aspose.Slides for Java 23.7](https://rele
 |SLIDESJAVA-36451|Support for importing HTML table in Aspose.Slide|Feature|https://docs.aspose.com/slides/java/import-presentation/#import-powerpoint-from-html|
 |SLIDESJAVA-39073|Position of chart data labels is wrong|Bug|https://docs.aspose.com/slides/java/chart-data-label/|
 |SLIDESJAVA-39187|Chart is missing when converting ODP to PPTX|Bug|https://docs.aspose.com/slides/java/convert-odp-to-pptx/|
+|SLIDESJAVA-39251|License validation is not correct|Bug|https://docs.aspose.com/slides/java/licensing/#applying-a-license|
 
 ## Public API Changes ##
 
