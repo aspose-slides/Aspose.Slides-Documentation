@@ -7,23 +7,33 @@ url: /net/exporting-presentations-to-html-with-externally-linked-images/
 
 {{% alert color="primary" %}} 
 
-This article describes an advanced technique that allows controlling which resources are embedded into the resulting HTML file and which are saved externally and referenced from the HTML file.
+The Presentation to HTML export procedure here allows you to determine specify the
+
+1. resources that will be embedded into the resulting HTML file
+2. the resources that will be saved externally and referenced from the HTML file.
 
 {{% /alert %}} 
+
 ## **Background**
-The default HTML export behavior is to embed any resource into the HTML file. Such approach results in a single HTML file that is easy to view and distribute. All necessary resources are base64-encoded inside. But such approach has two drawbacks:
 
-- The size of output is significantly larger because of the base64 encoding.* It is difficult to replace the images contained in the file.
+The default HTML export behavior is to embed all resources inside the HTML file through base64 encoding. Such an approach outputs a single HTML file, which is convenient for viewing and distribution. The default approach suffers from these limitations: 
 
-In this article we will see how we can change the default behavior using the **Aspose.Slides for .NET** to link the images externally rather than embedding in the HTML file. We will use **ILinkEmbedController** interface which contains three methods to control the resource embedding and saving process. We can pass this interface to HtmlOptions class constructor when preparing the export.
+* the outputted file is significantly larger than its constituents due to the base64 encoding. 
+* the images or resources contained in the file are difficult to replace.
 
-Following is the complete code of **LinkController** class which implements the **ILinkEmbedController** interface. As mentioned before, the LinkController must implement ILinkEmbedController interface. This interface specifies three methods:
+### **A Different Approach**
 
-- **public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)** It is called when the exporter encounters a resource and needs to decide how to store it. The most important parameters are ‘id’ – the resource unique identifier for the entire export operation and ‘contentType’ – contains the resource MIME type. If we decide to link the resource we should return LinkEmbedDecision.Link from this method. Otherwise LinkEmbedDecision.Embed should be returned to embed the resource.
-- **public string GetUrl(int id, int referrer)** 
-  It is called to get the resource URL in the form how it is used in the resulting file, say for a <img src=”%method_result_here%”> tag. The resource is identified by ‘id’.
-- **public void SaveExternal(int id, byte[] entityData)** 
-  The final method of the sequence, it is called when it comes to storing the resource externally. We have the resource identifier and the resource contents as a byte array. It’s up to us what to do with the provided resource data.
+A different approach involving **[ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/)** avoids the listed limitations.  
+
+The `LinkController` class implements the `ILinkEmbedController` interface. The interface is then passed to the [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor) class constructor. The ILinkEmbedController interface contains three methods that control the resource embedding and saving process:
+
+**[GetObjectStoringLocation](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation)(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)**: This method is called when the exporter encounters a resource and must decide how to store the resource. *id* (resource unique identifier for the export operation) and *contentType* (containing the resource MIME type) are the most important parameters under the method. If you want to link the resource, you must return [LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) enum from the method. Otherwise (to embed the resource), you must return [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/).
+
+**[GetUrl](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl)(int id, int referrer)**: This method is called to get the resource URL in the form the same way it is used the resulting file. The resource is identified by *id*.
+
+**[SaveExternal](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal)(int id, byte[] entityData)**: As the final method of the sequence, it is called when it is time for the resource to be stored externally. Since the resource identifier and the resource contents exist in a byte array, you can perform all kinds of tasks with the resource data.
+
+This C# code for **LinkController** class implements the **ILinkEmbedController** interface:
 
 ```c#
 class LinkController : ILinkEmbedController
@@ -139,7 +149,7 @@ class LinkController : ILinkEmbedController
 }
 ```
 
-After writing the **LinkController** class, now we will use it with **HTMLOptions** class to export the presentation to HTML having externally linked images using the following code.
+After writing the **LinkController** class, we can now use it alongside **HTMLOptions** class to export the presentation to HTML with externally-linked images this way:
 
 ```c#
 using (var pres = new Presentation(@"C:\data\input.pptx")) {
@@ -147,7 +157,7 @@ using (var pres = new Presentation(@"C:\data\input.pptx")) {
     var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
     htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
     // This line is needed to remove the slide title display in HTML.
-    // Comment it out if your prefer slide title displayed.
+    // Comment it out if your prefer slide title is displayed.
     htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
 
     Console.WriteLine("Starting export");
@@ -155,6 +165,7 @@ using (var pres = new Presentation(@"C:\data\input.pptx")) {
 }
 ```
 
-We assigned **SlideImageFormat.Svg** to the **SlideImageFormat** property which means the resulting HTML file will contain SVG data inside to draw the presentation contents.
+We assigned `SlideImageFormat.Svg` to the `SlideImageFormat` property so that the resulting HTML file will contain SVG data to draw the presentation contents.
 
-As for the content types, it depends on the actual image data contained in the presentation. If there are raster bitmaps in the presentation then the class code must be ready to process both ‘image/jpeg’ and ‘image/png’ content types. The actual content type of raster bitmap images exported may not match that of images stored in the presentation. The Aspose.Slides internal algorithms perform size optimization and use either JPG or PNG codec whichever generates smaller data size. Images containing alpha-channel (transparency) are always encoded to PNG.
+Content types: If the presentation contains raster bitmaps, then the class code must be prepared to process both 'image/jpeg' and 'image/png' content types. The content of the exported bitmap images may not match what was stored in the presentation. Aspose.Slides internal algorithms perform size optimization and use either JPG or PNG codec (depending on which generates a smaller data size). Images containing alpha-channel (transparency) are always encoded to PNG.
+
