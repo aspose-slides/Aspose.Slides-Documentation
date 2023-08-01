@@ -101,7 +101,8 @@ var fs = require("fs");
 
 var readStream = fs.createReadStream("Aspose.Slides.lic");
 
-license.setLicense(readStream);
+license.setLicense(readStream, function(err, list) {
+  if(err) { console.error(err); return; }});
 ```
 
 #### Apply Metered License
