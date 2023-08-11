@@ -31,7 +31,14 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This Java code shows you how to convert PowerPoint to CommonMark: xxx
 
 ```java
-
+Presentation pres = new Presentation("pres.pptx");
+try {
+    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
+    markdownSaveOptions.setFlavor(Flavor.CommonMark);
+    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/java/com.aspose.slides/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) class.
@@ -55,5 +62,15 @@ If you want the images to appear together in the resulting markdown, you have to
 This Java code demonstrates the operation: xxx
 
 ```java
-
+Presentation pres = new Presentation("pres.pptx");
+try {
+    final String outPath = "c:/documents/";
+    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
+    markdownSaveOptions.setExportType(MarkdownExportType.Visual);
+    markdownSaveOptions.setImagesSaveFolderName("md-images");
+    markdownSaveOptions.setBasePath(outPath);
+    pres.save(outPath + "pres.md", SaveFormat.Md, markdownSaveOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

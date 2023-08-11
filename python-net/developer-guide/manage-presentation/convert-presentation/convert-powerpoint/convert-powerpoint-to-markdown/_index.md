@@ -18,20 +18,31 @@ Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to represent a presentation object.
 2. Use the [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#methods) method to save the object as a markdown file.
 
-This Python code shows you how to convert PowerPoint to markdown: xxx
+This Python code shows you how to convert PowerPoint to markdown: 
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as pres:  
+    pres.save("pres.md", slides.export.SaveFormat.MD)
 ```
 
 ## Convert PowerPoint to Markdown Flavor
 
 Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
 
-This Python code shows you how to convert PowerPoint to CommonMark: xxx
+This Python code shows you how to convert PowerPoint to CommonMark: 
 
 ```python
+from aspose.slides import Presentation
+from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, Flavor
+from aspose.slides.export import SaveFormat
 
+with Presentation("pres.pptx") as pres:  
+    saveOptions = MarkdownSaveOptions()
+    saveOptions.flavor = Flavor.COMMONMARK
+
+    pres.save("pres.md", SaveFormat.MD, saveOptions)
 ```
 
 The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class.
@@ -52,8 +63,20 @@ If you want the images to appear individually one after the other in the resulti
 
 If you want the images to appear together in the resulting markdown, you have to choose the visual option.   In this case, images will be saved to the current directory of the application (and a relative path will be built for them in the markdown document), or you can specify your preferred path and folder name.
 
-This Python code demonstrates the operation: xxx
+This Python code demonstrates the operation: 
 
 ```python
+from aspose.slides import Presentation
+from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, MarkdownExportType
+from aspose.slides.export import SaveFormat
 
+with Presentation("pres.pptx") as pres:  
+    outPath = "c:\\documents"
+
+    saveOptions = MarkdownSaveOptions()
+    saveOptions.export_type = MarkdownExportType.VISUAL
+    saveOptions.images_save_folder_name = "md-images"
+    saveOptions.base_path = outPath
+
+    pres.save(outPath + "\\pres.md", SaveFormat.MD, saveOptions)
 ```
