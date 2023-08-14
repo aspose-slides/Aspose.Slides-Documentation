@@ -4,32 +4,32 @@ type: docs
 weight: 40
 url: /net/manage-paragraph/
 keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create and manage Paragraph, its text, its indent, and properties in PowerPoint presentations in C# or .NET"
+description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in C# or .NET"
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in C#.
 
-* Aspose.Slides provides the ITextFame interface to allow you to add objects that represent a paragraph. An ITextFame object can have one or multiple paragraphs (each paragraph is created through a carriage return).
-* Aspose.Slides provides IParagraph interface to allow you to add objects that represent portions. An IParagraph object can have one or multiple portions (collection of iPortions objects).
-* Aspose.Slides provides IPortion interface to allow you to add objects that represent texts and their formatting properties. 
+* Aspose.Slides provides the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
+* Aspose.Slides provides the [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) interface to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
+* Aspose.Slides provides [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) interface to allow you to add objects that represent texts and their formatting properties. 
 
-An IParagraph object is capable of handling texts with different formatting properties through its underlying IPortion objects.
+An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
 ## **Add Multiple Paragraph Containing Multiple Portions**
 
 These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Access a slide's reference through its index.
-3. Add a Rectangle IAutoShape to the slide.
-4. Get the ITextFrame associated with the IAutoShape.
-5. Create two IParagraph objects and add it to the IParagraphs collection of the ITextFrame.
-6. Create three IPortion objects for each new IParagraph (two Portion objects for default Paragraph) and add each IPortion object to the IPortions collection of each IParagraph.
-7. Set some text for each Portion.
-8. Apply your preferred formatting features to each Portion using the formatting properties exposed by the IPortion object.
+2. Access the relevant slide's reference through its index.
+3. Add a Rectangle [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+4. Get the ITextFrame associated with the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+5. Create two [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) objects and add them to the `IParagraphs` collection of the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+6. Create three [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) objects for each new `IParagraph` (two Portion objects for default Paragraph) and add each `IPortion` object to the IPortion collection of each `IParagraph`.
+7. Set some text for each portion.
+8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `IPortion` object.
 9. Save the modified presentation.
 
-This C# code is an implementation of the steps
+This C# code is an implementation of the steps for adding paragraphs containing portions:
 
 ```c#
 // Instantiates a Presentation class that represents a PPTX file
@@ -98,18 +98,17 @@ using (Presentation pres = new Presentation())
 Bullet lists help you to organize and present information quickly and efficiently. Bulleted paragraphs are always easier to read and understand.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index.
-3. Add an autoshape in the selected slide.
-4. Access the autoshape's TextFrame. 
-5. Remove the default paragraph in the TextFrame.
-6. Create the first paragraph instance using the Paragraph class.
-7. Set a bullet type for the paragraph.
-8. Set the bullet type to Symbol and set the bullet character.
-9. Set the Paragraph Text.
-10. Set the Paragraph Indent to set the bullet.
-11. Set the color of the bullet.
-12. Set the height of the bullet.
-13. Add the created paragraph to the TextFrame paragraph collection.
+2. Access the relevant slide's reference through its index.
+3. Add an [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the selected slide.
+4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/). 
+5. Remove the default paragraph in the `TextFrame`.
+6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) class.
+8. Set the bullet `Type` for the paragraph to `Symbol` and set the bullet character.
+9. Set the paragraph `Text`.
+10. Set the paragraph `Indent` for the bullet.
+11. Set a color for the bullet.
+12. Set a height of the bullet.
+13. Add the new paragraph to the `TextFrame` paragraph collection.
 14. Add the second paragraph and repeat the process given in steps 7 to 13.
 15. Save the presentation.
 
@@ -192,18 +191,18 @@ using (Presentation pres = new Presentation())
 Bullet lists help you to organize and present information quickly and efficiently. Picture paragraphs are easy to read and understand.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index.
-3. Add an autoshape to the slide.
-4. Access the autoshape's TextFrame.
-5. Remove the default paragraph in the TextFrame.
-6. Create the first paragraph instance using the Paragraph class.
-7. Load the image from disc in IPPImage.
-8. Set the bullet type to Picture and set the image.
-9. Set the Paragraph Text.
-10. Set the Paragraph Indent to set the bullet.
-11. Set the color of the bullet.
-12. Set the height of the bullet.
-13. Add the new paragraph to the TextFrame paragraph collection.
+2. Access the relevant slide's reference through its index.
+3. Add an [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/).
+5. Remove the default paragraph in the `TextFrame`.
+6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) class.
+7. Load the image in [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
+8. Set the bullet type to [Picture](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) and set the image.
+9. Set the Paragraph `Text`.
+10. Set the Paragraph `Indent` for the bullet.
+11. Set a color for the bullet.
+12. Set a height for the bullet.
+13. Add the new paragraph to the `TextFrame` paragraph collection.
 14. Add the second paragraph and repeat the process based on the previous steps.
 15. Save the modified presentation.
 
@@ -255,15 +254,15 @@ presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 Bullet lists help you to organize and present information quickly and efficiently. Multilevel bullets are easy to read and understand.
 
 1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-2. Get a slide's reference through its index.
-3. Add an autoshape in the new slide.
-4. Access the autoshape's TextFrame.
-5. Remove the default paragraph in the TextFrame.
-6. Create the first paragraph instance through the Paragraph class and set the depth to 0.
-7. Create the second paragraph instance using Paragraph class and set depth set to 1.
-8. Create the third paragraph instance using Paragraph class and set depth set to 2.
-9. Create the fourth paragraph instance using Paragraph class and setdepth set to 3.
-10. Add the new paragraphs to the TextFrame paragraph collection.
+2. Access the relevant slide's reference through its index.
+3. Add an [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) in the new slide.
+4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/).
+5. Remove the default paragraph in the `TextFrame`.
+6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) class and set the depth to 0.
+7. Create the second paragraph instance through the `Paragraph` class and set the depth set to 1.
+8. Create the third paragraph instance through the `Paragraph` class and set the depth set to 2.
+9. Create the fourth paragraph instance through the `Paragraph` class and set the depth set to 3.
+10. Add the new paragraphs to the `TextFrame` paragraph collection.
 11. Save the modified presentation.
 
 This C# code shows you how to add and manage multilevel bullets:
@@ -276,16 +275,16 @@ using (Presentation pres = new Presentation())
     // Accesses the first slide
     ISlide slide = pres.Slides[0];
     
-    // Adds and accessing Autoshape
+    // Adds and accesses Autoshape
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
     // Accesses the text frame of created autoshape
     ITextFrame text = aShp.AddTextFrame("");
     
-    // Clears default paragraph
+    // Clears the default paragraph
     text.Paragraphs.Clear();
 
-    // Adds first paragraph
+    // Adds the first paragraph
     IParagraph para1 = new Paragraph();
     para1.Text = "Content";
     para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
@@ -338,17 +337,17 @@ using (Presentation pres = new Presentation())
 
 
 ## **Manage Paragraph with Custom Numbered List**
-The IBulletFormat interface provides the **NumberedBulletStartWith** property and others that allow you to manage paragraphs with custom numbering or formatting. 
+The [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith) property and others that allow you to manage paragraphs with custom numbering or formatting. 
 
 1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-2. Access the desired slide in slide collection using ISlide object.
-3. Add an autoshape in selected slide.
-4. Access the TextFrame of the added shape.
-5. Remove the default paragraph in the TextFrame.
-6. Create the first paragraph instance using Paragraph class and set NumberedBulletStartWith to 2
-7. Create the second paragraph instance using Paragraph class and set NumberedBulletStartWith to 3
-8. Create the third paragraph instance using Paragraph class and set NumberedBulletStartWith to 7
-9. Add the new paragraphs to the TextFrame paragraph collection.
+2. Access the slide containing the paragraph.
+3. Add an [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+4. Access the autoshape [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/).
+5. Remove the default paragraph in the `TextFrame`.
+6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) class and set [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith) to 2.
+7. Create the second paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 3.
+8. Create the third paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 7.
+9. Add the new paragraphs to the `TextFrame` paragraph collection.
 10. Save the modified presentation.
 
 This C# code shows you how to add and manage paragraphs with custom numbering or formatting:
@@ -358,10 +357,10 @@ using (var presentation = new Presentation())
 {
 	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-	// Accessing the text frame of created autoshape
+	// Accesses the text frame of created autoshape
 	ITextFrame textFrame = shape.TextFrame;
 
-	// Removing the default exisiting paragraph
+	// Removes the default exisiting paragraph
 	textFrame.Paragraphs.RemoveAt(0);
 
 	// First list
@@ -389,15 +388,13 @@ using (var presentation = new Presentation())
 ```
 
 
-## **Paragraph Indent**
-This page will illustrate how we can manage paragraph indent. We will see how developers can use this feature of Aspose.Slides for .NET. Please follow the steps below to manage the paragraph indent using Aspose.Slides for .NET:
-
+## **Set Paragraph Indent**
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain the reference of a slide by using its Position.
-1. Add a Rectangle shape in the slide.
-1. Add a TextFrame with three Paragraphs in the Rectangle.
-1. Hide the Lines of the Rectangle.
-1. Set indent of each Paragraph using its BulletOffset property.
+1. Access the relevant slide's reference through its index.
+1. Add a rectangle [autoshape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Add a [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) with three paragraphs to the rectangle autoshape.
+1. Hide the rectangle lines.
+1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) through their BulletOffset property.
 1. Write the modified presentation as a PPT file.
 
 This C# code shows you how to set a paragraph indent:
@@ -406,24 +403,25 @@ This C# code shows you how to set a paragraph indent:
 // Instantiate Presentation Class
 Presentation pres = new Presentation();
 
-// Get first slide
+// Gets the first slide
 ISlide sld = pres.Slides[0];
 
-// Add a Rectangle Shape
+// Adds a Rectangle Shape
 IAutoShape rect = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 150);
 
-// Add TextFrame to the Rectangle
+// Adds TextFrame to the Rectangle
 ITextFrame tf = rect.AddTextFrame("This is first line \rThis is second line \rThis is third line");
 
-// Set the text to fit the shape
+// Sets the text to fit the shape
 tf.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-// Hide the lines of the Rectangle
+// Hides the lines of the Rectangle
 rect.LineFormat.FillFormat.FillType = FillType.Solid;
 
-// Get first Paragraph in the TextFrame and set its Indent
+// Gets the first Paragraph in the TextFrame and set its Indent
 IParagraph para1 = tf.Paragraphs[0];
-// Setting paragraph bullet style and symbol
+
+// Sets paragraph bullet style and symbol
 para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
 para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
 para1.ParagraphFormat.Alignment = TextAlignment.Left;
@@ -431,7 +429,7 @@ para1.ParagraphFormat.Alignment = TextAlignment.Left;
 para1.ParagraphFormat.Depth = 2;
 para1.ParagraphFormat.Indent = 30;
 
-// Get second Paragraph in the TextFrame and set its Indent
+// Gets second Paragraph in the TextFrame and set its Indent
 IParagraph para2 = tf.Paragraphs[1];
 para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
 para2.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
@@ -439,7 +437,7 @@ para2.ParagraphFormat.Alignment = TextAlignment.Left;
 para2.ParagraphFormat.Depth = 2;
 para2.ParagraphFormat.Indent = 40;
 
-// Get third Paragraph in the TextFrame and set its Indent
+// Gets third Paragraph in the TextFrame and sets its Indent
 IParagraph para3 = tf.Paragraphs[2];
 para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
 para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
@@ -447,23 +445,29 @@ para3.ParagraphFormat.Alignment = TextAlignment.Left;
 para3.ParagraphFormat.Depth = 2;
 para3.ParagraphFormat.Indent = 50;
 
-//Write the Presentation to disk
+// Writes the Presentation to disk
 pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Set Hanging Indent for Paragraph**
 
-## **End Paragraph Run Properties for Paragraph**
-This page will illustrate how we can manage end paragraph run properties. We will see how developers can use this feature of Aspose.Slides for .NET. Please follow the steps below to manage the End paragraph Run Properties using Aspose.Slides for .NET:
+This C# code shows you how to set the hanging indent for a paragraph: xxx 
+
+```c#
+
+```
+
+## **Manage End Paragraph Run Properties for Paragraph**
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain the reference of a slide by using its Position.
-1. Add a Rectangle shape in the slide.
-1. Add a TextFrame with two Paragraphs in the Rectangle.
-1. Set Font Height and Font type of paragraphs.
-1. Set End properties of paragraphs.
+1. Get the reference for the slide containing the paragraph through its position.
+1. Add a rectangle [autoshape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) to the slide.
+1. Add a [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) with two paragraphs to the Rectangle.
+1. Set the `FontHeight` and Font type for the paragraphs.
+1. Set the End properties for the paragraphs.
 1. Write the modified presentation as a PPTX file.
 
-The implementation of the above steps is given below.
+This C# code shows you how to set the End properties for paragraphs in PowerPoint:
 
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
@@ -488,79 +492,80 @@ using (Presentation pres = new Presentation("Test.pptx"))
 ```
 
 
+## **Import HTML Text into Paragraphs**
+Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+2. Access the relevant slide's reference through its index.
+3. Add an [autoshape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) to the slide.
+4. Add and access `autoshape` [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
+5. Remove the default paragraph in the `ITextFrame`.
+6. Read the source HTML file in a TextReader.
+7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) class.
+8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/).
+9. Save the modified presentation.
 
-## **Import HTML Text in Paragraphs**
-This topic is also part of a series of topics about managing text paragraphs. Aspose.Slides for .NET has enhanced support for adding HTML text or saving paragraphs text to HTML. This article shows how to manage paragraphs to use HTML data and shows how developers can use this small yet powerful feature. To manage paragraph bullets using Aspose.Slides for .NET:
-
-- Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-- Access the desired slide in slide collection using the ISlide object.
-- Add an autoshape to the selected slide.
-- Add and access the ITextFrame of the added shape.
-- Remove the default paragraph in the ITextFrame.
-- Read the source HTML file in a TextReader.
-- Create the first paragraph instance using the Paragraph class.
-- Add the HTML file content in the read TextReader to the TextFrame's ParagraphCollection.
-- Save the presentation.
+This C# is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```c#
-// Create Empty presentation instance// Create Empty presentation instance
+// Creates Empty presentation instance
 using (Presentation pres = new Presentation())
 {
-    // Acesss the default first slide of presentation
+    // Acessses the default first slide of presentation
     ISlide slide = pres.Slides[0];
 
-    // Adding the AutoShape to accomodate the HTML content
+    // Adds the AutoShape to house the HTML content
     IAutoShape ashape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, pres.SlideSize.Size.Width - 20, pres.SlideSize.Size.Height - 10);
 
     ashape.FillFormat.FillType = FillType.NoFill;
 
-    // Adding text frame to the shape
+    // Adds text frame to the shape
     ashape.AddTextFrame("");
 
-    // Clearing all paragraphs in added text frame
+    // Clears all paragraphs in the added text frame
     ashape.TextFrame.Paragraphs.Clear();
 
-    // Loading the HTML file using stream reader
+    // Loads the HTML file using stream reader
     TextReader tr = new StreamReader("file.html");
 
-    // Adding text from HTML stream reader in text frame
+    // Adds the text from HTML stream reader in text frame
     ashape.TextFrame.Paragraphs.AddFromHtml(tr.ReadToEnd());
 
-    // Saving Presentation
+    // Saves Presentation
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
 ## **Export Paragraphs Text to HTML**
-Please follow the steps below to see how to export the paragraph text to HTML using Aspose.Slides for .NET:
+Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the desired presentation.
-- Access the desired slide into the slide collection using ISlide object.
-- Access the desired shape for which text need to be exported to HTML.
-- Access the TextFrame of the accessed shape.
-- Create an instance of StreamWriter and add the new HTML file.
-- Export the desired number of paragraphs data by providing starting index to the StreamWriter.
-  The implementation of the above steps is given below.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the desired presentation.
+2. Access the relevant slide's reference through its index.
+3. Access the shape containing the text that will be exported to HTML.
+4. Access the shape [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/).
+5. Create an instance of `StreamWriter` and add the new HTML file.
+6. Provide a starting index to StreamWriter and export your preferred paragraphs.
+
+This C# code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```c#
-// Load the presentation file
+// Loads the presentation file
 using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 {
 
-    // Acesss the default first slide of presentation
+    // Acessses the default first slide of presentation
     ISlide slide = pres.Slides[0];
 
-    // Desired index
+    // Accesses the required  index
     int index = 0;
 
-    // Accessing the added shape
+    // Accesses the added shape
     IAutoShape ashape = (IAutoShape)slide.Shapes[index];
 
     StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
 
-    //Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
+    // Writes paragraphs data to HTML by specifying paragraph starting index and number of paragraphs to be copied
     sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));
 
     sw.Close();
