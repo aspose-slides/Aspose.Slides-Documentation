@@ -65,6 +65,26 @@ using (Presentation pres = new Presentation())
     pres.Save("OleEmbed_out.pptx", SaveFormat.Pptx);
 }
 ```
+### Adding Linked OLE Object frames
+
+Aspose.Slides for .NET allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) without embedding data, but only with a link to the file.
+
+In the following example, we added an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) with a linked Excel file to a slide.  
+
+``` csharp 
+using (Presentation pres = new Presentation())
+{
+	// Accesses the first slide
+	ISlide slide = pres.Slides[0];
+
+	// Adds an Ole Object Frame with a linked Excel file
+    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book1.xlsx");
+
+	// Writes the PPTX file to disk
+	pres.Save("OleLinked_out.pptx", SaveFormat.Pptx);
+}
+```
+
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily this way:
 
@@ -108,6 +128,37 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
             fstr.Write(data, 0, data.Length);
         }
     }
+}
+```
+
+### Accessing Linked OLE Object Frames Properties
+
+Also, you can access the linked OLE Object Frame properties.
+
+This C# code demonstrates how to check if the OLE Object is linked and obtain an object path:
+```csharp
+using (Presentation pres = new Presentation("OleLinked.ppt"))
+{
+	// Accesses the first slide
+	ISlide slide = pres.Slides[0];
+
+	// Gets the first shape as Ole Object Frame
+	OleObjectFrame oleObjectFrame = slide.Shapes[0] as OleObjectFrame;
+
+	// Check if the Ole Object is linked.
+	if (oleObjectFrame != null && oleObjectFrame.IsObjectLink)
+	{
+		// Prints the full path to a linked file
+		Console.WriteLine("Ole Object Frame is linked to: " + oleObjectFrame.LinkPathLong);
+
+		// Prints the relative path to a linked file if present.
+		// Only the PPT presentations can contain the relative path.
+		string relativePath = oleObjectFrame.LinkPathRelative;
+		if (!string.IsNullOrEmpty(relativePath))
+		{
+			Console.WriteLine("Ole Object Frame relative path: " + oleObjectFrame.LinkPathRelative);
+		}
+	}
 }
 ```
 
