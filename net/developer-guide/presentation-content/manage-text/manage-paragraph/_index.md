@@ -505,7 +505,7 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/).
 9. Save the modified presentation.
 
-This C# is an implementation of the steps for importing HTML texts in paragraphs:
+This C# code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```c#
 // Creates Empty presentation instance
@@ -572,3 +572,4 @@ using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 }
 ```
 
+ 
