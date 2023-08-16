@@ -67,9 +67,9 @@ using (Presentation pres = new Presentation())
 ```
 ### Adding Linked OLE Object frames
 
-Aspose.Slides for .NET allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) without embedding data, but only with a link to the file.
+Aspose.Slides for .NET allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) without embedding data but only with a link to the file.
 
-In the following example, we added an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) with a linked Excel file to a slide.  
+This C# code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) with a linked Excel file to a slide:
 
 ``` csharp 
 using (Presentation pres = new Presentation())
@@ -133,9 +133,9 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 
 ### Accessing Linked OLE Object Frames Properties
 
-Also, you can access the linked OLE Object Frame properties.
+Aspose.Slides allows you to access linked OLE Object Frame properties.
 
-This C# code demonstrates how to check if the OLE Object is linked and obtain an object path:
+This C# code shows you how to check if an OLE Object is linked and then obtain the path to the linked file:
 ```csharp
 using (Presentation pres = new Presentation("OleLinked.ppt"))
 {
