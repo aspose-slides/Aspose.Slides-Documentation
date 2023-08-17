@@ -11,9 +11,9 @@ Aspose.Slides for Node.js via Java is platform-independent API and can be used o
 
 ##Install from NPM##
 
-You can easily use Aspose.Slides for Node.js via Java from NPM with the following command.
+You can easily use Aspose.Slides for Node.js via Java from [NPM](https://www.npmjs.com/) with the following command.
 ```
-$ npm install aspose.slides
+$ npm install aspose.slides.via.java
 ```
 If you encounter any problems during the installation process, please refer to https://www.npmjs.com/package/java.
 
@@ -38,7 +38,7 @@ $ npm install --global --production windows-build-tools
 
 $ npm install java
 ```
-6. Download Aspose.Slides for Node.js via Java and extract it into `aspose.slides.nodejs.java/node_modules`.
+6. Download Aspose.Slides for Node.js via Java and extract it into `aspose.slides.nodejs.java/node_modules/aspose.slides.via.java`.
 7. Create a file named `hello.js` in `aspose.slides.nodejs.java` folder using the following sample code:
 
 ```javascript
@@ -69,7 +69,7 @@ $ cd aspose.slides.js.java
 
 $ npm install java
 ```
-5. Download Aspose.Slides for Node.js via Java and extract it into `aspose.slides.nodejs.java/node_modules`.
+5. Download Aspose.Slides for Node.js via Java and extract it into `aspose.slides.nodejs.java/node_modules/aspose.slides.via.java`.
 6. Create a test file named `hello.js` using the following sample code in `aspose.slides.nodejs.java` folder:
 
 ```javascript
@@ -111,7 +111,7 @@ $ cd aspose.slides.js.java
  
 $ npm install java
 ```
-7. Download Aspose.Slides for Node.js via Java and extract it into `aspose.slides.nodejs.java/node_modules`.
+7. Download Aspose.Slides for Node.js via Java and extract it into `aspose.slides.nodejs.java/node_modules/aspose.slides.via.java`.
 8. Create a test file named `hello.js` using the following sample code in `aspose.slides.nodejs.java` folder:
 
 ```javascript
