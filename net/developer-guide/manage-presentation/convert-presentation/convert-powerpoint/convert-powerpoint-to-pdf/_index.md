@@ -150,7 +150,33 @@ Aspose.Slides provides the [WarningCallback](https://reference.aspose.com/slides
 This C# code shows you how to detect font substitutions: xxx 
 
 ```c#
+public static void Main()
+{
+    LoadOptions loadOptions = new LoadOptions();
+    FontSubstSendsWarningCallback warningCallback = new FontSubstSendsWarningCallback();
+    loadOptions.WarningCallback = warningCallback;
 
+    using (Presentation pres = new Presentation("pres.pptx", loadOptions))
+    {
+    }
+}
+
+private class FontSubstSendsWarningCallback : IWarningCallback
+{
+    public ReturnAction Warning(IWarningInfo warning)
+    {
+        if (warning.WarningType == WarningType.CompatibilityIssue)
+            return ReturnAction.Continue;
+
+        if (warning.WarningType == WarningType.DataLoss &&
+            warning.Description.StartsWith("Font will be substituted"))
+        {
+            Console.WriteLine($"Font substitution warning: {warning.Description}");
+        }
+
+        return ReturnAction.Continue;
+    }
+}
 ```
 
 {{%  alert color="primary"  %}} 
