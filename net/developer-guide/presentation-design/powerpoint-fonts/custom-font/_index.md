@@ -81,9 +81,23 @@ using (IPresentation presentation = new Presentation("MyPresentation.pptx", load
 
 Aspose.Slides provides the [LoadExternalFont](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) method to allow you to load external fonts from binary data.
 
-This C# code demonstrates the byte array font loading process: xxx
+This C# code demonstrates the byte array font loading process: 
 
 ```c#
+FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
+FontsLoader.LoadExternalFont(File.ReadAllBytes("Fonts/ARIALNBI.TTF"));
+FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));
 
+try
+{
+    using (Presentation pres = new Presentation(""))
+    {
+        // external font loaded during the presentation lifetime
+    }
+}
+finally
+{
+    FontsLoader.ClearCache();
+}
 ```
 
