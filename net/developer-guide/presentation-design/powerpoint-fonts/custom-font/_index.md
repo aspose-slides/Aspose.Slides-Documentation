@@ -85,7 +85,7 @@ This C# code demonstrates the byte array font loading process:
 
 ```c#
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
-FontsLoader.LoadExternalFont(File.ReadAllBytes("Fonts/ARIALNBI.TTF"));
+FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));
 
 try
