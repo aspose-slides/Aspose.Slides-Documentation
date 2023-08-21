@@ -16,7 +16,7 @@ This page contains release notes for [Aspose.Slides for Java 22.10](https://rel
 |SLIDESNET-35636|Add the support of 3D shadow effects|Feature|https://docs.aspose.com/slides/net/3d-presentation/|
 |SLIDESNET-35634|Add the support of 3D bevel effects|Feature|https://docs.aspose.com/slides/net/3d-presentation/|
 |SLIDESNET-35907|Set Transparent Effect for picture as filled shape in presentation file|Enhancement|https://docs.aspose.com/slides/net/manage-placeholder/#set-placeholder-image-transparency|
-|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement||
+|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement|https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/|
 |SLIDESNET-43310|Changing color of leader lines in Pie charts|Feature|https://docs.aspose.com/slides/net/powerpoint-charts/|
 |SLIDESJAVA-38296|[Use Aspose.Slides for Net 22.10 features](/slides/net/aspose-slides-for-net-22-10-release-notes/)|Enhancement||
 |SLIDESJAVA-38883|PDF produced by Aspose.Slides and edited by PDFBOX cannot be opened.|Bug|https://docs.aspose.com/slides/java/convert-powerpoint-to-pdf/|

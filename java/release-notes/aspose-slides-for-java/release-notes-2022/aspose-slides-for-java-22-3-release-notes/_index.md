@@ -14,7 +14,7 @@ This page contains release notes for [Aspose.Slides for Java 22.3](https://rele
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESNET-42621|Add support Bevel for charts|Feature|https://docs.aspose.com/slides/net/create-chart/|
-|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement||
+|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/java/manage-textbox/|
 |SLIDESNET-43061|Throw a meaningful exception when saving an already Disposed Presentation|Feature|https://docs.aspose.com/slides/net/save-presentation/|
 |SLIDESJAVA-38268|[Use Aspose.Slides for Net 22.3 features](/slides/net/aspose-slides-for-net-22-3-release-notes/)|Enhancement||
 |SLIDESJAVA-38155|Fails to round values of data labels for Pie and Pyramid charts|Bug|https://docs.aspose.com/slides/java/convert-powerpoint-to-png/|

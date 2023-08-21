@@ -13,11 +13,11 @@ This page contains release notes for [Aspose.Slides for Java 22.11](https://rel
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-43442|Animation of text|Feature||
-|SLIDESNET-43457|RandomBar animation effects|Feature||
-|SLIDESNET-43350|Convert Presentation to video|Feature||
-|SLIDESNET-36753|Create video of animated slide|Feature||
-|SLIDESNET-24332|Rendering presentation transitions like video|Feature||
+|SLIDESNET-43442|Animation of text|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#video-effects|
+|SLIDESNET-43457|RandomBar animation effects|Feature|https://reference.aspose.com/slides/java/com.aspose.slides/effecttype/|
+|SLIDESNET-43350|Convert Presentation to video|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/|
+|SLIDESNET-36753|Create video of animated slide|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/|
+|SLIDESNET-24332|Rendering presentation transitions like video|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/|
 |SLIDESNET-43281|PDF 1.7 support|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/|
 |SLIDESNET-37423|Support to render PDF v 1.7 with compliance PDF/A 3B|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/|
 |SLIDESNET-43178|Supporting PDF/A-2u compliance level for PDF export|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/|

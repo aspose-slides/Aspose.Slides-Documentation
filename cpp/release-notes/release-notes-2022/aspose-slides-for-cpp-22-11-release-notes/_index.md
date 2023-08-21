@@ -28,11 +28,11 @@ This page contains release notes for [Aspose.Slides for C++ 22.11](https://www.n
 |SLIDESNET-43425|Getting effect sound settings from animated object|Feature|<https://docs.aspose.com/slides/net/shape-animation/>|
 |SLIDESNET-43091|A relative link is returned as an absolute link|Enhancement|<https://docs.aspose.com/slides/net/manage-ole/>|
 |SLIDESNET-43424|Getting embedded audio file from hyperlinkClick settings|Feature|<https://docs.aspose.com/slides/net/manage-hyperlinks/>|
-|SLIDESNET-43350|Convert Presentation to video|Feature||
-|SLIDESNET-43457|RandomBar animation effects|Feature||
-|SLIDESNET-36753|Create video of animated slide|Feature||
-|SLIDESNET-24332|Rendering presentation transitions like video|Feature||
-|SLIDESNET-43442|Animation of text|Feature||
+|SLIDESNET-43350|Convert Presentation to video|Feature|https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/|
+|SLIDESNET-43457|RandomBar animation effects|Feature|https://reference.aspose.com/slides/cpp/aspose.slides.animation/effecttype/|
+|SLIDESNET-36753|Create video of animated slide|Feature|https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/|
+|SLIDESNET-24332|Rendering presentation transitions like video|Feature|https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/|
+|SLIDESNET-43442|Animation of text|Feature|https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/|
 
 
 ## Other Improvements and Changes
@@ -195,5 +195,4 @@ System::SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
 System::ArrayPtr<System::SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
 ```
-
 

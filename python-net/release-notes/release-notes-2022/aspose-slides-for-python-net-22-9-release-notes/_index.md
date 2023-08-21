@@ -14,7 +14,7 @@ This page contains release notes for [Aspose.Slides for Python via .NET 22.9](ht
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESPYNET-43|[Use Aspose.Slides for Net 22.9 features](/slides/net/aspose-slides-for-net-22-9-release-notes/)|Enhancement| |
-|SLIDESPYNET-1| Prepare Aspose.Slides for Python via .NET for macOS | Feature | |
+|SLIDESPYNET-1| Prepare Aspose.Slides for Python via .NET for macOS | Feature | https://docs.aspose.com/slides/python-net/installation/#macos |
 
 
 ## Public API Changes ##

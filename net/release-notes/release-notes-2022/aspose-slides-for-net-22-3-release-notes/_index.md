@@ -13,39 +13,39 @@ This page contains release notes for [ Aspose.Slides for .NET 22.3](https://www
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-43061|Throw a meaningful exception when saving an already Disposed Presentation|Feature|<https://docs.aspose.com/slides/net/save-presentation/>
-|SLIDESNET-42621|Add support Bevel for charts|Feature|<https://docs.aspose.com/slides/net/create-chart/>
-|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|
-|SLIDESNET-43045|Loading PPTX file throws PptxReadException: Invalid SvgMsStyle|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>
-|SLIDESNET-43037|After removing the shape from the Slide exception is thrown|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
-|SLIDESNET-43027|PPTX to SVG: The custom font does not apply using SvgExternalFontsHandling.AddLinksToFontFiles|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>
-|SLIDESNET-43019|3D effects on charts are lost in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43016|BulletChar property is null while reading bulleted items|Bug|<https://docs.aspose.com/slides/net/shape-effective-properties>
-|SLIDESNET-43001|Aspose.Slides.PptxReadException: Object reference not set to an instance of an object.|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
-|SLIDESNET-42996|Exception when converting PPTX to PDF with comments and notes|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42992|PPTX to PDF conversion on Ubuntu 18.04 with NET 5 slow|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42989|PowerPoint couldn't read some content after resaving PPTX file|Bug|<https://docs.aspose.com/slides/net/save-presentation/>
-|SLIDESNET-42987|PowerPoint couldn't read some content after loading and saving PPTX file|Bug|<https://docs.aspose.com/slides/net/save-presentation/>
-|SLIDESNET-42976| Y-axis values have lower accuracy in chart thumbnail|Bug|<https://docs.aspose.com/slides/net/create-chart/>
-|SLIDESNET-42971|Line breaks in Japanese text are different when converting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42957|Text exported to PDF is displayed wrong.|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42948|PPTX to PDF table issue|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42868|Metafiles is not exported as vector even if SaveMetafilesAsPng is false|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42864|Bevel effect appears on a shape that does not unsupported it|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
-|SLIDESNET-42828|Picture 3D effect is missing when converting PPTX to SVG|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>
-|SLIDESNET-42804|Shapes with 3D styles improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42686|PPTX to HTML - CustomNumberFormat property does not work for Chart data point|Bug|<https://docs.aspose.com/slides/net/create-chart/>
-|SLIDESNET-42612|3D Chart Content is not showing properly in generated PDF|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42611|3D Cone Chart improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42560|Chart won't update until opening the data sheets|Bug|<https://docs.aspose.com/slides/net/create-chart/>
-|SLIDESNET-42477|Removing comments from a PPTX file doesn?t work|Bug|<https://docs.aspose.com/slides/net/presentation-comments/>
-|SLIDESNET-42037|Wrong color for SmartArt in PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-39578|The line break position is different in exported PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-39577|Character spacing is narrow in expored PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-36130|3D Chart Content is not showing properly in generated Tiff file|Bug|<https://docs.aspose.com/slides/net/convert-slide/>
-|SLIDESNET-35671|Charts missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-34844|3-D chart improperly rendered in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-slide/>
-|SLIDESNET-34312|Chart improperly rendered in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-slide/>
+|SLIDESNET-43061|Throw a meaningful exception when saving an already Disposed Presentation|Feature|<https://docs.aspose.com/slides/net/save-presentation/>|
+|SLIDESNET-42621|Add support Bevel for charts|Feature|<https://docs.aspose.com/slides/net/create-chart/>|
+|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/net/manage-textbox/|
+|SLIDESNET-43045|Loading PPTX file throws PptxReadException: Invalid SvgMsStyle|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|
+|SLIDESNET-43037|After removing the shape from the Slide exception is thrown|Bug|<https://docs.aspose.com/slides/net/open-presentation/>|
+|SLIDESNET-43027|PPTX to SVG: The custom font does not apply using SvgExternalFontsHandling.AddLinksToFontFiles|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|
+|SLIDESNET-43019|3D effects on charts are lost in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43016|BulletChar property is null while reading bulleted items|Bug|<https://docs.aspose.com/slides/net/shape-effective-properties>|
+|SLIDESNET-43001|Aspose.Slides.PptxReadException: Object reference not set to an instance of an object.|Bug|<https://docs.aspose.com/slides/net/open-presentation/>|
+|SLIDESNET-42996|Exception when converting PPTX to PDF with comments and notes|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42992|PPTX to PDF conversion on Ubuntu 18.04 with NET 5 slow|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42989|PowerPoint couldn't read some content after resaving PPTX file|Bug|<https://docs.aspose.com/slides/net/save-presentation/>|
+|SLIDESNET-42987|PowerPoint couldn't read some content after loading and saving PPTX file|Bug|<https://docs.aspose.com/slides/net/save-presentation/>|
+|SLIDESNET-42976| Y-axis values have lower accuracy in chart thumbnail|Bug|<https://docs.aspose.com/slides/net/create-chart/>|
+|SLIDESNET-42971|Line breaks in Japanese text are different when converting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42957|Text exported to PDF is displayed wrong.|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42948|PPTX to PDF table issue|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42868|Metafiles is not exported as vector even if SaveMetafilesAsPng is false|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42864|Bevel effect appears on a shape that does not unsupported it|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>|
+|SLIDESNET-42828|Picture 3D effect is missing when converting PPTX to SVG|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|
+|SLIDESNET-42804|Shapes with 3D styles improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42686|PPTX to HTML - CustomNumberFormat property does not work for Chart data point|Bug|<https://docs.aspose.com/slides/net/create-chart/>|
+|SLIDESNET-42612|3D Chart Content is not showing properly in generated PDF|Bug|< https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42611|3D Cone Chart improperly rendered in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42560|Chart won't update until opening the data sheets|Bug|<https://docs.aspose.com/slides/net/create-chart/>|
+|SLIDESNET-42477|Removing comments from a PPTX file doesn?t work|Bug|<https://docs.aspose.com/slides/net/presentation-comments/>|
+|SLIDESNET-42037|Wrong color for SmartArt in PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-39578|The line break position is different in exported PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-39577|Character spacing is narrow in expored PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-36130|3D Chart Content is not showing properly in generated Tiff file|Bug|<https://docs.aspose.com/slides/net/convert-slide/>|
+|SLIDESNET-35671|Charts missing in generated PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-34844|3-D chart improperly rendered in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-slide/>|
+|SLIDESNET-34312|Chart improperly rendered in generated thumbnail|Bug|<https://docs.aspose.com/slides/net/convert-slide/>|
 
 ## **Public API Changes**
 

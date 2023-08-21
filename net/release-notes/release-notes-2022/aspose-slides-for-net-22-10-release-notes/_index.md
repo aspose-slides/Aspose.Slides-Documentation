@@ -13,23 +13,23 @@ This page contains release notes for [ Aspose.Slides for .NET 22.10](https://ww
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-43310|Changing color of leader lines in Pie charts|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>
-|SLIDESNET-35636|Add the support of 3D shadow effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>
-|SLIDESNET-35634|Add the support of 3D bevel effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>
-|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement|
-|SLIDESNET-35907|Set Transparent Effect for picture as filled shape in presentation file|Enhancement|<https://docs.aspose.com/slides/net/manage-placeholder/#set-placeholder-image-transparency>
-|SLIDESNET-43488|PPTX initialization throws "Aspose.Slides.PptxReadException" |Bug|<https://docs.aspose.com/slides/net/open-presentation/#open-presentation>
-|SLIDESNET-43471|WriteAsSvg generates smaller image than shape for text-only shapes.|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>
-|SLIDESNET-43447|Circled numbers in a list are replaced with alphabets when converting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43432|Loading a PPT file throws ArgumentOutOfRangeException|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
-|SLIDESNET-43412|NullReferenceException on SetExternalWorkbook|Bug|<https://docs.aspose.com/slides/net/chart-workbook/>
-|SLIDESNET-43409|Number of images has changed after loading and saving PPS file|Bug|<https://docs.aspose.com/slides/net/image/>
-|SLIDESNET-43408|Saving a presentation after cloning slide throws NegativeArraySizeException|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
-|SLIDESNET-43394|PDF produced by Aspose.Slides and edited by PDFBOX cannot be opened|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43344|Shapes.AddClone returns picture frames instead of charts|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>
-|SLIDESNET-43341|ISlideCollection.AddFromPdf doesn?t add charts from PDF file|Bug|<https://docs.aspose.com/slides/net/import-presentation/>
-|SLIDESNET-43160|Image is getting distorted while creating PDF out of PPT|Bug|<https://docs.aspose.com/slides/net/create-chart/>
-|SLIDESNET-43154|Histogram and Waterfall charts are picture frames after cloning|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>
+|SLIDESNET-43310|Changing color of leader lines in Pie charts|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
+|SLIDESNET-35636|Add the support of 3D shadow effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>|
+|SLIDESNET-35634|Add the support of 3D bevel effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>|
+|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement|https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/|
+|SLIDESNET-35907|Set Transparent Effect for picture as filled shape in presentation file|Enhancement|<https://docs.aspose.com/slides/net/manage-placeholder/#set-placeholder-image-transparency>|
+|SLIDESNET-43488|PPTX initialization throws "Aspose.Slides.PptxReadException" |Bug|<https://docs.aspose.com/slides/net/open-presentation/#open-presentation>|
+|SLIDESNET-43471|WriteAsSvg generates smaller image than shape for text-only shapes.|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|
+|SLIDESNET-43447|Circled numbers in a list are replaced with alphabets when converting PPTX to PDF|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43432|Loading a PPT file throws ArgumentOutOfRangeException|Bug|<https://docs.aspose.com/slides/net/open-presentation/>|
+|SLIDESNET-43412|NullReferenceException on SetExternalWorkbook|Bug|<https://docs.aspose.com/slides/net/chart-workbook/>|
+|SLIDESNET-43409|Number of images has changed after loading and saving PPS file|Bug|<https://docs.aspose.com/slides/net/image/>|
+|SLIDESNET-43408|Saving a presentation after cloning slide throws NegativeArraySizeException|Bug|<https://docs.aspose.com/slides/net/clone-slides/>|
+|SLIDESNET-43394|PDF produced by Aspose.Slides and edited by PDFBOX cannot be opened|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43344|Shapes.AddClone returns picture frames instead of charts|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
+|SLIDESNET-43341|ISlideCollection.AddFromPdf doesn?t add charts from PDF file|Bug|<https://docs.aspose.com/slides/net/import-presentation/>|
+|SLIDESNET-43160|Image is getting distorted while creating PDF out of PPT|Bug|<https://docs.aspose.com/slides/net/create-chart/>|
+|SLIDESNET-43154|Histogram and Waterfall charts are picture frames after cloning|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
 
 
 ## Public API Changes ##

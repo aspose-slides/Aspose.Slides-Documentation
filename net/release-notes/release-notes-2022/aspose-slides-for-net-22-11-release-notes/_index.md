@@ -13,41 +13,41 @@ This page contains release notes for [ Aspose.Slides for .NET 22.11](https://ww
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-43350|Convert Presentation to video|Feature|
-|SLIDESNET-43457|RandomBar animation effects|Feature|
-|SLIDESNET-43442|Animation of text|Feature|
-|SLIDESNET-43425|Getting effect sound settings from animated object|Feature|<https://docs.aspose.com/slides/net/shape-animation/>
-|SLIDESNET-43424|Getting embedded audio file from hyperlinkClick settings|Feature|<https://docs.aspose.com/slides/net/manage-hyperlinks/>
-|SLIDESNET-43281|PDF 1.7 support|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43178|Supporting PDF/A-2u compliance level for PDF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-42675|PDF/A-2a standard compliance level for PDF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>
-|SLIDESNET-41958|Support for exporting to PDF using PDF/A3 compliance|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-37423|Support to render PDF v 1.7 with compliance PDF/A 3B|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-36753|Create video of animated slide|Feature|
-|SLIDESNET-24332|Rendering presentation transitions like video|Feature|
-|SLIDESNET-43391|Loading a 35 MB presentation file consumes 1 GB memory|Investigation|<https://docs.aspose.com/slides/net/open-presentation/#open-large-presentation>
-|SLIDESNET-43445|Don't load image in memory when PresentationLockingBehavior is KeepLocked|Enhancement|<https://docs.aspose.com/slides/net/open-presentation/>
-|SLIDESNET-43091|A relative link is returned as an absolute link|Enhancement|<https://docs.aspose.com/slides/net/manage-ole/>
-|SLIDESNET-43513|PPTX to PDF: Invalid characters are shown in text editor after conversion|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43501|System.NotImplementedException: Equation script character with autofit throws exception|Bug|<https://docs.aspose.com/slides/net/powerpoint-math-equations/>
-|SLIDESNET-43498|Exception when saving presentation|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
-|SLIDESNET-43490|NotImplementedException on loading ppt presentation|Bug|<https://docs.aspose.com/slides/net/open-presentation/#open-presentation>
-|SLIDESNET-43483|IndexOutOfRangeException is thrown when loading PPT|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
-|SLIDESNET-43482|PptxReadException is thrown when loading PPTX|Bug|<https://docs.aspose.com/slides/net/open-presentation/>
-|SLIDESNET-43475|Aspose.Slides retrieves incorrect background gradient colors|Bug|<https://docs.aspose.com/slides/net/presentation-background/>
-|SLIDESNET-43472|Widescreen slide content does not display correctly when converting PPTX to HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-html/>
-|SLIDESNET-43463|Image is not properly displayed on page when converting PPTX to HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-html/>
-|SLIDESNET-43462|Presentation becomes corrupted after cloning slides to empty presentation|Bug|<https://docs.aspose.com/slides/net/clone-slides/>
-|SLIDESNET-43458|Text and images are rotated when converting PPTX to PDF/HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43453|Graphic objects do not display correctly when converting slides to images|Bug|<https://docs.aspose.com/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/>
-|SLIDESNET-43450|Shape imported from SVG has wrong line width.|Bug|<https://docs.aspose.com/slides/net/image/#converting-svg-to-a-set-of-shapes>
-|SLIDESNET-43433|PPTX to PDF: Fonts not resolved correctly|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>
-|SLIDESNET-43431|Table cells contain an entire source table when converting slides to images|Bug|<https://docs.aspose.com/slides/net/convert-slide/>
-|SLIDESNET-43405|SmartArt 3D effect missing in generated PNG|Bug|< https://docs.aspose.com/slides/net/convert-slide/#converting-slides-to-bitmap-and-saving-the-images-in-png>
-|SLIDESNET-43354|Incorrect rendering of text with 3-d effect on Linux|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>
-|SLIDESNET-43278|Chart data labels are missing when converting PPTX to PDF/PNG|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>
-|SLIDESNET-43183|Date and time format of Header&Footer is changed when converting PPT to PPTX|Bug|<https://docs.aspose.com/slides/net/convert-ppt-to-pptx/>
-|SLIDESNET-42567|Content of slide thumbnail differs from content of presentation slide|Bug|<https://docs.aspose.com/slides/net/powerpoint-math-equations/>
+|SLIDESNET-43350|Convert Presentation to video|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/|
+|SLIDESNET-43457|RandomBar animation effects|Feature|https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype/|
+|SLIDESNET-43442|Animation of text|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/#video-effects|
+|SLIDESNET-43425|Getting effect sound settings from animated object|Feature|<https://docs.aspose.com/slides/net/shape-animation/>|
+|SLIDESNET-43424|Getting embedded audio file from hyperlinkClick settings|Feature|<https://docs.aspose.com/slides/net/manage-hyperlinks/>|
+|SLIDESNET-43281|PDF 1.7 support|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43178|Supporting PDF/A-2u compliance level for PDF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-42675|PDF/A-2a standard compliance level for PDF export|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/>|
+|SLIDESNET-41958|Support for exporting to PDF using PDF/A3 compliance|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-37423|Support to render PDF v 1.7 with compliance PDF/A 3B|Feature|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-36753|Create video of animated slide|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/|
+|SLIDESNET-24332|Rendering presentation transitions like video|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/|
+|SLIDESNET-43391|Loading a 35 MB presentation file consumes 1 GB memory|Investigation|<https://docs.aspose.com/slides/net/open-presentation/#open-large-presentation>|
+|SLIDESNET-43445|Don't load image in memory when PresentationLockingBehavior is KeepLocked|Enhancement|<https://docs.aspose.com/slides/net/open-presentation/>|
+|SLIDESNET-43091|A relative link is returned as an absolute link|Enhancement|<https://docs.aspose.com/slides/net/manage-ole/>|
+|SLIDESNET-43513|PPTX to PDF: Invalid characters are shown in text editor after conversion|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43501|System.NotImplementedException: Equation script character with autofit throws exception|Bug|<https://docs.aspose.com/slides/net/powerpoint-math-equations/>|
+|SLIDESNET-43498|Exception when saving presentation|Bug|<https://docs.aspose.com/slides/net/clone-slides/>|
+|SLIDESNET-43490|NotImplementedException on loading ppt presentation|Bug|<https://docs.aspose.com/slides/net/open-presentation/#open-presentation>|
+|SLIDESNET-43483|IndexOutOfRangeException is thrown when loading PPT|Bug|<https://docs.aspose.com/slides/net/open-presentation/>|
+|SLIDESNET-43482|PptxReadException is thrown when loading PPTX|Bug|<https://docs.aspose.com/slides/net/open-presentation/>|
+|SLIDESNET-43475|Aspose.Slides retrieves incorrect background gradient colors|Bug|<https://docs.aspose.com/slides/net/presentation-background/>|
+|SLIDESNET-43472|Widescreen slide content does not display correctly when converting PPTX to HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-html/>|
+|SLIDESNET-43463|Image is not properly displayed on page when converting PPTX to HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-html/>|
+|SLIDESNET-43462|Presentation becomes corrupted after cloning slides to empty presentation|Bug|<https://docs.aspose.com/slides/net/clone-slides/>|
+|SLIDESNET-43458|Text and images are rotated when converting PPTX to PDF/HTML|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43453|Graphic objects do not display correctly when converting slides to images|Bug|<https://docs.aspose.com/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/>|
+|SLIDESNET-43450|Shape imported from SVG has wrong line width.|Bug|<https://docs.aspose.com/slides/net/image/#converting-svg-to-a-set-of-shapes>|
+|SLIDESNET-43433|PPTX to PDF: Fonts not resolved correctly|Bug|<https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/>|
+|SLIDESNET-43431|Table cells contain an entire source table when converting slides to images|Bug|<https://docs.aspose.com/slides/net/convert-slide/>|
+|SLIDESNET-43405|SmartArt 3D effect missing in generated PNG|Bug|< https://docs.aspose.com/slides/net/convert-slide/#converting-slides-to-bitmap-and-saving-the-images-in-png>|
+|SLIDESNET-43354|Incorrect rendering of text with 3-d effect on Linux|Bug|<https://docs.aspose.com/slides/net/3d-presentation/>|
+|SLIDESNET-43278|Chart data labels are missing when converting PPTX to PDF/PNG|Bug|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
+|SLIDESNET-43183|Date and time format of Header&Footer is changed when converting PPT to PPTX|Bug|<https://docs.aspose.com/slides/net/convert-ppt-to-pptx/>|
+|SLIDESNET-42567|Content of slide thumbnail differs from content of presentation slide|Bug|<https://docs.aspose.com/slides/net/powerpoint-math-equations/>|
 
 
 ## Public API Changes ##

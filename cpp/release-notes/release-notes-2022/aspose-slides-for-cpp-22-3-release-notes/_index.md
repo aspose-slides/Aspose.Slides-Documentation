@@ -20,7 +20,7 @@ This page contains release notes for [Aspose.Slides for C++ 22.3](https://www.nu
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESNET-42621|Add support Bevel for charts|Feature|<https://docs.aspose.com/slides/cpp/create-chart/>|
-|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement||
+|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/cpp/manage-textbox/|
 |SLIDESNET-43061|Throw a meaningful exception when saving an already Disposed Presentation|Feature|<https://docs.aspose.com/slides/cpp/save-presentation/>|
 
 ## Other Improvements and Changes
