@@ -6,7 +6,7 @@ url: /nodejs-java/features-overview/
 ---
 
 ## **Supported Platforms**
-Aspose.Slides for Node.js via Java is a platform independent API. It can be used on any platform (Windows, Linux, MacOS, etc.) where Node.js 7 or higher is installed. Oracle JDK 7 or higher is another requirement.
+Aspose.Slides for Node.js via Java is a platform independent API. It can be used on any platform (Windows, Linux, MacOS, etc.) where Node.js 7 or higher is installed. Oracle JDK 8 or higher is another requirement.
 
 ## **File Formats and Conversions**
 Aspose.Slides for Node.js via Java supports most PowerPoint document formats. It also lets you export them to the popular file formats organizations use and share among themselves. Go through these details:

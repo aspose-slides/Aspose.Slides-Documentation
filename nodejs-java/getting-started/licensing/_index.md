@@ -76,7 +76,7 @@ This code snippet is used to set a license file:
 ```javascript
 var aspose = aspose || {};
 
-aspose.slides = require("aspose.slides");
+aspose.slides = require("aspose.slides.via.java");
 
 var license = new aspose.slides.License();
 license.setLicense("Aspose.Slides.lic");
@@ -93,7 +93,7 @@ This code snippet is used to apply a license from a stream:
 ```javascript
 var aspose = aspose || {};
 
-aspose.slides = require("aspose.slides");
+aspose.slides = require("aspose.slides.via.java");
 
 var license = new aspose.slides.License();
 
@@ -120,7 +120,7 @@ The following code example shows how to set metered public and private keys:
 ```javascript
 var aspose = aspose || {};
 
-aspose.slides = require("aspose.slides");
+aspose.slides = require("aspose.slides.via.java");
 
 # Create an instance of CAD Metered class
 var metered = new aspose.slides.Metered();

@@ -22,7 +22,7 @@ import com.aspose.slides.*;
 
 ```javascript
 var aspose = aspose || {};
-aspose.slides = require("aspose.slides");
+aspose.slides = require("aspose.slides.via.java");
 
 ```
 
@@ -55,7 +55,7 @@ pres.save("result.pptx", SaveFormat.Pptx);
 ```javascript
 var aspose = aspose || {};
 
-aspose.slides = require("aspose.slides");
+aspose.slides = require("aspose.slides.via.java");
 
 var fs = require("fs");
 var readStream = fs.createReadStream("presentation.pptx");
@@ -64,7 +64,7 @@ aspose.slides.Presentation.createPresentationFromStream(readStream, function(err
       console.log("open Presentation error");
       return;
    }
-   pres.save("result.pptx", SaveFormat.Pptx));
+   pres.save("result.pptx", aspose.slides.SaveFormat.Pptx));
    console.log('saved to file');
 });
 ```

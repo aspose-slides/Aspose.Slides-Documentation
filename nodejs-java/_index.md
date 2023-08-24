@@ -32,14 +32,14 @@ Aspose.Slides for Node.js via Java is ported from Aspose.Slides for Java, so you
 
 These are links to useful to resources:
 
-- [Aspose.Slides for Node.js via Java Online Documentation](/slides/java/)
+- [Aspose.Slides for Node.js via Java Online Documentation](/slides/java/developer-guide/)
 - [Aspose.Slides for Node.js via Java Features](/slides/nodejs-java/features-overview/)
 - [Aspose.Slides for Node.js via Java Limitations and API Differences](/slides/nodejs-java/limitations-and-api-differences/)
 - [Aspose.Slides for Node.js via Java Release Notes](/slides/nodejs-java/release-notes/)
 - [Aspose.Slides for Node.js via Java Product Page](https://products.aspose.com/slides/nodejs-java/)
 - [Download Aspose.Slides for Node.js via Java Package](https://releases.aspose.com/slides/nodejs-java/))
 - [Install Aspose.Slides for Node.js via Java](/slides/nodejs-java/installation/)
-- [Aspose.Slides for Node.js via Java API Reference](https://docs.aspose.com/slides/nodejs-java/api-reference/)
+- [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/nodejs-java/)
 - [Aspose.Slides for Node.js via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Node.js via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
 

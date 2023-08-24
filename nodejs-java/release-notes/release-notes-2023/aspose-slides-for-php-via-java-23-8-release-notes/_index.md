@@ -18,7 +18,13 @@ This page contains release notes for [Aspose.Slides for Node.js via Java](https:
 
 ## Public API Changes ##
 
+### ShowMediaControls property has been added for SlideShowSettings ###
+
+The ShowMediaControls property was added for the SlideShowSettings class, which Represents the slide show settings for the presentation.
+
+Example:
 
 ```javascript
-
+var pres = new Presentation();
+pres.getSlideShowSettings().setShowMediaControls(true);
 ```
