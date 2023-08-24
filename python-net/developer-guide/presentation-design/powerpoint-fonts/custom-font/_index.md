@@ -10,7 +10,7 @@ description: "PowerPoint custom fonts in Python"
 
 {{% alert color="primary" %}} 
 
-Aspose Slides allows you to load these fonts using `load_external_fonts` under the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class:
+Aspose Slides allows you to load these fonts using the `load_external_fonts` method the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class:
 
 * TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -22,9 +22,9 @@ Aspose Slides allows you to load these fonts using `load_external_fonts` under t
 
 Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
 
-1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) Class and call the `LoadExternalFonts` static method.
+1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class and call the `load_external_fonts` method.
 2. Load the presentation that will be rendered.
-3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) Class.
+3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class.
 
 This Python code demonstrates the font loading process:
 

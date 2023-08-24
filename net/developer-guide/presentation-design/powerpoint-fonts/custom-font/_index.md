@@ -10,7 +10,7 @@ description: "PowerPoint custom fonts in C#"
 
 {{% alert color="primary" %}} 
 
-Aspose Slides allows you to load these fonts using [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/):
+Aspose Slides allows you to load these fonts using the [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) method:
 
 * TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -22,7 +22,7 @@ Aspose Slides allows you to load these fonts using [FontsLoader.LoadExternalFont
 
 Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
 
-1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class and call the `LoadExternalFonts` static method.
+1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class and call the [LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) method.
 2. Load the presentation that will be rendered.
 3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) Class.
 
@@ -47,7 +47,7 @@ FontsLoader.ClearCache();
 ```
 
 ## **Get Custom Fonts Folder**
-Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
+Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
 This C# code shows you how to use [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/):
 

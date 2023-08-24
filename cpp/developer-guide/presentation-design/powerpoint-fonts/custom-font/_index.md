@@ -9,7 +9,7 @@ description: "PowerPoint custom fonts in C++"
 
 {{% alert color="primary" %}} 
 
-Aspose Slides allows you to load these fonts using [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/):
+Aspose Slides allows you to load these fonts using [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/):
 
 * TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -21,7 +21,7 @@ Aspose Slides allows you to load these fonts using [FontsLoader.LoadExternalFont
 
 Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
 
-1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) class and call the `LoadExternalFonts` static method.
+1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) class and call the [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/)  method.
 2. Load the presentation that will be rendered.
 3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) class.
 
@@ -47,9 +47,9 @@ FontsLoader::ClearCache();
 ```
 
 ## **Get Custom Fonts Folder**
-Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
+Aspose.Slides provides [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
-This C++ code shows you how to use [GetFontFolders](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/):
+This C++ code shows you how to use [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) method:
 
 ``` cpp
 // This line outputs the folders that are checked for font files.
@@ -58,9 +58,9 @@ auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
 ## **Specify Custom Fonts Used With Presentation**
-Aspose.Slides provides the [DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
+Aspose.Slides provides the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
 
-This C++  code shows you how to use the [DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property:
+This C++  code shows you how to use the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property:
 
 ``` cpp
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
@@ -77,7 +77,7 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<A
 ```
 
 ## **Manage Fonts Externally**
-Aspose.Slides provides the [LoadExternalFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) method to allow you to load external fonts into a byte array.
+Aspose.Slides provides the [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfont/) method to allow you to load external fonts into a byte array.
 
 This C++ code demonstrates the byte array font loading process:
 
