@@ -121,6 +121,28 @@ These are links to some useful resources:
 - [Aspose.Slides for Python via .NET Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
+## Aspose.Slides for Node.js via Java
+
+{{% alert color="primary" %}} 
+
+![Aspose.Slides for Python via .NET Product Logo](home_9.png)
+
+Aspose.Slides for Node.js via Java is a class library that enables your applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. Aspose.Slides for Node.js via Java is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for Node.js via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
+
+{{% /alert %}}
+
+These are links to some useful resources:
+- [Aspose.Slides for Node.js via Java Online Documentation](/slides/java/developer-guide/)
+- [Aspose.Slides for Node.js via Java Features](/slides/nodejs-java/features-overview/)
+- [Aspose.Slides for Node.js via Java Limitations and API Differences](/slides/nodejs-java/limitations-and-api-differences/)
+- [Aspose.Slides for Node.js via Java Release Notes](/slides/nodejs-java/release-notes/)
+- [Aspose.Slides for Node.js via Java Product Page](https://products.aspose.com/slides/nodejs-java/)
+- [Download Aspose.Slides for Node.js via Java Package](https://releases.aspose.com/slides/nodejs-java/)
+- [Install Aspose.Slides for Node.js via Java](/slides/nodejs-java/installation/)
+- [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/nodejs-java/)
+- [Aspose.Slides for Node.js via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
+- [Aspose.Slides for Node.js via Java Paid Support Helpdesk](https://helpdesk.aspose.com/)
+
 ## Aspose.Slides for PHP via Java
 
 {{% alert color="primary" %}} 

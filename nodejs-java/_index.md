@@ -37,7 +37,7 @@ These are links to useful to resources:
 - [Aspose.Slides for Node.js via Java Limitations and API Differences](/slides/nodejs-java/limitations-and-api-differences/)
 - [Aspose.Slides for Node.js via Java Release Notes](/slides/nodejs-java/release-notes/)
 - [Aspose.Slides for Node.js via Java Product Page](https://products.aspose.com/slides/nodejs-java/)
-- [Download Aspose.Slides for Node.js via Java Package](https://releases.aspose.com/slides/nodejs-java/))
+- [Download Aspose.Slides for Node.js via Java Package](https://releases.aspose.com/slides/nodejs-java/)
 - [Install Aspose.Slides for Node.js via Java](/slides/nodejs-java/installation/)
 - [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/nodejs-java/)
 - [Aspose.Slides for Node.js via Java Free Support Forum](https://forum.aspose.com/c/slides/11)
