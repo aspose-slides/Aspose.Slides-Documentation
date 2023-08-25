@@ -9,8 +9,6 @@ url: /php-java/api-reference/
 
 Aspose.Slides for PHP via Java is a class library that enables PHP applications to read and write presentation documents without using Microsoft PowerPoint® or others. Aspose.Slides for PHP via Java allows to manage text, shapes, tables & animations, add audio and video to slides, preview slides, export slides to SVG, PDF format and more.
 
-**Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter API reference.**
-
-Latest API Reference can be found at [Aspose.Slides for Java API Reference.](https://reference.aspose.com/slides/java)
+Latest API Reference can be found at [Aspose.Slides for Java API Reference.](https://reference.aspose.com/slides/php-java/)
 
 {{% /alert %}}
