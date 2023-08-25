@@ -87,9 +87,26 @@ with open(path + "CustomFont1.ttf", "br") as font1:
 
 Aspose.Slides provides the `load_external_font`(data) method to allow you to load external fonts from binary data.
 
-This Python code demonstrates the byte array font loading process: xxx
+This Python code demonstrates the byte array font loading process:
 
 ```python
+from aspose.slides import FontsLoader, Presentation
+
+def read_all_bytes(path):
+    with open(path, "rb") as in_file:
+        bytes = in_file.read()
+    return bytes
+
+FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
+FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
+FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
+
+try:
+    with Presentation() as pres:
+        # external font loaded during the presentation lifetime
+        print("processing")
+finally:
+    FontsLoader.clear_cache()
 
 ```
 
