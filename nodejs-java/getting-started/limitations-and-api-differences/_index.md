@@ -1,7 +1,7 @@
 ---
 title: Limitations and API Differences
 type: docs
-weight: 10
+weight: 100
 url: /nodejs-java/limitations-and-api-differences/
 keywords: "node, powerpoint, limitation, api, differences"
 description: "Aspose.Slides for Node.js via Java limitations and api differences."
@@ -69,7 +69,7 @@ aspose.slides.Presentation.createPresentationFromStream(readStream, function(err
 });
 ```
 
-## **Other Limitations of Aspose.Slides for Node.js via Java API compared to Aspose.Slides for Java API**
+### **Other Limitations of Aspose.Slides for Node.js via Java API compared to Aspose.Slides for Java API**
 1. Importing/exporting data from an Array, ArrayList, ResultSet etc. is not supported.
 1. Printing is not supported.
 
