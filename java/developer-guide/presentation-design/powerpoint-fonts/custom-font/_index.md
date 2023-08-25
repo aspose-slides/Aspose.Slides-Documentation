@@ -84,9 +84,25 @@ try {
 
 Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) method to allow you to load external fonts from binary data.
 
-This Java code demonstrates the byte array font loading process: xxx
+This Java code demonstrates the byte array font loading process:
 
 ```java
+FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
+FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
+FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
 
+try
+{
+    Presentation pres = new Presentation("");
+    try {
+        // external font loaded during the presentation lifetime
+    } finally {
+        
+    }
+}
+finally
+{
+    FontsLoader.clearCache();
+}
 ```
 
