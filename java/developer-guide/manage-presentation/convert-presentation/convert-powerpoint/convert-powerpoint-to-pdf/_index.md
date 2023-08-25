@@ -159,10 +159,39 @@ try {
 
 Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
 
-This Java code shows you how to detect font substitutions: xxx 
+This Java code shows you how to detect font substitutions: 
 
 ```java
+public void main(String[] args)
+{
+    LoadOptions loadOptions = new LoadOptions();
+    FontSubstSendsWarningCallback warningCallback = new FontSubstSendsWarningCallback();
+    loadOptions.setWarningCallback(warningCallback);
 
+    Presentation pres = new Presentation("pres.pptx", loadOptions);
+    try {
+        
+    } finally {
+        if (pres != null) pres.dispose();
+    }
+}
+
+private class FontSubstSendsWarningCallback implements IWarningCallback
+{
+    public int warning(IWarningInfo warning)
+    {
+        if (warning.getWarningType() == WarningType.CompatibilityIssue)
+            return ReturnAction.Continue;
+
+        if (warning.getWarningType() == WarningType.DataLoss &&
+                warning.getDescription().startsWith("Font will be substituted"))
+        {
+            System.out.println("Font substitution warning: " + warning.getDescription());
+        }
+
+        return ReturnAction.Continue;
+    }
+}
 ```
 
 {{%  alert color="primary"  %}} 
