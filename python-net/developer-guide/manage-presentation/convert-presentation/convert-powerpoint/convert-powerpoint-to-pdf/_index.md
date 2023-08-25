@@ -171,10 +171,10 @@ presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 
 Aspose.Slides provides the `warning_callback` property under the [SaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
 
-This Python code shows you how to detect font substitutions: xxx 
+This Python code shows you how to detect font substitutions:  
 
 ```python
-
+[TODO[SLIDESPYNET-91]: callbacks are not supported for now]
 ```
 
 {{%  alert color="primary"  %}} 
