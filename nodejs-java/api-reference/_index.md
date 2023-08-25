@@ -9,6 +9,6 @@ url: /nodejs-java/api-reference/
 
 Aspose.Slides for Node.js via Java is a class library that enables Node.js applications to read and write presentation documents without using Microsoft PowerPoint® or others. Aspose.Slides for Node.js via Java allows to manage text, shapes, tables & animations, add audio and video to slides, preview slides, export slides to SVG, PDF format and more.
 
-Latest API Reference can be found at [Aspose.Slides for Java API Reference.](https://reference.aspose.com/slides/nodejs-java/)
+Latest API Reference can be found at [Aspose.Slides for Node.js via Java API Reference.](https://reference.aspose.com/slides/nodejs-java/)
 
 {{% /alert %}}
