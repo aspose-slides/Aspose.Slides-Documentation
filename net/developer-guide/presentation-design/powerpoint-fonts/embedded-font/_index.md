@@ -40,8 +40,6 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 }
 ```
 
-
-
 ## **Add Embedded Fonts to Presentation**
 A new property of embedding fonts has been added. To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloads of AddEmbeddedFont method have been added. Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in the Presentation can be embedded. The implementation of the above steps is given below.
 
@@ -65,5 +63,19 @@ foreach (IFontData font in allFonts)
 
 // Save the presentation
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+```
+
+## **Compress Embedded Fonts**
+
+To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) method exposed by the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class.
+
+This C# code shows you how to compress embedded PowerPoint fonts:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Aspose.Slides.LowCode.Compress.CompressEmbeddedFonts(pres);
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
 ```
 

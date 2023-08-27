@@ -37,8 +37,6 @@ with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
     presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
-
-
 ## **Add Embedded Fonts to Presentation**
 A new property of embedding fonts has been added. To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloads of AddEmbeddedFont method have been added. Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in the Presentation can be embedded. The implementation of the above steps is given below.
 
@@ -59,5 +57,20 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
     # Save the presentation
     presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Compress Embedded Fonts**
+
+To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the `compress_embedded_fonts` method exposed by the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class.
+
+This Python code shows you how to compress embedded PowerPoint fonts:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+
+    slides.lowcode.Compress.compress_embedded_fonts(pres)
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

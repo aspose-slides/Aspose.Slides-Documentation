@@ -84,3 +84,19 @@ try {
 }
 ```
 
+## **Compress Embedded Fonts**
+
+To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the [compressEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) method exposed by the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class.
+
+This Java code shows you how to compress embedded PowerPoint fonts:
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    Compress.compressEmbeddedFonts(pres);
+    pres.save("pres-out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
