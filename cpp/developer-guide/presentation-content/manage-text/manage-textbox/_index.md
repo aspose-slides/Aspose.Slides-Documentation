@@ -62,7 +62,31 @@ portion->set_Text(u"Aspose TextBox");
 pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Check for Text Box Shape**
+
+Aspose.Slides provides the [get_IsTextBox()](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) method (from the [AutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+
+![Text box and shape](istextbox.png)
+
+This C++ code shows you how to check whether a shape was created as a text box: 
+
+```c++
+auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+for (auto&& slide : pres->get_Slides())
+{
+    for (auto&& shape : slide->get_Shapes())
+    {
+        auto autoShape = System::DynamicCast_noexcept<Aspose::Slides::AutoShape>(shape);
+        if (autoShape != nullptr)
+        {
+            System::Console::WriteLine(autoShape->get_IsTextBox() ? System::String(u"shape is text box") : System::String(u"shape is not text box"));
+        }
+    }
+}
+```
+
 ## **Add Column In Text Box**
+
 Aspose.Slides provides the [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) and [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) methods (from the [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) interface and [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
 This code in C++ demonstrates the described operation: 

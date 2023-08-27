@@ -64,8 +64,20 @@ with slides.Presentation() as pres:
     pres.save("TextBox_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Check for Text Box Shape**
+
+Aspose.Slides provides the `is_text_box` property (from the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+
+![Text box and shape](istextbox.png)
+
+This Python code shows you how to check whether a shape was created as a text box: xxx
+
+```python
+
+```
 
 ## **Add Column In Text Box**
+
 Aspose.Slides provides the [column_count](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) and [column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) interface and [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
 This code in Python demonstrates the described operation: 

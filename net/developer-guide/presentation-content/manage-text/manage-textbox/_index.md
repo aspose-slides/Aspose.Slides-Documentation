@@ -60,8 +60,29 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Check for Text Box Shape**
+
+Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property (from the [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+
+![Text box and shape](istextbox.png)
+
+This C# code shows you how to check whether a shape was created as a text box: 
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Aspose.Slides.LowCode.ForEach.Shape(pres, (shape, slide, index) =>
+    {
+        if (shape is AutoShape autoShape)
+        {
+            Console.WriteLine(autoShape.IsTextBox ? "shape is text box" : "shape is text not box");
+        }
+    });
+}
+```
 
 ## **Add Column in Text Box**
+
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class) to allow you to add columns to textboxes. You get to specify the number of columns in a text box and then specify the spacing in points between columns. 
 
 This code in C# demonstrates the described operation: 
