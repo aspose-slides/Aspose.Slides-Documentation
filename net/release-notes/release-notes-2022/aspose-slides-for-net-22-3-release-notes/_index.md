@@ -15,7 +15,7 @@ This page contains release notes for [ Aspose.Slides for .NET 22.3](https://www
 | :- | :- | :- | :- |
 |SLIDESNET-43061|Throw a meaningful exception when saving an already Disposed Presentation|Feature|<https://docs.aspose.com/slides/net/save-presentation/>|
 |SLIDESNET-42621|Add support Bevel for charts|Feature|<https://docs.aspose.com/slides/net/create-chart/>|
-|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/net/manage-textbox/|
+|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/net/manage-textbox/#check-for-text-box-shape/|
 |SLIDESNET-43045|Loading PPTX file throws PptxReadException: Invalid SvgMsStyle|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|
 |SLIDESNET-43037|After removing the shape from the Slide exception is thrown|Bug|<https://docs.aspose.com/slides/net/open-presentation/>|
 |SLIDESNET-43027|PPTX to SVG: The custom font does not apply using SvgExternalFontsHandling.AddLinksToFontFiles|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|

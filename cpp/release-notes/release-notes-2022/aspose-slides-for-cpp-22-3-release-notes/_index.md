@@ -20,14 +20,14 @@ This page contains release notes for [Aspose.Slides for C++ 22.3](https://www.nu
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESNET-42621|Add support Bevel for charts|Feature|<https://docs.aspose.com/slides/cpp/create-chart/>|
-|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/cpp/manage-textbox/|
+|SLIDESNET-42959|Introduce a flag to indicate if shape was created as text box or not|Enhancement|https://docs.aspose.com/slides/cpp/manage-textbox/#check-for-text-box-shape/|
 |SLIDESNET-43061|Throw a meaningful exception when saving an already Disposed Presentation|Feature|<https://docs.aspose.com/slides/cpp/save-presentation/>|
 
 ## Other Improvements and Changes
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESCPP-3227|[Use Aspose.Slides for .NET 22.3 features](https://docs.aspose.com/slides/net/aspose-slides-for-net-22-3-release-notes/)|Enhancement||
-|SLIDESCPP-3270|How to differentiate TextBox and Shape?|Feature||
+|SLIDESCPP-3270|How to differentiate TextBox and Shape?|Feature|https://docs.aspose.com/slides/cpp/manage-textbox/#check-for-text-box-shape/|
 |SLIDESCPP-3375|Extracting two images instead of one|Bug||
 
 ## Public API Changes
