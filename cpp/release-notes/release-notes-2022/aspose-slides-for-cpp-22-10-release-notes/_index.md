@@ -22,7 +22,7 @@ This page contains release notes for [Aspose.Slides for C++ 22.10](https://www.n
 |SLIDESNET-35636|Add the support of 3D shadow effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>|
 |SLIDESNET-35634|Add the support of 3D bevel effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>|
 |SLIDESNET-35907|Set Transparent Effect for picture as filled shape in presentation file|Enhancement|<https://docs.aspose.com/slides/net/manage-placeholder/#set-placeholder-image-transparency>|
-|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement|https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/|
+|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement|https://docs.aspose.com/slides/cpp/embedded-font/#compress-embedded-fonts/|
 |SLIDESNET-43310|Changing color of leader lines in Pie charts|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
 
 ## Other Improvements and Changes

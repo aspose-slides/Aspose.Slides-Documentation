@@ -16,7 +16,7 @@ This page contains release notes for [ Aspose.Slides for .NET 22.10](https://ww
 |SLIDESNET-43310|Changing color of leader lines in Pie charts|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
 |SLIDESNET-35636|Add the support of 3D shadow effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>|
 |SLIDESNET-35634|Add the support of 3D bevel effects|Feature|<https://docs.aspose.com/slides/net/3d-presentation/>|
-|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement|https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/|
+|SLIDESNET-43437|Compress presentation - embedded fonts|Enhancement| https://docs.aspose.com/slides/net/embedded-font/#compress-embedded-fonts/ |
 |SLIDESNET-35907|Set Transparent Effect for picture as filled shape in presentation file|Enhancement|<https://docs.aspose.com/slides/net/manage-placeholder/#set-placeholder-image-transparency>|
 |SLIDESNET-43488|PPTX initialization throws "Aspose.Slides.PptxReadException" |Bug|<https://docs.aspose.com/slides/net/open-presentation/#open-presentation>|
 |SLIDESNET-43471|WriteAsSvg generates smaller image than shape for text-only shapes.|Bug|<https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/>|
