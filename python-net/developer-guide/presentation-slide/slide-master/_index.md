@@ -286,3 +286,15 @@ with slides.Presentation() as presentation:
     # Save presentation
     presentation.save("PresView.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Remove Unused Master Slide**
+
+Aspose.Slides provides the `remove_unused_master_slides` method (from the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This Python code shows you how to remove a master slide from a PowerPoint presentation:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    slides.lowcode.Compress.remove_unused_master_slides(pres)
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+```

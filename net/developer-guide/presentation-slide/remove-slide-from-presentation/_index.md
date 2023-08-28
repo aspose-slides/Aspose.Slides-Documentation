@@ -57,3 +57,29 @@ using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
 }
 ```
 
+## **Remove Unused Layout Slide**
+
+Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This C# code shows you how to remove a layout slide from a PowerPoint presentation:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
+    
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Remove Unused Master Slide**
+
+Aspose.Slides provides the [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C# code shows you how to remove a master slide from a PowerPoint presentation:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);
+    
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
+```
+
