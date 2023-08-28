@@ -288,3 +288,16 @@ Its possible to set Slide Master as a default view, when you open the Aspose.Sli
 pres.ViewProperties.LastView = ViewType.SlideMasterView;
 ```
 
+## **Remove Unused Master Slide**
+
+Aspose.Slides provides the [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C# code shows you how to remove a master slide from a PowerPoint presentation:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);
+    
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
+```
+

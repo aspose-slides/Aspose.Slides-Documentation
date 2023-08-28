@@ -30,3 +30,27 @@ To remove a slide using its index position in the slides collection of the prese
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ManageSlides-RemoveSlideUsingIndex.cpp" >}}
 
+## **Remove Unused Layout Slide**
+
+Aspose.Slides provides the [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This C++ code shows you how to remove a layout slide from a PowerPoint presentation:
+
+```c++
+auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+
+LowCode::Compress::RemoveUnusedLayoutSlides(pres);
+
+pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+```
+
+## **Remove Unused Master Slide**
+
+Aspose.Slides provides the [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C++ code shows you how to remove a master slide from a PowerPoint presentation:
+
+```c++
+auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+
+LowCode::Compress::RemoveUnusedMasterSlides(pres);
+
+pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+```
+

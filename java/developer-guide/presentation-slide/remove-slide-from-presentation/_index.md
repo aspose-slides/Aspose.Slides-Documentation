@@ -63,3 +63,34 @@ try {
     pres.dispose();
 }
 ```
+
+## **Remove Unused Layout Slide**
+
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    Compress.removeUnusedLayoutSlides(pres);
+
+    pres.save("pres-out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Remove Unused Master Slide**
+
+Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Java code shows you how to remove a master slide from a PowerPoint presentation:
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+ try {
+     Compress.removeUnusedMasterSlides(pres);
+
+     pres.save("pres-out.pptx", SaveFormat.Pptx);
+ } finally {
+     if (pres != null) pres.dispose();
+ }
+```
+

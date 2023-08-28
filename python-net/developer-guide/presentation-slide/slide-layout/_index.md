@@ -63,10 +63,20 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Remove Unused Layout Slide**
 
+Aspose.Slides provides the `remove_unused_layout_slides` method (from the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This Python code shows you how to remove a layout slide from a PowerPoint presentation:
 
+```python
+import aspose.slides as slides
+
+with slides.Presentation("pres.pptx") as pres:
+    slides.lowcode.Compress.remove_unused_layout_slides(pres)
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **Set Size and Type of Slide**
+
 [SlideSize.type](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) and [SlideSize.size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```py
@@ -123,8 +133,6 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
 ```
 
-
-
 ## **Set Child Footer Visibility Inside Slide**
 To set footer and child footer a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
@@ -150,8 +158,6 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 ```
 
-
-
 ## **Set Slide Size with Respect to Content Scaling**
 You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) and [SlideSize.Size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) are the properties of presentation class which could be set or get as shown below in the example.
 
@@ -171,8 +177,6 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
         auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
 ## **Set Page Size when Generating PDF**
 Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
@@ -191,4 +195,3 @@ with slides.Presentation() as presentation:
     # save presentation to disk
     presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
 ```
-

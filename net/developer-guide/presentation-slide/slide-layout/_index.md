@@ -76,7 +76,18 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 }
 ```
 
+## **Remove Unused Layout Slide**
 
+Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This C# code shows you how to remove a layout slide from a PowerPoint presentation:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
+    
+    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+}
+```
 
 
 ## **Set Size and Type of Slide**
@@ -131,8 +142,6 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
 }
 ```
 
-
-
 ## **Set Child Footer Visibility Inside Slide**
 To set footer and child footer a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
@@ -157,8 +166,6 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
 
 ```
 
-
-
 ## **Set Slide Size with Respect to Content Scaling**
 You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type) and [SlideSize.Size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.
 
@@ -177,8 +184,6 @@ presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximiz
 auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
-
-
 ## **Set Page Size when Generating PDF**
 Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
@@ -196,4 +201,3 @@ opts.SufficientResolution = 600;
 // Save presentation to disk
 presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
 ```
-

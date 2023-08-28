@@ -20,6 +20,18 @@ In the example given below, we have added Layout Slides to Presentation.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddLayoutSlides-AddLayoutSlides.cpp" >}}
 
+## **Remove Unused Layout Slide**
+
+Aspose.Slides provides the [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This C++ code shows you how to remove a layout slide from a PowerPoint presentation:
+
+```c++
+auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+
+LowCode::Compress::RemoveUnusedLayoutSlides(pres);
+
+pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+```
+
 
 ## **Set Size and Type of Slide**
 [SlideSize.Type](http://www.aspose.com/api/net/slides/aspose.slides/slidesize/properties/type) and [SlideSize.Size](http://www.aspose.com/api/net/slides/aspose.slides/slidesize/properties/size) are the properties of presentation class which could be set or get as shown below in the example.

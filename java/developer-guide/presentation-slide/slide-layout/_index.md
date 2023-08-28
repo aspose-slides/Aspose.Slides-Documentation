@@ -70,7 +70,23 @@ try {
 }
 ```
 
+## **Remove Unused Layout Slide**
+
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This java code shows you how to remove a layout slide from a PowerPoint presentation:
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    Compress.removeUnusedLayoutSlides(pres);
+
+    pres.save("pres-out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
 ## **Set Size and Type of Slide**
+
 [SlideSize.getType](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#getType--) and [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/SlideSize#setSize-float-float-int-) are the properties of presentation class which could be set or get as shown below in the example.
 
 ```java
@@ -193,4 +209,3 @@ try {
     presentation.dispose();
 }
 ```
-
