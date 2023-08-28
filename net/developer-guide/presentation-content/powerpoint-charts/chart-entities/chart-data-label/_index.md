@@ -162,10 +162,12 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Adjust Label Location**
 
-When you are create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
+When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
 This C# code shows you how to adjust the label location on a pie chart: xxx
 
 ```c#
 
 ```
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)

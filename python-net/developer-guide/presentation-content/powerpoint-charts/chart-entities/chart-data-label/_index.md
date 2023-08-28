@@ -138,7 +138,7 @@ with slides.Presentation() as presentation:
 ```
 
 ## **Set Label Distance From Axis**
-This C++ code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
+This Python code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```py
 import aspose.slides.charts as charts
@@ -161,10 +161,12 @@ with slides.Presentation() as presentation:
 
 ## **Adjust Label Location**
 
-When you are create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
+When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
-This C++ code shows you how to adjust the label location on a pie chart:
+This Python code shows you how to adjust the label location on a pie chart: xxx
 
 ```python
 
 ```
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
