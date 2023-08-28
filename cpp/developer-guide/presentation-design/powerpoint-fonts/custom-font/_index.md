@@ -1,50 +1,66 @@
 ---
-title: Custom Font
+title: Custom Font in C++
 type: docs
 weight: 20
 url: /cpp/custom-font/
+keywords: "Fonts, custom fonts, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
+description: "PowerPoint custom fonts in C++"
 ---
 
+{{% alert color="primary" %}} 
 
-## **Load Custom Fonts from .TTF**
-Aspose.Slides lets you load fonts for rendering in presentations without even installing them. This article shows how to load fonts from custom directories without installing them. Please follow the steps below to loading Fonts from external directories by using Aspose.Slides for C++ API:
+Aspose Slides allows you to load these fonts using [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/):
 
-- Create an instance of FontsLoader Class and call the static method LoadExternalFonts.
-- Perform render the presentation.
-- Clear the cache in the FontsLoader Class.
+* TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-The implementation of the above is given below.
+* OpenType (.otf) fonts. See [OpenType](https://en.wikipedia.org/wiki/OpenType).
+
+{{% /alert %}}
+
+## **Load Custom Fonts**
+
+Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
+
+1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) class and call the [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/)  method.
+2. Load the presentation that will be rendered.
+3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) class.
+
+This C++ code demonstrates the font loading process:
 
 ``` cpp
 const String fontPath = u"../templates/";
 const String outPath = u"../out/UseCustomFonts_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";
 
-//Setting fonts path
+// Sets the fonts path
 ArrayPtr<String> folders = System::MakeObject<Array<String>>(1, fontPath);
 
-// Load the custom font directory fonts
+// Loads the custom font directory fonts
 FontsLoader::LoadExternalFonts(folders);
 
-// Do Some work and perform presentation/slides rendering
+// Do some work and perform presentation/slide rendering
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 pres->Save(outPath, Export::SaveFormat::Pptx);
 
-// Clear Font Cache
+// Clears Font Cache
 FontsLoader::ClearCache();
 ```
 
 ## **Get Custom Fonts Folder**
-A new property has been added that returns folders where font files are searched. Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+Aspose.Slides provides [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
+
+This C++ code shows you how to use [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) method:
 
 ``` cpp
-// The following line shall return folders where font files are searched.
-// Those are folders that have been added with LoadExternalFonts method as well as system font folders.
+// This line outputs the folders that are checked for font files.
+// Those are folders added through the LoadExternalFonts method and system font folders.
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
 ## **Specify Custom Fonts Used With Presentation**
-A new DocumentLevelFontSources property has been added to ILoadOptions interface. It allows to specify external fonts that are used with the presentation. Sample Code is given below.
+Aspose.Slides provides the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
+
+This C++  code shows you how to use the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property:
 
 ``` cpp
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
@@ -61,7 +77,23 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<A
 ```
 
 ## **Manage Fonts Externally**
-Now, you can also load fonts externally into a byte array. FontsLoader class now offer, LoadExternalFont(byte[] data) method that allows to add fonts from binary data. The implementation of the above steps is given below.
+Aspose.Slides provides the [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfont/) method to allow you to load external fonts into a byte array.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SpecifyFontsUsedWithPresentation-SpecifyFontsUsedWithPresentation.cpp" >}}
+This C++ code demonstrates the byte array font loading process:
+
+```cpp
+// The path to the documents directory
+const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
+const String templatePath = u"../templates/AccessSlides.pptx";
+
+ArrayPtr<String> fontsLocation =  MakeArray<System::String>({ u"assets\\fonts", u"global\\fonts" });// ;
+ArrayPtr<ArrayPtr<uint8_t>> memoryfontsLocation = MakeArray < ArrayPtr<uint8_t>>({ File::ReadAllBytes(u"../templates/CustomFont1.ttf"), File::ReadAllBytes(u"../templates/CustomFont2.ttf") });
+
+SharedPtr < Aspose::Slides::LoadOptions > loadOptions = MakeObject <Aspose::Slides::LoadOptions>();
+
+loadOptions->get_DocumentLevelFontSources()->set_FontFolders(fontsLocation);
+loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(memoryfontsLocation);
+	
+SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOptions);
+```
 
