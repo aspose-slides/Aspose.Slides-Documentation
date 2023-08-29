@@ -65,8 +65,32 @@ try {
 }
 ```
 
+## **Check for Text Box Shape**
+
+Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#isTextBox--) property (from the [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+
+![Text box and shape](istextbox.png)
+
+This Java code shows you how to check whether a shape was created as a text box: 
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    ForEach.shape(pres, (shape, slide, index) ->
+    {
+        if (shape instanceof AutoShape)
+        {
+            AutoShape autoShape = (AutoShape)shape;
+            System.out.println(autoShape.isTextBox() ? "shape is text box" : "shape is text not box");
+        }
+    });
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
 
 ## **Add Column In Text Box**
+
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
 This code in Java demonstrates the described operation: 
