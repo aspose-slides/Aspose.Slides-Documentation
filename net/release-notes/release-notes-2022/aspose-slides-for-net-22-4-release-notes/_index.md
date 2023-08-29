@@ -15,7 +15,7 @@ This page contains release notes for [ Aspose.Slides for .NET 22.4](https://www
 | :- | :- | :- | :- |
 |SLIDESNET-43124|OLE objects are not extracted from ODP file|Investigation|<https://docs.aspose.com/slides/net/manage-ole/>|
 |SLIDESNET-41996|Suggestion from customer to change SaveOptions.WarningCallback|Investigation|<https://docs.aspose.com/slides/net/convert-powerpoint/>|
-|SLIDESNET-43076|Implement remove unused master and layout slides|Feature||
+|SLIDESNET-43076|Implement remove unused master and layout slides|Feature|https://docs.aspose.com/slides/net/remove-slide-from-presentation/|
 |SLIDESNET-42194|Add support of 3-D Line Chart|Feature|<https://docs.aspose.com/slides/net/powerpoint-charts/>|
 |SLIDESNET-42927|Upgrade audio frame serialization to avoid "We need to upgrade ..." PP2019 dialog|Enhancement|<https://docs.aspose.com/slides/net/audio-frame/>|
 |SLIDESNET-42901|PNG alternative for SVG image is rendered in low resolution|Enhancement|<https://docs.aspose.com/slides/net/save-presentation/>|
