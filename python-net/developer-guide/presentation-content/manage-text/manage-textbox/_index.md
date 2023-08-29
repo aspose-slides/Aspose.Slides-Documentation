@@ -73,7 +73,13 @@ Aspose.Slides provides the `is_text_box` property (from the [AutoShape](https://
 This Python code shows you how to check whether a shape was created as a text box: xxx
 
 ```python
+from aspose.slides import Presentation, AutoShape
 
+with Presentation("pres.pptx") as pres:
+    for slide in pres.slides:
+        for shape in slide.shapes:
+            if (type(shape) is AutoShape):
+                print("shape is text box" if shape.is_text_box else "shape is text not box")
 ```
 
 ## **Add Column In Text Box**
