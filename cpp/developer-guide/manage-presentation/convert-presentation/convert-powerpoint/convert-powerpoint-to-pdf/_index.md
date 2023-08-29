@@ -151,10 +151,39 @@ presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 Aspose.Slides provides the [get_WarningCallback()](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/get_warningcallback/) method under the [SaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
 
-This C++ code shows you how to detect font substitutions: xxx 
+This C++ code shows you how to detect font substitutions:
 
 ```c++
+int main()
+{
+    System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
+    System::SharedPtr<FontSubstSendsWarningCallback> warningCallback = System::MakeObject<FontSubstSendsWarningCallback>();
+    loadOptions->set_WarningCallback(warningCallback);
 
+    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+    return 0;
+}
+
+class FontSubstSendsWarningCallback : public Warnings::IWarningCallback
+{
+public:
+    Warnings::ReturnAction Warning(System::SharedPtr<Warnings::IWarningInfo> warning) override;
+};
+
+Warnings::ReturnAction FontSubstSendsWarningCallback::Warning(System::SharedPtr<Warnings::IWarningInfo> warning)
+{
+    if (warning->get_WarningType() == Warnings::WarningType::CompatibilityIssue)
+    {
+        return Warnings::ReturnAction::Continue;
+    }
+
+    if (warning->get_WarningType() == Warnings::WarningType::DataLoss && warning->get_Description().StartsWith(u"Font will be substituted"))
+    {
+        System::Console::WriteLine(u"Font substitution warning: {0}", warning->get_Description());
+    }
+
+    return Warnings::ReturnAction::Continue;
+}
 ```
 
 {{%  alert color="primary"  %}} 
