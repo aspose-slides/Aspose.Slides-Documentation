@@ -258,10 +258,21 @@ presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [set_AspectRatioLocked()](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) method to set the *Lock Aspect Ratio* setting. 
 
-This C++ code shows you how to lock a shape's aspect ratio: xxx
+This C++ code shows you how to lock a shape's aspect ratio:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
+System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
+System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
+
+System::SharedPtr<System::Drawing::Image> image = System::Drawing::Image::FromFile(u"image.png");
+System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
+
+System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
+
+// set shape to have to preserve aspect ratio on resizing
+pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
