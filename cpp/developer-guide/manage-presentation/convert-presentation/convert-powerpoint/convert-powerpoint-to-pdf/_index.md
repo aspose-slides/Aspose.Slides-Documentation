@@ -154,16 +154,6 @@ Aspose.Slides provides the [get_WarningCallback()](https://reference.aspose.com/
 This C++ code shows you how to detect font substitutions:
 
 ```c++
-int main()
-{
-    System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
-    System::SharedPtr<FontSubstSendsWarningCallback> warningCallback = System::MakeObject<FontSubstSendsWarningCallback>();
-    loadOptions->set_WarningCallback(warningCallback);
-
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
-    return 0;
-}
-
 class FontSubstSendsWarningCallback : public Warnings::IWarningCallback
 {
 public:
@@ -183,6 +173,20 @@ Warnings::ReturnAction FontSubstSendsWarningCallback::Warning(System::SharedPtr<
     }
 
     return Warnings::ReturnAction::Continue;
+}
+```
+
+and next C++ code shows how to use previous class:
+
+```c++
+int main()
+{
+    System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
+    System::SharedPtr<FontSubstSendsWarningCallback> warningCallback = System::MakeObject<FontSubstSendsWarningCallback>();
+    loadOptions->set_WarningCallback(warningCallback);
+
+    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+    return 0;
 }
 ```
 
