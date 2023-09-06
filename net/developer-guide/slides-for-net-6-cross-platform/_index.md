@@ -127,12 +127,3 @@ The Slides team is working on tasks that will result in a simplified and unified
   └───netstandard2.1
 
 * Each folder contains assemblies for their corresponding .NET version. There are two versions for net6.0: win and crossplatform. The latter contains the cross-platform Aspose.Slides.dll and all its dependencies. The unpacked contents of this folder can be used as a dependency addition in a project for cross-platform development and other Aspose.Slides use instances.
-
-  
-
-  
-
-
-
-
-
