@@ -25,7 +25,7 @@ description: "Aspose.Slides for .NET 6 Cross Platform"
 
    ![browse-console-app](browse-console-app.jpg)
 
-4. Place the remaining files that Aspose.Slides depend in the output directory by adding appropriate instructions to the csproj project file this way:
+4. Place the remaining files that Aspose.Slides depend on in the output directory by adding appropriate instructions to the csproj project file this way:
 ```
 <ItemGroup>
 
@@ -65,7 +65,7 @@ description: "Aspose.Slides for .NET 6 Cross Platform"
 
 ### **System.Drawing.Common Support for Only Windows**
 
-Starting in .NET 6, support for System.Drawing.Common (which provided GDI+ support) is available [only in Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). Aspose.Slides for .NET depends on GDI+. Additionally, Slides public contains types (Bitmap, Metafile, Graphics, etc.) from the System.Drawing.Common package.
+Starting in .NET 6, support for System.Drawing.Common (which provided GDI+ support) is available [only in Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). Aspose.Slides for .NET depends on GDI+. Additionally, Aspose.Slides public API contains types (Bitmap, Metafile, Graphics, etc.) from the System.Drawing.Common package.
 
 ### **Proprietary Graphics Subsystem**
 
@@ -88,7 +88,7 @@ Aspose.Slides.dll uses the library the system it is running on requires. The lib
 
 Aspose.Slides public API Slides uses types from System.Drawing.Common (Bitmap, Metafile, Graphics, and many others). To facilitate smooth transition to the new Aspose.Slides cross-platform product and to avoid introducing many breaking changes into Slides public API, the proprietary implementation of the graphics subsystem **duplicates** the types and namespaces from System.Drawing.Common.
 
-Therefore, if you are develop in a Linux environment, you just have to use Aspose.Slides as a dependency—and the entire API stays the same.
+Therefore, if you develop or work in a Linux environment, you just have to use Aspose.Slides as a dependency—and the entire API stays the same.
 
 **Potential problem**: The described setup has its cons. For example, if you develop in Windows and you have projects that use the original System.Drawing.Common, you might encounter conflicts with Aspose.Slides types.
 
