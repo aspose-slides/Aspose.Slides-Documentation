@@ -13,6 +13,12 @@ Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}} 
+
+PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set  `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
+
+{{% /alert %}} 
+
 ## **Convert PowerPoint to Markdown**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class to represent a presentation object.
