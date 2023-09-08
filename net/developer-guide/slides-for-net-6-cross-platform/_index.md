@@ -9,7 +9,7 @@ description: "Aspose.Slides for .NET 6 Cross Platform"
 
 1. Cross-platform Aspose.Slides for .NET6 can be used for .NET 7 and future .NET releases.
 
-2. **Prerequisite**: To use the cross-platform version Aspose.Slides for .NET 6, you need to download the Aspose.Slides package from the product [Release Page](https://releases.aspose.com/slides/net/). The Aspose.Slides on NuGet package is not suitable because it provides cross-platform support for only the .NET Standard.
+2. **Prerequisite**: To use the cross-platform version Aspose.Slides for .NET 6, you need to download the Aspose.Slides package from the product [Release Page](https://releases.aspose.com/slides/net/). The Aspose.Slides NuGet package is not suitable because it provides cross-platform support for only the .NET Standard.
 
 ## **Get and Use Cross-Platform Aspose.Slides**
 
@@ -25,7 +25,7 @@ description: "Aspose.Slides for .NET 6 Cross Platform"
 
    ![browse-console-app](browse-console-app.jpg)
 
-4. Place the remaining files that Aspose.Slides depend on in the output directory by adding appropriate instructions to the csproj project file this way:
+4. Place the remaining files (that Aspose.Slides depend on) in the output directory by adding instructions to the csproj project file this way:
 ```
 <ItemGroup>
 
@@ -59,7 +59,7 @@ description: "Aspose.Slides for .NET 6 Cross Platform"
 
 5. Pay attention to TargetPath. 
 
-   By default, `<CopyToOutputDirectory>` copies files while preserving their relative path, but we need the dependent libraries to go to the same folder where output is generated (where Aspose.Slides.dll is).
+   By default, `<CopyToOutputDirectory>` copies files while preserving their relative path, but we need the dependent libraries to go to the same folder where the output is generated (Aspose.Slides.dll location).
 
 ## Notes
 
@@ -82,7 +82,7 @@ Aspose.Slides cross-platform is a collection of libraries:
 | libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | Dependency: graphics subsystem implementation for Linux (x86/x64) |
 | libaspose.slides.drawing.capi_appleclang.dylib             | Dependency: graphics subsystem implementation for macOS      |
 
-Aspose.Slides.dll uses the library the system it is running on requires. The libraries are usually located in the same location as Aspose.Slides.dll in any file system.
+Aspose.Slides.dll uses the library that the system it is running on requires. The libraries are usually located in the same location as Aspose.Slides.dll in any file system.
 
 ### **Aspose.Slides Public API and Types from System.Drawing.Common. Solution to Name Conflicts Problem**
 
