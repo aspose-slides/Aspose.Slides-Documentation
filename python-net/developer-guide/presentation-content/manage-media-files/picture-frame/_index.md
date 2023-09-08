@@ -230,6 +230,34 @@ with slides.Presentation() as presentation:
 
 ```
 
+## **Lock Aspect Ratio**
+
+If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the *aspect_ratio_locked* property to set the *Lock Aspect Ratio* setting. 
+
+This Python code shows you how to lock a shape's aspect ratio: 
+
+```python
+from aspose.slides import SlideLayoutType, Presentation, ShapeType
+from aspose.pydrawing import Image
+
+with Presentation("pres.pptx") as pres:
+    layout = pres.layout_slides.get_by_type(SlideLayoutType.CUSTOM)
+    emptySlide = pres.slides.add_empty_slide(layout)
+    image = Image.from_file("image.png")
+    presImage = pres.images.add_image(image)
+
+    pictureFrame = emptySlide.shapes.add_picture_frame(ShapeType.RECTANGLE, 50, 150, presImage.width, presImage.height, presImage)
+
+    # set shape to have to preserve aspect ratio on resizing
+    pictureFrame.picture_frame_lock.aspect_ratio_locked = True
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
+
+{{% /alert %}}
+
 ## **Use StretchOff Property**
 
 Using the `StretchOffsetLeft`, `StretchOffsetTop`, `StretchOffsetRight` and `StretchOffsetBottom` properties from the [IPictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) class, you can specify a fill rectangle. 

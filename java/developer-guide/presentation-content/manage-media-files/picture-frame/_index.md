@@ -252,6 +252,37 @@ try {
 }
 ```
 
+## **Lock Aspect Ratio**
+
+If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) method to set the *Lock Aspect Ratio* setting. 
+
+This Java code shows you how to lock a shape's aspect ratio:
+
+```java
+Presentation pres = new Presentation("pres.pptx");
+try {
+    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
+    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
+    byte[] imageBytes = Files.readAllBytes(Paths.get("image.png"));
+    IPPImage presImage = pres.getImages().addImage(imageBytes);
+
+    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
+            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), presImage);
+
+    // set shape to have to preserve aspect ratio on resizing
+    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
+} catch(IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
+
+{{% /alert %}}
+
 ## **Use StretchOff Property**
 
 Using the [StretchOffsetLeft](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) and [StretchOffsetBottom](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) interface and [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IPictureFillFormat) class, you can specify a fill rectangle. 

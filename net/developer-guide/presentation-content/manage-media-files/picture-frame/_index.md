@@ -246,6 +246,33 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Lock Aspect Ratio**
+
+If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) property to set the *Lock Aspect Ratio* setting. 
+
+This C# code shows you how to lock a shape's aspect ratio:
+
+```c#
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
+    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
+    using Image image = Image.FromFile(Path.Combine("image.png"));
+    IPPImage presImage = pres.Images.AddImage(image);
+
+    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
+
+    // set shape to have to preserve aspect ratio on resizing
+    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+}
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
+
+{{% /alert %}}
+
 ## **Use StretchOff Property**
 
 Using the [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. 
