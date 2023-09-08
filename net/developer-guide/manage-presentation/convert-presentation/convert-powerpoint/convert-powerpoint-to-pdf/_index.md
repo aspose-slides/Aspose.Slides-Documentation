@@ -6,6 +6,7 @@ weight: 40
 url: /net/convert-powerpoint-to-pdf/
 keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, C#, Csharp, .NET"
 description: "Convert PowerPoint Presentation to PDF in C# or .NET. Save PowerPoint as PDF with compliance or accessibility standards"
+
 ---
 
 ## **Overview**
@@ -141,6 +142,50 @@ pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPer
 // Saves the presentation as a PDF
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
+
+### **Detect Font Substitutions**
+
+Aspose.Slides provides the [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) property under the [SaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
+
+This C# code shows you how to detect font substitutions: xxx 
+
+```c#
+public static void Main()
+{
+    LoadOptions loadOptions = new LoadOptions();
+    FontSubstSendsWarningCallback warningCallback = new FontSubstSendsWarningCallback();
+    loadOptions.WarningCallback = warningCallback;
+
+    using (Presentation pres = new Presentation("pres.pptx", loadOptions))
+    {
+    }
+}
+
+private class FontSubstSendsWarningCallback : IWarningCallback
+{
+    public ReturnAction Warning(IWarningInfo warning)
+    {
+        if (warning.WarningType == WarningType.CompatibilityIssue)
+            return ReturnAction.Continue;
+
+        if (warning.WarningType == WarningType.DataLoss &&
+            warning.Description.StartsWith("Font will be substituted"))
+        {
+            Console.WriteLine($"Font substitution warning: {warning.Description}");
+        }
+
+        return ReturnAction.Continue;
+    }
+}
+```
+
+{{%  alert color="primary"  %}} 
+
+For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+
+For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/net/font-substitution/) article.
+
+{{% /alert %}} 
 
 ## **Convert Selected Slides in PowerPoint to PDF**
 
