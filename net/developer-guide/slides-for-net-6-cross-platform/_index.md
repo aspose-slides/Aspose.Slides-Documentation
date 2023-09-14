@@ -3,8 +3,8 @@ title: Aspose.Slides for .NET 6 Cross Platform
 type: docs
 weight: 237
 url: /net/slides-for-net-6-cross-platform
-keywords: "Aspose.Slides", ".NET", "Cross platform"
-description: "Aspose.Slides for .NET 6 Cross Platform"
+keywords: Aspose.Slides, .NET, Cross platform
+description: Aspose.Slides for .NET 6 Cross Platform
 ---
 
 1. Cross-platform Aspose.Slides for .NET6 can be used for .NET 7 and future .NET releases.
