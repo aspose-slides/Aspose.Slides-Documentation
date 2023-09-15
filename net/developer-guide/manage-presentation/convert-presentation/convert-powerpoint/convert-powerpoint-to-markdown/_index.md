@@ -60,7 +60,6 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This C# code shows you how to convert a presentation containing images to markdown:
 
 ```c#
-[C#]
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions

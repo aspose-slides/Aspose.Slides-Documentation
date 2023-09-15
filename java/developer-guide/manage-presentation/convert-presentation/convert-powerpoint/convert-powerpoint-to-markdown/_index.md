@@ -24,17 +24,22 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class to represent a presentation object.
 2. Use the [Save ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)method to save the object as a markdown file.
 
-This Java code shows you how to convert PowerPoint to markdown: xxx
+This Java code shows you how to convert PowerPoint to markdown:
 
 ```java
-
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.save("pres.md", SaveFormat.Md);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## Convert PowerPoint to Markdown Flavor
 
 Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
 
-This Java code shows you how to convert PowerPoint to CommonMark: xxx
+This Java code shows you how to convert PowerPoint to CommonMark:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -55,27 +60,38 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.sl
 
 ### **Convert Images Sequentially**
 
-If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown: xxx
+If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown:
 
 ```java
-
+Presentation pres = new Presentation("pres.pptx");
+try {
+    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
+    markdownSaveOptions.setShowHiddenSlides(true);
+    markdownSaveOptions.setShowSlideNumber(true);
+    markdownSaveOptions.setFlavor(Flavor.Github);
+    markdownSaveOptions.setExportType(MarkdownExportType.Sequential);
+    markdownSaveOptions.setNewLineType(NewLineType.Windows);
+    pres.save("doc.md", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ### **Convert Images Visually**
 
 If you want the images to appear together in the resulting markdown, you have to choose the visual option.   In this case, images will be saved to the current directory of the application (and a relative path will be built for them in the markdown document), or you can specify your preferred path and folder name.
 
-This Java code demonstrates the operation: xxx
+This Java code demonstrates the operation:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
-    final String outPath = "c:/documents/";
+    final String outPath = "c:/documents";
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
     markdownSaveOptions.setExportType(MarkdownExportType.Visual);
     markdownSaveOptions.setImagesSaveFolderName("md-images");
     markdownSaveOptions.setBasePath(outPath);
-    pres.save(outPath + "pres.md", SaveFormat.Md, markdownSaveOptions);
+    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
 } finally {
     if (pres != null) pres.dispose();
 }
