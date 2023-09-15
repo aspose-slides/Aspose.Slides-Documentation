@@ -9,7 +9,7 @@ description: "Install Aspose.Slides for Node.js via Java in Windows, Linux or ma
 
 Aspose.Slides for Node.js via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Node.js` and `node-java` bridge are installed.
 
-## Install from NPM
+## **Install from NPM**
 
 You can easily install Aspose.Slides for Node.js via Java from [NPM](https://www.npmjs.com/) through this command:
 ```
