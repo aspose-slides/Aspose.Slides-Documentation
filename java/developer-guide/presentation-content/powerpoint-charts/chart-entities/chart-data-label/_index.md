@@ -172,10 +172,25 @@ try {
 
 When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
-This Java code shows you how to adjust the label location on a pie chart: xxx
+This Java code shows you how to adjust the label location on a pie chart:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
 
+    IChartSeriesCollection series = chart.getChartData().getSeries();
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
+
+    label.getDataLabelFormat().setShowValue(true);
+    label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+    label.setX(0.71f);
+    label.setY(0.04f);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)

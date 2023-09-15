@@ -179,7 +179,7 @@ using (Presentation pres = new Presentation())
     label.X = 0.71f;
     label.Y = 0.04f;
 
-    pres.Save(Path.Combine(TestSettings.TestOutPath, "pres.pptx"), SaveFormat.Pptx);
+    pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
