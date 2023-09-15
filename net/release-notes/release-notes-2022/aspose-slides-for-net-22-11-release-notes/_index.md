@@ -14,7 +14,7 @@ This page contains release notes for [ Aspose.Slides for .NET 22.11](https://ww
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESNET-43350|Convert Presentation to video|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/|
-|SLIDESNET-43457|RandomBar animation effects|Feature|https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype/|
+|SLIDESNET-43457|RandomBar animation effects|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/#supported-animations-and-effects|
 |SLIDESNET-43442|Animation of text|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/#video-effects|
 |SLIDESNET-43425|Getting effect sound settings from animated object|Feature|<https://docs.aspose.com/slides/net/shape-animation/>|
 |SLIDESNET-43424|Getting embedded audio file from hyperlinkClick settings|Feature|<https://docs.aspose.com/slides/net/manage-hyperlinks/>|

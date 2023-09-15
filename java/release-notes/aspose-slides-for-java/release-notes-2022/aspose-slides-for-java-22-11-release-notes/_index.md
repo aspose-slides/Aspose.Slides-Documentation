@@ -14,7 +14,7 @@ This page contains release notes for [Aspose.Slides for Java 22.11](https://rel
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
 |SLIDESNET-43442|Animation of text|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#video-effects|
-|SLIDESNET-43457|RandomBar animation effects|Feature|https://reference.aspose.com/slides/java/com.aspose.slides/effecttype/|
+|SLIDESNET-43457|RandomBar animation effects|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#supported-animations-and-effects|
 |SLIDESNET-43350|Convert Presentation to video|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/|
 |SLIDESNET-36753|Create video of animated slide|Feature|https://docs.aspose.com/slides/java/convert-powerpoint-to-video/|
 |SLIDESNET-24332|Rendering presentation transitions like video|Feature|https://docs.aspose.com/slides/net/convert-powerpoint-to-video/|
