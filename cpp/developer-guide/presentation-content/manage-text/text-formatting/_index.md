@@ -334,3 +334,22 @@ Aspose.Slides for C++ now supports, Setting custom rotation angle for textframe.
 In the example given below, we set the RotationAngle property.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CustomRotationAngleTextframe-CustomRotationAngleTextframe.cpp" >}}
+
+## **Set Proofing Language**
+
+Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) property (exposed by the [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
+
+This C++ code shows you how to set the proofing language for a PowerPoint: xxx
+
+```c++
+
+```
+
+## **Set Default Language**
+
+This C++ code shows you how to set the default language for an entire PowerPoint presentation: xxx
+
+```c++
+
+```
+

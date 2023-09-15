@@ -268,3 +268,21 @@ System.out.println("Application Name: " + app);
 System.out.println("Application Version: " + ver);
 ```
 
+## **Set Proofing Language**
+
+Aspose.Slides provides the LanguageId property (exposed by the PortionFormat class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
+
+This Java code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class? xxx
+
+```java
+
+```
+
+## **Set Default Language**
+
+This Java code shows you how to set the default language for an entire PowerPoint presentation: xxx
+
+```java
+
+```
+

@@ -588,3 +588,31 @@ presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
 
+## **Set Proofing Language**
+
+Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) property (exposed by the [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
+
+This C# code shows you how to set the proofing language for a PowerPoint: xxx
+
+```c#
+
+```
+
+## **Set Default Language**
+
+This C# code shows you how to set the default language for an entire PowerPoint presentation: 
+
+```c#
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.DefaultTextLanguage = "en-US";
+using (Presentation pres = new Presentation(loadOptions))
+{
+    // Adds a new rectangle shape with text
+    IAutoShape shp = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
+    shp.TextFrame.Text = "New Text";
+    
+    // Checks the first portion language
+    Console.WriteLine(shp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId);
+}
+```
+

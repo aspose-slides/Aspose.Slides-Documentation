@@ -144,3 +144,22 @@ props = info.read_document_properties()
 print(props.name_of_application)
 print(props.app_version)
 ```
+
+## **Set Proofing Language**
+
+Aspose.Slides provides the `Language_Id` property (exposed by the [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
+
+This Python code shows you how to set the proofing language for a PowerPoint: xxx
+
+```python
+
+```
+
+## **Set Default Language**
+
+This Python code shows you how to set the default language for an entire PowerPoint presentation: xxx
+
+```python
+
+```
+
