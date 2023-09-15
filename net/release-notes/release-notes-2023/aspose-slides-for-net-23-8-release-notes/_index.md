@@ -13,8 +13,8 @@ This page contains release notes for [ Aspose.Slides for .NET 23.8](https://www
 
 |**Key**|**Summary**|**Category**|**Related Documentation**|
 | :- | :- | :- | :- |
-|SLIDESNET-43701|How to use PortionFormat.AlternativeLanguageId property|Investigation|https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/alternativelanguageid/|
-|SLIDESNET-43983|.NET6: MacOS support|Feature||
+|SLIDESNET-43701|How to use PortionFormat.AlternativeLanguageId property|Investigation|https://docs.aspose.com/slides/net/presentation-properties/#set-default-language|
+|SLIDESNET-43983|.NET6: MacOS support|Feature|https://docs.aspose.com/slides/net/slides-for-net-6-cross-platform/|
 |SLIDESNET-43744|Slide Show / Set Up / Show Media Controls setting|Feature|https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/showmediacontrols/|
 |SLIDESNET-44070|Loading corrupted presentation throws PptxReadException|Enhancement|<https://docs.aspose.com/slides/net/save-presentation/>|
 |SLIDESNET-44031|Add an option to the ZipFile to read in recovery mode|Enhancement|<https://docs.aspose.com/slides/net/open-presentation/>|
