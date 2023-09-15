@@ -33,7 +33,7 @@ When you experience an issue with Aspose.Slides for Node.js via Java, follow the
 
 ## **Resources**
 
-This table list useful Aspose.Slides for Node.js via Java technical resources.
+This table lists useful Aspose.Slides for Node.js via Java technical resources.
 
 |**Resource**|**Description**|
 | :- | :- |
