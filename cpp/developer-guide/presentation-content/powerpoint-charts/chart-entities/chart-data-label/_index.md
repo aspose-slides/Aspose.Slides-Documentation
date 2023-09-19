@@ -208,10 +208,23 @@ This C++ code shows you how to set the label distance from a category axis when 
 
 When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
-This C++ code shows you how to adjust the label location on a pie chart: xxx
+This C++ code shows you how to adjust the label location on a pie chart:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
+System::SharedPtr<IChart> chart = pres->get_Slide(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 200.0f, 200.0f);
+
+System::SharedPtr<IChartSeriesCollection> series = chart->get_ChartData()->get_Series();
+System::SharedPtr<IDataLabel> label = series->idx_get(0)->get_Label(0);
+System::SharedPtr<IDataLabelFormat> dataLabelFormat = label->get_DataLabelFormat();
+
+dataLabelFormat->set_ShowValue(true);
+dataLabelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+label->set_X(0.71f);
+label->set_Y(0.04f);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
