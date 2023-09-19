@@ -59,10 +59,20 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.
 
 ### **Convert Images Sequentially**
 
-If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Python code shows you how to convert a presentation containing images to markdown: xxx
+If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Python code shows you how to convert a presentation containing images to markdown: 
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation("pres.pptx") as pres:
+    markdownSaveOptions = slides.export.MarkdownSaveOptions()
+    markdownSaveOptions.show_hidden_slides = True
+    markdownSaveOptions.show_slide_number = True
+    markdownSaveOptions.flavor = slides.export.Flavor.GITHUB
+    markdownSaveOptions.export_type = slides.export.MarkdownExportType.SEQUENTIAL
+    markdownSaveOptions.new_line_type = slides.export.NewLineType.WINDOWS
+    
+    pres.save("doc.md", [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ], slides.export.SaveFormat.MD, markdownSaveOptions)
 ```
 
 ### **Convert Images Visually**
