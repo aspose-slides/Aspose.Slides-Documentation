@@ -24,10 +24,11 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class to represent a presentation object.
 2. Use the [Save ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method)method to save the object as a markdown file.
 
-This C++ code shows you how to convert PowerPoint to markdown: xxx
+This C++ code shows you how to convert PowerPoint to markdown:
 
 ```c++
-
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+pres->Save(u"pres.md", SaveFormat::Md);
 ```
 
 ## Convert PowerPoint to Markdown Flavor
@@ -51,10 +52,20 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.
 
 ### **Convert Images Sequentially**
 
-If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This C++ code shows you how to convert a presentation containing images to markdown: xxx
+If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This C++ code shows you how to convert a presentation containing images to markdown:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
+System::SharedPtr<MarkdownSaveOptions> markdownSaveOptions = System::MakeObject<MarkdownSaveOptions>();
+
+markdownSaveOptions->set_ShowHiddenSlides(true);
+markdownSaveOptions->set_ShowSlideNumber(true);
+markdownSaveOptions->set_Flavor(Flavor::Github);
+markdownSaveOptions->set_ExportType(MarkdownExportType::Sequential);
+markdownSaveOptions->set_NewLineType(NewLineType::Windows);
+
+pres->Save(u"doc.md", System::MakeArray<int32_t>({1, 2, 3, 4, 5, 6, 7, 8, 9}), SaveFormat::Md, markdownSaveOptions);
 ```
 
 ### **Convert Images Visually**
