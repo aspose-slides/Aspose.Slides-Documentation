@@ -163,10 +163,24 @@ with slides.Presentation() as presentation:
 
 When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
-This Python code shows you how to adjust the label location on a pie chart: xxx
+This Python code shows you how to adjust the label location on a pie chart:
 
 ```python
+import aspose.slides as slides
 
+
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.PIE, 50, 50, 200, 200)
+
+    series = chart.chart_data.series
+    label = series[0].labels[0]
+
+    label.data_label_format.show_value = True
+    label.data_label_format.position = slides.charts.LegendDataLabelPosition.OUTSIDE_END
+    label.x = 0.71
+    label.y = 0.04
+
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
