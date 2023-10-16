@@ -35,7 +35,7 @@ This page contains release notes for [ Aspose.Slides for .NET 23.10](https://ww
 
 ## TiffOptions.BwConversionMode property and BlackWhiteConversionMode enum added ##
 
-The new TiffOptions.BwConversionMode specifies the algorithm for converting a color image into a black and white image. This option will applied only if CompressionType s set to TiffCompressionTypes.CCITT4 or TiffCompressionTypes.CCITT3.
+The new `TiffOptions.BwConversionMode` property allows you to specify the algorithm for converting a color image to a black and white image. This setting is applied only when  `CompressionType` is set to `TiffCompressionTypes.CCITT4` or `TiffCompressionTypes.CCITT3`.
 
 Example:
 
@@ -53,8 +53,8 @@ using (var presentation = new Presentation())
 ## InkBrush and InkTrace classes have been added ##
 
 New classes related to Ink management API have been added: 
-- InkTrace represents a trace element that is used to record the data captured by the digitizer. It contains a sequence of points.
-- InkBrush represents trace brush.
+- `InkTrace` represents a trace element that is used to record the data captured by the digitizer. It contains a sequence of points.
+- `InkBrush` represents trace brush.
 
 Example:
 
@@ -69,7 +69,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## Paragraph.GetLinesCount method has been added ##
 
-A new method of the Paragraph class gets the number of lines in a paragraph.
+The new `GetLinesCount` method of the `Paragraph` class allows you to get the number of lines in a paragraph.
 
 Example:
 
