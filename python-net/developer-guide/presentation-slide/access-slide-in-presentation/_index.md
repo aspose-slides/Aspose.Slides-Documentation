@@ -7,88 +7,92 @@ keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, 
 description: "Access PowerPoint slide by index, ID, or position in Python. Edit slide properties"
 ---
 
-## **Access Slides in Presentation**
-In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) associated with a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
+Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
-Aspose.Slides for Python via .NET provides a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class that can be used to find and access any desired slide present in the presentation. Currently, developers can access a slide in the following two ways.
+## **Access Slide by Index**
 
-1. Access Slide by Index.
-1. Access Slide by ID.
-### **Access Slide by Index**
-[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class represents a presentation file and exposes all slides in it as a [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) collection (that is a collection of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) objects). All of these slides can be accessed from this Slides collection using a slide index as shown below in the example.
+All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
-```py
+The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) objects). This Python code shows you how to access a slide through its index:
+
+```python
 import aspose.slides as slides
 
-# Create an instance of Presentation class
+# Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Obtain a slide's reference by its index
+    # Get a slide's reference through its index
     slide = presentation.slides[0]
 ```
 
+## **Access Slide by ID**
 
-### **Access Slide by ID**
-Every slide in the presentation has a unique ID associated with it. The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class exposes the [get_slide_by_id(id)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [get_slide_by_id(id)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method as shown below in the example.
+Each slide in a presentation has a unique ID associated with it. You can use the `get_slide_by_id(id)` method (exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class) to target that ID. This Python code shows you how to provide a valid slide ID and access that slide through the `get_slide_by_id(id)` method:
 
-```py
+```python
 import aspose.slides as slides
 
-# Create an instance of Presentation class
+# Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Getting Slide ID
+    # Gets a Slide ID
     id = presentation.slides[0].slide_id
-    # Accessing Slide by ID
+    # Accesses the slide through its ID
     slide = presentation.get_slide_by_id(id)
 ```
 
-
-
 ## **Change Slide Position**
-If you create a presentation using MS PowerPoint, you would have experienced that whenever you add a new slide to your presentation, it is appended at the end of the presentation by default. Using MS PowerPoint, you can drag a selected slide to any other position of the presentation. Aspose.Slides for Python via .NET also allows developers to change the position of a slide within the presentation. It is very simple to change the position of a slide in the presentation. Just follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtain the reference of a slide by using its Index.
-1. Change the SlideNumber of the referenced slide.
-1. Write the modified presentation file.
+Aspose.Slides allow you to change a slide position. For example, you can specify that the first slide should become the second slide.
 
-The example given below moves the slide (that was at position 1 to the second position and the slide that was at the second position, is moved to the first position and so on). In this way, all slides are adjusted automatically by Aspose.Slides for Python via .NET.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get the slide's reference (whose position you want to change) through its index
+1. Set a new position for the slide through the `slide_number` property. 
+1. Save the modified presentation.
 
-```py
+This Python code demonstrates an operation in which the slide in position 1 is moved to position 2:
+
+```python
 import aspose.slides as slides
 
-# Instantiate Presentation class to load the source presentation file
+# Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "ChangePosition.pptx") as pres:
-    # Get the slide whose position is to be changed
+    # Gets the slide whose position will be changed
     sld = pres.slides[0]
-    # Set the new position for the slide
+    # Sets the new position for the slide
     sld.slide_number = 2
-    # Write the presentation to disk
+    # Saves the modified presentation
     pres.save("Aspose_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
+The first slide became the second; the second slide became the first. When you change a slide's position, other slides are automatically adjusted.
 
 
 ## **Set Slide Number**
-Aspose.Slides for Python via .NET now supports, setting the Slide Number. In this topic, we will see with an example how to get and set the slide number property in Aspose.Slides. The new methods added to the Presentation allows to get or to set the number of the first slide in a presentation. When a new FirstSlideNumber value is specified all slide numbers are recalculated. In order to get or set the Slide Number, please follow the steps below:
 
-1. Create an instance of Presentation class.
+Using the `first_slide_number` property (exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get the slide number.
 1. Set the slide number.
-1. Write the presentation as a PPTX file.
+1. Save the modified presentation.
 
-In the example given below, we have get and set the slide number.
+This Python code demonstrates an operation where the first slide number is set to 10:
 
-```py
+```python
 import aspose.slides as slides
 
-# Instantiate a Presentation object that represents a presentation file
+# Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # Get the slide number
+    # Gets the slide number
     firstSlideNumber = presentation.first_slide_number
-    # Set the slide number
+    # Sets the slide number
     presentation.first_slide_number = 10
-    
+    # Saves the modified presentation
     presentation.save("Set_Slide_Number_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way: xxx
+
+```python
+
 ```
 

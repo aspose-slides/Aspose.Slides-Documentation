@@ -52,10 +52,10 @@ This C# code demonstrates an operation in which the slide in position 1 is moved
 // Instantiates a Presentation object that represents a presentation file
 using (Presentation pres = new Presentation("ChangePosition.pptx"))
 {
-    // Get the slide whose position is to be changed
+    // Gets the slide whose position will be changed
     ISlide sld = pres.Slides[0];
 
-    // Set the new position for the slide
+    // Sets the new position for the slide
     sld.SlideNumber = 2;
 
     // Saves the modified presentation
