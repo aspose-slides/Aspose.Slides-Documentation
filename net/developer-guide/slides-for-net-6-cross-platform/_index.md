@@ -11,7 +11,7 @@ description: Aspose.Slides for .NET 6 Cross Platform
 
 2. **Prerequisite**: To use the cross-platform version Aspose.Slides for .NET 6, you need to download the Aspose.Slides package from the product [Release Page](https://releases.aspose.com/slides/net/). The Aspose.Slides NuGet package is not suitable because it provides cross-platform support for only the .NET Standard.
 
-3. **Requiremens**: [System Requirements](https://docs.aspose.com/slides/net/system-requirements/). Please note that Aspose.Slides for .NET 6 and .NET 7 requires Linux x86_x64 with GLIBC 2.23 and higher. **CentOS** 7 GLIBC version is 2.14 and not supported.
+3. **Requiremens**: [System Requirements](https://docs.aspose.com/slides/net/system-requirements/). Please note that Aspose.Slides for .NET 6 and .NET 7 requires Linux x86_x64 with GLIBC 2.23 and higher. **CentOS** 7 GLIBC version is 2.14 and not supported. To use Slides under CentOS7 or other systems (like Alpine) that do not meet this requirement, please consider using Aspose.Slides for .NETStandard.
 
 ## **Get and Use Cross-Platform Aspose.Slides**
 
