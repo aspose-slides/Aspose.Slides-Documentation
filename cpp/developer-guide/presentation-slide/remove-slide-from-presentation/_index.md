@@ -3,36 +3,67 @@ title: Remove Slide from Presentation
 type: docs
 weight: 30
 url: /cpp/remove-slide-from-presentation/
+keywords: "Remove slide, Delete slide, PowerPoint, Presentation, C++, Aspose.Slides"
+description: "Remove slide from PowerPoint by reference or index in C++"
+
 ---
 
-
-Sometimes, developers may need to remove a slide from the presentation due to any reason. Aspose.Slides for C++ offers few methods to do so. In this topic, we will explore these methods to accomplish this task. We know that [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class in Aspose.Slides for C++ represents a presentation file. `Presentation` class encapsulates a [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
-
-1. Using Slide Reference
-1. Using Slide Index
+If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) object, you can specify the slide you want to remove. 
 
 ## **Remove Slide by Reference**
-To remove a slide using its reference, please follow the steps below:
 
-1. Create an instance of `Presentation` class.
-1. Obtain the reference of a slide by using its Id or Index.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference of the slide you want to remove through its ID or Index.
 1. Remove the referenced slide from the presentation.
-1. Write the modified presentation file.
+1. Save the modified presentation. 
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ManageSlides-RemoveSlideUsingReference.cpp" >}}
+This C++ code shows you how to remove a slide through its reference: 
+
+```c++
+	// The path to the documents directory
+	const String templatePath = L"../templates/AddSlides.pptx";
+	const String outPath = L"../out/RemoveSlidesByReference.pptx";
+
+	// Instantiates a Presentation object that represents a presentation file
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+
+	// Accesses a slide through its index in the slides collection
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	// Removes a slide through its reference
+	pres->get_Slides()->Remove(slide);
+
+	// Saves the modified presentation
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
 
 ## **Remove Slide by Index**
-To remove a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of `Presentation` class.
-1. Remove the slide from the presentation by using its index position.
-1. Write the modified presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Remove the slide from the presentation through its index position.
+1. Save the modified presentation. 
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ManageSlides-RemoveSlideUsingIndex.cpp" >}}
+This C++ code shows you how to remove a slide through its index: 
+
+```c++
+	// The path to the documents directory
+	const String templatePath = L"../templates/AddSlides.pptx";
+	const String outPath = L"../out/RemoveSlidesByID.pptx";
+
+	// Instantiates a Presentation object that represents a presentation file
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+
+	// Removes a slide through its slide index
+	pres->get_Slides()->RemoveAt(0);
+
+	// Saves the modified presentation
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This C++ code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method (from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This C++ code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -53,4 +84,6 @@ LowCode::Compress::RemoveUnusedMasterSlides(pres);
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
+
+
 
