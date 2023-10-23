@@ -20,7 +20,7 @@ import aspose.slides as slides
 
 # Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Get a slide's reference through its index
+    # Gets a slide's reference through its index
     slide = presentation.slides[0]
 ```
 

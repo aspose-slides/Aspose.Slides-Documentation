@@ -19,7 +19,7 @@ The Presentation class, representing a presentation file, exposes all slides as 
 // Instantiates a Presentation object that represents a presentation file
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
-// Get a slide's reference through its index
+// Gets a slide's reference through its index
 ISlide slide = presentation.Slides[0];
 ```
 
@@ -114,4 +114,3 @@ using (var presentation = new Presentation())
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
-

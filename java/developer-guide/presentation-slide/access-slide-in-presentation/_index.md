@@ -108,6 +108,3 @@ If you prefer to skip the first slide, you can start the numbering from the seco
 ```java
 
 ```
-
-
-
