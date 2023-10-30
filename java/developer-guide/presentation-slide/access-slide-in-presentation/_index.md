@@ -103,8 +103,28 @@ try {
 }
 ```
 
-If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way: xxx
+If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```java
+Presentation presentation = new Presentation();
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
+    // Sets the number for the first presentation slide
+    presentation.setFirstSlideNumber(0);
+
+    // Shows slide numbers for all slides
+    presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
+
+    // Hides the slide number for the first slide
+    presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
+
+    // Saves the modified presentation
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
