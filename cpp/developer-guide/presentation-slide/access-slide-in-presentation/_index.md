@@ -105,8 +105,27 @@ This C++ code demonstrates an operation where the first slide number is set to 1
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way: xxx
+If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```c++
+auto presentation = System::MakeObject<Presentation>();
 
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+auto slides = presentation->get_Slides();
+slides->AddEmptySlide(layoutSlide);
+slides->AddEmptySlide(layoutSlide);
+slides->AddEmptySlide(layoutSlide);
+
+// Sets the number for the first presentation slide
+presentation->set_FirstSlideNumber(0);
+
+// Shows slide numbers for all slides
+presentation->get_HeaderFooterManager()->SetAllSlideNumbersVisibility(true);
+
+// Hides the slide number for the first slide
+slides->idx_get(0)->get_HeaderFooterManager()->SetSlideNumberVisibility(false);
+
+// Saves the modified presentation
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
