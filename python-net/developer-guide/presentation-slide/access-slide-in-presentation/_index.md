@@ -90,9 +90,26 @@ with slides.Presentation(path + "HelloWorld.pptx") as presentation:
     presentation.save("Set_Slide_Number_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way: xxx
+If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    presentation.slides.add_empty_slide(layout_slide)
+    presentation.slides.add_empty_slide(layout_slide)
+    presentation.slides.add_empty_slide(layout_slide)
+
+    # Sets the number for the first presentation slide
+    presentation.first_slide_number = 0
+
+    # Shows slide numbers for all slides
+    presentation.header_footer_manager.set_all_slide_numbers_visibility(True)
+
+    # Hides the slide number for the first slide
+    presentation.slides[0].header_footer_manager.set_slide_number_visibility(False)
+
+    # Saves the modified presentation
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
-
