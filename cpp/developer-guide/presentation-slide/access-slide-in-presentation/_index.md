@@ -3,49 +3,129 @@ title: Access Slide in Presentation
 type: docs
 weight: 20
 url: /cpp/access-slide-in-presentation/
+keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  C++, CPP, Aspose.Slides"
+description: "Access PowerPoint slide by index, ID, or position in C++. Edit slide properties"
 ---
 
+Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
-## **Access Slide in Presentation**
-In this topic, we will introduce the possible ways to access a slide from a presentation file. Each slide in a presentation has a unique Id. On the other hand, all the slides in the presentation are arranged in the order of the slide position starting from 0, that is, slide at position 1 will be accessible through 0 index of [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) associated with a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object.
+## **Access Slide by Index**
 
-Aspose.Slides for C++ provides `Presentation` class that can be used to find and access any desired slide present in the presentation. Currently, developers can access a slide in following two ways.
+All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
-1. Access Slide by Index.
-1. Access Slide by ID.
+The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) objects). This C++ code shows you how to access a slide through its index: 
 
-### **Access Slide by Index**
-`Presentation` class represents a presentation file and exposes all slides in it as a [ISlideCollection](http://www.aspose.com/api/net/slides/aspose.slides/islidecollection) collection (that is a collection of [ISlide](http://www.aspose.com/api/net/slides/aspose.slides/islide) objects). All of these slides can be accessed from this Slides collection using a slide index as shown below in the example.
+```c++
+	// The path to the documents directory.
+	const String templatePath = u"../templates/AddSlides.pptx";
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessSlidebyIndex-AccessSlidebyIndex.cpp" >}}
+	// Instantiates the Presentation class
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-### **Access Slide by ID**
-Every slide in presentation has a unique ID associated with it. The `Presentation` class exposes the [GetSlideById(id)](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method that can be used to access the slide by ID. All you need to do is to provide the valid slide ID and access that slide using [GetSlideById(id)](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method as shown below in the example.
+	// Get a slide's reference through its index
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+```
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessSlidebyID-AccessSlidebyID.cpp" >}}
+## **Access Slide by ID**
 
+Each slide in a presentation has a unique ID associated with it. You can use the [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) method (exposed by the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class) to target that ID. This C++ code shows you how to provide a valid slide ID and access that slide through the [GetSlideById()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/getslidebyid/) method:
+
+```c++
+	// The path to the documents directory.
+	const String templatePath = u"../templates/AddSlides.pptx";
+
+	// Instantiates the Presentation class
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+
+	// Gets a slide ID
+	int id = pres->get_Slides()->idx_get(0)->get_SlideId();
+
+	// Accesses the slide through its ID
+	SharedPtr<IBaseSlide> slide = pres->GetSlideById(id);
+```
 
 ## **Change Slide Position**
-If you create a presentation using MS PowerPoint, you would have experienced that whenever you add a new slide to your presentation, it is appended at the end of the presentation by default. Using MS PowerPoint, you can drag a selected slide to any other position of the presentation. Aspose.Slides for C++ also allows developers to change the position of a slide within the presentation. It's very simple to change the position of a slide in the presentation. Just follow the steps below:
 
-1. Create an instance of `Presentation` class.
-1. Obtain the reference of a slide by using its Index.
-1. Change the SlideNumber of the referenced slide.
-1. Write the modified presentation file.
+Aspose.Slides allow you to change a slide position. For example, you can specify that the first slide should become the second slide.
 
-The example given below moves the slide (that was at position 1 to the second position and the slide that was at second position, is moved to the first position and so on). In this way, all slides are adjusted automatically by Aspose.Slides for C++.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get the slide's reference (whose position you want to change) through its index
+1. Set a new position for the slide through the [set_SlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/set_slidenumber/) property. 
+1. Save the modified presentation.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangePosition-ChangePosition.cpp" >}}
+This C++ code demonstrates an operation in which the slide in position 1 is moved to position 2:
+
+```c++
+	// The path to the documents directory.
+	const String templatePath = u"../templates/AddSlides.pptx";
+	const String outPath = u"../out/ChangeSlidePosition.pptx";
+
+	// Instantiates the Presentation class
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+
+	// Gets the slide whose position will be changed
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	// Sets the new position for the slide
+	slide->set_SlideNumber(2);
+
+	// Saves the modified presentation
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+The first slide became the second; the second slide became the first. When you change a slide's position, other slides are automatically adjusted.
 
 
 ## **Set Slide Number**
-Aspose.Slides for C++ now supports, setting the Slide Number. In this topic, we will see with an example how to get and set the slide number property in Aspose.Slides. The new methods added to `Presentation` allows to get or to set the number of the first slide in a presentation. When a new [FirstSlideNumber](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/firstslidenumber) value is specified all slide numbers are recalculated. In order to get or set the Slide Number, please follow the steps below:
 
-1. Create an instance of `Presentation` class.
+Using the [set_FirstSlideNumber()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) property (exposed by the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 1. Get the slide number.
 1. Set the slide number.
-1. Write the presentation as a PPTX file.
+1. Save the modified presentation.
 
-In the example given below, we have get and set the slide number.
+This C++ code demonstrates an operation where the first slide number is set to 10: 
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetSlideNumber-SetSlideNumber.cpp" >}}
+```c++
+	// The path to the documents directory.
+	const String outPath = u"../out/SetSlideNumber_out.pptx";
+	const String templatePath = u"../templates/AccessSlides.pptx";
+
+	//Instantiates the Presentation class
+	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+
+	// Gets the slide number
+	int firstSlideNumber = pres->get_FirstSlideNumber();
+
+	// Sets the slide number
+	pres->set_FirstSlideNumber(2);
+	
+	// Saves the modified presentation
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
+
+```c++
+auto presentation = System::MakeObject<Presentation>();
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+auto slides = presentation->get_Slides();
+slides->AddEmptySlide(layoutSlide);
+slides->AddEmptySlide(layoutSlide);
+slides->AddEmptySlide(layoutSlide);
+
+// Sets the number for the first presentation slide
+presentation->set_FirstSlideNumber(0);
+
+// Shows slide numbers for all slides
+presentation->get_HeaderFooterManager()->SetAllSlideNumbersVisibility(true);
+
+// Hides the slide number for the first slide
+slides->idx_get(0)->get_HeaderFooterManager()->SetSlideNumberVisibility(false);
+
+// Saves the modified presentation
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+```
