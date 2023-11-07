@@ -3,61 +3,56 @@ title: Remove Slide from Presentation
 type: docs
 weight: 30
 url: /java/remove-slide-from-presentation/
+keywords: "Remove slide, Delete slide, PowerPoint, Presentation, Java, Aspose.Slides"
+description: "Remove slide from PowerPoint by reference or index in Java"
+
 ---
 
-
-## **Overview**
-{{% alert color="primary" %}} 
-
-Sometimes, developers may need to remove a slide from the presentation due to any reason. Aspose.Slides for Java offers few methods to do so. In this topic, we will explore these methods to accomplish this task.
-
-{{% /alert %}} 
-
-We know that [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class in Aspose.Slides for Java represents a presentation file. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class encapsulates a [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this [**Slides**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection in two ways:
-
-1. Using Slide Reference
-1. Using Slide Index
+If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) object, you can specify the slide you want to remove. 
 
 ## **Remove Slide by Reference**
-To remove a slide using its reference, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain the reference of a slide by using its Id or Index
-1. Remove the referenced slide from the presentation
-1. Write the modified presentation file
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference of the slide you want to remove through its ID or Index.
+1. Remove the referenced slide from the presentation.
+1. Save the modified presentation. 
+
+This Java code shows you how to remove a slide through its reference:
 
 ```java
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Accessing a slide using its index in the slides collection
+    // Accesses a slide through its index in the slides collection
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Removing a slide using its reference
+    // Removes a slide through its reference
     pres.getSlides().remove(slide);
     
-    // Writing the presentation file
+    // Saves the modified presentation
     pres.save("modified.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Remove Slide by Index**
-To remove a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Remove the slide from the presentation by using its index position
-1. Write the modified presentation file
+## **Remove Slide by Index**
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Remove the slide from the presentation through its index position.
+1. Save the modified presentation. 
+
+This Java code shows you how to remove a slide through its index:
 
 ```java
-// Instantiate a Presentation object that represents a presentation file
+// Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Removing a slide using its slide index
+    // Removes a slide through its slide index
     pres.getSlides().removeAt(0);
     
-    // Writing the presentation file
+    // Saves the modified presentation
     pres.save("modified.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -66,7 +61,7 @@ try {
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
