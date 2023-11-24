@@ -355,4 +355,4 @@ Then the generated frames can be compiled to produce a video. See the [Convert P
 | **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
 | **Rotate** | ![not supported](x.png) | ![supported](v.png) |
 | **Orbit** | ![not supported](x.png) | ![supported](v.png) |
-| **Fly Through ** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
