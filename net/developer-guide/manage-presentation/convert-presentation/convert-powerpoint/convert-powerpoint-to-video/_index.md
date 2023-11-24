@@ -292,3 +292,67 @@ Then the generated frames can be compiled to produce a video. See the [Convert P
 | **Loops** | ![supported](v.png) | ![supported](v.png) |
 | **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
+## **Supported Slide Transition Effects**
+
+**Subtle**:
+
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Morph** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Push** | ![supported](v.png) | ![supported](v.png) |
+| **Pull** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![not supported](x.png) | ![supported](v.png) |
+| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
+| **Cover** | ![supported](v.png) | ![supported](v.png) |
+| **Flash** | ![supported](v.png) | ![supported](v.png) |
+| **Strips** | ![supported](v.png) | ![supported](v.png) |
+
+**Exciting**:
+
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
+| **Drape** | ![not supported](x.png) | ![supported](v.png) |
+| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
+| **Wind** | ![not supported](x.png) | ![supported](v.png) |
+| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
+| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
+| **Crush** | ![not supported](x.png) | ![supported](v.png) |
+| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
+| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
+| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
+| **Origami** | ![not supported](x.png) | ![supported](v.png) |
+| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
+| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
+| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
+| **Clock** | ![supported](v.png) | ![supported](v.png) |
+| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
+| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
+| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
+| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
+| **Shred** | ![not supported](x.png) | ![supported](v.png) |
+| **Switch** | ![not supported](x.png) | ![supported](v.png) |
+| **Flip** | ![not supported](x.png) | ![supported](v.png) |
+| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
+| **Cube** | ![not supported](x.png) | ![supported](v.png) |
+| **Doors** | ![not supported](x.png) | ![supported](v.png) |
+| **Box** | ![not supported](x.png) | ![supported](v.png) |
+| **Comb** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Random** | ![not supported](x.png) | ![supported](v.png) |
+
+**Dynamic Content**:
+
+| Animation Type | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Pan** | ![not supported](x.png) | ![supported](v.png) |
+| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
+| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
+| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
+| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
