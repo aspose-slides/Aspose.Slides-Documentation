@@ -923,6 +923,18 @@ try {
 }
 ```
 
+### **Creating Combination Charts**
+
+A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+
+![combination-chart-ppt](combination-chart-ppt.png)
+
+This Java code shows you how to create a combination chart in PowerPoint:
+
+```java
+
+```
+
 ## **Updating Charts**
 
 <a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |

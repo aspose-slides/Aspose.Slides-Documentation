@@ -922,6 +922,18 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
+### **Creating Combination Charts**
+
+A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+
+![combination-chart-ppt](combination-chart-ppt.png)
+
+This C++ code shows you how to create a combination chart in PowerPoint:
+
+```c++
+
+```
+
 ## **Updating Charts**
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class that represents the presentation containing the chart.

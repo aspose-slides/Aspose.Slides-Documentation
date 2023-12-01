@@ -790,7 +790,17 @@ with slides.Presentation() as pres:
     pres.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Creating Combination Charts**
 
+A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+
+![combination-chart-ppt](combination-chart-ppt.png)
+
+This Python code shows you how to create a combination chart in PowerPoint:
+
+```python
+
+```
 
 ## **Updating Charts**
 
