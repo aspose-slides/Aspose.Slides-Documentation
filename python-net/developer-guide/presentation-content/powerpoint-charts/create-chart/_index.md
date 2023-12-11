@@ -796,10 +796,75 @@ A combination chart (or combo chart) is a chart that combines two or more charts
 
 ![combination-chart-ppt](combination-chart-ppt.png)
 
-This Python code shows you how to create a combination chart in PowerPoint: xxx
+This Python code shows you how to create a combination chart in PowerPoint:
 
 ```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
+
+def create_combo_chart():
+    pres = slides.Presentation()
+    chart = create_chart(pres.slides[0])
+    add_first_series_to_chart(chart)
+    add_second_series_to_chart(chart)
+    pres.save("combo-chart.pptx", slides.export.SaveFormat.PPTX)
+
+
+def create_chart(slide):
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
+
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Caetegoty 1"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Caetegoty 2"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Caetegoty 3"))
+
+    series = chart.chart_data.series[0]
+
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+
+    series = chart.chart_data.series[1]
+
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+
+    return chart
+
+
+def add_first_series_to_chart(chart):
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+
+    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), charts.ChartType.SCATTER_WITH_SMOOTH_LINES)
+
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 0, 1, 3), workbook.get_cell(worksheet_index, 0, 2, 5))
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 3, 10), workbook.get_cell(worksheet_index, 1, 4, 13))
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 20), workbook.get_cell(worksheet_index, 2, 4, 15))
+
+    series.plot_on_second_axis = True
+
+def add_second_series_to_chart(chart):
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+
+    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 5, "Series 4"), charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS)
+
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 3, 5), workbook.get_cell(worksheet_index, 1, 4, 2))
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 5, 10), workbook.get_cell(worksheet_index, 1, 6, 7))
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 5, 15), workbook.get_cell(worksheet_index, 2, 6, 12))
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 5, 12), workbook.get_cell(worksheet_index, 3, 6, 9))
+
+    series.plot_on_second_axis = True
 ```
 
 ## **Updating Charts**
