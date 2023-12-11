@@ -928,10 +928,90 @@ A combination chart (or combo chart) is a chart that combines two or more charts
 
 ![combination-chart-ppt](combination-chart-ppt.png)
 
-This C++ code shows you how to create a combination chart in PowerPoint: xxx
+This C++ code shows you how to create a combination chart in PowerPoint:
 
 ```c++
+void CreateComboChart()
+{
+    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+    System::SharedPtr<IChart> chart = CreateChart(pres->get_Slide(0));
+    AddFirstSeriesToChart(chart);
+    AddSecondSeriesToChart(chart);
+    pres->Save(u"combo-chart.pptx", SaveFormat::Pptx);
+}
 
+System::SharedPtr<IChart> CreateChart(System::SharedPtr<ISlide> slide)
+{
+    System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 400.0f);
+    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
+    System::SharedPtr<IChartSeriesCollection> seriesCollection = chartData->get_Series();
+    System::SharedPtr<IChartCategoryCollection> categories = chartData->get_Categories();
+
+    seriesCollection->Clear();
+    categories->Clear();
+
+    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
+    const int32_t worksheetIndex = 0;
+
+    seriesCollection->Add(workbook->GetCell(worksheetIndex, 0, 1, System::ExplicitCast<System::Object>(u"Series 1")), chart->get_Type());
+    seriesCollection->Add(workbook->GetCell(worksheetIndex, 0, 2, System::ExplicitCast<System::Object>(u"Series 2")), chart->get_Type());
+
+    categories->Add(workbook->GetCell(worksheetIndex, 1, 0, System::ExplicitCast<System::Object>(u"Caetegoty 1")));
+    categories->Add(workbook->GetCell(worksheetIndex, 2, 0, System::ExplicitCast<System::Object>(u"Caetegoty 2")));
+    categories->Add(workbook->GetCell(worksheetIndex, 3, 0, System::ExplicitCast<System::Object>(u"Caetegoty 3")));
+
+    System::SharedPtr<IChartDataPointCollection> dataPoints = chartData->get_ChartSeries(0)->get_DataPoints();
+
+    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, System::ExplicitCast<System::Object>(20)));
+    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, System::ExplicitCast<System::Object>(50)));
+    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, System::ExplicitCast<System::Object>(30)));
+
+    dataPoints = chartData->get_ChartSeries(1)->get_DataPoints();
+
+    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, System::ExplicitCast<System::Object>(30)));
+    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, System::ExplicitCast<System::Object>(10)));
+    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, System::ExplicitCast<System::Object>(60)));
+
+    return chart;
+}
+
+void AddFirstSeriesToChart(System::SharedPtr<IChart> chart)
+{
+    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
+    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
+    const int32_t worksheetIndex = 0;
+
+    System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 3, System::ExplicitCast<System::Object>(u"Series 3")), ChartType::ScatterWithSmoothLines);
+    System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 0, 1, System::ExplicitCast<System::Object>(3)), workbook->GetCell(worksheetIndex, 0, 2, System::ExplicitCast<System::Object>(5)));
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(13)));
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 2, 3, System::ExplicitCast<System::Object>(20)), workbook->GetCell(worksheetIndex, 2, 4, System::ExplicitCast<System::Object>(15)));
+
+    series->set_PlotOnSecondAxis(true);
+}
+
+void AddSecondSeriesToChart(System::SharedPtr<IChart> chart)
+{
+    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
+    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
+    const int32_t worksheetIndex = 0;
+
+    System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 5, System::ExplicitCast<System::Object>(u"Series 4")), ChartType::ScatterWithStraightLinesAndMarkers);
+    System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(5)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(2)));
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 5, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 6, System::ExplicitCast<System::Object>(7)));
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 2, 5, System::ExplicitCast<System::Object>(15)), workbook->GetCell(worksheetIndex, 2, 6, System::ExplicitCast<System::Object>(12)));
+
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 3, 5, System::ExplicitCast<System::Object>(12)), workbook->GetCell(worksheetIndex, 3, 6, System::ExplicitCast<System::Object>(9)));
+
+    series->set_PlotOnSecondAxis(true);
+}
 ```
 
 ## **Updating Charts**
