@@ -929,7 +929,7 @@ A combination chart (or combo chart) is a chart that combines two or more charts
 
 ![combination-chart-ppt](combination-chart-ppt.png)
 
-This Java code shows you how to create a combination chart in PowerPoint:
+This Java code shows you how to create a combination chart in PowerPoint: xxx
 
 ```java
 
