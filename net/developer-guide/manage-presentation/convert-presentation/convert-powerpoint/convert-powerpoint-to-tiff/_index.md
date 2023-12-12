@@ -33,7 +33,7 @@ using (Presentation presentation = new Presentation("DemoFile.pptx"))
 
 ## **Convert PowerPoint to Black-and-White TIFF**
 
-In Aspose.Slides 23.10, Aspose.Slides added a new property (TiffOptions.BwConversionMode) to the TiffOptions class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/compressiontype/) property is set to `CCITT4` or `CCITT3`.
+In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/bwconversionmode/)) to the [TiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/compressiontype/) property is set to `CCITT4` or `CCITT3`.
 
 This C# code shows you how to convert a colored slide or image to black-and-white TIFF:
 
