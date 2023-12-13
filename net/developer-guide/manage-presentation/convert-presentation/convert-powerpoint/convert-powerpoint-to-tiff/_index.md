@@ -5,6 +5,7 @@ weight: 90
 url: /net/convert-powerpoint-to-tiff/
 keywords: "Convert PowerPoint Presentation, PowerPoint to TIFF, PPT to TIFF, PPTX to TIFF, C#, Csharp, .NET, Aspose.Slides"
 description: "Convert PowerPoint presentation to TIFF in C# or .NET."
+
 ---
 
 TIFF (**Tagged Image File Format**) is a lossless raster and high-quality image format. Professionals use TIFF for their design, photography, and desktop publishing purposes. For example, if you want to preserve layers and settings in your design or image, you may want to save your work as a TIFF image file. 
@@ -18,6 +19,7 @@ You may want to check out Aspose's [FREE PowerPoint to Poster converter](https:/
 {{% /alert %}}
 
 ## **Convert PowerPoint to TIFF**
+
 Using the [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) method exposed by the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the slides' default size. 
 
 This C# code shows you how to convert PowerPoint to TIFF:
@@ -92,12 +94,13 @@ using (Presentation pres = new Presentation("Convert_Tiff_Custom.pptx"))
 
 
 ## **Convert PowerPoint to TIFF with Custom Image Pixel Format**
+
 Using the [PixelFormat](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/pixelformat/) property under the [TiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions) class, you can specify your preferred pixel format for the resulting TIFF image. 
 
 This C# code shows you how to convert PowerPoint to TIFF image with custom pixel format:
 
 ```c#
-// Instantiate a Presentation object that represents a Presentation file
+// Instantiates a Presentation object that represents a Presentation file
 using (Presentation presentation = new Presentation("DemoFile.pptx"))
 {
     TiffOptions options = new TiffOptions();
@@ -112,7 +115,7 @@ using (Presentation presentation = new Presentation("DemoFile.pptx"))
     Format32bppArgb; // 32 bits per pixel, ARGB.
     */
 
-    // Save the presentation to TIFF with specified image size
+    // Saves the presentation to TIFF with specified image size
     presentation.Save("Tiff_With_Custom_Image_Pixel_Format_out.tiff", SaveFormat.Tiff, options);
 }
 ```
