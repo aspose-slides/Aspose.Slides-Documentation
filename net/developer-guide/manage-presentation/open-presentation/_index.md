@@ -1,18 +1,18 @@
 ---
-title: Open Presentation in .NET
+title: Open Presentation in C#
 linktitle: Open Presentation
 type: docs
 weight: 20
 url: /net/open-presentation/
 keywords: "Open PowerPoint, PPTX, PPT, Open Presentation, Load Presentation, C#, Csharp, .NET"
-description: "Open PowerPoint Presentation and save into many supported formats using C# and perform conversions e.g. ppt to pptx, pptx to pdf, odp to ppt etc."
+description: "Open or load Presentation PPT, PPTX, ODP in C# or .NET"
 ---
 
 Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you to open existing presentations. After you load a presentation, you can get information about the presentation, edit the presentation (content on its slides), add new slides or remove existing ones, etc. 
 
 ## Open Presentation
 
-To open an existing presentation, you simply have to instantiate the Presentation class and pass the file path (of the presentation you want to open) to its contructor. 
+To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and pass the file path (to the presentation you want to open) to its contructor. 
 
 This C# code shows you how to open a presentation and also find out the number of slides it contains: 
 
@@ -24,8 +24,21 @@ Presentation pres = new Presentation("OpenPresentation.pptx");
 System.Console.WriteLine(pres.Slides.Count.ToString());
 ```
 
+## **Open Password-Protected Presentation**
+
+When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) property (from the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This C# code demonstrates the operation:
+
+```c#
+	LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
+	using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
+	{
+	  // Do some work with the decrypted presentation
+	}
+```
+
 ## Open Large Presentation
-Aspose.Slides provides options—the [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) property in particular—under the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to allow you to load large presentations. 
+
+Aspose.Slides provides options (the [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) property in particular) under the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to allow you to load large presentations. 
 
 This C# demonstrates an operation in which a large presentation (say 2gb in size) is loaded:
 
@@ -113,7 +126,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 <a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and pass the file you want to open. 
-2. Save the _Presentation_ to any format that [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) formats. 
+2. Save the Presentation.
 
 ```c#
 // Loads any supported presentation e.g ppt, pptx, odp
