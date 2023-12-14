@@ -105,6 +105,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 
 ## **Set Size and Type for Slide Layout**
+
 To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type) and [Size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/size) properties (from the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class). This C# demonstrates the operation:
 
 ```c#
@@ -125,6 +126,7 @@ auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 
 
 ## **Set Footer Visibility Inside Slide**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Set the slide footer placeholder to visible. 
@@ -157,6 +159,7 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
 ```
 
 ## **Set Child Footer Visibility Inside Slide**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference for the master slide through its index. 
 1. Set the master slide and all child footer placeholders to visible.
@@ -175,11 +178,12 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
     headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // Method SetDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
 
     headerFooterManager.SetFooterAndChildFootersText("Footer text"); // Method SetFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // Method SetDateTimeAndChildDateTimesText is used for set text for the master slide and all child date-time placeholders
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // Method SetDateTimeAndChildDateTimesText is used to set text for the master slide and all child date-time placeholders
 }
 ```
 
 ## **Set Slide Size with Respect to Content Scaling**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation containing the slide whose size you want to set. 
 1. Create another instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to generate a new presentation. 
 1. Get the slide's reference (from the first presentation) through its index.
@@ -189,7 +193,7 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
 
 This C# demonstrates the operation: 
 
-XXX - Discuss issue with Yuri - the auxPresentation object is not used. 
+XXX
 
 ```c#
 // Instantiates a Presentation object that represents a presentation file 
@@ -200,13 +204,14 @@ ISlide slide = presentation.Slides[0];
 
 // Sets the slide size for the generated presentations to that of the source
 presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used to set slide size with scale content to ensure fit
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used to set slide size with maximize size of content
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used to set slide size with maximum size of content
            
 // Saves presentation
 auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Set Page Size when Generating PDF**
+
 Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
 
 Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This C# code shows you how to use the [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/type/) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
