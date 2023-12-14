@@ -38,10 +38,15 @@ presentation->Save(dataDir + u"Tiffoutput_out.tiff", SaveFormat::Tiff);
 
 In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/)) to the [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) property is set to `CCITT4` or `CCITT3`.
 
-This C++ code shows you how to convert a colored slide or image to black-and-white TIFF: xxx
+This C++ code shows you how to convert a colored slide or image to black-and-white TIFF:
 
 ```c++
+System::SharedPtr<TiffOptions> tiffOptions = System::MakeObject<TiffOptions>();
+tiffOptions->set_CompressionType(TiffCompressionTypes::CCITT4);
+tiffOptions->set_BwConversionMode(BlackWhiteConversionMode::Dithering);
 
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"sample.pptx");
+presentation->Save(u"output.tiff", SaveFormat::Tiff, tiffOptions);
 ```
 
 ## **Convert PowerPoint to TIFF with Custom Size**

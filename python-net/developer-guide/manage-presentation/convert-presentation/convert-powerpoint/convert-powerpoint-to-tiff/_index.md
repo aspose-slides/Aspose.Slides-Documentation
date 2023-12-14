@@ -36,10 +36,17 @@ presentation.save("Tiffoutput_out.tiff", slides.export.SaveFormat.TIFF)
 
 In Aspose.Slides 23.10, Aspose.Slides added a new property `bw_conversion_mode` to the [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the `compression_type` property is set to `CCITT4` or `CCITT3`.
 
-This Python code shows you how to convert a colored slide or image to black-and-white TIFF: xxx
+This Python code shows you how to convert a colored slide or image to black-and-white TIFF:
 
 ```python
+import aspose.slides as slides
 
+tiff_options = slides.export.TiffOptions()
+tiff_options.compression_type = slides.export.TiffCompressionTypes.CCITT4
+tiff_options.bw_conversion_mode = slides.export.BlackWhiteConversionMode.DITHERING
+
+presentation = slides.Presentation("sample.pptx")
+presentation.save("output.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
 ## **Convert PowerPoint to TIFF with Custom Size**
