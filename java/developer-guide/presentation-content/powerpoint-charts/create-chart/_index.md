@@ -929,10 +929,99 @@ A combination chart (or combo chart) is a chart that combines two or more charts
 
 ![combination-chart-ppt](combination-chart-ppt.png)
 
-This Java code shows you how to create a combination chart in PowerPoint: xxx
+This Java code shows you how to create a combination chart in PowerPoint:
 
 ```java
+private static void createComboChart()
+{
+    Presentation pres = new Presentation();
+    {
+        IChart chart = createChart(pres.getSlides().get_Item(0));
+        addFirstSeriesToChart(chart);
+        addSecondSeriesToChart(chart);
+        pres.save("combo-chart.pptx", SaveFormat.Pptx);
+    }
+}
 
+private static IChart createChart(ISlide slide)
+{
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    final int worksheetIndex = 0;
+
+    chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 2, "Series 2"), chart.getType());
+
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Caetegoty 3"));
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 20));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 50));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 30));
+
+    series = chart.getChartData().getSeries().get_Item(1);
+
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 30));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 10));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 60));
+
+    return chart;
+}
+
+private static void addFirstSeriesToChart(IChart chart)
+{
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    final int worksheetIndex = 0;
+
+    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 3, "Series 3"), ChartType.ScatterWithSmoothLines);
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 0, 1, 3),
+            workbook.getCell(worksheetIndex, 0, 2, 5));
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 1, 3, 10),
+            workbook.getCell(worksheetIndex, 1, 4, 13));
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 2, 3, 20),
+            workbook.getCell(worksheetIndex, 2, 4, 15));
+
+    series.setPlotOnSecondAxis(true);
+}
+
+private static void addSecondSeriesToChart(IChart chart)
+{
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    final int worksheetIndex = 0;
+
+    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 5, "Series 4"),
+            ChartType.ScatterWithStraightLinesAndMarkers);
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 1, 3, 5),
+            workbook.getCell(worksheetIndex, 1, 4, 2));
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 1, 5, 10),
+            workbook.getCell(worksheetIndex, 1, 6, 7));
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 2, 5, 15),
+            workbook.getCell(worksheetIndex, 2, 6, 12));
+
+    series.getDataPoints().addDataPointForScatterSeries(
+            workbook.getCell(worksheetIndex, 3, 5, 12),
+            workbook.getCell(worksheetIndex, 3, 6, 9));
+
+    series.setPlotOnSecondAxis(true);
+}
 ```
 
 ## **Updating Charts**

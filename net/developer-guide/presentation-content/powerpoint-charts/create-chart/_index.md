@@ -844,8 +844,8 @@ private static void AddFirstSeriesToChart(IChart chart)
         workbook.GetCell(worksheetIndex, 1, 4, 13));
 
     series.DataPoints.AddDataPointForScatterSeries(
-        xValue: workbook.GetCell(worksheetIndex, 2, 3, 20),
-        yValue: workbook.GetCell(worksheetIndex, 2, 4, 15));
+        workbook.GetCell(worksheetIndex, 2, 3, 20),
+        workbook.GetCell(worksheetIndex, 2, 4, 15));
 
     series.PlotOnSecondAxis = true;
 }
