@@ -3,15 +3,19 @@ title: Extracting Images from Presentation shapes
 type: docs
 weight: 90
 url: /python-net/extracting-images-from-presentation-shapes/
+keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, Python, Aspose.Slides for Python"
+description: "Extract images from PowerPoint presentation in Python"
 ---
 
 {{% alert color="primary" %}} 
 
-Images are added in slide background and shapes. Sometimes, it is required to extract the images added in the presentation shapes. The images are added in **PPImageCollection** inside Presentation Document Object Model (DOM). This article covers the feature of accessing the images in presentation shape, extracting them from presentation collection and saving them in a file.
+Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/), which is a collection of [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) objects. 
+
+This article explains how you can extract the images added to presentations. 
 
 {{% /alert %}} 
-## **Extracting images from Presentation Shapes**
-In Aspose.Slides for Python via .NET, images can be added to slide shape and slide background. The images are added in **PPImageCollection** of the presentation. In this example we will traverse through each shape inside every slide of presentation and see if there is any image added in slide shape. If the image will be found for any shape, we will extract that and will save it in file.The following code snippet will serve the purpose.
+
+To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. XXX 
 
 ```py
 import aspose.pydrawing as draw
@@ -76,6 +80,3 @@ with slides.Presentation("pres.pptx") as pres:
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```
-
-
-
