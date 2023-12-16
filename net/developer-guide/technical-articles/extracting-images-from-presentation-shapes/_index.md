@@ -3,6 +3,8 @@ title: Extracting Images from Presentation shapes
 type: docs
 weight: 90
 url: /net/extracting-images-from-presentation-shapes/
+keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Extract images from PowerPoint presentation in C# or .NET"
 ---
 
 {{% alert color="primary" %}} 
@@ -13,7 +15,7 @@ This article explains how you can extract the images added to presentations.
 
 {{% /alert %}} 
 
-To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. 
+To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. XXX 
 
 ```c#
 public static void Run() {
