@@ -11,7 +11,7 @@ Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you
 
 ## Open Presentation
 
-To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its contructor. 
+To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its constructor. 
 
 This Python code shows you how to open a presentation and also find out the number of slides it contains: 
 
@@ -36,7 +36,7 @@ When you have to open a password-protected presentation, you can pass the passwo
 
 Aspose.Slides provides options (the `blob_management_options` property in particular) under the [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) class to allow you to load large presentations. 
 
-This Python demonstrates an operation in which a large presentation (say 2gb in size) is loaded:
+This Python demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
 ```python
 import aspose.slides as slides
@@ -65,7 +65,9 @@ os.remove("pres.pptx")
 
 {{% alert color="info" title="Info" %}}
 
-When you want create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/python-net/manage-blob/) to reduce memory consumption.
+To circumvent certain limitations when interacting with streams, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
+
+When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/python-net/manage-blob/) to reduce memory consumption.
 
 {{%/alert %}} 
 
