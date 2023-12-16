@@ -7,20 +7,29 @@ keywords: "Table, table rows and columns, PowerPoint presentation, C#, Csharp, A
 description: "Manage table rows and columns in PowerPoint presentations in C# or .NET"
 ---
 
+To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) interface, and many other types. 
+
 ## **Set First Row as Header**
-Aspose.Slides for .NET provides the feature to set the first row as header using the following methods of [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable) interface. Below code example shows how to set the first row as a header.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation. 
+2. Get a slide's reference through its index. 
+3. Create an [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object and set it to null.
+4. Iterate through all [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) objects to find the relevant table. 
+5. Set the table's first row as its header. 
+
+This C# code shows you how to set a table's first row as its header:
 
 ```c#
-// Instantiate Presentation class that represents PPTX
+// Instantiates the Presentation class
 Presentation pres = new Presentation("table.pptx");
 
-// Access the first slide
+// Accesses the first slide
 ISlide sld = pres.Slides[0];
 
-// Initialize null TableEx
+// Initializes the null TableEx
 ITable tbl = null;
 
-// Iterate through the shapes and set a reference to the table found
+// Iterates through the shapes and sets a reference to the table
 foreach (IShape shp in sld.Shapes)
 {
     if (shp is ITable)
@@ -29,85 +38,80 @@ foreach (IShape shp in sld.Shapes)
     }
 }
 
-
-//Set the first row of a table as header with a special formatting.
+// Sets the first row of a table as its header
 tbl.FirstRow = true;
+
+// Saves the presentation to disk
+pres.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
 
+## **Clone Table's Row or Column**
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
+2. Get a slide's reference through its index. 
+3. Define an array of `columnWidth`.
+4. Define an array of `rowHeight`.
+5. Add an [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object to the slide through the [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) method.
+6. Clone the table row.
+7. Clone the table column.
+8. Save the modified presentation.
 
-
-## **Clone Row or Column of Table**
-Aspose.Slides for .NET has provided the simplest API to work with tables in an easiest way. To clone a table row or column in a slide, please follow the steps below:
-
-- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-- Obtain the reference of a slide by using its Index.
-- Define Array of Columns with Width.
-- Define Array of Rows with Height.
-- Add a Table to the slide using addTable method exposed by IShapes object.
-- Clone table row.
-- Clone table column.
-- Save the presentation as a PPTX file.
+This C# code shows you how to clone a PowerPoint table's row or column:
 
 ```c#
- // Instantiate presentationentation class that representationents PPTX file
+ // Instantiates the Presentation class
 using (Presentation presentation = new Presentation("Test.pptx"))
 {
-    // Access first slide
+    // Accesses the first slide
     ISlide sld = presentation.Slides[0];
 
-    // Define columns with widths and rows with heights
+    // Defines columns with widths and rows with heights
     double[] dblCols = { 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
-    // Add table shape to slide
+    // Adds a table shape to the slide
     ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-
-    // Add text to the row 1 cell 1
+    // Adds some text to the row 1 cell 1
     table[0, 0].TextFrame.Text = "Row 1 Cell 1";
 
-    // Add text to the row 1 cell 2
+    // Add some text to the row 1 cell 2
     table[1, 0].TextFrame.Text = "Row 1 Cell 2";
 
-    // Clone Row 1 at end of table
+    // Clones Row 1 at the end of table
     table.Rows.AddClone(table.Rows[0], false);
 
-    // Add text to the row 2 cell 1
+    // Adds some text to the row 2 cell 1
     table[0, 1].TextFrame.Text = "Row 2 Cell 1";
 
-    // Add text to the row 2 cell 2
+    // Adds some text to the row 2 cell 2
     table[1, 1].TextFrame.Text = "Row 2 Cell 2";
 
-
-    // Clone Row 2 as 4th row of table
+    // Clones Row 2 as the 4th row of table
     table.Rows.InsertClone(3,table.Rows[1], false);
 
-    //Cloning first column at end
+    // Clones first column at the end
     table.Columns.AddClone(table.Columns[0], false);
 
-    //Cloning 2nd column at 4th column index
+    // Clones 2nd column at 4th column index
     table.Columns.InsertClone(3,table.Columns[1], false);
     
-
-    // Write PPTX to Disk
+    // Saves the presentation to disk 
     presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-
-
 ## **Remove Row or Column from Table**
-Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
+2. Get a slide's reference through its index. 
+3. Define an array of `columnWidth`.
+4. Define an array of `rowHeight`.
+5. Add an [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object to the slide through the [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) method.
+6. Remove the table row.
+7. Remove the table column.
+8. Save the modified presentation. 
 
-- Create an instance of `Presentation` class.
-- Obtain the reference of a slide by using its Index.
-- Define Array of Columns with Width.
-- Define Array of Rows with Height.
-- Add a Table to the slide using AddTable method exposed by IShapes object.
-- Remove table row.
-- Remove table column.
-- Write the modified presentation as a PPTX file.
+This C# code shows you how to remove a row or column from a table:
 
 ```c#
 Presentation pres = new Presentation();
@@ -122,79 +126,76 @@ table.Columns.RemoveAt(1, false);
 pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-
-
 ## **Set Text Formatting on Table Row Level**
-Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells on row level, please follow the steps below:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
+2. Get a slide's reference through its index. 
+3. Access the relevant [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object from the slide. 
+4. Set the first-row cells' [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/). 
+5. Set the first-row cells' [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) and [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/). 
+6.  Set the second-row cells' [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+7. Save the modified presentation.
 
-- Create an instance of `Presentation` class.
-- Obtain the reference of a slide by using its Index.
-- Access Table from Slide.
-- Set first row Cells Font Height.
-- Set first row Cells Text Alignment and right Margin in one Call.
-- Set second row Cells text Vertical Type.
-- Save the modified presentation as a PPTX file.
+This C# code demonstrates the operation.
 
 ```c#
-// Create an instance of Presentation class
+// Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
            
 ISlide slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
+ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Let's assume that the first shape on the first slide is a table
 
-// setting first row cells' font height
+// Sets first row cells' font height
 PortionFormat portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
 someTable.Rows[0].SetTextFormat(portionFormat);
 
-// setting first row cells' text alignment and right margin in one call
+// Sets the first row cells' text alignment and right margin
 ParagraphFormat paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
 someTable.Rows[0].SetTextFormat(paragraphFormat);
 
-// setting second row cells' text vertical type
+// Sets the second row cells' text vertical type
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Rows[1].SetTextFormat(textFrameFormat);
 
+// Saves the presentation to disk
 presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-
-
 ## **Set Text Formatting on Table Column Level**
-Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. In order to remove Text Formatting from table cells on Column level, please follow the steps below:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
+2. Get a slide's reference through its index. 
+3. Access the relevant [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object from the slide. 
+4. Set the first-column cells' [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/). 
+5. Set the first-column cells' [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) and [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/). 
+6.  Set the second-column cells' [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+7. Save the modified presentation. 
 
-- Create an instance of `Presentation` class.
-- Obtain the reference of a slide by using its Index.
-- Access Table from Slide.
-- Set first Column Cells Font Height.
-- Set first Column Cells Text Alignment and right Margin in one Call.
-- Set second Column Cells text Vertical Type.
-- Save the modified presentation as a PPTX file.
+This C# code demonstrates the operation: 
 
 ```c#
-// Create an instance of Presentation class
+// Creates an instance of the Presentation class
 Presentation pres = new Presentation();
            
 ISlide slide = pres.Slides[0];
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // let's say that the first shape on the first slide is a table
+ITable someTable = pres.Slides[0].Shapes[0] as ITable; // Let's assume that the first shape on the first slide is a table
 
-// setting first column cells' font height
+// Sets the first column cells' font height
 PortionFormat portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
 someTable.Columns[0].SetTextFormat(portionFormat);
 
-// setting first column cells' text alignment and right margin in one call
+// Sets the first column cells' text alignment and right margin in one call
 ParagraphFormat paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
 someTable.Columns[0].SetTextFormat(paragraphFormat);
 
-// setting second column cells' text vertical type
+// Sets the second column cells' text vertical type
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Columns[1].SetTextFormat(textFrameFormat);
@@ -203,3 +204,10 @@ pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ```
 
+## **Get Table Style Properties**
+
+Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C# code shows you how to get the style properties from a table preset style: xxx
+
+```c#
+
+```
