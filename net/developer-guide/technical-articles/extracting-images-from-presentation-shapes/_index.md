@@ -7,17 +7,19 @@ url: /net/extracting-images-from-presentation-shapes/
 
 {{% alert color="primary" %}} 
 
-Images are added in slide background and shapes. Sometimes, it is required to extract the images added in the presentation shapes. The images are added in **IPPImageCollection** inside Presentation Document Object Model (DOM). This article covers the feature of accessing the images in presentation shape, extracting them from presentation collection and saving them in a file.
+Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), which is a collection of [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) objects. 
+
+This article explains how you can extract the images added to presentations. 
 
 {{% /alert %}} 
-## **Extracting images from Presentation Shapes**
-In Aspose.Slides for .NET, images can be added to slide shape and slide background. The images are added in **IPPImageCollection** of the presentation. In this example we will traverse through each shape inside every slide of presentation and see if there is any image added in slide shape. If the image will be found for any shape, we will extract that and will save it in file.The following code snippet will serve the purpose.
+
+To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. 
 
 ```c#
 public static void Run() {
 
     String path = @"D:\Aspose Data\";
-    //Accessing the presentation
+    // Accesses the presentation
     Presentation pres = new Presentation(path + "ExtractImages.pptx");
     Aspose.Slides.IPPImage img = null;
     Aspose.Slides.IPPImage Backimg = null;
@@ -29,17 +31,17 @@ public static void Run() {
     {
 
         slideIndex++;
-        //Accessing the first slide
+        // Accesses the first slide
         ISlide sl = pres.Slides[i];
         System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
 
-        //Accessing the first slide Slide sl = pres.getSlideByPosition(i);
+        // Accesses the first slide Slide sl = pres.getSlideByPosition(i);
         if (sl.Background.FillFormat.FillType == FillType.Picture)
         {
-            //Getting the back picture  
+            // Gets the back image  
             Backimg = sl.Background.FillFormat.PictureFillFormat.Picture.Image;
 
-            //Setting the desired picture format 
+            // Sets the preferred image format 
 
             ImageType = Backimg.ContentType;
             ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
@@ -53,10 +55,10 @@ public static void Run() {
         {
             if (sl.LayoutSlide.Background.FillFormat.FillType == FillType.Picture)
             {
-                //Getting the back picture  
+                // Gets the back image  
                 Backimg = sl.LayoutSlide.Background.FillFormat.PictureFillFormat.Picture.Image;
 
-                //Setting the desired picture format 
+                // Sets the preferred image format 
 
                 ImageType = Backimg.ContentType;
                 ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
@@ -70,7 +72,7 @@ public static void Run() {
 
         for (int j = 0; j < sl.Shapes.Count; j++)
         {
-            // Accessing the shape with picture
+            // Accesses the shape containing an image
             IShape sh = sl.Shapes[j];
 
             if (sh is AutoShape)
@@ -98,7 +100,7 @@ public static void Run() {
                 }
             }
 
-            //Setting the desired picture format
+            // Sets the preferred format for extracted image
             if (ifImageFound)
             {
                 Format = GetImageFormat(ImageType);
