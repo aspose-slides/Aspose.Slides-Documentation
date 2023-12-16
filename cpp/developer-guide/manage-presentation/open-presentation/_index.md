@@ -12,7 +12,7 @@ Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you
 
 ## Open Presentation
 
-To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its contructor. 
+To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its constructor. 
 
 This C++ code shows you how to open a presentation and also find out the number of slides it contains: 
 
@@ -42,7 +42,7 @@ auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
 
 Aspose.Slides provides options (the [BlobManagementOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) property in particular) under the [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) class to allow you to load large presentations. 
 
-This C++ demonstrates an operation in which a large presentation (say 2gb in size) is loaded:
+This C++ demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
 ```c++
 String pathToVeryLargePresentationFile = u"veryLargePresentation.pptx";
@@ -75,7 +75,9 @@ File::Delete(pathToVeryLargePresentationFile);
 
 {{% alert color="info" title="Info" %}}
 
-When you want create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/cpp/manage-blob/) to reduce memory consumption.
+To circumvent certain limitations when interacting with streams, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
+
+When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/cpp/manage-blob/) to reduce memory consumption.
 
 {{%/alert %}} 
 
@@ -152,4 +154,3 @@ private:
    
    	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
    ```
-   
