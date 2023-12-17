@@ -105,7 +105,7 @@ This C++ code shows you how to add a slide layout to a PowerPoint presentation:
 	// Adds empty slide with added layout slide  
 	pres->get_Slides()->InsertEmptySlide(0, layoutSlide);
 
-	// Saves the presentation 
+	// Saves the presentation to disk
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
@@ -143,12 +143,10 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
 	// Sets the slide size for the generated presentation to that of the source
 	destPres->get_SlideSize()->SetSize(pres->get_SlideSize()->get_Type(), Aspose::Slides::SlideSizeScaleType::DoNotScale);
 
-	
 	slideCollection->InsertClone(1, pres->get_Slides()->idx_get(0));
 
-	// Saves presentation
+	// Saves the presentation to disk
 	destPres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 
@@ -185,13 +183,11 @@ if (!headerFooterManager->get_IsDateTimeVisible()) // Property IsDateTimeVisible
 {
 	headerFooterManager->SetDateTimeVisibility(true); // Method SetFooterVisibility is used to set a slide date-time placeholder to visible
 }
-
-
 headerFooterManager->SetFooterText(u"Footer text"); // Method SetFooterText is used to set a text for a slide footer placeholder
 headerFooterManager->SetDateTimeText(u"Date and time text"); // Method SetDateTimeText is used to set a text for a slide date-time placeholder.
 
 
-
+// Saves the presentation to disk
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
@@ -272,10 +268,8 @@ Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/cpp/a
 	// Instantiates a Presentation object that represents a presentation file 
 	SharedPtr<Presentation>pres = MakeObject<Presentation>();
 
-
 	// Sets the SlideSize.Type Property
 	pres->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
-
 
 	// Sets different properties of PDF Options
 	Aspose::Slides::Export::PdfOptions opts = Aspose::Slides::Export::PdfOptions();

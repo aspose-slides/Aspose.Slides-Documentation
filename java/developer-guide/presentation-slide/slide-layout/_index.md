@@ -80,7 +80,7 @@ try {
     // Adds empty slide with added layout slide
     pres.getSlides().insertEmptySlide(0, layoutSlide);
 
-    // Saves the presentation
+    // Saves the presentation to disk
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -122,7 +122,7 @@ try {
         auxPresentation.getSlides().addClone(presentation.getSlides().get_Item(0));
         auxPresentation.getSlides().removeAt(0);
         
-        // Saves Presentation
+        // Saves the presentation to disk
         auxPresentation.save("size.pptx", SaveFormat.Pptx);
     } finally {
         auxPresentation.dispose();
@@ -181,12 +181,12 @@ This Java code demonstrates the operation:
 Presentation presentation = new Presentation("presentation.ppt");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-    headerFooterManager.setFooterAndChildFootersVisibility(true); // Method SetFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
-    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // Method SetSlideNumberAndChildSlideNumbersVisibility is used to set the master slide and all child page number placeholders to visible
-    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // Method SetDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
+    headerFooterManager.setFooterAndChildFootersVisibility(true); // Method setFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
+    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // Method setSlideNumberAndChildSlideNumbersVisibility is used to set the master slide and all child page number placeholders to visible
+    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // Method setDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
 
-    headerFooterManager.setFooterAndChildFootersText("Footer text"); // Method SetFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
-    headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // Method SetDateTimeAndChildDateTimesText is used for set text for the master slide and all child date-time placeholders
+    headerFooterManager.setFooterAndChildFootersText("Footer text"); // Method setFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
+    headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // Method setDateTimeAndChildDateTimesText is used for set text for the master slide and all child date-time placeholders
 } finally {
     presentation.dispose();
 }
@@ -211,7 +211,7 @@ try {
     presentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used to set slide size with scale content to ensure fit
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used to set slide size with maximum size of content
 
-    // Saves Presentation
+    // Saves the presentation to disk
     presentation.save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -235,10 +235,9 @@ try {
     PdfOptions opts = new  PdfOptions();
     opts.setSufficientResolution(600);
     
-    // Saves presentation
+    // Saves the presentation to disk
     presentation.save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
 } finally {
     presentation.dispose();
 }
 ```
-

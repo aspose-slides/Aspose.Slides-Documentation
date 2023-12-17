@@ -85,7 +85,7 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
     // Adds empty slide with added layout slide 
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
-    // Saves the presentation    
+    // Saves the presentation to disk  
     presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -120,7 +120,7 @@ auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type,SlideSizeScaleType
 
 auxPresentation.Slides.InsertClone(0, slide);
 auxPresentation.Slides.RemoveAt(0);
-// Saves presentation
+// Saves the presentation to disk
 auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -206,7 +206,7 @@ ISlide slide = presentation.Slides[0];
 presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used to set slide size with scale content to ensure fit
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used to set slide size with maximum size of content
            
-// Saves presentation
+// Saves the presentation to disk
 auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -227,6 +227,6 @@ presentation.SlideSize.SetSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFi
 PdfOptions opts = new  PdfOptions();
 opts.SufficientResolution = 600;
 
-// Saves presentation
+// Saves the presentation to disk
 presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
 ```

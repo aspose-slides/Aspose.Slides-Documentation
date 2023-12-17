@@ -73,7 +73,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     # Adds empty slide with added layout slide 
     presentation.slides.insert_empty_slide(0, layoutSlide)
 
-    # Saves the presentation    
+    # Saves the presentation to disk
     presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -108,7 +108,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
         auxPresentation.slides.insert_clone(0, slide)
         auxPresentation.slides.remove_at(0)
-        # Saves Presentation
+        # Saves the presentation to disk
         auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -128,24 +128,25 @@ import aspose.slides as slides
 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     headerFooterManager = presentation.slides[0].header_footer_manager
-    # Property IsFooterVisible is used to specify that a slide footer placeholder is missing
+    # Property is_footer_visible is used to specify that a slide footer placeholder is missing
     if not headerFooterManager.is_footer_visible: 
-        # Method SetFooterVisibility is used to set a slide footer placeholder to visible
+        # Method set_footer_visibility is used to set a slide footer placeholder to visible
         headerFooterManager.set_footer_visibility(True) 
-        # Property IsSlideNumberVisible is used to specify that a slide page number placeholder is missing
+        # Property is_slide_number_visible is used to specify that a slide page number placeholder is missing
     if not headerFooterManager.is_slide_number_visible:  
-        # Method SetSlideNumberVisibility is used to set a slide page number placeholder to visible
+        # Method set_slide_number_visibility is used to set a slide page number placeholder to visible
         headerFooterManager.set_slide_number_visibility(True) 
-        # Property IsDateTimeVisible is used to specify that a slide date-time placeholder is missing
+        # Property is_date_time_visible is used to specify that a slide date-time placeholder is missing
     if not headerFooterManager.is_date_time_visible: 
-        # Method SetFooterVisibility is used to set a slide date-time placeholder to visible 
+        # Method set_date_time_visibility is used to set a slide date-time placeholder to visible 
         headerFooterManager.set_date_time_visibility(True)
 
-    # Method SetFooterText is used to set a text for a slide footer placeholder 
+    # Method set_footer_text is used to set a text for a slide footer placeholder 
     headerFooterManager.set_footer_text("Footer text") 
-    # Method SetDateTimeText is used to set a text for a slide date-time placeholder.
+    # Method set_date_time_text is used to set a text for a slide date-time placeholder.
     headerFooterManager.set_date_time_text("Date and time text") 
 
+    # Saves the presentation to disk
     presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
 ```
 
@@ -198,7 +199,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
         presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # Method set_size is used to set slide size with scale content to ensure fit
         presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # Method set_size is used to set slide size with maximum size of content
                 
-        # Saves Presentation
+        # Saves the presentation to disk
         auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -220,7 +221,7 @@ with slides.Presentation() as presentation:
     opts = slides.export.PdfOptions()
     opts.sufficient_resolution = 600
 
-    # Save presentation
+    # Saves the presentation to disk
     presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
 ```
 
