@@ -3,49 +3,57 @@ title: Embedded Font
 type: docs
 weight: 40
 url: /python-net/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint embedded fonts in Python"
+keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
+description: "Use embedded fonts in PowerPoint presentation in Python"
 ---
 
-## **Get or Remove Embedded Fonts from Presentation**
-Now, you can also work with embedded fonts. FontsManger class now offer, GetEmbeddedFonts() method that returns a list of embedded fonts inside the presentation. You can also remove any embedded font inside presentation if that is required by using RemoveEmbeddedFont() method exposed by FontsManager class. The implementation of the above steps is given below.
+**Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
 
-```py
+The [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class, [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations. 
+
+## **Get or Remove Embedded Fonts from Presentation**
+
+Aspose.Slides provides the `get_embedded_fonts()` method (exposed by the [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the `remove_embedded_font(font_data)` method (exposed by the same class) is used.
+
+This Python code shows you how to get and remove embedded fonts from a presentation:
+
+```python
 import aspose.slides as slides
 
-# Instantiate a Presentation object that represents a presentation file
+# Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
-    # render a slide that contains a text frame that uses embedded "FunSized"
+    # Renders a slide containing a text frame that uses embedded "FunSized"
     presentation.slides[0].get_thumbnail(draw.Size(960, 720)).save("picture1_out.png", draw.imaging.ImageFormat.png)
 
     fontsManager = presentation.fonts_manager
 
-    # get all embedded fonts
+    # Gets all embedded fonts
     embeddedFonts = fontsManager.get_embedded_fonts()
 
-    # find "Calibri" font
+    # Finds the "Calibri" font
     
     funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
 
-    # remove "Calibri" font
+    # Removes "Calibri" font
     fontsManager.remove_embedded_font(funSizedEmbeddedFont)
 
-    # render the presentation removed "Calibri" font is replaced to an existing one
+    # Renders the presentation; "Calibri" font is replaced with an existing one
     presentation.slides[0].get_thumbnail(draw.Size(960, 720)).save("picture2_out.png", draw.imaging.ImageFormat.png)
 
-    # save the presentation without embedded "Calibri" font
+    # Saves the presentation without embedded "Calibri" font to disk
     presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
 ## **Add Embedded Fonts to Presentation**
-A new property of embedding fonts has been added. To allow embedding fonts into Presentation the new EmbedFontCharacters enum and two overloads of AddEmbeddedFont method have been added. Using these methods and choosing the desired embedding rule (represented by EmbedFontCharacters enum), all fonts used in the Presentation can be embedded. The implementation of the above steps is given below.
 
-```py
+Using the [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) enum and two overloads of the `add_embedded_font(font_data, embed_font_rule)` method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This Python code shows you how to embed and add fonts to a presentation:
+
+```python
 import aspose.slides as slides
 
-# Load presentation
+# Loads the presentation
 with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Load source font to be replaced
+    # Loads the source font to be replaced
     sourceFont = slides.FontData("Arial")
 
 
@@ -55,13 +63,13 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
         if font not in embeddedFonts:
             presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-    # Save the presentation
+    # Saves the presentation to disk
     presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Compress Embedded Fonts**
 
-To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the `compress_embedded_fonts` method exposed by the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class.
+To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the  `compress_embedded_fonts`  method (exposed by the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class).
 
 This Python code shows you how to compress embedded PowerPoint fonts:
 
