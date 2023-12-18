@@ -14,7 +14,7 @@ The [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsma
 
 ## **Get or Remove Embedded Fonts from Presentation**
 
-Aspose.Slides provides the [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) method (exposed by the class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) method (exposed by the same class) is used.
+Aspose.Slides provides the [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) method (exposed by the [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) method (exposed by the same class) is used.
 
 This C# code shows you how to get and remove embedded fonts from a presentation:
 
@@ -42,7 +42,7 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
     // Renders the presentation; "Calibri" font is replaced with an existing one
     presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture2_out.png", ImageFormat.Png);
 
-    // Saves the presentation without embedded "Calibri" font
+    // Saves the presentation without embedded "Calibri" font to disk
     presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 }
 ```
@@ -68,7 +68,7 @@ foreach (IFontData font in allFonts)
     }
 }
 
-// Saves the presentation
+// Saves the presentation to disk
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
