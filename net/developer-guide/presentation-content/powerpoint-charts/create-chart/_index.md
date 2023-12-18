@@ -777,6 +777,107 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+### **Creating Combination Charts**
+
+A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+
+![combination-chart-ppt](combination-chart-ppt.png)
+
+This C# code shows you how to create a combination chart in PowerPoint:
+
+```c#
+private static void CreateComboChart()
+{
+    using (Presentation pres = new Presentation())
+    {
+        IChart chart = CreateChart(pres.Slides[0]);
+        AddFirstSeriesToChart(chart);
+        AddSecondSeriesToChart(chart);
+        pres.Save("combo-chart.pptx", SaveFormat.Pptx);
+    }
+}
+
+private static IChart CreateChart(ISlide slide)
+{
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
+
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    const int worksheetIndex = 0;
+    
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+    
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Caetegoty 3"));
+
+    IChartSeries series = chart.ChartData.Series[0];
+
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+    
+    series = chart.ChartData.Series[1];
+    
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+
+    return chart;
+}
+
+private static void AddFirstSeriesToChart(IChart chart)
+{
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    const int worksheetIndex = 0;
+    
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.ScatterWithSmoothLines);
+
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 0, 1, 3),
+        workbook.GetCell(worksheetIndex, 0, 2, 5));
+    
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 1, 3, 10),
+        workbook.GetCell(worksheetIndex, 1, 4, 13));
+
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 2, 3, 20),
+        workbook.GetCell(worksheetIndex, 2, 4, 15));
+
+    series.PlotOnSecondAxis = true;
+}
+
+private static void AddSecondSeriesToChart(IChart chart)
+{
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    const int worksheetIndex = 0;
+    
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 5, "Series 4"),
+        ChartType.ScatterWithStraightLinesAndMarkers);
+
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 1, 3, 5),
+        workbook.GetCell(worksheetIndex, 1, 4, 2));
+    
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 1, 5, 10),
+        workbook.GetCell(worksheetIndex, 1, 6, 7));
+
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 2, 5, 15),
+        workbook.GetCell(worksheetIndex, 2, 6, 12));
+
+    series.DataPoints.AddDataPointForScatterSeries(
+        workbook.GetCell(worksheetIndex, 3, 5, 12),
+        workbook.GetCell(worksheetIndex, 3, 6, 9));
+    
+    series.PlotOnSecondAxis = true;
+}
+```
+
 ## **Updating Charts**
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class that represents the presentation containing the chart.
