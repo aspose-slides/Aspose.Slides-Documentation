@@ -66,10 +66,29 @@ Set Default Language
 
 Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) property (exposed by the [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This C# code shows you how to set the proofing language for a PowerPoint: xxx
+This C# code shows you how to set the proofing language for a PowerPoint:
 
 ```c#
+using (Presentation pres = new Presentation(pptxFileName))
+{
+    AutoShape autoShape = (AutoShape)pres.Slides[0].Shapes[0];
 
+    IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
+    paragraph.Portions.Clear();
+
+    Portion newPortion = new Portion();
+
+    IFontData font = new FontData("SimSun");
+    IPortionFormat portionFormat = newPortion.PortionFormat;
+    portionFormat.ComplexScriptFont = font;
+    portionFormat.EastAsianFont = font;
+    portionFormat.LatinFont = font;
+
+    portionFormat.LanguageId = "zh-CN"; // set the Id of a proofing language
+    
+    newPortion.Text = "1。";
+    paragraph.Portions.Add(newPortion);
+}
 ```
 
 ## **Set Default Language**
