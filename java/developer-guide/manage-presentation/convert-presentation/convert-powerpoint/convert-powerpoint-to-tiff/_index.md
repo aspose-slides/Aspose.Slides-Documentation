@@ -39,10 +39,19 @@ try {
 
 In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-)) to the [TiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) property is set to `CCITT4` or `CCITT3`.
 
-This Java code shows you how to convert a colored slide or image to black-and-white TIFF: xxx
+This Java code shows you how to convert a colored slide or image to black-and-white TIFF:
 
 ```java
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
+tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
 
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    presentation.save("output.tiff", SaveFormat.Tiff, tiffOptions);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Convert PowerPoint to TIFF with Custom Size**
