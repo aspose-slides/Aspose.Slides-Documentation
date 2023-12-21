@@ -213,6 +213,8 @@ There are predefined functions, that can be used in the formulas to simplify the
 - AVERAGE
 - CEILING
 - CHOOSE
+- CONCAT
+- CONCATENATE
 - DATE (1900 date system)
 - DAYS
 - FIND

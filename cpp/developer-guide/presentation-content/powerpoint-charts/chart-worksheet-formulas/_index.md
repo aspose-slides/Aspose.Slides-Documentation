@@ -58,7 +58,7 @@ auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Char
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
 // ...
-``` 
+```
 
 
 
@@ -72,7 +72,7 @@ of the **Object** type, which means you can pass any value to the method:
 workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
 workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
 workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
-``` 
+```
 
 
 
@@ -100,7 +100,7 @@ Then if you try to read the values from the cells B2 and C2, they will be calcul
 ``` cpp
 auto value1 = cell1->get_Value(); // 7.8
 auto value2 = cell2->get_Value(); // 2.1
-``` 
+```
 
 
 ## **Logical Constants**
@@ -213,6 +213,8 @@ There are predefined functions, that can be used in the formulas to simplify the
 - AVERAGE
 - CEILING
 - CHOOSE
+- CONCAT
+- CONCATENATE
 - DATE (1900 date system)
 - DAYS
 - FIND
@@ -224,5 +226,4 @@ There are predefined functions, that can be used in the formulas to simplify the
 - MAX
 - SUM
 - VLOOKUP
-
 

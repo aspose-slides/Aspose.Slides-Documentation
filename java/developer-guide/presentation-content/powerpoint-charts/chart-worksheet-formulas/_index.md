@@ -59,7 +59,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-``` 
+```
 
 Let's write some values in cells with 
 [**IChartDataCell.setValue**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) property 
@@ -71,7 +71,7 @@ workbook.getCell(0, "F2").setValue(-2.5);
 workbook.getCell(0, "G3").setValue(6.3);
 
 workbook.getCell(0, "H4").setValue(3);
-``` 
+```
 
 Now to write formula to the cell, you can use the 
 [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) method:
@@ -86,7 +86,7 @@ Then if you try to read the values from the cells B2 and C2, they will be calcul
 Object value1 = cell1.getValue(); // 7.8
 
 Object value2 = cell2.getValue(); // 2.1
-``` 
+```
 
 ## **Logical Constants**
 You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
@@ -201,6 +201,8 @@ There are predefined functions, that can be used in the formulas to simplify the
 - AVERAGE
 - CEILING
 - CHOOSE
+- CONCAT
+- CONCATENATE
 - DATE (1900 date system)
 - DAYS
 - FIND
@@ -212,5 +214,4 @@ There are predefined functions, that can be used in the formulas to simplify the
 - MAX
 - SUM
 - VLOOKUP
-
 
