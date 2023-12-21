@@ -278,7 +278,7 @@ with slides.Presentation() as presentation:
 
 A geometric shape in PowerPoint may comprise several geometric paths. Each of those geometric paths may be open or closed. 
 
-This Python code shows you how to check if a geometric shape contains a closed path:
+This Python code shows you how to check if a geometric shape contains a closed path: xxx
 
 ```python
 

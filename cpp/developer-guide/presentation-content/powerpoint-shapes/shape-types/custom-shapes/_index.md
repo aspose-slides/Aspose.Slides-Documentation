@@ -280,7 +280,7 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 
 A geometric shape in PowerPoint may comprise several geometric paths. Each of those geometric paths may be open or [closed](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/). 
 
-This C++ code shows you how to check if a geometric shape contains a closed path:
+This C++ code shows you how to check if a geometric shape contains a closed path: xxx
 
 ```c++
 
