@@ -276,6 +276,16 @@ childShape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+## **Check Whether a Shape Geometry is Closed**
+
+A geometric shape in PowerPoint may comprise several geometric paths. Each of those geometric paths may be open or [closed](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/). 
+
+This C++ code shows you how to check if a geometric shape contains a closed path:
+
+```c++
+
+```
+
 ## **Convert GeometryPath to GraphicsPath** 
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class.

@@ -277,6 +277,16 @@ using (var presentation = new Presentation())
 }
 ```
 
+## **Check Whether a Shape Geometry is Closed**
+
+A geometric shape in PowerPoint may comprise several geometric paths. Each of those geometric paths may be open or [closed](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/). 
+
+This C# code shows you how to check if a geometric shape contains a closed path:
+
+```c#
+
+```
+
 ## **Convert GeometryPath to GraphicsPath (System.Drawing.Drawing2D)** 
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class.

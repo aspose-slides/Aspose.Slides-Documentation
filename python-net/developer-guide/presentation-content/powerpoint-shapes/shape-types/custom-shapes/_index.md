@@ -274,6 +274,16 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Check Whether a Shape Geometry is Closed**
+
+A geometric shape in PowerPoint may comprise several geometric paths. Each of those geometric paths may be open or closed. 
+
+This Python code shows you how to check if a geometric shape contains a closed path:
+
+```python
+
+```
+
 ## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class.

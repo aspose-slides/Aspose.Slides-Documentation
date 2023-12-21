@@ -292,6 +292,16 @@ try {
 }
 ```
 
+## **Check Whether a Shape Geometry is Closed**
+
+A geometric shape in PowerPoint may comprise several geometric paths. Each of those geometric paths may be open or [closed](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--). 
+
+This Java code shows you how to check if a geometric shape contains a closed path:
+
+```java
+
+```
+
 ## **Convert GeometryPath to java.awt.Shape** 
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
