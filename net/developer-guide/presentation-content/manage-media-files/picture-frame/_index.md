@@ -242,9 +242,39 @@ using (Presentation presentation = new Presentation())
     picFrame.PictureFormat.CropBottom = 31;
 
     // Saves the result
-    presentation.Save(outPptxFile, SaveFormat.Pptx);
+    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
 }
 ```
+
+## Delete Cropped Areas of Picture
+
+If you want to delete the cropped areas of the contained image, you can use the [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method. This method returns the cropped image or the origin image if cropping is not necessary.
+
+This C# code demonstrates the operation:
+
+```c#
+using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Gets the PictureFrame from the first slide
+    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+
+    // Deletes cropped areas of the PictureFrame image and returns the cropped image
+    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
+
+    // Saves the result
+    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
+}
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+The [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) adds the cropped image to the presentation image collection. If the image is only used in the processed [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), it can help reduce presentation size. Otherwise the number of images in the result presentation will increase.
+
+This method converts WMF/EMF metafiles to raster PNG image while cropping.
+
+{{% /alert %}}
 
 ## **Lock Aspect Ratio**
 
