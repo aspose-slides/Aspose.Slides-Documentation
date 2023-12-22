@@ -30,27 +30,19 @@ This C# code shows you how to add a video stored locally to a presentation:
 
 ```c#
 // Instantiates the Presentation class
-using (Presentation pres = new Presentation())
+using (Presentation pres = new Presentation("pres.pptx"))
 {
-
-    // Gets the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Embeds the video inside the presentation
-    IVideo vid = pres.Videos.AddVideo(new FileStream("Wildlife.mp4", FileMode.Open));
-
-    // Adds a video Frame
-    IVideoFrame vf = sld.Shapes.AddVideoFrame(50, 150, 300, 350, vid);
-
-    // Sets the video to Video Frame
-    vf.EmbeddedVideo = vid;
-
-    // Sets the Play Mode and Volume for the Video
-    vf.PlayMode = VideoPlayModePreset.Auto;
-    vf.Volume = AudioVolumeMode.Loud;
-
-    // Saves the PPTX file to disk
-    pres.Save("VideoFrame_out.pptx", SaveFormat.Pptx);
+    // Loads the video
+    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
+    {
+        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+        
+        // Gets the first slide and adds a videoframe
+        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
+        
+        // Saves the presentation to disk
+        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
+    }
 }
 ```
 Alternatively, you can add a video by passing its file path directly to the [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) method:
