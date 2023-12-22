@@ -254,6 +254,24 @@ presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
+## Delete Cropped Areas of Picture
+
+If you want to delete the cropped areas of an image contained in a frame, you can use the [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method. This method returns the cropped image or the origin image if cropping is unnecessary.
+
+This C++ code demonstrates the operation: xxx 
+
+```c++
+
+```
+
+{{% alert title="NOTE" color="warning" %}} 
+
+The [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method adds the cropped image to the presentation image collection. If the image is only used in the processed [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/), this setup can reduce the presentation size. Otherwise, the number of images in the resulting presentation will increase.
+
+This method converts WMF/EMF metafiles to raster PNG image in the cropping operation. 
+
+{{% /alert %}}
+
 ## **Lock Aspect Ratio**
 
 If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [set_AspectRatioLocked()](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) method to set the *Lock Aspect Ratio* setting. 
