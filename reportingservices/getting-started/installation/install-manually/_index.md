@@ -7,7 +7,7 @@ url: /reportingservices/install-manually/
 
 {{% alert color="primary" %}} 
 
-You only need to follow these steps if you install Aspose.Slides for Reporting Services manually, not using the MSI installer. The MSI installer performs all necessary installation and registration actions automatically. 
+Follow these steps only if plan to install Aspose.Slides for Reporting Services manually. In this case, you downloaded the ZIP package containing assembly files. 
 
 {{% /alert %}} 
 
@@ -18,19 +18,21 @@ You only need to follow these steps if you install Aspose.Slides for Reporting S
 {{% /alert %}}
 
 ### **Manual Installation**
-In the following steps, you will need to copy and modify files in the directory where Microsoft SQL Server Reporting Services is installed. 
+These instructions show you how to copy and modify files in the directory where Microsoft SQL Server Reporting Services is installed:
 
 1. Locate the Report Server installation directory.
-   The root directory for Microsoft SQL Server is usually C:\Program Files\Microsoft SQL Server. {{% alert color="primary" %}} 
+   The root directory for Microsoft SQL Server is usually here: ***C:\Program Files\Microsoft SQL Server***
+   
+   {{% alert color="primary" %}} 
+   
+   **Microsoft SQL Server 2005 and 2008**: There might be several Microsoft SQL Server instances configured on the machine and they may occupy different MSSQL.x subdirectories such as MSSQL.1, MSSQL.2 and so on. You must find the correct ***C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer*** directory before you contunue to the next step.
+   
+   {{% /alert %}} All paths used below will refer to this directory as <Instance>. 
 
-**Microsoft SQL Server 2005 and 2008**: There could be several instances of Microsoft SQL Server configured on the machine and they occupy different MSSQL.x subdirectories such as MSSQL.1, MSSQL.2 and so on. Find the correct **C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer** directory before proceeding.
+2. Copy Aspose.Slides.ReportingServices.dll to the **C:\Program Files\Microsoft SQL Server\xxx\Reporting Services\ReportServer\bin** folder.
+   The **Aspose.Slides.ReportingServices.zip** download contains the **Aspose.Slides.ReportingServices.dll**. {{% alert color="primary" %}} 
 
-{{% /alert %}} All paths used below will refer to this directory as <Instance>. 
-
-2. Copy Aspose.Slides.ReportingServices.dll to **C:\Program Files\Microsoft SQL Server\ <Instance> \Reporting Services\ReportServer\bin** folder.
-   The **Aspose.Slides.ReportingServices.zip** download contains the **Aspose.Slides.ReportingServices.dll** and compiled documentation in CHM format. {{% alert color="primary" %}} 
-
-In some cases, when you copy the DLL to the **ReportServer\bin** directory, it might get copied together with the explicit NTFS file permissions assigned to it. The NTFS permissions might be such that Microsoft SQL Server Reporting Services is denied access when loading **Aspose.Slides.ReportingServices.dll**. If this happens, the new export formats do not become available. To make sure that the NTFS permissions are correct:
+In some cases, when you copy the DLL to the **ReportServer\bin** directory, it might get copied alongside the explicit NTFS file permissions assigned to it. The NTFS permissions cause Microsoft SQL Server Reporting Services to get denied access when loading **Aspose.Slides.ReportingServices.dll**. If this happens, the new export formats will not become available. Check and confirm that the correct NTFS permissions are in place :
 
    1. Right click **Aspose.Slides.ReportingServices.dll**.
    1. Click **Properties** and select the **Security** tab.
@@ -41,7 +43,7 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 3. Register Aspose.Slides for Reporting Services as a rendering extension: 
    1. Open *C:\Program
       Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rsreportserver.config*.
-   1. Add the following lines into the <Render> element: 
+   1. Add these lines to the <Render> element: 
 
 **<Render>**
 
@@ -124,13 +126,13 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 ```
 
 5. Verify that Aspose.Slides for Reporting Services was installed successfully: 
-   1. Open Report Manager and check the list of available export types for a report. {{% alert color="primary" %}} 
+   1. Open Report Manager and check the list of available export types for a report. 
+   
+      {{% alert color="primary" %}} You can launch Report Manager by opening a browser (Microsoft Internet Explorer 6.0 or later) and typing the Report Manager URL in the address bar (by default it is http://< ComputerName >/Reports ). 
+   
+      {{% /alert %}}
 
-You can launch Report Manager by opening a browser (Microsoft Internet Explorer 6.0 or later) and typing the Report Manager URL in the address bar (by default it is http://< ComputerName >/Reports ). 
-
-{{% /alert %}}
-
-1. Select one of the reports on the server.
+1. Select a report on the server.
 1. Open the **Select Format** list.
    You should see a list of export formats provided by Aspose.Slides for Reporting Services. 
 1. Select **PPT – PowerPoint Presentation via Aspose.Slides**. 
@@ -143,10 +145,11 @@ You can launch Report Manager by opening a browser (Microsoft Internet Explorer 
 
 
 6. Click the **Export** link.
-   The report is generated in the selected format, sent to the client and opened in an appropriate application. In our case, the report opens in Microsoft PowerPoint. 
+   The report is generated in the chosen format, sent to the client, and then opened in an appropriate application. In our case, the report was opened in Microsoft PowerPoint. 
 
    **A PPT report generated by Aspose.Slides for Reporting Services.** 
 
 ![todo:image_alt_text](install-manually_2.png)
 
-Congratulations, you’ve successfully installed Aspose.Slides for Reporting Services and generated a report as a Microsoft PowerPoint presentation! 
+You have successfully installed Aspose.Slides for Reporting Services and generated a report as a Microsoft PowerPoint presentation ! 
+
