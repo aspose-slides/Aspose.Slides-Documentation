@@ -22,7 +22,11 @@ Alternatively, you can make changes directly to a specific slide layout in a pre
 * To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class. 
 * To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/baseslideheaderfootermanager/), and many other types. 
 
+{{% alert title="Info" color="info" %}}
+
 For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/net/slide-master/) article.
+
+{{% /alert %}}
 
 ## **Add Slide Layout to Presentation**
 
@@ -192,8 +196,6 @@ using (Presentation presentation = new Presentation("presentation.ppt"))
 1. Save the presentation. 
 
 This C# demonstrates the operation: 
-
-XXX
 
 ```c#
 // Instantiates a Presentation object that represents a presentation file 

@@ -22,7 +22,11 @@ Alternatively, you can make changes directly to a specific slide layout in a pre
 * To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like `layout_slides` and `masters` under the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. 
 * To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/), and many other types. 
 
+{{% alert title="Info" color="info" %}}
+
 For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/python-net/slide-master/) article.
+
+{{% /alert %}}
 
 ## **Add Slide Layout to Presentation**
 
