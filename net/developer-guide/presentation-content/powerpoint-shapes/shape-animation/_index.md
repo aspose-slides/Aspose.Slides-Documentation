@@ -63,7 +63,7 @@ using (Presentation pres = new Presentation())
     effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
 
     // Save the PPTX file to disk
-    pres.Save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -200,6 +200,7 @@ These are the correspondences between PowerPoint Timing and [Effect.Timing](http
   * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatcount) property which describes the *number* of times the effect is repeated;
   * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilendslide) flag which specifies whether the effect is repeated until the end of the slide;
   * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilnextclick) flag which specifies whether the effect is repeated until the next click.
+- PowerPoint Timing **Rewind when done playing **checkbox matches the [Effect.Timing.Rewind](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/rewind/) property. 
 
 This is how you change the Effect Timing properties:
 
@@ -240,6 +241,9 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
         effect.Timing.RepeatUntilEndSlide = true;
     }
 
+    // Turns the effect Rewind on
+        effect.Timing.Rewind = true;
+    
     // Saves the PPTX file to disk
     pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
 }
@@ -315,3 +319,82 @@ using (Presentation presentation = new Presentation("EffectSound.pptx"))
     }
 }
 ```
+
+## **After Animation**
+
+Aspose.Slides for .NET allows you to change the After animation property of an animation effect.
+
+This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
+
+![example1_image](shape-after-animation.png)
+
+PowerPoint Effect **After animation** drop-down list matches these properties: 
+
+- [IEffect.AfterAnimationType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationtype/) property which describes the After animation type :
+  * PowerPoint **More Colors** matches the [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) type;
+  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) type (default after animation type);
+  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) type;
+  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) type;
+- [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationcolor/) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) type. If you change the type to another, the after animation color will be cleared.
+
+This C# code shows you how to change an after animation effect:
+
+```c#
+// Instantiates a presentation class that represents a presentation file
+using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+{
+    ISlide firstSlide = pres.Slides[0];
+
+    // Gets the first effect of the main sequence
+    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+
+    // Changes the after animation type to Color
+    firstEffect.AfterAnimationType = AfterAnimationType.Color;
+
+    // Sets the after animation dim color
+    firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+
+    // Writes the PPTX file to disk
+    pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Animate Text**
+
+Aspose.Slides provides the following properties to allow you to work with the "Animate text" block of an animation effect: 
+
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) which describes an animate text type of the effect. The shape text can be animated:
+  - All at once ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) type)
+  - By word ([AnimateTextType.ByWord](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) type)
+  - By letter ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) type)
+- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
+
+This is how you can change the Effect Animate text properties:
+
+1. [Apply](#apply-animation-to-shape) or get the animation effect.
+2. Set the [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/itextanimation/buildtype/) to [BuildType.AsOneObject](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype/) value to turn off the "By Paragraphs" animation mode.
+3. Set new values for the [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) and [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) properties.
+4. Save the modified PPTX file.
+
+This C# code demonstrates the operation:
+
+    // Instantiates a presentation class that represents a presentation file.
+    using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
+    {
+        ISlide firstSlide = pres.Slides[0];
+    
+        // Gets the first effect of the main sequence
+        IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    
+        // Changes the effect Text animation type to "As One Object"
+        firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
+    
+        // Changes the effect Animate text type to "By word"
+        firstEffect.AnimateTextType = AnimateTextType.ByWord;
+    
+        // Sets the delay between words to 20% of effect duration
+        firstEffect.DelayBetweenTextParts = 20f;
+    
+        // Writes the PPTX file to disk
+        pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
+    }
