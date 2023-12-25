@@ -5,6 +5,7 @@ weight: 20
 url: /net/manage-rows-and-columns/
 keywords: "Table, table rows and columns, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Manage table rows and columns in PowerPoint presentations in C# or .NET"
+
 ---
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) interface, and many other types. 
@@ -47,6 +48,7 @@ pres.Save("First_row_header.pptx", SaveFormat.Pptx);
 
 
 ## **Clone Table's Row or Column**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
@@ -75,7 +77,7 @@ using (Presentation presentation = new Presentation("Test.pptx"))
     // Adds some text to the row 1 cell 1
     table[0, 0].TextFrame.Text = "Row 1 Cell 1";
 
-    // Add some text to the row 1 cell 2
+    // Adds some text to the row 1 cell 2
     table[1, 0].TextFrame.Text = "Row 1 Cell 2";
 
     // Clones Row 1 at the end of table
@@ -102,6 +104,7 @@ using (Presentation presentation = new Presentation("Test.pptx"))
 ```
 
 ## **Remove Row or Column from Table**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
@@ -127,12 +130,13 @@ pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ## **Set Text Formatting on Table Row Level**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
 3. Access the relevant [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object from the slide. 
 4. Set the first-row cells' [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/). 
 5. Set the first-row cells' [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) and [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/). 
-6.  Set the second-row cells' [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+6. Set the second-row cells' [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
 7. Save the modified presentation.
 
 This C# code demonstrates the operation.
@@ -166,12 +170,13 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ## **Set Text Formatting on Table Column Level**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
 3. Access the relevant [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object from the slide. 
 4. Set the first-column cells' [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/). 
 5. Set the first-column cells' [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) and [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/). 
-6.  Set the second-column cells' [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+6. Set the second-column cells' [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
 7. Save the modified presentation. 
 
 This C# code demonstrates the operation: 
@@ -200,6 +205,7 @@ TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Columns[1].SetTextFormat(textFrameFormat);
 
+// Saves the presentation to disk
 pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ```
@@ -211,3 +217,4 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 ```c#
 
 ```
+
