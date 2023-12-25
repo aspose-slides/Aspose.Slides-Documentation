@@ -361,7 +361,7 @@ using (Presentation pres = new Presentation("AnimImage_out.pptx"))
 
 ## **Animate Text**
 
-Aspose.Slides provides the following properties to allow you to work with the "Animate text" block of an animation effect: 
+Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
 
 - [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) which describes an animate text type of the effect. The shape text can be animated:
   - All at once ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) type)
@@ -372,29 +372,31 @@ Aspose.Slides provides the following properties to allow you to work with the "A
 This is how you can change the Effect Animate text properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set the [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/itextanimation/buildtype/) to [BuildType.AsOneObject](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype/) value to turn off the "By Paragraphs" animation mode.
+2. Set the [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/itextanimation/buildtype/) property to [BuildType.AsOneObject](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype/) value to turn off the *By Paragraphs* animation mode.
 3. Set new values for the [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) and [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) properties.
 4. Save the modified PPTX file.
 
 This C# code demonstrates the operation:
 
-    // Instantiates a presentation class that represents a presentation file.
-    using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-    {
-        ISlide firstSlide = pres.Slides[0];
-    
-        // Gets the first effect of the main sequence
-        IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
-    
-        // Changes the effect Text animation type to "As One Object"
-        firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
-    
-        // Changes the effect Animate text type to "By word"
-        firstEffect.AnimateTextType = AnimateTextType.ByWord;
-    
-        // Sets the delay between words to 20% of effect duration
-        firstEffect.DelayBetweenTextParts = 20f;
-    
-        // Writes the PPTX file to disk
-        pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-    }
+```c#
+// Instantiates a presentation class that represents a presentation file.
+using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
+{
+    ISlide firstSlide = pres.Slides[0];
+
+    // Gets the first effect of the main sequence
+    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+
+    // Changes the effect Text animation type to "As One Object"
+    firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
+
+    // Changes the effect Animate text type to "By word"
+    firstEffect.AnimateTextType = AnimateTextType.ByWord;
+
+    // Sets the delay between words to 20% of effect duration
+    firstEffect.DelayBetweenTextParts = 20f;
+
+    // Writes the PPTX file to disk
+    pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
+}
+```
