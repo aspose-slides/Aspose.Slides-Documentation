@@ -27,7 +27,7 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspos
 This C# code shows you how to create a table in a presentation:
 
 ```c#
-// Instantiates Presentation class that represents PPTX file
+// Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 
 // Accesses the first slide
@@ -148,7 +148,7 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to access and work with an existing table:
 
 ```c#
-// Instantiate Presentation class that represents a PPTX file
+// Instantiates a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
 
@@ -173,6 +173,7 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 
 
 ## **Align Text in Table**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a slide's reference through its index. 
 3. Add an [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object to the slide. 
@@ -222,6 +223,7 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Set Text Formatting on Table Level**
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
 3. Access an [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) object from the Slide.
@@ -269,7 +271,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 
 ## **Lock Aspect Ratio of Table**
 
-The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the AspectRatioLocked property to allow you to lock the aspect ratio setting for tables and other shapes. 
+The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the `AspectRatioLocked` property to allow you to lock the aspect ratio setting for tables and other shapes. 
 
 This C# code shows you how to lock the aspect ratio for a table:
 
