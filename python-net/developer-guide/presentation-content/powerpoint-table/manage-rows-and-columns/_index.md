@@ -5,7 +5,6 @@ weight: 20
 url: /python-net/manage-rows-and-columns/
 keywords: "Table, table rows and columns, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Manage table rows and columns in PowerPoint presentations in Python"
-
 ---
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) interface, and many other types. 
@@ -36,8 +35,11 @@ with slides.Presentation("table.pptx") as pres:
         if type(shp) is slides.Table:
             tbl = shp
 
-    #Sets the first row of a table as its header 
+    # Sets the first row of a table as its header 
     tbl.first_row = True
+    
+    # Saves the presentation to disk
+    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -88,10 +90,10 @@ with slides.Presentation() as presentation:
     # Clones Row 2 as 4th row of table
     table.rows.insert_clone(3,table.rows[1], False)
 
-    #Clones first column at the end
+    # Clones first column at the end
     table.columns.add_clone(table.columns[0], False)
 
-    #Clones 2nd column at 4th column index
+    # Clones 2nd column at 4th column index
     table.columns.insert_clone(3,table.columns[1], False)
     
     # Saves the presentation to disk
