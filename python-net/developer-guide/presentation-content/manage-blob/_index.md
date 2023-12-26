@@ -13,12 +13,6 @@ description: "Add blob to PowerPoint presentation in Python. Export blob. Add Im
 
 Aspose.Slides for Python via .NET allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
 
-{{% alert title="Info" color="info" %}}
-
-To circumvent certain limitations when interacting with streams, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
-
-{{% /alert %}}
-
 # **Use BLOB to Reduce Memory Consumption**
 
 ### **Add Large File through BLOB to a Presentation**
