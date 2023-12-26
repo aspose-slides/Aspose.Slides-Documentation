@@ -7,45 +7,34 @@ keywords: "Add video, create video frame, extract video, PowerPoint presentation
 description: "Add Video frame to PowerPoint presentation in Python"
 ---
 
+A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
+
+PowerPoint allows you to add videos to a slide in a presentation in two ways:
+
+* Add or embed a local video (stored on your machine)
+* Add an online video (from a web source such as YouTube).
+
+To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [IVideo](https://reference.aspose.com/slides/python-net/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ivideoframe/) interface, and other relevant types. 
 
 ## **Create Embedded Video Frame**
-Developers can also add and play video files in the slides to enrich their presentations. Aspose.Slides for Python via .NET supports adding Video Frames to the slides that make it possible for developers to add videos to their presentations. This topic will help developers to follow the simple steps with examples for adding video frames in their slides. To add a Video Frame in a slide using Aspose.Slides for Python via .NET, please follow the steps below:
 
-1. Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
-1. Obtain the reference of a slide by using its Index.
-1. Add the Video Frame (containing the video file name) into the slide.
-1. Write the modified presentation as a PPTX file.
+If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation. 
 
-In the example below, we added a Video Frame into the slide.
+1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
+1. Get a slide's reference through its index. 
+1. Add an [IVideo](https://reference.aspose.com/slides/python-net/aspose.slides/ivideo/) object and pass the video file path to embed the video with the presentation. 
+1. Add an [IVideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ivideoframe/) object to create a frame for the video.  
+1. Save the modified presentation. 
 
-```py
-import aspose.slides as slides
+This Python code shows you how to add a video stored locally to a presentation:
 
-# Instantiate Presentation class that represents the PPTX
-with slides.Presentation() as pres:
-    # Get the first slide
-    sld = pres.slides[0]
+```python
 
-    # Embedd vide inside presentation
-    with open(path + "Wildlife.mp4", "rb") as in_file:
-        vid = pres.videos.add_video(in_file)
-
-        # Add Video Frame
-        vf = sld.shapes.add_video_frame(50, 150, 300, 350, vid)
-
-        # Set video to Video Frame
-        vf.embedded_video = vid
-
-        # Set Play Mode and Volume of the Video
-        vf.play_mode = slides.VideoPlayModePreset.AUTO
-        vf.volume = slides.AudioVolumeMode.LOUD
-
-    # Write the PPTX file to disk
-    pres.save("VideoFrame_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-It is possible to add a video passing path to the video file directly into AddVideoFrame method:
 
-```py
+Alternatively, you can add a video by passing its file path directly to the `add_video_frame(x, y, width, height, fname)`  method:
+
+``` python
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
@@ -55,28 +44,27 @@ with slides.Presentation() as pres:
 
 
 ## **Create Video Frame with Video from Web Source**
-PowerPoint 2010 and newer versions support YouTube videos. To play these videos in PowerPoint make sure your [environment meet requirements ](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)for embedding videos from web source.
 
-Follow these steps:
+Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) support YouTube videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link. 
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class
-1. Obtain the reference of a slide by using its Index
-1. Add the Video Frame by passing video URL
-1. Set Image for Video Frame
-1. Save presentation as a PPTX file
+1. Get a slide's reference through its index. 
+1. Add an [IVideo](https://reference.aspose.com/slides/python-net/aspose.slides/ivideo/) object and pass the link to the video.
+1. Set a thumbnail for the video frame. 
+1. Save the presentation. 
 
-This sample code shows you how to to add a video from YouTube to your presentation using Aspose.Slides:
+This Python code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
-```py
+```python
 import aspose.slides as slides
 from urllib.request import urlopen
 
 def add_video_from_youyube(pres, videoId):
-    #add videoFrame
+    # Adds a videoFrame
     videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId)
     videoFrame.play_mode = slides.VideoPlayModePreset.AUTO
 
-    # load thumbnail
+    # Loads thumbnail
     thumbnail_uri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"
     f = urlopen(thumbnail_uri)
     videoFrame.picture_format.picture.image = pres.images.add_image(f.read())
@@ -88,18 +76,20 @@ with slides.Presentation() as pres:
 ```
 
 ## **Extract Video From Slide**
-Aspose.Slides for Python via .NET supports extracting video from the slide. In order to extract the video. Please follow the steps below:
 
-- Load a Presentation containing a video.
-- Loop through all the slides of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Search for Video Frame.
-- Save the Video to disk.
-  In the example given below, we have saved the video file from a slide.
+Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 
-```py
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to load the presentation containing the video. 
+2. Iterate through all the [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) objects.
+3. Iterate through all the [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) objects to find a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/). 
+4. Save the video to disk.
+
+This Python code shows you how to extract the video on a presentation slide:
+
+```python
 import aspose.slides as slides
 
-# Instantiate a Presentation object that represents a presentation file 
+# Instantiates a Presentation object that represents a presentation file 
 with slides.Presentation(path + "Video.pptx") as presentation:
     for shape in presentation.slides[0].shapes:
         if type(shape) is slides.VideoFrame:
