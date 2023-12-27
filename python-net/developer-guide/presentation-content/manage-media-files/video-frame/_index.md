@@ -29,7 +29,17 @@ If the video file you want to add to your slide is stored locally, you can creat
 This Python code shows you how to add a video stored locally to a presentation:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation(path + "pres.pptx") as pres:
+    with open("Wildlife.mp4", "br") as fileStream:
+        video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
+
+        # Gets the first slide and adds a videoframe
+        pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
+
+        # Saves the presentation to disk
+        pres.save(path + "pres-with-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Alternatively, you can add a video by passing its file path directly to the `add_video_frame(x, y, width, height, fname)`  method:
