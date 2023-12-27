@@ -80,17 +80,47 @@ String ver = props->get_AppVersion();
 
 Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/) property (exposed by the [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This C++ code shows you how to set the proofing language for a PowerPoint: xxx
+This C++ code shows you how to set the proofing language for a PowerPoint:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
+System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
 
+System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+System::SharedPtr<IPortionCollection> portions = paragraph->get_Portions();
+portions->Clear();
+
+System::SharedPtr<Portion> newPortion = System::MakeObject<Portion>();
+
+System::SharedPtr<IFontData> font = System::MakeObject<FontData>(u"SimSun");
+System::SharedPtr<IPortionFormat> portionFormat = newPortion->get_PortionFormat();
+portionFormat->set_ComplexScriptFont(font);
+portionFormat->set_EastAsianFont(font);
+portionFormat->set_LatinFont(font);
+
+portionFormat->set_LanguageId(u"zh-CN");
+// set the Id of a proofing language
+
+newPortion->set_Text(u"1。");
+portions->Add(newPortion);
 ```
 
 ## **Set Default Language**
 
-This C++ code shows you how to set the default language for an entire PowerPoint presentation: xxx
+This C++ code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```c++
+System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_DefaultTextLanguage(u"en-US");
 
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
+
+// Adds a new rectangle shape with text
+System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
+System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
+textFrame->set_Text(u"New Text");
+
+// Checks the first portion language
+System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
 
