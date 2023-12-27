@@ -23,9 +23,11 @@ Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET
 ### **Linux**
 - Linux (Ubuntu, OpenSUSE, CentOS, and others)
 
-{{%  alert  title="Note"  color="primary"  %}} 
+{{%  alert  title="Notes"  color="primary"  %}} 
 
-While CentOS 7 GLIBC version is 2.14, Aspose.Slides for .NET 6 and .NET 7 requires Linux x86_x64 with GLIBC 2.23 and higher.
+1. CentOS 7 GLIBC version is 2.14, but Aspose.Slides for .NET 6 and .NET 7 requires Linux x86_x64 with GLIBC 2.23 and higher. This requirement equally applies to Aspose.Slides cross-platform, which can only be used for .NET 6 , .NET 7, or higher.
+
+2. If your system does not meet the requirement in 1, use Aspose Slides for .NETStandard.
 
 {{% /alert %}} 
 
