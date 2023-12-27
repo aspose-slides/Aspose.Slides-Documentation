@@ -7,38 +7,56 @@ keyword: "Set slide size, set slide options, specify slide size, Footer visibili
 description: "Set PowerPoint slide size and options in Python"
 ---
 
+A slide layout contains the placeholder boxes and formatting information for all the content that appears on a slide. The layout determines the available content placeholders and where they are placed. 
+
+Slide layouts allow you to create and design presentations quickly (whether simple or complex). These are some of the most popular slide layouts used in PowerPoint presentations: 
+
+* **Title Slide layout**. This layout consists of two text placeholders. One placeholder is for the title and the other is for the subtitle. 
+* **Title and Content layout**. This layout contains a relatively small placeholder at the top for the title and a bigger placeholder for the core content (chart, paragraphs, bullet list, numbered list, images, etc).
+* **Blank layout**. This layout lacks placeholders, so it allows you to create elements from scratch. 
+
+Since a slide master is the top hierarchical slide that stores information about slide layouts, you can use the master slide to access slide layouts and make changes to them. A layout slide can be accessed by type or name. Similarly, every slide has a unique id, which can be used to access it. 
+
+Alternatively, you can make changes directly to a specific slide layout in a presentation. 
+
+* To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like `layout_slides` and `masters` under the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class. 
+* To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/), and many other types. 
+
+{{% alert title="Info" color="info" %}}
+
+For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/python-net/slide-master/) article.
+
+{{% /alert %}}
 
 ## **Add Slide Layout to Presentation**
-Aspose.Slides also offer to add Layout slides in presentation. There are cases when there is missing Layout slide in presentation and once can now add the Layout Slides in presentation. Each slide has unique Id and Layout slides are maintained inside presentation Masters. One can access the Layout slide either by Type or by Name. Aspose.Slides for Python via .NET allows developers to add new Layout slides in presentation. To add a Layout Slide, please follow the steps below:
 
-1. Create an instance of Presentation class.
-1. Access the Master Slide collection.
-1. Try to find existing Layout slides to see if the required one is already available in Layout Slide collection or not.
-1. Add a new Layout slide if the desired layout is unavailable.
-1. Add an empty slide with a newly added Layout slide.
-1. Finally, write the presentation file using the Presentation object.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Access the [MasterSlide collection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/).
+1. Go through the existing layout slides to confirm that the required layout slide already exists in the Layout Slide collection. Otherwise, add the Layout slide you want. 
+1. Add an empty slide based on the new layout slide.
+1. Save the presentation. 
 
-In the example given below, we have added Layout Slides to Presentation.
+This Python code shows you how to add a slide layout to a PowerPoint presentation:
 
-```py
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiate Presentation class that represents the presentation file
+# Instantiates a Presentation class that represents the presentation file
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Try to search by layout slide type
+    # Goes through layout slide types
     layoutSlides = presentation.masters[0].layout_slides
     layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
     if layoutSlide is None:
          layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
 
     if layoutSlide is None:
-        # The situation when a presentation doesn't contain some type of layouts.
+        # The situation where a presentation doesn't contain some layout types.
         # presentation File only contains Blank and Custom layout types.
-        # But layout slides with Custom types has different slide names,
+        # But layout slides with Custom types have different slide names,
         # like "Title", "Title and Content", etc. And it is possible to use these
         # names for layout slide selection.
-        # Also it is possible to use the set of placeholder shape types. For example,
+        # You can also use a set of placeholder shape types. For example,
         # Title slide should have only Title pleceholder type, etc.
         for titleAndObjectLayoutSlide in layoutSlides:
             if titleAndObjectLayoutSlide.name == "Title and Object":
@@ -56,16 +74,16 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
                 if layoutSlide is None:
                     layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # Adding empty slide with added layout slide 
+    # Adds empty slide with added layout slide 
     presentation.slides.insert_empty_slide(0, layoutSlide)
 
-    # save presentation    
+    # Saves the presentation to disk
     presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the `remove_unused_layout_slides` method (from the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This Python code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the `remove_unused_layout_slides` method from the [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This Python code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```python
 import aspose.slides as slides
@@ -75,123 +93,139 @@ with slides.Presentation("pres.pptx") as pres:
     pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Size and Type of Slide**
 
-[SlideSize.type](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) and [SlideSize.size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) are the properties of presentation class which could be set or get as shown below in the example.
+## **Set Size and Type for Slide Layout**
 
-```py
+To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the `type` and `size` properties (from the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class). This Python demonstrates the operation:
+
+```python
 import aspose.slides as slides
 
 // Instantiate a Presentation object that represents a presentation file 
-# Instantiate a Presentation object that represents a presentation file 
+# Instantiates a Presentation object that represents a presentation file 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     with slides.Presentation() as auxPresentation:
         slide = presentation.slides[0]
 
-        # Set the slide size of generated presentations to that of source
+        # Sets the slide size for the generated presentation to that of the source
         auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
 
         auxPresentation.slides.insert_clone(0, slide)
         auxPresentation.slides.remove_at(0)
-        # save Presentation to disk
+        # Saves the presentation to disk
         auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **Set Footer Visibility Inside Slide**
-To set footer in a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtain a slide by its reference index.
-1. Set Footer visible by making slide footer placeholder visible.
-1. Set date-time placeholder visible by using the SetDateTime method.
-1. Write the modified presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a slide's reference through its index.
+1. Set the slide footer placeholder to visible. 
+1. Set the date-time placeholder to visible. 
+1. Save the presentation. 
 
-```py
+This Python code shows you how to set the visibility for a slide footer (and perform related tasks):
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     headerFooterManager = presentation.slides[0].header_footer_manager
-    # Property is_footer_visible is used for indicating that a slide footer placeholder is not present.
+    # Property is_footer_visible is used to specify that a slide footer placeholder is missing
     if not headerFooterManager.is_footer_visible: 
-        # Method set_footer_visibility is used for making a slide footer placeholder visible.
+        # Method set_footer_visibility is used to set a slide footer placeholder to visible
         headerFooterManager.set_footer_visibility(True) 
-        # Property is_slide_number_visible is used for indicating that a slide page number placeholder is not present.
+        # Property is_slide_number_visible is used to specify that a slide page number placeholder is missing
     if not headerFooterManager.is_slide_number_visible:  
-        # Method set_slide_number_visibility is used for making a slide page number placeholder visible.
+        # Method set_slide_number_visibility is used to set a slide page number placeholder to visible
         headerFooterManager.set_slide_number_visibility(True) 
-        # Property is_date_time_visible is used for indicating that a slide date-time placeholder is not present.
+        # Property is_date_time_visible is used to specify that a slide date-time placeholder is missing
     if not headerFooterManager.is_date_time_visible: 
-        # Method set_footer_visibility is used for making a slide date-time placeholder visible. 
+        # Method set_date_time_visibility is used to set a slide date-time placeholder to visible 
         headerFooterManager.set_date_time_visibility(True)
 
-    # Method set_footer_text is used for setting text to slide footer placeholder. 
+    # Method set_footer_text is used to set a text for a slide footer placeholder 
     headerFooterManager.set_footer_text("Footer text") 
-    # Method set_date_time_text is used for setting text to slide date-time placeholder.
+    # Method set_date_time_text is used to set a text for a slide date-time placeholder.
     headerFooterManager.set_date_time_text("Date and time text") 
 
+    # Saves the presentation to disk
     presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
 ```
 
 ## **Set Child Footer Visibility Inside Slide**
-To set footer and child footer a slide using its index position in the slides collection of the presentation, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtain the master slide by using its index.
-1. Set Footer and child footer visibility by making a master slide and all child footer placeholder visible.
-1. Set text to master slide and all child footer placeholder by using [set_footer_and_child_footers_visibility ](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslideheaderfootermanager/)method.
-1. Set text to master slide and all child date-time placeholder by using SetDateTimeAndChildDateTimesText method.
-1. Write the modified presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a reference for the master slide through its index. 
+1. Set the master slide and all child footer placeholders to visible.
+1. Set a text for the master slide and all child footer placeholders. 
+1. Set a text for the master slide and all child date-time placeholders. 
+1. Save the presentation. 
 
-```py
+This Python code demonstrates the operation:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # Method set_footer_and_child_footers_visibility is used for making a master slide and all child footer placeholders visible.
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # Method set_slide_number_and_child_slide_numbers_visibility is used for making a master slide and all child page number placeholders visible.
-    manager.set_date_time_and_child_date_times_visibility(True) # Method set_date_time_and_child_date_times_visibility is used for making a master slide and all child date-time placeholders visible.
+    manager.set_footer_and_child_footers_visibility(True) # Method set_footer_and_child_footers_visibility is used to set the master slide and all child footer placeholders to visible
+    manager.set_slide_number_and_child_slide_numbers_visibility(True) # Method set_slide_number_and_child_slide_numbers_visibility is used to set the master slide and all child page number placeholders to visible
+    manager.set_date_time_and_child_date_times_visibility(True) # Method set_date_time_and_child_date_times_visibility is used to set a master slide and all child date-time placeholders to visible
 
-    manager.set_footer_and_child_footers_text("Footer text") # Method set_footer_and_child_footers_text is used for setting text to master slide and all child footer placeholders.
-    manager.set_date_time_and_child_date_times_text("Date and time text") # Method set_date_time_and_child_date_times_text is used for setting text to master slide and all child date-time placeholders.
+    manager.set_footer_and_child_footers_text("Footer text") # Method set_footer_and_child_footers_text is used to set texts for the master slide and all child footer placeholders
+    manager.set_date_time_and_child_date_times_text("Date and time text") # Method set_date_time_and_child_date_times_text is used to set text for the master slide and all child date-time placeholders
 
 
 ```
 
 ## **Set Slide Size with Respect to Content Scaling**
-You can also set the slide size by using it with different ways of content scaling.[SlideSize.Type](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) and [SlideSize.Size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) are the properties of presentation class which could be set or get as shown below in the example.
 
-```py
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation containing the slide whose size you want to set. 
+1. Create another instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to generate a new presentation. 
+1. Get the slide's reference (from the first presentation) through its index.
+1. Set the slide footer placeholder to visible. 
+1. Set the date-time placeholder to visible. 
+1. Save the presentation. 
+
+This Python demonstrates the operation: 
+
+```python
 import aspose.slides as slides
 
-# Instantiate a Presentation object that represents a presentation file 
+# Instantiates a Presentation object that represents a presentation file 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     with slides.Presentation() as auxPresentation:
         slide = presentation.slides[0]
 
-        # Set the slide size of generated presentations to that of source
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # Method set_size is used for set slide size with scale content to ensure fit
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # Method set_size is used for set slide size with maximize size of content
+        # Sets the slide size for the generated presentations to that of the source
+        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # Method set_size is used to set slide size with scale content to ensure fit
+        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # Method set_size is used to set slide size with maximum size of content
                 
-        # save Presentation to disk
+        # Saves the presentation to disk
         auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Set Page Size when Generating PDF**
-Slides in presentation could be set as different paper sizes. The [SlideSize.Type](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) property can be used to set the slide size. Developers can set the size of a slide as shown below in the example.
 
-```py
+Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
+
+Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This Python code shows you how to use the `type` property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
+
+```python
 import aspose.slides as slides
 
-# Instantiate a Presentation object that represents a presentation file 
+# Instantiates a Presentation object that represents a presentation file  
 with slides.Presentation() as presentation:
-    # Set slide_size.Type Property 
+    # Sets the SlideSize.Type Property 
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
 
-    # Set different properties of PDF Options
+    # Sets different properties for PDF Options
     opts = slides.export.PdfOptions()
     opts.sufficient_resolution = 600
 
-    # save presentation to disk
+    # Saves the presentation to disk
     presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
 ```
+
