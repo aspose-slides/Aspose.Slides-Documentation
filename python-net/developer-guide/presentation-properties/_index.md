@@ -149,17 +149,45 @@ print(props.app_version)
 
 Aspose.Slides provides the `Language_Id` property (exposed by the [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This Python code shows you how to set the proofing language for a PowerPoint: xxx
+This Python code shows you how to set the proofing language for a PowerPoint:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+    auto_shape = pres.slides[0].shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
+
+    new_portion = slides.Portion()
+    font = slides.FontData("SimSun")
+    portion_format = new_portion.portion_format
+    portion_format.complex_script_font = font
+    portion_format.east_asian_font = font
+    portion_format.latin_font = font
+
+    # set the Id of a proofing language
+    portion_format.language_id = "zh-CN"
+    new_portion.text = "1。"
+
+    paragraph.portions.add(new_portion)
 ```
 
 ## **Set Default Language**
 
-This Python code shows you how to set the default language for an entire PowerPoint presentation: xxx
+This Python code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```python
+import aspose.slides as slides
 
+load_options = slides.LoadOptions()
+load_options.default_text_language = "en_US"
+
+with slides.Presentation(load_options) as pres:
+    shp = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 150)
+    text_frame = shp.text_frame
+    text_frame.text = "New Text"
+
+    print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
 
