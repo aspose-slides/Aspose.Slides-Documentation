@@ -258,10 +258,20 @@ presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
 
 If you want to delete the cropped areas of an image contained in a frame, you can use the [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
-This C++ code demonstrates the operation: xxx 
+This C++ code demonstrates the operation: 
 
 ```c++
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
+System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
+// Gets the PictureFrame from the first slide
+System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
+
+// Deletes cropped areas of the PictureFrame image and returns the cropped image
+System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+
+// Saves the result
+presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
