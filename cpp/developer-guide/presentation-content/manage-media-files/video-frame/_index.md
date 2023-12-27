@@ -27,16 +27,29 @@ If the video file you want to add to your slide is stored locally, you can creat
 1. Add an [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) object to create a frame for the video.  
 1. Save the modified presentation. 
 
-This C++ code shows you how to add a video stored locally to a presentation: xxx
+This C++ code shows you how to add a video stored locally to a presentation:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
+// Loads the video
+System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(u"Wildlife.mp4", System::IO::FileMode::Open, System::IO::FileAccess::Read);
+System::SharedPtr<IVideo> video = pres->get_Videos()->AddVideo(fileStream, LoadingStreamBehavior::KeepLocked);
+
+// Gets the first slide and adds a videoframe
+pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, video);
+
+// Saves the presentation to disk
+pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
 ```
 
-Alternatively, you can add a video by passing its file path directly to the [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) method: xxx
+Alternatively, you can add a video by passing its file path directly to the [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) method:
 
 ``` c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
+System::SharedPtr<ISlide> sld = pres->get_Slide(0);
+System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.0f, 300.0f, 150.0f, u"video1.avi");
 ```
 
 
