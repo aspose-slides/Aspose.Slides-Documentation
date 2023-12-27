@@ -232,12 +232,24 @@ with slides.Presentation() as presentation:
 
 ## Delete Cropped Areas of Picture
 
-If you want to delete the cropped areas of an image contained in a frame, you can use the `delete_picture_cropped_areas` (xxx - where is the method? It does not exist in the python API reference) method. This method returns the cropped image or the origin image if cropping is unnecessary.
+If you want to delete the cropped areas of an image contained in a frame, you can use the [delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/ipicturefillformat/) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
-This Python code demonstrates the operation: xxx
+This Python code demonstrates the operation:
 
-```c#
+```python
+import aspose.slides as slides
 
+with slides.Presentation(path + "PictureFrameCrop.pptx") as pres:
+    slide = pres.slides[0]
+
+    # Gets the PictureFrame from the first slide
+    picture_frame = slides.shape[0]
+
+    # Deletes cropped areas of the PictureFrame image and returns the cropped image
+    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+
+    # Saves the result
+    pres.save(path + "PictureFrameDeleteCroppedAreas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
