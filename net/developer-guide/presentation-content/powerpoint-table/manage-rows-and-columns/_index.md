@@ -215,6 +215,11 @@ pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C# code shows you how to get the style properties from a table preset style: xxx
 
 ```c#
-
+using (Presentation pres = new Presentation())
+{
+    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    table.StylePreset = TableStylePreset.DarkStyle1; // change the default style preset theme 
+    pres.Save("table.pptx", SaveFormat.Pptx);
+}
 ```
 
