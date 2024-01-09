@@ -245,3 +245,77 @@ effect->get_Timing()->set_TriggerDelayTime(0.5f);
 pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Animation Effect Sound**
+
+Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
+
+- [set_Sound()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effect/set_sound/) 
+- [set_StopPreviousSound()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
+
+### **Add Animation Effect Sound**
+
+This C++ code shows you how to add an animation effect sound and stop it when the next effect starts: xxx
+
+```c++
+
+```
+
+### **Extract Animation Effect Sound**
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Get a slide’s reference through its index. 
+3. Get the main sequence of effects. 
+4. Extract the [set_Sound()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effect/set_sound/) embedded to each animation effect. 
+
+This C++ code shows you how to extract the sound embedded in an animation effect: xxx
+
+```c++
+
+```
+
+## **After Animation**
+
+Aspose.Slides for C++ allows you to change the After animation property of an animation effect.
+
+This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
+
+![example1_image](shape-after-animation.png)
+
+PowerPoint Effect **After animation** drop-down list matches these properties: 
+
+- [set_AfterAnimationType()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) property which describes the After animation type :
+  * PowerPoint **More Colors** matches the [AfterAnimationType.Color](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type;
+  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type (default after animation type);
+  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type;
+  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type;
+- [set_AfterAnimationColor()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) property which defines an after animation color format. This property works in conjunction with the  [AfterAnimationType.Color](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type. If you change the type to another, the after animation color will be cleared.
+
+This C++ code shows you how to change an after animation effect: xxx
+
+```c++
+
+```
+
+## **Animate Text**
+
+Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
+
+- [set_AnimateTextType()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) which describes an animate text type of the effect. The shape text can be animated:
+  - All at once ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/cpp/aspose.slides.animation/animatetexttype/) type)
+  - By word ([AnimateTextType.ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.animation/animatetexttype/) type)
+  - By letter ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/cpp/aspose.slides.animation/animatetexttype/) type)
+- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
+
+This is how you can change the Effect Animate text properties:
+
+1. [Apply](#apply-animation-to-shape) or get the animation effect.
+2. Set the [set_BuildType()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/itextanimation/set_buildtype/) property to [BuildType.AsOneObject](https://reference.aspose.com/slides/cpp/aspose.slides.animation/buildtype/) value to turn off the *By Paragraphs* animation mode.
+3. Set new values for the [set_AnimateTextType()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) and [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) properties.
+4. Save the modified PPTX file.
+
+This C++ code demonstrates the operation: xxx
+
+```c++
+
+```
+
