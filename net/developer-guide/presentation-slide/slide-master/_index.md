@@ -127,7 +127,7 @@ using (var pres = new Presentation())
 {
     foreach (IMasterSlide master in pres.Masters)
     {
-        // Do work with each master slide in the presentation
+        // Do some work with each master slide in the presentation
     }
 }
 ```
