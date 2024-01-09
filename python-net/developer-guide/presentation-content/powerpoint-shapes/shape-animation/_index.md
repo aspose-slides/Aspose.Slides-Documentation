@@ -216,7 +216,7 @@ This is how you change the Effect Timing properties:
 
 This Python code demonstrates the operation:
 
-```py
+```python
 import aspose.slides as slides
 
 # Instantiates a presentation class that represents a presentation file.
@@ -239,3 +239,78 @@ with slides.Presentation("AnimExample_out.pptx") as pres:
     # Saves the PPTX file to disk
     pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Animation Effect Sound**
+
+Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
+
+- `sound`
+- `stop_previous_sound`
+
+### **Add Animation Effect Sound**
+
+This Python code shows you how to add an animation effect sound and stop it when the next effect starts: xxx
+
+```python
+
+```
+
+### **Extract Animation Effect Sound**
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Get a slide’s reference through its index. 
+3. Get the main sequence of effects. 
+4. Extract the `sound` embedded to each animation effect. 
+
+This Python code shows you how to extract the sound embedded in an animation effect: xxx
+
+```python
+
+```
+
+## **After Animation**
+
+Aspose.Slides for .NET allows you to change the After animation property of an animation effect.
+
+This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
+
+![example1_image](shape-after-animation.png)
+
+PowerPoint Effect **After animation** drop-down list matches these properties: 
+
+- `after_animation_type` property which describes the After animation type :
+  * PowerPoint **More Colors** matches the [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type;
+  * PowerPoint **Don't Dim** list item matches the [DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type (default after animation type);
+  * PowerPoint **Hide After Animation** item matches the [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type;
+  * PowerPoint **Hide on Next Mouse Click** item matches the [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type;
+- `after_animation_color` property which defines an after animation color format. This property works in conjunction with the  [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type. If you change the type to another, the after animation color will be cleared.
+
+This Python code shows you how to change an after animation effect: xxx
+
+```python
+
+```
+
+## **Animate Text**
+
+Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
+
+- `animate_text_type` which describes an animate text type of the effect. The shape text can be animated:
+  - All at once ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) type)
+  - By word ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) type)
+  - By letter ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) type)
+- `delay_between_text_parts` sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
+
+This is how you can change the Effect Animate text properties:
+
+1. [Apply](#apply-animation-to-shape) or get the animation effect.
+2. Set the `build_type` property to [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/) value to turn off the *By Paragraphs* animation mode.
+3. Set new values for the `animate_text_type` and `delay_between_text_parts` properties.
+4. Save the modified PPTX file.
+
+This Python code demonstrates the operation: xxx
+
+```python
+
+```
+
