@@ -26,10 +26,26 @@ If the video file you want to add to your slide is stored locally, you can creat
 1. Add an [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) object to create a frame for the video.  
 1. Save the modified presentation. 
 
-This Java code shows you how to add a video stored locally to a presentation: xxx
+This Java code shows you how to add a video stored locally to a presentation:
 
 ```java
+// Instantiates the Presentation class
+Presentation pres = new Presentation("pres.pptx");
+try {
+    // Loads the video
+    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
+    
+    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
 
+    // Gets the first slide and adds a videoframe
+    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+
+    // Saves the presentation to disk
+    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
