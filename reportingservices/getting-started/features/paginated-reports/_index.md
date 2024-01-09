@@ -1,13 +1,15 @@
 ---
 title: Create Paginated Reports
 type: docs
-weight: 90
+weight: 100
 url: /reportingservices/paginated-reports/
+keywords: "Create Paginated Reports, Power BI, Aspose.Slides for Reporting Services"
+description: "Create Paginated Reports"
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Reporting Service implemented support for Power BI. 
+Aspose.Slides for Reporting Services implemented support for Power BI. 
 
 {{% /alert %}} 
 
