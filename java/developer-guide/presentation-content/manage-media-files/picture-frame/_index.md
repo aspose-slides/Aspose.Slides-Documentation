@@ -259,7 +259,21 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 This Java code demonstrates the operation:
 
 ```java
+Presentation presentation = new Presentation("PictureFrameCrop.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    // Gets the PictureFrame from the first slide
+    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+
+    // Deletes cropped areas of the PictureFrame image and returns the cropped image
+    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
+
+    // Saves the result
+    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
