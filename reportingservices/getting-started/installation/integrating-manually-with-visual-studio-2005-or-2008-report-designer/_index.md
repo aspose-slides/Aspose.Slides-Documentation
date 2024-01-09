@@ -7,7 +7,7 @@ url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-rep
 
 {{% alert color="primary" %}} 
 
-This article explains how to integrate Aspose.Slides for Reporting Services manually with Visual Studio. 
+This article teaches you how to integrate Aspose.Slides for Reporting Services manually with Visual Studio. 
 
 {{% /alert %}} 
 
@@ -18,15 +18,17 @@ This article explains how to integrate Aspose.Slides for Reporting Services manu
 {{% /alert %}}
 
 ## **Integrating Aspose.Slides for Reporting Services with Visual Studio**
-To install Aspose.Slides for Reporting Services manually for Microsoft Visual Studio Report Designer without the MSI installer. We recommend you use the MSI installer because it performs all necessary installation and configuration automatically. However, if you fail to install with MSI installer then please follow the following guidelines. 
+We recommend you use the MSI installer to install Aspose.Slides for Reporting Services because it performs all necessary installation tasks and configuration processes automatically. However, if the installation with MSI installer fails, then use the guide here. 
 
-This article describes how to install Aspose.Slides for Reporting Services on a computer with Business Intelligence Development Studio. This will enable you to export reports to Microsoft PowerPoint formats at design time from the Microsoft Visual Studio 2005 or 2008 Report Designer. 
+This article also shows you how to install Aspose.Slides for Reporting Services on a computer with Business Intelligence Development Studio. This will enable you to export reports to Microsoft PowerPoint formats at design time from the Microsoft Visual Studio 2005 or 2008 Report Designer. 
 
 1. Copy Aspose.Slides.ReportingServices.dll to the Visual Studio directory.
-- To integrate with Visual Studio 2005 Report Designer, copy **Aspose.Slides.ReportingServices.dll** to the **C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies** directory.
-- To integrate with Visual Studio 2008 Report Designer, copy **Aspose.Slides.ReportingServices.dll** to the **C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies** directory.
-1. Register Aspose.Slides for Reporting Services as a rendering extension. 
-   1. Open **C:\Program Files\Microsoft Visual Studio <Version>\Common7\IDE\PrivateAssemblies\ RSReportDesigner.config** (where <Version> is “8” for Visual Studio 2005 or “9.0” for Visual Studio 2008) and add the following lines into the <Render> element: 
+
+   - To integrate with Visual Studio 2005 Report Designer, copy **Aspose.Slides.ReportingServices.dll** to the **C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies** directory.
+   - To integrate with Visual Studio 2008 Report Designer, copy **Aspose.Slides.ReportingServices.dll** to the **C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies** directory.
+2. Register Aspose.Slides for Reporting Services as a rendering extension. 
+
+3. Open **C:\Program Files\Microsoft Visual Studio <Version>\Common7\IDE\PrivateAssemblies\ RSReportDesigner.config** (where <Version> is “8” for Visual Studio 2005 or “9.0” for Visual Studio 2008) and add these lines into the <Render> element: 
 
 ``` xml
 
@@ -42,12 +44,9 @@ This article describes how to install Aspose.Slides for Reporting Services on a 
 
 ```
 
-
-
-
-1. Give Aspose.Slides for Reporting Services permissions to execute. 
+4. Give Aspose.Slides for Reporting Services permissions to execute. 
    1. Open **C:\Program Files\Microsoft Visual Studio <Version>\Common7\IDE\PrivateAssemblies\RSPreviewPolicy.config** (where <Version> is “8” for Visual Studio 2005 or “9.0” for Visual Studio 2008).
-   1. Add the following as the last item in the second to outer <CodeGroup> element (which should be <CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission.">) 
+   1. Add this line as the last item in the second to outer <CodeGroup> element (which should be <CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission.">) 
 
 **<CodeGroup>**
 
@@ -101,11 +100,8 @@ This article describes how to install Aspose.Slides for Reporting Services on a 
 
 ```
 
-
-
-
-1. Verify that Aspose.Slides for Reporting Services was installed successfully. 
-   1. Run or restart Microsoft Visual Studio 2005 or 2008 Report Designer. You should notice new formats available in the list of export formats.
+5. Verify that Aspose.Slides for Reporting Services was installed successfully. 
+6. Run or restart Microsoft Visual Studio 2005 or 2008 Report Designer. You should notice new formats in the list of export formats.
 
 **New export formats appear in Report Designer.** 
 

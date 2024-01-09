@@ -7,22 +7,22 @@ url: /reportingservices/export-report-to-powerpoint-without-installation-of-aspo
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Reporting Service can be used without installation on server. This approach is suitable when you need to integrate export to Powerpoint in your application but access to service is restricted.
+Aspose.Slides for Reporting Service can be used without installation on a server. This approach is suitable when you need to integrate export to Powerpoint in your application but access to the service is restricted.
 
 {{% /alert %}} {{% alert color="primary" %}} 
 
-Visual Studio solution that illustrates the approach can be found [here ](attachments/10289165/10453062.zip)
+Visual Studio solution that illustrates the approach can be found [here](attachments/10289165/10453062.zip).
 
 {{% /alert %}} 
 
-The process of rendering consist of two parts: 
+The rendering process comprises two parts: 
 
-1. Render report to RPL using Reporting Service Web Service. More information regarding Reporting Service Web Service can be found [here](http://technet.microsoft.com/en-us/library/ms152787.aspx).
+1. Render report to RPL using Reporting Service Web Service. See more information on Reporting Service Web Service [here](http://technet.microsoft.com/en-us/library/ms152787.aspx).
 1. Render RPL to Powerpoint using Aspose.Slides for Reporting service for ReportViewer. The assembly is located in ﻿﻿﻿﻿﻿{Aspose.Slides for Reporting Services home directory}\bin\RV2010  
-## **Here is the steps to implement export to Powerpoint:**
- 1) Create web service proxy as described [here](http://technet.microsoft.com/en-us/library/ms155134.aspx) and add it to your solution.
+## **How to Implement Export to PowerPoint:**
+ 1) Create the web service proxy (see the details [here](http://technet.microsoft.com/en-us/library/ms155134.aspx)) and add it to your solution.
 
- 2) Add reference to Aspose.Slides.ReportingServices.dll for ReportViewer 2010.
+ 2) Add a reference to Aspose.Slides.ReportingServices.dll for ReportViewer 2010.
 
  3) Use this class to integrate web service proxy and Apose.Slides for Reporting Service
 
@@ -181,7 +181,7 @@ return new MemoryStream(result);
 
 ```
 
- 4) Now you can export report by using this code:
+ 4) Now you can export the report through this code:
 
 ``` xml
 
@@ -199,6 +199,6 @@ powerpointRenderer.Render("test.ppt, "/AdventureWorks Sample Reports/Sales Order
 
 {{% alert color="primary" %}} 
 
-This kind of export uses Soft page breaks like in Word or Excel, so the result can be different from Presentation that was exported using standard approach.
+The export process here uses soft page breaks similar to Word or Excel, so its result may differ from the Presentation that was exported using the standard approach.
 
 {{% /alert %}}

@@ -7,23 +7,21 @@ url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
 
 {{% alert color="primary" %}} 
 
-This section demonstrates how to customize Aspose.Slides for Reporting Services rendering options captions. 
+This article shows you how to customize Aspose.Slides for Reporting Services rendering options captions. 
 
 {{% /alert %}} 
 ## **Example**
-On installation of the Aspose.Slides for Reporting Services, four more export options are added in the drop down menu of the export options as shown by the following figure: 
+When installing Aspose.Slides for Reporting Services, 4 additional export options are added in the drop-down menu of the export options:
 
 ![todo:image_alt_text](customizing-powerpoint-rendering-extension-caption_1.png)
-## **Steps to modify the captions text**
-The default captions of these extensions can be changed by overriding the default names. The following steps explain how to update the caption “ **PPT – PowerPoint** **Presentation via** **Aspose.Slides** ” to “ **PowerPoint 97 – 2003 format(PPT)** ”. 
+## **How to modify the captions text**
+The default captions of these extensions can be changed by overriding the default names. These steps show you how to change the caption from “ **PPT – PowerPoint** **Presentation via** **Aspose.Slides** ” to “ **PowerPoint 97 – 2003 format(PPT)** ”. 
 
-
-**Step 1:** Locate the **rsreportserver.config** file typically located in the following directory: 
+**Step 1:** Locate the **rsreportserver.config** file that is usually in this directory: 
 
 **OS Root Drive\Program Files\Microsoft SQL Server\MSRS10.MSSQLSERVER\Reporting Services\ReportServer** 
 
-
-**Step** **2:** Find the following lines in rsreportserver.config file: 
+**Step** **2:** Find these lines in rsreportserver.config file: 
 
 ``` xml
 
@@ -33,7 +31,7 @@ The default captions of these extensions can be changed by overriding the defaul
 
 ```
 
-**Step** **3:** Replace this extension parameter with the following: 
+**Step** **3:** Replace the extension parameter with this: 
 
 **<Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices">**
 
@@ -51,6 +49,6 @@ The default captions of these extensions can be changed by overriding the defaul
 
 ```
 
-**Step** **4:** As a result of the above actions, the export options will appear as below: 
+The export options will now appear like this: 
 
 ![todo:image_alt_text](customizing-powerpoint-rendering-extension-caption_2.png)

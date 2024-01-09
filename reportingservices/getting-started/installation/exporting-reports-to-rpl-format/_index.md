@@ -9,23 +9,23 @@ url: /reportingservices/exporting-reports-to-rpl-format/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides uses reports in RPL (Report Processing Language) format for rendering. This page demonstrates how to export report to RPL Format﻿.
+Aspose.Slides uses reports in RPL (Report Processing Language) format for rendering. This page demonstrates how to export reports to the RPL Format﻿.
 
 {{% /alert %}} 
 
-Many time the customers need to share the reports with issues for resolution with Aspose staff. If reports are shared in RDL form they also need to share the data set or schema along side to reproduce issue on our end. Sometimes, even sharing the RDL report along with data set does not resolve the issue completely. In such cases, we recommend to export the reports in RPL format and share the RPL file for report with us. The RPL file includes the data set used in it as well. This is even more easy to export to RPL and instantly shared with us.
+In many scenarios, customers have to share the reports containing issues for resolution with Aspose staff. When the shared reports are in RDL form, the data set or schema is also shared to allow us to reproduce the problem. Sometimes, even the sharing of the RDL report along with the data set is not sufficient to resolve the issue completely. In such cases, we recommend that you export the reports in RPL format and share the RPL file for reporting with us. The RPL file includes the data set used in it as well. This way, it gets easier to export to RPL and it can be shared instantly with us.
 
-Please perform following steps:
+Perform these steps:
 
-- Copy to Aspose.ReportingServices.Debug.Rpl.dll to Reporting services bin directory (usually at c:\Program Files\Microsoft SQL Server\MSRS10_50.SQL2008R2\Reporting Services\ReportServer\bin).
+1. Copy to Aspose.ReportingServices.Debug.Rpl.dll to Reporting services bin directory (usually at c:\Program Files\Microsoft SQL Server\MSRS10_50.SQL2008R2\Reporting Services\ReportServer\bin).
 
 {{% alert color="primary" %}} 
 
-Aspose.ReportingServices.Debug.Rpl.dll is available in latest versions of Aspose.Slides for Reporting Services and can be downloaded from **download section**.
+Aspose.ReportingServices.Debug.Rpl.dll is available in the latest versions of Aspose.Slides for Reporting Services, which can be downloaded from the [Releases page](https://releases.aspose.com/slides/reportingservices/).
 
 {{% /alert %}} 
 
-- Add following extension to **<Render>** tag of **rsreportserver.config** file (usually at c:\Program Files\Microsoft SQL Server\MSRS10_50.SQL2008R2\Reporting Services\ReportServer\rsreportserver.config)
+2. Add this extension to **<Render>** tag of **rsreportserver.config** file (usually at c:\Program Files\Microsoft SQL Server\MSRS10_50.SQL2008R2\Reporting Services\ReportServer\rsreportserver.config)
 
 ``` xml
 
@@ -42,9 +42,9 @@ Aspose.ReportingServices.Debug.Rpl.dll is available in latest versions of Aspose
 
 ```
 
-Specify path to resulted RPL files by modifying Path element.
+3. Specify the path to resulting RPL files by modifying the path element.
 
-- Give Aspose.ReportingServices.Debug.Rpl.dll permissions to execute. To do this, open C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config and add the following as the last item in the second to outer **<CodeGroup>** element ( which should be **<CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission. ">** ) :
+4. Give Aspose.ReportingServices.Debug.Rpl.dll permissions to execute this way: open C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config and add this as the last item in the second to outer **<CodeGroup>** element ( which should be **<CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission. ">** ) :
 
 ``` xml
 
@@ -83,6 +83,6 @@ Specify path to resulted RPL files by modifying Path element.
 
 ```
 
-- Restart Reporting services. You will find Aspose.Rpl option in Export menu.
+5. Restart Reporting services. You should find Aspose.Rpl option in Export menu.
 
-The "Rpl export" option will become visible in export panel. You need to export report to RPL and share the RPL file.
+The "Rpl export" option should appear on the export panel. You need to export the report to RPL and share the RPL file.

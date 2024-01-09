@@ -22,4 +22,4 @@ The installation involving the MSI installer is the best option in most cases. H
 
 - Automatic installation fails due to security issues or other reasons. 
 - the product has to be installed on a named (not default) instance of Reporting Services or on multiple instances.
-- after upgrading to the latest version, you just want to replace the assembly instead of uninstalling the old version and installing the new one using the MSI installer. **Note** that in this case you may end up with other files. 
+- after upgrading to the latest version, you just want to replace the assembly instead of uninstalling the old version and installing the new one using the MSI installer. **Note** that you may end up with other files in this case.
