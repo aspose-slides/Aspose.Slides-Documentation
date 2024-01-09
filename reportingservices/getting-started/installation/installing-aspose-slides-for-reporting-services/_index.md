@@ -16,7 +16,7 @@ Aspose.Slides for Reporting Services can be deployed in two ways:
 * automatically by using an MSI installer
 * manually by copying the assembly and modifying configuration files. 
 
-The MSI installer for the automatic installation (Aspose.Slides for Reporting Services XX.XX) and the zip package containing files for the manual installation (Aspose.Slides for Reporting Services XX.XX DLL Only) can be downloaded from the the [product release page](https://releases.aspose.com/slides/reportingservices/). 
+The MSI installer for the automatic installation (Aspose.Slides for Reporting Services XX.XX) and the zip package containing files for the manual installation (Aspose.Slides for Reporting Services XX.XX DLL Only) can be downloaded from the [product release page](https://releases.aspose.com/slides/reportingservices/). 
 
 {{% alert color="primary" %}} 
 

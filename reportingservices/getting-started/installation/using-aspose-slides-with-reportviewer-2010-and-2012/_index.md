@@ -9,7 +9,7 @@ url: /reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/
 
 {{% alert color="primary" %}} 
 
-This page demonstrates how to export report from ReportViewer 2010/2012 to PowerPoint presentation﻿.
+This article teaches you how to export reports from ReportViewer 2010/2012 to a PowerPoint presentation﻿.
 
 {{% /alert %}} 
 
@@ -21,7 +21,7 @@ RplRenderer uses [soft page breaks](https://docs.microsoft.com/en-us/sql/reporti
 
 {{% /alert %}} 
 ## **Sample Code**
-This code will show how to export report from ReportViewer 2010/2012 to PPT/PPTX using RplRenderer. Execute RenderToPpt method to render current report to PPT.
+This code will show how to export a report from ReportViewer 2010/2012 to PPT/PPTX using RplRenderer. Execute the RenderToPpt method to render a current report to PPT.
 
 [**C#**]()
 
@@ -246,7 +246,7 @@ namespace Slides.ReportViewer2010
 
 ```
 ## **Using from Windows Forms**
-Optionally you can add Export buttons to TollStripPanel of ReportViewer by adding next code to Form's constructor:
+You may want to add Export buttons to TollStripPanel of ReportViewer by adding this code to the Form's constructor:
 
 [**C#**]()
 
