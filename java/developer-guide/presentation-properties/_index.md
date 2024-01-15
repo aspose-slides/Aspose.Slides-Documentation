@@ -268,3 +268,55 @@ System.out.println("Application Name: " + app);
 System.out.println("Application Version: " + ver);
 ```
 
+## **Set Proofing Language**
+
+Aspose.Slides provides the LanguageId property (exposed by the PortionFormat class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
+
+This Java code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+
+```java
+Presentation pres = new Presentation(pptxFileName);
+try {
+    AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    Portion newPortion = new Portion();
+
+    IFontData font = new FontData("SimSun");
+    IPortionFormat portionFormat = newPortion.getPortionFormat();
+    portionFormat.setComplexScriptFont(font);
+    portionFormat.setEastAsianFont(font);
+    portionFormat.setLatinFont(font);
+
+    portionFormat.setLanguageId("zh-CN"); // set the Id of a proofing language
+
+    newPortion.setText("1。");
+    paragraph.getPortions().add(newPortion);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## **Set Default Language**
+
+This Java code shows you how to set the default language for an entire PowerPoint presentation:
+
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setDefaultTextLanguage("en-US");
+
+Presentation pres = new Presentation(loadOptions);
+try {
+    // Adds a new rectangle shape with text
+    IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
+    shp.getTextFrame().setText("New Text");
+
+    // Checks the first portion language
+    System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
