@@ -254,10 +254,36 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 
 ### **Add Animation Effect Sound**
 
-This C++ code shows you how to add an animation effect sound and stop it when the next effect starts: xxx
+This C++ code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
+// Adds audio to presentation audio collection
+System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
+System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+
+// Gets the main sequence of the slide.
+System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+
+// Gets the first effect of the main sequence
+System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
+
+// Сhecks the effect for "No Sound"
+if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
+{
+    // Adds sound for the first effect
+    firstEffect->set_Sound(effectSound);
+}
+
+// Gets the first interactive sequence of the slide.
+System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
+
+// Sets the effect "Stop previous sound" flag
+interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
+
+// Writes the PPTX file to disk
+pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
 ```
 
 ### **Extract Animation Effect Sound**
@@ -267,10 +293,25 @@ This C++ code shows you how to add an animation effect sound and stop it when th
 3. Get the main sequence of effects. 
 4. Extract the [set_Sound()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effect/set_sound/) embedded to each animation effect. 
 
-This C++ code shows you how to extract the sound embedded in an animation effect: xxx
+This C++ code shows you how to extract the sound embedded in an animation effect:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
+System::SharedPtr<ISlide> slide = pres->get_Slide(0);
 
+// Gets the main sequence of the slide.
+System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
+
+for (auto&& effect : sequence)
+    {
+    System::SharedPtr<IAudio> sound = effect->get_Sound();
+
+    if (sound == nullptr)
+        continue;
+
+    auto audio = sound->get_BinaryData();
+}
 ```
 
 ## **After Animation**
@@ -290,10 +331,24 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
   * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type;
 - [set_AfterAnimationColor()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) property which defines an after animation color format. This property works in conjunction with the  [AfterAnimationType.Color](https://reference.aspose.com/slides/cpp/aspose.slides.animation/afteranimationtype/) type. If you change the type to another, the after animation color will be cleared.
 
-This C++ code shows you how to change an after animation effect: xxx
+This C++ code shows you how to change an after animation effect:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
+System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
 
+// Gets the first effect of the main sequence
+System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+
+// Changes the after animation type to Color
+firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
+
+// Sets the after animation dim color
+firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
+
+// Writes the PPTX file to disk
+pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
 ```
 
 ## **Animate Text**
@@ -313,9 +368,26 @@ This is how you can change the Effect Animate text properties:
 3. Set new values for the [set_AnimateTextType()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) and [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) properties.
 4. Save the modified PPTX file.
 
-This C++ code demonstrates the operation: xxx
+This C++ code demonstrates the operation:
 
 ```c++
+// Instantiates a presentation class that represents a presentation file.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
+System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
 
+// Gets the first effect of the main sequence
+System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+
+// Changes the effect Text animation type to "As One Object"
+firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+
+// Changes the effect Animate text type to "By word"
+firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
+
+// Sets the delay between words to 20% of effect duration
+firstEffect->set_DelayBetweenTextParts(20.0f);
+
+// Writes the PPTX file to disk
+pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
 ```
 
