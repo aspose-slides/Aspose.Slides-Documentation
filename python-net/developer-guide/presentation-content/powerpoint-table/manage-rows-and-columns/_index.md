@@ -211,9 +211,14 @@ with slides.Presentation() as pres:
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Python code shows you how to get the style properties from a table preset style: xxx
+Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Python code shows you how to get the style properties from a table preset style:
 
-```pyt
+```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    table = pres.slides[0].shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    table.style_preset = slides.TableStylePreset.DARK_STYLE1
+    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
