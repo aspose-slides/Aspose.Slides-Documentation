@@ -304,7 +304,7 @@ System::SharedPtr<ISlide> slide = pres->get_Slide(0);
 System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
 
 for (auto&& effect : sequence)
-    {
+{
     System::SharedPtr<IAudio> sound = effect->get_Sound();
 
     if (sound == nullptr)
