@@ -249,10 +249,36 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 
 ### **Add Animation Effect Sound**
 
-This Python code shows you how to add an animation effect sound and stop it when the next effect starts: xxx
+This Python code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```python
+import aspose.slides as slides
 
+with Presentation("AnimExample_out.pptx") as pres:
+    # Adds audio to presentation audio collection
+    effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
+
+    first_slide = pres.slides[0]
+
+    # Gets the main sequence of the slide.
+    sequence = first_slide.timeline.main_sequence
+
+    # Gets the first effect of the main sequence
+    first_effect = sequence[0]
+
+    # Сhecks the effect for "No Sound"
+    if not first_effect.stop_previous_sound and first_effect.sound is None:
+        # Adds sound for the first effect
+        first_effect.sound = effect_sound
+
+    # Gets the first interactive sequence of the slide.
+    interactive_sequence = first_slide.timeline.interactive_sequences[0]
+
+    # Sets the effect "Stop previous sound" flag
+    interactive_sequence[0].stop_previous_sound = True
+
+    # Writes the PPTX file to disk
+    pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Extract Animation Effect Sound**
@@ -262,10 +288,24 @@ This Python code shows you how to add an animation effect sound and stop it when
 3. Get the main sequence of effects. 
 4. Extract the `sound` embedded to each animation effect. 
 
-This Python code shows you how to extract the sound embedded in an animation effect: xxx
+This Python code shows you how to extract the sound embedded in an animation effect:
 
 ```python
+import aspose.slides as slides
 
+# Instantiates a presentation class that represents a presentation file.
+with slides.Presentation("EffectSound.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    # Gets the main sequence of the slide.
+    sequence = slide.timeline.main_sequence
+
+    for effect in sequence:
+        if effect.sound is None:
+            continue
+
+        # Extracts the effect sound in byte array
+        audio = effect.sound.binary_data
 ```
 
 ## **After Animation**
@@ -285,10 +325,26 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
   * PowerPoint **Hide on Next Mouse Click** item matches the [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type;
 - `after_animation_color` property which defines an after animation color format. This property works in conjunction with the  [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) type. If you change the type to another, the after animation color will be cleared.
 
-This Python code shows you how to change an after animation effect: xxx
+This Python code shows you how to change an after animation effect:
 
 ```python
+import aspose.slides as slides
 
+# Instantiates a presentation class that represents a presentation file
+with slides.Presentation("AnimImage_out.pptx") as pres:
+    first_slide = pres.slides[0]
+
+    # Gets the first effect of the main sequence
+    first_effect = first_slide.timeline.main_sequence[0]
+
+    # Changes the after animation type to Color
+    first_effect.after_animation_type = AfterAnimationType.COLOR
+
+    # Sets the after animation dim color
+    first_effect.after_animation_color.color = Color.alice_blue
+
+    # Writes the PPTX file to disk
+    pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Animate Text**
@@ -308,9 +364,28 @@ This is how you can change the Effect Animate text properties:
 3. Set new values for the `animate_text_type` and `delay_between_text_parts` properties.
 4. Save the modified PPTX file.
 
-This Python code demonstrates the operation: xxx
+This Python code demonstrates the operation:
 
 ```python
+import aspose.slides as slides
+
+with slides.Presentation("AnimTextBox_out.pptx") as pres:
+    first_slide = pres.slides[0]
+
+    # Gets the first effect of the main sequence
+    first_effect = first_slide.timeline.main_sequence[0]
+
+    # Changes the effect Text animation type to "As One Object"
+    first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+
+    # Changes the effect Animate text type to "By word"
+    first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
+
+    # Sets the delay between words to 20% of effect duration
+    first_effect.delay_between_text_parts = 20
+
+    # Writes the PPTX file to disk
+    pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
 
 ```
 
