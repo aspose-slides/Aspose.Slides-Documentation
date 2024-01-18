@@ -26,10 +26,15 @@ with slides.Presentation("pres.pptx") as pres:
 
 ## **Open Password Protected Presentation**
 
-When you have to open a password-protected presentation, you can pass the password through the `password` property (from the [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Python code demonstrates the operation: xxx 
+When you have to open a password-protected presentation, you can pass the password through the `password` property (from the [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Python code demonstrates the operation:
 
 ```python
+import aspose.slides as slides
 
+load_options = slides.LoadOptions()
+load_options.password = "PASSWORD"
+with slides.Presentation("pres.pptx", load_options) as pres:
+    ...
 ```
 
 ## Open Large Presentation
