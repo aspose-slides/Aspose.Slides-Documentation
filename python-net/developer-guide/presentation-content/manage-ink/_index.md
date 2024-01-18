@@ -33,18 +33,34 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 
 ### **Set Ink Brush Color**
 
-This Python code shows you how to set the color for a brush: xxx
+This Python code shows you how to set the color for a brush:
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation("pres.pptx") as pres:
+    ink = pres.slides[0].shapes[0]
+    traces = ink.traces
+    brush = traces[0].brush
+    brush_color = brush.color
+    brush.color = draw.Color.red
 ```
 
 ### **Set Ink Brush Size** 
 
-This Python code shows you how to set the size for a brush: xxx
+This Python code shows you how to set the size for a brush:
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
+with slides.Presentation("pres.pptx") as pres:
+    ink = pres.slides[0].shapes[0]
+    traces = ink.traces
+    brush = traces[0].brush
+    brush_size = brush.size
+    brush.size = draw.SizeF(5.0, 10.0)
 ```
 
 Generally, a brush's width and height don't match, so PowerPoint does not display the brush size (the data section is grayed out). But when the brush width and height match, PowerPoint displays its size this way:
