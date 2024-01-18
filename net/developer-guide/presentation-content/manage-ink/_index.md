@@ -50,7 +50,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 This C# code shows you how to set the size for a brush:
 
-```
+```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     IInk ink = (IInk)pres.Slides[0].Shapes[0];
