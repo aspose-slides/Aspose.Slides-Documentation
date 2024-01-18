@@ -33,18 +33,30 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 
 ### **Set Ink Brush Color**
 
-This C++ code shows you how to set the color for a brush: xxx
+This C++ code shows you how to set the color for a brush:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
+System::SharedPtr<IInk> ink = System::ExplicitCast<IInk>(pres->get_Slide(0)->get_Shape(0));
+System::ArrayPtr<System::SharedPtr<IInkTrace>> traces = ink->get_Traces();
+System::SharedPtr<IInkBrush> brush = traces[0]->get_Brush();
+System::Drawing::Color brushColor = brush->get_Color();
+brush->set_Color(System::Drawing::Color::get_Red());
 ```
 
 ### **Set Ink Brush Size** 
 
-This C++ code shows you how to set the size for a brush: xxx
+This C++ code shows you how to set the size for a brush:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
+System::SharedPtr<IInk> ink = System::ExplicitCast<IInk>(pres->get_Slide(0)->get_Shape(0));
+System::ArrayPtr<System::SharedPtr<IInkTrace>> traces = ink->get_Traces();
+System::SharedPtr<IInkBrush> brush = traces[0]->get_Brush();
+System::Drawing::SizeF brushSize = brush->get_Size();
+brush->set_Size(System::Drawing::SizeF(5.0f, 10.0f));
 ```
 
 Generally, a brush's width and height don't match, so PowerPoint does not display the brush size (the data section is grayed out). But when the brush width and height match, PowerPoint displays its size this way:
