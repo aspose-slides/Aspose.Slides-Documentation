@@ -100,41 +100,27 @@ This C++ code shows you how to extract the video on a presentation slide:
 
 ```c++
 // The path to the documents directory.
-const String templatePath = u"../templates/Video.pptx";
-const String outPath = u"../out/Video_out";
-// The path to the documents directory.
-System::String dataDir = u"replace_with_the_correct_path";
+const System::String templatePath = u"../templates/Video.pptx";
+const System::String outPath = u"../out/Video_out";
 
-// Instantiates a Presentation object that represents a presentation file 
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(templatePath);
-
+auto presentation = System::MakeObject<Presentation>(templatePath);
+for (auto&& slide : presentation->get_Slides())
 {
-	auto slide_enumerator = (presentation->get_Slides())->GetEnumerator();
-	decltype(slide_enumerator->get_Current()) slide;
-	while (slide_enumerator->MoveNext() && (slide = slide_enumerator->get_Current(), true))
-	{
-		auto shape_enumerator = (presentation->get_Slides()->idx_get(0)->get_Shapes())->GetEnumerator();
-		decltype(shape_enumerator->get_Current()) shape;
-		while (shape_enumerator->MoveNext() && (shape = shape_enumerator->get_Current(), true))
-		{
-			if (System::ObjectExt::Is<VideoFrame>(shape))
-			{
-				System::SharedPtr<VideoFrame> vf = System::DynamicCast_noexcept<Aspose::Slides::VideoFrame>(shape);
-				System::String type = vf->get_EmbeddedVideo()->get_ContentType();
-				int32_t ss = type.LastIndexOf(L'/');
-				type = type.Remove(0, type.LastIndexOf(L'/') + 1);
-				System::ArrayPtr<uint8_t> buffer = vf->get_EmbeddedVideo()->get_BinaryData();
-				{
-					System::SharedPtr<System::IO::FileStream> stream = System::MakeObject<System::IO::FileStream>(outPath + type, System::IO::FileMode::Create, System::IO::FileAccess::Write, System::IO::FileShare::Read);
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (System::ObjectExt::Is<VideoFrame>(shape))
+        {
+            System::SharedPtr<VideoFrame> vf = System::AsCast<VideoFrame>(shape);
+            System::String type = vf->get_EmbeddedVideo()->get_ContentType();
+            type = type.Remove(0, type.LastIndexOf('/') + 1);
+            auto buffer = vf->get_EmbeddedVideo()->get_BinaryData();
 
-					// Clears resources under 'using' statement
-					//System::Details::DisposeGuard __dispose_guard_0{ stream, ASPOSE_CURRENT_FUNCTION };
-					// ------------------------------------------
-					stream->Write(buffer, 0, buffer->get_Length());
-				}
-			}
-		}
-	}
+            auto stream = System::MakeObject<System::IO::FileStream>(
+                outPath + type, System::IO::FileMode::Create, System::IO::FileAccess::Write,
+                System::IO::FileShare::Read);
+            stream->Write(buffer, 0, buffer->get_Length());
+        }
+    }
 }
 ```
 
