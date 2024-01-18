@@ -266,10 +266,15 @@ presentation->Save(u"result.pptx", SaveFormat::Pptx);
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C++ code shows you how to get the style properties from a table preset style: xxx
+Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C++ code shows you how to get the style properties from a table preset style:
 
-```c#
+```c++
+auto pres = System::MakeObject<Presentation>();
+auto shapes = pres->get_Slide(0)->get_Shapes();
+auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
 
+table->set_StylePreset(TableStylePreset::DarkStyle1);
+pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **Lock Aspect Ratio of Table**
