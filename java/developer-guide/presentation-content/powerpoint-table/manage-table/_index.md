@@ -282,7 +282,14 @@ try {
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
 
 ```java
-
+Presentation pres = new Presentation();
+try {
+    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    table.setStylePreset(TableStylePreset.DarkStyle1); // change the default style preset theme 
+    pres.save("table.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Lock Aspect Ratio of Table**
