@@ -9,7 +9,7 @@ description: "Add blob to PowerPoint presentation in C# or .NET. Export blob. Ad
 
 ## **About BLOB**
 
-**BLOB** (**Binary Large Object**) is usually a large item—a large photo, presentation, document, or media—saved in binary formats. 
+**BLOB** (**Binary Large Object**) is usually a large item (photo, presentation, document, or media) saved in binary formats. 
 
 Aspose.Slides for .NET allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
 
