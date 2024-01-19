@@ -249,10 +249,40 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 
 ### **Add Animation Effect Sound**
 
-This Java code shows you how to add an animation effect sound and stop it when the next effect starts: xxx
+This Java code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```java
+Presentation pres = new Presentation("AnimExample_out.pptx");
+try {
+    // Adds audio to presentation audio collection
+    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
 
+    ISlide firstSlide = pres.getSlides().get_Item(0);
+
+    // Gets the main sequence of the slide.
+    ISequence sequence = firstSlide.getTimeline().getMainSequence();
+
+    // Gets the first effect of the main sequence
+    IEffect firstEffect = sequence.get_Item(0);
+
+    // Сhecks the effect for "No Sound"
+    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
+    {
+        // Adds sound for the first effect
+        firstEffect.setSound(effectSound);
+    }
+
+    // Gets the first interactive sequence of the slide.
+    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+
+    // Sets the effect "Stop previous sound" flag
+    interactiveSequence.get_Item(0).setStopPreviousSound(true);
+
+    // Writes the PPTX file to disk
+    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ### **Extract Animation Effect Sound**
@@ -262,10 +292,28 @@ This Java code shows you how to add an animation effect sound and stop it when t
 3. Get the main sequence of effects. 
 4. Extract the [setSound(IAudio value)](https://reference.aspose.com/slides/java/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) embedded to each animation effect. 
 
-This Java code shows you how to extract the sound embedded in an animation effect: xxx
+This Java code shows you how to extract the sound embedded in an animation effect:
 
 ```java
+// Instantiates a presentation class that represents a presentation file.
+Presentation presentation = new Presentation("EffectSound.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    // Gets the main sequence of the slide.
+    ISequence sequence = slide.getTimeline().getMainSequence();
+
+    for (IEffect effect : sequence)
+    {
+        if (effect.getSound() == null)
+            continue;
+
+        // Extracts the effect sound in byte array
+        byte[] audio = effect.getSound().getBinaryData();
+    }
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **After Animation**
@@ -285,10 +333,28 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
   * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
 - [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
 
-This Java code shows you how to change an after animation effect: xxx
+This Java code shows you how to change an after animation effect:
 
 ```java
+// Instantiates a presentation class that represents a presentation file
+Presentation pres = new Presentation("AnimImage_out.pptx");
+try {
+    ISlide firstSlide = pres.getSlides().get_Item(0);
 
+    // Gets the first effect of the main sequence
+    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+
+    // Changes the after animation type to Color
+    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+
+    // Sets the after animation dim color
+    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+
+    // Writes the PPTX file to disk
+    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Animate Text**
@@ -308,9 +374,30 @@ This is how you can change the Effect Animate text properties:
 3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) properties.
 4. Save the modified PPTX file.
 
-This Java code demonstrates the operation: xxx
+This Java code demonstrates the operation:
 
 ```java
+// Instantiates a presentation class that represents a presentation file.
+Presentation pres = new Presentation("AnimTextBox_out.pptx");
+try {
+    ISlide firstSlide = pres.getSlides().get_Item(0);
 
+    // Gets the first effect of the main sequence
+    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+
+    // Changes the effect Text animation type to "As One Object"
+    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+
+    // Changes the effect Animate text type to "By word"
+    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
+
+    // Sets the delay between words to 20% of effect duration
+    firstEffect.setDelayBetweenTextParts(20f);
+
+    // Writes the PPTX file to disk
+    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
