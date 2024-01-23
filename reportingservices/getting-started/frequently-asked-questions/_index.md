@@ -9,10 +9,10 @@ url: /reportingservices/frequently-asked-questions/
 
 This page collects a number of frequently asked questions about:
 
-- [Supported file formats](/reportingservices/frequently-asked-questions/).
-- [Support for Power BI Reporting services](/reportingservices/frequently-asked-questions/).
-- [Installation](/reportingservices/frequently-asked-questions/).
-- [Export Configuration](/reportingservices/frequently-asked-questions/).
+- [Supported file formats](#Supported-File-Formats).
+- [Support for Power BI Reporting services](#Support-for-Power-BI-Reporting-services).
+- [Installation](#Installation).
+- [Export Configuration](#Export-Configuration).
 
 {{% /alert %}} 
 ### **Supported File Formats**
