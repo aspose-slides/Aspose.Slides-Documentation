@@ -11,11 +11,20 @@ Aspose.Slides for Node.js via Java is platform-independent API and can be used o
 
 ## **Install from NPM**
 
-You can easily install Aspose.Slides for Node.js via Java from [NPM](https://www.npmjs.com/) through this command:
+You can easily install Aspose.Slides for Node.js via Java from [NPM](https://www.npmjs.com/).
+
+Create a new folder and initiate a new project using the following command:
+```
+$ npm init
+```
+Fill in the title and version fields (leave the remaining fields with default values)
+
+Install Aspose.Slides for Node.js via Java using the following command:
 ```
 $ npm install aspose.slides.via.java
 ```
-If you encounter any problem during the installation process, please refer to https://www.npmjs.com/package/java.
+
+If you encounter any problem during the installation process, please refer to this [article](/nodejs-java/troubleshooting-installation/).
 
 ## **Install from ZIP archive**
 
@@ -137,3 +146,10 @@ pres.save("out.pptx", aspose.slides.SaveFormat.Pptx)
 console.log("Done");
 ```
 9. Now run `node hello.js` @command prompt to run it.
+
+
+{{% alert color="primary" %}}
+
+Please use the following [article](https://docs.aspose.com/slides/nodejs-java/troubleshooting-installation/) if you encounter compilation errors during installation of Aspose.Slides for Node.js via Java.
+
+{{% /alert %}}
