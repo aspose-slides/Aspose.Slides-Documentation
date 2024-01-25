@@ -16,7 +16,7 @@ This article explains how you can extract the images added to presentations.
 
 {{% /alert %}} 
 
-To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. XXX 
+To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. 
 
 ```java
 
