@@ -29,7 +29,7 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `IPortion` object.
 9. Save the modified presentation.
 
-This Java code is an implementation of the steps for adding paragraphs containing portions: xxx
+This Java code is an implementation of the steps for adding paragraphs containing portions:
 
 ```java
 // Instantiate a Presentation class that represents a PPTX file
@@ -94,10 +94,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
-
-
 
 
 ## **Manage Paragraph Bullets**
@@ -119,10 +116,76 @@ Bullet lists help you to organize and present information quickly and efficientl
 13. Add the second paragraph and repeat the process given in steps 7 to 13.
 14. Save the presentation.
 
-This Java code shows you how to add a paragraph bullet: xxx
+This Java code shows you how to add a paragraph bullet:
 
 ```java
+// Instantiates a Presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+try {
+    // Accesses the first slide
+    ISlide slide = pres.getSlides().get_Item(0);
+    
+    // Adds and accesses Autoshape
+    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
+    // Accesses the autoshape text frame
+    ITextFrame txtFrm = aShp.getTextFrame();
+
+    // Removes the default paragraph
+    txtFrm.getParagraphs().removeAt(0);
+
+    // Creates a paragraph
+    Paragraph para = new Paragraph();
+
+    // Sets a paragraph bullet style and symbol
+    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    para.getParagraphFormat().getBullet().setChar((char)8226);
+
+    // Sets a paragraph text
+    para.setText("Welcome to Aspose.Slides");
+
+    // Sets bullet indent
+    para.getParagraphFormat().setIndent(25);
+
+    // Sets bullet color
+    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // set IsBulletHardColor to true to use own bullet color
+
+    // Sets Bullet Height
+    para.getParagraphFormat().getBullet().setHeight(100);
+
+    // Adds Paragraph to text frame
+    txtFrm.getParagraphs().add(para);
+
+    // Creates second paragraph
+    Paragraph para2 = new Paragraph();
+
+    // Sets paragraph bullet type and style
+    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+
+    // Adds paragraph text
+    para2.setText("This is numbered bullet");
+
+    // Sets bullet indent
+    para2.getParagraphFormat().setIndent(25);
+
+    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // set IsBulletHardColor to true to use own bullet color
+
+    // Sets Bullet Height
+    para2.getParagraphFormat().getBullet().setHeight(100);
+
+    // Adds Paragraph to text frame
+    txtFrm.getParagraphs().add(para2);
+    
+    // Saves the modified presentation
+    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 
@@ -146,10 +209,51 @@ Bullet lists help you to organize and present information quickly and efficientl
 14. Add the second paragraph and repeat the process based on the previous steps.
 15. Save the modified presentation.
 
-This Java code shows you how to add and manage picture bullets: xxx
+This Java code shows you how to add and manage picture bullets:
 
 ```java
+// Instantiates a Presentation class that represents a PPTX file
+Presentation presentation = new Presentation();
+try {
+    // Accesses the first slide
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    // Instantiates the image for bullets
+    byte[] imageBytes = Files.readAllBytes(Paths.get("bullets.png"));
+    IPPImage ippxImage = presentation.getImages().addImage(imageBytes);
+
+    // Adds and accesses Autoshape
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+
+    // Accesses the autoshape textframe
+    ITextFrame textFrame = autoShape.getTextFrame();
+
+    // Removes the default paragraph
+    textFrame.getParagraphs().removeAt(0);
+
+    // Creates a new paragraph
+    Paragraph paragraph = new Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+
+    // Sets paragraph bullet style and image
+    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(ippxImage);
+
+    // Sets bullet Height
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+
+    // Adds paragraph to text frame
+    textFrame.getParagraphs().add(paragraph);
+
+    // Writes the presentation as a PPTX file
+    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
+
+    // Writes the presentation as a PPT file
+    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 
@@ -169,10 +273,75 @@ Bullet lists help you to organize and present information quickly and efficientl
 10. Add the new paragraphs to the `TextFrame` paragraph collection.
 11. Save the modified presentation.
 
-This Java code shows you how to add and manage multilevel bullets: xxx
+This Java code shows you how to add and manage multilevel bullets:
 
 ```java
+// Instantiates a Presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+try {
+    // Accesses the first slide
+    ISlide slide = pres.getSlides().get_Item(0);
 
+    // Adds and accesses Autoshape
+    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+
+    // Accesses the text frame of created autoshape
+    ITextFrame text = aShp.addTextFrame("");
+
+    // Clears the default paragraph
+    text.getParagraphs().clear();
+
+    // Adds the first paragraph
+    IParagraph para1 = new Paragraph();
+    para1.setText("Content");
+    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    para1.getParagraphFormat().getBullet().setChar((char)8226);
+    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // Sets the bullet level
+    para1.getParagraphFormat().setDepth((short)0);
+
+    // Adds the second paragraph
+    IParagraph para2 = new Paragraph();
+    para2.setText("Second Level");
+    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    para2.getParagraphFormat().getBullet().setChar('-');
+    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // Sets the bullet level
+    para2.getParagraphFormat().setDepth((short)1);
+
+    // Adds the third paragraph
+    IParagraph para3 = new Paragraph();
+    para3.setText("Third Level");
+    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    para3.getParagraphFormat().getBullet().setChar((char)8226);
+    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // Sets the bullet level
+    para3.getParagraphFormat().setDepth((short)2);
+
+    // Adds the fourth paragraph
+    IParagraph para4 = new Paragraph();
+    para4.setText("Fourth Level");
+    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    para4.getParagraphFormat().getBullet().setChar('-');
+    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // Sets the bullet level
+    para4.getParagraphFormat().setDepth((short)3);
+
+    // Adds paragraphs to collection
+    text.getParagraphs().add(para1);
+    text.getParagraphs().add(para2);
+    text.getParagraphs().add(para3);
+    text.getParagraphs().add(para4);
+
+    // Writes the presentation as a PPTX file
+    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 
@@ -191,10 +360,46 @@ The [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/i
 9. Add the new paragraphs to the `TextFrame` paragraph collection.
 10. Save the modified presentation.
 
-This Java code shows you how to add and manage paragraphs with custom numbering or formatting: xxx
+This Java code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```java
+Presentation presentation = new Presentation();
+try {
+    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
+    // Accesses the text frame of created autoshape
+    ITextFrame textFrame = shape.getTextFrame();
+
+    // Removes the default exisiting paragraph
+    textFrame.getParagraphs().removeAt(0);
+
+    // First list
+    Paragraph paragraph1 = new Paragraph();
+    paragraph1.setText("bullet 2");
+    paragraph1.getParagraphFormat().setDepth((short)4);
+    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
+    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    textFrame.getParagraphs().add(paragraph1);
+
+    Paragraph paragraph2 = new Paragraph();
+    paragraph2.setText("bullet 3");
+    paragraph2.getParagraphFormat().setDepth((short)4);
+    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
+    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    textFrame.getParagraphs().add(paragraph2);
+
+
+    Paragraph paragraph5 = new Paragraph();
+    paragraph5.setText("bullet 7");
+    paragraph5.getParagraphFormat().setDepth((short)4);
+    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
+    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    textFrame.getParagraphs().add(paragraph5);
+
+    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 
@@ -260,15 +465,37 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
 ## **Set Hanging Indent for Paragraph**
 
-This Java code shows you how to set the hanging indent for a paragraph: xxx 
+This Java code shows you how to set the hanging indent for a paragraph:
 
 ```java
+Presentation pres = new Presentation();
+try {
+    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
 
+    Paragraph para1 = new Paragraph();
+    para1.setText("Example");
+
+    Paragraph para2 = new Paragraph();
+    para2.setText("Set Hanging Indent for Paragraph");
+
+    Paragraph para3 = new Paragraph();
+    para3.setText("This C# code shows you how to set the hanging indent for a paragraph: ");
+
+    para2.getParagraphFormat().setMarginLeft(10f);
+    para3.getParagraphFormat().setMarginLeft(20f);
+
+    autoShape.getTextFrame().getParagraphs().add(para1);
+    autoShape.getTextFrame().getParagraphs().add(para2);
+    autoShape.getTextFrame().getParagraphs().add(para3);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Manage End Paragraph Run Properties for Paragraph**
@@ -306,7 +533,6 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
 
@@ -356,7 +582,6 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
 
@@ -398,7 +623,6 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-
 ```
 
  
