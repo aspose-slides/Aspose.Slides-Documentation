@@ -228,52 +228,48 @@ Bullet lists help you to organize and present information quickly and efficientl
 14. Add the second paragraph and repeat the process based on the previous steps.
 15. Save the modified presentation.
 
-This C++ code shows you how to add and manage picture bullets: xxx
+This C++ code shows you how to add and manage picture bullets:
 
 ```c++
-// The path to the documents directory.
-const String outPath = u"../out/ManageParagraphPictureBulletsInPPT_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+// Instantiates a Presentation class that represents a PPTX file
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
-// Load the desired the presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Accesses the first slide
+System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
-// Access first slide
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+// Instantiates the image for bullets
+System::SharedPtr<System::Drawing::Image> image = System::MakeObject<System::Drawing::Bitmap>(u"bullets.png");
+System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(image);
 
-// Add an AutoShape of Rectangle type
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
+// Adds and accesses Autoshape
+System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Add TextFrame to the Rectangle
-ashp->AddTextFrame(u"");
+// Accesses the autoshape textframe
+System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
 
-// Accessing the text frame
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
+// Removes the default paragraph
+System::SharedPtr<IParagraphCollection> paragraphs = textFrame->get_Paragraphs();
+paragraphs->RemoveAt(0);
 
-// Create the Paragraph object for text frame
-SharedPtr<IParagraph> paragraph = txtFrame->get_Paragraphs()->idx_get(0);
+// Creates a new paragraph
+System::SharedPtr<Paragraph> paragraph = System::MakeObject<Paragraph>();
+paragraph->set_Text(u"Welcome to Aspose.Slides");
 
-// Create Portion object for paragraph
-SharedPtr<IPortion> portion = paragraph->get_Portions()->idx_get(0);
-portion->set_Text(u"Welcome to Aspose.Slides");
-
-// Get the picture
-auto bitmap = MakeObject<System::Drawing::Bitmap>(ImagePath);
-
-// Add image to presentation's images collection
-SharedPtr<IPPImage> ippxImage = pres->get_Images()->AddImage(bitmap);
-
-// Setting paragraph bullet style and image
+// Sets paragraph bullet style and image
 paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(ippxImage);
 
-// Setting Bullet Height
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height ( 100);
+// Sets bullet Height
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100.0f);
 
-// Save PPTX to Disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Adds paragraph to text frame
+paragraphs->Add(paragraph);
 
+// Writes the presentation as a PPTX file
+presentation->Save(u"ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
+
+// Writes the presentation as a PPT file
+presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
 ```
 
 
@@ -293,88 +289,85 @@ Bullet lists help you to organize and present information quickly and efficientl
 10. Add the new paragraphs to the `TextFrame` paragraph collection.
 11. Save the modified presentation.
 
-This C++ code shows you how to add and manage multilevel bullets: xxx
+This C++ code shows you how to add and manage multilevel bullets:
 
 ```c++
-// The path to the documents directory.
-const String outPath = u"../out/MutilevelBullets_out.pptx";
+// Instantiates a Presentation class that represents a PPTX file
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
-// Load the desired the presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Accesses the first slide
+System::SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Access first slide
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+// Adds and accesses Autoshape
+System::SharedPtr<IAutoShape> aShp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Add an AutoShape of Rectangle type
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 200, 300);
+// Accesses the text frame of created autoshape
+System::SharedPtr<ITextFrame> text = aShp->AddTextFrame(u"");
 
-// Add TextFrame to the Rectangle
-ashp->AddTextFrame(u"");
+// Clears the default paragraph
+text->get_Paragraphs()->Clear();
 
-// Accessing the text frame
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-	
-//Clearing exisiting default paragraph
-txtFrame->get_Paragraphs()->Clear();
-
-// Create the first level bullet paragraph
-SharedPtr<Paragraph> Para1 = MakeObject<Paragraph>();
-SharedPtr<IParagraph> para1 = DynamicCast<IParagraph>(Para1);
+// Adds the first paragraph
+System::SharedPtr<IParagraph> para1 = System::MakeObject<Paragraph>();
 para1->set_Text(u"Content");
-// Setting paragraph bullet style 
-para1->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
-para1->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(8226));
-para1->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-para1->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-para1->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-//Setting bullet level
-para1->get_ParagraphFormat()->set_Depth(0);
+System::SharedPtr<IParagraphFormat> para1Format = para1->get_ParagraphFormat();
+System::SharedPtr<IBulletFormat> bullet1Format = para1Format->get_Bullet();
+bullet1Format->set_Type(BulletType::Symbol);
+bullet1Format->set_Char(System::Convert::ToChar(8226));
+System::SharedPtr<IFillFormat> defaultFillFormat1 = para1Format->get_DefaultPortionFormat()->get_FillFormat();
+defaultFillFormat1->set_FillType(FillType::Solid);
+defaultFillFormat1->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+// Sets the bullet level
+para1Format->set_Depth(0);
 
+// Adds the second paragraph
+System::SharedPtr<IParagraph> para2 = System::MakeObject<Paragraph>();
+para2->set_Text(u"Second Level");
+System::SharedPtr<IParagraphFormat> para2Format = para2->get_ParagraphFormat();
+System::SharedPtr<IBulletFormat> bullet2Format = para2Format->get_Bullet();
+bullet2Format->set_Type(BulletType::Symbol);
+bullet2Format->set_Char(u'-');
+System::SharedPtr<IFillFormat> defaultFillFormat2 = para2Format->get_DefaultPortionFormat()->get_FillFormat();
+defaultFillFormat2->set_FillType(FillType::Solid);
+defaultFillFormat2->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+// Sets the bullet level
+para2Format->set_Depth(1);
 
-// Create the second level bullet paragraph
-SharedPtr<Paragraph> Para2 = MakeObject<Paragraph>();
-SharedPtr<IParagraph> para2 = DynamicCast<IParagraph>(Para2);
-para2->set_Text(u"Second level");
-// Setting paragraph bullet style 
-para2->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
-para2->get_ParagraphFormat()->get_Bullet()->set_Char('-');
-para2->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-para2->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-para2->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-//Setting bullet level
-para2->get_ParagraphFormat()->set_Depth(1);
+// Adds the third paragraph
+System::SharedPtr<IParagraph> para3 = System::MakeObject<Paragraph>();
+para3->set_Text(u"Third Level");
+System::SharedPtr<IParagraphFormat> para3Format = para3->get_ParagraphFormat();
+System::SharedPtr<IBulletFormat> bullet3Format = para3Format->get_Bullet();
+bullet3Format->set_Type(BulletType::Symbol);
+bullet3Format->set_Char(System::Convert::ToChar(8226));
+System::SharedPtr<IFillFormat> defaultFillFormat3 = para3Format->get_DefaultPortionFormat()->get_FillFormat();
+defaultFillFormat3->set_FillType(FillType::Solid);
+defaultFillFormat3->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+// Sets the bullet level
+para3Format->set_Depth(2);
 
-// Create the third level bullet paragraph
-SharedPtr<Paragraph> Para3 = MakeObject<Paragraph>();
-SharedPtr<IParagraph> para3 = DynamicCast<IParagraph>(Para3);
-para3->set_Text(u"Content");
-// Setting paragraph bullet style 
-para3->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
-para3->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(8226));
-para3->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-para3->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-para3->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-//Setting bullet level
-para3->get_ParagraphFormat()->set_Depth(0);
+// Adds the fourth paragraph
+System::SharedPtr<IParagraph> para4 = System::MakeObject<Paragraph>();
+para4->set_Text(u"Fourth Level");
+System::SharedPtr<IParagraphFormat> para4Format = para4->get_ParagraphFormat();
+System::SharedPtr<IBulletFormat> bullet4Format = para4Format->get_Bullet();
+bullet4Format->set_Type(BulletType::Symbol);
+bullet4Format->set_Char(u'-');
+System::SharedPtr<IFillFormat> defaultFillFormat4 = para4Format->get_DefaultPortionFormat()->get_FillFormat();
+defaultFillFormat4->set_FillType(FillType::Solid);
+defaultFillFormat4->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+// Sets the bullet level
+para4Format->set_Depth(3);
 
+// Adds paragraphs to collection
+System::SharedPtr<IParagraphCollection> paragraphs = text->get_Paragraphs();
+paragraphs->Add(para1);
+paragraphs->Add(para2);
+paragraphs->Add(para3);
+paragraphs->Add(para4);
 
-// Create the fourth level bullet paragraph
-SharedPtr<Paragraph> Para4 = MakeObject<Paragraph>();
-SharedPtr<IParagraph> para4 = DynamicCast<IParagraph>(Para4);
-para4->set_Text(u"Fourth level");
-// Setting paragraph bullet style 
-para4->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
-para4->get_ParagraphFormat()->get_Bullet()->set_Char('-');
-para4->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-para4->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-para4->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-//Setting bullet level
-para4->get_ParagraphFormat()->set_Depth(3);
-
-
-// Save PPTX to Disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Writes the presentation as a PPTX file
+pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
 ```
 
 
@@ -393,59 +386,48 @@ The [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulle
 9. Add the new paragraphs to the `TextFrame` paragraph collection.
 10. Save the modified presentation.
 
-This C++ code shows you how to add and manage paragraphs with custom numbering or formatting: xxx
+This C++ code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```c++
-// The path to the documents directory.
-const String outPath = u"../out/SetCustomBulletsNumber_out.pptx";
+auto presentation = System::MakeObject<Presentation>();
 
-// Load the desired the presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Access first slide
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+// Accesses the text frame of created autoshape
+System::SharedPtr<ITextFrame> textFrame = shape->get_TextFrame();
 
-// Add an AutoShape of Rectangle type
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 200, 300);
-
-// Add TextFrame to the Rectangle
-ashp->AddTextFrame(u"");
-
-// Accessing the text frame
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-
-//Clearing exisiting default paragraph
-txtFrame->get_Paragraphs()->Clear();
-
+// Removes the default existing paragraph
+textFrame->get_Paragraphs()->RemoveAt(0);
 
 // First list
-SharedPtr<Paragraph> paragraph1 = MakeObject<Paragraph>();
+auto paragraph1 = System::MakeObject<Paragraph>();
 paragraph1->set_Text(u"bullet 2");
-paragraph1->get_ParagraphFormat()->set_Depth((short)4);
-paragraph1->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith((short)2);
-paragraph1->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
-txtFrame->get_Paragraphs()->Add(paragraph1);
+auto paragraph1Format = paragraph1->get_ParagraphFormat();
+paragraph1Format->set_Depth(4);
+auto bullet1Format = paragraph1Format->get_Bullet();
+bullet1Format->set_NumberedBulletStartWith(2);
+bullet1Format->set_Type(BulletType::Numbered);
+textFrame->get_Paragraphs()->Add(paragraph1);
 
-SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
+auto paragraph2 = System::MakeObject<Paragraph>();
 paragraph2->set_Text(u"bullet 3");
-paragraph2->get_ParagraphFormat()->set_Depth((short)4);
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith((short)3); 
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);  
-txtFrame->get_Paragraphs()->Add(paragraph2);
+auto paragraph2Format = paragraph2->get_ParagraphFormat();
+paragraph2Format->set_Depth(4);
+auto bullet2Format = paragraph2Format->get_Bullet();
+bullet2Format->set_NumberedBulletStartWith(3);
+bullet2Format->set_Type(BulletType::Numbered);
+textFrame->get_Paragraphs()->Add(paragraph2);
 
-// Second list
-SharedPtr<Paragraph> paragraph5 = MakeObject<Paragraph>();
-paragraph5->set_Text(u"bullet 5");
-paragraph5->get_ParagraphFormat()->set_Depth((short)4);
-paragraph5->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith((short)5);
-paragraph5->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
-txtFrame->get_Paragraphs()->Add(paragraph5);
+auto paragraph5 = System::MakeObject<Paragraph>();
+paragraph5->set_Text(u"bullet 7");
+auto paragraph5Format = paragraph5->get_ParagraphFormat();
+paragraph5Format->set_Depth(4);
+auto bullet5Format = paragraph5Format->get_Bullet();
+bullet5Format->set_NumberedBulletStartWith(7);
+bullet5Format->set_Type(BulletType::Numbered);
+textFrame->get_Paragraphs()->Add(paragraph5);
 
-
-
-// Save PPTX to Disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
 ```
 
 
@@ -514,10 +496,29 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ## **Set Hanging Indent for Paragraph**
 
-This C++ code shows you how to set the hanging indent for a paragraph: xxx 
+This C++ code shows you how to set the hanging indent for a paragraph:
 
 ```c++
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
+auto autoShape = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 250.0f, 550.0f, 150.0f);
+
+System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
+para1->set_Text(u"Example");
+System::SharedPtr<Paragraph> para2 = System::MakeObject<Paragraph>();
+para2->set_Text(u"Set Hanging Indent for Paragraph");
+System::SharedPtr<Paragraph> para3 = System::MakeObject<Paragraph>();
+para3->set_Text(u"This C# code shows you how to set the hanging indent for a paragraph: ");
+
+para2->get_ParagraphFormat()->set_MarginLeft(10.f);
+para3->get_ParagraphFormat()->set_MarginLeft(20.f);
+
+auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+paragraphs->Add(para1);
+paragraphs->Add(para2);
+paragraphs->Add(para3);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **Manage End Paragraph Run Properties for Paragraph**
