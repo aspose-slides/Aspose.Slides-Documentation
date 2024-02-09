@@ -123,30 +123,16 @@ For example, you can place your company's logo and a few images on the Slide Mas
 
 ![todo:image_alt_text](slide-master_4.png)
 
-You can add images to a slide master with Aspose.Slides: xxx - add code for images
+You can add images to a slide master with Aspose.Slides:
 
 ```python
 import aspose.slides as slides
 
-def readAllBytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with slides.Presentation() as pres:
+    image = pres.images.add_image(open("image.png", "rb").read())
+    pres.masters[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
 
-# Adds images to the presentation
-logo = pres.images.add_image(readAllBytes("logo.png"))
-image1 = pres.images.add_image(readAllBytes("slides.png"))
-image2 = pres.images.add_image(readAllBytes("cells.png"))
-image3 = pres.images.add_image(readAllBytes("words.png"))
-
-# Adds images to the master slide
-masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 25, 25, logo)
-masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 40, 25, 25, image1)
-masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 75, 25, 25, image2)
-masterSlide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 110, 25, 25, image3)
-
-# Adds new slides with same master slide template
-pres.slides.add_empty_slide(masterSlide.layout_slides[0])
-pres.slides.add_empty_slide(masterSlide.layout_slides[1]) 
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" title="See also" %}} 
