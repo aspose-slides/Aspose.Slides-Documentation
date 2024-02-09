@@ -455,10 +455,30 @@ with slides.Presentation() as pres:
 
 ## **Set Hanging Indent for Paragraph**
 
-This Python code shows you how to set the hanging indent for a paragraph: xxx 
+This Python code shows you how to set the hanging indent for a paragraph:
 
 ```python
+import aspose.slides as slides
 
+with slides.Presentation() as pres:
+    auto_shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 550, 150)
+
+    para1 = slides.Paragraph()
+    para1.text = "Example"
+    para2 = slides.Paragraph()
+    para2.text = "Set Hanging Indent for Paragraph"
+    para3 = slides.Paragraph()
+    para3.text = "This C# code shows you how to set the hanging indent for a paragraph: "
+
+    para2.paragraph_format.margin_left = 10
+    para3.paragraph_format.margin_left = 20
+
+    paragraphs = auto_shape.text_frame.paragraphs
+    paragraphs.add(para1)
+    paragraphs.add(para2)
+    paragraphs.add(para3)
+
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Manage End Paragraph Run Properties for Paragraph**
