@@ -120,14 +120,15 @@ For example, you can place your company's logo and a few images on the Slide Mas
 
 ![todo:image_alt_text](slide-master_4.png)
 
-You can add images to a slide master with Aspose.Slides: xxx - add code for images
+You can add images to a slide master with Aspose.Slides:
 
 ```c++
-auto pres = System::MakeObject<Presentation>();
-for (auto& master : pres->get_Masters())
-{
-    // Do some work with each master slide in the presentation
-}
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+
+System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png"));
+pres->get_Master(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+
+pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="primary" title="See also" %}} 
