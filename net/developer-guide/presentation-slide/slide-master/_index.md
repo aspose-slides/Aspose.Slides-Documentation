@@ -120,15 +120,15 @@ For example, you can place your company's logo and a few images on the Slide Mas
 
 ![todo:image_alt_text](slide-master_4.png)
 
-You can add images to a slide master with Aspose.Slides: xxx - add code for images
+You can add images to a slide master with Aspose.Slides: 
 
 ```c#
-using (var pres = new Presentation())
+using (Presentation pres = new Presentation())
 {
-    foreach (IMasterSlide master in pres.Masters)
-    {
-        // Do some work with each master slide in the presentation
-    }
+    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
+    pres.Masters[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
