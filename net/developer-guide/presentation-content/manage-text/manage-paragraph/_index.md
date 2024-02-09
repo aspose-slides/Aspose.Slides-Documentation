@@ -451,10 +451,35 @@ pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
 
 ## **Set Hanging Indent for Paragraph**
 
-This C# code shows you how to set the hanging indent for a paragraph: xxx 
+This C# code shows you how to set the hanging indent for a paragraph:  
 
 ```c#
+using (Presentation pres = new Presentation())
+{
+    var autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 550, 150);
 
+    Paragraph para1 = new Paragraph
+    {
+        Text = "Example"
+    };
+    Paragraph para2 = new Paragraph
+    {
+        Text = "Set Hanging Indent for Paragraph"
+    };
+    Paragraph para3 = new Paragraph
+    {
+        Text = "This C# code shows you how to set the hanging indent for a paragraph: "
+    };
+
+    para2.ParagraphFormat.MarginLeft = 10f;
+    para3.ParagraphFormat.MarginLeft = 20f;
+    
+    autoShape.TextFrame.Paragraphs.Add(para1);
+    autoShape.TextFrame.Paragraphs.Add(para2);
+    autoShape.TextFrame.Paragraphs.Add(para3);
+    
+    pres.Save("pres.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Manage End Paragraph Run Properties for Paragraph**
