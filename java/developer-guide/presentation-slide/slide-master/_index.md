@@ -130,24 +130,20 @@ For example, you can place your company's logo and a few images on the Slide Mas
 
 ![todo:image_alt_text](slide-master_4.png)
 
-You can add images to a slide master with Aspose.Slides: xxx - add code for images
+You can add images to a slide master with Aspose.Slides:
 
 ```java
-// Adds images to the presentation
-IPPImage logo = pres.getImages().addImage(Files.readAllBytes(Paths.get("logo.png")));
-IPPImage image1 = pres.getImages().addImage(Files.readAllBytes(Paths.get("slides.png")));
-IPPImage image2 = pres.getImages().addImage(Files.readAllBytes(Paths.get("cells.png")));
-IPPImage image3 = pres.getImages().addImage(Files.readAllBytes(Paths.get("words.png")));
+Presentation pres = new Presentation();
+try {
+    byte[] imageBytes = Files.readAllBytes(Paths.get("image.png"));
+    IPPImage image = pres.getImages().addImage(imageBytes);
+    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
-// Adds the images to the master slide
-masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 25, 25, logo);
-masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 40, 25, 25, image1);
-masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 75, 25, 25, image2);
-masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 110, 25, 25, image3);
-
-// Adds a new slide with the same master slide template
-pres.getSlides().addEmptySlide(masterSlide.getLayoutSlides().get_Item(0));
-pres.getSlides().addEmptySlide(masterSlide.getLayoutSlides().get_Item(1));
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} catch(IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -195,14 +191,38 @@ We want to change the Title and Subtitle formatting on the Slide Master this way
 First, we retrieve the title placeholder content from the Slide Master object and then use the`PlaceHolder.FillFormat` field: 
 
 ```java
-// Gets the reference to the master's title placeholder
-IShape titlePlaceholder = masterSlide.getShapes().get_Item(0);
+public static void main(String[] args) {
+    Presentation pres = new Presentation();
+    try {
+        IMasterSlide master = pres.getMasters().get_Item(0);
+        IAutoShape placeHolder = findPlaceholder(master, PlaceholderType.Title);
+        placeHolder.getFillFormat().setFillType(FillType.Gradient);
+        placeHolder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, new Color(255, 0, 0));
+        placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, new Color(128, 0, 128));
 
-// Sets format fill as gradient fill
-titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
-titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.RED);
-titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(50, Color.GREEN);
-titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.BLUE);
+        pres.save("pres.pptx", SaveFormat.Pptx);
+    } finally {
+        if (pres != null) pres.dispose();
+    }
+}
+
+static IAutoShape findPlaceholder(IMasterSlide master, int type)
+{
+    for (IShape shape : master.getShapes())
+    {
+        IAutoShape autoShape = (IAutoShape) shape;
+        if (autoShape != null)
+        {
+            if (autoShape.getPlaceholder().getType() == type)
+            {
+                return autoShape;
+            }
+        }
+    }
+
+    return null;
+}
 ```
 
 The title style and formatting will change for all slides based on the slide master:
@@ -224,9 +244,17 @@ The title style and formatting will change for all slides based on the slide mas
 When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Java code demonstrates the operation:
 
 ```java
-masterSlide.getBackground().setType(BackgroundType.OwnBackground);
-masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
-masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+Presentation pres = new Presentation();
+try {
+    IMasterSlide master = pres.getMasters().get_Item(0);
+    master.getBackground().setType(BackgroundType.OwnBackground);
+    master.getBackground().getFillFormat().setFillType(FillType.Solid);
+    master.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -242,8 +270,13 @@ masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.G
 To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Java code shows you how to clone a Slide Master to another presentation:
 
 ```java
-// Adds a new master slide from another presentation
-IMasterSlide pres1MasterSlide = pres.getMasters().addClone(pres1MasterSlide);
+Presentation presSource = new Presentation();
+Presentation presTarget = new Presentation();
+try {
+    IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
+} finally {
+    if (presSource != null) presSource.dispose();
+}
 ```
 
 
