@@ -22,9 +22,5 @@ Aspose.Slides allows you to add fonts to Aspose runtime and then use those fonts
 
 When additional fonts are placed within a presentation, they are called [**Embedded fonts**](https://docs.aspose.com/slides/python-net/embedded-font/).
 
-
-
-xxx. 
-
 Aspose.Slides allows you to add fonts that are applied to *only* output documents. For example, if a presentation you are looking to convert to PDF contains fonts missing from your system and embedded fonts, you can add or load the needed fonts as **External fonts**. 
 
