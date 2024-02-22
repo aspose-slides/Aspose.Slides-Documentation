@@ -1,5 +1,5 @@
 ---
-title: Metered Licensing
+title: Licensing Bug
 type: docs
 weight: 101
 url: /java/licensing-bug/
