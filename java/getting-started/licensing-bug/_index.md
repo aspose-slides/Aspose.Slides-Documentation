@@ -7,7 +7,7 @@ url: /java/licensing-bug/
 
 This article describes a licensing bug encountered in Aspose.Slides for Java versions 23.2, 23.3, 23.4, 23.5, 23.6 and 23.7. This bug caused perpetual licenses to become temporarily unusable after their subscription expired.
 
-Symptoms:
+## Symptoms: ##
 
 {{% alert color="primary" %}} 
 
@@ -16,7 +16,7 @@ This behavior is incorrect and does not affect versions prior to 23.2 and after 
 
 {{% /alert %}} 
 
-Resolution:
+## Resolution: ##
 
 Aspose.Slides for Java addressed this issue and released updated versions (23.2.1, 23.3.1, 23.4.1, 23.5.1, 23.6.1, 23.7.1) with the fix. 
 
