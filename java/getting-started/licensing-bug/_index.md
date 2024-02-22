@@ -1,7 +1,7 @@
 ---
 title: Licensing Bug
 type: docs
-weight: 101
+weight: 95
 url: /java/licensing-bug/
 ---
 
@@ -9,12 +9,8 @@ This article describes a licensing bug encountered in Aspose.Slides for Java ver
 
 ## Symptoms: ##
 
-{{% alert color="primary" %}} 
-
 After your perpetual license subscription expires, Aspose.Slides for Java versions 23.2 - 23.7 may report the license as expired, transitioning all functions into a evaluation mode.
 This behavior is incorrect and does not affect versions prior to 23.2 and after 23.7.
-
-{{% /alert %}} 
 
 ## Resolution: ##
 
