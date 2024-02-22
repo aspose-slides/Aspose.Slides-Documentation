@@ -9,7 +9,7 @@ Bug description:
 
 {{% alert color="primary" %}} 
 
-When using versions of Aspose.Slides for Java 23.2 - 23.7 with a permanent use license, a licensing message appears after the license expiration.
+When using versions of Aspose.Slides for Java 23.2 - 23.7 with a permanent use license, a watermark appears after the license expiration.
 
 {{% /alert %}} 
 
