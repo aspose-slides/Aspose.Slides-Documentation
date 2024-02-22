@@ -7,7 +7,7 @@ keySlides: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Install
 description: "Install Aspose.Slides for Node.js via Java in Windows, Linux or macOS"
 ---
 
-Aspose.Slides for Node.js via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Node.js` and `node-java` bridge are installed.
+Aspose.Slides for Node.js via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Node.js` and [`java`](https://www.npmjs.com/package/java) bridge are installed.
 
 ## **Install from NPM**
 
@@ -36,7 +36,7 @@ To install and use Aspose.Slides for Node.js via Java from a ZIP archive, follow
 1. Install Node.js (https://nodejs.org/en/download/) and add node.exe to `PATH`.
 1. Install node-gyp.
 1. Install Windows Build Tools.
-1. Install [`node-java`](https://www.npmjs.com/package/java) bridge and run these commands in Command Prompt as an administrator:
+1. Install [`java`](https://www.npmjs.com/package/java) bridge and run these commands in Command Prompt as an administrator:
 ```
 $ mkdir aspose.slides.nodejs
 
@@ -74,7 +74,7 @@ console.log("Done");
 1. Install Node.js (https://nodejs.org/en/download/).
 1. Install JDK8 for Linux and configure `JAVA_HOME` environment variable.
 1. Install python 2.x
-1. Install [`node-java`](https://www.npmjs.com/package/java) bridge. You can run these commands in terminal:
+1. Install [`java`](https://www.npmjs.com/package/java) bridge. You can run these commands in terminal:
 ```
 $ mkdir aspose.slides.nodejs
 
@@ -119,7 +119,7 @@ console.log("Done");
 ```
 4. Install python 2.x (if it is not installed).
 5. Install Xcode Command Line Tools.
-6. Install [`node-java`](https://www.npmjs.com/package/java) bridge. You can run below commands in terminal:
+6. Install [`java`](https://www.npmjs.com/package/java) bridge. You can run below commands in terminal:
 ```
 $ mkdir aspose.slides.nodejs
  
