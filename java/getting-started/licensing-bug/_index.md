@@ -36,5 +36,5 @@ List of versions with the fix:
 If you experience any licensing issues with Aspose.Slides for Java:
 
 - Check the version you are using and ensure it's not affected by the bug described above.
-- Refer to the Aspose documentation for troubleshooting steps and known licensing issues.
-- Contact Aspose support for further assistance.
+- Refer to the [Aspose documentation](https://docs.aspose.com/slides/java/getting-started/) for troubleshooting steps and known licensing issues.
+- Contact [Aspose support](https://forum.aspose.com/) for further assistance.
