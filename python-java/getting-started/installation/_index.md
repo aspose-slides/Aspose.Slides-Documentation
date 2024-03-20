@@ -7,12 +7,12 @@ keySlides: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Install
 description: "Install Aspose.Slides for Python via Java in Windows, Linux or macOS"
 ---
 
-Aspose.Slides for Python via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Python`, `Java` and `jpype` bridge are installed.
+Aspose.Slides for Python via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Python`, `Java` and `jpype1` bridge are installed.
 
 ## **Version requirements**
-- JRE version >=8 (JPype has been tested on Java versions from 1.8 to 13).
+- JRE version >=8 (JPype1 has been tested on Java versions from 1.8 to 11).
 - Python version >=3.7.
-- JPype package version: >=1.4.1.
+- JPype1 package version: >=1.5.0.
 
 ## **Install from pip**
 
@@ -60,8 +60,6 @@ slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
 slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
 pres.save("out.pptx", SaveFormat.Pptx)
 
-print("Done")
-
 jpype.shutdownJVM()
 ```
 
@@ -103,8 +101,6 @@ slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
 slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
 pres.save("out.pptx", SaveFormat.Pptx)
 
-print("Done")
-
 jpype.shutdownJVM()
 ```
 7. Now run `py example.py` @command prompt to run it.
@@ -145,8 +141,6 @@ pres = Presentation()
 slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
 slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
 pres.save("out.pptx", SaveFormat.Pptx)
-
-print("Done")
 
 jpype.shutdownJVM()
 ```
