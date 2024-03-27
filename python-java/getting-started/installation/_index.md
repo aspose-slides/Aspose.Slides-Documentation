@@ -9,18 +9,21 @@ description: "Install Aspose.Slides for Python via Java in Windows, Linux or mac
 
 Aspose.Slides for Python via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Python`, `Java` and `jpype1` bridge are installed.
 
-## **Version requirements**
+## **Requirements for programs and versions**
+
+To ensure proper operation of Aspose.Slides for Python via Java, the following programs and packages must be installed:
+
 - JRE version >=8 (JPype1 has been tested on Java versions from 1.8 to 11).
-- Python version >=3.7.
+- Python version >=3.7,<=3.12.
 - JPype1 package version: >=1.5.0.
 
 ## **Install from pip**
 
-You can easily install Aspose.Slides for Python via Java from [pip](https://pypi.org/).
+You can easily install Aspose.Slides for Python via Java from [pip](https://pypi.org/) as long as you have all the required programs (Java, Python) installed.
 
-Create a new project folder. Fill in the title and version fields (leave the remaining fields with default values).
+Create a new project folder.
 
-Install JPype1 using the following command:
+[Install JPype1](https://jpype.readthedocs.io/en/latest/install.html) using the following command:
 ```
 $ pip install JPype1
 ```
@@ -39,7 +42,7 @@ To install and use Aspose.Slides for Python via Java from a ZIP archive, follow 
 1. Install JDK8 and configure `JAVA_HOME` environment variable.
 2. [Install Python](https://www.python.org/downloads/) version >=3.7 and add python.exe to `PATH`.
 3. [Install Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
-4. Install JPype1. You can run below commands in python terminal:
+4. [Install JPype1](https://jpype.readthedocs.io/en/latest/install.html). You can run below commands in python terminal:
 ```
 $ pip install --upgrade pip
 $ pip install JPype1
@@ -80,7 +83,7 @@ jpype.shutdownJVM()
     dnf install redhat-rpm-config gcc-c++ python3-devel unixODBC-devel
     ```
 
-4. Install JPype1. You can run below commands in python terminal:
+4. [Install JPype1](https://jpype.readthedocs.io/en/latest/install.html). You can run below commands in python terminal:
 ```
 $ pip install --upgrade pip
 $ pip install JPype1
@@ -121,7 +124,7 @@ jpype.shutdownJVM()
 ```
 3. [Install Python](https://www.python.org/downloads/) version >=3.7.
 4. Install GCC or Clang compilers depending on the Python`s version and platform.
-5. Install JPype1. You can run below commands in python terminal:
+5. [Install JPype1](https://jpype.readthedocs.io/en/latest/install.html). You can run below commands in python terminal:
 ```
 $ pip install --upgrade pip
 $ pip install JPype1
