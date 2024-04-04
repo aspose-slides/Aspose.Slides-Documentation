@@ -10,10 +10,10 @@ description: "Modern API"
 ## Introduction
 
 Historically, Aspose Slides has a dependency on System.Drawing and has in the public API the following classes from there:
-- Graphics
-- Image
-- Bitmap
-- PrinterSettings
+- [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)
+- [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)
+- [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
+- [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings)
 
 As of version 24.4, this public API is declared deprecated.
 
@@ -107,7 +107,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### Получения thumbnail презентации
+### Getting a presentation thumbnail
 
 Code using a deprecated API:
 
