@@ -195,13 +195,13 @@ Following the release of [Aspose.Slides.NET](https://www.nuget.org/packages/Aspo
 
 ## API support for Graphics and PrinterSettings will be discontinued
 
-Класс [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) не поддерживается для кроссплатформенных версий .NET6 и выше. В Aspose Slides часть API, используюая его, будет удалена:
+The [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) class is not supported for cross-platform versions of .NET6 and higher. In Aspose Slides, the part of the API that uses it will be removed:
 [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
 
-Также, будут удалена та часть API, которая связана с печатью:
+Also, the part of the API that is related to printing will be removed:
 
 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/):
 - [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
