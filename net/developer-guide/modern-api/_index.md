@@ -192,3 +192,19 @@ using (Presentation pres = new Presentation())
 ## Support for Aspose.Slides.NET6.CrossPlatform will be discontinued
 
 Following the release of [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) version 24.8, support for [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) will be discontinued.
+
+## API support for Graphics and PrinterSettings will be discontinued
+
+Класс [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) не поддерживается для кроссплатформенных версий .NET6 и выше. В Aspose Slides часть API, используюая его, будет удалена:
+[Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
+
+Также, будут удалена та часть API, которая связана с печатью:
+
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/):
+- [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
+- [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)
+- [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
+- [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
