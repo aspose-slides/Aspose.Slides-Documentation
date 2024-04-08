@@ -34,7 +34,7 @@ Added the following classes and enums to the public API:
 
 - Aspose.Slides.IImage - represents the raster or vector image.
 - Aspose.Slides.ImageFormat - represents the file format of the image.
-- Aspose.Slides.Util.ImageUtil - methods to instantiate and work with the IImage interface.
+- Aspose.Slides.Images - methods to instantiate and work with the IImage interface.
 
 Please note that IImage is disposable (it implements the IDisposable interface and its use should be wrapped in using or dispose-it in another convenient way).
 
@@ -45,7 +45,7 @@ using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
     // instantiate a disposable instance of IImage from the file on the disk.  
-    using (IImage image = Aspose.Slides.DOM.Util.ImageUtil.FromFile("image.png"))
+    using (IImage image = Images.FromFile("image.png"))
     {
         // create a PowerPoint image by adding an instance of IImage to the presentation's images.
         ppImage = pres.Images.AddImage(image);
@@ -180,7 +180,7 @@ Modern API:
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
-    using (IImage image = ImageUtil.FromFile("image.png"))
+    using (IImage image = Aspose.Slides.Images.FromFile("image.png"))
     {
         ppImage = pres.Images.AddImage(image);
     }
