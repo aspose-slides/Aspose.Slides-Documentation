@@ -188,6 +188,88 @@ using (Presentation pres = new Presentation())
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 }
 ```
+## Methods/properties to be removed and their replacement in Modern API
+
+### Presentation
+| Method Signature                               | Replacement Method Signature                             |
+|-----------------------------------------------|---------------------------------------------------------|
+| public Bitmap[] GetThumbnails(IRenderingOptions options) | GetImages(IRenderingOptions options)                   |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | GetImages(IRenderingOptions options, int[] slides)   |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, float scaleX, float scaleY) | GetImages(IRenderingOptions options, float scaleX, float scaleY) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | GetImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, Size imageSize) | GetImages(IRenderingOptions options, Size imageSize) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | GetImages(IRenderingOptions options, int[] slides, Size imageSize) |
+| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | Will be deleted completely |
+| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | Will be deleted completely |
+| public void Print()                           | Will be deleted completely                               |
+| public void Print(PrinterSettings printerSettings) | Will be deleted completely                            |
+| public void Print(string printerName)         | Will be deleted completely                               |
+| public void Print(PrinterSettings printerSettings, string presName) | Will be deleted completely                          |
+
+
+### Shape
+| Method Signature                                                      | Replacement Method Signature                                       |
+|----------------------------------------------------------------------|-------------------------------------------------------------------|
+| public Bitmap GetThumbnail()                                          | GetImage                                                           |
+| public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY) |
+
+
+### Slide
+| Method Signature                                                      | Replacement Method Signature                                           |
+|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+| public Bitmap GetThumbnail(float scaleX, float scaleY)                | GetImage(float scaleX, float scaleY)                                 |
+| public Bitmap GetThumbnail()                                         | GetImage                                                              |
+| public Bitmap GetThumbnail(IRenderingOptions options)                | GetImage(IRenderingOptions options)                                  |
+| public Bitmap GetThumbnail(Size imageSize)                           | GetImage(Size imageSize)                                             |
+| public Bitmap GetThumbnail(ITiffOptions options)                    | GetImage(ITiffOptions options)                                       |
+| public Bitmap GetThumbnail(IRenderingOptions options, float scaleX, float scaleY) | GetImage(IRenderingOptions options, float scaleX, float scaleY) |
+| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | GetImage(IRenderingOptions options, Size imageSize)               |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | Will be deleted completely                                       |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | Will be deleted completely                             |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | Will be deleted completely                                    |
+
+
+### IMarkdownImageSaver
+| Method Signature                 | Replacement Method Signature           |
+|----------------------------------|----------------------------------------|
+| string SaveImage(Image image)   | SaveImage(IImage image)               |
+| public string SaveImage(Image image) | SaveImage(IImage image)               |
+
+
+### WebOutput
+| Method Signature                                                | Replacement Method Signature                                |
+|-----------------------------------------------------------------|-------------------------------------------------------------|
+| public IOutputFile Add(string path, Image image)               | Add(string path, IImage image)                              |
+
+
+### ImageCollection
+| Method Signature                          | Replacement Method Signature               |
+|-------------------------------------------|--------------------------------------------|
+| IPPImage AddImage(Image image)           | AddImage(IImage image)                     |
+
+### ImageWrapperFactory
+| Method Signature                                         | Replacement Method Signature                            |
+|----------------------------------------------------------|---------------------------------------------------------|
+| IImageWrapper CreateImageWrapper(Image image)           | CreateImageWrapper(IImage image)                       |
+
+### PPImage
+| Method/Property Signature                     | Replacement Method Signature   |
+|--------------------------------------|-----------------------------------------|
+| void ReplaceImage(Image newImage)   | ReplaceImage(IImage newImage)           |
+| Image SystemImage { get; }          | IImage Image { get; }                   |
+
+
+### PatternFormat
+| Method Signature                                          | Replacement Method Signature                        |
+|-----------------------------------------------------------|-----------------------------------------------------|
+| Bitmap GetTileImage(Color background, Color foreground)   | GetTile(Color background, Color foreground)         |
+| Bitmap GetTileImage(Color styleColor)                     | GetTile(Color styleColor)                           |
+
+
+### PatternFormatEffectiveData
+| Method Signature                                          | Replacement Method Signature                        |
+|-----------------------------------------------------------|-----------------------------------------------------|
+| Bitmap GetTileImage(Color background, Color foreground)   | GetTileIImage(SlidesImage image)                    |
 
 ## Support for Aspose.Slides.NET6.CrossPlatform will be discontinued
 
