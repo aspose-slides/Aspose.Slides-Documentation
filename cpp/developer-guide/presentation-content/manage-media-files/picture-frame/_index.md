@@ -3,7 +3,7 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /cpp/picture-frame/
-keywords: "Add picture frame, create picture frame, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
+keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
 description: "Add picture frame to PowerPoint presentation in C++"
 ---
 
@@ -109,6 +109,26 @@ pf->set_RelativeScaleWidth(1.35);
 
 //Writes the PPTX file to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+## **Extract Image from Picture Frame**
+
+You can extract images from [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+
+```c++
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto firstSlide = presentation->get_Slide(0);
+auto firstShape = firstSlide->get_Shape(0);
+    
+if (ObjectExt::Is<IPictureFrame>(firstShape))
+{
+    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
+    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
+
+    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
+}
+
+presentation->Dispose();
 ```
 
 ## **Get Transparency of Image**
