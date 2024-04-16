@@ -150,14 +150,14 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 ### Presentation Class
 |Method Signature|Replacement Method Signature|
 | :- | :- |
-|GetThumbnails(System::SharedPtr<Export::IRenderingOptions> options)|GetImages(System::SharedPtr<Export::IRenderingOptions> options)|
-|GetThumbnails(System::SharedPtr<Export::IRenderingOptions> options, System::ArrayPtr<int32_t> slides)|GetImages(System::SharedPtr<Export::IRenderingOptions> options, System::ArrayPtr<int32_t> slides)|
-|GetThumbnails(System::SharedPtr<Export::IRenderingOptions> options, float scaleX, float scaleY)|GetImages(System::SharedPtr<Export::IRenderingOptions> options, float scaleX, float scaleY)|
-|GetThumbnails(System::SharedPtr<Export::IRenderingOptions> options, System::ArrayPtr<int32_t> slides, float scaleX, float scaleY)|GetImages(System::SharedPtr<Export::IRenderingOptions> options, System::ArrayPtr<int32_t> slides, float scaleX, float scaleY)|
-|GetThumbnails(System::SharedPtr<Export::IRenderingOptions> options, System::Drawing::Size imageSize)|GetImages(System::SharedPtr<Export::IRenderingOptions> options, System::Drawing::Size imageSize)|
-|GetThumbnails(System::SharedPtr<Export::IRenderingOptions> options, System::ArrayPtr<int32_t> slides, System::Drawing::Size imageSize)|GetImages(System::SharedPtr<Export::IRenderingOptions> options, System::ArrayPtr<int32_t> slides, System::Drawing::Size imageSize)|
-|Save(System::String fname, System::ArrayPtr<int32_t> slides, Export::SaveFormat format)|Will be deleted completely|
-|Save(System::String fname, System::ArrayPtr<int32_t> slides, Export::SaveFormat format, System::SharedPtr<Export::ISaveOptions> options)|Will be deleted completely|
+|GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|
+|GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides)|
+|GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, float scaleX, float scaleY)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, float scaleX, float scaleY)|
+|GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, float scaleX, float scaleY)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, float scaleX, float scaleY)|
+|GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|
+|GetThumbnails(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, System::Drawing::Size imageSize)|GetImages(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::ArrayPtr&lt;int32_t&gt; slides, System::Drawing::Size imageSize)|
+|Save(System::String fname, System::ArrayPtr&lt;int32_t&gt; slides, Export::SaveFormat format)|Will be deleted completely|
+|Save(System::String fname, System::ArrayPtr&lt;int32_t&gt; slides, Export::SaveFormat format, System::SharedPtr&lt;Export::ISaveOptions&gt; options)|Will be deleted completely|
 
 ### Slide Class
 |Method Signature|Replacement Method Signature|
@@ -165,13 +165,13 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 |GetThumbnail()|GetImage()|
 |GetThumbnail(float scaleX, float scaleY)|GetImage(float scaleX, float scaleY)|
 |GetThumbnail(System::Drawing::Size imageSize)|GetImage(System::Drawing::Size imageSize)|
-|GetThumbnail(System::SharedPtr<Export::ITiffOptions> options)|GetImage(System::SharedPtr<Export::IRenderingOptions> options|
-|GetThumbnail(System::SharedPtr<Export::IRenderingOptions> options)|GetImage(System::SharedPtr<Export::IRenderingOptions> options)|
-|GetThumbnail(System::SharedPtr<Export::IRenderingOptions> options, float scaleX, float scaleY)|GetImage(System::SharedPtr<Export::IRenderingOptions> options, float scaleX, float scaleY)|
-|GetThumbnail(System::SharedPtr<Export::IRenderingOptions> options, System::Drawing::Size imageSize)|GetImage(System::SharedPtr<Export::IRenderingOptions> options, System::Drawing::Size imageSize)|
-|RenderToGraphics(System::SharedPtr<Export::IRenderingOptions> options, System::SharedPtr<System::Drawing::Graphics> graphics)|Will be deleted completely|
-|RenderToGraphics(System::SharedPtr<Export::IRenderingOptions> options, System::SharedPtr<System::Drawing::Graphics> graphics, float scaleX, float scaleY)|Will be deleted completely|
-|RenderToGraphics(System::SharedPtr<Export::IRenderingOptions> options, System::SharedPtr<System::Drawing::Graphics> graphics, System::Drawing::Size renderingSize)|Will be deleted completely|
+|GetThumbnail(System::SharedPtr&lt;Export::ITiffOptions&gt; options)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options|
+|GetThumbnail(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options)|
+|GetThumbnail(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, float scaleX, float scaleY)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, float scaleX, float scaleY)|
+|GetThumbnail(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|GetImage(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::Drawing::Size imageSize)|
+|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics)|Will be deleted completely|
+|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics, float scaleX, float scaleY)|Will be deleted completely|
+|RenderToGraphics(System::SharedPtr&lt;Export::IRenderingOptions&gt; options, System::SharedPtr&lt;System::Drawing::Graphics&gt; graphics, System::Drawing::Size renderingSize)|Will be deleted completely|
 
 ### Shape Class
 |Method Signature|Replacement Method Signature|
@@ -182,12 +182,12 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 ### ImageCollection Class
 |Method Signature|Replacement Method Signature|
 | :- | :- |
-|AddImage(System::SharedPtr<IPPImage> image)|AddImage(System::SharedPtr<System::Drawing::Image> image)|
+|AddImage(System::SharedPtr&lt;IPPImage&gt; image)|AddImage(System::SharedPtr&lt;System::Drawing::Image&gt; image)|
 
 ### PPImage Class
 |Method Signature|Replacement Method Signature|
 | :- | :- |
-|ReplaceImage(System::SharedPtr<System::Drawing::Image> newImage)|ReplaceImage(System::SharedPtr<Aspose::Slides::IImage> newImage)|
+|ReplaceImage(System::SharedPtr&lt;System::Drawing::Image&gt; newImage)|ReplaceImage(System::SharedPtr&lt;Aspose::Slides::IImage&gt; newImage)|
 |get_SystemImage()|get_Image()|
 
 ### PatternFormat Class
