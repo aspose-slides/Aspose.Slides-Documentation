@@ -110,7 +110,7 @@ use aspose\slides\ImageFormat;
 $pres = new Presentation("pres.pptx");
 
 $slideImage = $pres->getSlides()->get_Item(0)->getImage();
-$slideImage->save("image.png", ImageFormat::Png);
+$slideImage->save("slide1.png", ImageFormat::Png);
 $slideImage->dispose();
 
 $pres->dispose();
@@ -145,7 +145,7 @@ use aspose\slides\ImageFormat;
 $pres = new Presentation("pres.pptx");
 
 $shapeImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage();
-$shapeImage->save("Cshape.png");
+$shapeImage->save("shape.png");
 $shapeImage->dispose();
 
 $pres->dispose();

@@ -104,7 +104,7 @@ from asposeslides.api import Presentation, ImageFormat
 pres = Presentation("pres.pptx");
 
 slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("image.png", ImageFormat.Png);
+slideImage.save("slide1.png", ImageFormat.Png);
 slideImage.dispose();
 
 pres.dispose();
