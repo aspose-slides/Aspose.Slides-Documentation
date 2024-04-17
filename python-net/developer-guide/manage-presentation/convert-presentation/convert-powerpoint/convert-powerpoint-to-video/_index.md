@@ -66,7 +66,7 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 
 {{% /alert %}} 
 
-Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
+Animations and transitions make slideshows more engaging and interesting — and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
 ```python
 import aspose.pydrawing as drawing
@@ -132,7 +132,7 @@ To allow you to perform PowerPoint to video conversion tasks, Aspose.Slides prov
 
 PresentationEnumerableAnimationsGenerator allows you to set the frame size for the video (that will be created later) and FPS value (frames per second) through its constructor. If you pass an instance of the presentation, `Presentation.SlideSize` will be used.
 
-To make all animations in a presentation play at once, use PresentationEnumerableAnimationsGenerator.EnumerateFrames method. This method takes a collection of slides and allows to sequentially obtain [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Then, EnumerableFrameArgs.GetFrame() allows you to get video frame:
+To make all animations in a presentation play at once, use PresentationEnumerableAnimationsGenerator.enumerate_frames method. This method takes a collection of slides and allows to sequentially obtain [EnumerableFrameArgs](https://reference.aspose.com/slides/python-net/aspose.slides.export/enumerableframeargs/). Then, EnumerableFrameArgs.get_frame() allows you to get video frame:
 
 ```python
 import aspose.slides as slides
