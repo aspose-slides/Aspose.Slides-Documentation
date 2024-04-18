@@ -142,8 +142,13 @@ try {
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Instantiate the image for bullets
-    BufferedImage img = ImageIO.read(new File("asp1.jpg"));
-    IPPImage imgx = pres.getImages().addImage(img);
+    IPPImage picture;
+    IImage image = Images.fromFile("asp1.jpg");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Adding and accessing Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
@@ -159,7 +164,7 @@ try {
 
     // Setting paragraph bullet style and image
     para.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    para.getParagraphFormat().getBullet().getPicture().setImage(imgx);
+    para.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
     // Setting Bullet Height
     para.getParagraphFormat().getBullet().setHeight(100);

@@ -374,8 +374,13 @@ try {
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Instantiates the ImageEx class
-    BufferedImage img = ImageIO.read(new File("aspose-logo.jpg"));
-    IPPImage imgEx = pres.getImages().addImage(img);
+    IPPImage picture;
+    IImage image = Images.fromFile("aspose-logo.jpg");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Adds an AutoShape set to Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
@@ -387,7 +392,7 @@ try {
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
     // Sets the image to fill the shape
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(imgEx);
+    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // Specifies the image offsets from the corresponding edge of the shape's bounding box
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
