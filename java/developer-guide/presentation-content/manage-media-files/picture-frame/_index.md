@@ -253,14 +253,19 @@ This Java code shows you how to crop an existing image on a slide:
 
 ```java
 Presentation pres = new Presentation();
+// Creates new image object
 try {
-    byte[] imageBytes = Files.readAllBytes(Paths.get(imagePath));
-    // Creates new image object
-    IPPImage newImage = pres.getImages().addImage(imageBytes);
+    IPPImage picture;
+    IImage image = Images.fromFile(imagePath);
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Adds a PictureFrame to a Slide
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, newImage);
+            ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
     // Crops the image (percentage values)
     picFrame.getPictureFormat().setCropLeft(23.6f);
@@ -319,11 +324,15 @@ Presentation pres = new Presentation("pres.pptx");
 try {
     ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
     ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    byte[] imageBytes = Files.readAllBytes(Paths.get("image.png"));
-    IPPImage presImage = pres.getImages().addImage(imageBytes);
-
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), presImage);
+            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
 
     // set shape to have to preserve aspect ratio on resizing
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);

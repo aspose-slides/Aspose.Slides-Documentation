@@ -91,11 +91,16 @@ This Java code shows you how to apply the `Fly` effect to a picture frame:
 Presentation pres = new Presentation();
 try {
     // Load Image to be added in presentaiton image collection
-    byte[] imageBytes = Files.readAllBytes(Paths.get("aspose-logo.jpg"));
-    IPPImage image = pres.getImages().addImage(imageBytes);
+    IPPImage picture;
+    IImage image = Images.fromFile("aspose-logo.jpg");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Adds picture frame to slide
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
 
     // Gets the main sequence of the slide.
     ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
