@@ -99,7 +99,7 @@ with slides.Presentation() as pres:
     autoshape.text_frame.text = "Second Slide"
 
     # Create a new image for the zoom object
-    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
     #Add the ZoomFrame object
     pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
@@ -157,7 +157,7 @@ with slides.Presentation() as pres:
     zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
     # Create a new image for the zoom object
-    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     # Set custom image for zoomFrame1 object
     zoomFrame1.image = image
 
@@ -249,7 +249,7 @@ with slides.Presentation() as pres:
     pres.sections.add_section("Section 1", slide)
 
     # Creates a new image for the zoom object
-    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
     # Adds a SectionZoomFrame object
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1], image)
@@ -304,7 +304,7 @@ with slides.Presentation() as pres:
     sectionZoomFrame.width = 100
     sectionZoomFrame.height = 75
 
-    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     sectionZoomFrame.image = image
 
     sectionZoomFrame.return_to_parent = True
@@ -481,7 +481,7 @@ with slides.Presentation() as pres:
     summarySection = summaryZoomFrame.summary_zoom_collection[0]
 
     # Formatting for SummaryZoomSection object
-    image = pres.images.add_image(draw.Image.from_file("img.jpeg"))
+    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     summarySection.image = image
 
     summarySection.return_to_parent = False

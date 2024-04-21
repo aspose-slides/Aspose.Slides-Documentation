@@ -100,15 +100,14 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
 
 ```python
 import aspose.slides as slides
-from aspose.pydrawing.imaging import ImageFormat
 
 with slides.Presentation("sample.pptx") as presentation:
     first_slide = presentation.slides[0]
     first_shape = first_slide.shapes[0]
 
     if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.system_image
-        image.save("slide_1_shape_1.png", ImageFormat.png)
+        image = first_shape.picture_format.picture.image.image
+        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
 ```
 
 ## **Get Transparency of Image**
@@ -225,12 +224,10 @@ This Python code shows you how to crop an existing image on a slide:
 
 ``` py
 import aspose.slides as slides
-import aspose.pydrawing as drawing
-
 
 with slides.Presentation() as presentation:
     # Creates new image object
-    newImage = presentation.images.add_image(drawing.Image.from_file(imagePath))
+    newImage = presentation.images.add_image(slides.Images.from_file(imagePath))
 
     # Adds a PictureFrame to a Slide
     picFrame = presentation.slides[0].shapes.add_picture_frame(
