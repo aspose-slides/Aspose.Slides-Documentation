@@ -15,7 +15,6 @@ The following example includes these steps:
 1. With [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Create new instance of a rules collection
@@ -41,7 +40,7 @@ with slides.Presentation(path + "input.pptx") as pres:
 	pres.fonts_manager.font_fall_back_rules_collection = rulesList
 
 	# Rendering of thumbnail with using of initialized rules collection and saving to PNG
-	pres.slides[0].get_thumbnail(1, 1).save("Slide_0.png", draw.imaging.ImageFormat.png)
+	pres.slides[0].get_image(1, 1).save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
 

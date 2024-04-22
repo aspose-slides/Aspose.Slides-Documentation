@@ -56,7 +56,7 @@ with slides.Presentation() as pres:
     shape.three_d_format.extrusion_height = 100
     shape.three_d_format.extrusion_color.color = draw.Color.blue
     
-    pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
+    pres.slides[0].get_image(2, 2).save("sample_3d.png")
     pres.save("sandbox_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -75,7 +75,7 @@ In Aspose.Slides API 3D shape rotation can be managed using [camera](https://ref
 shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
 shape.three_d_format.camera.set_rotation(20, 30, 40)
 # ... set other 3D scene parameters
-pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
+pres.slides[0].get_image(2, 2).save("sample_3d.png")
 ```
 
 ## 3D Depth and Extrusion
@@ -88,7 +88,7 @@ shape.three_d_format.camera.set_rotation(20, 30, 40)
 shape.three_d_format.extrusion_height = 100
 shape.three_d_format.extrusion_color.color = draw.Color.purple
 # ... set other 3D scene parameters
-pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
+pres.slides[0].get_image(2, 2).save("sample_3d.png")
 ```
 
 Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
@@ -119,7 +119,7 @@ with slides.Presentation() as pres:
     shape.three_d_format.extrusion_height = 150
     shape.three_d_format.extrusion_color.color = draw.Color.dark_orange
    
-    pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
+    pres.slides[0].get_image(2, 2).save("sample_3d.png")
 ```
 
 And here is the result:
@@ -136,7 +136,7 @@ with open("image.png", "rb") as fs :
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
     
     # .. setup 3D: shape.three_d_format.camera, shape.three_d_format.light_rig, shape.three_d_format.Extrusion* properties
-    pres.slides[0].get_thumbnail(2, 2).save("sample_3d.png")
+    pres.slides[0].get_image(2, 2).save("sample_3d.png")
 ```
 
 
@@ -179,7 +179,7 @@ with slides.Presentation() as pres:
 
     textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
    
-    pres.slides[0].get_thumbnail(2, 2).save("text3d.png")
+    pres.slides[0].get_image(2, 2).save("text3d.png")
     pres.save("text3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 

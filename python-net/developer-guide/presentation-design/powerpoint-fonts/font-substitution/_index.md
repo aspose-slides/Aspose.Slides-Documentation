@@ -19,7 +19,6 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This Python code demonstrates the font substitution process:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Loads a presentation
@@ -41,10 +40,10 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
     presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
 
     #Arial font will be used in place of SomeRareFont when the latter is inaccessible
-    bmp = presentation.slides[0].get_thumbnail(1, 1)
+    bmp = presentation.slides[0].get_image(1, 1)
 
     # Saves the image to disk in the JPEG format
-    bmp.save("Thumbnail_out.jpg", draw.imaging.ImageFormat.jpeg)
+    bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 
