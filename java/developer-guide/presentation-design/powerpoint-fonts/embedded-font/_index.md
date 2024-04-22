@@ -24,8 +24,14 @@ This Java code shows you how to get and remove embedded fonts from a presentatio
 Presentation pres = new Presentation("EmbeddedFonts.pptx");
 try {
     // Renders a slide containing a text frame that uses embedded "FunSized"
-    ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(new Dimension(960, 720)),
-            "PNG", new File("picture1_out.png"));
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
+
+    //Save the image to disk in JPEG format
+    try {
+        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
+    } finally {
+        if (slideImage != null) slideImage.dispose();
+    }
 
     IFontsManager fontsManager = pres.getFontsManager();
 
@@ -46,12 +52,17 @@ try {
     fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
 
     // Renders the presentation; "Calibri" font is replaced with an existing one
-    ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(new Dimension(960, 720)),
-            "PNG", new File("picture2_out.png"));
+     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
+
+     //Save the image to disk in JPEG format
+     try {
+         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
+     } finally {
+         if (slideImage != null) slideImage.dispose();
+     }
 
     // Saves the presentation without embedded "Calibri" font to disk
     pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

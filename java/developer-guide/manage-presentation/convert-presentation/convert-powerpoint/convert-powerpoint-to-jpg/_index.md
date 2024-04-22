@@ -38,12 +38,15 @@ Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     for (ISlide sld : pres.getSlides()) {
         // Creates a full scale image
-        BufferedImage bmp = sld.getThumbnail(1f, 1f);
+        IImage slideImage = sld.getImage(1f, 1f);
 
         // Saves the image to disk in JPEG format
-        ImageIO.write(bmp, "JPEG", new java.io.File(String.format("Slide_%d.jpg", sld.getSlideNumber())));
+        try {
+              slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
+        } finally {
+             if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -65,12 +68,15 @@ try {
     for (ISlide sld : pres.getSlides())
     {
         // Creates a full scale image
-        BufferedImage bmp = sld.getThumbnail(ScaleX, ScaleY);
+        IImage slideImage = sld.getImage(ScaleX, ScaleY);
 
         // Saves the image to disk in JPEG format
-        ImageIO.write(bmp, "JPEG", new java.io.File(String.format("Slide_%d.jpg", sld.getSlideNumber())));
+        try {
+              slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
+        } finally {
+             if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

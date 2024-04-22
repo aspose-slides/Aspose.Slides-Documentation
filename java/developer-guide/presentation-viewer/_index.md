@@ -106,11 +106,14 @@ try {
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Create a full scale image
-    BufferedImage bmp = sld.getThumbnail(1f, 1f);
+    IImage slideImage = sld.getImage(1f, 1f);
 
     // Save the image to disk in JPEG format
-    ImageIO.write(bmp, "PNG", new java.io.File("Thumbnail_out.png"));
-} catch (IOException e) {
+    try {
+          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     pres.dispose();
 }
@@ -139,11 +142,14 @@ try {
     float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
     
     // Create a full scale image
-    BufferedImage bmp = sld.getThumbnail(ScaleX, ScaleY);
+    IImage slideImage = sld.getImage(ScaleX, ScaleY);
 
     // Save the image to disk in JPEG format
-    ImageIO.write(bmp, "PNG", new java.io.File("Thumbnail_out.png"));
-} catch (IOException e) {
+    try {
+          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     pres.dispose();
 }
@@ -178,11 +184,14 @@ try {
     opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
     
     // Create a full scale image
-    BufferedImage bmp = sld.getThumbnail(opts, ScaleX, ScaleY);
+    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
 
     // Save the image to disk in JPEG format
-    ImageIO.write(bmp, "PNG", new java.io.File("Thumbnail_out.png"));
-} catch (IOException e) {
+    try {
+          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     pres.dispose();
 }

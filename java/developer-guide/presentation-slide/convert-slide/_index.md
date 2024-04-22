@@ -37,11 +37,15 @@ This Java code shows you how to convert the first slide of a presentation to a b
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Converts the first slide in the presentation to a BufferedImage object
-    BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail();
+    IImage slideImage = pres.getSlides().get_Item(0).getImage();
 
 	// Saves the image in the PNG format
-	ImageIO.write(bmp, "PNG", new File("Slide_0.png"));
-} catch (Exception e) {  
+	try {
+        // save the image on the disk.
+         slideImage.save("Slide_0.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -88,11 +92,15 @@ This sample code demonstrates the proposed conversion using the [GetThumbnail](h
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Converts the first slide in the presentation to a Bitmap with the specified size
-    BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1820, 1040));
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1820, 1040));
 	
 	// Saves the image in the JPEG format
-	ImageIO.write(bmp, "JPG", new File("Slide_0.jpg"));
-} catch (Exception e) {
+	try {
+         // save the image on the disk.
+          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -160,11 +168,14 @@ try {
     options.getNotesCommentsLayouting().setCommentsAreaColor(Color.LIGHT_GRAY);
 
     // Converts the first slide of the presentation to a Bitmap object
-    BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail(options, 2f, 2f);
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, 2f, 2f);
 
     // Saves the image in the GIF format
-    ImageIO.write(bmp, "GIF", new File("Slide_Notes_Comments_0.gif"));
-} catch (Exception e) {
+    try {
+          slideImage.save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -237,11 +248,14 @@ try {
 	options.setDpiY(300);
 
 	// Converts the slide to a Bitmap object
-	BufferedImage bmp = slide.getThumbnail(options);
+	IImage slideImage = slide.getImage(options);
 
 	// Saves the image in TIFF format
-	ImageIO.write(bmp, "TIFF", new File("PresentationNotesComments.tiff"));
-} catch (IOException e) {
+	try {
+          slideImage.save("PresentationNotesComments.tiff", ImageFormat.Tiff);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -270,12 +284,15 @@ try {
             continue;
 
         // Convert slide to a Bitmap object
-        BufferedImage bmp = pres.getSlides().get_Item(i).getThumbnail(2f, 2f);
+        IImage slideImage = pres.getSlides().get_Item(i).getImage(2f, 2f);
 
         // Save the image in PNG format
-        ImageIO.write(bmp, "PNG", new File("Slide_" + i + ".png"));
+        try {
+              slideImage.save("Slide_" + i + ".png", ImageFormat.Png);
+        } finally {
+             if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (Exception e) {
 } finally {
     if (pres != null) pres.dispose();
 } 

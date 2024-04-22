@@ -27,11 +27,15 @@ ISlide sld = pres.getSlides().get_Item(0);
 
 //Create a full scale image
 
-BufferedImage image = sld.getThumbnail(1f, 1f);
+IImage slideImage = sld.getImage(1f, 1f);
 
 //Save the image to disk in JPEG format
-
-ImageIO.write(image,"jpeg",new File(dataDir + "AsposeThumbnail.jpg"));
+try {
+     // save the image on the disk.
+      slideImage.save("AsposeThumbnail.jpg", ImageFormat.Jpeg);
+} finally {
+     if (slideImage != null) slideImage.dispose();
+}
 
 ```
 ## **Download Running Code**

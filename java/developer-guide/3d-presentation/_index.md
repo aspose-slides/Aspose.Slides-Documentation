@@ -38,7 +38,7 @@ try {
     shape.getThreeDFormat().getExtrusionColor().setColor(Color.BLUE);
  
 try {
-        IImage slideImage = pres.getSlides().get_Item(0).getThumbnail(2, 2);
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("sample_3d.png", ImageFormat.Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
@@ -67,7 +67,7 @@ IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeTy
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 // ... set other 3D scene parameters
 try {
-        IImage slideImage = pres.getSlides().get_Item(0).getThumbnail(2, 2);
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("sample_3d.png", ImageFormat.Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
@@ -86,7 +86,7 @@ shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
 // ... set other 3D scene parameters
 try {
-        IImage slideImage = pres.getSlides().get_Item(0).getThumbnail(2, 2);
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("sample_3d.png", ImageFormat.Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
@@ -119,7 +119,7 @@ try {
     shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
  
     try {
-        IImage slideImage = pres.getSlides().get_Item(0).getThumbnail(2, 2);
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("sample_3d.png", ImageFormat.Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
@@ -148,7 +148,7 @@ shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 // .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
 try {
-        IImage slideImage = pres.getSlides().get_Item(0).getThumbnail(2, 2);
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("sample_3d.png", ImageFormat.Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
@@ -193,7 +193,7 @@ try {
     textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
  
 try {
-        IImage slideImage = pres.getSlides().get_Item(0).getThumbnail(2, 2);
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("text3d.png", ImageFormat.Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
