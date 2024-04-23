@@ -45,7 +45,7 @@ To extract an image from a presentation, you have to locate the image first by g
 
                 String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "." + imageType;
                 //Saves the picture
-                backImage.getImage().save(imagePath, (int) Enum.getValue(ImageFormat.class, capitalize(imageType)));
+                backImage.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
             } else
             {
                 if (sl.getLayoutSlide().getBackground().getFillFormat().getFillType() == FillType.Picture)
@@ -56,7 +56,7 @@ To extract an image from a presentation, you have to locate the image first by g
 
                     String imagePath = folderPath + "backImage_" + "LayoutSlide_" + slideIndex + "." + imageType;
                     //Saves the picture
-                    backImage.getImage().save(imagePath, (int) Enum.getValue(ImageFormat.class, capitalize(imageType)));
+                    backImage.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
                 }
             }
 
@@ -87,7 +87,7 @@ To extract an image from a presentation, you have to locate the image first by g
                 {
                     String imagePath = folderPath + "backImage_" + "Slide_" + slideIndex + "_Shape_" + j + "." + imageType;
                     //Saves the picture
-                    img.getImage().save(imagePath, (int) Enum.getValue(ImageFormat.class, capitalize(imageType)));
+                    img.getImage().save(imagePath, (int) ImageFormat.getValue(ImageFormat.class, capitalize(imageType)));
                 }
                 ifImageFound = false;
             }
