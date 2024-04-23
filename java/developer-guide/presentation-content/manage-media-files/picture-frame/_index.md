@@ -109,10 +109,12 @@ try {
 
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        BufferedImage image = pictureFrame.getPictureFormat().getPicture().getImage().getSystemImage();
-
-        File imageFile = new File("slide_1_shape_1.png");
-        ImageIO.write(image, "png", imageFile);
+        try {
+                IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
+                slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+            } finally {
+                     if (slideImage != null) slideImage.dispose();
+                 }
     }
 } catch (IOException e) {
 } finally {

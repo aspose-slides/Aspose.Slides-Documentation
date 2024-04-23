@@ -22,7 +22,7 @@ Go through these steps:
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get the slide object from the [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection under the [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) interface. 
 3. Use a [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) method to get the thumbnail for each slide.
-4. Use the [IImage.save()](https://docs.oracle.com/javase/7/docs/api/javax/imageio/ImageIO.html#write(java.awt.image.RenderedImage,%20java.lang.String,%20java.io.File)) method to save the slide thumbnail to the PNG format.
+4. Use the  [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) method to save the slide thumbnail to the PNG format.
 
 This Java code shows you how to convert a PowerPoint presentation to PNG:
 
