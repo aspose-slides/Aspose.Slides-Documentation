@@ -124,7 +124,7 @@ static List<BufferedImage> convertToBufferedImage(IImage[] images) throws IOExce
     return result;
 }
 
-// A static nested class MultiImagePrintable that implements the Printable interface
+// A static class MultiImagePrintable that implements the Printable interface
 static class MultiImagePrintable implements Printable
 {
     private java.util.List<BufferedImage> images;
