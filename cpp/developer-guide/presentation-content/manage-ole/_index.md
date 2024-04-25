@@ -254,8 +254,8 @@ This C++ code shows you how to set the icon image and title for an embedded obje
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"embeddedOle.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shapes()->idx_get(0));
+auto slide = pres->get_Slide(0);
+auto oleObjectFrame = System::ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
 auto oleImage = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
 oleObjectFrame->set_SubstitutePictureTitle(u"My title");

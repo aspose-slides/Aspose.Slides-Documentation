@@ -40,19 +40,19 @@ public:
         
 void Run()
 {
-    String dataDir = GetDataPath();
+    System::String dataDir = GetDataPath();
 
     // Setting Warning Callbacks
-    SharedPtr<LoadOptions> options = System::MakeObject<LoadOptions>();
+    System::SharedPtr<LoadOptions> options = System::MakeObject<LoadOptions>();
     options->set_WarningCallback(System::MakeObject<HandleFontsWarnings>());
 
     // Instantiate the presentation
-    SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(dataDir + u"presentation.pptx", options);
+    System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(dataDir + u"presentation.pptx", options);
 
     // Generating slide thumbnails
     for (auto slide : presentation->get_Slides())
     {
-        SharedPtr<System::Drawing::Image> image = slide->GetThumbnail();
+        System::SharedPtr<IImage> image = slide->GetImage();
     }
 }
 ```

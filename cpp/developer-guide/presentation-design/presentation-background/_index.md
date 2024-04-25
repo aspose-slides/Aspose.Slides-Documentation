@@ -114,8 +114,8 @@ This C++ code shows you how to set an image as the background for a slide:
 // The path to the documents directory.
 
 const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String ImagePath = L"../templates/Tulips.jpg";
-const String OutPath = L"../out/ContentBG_Img_out.pptx";
+const String imagePath = L"../templates/Tulips.jpg";
+const String outPath = L"../out/ContentBG_Img_out.pptx";
 
 // Creates an instance of the Presentation class
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
@@ -126,15 +126,15 @@ pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType
 pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
 // Loads the image
-auto bitmap = MakeObject<System::Drawing::Bitmap>(ImagePath);
+auto image = Images::FromFile(imagePath);
 
 // Adds image to presentation's images collection
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
 pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
 
 // Writes the presentation to disk
-pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
