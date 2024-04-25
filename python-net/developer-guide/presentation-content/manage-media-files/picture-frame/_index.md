@@ -3,7 +3,7 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /python-net/picture-frame/
-keywords: "Add picture frame, create picture frame, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
+keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
 description: "Add picture frame to PowerPoint presentation in Python"
 ---
 
@@ -92,6 +92,22 @@ with slides.Presentation() as presentation:
 
         # Saves the presentation
         presentation.save("Adding Picture Frame with Relative Scale_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Extract Image from Picture Frame**
+
+You can extract images from [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    first_slide = presentation.slides[0]
+    first_shape = first_slide.shapes[0]
+
+    if isinstance(first_shape, slides.PictureFrame):
+        image = first_shape.picture_format.picture.image.image
+        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
 ```
 
 ## **Get Transparency of Image**
@@ -208,12 +224,10 @@ This Python code shows you how to crop an existing image on a slide:
 
 ``` py
 import aspose.slides as slides
-import aspose.pydrawing as drawing
-
 
 with slides.Presentation() as presentation:
     # Creates new image object
-    newImage = presentation.images.add_image(drawing.Image.from_file(imagePath))
+    newImage = presentation.images.add_image(slides.Images.from_file(imagePath))
 
     # Adds a PictureFrame to a Slide
     picFrame = presentation.slides[0].shapes.add_picture_frame(

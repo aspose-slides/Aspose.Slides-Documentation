@@ -3,7 +3,7 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /net/picture-frame/
-keywords: "Add picture frame, create picture frame, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Add picture frame to PowerPoint presentation in C# or .NET"
 ---
 
@@ -92,6 +92,24 @@ using (Presentation presentation = new Presentation())
 
     // Saves the presentation
     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Extract Image from Picture Frame**
+
+You can extract images from [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+
+```c#
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var firstSlide = presentation.Slides[0];
+    var firstShape = firstSlide.Shapes[0];
+
+    if (firstShape is IPictureFrame pictureFrame)
+    {
+        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
+        image.Save("slide_1_shape_1.png", ImageFormat.Png);
+    }
 }
 ```
 

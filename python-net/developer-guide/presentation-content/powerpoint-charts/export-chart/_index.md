@@ -13,10 +13,9 @@ Aspose.Slides for Python via .NET provides support for extracting image of speci
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
 	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-	img = chart.get_thumbnail()
-	img.save("image.png", draw.imaging.ImageFormat.png)
+	img = chart.get_image()
+	img.save("image.png", slides.ImageFormat.PNG)
 ```

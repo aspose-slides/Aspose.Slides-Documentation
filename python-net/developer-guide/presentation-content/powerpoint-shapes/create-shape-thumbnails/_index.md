@@ -26,14 +26,13 @@ The example below generating shape thumbnail.
 
 ```py
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 # Instantiate a Presentation class that represents the presentation file
 with slides.Presentation(path + "HelloWorld.pptx") as presentation:
     # Create a full scale image
-    with presentation.slides[0].shapes[0].get_thumbnail() as bitmap:
+    with presentation.slides[0].shapes[0].get_image() as bitmap:
         # Save the image to disk in PNG format
-        bitmap.save("Shape_thumbnail_out.png", draw.imaging.ImageFormat.png)
+        bitmap.save("Shape_thumbnail_out.png", slides.ImageFormat.PNG)
 ```
 
 
@@ -49,14 +48,13 @@ The example below generate a thumbnail with generating a thumbnail with user def
 
 ```py
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 # Instantiate a Presentation class that represents the presentation file
 with slides.Presentation(path + "HelloWorld.pptx") as p:
     # Create a full scale image
-    with p.slides[0].shapes[0].get_thumbnail(slides.ShapeThumbnailBounds.SHAPE, 1, 1) as bitmap:
+    with p.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.SHAPE, 1, 1) as bitmap:
         # Save the image to disk in PNG format
-        bitmap.save("Scaling Factor Thumbnail_out.png", draw.imaging.ImageFormat.png)
+        bitmap.save("Scaling Factor Thumbnail_out.png", slides.ImageFormat.PNG)
 ```
 
 
@@ -72,13 +70,12 @@ The example below create a thumbnail with generating a thumbnail with user defin
 
 ```py
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 # Instantiate a Presentation class that represents the presentation file
 with slides.Presentation(path + "HelloWorld.pptx") as presentation:
     # Create a Appearance bound shape image
-    with presentation.slides[0].shapes[0].get_thumbnail(slides.ShapeThumbnailBounds.APPEARANCE, 1, 1) as bitmap:
+    with presentation.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.APPEARANCE, 1, 1) as bitmap:
         # Save the image to disk in PNG format
-        bitmap.save("Shape_thumbnail_Bound_Shape_out.png", draw.imaging.ImageFormat.png)
+        bitmap.save("Shape_thumbnail_Bound_Shape_out.png", slides.ImageFormat.PNG)
 ```
 

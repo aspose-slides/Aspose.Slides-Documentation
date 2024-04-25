@@ -3,7 +3,7 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /java/picture-frame/
-keywords: "Add picture frame, create picture frame, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Add picture frame to PowerPoint presentation in Java"
 
 ---
@@ -93,6 +93,30 @@ try {
 } catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
+}
+```
+
+## **Extract Image from Picture Frame**
+
+You can extract images from [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IShape firstShape = firstSlide.getShapes().get_Item(0);
+
+    if (firstShape instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
+        BufferedImage image = pictureFrame.getPictureFormat().getPicture().getImage().getSystemImage();
+
+        File imageFile = new File("slide_1_shape_1.png");
+        ImageIO.write(image, "png", imageFile);
+    }
+} catch (IOException e) {
+} finally {
+    presentation.dispose();
 }
 ```
 
