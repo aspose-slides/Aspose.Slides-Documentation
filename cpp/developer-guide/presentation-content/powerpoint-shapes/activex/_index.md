@@ -63,6 +63,7 @@ if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
 
     System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
     image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
+    ms->Seek(0, System::IO::SeekOrigin::Begin);
     control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
 }
 
@@ -99,6 +100,7 @@ if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nul
 
     System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
     image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
+    ms->Seek(0, System::IO::SeekOrigin::Begin);
     control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
 }
 
