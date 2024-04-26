@@ -1,10 +1,26 @@
 ---
-title: Manage and Manipulate Text and Text Frame Properties in .NET
+title: Manage Text and Text Frame Properties
 linktitle: Text Formatting
 type: docs
 weight: 50
 url: /net/text-formatting/
-keywords: "Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation, C#, Csharp, Aspose.Slides for .NET"
+keywords:
+- highlight text
+- regular expression
+- align text paragraphs
+- text transparency
+- paragraph font properties
+- font family
+- text rotation
+- custom angle rotation
+- text frame
+- line spacing
+- autofit property
+- text frame anchor
+- text tabulation
+- default text style
+- C#
+- Aspose.Slides for .NET
 description: "This article describes how to work with PowerPoint Presentation Text Formatting using C# e.g. Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation."
 ---
 
@@ -635,3 +651,22 @@ using (Presentation pres = new Presentation(loadOptions))
 }
 ```
 
+## **Set Default Text Style**
+
+If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `DefaultTextStyle` property from the [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+
+```c#
+using (Presentation presentation = new Presentation())
+{
+    // Get the top level paragraph format.
+    IParagraphFormat paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
+
+    if (paragraphFormat != null)
+    {
+        paragraphFormat.DefaultPortionFormat.FontHeight = 14;
+        paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
+    }
+
+    presentation.Save("DefaultTextStyle.pptx", SaveFormat.Pptx);
+}
+```
