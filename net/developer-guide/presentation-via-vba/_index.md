@@ -114,3 +114,28 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 	}
 }
 ```
+
+## **Checking whether a VBA Project is Password Protected**
+
+Using the [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) property, you can check whether the project properties are password protected.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and load the presentation containing the macro.
+2. Check if the presentation contains a [VBA Project](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/).
+3. Check if the VBA Project is protected by a password to view project properties.
+
+This C# code demonstrates the operation:
+
+```c#
+using (Presentation pres = new Presentation("VBA.pptm"))
+{
+    if (pres.VbaProject == null) // Checks whether the Presentation contains a VBA Project
+        return;
+
+    if (pres.VbaProject.IsPasswordProtected)
+    {
+        Console.WriteLine("The VBA Project '" + pres.VbaProject.Name +
+                            "' is protected by password to view project properties.");
+    }
+}
+```
+
