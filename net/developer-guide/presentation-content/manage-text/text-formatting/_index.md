@@ -1,5 +1,5 @@
 ---
-title: Manage Text and Text Frame Properties
+title: Text Formatting
 linktitle: Text Formatting
 type: docs
 weight: 50
@@ -21,12 +21,12 @@ keywords:
 - default text style
 - C#
 - Aspose.Slides for .NET
-description: "This article describes how to work with PowerPoint Presentation Text Formatting using C# e.g. Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation."
+description: "Manage and manipulate text and text frame properties in C#"
 ---
 
 ## Overview
 
-This article describes how to **work with PowerPoint Presentation Text Formatting using C#** e.g. Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation. It covers these topics.
+This article describes how to **work with PowerPoint presentation text formatting using C#** e.g. highlight text, apply a regular expression, align text paragraphs, set text transparency, change paragraph font properties, use font families, set a text rotation, customize an angle rotation, manage a text frame, set a line spacing, use the Autofit property, set a text frame anchor, change the text tabulation. The article covers these topics.
 
 ## **Highlight Text**
 New HighlightText method has been added to ITextFrame interface and TextFrame class.
