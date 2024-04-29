@@ -281,8 +281,8 @@ try {
 3. Define an array of columns with width.
 4. Define an array of rows with height.
 5. Add a table to the slide through the [AddTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
-6. Create a `BufferedImage` object to hold the image file.
-7. Add the `BufferedImage` image to `IPPImage` Object.
+6. Create a `Images` object to hold the image file.
+7. Add the `IImage` image to `IPPImage` Object.
 8. Set the `FillFormat` for the Table Cell to `Picture`.
 9. Add the image to the table's first cell.
 10. Save the modified presentation as a PPTX file
