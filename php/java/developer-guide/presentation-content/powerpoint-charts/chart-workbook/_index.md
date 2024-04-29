@@ -3,12 +3,12 @@ title: Chart Workbook
 type: docs
 weight: 70
 url: /java/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Chart workbook in PowerPoint presentation in Java"
 ---
 
 ## **Set Chart Data from Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 This Java code demonstrates a sample operation:
 
@@ -31,7 +31,7 @@ try {
 
 ## **Set WorkBook Cell as Chart DataLabel**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a Bubble chart with some data.
 1. Access the chart series.
@@ -69,7 +69,7 @@ try {
 
 ## **Manage Worksheets**
 
-This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```java
 Presentation pres = new Presentation();
@@ -108,7 +108,7 @@ try {
 ## **External Workbook**
 
 {{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
 ### **Create External Workbook**
@@ -194,7 +194,7 @@ try {
 
 ### **Get Chart External Data Source Workbook Path**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Create an object for the chart shape.
 1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.

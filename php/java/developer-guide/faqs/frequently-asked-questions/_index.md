@@ -9,17 +9,17 @@ url: /java/frequently-asked-questions/
 
 This page collects a number of frequently asked questions about:
 
-- [Supported file formats](/slides/java/frequently-asked-questions/).
-- [Exceptions](/slides/java/frequently-asked-questions/).
-- [Working with slides](/slides/java/frequently-asked-questions/).
-- [Cloning slides](/slides/java/frequently-asked-questions/).
-- [Working with presentations](/slides/java/frequently-asked-questions/).
-- [Formatting and images](/slides/java/frequently-asked-questions/).
+- [Supported file formats](/slides/php-java/frequently-asked-questions/).
+- [Exceptions](/slides/php-java/frequently-asked-questions/).
+- [Working with slides](/slides/php-java/frequently-asked-questions/).
+- [Cloning slides](/slides/php-java/frequently-asked-questions/).
+- [Working with presentations](/slides/php-java/frequently-asked-questions/).
+- [Formatting and images](/slides/php-java/frequently-asked-questions/).
 
 {{% /alert %}} 
 ## **Supported File Formats**
-### **Q: What file formats does Aspose.Slides for Java support?**
-**A**: Aspose.Slides for Java supports the following file formats:
+### **Q: What file formats does Aspose.Slides for PHP via Java support?**
+**A**: Aspose.Slides for PHP via Java supports the following file formats:
 
 - Microsoft PowerPoint 97 – 2003 Presentation (PPT)
 - Microsoft PowerPoint 97 – 2003 Template (POT)
@@ -28,18 +28,18 @@ This page collects a number of frequently asked questions about:
 - Microsoft PowerPoint 2007 -2010Template (POTX)
 - Microsoft PowerPoint 2007-2010 SlideShow (PPSX)
 - Open Document Format presentations (ODP)
-  Read more about supported file formats in the [File Formats and Conversions](/slides/java/file-formats-and-conversions/) section of the documentation.
+  Read more about supported file formats in the [File Formats and Conversions](/slides/php-java/file-formats-and-conversions/) section of the documentation.
 ## **Exceptions**
 ### **Q: I am getting an OutOfMemory exception while importing a large PPT file with images to MemoryStream. Is there a limitation in Aspose.Slides regarding file size?**
 **A** : There is no specific formula for calculating the presentation size support by Aspose.Slides. There should be enough space to accommodate the whole presentation structure and images in the presentation. Normally, the images in the memory occupy more space than hard disk especially when there are effects on it as well.
 
-In general, Aspose.Slides for Java can easily handle presentation files around 300 MB on a server with 4 GB RAM.
+In general, Aspose.Slides for PHP via Java can easily handle presentation files around 300 MB on a server with 4 GB RAM.
 ## **Working with Slides**
 ### **Q: Can I change the size of the slides in a presentation?**
 **A** : You can use the SlideSize property exposed by the Presentation class to define the size of the slides in a presentation.
 ### **Q: Is there a way to define slides of different size in a presentation?**
 **A**: Since the size of slides is defined at presentation level in Microsoft PowerPoint, there is no way to do this.
-### **Q: Does Aspose.Slides for Java support previewing a slide before saving?**
+### **Q: Does Aspose.Slides for PHP via Java support previewing a slide before saving?**
 **A**: You can render the slides in the presentation to the image and can use these images for previewing the slides.
 ## **Cloning Slides**
 ### **Q: What is the purpose of the SortedList parameter in the CloneSlide method?**
@@ -58,13 +58,13 @@ Is it possible to change these values?
 
 **A**: You can use the StartingSlide and EndingSlide properties of the SlideShowSettings class to control these settings.
 ### **Q: Is it possible to scan text from a presentation?**
-**A** : Aspose.Slides for Java 4 and later provides the PresentationScanner class under the com.aspose.slides.Util namespace that provides various methods for retrieving whole text from the presentations.
+**A** : Aspose.Slides for PHP via Java 4 and later provides the PresentationScanner class under the com.aspose.slides.Util namespace that provides various methods for retrieving whole text from the presentations.
 ### **Q: Why do internal hyperlinks are lost when slides are cloned ?**
 **A** : There is no way to preserve internal links in case slide is cloned. The reason being there can be different number slides and their order in target presentation as compared to source presentation. So cloning the slide in target presentation may not point to desired slide link. That is why all internal hyperlinks should be reset after slides cloning if necessary.
 ## **Formatting and Images**
 ### **Q: How can I set the color of a table's border?**
 **A**: You can change the border for all borders in a table or just border around whole table. For changing all borders, please check the Table.SetBorders function. For border of table, you should iterate cell and change color of external borders.
-### **Q: What measure does Aspose.Slides for Java use to place pictures? Is it point?**
+### **Q: What measure does Aspose.Slides for PHP via Java use to place pictures? Is it point?**
 **A**: It's pixels and resolution of slides is 576 pixels per inch.
-### **Q: What is default DPI of the slide in PDF and images generated using Aspose.Slides for Java?**
+### **Q: What is default DPI of the slide in PDF and images generated using Aspose.Slides for PHP via Java?**
 **A**: By default, Aspose.Slides generate the PDF and Slide thumbnails with DPI 72. The default DPI for MS PowerPoint is 96. Aspose.Slides does offer to generate the slide thumbnails with varying DPIs.

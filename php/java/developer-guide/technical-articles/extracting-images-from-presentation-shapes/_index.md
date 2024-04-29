@@ -3,14 +3,14 @@ title: Extracting Images from Presentation shapes
 type: docs
 weight: 100
 url: /java/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Extract images from PowerPoint presentation in Java"
 
 ---
 
 {{% alert color="primary" %}} 
 
-Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [IImageCollection](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/), which is a collection of [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) objects. 
+Images are often added to shapes and also frequently used as slides' backgrounds. The image objects are added through [IImageCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/iimagecollection/), which is a collection of [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ippimage/) objects.
 
 This article explains how you can extract the images added to presentations. 
 

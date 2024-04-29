@@ -14,8 +14,8 @@ Aspose.Slides allows to create fallback fonts, add them to fallback fonts collec
 
 To get familiar with these features, use the following links:
 
-- [Create Fallback Font](/slides/java/create-fallback-font)
-- [Create Fallback Fonts Collection](/slides/java/create-fallback-fonts-collection)
-- [Render Presentation with Fallback Font](/slides/java/render-presentation-with-fallback-font)
+- [Create Fallback Font](/slides/php-java/create-fallback-font)
+- [Create Fallback Fonts Collection](/slides/php-java/create-fallback-fonts-collection)
+- [Render Presentation with Fallback Font](/slides/php-java/render-presentation-with-fallback-font)
 
 

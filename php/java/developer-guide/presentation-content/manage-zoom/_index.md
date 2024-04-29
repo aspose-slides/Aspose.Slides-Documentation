@@ -3,7 +3,7 @@ title: Manage Zoom
 type: docs
 weight: 60
 url: /java/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Add zoom or zoom frames to PowerPoint presentations in Java"
 ---
 
@@ -23,13 +23,13 @@ Slide zooms help you drill into multiple pieces of information while you feel li
 
 ![overview_image](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ZoomImageType) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/IZoomFrame) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection) interface.
 
 ### **Creating Zoom Frames**
 
 You can add a zoom frame on a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create new slides to which you intend to link the zoom frames. 
 3.	Add an identification text and background to the created slides.
 4.  Add zoom frames (containing the references to created slides) to the first slide.
@@ -73,11 +73,11 @@ try {
 }
 ```
 ### **Creating Zoom Frames with Custom Images**
-With Aspose.Slides for Java, you can create a zoom frame with a different slide preview image this way: 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+With Aspose.Slides for PHP via Java, you can create a zoom frame with a different slide preview image this way:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
 3.	Add an identification text and background to the slide.
-4.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+4.  Create an [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) object that will be used to fill the frame.
 5.  Add zoom frames (containing the reference to created slide) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
@@ -121,11 +121,11 @@ In the previous sections, we showed you how to create simple zoom frames. To cre
 
 You can control a zoom frame's formatting on a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create new slides to link to which you intend to link the zoom frame. 
 3.	Add some identification text and background to the created slides.
 4.  Add zoom frames (containing the references to the created slides) to the first slide.
-5.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+5.  Create an [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) object that will be used to fill the frame.
 6.  Set a custom image for the first zoom frame object.
 7.  Change the line format for the second zoom frame object.
 8.  Remove the background from an image of the second zoom frame object.
@@ -196,13 +196,13 @@ A section zoom is a link to a section in your presentation. You can use section 
 
 ![overview_image](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISectionZoomFrame) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection) interface.
 
 ### **Creating Section Zoom Frames**
 
 You can add a section zoom frame to a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create a new slide. 
 3.	Add an identification background to the created slide.
 4.  Create a new section to which you intend to link the zoom frame. 
@@ -234,13 +234,13 @@ try {
 ```
 ### **Creating Section Zoom Frames with Custom Images**
 
-Using Aspose.Slides for Java, you can create a section zoom frame with a different slide preview image this way: 
+Using Aspose.Slides for PHP via Java, you can create a section zoom frame with a different slide preview image this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create a new slide.
 3.	Add an identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
-5.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+5.  Create an [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) object that will be used to fill the frame.
 5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
@@ -283,13 +283,13 @@ To create more complicated section zoom frames, you have to alter a simple frame
 
 You can control a section zoom frame's formatting on a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create a new slide.
 3.	Add identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
 5.	Add a section zoom frame (containing references to created section) to the first slide.
 6.	Change the size and position for the created section zoom object.
-7.	Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+7.	Create an [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) object that will be used to fill the frame.
 8.	Set a custom image for the created section zoom frame object.
 9.	Set the *return to the original slide from the linked section* ability. 
 10.	Remove the background from an image of the section zoom frame object.
@@ -354,13 +354,13 @@ A summary zoom is like a landing page where all the pieces of your presentation 
 
 ![overview_image](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISummaryZoomSection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISummaryZoomSectionCollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection) interface.
 
 ### **Creating Summary Zoom**
 
 You can add a summary zoom frame to a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add the summary zoom frame to the first slide.
 4.	Write the modified presentation as a PPTX file.
@@ -418,9 +418,9 @@ try {
 
 ### **Adding and Removing Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) interface this way:
+All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISummaryZoomSection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISummaryZoomSectionCollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISummaryZoomSectionCollection) interface this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add a summary zoom frame into the first slide.
 4.  Add a new slide and section to the presentation.
@@ -482,11 +482,11 @@ To create more complicated summary zoom section objects, you have to alter a sim
 
 You can control the formatting for a summary zoom section object in a summary zoom frame this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add a summary zoom frame to the first slide.
 4.  Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-7.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+7.  Create an [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) object that will be used to fill the frame.
 8.  Set a custom image for the created section zoom frame object.
 9.  Set the *return to the original slide from the linked section* ability. 
 11. Change the line format for the second zoom frame object.

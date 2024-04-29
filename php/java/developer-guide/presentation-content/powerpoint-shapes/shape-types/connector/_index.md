@@ -3,7 +3,7 @@ title: Connector
 type: docs
 weight: 10
 url: /java/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Connect PowerPoint shapes in Java"
 ---
 
@@ -34,9 +34,9 @@ Aspose.Slides provides these connectors:
 
 ## **Connect Shapes Using Connectors**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
+1. Add two [AutoShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
 1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Call the `reroute` method to apply the shortest connection path.
@@ -84,9 +84,9 @@ The `Connector.reroute` method reroutes a connector and forces it to take the sh
 
 If you want a connector to link two shapes using specific dots on the shapes, you have to specify your preferred connection dots this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
+1. Add two [AutoShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
 1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Set your preferred connection dots on the shapes. 
@@ -133,7 +133,7 @@ try {
 
 ## **Adjust Connector Point**
 
-You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/java/connector/#types-of-connectors)** 
+You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/php-java/connector/#types-of-connectors)**
 
 #### **Simple Case**
 
@@ -182,7 +182,7 @@ To perform more complicated adjustments, you have to take these things into acco
 * Adjustment point values reflect the percentage of a connector shape's width/height. 
   * The shape is bounded by the connector's start and end points multiplied by 1000. 
   * The first point, second point, and third point defines the percentage from the width, the percentage from the height, and the percentage from the width (again) respectively.
-* For calculations that determine the coordinates of a connector's adjustment points, you have to take the connector's rotation and its reflection into account. **Note** that the rotation angle for all connectors shown under **[Types of connectors](/slides/java/connector/#types-of-connectors)** is 0.
+* For calculations that determine the coordinates of a connector's adjustment points, you have to take the connector's rotation and its reflection into account. **Note** that the rotation angle for all connectors shown under **[Types of connectors](/slides/php-java/connector/#types-of-connectors)** is 0.
 
 #### **Case 1**
 

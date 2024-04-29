@@ -4,7 +4,7 @@ linktitle: Font Substitution
 type: docs
 weight: 70
 url: /java/font-substitution/
-keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Substitute font in PowerPoint in Java"
 ---
 
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-You may want to see [**Font Replacement**](/slides/java/font-replacement/). 
+You may want to see [**Font Replacement**](/slides/php-java/font-replacement/).
 
 {{% /alert %}}

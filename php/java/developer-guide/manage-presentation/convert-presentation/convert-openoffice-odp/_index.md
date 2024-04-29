@@ -7,13 +7,13 @@ keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF in Java"
 description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML in Java"
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/java/) allows to convert OpenOffice ODP presentation to many types. The API to convert ODP to other types is the same as for PowerPoint types. You may use the following examples to convert ODP, just changing the source file on the ODP presentation file:
+[**Aspose.Slides API**](https://products.aspose.com/slides/php-java/) allows to convert OpenOffice ODP presentation to many types. The API to convert ODP to other types is the same as for PowerPoint types. You may use the following examples to convert ODP, just changing the source file on the ODP presentation file:
 
-- [Convert ODP to HTML](/slides/java/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Convert ODP to PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Convert ODP to TIFF](/slides/java/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [Convert ODP to SWF Flash](/slides/java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [Convert ODP to XPS](/slides/java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Convert ODP to PDF with Notes](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
-- [Convert ODP to TIFF with Notes](/slides/java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+- [Convert ODP to HTML](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-html/)
+- [Convert ODP to PDF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/)
+- [Convert ODP to TIFF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-tiff/)
+- [Convert ODP to SWF Flash](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
+- [Convert ODP to XPS](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
+- [Convert ODP to PDF with Notes](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
+- [Convert ODP to TIFF with Notes](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 

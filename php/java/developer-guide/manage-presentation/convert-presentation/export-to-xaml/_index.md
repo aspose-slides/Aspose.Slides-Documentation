@@ -10,7 +10,7 @@ url: /java/export-to-xaml/
 
 {{% alert color="primary" %}} 
 
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/java/aspose-slides-for-java-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML. 
+In [Aspose.Slides 21.6](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML.
 
 {{% /alert %}} 
 
@@ -35,9 +35,9 @@ try {
 
 ## Exporting Presentations to XAML With Custom Options
 
-You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IXamlOptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
+You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/IXamlOptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML.
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Java code: 
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/php-java/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Java code:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");

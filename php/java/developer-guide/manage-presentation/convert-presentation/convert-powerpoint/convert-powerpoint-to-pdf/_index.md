@@ -25,11 +25,11 @@ Using Aspose.Slides, you can convert presentations in these formats to PDF:
 * PPTX
 * ODP
 
-To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and then save the presentation as a PDF using a [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method. The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class exposes the [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method that is typically used to convert a presentation to PDF.
+To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and then save the presentation as a PDF using a [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-) method. The [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class exposes the [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-) method that is typically used to convert a presentation to PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for Java directly writes API information and Version Number in output documents. For example, when it converts a presentation to PDF, Aspose.Slides for Java populates the Application field with the '*Aspose.Slides*' value and the PDF Producer field with a value in '*Aspose.Slides v XX.XX*'  form. **Note** that you cannot instruct Aspose.Slides for Java to change or remove this information from output documents.
+Aspose.Slides for PHP via Java directly writes API information and Version Number in output documents. For example, when it converts a presentation to PDF, Aspose.Slides for PHP via Java populates the Application field with the '*Aspose.Slides*' value and the PDF Producer field with a value in '*Aspose.Slides v XX.XX*'  form. **Note** that you cannot instruct Aspose.Slides for PHP via Java to change or remove this information from output documents.
 
 {{% /alert %}}
 
@@ -76,7 +76,7 @@ Aspose provides a free online [**PowerPoint to PDF converter**](https://products
 
 ## **Convert PowerPoint to PDF with Options**
 
-Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class—that allow you to customize the PDF (resulting from the conversion process), lock the PDF with a password, or even specify how the conversion process should go.
+Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class—that allow you to customize the PDF (resulting from the conversion process), lock the PDF with a password, or even specify how the conversion process should go.
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
@@ -112,7 +112,7 @@ try {
 
 ### **Convert PowerPoint to PDF with Hidden Slides**
 
-If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
+If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
 
 This Java code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
 
@@ -135,7 +135,7 @@ try {
 
 ### **Convert PowerPoint to Password Protected PDF**
 
-This Java code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/PdfOptions) class):
+This Java code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class):
 
 ```java
 // Instantiates a Presentation object that represents a PowerPoint file
@@ -157,7 +157,7 @@ try {
 
 ### Detect Font Substitutions**
 
-Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process. 
+Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/php-java/com.aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process.
 
 This Java code shows you how to detect font substitutions: 
 
@@ -196,9 +196,9 @@ private class FontSubstSendsWarningCallback implements IWarningCallback
 
 {{%  alert color="primary"  %}} 
 
-For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/java/font-substitution/) article.
+For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/php-java/font-substitution/) article.
 
 {{% /alert %}} 
 
@@ -294,7 +294,7 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides support for PDF conversion operations extends to allowing you allow convert PDF to the most popular file formats. You can do [PDF to HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/)—are also supported.
+Aspose.Slides support for PDF conversion operations extends to allowing you allow convert PDF to the most popular file formats. You can do [PDF to HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—are also supported.
 
 {{% /alert %}}
 

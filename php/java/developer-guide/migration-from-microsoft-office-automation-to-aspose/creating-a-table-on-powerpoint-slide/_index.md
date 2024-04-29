@@ -7,7 +7,7 @@ url: /java/creating-a-table-on-powerpoint-slide/
 
 {{% alert color="primary" %}} 
 
-Tables are widely used to display data on presentation slides. This article shows how to create a 15 x 15 table with a font size of 10 programmatically using first [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/) and then [Aspose.Slides for Java](/slides/java/creating-a-table-on-powerpoint-slide/).
+Tables are widely used to display data on presentation slides. This article shows how to create a 15 x 15 table with a font size of 10 programmatically using first [VSTO 2008](/slides/php-java/creating-a-table-on-powerpoint-slide/) and then [Aspose.Slides for PHP via Java](/slides/php-java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creating Tables**
@@ -23,7 +23,7 @@ The following steps add a table to a Microsoft PowerPoint slide using VSTO:
 
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateTableUsingVSTO-CreateTableUsingVSTO.cs" >}}
-### **Aspose.Slides for Java Example**
+### **Aspose.Slides for PHP via Java Example**
 The following steps add a table to a Microsoft PowerPoint slide using Aspose.Slides:
 
 1. Create a presentation.

@@ -2,7 +2,7 @@
 title: Chart Data Label
 type: docs
 url: /java/chart-data-label/
-keywords: "Chart data label,label distance, Java, Aspose.Slides for Java"
+keywords: "Chart data label,label distance, Java, Aspose.Slides for PHP via Java"
 description: "Set PowerPoint chart data label and distance in Java"
 ---
 
@@ -27,7 +27,7 @@ try {
 ```
 
 ## **Display Percentage as Labels**
-Aspose.Slides for Java allows you to set percentage labels on displayed charts. This Java code demonstrates the operation:
+Aspose.Slides for PHP via Java allows you to set percentage labels on displayed charts. This Java code demonstrates the operation:
 
 ```java
 // Creates an instance of the Presentation class

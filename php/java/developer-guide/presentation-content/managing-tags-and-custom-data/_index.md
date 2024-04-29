@@ -12,7 +12,7 @@ PPTX files—items with the .pptx extension—are stored in the PresentationML f
 
 With a *slide* being one of the elements in presentations, a *slide part* contains the content of a single slide. A slide part is allowed to have explicit relationships to many parts—such as User Defined Tags—defined by ISO/IEC 29500. 
 
-Custom data (specific to a presentation) or user can exist as tags ([ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)) and CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)). 
+Custom data (specific to a presentation) or user can exist as tags ([ITagCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITagCollection)) and CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/ICustomXmlPartCollection)).
 
 {{% alert color="primary" %}} 
 
@@ -22,7 +22,7 @@ Tags are essentially string-key pair values.
 
 ## Getting the Values for Tags
 
-In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for Java for [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation):
+In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/com.aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for PHP via Java for [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation):
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -42,7 +42,7 @@ Aspose.Slides allows you to add tags to presentations. A tag typically consists 
 
 If you need to classify some presentations based on a specific rule or property, then you may benefit from adding tags to those presentations. For example, if you want to categorize or put all presentations from North American countries together, you can create a North American tag and then assign the relevant countries (the U.S., Mexico, and Canada) as the values. 
 
-This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) using Aspose.Slides for Java:
+This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) using Aspose.Slides for PHP via Java:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -54,7 +54,7 @@ try {
 }
 ```
 
-Tags also can be set for [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide):
+Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide):
 
 ```java
 Presentation pres = new Presentation();
@@ -66,7 +66,7 @@ try {
 }
 ```
 
-Or any individual [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape):
+Or any individual [Shape](https://reference.aspose.com/slides/php-java/com.aspose.slides/IAutoShape):
 
 ```java
 Presentation pres = new Presentation();

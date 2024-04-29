@@ -13,7 +13,7 @@ Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
 All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
-The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) objects). This Java code shows you how to access a slide through its index: 
+The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/islide/) objects). This Java code shows you how to access a slide through its index:
 
 ```java
 // Instantiates a Presentation object that represents a presentation file
@@ -28,7 +28,7 @@ try {
 
 ## **Access Slide by ID**
 
-Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method:
+Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#getSlideById-long-) method:
 
 ```java
 // Instantiates a Presentation object that represents a presentation file
@@ -48,9 +48,9 @@ try {
 
 Aspose.Slides allow you to change a slide position. For example, you can specify that the first slide should become the second slide.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class.
 1. Get the slide's reference (whose position you want to change) through its index
-1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#setSlideNumber-int-) property. 
+1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/php-java/com.aspose.slides/islide/#setSlideNumber-int-) property.
 1. Save the modified presentation.
 
 This Java code demonstrates an operation in which the slide in position 1 is moved to position 2: 
@@ -77,9 +77,9 @@ The first slide became the second; the second slide became the first. When you c
 
 ## **Set Slide Number**
 
-Using the [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) property (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
+Using the [setFirstSlideNumber](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) property (exposed by the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class.
 1. Get the slide number.
 1. Set the slide number.
 1. Save the modified presentation.

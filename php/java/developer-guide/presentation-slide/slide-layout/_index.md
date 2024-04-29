@@ -19,19 +19,19 @@ Since a slide master is the top hierarchical slide that stores information about
 
 Alternatively, you can make changes directly to a specific slide layout in a presentation. 
 
-* To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like [getLayoutSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) and [getMasters()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) under the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class. 
-* To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/baseslideheaderfootermanager/), and many other types. 
+* To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like [getLayoutSlides()](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#getLayoutSlides--) and [getMasters()](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#getMasters--) under the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class.
+* To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/php-java/com.aspose.slides/baseslideheaderfootermanager/), and many other types.
 
 {{% alert title="Info" color="info" %}}
 
-For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/java/slide-master/) article.
+For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/php-java/slide-master/) article.
 
 {{% /alert %}}
 
 ## **Add Slide Layout to Presentation**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-1. Access the [MasterSlide collection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class.
+1. Access the [MasterSlide collection](https://reference.aspose.com/slides/php-java/com.aspose.slides/imasterlayoutslidecollection/).
 1. Go through the existing layout slides to confirm that the required layout slide already exists in the Layout Slide collection. Otherwise, add the Layout slide you want. 
 1. Add an empty slide based on the new layout slide.
 1. Save the presentation. 
@@ -93,7 +93,7 @@ try {
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -109,7 +109,7 @@ try {
 
 ## **Set Size and Type for Slide Layout**
 
-To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [getType()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getType--) and [getSize()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getSize--) properties (from the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class). This Java demonstrates the operation:
+To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [getType()](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/#getType--) and [getSize()](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/#getSize--) properties (from the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class). This Java demonstrates the operation:
 
 ```java
 // Instantiates a Presentation object that represents presentation file
@@ -139,7 +139,7 @@ try {
 
 ## **Set Footer Visibility Inside Slide**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
 1. Set the slide footer placeholder to visible. 
 1. Set the date-time placeholder to visible. 
@@ -172,7 +172,7 @@ try {
 
 ## **Set Child Footer Visibility Inside Slide**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class.
 1. Get a reference for the master slide through its index. 
 1. Set the master slide and all child footer placeholders to visible.
 1. Set a text for the master slide and all child footer placeholders. 
@@ -198,8 +198,8 @@ try {
 
 ## **Set Slide Size with Respect to Content Scaling**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation containing the slide whose size you want to set. 
-1. Create another instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class to generate a new presentation. 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and load the presentation containing the slide whose size you want to set.
+1. Create another instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class to generate a new presentation.
 1. Get the slide's reference (from the first presentation) through its index.
 1. Set the slide footer placeholder to visible. 
 1. Set the date-time placeholder to visible. 
@@ -226,7 +226,7 @@ try {
 
 Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
 
-Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This Java code shows you how to use the [getType()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
+Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This Java code shows you how to use the [getType()](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
 
 ```java
 // Instantiates a Presentation object that represents a presentation file 

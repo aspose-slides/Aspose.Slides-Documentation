@@ -17,7 +17,7 @@ The Read-Only recommendation is a simple yet effective deterrent that discourage
 
 > If a presentation with the **Read-Only** protection gets opened in an older Microsoft PowerPoint application—which does not support the recently introduced function—the **Read-Only** recommendation gets ignored (the presentation is opened normally).
 
-Aspose.Slides for Java allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in Java using Aspose.Slides:
+Aspose.Slides for PHP via Java allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in Java using Aspose.Slides:
 
 ```java
 Presentation pres = new Presentation();
@@ -31,6 +31,6 @@ try {
 
 {{% alert color="primary" %}} 
 
-**Note**: The **Read-Only** recommendation is simply meant to discourage editing or stop users from making accidental changes to a PowerPoint presentation. If a motivated person—who knows what they are doing—decides to edit your presentation, they can easily remove the Read-Only setting. If you seriously need to prevent unauthorized editing, you are better off using [more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/java/password-protected-presentation/). 
+**Note**: The **Read-Only** recommendation is simply meant to discourage editing or stop users from making accidental changes to a PowerPoint presentation. If a motivated person—who knows what they are doing—decides to edit your presentation, they can easily remove the Read-Only setting. If you seriously need to prevent unauthorized editing, you are better off using [more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/php-java/password-protected-presentation/).
 
 {{% /alert %}} 

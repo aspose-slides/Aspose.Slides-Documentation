@@ -6,11 +6,11 @@ url: /java/examine-presentation/
 
 ---
 
-Aspose.Slides for Java allows you to examine a presentation to find out its properties and understand its behavior. 
+Aspose.Slides for PHP via Java allows you to examine a presentation to find out its properties and understand its behavior.
 
 {{% alert title="Info" color="info" %}} 
 
-The [PresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/PresentationInfo) and [DocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
+The [PresentationInfo](https://reference.aspose.com/slides/php-java/com.aspose.slides/PresentationInfo) and [DocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
 
 {{% /alert %}} 
 
@@ -44,11 +44,11 @@ System.out.println(props.getTitle());
 // .. 
 ```
 
-You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#DocumentProperties--) class.
+You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/documentproperties/#DocumentProperties--) class.
 
 ## **Update a Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
 
 This Java code shows you how to edit a presentation's properties:
 
@@ -64,7 +64,7 @@ info.updateDocumentProperties(props);
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 
-- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).

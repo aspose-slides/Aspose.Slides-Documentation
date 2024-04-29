@@ -10,7 +10,7 @@ description: Manage Blob in PowerPoint Presentation using Java. Use Blob to redu
 
 **BLOB** (**Binary Large Object**) is usually a large item (photo, presentation, document, or media) saved in binary formats. 
 
-Aspose.Slides for Java allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
+Aspose.Slides for PHP via Java allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved.
 
 {{% alert title="Info" color="info" %}}
 
@@ -22,7 +22,7 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 
 ### **Add Large File through BLOB to a Presentation**
 
-[Aspose.Slides](/slides/java/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
+[Aspose.Slides](/slides/php-java/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
 This Java shows you how to add a large video file through the BLOB process to a presentation:
 
@@ -53,7 +53,7 @@ try {
 
 
 ### **Export Large File Through BLOB from Presentation**
-Aspose.Slides for Java allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low. 
+Aspose.Slides for PHP via Java allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low.
 
 This code in Java demonstrates the described operation:
 
@@ -104,7 +104,7 @@ try {
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**IImageCollection**](https://reference.aspose.com/slides/php-java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/php-java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
 This Java code shows you how to add a large image through the BLOB process:
 

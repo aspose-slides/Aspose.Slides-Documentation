@@ -12,7 +12,7 @@ Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you
 
 ## Open Presentation
 
-To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its constructor. 
+To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its constructor.
 
 This Java code shows you how to open a presentation and also find out the number of slides it contains: 
 
@@ -29,7 +29,7 @@ try {
 
 ## **Open Password Protected Presentation**
 
-When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Java code demonstrates the operation:
+When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/php-java/com.aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Java code demonstrates the operation:
 
 ```java
  LoadOptions loadOptions = new LoadOptions();
@@ -44,7 +44,7 @@ When you have to open a password-protected presentation, you can pass the passwo
 
 ## Open Large Presentation
 
-Aspose.Slides provides options (the [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) property in particular) under the [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/LoadOptions) class to allow you to load large presentations. 
+Aspose.Slides provides options (the [BlobManagementOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) property in particular) under the [LoadOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/LoadOptions) class to allow you to load large presentations.
 
 This Java demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
@@ -71,14 +71,14 @@ try {
 
 To circumvent certain limitations when interacting with a stream, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
 
-When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/java/manage-blob/) to reduce memory consumption.
+When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/php-java/manage-blob/) to reduce memory consumption.
 
 {{%/alert %}} 
 
 
 ## Load Presentation
 
-Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Java code shows you how to use the `IResourceLoadingCallback` interface:
+Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/php-java/com.aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Java code shows you how to use the `IResourceLoadingCallback` interface:
 
 ```java
 LoadOptions opts = new LoadOptions();
@@ -119,7 +119,7 @@ class ImageLoadingHandler implements IResourceLoadingCallback
 
 <a name="Java-open-save-presentation"><strong>Steps: Open and Save Presentation in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and pass the file you want to open. 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and pass the file you want to open.
 2. Save the presentation.  
 
 ```java

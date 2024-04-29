@@ -9,11 +9,11 @@ description: "PowerPoint header and footer in Java"
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/java/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
+[Aspose.Slides](/slides/php-java/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
 
 {{% /alert %}} 
 
-[Aspose.Slides for Java](/slides/java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
+[Aspose.Slides for PHP via Java](/slides/php-java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
 
 ## **Manage Header and Footer in Presentation**
 Notes of some specific slide could be removed as shown in example below:
@@ -57,9 +57,9 @@ public static void updateHeaderFooterText(IBaseSlide master)
 ```
 
 ## **Manage Header and Footer in Handout and Notes Slides**
-Aspose.Slides for Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
+Aspose.Slides for PHP via Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
-- Load a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) containing a video.
+- Load a [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) containing a video.
 - Change Header and Footer settings for notes master and all notes slides.
 - Set master notes slide and all child Footer placeholders visible.
 - Set master notes slide and all child Date and time placeholders visible.

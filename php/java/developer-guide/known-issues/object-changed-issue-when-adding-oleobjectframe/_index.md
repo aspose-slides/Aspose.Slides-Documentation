@@ -6,11 +6,11 @@ url: /java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **Issue Statement**
-When developers add an **OleObjectFrame** to their slides using Aspose.Slides for Java, an **Object Changed** message is shown on the output slide instead of the **OLE Object**. Most of the Aspose.Slides for Java customers thinks that it is a bug or error in Aspose.Slides for Java.
+When developers add an **OleObjectFrame** to their slides using Aspose.Slides for PHP via Java, an **Object Changed** message is shown on the output slide instead of the **OLE Object**. Most of the Aspose.Slides for PHP via Java customers thinks that it is a bug or error in Aspose.Slides for PHP via Java.
 ## **Critic Analysis and Explanation**
-First of all, it is important to know that **Object Changed** message shown by Aspose.Slides for Java after adding **OleObjectFrame** in the slide, is **NOT** an error or bug in Aspose.Slides for Java. It's just an information or message to notify users that object is changed and image should be updated.
+First of all, it is important to know that **Object Changed** message shown by Aspose.Slides for PHP via Java after adding **OleObjectFrame** in the slide, is **NOT** an error or bug in Aspose.Slides for PHP via Java. It's just an information or message to notify users that object is changed and image should be updated.
 
-For example, if you add a **Microsoft Excel Chart** as an **OleObjectFrame** to your slide (for more details and code snippet about adding **OleObjectFrame** to your slide, [click here](/slides/java/adding-frame-to-the-slide/)) and then open the presentation file using MS PowerPoint then the slide (where the **OLE Object** was added) would look like this:
+For example, if you add a **Microsoft Excel Chart** as an **OleObjectFrame** to your slide (for more details and code snippet about adding **OleObjectFrame** to your slide, [click here](/slides/php-java/adding-frame-to-the-slide/)) and then open the presentation file using MS PowerPoint then the slide (where the **OLE Object** was added) would look like this:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

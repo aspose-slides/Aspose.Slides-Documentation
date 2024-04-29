@@ -1,5 +1,5 @@
 ---
-title: Public API and Backwards Incompatible Changes in Aspose.Slides for Java 15.2.0
+title: Public API and Backwards Incompatible Changes in Aspose.Slides for PHP via Java 15.2.0
 type: docs
 weight: 110
 url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/
@@ -7,11 +7,11 @@ url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-ja
 
 {{% alert color="primary" %}} 
 
-This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) introduced with the Aspose.Slides for Java 15.2.0 API.
+This page lists all [added](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) introduced with the Aspose.Slides for PHP via Java 15.2.0 API.
 
 {{% /alert %}} {{% alert color="primary" %}} 
 
-There are known issues with some image bullets and WordArt objects which will be fixed in Aspose.Slides for Java 15.2.0.
+There are known issues with some image bullets and WordArt objects which will be fixed in Aspose.Slides for PHP via Java 15.2.0.
 
 {{% /alert %}} 
 ## **Public API Changes**

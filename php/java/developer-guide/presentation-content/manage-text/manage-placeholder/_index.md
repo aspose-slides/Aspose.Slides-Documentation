@@ -7,16 +7,16 @@ description: Change Text in a Placeholder in PowerPoint Slides using Java. Set P
 ---
 
 ## **Change Text in Placeholder**
-Using [Aspose.Slides for Java](/slides/java/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
+Using [Aspose.Slides for PHP via Java](/slides/php-java/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 
 **Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
 
 This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
 
-1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class. and pass the presentation as an argument.
+1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class. and pass the presentation as an argument.
 2. Get a slide reference through its index.
 3. Iterate through the shapes to find the placeholder.
-4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associated with the [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrame) associated with the [`AutoShape`](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape).
 5. Save the modified presentation.
 
 This Java code shows how to change the text in a placeholder:

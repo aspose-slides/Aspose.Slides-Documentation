@@ -19,7 +19,7 @@ url: /java/supported-file-formats/
 - Office 365
 
 ## **Supported File Formats**
-The following table indicates the file formats that Aspose.Slides for Java can load and Save.
+The following table indicates the file formats that Aspose.Slides for PHP via Java can load and Save.
 
 |**Format**|**Description**|**Load**|**Save**|**Remarks**|
 | :- | :- | :- | :- | :- |

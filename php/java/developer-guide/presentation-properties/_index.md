@@ -12,7 +12,7 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 - System Defined (Built-in) Properties
 - User-Defined (Custom) Properties
 
-**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Java, developers can access and modify the values of built-in properties as well as custom properties.
+**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for PHP via Java, developers can access and modify the values of built-in properties as well as custom properties.
 
 {{% /alert %}} 
 
@@ -21,7 +21,7 @@ Microsoft PowerPoint 2007 allows managing the document properties of the present
 
 {{% alert color="primary" %}} 
 
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Java x.x.x will be displayed against these fields.
+Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for PHP via Java x.x.x will be displayed against these fields.
 
 {{% /alert %}} 
 
@@ -37,14 +37,14 @@ In the above **Properties Dialog**, you can see that there are many tab pages li
 
 
 
-Working with Document Properties Using Aspose.Slides for Java
+Working with Document Properties Using Aspose.Slides for PHP via Java
 
-As we have described earlier that Aspose.Slides for Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Java API. Aspose.Slides for Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
+As we have described earlier that Aspose.Slides for PHP via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for PHP via Java API. Aspose.Slides for PHP via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
-Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
+Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
 ## **Access Built-in Properties**
-These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
+These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```java
 // Instantiate the Presentation class that represents the presentation
@@ -74,7 +74,7 @@ try {
 ```
 
 ## **Modify Built-in Properties**
-Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Java.
+Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for PHP via Java.
 
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
@@ -83,7 +83,7 @@ try {
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Set the built-in properties
-    dp.setAuthor("Aspose.Slides for Java");
+    dp.setAuthor("Aspose.Slides for PHP via Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
     dp.setComments("Aspose Description");
@@ -103,7 +103,7 @@ This example modifies the built-in properties of the presentation that can be vi
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Add Custom Document Properties**
-Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Aspose.Slides for PHP via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```java
 Presentation pres = new Presentation();
@@ -134,7 +134,7 @@ try {
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Access and Modify Custom Properties**
-Aspose.Slides for Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
+Aspose.Slides for PHP via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
@@ -173,11 +173,11 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 ## **Advanced Document Properties**
 {{% alert color="primary" %}} 
 
-New methods [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
+New methods [ReadDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/php-java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
 
 {{% /alert %}} 
 
-The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) interface. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
+The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationInfo) interface. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
@@ -255,7 +255,7 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 ```
 
 ## **Check if Presentation is Modified or Created**
-Aspose.Slides for Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
+Aspose.Slides for PHP via Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
 
 ```java
 IPresentationInfo info=PresentationFactory.getInstance().getPresentationInfo("props.pptx");

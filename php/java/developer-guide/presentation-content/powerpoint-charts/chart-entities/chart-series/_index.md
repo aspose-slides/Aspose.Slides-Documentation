@@ -2,7 +2,7 @@
 title: Chart Series
 type: docs
 url: /java/chart-series/
-keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Chart series in PowerPoint presentations in Java"
 ---
 
@@ -16,7 +16,7 @@ With the [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.sl
 
 Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred value for `Overlap`. 
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Add a clustered column chart on a slide.
 1. Access the first chart series.
 1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
@@ -44,9 +44,9 @@ try {
 ```
 
 ## **Change Series Color**
-Aspose.Slides for Java allows you to change a series' color this way:
+Aspose.Slides for PHP via Java allows you to change a series' color this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Add chart on the slide.
 1. Access the series whose color you want to change. 
 1. Set your preferred fill type and fill color.
@@ -71,9 +71,9 @@ try {
 ```
 
 ## **Change Series Category's Color**
-Aspose.Slides for Java allows you to change a series category's color this way:
+Aspose.Slides for PHP via Java allows you to change a series category's color this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Add chart on the slide.
 1. Access the series category whose color you want to change.
 1. Set your preferred fill type and fill color.
@@ -105,7 +105,7 @@ In our example (sample image),
 * the columns are *Series 1, Series 2,* and *Series 3*;
 * the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
 
-Aspose.Slides for Java allows you to update or change a series name in its chart data and legend. 
+Aspose.Slides for PHP via Java allows you to update or change a series name in its chart data and legend.
 
 This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
@@ -140,9 +140,9 @@ try {
 
 ## **Set Chart Series Fill Color**
 
-Aspose.Slides for Java allows you to set the automatic fill color for chart series inside a plot area this way:
+Aspose.Slides for PHP via Java allows you to set the automatic fill color for chart series inside a plot area this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
 1. Access the chart series and set the fill color to Automatic.
@@ -172,7 +172,7 @@ try {
 ## **Set Chart Series Invert Fill Colors**
 Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
 1. Access the chart series and set the fill color to invert.
@@ -243,9 +243,9 @@ try {
 ```
 
 ## **Clear Specific Data Points' Data**
-Aspose.Slides for Java allows you to clear the `DataPoints` data for a specific chart series this way:
+Aspose.Slides for PHP via Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2. Obtain the reference of a slide through its index.
 3. Obtain the reference of a chart through its index.
 4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
@@ -276,9 +276,9 @@ try {
 ```
 
 ## **Set Series Gap Width**
-Aspose.Slides for Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
+Aspose.Slides for PHP via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Access any chart series.

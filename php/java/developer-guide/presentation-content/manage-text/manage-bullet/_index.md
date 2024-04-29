@@ -3,11 +3,11 @@ title: Manage Bullet
 type: docs
 weight: 60
 url: /java/manage-bullet/
-keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Java"
+keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for PHP via Java"
 description: "Create bullet and numbered lists in PowerPoint presentation in Java"
 ---
 
-In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Java** also allows you to use bullets and numbers in slides in your presentations. 
+In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for PHP via Java** also allows you to use bullets and numbers in slides in your presentations.
 
 ## Why Use Bullet Lists?
 
@@ -34,16 +34,16 @@ This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** p
 3. Save the presentation. 
 
 ## Creating Bullets
-This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for Java:
+This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for PHP via Java. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for PHP via Java:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object.
-1. Add an [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText) in selected slide.
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) of the added shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/islide) object.
+1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPresentationText) in selected slide.
+1. Access the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrame) of the added shape.
 1. Remove the default paragraph in the TextFrame.
-1. Create the first paragraph instance using [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) class.
+1. Create the first paragraph instance using [Paragraph](https://reference.aspose.com/slides/php-java/com.aspose.slides/Paragraph) class.
 1. Set the bullet type of the paragraph.
-1. Set the bullet type to [Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/BulletType#Symbol) and the set the bullet character.
+1. Set the bullet type to [Symbol](https://reference.aspose.com/slides/php-java/com.aspose.slides/BulletType#Symbol) and the set the bullet character.
 1. Set the Paragraph Text.
 1. Set the Paragraph Indent to set the bullet.
 1. Set the Color of Bullet.
@@ -105,7 +105,7 @@ try {
 
 ## Creating Picture Bullets
 
-Aspose.Slides for Java allows you to change the bullets on bullet lists. You get to replace the bullets with custom symbols or images. If you want to add visual interest to a list or draw even more attention to entries on a list, you can use your own image as the bullet. 
+Aspose.Slides for PHP via Java allows you to change the bullets on bullet lists. You get to replace the bullets with custom symbols or images. If you want to add visual interest to a list or draw even more attention to entries on a list, you can use your own image as the bullet.
 
 {{% alert color="primary" %}} 
 
@@ -117,19 +117,19 @@ In any case, the image you choose will be reduced to a very small size, so we st
 
 To create a picture bullet, go through these steps:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/islide) object
 1. Add an autoshape in selected slide
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape
-1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)
+1. Access the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) of the added shape
+1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe)
 1. Create the first paragraph instance using Paragraph class
-1. Load Image from disc in [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage)
+1. Load Image from disc in [IPPImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/interfaces/IPPImage)
 1. Set the bullet type to Picture and the set the image
 1. Set the Paragraph Text
 1. Set the Paragraph Indent to set the bullet
 1. Set the Color of Bullet
 1. Set the Height of Bullets
-1. Add the created paragraph in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection
+1. Add the created paragraph in [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) paragraph collection
 1. Add the second paragraph and repeat the process given in previous steps
 1. Save the presentation
 
@@ -184,16 +184,16 @@ try {
 
 To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/islide) object.
 1. Add an autoshape in selected slide.
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
-1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+1. Access the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) of the added shape.
+1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe).
 1. Create the first paragraph instance using Paragraph class and with depth set to 0.
 1. Create the second paragraph instance using Paragraph class and with depth set to 1.
 1. Create the third paragraph instance using Paragraph class and with depth set to 2.
 1. Create the fourth paragraph instance using Paragraph class and with depth set to 3.
-1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
+1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
 This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Java:
@@ -272,17 +272,17 @@ try {
 ```
 
 ## Create Custom Numbered List
-Aspose.Slides for Java provides a simple API to manage paragraphs with custom numbers formatting. To add a custom number list in a paragraph, please follow the steps below:
+Aspose.Slides for PHP via Java provides a simple API to manage paragraphs with custom numbers formatting. To add a custom number list in a paragraph, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/islide) object.
 1. Add an autoshape in selected slide.
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
-1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+1. Access the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) of the added shape.
+1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe).
 1. Create the first paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 2
 1. Create the second paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 3
 1. Create the third paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 7
-1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
+1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
 This Java code shows you how to create a numbered list in a slide:

@@ -6,7 +6,7 @@ url: /java/how-to-run-the-examples/
 ---
 
 ## **Download from GitHub**
-All examples of Aspose.Slides for Java are hosted on [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). You can either clone the repository using your favorite Github client or download the ZIP file from [here](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
+All examples of Aspose.Slides for PHP via Java are hosted on [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). You can either clone the repository using your favorite Github client or download the ZIP file from [here](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
 
 Extract the contents of ZIP file to any folder on your computer. All examples are located in the **Examples** folder.
 

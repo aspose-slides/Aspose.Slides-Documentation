@@ -1,5 +1,5 @@
 ---
-title: Known Issues in Aspose.Slides for Java 14.4.0
+title: Known Issues in Aspose.Slides for PHP via Java 14.4.0
 type: docs
 weight: 30
 url: /java/known-issues-in-aspose-slides-for-java-14-4-0/
@@ -7,7 +7,7 @@ url: /java/known-issues-in-aspose-slides-for-java-14-4-0/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java 14.4.0 provides new decision for PowerPoint documents processing. There are some restrictions and known issues, which will be removed in coming releases:
+Aspose.Slides for PHP via Java 14.4.0 provides new decision for PowerPoint documents processing. There are some restrictions and known issues, which will be removed in coming releases:
 
 - Some shapes have wrong geometry in serialized PPT documents (arc, circular arrow, callouts).
 - Not all PPTX text formatting features are supported in PPT serialization (tabulation, indentation and paragraph formatting limitations).

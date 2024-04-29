@@ -3,7 +3,7 @@ title: Common Exceptions and Errors Involving Fonts on Linux
 type: docs
 weight: 200
 url: /java/technical-articles/common-errors-involving-fonts
-keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for Java"
+keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for PHP via Java"
 description: "Font exceptions and errors on Linux"
 ---
 
@@ -26,7 +26,7 @@ In some cases, you may be unable to grant access to folders due to restrictions 
 
 **Workaround**
 
-Use [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) to load the required fonts without installing them:
+Use [FontsLoader](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsLoader) to load the required fonts without installing them:
 
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
@@ -63,7 +63,7 @@ This exception occurs when
 
 1. Check and confirm that access to the font folder for the Java process has been granted.
 
-2. Install some fonts or use [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader).
+2. Install some fonts or use [FontsLoader](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsLoader).
 
 3. Install fonts.
 
@@ -83,7 +83,7 @@ This exception occurs when
      fc-cache -fv
      ```
 
-   * Using [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader): 
+   * Using [FontsLoader](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsLoader):
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);

@@ -15,10 +15,10 @@ Solid colors, gradient colors, and pictures are often used as background images 
 
 Aspose.Slides allows you to set a solid color as the background for a specific slide in a presentation (even if that presentation contains a master slide). The background change affects only the selected slide.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the slide background to `Solid`.
-4. Use the [SolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to specify a solid color for the background.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/php-java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/php-java/com.aspose.slides/filltype/) enum for the slide background to `Solid`.
+4. Use the [SolidFillColor](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/) to specify a solid color for the background.
 5. Save the modified presentation.
 
 This Java code shows you how to set a solid color (blue) as the background for a normal slide: 
@@ -43,10 +43,10 @@ try {
 
 Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that contains and controls formatting settings for all slides. Therefore, when you select a solid color as the background for the master slide, that new background will be used for all slides.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Set the  [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the master slide (`Masters`) to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the master slide background to `Solid`.
-4. Use the [SolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to specify a solid color for the background.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+2. Set the  [BackgroundType](https://reference.aspose.com/slides/php-java/com.aspose.slides/backgroundtype/) enum for the master slide (`Masters`) to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/php-java/com.aspose.slides/filltype/) enum for the master slide background to `Solid`.
+4. Use the [SolidFillColor](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/) to specify a solid color for the background.
 5. Save the modified presentation.
 
 This Java code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
@@ -71,10 +71,10 @@ try {
 
 A gradient is a graphical effect based on a gradual change in color. Gradient colors, when used as backgrounds for slides, make presentations looks artistic and professional. Aspose.Slides allows you to set a gradient color as the background for slides in presentations.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the master slide background to `Gradient`.
-4. Use the [GradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getGradientFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to specify your preferred gradient setting.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/php-java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the [FillType](https://reference.aspose.com/slides/php-java/com.aspose.slides/filltype/) enum for the master slide background to `Gradient`.
+4. Use the [GradientFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/#getGradientFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/) to specify your preferred gradient setting.
 5. Save the modified presentation.
 
 This Java code shows you how to set a gradient color as the background for a slide:
@@ -99,12 +99,12 @@ try {
 
 Besides solid colors and gradient colors, Aspose.Slides also allows you to set images as the background for slides in presentations.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
-3. Set the  [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) enum for the master slide background to `Picture`.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+2. Set the [BackgroundType](https://reference.aspose.com/slides/php-java/com.aspose.slides/backgroundtype/) enum for the slide to `OwnBackground`.
+3. Set the  [FillType](https://reference.aspose.com/slides/php-java/com.aspose.slides/filltype/) enum for the master slide background to `Picture`.
 4. Load the image you want to use as the slide background.
 5. Add the image to the presentation's image collection.
-6. Use the [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/#getPictureFillFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/fillformat/) to set the image as the background.
+6. Use the [PictureFillFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/#getPictureFillFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/fillformat/) to set the image as the background.
 7. Save the modified presentation.
 
 This Java code shows you how to set an image as the background for a slide: 
@@ -172,9 +172,9 @@ else
 
 ## **Get Value of Slide Background**
 
-Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) and effective [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/php-java/com.aspose.slides/ibackgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) and effective [EffectFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
 
-Using the [Background](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getBackground--) property from the [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/) class, you can get the effective value for a slide background.
+Using the [Background](https://reference.aspose.com/slides/php-java/com.aspose.slides/baseslide/#getBackground--) property from the [BaseSlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/baseslide/) class, you can get the effective value for a slide background.
 
 This Java code shows you how to get a slide's effective background value:
 

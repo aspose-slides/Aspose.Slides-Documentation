@@ -21,9 +21,9 @@ To use WordArt in Microsoft PowerPoint, you have to select one of the predefined
 
 **WordArt in Aspose.Slides**
 
-In Aspose.Slides for Java 20.10, we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for Java releases. 
+In Aspose.Slides for PHP via Java 20.10, we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for PHP via Java releases.
 
-With Aspose.Slides for Java, you can easily create your own WordArt template (one effect or combination of effects) in Java and apply it to texts. 
+With Aspose.Slides for PHP via Java, you can easily create your own WordArt template (one effect or combination of effects) in Java and apply it to texts.
 
 ## Creating a Simple WordArt Template and Applying It to a Text
 
@@ -66,7 +66,7 @@ These are some of the available parameters or options:
 
 **Using Aspose.Slides**
 
-Here, we apply the [SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
+Here, we apply the [SmallGrid](https://reference.aspose.com/slides/php-java/com.aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ``` java 
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
@@ -180,7 +180,7 @@ The result:
 
 {{% alert color="primary" %}} 
 
-Both Microsoft PowerPoint and Aspose.Slides for Java provide a certain number of predefined transformation types. 
+Both Microsoft PowerPoint and Aspose.Slides for PHP via Java provide a certain number of predefined transformation types.
 
 {{% /alert %}} 
 
@@ -273,9 +273,9 @@ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFor
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame). Go through these steps:
+Aspose.Slides for PHP via Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/php-java/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/php-java/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/classes/TextFrame). Go through these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -324,7 +324,7 @@ try {
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.

@@ -9,16 +9,16 @@ url: /java/metered-licensing/
 
 Metered licensing is a new licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
 
-When you purchase a metered license, you get keys (and not a license file). This metered key can be applied using the [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) class Aspose provided for metering operations. For more details, see [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
+When you purchase a metered license, you get keys (and not a license file). This metered key can be applied using the [Metered](https://reference.aspose.com/slides/php-java/com.aspose.slides/metered/) class Aspose provided for metering operations. For more details, see [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
-1. Create an instance of the [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) class.
+1. Create an instance of the [Metered](https://reference.aspose.com/slides/php-java/com.aspose.slides/metered/) class.
 
-1. Pass your public and private keys to the [setMeteredKey](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) method.
+1. Pass your public and private keys to the [setMeteredKey](https://reference.aspose.com/slides/php-java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) method.
 
 1. Do some processing (perform tasks).
 
-1. Call the [getConsumptionQuantity](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#getConsumptionQuantity--) method of the Metered class.
+1. Call the [getConsumptionQuantity](https://reference.aspose.com/slides/php-java/com.aspose.slides/metered/#getConsumptionQuantity--) method of the Metered class.
 
    You should see the amount/quantity of API requests you have consumed so far.
 

@@ -3,19 +3,19 @@ title: Presentation Theme
 type: docs
 weight: 10
 url: /java/presentation-theme/
-keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint presentation theme in Java"
 ---
 
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
 
-In PowerPoint, a theme comprises colors, [fonts](/slides/java/powerpoint-fonts/), [background styles](/slides/java/presentation-background/), and effects.
+In PowerPoint, a theme comprises colors, [fonts](/slides/php-java/powerpoint-fonts/), [background styles](/slides/php-java/presentation-background/), and effects.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **Change Theme Color**
 
-A PowerPoint theme uses a specific set of colors for different elements on a slide. If you don't like the colors, you change them colors by applying new colors for the theme. To allow you select a new theme color, Aspose.Slides provides values under the [SchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/SchemeColor) enumeration.
+A PowerPoint theme uses a specific set of colors for different elements on a slide. If you don't like the colors, you change them colors by applying new colors for the theme. To allow you select a new theme color, Aspose.Slides provides values under the [SchemeColor](https://reference.aspose.com/slides/php-java/com.aspose.slides/SchemeColor) enumeration.
 
 This Java code shows you how to change the accent color for a theme:
 
@@ -159,7 +159,7 @@ The font in all text boxes will be updated.
 
 {{% alert color="primary" title="TIP" %}} 
 
-You may want to see [PowerPoint fonts](/slides/java/powerpoint-fonts/).
+You may want to see [PowerPoint fonts](/slides/php-java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -184,7 +184,7 @@ try {
 
 {{% alert color="warning" %}} 
 
-Using the [BackgroundFillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) property from the [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) class, you can add or access the background style in a PowerPoint theme. 
+Using the [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) property from the [FormatScheme](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme) class, you can add or access the background style in a PowerPoint theme.
 
 {{% /alert %}} 
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="TIP" %}} 
 
-You may want to see [PowerPoint Background](/slides/java/presentation-background/).
+You may want to see [PowerPoint Background](/slides/php-java/presentation-background/).
 
 {{% /alert %}}
 
@@ -210,7 +210,7 @@ A PowerPoint theme usually contains 3 values for each style array. Those arrays 
 
 
 
-Using 3 properties ([FillStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme#getEffectStyles--)) from the  [FormatScheme](https://reference.aspose.com/slides/java/com.aspose.slides/FormatScheme) class you can change the elements in a theme (even more flexibly than the options in PowerPoint).
+Using 3 properties ([FillStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getEffectStyles--)) from the  [FormatScheme](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme) class you can change the elements in a theme (even more flexibly than the options in PowerPoint).
 
 This Java code shows you how to change a theme effect by altering parts of elements:
 
