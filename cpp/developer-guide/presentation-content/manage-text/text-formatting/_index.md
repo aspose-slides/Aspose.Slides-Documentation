@@ -3,9 +3,25 @@ title: Text Formatting
 type: docs
 weight: 50
 url: /cpp/text-formatting/
+keywords:
+- highlight text
+- regular expression
+- align text paragraphs
+- text transparency
+- paragraph font properties
+- font family
+- text rotation
+- custom angle rotation
+- text frame
+- line spacing
+- autofit property
+- text frame anchor
+- text tabulation
+- default text style
+- C++
+- Aspose.Slides for .C++
+description: "Manage and manipulate text and text frame properties in C++"
 ---
-
-
 
 ## **Highlight Text**
 New HighlightText method has been added to ITextFrame and TextFrame classes. It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
@@ -383,3 +399,21 @@ textFrame->set_Text(u"New Text");
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
 
+## **Set Default Text Style**
+
+If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `get_DefaultTextStyle` method from the [IPresentation](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+
+```c++
+auto presentation = MakeObject<Presentation>();
+
+// Get the top level paragraph format.
+auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
+
+if (paragraphFormat != NULL) {
+    paragraphFormat->get_DefaultPortionFormat()->set_FontHeight(14);
+    paragraphFormat->get_DefaultPortionFormat()->set_FontBold(NullableBool::True);
+}
+
+presentation->Save(u"DefaultTextStyle.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
