@@ -89,29 +89,29 @@ Using custom conversion options, you can set your preferred quality setting for 
 The code example below demonstrates an operation in which a PowerPoint presentation is converted to PDF with several custom options:
 
 ```c#
+// Instantiates the PdfOptions class
+PdfOptions pdfOptions = new PdfOptions
+{
+    // Sets the quality for JPG images
+    JpegQuality = 90,
+
+    // Sets DPI for images
+    SufficientResolution = 300,
+
+    // Sets the behavior for metafiles
+    SaveMetafilesAsPng = true,
+
+    // Sets the text compression level for textual content
+    TextCompression = PdfTextCompression.Flate,
+
+    // Defines the PDF compliance mode
+    Compliance = PdfCompliance.Pdf15
+};
+
 // Instantiates the Presentation class that represents a PowerPoint document
 using (Presentation presentation = new Presentation("PowerPoint.pptx"))
 {
-    // Instantiates the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions
-    {
-        // Sets the quality for JPG images
-        JpegQuality = 90,
-
-        // Sets DPI for images
-        SufficientResolution = 300,
-
-        // Sets the behavior for metafiles
-        SaveMetafilesAsPng = true,
-
-        // Sets the text compression level for textual content
-        TextCompression = PdfTextCompression.Flate,
-
-        // Defines the PDF compliance mode
-        Compliance = PdfCompliance.Pdf15
-    };
-
-    // Saves the presentation as a PDF
+    // Saves the presentation as a PDF document
     presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```

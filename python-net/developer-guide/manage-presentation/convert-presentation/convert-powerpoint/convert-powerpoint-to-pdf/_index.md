@@ -4,20 +4,26 @@ linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /python-net/convert-powerpoint-to-pdf/
-keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, Python"
-description: "Convert PowerPoint Presentation to PDF in Python. Convert PPT, PPTX or ODP to PDF in Python."
+keywords:
+- convert PowerPoint
+- presentation
+- PowerPoint to PDF
+- PPT to PDF
+- PPTX to PDF
+- save PowerPoint as PDF
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- Python
+- Aspose.Slides for Python
+description: "Convert PowerPoint presentations to PDF in Python. Save PowerPoint as PDF with compliance or accessibility standards."
 ---
 
 ## **Overview**
 
-This article explains how you can convert PowerPoint file formats into PDF in Python. It covers wide range of topics e.g.
+Converting PowerPoint documents into PDF format offers several advantages, including ensuring compatibility across different devices and preserving the layout and formatting of your presentation. This article shows you how to convert presentations to PDF documents, use various options to control image quality, include hidden slides, password protect PDF documents, detect font substitutions, select slides for conversion, and apply compliance standards to output documents.
 
-- [Convert PPT to PDF in Python](#python-net-ppt-to-pdf)
-- [Convert PPTX to PDF in Python](#python-net-pptx-to-pdf)
-- [Convert ODP to PDF in Python](#python-net-odp-to-pdf)
-- [Convert PowerPoint to PDF in Python](#python-net-powerpoint-to-pdf)
-
-## **Python PowerPoint to PDF Conversions**
+## **PowerPoint to PDF Conversions**
 
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
@@ -95,33 +101,35 @@ Aspose.Slides provides custom options—properties under the [PdfOptions](https:
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
-Using custom conversion options, you can set your preferred quality setting for JPG images, specify how metafiles should be handled, set a compression level for texts, etc.
+Using custom conversion options, you can set your preferred quality setting for raster images, specify how metafiles should be handled, set a compression level for texts, set DPI for images, etc.
 
-This Python code demonstrates an operation in which a PowerPoint is converted to PDF with several custom options:
+The code example below demonstrates an operation in which a PowerPoint presentation is converted to PDF with several custom options:
 
 ```python
 import aspose.slides as slides
 
-# Instantiates a Presentation class that represents a PowerPoint file
-presentation = slides.Presentation("PowerPoint.pptx")
-
 # Instantiates the PdfOptions class
-pdfOptions = slides.export.PdfOptions()
+pdf_options = slides.export.PdfOptions()
 
-# Sets the Jpeg quality
-pdfOptions.jpeg_quality = 90
+# Sets the quality for JPG images
+pdf_options.jpeg_quality = 90
+
+# Sets DPI for images
+pdf_options.sufficient_resolution = 300
 
 # Sets the behavior for metafiles
-pdfOptions.save_metafiles_as_png = True
+pdf_options.save_metafiles_as_png = True
 
-# Sets the text compression level
-pdfOptions.text_compression = slides.export.PdfTextCompression.FLATE
+# Sets the text compression level for textual content
+pdf_options.text_compression = slides.export.PdfTextCompression.FLATE
 
-# Defines the PDF standard
-pdfOptions.compliance = slides.export.PdfCompliance.PDF15
+# Defines the PDF compliance mode
+pdf_options.compliance = slides.export.PdfCompliance.PDF15
 
-# Saves the presentation as a PDF
-presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
+# Instantiates the Presentation class that represents a PowerPoint document
+with slides.Presentation("PowerPoint.pptx") as presentation:
+    # Saves the presentation as a PDF document
+    presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
 ### **Convert PowerPoint to PDF with Hidden Slides**

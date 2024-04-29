@@ -4,20 +4,26 @@ linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /java/convert-powerpoint-to-pdf/
-keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, Java"
-description: "Convert PowerPoint Presentation to PDF in Java. Save PowerPoint as PDF with compliance or accessibility standards"
-
+keywords:
+- convert PowerPoint
+- presentation
+- PowerPoint to PDF
+- PPT to PDF
+- PPTX to PDF
+- save PowerPoint as PDF
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- Java
+- Aspose.Slides for Java
+description: "Convert PowerPoint presentations to PDF in Java. Save PowerPoint as PDF with compliance or accessibility standards."
 ---
+
 ## **Overview**
 
-This article explains how you can convert PowerPoint file formats into PDF using Java. It covers wide range of topics e.g.
+Converting PowerPoint documents into PDF format offers several advantages, including ensuring compatibility across different devices and preserving the layout and formatting of your presentation. This article shows you how to convert presentations to PDF documents, use various options to control image quality, include hidden slides, password protect PDF documents, detect font substitutions, select slides for conversion, and apply compliance standards to output documents.
 
-- Convert PPT to PDF in Java
-- Convert PPTX to PDF in Java
-- Convert ODP to PDF in Java
-- Convert PowerPoint to PDF in Java
-
-## **Java PowerPoint to PDF Conversions**
+## **PowerPoint to PDF Conversions**
 
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
@@ -80,33 +86,36 @@ Aspose.Slides provides custom options—properties under the [PdfOptions](https:
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
-Using custom conversion options, you can set your preferred quality setting for JPG images, specify how metafiles should be handled, set a compression level for texts, etc.
+Using custom conversion options, you can set your preferred quality setting for raster images, specify how metafiles should be handled, set a compression level for texts, set DPI for images, etc.
 
-This Java code demonstrates an operation in which a PowerPoint is converted to PDF with several custom options:
+The code example below demonstrates an operation in which a PowerPoint presentation is converted to PDF with several custom options:
 
 ```java
-// Instantiates a Presentation class that represents a PowerPoint file
-Presentation pres = new Presentation("PowerPoint.pptx");
+// Instantiates the PdfOptions class
+PdfOptions pdfOptions = new PdfOptions();
+
+// Sets the quality for JPG images
+pdfOptions.setJpegQuality((byte)90);
+
+// Sets DPI for images
+pdfOptions.setSufficientResolution(300);
+
+// Sets the behavior for metafiles
+pdfOptions.setSaveMetafilesAsPng(true);
+
+// Sets the text compression level for textual content
+pdfOptions.setTextCompression(PdfTextCompression.Flate);
+
+// Defines the PDF compliance mode
+pdfOptions.setCompliance(PdfCompliance.Pdf15);
+
+// Instantiates the Presentation class that represents a PowerPoint document
+Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // Instantiates the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
-    // Sets the Jpeg quality
-    pdfOptions.setJpegQuality((byte)90);
-    
-    // Sets the behavior for metafiles
-    pdfOptions.setSaveMetafilesAsPng(true);
-    
-    // Sets the text compression level
-    pdfOptions.setTextCompression(PdfTextCompression.Flate);
-    
-    // Defines the PDF standard
-    pdfOptions.setCompliance(PdfCompliance.Pdf15);
-    
-    // Saves the presentation as a PDF
-    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+    // Saves the presentation as a PDF document
+    presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
