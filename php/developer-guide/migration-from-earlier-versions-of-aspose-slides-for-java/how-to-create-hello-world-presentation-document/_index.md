@@ -2,7 +2,7 @@
 title: How to create Hello World Presentation document
 type: docs
 weight: 10
-url: /java/how-to-create-hello-world-presentation-document/
+url: /php-java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 

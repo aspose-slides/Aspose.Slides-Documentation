@@ -2,7 +2,7 @@
 title: Why Not Automation
 type: docs
 weight: 50
-url: /java/why-not-automation/
+url: /php-java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 
@@ -62,10 +62,10 @@ When an application utilizes Microsoft Office Automation, a copy of Microsoft Of
 
 When creating web based applications it is important to know that Microsoft Office Automation components are not priced nor licensed for server side solutions; therefore, there is no good, licensing solution for deploying web applications that utilize the Microsoft Office components. Aspose offers a very Cost Effective solution for server based applications as well. 
 ## **Features**
-Aspose components provide everything needed for managing Office files plus much more. They are designed with the philosophy of allowing developers to accomplish the greatest results with the least amount of work. Unlike Office Automation, Aspose components provide many powerful and time saving functions. For instance, [Aspose.Cells](https://products.aspose.com/cells/java/) offers developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/java/) offers a similar feature that allows developers to populate a Word (that is Mail Merge) document. [Every Component](https://products.aspose.com/total/java/) in the Aspose family offers their own set of unique and powerful features. 
+Aspose components provide everything needed for managing Office files plus much more. They are designed with the philosophy of allowing developers to accomplish the greatest results with the least amount of work. Unlike Office Automation, Aspose components provide many powerful and time saving functions. For instance, [Aspose.Cells](https://products.aspose.com/cells/php-java/) offers developers the ability to import data from a **DataTable** or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/php-java/) offers a similar feature that allows developers to populate a Word (that is Mail Merge) document. [Every Component](https://products.aspose.com/total/php-java/) in the Aspose family offers their own set of unique and powerful features.
 
 
-The best part of purchasing an Aspose component (or component suites like [Aspose.Total](https://products.aspose.com/total/java/) ) is having access to our development teams. Our development teams realize that if there is a feature that your company needs, more than likely other companies will need it as well. While not every feature request can be added, our teams try to be very open-minded and flexible when providing assistance. That mindset is what has helped Aspose components to become as powerful as they are. If there are additional features that you need from Office Automation objects, your chances of having them added are very, very low. 
+The best part of purchasing an Aspose component (or component suites like [Aspose.Total](https://products.aspose.com/total/php-java/) ) is having access to our development teams. Our development teams realize that if there is a feature that your company needs, more than likely other companies will need it as well. While not every feature request can be added, our teams try to be very open-minded and flexible when providing assistance. That mindset is what has helped Aspose components to become as powerful as they are. If there are additional features that you need from Office Automation objects, your chances of having them added are very, very low.
 ## **Conclusion**
 {{% alert color="primary" %}} 
 

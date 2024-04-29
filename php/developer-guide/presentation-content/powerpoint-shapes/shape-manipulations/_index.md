@@ -2,7 +2,7 @@
 title: Shape Manipulations
 type: docs
 weight: 40
-url: /java/shape-manipulations/
+url: /php-java/shape-manipulations/
 ---
 
 ## **Find Shape in Slide**

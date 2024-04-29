@@ -2,7 +2,7 @@
 title: Convert Slide
 type: docs
 weight: 35
-url: /java/convert-slide/
+url: /php-java/convert-slide/
 keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, Java, java, Aspose.Slides"
 description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Java"
 ---

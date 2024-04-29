@@ -1,7 +1,7 @@
 ---
 title: Chart Plot Area
 type: docs
-url: /java/chart-plot-area/
+url: /php-java/chart-plot-area/
 ---
 
 

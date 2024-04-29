@@ -2,7 +2,7 @@
 title: Manage Ink
 type: docs
 weight: 95
-url: /java/manage-ink/
+url: /php-java/manage-ink/
 keywords: "Ink in PowerPoint, Ink tools, Java Ink, Draw in PowerPoint, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Use ink tools to draw objects in PowerPoint Java"
 ---

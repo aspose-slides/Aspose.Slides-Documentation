@@ -2,7 +2,7 @@
 title: How to Create Charts in a Presentation
 type: docs
 weight: 30
-url: /java/how-to-create-charts-in-a-presentation/
+url: /php-java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

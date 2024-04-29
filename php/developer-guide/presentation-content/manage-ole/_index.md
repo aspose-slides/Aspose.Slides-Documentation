@@ -2,7 +2,7 @@
 title: Manage OLE
 type: docs
 weight: 40
-url: /java/manage-ole/
+url: /php-java/manage-ole/
 ---
 
 {{% alert color="primary" %}} 

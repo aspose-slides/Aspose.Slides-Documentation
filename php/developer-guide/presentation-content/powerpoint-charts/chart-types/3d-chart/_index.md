@@ -1,7 +1,7 @@
 ---
 title: 3D Chart
 type: docs
-url: /java/3d-chart/
+url: /php-java/3d-chart/
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**

@@ -2,7 +2,7 @@
 title: Replacing Images inside Presentation Image Collection
 type: docs
 weight: 80
-url: /java/replacing-images-inside-presentation-image-collection/
+url: /php-java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

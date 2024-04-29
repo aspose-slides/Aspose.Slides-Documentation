@@ -2,7 +2,7 @@
 title: Custom Shape
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /php-java/custom-shape/
 keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Add custom shape in PowerPoint presentation in Java"
 ---
@@ -41,8 +41,8 @@ To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [*
 * To add segments, you can use the methods under [IGeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/IGeometryPath).
 * Using the [IGeometryPath.setStroke](https://reference.aspose.com/slides/php-java/com.aspose.slides/IGeometryPath#setStroke-boolean-) and [IGeometryPath.setFillMode](https://reference.aspose.com/slides/php-java/com.aspose.slides/IGeometryPath#setFillMode-byte-) methods, you can set the appearance for a geometry path.
 * Using the [IGeometryPath.getPathData](https://reference.aspose.com/slides/php-java/com.aspose.slides/IGeometryPath#getPathData--) method, you can retrieve the geometry path of a `GeometryShape` as an array of path segments.
-* To access additional shape geometry customization options, you can convert [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* Use [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) and [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) methods (from the [ShapeUtil](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil) class) to convert [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) back and forth.
+* To access additional shape geometry customization options, you can convert [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)
+* Use [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) and [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) methods (from the [ShapeUtil](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil) class) to convert [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) to [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) back and forth.
 
 ## **Simple Editing Operations**
 
@@ -295,8 +295,8 @@ try {
 ## **Convert GeometryPath to java.awt.Shape** 
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryShape) class.
-2. Create an instance of the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) class.
-3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil).
+2. Create an instance of the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) class.
+3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeUtil).
 4. Apply the paths to the shape.
 
 This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:

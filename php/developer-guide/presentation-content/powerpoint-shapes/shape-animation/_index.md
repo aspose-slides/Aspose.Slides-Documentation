@@ -2,7 +2,7 @@
 title: Shape Animation
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /php-java/shape-animation/
 keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Apply PowerPoint animation in Java"
 ---

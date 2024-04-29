@@ -2,7 +2,7 @@
 title: Support For Interruptable Library
 type: docs
 weight: 120
-url: /java/support-for-interruptable-library/
+url: /php-java/support-for-interruptable-library/
 ---
 
 ## **Interruptable Library**

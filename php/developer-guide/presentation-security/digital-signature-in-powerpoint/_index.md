@@ -2,7 +2,7 @@
 title: Digital Signature in PowerPoint
 type: docs
 weight: 10
-url: /java/digital-signature-in-powerpoint/
+url: /php-java/digital-signature-in-powerpoint/
 keywords: "Digital signature certificate, certificate authority"
 description: "Add digital signature certificate, certificate authority into PowerPoint presentation with Aspose.Slides."
 ---

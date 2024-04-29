@@ -1,7 +1,7 @@
 ---
 title: Pie Chart
 type: docs
-url: /java/pie-chart/
+url: /php-java/pie-chart/
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**

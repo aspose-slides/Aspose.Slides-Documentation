@@ -2,7 +2,7 @@
 title: Multithreading in Aspose.Slides
 type: docs
 weight: 310
-url: /java/multithreading/
+url: /php-java/multithreading/
 ---
 
 {{% alert color="primary" %}} 

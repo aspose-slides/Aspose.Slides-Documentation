@@ -2,7 +2,7 @@
 title: Slide Size
 type: docs
 weight: 70
-url: /java/slide-size/
+url: /php-java/slide-size/
 
 ---
 

@@ -2,7 +2,7 @@
 title: Create a Chart  in a Microsoft PowerPoint Presentation
 type: docs
 weight: 70
-url: /java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 

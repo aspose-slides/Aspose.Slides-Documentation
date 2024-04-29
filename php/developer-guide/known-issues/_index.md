@@ -2,6 +2,6 @@
 title: Known Issues
 type: docs
 weight: 330
-url: /java/known-issues/
+url: /php-java/known-issues/
 ---
 

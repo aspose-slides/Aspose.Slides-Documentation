@@ -2,7 +2,7 @@
 title: Object Changed Issue When Adding OleObjectFrame
 type: docs
 weight: 10
-url: /java/object-changed-issue-when-adding-oleobjectframe/
+url: /php-java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **Issue Statement**

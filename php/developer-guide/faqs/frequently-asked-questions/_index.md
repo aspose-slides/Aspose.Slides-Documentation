@@ -2,7 +2,7 @@
 title: Frequently Asked Questions
 type: docs
 weight: 10
-url: /java/frequently-asked-questions/
+url: /php-java/frequently-asked-questions/
 ---
 
 {{% alert color="primary" %}} 

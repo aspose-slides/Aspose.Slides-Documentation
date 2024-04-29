@@ -3,7 +3,7 @@ title: Fallback Font - PowerPoint Java API
 linktitle: Fallback Font
 type: docs
 weight: 50
-url: /java/fallback-font/
+url: /php-java/fallback-font/
 description: Fallback font is used when the font specified for text is available in the system, but this font does not contain a necessary glyph. In this case, it is possible for PowePoint Java API to use one of the specified fallback fonts for the glyph replacement.
 ---
 

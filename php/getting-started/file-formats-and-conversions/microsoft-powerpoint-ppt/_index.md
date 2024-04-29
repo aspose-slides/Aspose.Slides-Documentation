@@ -2,7 +2,7 @@
 title: Microsoft PowerPoint (PPT)
 type: docs
 weight: 10
-url: /java/microsoft-powerpoint-ppt/
+url: /php-java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 

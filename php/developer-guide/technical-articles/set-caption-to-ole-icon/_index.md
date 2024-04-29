@@ -2,7 +2,7 @@
 title: Set Caption to OLE Icon
 type: docs
 weight: 130
-url: /java/set-caption-to-ole-icon/
+url: /php-java/set-caption-to-ole-icon/
 ---
 
 New methods **getSubstitutePictureTitle** and **setSubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon. The code snippet below shows a sample of creating Excel object and setting its caption.

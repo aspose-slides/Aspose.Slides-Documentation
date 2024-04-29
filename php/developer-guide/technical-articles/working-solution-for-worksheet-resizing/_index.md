@@ -2,7 +2,7 @@
 title: Working Solution for Worksheet Resizing
 type: docs
 weight: 20
-url: /java/working-solution-for-worksheet-resizing/
+url: /php-java/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 

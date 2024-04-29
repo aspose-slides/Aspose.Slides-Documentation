@@ -2,7 +2,7 @@
 title: Format Text using VSTO and Aspose.Slides for PHP via Java
 type: docs
 weight: 30
-url: /java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /php-java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 

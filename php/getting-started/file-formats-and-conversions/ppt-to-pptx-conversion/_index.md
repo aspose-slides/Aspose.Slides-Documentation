@@ -2,7 +2,7 @@
 title: PPT to PPTX conversion
 type: docs
 weight: 30
-url: /java/ppt-to-pptx-conversion/
+url: /php-java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 

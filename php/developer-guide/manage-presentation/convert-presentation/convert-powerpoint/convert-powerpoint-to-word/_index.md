@@ -2,7 +2,7 @@
 title: Convert PowerPoint to Word
 type: docs
 weight: 110
-url: /java/convert-powerpoint-to-word/
+url: /php-java/convert-powerpoint-to-word/
 keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to DOCX, PPT to DOC, PPTX to DOC, PPT to DOCX, Java, java, Aspose.Slides"
 description: "Convert PowerPoint Presentation to Word in Java"
 ---
@@ -20,11 +20,11 @@ You may want to try out our [**Presentation to Word Online Converter**](https://
 
 ## **Aspose.Slides and Aspose.Words**
 
-To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) and [Aspose.Words for Java](https://products.aspose.com/words/java/).
+To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) and [Aspose.Words for Java](https://products.aspose.com/words/php-java/).
 
 As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for java provides functions that allow you to extract texts from presentations. 
 
-[Aspose.Words](https://docs.aspose.com/words/java/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
+[Aspose.Words](https://docs.aspose.com/words/php-java/) is an advanced document processing API that allows applications to generate, modify, convert, render, print files, and perform other tasks with documents without utilizing Microsoft Word.
 
 ## **Convert PowerPoint to Word**
 

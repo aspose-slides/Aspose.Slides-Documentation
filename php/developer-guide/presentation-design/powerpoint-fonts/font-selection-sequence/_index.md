@@ -3,7 +3,7 @@ title: Font Selection Sequence in Java
 linktitle: Font Selection Sequence in Java
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /php-java/font-selection-sequence/
 keywords: "Font, Font selection, Font substitution, Font replacement, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: PowerPoint font selection sequence in Java
 ---

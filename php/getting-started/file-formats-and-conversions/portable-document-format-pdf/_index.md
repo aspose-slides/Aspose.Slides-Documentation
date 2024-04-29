@@ -2,7 +2,7 @@
 title: Portable Document Format (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /php-java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 

@@ -1,7 +1,7 @@
 ---
 title: Chart Axis
 type: docs
-url: /java/chart-axis/
+url: /php-java/chart-axis/
 keywords: "PowerPoint Chart Axis, Presentation Charts, Java, Manipulate Chart Axis, Chart data"
 description: "How to edit PowerPoint chart axis in Java"
 ---

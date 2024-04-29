@@ -2,7 +2,7 @@
 title: Licensing Bug
 type: docs
 weight: 95
-url: /java/licensing-bug/
+url: /php-java/licensing-bug/
 ---
 
 This article describes a licensing bug encountered in Aspose.Slides for PHP via Java versions 23.2, 23.3, 23.4, 23.5, 23.6 and 23.7. This bug caused perpetual licenses to become temporarily unusable after their subscription expired.
@@ -22,12 +22,12 @@ List of versions with the fix:
 
 | Repository link | Release notes link |
 | :- | :- | 
-|[23.2.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.2.1/) | [Release notes Aspose.Slides for PHP via Java 23.2.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
-|[23.3.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.3.1/) | [Release notes Aspose.Slides for PHP via Java 23.3.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
-|[23.4.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.4.1/) | [Release notes Aspose.Slides for PHP via Java 23.4.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
-|[23.5.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.5.1/) | [Release notes Aspose.Slides for PHP via Java 23.5.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
-|[23.6.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.6.1/) | [Release notes Aspose.Slides for PHP via Java 23.6.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
-|[23.7.1](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/23.7.1/) | [Release notes Aspose.Slides for PHP via Java 23.7.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
+|[23.2.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.2.1/) | [Release notes Aspose.Slides for PHP via Java 23.2.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-2-1-release-notes/)|
+|[23.3.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.3.1/) | [Release notes Aspose.Slides for PHP via Java 23.3.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-3-1-release-notes/)|
+|[23.4.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.4.1/) | [Release notes Aspose.Slides for PHP via Java 23.4.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-4-1-release-notes/)|
+|[23.5.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.5.1/) | [Release notes Aspose.Slides for PHP via Java 23.5.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-5-1-release-notes/)|
+|[23.6.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.6.1/) | [Release notes Aspose.Slides for PHP via Java 23.6.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-6-1-release-notes/)|
+|[23.7.1](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/23.7.1/) | [Release notes Aspose.Slides for PHP via Java 23.7.1](https://releases.aspose.com/slides/php-java/release-notes/2023/aspose-slides-for-java-23-7-1-release-notes/)|
 
 If you experience any licensing issues with Aspose.Slides for PHP via Java:
 

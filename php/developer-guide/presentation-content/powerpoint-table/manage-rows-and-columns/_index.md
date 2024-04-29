@@ -2,7 +2,7 @@
 title: Manage Rows and Columns
 type: docs
 weight: 20
-url: /java/manage-rows-and-columns/
+url: /php-java/manage-rows-and-columns/
 keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Manage table rows and columns in PowerPoint presentations in Java"
 ---

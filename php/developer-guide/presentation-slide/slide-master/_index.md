@@ -2,7 +2,7 @@
 title: Slide Master
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /php-java/slide-master/
 keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Java, Aspose.Slides for PHP via Java"
 description: "Add or edit slide master in PowerPoint presentation in Java"
 ---

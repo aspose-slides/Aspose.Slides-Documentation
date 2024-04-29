@@ -2,7 +2,7 @@
 title: Picture Frame
 type: docs
 weight: 10
-url: /java/picture-frame/
+url: /php-java/picture-frame/
 keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Add picture frame to PowerPoint presentation in Java"
 

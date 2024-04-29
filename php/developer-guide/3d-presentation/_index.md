@@ -2,7 +2,7 @@
 title: 3D Presentation
 type: docs
 weight: 232
-url: /java/3d-presentation/
+url: /php-java/3d-presentation/
 ---
 
 ## Overview

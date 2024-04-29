@@ -2,7 +2,7 @@
 title: Watermark
 type: docs
 weight: 40
-url: /java/watermark/
+url: /php-java/watermark/
 keywords: "watermark in presentation"
 description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in ppt presentation or remove watermark. Insert image watermark or text watermark."
 ---

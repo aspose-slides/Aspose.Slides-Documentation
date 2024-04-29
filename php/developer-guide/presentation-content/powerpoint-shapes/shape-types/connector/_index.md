@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /java/connector/
+url: /php-java/connector/
 keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "Connect PowerPoint shapes in Java"
 ---

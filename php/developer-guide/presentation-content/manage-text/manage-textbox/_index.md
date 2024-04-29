@@ -2,7 +2,7 @@
 title: Manage TextBox
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /php-java/manage-textbox/
 description: Create Text Box on PowerPoint Slides using Java. Add Column in Text Box or Text Frame in PowerPoint Slides using Java. Add Text Box with Hyperlink in PowerPoint Slides using Java.
 ---
 

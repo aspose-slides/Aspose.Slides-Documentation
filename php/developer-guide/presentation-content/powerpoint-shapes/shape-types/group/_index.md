@@ -2,7 +2,7 @@
 title: Group
 type: docs
 weight: 40
-url: /java/group/
+url: /php-java/group/
 ---
 
 ## **Add Group Shape**

@@ -2,7 +2,7 @@
 title: Why Not Open XML SDK
 type: docs
 weight: 120
-url: /java/why-not-open-xml-sdk/
+url: /php-java/why-not-open-xml-sdk/
 ---
 
 {{% alert color="primary" %}} 

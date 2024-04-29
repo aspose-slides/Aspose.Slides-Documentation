@@ -2,7 +2,7 @@
 title: Manage Bullet
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /php-java/manage-bullet/
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for PHP via Java"
 description: "Create bullet and numbered lists in PowerPoint presentation in Java"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Presentation View Properties
 type: docs
-url: /java/presentation-view-properties/
+url: /php-java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

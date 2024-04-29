@@ -2,7 +2,7 @@
 title: Manage Cells
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /php-java/manage-cells/
 keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for PHP via Java"
 description: "Table cells in PowerPoint presentations in Java"
 ---

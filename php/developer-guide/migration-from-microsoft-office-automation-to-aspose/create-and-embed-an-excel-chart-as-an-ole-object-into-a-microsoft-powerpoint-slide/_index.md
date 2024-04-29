@@ -2,7 +2,7 @@
 title: Create and Embed an Excel Chart as an OLE Object into a Microsoft PowerPoint Slide
 type: docs
 weight: 60
-url: /java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 

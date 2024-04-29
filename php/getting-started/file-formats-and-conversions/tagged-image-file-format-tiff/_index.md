@@ -2,7 +2,7 @@
 title: Tagged Image File Format (TIFF)
 type: docs
 weight: 60
-url: /java/tagged-image-file-format-tiff/
+url: /php-java/tagged-image-file-format-tiff/
 ---
 
 ## **About TIFF**

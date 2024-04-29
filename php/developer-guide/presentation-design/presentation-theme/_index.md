@@ -2,7 +2,7 @@
 title: Presentation Theme
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /php-java/presentation-theme/
 keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint presentation theme in Java"
 ---

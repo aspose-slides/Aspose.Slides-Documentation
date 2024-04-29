@@ -2,7 +2,7 @@
 title: Metered Licensing
 type: docs
 weight: 100
-url: /java/metered-licensing/
+url: /php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

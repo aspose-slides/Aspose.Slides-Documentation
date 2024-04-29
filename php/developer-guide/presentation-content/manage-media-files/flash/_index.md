@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /java/flash/
+url: /php-java/flash/
 description: Extract Flash Objects from PowerPoint Presentation using Java
 ---
 
