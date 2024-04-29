@@ -4,21 +4,28 @@ linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /net/convert-powerpoint-to-pdf/
-keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, C#, Csharp, .NET"
-description: "Convert PowerPoint Presentation to PDF in C# or .NET. Save PowerPoint as PDF with compliance or accessibility standards"
-
+keywords:
+- convert PowerPoint
+- presentation
+- PowerPoint to PDF
+- PPT to PDF
+- PPTX to PDF
+- save PowerPoint as PDF
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- C#
+- Csharp
+- .NET
+- Aspose.Slides for .NET
+description: "Convert PowerPoint presentations to PDF in C# or .NET. Save PowerPoint as PDF with compliance or accessibility standards."
 ---
 
 ## **Overview**
 
-This article explains how you can convert PowerPoint file formats into PDF in C#. It covers wide range of topics e.g.
+Converting PowerPoint documents into PDF format offers several advantages, including ensuring compatibility across different devices and preserving the layout and formatting of your presentation. This article shows you how to convert presentations to PDF documents, use various options to control image quality, include hidden slides, password protect PDF documents, detect font substitutions, select slides for conversion, and apply compliance standards to output documents.
 
-- [Convert PPT to PDF in C#](#convert-powerpoint-to-pdf)
-- [Convert PPTX to PDF in C#](#convert-powerpoint-to-pdf)
-- [Convert ODP to PDF in C#](#convert-powerpoint-to-pdf)
-- [Convert PowerPoint to PDF in C#](#convert-powerpoint-to-pdf)
-
-## **C# PowerPoint to PDF Conversions**
+## **PowerPoint to PDF Conversions**
 
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
@@ -77,31 +84,36 @@ Aspose.Slides provides custom options—properties under the [PdfOptions](https:
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
-Using custom conversion options, you can set your preferred quality setting for JPG images, specify how metafiles should be handled, set a compression level for texts, etc.
+Using custom conversion options, you can set your preferred quality setting for raster images, specify how metafiles should be handled, set a compression level for texts, set DPI for images, etc.
 
-This C# code demonstrates an operation in which a PowerPoint is converted to PDF with several custom options:
+The code example below demonstrates an operation in which a PowerPoint presentation is converted to PDF with several custom options:
 
 ```c#
-// Instantiates a Presentation class that represents a PowerPoint file
-Presentation presentation = new Presentation("PowerPoint.pptx");
+// Instantiates the Presentation class that represents a PowerPoint document
+using (Presentation presentation = new Presentation("PowerPoint.pptx"))
+{
+    // Instantiates the PdfOptions class
+    PdfOptions pdfOptions = new PdfOptions
+    {
+        // Sets the quality for JPG images
+        JpegQuality = 90,
 
-// Instantiates the PdfOptions class
-PdfOptions pdfOptions = new PdfOptions();
+        // Sets DPI for images
+        SufficientResolution = 300,
 
-// Sets the Jpeg quality
-pdfOptions.JpegQuality = 90;
+        // Sets the behavior for metafiles
+        SaveMetafilesAsPng = true,
 
-// Sets the behavior for metafiles
-pdfOptions.SaveMetafilesAsPng = true;
+        // Sets the text compression level for textual content
+        TextCompression = PdfTextCompression.Flate,
 
-// Sets the text compression level
-pdfOptions.TextCompression = PdfTextCompression.Flate;
+        // Defines the PDF standard
+        Compliance = PdfCompliance.Pdf15
+    };
 
-// Defines the PDF standard
-pdfOptions.Compliance = PdfCompliance.Pdf15;
-
-// Saves the presentation as a PDF
-presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+    // Saves the presentation as a PDF
+    presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+}
 ```
 
 ### **Convert PowerPoint to PDF with Hidden Slides**
