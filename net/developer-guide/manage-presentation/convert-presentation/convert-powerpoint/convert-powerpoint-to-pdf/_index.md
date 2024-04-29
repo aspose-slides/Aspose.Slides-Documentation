@@ -107,7 +107,7 @@ using (Presentation presentation = new Presentation("PowerPoint.pptx"))
         // Sets the text compression level for textual content
         TextCompression = PdfTextCompression.Flate,
 
-        // Defines the PDF standard
+        // Defines the PDF compliance mode
         Compliance = PdfCompliance.Pdf15
     };
 
