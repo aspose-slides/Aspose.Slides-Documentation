@@ -1,116 +1,159 @@
 ---
 title: Licensing
+description: "Aspose.Slides for PHP via Java provides different plans for purchase or offers a Free Trial and a 30-day Temporary License for evaluation using Licensing and Subscription policies."
 type: docs
-weight: 90
-url: /java/licensing/
+weight: 80
+url: /php-java/licensing/
 ---
 
-## **Evaluate Aspose.Slides**
-
-{{% alert color="primary" %}} 
-
-You can download an evaluation version of **Aspose.Slides for PHP via Java** from its [download page](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
-
-Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
-
-Every Aspose license comes with one-year subscription for free upgrades to new versions or fixes released within the subscription period. Users with licensed products (or even evaluation versions) get free and unlimited technical support.
-
-{{% /alert %}} 
-
-**Evaluation version limitations**
-
-* While Aspose.Slides evaluation version (without a license specified) provides full product functionality, it inserts an evaluation watermark at the top of the document on open and save operations. 
-* You are limited to one slide when extracting texts from presentation slides.
-
-{{% alert color="primary" %}} 
-
-To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary License**. See the [How to get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
-
-{{% /alert %}}
-
-## **Licensing in Aspose.Slides**
-
-* An evaluation version becomes licensed after you purchase a license and add a couple of lines of code to it (to apply the license).
-* The license is a plain-text XML file that contains details such as the product name, number of developers it is licensed to, subscription expiry date, and so on. 
-* The license file is digitally signed, so you must not modify the file. Even an inadvertent addition of an extra line break to the contents of the file will invalidate it.
-* Aspose.Slides for PHP via Java typically tries to find the license in these locations:
-  * An explicit path
-  * The folder containing Aspose.Slides.jar
-* To avoid the limitations associated with the evaluation version, you need to set a license before using **Aspose.Slides**. You only have to set a license once per application or process.
-
-{{% alert color="primary" %}} 
-
-You may want to see [Metered Licensing](/slides/php-java/metered-licensing/).
-
-{{% /alert %}} 
-
-
-## **Applying a License**
-
-A license can be loaded from a **file** or **stream**.
+Sometimes, for the best evaluation outcomes, a hands-on approach might be needed. For this reason, Aspose.Slides provides different purchase plans and also offers a Free Trial and a 30-day Temporary License for evaluation.
 
 {{% alert color="primary" %}}
 
-Aspose.Slides provides the [License](https://reference.aspose.com/slides/php-java/com.aspose.slides/License) class for licensing operations.
+Note that there are a number of general policies and practices that guide you on how to evaluate, properly license, and purchase our products. You can find them in the ["Purchase Policies and FAQ"](https://purchase.aspose.com/policies) section.
+
+{{% /alert %}}
+
+## **Evaluate Aspose.Slides**
+You can easily download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to apply the license. 
+
+## **Evaluation Version Limitation**
+The evaluation version of Aspose.Slides (without a license specified) provides the full product functionality, but it inserts an evaluation watermark at the top of the document on open and save. You are also limited to one slide when extracting texts from presentation slides.
+
+{{% alert color="primary" %}} 
+
+If you want to test Aspose.Slides without the evaluation version limitations, you can request a **30 Day Temporary License**. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) for more information.
 
 {{% /alert %}} 
 
-### **File**
+## **About the License**
+You can easily download an evaluation version of Aspose.Slides for PHP via Java from its [download page](https://packagist.org/packages/aspose/slides). The evaluation version provides absolutely **the same capabilities** as the licensed version of Aspose.Slides. Furthermore, the evaluation version simply becomes licensed after you purchase a license and add a couple of lines of code to apply the license.
 
-The easiest method of setting a license requires you to place the license file in the folder containing Aspose.Slides.jar or your applications' jar.
+The license is a plain-text XML file that contains details such as the product name, number of developers it is licensed to, subscription expiry date, and so on. The file is digitally signed, so do not modify the file. Even an inadvertent addition of an extra line break to the contents of the file will invalidate it.
 
-This Java code shows you how to set a license file:
+To avoid the limitations associated with the evaluation version, you need to set a license before using **Aspose.Slides**. You are only required to set a license once per application or process.
 
-``` java
-// Instantiates the License class
-com.aspose.slides.License license = new com.aspose.slides.License();
+## Purchased License
 
-// Sets the license file path
-license.setLicense("Aspose.Slides.Java.lic");
-```
+After purchase, you need to apply the license file or stream. 
 
-{{% alert color="warning" %}} 
+{{% alert color="primary" %}}
 
-If you place the license file in a different directory, when you call the [SetLicense](https://reference.aspose.com/slides/php-java/com.aspose.slides/License#setLicense-java.lang.String-) method, the license file name at the end of the specified explicit must be the same as your license file.
-
-For example, you can change the license file name to *Aspose.Slides.Java.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.Java.lic.xml*) to the [SetLicense](https://reference.aspose.com/slides/php-java/com.aspose.slides/License#setLicense-java.lang.String-) method.
+You need to set the license:
+* only once per application domain
+* before using any other Aspose.Slides classes
 
 {{% /alert %}}
 
-### **Stream**
+{{% alert color="primary" %}}
 
-You can load a license from a stream. This Java code shows you how to apply a license from a stream:
-
-``` java
-// Instantiates the License class
-com.aspose.slides.License license = new com.aspose.slides.License();
-
-// Sets the license through a stream
-license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
-```
-
-### **PHP/Java Bridge**
-
-If you use Aspose.Slides for PHP via Java, you can set a license through a PHP/Java bridge. This bridge allows you to use Java classes in PHP syntax. For more information, see [License in PHP](/slides/php-java/licensing/).
-
-## **Validating a License**
-
-To check whether a license has been set properly, you can validate it. This Java code shows you how to validate a license:
-
-```java
-License license = new License();
-license.setLicense("Aspose.Slides.Java.lic");
-
-if (License.isLicensed()) 
-{
-    System.out.println("License is good!");
-}
-```
-
-## **Thread Safety**
-
-{{% alert title="Note" color="warning" %}} 
-
-The [SetLicense](https://reference.aspose.com/slides/php-java/com.aspose.slides/License#setLicense-java.io.InputStream-) method is not thread-safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues.
+You can find pricing information on the [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family) page.
 
 {{% /alert %}}
+
+### **Setting a License in Aspose.Slides for PHP via Java**
+
+Licenses can be applied from these locations:
+
+* Explicit path
+* Stream
+* As a Metered License – a new licensing mechanism
+
+{{% alert color="primary" %}}
+
+Use the **setLicense** method to license a component.
+
+While multiple calls to **setLicense** aren't harmful, they are a waste of resources (processor).
+
+{{% /alert %}}
+
+#### **Applying a License Using a File**
+
+This code snippet is used to set a license file:
+
+**PHP**
+
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\License;
+
+$license = new License();
+$license->setLicense("Aspose.Slides.lic");
+?>
+```
+
+When calling the setLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the setLicense method.
+
+#### **Applying a License from a Stream**
+
+This code snippet is used to apply a license from a stream:
+
+**PHP**
+
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\License;
+
+$license = new License();
+$license->setLicense($stream);
+?>
+```
+
+#### Apply Metered License
+
+Aspose.Slides allows developers to apply a metered key. This is a new licensing mechanism.
+
+The new licensing mechanism will be used along with the existing licensing method. Those customers who want to be billed based on the use of API features can use the Metered Licensing.
+
+After completing all the necessary steps to obtain this type of license, you will receive the keys, not the license file. This metered key can be applied using the **Metered** class specially introduced for this purpose.
+
+The following code example shows how to set metered public and private keys:
+
+```php
+<?php
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Metered;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+# Create an instance of CAD Metered class
+$metered = new Metered();
+
+# Access the set_metered_key property and pass public and private keys as parameters
+$metered->setMeteredKey("*****", "*****");
+
+# Get metered data amount before calling API
+$amountbefore = Metered::getConsumptionQuantity();
+# Display information
+echo "<script>console.log('Amount Consumed Before: " . java_values($amountbefore) . "' );</script>";
+
+# Load the document from disk.
+$pres = new Presentation();
+# Get the page count of document
+echo "<script>console.log('Amount Consumed After: " . java_values($pres->getSlides()->size()) . "' );</script>";
+# save as PDF
+$pres->save("out_pdf.pdf", SaveFormat::Pdf);
+
+# Get metered data amount After calling API
+$amountafter = Metered::getConsumptionQuantity();
+# Display information
+echo "<script>console.log('Amount Consumed After: " . java_values($amountafter) . "' );</script>";
+?>
+```
+
+{{% alert color="primary" %}}
+
+Please note that you must have a stable Internet connection for the correct use of the Metered license, since the Metered mechanism requires the constant interaction with our services for correct calculations. For more details, refer to the [“Metered Licensing FAQ”](https://purchase.aspose.com/faqs/licensing/metered) section.
+
+{{% /alert %}}
+
+
+

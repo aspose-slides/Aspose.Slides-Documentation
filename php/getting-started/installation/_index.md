@@ -2,56 +2,30 @@
 title: Installation
 type: docs
 weight: 70
-url: /java/installation/
+url: /php-java/installation/
+keySlides: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, macOS, Linux, PHP"
+description: "Install Aspose.Slides for PHP via Java in Windows, Linux or macOS"
 ---
 
-{{% alert color="primary" %}} 
+## **Configure environment**
 
-Aspose.Slides for PHP via Java does not require Microsoft PowerPoint. It generates the needed presentation files programmatically. However, to view a generated presentation, you may have to use a PowerPoint or presentation viewer.
+1. Install PHP 7, add path to PHP to system `PATH` variable and set `allow_url_include` to `On` in `php.ini` file.
+1. Install JRE 8. Set the `JAVA_HOME` enviroment variable as a path to the installed JRE location.
+1. Install Apache Tomcat 8.0.
 
-{{% /alert %}} 
+## **Download Aspose.Slides for PHP via Java** 
 
-## **Installing and Configuring Java**
-Java is a popular programming language that allows you to run programs on many platforms. 
+`packagist` is the easiest way to download [Aspose.Slides for PHP via Java](https://packagist.org/packages/aspose/slides). 
 
-For information on installing and configuring Java on any operating system, go to https://java.com/.
+To install Aspose.Slides using Packagist, run this command: `composer require aspose/slides`
 
-## **Installing Aspose.Slides for PHP via Java from Maven Repository**
-Aspose hosts all Java APIs on [Maven repositories](https://releases.aspose.com/java/repo/com/aspose/). You can use [Aspose.Slides for PHP via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) API directly in your Maven projects with simple configurations.
+## **Configure Apache Tomcat**
 
-1. **Specify Maven Repository Configuration**
-
-   Specify Aspose Maven Repository configuration/location in your Maven pom.xml this way:
-
-``` xml
-<repositories>
-    <repository>
-        <id>AsposeJavaAPI</id>
-        <name>Aspose Java API</name>
-        <url>https://releases.aspose.com/java/repo/</url>
-    </repository>
-</repositories>
+1. Download PHP/Java Bridge (php-java-bridge_x.x.x_documentation.zip) from http://php-java-bridge.sourceforge.net/pjb/download.php and extract `JavaBridge.war` file to tomcat `webapps` folder.
+1. Start Apache Tomcat service.
+1. Download [“Aspose.Slides for PHP via Java”](https://downloads.aspose.com/slides/php-java) and extract it to aspose.slides folder. Copy `jar/aspose-slides-x.x-php.jar` file to `webapps\JavaBridge\WEB-INF\lib` folder. If you want to **use php 8**, replace the original `Java.inc` from php-java bridge with `Java.inc` from `Java.inc.php8.zip`.
+1. Restart Apache Tomcat service.
+1. Run `example.php` in `aspose.slides` folder to run the example with this command:
 ```
-2. **Define Aspose.Slides for PHP via Java API Dependency**
-
-   Define Aspose.Slides for PHP via Java API dependency in your pom.xml this way:
-
-``` xml
-<dependencies>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>jdk16</classifier>
-    </dependency>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-slides</artifactId>
-        <version>XX.XX</version>
-        <classifier>javadoc</classifier>
-    </dependency>
-</dependencies>
+php example.php
 ```
-
-Aspose.Slides for PHP via Java dependency will then be defined in your Maven project.
-
