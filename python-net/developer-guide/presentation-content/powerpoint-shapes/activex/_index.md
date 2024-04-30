@@ -26,6 +26,7 @@ The code snippet below updates the ActiveX controls on the presentation slides t
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
+import io
 
 # Accessing the presentation with  ActiveX controls
 with slides.Presentation(path + "ActiveX.pptm") as presentation:
@@ -42,10 +43,10 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
 
         # changing substitute image. Powerpoint will replace this image during activeX activation, so sometime it's OK to leave image unchanged.
 
-        image = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(image) as graphics:
+        bmp = draw.Bitmap(control.frame.width, control.frame.height)
+        with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, image.width, image.height)
+                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
 
             # font = draw.Font(control.properties["FontName"], 14)
             font = draw.Font("Arial", 14)
@@ -54,31 +55,33 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
                 graphics.draw_lines(pen, [ 
-                        draw.PointF(0, image.height - 1), 
+                        draw.PointF(0, bmp.height - 1), 
                         draw.PointF(0, 0), 
-                        draw.PointF(image.width - 1, 0) ])
+                        draw.PointF(bmp.width - 1, 0) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
                 graphics.draw_lines(pen, [
-                        draw.PointF(1, image.height - 2), 
+                        draw.PointF(1, bmp.height - 2), 
                         draw.PointF(1, 1), 
-                        draw.PointF(image.width - 2, 1) ])
+                        draw.PointF(bmp.width - 2, 1) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
                 graphics.draw_lines(pen, 
                     [
-                        draw.PointF(1, image.height - 1), 
-                        draw.PointF(image.width - 1, image.height - 1),
-                        draw.PointF(image.width - 1, 1)])
+                        draw.PointF(1, bmp.height - 1), 
+                        draw.PointF(bmp.width - 1, bmp.height - 1),
+                        draw.PointF(bmp.width - 1, 1)])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
                 graphics.draw_lines(pen,
                     [ 
-                        draw.PointF(0, image.height), 
-                        draw.PointF(image.width, image.height), 
-                        draw.PointF(image.width, 0) ])
+                        draw.PointF(0, bmp.height), 
+                        draw.PointF(bmp.width, bmp.height), 
+                        draw.PointF(bmp.width, 0) ])
 
-        control.substitute_picture_format.picture.image = presentation.images.add_image(image)
+        bmp_bytes = io.BytesIO()
+        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
+        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
 
     # changing Button caption
     control = slide.controls[1]
@@ -89,47 +92,49 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         control.properties.add("Caption", newCaption)
 
         # changing substitute
-        image = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(image) as graphics:
+        bmp = draw.Bitmap(control.frame.width, control.frame.height)
+        with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, image.width, image.height)
+                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
 
             #font = draw.Font(control.properties["FontName"], 14)
             font = draw.Font("Arial", 14)
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
                 textSize = graphics.measure_string(newCaption, font, 65535)
                 graphics.draw_string(newCaption, font, brush, 
-                    (image.width - textSize.width) / 2, 
-                    (image.height - textSize.height) / 2)
+                    (bmp.width - textSize.width) / 2, 
+                    (bmp.height - textSize.height) / 2)
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
                 graphics.draw_lines(pen, 
                     [ 
-                        draw.PointF(0, image.height - 1), 
+                        draw.PointF(0, bmp.height - 1), 
                         draw.PointF(0, 0), 
-                        draw.PointF(image.width - 1, 0) ])
+                        draw.PointF(bmp.width - 1, 0) ])
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
                 graphics.draw_lines(pen, 
                     [ 
-                        draw.PointF(1, image.height - 2), 
+                        draw.PointF(1, bmp.height - 2), 
                         draw.PointF(1, 1), 
-                        draw.PointF(image.width - 2, 1) ])
+                        draw.PointF(bmp.width - 2, 1) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
                 graphics.draw_lines(pen, 
                     [ 
-                        draw.PointF(1, image.height - 1),
-                        draw.PointF(image.width - 1, image.height - 1),
-                        draw.PointF(image.width - 1, 1) ])
+                        draw.PointF(1, bmp.height - 1),
+                        draw.PointF(bmp.width - 1, bmp.height - 1),
+                        draw.PointF(bmp.width - 1, 1) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
                 graphics.draw_lines(pen, 
                     [ 
-                        draw.PointF(0, image.height), 
-                        draw.PointF(image.width, image.height), 
-                        draw.PointF(image.width, 0) ])
+                        draw.PointF(0, bmp.height), 
+                        draw.PointF(bmp.width, bmp.height), 
+                        draw.PointF(bmp.width, 0) ])
 
-        control.substitute_picture_format.picture.image = presentation.images.add_image(image)
+        bmp_bytes = io.BytesIO()
+        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
+        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
     
     # Moving ActiveX frames 100 points down
     for ctl in slide.controls:

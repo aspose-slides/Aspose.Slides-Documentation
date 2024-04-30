@@ -11,10 +11,7 @@ Aspose.Slides for C++ allows you to convert slides (in presentations) to images.
 
 To convert a slide to an image, do this: 
 
-1. First,
-   * convert the slide to a Bitmap first by using the [GetThumbnail](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method or
-   * render the slide to a Graphics object by using the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method from the [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface.
-
+1. First, convert the slide to a Bitmap first by using the [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) method
 2. Second, set additional options for conversion and convertible slide objects through
    * the [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) interface or
    * the [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) interface. 
@@ -37,27 +34,10 @@ This C++ code shows you how to convert the first slide of a presentation to a bi
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
 
 // Convert the first slide of the presentation to a Bitmap object
-System::SharedPtr<Bitmap> bmp = pres->get_Slides()->idx_get(0)->GetThumbnail();
+System::SharedPtr<IImage> image = pres->get_Slide(0)->GetImage();
                  
 // Save the image in PNG format
-bmp->Save(u"Slide_0.png", ImageFormat::get_Png());
-```
-
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-// Gets the presentation slide size
-Size slideSize = pres->get_SlideSize()->get_Size().ToSize();
-
-// Creates a Bitmap with the slide size
-auto slideImage = System::MakeObject<Bitmap>(slideSize.get_Width(), slideSize.get_Height());
-
-// Renders the first slide to the Graphics object
-auto graphics = Graphics::FromImage(slideImage);
-pres->get_Slides()->idx_get(0)->RenderToGraphics(MakeObject<RenderingOptions>(), graphics);
-
-slideImage->Save(u"Slide_0.png", ImageFormat::get_Png());
+image->Save(u"Slide_0.png", ImageFormat::Png);
 ```
 
 {{% alert title="Tip" color="primary" %}} 
@@ -68,37 +48,16 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) or [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/), you can convert a slide to an image with specific dimensions (length and width). 
 
-This sample code demonstrates the proposed conversion using the [GetThumbnail](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method in C++:
+This sample code demonstrates the proposed conversion using the [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) method in C++:
 
 ``` cpp 
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
 // Converts the first slide in the presentation to a Bitmap with the specified size
-auto bmp = pres->get_Slides()->idx_get(0)->GetThumbnail(Size(1820, 1040));
+auto image = pres->get_Slide(0)->GetImage(Size(1820, 1040));
 // Saves the image in the JPEG format
-bmp->Save(u"Slide_0.jpg", ImageFormat::get_Jpeg());
-```
-
-This C++ code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
-Size slideSize(1820, 1040);
-
-// Creates a Bitmap with the specified size (slide size + fields)
-auto slideImage = System::MakeObject<Bitmap>(slideSize.get_Width() + 50, slideSize.get_Height() + 50);
-
-auto graphics = Graphics::FromImage(slideImage);
-// Fills and translates Graphics to create a frame around the slide
-graphics->Clear(Color::get_Red());
-graphics->TranslateTransform(25.f, 25.f);
-
-// Renders the first slide to Graphics
-pres->get_Slides()->idx_get(0)->RenderToGraphics(MakeObject<RenderingOptions>(), graphics, slideSize);
-
-// Saves the image in the JPEG format
-slideImage->Save(u"FramedSlide_0.jpg", ImageFormat::get_Jpeg());
+image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 ```
 
 ## **Converting Slides With Notes and Comments to Images**
@@ -130,33 +89,10 @@ notesCommentsLayouting->set_CommentsAreaWidth(500);
 notesCommentsLayouting->set_CommentsAreaColor(Color::get_AntiqueWhite());
 
 // Converts the first slide of the presentation to a Bitmap object
-auto bmp = pres->get_Slides()->idx_get(0)->GetThumbnail(options, 2.f, 2.f);
+auto image = pres->get_Slide(0)->GetImage(options, 2.f, 2.f);
 
 // Saves the image in the GIF format
-bmp->Save(u"Slide_Notes_Comments_0.gif", ImageFormat::get_Gif());
-```
-
-This C++ code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a4132dc7840e7a2ad537890ee7b86288f) method:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"PresentationNotes.pptx");
-// Gets the presentation notes size
-Size notesSize = pres->get_NotesSize()->get_Size().ToSize();
-
-// Creates the rendering options
-auto options = System::MakeObject<RenderingOptions>();
-// Sets the position of the notes
-options->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomTruncated);
-
-// Creates a Bitmap with the notes' size
-auto slideImage = System::MakeObject<Bitmap>(notesSize.get_Width(), notesSize.get_Height());
-
-// Renders the first slide to Graphics
-auto graphics = Graphics::FromImage(slideImage);
-pres->get_Slides()->idx_get(0)->RenderToGraphics(options, graphics, notesSize);
-
-// Saves the image in PNG format
-slideImage->Save(u"Slide_Notes_0.png", ImageFormat::get_Png());
+image->Save(u"Slide_Notes_Comments_0.gif", ImageFormat::Gif);
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -175,7 +111,7 @@ This C++ code demonstrates a conversion process where ITiffOptions is used to ou
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"PresentationNotesComments.pptx");
 
 // Get a slide by its index
-System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+System::SharedPtr<ISlide> slide = pres->get_Slide(0);
 
 // Create TiffOptions object
 System::SharedPtr<TiffOptions> options = System::MakeObject<TiffOptions>();
@@ -195,10 +131,10 @@ options->set_DpiX(300);
 options->set_DpiY(300);
 
 // Convert slide to a Bitmap object
-System::SharedPtr<Bitmap> bmp = slide->GetThumbnail(options);
+System::SharedPtr<Bitmap> image = slide->GetImage(options);
 
 // Save the image in BMP format
-bmp->Save(u"PresentationNotesComments.bmp", ImageFormat::get_Tiff());
+image->Save(u"PresentationNotesComments.bmp", ImageFormat::Tiff);
 ```
 
 ## **Converting All Slides to Images**
@@ -217,19 +153,19 @@ auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
 for (int32_t i = 0; i < pres->get_Slides()->get_Count(); i++)
 {
     // Control hidden slides (do not render hidden slides)
-    if (pres->get_Slides()->idx_get(i)->get_Hidden())
+    if (pres->get_Slide(i)->get_Hidden())
     {
         continue;
     }
 
     // Convert slide to a Bitmap object
-    auto bmp = pres->get_Slides()->idx_get(i)->GetThumbnail(2.f, 2.f);
+    auto image = pres->get_Slide(i)->GetImage(2.f, 2.f);
 
     // Create file name for an image
     auto outputFilePath = Path::Combine(outputDir, String(u"Slide_") + i + u".jpg");
 
     // Save the image in PNG format
-    bmp->Save(outputFilePath, ImageFormat::get_Png());
+    image->Save(outputFilePath, ImageFormat::Png);
 }
 ```
 
