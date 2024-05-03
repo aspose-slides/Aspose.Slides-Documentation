@@ -91,6 +91,7 @@ function setupAsposeSlidesLicense() {
 // Execute the function to set up the license for Aspose.Slides
 setupAsposeSlidesLicense();
 ```
+{{% alert color="primary" %}}
 
 When calling the setLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the setLicense method.
 
