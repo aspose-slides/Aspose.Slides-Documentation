@@ -66,58 +66,58 @@ Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML t
 
 This code shows you how to convert a PowerPoint to HTML in Java:
 
-```java
+```php
 // Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Convert_HTML.pptx");
-try {
-    HtmlOptions htmlOpt = new HtmlOptions();
-	
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOpt.setHtmlFormatter(HtmlFormatter.createDocumentFormatter("", false));
-
+  $pres = new Presentation("Convert_HTML.pptx");
+  try {
+    $htmlOpt = new HtmlOptions();
+    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
+    $htmlOpt->setHtmlFormatter(HtmlFormatter->createDocumentFormatter("", false));
     // Saving the presentation to HTML
-    pres.save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, $htmlOpt);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 
 ## **Convert PowerPoint to Responsive HTML**
 Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/com.aspose.slides/ResponsiveHtmlController) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in Java:
 
-```java
+```php
 // Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Convert_HTML.pptx");
-try {
-    ResponsiveHtmlController controller = new ResponsiveHtmlController();
-    HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-
+  $pres = new Presentation("Convert_HTML.pptx");
+  try {
+    $controller = new ResponsiveHtmlController();
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter($controller));
     // Saving the presentation to HTML
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, $htmlOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to HTML with Notes**
 This code shows you how to convert a PowerPoint to HTML with notes in Java:
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    HtmlOptions opt = new HtmlOptions();
-	
-    INotesCommentsLayoutingOptions options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
-
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
+    $opt = new HtmlOptions();
+    $options = $opt->getNotesCommentsLayouting();
+    $options->setNotesPosition(NotesPositions.BottomFull);
     // Saving notes pages
-    pres.save("Output.html", SaveFormat.Html, opt);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("Output.html", SaveFormat.Html, $opt);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to HTML with Original Fonts**
@@ -128,21 +128,20 @@ To prevent certain fonts from being embedded, you can pass an array of font name
 
 The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/com.aspose.slides/EmbedAllFontsHtmlController) class supports inheritance and provides the [WriteFont](https://reference.aspose.com/slides/php-java/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) method, which is meant to be overwritten.
 
-```java
-Presentation pres = new Presentation("input.pptx");
-try {
+```php
+  $pres = new Presentation("input.pptx");
+  try {
     // exclude default presentation fonts
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter(embedFontsController));
-
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $fontNameExcludeList = new String[]{ "Calibri", "Arial" };
+    $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
+    $htmlOptionsEmbed = new HtmlOptions();
+    $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($embedFontsController));
+    $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, $htmlOptionsEmbed);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to HTML with High-quality Images**
@@ -151,30 +150,32 @@ By default, when you convert PowerPoint to HTML, Aspose.Slides outputs small HTM
 
 This Java code shows you how to convert a PowerPoint presentation to HTML while obtaining high quality images at 150 DPI (i.e. `PicturesCompression.Dpi150`):
 
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setPicturesCompression(PicturesCompression.Dpi150);
-    
-    pres.save("OutputDoc-dpi150.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("InputDoc.pptx");
+  try {
+    $htmlOpts = new HtmlOptions();
+    $htmlOpts->setPicturesCompression(PicturesCompression.Dpi150);
+    $pres->save("OutputDoc-dpi150.html", SaveFormat.Html, $htmlOpts);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 This code in Java shows you how to output HTML with full quality images:
 
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-
-    pres.save("Outputdoc-noCrop.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("InputDoc.pptx");
+  try {
+    $htmlOpts = new HtmlOptions();
+    $htmlOpts->setDeletePicturesCroppedAreas(false);
+    $pres->save("Outputdoc-noCrop.html", SaveFormat.Html, $htmlOpts);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert Slide to HTML**
@@ -182,20 +183,21 @@ To convert a specific slide in a PowerPoint to HTML, you have to instantiate the
 
 This Java code shows you how to convert a slide in a PowerPoint presentation to HTML:
 
-```java
-Presentation pres = new Presentation("Individual-Slide.pptx");
-try {
-    HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(new CustomFormattingController()));
-
+```php
+  $pres = new Presentation("Individual-Slide.pptx");
+  try {
+    $htmlOptions = new HtmlOptions();
+    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
+    $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter(new CustomFormattingController()));
     // Saving File
-    for (int i = 0; i < pres.getSlides().size(); i++)
-        pres.save("Individual Slide" + (i + 1) + "_out.html", new int[]{i + 1},SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    for ($i = 0; $i < $pres->getSlides()->size(); $i++) {
+      $pres->save("Individual Slide" . $i + 1 . "_out.html", new int[]{ $i + 1 }, SaveFormat.Html, $htmlOptions);
+    }
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 ```java
 public class CustomFormattingController implements IHtmlFormattingController
@@ -235,17 +237,18 @@ Using new CSS style files, you can easily change the style of the HTML file resu
 
 The Java code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-    HtmlOptions options = new HtmlOptions();
-    options.setHtmlFormatter(HtmlFormatter.createCustomFormatter(htmlController));
-
-    pres.save("pres.html", SaveFormat.Html, options);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $htmlController = new CustomHeaderAndFontsController("styles.css");
+    $options = new HtmlOptions();
+    $options->setHtmlFormatter(HtmlFormatter->createCustomFormatter($htmlController));
+    $pres->save("pres.html", SaveFormat.Html, $options);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ```java
@@ -289,23 +292,20 @@ If you do not want to embed fonts (to avoid increasing the size of the resulting
 
 This Java code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system): 
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try
-{
-    //Exclude default presentation fonts
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList,"C:/Windows/Fonts/");
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter((IHtmlFormattingController) linkcont));
-
-    pres.save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
-finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    // Exclude default presentation fonts
+    $fontNameExcludeList = new String[]{ "Calibri", "Arial" };
+    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
+    $htmlOptionsEmbed = new HtmlOptions();
+    $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($linkcont));
+    $pres->save("pres.html", SaveFormat.Html, $htmlOptionsEmbed);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 This Java code shows you how `LinkAllFontsHtmlController` is implemented:
@@ -352,15 +352,17 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 ## **Convert PowerPoint to Responsive HTML**
 This Java code shows you how to convert a PowerPoint presentation to responsive HTML:
 
-```java
-Presentation pres = new Presentation("SomePresentation.pptx");
-try {
-    HtmlOptions saveOptions = new HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("SomePresentation.pptx");
+  try {
+    $saveOptions = new HtmlOptions();
+    $saveOptions->setSvgResponsiveLayout(true);
+    $pres->save("SomePresentation-out.html", SaveFormat.Html, $saveOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 
@@ -374,31 +376,28 @@ Using Aspose.Slides for PHP via Java, you can export media files this way:
 
 This Java code shows you how to add a video to the presentation and then save it as HTML: 
 
-```java
+```php
 // Loading a presentation
-Presentation pres = new Presentation();
-try {
-    String path = "./out/";
-    final String fileName = "ExportMediaFiles_out.html";
-    final String baseUri = "http://www.example.com/";
-
-    byte[] videoData = Files.readAllBytes(Paths.get("my_video.avi"));
-    IVideo video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
+  $pres = new Presentation();
+  try {
+    $path = "./out/";
+    $fileName = "ExportMediaFiles_out.html";
+    $baseUri = "http://www.example.com/";
+    $videoData = Files->readAllBytes(Paths->get("my_video.avi"));
+    $video = $pres->getVideos()->addVideo($videoData);
+    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
+    $controller = new VideoPlayerHtmlController($path, $fileName, $baseUri);
     // Setting HTML options
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
-    SVGOptions svgOptions = new SVGOptions(controller);
-
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(SlideImageFormat.svg(svgOptions));
-
+    $htmlOptions = new HtmlOptions($controller);
+    $svgOptions = new SVGOptions($controller);
+    $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter($controller));
+    $htmlOptions->setSlideImageFormat(SlideImageFormat->svg($svgOptions));
     // Saving the file
-    pres.save(fileName, SaveFormat.Html, htmlOptions);
-} catch(Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save($fileName, SaveFormat.Html, $htmlOptions);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
