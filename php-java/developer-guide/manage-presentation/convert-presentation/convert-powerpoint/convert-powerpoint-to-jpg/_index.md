@@ -33,78 +33,84 @@ Here are the steps to convert PPT/PPTX to JPG:
 
 {{% /alert %}} 
 
-```java
-Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
-try {
-    for (ISlide sld : pres.getSlides()) {
-        // Creates a full scale image
-        IImage slideImage = sld.getImage(1f, 1f);
-
-        // Saves the image to disk in JPEG format
-        try {
-              slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+```php
+  $pres = new Presentation("PowerPoint-Presentation.pptx");
+  try {
+    for ($sld : $pres->getSlides()) {
+      // Creates a full scale image
+      $slideImage = $sld->getImage(1.0, 1.0);
+      // Saves the image to disk in JPEG format
+      try {
+        $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat.Jpeg);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-float-float-) methods:
 
-```java
-Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
-try {
+```php
+  $pres = new Presentation("PowerPoint-Presentation.pptx");
+  try {
     // Defines dimensions
-    int desiredX = 1200;
-    int desiredY = 800;
+    $desiredX = 1200;
+    $desiredY = 800;
     // Gets scaled values of X and Y
-    float ScaleX = (float) (1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float) (1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-
-    for (ISlide sld : pres.getSlides())
-    {
-        // Creates a full scale image
-        IImage slideImage = sld.getImage(ScaleX, ScaleY);
-
-        // Saves the image to disk in JPEG format
-        try {
-              slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
+    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
+    for ($sld : $pres->getSlides()) {
+      // Creates a full scale image
+      $slideImage = $sld->getImage($ScaleX, $ScaleY);
+      // Saves the image to disk in JPEG format
+      try {
+        $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat.Jpeg);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Render Comments when saving Presentation into Image**
 Aspose.Slides for PHP via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-    notesOptions.setNotesPosition(NotesPositions.BottomTruncated);
-
-    IRenderingOptions opts = new RenderingOptions();
-    opts.setSlidesLayoutOptions(notesOptions);
-
-    for (ISlide sld : pres.getSlides()) {
-        IImage slideImage = sld.getImage(opts, new Dimension(740, 960));
-        try {
-             slideImage.save(String.format("Slide_%d.png", sld.getSlideNumber()));
-        } finally {
-                     if (slideImage != null) slideImage.dispose();
-                }
+```php
+  $pres = new Presentation("presentation.pptx");
+  try {
+    $notesOptions = new NotesCommentsLayoutingOptions();
+    $notesOptions->setNotesPosition(NotesPositions.BottomTruncated);
+    $opts = new RenderingOptions();
+    $opts->setSlidesLayoutOptions($notesOptions);
+    for ($sld : $pres->getSlides()) {
+      $slideImage = $sld->getImage($opts, new Dimension(740, 960));
+      try {
+        $slideImage->save(String->format("Slide_%d.png", $sld->getSlideNumber()));
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
+        }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 {{% alert title="Tip" color="primary" %}}

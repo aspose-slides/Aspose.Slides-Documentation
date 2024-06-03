@@ -10,18 +10,19 @@ description: "Convert PowerPoint to TIFF with notes in Aspose.Slides."
 ## **Convert PPT(X) in Notes Slide View to TIFF**
 The [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class can be used to convert the whole presentation in Notes Slide view to TIFF. The code snippets below update the sample presentation to TIFF images in Notes Slide view, as shown below:
 
-```java
+```php
 //Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    TiffOptions opts = new TiffOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-    
-    //Saving the presentation to TIFF notes
-    pres.save("Tiff-Notes.tiff", SaveFormat.Tiff,opts);
-} finally {
-    if (pres != null) pres.dispose();
-}
+  $pres = new Presentation("demo.pptx");
+  try {
+    $opts = new TiffOptions();
+    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
+    // Saving the presentation to TIFF notes
+    $pres->save("Tiff-Notes.tiff", SaveFormat.Tiff, $opts);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 The above code snippets update the sample presentation to TIFF images in Notes Slide view, as shown below:

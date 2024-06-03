@@ -60,7 +60,7 @@ $arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
 
 **Aspose.Slides for Java**
 
-``` php
+``` java
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;

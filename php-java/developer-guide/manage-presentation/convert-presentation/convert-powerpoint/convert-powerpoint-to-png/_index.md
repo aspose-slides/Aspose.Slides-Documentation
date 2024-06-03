@@ -26,22 +26,25 @@ Go through these steps:
 
 This Java code shows you how to convert a PowerPoint presentation to PNG:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage();
-        try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    for ($index = 0; $index < $pres->getSlides()->size(); $index++) {
+      $slide = $pres->getSlides()->get_Item($index);
+      $slideImage = $slide->getImage();
+      try {
+        $slideImage->save("image_java_" . $index . ".png", ImageFormat.Png);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
@@ -50,24 +53,27 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 
 This code in Java demonstrates the described operation:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    float scaleX = 2f;
-    float scaleY = 2f;
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(scaleX, scaleY);
-        try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $scaleX = 2.0;
+    $scaleY = 2.0;
+    for ($index = 0; $index < $pres->getSlides()->size(); $index++) {
+      $slide = $pres->getSlides()->get_Item($index);
+      $slideImage = $slide->getImage($scaleX, $scaleY);
+      try {
+        $slideImage->save("image_java_" . $index . ".png", ImageFormat.Png);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to PNG With Custom Size**
@@ -76,22 +82,25 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Dimension size = new Dimension(960, 720);
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-        IImage slideImage = slide.getImage(size);
-        try {
-              slideImage.save("image_java_" + index + ".png", ImageFormat.Png);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $size = new Dimension(960, 720);
+    for ($index = 0; $index < $pres->getSlides()->size(); $index++) {
+      $slide = $pres->getSlides()->get_Item($index);
+      $slideImage = $slide->getImage($size);
+      try {
+        $slideImage->save("image_java_" . $index . ".png", ImageFormat.Png);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 

@@ -26,13 +26,15 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 
 This Java code shows you how to convert PowerPoint to markdown:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    pres.save("pres.md", SaveFormat.Md);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $pres->save("pres.md", SaveFormat.Md);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## Convert PowerPoint to Markdown Flavor
@@ -41,15 +43,17 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 
 This Java code shows you how to convert PowerPoint to CommonMark:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setFlavor(Flavor.CommonMark);
-    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $markdownSaveOptions = new MarkdownSaveOptions();
+    $markdownSaveOptions->setFlavor(Flavor.CommonMark);
+    $pres->save("pres.md", SaveFormat.Md, $markdownSaveOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/php-java/com.aspose.slides/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/markdownsaveoptions/) class.
@@ -62,19 +66,21 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/com.aspos
 
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setShowHiddenSlides(true);
-    markdownSaveOptions.setShowSlideNumber(true);
-    markdownSaveOptions.setFlavor(Flavor.Github);
-    markdownSaveOptions.setExportType(MarkdownExportType.Sequential);
-    markdownSaveOptions.setNewLineType(NewLineType.Windows);
-    pres.save("doc.md", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $markdownSaveOptions = new MarkdownSaveOptions();
+    $markdownSaveOptions->setShowHiddenSlides(true);
+    $markdownSaveOptions->setShowSlideNumber(true);
+    $markdownSaveOptions->setFlavor(Flavor.Github);
+    $markdownSaveOptions->setExportType(MarkdownExportType.Sequential);
+    $markdownSaveOptions->setNewLineType(NewLineType.Windows);
+    $pres->save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, $markdownSaveOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ### **Convert Images Visually**
@@ -83,16 +89,18 @@ If you want the images to appear together in the resulting markdown, you have to
 
 This Java code demonstrates the operation:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    final String outPath = "c:/documents";
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setExportType(MarkdownExportType.Visual);
-    markdownSaveOptions.setImagesSaveFolderName("md-images");
-    markdownSaveOptions.setBasePath(outPath);
-    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $outPath = "c:/documents";
+    $markdownSaveOptions = new MarkdownSaveOptions();
+    $markdownSaveOptions->setExportType(MarkdownExportType.Visual);
+    $markdownSaveOptions->setImagesSaveFolderName("md-images");
+    $markdownSaveOptions->setBasePath($outPath);
+    $pres->save("pres.md", SaveFormat.Md, $markdownSaveOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```

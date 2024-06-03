@@ -84,30 +84,27 @@ Using custom conversion options, you can set your preferred quality setting for 
 
 This Java code demonstrates an operation in which a PowerPoint is converted to PDF with several custom options:
 
-```java
+```php
 // Instantiates a Presentation class that represents a PowerPoint file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
+  $pres = new Presentation("PowerPoint.pptx");
+  try {
     // Instantiates the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
+    $pdfOptions = new PdfOptions();
     // Sets the Jpeg quality
-    pdfOptions.setJpegQuality((byte)90);
-    
+    $pdfOptions->setJpegQuality(90);
     // Sets the behavior for metafiles
-    pdfOptions.setSaveMetafilesAsPng(true);
-    
+    $pdfOptions->setSaveMetafilesAsPng(true);
     // Sets the text compression level
-    pdfOptions.setTextCompression(PdfTextCompression.Flate);
-    
+    $pdfOptions->setTextCompression(PdfTextCompression.Flate);
     // Defines the PDF standard
-    pdfOptions.setCompliance(PdfCompliance.Pdf15);
-    
+    $pdfOptions->setCompliance(PdfCompliance.Pdf15);
     // Saves the presentation as a PDF
-    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, $pdfOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ### **Convert PowerPoint to PDF with Hidden Slides**
@@ -116,43 +113,43 @@ If a presentation contains hidden slides, you can use a custom option—the [Sho
 
 This Java code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
 
-```java
+```php
 // Instantiates a Presentation class that represents a PowerPoint file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
+  $pres = new Presentation("PowerPoint.pptx");
+  try {
     // Instantiates the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
+    $pdfOptions = new PdfOptions();
     // Adds hidden slides
-    pdfOptions.setShowHiddenSlides(true);
-    
+    $pdfOptions->setShowHiddenSlides(true);
     // Saves the presentation as a PDF
-    pres.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, $pdfOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ### **Convert PowerPoint to Password Protected PDF**
 
 This Java code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class):
 
-```java
+```php
 // Instantiates a Presentation object that represents a PowerPoint file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
-    /// Instantiates the PdfOptions class
-    PdfOptions pdfOptions = new PdfOptions();
-    
+  $pres = new Presentation("PowerPoint.pptx");
+  try {
+    // / Instantiates the PdfOptions class
+    $pdfOptions = new PdfOptions();
     // Sets PDF password and access permissions
-    pdfOptions.setPassword("password");
-    pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
-    
+    $pdfOptions->setPassword("password");
+    $pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
     // Saves the presentation as a PDF
-    pres.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("PPTX-to-PDF.pdf", SaveFormat.Pdf, $pdfOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ### Detect Font Substitutions**
@@ -162,19 +159,16 @@ Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/sli
 This Java code shows you how to detect font substitutions: 
 
 ```java
-public void main(String[] args)
-{
-    LoadOptions loadOptions = new LoadOptions();
-    FontSubstSendsWarningCallback warningCallback = new FontSubstSendsWarningCallback();
-    loadOptions.setWarningCallback(warningCallback);
-
-    Presentation pres = new Presentation("pres.pptx", loadOptions);
-    try {
-        
-    } finally {
-        if (pres != null) pres.dispose();
+  $loadOptions = new LoadOptions();
+  $warningCallback = new FontSubstSendsWarningCallback();
+  $loadOptions->setWarningCallback($warningCallback);
+  $pres = new Presentation("pres.pptx", $loadOptions);
+  try {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
     }
-}
+  }
 
 private class FontSubstSendsWarningCallback implements IWarningCallback
 {
@@ -206,66 +200,68 @@ For more information on font substitution, see the [Font Substitution](https://d
 
 This Java code shows you how to convert specific slides in a PowerPoint presentation to PDF:
 
-```java
+```php
 // Instantiates a Presentation object that represents a PowerPoint file
-Presentation pres = new Presentation("PowerPoint.pptx");
-try {
+  $pres = new Presentation("PowerPoint.pptx");
+  try {
     // Sets an array of slides positions
-    int[] slides = { 1, 3 };
-    
+    $slides = new int[]{ 1, 3 };
     // Saves the presentation as a PDF
-    pres.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("PPTX-to-PDF.pdf", $slides, SaveFormat.Pdf);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**
 
 This Java code shows you how to convert a PowerPoint when its slide size is specified to a PDF:
 
-```java
+```php
 // Instantiates a Presentation object that represents a PowerPoint file 
-Presentation pres = new Presentation("SelectedSlides.pptx");
-try {
-    Presentation outPres = new Presentation();
+  $pres = new Presentation("SelectedSlides.pptx");
+  try {
+    $outPres = new Presentation();
     try {
-        ISlide slide = pres.getSlides().get_Item(0);
-
-        outPres.getSlides().insertClone(0, slide);
-        
-        // Sets the slide type and size 
-        outPres.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-        
-        PdfOptions pdfOptions = new PdfOptions();
-        INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
-        options.setNotesPosition(NotesPositions.BottomFull);
-
-        outPres.save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+      $slide = $pres->getSlides()->get_Item(0);
+      $outPres->getSlides()->insertClone(0, $slide);
+      // Sets the slide type and size
+      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType.EnsureFit);
+      $pdfOptions = new PdfOptions();
+      $options = $pdfOptions->getNotesCommentsLayouting();
+      $options->setNotesPosition(NotesPositions.BottomFull);
+      $outPres->save("PDFnotes_out.pdf", SaveFormat.Pdf, $pdfOptions);
     } finally {
-        if (pres != null) pres.dispose();
+      if ($pres != null) {
+        $pres->dispose();
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
 
 This Java code shows you how to convert a PowerPoint to PDF notes:
 
-```java
+```php
 // Instantiates a Presentation class that represents a PowerPoint file
-Presentation pres = new Presentation("SelectedSlides.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    INotesCommentsLayoutingOptions options = pdfOptions.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save("Pdf_With_Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+  $pres = new Presentation("SelectedSlides.pptx");
+  try {
+    $pdfOptions = new PdfOptions();
+    $options = $pdfOptions->getNotesCommentsLayouting();
+    $options->setNotesPosition(NotesPositions.BottomFull);
+    $pres->save("Pdf_With_Notes.pdf", SaveFormat.Pdf, $pdfOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Accessibility and Compliance Standards for PDF**
@@ -274,22 +270,21 @@ Aspose.Slides allows you to use a conversion procedure that complies with [Web C
 
 This Java code demonstrates a PowerPoint to PDF conversion operation in which multiple PDFs based on different compliance standards are obtained:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    
-    pdfOptions.setCompliance(PdfCompliance.PdfA1a);
-    pres.save("pres-a1a-compliance.pdf", SaveFormat.Pdf, pdfOptions);
-
-    pdfOptions.setCompliance(PdfCompliance.PdfA1b);
-    pres.save("pres-a1b-compliance.pdf", SaveFormat.Pdf, pdfOptions);
-
-    pdfOptions.setCompliance(PdfCompliance.PdfUa);
-    pres.save("pres-ua-compliance.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $pdfOptions = new PdfOptions();
+    $pdfOptions->setCompliance(PdfCompliance.PdfA1a);
+    $pres->save("pres-a1a-compliance.pdf", SaveFormat.Pdf, $pdfOptions);
+    $pdfOptions->setCompliance(PdfCompliance.PdfA1b);
+    $pres->save("pres-a1b-compliance.pdf", SaveFormat.Pdf, $pdfOptions);
+    $pdfOptions->setCompliance(PdfCompliance.PdfUa);
+    $pres->save("pres-ua-compliance.pdf", SaveFormat.Pdf, $pdfOptions);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 ```
 
 {{% alert title="Note" color="warning" %}} 
