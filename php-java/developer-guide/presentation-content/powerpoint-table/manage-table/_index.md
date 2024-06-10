@@ -26,55 +26,47 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/
 
 This Java code shows you how to create a table in a presentation:
 
-```java
-// Instantiates a Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates a Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
-
+    $dblCols = new double[]{ 50, 50, 50 };
+    $dblRows = new double[]{ 50, 30, 30, 30, 30 };
     // Adds a table shape to slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
+    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for (int row = 0; row < tbl.getRows().size(); row++)
-    {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
-        {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
-            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cellFormat.getBorderTop().setWidth(5);
-
-            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cellFormat.getBorderBottom().setWidth(5);
-
-            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cellFormat.getBorderLeft().setWidth(5);
-
-            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cellFormat.getBorderRight().setWidth(5);
-        }
+    for ($row = 0; $row < $tbl->getRows()->size(); $row++) {
+      for ($cell = 0; $cell < $tbl->getRows()->get_Item($row)->size(); $cell++) {
+        $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
+        $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat->getBorderTop()->setWidth(5);
+        $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat->getBorderBottom()->setWidth(5);
+        $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat->getBorderLeft()->setWidth(5);
+        $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat->getBorderRight()->setWidth(5);
+      }
     }
     // Merges cells 1 & 2 of row 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-
+    $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
     // Adds some text to the merged cell
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-
+    $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
     // Saves the presentation to Disk
-    pres.save("table.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("table.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Numbering in Standard Table**
@@ -91,48 +83,42 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 
 This Java code shows you how to specify the numbering for cells in a table:
 
-```java
-// Instantiates a Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates a Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
+    $dblCols = new double[]{ 70, 70, 70, 70 };
+    $dblRows = new double[]{ 70, 70, 70, 70 };
     // Adds a table shape to slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
+    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    for ($row : $tbl->getRows()) {
+      for ($cell : $row) {
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderTop()->setWidth(5);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderRight()->setWidth(5);
+      }
     }
-
     // Saves presentation to disk
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("StandardTables_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Access Existing Table**
@@ -153,33 +139,30 @@ try {
 
 This Java code shows you how to access and work with an existing table:
 
-```java
-// Instantiates the Presentation class that represents a PPTX file
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
-try {
-
+```php
+  // Instantiates the Presentation class that represents a PPTX file
+  $pres = new Presentation("UpdateExistingTable.pptx");
+  try {
     // Accesses the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Initializes null TableEx
-    ITable tbl = null;
-
+    $tbl = null;
     // Iterates through the shapes and sets a reference to the table found
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // Sets the text for the first column of the second row
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
-        }
+    for ($shp : $sld->getShapes()) {
+      if ($shp instanceof ITable) {
+        $tbl = $shp;
+        // Sets the text for the first column of the second row
+        $tbl->get_Item(0, 1)->getTextFrame()->setText("New");
+      }
     }
-    
     // Saves the modified presentation to disk
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("table1_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 
@@ -195,45 +178,41 @@ try {
 
 This Java code shows you how to align the text in a table:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
-try {
-    // Gets the first slide 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+```php
+  // Creates an instance of the Presentation class
+  $pres = new Presentation();
+  try {
+    // Gets the first slide
+    $slide = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
+    $dblCols = new double[]{ 120, 120, 120, 120 };
+    $dblRows = new double[]{ 100, 100, 100, 100 };
     // Adds the table shape to the slide
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
+    $tbl = $slide->getShapes()->addTable(100, 50, $dblCols, $dblRows);
+    $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
+    $tbl->get_Item(2, 0)->getTextFrame()->setText("20");
+    $tbl->get_Item(3, 0)->getTextFrame()->setText("30");
     // Accesses the text frame
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
+    $txtFrame = $tbl->get_Item(0, 0)->getTextFrame();
     // Creates the Paragraph object for the text frame
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
+    $paragraph = $txtFrame->getParagraphs()->get_Item(0);
     // Creates the Portion object for paragraph
-    IPortion portion = paragraph.getPortions().get_Item(0);
-    portion.setText("Text here");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
+    $portion = $paragraph->getPortions()->get_Item(0);
+    $portion->setText("Text here");
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Aligns the text vertically
-    ICell cell = tbl.get_Item(0, 0);
-    cell.setTextAnchorType(TextAnchorType.Center);
-    cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
+    $cell = $tbl->get_Item(0, 0);
+    $cell->setTextAnchorType(TextAnchorType::Center);
+    $cell->setTextVerticalType(TextVerticalType::Vertical270);
     // Saves the presentation to disk
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Set Text Formatting on Table Level**
@@ -248,48 +227,51 @@ try {
 
 This Java code shows you how to apply your preferred formatting options to the text in a table:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("simpletable.pptx");
-try {
+```php
+  // Creates an instance of the Presentation class
+  $pres = new Presentation("simpletable.pptx");
+  try {
     // Let's assume that the first shape on the first slide is a table
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
+    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     // Sets the table cells' font height
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
+    $portionFormat = new PortionFormat();
+    $portionFormat->setFontHeight(25);
+    $someTable->setTextFormat($portionFormat);
     // Sets the table cells' text alignment and right margin in one call
-    ParagraphFormat paragraphFormat = new ParagraphFormat();
-    paragraphFormat.setAlignment(TextAlignment.Right);
-    paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
+    $paragraphFormat = new ParagraphFormat();
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $someTable->setTextFormat($paragraphFormat);
     // Sets the table cells' text vertical type
-    TextFrameFormat textFrameFormat = new TextFrameFormat();
-    textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $textFrameFormat = new TextFrameFormat();
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $someTable->setTextFormat($textFrameFormat);
+    $pres->save("result.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Get Table Style Properties**
 
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
 
-```java
-Presentation pres = new Presentation();
-try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // change the default style preset theme 
-    pres.save("table.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation();
+  try {
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, new double[]{ 100, 150 }, new double[]{ 5, 5, 5 });
+    $table->setStylePreset(TableStylePreset::DarkStyle1);// change the default style preset theme
+
+    $pres->save("table.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Lock Aspect Ratio of Table**
@@ -298,18 +280,19 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 
 This Java code shows you how to lock the aspect ratio for a table:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    echo ("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // invert
+    echo ("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

@@ -23,67 +23,60 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for PHP 
 ## **Add Slide Comment**
 This Java code shows you how to add a comment to a slide in a PowerPoint presentation:
 
-```java
-// Instantiates the Presentation class
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates the Presentation class
+  $pres = new Presentation();
+  try {
     // Adds an empty slide
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
+    $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
     // Adds an author
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
-
+    $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
     // Sets the position for comments
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
-
+    $point = new Point2D.Float(0.2, 0.2);
     // Adds slide comment for an author on slide 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
+    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Date());
     // Adds slide comment for an author on slide 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
+    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Date());
     // Accesses ISlide 1
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // When null is passed as an argument, comments from all authors are brought to the selected slide
-    IComment[] Comments = slide.getSlideComments(author);
-
+    $Comments = $slide->getSlideComments($author);
     // Accesses the comment at index 0 for slide 1
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // Selects the Author's comments collection at index 0
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+    $str = $Comments[0]->getText();
+    $pres->save("Comments_out.pptx", SaveFormat::Pptx);
+    if ($Comments::$length > 0) {
+      // Selects the Author's comments collection at index 0
+      $commentCollection = $Comments[0]->getAuthor()->getComments();
+      $Comment = $commentCollection->get_Item(0)->getText();
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Access Slide Comments**
 This Java code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
-```java
-// Instantiates the Presentation class
-Presentation pres = new Presentation("Comments1.pptx");
-try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
-        }
+```php
+  // Instantiates the Presentation class
+  $pres = new Presentation("Comments1.pptx");
+  try {
+    for ($commentAuthor : $pres->getCommentAuthors()) {
+      $author = $commentAuthor;
+      for ($comment1 : $author->getComments()) {
+        $comment = $comment1;
+        echo ("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 
@@ -92,56 +85,48 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 
 This Java code shows you how to add comments and get replies to them:
 
-```java
-Presentation pres = new Presentation();
-try {
+```php
+  $pres = new Presentation();
+  try {
     // Adds a comment
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-
+    $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
+    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
     // Adds a reply to comment1
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    reply1.setParentComment(comment1);
-
+    $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
+    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
+    $reply1->setParentComment($comment1);
     // Adds another reply to comment1
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
-    reply2.setParentComment(comment1);
-
+    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
+    $reply2->setParentComment($comment1);
     // Add a reply to an existing reply
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
-    subReply.setParentComment(reply2);
-
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    reply3.setParentComment(comment3);
-
+    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
+    $subReply->setParentComment($reply2);
+    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
+    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
+    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2D.Float(10, 10), new Date());
+    $reply3->setParentComment($comment3);
     // Displays the comments hierarchy on console
-    ISlide slide = pres.getSlides().get_Item(0);
-    IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
-        IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
-            System.out.print("\t");
-            comment = comment.getParentComment();
-        }
-
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+    $slide = $pres->getSlides()->get_Item(0);
+    $comments = $slide->getSlideComments(null);
+    for ($i = 0; $i < $comments::$length; $i++) {
+      $comment = $comments[$i];
+      while ($comment->getParentComment() != null) {
+        System::out->print("\t");
+        $comment = $comment->getParentComment();
+      } 
+      echo ($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
+      echo ();
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
-
+    $pres->save("parent_comment.pptx", SaveFormat::Pptx);
     // Removes comment1 and all replies to it
-    comment1.remove();
+    $comment1->remove();
+    $pres->save("remove_comment.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 {{% alert color="warning" title="Attention" %}} 
@@ -159,16 +144,18 @@ In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose
 
 This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
-```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
+```php
+  $pres = new Presentation();
+  try {
+    $newAuthor = $pres->getCommentAuthors()->addAuthor("Some Author", "SA");
+    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2D.Float(100, 100), new Date());
+    $pres->save("pres.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Remove Comment**
@@ -177,59 +164,54 @@ try {
 
 This Java code shows you how to remove all comments and authors in a presentation:
 
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
+```php
+  $presentation = new Presentation("example.pptx");
+  try {
     // Deletes all comments from the presentation
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
+    for ($author : $presentation->getCommentAuthors()) {
+      $author->getComments()->clear();
     }
-
     // Deletes all authors
-    presentation.getCommentAuthors().clear();
+    $presentation->getCommentAuthors()->clear();
+    $presentation->save("example_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ### **Delete Specific Comments**
 
 This Java code shows you how to delete specific comments on a slide:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
+```php
+  $presentation = new Presentation();
+  try {
+    $slide = $presentation->getSlides()->get_Item(0);
     // add comments...
-    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
-
+    $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
+    $author->getComments()->addComment("comment 1", $slide, new Point2D.Float(0.2, 0.2), new Date());
+    $author->getComments()->addComment("comment 2", $slide, new Point2D.Float(0.3, 0.2), new Date());
     // remove all comments that contain "comment 1" text
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
-            }
+    for ($commentAuthor : $presentation->getCommentAuthors()) {
+      $toRemove = new ArrayList<IComment>();
+      for ($comment : $slide->getSlideComments($commentAuthor)) {
+        if ($comment->getText()->equals("comment 1")) {
+          $toRemove->add($comment);
         }
-
-        for (IComment comment : toRemove)
-        {
-            commentAuthor.getComments().remove(comment);
-        }
+      }
+      for ($comment : $toRemove) {
+        $commentAuthor->getComments()->remove($comment);
+      }
     }
+    $presentation->save("pres.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    presentation.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 

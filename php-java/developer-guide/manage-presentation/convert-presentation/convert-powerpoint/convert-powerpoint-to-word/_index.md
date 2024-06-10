@@ -32,31 +32,28 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 2. Add *aspose-slides-x.x-jdk16.jar* and *aspose-words-x.x-jdk16.jar* to your CLASSPATH.
 3. Use this code snippet to convert the PowerPoint to Word:
 
-```java
-Presentation pres = new Presentation(inputPres);
-try {
-    Document doc = new Document();
-    DocumentBuilder builder = new DocumentBuilder(doc);
-    for (ISlide slide : pres.getSlides())
-    {
-        // generates and inserts slide image
-        BufferedImage bitmap = slide.getThumbnail(1, 1);
-
-        builder.insertImage(bitmap);
-
-        // inserts slide's texts
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof AutoShape)
-            {
-                builder.writeln(((AutoShape)shape).getTextFrame().getText());
-            }
+```php
+  $pres = new Presentation($inputPres);
+  try {
+    $doc = new Document();
+    $builder = new DocumentBuilder($doc);
+    for ($slide : $pres->getSlides()) {
+      // generates and inserts slide image
+      $bitmap = $slide->getThumbnail(1, 1);
+      $builder->insertImage($bitmap);
+      // inserts slide's texts
+      for ($shape : $slide->getShapes()) {
+        if ($shape instanceof AutoShape) {
+          $builder->writeln($shape->getTextFrame()->getText());
         }
-
-        builder.insertBreak(BreakType.PAGE_BREAK);
+      }
+      $builder->insertBreak(BreakType.PAGE_BREAK);
     }
-    doc.save(outputDoc);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $doc->save($outputDoc);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

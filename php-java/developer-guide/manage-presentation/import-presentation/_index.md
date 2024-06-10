@@ -21,14 +21,17 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 
 This Java code demonstrates the PDF to PowerPoint operation:
 
-```java
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().addFromPdf("InputPDF.pdf");
-    pres.save("OutputPresentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation();
+  try {
+    $pres->getSlides()->addFromPdf("InputPDF.pdf");
+    $pres->save("OutputPresentation.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert  title="Tip" color="primary" %}} 
@@ -47,21 +50,25 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 
 This Java code demonstrates the HTML to PowerPoint operation: 
 
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream htmlStream = new FileInputStream("page.html");
+```php
+  $presentation = new Presentation();
+  try {
+    $htmlStream = new FileInputStream("page.html");
     try {
-        presentation.getSlides().addFromHtml(htmlStream);
+      $presentation->getSlides()->addFromHtml($htmlStream);
     } finally {
-        if (htmlStream != null) htmlStream.close();
+      if ($htmlStream != null) {
+        $htmlStream->close();
+      }
     }
+    $presentation->save("MyPresentation.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    presentation.save("MyPresentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 {{% alert title="Note" color="warning" %}} 

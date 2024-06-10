@@ -16,6 +16,8 @@ This list, using sample code segments, demonstrates certain differences between 
 
 ``` php
  import com.aspose.slides.*;
+```php
+
 ```
 
 **Aspose.Slides for PHP via Java**
@@ -26,6 +28,8 @@ require_once("lib/aspose.slides.php");
 
 use aspose\sldes;
 use aspose\sldes\Presentation;
+```php
+
 ```
 
 ### **Instantiating a new Presentation**
@@ -34,12 +38,16 @@ use aspose\sldes\Presentation;
 
 ``` php
 Presentation presentation = new Presentation();
+```php
+
 ```
 
 **Aspose.Slides for PHP via Java**
 
 ``` php
 $presentation = new Presentation();
+```php
+
 ```
 
 ### **Enums or Constants**
@@ -48,46 +56,22 @@ $presentation = new Presentation();
 
 ``` php
 arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
+```php
+
 ```
 
 **Aspose.Slides for PHP via Java**
 
 ``` php
 $arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
+```php
+
 ```
 
 ### **Example**
 
 **Aspose.Slides for Java**
 
-``` java
-import com.aspose.slides.ISlide;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ShapeType;
-
-public class Test
-{
-    public static void main(String[] args) throws Exception
-    {
-        // Instantiates a Presentation object that represents a presentation file
-        Presentation pres = new Presentation();
-        try
-        {
-            // Gets the first slide
-            ISlide slide = pres.getSlides().get_Item(0);
-
-            // Adds an autoshape with type set to line
-            slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-            pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
-        }
-        finally
-        {
-            if (pres != null) pres.dispose();
-        }
-    }
-}
-```
 
 **Aspose.Slides for PHP via Java**
 
@@ -117,7 +101,6 @@ finally
     if ($pres != null) $pres->dispose();
 }
 ?>
-```
 
 ### **Other Limitations of Aspose.Slides for PHP via Java API compared to Aspose.Slides for Java API**
 
@@ -131,7 +114,6 @@ The parameters and arguments they return and accept are wrappers on top of the J
 ``` php
 if ($node->isAssistant()) - wrong!
 if (java_values($node->isAssistant())) - correct!
-```
 
 #### 2. **Extending Java class and instanceof operator**
 
@@ -149,24 +131,20 @@ $Integer = new JavaClass("java.lang.Integer");
 $IntegerArray = $Array->newInstance($Integer, 2);
 $IntegerArray[0] = 1;
 $IntegerArray[1] = 0;
-```
 
 #### 4. **A Java array length**
 
 ``` php
 $data->length; - does NOT work
-```
 workaround
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
-```
 
 #### 5. **The Java method Files.readAllBytes**
 
 ``` php
 $htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
-```
 workaround
 ``` php
 $file = new Java("java.io.File", "embedOle.html");
@@ -179,4 +157,3 @@ try {
 } finally {
     if ($dis != null) $dis->close();
 }
-```

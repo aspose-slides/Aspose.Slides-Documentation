@@ -28,36 +28,39 @@ If the video file you want to add to your slide is stored locally, you can creat
 
 This Java code shows you how to add a video stored locally to a presentation:
 
-```java
-// Instantiates the Presentation class
-Presentation pres = new Presentation("pres.pptx");
-try {
+```php
+  // Instantiates the Presentation class
+  $pres = new Presentation("pres.pptx");
+  try {
     // Loads the video
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-
+    $fileStream = new FileInputStream("Wildlife.mp4");
+    $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior::KeepLocked);
     // Gets the first slide and adds a videoframe
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-
+    $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
     // Saves the presentation to disk
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
 
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation();
+  try {
+    $sld = $pres->getSlides()->get_Item(0);
+    $vf = $sld->getShapes()->addVideoFrame(50, 150, 300, 150, "video1.avi");
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 
@@ -73,38 +76,22 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 
 This Java code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
-```java
-// Instantiates a Presentation object that represents a presentation file 
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  // Instantiates a Presentation object that represents a presentation file
+  $pres = new Presentation();
+  try {
+    addVideoFromYouTube($pres, "Tj75Arhq5ho");
+    $pres->save("out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Adds a videoFrame
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+```php
 
-    // Loads thumbnail
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
 ```
 
 ## **Extract Video From Slide**
@@ -118,35 +105,33 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 
 This Java code shows you how to extract the video on a presentation slide:
 
-```java
-// Instantiates a Presentation object that represents a presentation file 
-Presentation pres = new Presentation("VideoSample.pptx");
-try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
-
-                //Gets the File Extension
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
-            }
+```php
+  // Instantiates a Presentation object that represents a presentation file
+  $pres = new Presentation("VideoSample.pptx");
+  try {
+    for ($slide : $pres->getSlides()) {
+      for ($shape : $slide->getShapes()) {
+        if ($shape instanceof VideoFrame) {
+          $vf = $shape;
+          $type = $vf->getEmbeddedVideo()->getContentType();
+          $ss = $type->lastIndexOf('-');
+          $buffer = $vf->getEmbeddedVideo()->getBinaryData();
+          // Gets the File Extension
+          $charIndex = $type->indexOf("/");
+          $type = $type->substring($charIndex + 1);
+          $fop = new FileOutputStream("testing2." . $type);
+          $fop->write($buffer);
+          $fop->flush();
+          $fop->close();
         }
+      }
     }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

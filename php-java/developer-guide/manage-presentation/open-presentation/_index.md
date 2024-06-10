@@ -16,30 +16,36 @@ To open an existing presentation, you simply have to instantiate the [Presentati
 
 This Java code shows you how to open a presentation and also find out the number of slides it contains: 
 
-```java
-// Instantiates the Presentation class and passes the file path to its constructor
-Presentation pres = new Presentation("Presentation.pptx");
-try {
+```php
+  // Instantiates the Presentation class and passes the file path to its constructor
+  $pres = new Presentation("Presentation.pptx");
+  try {
     // Prints the total number of slides present in the presentation
-    System.out.println(pres.getSlides().size());
-} finally {
-    if (pres != null) pres.dispose();
-}
+    echo ($pres->getSlides()->size());
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Open Password Protected Presentation**
 
 When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/php-java/com.aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Java code demonstrates the operation:
 
-```java
- LoadOptions loadOptions = new LoadOptions();
- loadOptions.setPassword("YOUR_PASSWORD");
- Presentation pres = new Presentation("pres.pptx", loadOptions);
- try {
- // Do some work with the decrypted presentation
- } finally {
-     if (pres != null) pres.dispose();
- }
+```php
+  $loadOptions = new LoadOptions();
+  $loadOptions->setPassword("YOUR_PASSWORD");
+  $pres = new Presentation("pres.pptx", $loadOptions);
+  try {
+    // Do some work with the decrypted presentation
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Open Large Presentation
@@ -48,23 +54,24 @@ Aspose.Slides provides options (the [BlobManagementOptions](https://reference.as
 
 This Java demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
-loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0L);
-
-Presentation pres = new Presentation("veryLargePresentation.pptx", loadOptions);
-try {
+```php
+  $loadOptions = new LoadOptions();
+  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+  $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
+  $loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(0);
+  $pres = new Presentation("veryLargePresentation.pptx", $loadOptions);
+  try {
     // The large presentation has been loaded and can be used, but the memory consumption is still low.
     // makes changes to the presentation.
-    pres.getSlides().get_Item(0).setName("Very large presentation");
-
+    $pres->getSlides()->get_Item(0)->setName("Very large presentation");
     // The presentation will be saved to the other file. The memory consumption stays low during the operation
-    pres.save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
+    $pres->save("veryLargePresentation-copy.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert color="info" title="Info" %}}
@@ -80,39 +87,37 @@ When you want to create a presentation that contains large objects (video, audio
 
 Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/php-java/com.aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Java code shows you how to use the `IResourceLoadingCallback` interface:
 
-```java
-LoadOptions opts = new LoadOptions();
-opts.setResourceLoadingCallback(new ImageLoadingHandler());
+```php
+  $opts = new LoadOptions();
+  $opts->setResourceLoadingCallback(new ImageLoadingHandler());
+  $pres = new Presentation("presentation.pptx", $opts);
 
-Presentation pres = new Presentation("presentation.pptx", opts);
 ```
 
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback 
-{
-    public int resourceLoading(IResourceLoadingArgs args) 
-    {
-        if (args.getOriginalUri().endsWith(".jpg")) 
-        {
-            try // loads substitute image
-            {
-                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageBytes);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // sets substitute url
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
+```php
+  class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+      if ($args->getOriginalUri()->endsWith(".jpg")) {
+        // loads substitute image
+        try {
+          $imageBytes = Files->readAllBytes(new File("aspose-logo.jpg")->toPath());
+          $args->setData($imageBytes);
+          return ResourceLoadingAction::UserProvided;
+        } catch (JavaException $ex) {
+          return ResourceLoadingAction::Skip;
+        } catch (JavaException $ex) {
+          $ex->printStackTrace();
         }
-        // skips all other images
-        return ResourceLoadingAction.Skip;
+      } else if ($args->getOriginalUri()->endsWith(".png")) {
+        // sets substitute url
+        $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
+        return ResourceLoadingAction::Default;
+      }
+      // skips all other images
+      return ResourceLoadingAction::Skip;
     }
-}
+  }
+
 ```
 
 <h2>Open and Save Presentation</h2>
@@ -122,15 +127,17 @@ class ImageLoadingHandler implements IResourceLoadingCallback
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and pass the file you want to open.
 2. Save the presentation.  
 
-```java
-// Instantiates a Presentation object that represents a PPT file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates a Presentation object that represents a PPT file
+  $pres = new Presentation();
+  try {
     // ...do some work here...
-    
     // Saves your presentation to a file
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
+    $pres->save("demoPass.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

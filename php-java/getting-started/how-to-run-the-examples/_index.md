@@ -48,6 +48,8 @@ When you import **Aspose.Slides Examples** project into IDE, Maven automatically
 ### **mvn install**
 Download the [aspose.slides](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/), extract it and copy the aspose.slides-version.jar to somewhere else, for example, c drive. Issue following command:
 
+```php
+
 ```
 mvn install:install-file
     -Dfile=c:\aspose.slides-version.jar
@@ -55,6 +57,8 @@ mvn install:install-file
     -DartifactId=aspose-slides
     -Dversion={version}
     -Dpackaging=jar
+```php
+
 ```
 
 Now, the **aspose.slides** jar is copied to your Maven local repository.
@@ -74,6 +78,8 @@ After installed, just declares the **aspose.slides** coordinate in pom.xml. Add 
     <version>18.6</version>
     <classifier>jdk16</classifier>
 </dependency>
+```php
+
 ```
 
 ### **Done**

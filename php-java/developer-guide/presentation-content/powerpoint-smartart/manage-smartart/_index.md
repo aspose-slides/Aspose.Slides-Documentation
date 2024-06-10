@@ -8,24 +8,25 @@ url: /php-java/manage-smartart/
 ## **Get Text from SmartArt**
 Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    ISmartArt smartArt = (ISmartArt)slide.getShapes().get_Item(0);
-
-    ISmartArtNodeCollection smartArtNodes = smartArt.getAllNodes();
-    for (ISmartArtNode smartArtNode : smartArtNodes)
-    {
-        for (ISmartArtShape nodeShape : smartArtNode.getShapes())
-        {
-            if (nodeShape.getTextFrame() != null)
-                System.out.println(nodeShape.getTextFrame().getText());
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $smartArt = $slide->getShapes()->get_Item(0);
+    $smartArtNodes = $smartArt->getAllNodes();
+    for ($smartArtNode : $smartArtNodes) {
+      for ($nodeShape : $smartArtNode->getShapes()) {
+        if ($nodeShape->getTextFrame() != null) {
+          echo ($nodeShape->getTextFrame()->getText());
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Change Layout Type of SmartArt**
@@ -38,20 +39,21 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
 - Write the presentation as a PPTX file.
   In the example given below, we have added a connector between two shapes.
 
-```java
-Presentation pres = new Presentation();
-try {
+```php
+  $pres = new Presentation();
+  try {
     // Add SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
-
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
     // Change LayoutType to BasicProcess
-    smart.setLayout(SmartArtLayoutType.BasicProcess);
-
+    $smart->setLayout(SmartArtLayoutType::BasicProcess);
     // Saving Presentation
-    pres.save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Check Hidden Property of SmartArt**
@@ -65,27 +67,27 @@ Please note: method [ISmartArtNode.isHidden()]((https://reference.aspose.com/sli
 
 In the example given below, we have added a connector between two shapes.
 
-```java
-Presentation pres = new Presentation();
-try {
-    // Add SmartArt BasicProcess 
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
-
-    // Add node on SmartArt 
-    ISmartArtNode node = smart.getAllNodes().addNode();
-
+```php
+  $pres = new Presentation();
+  try {
+    // Add SmartArt BasicProcess
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+    // Add node on SmartArt
+    $node = $smart->getAllNodes()->addNode();
     // Check isHidden property
-    boolean hidden = node.isHidden(); // Returns true
+    $hidden = $node->isHidden();// Returns true
 
-    if (hidden)
-    {
-        // Do some actions or notifications
+    if ($hidden) {
+      // Do some actions or notifications
     }
     // Saving Presentation
-    pres.save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Get or Set Organization Chart Type**
@@ -97,20 +99,21 @@ Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.co
 - Write the presentation as a PPTX file.
   In the example given below, we have added a connector between two shapes.
 
-```java
-Presentation pres = new Presentation();
-try {
+```php
+  $pres = new Presentation();
+  try {
     // Add SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
-
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
     // Get or Set the organization chart type
-    smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
-
+    $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
     // Saving Presentation
-    pres.save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Create Picture Organization Chart**
@@ -123,14 +126,17 @@ Aspose.Slides for PHP via Java provides a simple API for creating and PictureOr
 
 The following code is used to create a chart.
 
-```java
-Presentation pres = new Presentation("test.pptx");
-try {
-    ISmartArt smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.PictureOrganizationChart);
-    pres.save("OrganizationChart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("test.pptx");
+  try {
+    $smartArt = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
+    $pres->save("OrganizationChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Get or Set SmartArt State**
@@ -143,22 +149,23 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
 
 The following code is used to create a chart.
 
-```java
-// Instantiate Presentation class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate Presentation class that represents the PPTX file
+  $pres = new Presentation();
+  try {
     // Add SmartArt BasicProcess
-    ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
-    
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
     // Get or Set the state of SmartArt Diagram
-    smart.setReversed(true);
-    boolean flag = smart.isReversed();
-    
+    $smart->setReversed(true);
+    $flag = $smart->isReversed();
     // Saving Presentation
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("output.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 

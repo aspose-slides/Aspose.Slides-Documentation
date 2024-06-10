@@ -15,37 +15,35 @@ Aspose.Slides for PHP via Java provides the [SlideUtil](https://reference.aspose
 use the [getAllTextBoxes](https://reference.aspose.com/slides/php-java/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) overloaded static method exposed by the [SlideUtil](https://reference.aspose.com/slides/php-java/com.aspose.slides/SlideUtil) class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrame) objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
-```java
-//Instatiate Presentation class that represents a PPTX file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        //Get an Array of ITextFrame objects from all slides in the PPTX
-        ITextFrame[] textFramesPPTX = SlideUtil.getAllTextBoxes(slide);
-
-        //Loop through the Array of TextFrames
-        for (int i = 0; i < textFramesPPTX.length; i++) {
-            //Loop through paragraphs in current ITextFrame
-            for (IParagraph para : textFramesPPTX[i].getParagraphs()) {
-                //Loop through portions in the current IParagraph
-                for (IPortion port : para.getPortions()) {
-                    //Display text in the current portion
-                    System.out.println(port.getText());
-
-                    //Display font height of the text
-                    System.out.println(port.getPortionFormat().getFontHeight());
-
-                    //Display font name of the text
-                    if (port.getPortionFormat().getLatinFont() != null)
-                        System.out.println(port.getPortionFormat().getLatinFont().getFontName());
-                }
+```php
+  // Instatiate Presentation class that represents a PPTX file
+  $pres = new Presentation("demo.pptx");
+  try {
+    for ($slide : $pres->getSlides()) {
+      // Get an Array of ITextFrame objects from all slides in the PPTX
+      $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
+      // Loop through the Array of TextFrames
+      for ($i = 0; $i < $textFramesPPTX::$length; $i++) {
+        // Loop through paragraphs in current ITextFrame
+        for ($para : $textFramesPPTX[$i]->getParagraphs()) {
+          // Loop through portions in the current IParagraph
+          for ($port : $para->getPortions()) {
+            // Display text in the current portion
+            echo ($port->getText());
+            // Display font height of the text
+            echo ($port->getPortionFormat()->getFontHeight());
+            // Display font name of the text
+            if ($port->getPortionFormat()->getLatinFont() != null) {
+              echo ($port->getPortionFormat()->getLatinFont()->getFontName());
             }
+          }
         }
+      }
     }
-} finally {
-    pres.dispose();
-}
+  } finally {
+    $pres->dispose();
+  }
+
 ```
 
 ## **Extract Text from Presentation**
@@ -56,46 +54,40 @@ To scan the text from the whole presentation, use the
 1. Second, a boolean value determining whether the master slide is to be included when the text is scanned from the presentation.
    The method returns an array of [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrame) objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
 
-```java
-//Instatiate Presentation class that represents a PPTX file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    //Get an Array of ITextFrame objects from all slides in the PPTX
-    ITextFrame[] textFramesPPTX = SlideUtil.getAllTextFrames(pres, true);
-
-    //Loop through the Array of TextFrames
-    for (int i = 0; i < textFramesPPTX.length; i++) 
-    {
-        //Loop through paragraphs in current ITextFrame
-        for (IParagraph para : textFramesPPTX[i].getParagraphs())
-        {
-            //Loop through portions in the current IParagraph
-            for (IPortion port : para.getPortions())
-            {
-                //Display text in the current portion
-                System.out.println(port.getText());
-
-                //Display font height of the text
-                System.out.println(port.getPortionFormat().getFontHeight());
-
-                //Display font name of the text
-                if (port.getPortionFormat().getLatinFont() != null)
-                    System.out.println(port.getPortionFormat().getLatinFont().getFontName());
-            }
+```php
+  // Instatiate Presentation class that represents a PPTX file
+  $pres = new Presentation("demo.pptx");
+  try {
+    // Get an Array of ITextFrame objects from all slides in the PPTX
+    $textFramesPPTX = SlideUtil->getAllTextFrames($pres, true);
+    // Loop through the Array of TextFrames
+    for ($i = 0; $i < $textFramesPPTX::$length; $i++) {
+      // Loop through paragraphs in current ITextFrame
+      for ($para : $textFramesPPTX[$i]->getParagraphs()) {
+        // Loop through portions in the current IParagraph
+        for ($port : $para->getPortions()) {
+          // Display text in the current portion
+          echo ($port->getText());
+          // Display font height of the text
+          echo ($port->getPortionFormat()->getFontHeight());
+          // Display font name of the text
+          if ($port->getPortionFormat()->getLatinFont() != null) {
+            echo ($port->getPortionFormat()->getLatinFont()->getFontName());
+          }
         }
+      }
     }
-} finally {
-    pres.dispose();
-}
+  } finally {
+    $pres->dispose();
+  }
+
 ```
 
 ## **Categorized and Fast Text Extraction**
 The new static method getPresentationText has been added to Presentation class. There are three overloads for this method:
 
-```java
-public IPresentationText getPresentationText(String file, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
+```php
+
 ``` 
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
@@ -115,12 +107,13 @@ There is also a [SlideText](https://reference.aspose.com/slides/php-java/com.asp
 
 The new API can be used like this:
 
-```java
-IPresentationText text1 = PresentationFactory.getInstance().getPresentationText("presentation.pptx", TextExtractionArrangingMode.Unarranged);
-System.out.println(text1.getSlidesText()[0].getText());
-System.out.println(text1.getSlidesText()[0].getLayoutText());
-System.out.println(text1.getSlidesText()[0].getMasterText());
-System.out.println(text1.getSlidesText()[0].getNotesText());
+```php
+  $text1 = PresentationFactory->getInstance()->getPresentationText("presentation.pptx", TextExtractionArrangingMode::Unarranged);
+  echo ($text1->getSlidesText()[0]->getText());
+  echo ($text1->getSlidesText()[0]->getLayoutText());
+  echo ($text1->getSlidesText()[0]->getMasterText());
+  echo ($text1->getSlidesText()[0]->getNotesText());
+
 ```
 
 

@@ -35,34 +35,40 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 
 This Java code shows you how to set the color for a brush:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IInkTrace[] traces = ink.getTraces();
-    IInkBrush brush = traces[0].getBrush();
-    Color brushColor = brush.getColor();
-    brush.setColor(Color.RED);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $ink = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $traces = $ink->getTraces();
+    $brush = $traces[0]->getBrush();
+    $brushColor = $brush->getColor();
+    $brush->setColor(java("java.awt.Color")->RED);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ### **Set Ink Brush Size** 
 
 This Java code shows you how to set the size for a brush:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IInkTrace[] traces = ink.getTraces();
-    IInkBrush brush = traces[0].getBrush();
-    Dimension2D brushSize = brush.getSize();
-    brush.setSize(new Dimension(5, 10));
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $ink = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $traces = $ink->getTraces();
+    $brush = $traces[0]->getBrush();
+    $brushSize = $brush->getSize();
+    $brush->setSize(new Dimension(5, 10));
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 Generally, a brush's width and height don't match, so PowerPoint does not display the brush size (the data section is grayed out). But when the brush width and height match, PowerPoint displays its size this way:

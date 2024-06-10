@@ -13,19 +13,22 @@ It allows to highlight text part with background color using text sample, simila
 
 The code snippet below shows how to use this feature:
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    TextHighlightingOptions textHighlightingOptions = new TextHighlightingOptions();
-    textHighlightingOptions.setWholeWordsOnly(true);
-    
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // highlighting all words 'important'
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("to", Color.MAGENTA, textHighlightingOptions);// highlighting all separate 'the' occurrences
-    
-    pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
+    $textHighlightingOptions = new TextHighlightingOptions();
+    $textHighlightingOptions->setWholeWordsOnly(true);
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("title", java("java.awt.Color")->BLUE);// highlighting all words 'important'
+
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("to", java("java.awt.Color")->MAGENTA, $textHighlightingOptions);// highlighting all separate 'the' occurrences
+
+    $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert color="primary" %}} 
@@ -42,17 +45,19 @@ It allows to highlight text part with background color using regex, similar to T
 
 The code snippet below shows how to use this feature:
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    TextHighlightingOptions options = new TextHighlightingOptions();
-    
-    ((AutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.awt.Color.YELLOW, options); // highlighting all words with 10 symbols or longer
-    
-    pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
+    $options = new TextHighlightingOptions();
+    $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// highlighting all words with 10 symbols or longer
+
+    $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Set Text Background Color**
@@ -61,89 +66,77 @@ Aspose.Slides allows you to specify your preferred color for the background of a
 
 This Java code shows you how to set the background color for an entire text:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
+```php
+  $pres = new Presentation();
+  try {
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $autoShape->getTextFrame()->getParagraphs()->clear();
+    $para = new Paragraph();
+    $portion1 = new Portion("Black");
+    $portion1->getPortionFormat()->setFontBold(NullableBool::True);
+    $portion2 = new Portion(" Red ");
+    $portion3 = new Portion("Black");
+    $portion3->getPortionFormat()->setFontBold(NullableBool::True);
+    $para->getPortions()->add($portion1);
+    $para->getPortions()->add($portion2);
+    $para->getPortions()->add($portion3);
+    $autoShape->getTextFrame()->getParagraphs()->add($para);
+    $pres->save("text.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+  $presentation = new Presentation("text.pptx");
+  try {
+    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    StreamSupport->stream($autoShape->getTextFrame()->getParagraphs()->spliterator(), false)->map(( p) -> $p->getPortions())->forEach(( c) -> $c->forEach(( ic) -> $ic->getPortionFormat()->getHighlightColor()->setColor($Color.BLUE)));
+    $presentation->save("text-red.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    Paragraph para = new Paragraph();
-
-    Portion portion1 = new Portion("Black");
-    portion1.getPortionFormat().setFontBold(NullableBool.True);
-
-    Portion portion2 = new Portion(" Red ");
-
-    Portion portion3 = new Portion("Black");
-    portion3.getPortionFormat().setFontBold(NullableBool.True);
-
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-
-    pres.save("text.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-Presentation presentation = new Presentation("text.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    StreamSupport.stream(autoShape.getTextFrame().getParagraphs().spliterator(), false)
-            .map(p -> p.getPortions())
-            .forEach(c -> c.forEach(ic -> ic.getPortionFormat().getHighlightColor().setColor(Color.BLUE)));
-
-    presentation.save("text-red.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 This Java code shows you how to set the background color for only a portion of a text:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    
-    Paragraph para = new Paragraph();
+```php
+  $pres = new Presentation();
+  try {
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $autoShape->getTextFrame()->getParagraphs()->clear();
+    $para = new Paragraph();
+    $portion1 = new Portion("Black");
+    $portion1->getPortionFormat()->setFontBold(NullableBool::True);
+    $portion2 = new Portion(" Red ");
+    $portion3 = new Portion("Black");
+    $portion3->getPortionFormat()->setFontBold(NullableBool::True);
+    $para->getPortions()->add($portion1);
+    $para->getPortions()->add($portion2);
+    $para->getPortions()->add($portion3);
+    $autoShape->getTextFrame()->getParagraphs()->add($para);
+    $pres->save("text.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+  $presentation = new Presentation("text.pptx");
+  try {
+    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $redPortion = StreamSupport->stream($autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->spliterator(), false)->filter(( p) -> $p->getText()->contains("Red"))->findFirst();
+    if ($redPortion->isPresent()) {
+      $redPortion->get()->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->RED);
+    }
+    $presentation->save("text-red.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    Portion portion1 = new Portion("Black");
-    portion1.getPortionFormat().setFontBold(NullableBool.True);
-
-    Portion portion2 = new Portion(" Red ");
-
-    Portion portion3 = new Portion("Black");
-    portion3.getPortionFormat().setFontBold(NullableBool.True);
-    
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    
-    pres.save("text.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-Presentation presentation = new Presentation("text.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    Optional<IPortion> redPortion = StreamSupport.stream(autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false)
-            .filter(p -> p.getText().contains("Red"))
-            .findFirst();
-
-    if(redPortion.isPresent())
-        redPortion.get().getPortionFormat().getHighlightColor().setColor(Color.RED);
-
-    presentation.save("text-red.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ## **Align Text Paragraphs**
@@ -159,34 +152,32 @@ Text formatting is one of the key elements while creating any kind of documents 
 
 The implementation of the above steps is given below.
 
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("ParagraphsAlignment.pptx");
-try {
+```php
+  // Instantiate a Presentation object that represents a PPTX file
+  $pres = new Presentation("ParagraphsAlignment.pptx");
+  try {
     // Accessing first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
-    ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
-
+    $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
+    $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
     // Change the text in both placeholders
-    tf1.setText("Center Align by Aspose");
-    tf2.setText("Center Align by Aspose");
-
+    $tf1->setText("Center Align by Aspose");
+    $tf2->setText("Center Align by Aspose");
     // Getting the first paragraph of the placeholders
-    IParagraph para1 = tf1.getParagraphs().get_Item(0);
-    IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
+    $para1 = $tf1->getParagraphs()->get_Item(0);
+    $para2 = $tf2->getParagraphs()->get_Item(0);
     // Aligning the text paragraph to center
-    para1.getParagraphFormat().setAlignment(TextAlignment.Center);
-    para2.getParagraphFormat().setAlignment(TextAlignment.Center);
+    $para1->getParagraphFormat()->setAlignment(TextAlignment::Center);
+    $para2->getParagraphFormat()->setAlignment(TextAlignment::Center);
+    // Writing the presentation as a PPTX file
+    $pres->save("Centeralign_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    //Writing the presentation as a PPTX file
-    pres.save("Centeralign_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Set Transparency for Text**
@@ -199,24 +190,23 @@ This article demonstrates how to set transparency property to any text shape us
 
 The implementation of the above steps is given below.
 
-```java
-Presentation pres = new Presentation("transparency.pptx");
-try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IEffectFormat effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
-
-    IOuterShadow outerShadowEffect = effects.getOuterShadowEffect();
-
-    Color shadowColor = outerShadowEffect.getShadowColor().getColor();
-    System.out.println(shadowColor.toString() + " - transparency is: "+ (shadowColor.getAlpha() / 255f) * 100);
-
+```php
+  $pres = new Presentation("transparency.pptx");
+  try {
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $effects = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getEffectFormat();
+    $outerShadowEffect = $effects->getOuterShadowEffect();
+    $shadowColor = $outerShadowEffect->getShadowColor()->getColor();
+    echo ($shadowColor->toString() . " - transparency is: " . $shadowColor->getAlpha() / 255.0 * 100);
     // set transparency to zero percent
-    outerShadowEffect.getShadowColor().setColor(new Color(shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
+    $outerShadowEffect->getShadowColor()->setColor(new java("java.awt.Color", $shadowColor->getRed(), $shadowColor->getGreen(), $shadowColor->getBlue(), 255));
+    $pres->save("transparency-2.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    pres.save("transparency-2.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Set Character Spacing for Text**
@@ -225,16 +215,16 @@ Aspose.Slides allows you to set the space between letters in a textbox. This way
 
 This Java code shows you how to expand the spacing for one line of text and condense the spacing for another line:
 
-```java
-Presentation presentation = new Presentation("in.pptx");
+```php
+  $presentation = new Presentation("in.pptx");
+  $textBox1 = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+  $textBox2 = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(1);
+  $textBox1->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(20);// expand
 
-IAutoShape textBox1 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-IAutoShape textBox2 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(1);
+  $textBox2->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(-2);// condense
 
-textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20); // expand
-textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2); // condense
+  $presentation->save("out.pptx", SaveFormat::Pptx);
 
-presentation.save("out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Manage Paragraph's Font Properties**
@@ -255,52 +245,46 @@ Presentations usually contain both text and images. The text can be formatted in
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
 
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("FontProperties.pptx");
-try {
+```php
+  // Instantiate a Presentation object that represents a PPTX file
+  $pres = new Presentation("FontProperties.pptx");
+  try {
     // Accessing a slide using its slide position
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
-    ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
-
+    $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
+    $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
     // Accessing the first Paragraph
-    IParagraph para1 = tf1.getParagraphs().get_Item(0);
-    IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
+    $para1 = $tf1->getParagraphs()->get_Item(0);
+    $para2 = $tf2->getParagraphs()->get_Item(0);
     // Accessing the first portion
-    IPortion port1 = para1.getPortions().get_Item(0);
-    IPortion port2 = para2.getPortions().get_Item(0);
-
+    $port1 = $para1->getPortions()->get_Item(0);
+    $port2 = $para2->getPortions()->get_Item(0);
     // Define new fonts
-    FontData fd1 = new FontData("Elephant");
-    FontData fd2 = new FontData("Castellar");
-
+    $fd1 = new FontData("Elephant");
+    $fd2 = new FontData("Castellar");
     // Assign new fonts to portion
-    port1.getPortionFormat().setLatinFont(fd1);
-    port2.getPortionFormat().setLatinFont(fd2);
-
+    $port1->getPortionFormat()->setLatinFont($fd1);
+    $port2->getPortionFormat()->setLatinFont($fd2);
     // Set font to Bold
-    port1.getPortionFormat().setFontBold(NullableBool.True);
-    port2.getPortionFormat().setFontBold(NullableBool.True);
-
+    $port1->getPortionFormat()->setFontBold(NullableBool::True);
+    $port2->getPortionFormat()->setFontBold(NullableBool::True);
     // Set font to Italic
-    port1.getPortionFormat().setFontItalic(NullableBool.True);
-    port2.getPortionFormat().setFontItalic(NullableBool.True);
-
+    $port1->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port2->getPortionFormat()->setFontItalic(NullableBool::True);
     // Set font color
-    port1.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-    port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+    $port1->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port1->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
+    $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port2->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    // Write the PPTX to disk
+    $pres->save("WelcomeFont_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    //Write the PPTX to disk
-    pres.save("WelcomeFont_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Manage Font Family of Text**
@@ -319,51 +303,41 @@ A portion is used to hold text with similar formatting style in a paragraph. Thi
 
 The implementation of the above steps is given below.
 
-```java
-// Instantiate Presentation
-Presentation pres = new Presentation();
-try {
-
+```php
+  // Instantiate Presentation
+  $pres = new Presentation();
+  try {
     // Get first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
     // Remove any fill style associated with the AutoShape
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Access the TextFrame associated with the AutoShape
-    ITextFrame tf = ashp.getTextFrame();
-    tf.setText("Aspose TextBox");
-
+    $tf = $ashp->getTextFrame();
+    $tf->setText("Aspose TextBox");
     // Access the Portion associated with the TextFrame
-    IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
+    $port = $tf->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     // Set the Font for the Portion
-    port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
-
+    $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
     // Set Bold property of the Font
-    port.getPortionFormat().setFontBold(NullableBool.True);
-
+    $port->getPortionFormat()->setFontBold(NullableBool::True);
     // Set Italic property of the Font
-    port.getPortionFormat().setFontItalic(NullableBool.True);
-
+    $port->getPortionFormat()->setFontItalic(NullableBool::True);
     // Set Underline property of the Font
-    port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
-
+    $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
     // Set the Height of the Font
-    port.getPortionFormat().setFontHeight(25);
-
+    $port->getPortionFormat()->setFontHeight(25);
     // Set the color of the Font
-    port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-
-    // Write the PPTX to disk 
-    pres.save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $port->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    // Write the PPTX to disk
+    $pres->save("SetTextFontProperties_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
 ```
 
@@ -373,30 +347,28 @@ Aspose.Slides allows you to choose your preferred font size for existing text in
 
 This Java code shows you how to set the font size for texts contained in a paragraph:
 
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
+```php
+  $presentation = new Presentation("example.pptx");
+  try {
     // Gets the first shape, for example.
-    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    if (shape instanceof IAutoShape )
-    {
-        IAutoShape autoShape = (AutoShape) shape;
-        // Gets the first paragraph, for example.
-        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-
-        // Sets the default font size to 20 pt for all text portions in the paragraph. 
-        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-
-        // Sets the font size to 20 pt for current text portions in the paragraph. 
-        for(IPortion portion : paragraph.getPortions())
-        {
-            portion.getPortionFormat().setFontHeight(20);
-        }
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    if ($shape instanceof IAutoShape) {
+      $autoShape = $shape;
+      // Gets the first paragraph, for example.
+      $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+      // Sets the default font size to 20 pt for all text portions in the paragraph.
+      $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+      // Sets the font size to 20 pt for current text portions in the paragraph.
+      for ($portion : $paragraph->getPortions()) {
+        $portion->getPortionFormat()->setFontHeight(20);
+      }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
+
 ```
 
 ## **Set Text Rotation**
@@ -410,38 +382,35 @@ Aspose.Slides for PHP via Java allows developers to rotate the text. Text could 
 5. [Rotate the text](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
 6. Save file to disk.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Get the first slide 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation();
+  try {
+    // Get the first slide
+    $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-    
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-    
+    $ashp->addTextFrame("");
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
-    
+    $txtFrame = $ashp->getTextFrame();
+    $txtFrame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
     // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-    
+    $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
+    $portion = $para->getPortions()->get_Item(0);
+    $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    pres.save("RotateText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("RotateText_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Set Custom Rotation Angle for TextFrame**
@@ -454,38 +423,35 @@ Aspose.Slides for PHP via Java now supports, Setting custom rotation angle for t
 
 In the example given below, we set the RotationAngle property.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
+    $ashp->addTextFrame("");
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setRotationAngle(25);
-
+    $txtFrame = $ashp->getTextFrame();
+    $txtFrame->getTextFrameFormat()->setRotationAngle(25);
     // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
+    $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Text rotation example.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
+    $portion = $para->getPortions()->get_Item(0);
+    $portion->setText("Text rotation example.");
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    pres.save(resourcesOutputPath+"RotateText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save($resourcesOutputPath . "RotateText_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Line Spacing of Paragraph**
@@ -507,29 +473,28 @@ This is how you specify the line spacing for a specific paragraph:
 
 This Java code shows you how to specify the line spacing for a paragraph:
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation("Fonts.pptx");
-try {
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation("Fonts.pptx");
+  try {
     // Obtain a slide's reference by its index
-    ISlide sld = pres.getSlides().get_Item(0);
-    
+    $sld = $pres->getSlides()->get_Item(0);
     // Access the TextFrame
-    ITextFrame tf1 = ((IAutoShape)sld.getShapes().get_Item(0)).getTextFrame();
-    
+    $tf1 = $sld->getShapes()->get_Item(0)->getTextFrame();
     // Access the Paragraph
-    IParagraph para = tf1.getParagraphs().get_Item(0);
-    
+    $para = $tf1->getParagraphs()->get_Item(0);
     // Set properties of Paragraph
-    para.getParagraphFormat().setSpaceWithin(80);
-    para.getParagraphFormat().setSpaceBefore(40);
-    para.getParagraphFormat().setSpaceAfter(40);
-    
+    $para->getParagraphFormat()->setSpaceWithin(80);
+    $para->getParagraphFormat()->setSpaceBefore(40);
+    $para->getParagraphFormat()->setSpaceAfter(40);
     // Save Presentation
-    pres.save("LineSpacing_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("LineSpacing_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Set the AutofitType Property for TextFrame**
@@ -542,38 +507,35 @@ In this topic, we will explore the different formatting properties of text frame
 5. [Set the AutofitType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) of the TextFrame.
 6. Save file to disk.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation();
+  try {
     // Access the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 150);
-
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 150);
     // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
+    $ashp->addTextFrame("");
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-
+    $txtFrame = $ashp->getTextFrame();
+    $txtFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
     // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
+    $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
+    $portion = $para->getPortions()->get_Item(0);
+    $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    pres.save(resourcesOutputPath + "formatText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save($resourcesOutputPath . "formatText_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Set Anchor of TextFrame**
@@ -586,38 +548,35 @@ Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. Tex
 5. [Set TextAnchorType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) of the TextFrame.
 6. Save file to disk.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Get the first slide 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation();
+  try {
+    // Get the first slide
+    $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-    
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-    
+    $ashp->addTextFrame("");
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
-    
+    $txtFrame = $ashp->getTextFrame();
+    $txtFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
     // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-    
+    $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
+    $portion = $para->getPortions()->get_Item(0);
+    $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    pres.save("AnchorText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("AnchorText_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Tabs and EffectiveTabs in Presentation**

@@ -39,55 +39,48 @@ The implementation of the above steps is given below. It takes an unadorned pres
 | :- |
 |**Figure: The same text with updated formatting**|
 
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("FontProperties.pptx");
-try {
-	// Accessing a slide using its slide position
-	ISlide slide = pres.getSlides().get_Item(0);
+```php
+  // Instantiate a Presentation object that represents a PPTX file
+  $pres = new Presentation("FontProperties.pptx");
+  try {
+    // Accessing a slide using its slide position
+    $slide = $pres->getSlides()->get_Item(0);
+    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+    $tf1 = $slide->getShapes()->get_Item(0)->getTextFrame();
+    $tf2 = $slide->getShapes()->get_Item(1)->getTextFrame();
+    // Accessing the first Paragraph
+    $para1 = $tf1->getParagraphs()->get_Item(0);
+    $para2 = $tf2->getParagraphs()->get_Item(0);
+    // Justify the paragraph
+    $para2->getParagraphFormat()->setAlignment(TextAlignment::JustifyLow);
+    // Accessing the first portion
+    $port1 = $para1->getPortions()->get_Item(0);
+    $port2 = $para2->getPortions()->get_Item(0);
+    // Define new fonts
+    $fd1 = new FontData("Elephant");
+    $fd2 = new FontData("Castellar");
+    // Assign new fonts to portion
+    $port1->getPortionFormat()->setLatinFont($fd1);
+    $port2->getPortionFormat()->setLatinFont($fd2);
+    // Set font to Bold
+    $port1->getPortionFormat()->setFontBold(NullableBool::True);
+    $port2->getPortionFormat()->setFontBold(NullableBool::True);
+    // Set font to Italic
+    $port1->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port2->getPortionFormat()->setFontItalic(NullableBool::True);
+    // Set font color
+    $port1->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port1->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port2->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    // Save the PPTX to disk
+    $pres->save("WelcomeFont.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-	// Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
-	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
-
-	// Accessing the first Paragraph
-	IParagraph para1 = tf1.getParagraphs().get_Item(0);
-	IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
-	// Justify the paragraph
-	para2.getParagraphFormat().setAlignment(TextAlignment.JustifyLow);
-
-	// Accessing the first portion
-	IPortion port1 = para1.getPortions().get_Item(0);
-	IPortion port2 = para2.getPortions().get_Item(0);
-
-	// Define new fonts
-	FontData fd1 = new FontData("Elephant");
-	FontData fd2 = new FontData("Castellar");
-
-	// Assign new fonts to portion
-	port1.getPortionFormat().setLatinFont(fd1);
-	port2.getPortionFormat().setLatinFont(fd2);
-
-	// Set font to Bold
-	port1.getPortionFormat().setFontBold(NullableBool.True);
-	port2.getPortionFormat().setFontBold(NullableBool.True);
-
-	// Set font to Italic
-	port1.getPortionFormat().setFontItalic(NullableBool.True);
-	port2.getPortionFormat().setFontItalic(NullableBool.True);
-
-	// Set font color
-	port1.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-	port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-	port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-	port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-
-	// Save the PPTX to disk
-	pres.save("WelcomeFont.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
 ```
 
 ## **Set Text Font Properties**
@@ -116,50 +109,42 @@ The implementation of the above steps is given below.
 | :- |
 |**Figure: Text with some font properties set by Aspose.Slides for PHP via Java**|
 
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation();
-try {
-	// Get first slide
-	ISlide sld = pres.getSlides().get_Item(0);
-	
-	// Add an AutoShape of Rectangle type
-	IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-	
-	// Remove any fill style associated with the AutoShape
-	ashp.getFillFormat().setFillType(FillType.NoFill);
-	
-	// Access the TextFrame associated with the AutoShape
-	ITextFrame tf = ashp.getTextFrame();
-	tf.setText("Aspose TextBox");
-	
-	// Access the Portion associated with the TextFrame
-	IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-	
-	// Set the Font for the Portion
-	port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
-	
-	// Set Bold property of the Font
-	port.getPortionFormat().setFontBold(NullableBool.True);
-	
-	// Set Italic property of the Font
-	port.getPortionFormat().setFontItalic(NullableBool.True);
-	
-	// Set Underline property of the Font
-	port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
-	
-	// Set the Height of the Font
-	port.getPortionFormat().setFontHeight(25);
-	
-	// Set the color of the Font
-	port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-	port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-	
-	// Save the presentation to disk
-	pres.save("pptxFont.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```php
+  // Instantiate a Presentation object that represents a PPTX file
+  $pres = new Presentation();
+  try {
+    // Get first slide
+    $sld = $pres->getSlides()->get_Item(0);
+    // Add an AutoShape of Rectangle type
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
+    // Remove any fill style associated with the AutoShape
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    // Access the TextFrame associated with the AutoShape
+    $tf = $ashp->getTextFrame();
+    $tf->setText("Aspose TextBox");
+    // Access the Portion associated with the TextFrame
+    $port = $tf->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    // Set the Font for the Portion
+    $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
+    // Set Bold property of the Font
+    $port->getPortionFormat()->setFontBold(NullableBool::True);
+    // Set Italic property of the Font
+    $port->getPortionFormat()->setFontItalic(NullableBool::True);
+    // Set Underline property of the Font
+    $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
+    // Set the Height of the Font
+    $port->getPortionFormat()->setFontHeight(25);
+    // Set the color of the Font
+    $port->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    // Save the presentation to disk
+    $pres->save("pptxFont.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 

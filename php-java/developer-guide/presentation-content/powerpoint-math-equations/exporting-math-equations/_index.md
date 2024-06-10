@@ -20,25 +20,20 @@ While humans easily write the code for some equation formats like LaTeX, they st
 
 This sample code shows you how to export a math equation from a presentation to MathML:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);
-    IMathParagraph mathParagraph = ((MathPortion)autoShape.getTextFrame().getParagraphs().get_Item(0).
-            getPortions().get_Item(0)).getMathParagraph();
+```php
+  $pres = new Presentation();
+  try {
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addMathShape(0, 0, 500, 50);
+    $mathParagraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+    $mathParagraph->add(new MathematicalText("a")->setSuperscript("2")->join("+")->join(new MathematicalText("b")->setSuperscript("2"))->join("=")->join(new MathematicalText("c")->setSuperscript("2")));
+    $stream = new FileOutputStream("mathml.xml");
+    $mathParagraph->writeAsMathMl($stream);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    mathParagraph.add(new MathematicalText("a").
-            setSuperscript("2").
-            join("+").
-            join(new MathematicalText("b").setSuperscript("2")).
-            join("=").
-            join(new MathematicalText("c").setSuperscript("2")));
-
-    FileOutputStream stream = new FileOutputStream("mathml.xml");
-    mathParagraph.writeAsMathMl(stream);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 

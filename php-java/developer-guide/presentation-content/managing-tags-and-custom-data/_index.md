@@ -24,13 +24,16 @@ Tags are essentially string-key pair values.
 
 In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/php-java/com.aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/php-java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for PHP via Java for [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation):
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try{
-    String keywords = pres.getDocumentProperties().getKeywords();
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $keywords = $pres->getDocumentProperties()->getKeywords();
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Adding Tags to Presentations
@@ -44,38 +47,47 @@ If you need to classify some presentations based on a specific rule or property,
 
 This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) using Aspose.Slides for PHP via Java:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ITagCollection tags = pres.getCustomData().getTags();
-    pres.getCustomData().getTags().set_Item("MyTag", "My Tag Value");
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $tags = $pres->getCustomData()->getTags();
+    $pres->getCustomData()->getTags()->set_Item("MyTag", "My Tag Value");
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide):
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    slide.getCustomData().getTags().set_Item("tag", "value");
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $slide->getCustomData()->getTags()->set_Item("tag", "value");
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 Or any individual [Shape](https://reference.aspose.com/slides/php-java/com.aspose.slides/IAutoShape):
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
-    shape.getTextFrame().setText("My text");
-    shape.getCustomData().getTags().set_Item("tag", "value");
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 50);
+    $shape->getTextFrame()->setText("My text");
+    $shape->getCustomData()->getTags()->set_Item("tag", "value");
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

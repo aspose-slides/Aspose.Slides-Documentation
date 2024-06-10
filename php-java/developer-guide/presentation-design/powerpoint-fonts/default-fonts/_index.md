@@ -20,32 +20,34 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 
 The implementation of the above is given below.
 
-```java
-// Use load options to define the default regualr and asian fonts
-LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
-loadOptions.setDefaultRegularFont("Wingdings");
-loadOptions.setDefaultAsianFont("Wingdings");
-
-// Load the presentation
-Presentation pres = new Presentation("DefaultFonts.pptx", loadOptions);
-try {
+```php
+  // Use load options to define the default regualr and asian fonts
+  $loadOptions = new LoadOptions(LoadFormat::Auto);
+  $loadOptions->setDefaultRegularFont("Wingdings");
+  $loadOptions->setDefaultAsianFont("Wingdings");
+  // Load the presentation
+  $pres = new Presentation("DefaultFonts.pptx", $loadOptions);
+  try {
     // Generate slide thumbnail
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1, 1);
     try {
-         // save the image on the disk.
-          slideImage.save("output.png", ImageFormat.Png);
+      // save the image on the disk.
+      $slideImage->save("output.png", ImageFormat::Png);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-
     // Generate PDF
-    pres.save("output_out.pdf", SaveFormat.Pdf);
-
+    $pres->save("output_out.pdf", SaveFormat::Pdf);
     // Generate XPS
-    pres.save("output_out.xps", SaveFormat.Xps);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("output_out.xps", SaveFormat::Xps);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

@@ -19,90 +19,85 @@ Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slide
 
 This Java code shows you how to get and remove embedded fonts from a presentation:
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
-try {
+```php
+  // Instantiates a Presentation object that represents a presentation file
+  $pres = new Presentation("EmbeddedFonts.pptx");
+  try {
     // Renders a slide containing a text frame that uses embedded "FunSized"
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    //Save the image to disk in JPEG format
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Dimension(960, 720));
+    // Save the image to disk in JPEG format
     try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
+      $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
     } finally {
-        if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
+    $fontsManager = $pres->getFontsManager();
     // Gets all embedded fonts
-    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
-
+    $embeddedFonts = $fontsManager->getEmbeddedFonts();
     // Finds the "Calibri" font
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
-            break;
-        }
+    $calibriEmbeddedFont = null;
+    for ($i = 0; $i < $embeddedFonts::$length; $i++) {
+      echo ("" . $embeddedFonts[$i]->getFontName());
+      if ("Calibri"->equals($embeddedFonts[$i]->getFontName())) {
+        $calibriEmbeddedFont = $embeddedFonts[$i];
+        break;
+      }
     }
-
     // Removes "Calibri" font
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
+    $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
     // Renders the presentation; "Calibri" font is replaced with an existing one
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     //Save the image to disk in JPEG format
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Dimension(960, 720));
+    // Save the image to disk in JPEG format
+    try {
+      $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
+    } finally {
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
+    }
     // Saves the presentation without embedded "Calibri" font to disk
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Add Embedded Fonts to Presentation**
 
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com.aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/php-java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This Java code shows you how to embed and add fonts to a presentation:
 
-```java
-// Loads the presentation
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+```php
+  // Loads the presentation
+  $pres = new Presentation("Fonts.pptx");
+  try {
+    $allFonts = $pres->getFontsManager()->getFonts();
+    $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
+    for ($font : $allFonts) {
+      $embeddedFontsContainsFont = false;
+      for ($i = 0; $i < $embeddedFonts::$length; $i++) {
+        if ($embeddedFonts[$i]->equals($font)) {
+          $embeddedFontsContainsFont = true;
+          break;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
-
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-        }
+      }
+      if (!$embeddedFontsContainsFont) {
+        $pres->getFontsManager()->addEmbeddedFont($font, EmbedFontCharacters::All);
+        $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
+      }
     }
-
     // Saves the presentation to disk
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Compress Embedded Fonts**
@@ -111,13 +106,16 @@ To allow you to compress the fonts embedded in a presentation and reduce its fil
 
 This Java code shows you how to compress embedded PowerPoint fonts:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    Compress->compressEmbeddedFonts($pres);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

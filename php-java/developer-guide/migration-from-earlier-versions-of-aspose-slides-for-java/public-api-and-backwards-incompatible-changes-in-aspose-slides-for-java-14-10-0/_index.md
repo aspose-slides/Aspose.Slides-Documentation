@@ -25,27 +25,20 @@ IChartDataPoint.remove()
 
 IChartCategory.remove()
 
-``` java
+```php
+  $pres = new Presentation();
+  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 400, true);
+  $chart->getChartData()->getCategories()->get_Item(0)->remove();// remove with ChartCategory.remove()
 
- Presentation pres = new Presentation();
+  $chart->getChartData()->getCategories()->remove($chart->getChartData()->getCategories()->get_Item(0));// remove with ChartCategoryCollection.remove()
 
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
+  for ($ser : $chart->getChartData()->getSeries()) {
+    $ser->getDataPoints()->get_Item(0)->remove();// remove with ChartDataPoint.remove()
 
-chart.getChartData().getCategories().get_Item(0).remove(); // remove with ChartCategory.remove()
+    $ser->getDataPoints()->remove($ser->getDataPoints()->get_Item(0));// ChartDataPointCollection.remove()
 
-chart.getChartData().getCategories().remove(chart.getChartData().getCategories().get_Item(0)); // remove with ChartCategoryCollection.remove()
-
-for (IChartSeries ser : chart.getChartData().getSeries())
-
-{
-
-    ser.getDataPoints().get_Item(0).remove(); // remove with ChartDataPoint.remove()
-
-    ser.getDataPoints().remove(ser.getDataPoints().get_Item(0)); // ChartDataPointCollection.remove()
-
-}
-
-pres.save("presentation.pptx", SaveFormat.Pptx);
+  }
+  $pres->save("presentation.pptx", SaveFormat::Pptx);
 
 ```
 ### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**

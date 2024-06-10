@@ -16,25 +16,25 @@ description: "Table cells in PowerPoint presentations in Java"
 
 This Java code shows you how to identify merged table cells in a presentation:
 
-```java
-Presentation pres = new Presentation("SomePresentationWithTable.pptx");
-try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // assuming that Slide#0.Shape#0 is a table
-    for (int i = 0; i < table.getRows().size(); i++)
-    {
-        for (int j = 0; j < table.getColumns().size(); j++)
-        {
-            ICell currentCell = table.getRows().get_Item(i).get_Item(j);
-            if (currentCell.isMergedCell())
-            {
-                System.out.println(String.format("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.",
-                        i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
-            }
+```php
+  $pres = new Presentation("SomePresentationWithTable.pptx");
+  try {
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// assuming that Slide#0.Shape#0 is a table
+
+    for ($i = 0; $i < $table->getRows()->size(); $i++) {
+      for ($j = 0; $j < $table->getColumns()->size(); $j++) {
+        $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
+        if ($currentCell->isMergedCell()) {
+          echo (sprintf ("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Remove Table Cells Border**
@@ -48,144 +48,124 @@ try {
 
 This Java code shows you how to remove the borders from table cells:
 
-```java
-// Instantiates Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses the first slide
-    Slide sld = (Slide)pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = { 50, 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
-
+    $dblCols = new double[]{ 50, 50, 50, 50 };
+    $dblRows = new double[]{ 50, 30, 30, 30, 30 };
     // Adds table shape to slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
+    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.NoFill);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.NoFill);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.NoFill);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.NoFill);
-        }
+    for ($row : $tbl->getRows()) {
+      for ($cell : $row) {
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+      }
     }
-
     // Writes the PPTX to disk
-    pres.save("table_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("table_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Numbering in Merged Cells**
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Java code demonstrates the process:
 
-```java
-// Instantiates Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
+    $dblCols = new double[]{ 70, 70, 70, 70 };
+    $dblRows = new double[]{ 70, 70, 70, 70 };
     // Adds a table shape to the slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
+    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    for ($row : $tbl->getRows()) {
+      for ($cell : $row) {
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderTop()->setWidth(5);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderRight()->setWidth(5);
+      }
     }
-
     // Merges cells (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
+    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
+    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
+    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
-```java
-// Instantiates Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
+    $dblCols = new double[]{ 70, 70, 70, 70 };
+    $dblRows = new double[]{ 70, 70, 70, 70 };
     // Adds a table shape to the slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
+    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    for ($row : $tbl->getRows()) {
+      for ($cell : $row) {
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderTop()->setWidth(5);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderRight()->setWidth(5);
+      }
     }
-
     // Merges cells (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
+    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
+    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
     // Merges cells (1, 1) x (1, 2)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-    
-	//Writes the PPTX file to disk
-    pres.save("MergeCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
+    // Writes the PPTX file to disk
+    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Numbering in Splitted Cell**
@@ -195,83 +175,73 @@ This time, we take a regular table (a table without merged cells) and then try t
 
 This Java code demonstrates the process we described:
 
-```java
-// Instantiates the Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates the Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
+    $dblCols = new double[]{ 70, 70, 70, 70 };
+    $dblRows = new double[]{ 70, 70, 70, 70 };
     // Adds a table shape to the slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
+    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for (IRow row : tbl.getRows())
-    {
-        for (ICell cell : row)
-        {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
-
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
-        }
+    for ($row : $tbl->getRows()) {
+      for ($cell : $row) {
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderTop()->setWidth(5);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cell->getCellFormat()->getBorderRight()->setWidth(5);
+      }
     }
-
     // Merges cells (1, 1) x (2, 1)
-    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-
+    $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
-    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-
+    $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
     // Splits cell (1, 1)
-    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
+    $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
+    // Writes the PPTX file to disk
+    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    //Writes the PPTX file to disk
-    pres.save("SplitCells_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Change Table Cell Background Color**
 
 This Java code shows you how to change a table cell's background color:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    double[] dblCols = { 150, 150, 150, 150 };
-    double[] dblRows = { 50, 50, 50, 50, 50 };
-
+```php
+  $presentation = new Presentation();
+  try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $dblCols = new double[]{ 150, 150, 150, 150 };
+    $dblRows = new double[]{ 50, 50, 50, 50, 50 };
     // create a new table
-    ITable table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
+    // set the background color for a cell
+    $cell = $table->get_Item(2, 3);
+    $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    // set the background color for a cell 
-    ICell cell = table.get_Item(2, 3);
-    cell.getCellFormat().getFillFormat().setFillType(FillType.Solid);
-    cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-    presentation.save("cell_background_color.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ## **Add Image Inside Table Cell**
@@ -289,39 +259,39 @@ try {
 
 This Java code shows you how to place an image inside a table cell when creating a table:
 
-```java
-// Instantiates the Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates the Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses the first slide
-    ISlide islide = pres.getSlides().get_Item(0);
-
+    $islide = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
-
+    $dblCols = new double[]{ 150, 150, 150, 150 };
+    $dblRows = new double[]{ 100, 100, 100, 100, 90 };
     // Adds a table shape to the slide
-    ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-
+    $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
     // Create an IPPImage object using the image file
-    IPPImage picture;
-    IImage image = Images.fromFile("image.jpg");
+    $picture;
+    $image = Images->fromFile("image.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+      $picture = $pres->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-
     // Adds the image to the first table cell
-    ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(FillType.Picture);
-    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
+    $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
+    $cellFormat->getFillFormat()->setFillType(FillType::Picture);
+    $cellFormat->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $cellFormat->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
     // Saves the PPTX file to Disk
-    pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

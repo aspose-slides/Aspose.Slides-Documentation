@@ -32,43 +32,51 @@ Aspose recently developed an online [Text to GIF](https://products.aspose.app/sl
 
 This Java code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
-try {
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
     // Converts the first slide in the presentation to a Images object
-    IImage slideImage = pres.getSlides().get_Item(0).getImage();
-
-	// Saves the image in the PNG format
-	try {
-        // save the image on the disk.
-         slideImage.save("Slide_0.png", ImageFormat.Png);
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage();
+    // Saves the image in the PNG format
+    try {
+      // save the image on the disk.
+      $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-	// Gets the presentation slide size
-	Dimension2D slideSize = new Dimension((int) slideSize.getWidth(), (int) slideSize.getHeight());
-
-	// Creates a Images with the slide size
-    IImage slideImage = sld.getImage(new RenderingOptions(), slideSize);
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
+    // Gets the presentation slide size
+    $slideSize = new Dimension($slideSize->getWidth(), $slideSize->getHeight());
+    // Creates a Images with the slide size
+    $slideImage = $sld->getImage(new RenderingOptions(), $slideSize);
     try {
-         // save the image on the disk.
-          slideImage.save("Slide_0.png", ImageFormat.Png);
+      // save the image on the disk.
+      $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-	if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="Tip" color="primary" %}} 
@@ -83,22 +91,26 @@ You may need to get an image of a certain size. Using an overload from the [getI
 
 This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method in Java:
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
-try {
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
     // Converts the first slide in the presentation to a Bitmap with the specified size
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1820, 1040));
-	
-	// Saves the image in the JPEG format
-	try {
-         // save the image on the disk.
-          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Dimension(1820, 1040));
+    // Saves the image in the JPEG format
+    try {
+      // save the image on the disk.
+      $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Converting Slides With Notes and Comments to Images**
@@ -115,65 +127,65 @@ With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ph
 
 This Java code demonstrates the conversion process for a slide with notes and comments:
 
-``` java 
-Presentation pres = new Presentation("PresentationNotesComments.pptx");
-try {
+```php
+  $pres = new Presentation("PresentationNotesComments.pptx");
+  try {
     // Creates the rendering options
-    IRenderingOptions options = new RenderingOptions();
-
+    $options = new RenderingOptions();
     // Sets the position of the notes on the page
-    options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-
-    // Sets the position of the comments on the page 
-    options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
-
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
+    // Sets the position of the comments on the page
+    $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
     // Sets the width of the comment output area
-    options.getNotesCommentsLayouting().setCommentsAreaWidth(500);
-
+    $options->getNotesCommentsLayouting()->setCommentsAreaWidth(500);
     // Sets the color for the comments area
-    options.getNotesCommentsLayouting().setCommentsAreaColor(Color.LIGHT_GRAY);
-
+    $options->getNotesCommentsLayouting()->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);
     // Converts the first slide of the presentation to a Bitmap object
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, 2f, 2f);
-
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, 2.0, 2.0);
     // Saves the image in the GIF format
     try {
-          slideImage.save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+      $slideImage->save("Slide_Notes_Comments_0.gif", ImageFormat::Gif);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 This Java code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
-``` java
-Presentation pres = new Presentation("PresentationNotes.pptx");
-try {
-	// Gets the presentation notes size
-	Dimension2D notesSize = pres.getNotesSize().getSize();
-
-	// Creates the rendering options
-	IRenderingOptions options = new RenderingOptions();
-
-	// Sets the position of the notes
-	options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-
-	// Creates a Images with the notes' size
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, notesSize);
-
-	// Saves the image in PNG format
+```php
+  $pres = new Presentation("PresentationNotes.pptx");
+  try {
+    // Gets the presentation notes size
+    $notesSize = $pres->getNotesSize()->getSize();
+    // Creates the rendering options
+    $options = new RenderingOptions();
+    // Sets the position of the notes
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
+    // Creates a Images with the notes' size
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, $notesSize);
+    // Saves the image in PNG format
     try {
-         // save the image on the disk.
-          slideImage.save("Slide_0.png", ImageFormat.Png);
+      // save the image on the disk.
+      $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-	if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -188,41 +200,39 @@ The [ITiffOptions](https://reference.aspose.com/slides/php-java/com.aspose.slide
 
 This Java code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
-``` java 
-Presentation pres = new Presentation("PresentationNotesComments.pptx");
-try {
-	// Gets a slide by its index
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	// Creates a TiffOptions object
-	TiffOptions options = new TiffOptions();
-	options.setImageSize(new Dimension(2160, 2880));
-
-	// Set the font used in case source font is not found
-	options.setDefaultRegularFont("Arial Black");
-
-	// Set the position of the notes on the page
-	options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-
-	// Sets the pixel format (black and white)
-	options.setPixelFormat(ImagePixelFormat.Format1bppIndexed);
-
-	// Sets the resolution
-	options.setDpiX(300);
-	options.setDpiY(300);
-
-	// Converts the slide to a Bitmap object
-	IImage slideImage = slide.getImage(options);
-
-	// Saves the image in TIFF format
-	try {
-          slideImage.save("PresentationNotesComments.tiff", ImageFormat.Tiff);
+```php
+  $pres = new Presentation("PresentationNotesComments.pptx");
+  try {
+    // Gets a slide by its index
+    $slide = $pres->getSlides()->get_Item(0);
+    // Creates a TiffOptions object
+    $options = new TiffOptions();
+    $options->setImageSize(new Dimension(2160, 2880));
+    // Set the font used in case source font is not found
+    $options->setDefaultRegularFont("Arial Black");
+    // Set the position of the notes on the page
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
+    // Sets the pixel format (black and white)
+    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);
+    // Sets the resolution
+    $options->setDpiX(300);
+    $options->setDpiY(300);
+    // Converts the slide to a Bitmap object
+    $slideImage = $slide->getImage($options);
+    // Saves the image in TIFF format
+    try {
+      $slideImage->save("PresentationNotesComments.tiff", ImageFormat::Tiff);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-	if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -237,28 +247,31 @@ Aspose.Slides allows you to convert all slides in a single presentation to image
 
 This sample code shows you how to convert all slides in a presentation to images in Java:
 
-``` java 
-Presentation pres = new Presentation("Presentation.pptx");
-try {
+```php
+  $pres = new Presentation("Presentation.pptx");
+  try {
     // Render presentation to images array slide by slide
-    for (int i = 0 ; i < pres.getSlides().size(); i++)
-    {
-        // Control hidden slides (do not render hidden slides)
-        if (pres.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Convert slide to a Bitmap object
-        IImage slideImage = pres.getSlides().get_Item(i).getImage(2f, 2f);
-
-        // Save the image in PNG format
-        try {
-              slideImage.save("Slide_" + i + ".png", ImageFormat.Png);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+    for ($i = 0; $i < $pres->getSlides()->size(); $i++) {
+      // Control hidden slides (do not render hidden slides)
+      if ($pres->getSlides()->get_Item($i)->getHidden()) {
+        continue;
+      }
+      // Convert slide to a Bitmap object
+      $slideImage = $pres->getSlides()->get_Item($i)->getImage(2.0, 2.0);
+      // Save the image in PNG format
+      try {
+        $slideImage->save("Slide_" . $i . ".png", ImageFormat::Png);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
         }
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-} 
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

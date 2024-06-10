@@ -17,23 +17,14 @@ New methods added:
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
-``` java
-
- Presentation presentation = new Presentation("presentation.pptx");
-
-//The first way
-
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//The second way
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+```php
+  $presentation = new Presentation("presentation.pptx");
+  // The first way
+  // ...
+  $imageData = $presentation->getImages()->get_Item(0)->replaceImage($imageData);
+  // The second way
+  $presentation->getImages()->get_Item(1)->replaceImage($presentation->getImages()->get_Item(0));
+  $presentation->save("presentation_out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Added Methods for Saving Slides Keeping Page Numbers**
@@ -46,22 +37,19 @@ The following methods have been added:
 
 These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTML formats. The 'slides' array allows to specify page numbers, starting from 1.
 
-``` java
-
- save(string fname, int\[\] slides, SaveFormat format);
+```php
+  save($string, $slides, SaveFormat);
 
 ```
 
 
 
 
-``` java
+```php
+  $presentation = new Presentation($presentationFileName);
+  $slides = new int[]{ 2, 3, 5 };// Array of slides positions
 
- Presentation presentation = new Presentation(presentationFileName);
-
-int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
-
-presentation.save(outFileName, slides, SaveFormat.Pdf);
+  $presentation->save($outFileName, $slides, SaveFormat::Pdf);
 
 ```
 ### **Added the SmartArtLayoutType.Custom Enum Value**
@@ -77,25 +65,15 @@ SmartArtShape does not supported IShape properties RawFrame, Frame, Rotation, X,
 
 Example of usage:
 
-``` java
-
- Presentation pres = new Presentation();
-
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
-
-ISmartArtNode node = smart.getAllNodes().get_Item(0);
-
-for (ISmartArtShape shape : node.getShapes())
-
-{
-
-    shape.getFillFormat().setFillType(FillType.Solid);
-
-    shape.getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-}
-
-pres.save("out.pptx", SaveFormat.Pptx);
+```php
+  $pres = new Presentation();
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+  $node = $smart->getAllNodes()->get_Item(0);
+  for ($shape : $node->getShapes()) {
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+  }
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
@@ -109,24 +87,14 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
 
 ﻿
 
-``` java
-
- Presentation pres = new Presentation();
-
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
-
-ISmartArtNode node = smart.getAllNodes().get_Item(0);
-
-for (ISmartArtShape shape : node.getShapes())
-
-{
-
-    shape.getFillFormat().setFillType(FillType.Solid);
-
-    shape.getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-}
-
-pres.save("out.pptx", SaveFormat.Pptx);
+```php
+  $pres = new Presentation();
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+  $node = $smart->getAllNodes()->get_Item(0);
+  for ($shape : $node->getShapes()) {
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+  }
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```

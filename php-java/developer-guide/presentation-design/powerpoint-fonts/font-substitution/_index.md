@@ -19,38 +19,37 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 
 This Java code demonstrates the font substitution process:
 
-```java
-// Loads a presentation
-Presentation pres = new Presentation("Fonts.pptx");
-try {
+```php
+  // Loads a presentation
+  $pres = new Presentation("Fonts.pptx");
+  try {
     // Loads the source font that will be replaced
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
+    $sourceFont = new FontData("SomeRareFont");
     // Loads the new font
-    IFontData destFont = new FontData("Arial");
-    
+    $destFont = new FontData("Arial");
     // Adds a font rule for font replacement
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
+    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition::WhenInaccessible);
     // Adds the rule to font substitute rules collection
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
+    $fontSubstRuleCollection = new FontSubstRuleCollection();
+    $fontSubstRuleCollection->add($fontSubstRule);
     // Adds a font rule collection to the rule list
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
+    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
     // Arial font will be used in place of SomeRareFont when the latter is inaccessible
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
     // Saves the image to disk in the JPEG format
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 

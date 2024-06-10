@@ -24,23 +24,21 @@ When you purchase a metered license, you get keys (and not a license file). This
 
 This Java code shows you how to set metered public and private keys:
 
-```java
-com.aspose.slides.Metered metered=new com.aspose.slides.Metered();
-try {
+```php
+  $metered = new Metered();
+  try {
     // Accesses the setMeteredKey property and pass public and private keys as parameters
-    metered.setMeteredKey("<valid pablic key>", "<valid private key>");
-
+    $metered->setMeteredKey("<valid pablic key>", "<valid private key>");
     // Gets the consumed qantity value before accessing API
-    double quantityOld = com.aspose.slides.Metered.getConsumptionQuantity();
-    System.out.println("Consumption quantity" + quantityOld);
-
-
+    $quantityOld = Metered->getConsumptionQuantity();
+    echo ("Consumption quantity" . $quantityOld);
     // Gets the consumed qantity value after accessing API
-    double quantity = com.aspose.slides.Metered.getConsumptionQuantity();
-    System.out.println("Consumption quantity" + quantity);
-} catch (Exception ex) {
-    ex.printStackTrace();
-}
+    $quantity = Metered->getConsumptionQuantity();
+    echo ("Consumption quantity" . $quantity);
+  } catch (JavaException $ex) {
+    $ex->printStackTrace();
+  }
+
 ```
 
 {{% alert color="warning" title="NOTE"  %}} 

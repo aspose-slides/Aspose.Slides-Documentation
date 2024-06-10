@@ -17,20 +17,22 @@ Aspose.Slides for PHP via Java provides a simple API for . 
 1. Gets actual width of the chart element.
 1. Gets actual height of the chart element.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-    chart.validateChartLayout();
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 350);
+    $chart->validateChartLayout();
+    $x = $chart->getPlotArea()->getActualX();
+    $y = $chart->getPlotArea()->getActualY();
+    $w = $chart->getPlotArea()->getActualWidth();
+    $h = $chart->getPlotArea()->getActualHeight();
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    double x = chart.getPlotArea().getActualX();
-    double y = chart.getPlotArea().getActualY();
-    double w = chart.getPlotArea().getActualWidth();
-    double h = chart.getPlotArea().getActualHeight();
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Set Layout Mode of Chart Plot Area**
@@ -41,20 +43,22 @@ Aspose.Slides for PHP via Java provides a simple API to set the layout mode of t
 
 Sample code is given below.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-    chart.getPlotArea().setX(0.2f);
-    chart.getPlotArea().setY(0.2f);
-    chart.getPlotArea().setWidth(0.7f);
-    chart.getPlotArea().setHeight(0.7f);
-    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
+```php
+  // Create an instance of Presentation class
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
+    $chart->getPlotArea()->setX(0.2);
+    $chart->getPlotArea()->setY(0.2);
+    $chart->getPlotArea()->setWidth(0.7);
+    $chart->getPlotArea()->setHeight(0.7);
+    $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
+    $pres->save("SetLayoutMode_outer.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    pres.save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

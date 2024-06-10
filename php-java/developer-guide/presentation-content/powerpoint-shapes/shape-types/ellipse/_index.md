@@ -22,21 +22,22 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 
 In the example given below, we have added an ellipse to the first slide
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate Presentation class that represents the PPTX
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
+    $sld = $pres->getSlides()->get_Item(0);
     // Add AutoShape of ellipse type
-    sld.getShapes().addAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
-    
+    $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
     // Write the PPTX file to disk
-    pres.save("EllipseShp1.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Create Formatted Ellipse**
@@ -53,28 +54,27 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate Presentation class that represents the PPTX
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Add AutoShape of ellipse type
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
-
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
     // Apply some formatting to ellipse shape
-    shp.getFillFormat().setFillType(FillType.Solid);
-    shp.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Chocolate));
-
+    $shp->getFillFormat()->setFillType(FillType::Solid);
+    $shp->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor::Chocolate));
     // Apply some formatting to the line of Ellipse
-    shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shp.getLineFormat().setWidth(5);
-
+    $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $shp->getLineFormat()->setWidth(5);
     // Write the PPTX file to disk
-    pres.save("EllipseShp1.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

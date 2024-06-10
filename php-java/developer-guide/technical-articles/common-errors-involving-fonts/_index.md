@@ -28,11 +28,17 @@ In some cases, you may be unable to grant access to folders due to restrictions 
 
 Use [FontsLoader](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsLoader) to load the required fonts without installing them:
 
+```php
+
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
+```php
+
 ```
 
 If the TEMP directory cannot be accessed, use this code to specify another directory as the TEMP for Java:
+```php
+
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -50,6 +56,8 @@ try {
 } finally {
     System.setProperty("java.io.tmpdir", oldValue);
 }
+```php
+
 ```
 
 ## **Exception: InvalidOperationException: Cannot find any fonts installed on the system**
@@ -69,24 +77,36 @@ This exception occurs when
 
    * Ubuntu: 
 
+```php
+
      ```
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
+```php
+
      ```
 
    * CentOS: 
+
+```php
 
      ```
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
+```php
+
      ```
 
    * Using [FontsLoader](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsLoader):
 
+```php
+
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
+```php
+
      ```
 
 ## **Exception: NoClassDefFoundError: Could not initialize class com.aspose.slides.internal.ey.this**
@@ -99,32 +119,48 @@ Install fontconfig:
 
 * Ubuntu:
 
+```php
+
   ```
   sudo apt-get update
   sudo apt-get -y install fontconfig
+```php
+
   ```
 
 * CentOS:
 
+```php
+
   ```
   sudo yum makecache
   sudo yum -y install fontconfig
+```php
+
   ```
 
 Additionally, some open-jdk versions (for example, **alpine JDK**) also **require installed fonts**.
 
 * Ubuntu:
 
+```php
+
   ```
   sudo apt-get install -y fonts-dejavu-core
   fc-cache -fv
+```php
+
   ```
 
 * CentOS:
 
+```php
+
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
+```php
+
   ```
 
 ## **Exception: UnsatisfiedLinkError: libfreetype.so.6: cannot open shared object file: No such file or directory**
@@ -137,18 +173,26 @@ Install libfreetype and fontconfig:
 
 * Ubuntu: 
 
+```php
+
   ```
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
+```php
+
   ```
 
 * CentOS: 
+
+```php
 
   ```
   sudo yum makecache
   sudo yum install libfreetype6
   sudo yum -y install fontconfig
+```php
+
   ```
 
 {{% alert title="TIP" color="primary" %}} 

@@ -30,25 +30,25 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 This Java code shows you how to create a picture frame:
 
-```java
-// Instantiates the Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates the Presentation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
+    $sld = $pres->getSlides()->get_Item(0);
     // Instantiates the Image class
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
+    $imgx = $pres->getImages()->addImage(new FileInputStream(new File("asp1.jpg")));
     // Adds a picture frame with the picture's equivalent height and width
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
+    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Write the PPTX file to disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert color="warning" %}} 
@@ -70,74 +70,73 @@ By altering an image's relative scaling, you can create a more complicated pictu
 
 This Java code shows you how to create a picture frame with relative scale:
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate Presentation class that represents the PPTX
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
+    $sld = $pres->getSlides()->get_Item(0);
     // Instantiate the Image class
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
+    $imgx = $pres->getImages()->addImage(new FileInputStream(new File("asp1.jpg")));
     // Add Picture Frame with height and width equivalent of Picture
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
+    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Setting relative scale width and height
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
+    $pf->setRelativeScaleHeight(0.8);
+    $pf->setRelativeScaleWidth(1.35);
     // Write the PPTX file to disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Extract Image from Picture Frame**
 
 You can extract images from [PictureFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-                IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-                slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-            } finally {
-                     if (slideImage != null) slideImage.dispose();
-                 }
+```php
+  $presentation = new Presentation("sample.pptx");
+  try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $firstShape = $firstSlide->getShapes()->get_Item(0);
+    if ($firstShape instanceof IPictureFrame) {
+      $pictureFrame = $firstShape;
+      try {
+        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
+        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
+      } finally {
+        if ($slideImage != null) {
+          $slideImage->dispose();
+        }
+      }
     }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
+  } catch (JavaException $e) {
+  } finally {
+    $presentation->dispose();
+  }
+
 ```
 
 ## **Get Transparency of Image**
 
 Aspose.Slides allows you to get the transparency of an image. This Java code demonstrates the operation:
 
-```java
-Presentation presentation = new Presentation(folderPath + "Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
+```php
+  $presentation = new Presentation($folderPath . "Test.pptx");
+  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
+  for ($effect : $imageTransform) {
+    if ($effect instanceof IAlphaModulateFixed) {
+      $alphaModulateFixed = $effect;
+      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
+      echo ("Picture transparency: " . $transparencyValue);
     }
-}
+  }
+
 ```
 
 ## **Picture Frame Formatting**
@@ -160,31 +159,30 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 
 This Java code demonstrates the picture frame formatting process:
 
-```java
-// Instantiates the Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates the Presentation class that represents the PPTX
+  $pres = new Presentation();
+  try {
     // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
+    $sld = $pres->getSlides()->get_Item(0);
     // Instantiates the Image class
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
+    $imgx = $pres->getImages()->addImage(new FileInputStream(new File("asp1.jpg")));
     // Adds Picture Frame with height and width equivalent of Picture
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
+    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Applies some formatting to PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
+    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pf->getLineFormat()->setWidth(20);
+    $pf->setRotation(45);
     // Writes the PPTX file to disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="Tip" color="primary" %}}
@@ -197,90 +195,75 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Java code shows you how to add an image and video into a placeholder:
 
-```java
-Presentation presentation = new Presentation("input.pptx");
-try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-
-                shapesToRemove.add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-
-                shapesToRemove.add(autoShape);
-                break;
-        }
+```php
+  $presentation = new Presentation("input.pptx");
+  try {
+    $shapesToRemove = new ArrayList<IShape>();
+    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
+    for ($i = 0; $i < $shapesCount; $i++) {
+      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
+      if ($autoShape->getPlaceholder() == null) {
+        continue;
+      }
+      switch ($autoShape->getPlaceholder()->getType()) {
+        case PlaceholderType::Picture :
+          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
+          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+          $shapesToRemove->add($autoShape);
+          break;
+        case PlaceholderType::Media :
+          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
+          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+          $shapesToRemove->add($autoShape);
+          break;
+      }
     }
-
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    for ($shape : $shapesToRemove) {
+      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
     }
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
 
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ## **Crop Image**
 
 This Java code shows you how to crop an existing image on a slide:
 
-```java
-Presentation pres = new Presentation();
-// Creates new image object
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
+```php
+  $pres = new Presentation();
+  // Creates new image object
+  try {
+    $picture;
+    $image = Images->fromFile($imagePath);
     try {
-        picture = pres.getImages().addImage(image);
+      $picture = $pres->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-
     // Adds a PictureFrame to a Slide
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
+    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
     // Crops the image (percentage values)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
+    $picFrame->getPictureFormat()->setCropLeft(23.6);
+    $picFrame->getPictureFormat()->setCropRight(21.5);
+    $picFrame->getPictureFormat()->setCropTop(3);
+    $picFrame->getPictureFormat()->setCropBottom(31);
     // Saves the result
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save($outPptxFile, SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Delete Cropped Areas of Picture
@@ -289,22 +272,22 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 
 This Java code demonstrates the operation:
 
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
+```php
+  $presentation = new Presentation("PictureFrameCrop.pptx");
+  try {
+    $slide = $presentation->getSlides()->get_Item(0);
     // Gets the PictureFrame from the first slide
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
+    $picFrame = $slide->getShapes()->get_Item(0);
     // Deletes cropped areas of the PictureFrame image and returns the cropped image
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
+    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
     // Saves the result
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
@@ -321,27 +304,30 @@ If you want a shape containing an image to retain its aspect ratio even after yo
 
 This Java code shows you how to lock a shape's aspect ratio:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
+    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
+    $picture;
+    $image = Images->fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+      $picture = $pres->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-
+    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
     // set shape to have to preserve aspect ratio on resizing
-    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
@@ -368,45 +354,43 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 
 This Java code demonstrates a process in which a StretchOff property is used:
 
-```java
-// Instantiates the Prseetation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates the Prseetation class that represents a PPTX file
+  $pres = new Presentation();
+  try {
     // Gets the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // Instantiates the ImageEx class
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+    $picture;
+    $image = Images->fromFile("aspose-logo.jpg");
     try {
-        picture = pres.getImages().addImage(image);
+      $picture = $pres->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-
     // Adds an AutoShape set to Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
+    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     // Sets the shape's fill type
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
+    $aShape->getFillFormat()->setFillType(FillType::Picture);
     // Sets the shape's picture fill mode
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
+    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
     // Sets the image to fill the shape
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
+    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
     // Specifies the image offsets from the corresponding edge of the shape's bounding box
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    //Writes the PPTX file to disk
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
+    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
+    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
+    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
+    // Writes the PPTX file to disk
+    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

@@ -30,42 +30,38 @@ Assuming you already created a chart in Microsoft Excel and want to embed that c
 In the example below, we added a chart from an Excel file to a slide as an OLE Object Frame using Aspose.Slides for PHP via Java.
 **Note** that the [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/com.aspose.slides/IOleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
-``` java 
-// Instantiates Prseetation class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiates Prseetation class that represents the PPTX file
+  $pres = new Presentation();
+  try {
     // Accesses the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Loads an excel file to stream
-    FileInputStream fs = new FileInputStream("book1.xlsx");
-    ByteArrayOutputStream mstream = new ByteArrayOutputStream();
-    byte[] buf = new byte[4096];
-    while (true)
-    {
-        int bytesRead = fs.read(buf, 0, buf.length);
-        if (bytesRead <= 0)
-            break;
-        mstream.write(buf, 0, bytesRead);
-    }
-    fs.close();
-
+    $fs = new FileInputStream("book1.xlsx");
+    $mstream = new ByteArrayOutputStream();
+    $buf = new byte[4096];
+    while (true) {
+      $bytesRead = $fs->read($buf, 0, $buf::$length);
+      if ($bytesRead <= 0) {
+        break;
+      }
+      $mstream->write($buf, 0, $bytesRead);
+    } 
+    $fs->close();
     // Creates a data object for embedding
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.toByteArray(), "xlsx");
-    mstream.close();
-
+    $dataInfo = new OleEmbeddedDataInfo($mstream->toByteArray(), "xlsx");
+    $mstream->close();
     // Adds an Ole Object Frame shape
-    IOleObjectFrame oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0,
-            (float) pres.getSlideSize().getSize().getWidth(),
-            (float) pres.getSlideSize().getSize().getHeight(),
-            dataInfo);
+    $oleObjectFrame = $sld->getShapes()->addOleObjectFrame(0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $dataInfo);
+    // Writes the PPTX file to disk
+    $pres->save("OleEmbed_out.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    //Writes the PPTX file to disk
-    pres.save("OleEmbed_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Accessing OLE Object Frames**
@@ -80,39 +76,37 @@ If an OLE object is already embedded in a slide, you can find or access that obj
 
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file.
 
-``` java 
-// Loads the PPTX to  a Presentation object
-Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx");
-try {
+```php
+  // Loads the PPTX to  a Presentation object
+  $pres = new Presentation("AccessingOLEObjectFrame.pptx");
+  try {
     // Accesses the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Casts the shape to OleObjectFrame
-    OleObjectFrame oleObjectFrame = (OleObjectFrame) sld.getShapes().get_Item(0);
-
+    $oleObjectFrame = $sld->getShapes()->get_Item(0);
     // Reads the OLE Object and writes it to disk
-    if (oleObjectFrame != null) {
-        // Get embedded file data
-        byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
-
-        // Gets embedded file extention
-        String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
-
-        // Creates a path to save the extracted file
-        String extractedPath = "excelFromOLE_out" + fileExtention;
-
-        // Saves extracted data
-        FileOutputStream fstr = new FileOutputStream(extractedPath);
-        try {
-            fstr.write(data, 0, data.length);
-        } finally {
-            fstr.close();
-        }
+    if ($oleObjectFrame != null) {
+      // Get embedded file data
+      $data = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileData();
+      // Gets embedded file extention
+      $fileExtention = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension();
+      // Creates a path to save the extracted file
+      $extractedPath = "excelFromOLE_out" . $fileExtention;
+      // Saves extracted data
+      $fstr = new FileOutputStream($extractedPath);
+      try {
+        $fstr->write($data, 0, $data::$length);
+      } finally {
+        $fstr->close();
+      }
     }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Changing OLE Object Data**
@@ -132,55 +126,53 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data:
 
-``` java 
-Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-	
-    OleObjectFrame ole = null;
-
+```php
+  $pres = new Presentation("ChangeOLEObjectData.pptx");
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $ole = null;
     // Traverses all shapes for Ole frame
-    for (IShape shape : slide.getShapes()) 
-    {
-        if (shape instanceof OleObjectFrame) 
-        {
-            ole = (OleObjectFrame) shape;
-        }
+    for ($shape : $slide->getShapes()) {
+      if ($shape instanceof OleObjectFrame) {
+        $ole = $shape;
+      }
     }
-
-    if (ole != null) {
-        ByteArrayInputStream msln = new ByteArrayInputStream(ole.getEmbeddedData().getEmbeddedFileData());
+    if ($ole != null) {
+      $msln = new ByteArrayInputStream($ole->getEmbeddedData()->getEmbeddedFileData());
+      try {
+        // Reads object data in Workbook
+        $Wb = new Workbook($msln);
+        $msout = new ByteArrayOutputStream();
         try {
-            // Reads object data in Workbook
-            Workbook Wb = new Workbook(msln);
-
-            ByteArrayOutputStream msout = new ByteArrayOutputStream();
-            try {
-                // Modifies the workbook data
-                Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
-                Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
-                Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
-                Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
-
-                OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
-                Wb.save(msout, so1);
-
-                // Changes Ole frame object data
-                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
-                ole.setEmbeddedData(newData);
-            } finally {
-                if (msout != null) msout.close();
-            }
+          // Modifies the workbook data
+          $Wb->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");
+          $Wb->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
+          $Wb->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
+          $Wb->getWorksheets()->get(0)->getCells()->get(3, 4)->putValue(15);
+          $so1 = new OoxmlSaveOptions(SaveFormat::XLSX);
+          $Wb->save($msout, $so1);
+          // Changes Ole frame object data
+          $newData = new OleEmbeddedDataInfo($msout->toByteArray(), $ole->getEmbeddedData()->getEmbeddedFileExtension());
+          $ole->setEmbeddedData($newData);
         } finally {
-            if (msln != null) msln.close();
+          if ($msout != null) {
+            $msout->close();
+          }
         }
+      } finally {
+        if ($msln != null) {
+          $msln->close();
+        }
+      }
     }
+    $pres->save("OleEdit_out.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    pres.save("OleEdit_out.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## Embedding Other File Types in Slides
@@ -189,26 +181,44 @@ Besides Excel charts, Aspose.Slides for PHP via Java allows you to embed other t
 
 This Java code shows you how to embed HTML and ZIP in a slide:
 
-```java
-Presentation pres = new Presentation();
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+$Array = new JavaClass("java.lang.reflect.Array");
+$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    byte[] htmlBytes = Files.readAllBytes(Paths.get("embedOle.html"));
-    IOleEmbeddedDataInfo dataInfoHtml = new OleEmbeddedDataInfo(htmlBytes, "html");
-    IOleObjectFrame oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
-    oleFrameHtml.setObjectIcon(true);
-
-    byte[] zipBytes = Files.readAllBytes(Paths.get("embedOle.zip"));
-    IOleEmbeddedDataInfo dataInfoZip = new OleEmbeddedDataInfo(zipBytes, "zip");
-    IOleObjectFrame oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
-    oleFrameZip.setObjectIcon(true);
-
-    pres.save("embeddedOle.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
+    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.html"));
+    $bytes = $Array->newInstance($Byte, $dis->available());
+    $dis->readFully($bytes);
 } finally {
-    if (pres != null) pres.dispose();
+    if ($dis != null) $dis->close();
 }
+    $htmlBytes = $bytes;
+
+    $dataInfoHtml = new OleEmbeddedDataInfo($htmlBytes, "html");
+    $oleFrameHtml = $slide->getShapes()->addOleObjectFrame(150, 120, 50, 50, $dataInfoHtml);
+    $oleFrameHtml->setObjectIcon(true);
+try {
+    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.zip"));
+    $bytes = $Array->newInstance($Byte, $dis->available());
+    $dis->readFully($bytes);
+} finally {
+    if ($dis != null) $dis->close();
+}
+    $zipBytes = $bytes;
+
+    $dataInfoZip = new OleEmbeddedDataInfo($zipBytes, "zip");
+    $oleFrameZip = $slide->getShapes()->addOleObjectFrame(150, 220, 50, 50, $dataInfoZip);
+    $oleFrameZip->setObjectIcon(true);
+    $pres->save("embeddedOle.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Setting File Types for Embedded Objects
@@ -219,20 +229,31 @@ Aspose.Slides for PHP via Java allows you to set the file type for an embedded o
 
 This Java shows you how to set the file type for an embedded OLE object:
 
-```java
-Presentation pres = new Presentation("embeddedOle.pptx");
+```php
+  $pres = new Presentation("embeddedOle.pptx");
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $oleObjectFrame = $slide->getShapes()->get_Item(0);
+    echo ("Current embedded data extension is: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
+$Array = new JavaClass("java.lang.reflect.Array");
+$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
-    System.out.println("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
-
-    oleObjectFrame.setEmbeddedData(new OleEmbeddedDataInfo(Files.readAllBytes(Paths.get("embedOle.zip")), "zip"));
-
-    pres.save("embeddedChanged.pptx", SaveFormat.Pptx);
-} catch (Exception e) {
+    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.zip"));
+    $bytes = $Array->newInstance($Byte, $dis->available());
+    $dis->readFully($bytes);
 } finally {
-    if (pres != null) pres.dispose();
+    if ($dis != null) $dis->close();
 }
+    $oleObjectFrame->setEmbeddedData(new OleEmbeddedDataInfo($bytes, "zip"));
+
+    $pres->save("embeddedChanged.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Setting Icon Images and Titles for Embedded Objects
@@ -243,28 +264,31 @@ If you want to use a specific image and text as elements in the preview, you can
 
 This Java code shows you how to set the icon image and title for an embedded object: 
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $oleObjectFrame = $slide->getShapes()->get_Item(0);
+    $oleImage;
+    $image = Images->fromFile("image.png");
+    try {
+      $oleImage = $pres->getImages()->addImage($image);
+    } finally {
+      if ($image != null) {
+        $image->dispose();
+      }
+    }
+    $oleObjectFrame->setSubstitutePictureTitle("My title");
+    $oleObjectFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
+    $oleObjectFrame->setObjectIcon(false);
+    $pres->save("embeddedOle-newImage.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-        IPPImage oleImage;
-        IImage image = Images.fromFile("image.png");
-        try {
-             oleImage = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-    oleObjectFrame.setSubstitutePictureTitle("My title");
-    oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
-    oleObjectFrame.setObjectIcon(false);
-
-    pres.save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## Extracting Embedded Files
@@ -277,32 +301,30 @@ Aspose.Slides for PHP via Java allows you to extract the files embedded in slide
 
 This Java code shows you how to extract a file embedded in a slide as an OLE object:
 
-```java
-Presentation pres = new Presentation("embeddedOle.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    for (int index = 0; index < slide.getShapes().size(); index++)
-    {
-        IShape shape = slide.getShapes().get_Item(index);
-        IOleObjectFrame oleFrame = (IOleObjectFrame)shape;
-
-        if (oleFrame != null) 
-		{
-            byte[] data = oleFrame.getEmbeddedData().getEmbeddedFileData();
-            String extension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
-
-            // Save extracted data
-            FileOutputStream fstr = new FileOutputStream("oleFrame" + index + extension);
-            try {
-                fstr.write(data, 0, data.length);
-            } finally {
-                fstr.close();
-            }
+```php
+  $pres = new Presentation("embeddedOle.pptx");
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    for ($index = 0; $index < $slide->getShapes()->size(); $index++) {
+      $shape = $slide->getShapes()->get_Item($index);
+      $oleFrame = $shape;
+      if ($oleFrame != null) {
+        $data = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
+        $extension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
+        // Save extracted data
+        $fstr = new FileOutputStream("oleFrame" . $index . $extension);
+        try {
+          $fstr->write($data, 0, $data::$length);
+        } finally {
+          $fstr->close();
         }
+      }
     }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

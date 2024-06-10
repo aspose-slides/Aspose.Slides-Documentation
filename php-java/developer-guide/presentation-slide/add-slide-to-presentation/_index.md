@@ -20,22 +20,21 @@ Aspose.Slides for PHP via Java allows developers to add empty slides to their pr
 - Do some work with the newly added empty slide.
 - Finally, write the presentation file using the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) object.
 
-```java
-// Instantiate Presentation class that represents the presentation file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate Presentation class that represents the presentation file
+  $pres = new Presentation();
+  try {
     // Instantiate SlideCollection calss
-    ISlideCollection slds = pres.getSlides();
-
-    for (int i = 0; i < pres.getLayoutSlides().size(); i++) {
-        // Add an empty slide to the Slides collection
-        slds.addEmptySlide(pres.getLayoutSlides().get_Item(i));
+    $slds = $pres->getSlides();
+    for ($i = 0; $i < $pres->getLayoutSlides()->size(); $i++) {
+      // Add an empty slide to the Slides collection
+      $slds->addEmptySlide($pres->getLayoutSlides()->get_Item($i));
     }
     // Do some work on the newly added slide
-
     // Save the PPTX file to the Disk
-    pres.save("EmptySlide.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+    $pres->save("EmptySlide.pptx", SaveFormat::Pptx);
+  } finally {
+    $pres->dispose();
+  }
+
 ```

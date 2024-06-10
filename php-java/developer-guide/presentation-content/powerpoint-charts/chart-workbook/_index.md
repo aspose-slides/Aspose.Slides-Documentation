@@ -12,21 +12,21 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 
 This Java code demonstrates a sample operation:
 
-```java
-Presentation pres = new Presentation("chart.pptx");
-try {
-    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartData data = chart.getChartData();
+```php
+  $pres = new Presentation("chart.pptx");
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $chart->getChartData();
+    $stream = $data->readWorkbookStream();
+    $data->getSeries()->clear();
+    $data->getCategories()->clear();
+    $data->writeWorkbookStream($stream);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    byte[] stream = data.readWorkbookStream();
-
-    data.getSeries().clear();
-    data.getCategories().clear();
-
-    data.writeWorkbookStream(stream);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Set WorkBook Cell as Chart DataLabel**
@@ -40,69 +40,71 @@ try {
 
 This Java code shows you to set a workbook cell as a chart data label:
 
-```java
-String lbl0 = "Label 0 cell value";
-String lbl1 = "Label 1 cell value";
-String lbl2 = "Label 2 cell value";
+```php
+  $lbl0 = "Label 0 cell value";
+  $lbl1 = "Label 1 cell value";
+  $lbl2 = "Label 2 cell value";
+  // Instantiates a presentation class that represents a presentation file
+  $pres = new Presentation("chart2.pptx");
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Bubble, 50, 50, 600, 400, true);
+    $series = $chart->getChartData()->getSeries();
+    $dataLabelCollection = $series->get_Item(0)->getLabels();
+    $dataLabelCollection->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
+    $wb = $chart->getChartData()->getChartDataWorkbook();
+    $dataLabelCollection->get_Item(0)->setValueFromCell($wb->getCell(0, "A10", $lbl0));
+    $dataLabelCollection->get_Item(1)->setValueFromCell($wb->getCell(0, "A11", $lbl1));
+    $dataLabelCollection->get_Item(2)->setValueFromCell($wb->getCell(0, "A12", $lbl2));
+    $pres->save("resultchart.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation("chart2.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
-
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-
-    pres.save("resultchart.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Manage Worksheets**
 
 This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
-    for (int i = 0; i < wb.getWorksheets().size(); i++)
-        System.out.println(wb.getWorksheets().get_Item(i).getName());
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
+    $wb = $chart->getChartData()->getChartDataWorkbook();
+    for ($i = 0; $i < $wb->getWorksheets()->size(); $i++) {
+      echo ($wb->getWorksheets()->get_Item($i)->getName());
+    }
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Specify Data Source Type**
 
 This Java code shows you how to specify a type for a data source:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
+```php
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
+    $val = $chart->getChartData()->getSeries()->get_Item(0)->getName();
+    $val->setDataSourceType(DataSourceType::StringLiterals);
+    $val->setData("LiteralString");
+    $val = $chart->getChartData()->getSeries()->get_Item(1)->getName();
+    $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
+    $pres->save("pres.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("LiteralString");
-
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **External Workbook**
@@ -117,27 +119,29 @@ Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you ca
 
 This Java code demonstrates the external workbook creation process:
 
-```java
-Presentation pres = new Presentation();
-try {
-    final String workbookPath = "externalWorkbook1.xlsx";
-
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
-    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+```php
+  $pres = new Presentation();
+  try {
+    $workbookPath = "externalWorkbook1.xlsx";
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
+    $fileStream = new FileOutputStream($workbookPath);
     try {
-        byte[] workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
+      $workbookData = $chart->getChartData()->readWorkbookStream();
+      $fileStream->write($workbookData, 0, $workbookData::$length);
     } finally {
-        if (fileStream != null) fileStream.close();
+      if ($fileStream != null) {
+        $fileStream->close();
+      }
     }
+    $chart->getChartData()->setExternalWorkbook($workbookPath);
+    $pres->save("externalWorkbook.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    chart.getChartData().setExternalWorkbook(workbookPath);
-
-    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
-} catch (IOException e) {    
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ### **Set External Workbook**
@@ -148,28 +152,27 @@ While you cannot edit the data in workbooks stored in remote locations or resour
 
 This Java code shows you how to set an external workbook:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
-    IChartData chartData = chart.getChartData();
+```php
+  // Creates an instance of the Presentation class
+  $pres = new Presentation("chart.pptx");
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, false);
+    $chartData = $chart->getChartData();
+    $chartData->setExternalWorkbook("externalWorkbook.xlsx");
+    $chartData->getSeries()->add($chartData->getChartDataWorkbook()->getCell(0, "B1"), ChartType::Pie);
+    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B2"));
+    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B3"));
+    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B4"));
+    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A2"));
+    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A3"));
+    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A4"));
+    $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    
-    pres.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 The `ChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
@@ -177,19 +180,20 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 * When `ChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
 * When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-    IChartData chartData = chart.getChartData();
+```php
+  // Creates an instance of the Presentation class
+  $pres = new Presentation("chart.pptx");
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
+    $chartData = $chart->getChartData();
+    $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
+    $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-    ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
-
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ### **Get Chart External Data Source Workbook Path**
@@ -202,24 +206,24 @@ try {
 
 This Java code demonstrates the operation:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("chart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
+```php
+  // Creates an instance of the Presentation class
+  $pres = new Presentation("chart.pptx");
+  try {
+    $slide = $pres->getSlides()->get_Item(1);
+    $chart = $slide->getShapes()->get_Item(0);
+    $sourceType = $chart->getChartData()->getDataSourceType();
+    if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
+      $path = $chart->getChartData()->getExternalWorkbookPath();
     }
-	
-	// Saves the presentation
-    pres.save("result.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    // Saves the presentation
+    $pres->save("result.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ### **Edit Chart Data**
@@ -228,17 +232,18 @@ You can edit the data in external workbooks the same way you make changes to the
 
 This Java code is an implementation of the described process:
 
-```java
-// Creates an instance of tthe Presentation class
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ChartData chartData = (ChartData)chart.getChartData();
-    
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    
-    pres.save("presentation_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  // Creates an instance of tthe Presentation class
+  $pres = new Presentation("chart.pptx");
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $chartData = $chart->getChartData();
+    $chartData->getSeries()->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell()->setValue(100);
+    $pres->save("presentation_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

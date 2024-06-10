@@ -18,17 +18,19 @@ To add a simple plain line to a selected slide of the presentation, please follo
 
 In the example given below, we have added a line to the first slide of the presentation.
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate a Presentation object that represents a presentation file
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
+    $slide = $pres->getSlides()->get_Item(0);
     // Add an autoshape of type line
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
+    $pres->save("NewPresentation_out.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

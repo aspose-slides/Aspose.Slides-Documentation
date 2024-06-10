@@ -34,23 +34,27 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 
 You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $picture;
+    $image = Images->fromFile("image.png");
+    try {
+      $picture = $pres->getImages()->addImage($image);
+    } finally {
+      if ($image != null) {
+        $image->dispose();
+      }
+    }
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
 ```
 
 ## **Adding Images From the Web to Slides**
@@ -59,37 +63,37 @@ If the image you want to add to a slide is unavailable on your computer, you can
 
 This sample code shows you how to add an image from the web to a slide in Java:
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $imageUrl = new URL("[REPLACE WITH URL]");
+    $connection = $imageUrl->openConnection();
+    $inputStream = $connection->getInputStream();
+    $outputStream = new ByteArrayOutputStream();
+    try {
+      $buffer = new byte[1024];
+      $read;
+      while ($read = $inputStream->read($buffer, 0, $buffer::$length) != -1) {
+        $outputStream->write($buffer, 0, $read);
+      } 
+      $outputStream->flush();
+      $image = $pres->getImages()->addImage($outputStream->toByteArray());
+      $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+    } finally {
+      if ($inputStream != null) {
+        $inputStream->close();
+      }
+      $outputStream->close();
+    }
+    $pres->save("pres.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-	URL imageUrl = new URL("[REPLACE WITH URL]");
-	URLConnection connection = imageUrl.openConnection();
-	InputStream inputStream = connection.getInputStream();
-
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	try {
-		byte[] buffer = new byte[1024];
-		int read;
-
-		while ((read = inputStream.read(buffer, 0, buffer.length)) != -1)
-			outputStream.write(buffer, 0, read);
-
-		outputStream.flush();
-
-		IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-	} finally {
-		if (inputStream != null) inputStream.close();
-		outputStream.close();
-	}
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
 ```
 
 ## **Adding Images to Slide Masters**
@@ -98,25 +102,28 @@ A slide master is the top slide that stores and controls information (theme, lay
 
 This Java sample code shows you how to add an image to a slide master:
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+```php
+  $pres = new Presentation();
+  try {
+    $slide = $pres->getSlides()->get_Item(0);
+    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
+    $picture;
+    $image = Images->fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+      $picture = $pres->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
 
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
 ```
 
 ## **Adding Images as Slide Background**
@@ -133,20 +140,32 @@ To create an image object based on SVG image, you can do it this way:
 3. Create PictureFrame object using IPPImage interface
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
-```java 
-// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation();
+```php
+  // Instantiate Presentation class that represents PPTX file
+  $pres = new Presentation();
+  try {
+$Array = new JavaClass("java.lang.reflect.Array");
+$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
 try {
-    String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
+    $bytes = $Array->newInstance($Byte, $dis->available());
+    $dis->readFully($bytes);
 } finally {
-    if (pres != null) pres.dispose();
+    if ($dis != null) $dis->close();
 }
+    $svgContent = new String($bytes);
+
+    $svgImage = new SvgImage($svgContent);
+    $ppImage = $pres->getImages()->addImage($svgImage);
+    $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
+    $pres->save("output.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Converting SVG to a Set of Shapes**
@@ -158,29 +177,37 @@ The functionality is provided by one of the overloads of the [addGroupShape](htt
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
-```java 
-// Create new presentation
-IPresentation presentation = new Presentation();
-try {
+```php
+  // Create new presentation
+  $presentation = new Presentation();
+  try {
     // Read SVG file content
-    byte[] svgContent = Files.readAllBytes(Paths.get("image.svg"));
+$Array = new JavaClass("java.lang.reflect.Array");
+$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
+try {
+    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "image.svg"));
+    $bytes = $Array->newInstance($Byte, $dis->available());
+    $dis->readFully($bytes);
+} finally {
+    if ($dis != null) $dis->close();
+}
+    $svgContent = $bytes;
 
     // Create SvgImage object
-    ISvgImage svgImage = new SvgImage(svgContent);
-
+    $svgImage = new SvgImage($svgContent);
     // Get slide size
-    Dimension2D slideSize = presentation.getSlideSize().getSize();
-
+    $slideSize = $presentation->getSlideSize()->getSize();
     // Convert SVG image to group of shapes scaling it to slide size
-    presentation.getSlides().get_Item(0).getShapes().
-            addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
-
+    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
     // Save presentation in PPTX format
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
+
 ```
 
 ## **Adding Images as EMF in Slides**
@@ -188,46 +215,42 @@ Aspose.Slides for PHP via Java allows you to generate EMF images from excel shee
 
 This sample code shows you how to perform the described task:
 
-```java 
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-//Save the workbook to stream
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-    
-    String EmfSheetName = "";
-    for (int j = 0; j < sr.getPageCount(); j++)
-    {
-    
-        EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
-
-        IPPImage picture;
-        IImage image = Images.fromFile(EmfSheetName);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
+```php
+  $book = new Workbook("chart.xlsx");
+  $sheet = $book->getWorksheets()->get(0);
+  $options = new ImageOrPrintOptions();
+  $options->setHorizontalResolution(200);
+  $options->setVerticalResolution(200);
+  $options->setImageType(ImageType.EMF);
+  // Save the workbook to stream
+  $sr = new SheetRender($sheet, $options);
+  $pres = new Presentation();
+  try {
+    $pres->getSlides()->removeAt(0);
+    $EmfSheetName = "";
+    for ($j = 0; $j < $sr->getPageCount(); $j++) {
+      $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
+      $sr->toImage($j, $EmfSheetName);
+      $picture;
+      $image = Images->fromFile($EmfSheetName);
+      try {
+        $picture = $pres->getImages()->addImage($image);
+      } finally {
+        if ($image != null) {
+          $image->dispose();
         }
-        ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-					(float)pres.getSlideSize().getSize().getWidth(), 
-					(float)pres.getSlideSize().getSize().getHeight(), 
-					picture);
+      }
+      $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
+      $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
     }
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("output.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{% alert title="Info" color="info" %}}

@@ -34,14 +34,17 @@ If you prefer to use a special slide size for your presentations, we strongly re
 
  This sample code shows you how to change the slide size in a presentation in Java using Aspose.Slides:
 
-```java
-Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
-try {
-    pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres-4x3-aspect-ratio.pptx");
+  try {
+    $pres->getSlideSize()->setSize(SlideSizeType::OnScreen16x9, SlideSizeScaleType::DoNotScale);
+    $pres->save("pres-4x3-aspect-ratio.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Specifying Custom Slide Sizes in Presentations
@@ -50,14 +53,18 @@ If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you 
 
 This sample code shows you how to use Aspose.Slides for PHP via Java to specify a custom slide size for a presentation in Java:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 paper size
-    pres.save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $pres->getSlideSize()->setSize(780, 540, SlideSizeScaleType::DoNotScale);// A4 paper size
+
+    $pres->save("pres-a4-slide-size.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## Dealing With Issues When Changing the Size of Slides in Presentations
@@ -80,12 +87,15 @@ Depending on what you intend to do or achieve, you can use any of these settings
 
 This sample code shows you how to use the `Maximize` setting when changing the size of a presentation’s slide:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    $pres->getSlideSize()->setSize(SlideSizeType::Ledger, SlideSizeScaleType::Maximize);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

@@ -23,21 +23,22 @@ To add a simple plain line to a selected slide of the presentation, please follo
 
 In the example given below, we have added a line to the first slide of the presentation.
 
-```java
-// Instantiate PresentationEx class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate PresentationEx class that represents the PPTX file
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
+    $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of type line
-    sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    
+    $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     // Write the PPTX to Disk
-    pres.save("LineShape.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("LineShape.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Create Arrow Shaped Line**
@@ -54,34 +55,30 @@ Aspose.Slides for PHP via Java also allows developers to configure some properti
 - Set the [Arrow Head Style](https://reference.aspose.com/slides/php-java/com.aspose.slides/LineArrowheadStyle) and [Length](https://reference.aspose.com/slides/php-java/com.aspose.slides/LineArrowheadLength) of the end point of the line.
 - Write the modified presentation as a PPTX file.
 
-```java
-// Instantiate PresentationEx class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
+```php
+  // Instantiate PresentationEx class that represents the PPTX file
+  $pres = new Presentation();
+  try {
     // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of type line
-    IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     // Apply some formatting on the line
-    shp.getLineFormat().setStyle(LineStyle.ThickBetweenThin);
-    shp.getLineFormat().setWidth(10);
-
-    shp.getLineFormat().setDashStyle(LineDashStyle.DashDot);
-
-    shp.getLineFormat().setBeginArrowheadLength(LineArrowheadLength.Short);
-    shp.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.Oval);
-
-    shp.getLineFormat().setEndArrowheadLength(LineArrowheadLength.Long);
-    shp.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-
-    shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Maroon));
-
+    $shp->getLineFormat()->setStyle(LineStyle::ThickBetweenThin);
+    $shp->getLineFormat()->setWidth(10);
+    $shp->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+    $shp->getLineFormat()->setBeginArrowheadLength(LineArrowheadLength::Short);
+    $shp->getLineFormat()->setBeginArrowheadStyle(LineArrowheadStyle::Oval);
+    $shp->getLineFormat()->setEndArrowheadLength(LineArrowheadLength::Long);
+    $shp->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor::Maroon));
     // Write the PPTX to Disk
-    pres.save("LineShape.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("LineShape.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

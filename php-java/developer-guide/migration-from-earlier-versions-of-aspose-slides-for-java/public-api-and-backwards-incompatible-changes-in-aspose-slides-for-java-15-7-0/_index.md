@@ -18,14 +18,10 @@ This method returns an automatic color of data point based on series index, data
 #### **Methods getPixelFormat(), setPixelFormat(int) have been added to com.aspose.slides.ITiffOptions**
 Methods getPixelFormat(), setPixelFormat(/ImagePixelFormat/int) have been added to com.aspose.slides.ITiffOptions and com.aspose.slides.TiffOptions for specifying pixel format for the generated TIFF images.
 
-``` java
-
- Presentation pres = new Presentation("demo.pptx");
-
-TiffOptions options = new TiffOptions();
-
-options.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
-
-pres.save("demo-out.tiff", SaveFormat.Tiff, options);
+```php
+  $pres = new Presentation("demo.pptx");
+  $options = new TiffOptions();
+  $options->setPixelFormat(ImagePixelFormat::Format8bppIndexed);
+  $pres->save("demo-out.tiff", SaveFormat::Tiff, $options);
 
 ```

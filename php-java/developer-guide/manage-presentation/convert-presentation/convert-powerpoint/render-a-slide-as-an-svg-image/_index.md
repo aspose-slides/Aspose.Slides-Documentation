@@ -29,23 +29,24 @@ You may want to try out our [free web application](https://products.aspose.app/s
 
 This sample code in Java shows you how to convert PPT to SVG using Aspose.Slides:
 
-``` java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
-
-        FileOutputStream fileStream = new FileOutputStream("slide-" + index + ".svg");
-        try {
-            slide.writeAsSvg(fileStream);
-        } finally {
-            fileStream.close();
-        }
+```php
+  $pres = new Presentation("pres.pptx");
+  try {
+    for ($index = 0; $index < $pres->getSlides()->size(); $index++) {
+      $slide = $pres->getSlides()->get_Item($index);
+      $fileStream = new FileOutputStream("slide-" . $index . ".svg");
+      try {
+        $slide->writeAsSvg($fileStream);
+      } finally {
+        $fileStream->close();
+      }
     }
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 

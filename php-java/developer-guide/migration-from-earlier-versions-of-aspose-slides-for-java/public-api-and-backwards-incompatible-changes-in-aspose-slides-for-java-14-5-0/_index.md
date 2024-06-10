@@ -39,90 +39,60 @@ Allows using the factory functionality without instantiation.
 #### **Restrictions had been added for using undefined values for IShape.getFrame()**
 Code that attempts to assign an undefined frame to IShape.setFrame(IShapeFrame) doesn't make sense in general cases (particularly when the parent GroupShape is multiple nested into other {{GroupShape}}s). For example:
 
-``` java
-
- IShape shape = ...;
-
-shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
+```php
+  $shape = $$missing$;
+  $shape->setFrame(new ShapeFrame(Float::NaN, Float::NaN, Float::NaN, Float::NaN, NullableBool::NotDefined, NullableBool::NotDefined, Float::NaN));
 
 ```
 
 or
 
-``` java
-
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+```php
+  slide.Shapes->AddAutoShape(ShapeType::RoundCornerRectangle, Float::NaN, Float::NaN, Float::NaN, Float::NaN);
 
 ```
 
 Such code can lead to unclear situations. So restrictions have been added for using undefined values for IShape.Frame. The values of x, y, width, height, flipH, flipV and rotationAngle must be defined (not Float.NaN or NullableBool.NotDefined). The example code above now throws an ArgumentException exception.
 This applies to these use cases:
 
-``` java
+```php
+  $shape = $$missing$;
+  $shape->setFrame();// cannot be undefined
 
- IShape shape = ...;
-
-shape.setFrame(...); // cannot be undefined
-
-IShapeCollection shapes = ...;
-
-// x, y, width, height parameters cannot be Float.NaN:
-
-{
-
-    shapes.addAudioFrameCD(...);
-
-    shapes.addAudioFrameEmbedded(...);
-
-    shapes.addAudioFrameLinked(...);
-
-    shapes.addAutoShape(...);
-
-    shapes.addChart(...);
-
-    shapes.addConnector(...);
-
-    shapes.addOleObjectFrame(...);
-
-    shapes.addPictureFrame(...);
-
-    shapes.addSmartArt(...);
-
-    shapes.addTable(...);
-
-    shapes.addVideoFrame(...);
-
-    shapes.insertAudioFrameEmbedded(...);
-
-    shapes.insertAudioFrameLinked(...);
-
-    shapes.insertAutoShape(...);
-
-    shapes.insertChart(...);
-
-    shapes.insertConnector(...);
-
-    shapes.insertOleObjectFrame(...);
-
-    shapes.insertPictureFrame(...);
-
-    shapes.insertTable(...);
-
-    shapes.insertVideoFrame(...);
-
-}
+  $shapes = $$missing$;
+  // x, y, width, height parameters cannot be Float.NaN:
+  {
+    $shapes->addAudioFrameCD();
+    $shapes->addAudioFrameEmbedded();
+    $shapes->addAudioFrameLinked();
+    $shapes->addAutoShape();
+    $shapes->addChart();
+    $shapes->addConnector();
+    $shapes->addOleObjectFrame();
+    $shapes->addPictureFrame();
+    $shapes->addSmartArt();
+    $shapes->addTable();
+    $shapes->addVideoFrame();
+    $shapes->insertAudioFrameEmbedded();
+    $shapes->insertAudioFrameLinked();
+    $shapes->insertAutoShape();
+    $shapes->insertChart();
+    $shapes->insertConnector();
+    $shapes->insertOleObjectFrame();
+    $shapes->insertPictureFrame();
+    $shapes->insertTable();
+    $shapes->insertVideoFrame();
+  }
 
 ```
 
 But the IShape.getRawFrame() frame can be undefined. This make sense when a shape is linked to a placeholder. Then undefined shape frame values are overridden from the parent placeholder shape. If there is no parent placeholder shape for that shape then it uses default values when it evaluates effective frame based on its IShape.getRawFrame(). Default values are 0 and NullableBool.False for x, y, width, height, flipH, flipV and rotationAngle. For example:
 
-``` java
+```php
+  $shape = $$missing$;// shape is linked to placeholder
 
- IShape shape = ...; // shape is linked to placeholder
-
-shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
-
-// now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
+  $shape->setRawFrame(new ShapeFrame(Float::NaN, Float::NaN, 100, Float::NaN, NullableBool::NotDefined, NullableBool::NotDefined, 0));
+  // now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
 
 ```
 ### **Changed Properties**

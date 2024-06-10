@@ -28,66 +28,63 @@ To generate an SVG image from any desired slide with Aspose.Slides for PHP via J
 - Get the SVG image in a memory stream.
 - Save the memory stream to file.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
+```php
+  // Instantiate a Presentation class that represents the presentation file
+  $pres = new Presentation("CreateSlidesSVGImage.pptx");
+  try {
     // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Create a memory stream object
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
-
+    $svgStream = new FileOutputStream("Aspose_out.svg");
     // Generate SVG image of slide and save in memory stream
-    sld.writeAsSvg(svgStream);
+    $sld->writeAsSvg($svgStream);
+    $svgStream->close();
+  } catch (JavaException $e) {
+  } finally {
+    $pres->dispose();
+  }
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Generate SVG with Custom Shape IDS**
 Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
-```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
+```php
+  $pres = new Presentation("pptxFileName.pptx");
+  try {
+    $stream = new FileOutputStream("Aspose_out.svg");
     try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
-
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
+      $svgOptions = new SVGOptions();
+      $svgOptions->setShapeFormattingController(new CustomSvgShapeFormattingController());
+      $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
     } finally {
-        if (stream != null) stream.close();
+      if ($stream != null) {
+        $stream->close();
+      }
     }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+  } catch (JavaException $e) {
+  } finally {
+    $pres->dispose();
+  }
+
 ```
-```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
-    private int m_shapeIndex;
+```php
+  class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
+    private int $m_shapeIndex;
 
-    public CustomSvgShapeFormattingController()
-    {
-        m_shapeIndex = 0;
-    }
-    
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
-        m_shapeIndex = shapeStartIndex;
+    public CustomSvgShapeFormattingController() {
+      $m_shapeIndex = 0;
     }
 
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
-        svgShape.setId(String.format("shape-%d", m_shapeIndex++));
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
+      $m_shapeIndex = $shapeStartIndex;
     }
-}
+
+    public void formatShape(ISvgShape svgShape, IShape shape) {
+      $svgShape->setId(sprintf ("shape-%d", $m_shapeIndex++));
+    }
+  }
+
 ```
 
 ## **Create Slides Thumbnail Image**
@@ -98,25 +95,26 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
+```php
+  // Instantiate a Presentation class that represents the presentation file
+  $pres = new Presentation("ThumbnailFromSlide.pptx");
+  try {
     // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // Create a full scale image
-    IImage slideImage = sld.getImage(1f, 1f);
-
+    $slideImage = $sld->getImage(1.0, 1.0);
     // Save the image to disk in JPEG format
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    pres.dispose();
-}
+  } finally {
+    $pres->dispose();
+  }
+
 ```
 
 ## **Create Thumbnail with User Defined Dimensions**
@@ -126,33 +124,32 @@ try {
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
+```php
+  // Instantiate a Presentation class that represents the presentation file
+  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
+  try {
     // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
-
+    $desiredX = 1200;
+    $desiredY = 800;
     // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
+    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
+    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
     // Create a full scale image
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
-
+    $slideImage = $sld->getImage($ScaleX, $ScaleY);
     // Save the image to disk in JPEG format
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    pres.dispose();
-}
+  } finally {
+    $pres->dispose();
+  }
+
 ```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
@@ -165,34 +162,32 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
+```php
+  // Instantiate a Presentation class that represents the presentation file
+  $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
+  try {
     // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
+    $sld = $pres->getSlides()->get_Item(0);
     // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
-
+    $desiredX = 1200;
+    $desiredY = 800;
     // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
+    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
+    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
+    $opts = new RenderingOptions();
+    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
     // Create a full scale image
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
-
+    $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
     // Save the image to disk in JPEG format
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-         if (slideImage != null) slideImage.dispose();
+      if ($slideImage != null) {
+        $slideImage->dispose();
+      }
     }
-} finally {
-    pres.dispose();
-}
+  } finally {
+    $pres->dispose();
+  }
+
 ```

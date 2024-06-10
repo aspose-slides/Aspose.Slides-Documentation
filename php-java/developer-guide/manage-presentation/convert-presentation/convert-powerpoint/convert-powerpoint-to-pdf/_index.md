@@ -57,15 +57,18 @@ The standard PowerPoint PDF conversion operation is executed using default optio
 
 This Java code shows you how to convert a PowerPoint to PDF:
 
-```java
-// Instantiates a Presentation class that represents a PowerPoint file
-Presentation pres = new Presentation("PowerPoint.ppt");
-try {
+```php
+  // Instantiates a Presentation class that represents a PowerPoint file
+  $pres = new Presentation("PowerPoint.ppt");
+  try {
     // Saves the presentation as a PDF
-    pres.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("PPT-to-PDF.pdf", SaveFormat::Pdf);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 {{%  alert  color="primary"  %}} 

@@ -43,6 +43,8 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```php
+
 ```
 
 ## **Change Audio Frame Thumbnail**
@@ -51,34 +53,36 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 
 This Java code shows you how to change an audio frame's thumbnail or preview image:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
+```php
+  $presentation = new Presentation();
+  try {
+    $slide = $presentation->getSlides()->get_Item(0);
     // Adds an audio frame to the slide with a specified position and size.
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-
+    $audioStream = new FileInputStream("sample2.mp3");
+    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
+    $audioStream->close();
     // Adds an image to presentation resources.
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
+    $picture;
+    $image = Images->fromFile("eagle.jpeg");
     try {
-        picture = presentation.getImages().addImage(image);
+      $picture = $presentation->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-
     // Sets the image for the audio frame.
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
+    $audioFrame->getPictureFormat()->getPicture()->setImage($picture);// <-----
 
-    //Saves the modified presentation to disk
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+    // Saves the modified presentation to disk
+    $presentation->save("example_out.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($presentation != null) {
+      $presentation->dispose();
+    }
+  }
+
 ```
 
 ## **Change Audio Play Options**
@@ -105,35 +109,31 @@ This is how you change the Audio Play options:
 
 This Java code demonstrates an operation in which an audio's options are adjusted:
 
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
-try {
+```php
+  $pres = new Presentation("AudioFrameEmbed_out.pptx");
+  try {
     // Gets the AudioFrame shape
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
+    $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     // Sets the Play mode to play on click
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
-
+    $audioFrame->setPlayMode(AudioPlayModePreset::OnClick);
     // Sets the volume to Low
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
+    $audioFrame->setVolume(AudioVolumeMode::Low);
     // Sets the audio to play across slides
-    audioFrame.setPlayAcrossSlides(true);
-
+    $audioFrame->setPlayAcrossSlides(true);
     // Disables loop for the audio
-    audioFrame.setPlayLoopMode(false);
-
+    $audioFrame->setPlayLoopMode(false);
     // Hides the AudioFrame during the slide show
-    audioFrame.setHideAtShowing(true);
-
+    $audioFrame->setHideAtShowing(true);
     // Rewinds the audio to start after playing
-    audioFrame.setRewindAudio(true);
-
+    $audioFrame->setRewindAudio(true);
     // Saves the PowerPoint file to disk
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Extract Audio**
@@ -153,20 +153,21 @@ Aspose.Slides for PHP via Java allows you to extract the sound used in slide sho
 
 This code in Java shows you how to extract the audio used in a slide:
 
-```java
-// Instantiates a Presentation class that represents a presentation file
-Presentation pres = new Presentation("AudioSlide.pptx");
-try {
+```php
+  // Instantiates a Presentation class that represents a presentation file
+  $pres = new Presentation("AudioSlide.pptx");
+  try {
     // Accesses the desired slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    $slide = $pres->getSlides()->get_Item(0);
     // Gets the slideshow transition effects for the slide
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    //Extracts the sound in byte array
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $transition = $slide->getSlideShowTransition();
+    // Extracts the sound in byte array
+    $audio = $transition->getSound()->getBinaryData();
+    echo ("Length: " . $audio::$length);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```

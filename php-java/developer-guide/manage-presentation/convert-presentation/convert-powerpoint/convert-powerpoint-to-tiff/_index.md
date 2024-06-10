@@ -92,7 +92,7 @@ This Java code shows you how to convert PowerPoint to TIFF images with custom si
     if ($pres != null) {
       $pres->dispose();
     }
-  }   
+  }
 ```
 
 

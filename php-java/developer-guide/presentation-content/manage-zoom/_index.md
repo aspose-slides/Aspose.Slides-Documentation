@@ -37,40 +37,37 @@ You can add a zoom frame on a slide this way:
 
 This Java code shows you how to create a zoom frame on a slide:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    //Adds new slides to the presentation
-    ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds new slides to the presentation
+    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     // Creates a background for the second slide
-    slide2.getBackground().setType(BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
-
+    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     // Creates a text box for the second slide
-    IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-
+    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $autoshape->getTextFrame()->setText("Second Slide");
     // Creates a background for the third slide
-    slide3.getBackground().setType(BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
-
+    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
     // Create a text box for the third slide
-    autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-
-    //Adds ZoomFrame objects
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-
+    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $autoshape->getTextFrame()->setText("Trird Slide");
+    // Adds ZoomFrame objects
+    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
+    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 ### **Creating Zoom Frames with Custom Images**
 With Aspose.Slides for PHP via Java, you can create a zoom frame with a different slide preview image this way:
@@ -83,38 +80,39 @@ With Aspose.Slides for PHP via Java, you can create a zoom frame with a differen
 
 This Java code shows you how to create a zoom frame with a different image:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     // Creates a background for the second slide
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
-
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     // Creates a text box for the third slide
-    IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-
+    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $autoshape->getTextFrame()->setText("Second Slide");
     // Creates a new image for the zoom object
-    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-    //Adds the ZoomFrame object
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-
+    $picture;
+    $image = Images->fromFile("image.png");
+    try {
+      $picture = $pres->getImages()->addImage($image);
+    } finally {
+      if ($image != null) {
+        $image->dispose();
+      }
+    }
+    // Adds the ZoomFrame object
+    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 ### **Formatting Zoom Frames**
 In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
@@ -133,61 +131,57 @@ You can control a zoom frame's formatting on a slide this way:
 
 This Java code shows you how to change a zoom frame's formatting on a slide: 
 
-``` java 
-Presentation pres = new Presentation();
-try {
-    //Adds new slides to the presentation
-    ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds new slides to the presentation
+    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
     // Creates a background for the second slide
-    slide2.getBackground().setType(BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
-
+    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
     // Creates a text box for the second slide
-    IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-
+    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $autoshape->getTextFrame()->setText("Second Slide");
     // Creates a background for the third slide
-    slide3.getBackground().setType(BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
-
+    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
     // Creates a text box for the third slide
-    autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-
-    //Adds ZoomFrame objects
-    IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-
+    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $autoshape->getTextFrame()->setText("Trird Slide");
+    // Adds ZoomFrame objects
+    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
+    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
     // Creates a new image for the zoom object
-    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
+    $picture;
+    $image = Images->fromFile("image.png");
+    try {
+      $picture = $pres->getImages()->addImage($image);
+    } finally {
+      if ($image != null) {
+        $image->dispose();
+      }
+    }
     // Sets custom image for zoomFrame1 object
-    zoomFrame1.setImage(picture);
-
+    $zoomFrame1->setImage($picture);
     // Sets a zoom frame format for the zoomFrame2 object
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
-    zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
-
+    $zoomFrame2->getLineFormat()->setWidth(5);
+    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
+    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     // Setting for Do not show background for zoomFrame2 object
-    zoomFrame2.setShowBackground(false);
-
+    $zoomFrame2->setShowBackground(false);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ## **Section Zoom**
@@ -211,26 +205,26 @@ You can add a section zoom frame to a slide this way:
 
 This Java code shows you how to create a zoom frame on a slide:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new Section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
+    $pres->getSections()->addSection("Section 1", $slide);
     // Adds a SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-
+    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 ### **Creating Section Zoom Frames with Custom Images**
 
@@ -246,36 +240,37 @@ Using Aspose.Slides for PHP via Java, you can create a section zoom frame with a
 
 This Java code shows you how to create a zoom frame with a different image:
 
-``` java 
-Presentation pres = new Presentation();
-try {
-    //Adds new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new Section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
+    $pres->getSections()->addSection("Section 1", $slide);
     // Creates a new image for the zoom object
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    $picture;
+    $image = Images->fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+      $picture = $pres->getImages()->addImage($image);
     } finally {
-        if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-
     // Adds SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-
+    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 ### **Formatting Section Zoom Frames**
 
@@ -299,52 +294,49 @@ You can control a section zoom frame's formatting on a slide this way:
 
 This Java code shows you how to change a section zoom frame's formatting:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new Section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
+    $pres->getSections()->addSection("Section 1", $slide);
     // Add SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-
+    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     // Formatting for SectionZoomFrame
-    sectionZoomFrame.setX(100);
-    sectionZoomFrame.setY(300);
-    sectionZoomFrame.setWidth(100);
-    sectionZoomFrame.setHeight(75);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    $sectionZoomFrame->setX(100);
+    $sectionZoomFrame->setY(300);
+    $sectionZoomFrame->setWidth(100);
+    $sectionZoomFrame->setHeight(75);
+    $picture;
+    $image = Images->fromFile("image.png");
     try {
-         picture = pres.getImages().addImage(image);
-     } finally {
-        if (image != null) image.dispose();
-     }
-    sectionZoomFrame.setImage(picture);
-
-    sectionZoomFrame.setReturnToParent(true);
-    sectionZoomFrame.setShowBackground(false);
-
-    sectionZoomFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray);
-    sectionZoomFrame.getLineFormat().setDashStyle(LineDashStyle.DashDot);
-    sectionZoomFrame.getLineFormat().setWidth(2.5f);
-
-    sectionZoomFrame.setTransitionDuration(1.5f);
-
+      $picture = $pres->getImages()->addImage($image);
+    } finally {
+      if ($image != null) {
+        $image->dispose();
+      }
+    }
+    $sectionZoomFrame->setImage($picture);
+    $sectionZoomFrame->setReturnToParent(true);
+    $sectionZoomFrame->setShowBackground(false);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+    $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+    $sectionZoomFrame->setTransitionDuration(1.5);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 
@@ -367,53 +359,47 @@ You can add a summary zoom frame to a slide this way:
 
 This Java code shows you how to create a summary zoom frame on a slide:
 
-``` java 
-Presentation pres = new Presentation();
-try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+    $pres->getSections()->addSection("Section 1", $slide);
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 2", slide);
-
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+    $pres->getSections()->addSection("Section 2", $slide);
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 3", slide);
-
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+    $pres->getSections()->addSection("Section 3", $slide);
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 4", slide);
-
+    $pres->getSections()->addSection("Section 4", $slide);
     // Adds a SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-
+    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ### **Adding and Removing Summary Zoom Section**
@@ -430,50 +416,44 @@ All sections in a summary zoom frame are represented by [ISummaryZoomSection](ht
 
 This Java code shows you how to add and remove sections in a summary zoom frame:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+    $pres->getSections()->addSection("Section 1", $slide);
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 2", slide);
-
+    $pres->getSections()->addSection("Section 2", $slide);
     // Adds SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    ISection section3 = pres.getSections().addSection("Section 3", slide);
-
+    $section3 = $pres->getSections()->addSection("Section 3", $slide);
     // Adds a section to the Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
     // Removes section from the Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
 ### **Formatting Summary Zoom Sections**
@@ -495,58 +475,53 @@ You can control the formatting for a summary zoom section object in a summary zo
 
 This Java code shows you how to change the formatting for a summary zoom section object:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+```php
+  $pres = new Presentation();
+  try {
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
-    slide.getBackground().setType(BackgroundType.OwnBackground);
-
+    $pres->getSections()->addSection("Section 1", $slide);
+    // Adds a new slide to the presentation
+    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
     // Adds a new section to the presentation
-    pres.getSections().addSection("Section 2", slide);
-
+    $pres->getSections()->addSection("Section 2", $slide);
     // Adds a SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-
+    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     // Gets the first SummaryZoomSection object
-    ISummaryZoomSection summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-
+    $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
     // Formatting for SummaryZoomSection object
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    $picture;
+    $image = Images->fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+      $picture = $pres->getImages()->addImage($picture);
     } finally {
-          if (image != null) image.dispose();
+      if ($image != null) {
+        $image->dispose();
+      }
     }
-    summarySection.setImage(picture);
-
-    summarySection.setReturnToParent(false);
-
-    summarySection.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black);
-    summarySection.getLineFormat().setDashStyle(LineDashStyle.DashDot);
-    summarySection.getLineFormat().setWidth(1.5f);
-
-    summarySection.setTransitionDuration(1.5f);
-
+    $summarySection->setImage($picture);
+    $summarySection->setReturnToParent(false);
+    $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+    $summarySection->getLineFormat()->setWidth(1.5);
+    $summarySection->setTransitionDuration(1.5);
     // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
+  } catch (JavaException $e) {
+  } finally {
+    if ($pres != null) {
+      $pres->dispose();
+    }
+  }
+
 ```
 
   

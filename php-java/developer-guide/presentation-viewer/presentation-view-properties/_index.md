@@ -38,22 +38,21 @@ Method [**getAutoAdjust**](https://reference.aspose.com/slides/php-java/com.aspo
 
 An example is given below shows how can you access [**ViewProperties.getNormalViewProperties**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ViewProperties#getNormalViewProperties--) properties for a presentation.
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation();
-try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
+```php
+  // Instantiate a Presentation object that represents a presentation file
+  $pres = new Presentation();
+  try {
+    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
+    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
     // Restore View Properties of Presentation
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
+    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
+    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
+    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+  } finally {
+    $pres->dispose();
+  }
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Set Default Zoom Value**
@@ -70,16 +69,18 @@ In order to set the view properties. Please follow the steps below:
 1. Write the presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
    In the example given below, we have set the zoom value for slide view as well as notes view.
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation presentation = new Presentation();
-try {
+```php
+  // Instantiate a Presentation object that represents a presentation file
+  $presentation = new Presentation();
+  try {
     // Setting View Properties of Presentation
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Zoom value in percentages for slide view
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoom value in percentages for notes view 
+    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100);// Zoom value in percentages for slide view
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
+    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100);// Zoom value in percentages for notes view
+
+    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
+  } finally {
+    $presentation->dispose();
+  }
+
 ```

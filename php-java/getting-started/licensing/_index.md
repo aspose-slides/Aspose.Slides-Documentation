@@ -83,6 +83,8 @@ use aspose\slides\License;
 $license = new License();
 $license->setLicense("Aspose.Slides.lic");
 ?>
+```php
+
 ```
 
 When calling the setLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the setLicense method.
@@ -103,6 +105,8 @@ use aspose\slides\License;
 $license = new License();
 $license->setLicense($stream);
 ?>
+```php
+
 ```
 
 #### Apply Metered License
@@ -147,6 +151,8 @@ $amountafter = Metered::getConsumptionQuantity();
 # Display information
 echo "<script>console.log('Amount Consumed After: " . java_values($amountafter) . "' );</script>";
 ?>
+```php
+
 ```
 
 {{% alert color="primary" %}}
