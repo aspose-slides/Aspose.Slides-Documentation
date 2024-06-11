@@ -161,7 +161,7 @@ This Java code shows you how to remove points from a shape:
 This Java shows you how to create a custom shape:
 
 ```php
-  $points = new ArrayList<Point2D.Float>();
+  $points = new ArrayList<Point2D::Float>();
   $R = 100;
   $r = 50;
   $step = 72;
@@ -169,11 +169,11 @@ This Java shows you how to create a custom shape:
     $radians = $angle * Math::PI / 180.0;
     $x = $R * Math->cos($radians);
     $y = $R * Math->sin($radians);
-    $points->add(new Point2D.Float($x + $R, $y + $R));
+    $points->add(new Point2D::Float($x + $R, $y + $R));
     $radians = Math::PI * $angle . $step / 2 / 180.0;
     $x = $r * Math->cos($radians);
     $y = $r * Math->sin($radians);
-    $points->add(new Point2D.Float($x + $R, $y + $R));
+    $points->add(new Point2D::Float($x + $R, $y + $R));
   }
   $starPath = new GeometryPath();
   $starPath->moveTo($points->get(0));
@@ -247,11 +247,11 @@ This Java code shows you how to create a custom shape with curved corners (inwar
   try {
     $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
     $geometryPath = new GeometryPath();
-    $point1 = new Point2D.Float($leftTopSize, 0);
-    $point2 = new Point2D.Float($shapeWidth - $rightTopSize, 0);
-    $point3 = new Point2D.Float($shapeWidth, $shapeHeight - $rightBottomSize);
-    $point4 = new Point2D.Float($leftBottomSize, $shapeHeight);
-    $point5 = new Point2D.Float(0, $leftTopSize);
+    $point1 = new Point2D::Float($leftTopSize, 0);
+    $point2 = new Point2D::Float($shapeWidth - $rightTopSize, 0);
+    $point3 = new Point2D::Float($shapeWidth, $shapeHeight - $rightBottomSize);
+    $point4 = new Point2D::Float($leftBottomSize, $shapeHeight);
+    $point5 = new Point2D::Float(0, $leftTopSize);
     $geometryPath->moveTo($point1);
     $geometryPath->lineTo($point2);
     $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
