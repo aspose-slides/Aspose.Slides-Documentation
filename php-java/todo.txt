@@ -1,6 +1,6 @@
 class
 override
 ::$length
-for ($control : $controls)
+foreach ($controls as $control)
 ```Java
 []

@@ -96,7 +96,7 @@ This Java code shows you how to specify the numbering for cells in a table:
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
     foreach ($tbl->getRows() as $row) {
-      for ($cell : $row) {
+      foreach ($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);

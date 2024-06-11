@@ -25,7 +25,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
       // Loop through the Array of TextFrames
       for ($i = 0; $i < $textFramesPPTX::$length; $i++) {
         // Loop through paragraphs in current ITextFrame
-        for ($para : $textFramesPPTX[$i]->getParagraphs()) {
+        foreach ($textFramesPPTX[$i]->getParagraphs() as $para) {
           // Loop through portions in the current IParagraph
           foreach ($para->getPortions() as $port) {
             // Display text in the current portion
@@ -63,7 +63,7 @@ To scan the text from the whole presentation, use the
     // Loop through the Array of TextFrames
     for ($i = 0; $i < $textFramesPPTX::$length; $i++) {
       // Loop through paragraphs in current ITextFrame
-      for ($para : $textFramesPPTX[$i]->getParagraphs()) {
+      foreach ($textFramesPPTX[$i]->getParagraphs() as $para) {
         // Loop through portions in the current IParagraph
         foreach ($para->getPortions() as $port) {
           // Display text in the current portion

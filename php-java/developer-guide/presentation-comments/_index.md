@@ -202,7 +202,7 @@ This Java code shows you how to delete specific comments on a slide:
           $toRemove->add($comment);
         }
       }
-      for ($comment : $toRemove) {
+      foreach ($toRemove as $comment) {
         $commentAuthor->getComments()->remove($comment);
       }
     }
