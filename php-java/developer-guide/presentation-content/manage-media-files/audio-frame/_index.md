@@ -156,6 +156,7 @@ This code in Java shows you how to extract the audio used in a slide:
 ```php
   // Instantiates a Presentation class that represents a presentation file
   $pres = new Presentation("AudioSlide.pptx");
+  $Array = new java_class("java.lang.reflect.Array");
   try {
     // Accesses the desired slide
     $slide = $pres->getSlides()->get_Item(0);
@@ -163,7 +164,7 @@ This code in Java shows you how to extract the audio used in a slide:
     $transition = $slide->getSlideShowTransition();
     // Extracts the sound in byte array
     $audio = $transition->getSound()->getBinaryData();
-    echo ("Length: " . $audio::$length);
+    echo ("Length: " . $Array->getLength($audio));
   } finally {
     if ($pres != null) {
       $pres->dispose();

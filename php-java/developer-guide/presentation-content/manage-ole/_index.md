@@ -40,8 +40,9 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
     $fs = new FileInputStream("book1.xlsx");
     $mstream = new ByteArrayOutputStream();
     $buf = new byte[4096];
+    $Array = new java_class("java.lang.reflect.Array");
     while (true) {
-      $bytesRead = $fs->read($buf, 0, $buf::$length);
+      $bytesRead = $fs->read($buf, 0, $Array->getLength($buf));
       if ($bytesRead <= 0) {
         break;
       }
@@ -94,8 +95,9 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
       $extractedPath = "excelFromOLE_out" . $fileExtention;
       // Saves extracted data
       $fstr = new FileOutputStream($extractedPath);
+      $Array = new java_class("java.lang.reflect.Array");
       try {
-        $fstr->write($data, 0, $data::$length);
+        $fstr->write($data, 0, $Array->getLength($data));
       } finally {
         $fstr->close();
       }
@@ -313,8 +315,9 @@ This Java code shows you how to extract a file embedded in a slide as an OLE obj
         $extension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
         // Save extracted data
         $fstr = new FileOutputStream("oleFrame" . $index . $extension);
+        $Array = new java_class("java.lang.reflect.Array");
         try {
-          $fstr->write($data, 0, $data::$length);
+          $fstr->write($data, 0, $Array->getLength($data));
         } finally {
           $fstr->close();
         }

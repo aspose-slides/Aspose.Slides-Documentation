@@ -18,12 +18,13 @@ Upon execution, the Slide method scans the entire text from the slide passed as
 ```php
   // Instatiate Presentation class that represents a PPTX file
   $pres = new Presentation("demo.pptx");
+  $Array = new java_class("java.lang.reflect.Array");
   try {
     foreach ($pres->getSlides() as $slide) {
       // Get an Array of ITextFrame objects from all slides in the PPTX
       $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
       // Loop through the Array of TextFrames
-      for ($i = 0; $i < $textFramesPPTX::$length; $i++) {
+      for ($i = 0; $i < $Array->getLength($textFramesPPTX); $i++) {
         // Loop through paragraphs in current ITextFrame
         foreach ($textFramesPPTX[$i]->getParagraphs() as $para) {
           // Loop through portions in the current IParagraph
@@ -57,11 +58,12 @@ To scan the text from the whole presentation, use the
 ```php
   // Instatiate Presentation class that represents a PPTX file
   $pres = new Presentation("demo.pptx");
+  $Array = new java_class("java.lang.reflect.Array");
   try {
     // Get an Array of ITextFrame objects from all slides in the PPTX
     $textFramesPPTX = SlideUtil->getAllTextFrames($pres, true);
     // Loop through the Array of TextFrames
-    for ($i = 0; $i < $textFramesPPTX::$length; $i++) {
+    for ($i = 0; $i < $Array->getLength($textFramesPPTX); $i++) {
       // Loop through paragraphs in current ITextFrame
       foreach ($textFramesPPTX[$i]->getParagraphs() as $para) {
         // Loop through portions in the current IParagraph

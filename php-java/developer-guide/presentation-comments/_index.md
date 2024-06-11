@@ -26,6 +26,7 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
 ```php
   // Instantiates the Presentation class
   $pres = new Presentation();
+  $Array = new java_class("java.lang.reflect.Array");
   try {
     // Adds an empty slide
     $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
@@ -44,7 +45,7 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
     // Accesses the comment at index 0 for slide 1
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
-    if ($Comments::$length > 0) {
+    if ($Array->getLength($Comments) > 0) {
       // Selects the Author's comments collection at index 0
       $commentCollection = $Comments[0]->getAuthor()->getComments();
       $Comment = $commentCollection->get_Item(0)->getText();
@@ -87,6 +88,7 @@ This Java code shows you how to add comments and get replies to them:
 
 ```php
   $pres = new Presentation();
+  $Array = new java_class("java.lang.reflect.Array");
   try {
     // Adds a comment
     $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
@@ -108,7 +110,7 @@ This Java code shows you how to add comments and get replies to them:
     // Displays the comments hierarchy on console
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
-    for ($i = 0; $i < $comments::$length; $i++) {
+    for ($i = 0; $i < $Array->getLength($comments); $i++) {
       $comment = $comments[$i];
       while ($comment->getParentComment() != null) {
         System::out->print("\t");

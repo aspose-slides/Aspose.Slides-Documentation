@@ -170,6 +170,7 @@ This Java code shows you how to get the all effects applied to a specific shape:
 ```php
   // Instantiates a presentation class that represents a presentation file.
   $pres = new Presentation("AnimExample_out.pptx");
+  $Array = new java_class("java.lang.reflect.Array");
   try {
     $firstSlide = $pres->getSlides()->get_Item(0);
     // Gets the main sequence of the slide.
@@ -178,8 +179,8 @@ This Java code shows you how to get the all effects applied to a specific shape:
     $shape = $firstSlide->getShapes()->get_Item(0);
     // Gets all animation effects applied to the shape.
     $shapeEffects = $sequence->getEffectsByShape($shape);
-    if ($shapeEffects::$length > 0) {
-      echo ("The shape " . $shape->getName() . " has " . $shapeEffects::$length . " animation effects.");
+    if ($Array->getLength($shapeEffects) > 0) {
+      echo ("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
     }
   } finally {
     if ($pres != null) {

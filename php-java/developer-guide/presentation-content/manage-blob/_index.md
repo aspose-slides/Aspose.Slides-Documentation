@@ -79,11 +79,12 @@ This code in Java demonstrates the described operation:
       // causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
       // require us to load the whole video into the memory.
       $presVideoStream = $video->getStream();
+      $Array = new java_class("java.lang.reflect.Array");
       try {
         $outputFileStream = new FileOutputStream("video" . $index . ".avi");
         try {
           $bytesRead;
-          while ($bytesRead = $presVideoStream->read($buffer, 0, $buffer::$length) > 0) {
+          while ($bytesRead = $presVideoStream->read($buffer, 0, $Array->getLength($buffer)) > 0) {
             $outputFileStream->write($buffer, 0, $bytesRead);
           } 
         } finally {
