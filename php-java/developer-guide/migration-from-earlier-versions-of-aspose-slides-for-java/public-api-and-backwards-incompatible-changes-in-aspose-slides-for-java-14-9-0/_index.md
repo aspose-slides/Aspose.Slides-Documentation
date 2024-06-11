@@ -69,7 +69,7 @@ Example of usage:
   $pres = new Presentation();
   $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
   $node = $smart->getAllNodes()->get_Item(0);
-  for ($shape : $node->getShapes()) {
+  foreach ($node->getShapes() as $shape) {
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
   }
@@ -91,7 +91,7 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
   $pres = new Presentation();
   $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
   $node = $smart->getAllNodes()->get_Item(0);
-  for ($shape : $node->getShapes()) {
+  foreach ($node->getShapes() as $shape) {
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
   }

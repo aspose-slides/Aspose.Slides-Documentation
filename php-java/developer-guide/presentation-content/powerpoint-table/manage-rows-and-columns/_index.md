@@ -28,7 +28,7 @@ This Java code shows you how to set a table's first row as its header:
     // Initializes the null TableEx
     $tbl = null;
     // Iterates through the shapes and sets a reference to the table
-    for ($shp : $sld->getShapes()) {
+    foreach ($sld->getShapes() as $shp) {
       if ($shp instanceof ITable) {
         $tbl = $shp;
         // Sets the first row of a table as its header
