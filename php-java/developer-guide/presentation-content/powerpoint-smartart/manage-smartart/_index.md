@@ -15,7 +15,7 @@ Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose
     $smartArt = $slide->getShapes()->get_Item(0);
     $smartArtNodes = $smartArt->getAllNodes();
     for ($smartArtNode : $smartArtNodes) {
-      for ($nodeShape : $smartArtNode->getShapes()) {
+      foreach ($smartArtNode->getShapes() as $nodeShape) {
         if ($nodeShape->getTextFrame() != null) {
           echo ($nodeShape->getTextFrame()->getText());
         }

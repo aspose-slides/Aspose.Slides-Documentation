@@ -263,7 +263,7 @@ This Java code demonstrates the operation:
   try {
     $sl = $pres->getSlides()->get_Item(0);
     $chart = $sl->getShapes()->get_Item(0);
-    for ($dataPoint : $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()) {
+    foreach ($chart->getChartData()->getSeries()->get_Item(0)->getDataPoints() as $dataPoint) {
       $dataPoint->getXValue()->getAsCell()->setValue(null);
       $dataPoint->getYValue()->getAsCell()->setValue(null);
     }

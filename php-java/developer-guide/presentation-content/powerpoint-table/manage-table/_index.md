@@ -95,7 +95,7 @@ This Java code shows you how to specify the numbering for cells in a table:
     // Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for ($row : $tbl->getRows()) {
+    foreach ($tbl->getRows() as $row) {
       for ($cell : $row) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -148,7 +148,7 @@ This Java code shows you how to access and work with an existing table:
     // Initializes null TableEx
     $tbl = null;
     // Iterates through the shapes and sets a reference to the table found
-    for ($shp : $sld->getShapes()) {
+    foreach ($sld->getShapes() as $shp) {
       if ($shp instanceof ITable) {
         $tbl = $shp;
         // Sets the text for the first column of the second row

@@ -60,7 +60,7 @@ This Java code shows you how to remove the borders from table cells:
     // Adds table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for ($row : $tbl->getRows()) {
+    foreach ($tbl->getRows() as $row) {
       for ($cell : $row) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
         $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
@@ -93,7 +93,7 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for ($row : $tbl->getRows()) {
+    foreach ($tbl->getRows() as $row) {
       for ($cell : $row) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -136,7 +136,7 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for ($row : $tbl->getRows()) {
+    foreach ($tbl->getRows() as $row) {
       for ($cell : $row) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -187,7 +187,7 @@ This Java code demonstrates the process we described:
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for ($row : $tbl->getRows()) {
+    foreach ($tbl->getRows() as $row) {
       for ($cell : $row) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);

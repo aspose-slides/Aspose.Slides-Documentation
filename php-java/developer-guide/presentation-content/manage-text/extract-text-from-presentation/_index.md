@@ -19,7 +19,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
   // Instatiate Presentation class that represents a PPTX file
   $pres = new Presentation("demo.pptx");
   try {
-    for ($slide : $pres->getSlides()) {
+    foreach ($pres->getSlides() as $slide) {
       // Get an Array of ITextFrame objects from all slides in the PPTX
       $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
       // Loop through the Array of TextFrames
@@ -27,7 +27,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
         // Loop through paragraphs in current ITextFrame
         for ($para : $textFramesPPTX[$i]->getParagraphs()) {
           // Loop through portions in the current IParagraph
-          for ($port : $para->getPortions()) {
+          foreach ($para->getPortions() as $port) {
             // Display text in the current portion
             echo ($port->getText());
             // Display font height of the text
@@ -65,7 +65,7 @@ To scan the text from the whole presentation, use the
       // Loop through paragraphs in current ITextFrame
       for ($para : $textFramesPPTX[$i]->getParagraphs()) {
         // Loop through portions in the current IParagraph
-        for ($port : $para->getPortions()) {
+        foreach ($para->getPortions() as $port) {
           // Display text in the current portion
           echo ($port->getText());
           // Display font height of the text

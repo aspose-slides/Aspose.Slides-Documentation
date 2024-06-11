@@ -15,8 +15,8 @@ url: /php-java/portion/
     // Reshaping the context of presentation
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $textFrame = $shape->getTextFrame();
-    for ($paragraph : $textFrame->getParagraphs()) {
-      for ($portion : $paragraph->getPortions()) {
+    foreach ($textFrame->getParagraphs() as $paragraph) {
+      foreach ($paragraph->getPortions() as $portion) {
         $point = $portion->getCoordinates();
         echo ("X: " . $point::$x . " Y: " . $point::$y);
       }

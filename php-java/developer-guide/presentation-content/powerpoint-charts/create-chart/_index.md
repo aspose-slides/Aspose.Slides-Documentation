@@ -410,7 +410,7 @@ By default, points on a line chart are joined by straight continuous lines. If y
 
 ```php
   $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  for ($series : $lineChart->getChartData()->getSeries()) {
+  foreach ($lineChart->getChartData()->getSeries() as $series) {
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
   }
 
@@ -529,7 +529,7 @@ Sample Java code used to create a stock chart:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    for ($ser : $chart->getChartData()->getSeries()) {
+    foreach ($chart->getChartData()->getSeries() as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);

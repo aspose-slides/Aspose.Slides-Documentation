@@ -132,7 +132,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
     $slide = $pres->getSlides()->get_Item(0);
     $ole = null;
     // Traverses all shapes for Ole frame
-    for ($shape : $slide->getShapes()) {
+    foreach ($slide->getShapes() as $shape) {
       if ($shape instanceof OleObjectFrame) {
         $ole = $shape;
       }

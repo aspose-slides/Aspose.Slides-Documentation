@@ -235,8 +235,8 @@ Below sample code is given.
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    for ($layoutSlide : $pres->getLayoutSlides()) {
-      for ($shape : $layoutSlide->getShapes()) {
+    foreach ($pres->getLayoutSlides() as $layoutSlide) {
+      foreach ($layoutSlide->getShapes() as $shape) {
         $fillFormats = $shape->getFillFormat();
         $lineFormats = $shape->getLineFormat();
       }

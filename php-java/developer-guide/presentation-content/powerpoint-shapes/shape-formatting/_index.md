@@ -443,7 +443,7 @@ This Java code shows you how to reset the formatting in a slide and revert the p
 ```php
   $pres = new Presentation();
   try {
-    for ($slide : $pres->getSlides()) {
+    foreach ($pres->getSlides() as $slide) {
       // each shape on the slide that has a placeholder on the layout will be reverted
       $slide->reset();
     }
