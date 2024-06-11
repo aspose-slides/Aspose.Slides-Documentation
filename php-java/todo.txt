@@ -4,3 +4,7 @@ override
 foreach ($controls as $control)
 ```Java
 []
+new Point2D.Float(
+new Date()
+new ArrayList<IComment>()
+null
