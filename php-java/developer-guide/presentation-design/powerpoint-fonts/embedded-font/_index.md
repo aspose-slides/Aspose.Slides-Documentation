@@ -77,7 +77,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com
   try {
     $allFonts = $pres->getFontsManager()->getFonts();
     $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-    for ($font : $allFonts) {
+    foreach ($allFonts as $font) {
       $embeddedFontsContainsFont = false;
       for ($i = 0; $i < $embeddedFonts::$length; $i++) {
         if ($embeddedFonts[$i]->equals($font)) {

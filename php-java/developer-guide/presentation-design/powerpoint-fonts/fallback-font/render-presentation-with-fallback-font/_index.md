@@ -17,7 +17,7 @@ The following example includes these steps:
   $rulesList = new FontFallBackRulesCollection();
   // create a number of rules
   $rulesList->add(new FontFallBackRule(0x400, 0x4ff, "Times New Roman"));
-  for ($fallBackRule : $rulesList) {
+  foreach ($rulesList as $fallBackRule) {
     // Trying to remove FallBack font "Tahoma" from loaded rules
     $fallBackRule->remove("Tahoma");
     // And to update of rules for specified range

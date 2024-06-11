@@ -157,7 +157,7 @@ You may want to adjust the transparency of a slide's background image to make th
   $imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
   // Finds a transparency effect with fixed percentage.
   $transparencyOperation = null;
-  for ($operation : $imageTransform) {
+  foreach ($imageTransform as $operation) {
     if ($operation instanceof AlphaModulateFixed) {
       $transparencyOperation = $operation;
       break;

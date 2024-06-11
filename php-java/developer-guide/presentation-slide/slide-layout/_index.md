@@ -58,14 +58,14 @@ This Java code shows you how to add a slide layout to a PowerPoint presentation:
       // names for layout slide selection.
       // You can also use a set of placeholder shape types. For example,
       // Title slide should have only Title placeholder type, etc.
-      for ($titleAndObjectLayoutSlide : $layoutSlides) {
+      foreach ($layoutSlides as $titleAndObjectLayoutSlide) {
         if ($titleAndObjectLayoutSlide->getName() == "Title and Object") {
           $layoutSlide = $titleAndObjectLayoutSlide;
           break;
         }
       }
       if ($layoutSlide == null) {
-        for ($titleLayoutSlide : $layoutSlides) {
+        foreach ($layoutSlides as $titleLayoutSlide) {
           if ($titleLayoutSlide->getName() == "Title") {
             $layoutSlide = $titleLayoutSlide;
             break;
