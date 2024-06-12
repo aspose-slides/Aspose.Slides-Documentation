@@ -158,7 +158,7 @@ You may want to adjust the transparency of a slide's background image to make th
   // Finds a transparency effect with fixed percentage.
   $transparencyOperation = null;
   foreach ($imageTransform as $operation) {
-    if ($operation instanceof AlphaModulateFixed) {
+    if java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $transparencyOperation = $operation;
       break;
     }

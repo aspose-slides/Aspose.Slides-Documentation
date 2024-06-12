@@ -55,7 +55,7 @@ This Java code shows you how to set the prompt text in a placeholder:
     $slide = $pres->getSlides()->get_Item(0);
     // Iterates through the slide
     foreach ($slide->getSlide()->getShapes() as $shape) {
-      if ($shape->getPlaceholder() != null && $shape instanceof AutoShape) {
+      if java_instanceof($shape->getPlaceholder() != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $text = "";
         // PowerPoint displays "Click to add title"
         if ($shape->getPlaceholder()->getType() == PlaceholderType::CenteredTitle) {
@@ -88,7 +88,7 @@ This Java code shows you how to set the transparency for a picture background (i
   $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $operationCollection = $shape->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
   for ($i = 0; $i < $operationCollection->size(); $i++) {
-    if ($operationCollection->get_Item($i) instanceof AlphaModulateFixed) {
+    if java_instanceof($operationCollection->get_Item($i), new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $alphaModulate = $operationCollection->get_Item($i);
       $currentValue = 100 - $alphaModulate->getAmount();
       echo("Current transparency value: " . $currentValue);

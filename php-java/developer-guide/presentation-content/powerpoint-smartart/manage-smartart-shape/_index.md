@@ -46,7 +46,7 @@ The following code will be used to access the SmartArt shapes added in presentat
     // Traverse through every shape inside first slide
     foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
       // Check if shape is of SmartArt type
-      if ($shape instanceof ISmartArt) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
         // Typecast shape to SmartArtEx
         $smart = $shape;
         echo("Shape Name:" . $smart->getName());
@@ -75,7 +75,7 @@ The following sample code will help to access the [SmartArt](https://reference.a
     // Traverse through every shape inside first slide
     foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
       // Check if shape is of SmartArt type
-      if ($shape instanceof ISmartArt) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
         // Typecast shape to SmartArtEx
         $smart = $shape;
         // Checking SmartArt Layout
@@ -112,7 +112,7 @@ In this example, we will learn to change the quick style for any SmartArt shape.
     // Traverse through every shape inside first slide
     foreach ($slide->getShapes() as $shape) {
       // Check if shape is of SmartArt type
-      if ($shape instanceof ISmartArt) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
         // Typecast shape to SmartArtEx
         $smart = $shape;
         // Checking SmartArt style
@@ -154,7 +154,7 @@ In this example, we will learn to change the color style for any SmartArt shape.
     // Traverse through every shape inside first slide
     foreach ($slide->getShapes() as $shape) {
       // Check if shape is of SmartArt type
-      if ($shape instanceof ISmartArt) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
         // Typecast shape to SmartArtEx
         $smart = $shape;
         // Checking SmartArt color type

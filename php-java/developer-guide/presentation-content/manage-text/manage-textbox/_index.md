@@ -73,7 +73,7 @@ This Java code shows you how to check whether a shape was created as a text box:
   $pres = new Presentation("pres.pptx");
   try {
     ForEach->shape($pres, ( shape, slide, index) -> {
-      if ($shape instanceof AutoShape) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $autoShape = $shape;
         $System.out->println($autoShape->isTextBox() ? "shape is text box" : "shape is text not box");
       }
@@ -187,7 +187,7 @@ This Java code demonstrates an operation where all the texts in a presentation a
     foreach ($pres->getSlides() as $slide) {
       foreach ($slide->getShapes() as $shape) {
         // Checks if shape supports text frame (IAutoShape).
-        if ($shape instanceof IAutoShape) {
+        if java_instanceof($shape, new JavaClass("com.aspose.slides.IAutoShape")) {
           $autoShape = $shape;
           // Iterates through paragraphs in text frame
           foreach ($autoShape->getTextFrame()->getParagraphs() as $paragraph) {

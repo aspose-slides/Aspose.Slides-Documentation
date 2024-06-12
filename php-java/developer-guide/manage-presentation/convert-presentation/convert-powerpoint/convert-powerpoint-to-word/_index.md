@@ -43,7 +43,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
       $builder->insertImage($bitmap);
       // inserts slide's texts
       foreach ($slide->getShapes() as $shape) {
-        if ($shape instanceof AutoShape) {
+        if java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")) {
           $builder->writeln($shape->getTextFrame()->getText());
         }
       }

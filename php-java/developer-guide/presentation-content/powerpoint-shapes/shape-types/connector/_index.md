@@ -341,12 +341,12 @@ This Java code demonstrates an operation in which we calculated the angle for a 
     for ($i = 0; $i < $slide->getShapes()->size(); $i++) {
       $dir = 0.0;
       $shape = $slide->getShapes()->get_Item($i);
-      if ($shape instanceof AutoShape) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $ashp = $shape;
         if ($ashp->getShapeType() == ShapeType::Line) {
           $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), $ashp->getFrame()->getFlipH() > 0, $ashp->getFrame()->getFlipV() > 0);
         }
-      } else if ($shape instanceof Connector) {
+      } else if java_instanceof($shape, new JavaClass("com.aspose.slides.Connector")) {
         $ashp = $shape;
         $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), $ashp->getFrame()->getFlipH() > 0, $ashp->getFrame()->getFlipV() > 0);
       }
