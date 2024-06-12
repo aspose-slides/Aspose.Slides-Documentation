@@ -47,7 +47,7 @@ This Java code shows you how to convert PowerPoint to CommonMark:
   $pres = new Presentation("pres.pptx");
   try {
     $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setFlavor(Flavor.CommonMark);
+    $markdownSaveOptions->setFlavor(Flavor::CommonMark);
     $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
   } finally {
     if ($pres != null) {
@@ -72,7 +72,7 @@ If you want the images to appear individually one after the other in the resulti
     $markdownSaveOptions = new MarkdownSaveOptions();
     $markdownSaveOptions->setShowHiddenSlides(true);
     $markdownSaveOptions->setShowSlideNumber(true);
-    $markdownSaveOptions->setFlavor(Flavor.Github);
+    $markdownSaveOptions->setFlavor(Flavor::Github);
     $markdownSaveOptions->setExportType(MarkdownExportType.Sequential);
     $markdownSaveOptions->setNewLineType(NewLineType.Windows);
     $pres->save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat::Md, $markdownSaveOptions);

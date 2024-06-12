@@ -62,7 +62,7 @@ This Java code shows you how to set the size for a brush:
     $traces = $ink->getTraces();
     $brush = $traces[0]->getBrush();
     $brushSize = $brush->getSize();
-    $brush->setSize(new Dimension(5, 10));
+    $brush->setSize(new Java("java.awt.Dimension", 5, 10));
   } finally {
     if ($pres != null) {
       $pres->dispose();

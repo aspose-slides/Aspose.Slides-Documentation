@@ -60,7 +60,7 @@ This sample code shows you how to convert the first slide of a presentation to a
   $pres = new Presentation("Presentation.pptx");
   try {
     // Gets the presentation slide size
-    $slideSize = new Dimension($slideSize->getWidth(), $slideSize->getHeight());
+    $slideSize = new Java("java.awt.Dimension", $slideSize->getWidth(), $slideSize->getHeight());
     // Creates a Images with the slide size
     $slideImage = $sld->getImage(new RenderingOptions(), $slideSize);
     try {
@@ -95,7 +95,7 @@ This sample code demonstrates the proposed conversion using the [getImage](https
   $pres = new Presentation("Presentation.pptx");
   try {
     // Converts the first slide in the presentation to a Bitmap with the specified size
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Dimension(1820, 1040));
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 1820, 1040));
     // Saves the image in the JPEG format
     try {
       // save the image on the disk.
@@ -207,7 +207,7 @@ This Java code demonstrates a conversion process where ITiffOptions is used to o
     $slide = $pres->getSlides()->get_Item(0);
     // Creates a TiffOptions object
     $options = new TiffOptions();
-    $options->setImageSize(new Dimension(2160, 2880));
+    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));
     // Set the font used in case source font is not found
     $options->setDefaultRegularFont("Arial Black");
     // Set the position of the notes on the page

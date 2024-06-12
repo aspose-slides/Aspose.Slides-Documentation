@@ -24,7 +24,7 @@ This Java code shows you how to get and remove embedded fonts from a presentatio
   $pres = new Presentation("EmbeddedFonts.pptx");
   try {
     // Renders a slide containing a text frame that uses embedded "FunSized"
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Dimension(960, 720));
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
     // Save the image to disk in JPEG format
     try {
       $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
@@ -49,7 +49,7 @@ This Java code shows you how to get and remove embedded fonts from a presentatio
     // Removes "Calibri" font
     $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
     // Renders the presentation; "Calibri" font is replaced with an existing one
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Dimension(960, 720));
+    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
     // Save the image to disk in JPEG format
     try {
       $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);

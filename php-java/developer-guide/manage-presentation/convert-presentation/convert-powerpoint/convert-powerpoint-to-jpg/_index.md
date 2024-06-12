@@ -97,7 +97,7 @@ Aspose.Slides for PHP via Java provides a facility that allows you to render com
     $opts = new RenderingOptions();
     $opts->setSlidesLayoutOptions($notesOptions);
     foreach ($pres->getSlides() as $sld) {
-      $slideImage = $sld->getImage($opts, new Dimension(740, 960));
+      $slideImage = $sld->getImage($opts, new Java("java.awt.Dimension", 740, 960));
       try {
         $slideImage->save(String->format("Slide_%d.png", $sld->getSlideNumber()));
       } finally {

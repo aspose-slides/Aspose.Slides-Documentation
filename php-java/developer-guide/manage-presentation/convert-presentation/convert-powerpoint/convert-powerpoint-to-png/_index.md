@@ -85,7 +85,7 @@ This code shows you how to convert a PowerPoint to PNG while specifying the size
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    $size = new Dimension(960, 720);
+    $size = new Java("java.awt.Dimension", 960, 720);
     for ($index = 0; $index < $pres->getSlides()->size(); $index++) {
       $slide = $pres->getSlides()->get_Item($index);
       $slideImage = $slide->getImage($size);

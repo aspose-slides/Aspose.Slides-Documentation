@@ -37,7 +37,7 @@ This sample code shows you how to convert a presentation to animated GIF using c
   $pres = new Presentation("pres.pptx");
   try {
     $gifOptions = new GifOptions();
-    $gifOptions->setFrameSize(new Dimension(960, 720));// the size of the resulted GIF
+    $gifOptions->setFrameSize(new Java("java.awt.Dimension", 960, 720));// the size of the resulted GIF
 
     $gifOptions->setDefaultDelay(2000);// how long each slide will be showed until it will be changed to the next one
 
