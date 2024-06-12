@@ -33,7 +33,7 @@ This Java code shows you how to convert a PowerPoint presentation to PNG:
       $slide = $pres->getSlides()->get_Item($index);
       $slideImage = $slide->getImage();
       try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat.Png);
+        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
       } finally {
         if ($slideImage != null) {
           $slideImage->dispose();
@@ -62,7 +62,7 @@ This code in Java demonstrates the described operation:
       $slide = $pres->getSlides()->get_Item($index);
       $slideImage = $slide->getImage($scaleX, $scaleY);
       try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat.Png);
+        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
       } finally {
         if ($slideImage != null) {
           $slideImage->dispose();
@@ -90,7 +90,7 @@ This code shows you how to convert a PowerPoint to PNG while specifying the size
       $slide = $pres->getSlides()->get_Item($index);
       $slideImage = $slide->getImage($size);
       try {
-        $slideImage->save("image_java_" . $index . ".png", ImageFormat.Png);
+        $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
       } finally {
         if ($slideImage != null) {
           $slideImage->dispose();

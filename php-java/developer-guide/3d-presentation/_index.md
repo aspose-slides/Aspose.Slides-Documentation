@@ -37,7 +37,7 @@ and its direction to the top of the 3D model, bring more volume to the model. Ch
     $shape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->BLUE);
     try {
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
-      $slideImage->save("sample_3d.png", ImageFormat.Png);
+      $slideImage->save("sample_3d.png", ImageFormat::Png);
     } finally {
       if ($slideImage != null) {
         $slideImage->dispose();
@@ -69,7 +69,7 @@ shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 // ... set other 3D scene parameters
 try {
         IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
+        slideImage.save("sample_3d.png", ImageFormat::Png);
     } finally {
              if (slideImage != null) slideImage.dispose();
          }
@@ -88,7 +88,7 @@ are used to create extrusion on shape:
     // ... set other 3D scene parameters
     try {
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
-      $slideImage->save("sample_3d.png", ImageFormat.Png);
+      $slideImage->save("sample_3d.png", ImageFormat::Png);
     } finally {
       if ($slideImage != null) {
         $slideImage->dispose();
@@ -122,7 +122,7 @@ In PowerPoint, Depth of the shape is set via:
     $shape->getThreeDFormat()->getExtrusionColor()->setColor(new java("java.awt.Color", 255, 140, 0));
     try {
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
-      $slideImage->save("sample_3d.png", ImageFormat.Png);
+      $slideImage->save("sample_3d.png", ImageFormat::Png);
     } finally {
       if ($slideImage != null) {
         $slideImage->dispose();
@@ -157,7 +157,7 @@ You may also create an image gradient:
       // .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
       try {
         $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
-        $slideImage->save("sample_3d.png", ImageFormat.Png);
+        $slideImage->save("sample_3d.png", ImageFormat::Png);
       } finally {
         if ($slideImage != null) {
           $slideImage->dispose();
@@ -197,7 +197,7 @@ To create a 3D text (WordArt), do the following:
     $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
     try {
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
-      $slideImage->save("text3d.png", ImageFormat.Png);
+      $slideImage->save("text3d.png", ImageFormat::Png);
     } finally {
       if ($slideImage != null) {
         $slideImage->dispose();
