@@ -4,7 +4,7 @@ type: docs
 weight: 70
 url: /php-java/chart-workbook/
 keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Chart workbook in PowerPoint presentation in Java"
+description: "Chart workbook in PowerPoint presentation "
 ---
 
 ## **Set Chart Data from Workbook**

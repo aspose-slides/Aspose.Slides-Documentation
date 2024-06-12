@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /php-java/access-slide-in-presentation/
 keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  Java, Aspose.Slides"
-description: "Access PowerPoint slide by index, ID, or position in Java. Edit slide properties"
+description: "Access PowerPoint slide by index, ID, or position . Edit slide properties"
 ---
 
 Aspose.Slides allows you to access slides in two ways: by index and by ID.

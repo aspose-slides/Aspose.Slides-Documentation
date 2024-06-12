@@ -1,21 +1,21 @@
 ---
-title: Convert PowerPoint to PDF in Java
+title: Convert PowerPoint to PDF
 linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /php-java/convert-powerpoint-to-pdf/
 keywords: "Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, Java"
-description: "Convert PowerPoint Presentation to PDF in Java. Save PowerPoint as PDF with compliance or accessibility standards"
+description: "Convert PowerPoint Presentation to PDF . Save PowerPoint as PDF with compliance or accessibility standards"
 
 ---
 ## **Overview**
 
 This article explains how you can convert PowerPoint file formats into PDF using Java. It covers wide range of topics e.g.
 
-- Convert PPT to PDF in Java
-- Convert PPTX to PDF in Java
-- Convert ODP to PDF in Java
-- Convert PowerPoint to PDF in Java
+- Convert PPT to PDF
+- Convert PPTX to PDF
+- Convert ODP to PDF
+- Convert PowerPoint to PDF
 
 ## **Java PowerPoint to PDF Conversions**
 

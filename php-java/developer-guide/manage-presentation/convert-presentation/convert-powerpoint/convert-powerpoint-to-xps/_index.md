@@ -4,7 +4,7 @@ type: docs
 weight: 70
 url: /php-java/convert-powerpoint-to-xps/
 keywords: "PPT, PPTX to XPS"
-description: "Convert PowerPoint PPT(X) to XPS in Java"
+description: "Convert PowerPoint PPT(X) to XPS "
 ---
 
 ## **About XPS**
@@ -48,7 +48,7 @@ When converting a presentation to XPS, you have to save the presentation using e
 
 ### **Converting Presentations to XPS Using Default Settings**
 
-This sample code in Java shows you how to convert a presentation to an XPS document using standard settings:
+This sample code  shows you how to convert a presentation to an XPS document using standard settings:
 
 ```php
   // Instantiate a Presentation object that represents a presentation file
@@ -66,7 +66,7 @@ This sample code in Java shows you how to convert a presentation to an XPS docum
 
 
 ### **Converting Presentations to XPS Using Custom Settings**
-This sample code shows you how to convert a presentation to an XPS document using custom settings in Java:
+This sample code shows you how to convert a presentation to an XPS document using custom settings :
 
 ```php
   // Instantiate a Presentation object that represents a presentation file

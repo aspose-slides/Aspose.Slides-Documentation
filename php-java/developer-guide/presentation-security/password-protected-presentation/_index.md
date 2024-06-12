@@ -3,8 +3,8 @@ title: Password Protected Presentation
 type: docs
 weight: 20
 url: /php-java/password-protected-presentation/
-keywords: "Lock PowerPoint presentation in Java"
-description: "Lock PowerPoint presentation. Password protected PowerPoint in Java"
+keywords: "Lock PowerPoint presentation "
+description: "Lock PowerPoint presentation. Password protected PowerPoint "
 ---
 
 ## **About Password Protection**

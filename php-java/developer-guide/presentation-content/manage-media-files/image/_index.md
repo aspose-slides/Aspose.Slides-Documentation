@@ -32,7 +32,7 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 
 ## **Adding Images Stored Locally to Slides**
 
-You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
+You can add one or several images on your computer onto a slide in a presentation. This sample code  shows you how to add an image to a slide:
 
 ```php
   $pres = new Presentation();
@@ -61,7 +61,7 @@ You can add one or several images on your computer onto a slide in a presentatio
 
 If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
 
-This sample code shows you how to add an image from the web to a slide in Java:
+This sample code shows you how to add an image from the web to a slide :
 
 ```php
   $pres = new Presentation();

@@ -51,7 +51,7 @@ This Java code shows you how to convert a PowerPoint presentation to PNG:
 
 If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
 
-This code in Java demonstrates the described operation:
+This code  demonstrates the described operation:
 
 ```php
   $pres = new Presentation("pres.pptx");

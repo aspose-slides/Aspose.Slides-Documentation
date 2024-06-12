@@ -1,11 +1,11 @@
 ---
-title: Open Presentation in Java
+title: Open Presentation
 linktitle: Open Presentation
 type: docs
 weight: 20
 url: /php-java/open-presentation/
 keywords: "Open PowerPoint, PPTX, PPT, Open Presentation, Load Presentation, Java"
-description: "Open or load Presentation PPT, PPTX, ODP in Java"
+description: "Open or load Presentation PPT, PPTX, ODP "
 ---
 
 Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you to open existing presentations. After you load a presentation, you can get information about the presentation, edit the presentation (content on its slides), add new slides or remove existing ones, etc. 
@@ -122,7 +122,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
 
 <h2>Open and Save Presentation</h2>
 
-<a name="Java-open-save-presentation"><strong>Steps: Open and Save Presentation in Java</strong></a>
+<a name="Java-open-save-presentation"><strong>Steps: Open and Save Presentation </strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and pass the file you want to open.
 2. Save the presentation.  

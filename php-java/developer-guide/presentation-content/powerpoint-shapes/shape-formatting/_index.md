@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /php-java/shape-formatting/
 keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Format shape in PowerPoint presentation in Java"
+description: "Format shape in PowerPoint presentation "
 ---
 
 In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 

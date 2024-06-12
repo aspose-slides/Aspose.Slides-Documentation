@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /php-java/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Java"
-description: "How to add hyperlink to a PowerPoint Presentation in Java"
+description: "How to add hyperlink to a PowerPoint Presentation "
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
@@ -46,7 +46,7 @@ This Java code shows you how to add a website hyperlink to a text:
 
 ### **Adding URL Hyperlinks to Shapes or Frames**
 
-This sample code in Java shows you how to add a website hyperlink to a shape:
+This sample code  shows you how to add a website hyperlink to a shape:
 
 ```php
   $pres = new Presentation();

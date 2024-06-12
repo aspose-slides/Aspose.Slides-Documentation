@@ -1,13 +1,13 @@
 ---
-title: Manage PowerPoint Paragraph in Java
+title: Manage PowerPoint Paragraph
 type: docs
 weight: 40
 url: /php-java/manage-paragraph/
 keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in Java"
+description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations "
 ---
 
-Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
+Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions .
 
 * Aspose.Slides provides the [ITextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
 * Aspose.Slides provides the [IParagraph](https://reference.aspose.com/slides/php-java/com.aspose.slides/iparagraph/) interface to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).

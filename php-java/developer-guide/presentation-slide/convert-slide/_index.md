@@ -4,7 +4,7 @@ type: docs
 weight: 35
 url: /php-java/convert-slide/
 keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, Java, java, Aspose.Slides"
-description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Java"
+description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) "
 ---
 
 Aspose.Slides for PHP via Java allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others.
@@ -89,7 +89,7 @@ You can convert a slide to a Images object and then use the object directly some
 
 You may need to get an image of a certain size. Using an overload from the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-) method, you can convert a slide to an image with specific dimensions (length and width).
 
-This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method in Java:
+This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method :
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -245,7 +245,7 @@ Tiff support is not guaranteed in versions earlier than JDK 9.
 
 Aspose.Slides allows you to convert all slides in a single presentation to images. Essentially, you get to convert the presentation (in its entirety) to images. 
 
-This sample code shows you how to convert all slides in a presentation to images in Java:
+This sample code shows you how to convert all slides in a presentation to images :
 
 ```php
   $pres = new Presentation("Presentation.pptx");

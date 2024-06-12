@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /php-java/manage-bullet/
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for PHP via Java"
-description: "Create bullet and numbered lists in PowerPoint presentation in Java"
+description: "Create bullet and numbered lists in PowerPoint presentation "
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for PHP via Java** also allows you to use bullets and numbers in slides in your presentations.
@@ -52,7 +52,7 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 1. Add the second paragraph and repeat the process given in steps **7 to 13**.
 1. Save the presentation.
 
-This sample code in Java—an implementation of the steps above—shows you to create a bullet list in a slide:
+This sample code —an implementation of the steps above—shows you to create a bullet list in a slide:
 
 ```php
   // Instantiate a Presentation class that represents a PPTX file
@@ -182,7 +182,7 @@ To create a bullet list that contains items on different levels—additional lis
 1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
-This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Java:
+This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list :
 
 ```php
   // Instantiate a Presentation class that represents a PPTX file

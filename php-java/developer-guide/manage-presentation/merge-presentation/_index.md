@@ -4,7 +4,7 @@ type: docs
 weight: 40
 url: /php-java/merge-presentation/
 keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, Java"
-description: "Merge or combine PowerPoint Presentation in Java"
+description: "Merge or combine PowerPoint Presentation "
 ---
 
 
@@ -94,7 +94,7 @@ This Java code shows you how to merge presentations:
 
 Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
 
-This code in Java demonstrates the described operation:
+This code  demonstrates the described operation:
 
 ```php
   $pres1 = new Presentation("pres1.pptx");

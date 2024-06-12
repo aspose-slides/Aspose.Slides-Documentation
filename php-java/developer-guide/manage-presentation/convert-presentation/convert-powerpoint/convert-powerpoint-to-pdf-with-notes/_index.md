@@ -4,7 +4,7 @@ type: docs
 weight: 50
 url: /php-java/convert-powerpoint-to-pdf-with-notes/
 keywords: "convert powerpoint to pdf with notes in java"
-description: "Convert PowerPoint to PDF with notes in Java"
+description: "Convert PowerPoint to PDF with notes "
 ---
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**

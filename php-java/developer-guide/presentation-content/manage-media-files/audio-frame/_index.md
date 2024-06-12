@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /php-java/audio-frame/
 keywords: "Add audio, Audio frame, Audio properties, Extract audio, Java, Aspose.Slides for PHP via Java"
-description: "Add audio to PowerPoint presentation in Java"
+description: "Add audio to PowerPoint presentation "
 ---
 
 ## **Create Audio Frame**
@@ -151,7 +151,7 @@ Aspose.Slides for PHP via Java allows you to extract the sound used in slide sho
 >>>>>>> master
 4. Extract the sound in byte data.
 
-This code in Java shows you how to extract the audio used in a slide:
+This code  shows you how to extract the audio used in a slide:
 
 ```php
   // Instantiates a Presentation class that represents a presentation file

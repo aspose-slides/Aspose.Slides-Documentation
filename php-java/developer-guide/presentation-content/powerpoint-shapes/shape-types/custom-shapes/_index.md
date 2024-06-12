@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /php-java/custom-shape/
 keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Add custom shape in PowerPoint presentation in Java"
+description: "Add custom shape in PowerPoint presentation "
 ---
 
 # Change a Shape Using Edit Points

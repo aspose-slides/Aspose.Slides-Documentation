@@ -9,7 +9,7 @@ description: "Convert PowerPoint to animated GIF: PPT to GIF, PPTX to GIF, with 
 
 ## Converting Presentations to Animated GIF Using Default Settings ##
 
-This sample code in Java shows you how to convert a presentation to animated GIF using standard settings:
+This sample code  shows you how to convert a presentation to animated GIF using standard settings:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -31,7 +31,7 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 {{% /alert %}} 
 
 ## Converting Presentations to Animated GIF Using Custom Settings ##
-This sample code shows you how to convert a presentation to animated GIF using custom settings in Java:
+This sample code shows you how to convert a presentation to animated GIF using custom settings :
 
 ```php
   $pres = new Presentation("pres.pptx");

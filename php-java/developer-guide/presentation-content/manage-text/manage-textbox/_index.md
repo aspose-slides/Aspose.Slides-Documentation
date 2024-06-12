@@ -90,7 +90,7 @@ This Java code shows you how to check whether a shape was created as a text box:
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
 
-This code in Java demonstrates the described operation: 
+This code  demonstrates the described operation:
 
 ```php
   $pres = new Presentation();

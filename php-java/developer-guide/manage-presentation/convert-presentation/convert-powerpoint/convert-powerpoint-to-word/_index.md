@@ -4,7 +4,7 @@ type: docs
 weight: 110
 url: /php-java/convert-powerpoint-to-word/
 keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to DOCX, PPT to DOC, PPTX to DOC, PPT to DOCX, Java, java, Aspose.Slides"
-description: "Convert PowerPoint Presentation to Word in Java"
+description: "Convert PowerPoint Presentation to Word "
 ---
 
 If you plan to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). 

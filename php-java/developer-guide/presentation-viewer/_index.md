@@ -4,7 +4,7 @@ type: docs
 weight: 50
 url: /php-java/presentation-viewer/
 keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer in Java"
+description: "PowerPoint PPT Viewer "
 ---
 
 {{% alert color="primary" %}} 

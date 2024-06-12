@@ -4,7 +4,7 @@ type: docs
 weight: 70
 url: /php-java/slide-master/
 keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Java, Aspose.Slides for PHP via Java"
-description: "Add or edit slide master in PowerPoint presentation in Java"
+description: "Add or edit slide master in PowerPoint presentation "
 ---
 
 ## **What is a Slide Master in PowerPoint**
@@ -292,7 +292,7 @@ Two Master Slides are equal if their shapes, styles, texts, animation and other 
 
 Aspose.Slides allows you to set a Slide Master as the default view for a presentation. The default view is what you see first when you open a presentation. 
 
-This code shows you how to set a Slide Master as a presentation's default view in Java:
+This code shows you how to set a Slide Master as a presentation's default view :
 
 ```php
   // Instantiates a Presentation class that represents the presentation file

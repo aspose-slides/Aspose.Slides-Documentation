@@ -27,7 +27,7 @@ You may want to try out our [free web application](https://products.aspose.app/s
 
 {{% /alert %}} 
 
-This sample code in Java shows you how to convert PPT to SVG using Aspose.Slides:
+This sample code  shows you how to convert PPT to SVG using Aspose.Slides:
 
 ```php
   $pres = new Presentation("pres.pptx");

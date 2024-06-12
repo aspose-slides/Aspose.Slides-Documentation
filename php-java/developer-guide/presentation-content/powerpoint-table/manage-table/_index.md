@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /php-java/manage-table/
 keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Create and manage table in PowerPoint presentations in Java"
+description: "Create and manage table in PowerPoint presentations "
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.

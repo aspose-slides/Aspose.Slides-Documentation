@@ -23,7 +23,7 @@ To use WordArt in Microsoft PowerPoint, you have to select one of the predefined
 
 In Aspose.Slides for PHP via Java 20.10, we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for PHP via Java releases.
 
-With Aspose.Slides for PHP via Java, you can easily create your own WordArt template (one effect or combination of effects) in Java and apply it to texts.
+With Aspose.Slides for PHP via Java, you can easily create your own WordArt template (one effect or combination of effects)  and apply it to texts.
 
 ## Creating a Simple WordArt Template and Applying It to a Text
 
@@ -97,7 +97,7 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 
 ### Applying Shadow Effects
 
-Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in Java:
+Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code :
 
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableOuterShadowEffect();
@@ -134,7 +134,7 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 
 ### Applying Display to Texts
 
-We add display to the text through this code sample in Java:
+We add display to the text through this code sample :
 
 ```php
   $portion->getPortionFormat()->getEffectFormat()->enableReflectionEffect();
@@ -283,7 +283,7 @@ Aspose.Slides for PHP via Java provides the [**IOuterShadow**](https://reference
 11. Set the PresetColor of the shadow to Black.
 12. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code in Java—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
+This sample code —an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```php
   $pres = new Presentation();
@@ -326,7 +326,7 @@ Go through these steps:
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
+This sample code (based on the steps above) shows you how to add a connector between two shapes :
 
 ```php
   $pres = new Presentation();

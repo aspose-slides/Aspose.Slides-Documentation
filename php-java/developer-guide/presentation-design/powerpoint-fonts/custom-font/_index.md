@@ -1,11 +1,11 @@
 ---
-title: Custom PowerPoint Font in Java
+title: Custom PowerPoint Font
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /php-java/custom-font/
 keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "PowerPoint custom fonts in Java"
+description: "PowerPoint custom fonts "
 ---
 
 {{% alert color="primary" %}} 

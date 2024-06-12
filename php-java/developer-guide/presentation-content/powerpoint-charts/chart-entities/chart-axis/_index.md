@@ -3,7 +3,7 @@ title: Chart Axis
 type: docs
 url: /php-java/chart-axis/
 keywords: "PowerPoint Chart Axis, Presentation Charts, Java, Manipulate Chart Axis, Chart data"
-description: "How to edit PowerPoint chart axis in Java"
+description: "How to edit PowerPoint chart axis "
 ---
 
 
@@ -20,7 +20,7 @@ Aspose.Slides for PHP via Java allows you to obtain the minimum and maximum valu
 1. Get the actual major unit scale of the axis.
 1. Get the actual minor unit scale of the axis.
 
-This sample code—an implementation of the steps above—shows you how to get the required values in Java:
+This sample code—an implementation of the steps above—shows you how to get the required values :
 
 ```php
   $pres = new Presentation();
@@ -100,7 +100,7 @@ This code shows you how to hide the horizontal axis for a line chart:
 
 ## **Changing Category Axis**
 
-Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in Java demonstrates the operation: 
+Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code  demonstrates the operation:
 
 ```php
   $presentation = new Presentation("ExistingChart.pptx");

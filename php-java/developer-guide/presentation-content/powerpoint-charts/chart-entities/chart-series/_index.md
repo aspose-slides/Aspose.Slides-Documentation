@@ -3,7 +3,7 @@ title: Chart Series
 type: docs
 url: /php-java/chart-series/
 keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Chart series in PowerPoint presentations in Java"
+description: "Chart series in PowerPoint presentations "
 ---
 
 A series is a row or column of numbers plotted in a chart.
@@ -81,7 +81,7 @@ Aspose.Slides for PHP via Java allows you to change a series category's color th
 1. Set your preferred fill type and fill color.
 1. Save the modified presentation.
 
-This code in Java shows you how to change a series category's color:
+This code  shows you how to change a series category's color:
 
 ```php
   $pres = new Presentation();
@@ -287,7 +287,7 @@ Aspose.Slides for PHP via Java allows you to set a series' Gap Width through the
 1. Set the `GapWidth` property.
 1. Write the modified presentation to a PPTX file.
 
-This code in Java shows you how to set a series' Gap Width:
+This code  shows you how to set a series' Gap Width:
 
 ```php
   // Creates empty presentation

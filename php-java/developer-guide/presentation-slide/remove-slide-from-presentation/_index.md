@@ -4,7 +4,7 @@ type: docs
 weight: 30
 url: /php-java/remove-slide-from-presentation/
 keywords: "Remove slide, Delete slide, PowerPoint, Presentation, Java, Aspose.Slides"
-description: "Remove slide from PowerPoint by reference or index in Java"
+description: "Remove slide from PowerPoint by reference or index "
 
 ---
 

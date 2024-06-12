@@ -1,18 +1,18 @@
 ---
-title: Convert PPT to PPTX in Java
+title: Convert PPT to PPTX
 linktitle: Convert PPT to PPTX
 type: docs
 weight: 20
 url: /php-java/convert-ppt-to-pptx/
-keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX in Java"
-description: "Convert PowerPoint PPT to PPTX in Java."
+keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX "
+description: "Convert PowerPoint PPT to PPTX ."
 ---
 
 ## **Overview**
 
 This article explains how to convert PowerPoint Presentation in PPT format into PPTX format using Java and with online PPT to PPTX conversion app. The following topic is covered.
 
-- Convert PPT to PPTX in Java
+- Convert PPT to PPTX
 
 ## **Java Convert PPT to PPTX**
 

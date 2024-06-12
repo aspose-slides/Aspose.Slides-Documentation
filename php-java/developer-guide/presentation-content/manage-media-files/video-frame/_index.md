@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /php-java/video-frame/
 keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Add Video frame to PowerPoint presentation in Java"
+description: "Add Video frame to PowerPoint presentation "
 ---
 
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 

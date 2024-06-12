@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /php-java/slide-layout/
 keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, Java, Aspose.Slides"
-description: "Set PowerPoint slide size and options in Java"
+description: "Set PowerPoint slide size and options "
 ---
 
 A slide layout contains the placeholder boxes and formatting information for all the content that appears on a slide. The layout determines the available content placeholders and where they are placed. 

@@ -1,22 +1,22 @@
 ---
-title: Convert PowerPoint to HTML in Java
+title: Convert PowerPoint to HTML
 linktitle: Convert Powerpoint to HTML
 type: docs
 weight: 30
 url: /php-java/convert-powerpoint-to-html/
 keywords: "Java PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
-description: "Convert PowerPoint HTML in Java: Save PPTX or PPT as HTML in Java. Save slides as HTML in Java"
+description: "Convert PowerPoint HTML : Save PPTX or PPT as HTML . Save slides as HTML "
 ---
 
 ## **Overview**
 
 This article explains how to convert PowerPoint Presentation in HTML format using Java. It covers the following topics.
 
-- Convert PowerPoint to HTML in Java
-- Convert PPT to HTML in Java
-- Convert PPTX to HTML in Java
-- Convert ODP to HTML in Java
-- Convert PowerPoint Slide to HTML in Java
+- Convert PowerPoint to HTML
+- Convert PPT to HTML
+- Convert PPTX to HTML
+- Convert ODP to HTML
+- Convert PowerPoint Slide to HTML
 
 ## **Java PowerPoint to HTML**
 
@@ -64,7 +64,7 @@ Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML t
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Use the [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method to save the object as an HTML file.
 
-This code shows you how to convert a PowerPoint to HTML in Java:
+This code shows you how to convert a PowerPoint to HTML :
 
 ```php
 // Instantiate a Presentation object that represents a presentation file
@@ -84,7 +84,7 @@ This code shows you how to convert a PowerPoint to HTML in Java:
 
 
 ## **Convert PowerPoint to Responsive HTML**
-Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/com.aspose.slides/ResponsiveHtmlController) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in Java:
+Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.com/slides/php-java/com.aspose.slides/ResponsiveHtmlController) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML :
 
 ```php
 // Instantiate a Presentation object that represents a presentation file
@@ -103,7 +103,7 @@ Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.c
 ```
 
 ## **Convert PowerPoint to HTML with Notes**
-This code shows you how to convert a PowerPoint to HTML with notes in Java:
+This code shows you how to convert a PowerPoint to HTML with notes :
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -163,7 +163,7 @@ This Java code shows you how to convert a PowerPoint presentation to HTML while 
   }
 ```
 
-This code in Java shows you how to output HTML with full quality images:
+This code  shows you how to output HTML with full quality images:
 
 ```php
   $pres = new Presentation("InputDoc.pptx");

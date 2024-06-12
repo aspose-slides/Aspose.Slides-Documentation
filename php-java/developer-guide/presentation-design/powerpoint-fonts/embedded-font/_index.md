@@ -5,7 +5,7 @@ type: docs
 weight: 40
 url: /php-java/embedded-font/
 keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Use embedded fonts in PowerPoint presentation in Java"
+description: "Use embedded fonts in PowerPoint presentation "
 
 ---
 

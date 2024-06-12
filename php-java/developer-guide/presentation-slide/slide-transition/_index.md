@@ -3,8 +3,8 @@ title: Slide Transition
 type: docs
 weight: 80
 url: /php-java/slide-transition/
-keywords: "PowerPoint slide transition, morph transition in Java"
-description: "PowerPoint slide transition, PowerPoint morph transition in Java"
+keywords: "PowerPoint slide transition, morph transition "
+description: "PowerPoint slide transition, PowerPoint morph transition "
 ---
 
 
