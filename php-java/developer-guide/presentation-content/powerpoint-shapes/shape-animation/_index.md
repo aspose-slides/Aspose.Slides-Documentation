@@ -302,7 +302,7 @@ This Java code shows you how to extract the sound embedded in an animation effec
     $slide = $presentation->getSlides()->get_Item(0);
     // Gets the main sequence of the slide.
     $sequence = $slide->getTimeline()->getMainSequence();
-    foreach ($sequence as $effect) {
+    foreach($sequence as $effect) {
       if ($effect->getSound() == null) {
         continue;
       }

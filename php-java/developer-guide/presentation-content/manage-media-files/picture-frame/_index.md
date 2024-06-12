@@ -129,7 +129,7 @@ Aspose.Slides allows you to get the transparency of an image. This Java code dem
   $presentation = new Presentation($folderPath . "Test.pptx");
   $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach ($imageTransform as $effect) {
+  foreach($imageTransform as $effect) {
     if java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $alphaModulateFixed = $effect;
       $transparencyValue = 100 - $alphaModulateFixed->getAmount();
@@ -200,7 +200,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
   try {
     $shapesToRemove = new ArrayList<IShape>();
     $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for ($i = 0; $i < $shapesCount; $i++) {
+    for($i = 0; $i < $shapesCount; $i++) {
       $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
       if ($autoShape->getPlaceholder() == null) {
         continue;
@@ -219,7 +219,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
           break;
       }
     }
-    foreach ($shapesToRemove as $shape) {
+    foreach($shapesToRemove as $shape) {
       $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
     }
     $presentation->save("output.pptx", SaveFormat::Pptx);

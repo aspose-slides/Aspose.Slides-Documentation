@@ -105,7 +105,7 @@ This Java code shows you how to extract VBA macros from a presentation containin
   try {
     // Checks whether the Presentation contains a VBA Project
     if ($pres->getVbaProject() != null) {
-      foreach ($pres->getVbaProject()->getModules() as $module) {
+      foreach($pres->getVbaProject()->getModules() as $module) {
         echo($module->getName());
         echo($module->getSourceCode());
       }

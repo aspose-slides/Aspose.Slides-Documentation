@@ -38,8 +38,8 @@ This Java code shows you how to create a table in a presentation:
     // Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for ($row = 0; $row < $tbl->getRows()->size(); $row++) {
-      for ($cell = 0; $cell < $tbl->getRows()->get_Item($row)->size(); $cell++) {
+    for($row = 0; $row < $tbl->getRows()->size(); $row++) {
+      for($cell = 0; $cell < $tbl->getRows()->get_Item($row)->size(); $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
         $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -95,8 +95,8 @@ This Java code shows you how to specify the numbering for cells in a table:
     // Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    foreach ($tbl->getRows() as $row) {
-      foreach ($row as $cell) {
+    foreach($tbl->getRows() as $row) {
+      foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
@@ -148,7 +148,7 @@ This Java code shows you how to access and work with an existing table:
     // Initializes null TableEx
     $tbl = null;
     // Iterates through the shapes and sets a reference to the table found
-    foreach ($sld->getShapes() as $shp) {
+    foreach($sld->getShapes() as $shp) {
       if java_instanceof($shp, new JavaClass("com.aspose.slides.Table")) {
         $tbl = $shp;
         // Sets the text for the first column of the second row

@@ -133,7 +133,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
     // moving 100 points down
-    foreach ($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
+    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
       $frame = $ctl->getFrame();
       $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
     }

@@ -1,7 +1,7 @@
 class
 override
 ::$length
-foreach ($controls as $control)
+foreach($controls as $control)
 ```Java
 []
 new Point2D::Float(

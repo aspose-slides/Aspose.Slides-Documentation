@@ -74,7 +74,7 @@ This code  demonstrates the described operation:
     $Byte = new JavaClass("java.lang.Byte");
     $buffer = $Array->newInstance($Byte, 8 * 1024);
     // Iterates through the videos
-    for ($index = 0; $index < $pres->getVideos()->size(); $index++) {
+    for($index = 0; $index < $pres->getVideos()->size(); $index++) {
       $video = $pres->getVideos()->get_Item($index);
       // Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
       // like video.BinaryData - because this property returns a byte array containing a full video, which then

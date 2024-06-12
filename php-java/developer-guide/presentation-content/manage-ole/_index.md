@@ -135,7 +135,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
     $slide = $pres->getSlides()->get_Item(0);
     $ole = null;
     // Traverses all shapes for Ole frame
-    foreach ($slide->getShapes() as $shape) {
+    foreach($slide->getShapes() as $shape) {
       if java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame")) {
         $ole = $shape;
       }
@@ -308,7 +308,7 @@ This Java code shows you how to extract a file embedded in a slide as an OLE obj
   $pres = new Presentation("embeddedOle.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    for ($index = 0; $index < $slide->getShapes()->size(); $index++) {
+    for($index = 0; $index < $slide->getShapes()->size(); $index++) {
       $shape = $slide->getShapes()->get_Item($index);
       $oleFrame = $shape;
       if ($oleFrame != null) {

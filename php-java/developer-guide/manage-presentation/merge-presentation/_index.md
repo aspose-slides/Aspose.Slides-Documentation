@@ -73,7 +73,7 @@ This Java code shows you how to merge presentations:
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach ($pres2->getSlides() as $slide) {
+      foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide);
       }
     } finally {
@@ -101,7 +101,7 @@ This code  demonstrates the described operation:
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach ($pres2->getSlides() as $slide) {
+      foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
       }
     } finally {
@@ -135,7 +135,7 @@ This Java code shows you how to select and combine specific slides from differen
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach ($pres2->getSlides() as $slide) {
+      foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
       }
     } finally {
@@ -161,7 +161,7 @@ This Java code shows you how to combine slides from presentations while applying
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach ($pres2->getSlides() as $slide) {
+      foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
       }
     } finally {
@@ -196,7 +196,7 @@ This sample code demonstrates the described operation:
     $pres2 = new Presentation("pres2.pptx");
     try {
       $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach ($pres2->getSlides() as $slide) {
+      foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide);
       }
     } finally {
@@ -222,7 +222,7 @@ This Java code shows you how to merge a specific slide to a section in a present
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach ($pres2->getSlides() as $slide) {
+      foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
       }
     } finally {

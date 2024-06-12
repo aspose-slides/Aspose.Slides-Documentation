@@ -84,7 +84,7 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $altText = "User Defined";
     $iCount = $sld->getShapes()->size();
-    for ($i = 0; $i < $iCount; $i++) {
+    for($i = 0; $i < $iCount; $i++) {
       $ashp = $sld->getShapes()->get_Item(0);
       if ($alttext->equals($ashp->getAlternativeText())) {
         $sld->getShapes()->remove($ashp);
@@ -120,7 +120,7 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $alttext = "User Defined";
     $iCount = $sld->getShapes()->size();
-    for ($i = 0; $i < $iCount; $i++) {
+    for($i = 0; $i < $iCount; $i++) {
       $ashp = $sld->getShapes()->get_Item($i);
       if ($alttext->equals($ashp->getAlternativeText())) {
         $ashp->setHidden(true);
@@ -211,7 +211,7 @@ To set the AlternateText of a shape, please follow the steps below:
     $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $shp2->getFillFormat()->setFillType(FillType::Solid);
     $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for ($i = 0; $i < $sld->getShapes()->size(); $i++) {
+    for($i = 0; $i < $sld->getShapes()->size(); $i++) {
       $shape = $sld->getShapes()->get_Item($i);
       if ($shape != null) {
         $shape->setAlternativeText("User Defined");
@@ -235,8 +235,8 @@ Below sample code is given.
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    foreach ($pres->getLayoutSlides() as $layoutSlide) {
-      foreach ($layoutSlide->getShapes() as $shape) {
+    foreach($pres->getLayoutSlides() as $layoutSlide) {
+      foreach($layoutSlide->getShapes() as $shape) {
         $fillFormats = $shape->getFillFormat();
         $lineFormats = $shape->getLineFormat();
       }

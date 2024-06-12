@@ -32,7 +32,7 @@ IChartCategory.remove()
 
   $chart->getChartData()->getCategories()->remove($chart->getChartData()->getCategories()->get_Item(0));// remove with ChartCategoryCollection.remove()
 
-  foreach ($chart->getChartData()->getSeries() as $ser) {
+  foreach($chart->getChartData()->getSeries() as $ser) {
     $ser->getDataPoints()->get_Item(0)->remove();// remove with ChartDataPoint.remove()
 
     $ser->getDataPoints()->remove($ser->getDataPoints()->get_Item(0));// ChartDataPointCollection.remove()

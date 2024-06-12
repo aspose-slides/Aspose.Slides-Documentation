@@ -144,7 +144,7 @@ Aspose.Slides for PHP via Java also allows developers to access the values of cu
     // Create a reference to DocumentProperties object associated with Presentation
     $dp = $pres->getDocumentProperties();
     // Access and modify custom properties
-    for ($i = 0; $i < $dp->getCountOfCustomProperties(); $i++) {
+    for($i = 0; $i < $dp->getCountOfCustomProperties(); $i++) {
       // Display names and values of custom properties
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
       echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));

@@ -21,8 +21,8 @@ This Java code shows you how to identify merged table cells in a presentation:
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// assuming that Slide#0.Shape#0 is a table
 
-    for ($i = 0; $i < $table->getRows()->size(); $i++) {
-      for ($j = 0; $j < $table->getColumns()->size(); $j++) {
+    for($i = 0; $i < $table->getRows()->size(); $i++) {
+      for($j = 0; $j < $table->getColumns()->size(); $j++) {
         $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
         if ($currentCell->isMergedCell()) {
           echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
@@ -60,8 +60,8 @@ This Java code shows you how to remove the borders from table cells:
     // Adds table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    foreach ($tbl->getRows() as $row) {
-      foreach ($row as $cell) {
+    foreach($tbl->getRows() as $row) {
+      foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
         $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
         $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
@@ -93,8 +93,8 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    foreach ($tbl->getRows() as $row) {
-      foreach ($row as $cell) {
+    foreach($tbl->getRows() as $row) {
+      foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
@@ -136,8 +136,8 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    foreach ($tbl->getRows() as $row) {
-      foreach ($row as $cell) {
+    foreach($tbl->getRows() as $row) {
+      foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
@@ -187,8 +187,8 @@ This Java code demonstrates the process we described:
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    foreach ($tbl->getRows() as $row) {
-      foreach ($row as $cell) {
+    foreach($tbl->getRows() as $row) {
+      foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);

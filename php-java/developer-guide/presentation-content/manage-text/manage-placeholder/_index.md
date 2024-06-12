@@ -28,7 +28,7 @@ This Java code shows how to change the text in a placeholder:
     // Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Iterates through shapes to find the placeholder
-    foreach ($sld->getShapes() as $shp) {
+    foreach($sld->getShapes() as $shp) {
       if ($shp->getPlaceholder() != null) {
         // Changes the text in each placeholder
         $shp->getTextFrame()->setText("This is Placeholder");
@@ -54,7 +54,7 @@ This Java code shows you how to set the prompt text in a placeholder:
   try {
     $slide = $pres->getSlides()->get_Item(0);
     // Iterates through the slide
-    foreach ($slide->getSlide()->getShapes() as $shape) {
+    foreach($slide->getSlide()->getShapes() as $shape) {
       if java_instanceof($shape->getPlaceholder() != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $text = "";
         // PowerPoint displays "Click to add title"
@@ -87,7 +87,7 @@ This Java code shows you how to set the transparency for a picture background (i
   $presentation = new Presentation("example.pptx");
   $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $operationCollection = $shape->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
-  for ($i = 0; $i < $operationCollection->size(); $i++) {
+  for($i = 0; $i < $operationCollection->size(); $i++) {
     if java_instanceof($operationCollection->get_Item($i), new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $alphaModulate = $operationCollection->get_Item($i);
       $currentValue = 100 - $alphaModulate->getAmount();

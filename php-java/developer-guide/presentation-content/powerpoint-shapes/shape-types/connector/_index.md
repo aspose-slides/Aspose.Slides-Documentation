@@ -338,7 +338,7 @@ This Java code demonstrates an operation in which we calculated the angle for a 
   $pres = new Presentation("ConnectorLineAngle.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    for ($i = 0; $i < $slide->getShapes()->size(); $i++) {
+    for($i = 0; $i < $slide->getShapes()->size(); $i++) {
       $dir = 0.0;
       $shape = $slide->getShapes()->get_Item($i);
       if java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")) {

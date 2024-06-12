@@ -34,7 +34,7 @@ getAutomaticSeriesColor() method returns an automatic color of series based on s
 ```php
   $pres = new Presentation();
   $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-  for ($i = 0; $i < $chart->getChartData()->getSeries()->size(); $i++) {
+  for($i = 0; $i < $chart->getChartData()->getSeries()->size(); $i++) {
     $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
   }
 

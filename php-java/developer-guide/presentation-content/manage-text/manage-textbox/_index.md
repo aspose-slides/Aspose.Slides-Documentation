@@ -184,15 +184,15 @@ This Java code demonstrates an operation where all the texts in a presentation a
 ```php
   $pres = new Presentation("text.pptx");
   try {
-    foreach ($pres->getSlides() as $slide) {
-      foreach ($slide->getShapes() as $shape) {
+    foreach($pres->getSlides() as $slide) {
+      foreach($slide->getShapes() as $shape) {
         // Checks if shape supports text frame (IAutoShape).
         if java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")) {
           $autoShape = $shape;
           // Iterates through paragraphs in text frame
-          foreach ($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
+          foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
             // Iterates through each portion in paragraph
-            foreach ($paragraph->getPortions() as $portion) {
+            foreach($paragraph->getPortions() as $portion) {
               $portion->setText($portion->getText()->replace("years", "months"));// Changes text
 
               $portion->getPortionFormat()->setFontBold(NullableBool::True);// Changes formatting

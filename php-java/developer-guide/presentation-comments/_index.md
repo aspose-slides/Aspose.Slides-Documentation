@@ -65,9 +65,9 @@ This Java code shows you how to access an existing comment on a slide in a Power
   // Instantiates the Presentation class
   $pres = new Presentation("Comments1.pptx");
   try {
-    foreach ($pres->getCommentAuthors() as $commentAuthor) {
+    foreach($pres->getCommentAuthors() as $commentAuthor) {
       $author = $commentAuthor;
-      foreach ($author->getComments() as $comment1) {
+      foreach($author->getComments() as $comment1) {
         $comment = $comment1;
         echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
       }
@@ -110,7 +110,7 @@ This Java code shows you how to add comments and get replies to them:
     // Displays the comments hierarchy on console
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
-    for ($i = 0; $i < $Array->getLength($comments); $i++) {
+    for($i = 0; $i < $Array->getLength($comments); $i++) {
       $comment = $comments[$i];
       while ($comment->getParentComment() != null) {
         System::out->print("\t");
@@ -170,7 +170,7 @@ This Java code shows you how to remove all comments and authors in a presentatio
   $presentation = new Presentation("example.pptx");
   try {
     // Deletes all comments from the presentation
-    foreach ($presentation->getCommentAuthors() as $author) {
+    foreach($presentation->getCommentAuthors() as $author) {
       $author->getComments()->clear();
     }
     // Deletes all authors
@@ -197,14 +197,14 @@ This Java code shows you how to delete specific comments on a slide:
     $author->getComments()->addComment("comment 1", $slide, new Point2D::Float(0.2, 0.2), new Date());
     $author->getComments()->addComment("comment 2", $slide, new Point2D::Float(0.3, 0.2), new Date());
     // remove all comments that contain "comment 1" text
-    foreach ($presentation->getCommentAuthors() as $commentAuthor) {
+    foreach($presentation->getCommentAuthors() as $commentAuthor) {
       $toRemove = new ArrayList<IComment>();
-      foreach ($slide->getSlideComments($commentAuthor) as $comment) {
+      foreach($slide->getSlideComments($commentAuthor) as $comment) {
         if ($comment->getText()->equals("comment 1")) {
           $toRemove->add($comment);
         }
       }
-      foreach ($toRemove as $comment) {
+      foreach($toRemove as $comment) {
         $commentAuthor->getComments()->remove($comment);
       }
     }

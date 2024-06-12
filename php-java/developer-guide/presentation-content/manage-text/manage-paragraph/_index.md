@@ -63,8 +63,8 @@ This Java code is an implementation of the steps for adding paragraphs containin
     $para2->getPortions()->add($port20);
     $para2->getPortions()->add($port21);
     $para2->getPortions()->add($port22);
-    for ($i = 0; $i < 3; $i++) {
-      for ($j = 0; $j < 3; $j++) {
+    for($i = 0; $i < 3; $i++) {
+      for($j = 0; $j < 3; $j++) {
         $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
         $portion->setText("Portion0" . $j);
         if ($j == 0) {

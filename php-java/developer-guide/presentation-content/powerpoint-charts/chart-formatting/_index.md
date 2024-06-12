@@ -225,9 +225,9 @@ Aspose.Slides for PHP via Java provides a simple API for managing chart data for
     // Accessing the chart series collection
     $series = $chart->getChartData()->getSeries();
     // Traverse through every chart series
-    foreach ($series as $ser) {
+    foreach($series as $ser) {
       // Traverse through every data cell in series
-      foreach ($ser->getDataPoints() as $cell) {
+      foreach($ser->getDataPoints() as $cell) {
         // Setting the number format
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
 

@@ -165,7 +165,7 @@ This Java shows you how to create a custom shape:
   $R = 100;
   $r = 50;
   $step = 72;
-  for ($angle = -90; $angle < 270; $angle += $step) {
+  for($angle = -90; $angle < 270; $angle += $step) {
     $radians = $angle * Math::PI / 180.0;
     $x = $R * Math->cos($radians);
     $y = $R * Math->sin($radians);
@@ -177,7 +177,7 @@ This Java shows you how to create a custom shape:
   }
   $starPath = new GeometryPath();
   $starPath->moveTo($points->get(0));
-  for ($i = 1; $i < $points->size(); $i++) {
+  for($i = 1; $i < $points->size(); $i++) {
     $starPath->lineTo($points->get($i));
   }
   $starPath->closeFigure();

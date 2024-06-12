@@ -20,15 +20,15 @@ Upon execution, the Slide method scans the entire text from the slide passed as
   $pres = new Presentation("demo.pptx");
   $Array = new java_class("java.lang.reflect.Array");
   try {
-    foreach ($pres->getSlides() as $slide) {
+    foreach($pres->getSlides() as $slide) {
       // Get an Array of ITextFrame objects from all slides in the PPTX
       $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
       // Loop through the Array of TextFrames
-      for ($i = 0; $i < $Array->getLength($textFramesPPTX); $i++) {
+      for($i = 0; $i < $Array->getLength($textFramesPPTX); $i++) {
         // Loop through paragraphs in current ITextFrame
-        foreach ($textFramesPPTX[$i]->getParagraphs() as $para) {
+        foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
           // Loop through portions in the current IParagraph
-          foreach ($para->getPortions() as $port) {
+          foreach($para->getPortions() as $port) {
             // Display text in the current portion
             echo($port->getText());
             // Display font height of the text
@@ -63,11 +63,11 @@ To scan the text from the whole presentation, use the
     // Get an Array of ITextFrame objects from all slides in the PPTX
     $textFramesPPTX = SlideUtil->getAllTextFrames($pres, true);
     // Loop through the Array of TextFrames
-    for ($i = 0; $i < $Array->getLength($textFramesPPTX); $i++) {
+    for($i = 0; $i < $Array->getLength($textFramesPPTX); $i++) {
       // Loop through paragraphs in current ITextFrame
-      foreach ($textFramesPPTX[$i]->getParagraphs() as $para) {
+      foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
         // Loop through portions in the current IParagraph
-        foreach ($para->getPortions() as $port) {
+        foreach($para->getPortions() as $port) {
           // Display text in the current portion
           echo($port->getText());
           // Display font height of the text

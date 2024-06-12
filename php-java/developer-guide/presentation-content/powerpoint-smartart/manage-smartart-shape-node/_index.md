@@ -24,7 +24,7 @@ Aspose.Slides for PHP via Java has provided the simplest API to manage the Smart
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
     // Traverse through every shape inside first slide
-    foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
       // Check if shape is of SmartArt type
       if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
@@ -100,13 +100,13 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
     // Get first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Traverse through every shape inside first slide
-    foreach ($slide->getShapes() as $shape) {
+    foreach($slide->getShapes() as $shape) {
       // Check if shape is of SmartArt type
       if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traverse through all nodes inside SmartArt
-        for ($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
+        for($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
           // Accessing SmartArt node at index i
           $node = $smart->getAllNodes()->get_Item($i);
           // Printing the SmartArt node parameters
@@ -141,17 +141,17 @@ The following sample code will help to access the child nodes belonging to respe
     // Get first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Traverse through every shape inside first slide
-    foreach ($slide->getShapes() as $shape) {
+    foreach($slide->getShapes() as $shape) {
       // Check if shape is of SmartArt type
       if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traverse through all nodes inside SmartArt
-        for ($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
+        for($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
           // Accessing SmartArt node at index i
           $node0 = $smart->getAllNodes()->get_Item($i);
           // Traversing through the child nodes in SmartArt node at index i
-          for ($j = 0; $j < $node0->getChildNodes()->size(); $j++) {
+          for($j = 0; $j < $node0->getChildNodes()->size(); $j++) {
             // Accessing the child node in SmartArt node
             $node = $node0->getChildNodes()->get_Item($j);
             // Printing the SmartArt child node parameters
@@ -219,7 +219,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
     // Traverse through every shape inside first slide
-    foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       // Check if shape is of SmartArt type
       if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
@@ -259,7 +259,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
   $pres = new Presentation("AddSmartArtNode.pptx");
   try {
     // Traverse through every shape inside first slide
-    foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       // Check if shape is of SmartArt type
       if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
@@ -344,13 +344,13 @@ In the following sample code we will investigate how to identify **Assistant Nod
   $pres = new Presentation("AddNodes.pptx");
   try {
     // Traverse through every shape inside first slide
-    foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
+    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       // Check if shape is of SmartArt type
       if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traversing through all nodes of SmartArt shape
-        for ($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
+        for($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
           $node = $smart->getAllNodes()->get_Item($i);
           // Check if node is Assistant node
           if ($node->isAssistant()) {
@@ -396,7 +396,7 @@ Please follow the steps below:
     $node = $chevron->getAllNodes()->addNode();
     $node->getTextFrame()->setText("Some text");
     // Setting node fill color
-    foreach ($node->getShapes() as $item) {
+    foreach($node->getShapes() as $item) {
       $item->getFillFormat()->setFillType(FillType::Solid);
       $item->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     }

@@ -109,8 +109,8 @@ This Java code shows you how to extract the video on a presentation slide:
   // Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("VideoSample.pptx");
   try {
-    foreach ($pres->getSlides() as $slide) {
-      foreach ($slide->getShapes() as $shape) {
+    foreach($pres->getSlides() as $slide) {
+      foreach($slide->getShapes() as $shape) {
         if java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame")) {
           $vf = $shape;
           $type = $vf->getEmbeddedVideo()->getContentType();

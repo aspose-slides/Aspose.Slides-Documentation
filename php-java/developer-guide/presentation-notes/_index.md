@@ -49,7 +49,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
   try {
     // Removing notes of all slides
     $mgr = null;
-    for ($i = 0; $i < $pres->getSlides()->size(); $i++) {
+    for($i = 0; $i < $pres->getSlides()->size(); $i++) {
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
       $mgr->removeNotesSlide();
     }

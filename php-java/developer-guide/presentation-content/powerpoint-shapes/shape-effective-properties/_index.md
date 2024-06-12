@@ -129,7 +129,7 @@ This sample code sample shows you how to get effective text style properties:
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $effectiveTextStyle = $shape->getTextFrame()->getTextFrameFormat()->getTextStyle()->getEffective();
-    for ($i = 0; $i <= 8; $i++) {
+    for($i = 0; $i <= 8; $i++) {
       $effectiveStyleLevel = $effectiveTextStyle->getLevel($i);
       echo("= Effective paragraph formatting for style level #" . $i . " =");
       echo("Depth: " . $effectiveStyleLevel->getDepth());

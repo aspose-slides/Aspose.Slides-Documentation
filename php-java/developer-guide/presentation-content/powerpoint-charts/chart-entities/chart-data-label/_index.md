@@ -39,17 +39,17 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
     $series;
     $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
-    for ($k = 0; $k < $chart->getChartData()->getCategories()->size(); $k++) {
+    for($k = 0; $k < $chart->getChartData()->getCategories()->size(); $k++) {
       $cat = $chart->getChartData()->getCategories()->get_Item($k);
-      for ($i = 0; $i < $chart->getChartData()->getSeries()->size(); $i++) {
+      for($i = 0; $i < $chart->getChartData()->getSeries()->size(); $i++) {
         $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
       }
     }
     $dataPontPercent = 0.0;
-    for ($x = 0; $x < $chart->getChartData()->getSeries()->size(); $x++) {
+    for($x = 0; $x < $chart->getChartData()->getSeries()->size(); $x++) {
       $series = $chart->getChartData()->getSeries()->get_Item($x);
       $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
-      for ($j = 0; $j < $series->getDataPoints()->size(); $j++) {
+      for($j = 0; $j < $series->getDataPoints()->size(); $j++) {
         $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
         $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
         $port = new Portion();

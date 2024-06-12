@@ -26,7 +26,7 @@ Aspose.Slides for PHP via Java allows developers to add empty slides to their pr
   try {
     // Instantiate SlideCollection calss
     $slds = $pres->getSlides();
-    for ($i = 0; $i < $pres->getLayoutSlides()->size(); $i++) {
+    for($i = 0; $i < $pres->getLayoutSlides()->size(); $i++) {
       // Add an empty slide to the Slides collection
       $slds->addEmptySlide($pres->getLayoutSlides()->get_Item($i));
     }

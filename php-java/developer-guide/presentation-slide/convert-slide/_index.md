@@ -251,7 +251,7 @@ This sample code shows you how to convert all slides in a presentation to images
   $pres = new Presentation("Presentation.pptx");
   try {
     // Render presentation to images array slide by slide
-    for ($i = 0; $i < $pres->getSlides()->size(); $i++) {
+    for($i = 0; $i < $pres->getSlides()->size(); $i++) {
       // Control hidden slides (do not render hidden slides)
       if ($pres->getSlides()->get_Item($i)->getHidden()) {
         continue;

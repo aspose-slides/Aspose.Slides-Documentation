@@ -12,8 +12,8 @@ Using Aspose.Slides for PHP via Java, developers can now get the rectangular coo
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $textFrame = $shape->getTextFrame();
-  foreach ($textFrame->getParagraphs() as $paragraph) {
-    foreach ($paragraph->getPortions() as $portion) {
+  foreach($textFrame->getParagraphs() as $paragraph) {
+    foreach($paragraph->getPortions() as $portion) {
       $point = $portion->getCoordinates();
     }
   }
@@ -52,7 +52,7 @@ This sample code demonstrates the described operation:
     $cell = $tbl->getRows()->get_Item(1)->get_Item(1);
     $x = $tbl->getX() + $tbl->getRows()->get_Item(1)->get_Item(1)->getOffsetX();
     $y = $tbl->getY() + $tbl->getRows()->get_Item(1)->get_Item(1)->getOffsetY();
-    foreach ($cell->getTextFrame()->getParagraphs() as $para) {
+    foreach($cell->getTextFrame()->getParagraphs() as $para) {
       if ($para->getText()->equals("")) {
         continue;
       }
@@ -61,7 +61,7 @@ This sample code demonstrates the described operation:
       $shape->getFillFormat()->setFillType(FillType::NoFill);
       $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
       $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-      foreach ($para->getPortions() as $portion) {
+      foreach($para->getPortions() as $portion) {
         if ($portion->getText()->contains("0")) {
           $rect = $portion->getRect();
           $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
