@@ -209,11 +209,11 @@ You may want to use a scattered chart when
 
 1. Please follow the steps mentioned above in [Creating Normal Charts](#creating-normal-charts)
 2. For third step, Add a chart with some data and specify your chart type as one of the following
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
 This Java code shows you how to create a scattered charts with a different series of markers: 
 
@@ -384,7 +384,7 @@ Line charts (also known as a line graphs) are best used in situations where you 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, `ChartType.Line`).
+1. Add a chart with default data along with the desired type (in this case, `ChartType::Line`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -735,7 +735,7 @@ This Java code shows you how to create an histogram chart:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
+3. Add a chart with some data and specify your preferred chart type (`ChartType::Radar` in this case).
 4. Write the modified presentation to a PPTX file
 
 This Java code shows you how to create an radar chart:

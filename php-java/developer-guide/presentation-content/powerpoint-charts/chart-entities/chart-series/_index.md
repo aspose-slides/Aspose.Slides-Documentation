@@ -150,7 +150,7 @@ Aspose.Slides for PHP via Java allows you to set the automatic fill color for ch
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
 1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
 
@@ -180,7 +180,7 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
 1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
 

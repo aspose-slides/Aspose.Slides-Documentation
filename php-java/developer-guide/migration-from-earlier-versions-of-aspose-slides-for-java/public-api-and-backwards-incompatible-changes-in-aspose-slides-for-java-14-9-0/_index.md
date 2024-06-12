@@ -52,8 +52,8 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
   $presentation->save($outFileName, $slides, SaveFormat::Pdf);
 
 ```
-### **Added the SmartArtLayoutType.Custom Enum Value**
-This type of SmartArt layout represents diagram with custom template. Custom diagrams only can be loaded from presentation file and can't be created via method ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
+### **Added the SmartArtLayoutType::Custom Enum Value**
+This type of SmartArt layout represents diagram with custom template. Custom diagrams only can be loaded from presentation file and can't be created via method ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType::Custom)
 ### **Added the SmartArtShape Class and ISmartArtShape Interface**
 The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.SmartArt.ISmartArtShape) add access to individual shapes inside SmartArt diagram. SmartArtShape can be used to change FillFormat, LineFormat, adding Hyperlinks etc.
 

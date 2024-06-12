@@ -11,7 +11,7 @@ This page lists all [added](/slides/php-java/public-api-and-backwards-incompatib
 
 {{% /alert %}} 
 ## **Public API Changes**
-### **com.aspose.slides.FieldType.getFooter() method has been added**
+### **com.aspose.slides.FieldType::getFooter() method has been added**
 getFooter() method returns footer field type. It has been added for the implementation of the possibility to create fields of this type and for valid presentation serialization.
 ### **Element com.aspose.slides.ShapeElementFillSource.Own has been deleted**
 Element ShapeElementFillSource.Own has been deleted as duplicated. Use ShapeElementFillSource.Shape instead of ShapeElementFillSource.Own.

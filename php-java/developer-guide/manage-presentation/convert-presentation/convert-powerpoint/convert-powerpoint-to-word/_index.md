@@ -47,7 +47,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
           $builder->writeln($shape->getTextFrame()->getText());
         }
       }
-      $builder->insertBreak(BreakType.PAGE_BREAK);
+      $builder->insertBreak(BreakType::PAGE_BREAK);
     }
     $doc->save($outputDoc);
   } finally {

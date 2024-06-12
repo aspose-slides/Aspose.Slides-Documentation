@@ -177,10 +177,10 @@ private class FontSubstSendsWarningCallback implements IWarningCallback
 {
     public int warning(IWarningInfo warning)
     {
-        if (warning.getWarningType() == WarningType.CompatibilityIssue)
+        if (warning.getWarningType() == WarningType::CompatibilityIssue)
             return ReturnAction.Continue;
 
-        if (warning.getWarningType() == WarningType.DataLoss &&
+        if (warning.getWarningType() == WarningType::DataLoss &&
                 warning.getDescription().startsWith("Font will be substituted"))
         {
             System.out.println("Font substitution warning: " + warning.getDescription());
@@ -231,7 +231,7 @@ This Java code shows you how to convert a PowerPoint when its slide size is spec
       $slide = $pres->getSlides()->get_Item(0);
       $outPres->getSlides()->insertClone(0, $slide);
       // Sets the slide type and size
-      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType.EnsureFit);
+      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
       $pdfOptions = new PdfOptions();
       $options = $pdfOptions->getNotesCommentsLayouting();
       $options->setNotesPosition(NotesPositions.BottomFull);

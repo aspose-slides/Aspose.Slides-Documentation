@@ -121,7 +121,7 @@ Aspose.Slides for PHP via Java provides a simple API for creating and PictureOr
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.PictureOrganizationChart).
+1. Add a chart with default data along with the desired type (ChartType::PictureOrganizationChart).
 1. Write the modified presentation to a PPTX file
 
 The following code is used to create a chart.

@@ -328,11 +328,11 @@ This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
 PowerPoint Effect **After animation** drop-down list matches these properties: 
 
 - [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setAfterAnimationType-int-) property which describes the After animation type :
-  * PowerPoint **More Colors** matches the [AfterAnimationType.Color](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#Color) type;
-  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
-  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#HideAfterAnimation) type;
-  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
+  * PowerPoint **More Colors** matches the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#Color) type;
+  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
+  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#HideAfterAnimation) type;
+  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
+- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/com.aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
 
 This Java code shows you how to change an after animation effect:
 
@@ -362,15 +362,15 @@ This Java code shows you how to change an after animation effect:
 Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
 
 - [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setAnimateTextType-int-) which describes an animate text type of the effect. The shape text can be animated:
-  - All at once ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/php-java/com.aspose.slides/animatetexttype/#AllAtOnce) type)
-  - By word ([AnimateTextType.ByWord](https://reference.aspose.com/slides/php-java/com.aspose.slides/animatetexttype/#ByWord) type)
-  - By letter ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/php-java/com.aspose.slides/animatetexttype/#ByLetter) type)
+  - All at once ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/com.aspose.slides/animatetexttype/#AllAtOnce) type)
+  - By word ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/com.aspose.slides/animatetexttype/#ByWord) type)
+  - By letter ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/com.aspose.slides/animatetexttype/#ByLetter) type)
 - [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
 
 This is how you can change the Effect Animate text properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/itextanimation/#setBuildType-int-) property to [BuildType.AsOneObject](https://reference.aspose.com/slides/php-java/com.aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
+2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/itextanimation/#setBuildType-int-) property to [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/com.aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
 3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) properties.
 4. Save the modified PPTX file.
 

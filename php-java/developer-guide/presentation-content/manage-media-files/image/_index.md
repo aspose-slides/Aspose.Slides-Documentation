@@ -222,7 +222,7 @@ This sample code shows you how to perform the described task:
   $options = new ImageOrPrintOptions();
   $options->setHorizontalResolution(200);
   $options->setVerticalResolution(200);
-  $options->setImageType(ImageType.EMF);
+  $options->setImageType(ImageType::EMF);
   // Save the workbook to stream
   $sr = new SheetRender($sheet, $options);
   $pres = new Presentation();

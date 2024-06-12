@@ -100,7 +100,7 @@ This Java code shows you how to
 ```
 
 ## **Add Custom Points to Shape**
-1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeType) type.
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryShape) class and set the [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) class from the shape.
 3. Add a new point between the two top points on the path.
 4. Add a new point between the two bottom points on the path.
@@ -127,7 +127,7 @@ This Java code shows you how to add custom points to a shape:
 
 ##  Remove Points From Shape
 
-1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeType) type.
+1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryShape) class and set the [ShapeType::Heart](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/com.aspose.slides/GeometryPath) class from the shape.
 3. Remove the segment for the path.
 4. Apply the path to the shape.

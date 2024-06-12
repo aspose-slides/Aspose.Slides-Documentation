@@ -12,7 +12,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
 
 1. Create an instance of the [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (in this example we will use ChartType.LineWithMarkers).
+1. Add a chart with default data along with the any of desired type (in this example we will use ChartType::LineWithMarkers).
 1. Access the chart Value Axis and set the following properties:
    1. Setting **Line format** for Value Axis Major Grid lines
    1. Setting **Line format** for Value Axis Minor Grid lines
@@ -206,7 +206,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing chart data for
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
+1. Add a chart with default data along with the any of desired type (this example uses **ChartType::ClusteredColumn**).
 1. Set the preset number format from the possible preset values.
 1. Traverse through the chart data cell in every chart series and set the chart data number format.
 1. Save the presentation.

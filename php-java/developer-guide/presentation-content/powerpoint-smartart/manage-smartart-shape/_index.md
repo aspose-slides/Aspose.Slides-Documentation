@@ -61,7 +61,7 @@ The following code will be used to access the SmartArt shapes added in presentat
 ```
 
 ## **Access SmartArt Shape with Particular Layout Type**
-The following sample code will help to access the [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) shape with particular LayoutType. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) shape is added.
+The following sample code will help to access the [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) shape with particular LayoutType:: Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) shape is added.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.

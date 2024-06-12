@@ -9,7 +9,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses ChartType.ClusteredColumn).
+1. Add a chart with default data along with the any of desired type (this example uses ChartType::ClusteredColumn).
 1. Adding exponential trend line for chart series 1.
 1. Adding linear trend line for chart series 1.
 1. Adding logarithmic trend line for chart series 2.
