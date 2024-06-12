@@ -38,7 +38,7 @@ try {
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
     // Writes the PowerPoint file to disk
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
+    pres.save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 } catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();

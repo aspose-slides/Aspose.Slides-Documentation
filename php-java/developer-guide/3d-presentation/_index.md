@@ -43,7 +43,7 @@ and its direction to the top of the 3D model, bring more volume to the model. Ch
         $slideImage->dispose();
       }
     }
-    $pres->save("sandbox_3d.pptx", SaveFormat.Pptx);
+    $pres->save("sandbox_3d.pptx", SaveFormat::Pptx);
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -203,7 +203,7 @@ To create a 3D text (WordArt), do the following:
         $slideImage->dispose();
       }
     }
-    $pres->save("text3d.pptx", SaveFormat.Pptx);
+    $pres->save("text3d.pptx", SaveFormat::Pptx);
   } finally {
     if ($pres != null) {
       $pres->dispose();

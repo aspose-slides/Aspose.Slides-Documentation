@@ -17,7 +17,7 @@ The [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presen
     $opts = new TiffOptions();
     $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
     // Saving the presentation to TIFF notes
-    $pres->save("Tiff-Notes.tiff", SaveFormat.Tiff, $opts);
+    $pres->save("Tiff-Notes.tiff", SaveFormat::Tiff, $opts);
   } finally {
     if ($pres != null) {
       $pres->dispose();

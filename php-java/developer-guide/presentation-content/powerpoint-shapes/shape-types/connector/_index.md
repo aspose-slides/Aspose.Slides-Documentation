@@ -68,7 +68,7 @@ try {
     connector.reroute();
     
     // Saves the presentation
-    pres.save("output.pptx", SaveFormat.Pptx);
+    pres.save("output.pptx", SaveFormat::Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }

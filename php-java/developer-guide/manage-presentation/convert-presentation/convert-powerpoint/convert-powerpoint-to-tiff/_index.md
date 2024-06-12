@@ -29,7 +29,7 @@ This Java code shows you how to convert PowerPoint to TIFF:
   $pres = new Presentation("presentation.pptx");
   try {
     // Saves the presentation as TIFF
-    $pres->save("tiff-image.tiff", SaveFormat.Tiff);
+    $pres->save("tiff-image.tiff", SaveFormat::Tiff);
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -49,7 +49,7 @@ This Java code shows you how to convert a colored slide or image to black-and-wh
   $tiffOptions->setBwConversionMode(BlackWhiteConversionMode.Dithering);
   $presentation = new Presentation("sample.pptx");
   try {
-    $presentation->save("output.tiff", SaveFormat.Tiff, $tiffOptions);
+    $presentation->save("output.tiff", SaveFormat::Tiff, $tiffOptions);
   } finally {
     if ($presentation != null) {
       $presentation->dispose();
@@ -87,7 +87,7 @@ This Java code shows you how to convert PowerPoint to TIFF images with custom si
     $options = $opts->getNotesCommentsLayouting();
     $options->setNotesPosition(NotesPositions.BottomFull);
     // Saves the presentation to TIFF with specified size
-    $pres->save("tiff-ImageSize.tiff", SaveFormat.Tiff, $opts);
+    $pres->save("tiff-ImageSize.tiff", SaveFormat::Tiff, $opts);
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -116,7 +116,7 @@ This Java code shows you how to convert PowerPoint to TIFF image with custom pix
     Format32bppArgb;   // 32 bits per pixel, ARGB.
      */
     // Saves the presentation to TIFF with specified image size
-    $pres->save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, $options);
+    $pres->save("Tiff-PixelFormat.tiff", SaveFormat::Tiff, $options);
   } finally {
     if ($pres != null) {
       $pres->dispose();

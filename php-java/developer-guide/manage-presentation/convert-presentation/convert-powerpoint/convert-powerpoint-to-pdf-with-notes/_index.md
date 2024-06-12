@@ -21,7 +21,7 @@ The following example shows how to convert a presentation to a PDF notes documen
     $presOut->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType.EnsureFit);
     $pdfOptions = new PdfOptions();
     $pdfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
-    $presOut->save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, $pdfOptions);
+    $presOut->save("PDF-SelectedSlide.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if ($presIn != null) {
       $presIn->dispose();
@@ -40,7 +40,7 @@ The [**Save**](https://reference.aspose.com/slides/php-java/com.aspose.slides/Pr
   try {
     $pdfOptions = new PdfOptions();
     $pdfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
-    $pres->save($resourcesOutputPath . "PDF-Notes.pdf", SaveFormat.Pdf, $pdfOptions);
+    $pres->save($resourcesOutputPath . "PDF-Notes.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if ($pres != null) {
       $pres->dispose();
