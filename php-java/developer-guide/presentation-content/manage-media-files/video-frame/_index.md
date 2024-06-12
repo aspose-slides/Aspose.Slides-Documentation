@@ -33,7 +33,7 @@ This Java code shows you how to add a video stored locally to a presentation:
   $pres = new Presentation("pres.pptx");
   try {
     // Loads the video
-    $fileStream = new FileInputStream("Wildlife.mp4");
+    $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
     $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior::KeepLocked);
     // Gets the first slide and adds a videoframe
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
@@ -119,7 +119,7 @@ This Java code shows you how to extract the video on a presentation slide:
           // Gets the File Extension
           $charIndex = $type->indexOf("/");
           $type = $type->substring($charIndex + 1);
-          $fop = new FileOutputStream("testing2." . $type);
+          $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
           $fop->write($buffer);
           $fop->flush();
           $fop->close();

@@ -255,7 +255,7 @@ Now Aspose.Slides for PHP via Java support for rendering a shape as svg. Method 
 ```php
   $pres = new Presentation("TestExportShapeToSvg.pptx");
   try {
-    $stream = new FileOutputStream("SingleShape.svg");
+    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
     try {
       $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
     } finally {

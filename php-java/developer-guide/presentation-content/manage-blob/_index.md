@@ -31,7 +31,7 @@ This Java shows you how to add a large video file through the BLOB process to a 
   // Creates a new presentation to which the video will be added
   $pres = new Presentation();
   try {
-    $fileStream = new FileInputStream($pathToVeryLargeVideo);
+    $fileStream = new Java("java.io.FileInputStream", $pathToVeryLargeVideo);
     try {
       // Let's add the video to the presentation - we chose the KeepLocked behavior because we do
       // not intend to access the "veryLargeVideo.avi" file.
@@ -81,7 +81,7 @@ This code in Java demonstrates the described operation:
       $presVideoStream = $video->getStream();
       $Array = new java_class("java.lang.reflect.Array");
       try {
-        $outputFileStream = new FileOutputStream("video" . $index . ".avi");
+        $outputFileStream = new Java("java.io.FileOutputStream", "video" . $index . ".avi");
         try {
           $bytesRead;
           while ($bytesRead = $presVideoStream->read($buffer, 0, $Array->getLength($buffer)) > 0) {
@@ -113,7 +113,7 @@ This Java code shows you how to add a large image through the BLOB process:
   // creates a new presentation to which the image will be added.
   $pres = new Presentation();
   try {
-    $fileStream = new FileInputStream($pathToLargeImage);
+    $fileStream = new Java("java.io.FileInputStream", $pathToLargeImage);
     try {
       // Let's add the image to the presentation - we choose KeepLocked behavior because we do
       // NOT intend to access the "largeImage.png" file.

@@ -564,7 +564,7 @@ This Java code shows you how to export PowerPoint paragraph texts to HTML:
     // Accessing the added shape
     $ashape = $slide->getShapes()->get_Item($index);
     // Creating output HTML file
-    $os = new FileOutputStream("output.html");
+    $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
     // Extracting first paragraph as HTML
     // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied

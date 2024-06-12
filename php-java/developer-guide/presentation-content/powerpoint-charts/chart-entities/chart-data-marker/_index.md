@@ -33,9 +33,9 @@ In the example given below, we have set the chart marker options on data points 
     // Add new series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     // Load the picture 1
-    $imgx1 = $pres->getImages()->addImage(new FileInputStream(new File("Desert.jpg")));
+    $imgx1 = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "Desert.jpg")));
     // Load the picture 2
-    $imgx2 = $pres->getImages()->addImage(new FileInputStream(new File("Tulips.jpg")));
+    $imgx2 = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "Tulips.jpg")));
     // Take first chart series
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     // Add new point (1:3) there.

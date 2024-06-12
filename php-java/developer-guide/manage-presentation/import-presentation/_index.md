@@ -53,7 +53,7 @@ This Java code demonstrates the HTML to PowerPoint operation:
 ```php
   $presentation = new Presentation();
   try {
-    $htmlStream = new FileInputStream("page.html");
+    $htmlStream = new Java("java.io.FileInputStream", "page.html");
     try {
       $presentation->getSlides()->addFromHtml($htmlStream);
     } finally {

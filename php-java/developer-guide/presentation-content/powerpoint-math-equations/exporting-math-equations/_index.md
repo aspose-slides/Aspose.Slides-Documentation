@@ -26,7 +26,7 @@ This sample code shows you how to export a math equation from a presentation to 
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addMathShape(0, 0, 500, 50);
     $mathParagraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
     $mathParagraph->add(new MathematicalText("a")->setSuperscript("2")->join("+")->join(new MathematicalText("b")->setSuperscript("2"))->join("=")->join(new MathematicalText("c")->setSuperscript("2")));
-    $stream = new FileOutputStream("mathml.xml");
+    $stream = new Java("java.io.FileOutputStream", "mathml.xml");
     $mathParagraph->writeAsMathMl($stream);
   } catch (JavaException $e) {
   } finally {

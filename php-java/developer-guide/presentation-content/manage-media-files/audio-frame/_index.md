@@ -27,7 +27,7 @@ try {
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Loads the wav sound file to stream
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+    FileInputStream fstr = new Java("java.io.FileInputStream", new Java("java.io.File", "audio.wav"));
 
     // Adds the Audio Frame
     IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
@@ -58,7 +58,7 @@ This Java code shows you how to change an audio frame's thumbnail or preview ima
   try {
     $slide = $presentation->getSlides()->get_Item(0);
     // Adds an audio frame to the slide with a specified position and size.
-    $audioStream = new FileInputStream("sample2.mp3");
+    $audioStream = new Java("java.io.FileInputStream", "sample2.mp3");
     $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
     $audioStream->close();
     // Adds an image to presentation resources.

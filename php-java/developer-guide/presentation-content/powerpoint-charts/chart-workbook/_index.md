@@ -125,7 +125,7 @@ This Java code demonstrates the external workbook creation process:
   try {
     $workbookPath = "externalWorkbook1.xlsx";
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
-    $fileStream = new FileOutputStream($workbookPath);
+    $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
     $Array = new java_class("java.lang.reflect.Array");
     try {
       $workbookData = $chart->getChartData()->readWorkbookStream();

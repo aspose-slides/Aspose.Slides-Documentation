@@ -35,7 +35,7 @@ To generate an SVG image from any desired slide with Aspose.Slides for PHP via J
     // Access the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Create a memory stream object
-    $svgStream = new FileOutputStream("Aspose_out.svg");
+    $svgStream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
     // Generate SVG image of slide and save in memory stream
     $sld->writeAsSvg($svgStream);
     $svgStream->close();
@@ -52,7 +52,7 @@ Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.filef
 ```php
   $pres = new Presentation("pptxFileName.pptx");
   try {
-    $stream = new FileOutputStream("Aspose_out.svg");
+    $stream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
     try {
       $svgOptions = new SVGOptions();
       $svgOptions->setShapeFormattingController(new CustomSvgShapeFormattingController());

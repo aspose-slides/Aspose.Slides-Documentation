@@ -44,7 +44,7 @@ It is possible to save a presentation to a stream by passing an output stream to
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 200, 200);
     // Add text to shape
     $shape->getTextFrame()->setText("This demo shows how to Create PowerPoint file and save it to Stream.");
-    $os = new FileOutputStream("Save_As_Stream_out.pptx");
+    $os = new Java("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
     $pres->save($os, SaveFormat::Pptx);
     $os->close();
   } catch (JavaException $e) {

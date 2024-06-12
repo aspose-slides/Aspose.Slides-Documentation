@@ -37,7 +37,7 @@ This Java code shows you how to create a picture frame:
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Instantiates the Image class
-    $imgx = $pres->getImages()->addImage(new FileInputStream(new File("asp1.jpg")));
+    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     // Adds a picture frame with the picture's equivalent height and width
     $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Write the PPTX file to disk
@@ -77,7 +77,7 @@ This Java code shows you how to create a picture frame with relative scale:
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Instantiate the Image class
-    $imgx = $pres->getImages()->addImage(new FileInputStream(new File("asp1.jpg")));
+    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     // Add Picture Frame with height and width equivalent of Picture
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Setting relative scale width and height
@@ -166,7 +166,7 @@ This Java code demonstrates the picture frame formatting process:
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Instantiates the Image class
-    $imgx = $pres->getImages()->addImage(new FileInputStream(new File("asp1.jpg")));
+    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     // Adds Picture Frame with height and width equivalent of Picture
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Applies some formatting to PictureFrameEx
