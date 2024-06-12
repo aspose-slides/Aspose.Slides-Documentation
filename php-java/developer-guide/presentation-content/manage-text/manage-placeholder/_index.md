@@ -65,7 +65,7 @@ This Java code shows you how to set the prompt text in a placeholder:
           $text = "Add Subtitle";
         }
         $shape->getTextFrame()->setText($text);
-        echo ("Placeholder with text: " . $text);
+        echo("Placeholder with text: " . $text);
       }
     }
     $pres->save("Placeholders_PromptText.pptx", SaveFormat::Pptx);
@@ -91,7 +91,7 @@ This Java code shows you how to set the transparency for a picture background (i
     if ($operationCollection->get_Item($i) instanceof AlphaModulateFixed) {
       $alphaModulate = $operationCollection->get_Item($i);
       $currentValue = 100 - $alphaModulate->getAmount();
-      echo ("Current transparency value: " . $currentValue);
+      echo("Current transparency value: " . $currentValue);
       $alphaValue = 40;
       $alphaModulate->setAmount(100 - $alphaValue);
     }

@@ -40,10 +40,10 @@ This sample code sample shows you how to get effective properties for the camera
   $pres = new Presentation("Presentation1.pptx");
   try {
     $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo ("= Effective camera properties =");
-    echo ("Type: " . $threeDEffectiveData->getCamera()->getCameraType());
-    echo ("Field of view: " . $threeDEffectiveData->getCamera()->getFieldOfViewAngle());
-    echo ("Zoom: " . $threeDEffectiveData->getCamera()->getZoom());
+    echo("= Effective camera properties =");
+    echo("Type: " . $threeDEffectiveData->getCamera()->getCameraType());
+    echo("Field of view: " . $threeDEffectiveData->getCamera()->getFieldOfViewAngle());
+    echo("Zoom: " . $threeDEffectiveData->getCamera()->getZoom());
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -61,9 +61,9 @@ This sample code sample shows you how to get effective properties of Light Rig:
   $pres = new Presentation("Presentation1.pptx");
   try {
     $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo ("= Effective light rig properties =");
-    echo ("Type: " . $threeDEffectiveData->getLightRig()->getLightType());
-    echo ("Direction: " . $threeDEffectiveData->getLightRig()->getDirection());
+    echo("= Effective light rig properties =");
+    echo("Type: " . $threeDEffectiveData->getLightRig()->getLightType());
+    echo("Direction: " . $threeDEffectiveData->getLightRig()->getDirection());
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -81,10 +81,10 @@ This sample code sample shows you how to get effective properties for the Bevel 
   $pres = new Presentation("Presentation1.pptx");
   try {
     $threeDEffectiveData = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThreeDFormat()->getEffective();
-    echo ("= Effective shape's top face relief properties =");
-    echo ("Type: " . $threeDEffectiveData->getBevelTop()->getBevelType());
-    echo ("Width: " . $threeDEffectiveData->getBevelTop()->getWidth());
-    echo ("Height: " . $threeDEffectiveData->getBevelTop()->getHeight());
+    echo("= Effective shape's top face relief properties =");
+    echo("Type: " . $threeDEffectiveData->getBevelTop()->getBevelType());
+    echo("Width: " . $threeDEffectiveData->getBevelTop()->getWidth());
+    echo("Height: " . $threeDEffectiveData->getBevelTop()->getHeight());
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -103,14 +103,14 @@ This sample code shows you how to get effective text frame formatting properties
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    echo ("Anchoring type: " . $effectiveTextFrameFormat->getAnchoringType());
-    echo ("Autofit type: " . $effectiveTextFrameFormat->getAutofitType());
-    echo ("Text vertical type: " . $effectiveTextFrameFormat->getTextVerticalType());
-    echo ("Margins");
-    echo ("   Left: " . $effectiveTextFrameFormat->getMarginLeft());
-    echo ("   Top: " . $effectiveTextFrameFormat->getMarginTop());
-    echo ("   Right: " . $effectiveTextFrameFormat->getMarginRight());
-    echo ("   Bottom: " . $effectiveTextFrameFormat->getMarginBottom());
+    echo("Anchoring type: " . $effectiveTextFrameFormat->getAnchoringType());
+    echo("Autofit type: " . $effectiveTextFrameFormat->getAutofitType());
+    echo("Text vertical type: " . $effectiveTextFrameFormat->getTextVerticalType());
+    echo("Margins");
+    echo("   Left: " . $effectiveTextFrameFormat->getMarginLeft());
+    echo("   Top: " . $effectiveTextFrameFormat->getMarginTop());
+    echo("   Right: " . $effectiveTextFrameFormat->getMarginRight());
+    echo("   Bottom: " . $effectiveTextFrameFormat->getMarginBottom());
   } finally {
     if ($pres != null) {
       $pres->dispose();
@@ -131,11 +131,11 @@ This sample code sample shows you how to get effective text style properties:
     $effectiveTextStyle = $shape->getTextFrame()->getTextFrameFormat()->getTextStyle()->getEffective();
     for ($i = 0; $i <= 8; $i++) {
       $effectiveStyleLevel = $effectiveTextStyle->getLevel($i);
-      echo ("= Effective paragraph formatting for style level #" . $i . " =");
-      echo ("Depth: " . $effectiveStyleLevel->getDepth());
-      echo ("Indent: " . $effectiveStyleLevel->getIndent());
-      echo ("Alignment: " . $effectiveStyleLevel->getAlignment());
-      echo ("Font alignment: " . $effectiveStyleLevel->getFontAlignment());
+      echo("= Effective paragraph formatting for style level #" . $i . " =");
+      echo("Depth: " . $effectiveStyleLevel->getDepth());
+      echo("Indent: " . $effectiveStyleLevel->getIndent());
+      echo("Alignment: " . $effectiveStyleLevel->getAlignment());
+      echo("Font alignment: " . $effectiveStyleLevel->getFontAlignment());
     }
   } finally {
     if ($pres != null) {
@@ -158,25 +158,25 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
     $portion1 = new Portion(" and second portion.");
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion0);
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion1);
-    echo ("Effective font height just after creation:");
-    echo ("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo ("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Effective font height just after creation:");
+    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
     $pres->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(24);
-    echo ("Effective font height after setting entire presentation default font height:");
-    echo ("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo ("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Effective font height after setting entire presentation default font height:");
+    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(40);
-    echo ("Effective font height after setting paragraph default font height:");
-    echo ("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo ("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Effective font height after setting paragraph default font height:");
+    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(55);
-    echo ("Effective font height after setting portion #0 font height:");
-    echo ("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo ("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Effective font height after setting portion #0 font height:");
+    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setFontHeight(18);
-    echo ("Effective font height after setting portion #1 font height:");
-    echo ("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
-    echo ("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Effective font height after setting portion #1 font height:");
+    echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
+    echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
     $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
   } finally {
     if ($pres != null) {

@@ -203,7 +203,7 @@ This Java code shows you how to examine a presentation to see if it is password 
 
 ```php
   $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo ("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
+  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
 
 ```
 

@@ -30,7 +30,7 @@ Using [**getRect()**](https://reference.aspose.com/slides/php-java/com.aspose.sl
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $textFrame = $shape->getTextFrame();
     $rect = $textFrame->getParagraphs()->get_Item(0)->getRect();
-    echo ("X: " . $rect::$x . " Y: " . $rect::$y . " Width: " . $rect::$width . " Height: " . $rect::$height);
+    echo("X: " . $rect::$x . " Y: " . $rect::$y . " Width: " . $rect::$width . " Height: " . $rect::$height);
   } finally {
     if ($pres != null) {
       $pres->dispose();

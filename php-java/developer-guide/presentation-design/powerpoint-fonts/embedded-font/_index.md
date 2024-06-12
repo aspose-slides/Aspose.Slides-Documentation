@@ -40,7 +40,7 @@ This Java code shows you how to get and remove embedded fonts from a presentatio
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
     for ($i = 0; $i < $Array->getLength($embeddedFonts); $i++) {
-      echo ("" . $embeddedFonts[$i]->getFontName());
+      echo("" . $embeddedFonts[$i]->getFontName());
       if ("Calibri"->equals($embeddedFonts[$i]->getFontName())) {
         $calibriEmbeddedFont = $embeddedFonts[$i];
         break;

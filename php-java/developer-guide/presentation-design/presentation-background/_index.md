@@ -186,9 +186,9 @@ This Java code shows you how to get a slide's effective background value:
   try {
     $effBackground = $pres->getSlides()->get_Item(0)->getBackground()->getEffective();
     if ($effBackground->getFillFormat()->getFillType() == FillType::Solid) {
-      echo ("Fill color: " . $effBackground->getFillFormat()->getSolidFillColor());
+      echo("Fill color: " . $effBackground->getFillFormat()->getSolidFillColor());
     } else {
-      echo ("Fill type: " . $effBackground->getFillFormat()->getFillType());
+      echo("Fill type: " . $effBackground->getFillFormat()->getFillType());
     }
   } finally {
     if ($pres != null) {

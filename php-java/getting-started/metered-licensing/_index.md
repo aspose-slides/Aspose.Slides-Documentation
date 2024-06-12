@@ -31,10 +31,10 @@ This Java code shows you how to set metered public and private keys:
     $metered->setMeteredKey("<valid pablic key>", "<valid private key>");
     // Gets the consumed qantity value before accessing API
     $quantityOld = Metered->getConsumptionQuantity();
-    echo ("Consumption quantity" . $quantityOld);
+    echo("Consumption quantity" . $quantityOld);
     // Gets the consumed qantity value after accessing API
     $quantity = Metered->getConsumptionQuantity();
-    echo ("Consumption quantity" . $quantity);
+    echo("Consumption quantity" . $quantity);
   } catch (JavaException $ex) {
     $ex->printStackTrace();
   }

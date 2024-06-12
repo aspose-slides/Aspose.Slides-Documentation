@@ -25,7 +25,7 @@ This Java code shows you how to identify merged table cells in a presentation:
       for ($j = 0; $j < $table->getColumns()->size(); $j++) {
         $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
         if ($currentCell->isMergedCell()) {
-          echo (sprintf ("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
+          echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));
         }
       }
     }

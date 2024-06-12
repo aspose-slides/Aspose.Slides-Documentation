@@ -69,7 +69,7 @@ The example below accesses alternative text of group shape.
         for ($j = 0; $j < $grphShape->getShapes()->size(); $j++) {
           $shape2 = $grphShape->getShapes()->get_Item($j);
           // Accessing the AltText property
-          echo ($shape2->getAlternativeText());
+          echo($shape2->getAlternativeText());
         }
       }
     }

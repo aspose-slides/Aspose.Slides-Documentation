@@ -38,7 +38,7 @@ You can determine the resulting color's effective value this way:
 ```php
   $fillEffective = $shape->getFillFormat()->getEffective();
   $effectiveColor = $fillEffective->getSolidFillColor();
-  echo (sprintf ("Color [A=%d, R=%d, G=%d, B=%d]", $effectiveColor->getAlpha(), $effectiveColor->getRed(), $effectiveColor->getGreen(), $effectiveColor->getBlue()));
+  echo(sprintf("Color [A=%d, R=%d, G=%d, B=%d]", $effectiveColor->getAlpha(), $effectiveColor->getRed(), $effectiveColor->getGreen(), $effectiveColor->getBlue()));
 
 ```
 
@@ -159,7 +159,7 @@ For example, after you save a presentation in the PowerPoint app, you can run th
   $pres = new Presentation("pres.pptx");
   try {
     $numberOfBackgroundFills = $pres->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size();
-    echo ("Number of background fill styles for theme is " . $numberOfBackgroundFills);
+    echo("Number of background fill styles for theme is " . $numberOfBackgroundFills);
   } finally {
     if ($pres != null) {
       $pres->dispose();

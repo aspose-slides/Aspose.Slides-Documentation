@@ -284,10 +284,10 @@ This Java code shows you how to lock the aspect ratio for a table:
   $pres = new Presentation("pres.pptx");
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    echo ("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
+    echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
 
-    echo ("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
+    echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if ($pres != null) {

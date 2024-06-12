@@ -69,7 +69,7 @@ This Java code shows you how to access an existing comment on a slide in a Power
       $author = $commentAuthor;
       foreach ($author->getComments() as $comment1) {
         $comment = $comment1;
-        echo ("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
+        echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
       }
     }
   } finally {
@@ -116,8 +116,8 @@ This Java code shows you how to add comments and get replies to them:
         System::out->print("\t");
         $comment = $comment->getParentComment();
       } 
-      echo ($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
-      echo ();
+      echo($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
+      echo();
     }
     $pres->save("parent_comment.pptx", SaveFormat::Pptx);
     // Removes comment1 and all replies to it

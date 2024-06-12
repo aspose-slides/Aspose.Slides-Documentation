@@ -43,7 +43,7 @@ Aspose.Slides for PHP via Java allows you to get all the animation effects appli
     foreach ($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
       $effects = $sequence->getEffectsByParagraph($paragraph);
       if ($Array->getLength($effects) > 0) {
-        echo ("Paragraph \"" . $paragraph->getText() . "\" has " . $effects[0]->getType() . " effect.");
+        echo("Paragraph \"" . $paragraph->getText() . "\" has " . $effects[0]->getType() . " effect.");
       }
     }
   } finally {

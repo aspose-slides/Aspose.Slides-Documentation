@@ -17,7 +17,7 @@ Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose
     foreach ($smartArtNodes as $smartArtNode) {
       foreach ($smartArtNode->getShapes() as $nodeShape) {
         if ($nodeShape->getTextFrame() != null) {
-          echo ($nodeShape->getTextFrame()->getText());
+          echo($nodeShape->getTextFrame()->getText());
         }
       }
     }

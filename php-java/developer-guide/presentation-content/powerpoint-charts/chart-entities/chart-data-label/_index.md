@@ -53,7 +53,7 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
         $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
         $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
         $port = new Portion();
-        $port->setText(sprintf ("{0:F2} %.2f", $dataPontPercent));
+        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
         $port->getPortionFormat()->setFontHeight(8.0);
         $lbl->getTextFrameForOverriding()->setText("");
         $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);

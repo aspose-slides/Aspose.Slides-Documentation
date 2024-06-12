@@ -18,7 +18,7 @@ After setting the alternative text of any desired shape, you can then open that 
     // Alternative text of the shape to be found
     $shape = findShape($slide, "Shape1");
     if ($shape != null) {
-      echo ("Shape Name: " . $shape->getName());
+      echo("Shape Name: " . $shape->getName());
     }
   } finally {
     if ($pres != null) {

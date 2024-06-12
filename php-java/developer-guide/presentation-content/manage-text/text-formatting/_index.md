@@ -197,7 +197,7 @@ The implementation of the above steps is given below.
     $effects = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getEffectFormat();
     $outerShadowEffect = $effects->getOuterShadowEffect();
     $shadowColor = $outerShadowEffect->getShadowColor()->getColor();
-    echo ($shadowColor->toString() . " - transparency is: " . $shadowColor->getAlpha() / 255.0 * 100);
+    echo($shadowColor->toString() . " - transparency is: " . $shadowColor->getAlpha() / 255.0 * 100);
     // set transparency to zero percent
     $outerShadowEffect->getShadowColor()->setColor(new java("java.awt.Color", $shadowColor->getRed(), $shadowColor->getGreen(), $shadowColor->getBlue(), 255));
     $pres->save("transparency-2.pptx", SaveFormat::Pptx);

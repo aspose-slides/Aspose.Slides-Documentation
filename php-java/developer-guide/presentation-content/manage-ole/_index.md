@@ -236,7 +236,7 @@ This Java shows you how to set the file type for an embedded OLE object:
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $oleObjectFrame = $slide->getShapes()->get_Item(0);
-    echo ("Current embedded data extension is: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
+    echo("Current embedded data extension is: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))::TYPE;
 try {

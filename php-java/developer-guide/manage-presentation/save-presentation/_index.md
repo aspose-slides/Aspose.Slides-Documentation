@@ -123,7 +123,7 @@ The following code snippets below show how to use [IProgressCallback](https://re
     public void reporting(double progressValue) {
       // Use progress percentage value here
       $progress = Double->valueOf($progressValue)->intValue();
-      echo ($progress . "% file converted");
+      echo($progress . "% file converted");
     }
   }
 

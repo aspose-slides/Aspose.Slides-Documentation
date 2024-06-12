@@ -62,7 +62,7 @@ This Java code shows you how to convert a presentation (containing a figure and 
       try {
         $player->setFrameTick((PresentationPlayer sender,FrameTickEventArgs arguments) -> {
           try {
-            $frame = sprintf ("frame_%04d.png", $sender->getFrameIndex());
+            $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
             $arguments->getFrame()->save($frame, ImageFormat::Png);
             $frames->add($frame);
           } catch (JavaException $e) {
@@ -151,7 +151,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
       try {
         $player->setFrameTick((PresentationPlayer sender,FrameTickEventArgs arguments) -> {
           try {
-            $frame = sprintf ("frame_%04d.png", $sender->getFrameIndex());
+            $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
             $arguments->getFrame()->save($frame, ImageFormat::Png);
             $frames->add($frame);
           } catch (JavaException $e) {
@@ -204,7 +204,7 @@ To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
     try {
       $animationsGenerator->setNewAnimation((IPresentationAnimationPlayer animationPlayer) -> {
-        echo (sprintf ("Animation total duration: %f", $animationPlayer->getDuration()));
+        echo(sprintf("Animation total duration: %f", $animationPlayer->getDuration()));
         $animationPlayer->setTimePosition(0);// initial animation state
 
         try {

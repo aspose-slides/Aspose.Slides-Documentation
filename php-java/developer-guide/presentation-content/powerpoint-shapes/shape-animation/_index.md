@@ -180,7 +180,7 @@ This Java code shows you how to get the all effects applied to a specific shape:
     // Gets all animation effects applied to the shape.
     $shapeEffects = $sequence->getEffectsByShape($shape);
     if ($Array->getLength($shapeEffects) > 0) {
-      echo ("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
+      echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
     }
   } finally {
     if ($pres != null) {

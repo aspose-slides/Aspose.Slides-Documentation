@@ -22,13 +22,13 @@ You can check a presentation's format without loading the presentation. See this
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  echo ($info->getLoadFormat());// PPTX
+  echo($info->getLoadFormat());// PPTX
 
   $info2 = PresentationFactory->getInstance()->getPresentationInfo("pres.ppt");
-  echo ($info2->getLoadFormat());// PPT
+  echo($info2->getLoadFormat());// PPT
 
   $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
-  echo ($info3->getLoadFormat());// ODP
+  echo($info3->getLoadFormat());// ODP
 
 
 ```
@@ -40,9 +40,9 @@ This Java code shows you how to get a presentation’s properties (information a
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
   $props = $info->readDocumentProperties();
-  echo ($props->getCreatedTime());
-  echo ($props->getSubject());
-  echo ($props->getTitle());
+  echo($props->getCreatedTime());
+  echo($props->getSubject());
+  echo($props->getTitle());
   // ..
 
 ```

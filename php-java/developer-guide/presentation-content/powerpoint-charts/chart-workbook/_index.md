@@ -75,7 +75,7 @@ This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheet
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
     $wb = $chart->getChartData()->getChartDataWorkbook();
     for ($i = 0; $i < $wb->getWorksheets()->size(); $i++) {
-      echo ($wb->getWorksheets()->get_Item($i)->getName());
+      echo($wb->getWorksheets()->get_Item($i)->getName());
     }
   } finally {
     if ($pres != null) {

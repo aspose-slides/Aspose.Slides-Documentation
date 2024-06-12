@@ -350,7 +350,7 @@ This Java code demonstrates an operation in which we calculated the angle for a 
         $ashp = $shape;
         $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), $ashp->getFrame()->getFlipH() > 0, $ashp->getFrame()->getFlipV() > 0);
       }
-      echo ($dir);
+      echo($dir);
     }
   } finally {
     if ($pres != null) {

@@ -133,7 +133,7 @@ Aspose.Slides allows you to get the transparency of an image. This Java code dem
     if ($effect instanceof IAlphaModulateFixed) {
       $alphaModulateFixed = $effect;
       $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo ("Picture transparency: " . $transparencyValue);
+      echo("Picture transparency: " . $transparencyValue);
     }
   }
 

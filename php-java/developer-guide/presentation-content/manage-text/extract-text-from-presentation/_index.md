@@ -30,12 +30,12 @@ Upon execution, the Slide method scans the entire text from the slide passed as
           // Loop through portions in the current IParagraph
           foreach ($para->getPortions() as $port) {
             // Display text in the current portion
-            echo ($port->getText());
+            echo($port->getText());
             // Display font height of the text
-            echo ($port->getPortionFormat()->getFontHeight());
+            echo($port->getPortionFormat()->getFontHeight());
             // Display font name of the text
             if ($port->getPortionFormat()->getLatinFont() != null) {
-              echo ($port->getPortionFormat()->getLatinFont()->getFontName());
+              echo($port->getPortionFormat()->getLatinFont()->getFontName());
             }
           }
         }
@@ -69,12 +69,12 @@ To scan the text from the whole presentation, use the
         // Loop through portions in the current IParagraph
         foreach ($para->getPortions() as $port) {
           // Display text in the current portion
-          echo ($port->getText());
+          echo($port->getText());
           // Display font height of the text
-          echo ($port->getPortionFormat()->getFontHeight());
+          echo($port->getPortionFormat()->getFontHeight());
           // Display font name of the text
           if ($port->getPortionFormat()->getLatinFont() != null) {
-            echo ($port->getPortionFormat()->getLatinFont()->getFontName());
+            echo($port->getPortionFormat()->getLatinFont()->getFontName());
           }
         }
       }
@@ -111,10 +111,10 @@ The new API can be used like this:
 
 ```php
   $text1 = PresentationFactory->getInstance()->getPresentationText("presentation.pptx", TextExtractionArrangingMode::Unarranged);
-  echo ($text1->getSlidesText()[0]->getText());
-  echo ($text1->getSlidesText()[0]->getLayoutText());
-  echo ($text1->getSlidesText()[0]->getMasterText());
-  echo ($text1->getSlidesText()[0]->getNotesText());
+  echo($text1->getSlidesText()[0]->getText());
+  echo($text1->getSlidesText()[0]->getLayoutText());
+  echo($text1->getSlidesText()[0]->getMasterText());
+  echo($text1->getSlidesText()[0]->getNotesText());
 
 ```
 

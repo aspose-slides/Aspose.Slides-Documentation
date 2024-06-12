@@ -53,16 +53,16 @@ Now its possible to check if the presentation was digitally signed and has not 
   try {
     if ($pres->getDigitalSignatures()->size() > 0) {
       $allSignaturesAreValid = true;
-      echo ("Signatures used to sign the presentation: ");
+      echo("Signatures used to sign the presentation: ");
       // Check if all digital signatures are valid
       foreach ($pres->getDigitalSignatures() as $signature) {
-        echo ($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
+        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
         $allSignaturesAreValid &= $signature->isValid();
       }
       if ($allSignaturesAreValid) {
-        echo ("Presentation is genuine, all signatures are valid.");
+        echo("Presentation is genuine, all signatures are valid.");
       } else {
-        echo ("Presentation has been modified since signing.");
+        echo("Presentation has been modified since signing.");
       }
     }
   } finally {

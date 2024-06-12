@@ -81,7 +81,7 @@ Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.filef
     }
 
     public void formatShape(ISvgShape svgShape, IShape shape) {
-      $svgShape->setId(sprintf ("shape-%d", $m_shapeIndex++));
+      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
     }
   }
 
