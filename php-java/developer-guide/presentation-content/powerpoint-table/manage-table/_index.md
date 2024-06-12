@@ -149,7 +149,7 @@ This Java code shows you how to access and work with an existing table:
     $tbl = null;
     // Iterates through the shapes and sets a reference to the table found
     foreach($sld->getShapes() as $shp) {
-      if java_instanceof($shp, new JavaClass("com.aspose.slides.Table")) {
+      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
         // Sets the text for the first column of the second row
         $tbl->get_Item(0, 1)->getTextFrame()->setText("New");

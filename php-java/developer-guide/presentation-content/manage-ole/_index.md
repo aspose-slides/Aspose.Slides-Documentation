@@ -136,7 +136,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
     $ole = null;
     // Traverses all shapes for Ole frame
     foreach($slide->getShapes() as $shape) {
-      if java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame")) {
+      if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
         $ole = $shape;
       }
     }

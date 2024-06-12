@@ -63,7 +63,7 @@ The example below accesses alternative text of group shape.
     for($i = 0; $i < $sld->getShapes()->size(); $i++) {
       // Accessing the shape collection of slides
       $shape = $sld->getShapes()->get_Item($i);
-      if java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape")) {
+      if (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
         // Accessing the group shape.
         $grphShape = $shape;
         for($j = 0; $j < $grphShape->getShapes()->size(); $j++) {
