@@ -25,6 +25,6 @@ were added to com.aspose.slides.ISlide interface and to com.aspose.slides.Slide 
   $pres = new Presentation("SomePresentation.pptx");
   $pres->getSlides()->get_Item(0)->renderToGraphics(false, $g2d, $bufferedImage->getWidth(), $bufferedImage->getHeight());
   $g2d->dispose();
-  ImageIO->write($bufferedImage, "png", $fileName);
+  Java("javax.imageio.ImageIO")->write($bufferedImage, "png", $fileName);
 
 ```

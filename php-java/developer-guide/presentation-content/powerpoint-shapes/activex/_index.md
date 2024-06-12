@@ -97,7 +97,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
       $baos = new Java("java.io.ByteArrayOutputStream");
-      ImageIO->write($image, "PNG", $baos);
+      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
     // Changing Button caption
@@ -129,7 +129,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
       $baos = new Java("java.io.ByteArrayOutputStream");
-      ImageIO->write($image, "PNG", $baos);
+      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
     // moving 100 points down
