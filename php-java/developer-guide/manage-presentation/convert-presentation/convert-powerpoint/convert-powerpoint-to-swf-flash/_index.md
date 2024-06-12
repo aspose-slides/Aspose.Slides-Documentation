@@ -15,7 +15,7 @@ The [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presen
   try {
     $swfOptions = new SwfOptions();
     $swfOptions->setViewerIncluded(false);
-    $swfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
+    $swfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     // Saving presentation
     $pres->save("Sample.swf", SaveFormat::Swf, $swfOptions);
   } finally {

@@ -93,7 +93,7 @@ Aspose.Slides for PHP via Java provides a facility that allows you to render com
   $pres = new Presentation("presentation.pptx");
   try {
     $notesOptions = new NotesCommentsLayoutingOptions();
-    $notesOptions->setNotesPosition(NotesPositions.BottomTruncated);
+    $notesOptions->setNotesPosition(NotesPositions::BottomTruncated);
     $opts = new RenderingOptions();
     $opts->setSlidesLayoutOptions($notesOptions);
     foreach ($pres->getSlides() as $sld) {

@@ -71,7 +71,7 @@ This code shows you how to convert a PowerPoint to HTML in Java:
   $pres = new Presentation("Convert_HTML.pptx");
   try {
     $htmlOpt = new HtmlOptions();
-    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
+    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     $htmlOpt->setHtmlFormatter(HtmlFormatter->createDocumentFormatter("", false));
     // Saving the presentation to HTML
     $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
@@ -110,7 +110,7 @@ This code shows you how to convert a PowerPoint to HTML with notes in Java:
   try {
     $opt = new HtmlOptions();
     $options = $opt->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions.BottomFull);
+    $options->setNotesPosition(NotesPositions::BottomFull);
     // Saving notes pages
     $pres->save("Output.html", SaveFormat::Html, $opt);
   } finally {
@@ -187,7 +187,7 @@ This Java code shows you how to convert a slide in a PowerPoint presentation to 
   $pres = new Presentation("Individual-Slide.pptx");
   try {
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions.BottomFull);
+    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter(new CustomFormattingController()));
     // Saving File
     for ($i = 0; $i < $pres->getSlides()->size(); $i++) {

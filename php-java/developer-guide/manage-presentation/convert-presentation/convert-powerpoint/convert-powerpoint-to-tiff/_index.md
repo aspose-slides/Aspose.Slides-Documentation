@@ -85,7 +85,7 @@ This Java code shows you how to convert PowerPoint to TIFF images with custom si
     // Sets the Image Size
     $opts->setImageSize(new Java("java.awt.Dimension", 1728, 1078));
     $options = $opts->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions.BottomFull);
+    $options->setNotesPosition(NotesPositions::BottomFull);
     // Saves the presentation to TIFF with specified size
     $pres->save("tiff-ImageSize.tiff", SaveFormat::Tiff, $opts);
   } finally {

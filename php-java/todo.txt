@@ -8,3 +8,4 @@ new Point2D::Float(
 new Date()
 new ArrayList<IComment>()
 null
+instanceof
