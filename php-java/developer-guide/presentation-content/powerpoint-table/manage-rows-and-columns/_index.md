@@ -29,7 +29,7 @@ This Java code shows you how to set a table's first row as its header:
     $tbl = null;
     // Iterates through the shapes and sets a reference to the table
     foreach ($sld->getShapes() as $shp) {
-      if java_instanceof($shp, new JavaClass("com.aspose.slides.ITable")) {
+      if java_instanceof($shp, new JavaClass("com.aspose.slides.Table")) {
         $tbl = $shp;
         // Sets the first row of a table as its header
         $tbl->setFirstRow(true);

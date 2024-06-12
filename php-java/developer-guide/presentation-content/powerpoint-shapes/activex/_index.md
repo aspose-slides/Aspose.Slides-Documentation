@@ -96,7 +96,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
-      $baos = new ByteArrayOutputStream();
+      $baos = new Java("java.io.ByteArrayOutputStream");
       ImageIO->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
@@ -128,7 +128,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
-      $baos = new ByteArrayOutputStream();
+      $baos = new Java("java.io.ByteArrayOutputStream");
       ImageIO->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }

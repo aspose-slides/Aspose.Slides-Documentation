@@ -70,7 +70,9 @@ This code  demonstrates the described operation:
   try {
     // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
     // to transfer the data from the presentation's video stream to a stream for a newly created video file.
-    $buffer = new byte[8 * 1024];
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = new JavaClass("java.lang.Byte");
+    $buffer = $Array->newInstance($Byte, 8 * 1024);
     // Iterates through the videos
     for ($index = 0; $index < $pres->getVideos()->size(); $index++) {
       $video = $pres->getVideos()->get_Item($index);
@@ -79,7 +81,6 @@ This code  demonstrates the described operation:
       // causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
       // require us to load the whole video into the memory.
       $presVideoStream = $video->getStream();
-      $Array = new java_class("java.lang.reflect.Array");
       try {
         $outputFileStream = new Java("java.io.FileOutputStream", "video" . $index . ".avi");
         try {

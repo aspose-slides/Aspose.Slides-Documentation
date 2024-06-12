@@ -103,7 +103,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
   try {
     $firstSlide = $presentation->getSlides()->get_Item(0);
     $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if java_instanceof($firstShape, new JavaClass("com.aspose.slides.IPictureFrame")) {
+    if java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame")) {
       $pictureFrame = $firstShape;
       try {
         $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
@@ -130,7 +130,7 @@ Aspose.Slides allows you to get the transparency of an image. This Java code dem
   $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
   foreach ($imageTransform as $effect) {
-    if java_instanceof($effect, new JavaClass("com.aspose.slides.IAlphaModulateFixed")) {
+    if java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $alphaModulateFixed = $effect;
       $transparencyValue = 100 - $alphaModulateFixed->getAmount();
       echo("Picture transparency: " . $transparencyValue);

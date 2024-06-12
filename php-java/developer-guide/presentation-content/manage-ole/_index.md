@@ -38,9 +38,10 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
     $sld = $pres->getSlides()->get_Item(0);
     // Loads an excel file to stream
     $fs = new Java("java.io.FileInputStream", "book1.xlsx");
-    $mstream = new ByteArrayOutputStream();
-    $buf = new byte[4096];
     $Array = new java_class("java.lang.reflect.Array");
+    $Byte = new JavaClass("java.lang.Byte");
+    $mstream = new Java("java.io.ByteArrayOutputStream");
+    $buf = $Array->newInstance($Byte, 4096);
     while (true) {
       $bytesRead = $fs->read($buf, 0, $Array->getLength($buf));
       if ($bytesRead <= 0) {
@@ -144,7 +145,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
       try {
         // Reads object data in Workbook
         $Wb = new Workbook($msln);
-        $msout = new ByteArrayOutputStream();
+        $msout = new Java("java.io.ByteArrayOutputStream");
         try {
           // Modifies the workbook data
           $Wb->getWorksheets()->get(0)->getCells()->get(0, 4)->putValue("E");

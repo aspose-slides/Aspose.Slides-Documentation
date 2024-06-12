@@ -70,10 +70,11 @@ This sample code shows you how to add an image from the web to a slide :
     $imageUrl = new URL("[REPLACE WITH URL]");
     $connection = $imageUrl->openConnection();
     $inputStream = $connection->getInputStream();
-    $outputStream = new ByteArrayOutputStream();
+    $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new java_class("java.lang.reflect.Array");
+    $Byte = new JavaClass("java.lang.Byte");
     try {
-      $buffer = new byte[1024];
+      $buffer = $Array->newInstance($Byte, 1024);
       $read;
       while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
         $outputStream->write($buffer, 0, $read);

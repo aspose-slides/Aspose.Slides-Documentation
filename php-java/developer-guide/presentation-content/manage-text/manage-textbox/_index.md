@@ -187,7 +187,7 @@ This Java code demonstrates an operation where all the texts in a presentation a
     foreach ($pres->getSlides() as $slide) {
       foreach ($slide->getShapes() as $shape) {
         // Checks if shape supports text frame (IAutoShape).
-        if java_instanceof($shape, new JavaClass("com.aspose.slides.IAutoShape")) {
+        if java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")) {
           $autoShape = $shape;
           // Iterates through paragraphs in text frame
           foreach ($autoShape->getTextFrame()->getParagraphs() as $paragraph) {

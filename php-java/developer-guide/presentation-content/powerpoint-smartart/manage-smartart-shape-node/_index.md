@@ -102,7 +102,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
     // Traverse through every shape inside first slide
     foreach ($slide->getShapes() as $shape) {
       // Check if shape is of SmartArt type
-      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traverse through all nodes inside SmartArt
@@ -143,7 +143,7 @@ The following sample code will help to access the child nodes belonging to respe
     // Traverse through every shape inside first slide
     foreach ($slide->getShapes() as $shape) {
       // Check if shape is of SmartArt type
-      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traverse through all nodes inside SmartArt
@@ -221,7 +221,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
     // Traverse through every shape inside first slide
     foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       // Check if shape is of SmartArt type
-      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         if ($smart->getAllNodes()->size() > 0) {
@@ -346,7 +346,7 @@ In the following sample code we will investigate how to identify **Assistant Nod
     // Traverse through every shape inside first slide
     foreach ($pres->getSlides()->get_Item(0)->getShapes() as $shape) {)
       // Check if shape is of SmartArt type
-      if java_instanceof($shape, new JavaClass("com.aspose.slides.ISmartArt")) {
+      if java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt")) {
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traversing through all nodes of SmartArt shape
