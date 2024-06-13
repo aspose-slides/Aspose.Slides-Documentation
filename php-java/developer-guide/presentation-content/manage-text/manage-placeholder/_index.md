@@ -19,7 +19,7 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrame) associated with the [`AutoShape`](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape).
 5. Save the modified presentation.
 
-This Java code shows how to change the text in a placeholder:
+This PHP code shows how to change the text in a placeholder:
 
 ```php
   // Instantiates a Presentation class
@@ -47,7 +47,7 @@ This Java code shows how to change the text in a placeholder:
 ## **Set Prompt Text in Placeholder**
 Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
 
-This Java code shows you how to set the prompt text in a placeholder:
+This PHP code shows you how to set the prompt text in a placeholder:
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -81,7 +81,7 @@ This Java code shows you how to set the prompt text in a placeholder:
 
 Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
 
-This Java code shows you how to set the transparency for a picture background (inside a shape):
+This PHP code shows you how to set the transparency for a picture background (inside a shape):
 
 ```php
   $presentation = new Presentation("example.pptx");

@@ -10,7 +10,7 @@ description: "Chart workbook in PowerPoint presentation "
 ## **Set Chart Data from Workbook**
 Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
-This Java code demonstrates a sample operation:
+This PHP code demonstrates a sample operation:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -38,7 +38,7 @@ This Java code demonstrates a sample operation:
 1. Set the workbook cell as a data label.
 1. Save the presentation.
 
-This Java code shows you to set a workbook cell as a chart data label:
+This PHP code shows you to set a workbook cell as a chart data label:
 
 ```php
   $lbl0 = "Label 0 cell value";
@@ -67,7 +67,7 @@ This Java code shows you to set a workbook cell as a chart data label:
 
 ## **Manage Worksheets**
 
-This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```php
   $pres = new Presentation();
@@ -87,7 +87,7 @@ This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheet
 
 ## **Specify Data Source Type**
 
-This Java code shows you how to specify a type for a data source:
+This PHP code shows you how to specify a type for a data source:
 
 ```php
   $pres = new Presentation();
@@ -117,7 +117,7 @@ In [Aspose.Slides 19.4](https://docs.aspose.com/slides/php-java/aspose-slides-fo
 
 Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you can either create an external workbook from scratch or make an internal workbook external.
 
-This Java code demonstrates the external workbook creation process:
+This PHP code demonstrates the external workbook creation process:
 
 ```php
   $pres = new Presentation();
@@ -152,7 +152,7 @@ Using the **`setExternalWorkbook`** method, you can assign an external workbook 
 
 While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-This Java code shows you how to set an external workbook:
+This PHP code shows you how to set an external workbook:
 
 ```php
   // Creates an instance of the Presentation class
@@ -206,7 +206,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.
 1. Specify the relevant condition based on the source type being the same as the external workbook data source type.
 
-This Java code demonstrates the operation:
+This PHP code demonstrates the operation:
 
 ```php
   // Creates an instance of the Presentation class
@@ -232,7 +232,7 @@ This Java code demonstrates the operation:
 
 You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
 
-This Java code is an implementation of the described process:
+This PHP code is an implementation of the described process:
 
 ```php
   // Creates an instance of tthe Presentation class

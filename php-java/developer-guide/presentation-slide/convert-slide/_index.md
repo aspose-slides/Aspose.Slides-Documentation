@@ -30,7 +30,7 @@ Aspose recently developed an online [Text to GIF](https://products.aspose.app/sl
 
 ## **Converting Slides to Bitmap and Saving the Images in PNG**
 
-This Java code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
+This PHP code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -125,7 +125,7 @@ With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ph
 
 {{% /alert %}} 
 
-This Java code demonstrates the conversion process for a slide with notes and comments:
+This PHP code demonstrates the conversion process for a slide with notes and comments:
 
 ```php
   $pres = new Presentation("PresentationNotesComments.pptx");
@@ -158,7 +158,7 @@ This Java code demonstrates the conversion process for a slide with notes and co
 
 ```
 
-This Java code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
+This PHP code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
 ```php
   $pres = new Presentation("PresentationNotes.pptx");
@@ -198,7 +198,7 @@ In any slide to image conversion process, the [NotesPositions](https://reference
 
 The [ITiffOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
 
-This Java code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
+This PHP code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
 ```php
   $pres = new Presentation("PresentationNotesComments.pptx");

@@ -19,7 +19,7 @@ Both the VSTO and Aspose.Slides methods take the following steps:
 1. Change the formatting of the text in the third text box.
 1. Save the presentation to disk.
 
-The screenshots below show the sample slide before and after the execution of the VSTO and Aspose.Slides for PHP via Java code.
+The screenshots below show the sample slide before and after the execution of the VSTO and Aspose.Slides for PHP via PHP code.
 
 **The input presentation** 
 

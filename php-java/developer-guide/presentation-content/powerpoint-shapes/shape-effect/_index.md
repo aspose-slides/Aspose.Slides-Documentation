@@ -19,7 +19,7 @@ Aspose.Slides provides properties and methods under the [EffectFormat](https://r
 
 ## **Apply Shadow Effect**
 
-This Java code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
+This PHP code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
 
 ```php
   $pres = new Presentation();
@@ -40,7 +40,7 @@ This Java code shows you how to apply the outer shadow effect ([OuterShadowEffec
 
 ## **Apply Reflection Effect**
 
-This Java code shows you how to apply the reflection effect to a shape:
+This PHP code shows you how to apply the reflection effect to a shape:
 
 ```php
   $pres = new Presentation();
@@ -62,7 +62,7 @@ This Java code shows you how to apply the reflection effect to a shape:
 
 ## **Apply Glow Effect**
 
-This Java code shows you how to apply the glow effect to a shape:
+This PHP code shows you how to apply the glow effect to a shape:
 
 ```php
   $pres = new Presentation();
@@ -82,7 +82,7 @@ This Java code shows you how to apply the glow effect to a shape:
 
 ## **Apply Soft Edges Effect**
 
-This Java code shows you how to apply the soft edges to a shape:
+This PHP code shows you how to apply the soft edges to a shape:
 
 ```php
   $pres = new Presentation();

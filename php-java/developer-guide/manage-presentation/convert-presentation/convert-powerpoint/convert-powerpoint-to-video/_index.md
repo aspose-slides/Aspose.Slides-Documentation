@@ -40,9 +40,9 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-f
 
 2. Download ffmpeg [here](https://ffmpeg.org/download.html).
 
-4. Run the PowerPoint to video Java code.
+4. Run the PowerPoint to video PHP code.
 
-This Java code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
+This PHP code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```php
   $presentation = new Presentation();

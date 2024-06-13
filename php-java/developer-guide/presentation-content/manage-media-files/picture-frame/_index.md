@@ -28,7 +28,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 6. Add a picture frame (containing the picture) to the slide.
 7. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a picture frame:
+This PHP code shows you how to create a picture frame:
 
 ```php
   // Instantiates the Presentation class that represents a PPTX file
@@ -68,7 +68,7 @@ By altering an image's relative scaling, you can create a more complicated pictu
 5. Specify the image's relative width and height in the picture frame.
 6. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a picture frame with relative scale:
+This PHP code shows you how to create a picture frame with relative scale:
 
 ```php
   // Instantiate Presentation class that represents the PPTX
@@ -123,7 +123,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This Java code demonstrates the operation:
+Aspose.Slides allows you to get the transparency of an image. This PHP code demonstrates the operation:
 
 ```php
   $presentation = new Presentation($folderPath . "Test.pptx");
@@ -157,7 +157,7 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 10. Add the picture frame (containing the picture) to the slide.
 11. Write the modified presentation as a PPTX file.
 
-This Java code demonstrates the picture frame formatting process:
+This PHP code demonstrates the picture frame formatting process:
 
 ```php
   // Instantiates the Presentation class that represents the PPTX
@@ -193,7 +193,7 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 ## **Add Image as Link**
 
-To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Java code shows you how to add an image and video into a placeholder:
+To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This PHP code shows you how to add an image and video into a placeholder:
 
 ```php
   $presentation = new Presentation("input.pptx");
@@ -233,7 +233,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
 
 ## **Crop Image**
 
-This Java code shows you how to crop an existing image on a slide:
+This PHP code shows you how to crop an existing image on a slide:
 
 ```php
   $pres = new Presentation();
@@ -270,7 +270,7 @@ This Java code shows you how to crop an existing image on a slide:
 
 If you want to delete the cropped areas of an image contained in a frame, you can use the [deletePictureCroppedAreas()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
-This Java code demonstrates the operation:
+This PHP code demonstrates the operation:
 
 ```php
   $presentation = new Presentation("PictureFrameCrop.pptx");
@@ -302,7 +302,7 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) method to set the *Lock Aspect Ratio* setting.
 
-This Java code shows you how to lock a shape's aspect ratio:
+This PHP code shows you how to lock a shape's aspect ratio:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -352,7 +352,7 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 8. Specify image offsets from the corresponding edge of the shape's bounding box
 9. Write the modified presentation as a PPTX file.
 
-This Java code demonstrates a process in which a StretchOff property is used:
+This PHP code demonstrates a process in which a StretchOff property is used:
 
 ```php
   // Instantiates the Prseetation class that represents a PPTX file

@@ -24,7 +24,7 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 ### **Adding URL Hyperlinks to Texts**
 
-This Java code shows you how to add a website hyperlink to a text:
+This PHP code shows you how to add a website hyperlink to a text:
 
 ```php
   $presentation = new Presentation();
@@ -227,7 +227,7 @@ This sample code demonstrates an operation where hyperlinks with different color
 
 ### **Removing Hyperlinks from Texts**
 
-This Java code shows you how to remove the hyperlink from a text in a presentation slide:
+This PHP code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```php
   $pres = new Presentation();
@@ -254,7 +254,7 @@ This Java code shows you how to remove the hyperlink from a text in a presentati
 
 ### **Removing Hyperlinks from Shapes or Frames**
 
-This Java code shows you how to remove the hyperlink from a shape in a presentation slide: 
+This PHP code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```php
   $pres = new Presentation();

@@ -29,7 +29,7 @@ With Aspose.Slides for PHP via Java, you can easily create your own WordArt temp
 
 **Using Aspose.Slides** 
 
-First, we create a simple text using this Java code: 
+First, we create a simple text using this PHP code:
 
 ```php
   $pres = new Presentation();
@@ -227,7 +227,7 @@ The resulting text and its shape:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-We apply a 3D effect to the text with this Java code:
+We apply a 3D effect to the text with this PHP code:
 
 ```php
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);

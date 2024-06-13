@@ -21,7 +21,7 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for PHP 
 * The [CommentAuthor](https://reference.aspose.com/slides/php-java/com.aspose.slides/CommentAuthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc.
 
 ## **Add Slide Comment**
-This Java code shows you how to add a comment to a slide in a PowerPoint presentation:
+This PHP code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```php
   // Instantiates the Presentation class
@@ -59,7 +59,7 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
 ```
 
 ## **Access Slide Comments**
-This Java code shows you how to access an existing comment on a slide in a PowerPoint presentation:
+This PHP code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```php
   // Instantiates the Presentation class
@@ -84,7 +84,7 @@ This Java code shows you how to access an existing comment on a slide in a Power
 ## **Reply Comments**
 A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [getParentComment](https://reference.aspose.com/slides/php-java/com.aspose.slides/IComment#getParentComment--) or [setParentComment](https://reference.aspose.com/slides/php-java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) methods (from the [IComment](https://reference.aspose.com/slides/php-java/com.aspose.slides/IComment) interface), you can set or get a parent comment.
 
-This Java code shows you how to add comments and get replies to them:
+This PHP code shows you how to add comments and get replies to them:
 
 ```php
   $pres = new Presentation();
@@ -144,7 +144,7 @@ In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern commen
 
 In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/php-java/com.aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/php-java/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D::Float-java.util.Date-) and [insertModernComment](https://reference.aspose.com/slides/php-java/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D::Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/php-java/com.aspose.slides/CommentCollection) class.
 
-This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
+This PHP code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 
 ```php
   $pres = new Presentation();
@@ -164,7 +164,7 @@ This Java code shows you how to add a modern comment to a slide in a PowerPoint 
 
 ### **Delete All Comments and Authors**
 
-This Java code shows you how to remove all comments and authors in a presentation:
+This PHP code shows you how to remove all comments and authors in a presentation:
 
 ```php
   $presentation = new Presentation("example.pptx");
@@ -186,7 +186,7 @@ This Java code shows you how to remove all comments and authors in a presentatio
 
 ### **Delete Specific Comments**
 
-This Java code shows you how to delete specific comments on a slide:
+This PHP code shows you how to delete specific comments on a slide:
 
 ```php
   $presentation = new Presentation();

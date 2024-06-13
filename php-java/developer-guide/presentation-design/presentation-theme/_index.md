@@ -17,7 +17,7 @@ In PowerPoint, a theme comprises colors, [fonts](/slides/php-java/powerpoint-fon
 
 A PowerPoint theme uses a specific set of colors for different elements on a slide. If you don't like the colors, you change them colors by applying new colors for the theme. To allow you select a new theme color, Aspose.Slides provides values under the [SchemeColor](https://reference.aspose.com/slides/php-java/com.aspose.slides/SchemeColor) enumeration.
 
-This Java code shows you how to change the accent color for a theme:
+This PHP code shows you how to change the accent color for a theme:
 
 ```php
   $pres = new Presentation();
@@ -64,7 +64,7 @@ When you apply luminance transformations to the main theme color(1), colors from
 
 **2** - Colors from the additional palette.
 
-This Java code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
+This PHP code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```php
   $presentation = new Presentation();
@@ -120,7 +120,7 @@ To allow you select fonts for themes and other purposes, Aspose.Slides uses thes
 * **+mn-ea** - Body Font East Asian (Minor East Asian Font)
 * **+mj-ea** - Body Font East Asian (Major East Asian Font)
 
-This Java code shows you how to assign the Latin font to a theme element:
+This PHP code shows you how to assign the Latin font to a theme element:
 
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
@@ -132,7 +132,7 @@ This Java code shows you how to assign the Latin font to a theme element:
 
 ```
 
-This Java code shows you how to change the presentation theme font:
+This PHP code shows you how to change the presentation theme font:
 
 ```php
   $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
@@ -153,7 +153,7 @@ By default, the PowerPoint app provides 12 predefined backgrounds but only 3 fro
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-For example, after you save a presentation in the PowerPoint app, you can run this Java code to find out the number of predefined backgrounds in the presentation:
+For example, after you save a presentation in the PowerPoint app, you can run this PHP code to find out the number of predefined backgrounds in the presentation:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -174,7 +174,7 @@ Using the [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/co
 
 {{% /alert %}} 
 
-This Java code shows you how to set the background for a presentation:
+This PHP code shows you how to set the background for a presentation:
 
 ```php
   $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
@@ -199,7 +199,7 @@ A PowerPoint theme usually contains 3 values for each style array. Those arrays 
 
 Using 3 properties ([FillStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme#getEffectStyles--)) from the  [FormatScheme](https://reference.aspose.com/slides/php-java/com.aspose.slides/FormatScheme) class you can change the elements in a theme (even more flexibly than the options in PowerPoint).
 
-This Java code shows you how to change a theme effect by altering parts of elements:
+This PHP code shows you how to change a theme effect by altering parts of elements:
 
 ```php
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");

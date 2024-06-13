@@ -28,7 +28,7 @@ Using Aspose.Slides, you can specify your preferred line style for a shape. Thes
 7. Set the [dash style](https://reference.aspose.com/slides/php-java/com.aspose.slides/LineDashStyle) for the shape line.
 8. Write the modified presentation as a PPTX file.
 
-This Java code demonstrates an operation where we formatted a rectangle `AutoShape`:
+This PHP code demonstrates an operation where we formatted a rectangle `AutoShape`:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -131,7 +131,7 @@ This is how you use Aspose.Slides to apply a gradient fill to a shape:
 5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
 6. Write the modified presentation as a PPTX file.
 
-This Java code demonstrates an operation where the gradient fill effect was used on an ellipse:
+This PHP code demonstrates an operation where the gradient fill effect was used on an ellipse:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -176,7 +176,7 @@ This is how you use Aspose.Slides to apply a pattern fill to a shape:
 7. Set the [Foreground Color](https://reference.aspose.com/slides/php-java/com.aspose.slides/PatternFormat#getForeColor--) for the [PatternFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/PatternFormat).
 8. Write the modified presentation as a PPTX file.
 
-This Java code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
+This PHP code demonstrates an operation where a pattern fill was used to beautify a rectangle:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -218,7 +218,7 @@ This is how you use Aspose.Slides to fill a shape with a picture:
 7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
 8. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to fill a shape with a picture:
+This PHP code shows you how to fill a shape with a picture:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -267,7 +267,7 @@ This is how you use Aspose.Slides to apply solid color fill to a shape:
 5. Set your preferred color for the Shape.
 6. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to apply the solid color fill to a box in PowerPoint:
+This PHP code shows you how to apply the solid color fill to a box in PowerPoint:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -303,7 +303,7 @@ Aspose.Slides allows you to set the transparency level for a shape this way:
 4. Use `new Color` with the alpha component set.
 5. Save the object as a PowerPoint file. 
 
-This Java code demonstrates the process:
+This PHP code demonstrates the process:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -335,7 +335,7 @@ Aspose.Slides allows you to rotate a shape added to a slide this way:
 4. Rotate the shape by the needed degrees. 
 5. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to rotate a shape by 90 degrees:
+This PHP code shows you how to rotate a shape by 90 degrees:
 
 ```php
   // Instantiates a presentation class that represents a presentation file
@@ -367,7 +367,7 @@ Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeD
 3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat) properties.
 4. Write the presentation to disk.
 
-This Java code shows you how to add 3D bevel effects to a shape:
+This PHP code shows you how to add 3D bevel effects to a shape:
 
 ```php
   // Creates an instance of the Presentation class
@@ -410,7 +410,7 @@ Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying it
 3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ICamera#getCameraType--) and [LightType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ILightRig#getLightType--).
 4. Write the presentation to disk. 
 
-This Java code shows you how to apply 3D rotation effects to a shape:
+This PHP code shows you how to apply 3D rotation effects to a shape:
 
 ```php
   // Creates an instance of the Presentation class
@@ -438,7 +438,7 @@ This Java code shows you how to apply 3D rotation effects to a shape:
 
 ## **Reset Formatting**
 
-This Java code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/LayoutSlide) to their defaults:
+This PHP code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/php-java/com.aspose.slides/LayoutSlide) to their defaults:
 
 ```php
   $pres = new Presentation();

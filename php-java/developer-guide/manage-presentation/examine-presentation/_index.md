@@ -18,7 +18,7 @@ The [PresentationInfo](https://reference.aspose.com/slides/php-java/com.aspose.s
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
-You can check a presentation's format without loading the presentation. See this Java code:
+You can check a presentation's format without loading the presentation. See this PHP code:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -35,7 +35,7 @@ You can check a presentation's format without loading the presentation. See this
 
 ## **Get a Presentation Properties**
 
-This Java code shows you how to get a presentation’s properties (information about the presentation):
+This PHP code shows you how to get a presentation’s properties (information about the presentation):
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -53,7 +53,7 @@ You may want to see the [properties under the DocumentProperties](https://refere
 
 Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
 
-This Java code shows you how to edit a presentation's properties:
+This PHP code shows you how to edit a presentation's properties:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");

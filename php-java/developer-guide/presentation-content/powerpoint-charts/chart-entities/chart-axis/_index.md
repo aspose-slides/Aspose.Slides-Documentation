@@ -44,7 +44,7 @@ This sample code—an implementation of the steps above—shows you how to get t
 ## **Swapping the Data between Axes**
 Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
-This Java code shows you how to perform the data swap task between axes on a chart:
+This PHP code shows you how to perform the data swap task between axes on a chart:
 
 ```php
   $pres = new Presentation();
@@ -64,7 +64,7 @@ This Java code shows you how to perform the data swap task between axes on a cha
 
 ## **Disabling the Vertical Axis for Line Charts**
 
-This Java code shows you how to hide the vertical axis for a line chart:
+This PHP code shows you how to hide the vertical axis for a line chart:
 
 ```php
   $pres = new Presentation();
@@ -120,7 +120,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 ```
 
 ## **Setting the Date Format for Category Axis Value**
-Aspose.Slides for PHP via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
+Aspose.Slides for PHP via Java allows you to set the date format for a category axis value. The operation is demonstrated in this PHP code:
 
 ```php
   $pres = new Presentation();
@@ -155,7 +155,7 @@ Aspose.Slides for PHP via Java allows you to set the date format for a category 
 ```
 
 ## **Setting the Rotation Angle for Chart Axis Title**
-Aspose.Slides for PHP via Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
+Aspose.Slides for PHP via Java allows you to set the rotation angle for a chart axis title. This PHP code demonstrates the operation:
 
 ```php
   $pres = new Presentation();
@@ -173,7 +173,7 @@ Aspose.Slides for PHP via Java allows you to set the rotation angle for a chart 
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
-Aspose.Slides for PHP via Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
+Aspose.Slides for PHP via Java allows you to set the position axis in a category or value axis. This PHP code shows how to perform the task:
 
 ```php
   $pres = new Presentation();
@@ -190,7 +190,7 @@ Aspose.Slides for PHP via Java allows you to set the position axis in a category
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
-Aspose.Slides for PHP via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
+Aspose.Slides for PHP via Java allows you to configure a chart to show a unit label on its chart value axis. This PHP code demonstrates the operation:
 
 ```php
   $pres = new Presentation();

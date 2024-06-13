@@ -22,7 +22,7 @@ When you purchase a metered license, you get keys (and not a license file). This
 
    You should see the amount/quantity of API requests you have consumed so far.
 
-This Java code shows you how to set metered public and private keys:
+This PHP code shows you how to set metered public and private keys:
 
 ```php
   $metered = new Metered();

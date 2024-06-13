@@ -24,7 +24,7 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/
 9. Add some text to the [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe/).
 10. Save the modified presentation.
 
-This Java code shows you how to create a table in a presentation:
+This PHP code shows you how to create a table in a presentation:
 
 ```php
   // Instantiates a Presentation class that represents a PPTX file
@@ -81,7 +81,7 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-This Java code shows you how to specify the numbering for cells in a table:
+This PHP code shows you how to specify the numbering for cells in a table:
 
 ```php
   // Instantiates a Presentation class that represents a PPTX file
@@ -137,7 +137,7 @@ This Java code shows you how to specify the numbering for cells in a table:
 
 6. Save the modified presentation.
 
-This Java code shows you how to access and work with an existing table:
+This PHP code shows you how to access and work with an existing table:
 
 ```php
   // Instantiates the Presentation class that represents a PPTX file
@@ -176,7 +176,7 @@ This Java code shows you how to access and work with an existing table:
 6. Align the text vertically.
 7. Save the modified presentation.
 
-This Java code shows you how to align the text in a table:
+This PHP code shows you how to align the text in a table:
 
 ```php
   // Creates an instance of the Presentation class
@@ -225,7 +225,7 @@ This Java code shows you how to align the text in a table:
 6. Set the [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation. 
 
-This Java code shows you how to apply your preferred formatting options to the text in a table:
+This PHP code shows you how to apply your preferred formatting options to the text in a table:
 
 ```php
   // Creates an instance of the Presentation class
@@ -257,7 +257,7 @@ This Java code shows you how to apply your preferred formatting options to the t
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
+Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This PHP code shows you how to get the style properties from a table preset style:
 
 ```php
   $pres = new Presentation();
@@ -278,7 +278,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the [**setAspectRatioLocked**](https://reference.aspose.com/slides/php-java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-)  property to allow you to lock the aspect ratio setting for tables and other shapes.
 
-This Java code shows you how to lock the aspect ratio for a table:
+This PHP code shows you how to lock the aspect ratio for a table:
 
 ```php
   $pres = new Presentation("pres.pptx");

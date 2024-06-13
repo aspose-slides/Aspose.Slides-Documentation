@@ -121,7 +121,7 @@ _Code Steps:_
 10. Add labels for the chart series. 
 11. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a normal chart:
+This PHP code shows you how to create a normal chart:
 
 ```php
   // Instantiates a presentation class that represents a PPTX file
@@ -215,7 +215,7 @@ You may want to use a scattered chart when
    4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
    5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
-This Java code shows you how to create a scattered charts with a different series of markers: 
+This PHP code shows you how to create a scattered charts with a different series of markers:
 
 ```php
   // Instantiates a presentation class that represents a PPTX file
@@ -288,7 +288,7 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 11. Set the rotation angle for pie chart slides.
 12. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create a pie chart:
+This PHP code shows you how to create a pie chart:
 
 ```php
   // Instantiates a presentation class that represents a PPTX file
@@ -391,7 +391,7 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create a line chart:
+This PHP code shows you how to create a line chart:
 
 ```php
   $pres = new Presentation();
@@ -433,7 +433,7 @@ Tree map charts are best used for sales data when you want to show the relative 
 7. Add new chart data for the chart series.
 8. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create a tree map chart:
+This PHP code shows you how to create a tree map chart:
 
 ```php
   $pres = new Presentation();
@@ -495,7 +495,7 @@ This Java code shows you how to create a tree map chart:
 8. Specify HiLowLines format.
 9. Write the modified presentation to a PPTX file
 
-Sample Java code used to create a stock chart:
+Sample PHP code used to create a stock chart:
 
 ```php
   $pres = new Presentation();
@@ -556,7 +556,7 @@ Sample Java code used to create a stock chart:
 7. Add new chart data for the chart series.
 8. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create a box and whisker chart:
+This PHP code shows you how to create a box and whisker chart:
 
 ```php
   $pres = new Presentation();
@@ -605,7 +605,7 @@ This Java code shows you how to create a box and whisker chart:
 3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).Funnel).
 4. Write the modified presentation to a PPTX file
 
-The Java code shows you how to create a funnel chart:
+The PHP code shows you how to create a funnel chart:
 
 ```php
   $pres = new Presentation();
@@ -648,7 +648,7 @@ The Java code shows you how to create a funnel chart:
 3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).sunburst).
 4. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create a sunburst chart:
+This PHP code shows you how to create a sunburst chart:
 
 ```php
   $pres = new Presentation();
@@ -707,7 +707,7 @@ This Java code shows you how to create a sunburst chart:
 6. Add new series and categories.
 7. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create an histogram chart:
+This PHP code shows you how to create an histogram chart:
 
 ```php
   $pres = new Presentation();
@@ -738,7 +738,7 @@ This Java code shows you how to create an histogram chart:
 3. Add a chart with some data and specify your preferred chart type (`ChartType::Radar` in this case).
 4. Write the modified presentation to a PPTX file
 
-This Java code shows you how to create an radar chart:
+This PHP code shows you how to create an radar chart:
 
 ```php
   $pres = new Presentation();
@@ -768,7 +768,7 @@ This Java code shows you how to create an radar chart:
 7. Add new chart data for the chart series.
 8. Write the modified presentation to a PPTX file.
 
-This Java code shows you how to create a multicategory chart:
+This PHP code shows you how to create a multicategory chart:
 
 ```php
   $pres = new Presentation();
@@ -819,7 +819,7 @@ A map chart is a visualization of an area containing data. Map charts are best u
 <a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart </strong></a>
 
-This Java code shows you how to create a map chart:
+This PHP code shows you how to create a map chart:
 
 ```php
   $pres = new Presentation();
@@ -840,7 +840,7 @@ A combination chart (or combo chart) is a chart that combines two or more charts
 
 ![combination-chart-ppt](combination-chart-ppt.png)
 
-This Java code shows you how to create a combination chart in PowerPoint:
+This PHP code shows you how to create a combination chart in PowerPoint:
 
 ```php
 
@@ -860,7 +860,7 @@ This Java code shows you how to create a combination chart in PowerPoint:
 6. Add a new series and populate the data in it.
 7. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to update a chart:
+This PHP code shows you how to update a chart:
 
 ```php
   $pres = new Presentation();
@@ -921,7 +921,7 @@ To set the data range for a chart, do this:
 4. Access the chart data and set the range.
 5. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to set the data range for a chart:
+This PHP code shows you how to set the data range for a chart:
 
 ```php
   $pres = new Presentation();
@@ -941,7 +941,7 @@ This Java code shows you how to set the data range for a chart:
 ## **Using Default Markers in Charts**
 When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
-This Java code shows you how to set a chart series market automatically:
+This PHP code shows you how to set a chart series market automatically:
 
 ```php
   $pres = new Presentation();

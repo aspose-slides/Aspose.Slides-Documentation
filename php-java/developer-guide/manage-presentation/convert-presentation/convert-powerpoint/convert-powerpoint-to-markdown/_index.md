@@ -24,7 +24,7 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class to represent a presentation object.
 2. Use the [Save ](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)method to save the object as a markdown file.
 
-This Java code shows you how to convert PowerPoint to markdown:
+This PHP code shows you how to convert PowerPoint to markdown:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -41,7 +41,7 @@ This Java code shows you how to convert PowerPoint to markdown:
 
 Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
 
-This Java code shows you how to convert PowerPoint to CommonMark:
+This PHP code shows you how to convert PowerPoint to CommonMark:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -64,7 +64,7 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/com.aspos
 
 ### **Convert Images Sequentially**
 
-If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown:
+If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This PHP code shows you how to convert a presentation containing images to markdown:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -87,7 +87,7 @@ If you want the images to appear individually one after the other in the resulti
 
 If you want the images to appear together in the resulting markdown, you have to choose the visual option.   In this case, images will be saved to the current directory of the application (and a relative path will be built for them in the markdown document), or you can specify your preferred path and folder name.
 
-This Java code demonstrates the operation:
+This PHP code demonstrates the operation:
 
 ```php
   $pres = new Presentation("pres.pptx");

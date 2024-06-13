@@ -36,7 +36,7 @@ For more information on working with Master Slides in particular, see the [Slide
 1. Add an empty slide based on the new layout slide.
 1. Save the presentation. 
 
-This Java code shows you how to add a slide layout to a PowerPoint presentation:
+This PHP code shows you how to add a slide layout to a PowerPoint presentation:
 
 ```php
   // Instantiates a Presentation class that represents the presentation file
@@ -91,7 +91,7 @@ This Java code shows you how to add a slide layout to a PowerPoint presentation:
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This PHP code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -144,7 +144,7 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
 1. Set the date-time placeholder to visible. 
 1. Save the presentation. 
 
-This Java code shows you how to set the visibility for a slide footer (and perform related tasks):
+This PHP code shows you how to set the visibility for a slide footer (and perform related tasks):
 
 ```php
   $presentation = new Presentation("presentation.ppt");
@@ -184,7 +184,7 @@ This Java code shows you how to set the visibility for a slide footer (and perfo
 1. Set a text for the master slide and all child date-time placeholders. 
 1. Save the presentation. 
 
-This Java code demonstrates the operation:
+This PHP code demonstrates the operation:
 
 ```php
   $presentation = new Presentation("presentation.ppt");
@@ -215,7 +215,7 @@ This Java code demonstrates the operation:
 1. Set the date-time placeholder to visible. 
 1. Save the presentation. 
 
-This Java code demonstrates the operation: 
+This PHP code demonstrates the operation:
 
 ```php
   // Instantiates a Presentation object that represents a presentation file
@@ -238,7 +238,7 @@ This Java code demonstrates the operation:
 
 Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
 
-Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This Java code shows you how to use the [getType()](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
+Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This PHP code shows you how to use the [getType()](https://reference.aspose.com/slides/php-java/com.aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
 
 ```php
   // Instantiates a Presentation object that represents a presentation file

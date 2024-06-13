@@ -107,7 +107,7 @@ This code  demonstrates the described operation:
 ### **Add Image as BLOB in Presentation**
 With methods from the [**IImageCollection**](https://reference.aspose.com/slides/php-java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/php-java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
-This Java code shows you how to add a large image through the BLOB process:
+This PHP code shows you how to add a large image through the BLOB process:
 
 ```php
   $pathToLargeImage = "large_image.jpg";
@@ -141,7 +141,7 @@ This Java code shows you how to add a large image through the BLOB process:
 
 Typically, to load a large presentation, computers require a lot of temporary memory. All the presentation's content is loaded into the memory and the file (from which the presentation was loaded) stops being used. 
 
-Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this Java code:
+Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this PHP code:
 
 ```php
   $pres = new Presentation("large.pptx");
@@ -159,7 +159,7 @@ But this method consumes around 1.6 GB of temporary memory.
 
 ### **Load a Large Presentation as BLOB**
 
-Through the process involving a BLOB, you can load up a large presentation while using little memory. This Java code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
+Through the process involving a BLOB, you can load up a large presentation while using little memory. This PHP code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```php
   $loadOptions = new LoadOptions();

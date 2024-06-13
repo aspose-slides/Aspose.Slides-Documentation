@@ -64,7 +64,7 @@ The code snippet below shows how to use this feature:
 
 Aspose.Slides allows you to specify your preferred color for the background of a text.
 
-This Java code shows you how to set the background color for an entire text:
+This PHP code shows you how to set the background color for an entire text:
 
 ```php
   $pres = new Presentation();
@@ -100,7 +100,7 @@ This Java code shows you how to set the background color for an entire text:
 
 ```
 
-This Java code shows you how to set the background color for only a portion of a text:
+This PHP code shows you how to set the background color for only a portion of a text:
 
 ```php
   $pres = new Presentation();
@@ -213,7 +213,7 @@ The implementation of the above steps is given below.
 
 Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
 
-This Java code shows you how to expand the spacing for one line of text and condense the spacing for another line:
+This PHP code shows you how to expand the spacing for one line of text and condense the spacing for another line:
 
 ```php
   $presentation = new Presentation("in.pptx");
@@ -345,7 +345,7 @@ The implementation of the above steps is given below.
 
 Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
 
-This Java code shows you how to set the font size for texts contained in a paragraph:
+This PHP code shows you how to set the font size for texts contained in a paragraph:
 
 ```php
   $presentation = new Presentation("example.pptx");
@@ -471,7 +471,7 @@ This is how you specify the line spacing for a specific paragraph:
 5. Set the Paragraph properties.
 6. Save the presentation.
 
-This Java code shows you how to specify the line spacing for a paragraph:
+This PHP code shows you how to specify the line spacing for a paragraph:
 
 ```php
   // Create an instance of Presentation class

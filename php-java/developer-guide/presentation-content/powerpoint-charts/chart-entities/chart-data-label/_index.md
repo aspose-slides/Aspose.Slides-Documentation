@@ -10,7 +10,7 @@ Data labels on a chart show details about the chart data series or individual da
 
 ## **Set Precision of Data in Chart Data Labels**
 
-This Java code shows you how to set the data precision in a chart data label:
+This PHP code shows you how to set the data precision in a chart data label:
 
 ```php
   $pres = new Presentation();
@@ -28,7 +28,7 @@ This Java code shows you how to set the data precision in a chart data label:
 ```
 
 ## **Display Percentage as Labels**
-Aspose.Slides for PHP via Java allows you to set percentage labels on displayed charts. This Java code demonstrates the operation:
+Aspose.Slides for PHP via Java allows you to set percentage labels on displayed charts. This PHP code demonstrates the operation:
 
 ```php
   // Creates an instance of the Presentation class
@@ -76,7 +76,7 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
 ```
 
 ## **Set Percentage Sign with Chart Data Labels**
-This Java code shows you to set the percentage sign for a chart data label:
+This PHP code shows you to set the percentage sign for a chart data label:
 
 ```php
   // Creates an instance of the Presentation class
@@ -136,7 +136,7 @@ This Java code shows you to set the percentage sign for a chart data label:
 ```
 
 ## **Set Label Distances** From Axis
-This Java code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
+This PHP code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```php
   // Creates an instance of the Presentation class
@@ -162,7 +162,7 @@ This Java code shows you how to set the label distance from a category axis when
 
 When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
-This Java code shows you how to adjust the label location on a pie chart:
+This PHP code shows you how to adjust the label location on a pie chart:
 
 ```php
   $pres = new Presentation();

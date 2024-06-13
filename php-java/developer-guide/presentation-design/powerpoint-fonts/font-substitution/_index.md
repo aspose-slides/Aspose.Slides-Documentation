@@ -17,7 +17,7 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 5. Add the rule to the presentation font replacement rule collection.
 6. Generate the slide image to observe the effect.
 
-This Java code demonstrates the font substitution process:
+This PHP code demonstrates the font substitution process:
 
 ```php
   // Loads a presentation

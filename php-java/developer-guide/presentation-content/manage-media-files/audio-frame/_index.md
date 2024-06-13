@@ -17,7 +17,7 @@ Aspose.Slides for PHP via Java allows you to add audio files to slides. The audi
 5. Set [PlayMode](https://reference.aspose.com/slides/php-java/com.aspose.slides/AudioPlayModePreset) and `Volume` exposed by the [IAudioFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/IAudioFrame) object.
 6. Save the modified presentation.
 
-This Java code shows you how to add an embedded audio frame to a slide:
+This PHP code shows you how to add an embedded audio frame to a slide:
 
 ```Java
 // Instantiates a Presentation class that represents a presentation file
@@ -51,7 +51,7 @@ try {
 
 When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You change the audio frame's preview image (set your preferred image).
 
-This Java code shows you how to change an audio frame's thumbnail or preview image:
+This PHP code shows you how to change an audio frame's thumbnail or preview image:
 
 ```php
   $presentation = new Presentation();
@@ -107,7 +107,7 @@ This is how you change the Audio Play options:
 2. Set new values for the Audio Frame properties you want to adjust.
 3. Save the modified PowerPoint file.
 
-This Java code demonstrates an operation in which an audio's options are adjusted:
+This PHP code demonstrates an operation in which an audio's options are adjusted:
 
 ```php
   $pres = new Presentation("AudioFrameEmbed_out.pptx");

@@ -87,7 +87,7 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
 ```
 
 ## **Render Comments when saving Presentation into Image**
-Aspose.Slides for PHP via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
+Aspose.Slides for PHP via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This PHP code demonstrates the operation:
 
 ```php
   $pres = new Presentation("presentation.pptx");

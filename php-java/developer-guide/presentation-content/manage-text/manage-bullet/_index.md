@@ -122,7 +122,7 @@ To create a picture bullet, go through these steps:
 1. Add the second paragraph and repeat the process given in previous steps
 1. Save the presentation
 
-This Java code shows you to create a picture bullet in a slide:
+This PHP code shows you to create a picture bullet in a slide:
 
 ```php
   $pres = new Presentation();
@@ -265,7 +265,7 @@ Aspose.Slides for PHP via Java provides a simple API to manage paragraphs with c
 1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
-This Java code shows you how to create a numbered list in a slide:
+This PHP code shows you how to create a numbered list in a slide:
 
 ```php
   // Instantiate a Presentation class that represents a PPTX file

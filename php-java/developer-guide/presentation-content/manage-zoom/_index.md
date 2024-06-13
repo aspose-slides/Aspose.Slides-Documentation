@@ -35,7 +35,7 @@ You can add a zoom frame on a slide this way:
 4.  Add zoom frames (containing the references to created slides) to the first slide.
 5.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a zoom frame on a slide:
+This PHP code shows you how to create a zoom frame on a slide:
 
 ```php
   $pres = new Presentation();
@@ -78,7 +78,7 @@ With Aspose.Slides for PHP via Java, you can create a zoom frame with a differen
 5.  Add zoom frames (containing the reference to created slide) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a zoom frame with a different image:
+This PHP code shows you how to create a zoom frame with a different image:
 
 ```php
   $pres = new Presentation();
@@ -129,7 +129,7 @@ You can control a zoom frame's formatting on a slide this way:
 8.  Remove the background from an image of the second zoom frame object.
 5.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to change a zoom frame's formatting on a slide: 
+This PHP code shows you how to change a zoom frame's formatting on a slide:
 
 ```php
   $pres = new Presentation();
@@ -203,7 +203,7 @@ You can add a section zoom frame to a slide this way:
 5.  Add a section zoom frame (containing references to the created section) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a zoom frame on a slide:
+This PHP code shows you how to create a zoom frame on a slide:
 
 ```php
   $pres = new Presentation();
@@ -238,7 +238,7 @@ Using Aspose.Slides for PHP via Java, you can create a section zoom frame with a
 5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a zoom frame with a different image:
+This PHP code shows you how to create a zoom frame with a different image:
 
 ```php
   $pres = new Presentation();
@@ -292,7 +292,7 @@ You can control a section zoom frame's formatting on a slide this way:
 12.	Change the transition duration.
 13.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to change a section zoom frame's formatting:
+This PHP code shows you how to change a section zoom frame's formatting:
 
 ```php
   $pres = new Presentation();
@@ -357,7 +357,7 @@ You can add a summary zoom frame to a slide this way:
 3.  Add the summary zoom frame to the first slide.
 4.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a summary zoom frame on a slide:
+This PHP code shows you how to create a summary zoom frame on a slide:
 
 ```php
   $pres = new Presentation();
@@ -414,7 +414,7 @@ All sections in a summary zoom frame are represented by [ISummaryZoomSection](ht
 6.  Remove the first section from the summary zoom frame.
 7.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to add and remove sections in a summary zoom frame:
+This PHP code shows you how to add and remove sections in a summary zoom frame:
 
 ```php
   $pres = new Presentation();
@@ -473,7 +473,7 @@ You can control the formatting for a summary zoom section object in a summary zo
 12. Change the transition duration.
 13.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to change the formatting for a summary zoom section object:
+This PHP code shows you how to change the formatting for a summary zoom section object:
 
 ```php
   $pres = new Presentation();

@@ -259,7 +259,7 @@ Aspose.Slides for PHP via Java provides the facility to check if a presentation 
 
 Aspose.Slides provides the LanguageId property (exposed by the PortionFormat class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This Java code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+This PHP code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
 
 ```php
   $pres = new Presentation($pptxFileName);
@@ -287,7 +287,7 @@ This Java code shows you how to set the proofing language for a PowerPoint: xxx 
 
 ## **Set Default Language**
 
-This Java code shows you how to set the default language for an entire PowerPoint presentation:
+This PHP code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```php
   $loadOptions = new LoadOptions();
