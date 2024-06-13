@@ -35,9 +35,9 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
     // Sets the position for comments
     $point = new Point2D::Float(0.2, 0.2);
     // Adds slide comment for an author on slide 1
-    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Date());
+    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
     // Adds slide comment for an author on slide 2
-    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Date());
+    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
     // Accesses ISlide 1
     $slide = $pres->getSlides()->get_Item(0);
     // When null is passed as an argument, comments from all authors are brought to the selected slide
@@ -92,20 +92,20 @@ This Java code shows you how to add comments and get replies to them:
   try {
     // Adds a comment
     $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
-    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
+    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
     // Adds a reply to comment1
     $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
-    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
+    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
     $reply1->setParentComment($comment1);
     // Adds another reply to comment1
-    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
+    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
     // Add a reply to an existing reply
-    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
+    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
     $subReply->setParentComment($reply2);
-    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
-    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
-    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Date());
+    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
+    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
+    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2D::Float(10, 10), new Java("java.util.Date"));
     $reply3->setParentComment($comment3);
     // Displays the comments hierarchy on console
     $slide = $pres->getSlides()->get_Item(0);
@@ -150,7 +150,7 @@ This Java code shows you how to add a modern comment to a slide in a PowerPoint 
   $pres = new Presentation();
   try {
     $newAuthor = $pres->getCommentAuthors()->addAuthor("Some Author", "SA");
-    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2D::Float(100, 100), new Date());
+    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2D::Float(100, 100), new Java("java.util.Date"));
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if ($pres != null) {
@@ -194,8 +194,8 @@ This Java code shows you how to delete specific comments on a slide:
     $slide = $presentation->getSlides()->get_Item(0);
     // add comments...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
-    $author->getComments()->addComment("comment 1", $slide, new Point2D::Float(0.2, 0.2), new Date());
-    $author->getComments()->addComment("comment 2", $slide, new Point2D::Float(0.3, 0.2), new Date());
+    $author->getComments()->addComment("comment 1", $slide, new Point2D::Float(0.2, 0.2), new Java("java.util.Date"));
+    $author->getComments()->addComment("comment 2", $slide, new Point2D::Float(0.3, 0.2), new Java("java.util.Date"));
     // remove all comments that contain "comment 1" text
     foreach($presentation->getCommentAuthors() as $commentAuthor) {
       $toRemove = new Java("java.util.ArrayList");
