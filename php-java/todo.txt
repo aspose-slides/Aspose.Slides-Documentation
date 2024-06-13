@@ -9,3 +9,4 @@ new Date()
 new ArrayList<IComment>()
 null
 instanceof
+NullableBool::True

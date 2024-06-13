@@ -198,7 +198,7 @@ This Java code shows you how to delete specific comments on a slide:
     $author->getComments()->addComment("comment 2", $slide, new Point2D::Float(0.3, 0.2), new Date());
     // remove all comments that contain "comment 1" text
     foreach($presentation->getCommentAuthors() as $commentAuthor) {
-      $toRemove = new ArrayList<IComment>();
+      $toRemove = new Java("java.util.ArrayList");
       foreach($slide->getSlideComments($commentAuthor) as $comment) {
         if ($comment->getText()->equals("comment 1")) {
           $toRemove->add($comment);

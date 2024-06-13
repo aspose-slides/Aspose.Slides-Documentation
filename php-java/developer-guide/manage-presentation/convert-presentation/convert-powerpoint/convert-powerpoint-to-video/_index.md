@@ -55,7 +55,7 @@ This Java code shows you how to convert a presentation (containing a figure and 
     $effectIn->getTiming()->setDuration(2.0);
     $effectOut->setPresetClassType(EffectPresetClassType::Exit);
     $fps = 33;
-    $frames = new ArrayList<String>();
+    $frames = new Java("java.util.ArrayList");
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
@@ -144,7 +144,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     $effect3->getTiming()->setTriggerDelayTime(1.0);
     $effect4->getTiming()->setTriggerDelayTime(1.0);
     $fps = 33;
-    $frames = new ArrayList<String>();
+    $frames = new Java("java.util.ArrayList");
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);

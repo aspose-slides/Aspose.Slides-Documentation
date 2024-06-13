@@ -161,7 +161,7 @@ This Java code shows you how to remove points from a shape:
 This Java shows you how to create a custom shape:
 
 ```php
-  $points = new ArrayList<Point2D::Float>();
+  $points = new Java("java.util.ArrayList");
   $R = 100;
   $r = 50;
   $step = 72;
