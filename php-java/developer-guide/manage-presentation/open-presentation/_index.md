@@ -99,8 +99,16 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
     public int resourceLoading(IResourceLoadingArgs args) {
       if ($args->getOriginalUri()->endsWith(".jpg")) {
         // loads substitute image
+        $file = new Java("java.io.File", "aspose-logo.jpg");
+        $Array = new JavaClass("java.lang.reflect.Array");
+        $Byte = new JavaClass("java.lang.Byte");
+        $imageBytes = $Array->newInstance($Byte, $Array->getLength($file));
         try {
-          $imageBytes = Files->readAllBytes(new Java("java.io.File", "aspose-logo.jpg")->toPath());
+            $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
+            $dis->readFully($imageBytes);
+        } finally {
+            if ($dis != null) $dis->close();
+        }
           $args->setData($imageBytes);
           return ResourceLoadingAction::UserProvided;
         } catch (JavaException $ex) {

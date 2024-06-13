@@ -65,8 +65,24 @@ Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspos
 This Java code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/php-java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property:
 
 ```php
-  $memoryFont1 = Files->readAllBytes("customfonts/CustomFont1.ttf");
-  $memoryFont2 = Files->readAllBytes("customfonts/CustomFont2.ttf");
+  $Array = new JavaClass("java.lang.reflect.Array");
+  $Byte = new JavaClass("java.lang.Byte");
+  $file1 = new Java("java.io.File", "customfonts/CustomFont1.ttf");
+  $memoryFont1 = $Array->newInstance($Byte, $Array->getLength($file1));
+  try {
+      $dis1 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file1));
+      $dis1->readFully($memoryFont1);
+  } finally {
+      if ($dis1 != null) $dis1->close();
+  }
+  $file2 = new Java("java.io.File", "customfonts/CustomFont2.ttf");
+  $memoryFont2 = $Array->newInstance($Byte, $Array->getLength($file2));
+  try {
+        $dis2 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file2));
+        $dis2->readFully($memoryFont2);
+  } finally {
+        if ($dis2 != null) $dis2->close();
+  }
   $loadOptions = new LoadOptions();
   $loadOptions->getDocumentLevelFontSources()->setFontFolders(new String[]{ "assets/fonts", "global/fonts" });
   $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(new byte[][]{ $memoryFont1, $memoryFont2 });

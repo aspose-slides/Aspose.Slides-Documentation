@@ -383,7 +383,16 @@ This Java code shows you how to add a video to the presentation and then save it
     $path = "./out/";
     $fileName = "ExportMediaFiles_out.html";
     $baseUri = "http://www.example.com/";
-    $videoData = Files->readAllBytes(Paths->get("my_video.avi"));
+    $file = new Java("java.io.File", "my_video.avi");
+    $Array = new JavaClass("java.lang.reflect.Array");
+    $Byte = new JavaClass("java.lang.Byte");
+    $videoData = $Array->newInstance($Byte, $Array->getLength($file));
+    try {
+        $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
+        $dis->readFully($videoData);
+    } finally {
+        if ($dis != null) $dis->close();
+    }
     $video = $pres->getVideos()->addVideo($videoData);
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $controller = new VideoPlayerHtmlController($path, $fileName, $baseUri);
