@@ -4,7 +4,7 @@ override
 foreach($controls as $control)
 ```Java
 []
-new Point2D::Float(
+new Point2DFloat(
 new Java("java.util.Date")
 new ArrayList<IComment>()
 null

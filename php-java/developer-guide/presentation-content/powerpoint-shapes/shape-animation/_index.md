@@ -145,10 +145,10 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
     $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
     // Adds commands for moving since created path is empty.
     $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = new Point2D::Float[1];
-    $pts[0] = new Point2D::Float(0.076, 0.59);
+    $pts = new Point2DFloat[1];
+    $pts[0] = new Point2DFloat(0.076, 0.59);
     $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
-    $pts[0] = new Point2D::Float(-0.076, -0.59);
+    $pts[0] = new Point2DFloat(-0.076, -0.59);
     $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
     $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
     // Writes the PPTX file to disk

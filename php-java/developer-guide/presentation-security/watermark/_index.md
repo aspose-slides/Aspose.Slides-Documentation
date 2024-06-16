@@ -102,7 +102,7 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 ```php
-  $center = new Point2D::Float($pres->getSlideSize()->getSize()->getWidth() / 2, $pres->getSlideSize()->getSize()->getHeight() / 2);
+  $center = new Point2DFloat($pres->getSlideSize()->getSize()->getWidth() / 2, $pres->getSlideSize()->getSize()->getHeight() / 2);
   $width = 300;
   $height = 300;
   $x = $center->getX() - $width / 2;
