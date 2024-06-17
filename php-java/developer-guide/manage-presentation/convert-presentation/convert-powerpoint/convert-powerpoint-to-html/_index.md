@@ -333,7 +333,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
         try {
             String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
             String path = fontName + ".woff"; // some path sanitaze may be needed
-            Files.write(new Java("java.io.File", m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
+            Files.write(new Java("java.io.File", m_basePath + path).toPath(), fontData, StandardOpenOption->CREATE);
 
             generator.addHtml("<style>");
             generator.addHtml("@font-face { ");
