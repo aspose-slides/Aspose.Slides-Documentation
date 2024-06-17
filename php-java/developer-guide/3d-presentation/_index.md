@@ -68,7 +68,7 @@ $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->R
 $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
 // ... set other 3D scene parameters
 try {
-        $slideImage = pres->getSlides()->get_Item(0)->getImage(2, 2);
+        $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
         $slideImage->save("sample_3d.png", ImageFormat->Png);
     } finally {
              if (!java_is_null($slideImage)) $slideImage->dispose();
