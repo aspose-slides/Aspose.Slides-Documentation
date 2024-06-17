@@ -55,7 +55,7 @@ This sample code  shows you how to convert a presentation to an XPS document usi
   $pres = new Presentation("Convert_XPS.pptx");
   try {
     // Saving the presentation to XPS document
-    $pres->save("XPS_Output_Without_XPSOption->xps", SaveFormat->Xps);
+    $pres->save("XPS_Output_Without_XPSOption.xps", SaveFormat->Xps);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
