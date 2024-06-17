@@ -19,7 +19,7 @@ The [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presen
     // Saving the presentation to TIFF notes
     $pres->save("Tiff-Notes.tiff", SaveFormat::Tiff, $opts);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

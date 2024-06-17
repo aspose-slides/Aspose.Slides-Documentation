@@ -38,7 +38,7 @@ This sample code shows you to create a section in a presentation :
     $pres->getSections()->appendEmptySection("Last empty section");
     $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -57,7 +57,7 @@ This sample code shows you how to change the name of a section in a presentation
     $section = $pres->getSections()->get_Item(0);
     $section->setName("My section");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -16,7 +16,7 @@ This sample code  shows you how to convert a presentation to animated GIF using 
   try {
     $pres->save("pres.gif", SaveFormat::Gif);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -45,7 +45,7 @@ This sample code shows you how to convert a presentation to animated GIF using c
 
     $pres->save("pres.gif", SaveFormat::Gif, $gifOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

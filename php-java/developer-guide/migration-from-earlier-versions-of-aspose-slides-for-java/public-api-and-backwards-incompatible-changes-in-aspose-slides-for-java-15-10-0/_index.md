@@ -42,7 +42,7 @@ To add a series animation to the chart the following code may be used:
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::BySeries, 3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     $pres->save($outFileName, SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -64,7 +64,7 @@ Categories animation:
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::ByCategory, 3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     $pres->save($outFileName, SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -94,7 +94,7 @@ Series elements animation:
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInSeries, 2, 3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     $pres->save($outFileName, SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -124,7 +124,7 @@ Categories elements animation:
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMinorGroupingType::ByElementInCategory, 2, 3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     $pres->save($outFileName, SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -154,7 +154,7 @@ Usage example:
     $htmlOptions->setSlideImageFormat(SlideImageFormat->svg($svgOptions));
     $pres->save($path + $fileName, SaveFormat::Html, $htmlOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

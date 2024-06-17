@@ -28,7 +28,7 @@ In the example given below, we have set different properties of Pie of Pie chart
     // Write presentation to disk
     $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -84,7 +84,7 @@ Write the modified presentation to a PPTX file.
     $series->getParentSeriesGroup()->setColorVaried(true);
     $pres->save("Pie.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

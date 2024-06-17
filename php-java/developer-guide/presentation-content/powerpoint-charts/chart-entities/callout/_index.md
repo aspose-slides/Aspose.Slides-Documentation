@@ -16,7 +16,7 @@ New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slide
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->get_Item(2)->getDataLabelFormat()->setShowLabelAsDataCallout(false);
     $pres->save("DisplayCharts.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -80,7 +80,7 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
     } 
     $pres->save("chart.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

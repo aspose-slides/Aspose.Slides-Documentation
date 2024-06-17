@@ -44,7 +44,7 @@ This PHP code shows you how to set the color for a brush:
     $brushColor = $brush->getColor();
     $brush->setColor(java("java.awt.Color")->RED);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -64,7 +64,7 @@ This PHP code shows you how to set the size for a brush:
     $brushSize = $brush->getSize();
     $brush->setSize(new Java("java.awt.Dimension", 5, 10));
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -30,7 +30,7 @@ In the example given below, we have set the size of the hole in a doughnut chart
     // Write presentation to disk
     $pres->save("DoughnutHoleSize_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

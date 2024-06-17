@@ -29,7 +29,7 @@ This PHP code shows how to change the text in a placeholder:
     $sld = $pres->getSlides()->get_Item(0);
     // Iterates through shapes to find the placeholder
     foreach($sld->getShapes() as $shp) {
-      if ($shp->getPlaceholder() != null) {
+      if (!java_is_null($shp->getPlaceholder())) {
         // Changes the text in each placeholder
         $shp->getTextFrame()->setText("This is Placeholder");
       }
@@ -37,7 +37,7 @@ This PHP code shows how to change the text in a placeholder:
     // Saves the presentation to disk
     $pres->save("output_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -70,7 +70,7 @@ This PHP code shows you how to set the prompt text in a placeholder:
     }
     $pres->save("Placeholders_PromptText.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

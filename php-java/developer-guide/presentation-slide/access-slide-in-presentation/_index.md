@@ -120,7 +120,7 @@ If you prefer to skip the first slide, you can start the numbering from the seco
     // Saves the modified presentation
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

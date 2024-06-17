@@ -51,7 +51,7 @@ This PHP code demonstrates an operation where we formatted a rectangle `AutoShap
     // Writes the PPTX file to disk
     $pres->save("RectShpLn_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -111,7 +111,7 @@ This Java demonstrates an operation where 3 rectangles (the image above) were cr
     // Writes the PPTX file to disk
     $pres->save("RectShpLnJoin_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -152,7 +152,7 @@ This PHP code demonstrates an operation where the gradient fill effect was used 
     // Writes the PPTX file to disk
     $pres->save("EllipseShpGrad_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -196,7 +196,7 @@ This PHP code demonstrates an operation where a pattern fill was used to beautif
     // Writes the PPTX file to disk
     $pres->save("RectShpPatt_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -238,7 +238,7 @@ This PHP code shows you how to fill a shape with a picture:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -247,7 +247,7 @@ This PHP code shows you how to fill a shape with a picture:
     $pres->save("RectShpPic_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -284,7 +284,7 @@ This PHP code shows you how to apply the solid color fill to a box in PowerPoint
     // Writes the PPTX file to disk
     $pres->save("RectShpSolid_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -319,7 +319,7 @@ This PHP code demonstrates the process:
     // Writes the PPTX file to disk
     $pres->save("ShapeTransparentOverSolid_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -350,7 +350,7 @@ This PHP code shows you how to rotate a shape by 90 degrees:
     // Writes the PPTX file to disk
     $pres->save("RectShpRot_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -393,7 +393,7 @@ This PHP code shows you how to add 3D bevel effects to a shape:
     // Writes the presentation as a PPTX file
     $pres->save("Bavel_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -429,7 +429,7 @@ This PHP code shows you how to apply 3D rotation effects to a shape:
     // Writes the presentation as a PPTX file
     $pres->save("Rotation_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -448,7 +448,7 @@ This PHP code shows you how to reset the formatting in a slide and revert the po
       $slide->reset();
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

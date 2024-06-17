@@ -34,7 +34,7 @@ This PHP code shows you how to set a solid color (blue) as the background for a 
     // Writes the presentation to disk
     $pres->save("ContentBG.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -64,7 +64,7 @@ This PHP code shows you how to set a solid color (forest green) as the backgroun
     // Writes the presentation to disk
     $pres->save("MasterBG.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -94,7 +94,7 @@ This PHP code shows you how to set a gradient color as the background for a slid
     // Writes the presentation to disk
     $pres->save("ContentBG_Grad.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -129,7 +129,7 @@ This PHP code shows you how to set an image as the background for a slide:
     try {
       $imgx = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -139,7 +139,7 @@ This PHP code shows you how to set an image as the background for a slide:
     $pres->save("ContentBG_Img.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -191,7 +191,7 @@ This PHP code shows you how to get a slide's effective background value:
       echo("Fill type: " . $effBackground->getFillFormat()->getFillType());
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

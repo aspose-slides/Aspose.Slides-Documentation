@@ -40,7 +40,7 @@ First, we create a simple text using this PHP code:
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -307,7 +307,7 @@ This sample code —an implementation of the steps above—shows you how to appl
     // Write the presentation to disk
     $pres->save("pres_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -356,7 +356,7 @@ This sample code (based on the steps above) shows you how to add a connector bet
     // Save Presentation
     $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -18,7 +18,7 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
     $majorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMajorUnit();
     $minorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMinorUnit();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -38,7 +38,7 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
     $w = $chart->getPlotArea()->getActualWidth();
     $h = $chart->getPlotArea()->getActualHeight();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -77,7 +77,7 @@ This topic helps you to understand how to hide information from chart. Using Asp
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Solid);
     $pres->save("HideInformationFromChart.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

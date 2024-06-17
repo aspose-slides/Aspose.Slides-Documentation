@@ -35,13 +35,13 @@ This PHP code shows you how to convert a PowerPoint presentation to PNG:
       try {
         $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -64,13 +64,13 @@ This code  demonstrates the described operation:
       try {
         $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -92,13 +92,13 @@ This code shows you how to convert a PowerPoint to PNG while specifying the size
       try {
         $slideImage->save("image_java_" . $index . ".png", ImageFormat::Png);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

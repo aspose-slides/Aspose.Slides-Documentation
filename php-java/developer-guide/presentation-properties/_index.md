@@ -68,7 +68,7 @@ These properties as exposed by [IDocumentProperties](https://reference.aspose.co
     echo("Subject : " . $dp->getSubject());
     echo("Title : " . $dp->getTitle());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -92,7 +92,7 @@ Modifying the built-in properties of presentation files is as easy as that of ac
     // Save your presentation to a file
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -124,7 +124,7 @@ Aspose.Slides for PHP via Java also allows developers to add the custom the valu
     // Saving presentation
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -154,7 +154,7 @@ Aspose.Slides for PHP via Java also allows developers to access the values of cu
     // Save your presentation to a file
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -278,7 +278,7 @@ This PHP code shows you how to set the proofing language for a PowerPoint: xxx W
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -300,7 +300,7 @@ This PHP code shows you how to set the default language for an entire PowerPoint
     // Checks the first portion language
     echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -31,7 +31,7 @@ This PHP code shows you how to convert PowerPoint to markdown:
   try {
     $pres->save("pres.md", SaveFormat::Md);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -50,7 +50,7 @@ This PHP code shows you how to convert PowerPoint to CommonMark:
     $markdownSaveOptions->setFlavor(Flavor::CommonMark);
     $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -77,7 +77,7 @@ If you want the images to appear individually one after the other in the resulti
     $markdownSaveOptions->setNewLineType(NewLineType::Windows);
     $pres->save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat::Md, $markdownSaveOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -99,7 +99,7 @@ This PHP code demonstrates the operation:
     $markdownSaveOptions->setBasePath($outPath);
     $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

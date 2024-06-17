@@ -86,7 +86,7 @@ This sample code shows you how to encrypt a presentation:
     $presentation->getProtectionManager()->encrypt("123123");
     $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -107,7 +107,7 @@ To set a write protection, you have to use the [setWriteProtection](https://refe
     $presentation->getProtectionManager()->setWriteProtection("123123");
     $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -127,7 +127,7 @@ This sample code shows you how to decrypt a presentation:
   try {
     // work with decrypted presentation
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -148,7 +148,7 @@ To remove encryption or password protection, you have to call the [removeEncrypt
     $presentation->getProtectionManager()->removeEncryption();
     $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -167,7 +167,7 @@ You can remove the write protection from a presentation by using the [removeWrit
     $presentation->getProtectionManager()->removeWriteProtection();
     $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -188,7 +188,7 @@ If you want users to retain the ability to access the properties of a presentati
     $presentation->getProtectionManager()->setEncryptDocumentProperties(true);
     $presentation->getProtectionManager()->encrypt("123123");
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -218,7 +218,7 @@ This sample code shows you how to check whether a presentation is encrypted:
   try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -236,7 +236,7 @@ This sample code shows you how to check whether a presentation is write-protecte
   try {
     $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -255,7 +255,7 @@ This sample code shows you how to validate a password:
     // check if "pass" is matched with
     $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

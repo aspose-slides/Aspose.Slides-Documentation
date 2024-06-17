@@ -50,7 +50,7 @@ Aspose.Slides for PHP via Java provides a simple API for setting these propertie
     // Write presentation to disk
     $pres->save("Rotation3D_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

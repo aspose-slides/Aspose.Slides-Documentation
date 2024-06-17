@@ -135,7 +135,7 @@ This PHP code shows you to create a picture bullet in a slide:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -159,7 +159,7 @@ This PHP code shows you to create a picture bullet in a slide:
     $pres->save("Bullet.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -244,7 +244,7 @@ This code, which is an implementation of the steps above, shows you how to creat
     // saving the presentation as a PPTX file
     $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -301,7 +301,7 @@ This PHP code shows you how to create a numbered list in a slide:
     $txtFrm->getParagraphs()->add($paragraph5);
     $pres->save($resourcesOutputPath . "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

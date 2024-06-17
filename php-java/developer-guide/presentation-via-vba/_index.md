@@ -52,7 +52,7 @@ This PHP code shows you how to add a VBA macro from scratch to a presentation:
     // Saves the Presentation
     $pres->save("test.pptm", SaveFormat::Pptm);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -84,7 +84,7 @@ This PHP code shows you how to remove a VBA macro:
     // Saves the Presentation
     $pres->save("test.pptm", SaveFormat::Pptm);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -104,14 +104,14 @@ This PHP code shows you how to extract VBA macros from a presentation containing
   $pres = new Presentation("VBA.pptm");
   try {
     // Checks whether the Presentation contains a VBA Project
-    if ($pres->getVbaProject() != null) {
+    if (!java_is_null($pres->getVbaProject())) {
       foreach($pres->getVbaProject()->getModules() as $module) {
         echo($module->getName());
         echo($module->getSourceCode());
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

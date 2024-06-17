@@ -34,7 +34,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
     // Save the Presentation
     $pres->save("Output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -70,7 +70,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
     $slide = $pres->getSlides()->get_Item(0);
     // changing TextBox text
     $control = $slide->getControls()->get_Item(0);
-    if ($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties() != null) {
+    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
       $newText = "Changed text";
       $control->getProperties()->set_Item("Value", $newText);
       // Changing substitute image. PowerPoint will replace this image during activeX activation,
@@ -102,7 +102,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
     }
     // Changing Button caption
     $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if ($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties() != null) {
+    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
       $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
       // Changing substitute
@@ -143,7 +143,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
     $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

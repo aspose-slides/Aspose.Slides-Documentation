@@ -25,7 +25,7 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
     // Saving presentation
     $pres->save("SimpleSmartArt.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -53,7 +53,7 @@ The following code will be used to access the SmartArt shapes added in presentat
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -85,7 +85,7 @@ The following sample code will help to access the [SmartArt](https://reference.a
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

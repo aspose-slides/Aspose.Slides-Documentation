@@ -34,7 +34,7 @@ In the example given below, we have added a line to the first slide of the prese
     // Write the PPTX to Disk
     $pres->save("LineShape.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -76,7 +76,7 @@ Aspose.Slides for PHP via Java also allows developers to configure some properti
     // Write the PPTX to Disk
     $pres->save("LineShape.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

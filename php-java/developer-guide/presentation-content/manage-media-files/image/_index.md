@@ -43,14 +43,14 @@ You can add one or several images on your computer onto a slide in a presentatio
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
     $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -83,7 +83,7 @@ This sample code shows you how to add an image from the web to a slide :
       $image = $pres->getImages()->addImage($outputStream->toByteArray());
       $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
     } finally {
-      if ($inputStream != null) {
+      if (!java_is_null($inputStream)) {
         $inputStream->close();
       }
       $outputStream->close();
@@ -91,7 +91,7 @@ This sample code shows you how to add an image from the web to a slide :
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -114,14 +114,14 @@ This Java sample code shows you how to add an image to a slide master:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
     $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -153,7 +153,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $svgContent = new String($bytes);
 
@@ -163,7 +163,7 @@ try {
     $pres->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -191,7 +191,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $svgContent = $bytes;
 
@@ -205,7 +205,7 @@ try {
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -238,7 +238,7 @@ This sample code shows you how to perform the described task:
       try {
         $picture = $pres->getImages()->addImage($image);
       } finally {
-        if ($image != null) {
+        if (!java_is_null($image)) {
           $image->dispose();
         }
       }
@@ -248,7 +248,7 @@ This sample code shows you how to perform the described task:
     $pres->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

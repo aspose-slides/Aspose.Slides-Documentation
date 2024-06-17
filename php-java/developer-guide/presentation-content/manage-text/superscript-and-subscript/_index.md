@@ -64,7 +64,7 @@ The implementation of the above steps is given below.
     $textFrame->getParagraphs()->add($paragraph2);
     $pres->save("formatText.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

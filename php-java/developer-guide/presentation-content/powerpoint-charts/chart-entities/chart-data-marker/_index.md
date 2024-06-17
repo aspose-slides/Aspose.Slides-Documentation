@@ -57,7 +57,7 @@ In the example given below, we have set the chart marker options on data points 
     $pres->save("ScatterChart.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -71,12 +71,12 @@ This PHP code shows you how to convert a presentation (containing a figure and t
         });
         $animationsGenerator->run($presentation->getSlides());
       } finally {
-        if ($player != null) {
+        if (!java_is_null($player)) {
           $player->dispose();
         }
       }
     } finally {
-      if ($animationsGenerator != null) {
+      if (!java_is_null($animationsGenerator)) {
         $animationsGenerator->dispose();
       }
     }
@@ -160,12 +160,12 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         });
         $animationsGenerator->run($presentation->getSlides());
       } finally {
-        if ($player != null) {
+        if (!java_is_null($player)) {
           $player->dispose();
         }
       }
     } finally {
-      if ($animationsGenerator != null) {
+      if (!java_is_null($animationsGenerator)) {
         $animationsGenerator->dispose();
       }
     }
@@ -223,12 +223,12 @@ To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/
         }
       });
     } finally {
-      if ($animationsGenerator != null) {
+      if (!java_is_null($animationsGenerator)) {
         $animationsGenerator->dispose();
       }
     }
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -253,17 +253,17 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
         });
         $animationsGenerator->run($presentation->getSlides());
       } finally {
-        if ($player != null) {
+        if (!java_is_null($player)) {
           $player->dispose();
         }
       }
     } finally {
-      if ($animationsGenerator != null) {
+      if (!java_is_null($animationsGenerator)) {
         $animationsGenerator->dispose();
       }
     }
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

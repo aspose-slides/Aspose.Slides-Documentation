@@ -46,7 +46,7 @@ This PHP code shows you how to specify that a text must always fit into its box 
     $textFrameFormat->setAutofitType(TextAutofitType::Shape);
     $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -76,7 +76,7 @@ This PHP code shows you how to specify that a textbox must always retain its dim
     $textFrameFormat->setAutofitType(TextAutofitType::None);
     $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -106,7 +106,7 @@ This PHP code shows you how to specify that a text must be shrunk on overflow in
     $textFrameFormat->setAutofitType(TextAutofitType::Normal);
     $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -138,7 +138,7 @@ This PHP code shows you how to use the Wrap Text setting in a PowerPoint present
     $textFrameFormat->setWrapText(NullableBool::True);
     $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

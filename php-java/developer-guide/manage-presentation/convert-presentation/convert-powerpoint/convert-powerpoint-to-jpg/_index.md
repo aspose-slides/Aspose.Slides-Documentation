@@ -43,13 +43,13 @@ Here are the steps to convert PPT/PPTX to JPG:
       try {
         $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat::Jpeg);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -74,13 +74,13 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
       try {
         $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat::Jpeg);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -101,13 +101,13 @@ Aspose.Slides for PHP via Java provides a facility that allows you to render com
       try {
         $slideImage->save(String->format("Slide_%d.png", $sld->getSlideNumber()));
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

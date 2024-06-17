@@ -19,7 +19,7 @@ The [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presen
     // Saving presentation
     $pres->save("Sample.swf", SaveFormat::Swf, $swfOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
 ```php

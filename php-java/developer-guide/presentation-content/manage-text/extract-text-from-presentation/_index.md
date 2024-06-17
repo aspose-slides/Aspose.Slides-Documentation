@@ -34,7 +34,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
             // Display font height of the text
             echo($port->getPortionFormat()->getFontHeight());
             // Display font name of the text
-            if ($port->getPortionFormat()->getLatinFont() != null) {
+            if (!java_is_null($port->getPortionFormat()->getLatinFont())) {
               echo($port->getPortionFormat()->getLatinFont()->getFontName());
             }
           }
@@ -73,7 +73,7 @@ To scan the text from the whole presentation, use the
           // Display font height of the text
           echo($port->getPortionFormat()->getFontHeight());
           // Display font name of the text
-          if ($port->getPortionFormat()->getLatinFont() != null) {
+          if (!java_is_null($port->getPortionFormat()->getLatinFont())) {
             echo($port->getPortionFormat()->getLatinFont()->getFontName());
           }
         }

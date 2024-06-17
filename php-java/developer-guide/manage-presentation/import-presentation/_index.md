@@ -27,7 +27,7 @@ This PHP code demonstrates the PDF to PowerPoint operation:
     $pres->getSlides()->addFromPdf("InputPDF.pdf");
     $pres->save("OutputPresentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -57,14 +57,14 @@ This PHP code demonstrates the HTML to PowerPoint operation:
     try {
       $presentation->getSlides()->addFromHtml($htmlStream);
     } finally {
-      if ($htmlStream != null) {
+      if (!java_is_null($htmlStream)) {
         $htmlStream->close();
       }
     }
     $presentation->save("MyPresentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

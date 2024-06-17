@@ -83,7 +83,7 @@ This PHP code is an implementation of the steps for adding paragraphs containing
     // Write PPTX to Disk
     $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -162,7 +162,7 @@ This PHP code shows you how to add a paragraph bullet:
     // Saves the modified presentation
     $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -204,7 +204,7 @@ This PHP code shows you how to add and manage picture bullets:
     try {
       $picture = $presentation->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -230,7 +230,7 @@ This PHP code shows you how to add and manage picture bullets:
     $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
   } catch (JavaException $e) {
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -312,7 +312,7 @@ This PHP code shows you how to add and manage multilevel bullets:
     // Writes the presentation as a PPTX file
     $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -366,7 +366,7 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
     $textFrame->getParagraphs()->add($paragraph5);
     $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -425,7 +425,7 @@ This PHP code shows you how to set a paragraph indent:
     // Write the Presentation to disk
     $pres->save("InOutDent_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -453,7 +453,7 @@ This PHP code shows you how to set the hanging indent for a paragraph:
     $autoShape->getTextFrame()->getParagraphs()->add($para3);
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -488,7 +488,7 @@ This PHP code shows you how to set the End properties for paragraphs in PowerPoi
     $shape->getTextFrame()->getParagraphs()->add($para2);
     $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -532,7 +532,7 @@ This PHP code is an implementation of the steps for importing HTML texts in para
     // Saving Presentation
     $pres->save("output_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -572,7 +572,7 @@ This PHP code shows you how to export PowerPoint paragraph texts to HTML:
     $writer->close();
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

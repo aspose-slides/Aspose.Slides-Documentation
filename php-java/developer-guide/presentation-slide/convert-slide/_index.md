@@ -42,12 +42,12 @@ This PHP code shows you how to convert the first slide of a presentation to a bi
       // save the image on the disk.
       $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -67,12 +67,12 @@ This sample code shows you how to convert the first slide of a presentation to a
       // save the image on the disk.
       $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -101,12 +101,12 @@ This sample code demonstrates the proposed conversion using the [getImage](https
       // save the image on the disk.
       $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -146,12 +146,12 @@ This PHP code demonstrates the conversion process for a slide with notes and com
     try {
       $slideImage->save("Slide_Notes_Comments_0.gif", ImageFormat::Gif);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -176,12 +176,12 @@ This PHP code demonstrates the conversion process for a slide with notes using t
       // save the image on the disk.
       $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -223,12 +223,12 @@ This PHP code demonstrates a conversion process where ITiffOptions is used to ou
     try {
       $slideImage->save("PresentationNotesComments.tiff", ImageFormat::Tiff);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -262,13 +262,13 @@ This sample code shows you how to convert all slides in a presentation to images
       try {
         $slideImage->save("Slide_" . $i . ".png", ImageFormat::Png);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

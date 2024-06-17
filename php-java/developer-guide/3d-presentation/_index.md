@@ -39,13 +39,13 @@ and its direction to the top of the 3D model, bring more volume to the model. Ch
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
       $slideImage->save("sample_3d.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
     $pres->save("sandbox_3d.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -71,7 +71,7 @@ try {
         IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
         slideImage.save("sample_3d.png", ImageFormat::Png);
     } finally {
-             if (slideImage != null) slideImage.dispose();
+             if (!java_is_null(slideImage)) slideImage.dispose();
          }
 ```
 
@@ -90,7 +90,7 @@ are used to create extrusion on shape:
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
       $slideImage->save("sample_3d.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
@@ -124,12 +124,12 @@ In PowerPoint, Depth of the shape is set via:
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
       $slideImage->save("sample_3d.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -148,7 +148,7 @@ You may also create an image gradient:
       try {
         $picture = $pres->getImages()->addImage($image);
       } finally {
-        if ($image != null) {
+        if (!java_is_null($image)) {
           $image->dispose();
         }
       }
@@ -159,7 +159,7 @@ You may also create an image gradient:
         $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
         $slideImage->save("sample_3d.png", ImageFormat::Png);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
@@ -199,13 +199,13 @@ To create a 3D text (WordArt), do the following:
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
       $slideImage->save("text3d.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
     $pres->save("text3d.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

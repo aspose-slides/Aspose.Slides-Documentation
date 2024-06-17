@@ -26,7 +26,7 @@ This PHP code shows you how to change the accent color for a theme:
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -104,7 +104,7 @@ This PHP code demonstrates an operation where additional palette colors are obta
     $shape6->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.5);
     $presentation->save($path . "example_accent4.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -161,7 +161,7 @@ For example, after you save a presentation in the PowerPoint app, you can run th
     $numberOfBackgroundFills = $pres->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size();
     echo("Number of background fill styles for theme is " . $numberOfBackgroundFills);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -210,7 +210,7 @@ This PHP code shows you how to change a theme effect by altering parts of elemen
     $pres->getMasterTheme()->getFormatScheme()->getEffectStyles()->get_Item(2)->getEffectFormat()->getOuterShadowEffect()->setDistance(10.0);
     $pres->save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -40,12 +40,12 @@ This PHP code demonstrates the font substitution process:
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

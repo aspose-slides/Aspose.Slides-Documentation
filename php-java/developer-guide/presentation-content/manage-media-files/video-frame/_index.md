@@ -41,7 +41,7 @@ This PHP code shows you how to add a video stored locally to a presentation:
     $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -56,7 +56,7 @@ Alternatively, you can add a video by passing its file path directly to the [add
     $sld = $pres->getSlides()->get_Item(0);
     $vf = $sld->getShapes()->addVideoFrame(50, 150, 300, 150, "video1.avi");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -83,7 +83,7 @@ This PHP code shows you how to add a video from the web to a slide in a PowerPoi
     addVideoFromYouTube($pres, "Tj75Arhq5ho");
     $pres->save("out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -128,7 +128,7 @@ This PHP code shows you how to extract the video on a presentation slide:
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

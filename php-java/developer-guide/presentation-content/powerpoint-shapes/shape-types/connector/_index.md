@@ -70,7 +70,7 @@ try {
     // Saves the presentation
     pres.save("output.pptx", SaveFormat::Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    if (!java_is_null(pres)) pres.dispose();
 }
 ```php
 
@@ -121,7 +121,7 @@ This PHP code demonstrates an operation where a preferred connection dot is spec
     // Saves the presentation
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -153,7 +153,7 @@ Consider a case where a connector between two shapes (A and B) passes through a 
     $connector->setEndShapeConnectedTo($shapeTo);
     $connector->setStartShapeConnectionSiteIndex(2);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -216,7 +216,7 @@ Consider a case where two text frame objects are linked together through a conne
     $adjValue_0 = $connector->getAdjustments()->get_Item(0);
     $adjValue_1 = $connector->getAdjustments()->get_Item(1);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -353,7 +353,7 @@ This PHP code demonstrates an operation in which we calculated the angle for a c
       echo($dir);
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

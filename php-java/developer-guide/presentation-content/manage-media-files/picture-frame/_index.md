@@ -44,7 +44,7 @@ This PHP code shows you how to create a picture frame:
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -87,7 +87,7 @@ This PHP code shows you how to create a picture frame with relative scale:
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -109,7 +109,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
         $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
         $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
       } finally {
-        if ($slideImage != null) {
+        if (!java_is_null($slideImage)) {
           $slideImage->dispose();
         }
       }
@@ -178,7 +178,7 @@ This PHP code demonstrates the picture frame formatting process:
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -224,7 +224,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
     }
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -244,7 +244,7 @@ This PHP code shows you how to crop an existing image on a slide:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -259,7 +259,7 @@ This PHP code shows you how to crop an existing image on a slide:
     $pres->save($outPptxFile, SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -283,7 +283,7 @@ This PHP code demonstrates the operation:
     // Saves the result
     $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -314,7 +314,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -323,7 +323,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -366,7 +366,7 @@ This PHP code demonstrates a process in which a StretchOff property is used:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -387,7 +387,7 @@ This PHP code demonstrates a process in which a StretchOff property is used:
     $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

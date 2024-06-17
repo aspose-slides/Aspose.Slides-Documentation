@@ -39,12 +39,12 @@ This sample code shows you how to generate a shape thumbnail from a slide:
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -71,12 +71,12 @@ This sample code shows you how to generate a shape thumbnail based on a defined 
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -103,12 +103,12 @@ This sample code is based on the steps above:
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

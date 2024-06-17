@@ -59,7 +59,7 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
     // Save the PPTX file to disk
     $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -93,7 +93,7 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -107,7 +107,7 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
     $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -154,7 +154,7 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
     // Writes the PPTX file to disk
     $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -183,7 +183,7 @@ This PHP code shows you how to get the all effects applied to a specific shape:
       echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -229,7 +229,7 @@ This PHP code demonstrates the operation:
     // Saves the PPTX file to disk
     $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -258,7 +258,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $effectSound = $pres->getAudios()->addAudio($bytes);
 
@@ -279,7 +279,7 @@ try {
     // Writes the PPTX file to disk
     $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -310,7 +310,7 @@ This PHP code shows you how to extract the sound embedded in an animation effect
       $audio = $effect->getSound()->getBinaryData();
     }
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -350,7 +350,7 @@ This PHP code shows you how to change an after animation effect:
     // Writes the PPTX file to disk
     $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -392,7 +392,7 @@ This PHP code demonstrates the operation:
     // Writes the PPTX file to disk
     $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

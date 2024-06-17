@@ -76,7 +76,7 @@ This code shows you how to convert a PowerPoint to HTML :
     // Saving the presentation to HTML
     $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -96,7 +96,7 @@ Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.c
     // Saving the presentation to HTML
     $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -114,7 +114,7 @@ This code shows you how to convert a PowerPoint to HTML with notes :
     // Saving notes pages
     $pres->save("Output.html", SaveFormat::Html, $opt);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -138,7 +138,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/c
     $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($embedFontsController));
     $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, $htmlOptionsEmbed);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -157,7 +157,7 @@ This PHP code shows you how to convert a PowerPoint presentation to HTML while o
     $htmlOpts->setPicturesCompression(PicturesCompression.Dpi150);
     $pres->save("OutputDoc-dpi150.html", SaveFormat::Html, $htmlOpts);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -172,7 +172,7 @@ This code  shows you how to output HTML with full quality images:
     $htmlOpts->setDeletePicturesCroppedAreas(false);
     $pres->save("Outputdoc-noCrop.html", SaveFormat::Html, $htmlOpts);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -194,7 +194,7 @@ This PHP code shows you how to convert a slide in a PowerPoint presentation to H
       $pres->save("Individual Slide" . $i + 1 . "_out.html", new int[]{ $i + 1 }, SaveFormat::Html, $htmlOptions);
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -245,7 +245,7 @@ The PHP code in this example shows you how to use overridable methods to create 
     $options->setHtmlFormatter(HtmlFormatter->createCustomFormatter($htmlController));
     $pres->save("pres.html", SaveFormat::Html, $options);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -302,7 +302,7 @@ This PHP code shows you how to convert a PowerPoint to HTML while linking all fo
     $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($linkcont));
     $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -359,7 +359,7 @@ This PHP code shows you how to convert a PowerPoint presentation to responsive H
     $saveOptions->setSvgResponsiveLayout(true);
     $pres->save("SomePresentation-out.html", SaveFormat::Html, $saveOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -391,7 +391,7 @@ This PHP code shows you how to add a video to the presentation and then save it 
         $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
         $dis->readFully($videoData);
     } finally {
-        if ($dis != null) $dis->close();
+        if (!java_is_null($dis)) $dis->close();
     }
     $video = $pres->getVideos()->addVideo($videoData);
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
@@ -405,7 +405,7 @@ This PHP code shows you how to add a video to the presentation and then save it 
     $pres->save($fileName, SaveFormat::Html, $htmlOptions);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

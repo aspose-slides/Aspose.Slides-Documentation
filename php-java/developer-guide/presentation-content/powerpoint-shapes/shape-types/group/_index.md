@@ -36,7 +36,7 @@ The example below adds a group shape to a slide.
     // Write the PPTX file to disk
     $pres->save("GroupShape.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -74,7 +74,7 @@ The example below accesses alternative text of group shape.
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

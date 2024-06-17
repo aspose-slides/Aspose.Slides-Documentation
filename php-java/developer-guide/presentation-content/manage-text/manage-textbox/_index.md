@@ -54,7 +54,7 @@ This PHP code—an implementation of the steps above—shows you how to add text
     // Saves the presentation to disk
     $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -79,7 +79,7 @@ This PHP code shows you how to check whether a shape was created as a text box:
       }
     });
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -110,7 +110,7 @@ This code  demonstrates the described operation:
     // Saves the presentation
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -138,7 +138,7 @@ This PHP code shows you how to add a column inside a text frame:
       Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
       Assert->assertTrue(Double::NaN == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
     } finally {
-      if ($test != null) {
+      if (!java_is_null($test)) {
         $test->dispose();
       }
     }
@@ -150,7 +150,7 @@ This PHP code shows you how to add a column inside a text frame:
       Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
       Assert->assertTrue(20 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
     } finally {
-      if ($test1 != null) {
+      if (!java_is_null($test1)) {
         $test1->dispose();
       }
     }
@@ -163,12 +163,12 @@ This PHP code shows you how to add a column inside a text frame:
       Assert->assertTrue(3 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
       Assert->assertTrue(15 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
     } finally {
-      if ($test2 != null) {
+      if (!java_is_null($test2)) {
         $test2->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -205,7 +205,7 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
     // Saves modified presentation
     $pres->save("text-changed.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -249,7 +249,7 @@ This PHP code—an implementation of the steps above—shows you how to add a te
     // Saves the PPTX Presentation
     $pres->save("hLink_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -43,7 +43,7 @@ This sample code  shows you how to convert PPT to SVG using Aspose.Slides:
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

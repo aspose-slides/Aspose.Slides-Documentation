@@ -30,7 +30,7 @@ This sample code shows you how to export a math equation from a presentation to 
     $mathParagraph->writeAsMathMl($stream);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

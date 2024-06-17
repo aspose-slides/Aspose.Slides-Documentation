@@ -58,7 +58,7 @@ Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.filef
       $svgOptions->setShapeFormattingController(new CustomSvgShapeFormattingController());
       $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
     } finally {
-      if ($stream != null) {
+      if (!java_is_null($stream)) {
         $stream->close();
       }
     }
@@ -107,7 +107,7 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
@@ -142,7 +142,7 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
@@ -182,7 +182,7 @@ The code snippet below produces a thumbnail of the first slide of a presentation
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }

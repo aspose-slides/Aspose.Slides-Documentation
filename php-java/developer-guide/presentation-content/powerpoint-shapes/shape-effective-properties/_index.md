@@ -24,7 +24,7 @@ This sample code shows you how to get effective values:
     $localPortionFormat = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
     $effectivePortionFormat = $localPortionFormat->getEffective();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -45,7 +45,7 @@ This sample code sample shows you how to get effective properties for the camera
     echo("Field of view: " . $threeDEffectiveData->getCamera()->getFieldOfViewAngle());
     echo("Zoom: " . $threeDEffectiveData->getCamera()->getZoom());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -65,7 +65,7 @@ This sample code sample shows you how to get effective properties of Light Rig:
     echo("Type: " . $threeDEffectiveData->getLightRig()->getLightType());
     echo("Direction: " . $threeDEffectiveData->getLightRig()->getDirection());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -86,7 +86,7 @@ This sample code sample shows you how to get effective properties for the Bevel 
     echo("Width: " . $threeDEffectiveData->getBevelTop()->getWidth());
     echo("Height: " . $threeDEffectiveData->getBevelTop()->getHeight());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -112,7 +112,7 @@ This sample code shows you how to get effective text frame formatting properties
     echo("   Right: " . $effectiveTextFrameFormat->getMarginRight());
     echo("   Bottom: " . $effectiveTextFrameFormat->getMarginBottom());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -138,7 +138,7 @@ This sample code sample shows you how to get effective text style properties:
       echo("Font alignment: " . $effectiveStyleLevel->getFontAlignment());
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -179,7 +179,7 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
     echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
     $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -202,7 +202,7 @@ Using Aspose.Slides for PHP via Java, you can get effective fill formatting for 
     $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
     $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

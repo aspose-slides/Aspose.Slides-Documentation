@@ -33,7 +33,7 @@ In the example given below, we have added an ellipse to the first slide
     // Write the PPTX file to disk
     $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -72,7 +72,7 @@ In the example given below, we have added a formatted ellipse to the first slide
     // Write the PPTX file to disk
     $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -25,7 +25,7 @@ Aspose.Slides for PHP via Java allows you to set a presentation to **Read-Only**
     $pres->getProtectionManager()->setReadOnlyRecommended(true);
     $pres->save("ReadOnlyPresentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

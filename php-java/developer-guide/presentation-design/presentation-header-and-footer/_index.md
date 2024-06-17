@@ -33,7 +33,7 @@ Notes of some specific slide could be removed as shown in example below:
     // Save presentation
     $pres->save("HeaderFooterJava.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -63,7 +63,7 @@ Code Snippet provided in below Example.
   try {
     // Change Header and Footer settings for notes master and all notes slides
     $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if ($masterNotesSlide != null) {
+    if (!java_is_null($masterNotesSlide)) {
       $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
       $headerFooterManager->setHeaderAndChildHeadersVisibility(true);// make the master notes slide and all child Footer placeholders visible
 
@@ -82,7 +82,7 @@ Code Snippet provided in below Example.
     }
     // Change Header and Footer settings for first notes slide only
     $notesSlide = $pres->getSlides()->get_Item(0)->getNotesSlideManager()->getNotesSlide();
-    if ($notesSlide != null) {
+    if (!java_is_null($notesSlide)) {
       $headerFooterManager = $notesSlide->getHeaderFooterManager();
       if (!$headerFooterManager->isHeaderVisible()) {
         $headerFooterManager->setHeaderVisibility(true);
@@ -109,7 +109,7 @@ Code Snippet provided in below Example.
     }
     $pres->save("testresult.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

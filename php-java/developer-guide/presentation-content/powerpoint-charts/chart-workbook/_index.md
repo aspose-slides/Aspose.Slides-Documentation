@@ -22,7 +22,7 @@ This PHP code demonstrates a sample operation:
     $data->getCategories()->clear();
     $data->writeWorkbookStream($stream);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -58,7 +58,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
     $dataLabelCollection->get_Item(2)->setValueFromCell($wb->getCell(0, "A12", $lbl2));
     $pres->save("resultchart.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -78,7 +78,7 @@ This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets
       echo($wb->getWorksheets()->get_Item($i)->getName());
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -100,7 +100,7 @@ This PHP code shows you how to specify a type for a data source:
     $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -131,7 +131,7 @@ This PHP code demonstrates the external workbook creation process:
       $workbookData = $chart->getChartData()->readWorkbookStream();
       $fileStream->write($workbookData, 0, $Array->getLength($workbookData));
     } finally {
-      if ($fileStream != null) {
+      if (!java_is_null($fileStream)) {
         $fileStream->close();
       }
     }
@@ -139,7 +139,7 @@ This PHP code demonstrates the external workbook creation process:
     $pres->save("externalWorkbook.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -170,7 +170,7 @@ This PHP code shows you how to set an external workbook:
     $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A4"));
     $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -191,7 +191,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
     $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
     $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -221,7 +221,7 @@ This PHP code demonstrates the operation:
     // Saves the presentation
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -243,7 +243,7 @@ This PHP code is an implementation of the described process:
     $chartData->getSeries()->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell()->setValue(100);
     $pres->save("presentation_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

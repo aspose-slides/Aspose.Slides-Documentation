@@ -38,7 +38,7 @@ This PHP code shows you how to set a table's first row as its header:
     // Saves the presentation to disk
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -89,7 +89,7 @@ This PHP code shows you how to clone a PowerPoint table's row or column:
     // Saves the presentation to disk
     $pres->save("table_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -120,7 +120,7 @@ This PHP code shows you how to remove a row or column from a table:
     $table->getColumns()->removeAt(1, false);
     $pres->save("TestTable_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -161,7 +161,7 @@ This PHP code demonstrates the operation.
     // Saves the presentation to disk
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -201,7 +201,7 @@ This PHP code demonstrates the operation:
     $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -220,7 +220,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

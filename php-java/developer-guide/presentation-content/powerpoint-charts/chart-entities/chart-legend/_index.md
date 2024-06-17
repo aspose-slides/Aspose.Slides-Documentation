@@ -31,7 +31,7 @@ In the example given below, we have set the position and size for Chart legend.
     // Write presentation to disk
     $pres->save("Legend_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -60,7 +60,7 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of leg
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -91,7 +91,7 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of ind
     $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

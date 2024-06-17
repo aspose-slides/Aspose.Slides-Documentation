@@ -39,12 +39,12 @@ The following example includes these steps:
     try {
       $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

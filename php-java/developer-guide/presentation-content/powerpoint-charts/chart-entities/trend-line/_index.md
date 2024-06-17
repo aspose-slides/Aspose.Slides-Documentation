@@ -56,7 +56,7 @@ The following code is used to create a chart with Trend Lines.
     // Saving presentation
     $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -85,7 +85,7 @@ The following code is used to create a chart with Custom Lines.
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $pres->save("Presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

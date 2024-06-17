@@ -37,7 +37,7 @@ This PHP code shows you how to set the overlap for a chart series:
     // Writes the presentation file to disk
     $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -65,7 +65,7 @@ This PHP code shows you how to change a series' color:
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -92,7 +92,7 @@ This code  shows you how to change a series category's color:
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -120,7 +120,7 @@ This PHP code shows you how to change a series' name in its chart data `ChartDat
     $seriesCell->setValue("New name");
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -137,7 +137,7 @@ This PHP code shows you how to change a series name in its legend through`Series
     $name = $series->getName();
     $name->getAsCells()->get_Item(0)->setValue("New name");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -168,7 +168,7 @@ This PHP code shows you how to set the automatic fill color for a chart series:
     // Writes the presentation file to disk
     $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -211,7 +211,7 @@ This PHP code demonstrates the operation:
     $series->getInvertedSolidFillColor()->setColor($inverColor);
     $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -239,7 +239,7 @@ This PHP code demonstrates the operation:
     $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
     $pres->save("out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -270,7 +270,7 @@ This PHP code demonstrates the operation:
     $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
     $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -322,7 +322,7 @@ This code  shows you how to set a series' Gap Width:
     // Saves presentation to disk
     $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -17,11 +17,11 @@ After setting the alternative text of any desired shape, you can then open that 
     $slide = $pres->getSlides()->get_Item(0);
     // Alternative text of the shape to be found
     $shape = findShape($slide, "Shape1");
-    if ($shape != null) {
+    if (!java_is_null($shape)) {
       echo("Shape Name: " . $shape->getName());
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -57,7 +57,7 @@ The example below adds a group shape to a slide.
     // Write the PPTX file to disk
     $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -93,7 +93,7 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
     // Save presentation to disk
     $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -129,7 +129,7 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
     // Save presentation to disk
     $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -161,7 +161,7 @@ Aspose.Slides for PHP via Java allows developers to reorder the shapes. Reorderi
     $slide->getShapes()->reorder(2, $shp3);
     $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -177,7 +177,7 @@ Aspose.Slides for PHP via Java allows developers to get a unique shape identifie
     // Getting unique shape identifier in slide scope
     $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -213,14 +213,14 @@ To set the AlternateText of a shape, please follow the steps below:
     $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     for($i = 0; $i < $sld->getShapes()->size(); $i++) {
       $shape = $sld->getShapes()->get_Item($i);
-      if ($shape != null) {
+      if (!java_is_null($shape)) {
         $shape->setAlternativeText("User Defined");
       }
     }
     // Save presentation to disk
     $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -242,7 +242,7 @@ Below sample code is given.
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -259,13 +259,13 @@ Now Aspose.Slides for PHP via Java support for rendering a shape as svg. Method 
     try {
       $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
     } finally {
-      if ($stream != null) {
+      if (!java_is_null($stream)) {
         $stream->close();
       }
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -288,7 +288,7 @@ Source code below aligns shapes with indices 1,2 and 4 along the top border of t
     $shape3 = $slide->getShapes()->get_Item(4);
     SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), new int[]{ $slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) });
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -304,7 +304,7 @@ The example below shows how to align the entire collection of shapes relative to
   try {
     SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

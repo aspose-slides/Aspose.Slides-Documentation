@@ -32,7 +32,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
     $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
     $watermarkTextFrame = $watermarkShape->addTextFrame("Watermark");
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -58,7 +58,7 @@ All the other logic is the same as in adding watermark into a single slide - cre
     $watermarkShape = $master->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
     $watermarkTextFrame = $watermarkShape->addTextFrame("Watermark");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -123,7 +123,7 @@ To add image watermark into all presentation slides, you may do the following:
   try {
     $picture = $pres->getImages()->addImage($image);
   } finally {
-    if ($image != null) {
+    if (!java_is_null($image)) {
       $image->dispose();
     }
   }

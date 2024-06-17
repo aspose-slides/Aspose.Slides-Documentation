@@ -68,7 +68,7 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
     Compress->removeUnusedLayoutSlides($pres);
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -85,7 +85,7 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
     Compress->removeUnusedMasterSlides($pres);
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

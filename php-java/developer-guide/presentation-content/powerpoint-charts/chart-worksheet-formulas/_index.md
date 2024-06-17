@@ -55,7 +55,7 @@ The worksheet of the chart is automatically created and can be accessed with 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     // ...
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

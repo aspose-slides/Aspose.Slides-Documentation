@@ -98,7 +98,7 @@ try
 }
 finally
 {
-    if ($pres != null) $pres->dispose();
+    if (!java_is_null($pres)) $pres->dispose();
 }
 ?>
 
@@ -155,5 +155,5 @@ try {
     $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
     $dis->readFully($htmlBytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }

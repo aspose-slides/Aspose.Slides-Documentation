@@ -21,7 +21,7 @@ We added the [**addEffect()**](https://reference.aspose.com/slides/php-java/com.
     $effect = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($paragraph, EffectType::Fly, EffectSubtype::Left, EffectTriggerType::OnClick);
     $presentation->save("AnimationEffectinParagraph.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

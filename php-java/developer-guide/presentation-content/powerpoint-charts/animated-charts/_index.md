@@ -39,7 +39,7 @@ In the example given below, we animated chart series.
     // Write the modified presentation to disk
     $pres->save("AnimatingSeries_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -70,7 +70,7 @@ In the example given below, we animated chart category.
     $slide->getTimeline()->getMainSequence()->addEffect($chart, EffectChartMajorGroupingType::ByCategory, 3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     $pres->save("Sample_Animation_C.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -112,7 +112,7 @@ In the example given below, we have animated series' elements.
     // Write the presentation file to disk
     $pres->save("AnimatingSeriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -154,7 +154,7 @@ In the example given below, we have animated categories elements.
     // Write the presentation file to disk
     $pres->save("AnimatingCategoriesElements_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

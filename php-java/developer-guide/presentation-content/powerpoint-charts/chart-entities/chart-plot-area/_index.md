@@ -28,7 +28,7 @@ Aspose.Slides for PHP via Java provides a simple API for . 
     $w = $chart->getPlotArea()->getActualWidth();
     $h = $chart->getPlotArea()->getActualHeight();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -56,7 +56,7 @@ Sample code is given below.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $pres->save("SetLayoutMode_outer.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

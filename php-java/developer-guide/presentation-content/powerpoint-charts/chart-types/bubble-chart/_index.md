@@ -14,7 +14,7 @@ Aspose.Slides for PHP via Java provides support for Bubble chart size scaling. I
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setBubbleSizeScale(150);
     $pres->save("Result.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -31,7 +31,7 @@ Methods [**setBubbleSizeRepresentation**](https://reference.aspose.com/slides/p
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setBubbleSizeRepresentation(BubbleSizeRepresentationType::Width);
     $pres->save("Presentation_BubbleSizeRepresentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

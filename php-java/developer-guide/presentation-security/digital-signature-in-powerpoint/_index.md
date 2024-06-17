@@ -66,7 +66,7 @@ Now its possible to check if the presentation was digitally signed and has not 
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

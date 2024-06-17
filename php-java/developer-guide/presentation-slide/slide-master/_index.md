@@ -141,7 +141,7 @@ You can add images to a slide master with Aspose.Slides:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -149,7 +149,7 @@ You can add images to a slide master with Aspose.Slides:
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -231,7 +231,7 @@ When you change a master slide's background color, all the normal slides in the 
     $master->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -256,7 +256,7 @@ To clone a Slide Master to another presentation, call the [**addClone**](https:
   try {
     $master = $presTarget->getMasters()->addClone($presSource->getMasters()->get_Item(0));
   } finally {
-    if ($presSource != null) {
+    if (!java_is_null($presSource)) {
       $presSource->dispose();
     }
   }
@@ -318,7 +318,7 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
     Compress->removeUnusedMasterSlides($pres);
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

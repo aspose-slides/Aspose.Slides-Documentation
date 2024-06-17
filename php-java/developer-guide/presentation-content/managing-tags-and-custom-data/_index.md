@@ -29,7 +29,7 @@ In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://
   try {
     $keywords = $pres->getDocumentProperties()->getKeywords();
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -53,7 +53,7 @@ This sample code shows you how to add a tag to a [Presentation](https://referenc
     $tags = $pres->getCustomData()->getTags();
     $pres->getCustomData()->getTags()->set_Item("MyTag", "My Tag Value");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -68,7 +68,7 @@ Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/co
     $slide = $pres->getSlides()->get_Item(0);
     $slide->getCustomData()->getTags()->set_Item("tag", "value");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -85,7 +85,7 @@ Or any individual [Shape](https://reference.aspose.com/slides/php-java/com.aspos
     $shape->getTextFrame()->setText("My text");
     $shape->getCustomData()->getTags()->set_Item("tag", "value");
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

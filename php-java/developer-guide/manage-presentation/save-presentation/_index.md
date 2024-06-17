@@ -27,7 +27,7 @@ The examples that follow show how to save a presentation with Aspose.Slides for 
     // Save your presentation to a file
     $pres->save("demoPass.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -49,7 +49,7 @@ It is possible to save a presentation to a stream by passing an output stream to
     $os->close();
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -68,7 +68,7 @@ Aspose.Slides for PHP via Java provides a facility to set the view type for the 
     // Saving presentation
     $pres->save("newDemo.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -94,7 +94,7 @@ The following sample code creates a presentation and saves it in the Strict Open
     // Save your presentation to a file
     $pres->save("demoPass.pptx", SaveFormat::Pptx, $options);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

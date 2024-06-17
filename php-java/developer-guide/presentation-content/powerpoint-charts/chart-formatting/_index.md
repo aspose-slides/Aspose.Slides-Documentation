@@ -168,7 +168,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     // Save Presentation
     $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -194,7 +194,7 @@ Below sample example is given.
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -236,7 +236,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing chart data for
     // Saving presentation
     $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -305,7 +305,7 @@ Below sample example is given. 
     $chart->setRoundedCorners(true);
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

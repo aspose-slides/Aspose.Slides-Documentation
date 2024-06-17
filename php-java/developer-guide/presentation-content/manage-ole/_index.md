@@ -59,7 +59,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
     $pres->save("OleEmbed_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -87,7 +87,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
     // Casts the shape to OleObjectFrame
     $oleObjectFrame = $sld->getShapes()->get_Item(0);
     // Reads the OLE Object and writes it to disk
-    if ($oleObjectFrame != null) {
+    if (!java_is_null($oleObjectFrame)) {
       // Get embedded file data
       $data = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileData();
       // Gets embedded file extention
@@ -105,7 +105,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -140,7 +140,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
         $ole = $shape;
       }
     }
-    if ($ole != null) {
+    if (!java_is_null($ole)) {
       $msln = new ByteArrayInputStream($ole->getEmbeddedData()->getEmbeddedFileData());
       try {
         // Reads object data in Workbook
@@ -158,12 +158,12 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
           $newData = new OleEmbeddedDataInfo($msout->toByteArray(), $ole->getEmbeddedData()->getEmbeddedFileExtension());
           $ole->setEmbeddedData($newData);
         } finally {
-          if ($msout != null) {
+          if (!java_is_null($msout)) {
             $msout->close();
           }
         }
       } finally {
-        if ($msln != null) {
+        if (!java_is_null($msln)) {
           $msln->close();
         }
       }
@@ -171,7 +171,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
     $pres->save("OleEdit_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -195,7 +195,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $htmlBytes = $bytes;
 
@@ -207,7 +207,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $zipBytes = $bytes;
 
@@ -217,7 +217,7 @@ try {
     $pres->save("embeddedOle.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -245,14 +245,14 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $oleObjectFrame->setEmbeddedData(new OleEmbeddedDataInfo($bytes, "zip"));
 
     $pres->save("embeddedChanged.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -277,7 +277,7 @@ This PHP code shows you how to set the icon image and title for an embedded obje
     try {
       $oleImage = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -287,7 +287,7 @@ This PHP code shows you how to set the icon image and title for an embedded obje
     $pres->save("embeddedOle-newImage.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -311,7 +311,7 @@ This PHP code shows you how to extract a file embedded in a slide as an OLE obje
     for($index = 0; $index < $slide->getShapes()->size(); $index++) {
       $shape = $slide->getShapes()->get_Item($index);
       $oleFrame = $shape;
-      if ($oleFrame != null) {
+      if (!java_is_null($oleFrame)) {
         $data = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
         $extension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
         // Save extracted data
@@ -326,7 +326,7 @@ This PHP code shows you how to extract a file embedded in a slide as an OLE obje
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

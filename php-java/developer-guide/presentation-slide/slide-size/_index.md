@@ -40,7 +40,7 @@ If you prefer to use a special slide size for your presentations, we strongly re
     $pres->getSlideSize()->setSize(SlideSizeType::OnScreen16x9, SlideSizeScaleType::DoNotScale);
     $pres->save("pres-4x3-aspect-ratio.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -60,7 +60,7 @@ This sample code shows you how to use Aspose.Slides for PHP via Java to specify 
 
     $pres->save("pres-a4-slide-size.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -92,7 +92,7 @@ This sample code shows you how to use the `Maximize` setting when changing the s
   try {
     $pres->getSlideSize()->setSize(SlideSizeType::Ledger, SlideSizeScaleType::Maximize);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

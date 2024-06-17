@@ -117,7 +117,7 @@ This PHP code shows you how to add custom points to a shape:
     $geometryPath->lineTo(100, 50, 4);
     $shape->setGeometryPath($geometryPath);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -142,7 +142,7 @@ This PHP code shows you how to remove points from a shape:
     $path->removeAt(2);
     $shape->setGeometryPath($path);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -186,7 +186,7 @@ This Java shows you how to create a custom shape:
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
     $shape->setGeometryPath($starPath);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -222,7 +222,7 @@ This PHP code shows you to create a composite custom shape:
     $geometryPath1->closeFigure();
     $shape->setGeometryPaths(new GeometryPath[]{ $geometryPath0, $geometryPath1 });
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -265,7 +265,7 @@ This PHP code shows you how to create a custom shape with curved corners (inward
     $childShape->setGeometryPath($geometryPath);
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -307,7 +307,7 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
     // Set combination of new geometry path and origin geometry path to the shape
     $shape->setGeometryPaths(new IGeometryPath[]{ $originalPath, $textPath });
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

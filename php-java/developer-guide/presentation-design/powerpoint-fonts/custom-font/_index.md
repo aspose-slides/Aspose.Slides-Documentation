@@ -38,7 +38,7 @@ This PHP code demonstrates the font loading process:
   try {
     $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
     // Clears Font Cachce
@@ -73,7 +73,7 @@ This PHP code shows you how to use the [setDocumentLevelFontSources](https://ref
       $dis1 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file1));
       $dis1->readFully($memoryFont1);
   } finally {
-      if ($dis1 != null) $dis1->close();
+      if (!java_is_null($dis1)) $dis1->close();
   }
   $file2 = new Java("java.io.File", "customfonts/CustomFont2.ttf");
   $memoryFont2 = $Array->newInstance($Byte, $Array->getLength($file2));
@@ -81,7 +81,7 @@ This PHP code shows you how to use the [setDocumentLevelFontSources](https://ref
         $dis2 = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file2));
         $dis2->readFully($memoryFont2);
   } finally {
-        if ($dis2 != null) $dis2->close();
+        if (!java_is_null($dis2)) $dis2->close();
   }
   $loadOptions = new LoadOptions();
   $loadOptions->getDocumentLevelFontSources()->setFontFolders(new String[]{ "assets/fonts", "global/fonts" });
@@ -91,7 +91,7 @@ This PHP code shows you how to use the [setDocumentLevelFontSources](https://ref
     // Work with the presentation
     // CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -112,7 +112,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
   FontsLoader->loadExternalFont($bytes);
 
@@ -121,7 +121,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
   FontsLoader->loadExternalFont($bytes);
 
@@ -130,7 +130,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
   FontsLoader->loadExternalFont($bytes);
 

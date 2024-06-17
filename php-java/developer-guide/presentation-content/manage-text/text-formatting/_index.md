@@ -24,7 +24,7 @@ The code snippet below shows how to use this feature:
 
     $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -53,7 +53,7 @@ The code snippet below shows how to use this feature:
 
     $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -83,7 +83,7 @@ This PHP code shows you how to set the background color for an entire text:
     $autoShape->getTextFrame()->getParagraphs()->add($para);
     $pres->save("text.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -93,7 +93,7 @@ This PHP code shows you how to set the background color for an entire text:
     StreamSupport->stream($autoShape->getTextFrame()->getParagraphs()->spliterator(), false)->map(( p) -> $p->getPortions())->forEach(( c) -> $c->forEach(( ic) -> $ic->getPortionFormat()->getHighlightColor()->setColor($Color.BLUE)));
     $presentation->save("text-red.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -119,7 +119,7 @@ This PHP code shows you how to set the background color for only a portion of a 
     $autoShape->getTextFrame()->getParagraphs()->add($para);
     $pres->save("text.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -132,7 +132,7 @@ This PHP code shows you how to set the background color for only a portion of a 
     }
     $presentation->save("text-red.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -173,7 +173,7 @@ The implementation of the above steps is given below.
     // Writing the presentation as a PPTX file
     $pres->save("Centeralign_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -202,7 +202,7 @@ The implementation of the above steps is given below.
     $outerShadowEffect->getShadowColor()->setColor(new java("java.awt.Color", $shadowColor->getRed(), $shadowColor->getGreen(), $shadowColor->getBlue(), 255));
     $pres->save("transparency-2.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -280,7 +280,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
     // Write the PPTX to disk
     $pres->save("WelcomeFont_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -334,7 +334,7 @@ The implementation of the above steps is given below.
     // Write the PPTX to disk
     $pres->save("SetTextFontProperties_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -364,7 +364,7 @@ This PHP code shows you how to set the font size for texts contained in a paragr
       }
     }
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -406,7 +406,7 @@ Aspose.Slides for PHP via Java allows developers to rotate the text. Text could 
     // Save Presentation
     $pres->save("RotateText_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -447,7 +447,7 @@ In the example given below, we set the RotationAngle property.
     // Save Presentation
     $pres->save($resourcesOutputPath . "RotateText_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -490,7 +490,7 @@ This PHP code shows you how to specify the line spacing for a paragraph:
     // Save Presentation
     $pres->save("LineSpacing_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -531,7 +531,7 @@ In this topic, we will explore the different formatting properties of text frame
     // Save Presentation
     $pres->save($resourcesOutputPath . "formatText_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -572,7 +572,7 @@ Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. Tex
     // Save Presentation
     $pres->save("AnchorText_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

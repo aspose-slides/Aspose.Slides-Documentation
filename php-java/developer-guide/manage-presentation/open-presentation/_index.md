@@ -23,7 +23,7 @@ This PHP code shows you how to open a presentation and also find out the number 
     // Prints the total number of slides present in the presentation
     echo($pres->getSlides()->size());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -41,7 +41,7 @@ When you have to open a password-protected presentation, you can pass the passwo
   try {
     // Do some work with the decrypted presentation
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -67,7 +67,7 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
     // The presentation will be saved to the other file. The memory consumption stays low during the operation
     $pres->save("veryLargePresentation-copy.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -107,7 +107,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
             $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
             $dis->readFully($imageBytes);
         } finally {
-            if ($dis != null) $dis->close();
+            if (!java_is_null($dis)) $dis->close();
         }
           $args->setData($imageBytes);
           return ResourceLoadingAction::UserProvided;
@@ -143,7 +143,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
     // Saves your presentation to a file
     $pres->save("demoPass.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

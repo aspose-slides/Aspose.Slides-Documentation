@@ -194,7 +194,7 @@ The following code snippet shows you how to clone a slide and insert the cloned 
     // Save the destination presentation to disk
     $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

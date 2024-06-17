@@ -46,7 +46,7 @@ To add a mathematical expression on the slide, first, add a shape that will con
   try {
     $mathShape = $pres->getSlides()->get_Item(0)->getShapes()->addMathShape(0, 0, 720, 150);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -90,7 +90,7 @@ The full source code sample:
     $mathParagraph->add($mathBlock);
     $pres->save("math.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

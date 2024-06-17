@@ -42,7 +42,7 @@ Aspose.Slides for PHP via Java has provided the simplest API to manage the Smart
     // Saving Presentation
     $pres->save("AddSmartArtNode.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -76,7 +76,7 @@ In the following sample code we have explained how to add the child nodes belong
     // Save Presentation
     $pres->save("AddSmartArtNodeByPosition.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -115,7 +115,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -161,7 +161,7 @@ The following sample code will help to access the child nodes belonging to respe
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -195,7 +195,7 @@ In this example, we will learn to access the child nodes at some particular posi
     // Printing the SmartArt child node parameters
     System::out->print("Text = " . $chNode->getTextFrame()->getText() . ",  Level = " . $chNode->getLevel() . ", Position = " . $chNode->getPosition());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -235,7 +235,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
     // Save Presentation
     $pres->save("RemoveSmartArtNode.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -277,7 +277,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
     // Save Presentation
     $pres->save("RemoveSmartArtNodeByPosition.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -363,7 +363,7 @@ In the following sample code we will investigate how to identify **Assistant Nod
     // Save Presentation
     $pres->save("ChangeAssitantNode.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -403,7 +403,7 @@ Please follow the steps below:
     // Save the presentation
     $pres->save("TestSmart.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -433,12 +433,12 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
     try {
       $slideImage->save("SmartArt_ChildNote_Thumbnail.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -63,7 +63,7 @@ This PHP code shows you how to create a zoom frame on a slide:
     // Saves the presentation
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -98,7 +98,7 @@ This PHP code shows you how to create a zoom frame with a different image:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -108,7 +108,7 @@ This PHP code shows you how to create a zoom frame with a different image:
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -160,7 +160,7 @@ This PHP code shows you how to change a zoom frame's formatting on a slide:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -177,7 +177,7 @@ This PHP code shows you how to change a zoom frame's formatting on a slide:
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -220,7 +220,7 @@ This PHP code shows you how to create a zoom frame on a slide:
     // Saves the presentation
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -256,7 +256,7 @@ This PHP code shows you how to create a zoom frame with a different image:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -266,7 +266,7 @@ This PHP code shows you how to create a zoom frame with a different image:
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -316,7 +316,7 @@ This PHP code shows you how to change a section zoom frame's formatting:
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -332,7 +332,7 @@ This PHP code shows you how to change a section zoom frame's formatting:
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -395,7 +395,7 @@ This PHP code shows you how to create a summary zoom frame on a slide:
     // Saves the presentation
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -449,7 +449,7 @@ This PHP code shows you how to add and remove sections in a summary zoom frame:
     // Saves the presentation
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -502,7 +502,7 @@ This PHP code shows you how to change the formatting for a summary zoom section 
     try {
       $picture = $pres->getImages()->addImage($picture);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -517,7 +517,7 @@ This PHP code shows you how to change the formatting for a summary zoom section 
     $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

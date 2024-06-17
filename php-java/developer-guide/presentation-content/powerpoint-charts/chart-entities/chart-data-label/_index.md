@@ -20,7 +20,7 @@ This PHP code shows you how to set the data precision in a chart data label:
     $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -68,7 +68,7 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
     // Saves the presentation containing the chart
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -128,7 +128,7 @@ This PHP code shows you to set the percentage sign for a chart data label:
     // Writes the presentation to disk
     $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -151,7 +151,7 @@ This PHP code shows you how to set the label distance from a category axis when 
     // WriteS the presentation to disk
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -176,7 +176,7 @@ This PHP code shows you how to adjust the label location on a pie chart:
     $label->setY(0.04);
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

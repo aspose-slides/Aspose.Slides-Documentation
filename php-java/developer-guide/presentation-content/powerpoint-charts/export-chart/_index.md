@@ -16,12 +16,12 @@ Aspose.Slides for PHP via Java provides support for extracting image of specific
     try {
       $slideImage->save("image.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

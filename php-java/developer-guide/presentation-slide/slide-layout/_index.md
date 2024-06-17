@@ -45,7 +45,7 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
     // Goes through layout slide types
     $layoutSlides = $pres->getMasters()->get_Item(0)->getLayoutSlides();
     $layoutSlide = null;
-    if ($layoutSlides->getByType(SlideLayoutType::TitleAndObject) != null) {
+    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
       $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
     } else {
       $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
@@ -99,7 +99,7 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
     Compress->removeUnusedLayoutSlides($pres);
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

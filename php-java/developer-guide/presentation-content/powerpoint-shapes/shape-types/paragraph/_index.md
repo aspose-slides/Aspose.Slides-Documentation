@@ -32,7 +32,7 @@ Using [**getRect()**](https://reference.aspose.com/slides/php-java/com.aspose.sl
     $rect = $textFrame->getParagraphs()->get_Item(0)->getRect();
     echo("X: " . $rect::$x . " Y: " . $rect::$y . " Width: " . $rect::$width . " Height: " . $rect::$height);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -70,7 +70,7 @@ This sample code demonstrates the described operation:
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

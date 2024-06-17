@@ -57,7 +57,7 @@ This sample code  shows you how to convert a presentation to an XPS document usi
     // Saving the presentation to XPS document
     $pres->save("XPS_Output_Without_XPSOption.xps", SaveFormat::Xps);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -79,7 +79,7 @@ This sample code shows you how to convert a presentation to an XPS document usin
     // Save the presentation to XPS document
     $pres->save("XPS_Output_With_Options.xps", SaveFormat::Xps, $options);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

@@ -31,7 +31,7 @@ This PHP code shows you how to convert PowerPoint to TIFF:
     // Saves the presentation as TIFF
     $pres->save("tiff-image.tiff", SaveFormat::Tiff);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -51,7 +51,7 @@ This PHP code shows you how to convert a colored slide or image to black-and-whi
   try {
     $presentation->save("output.tiff", SaveFormat::Tiff, $tiffOptions);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -89,7 +89,7 @@ This PHP code shows you how to convert PowerPoint to TIFF images with custom siz
     // Saves the presentation to TIFF with specified size
     $pres->save("tiff-ImageSize.tiff", SaveFormat::Tiff, $opts);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -118,7 +118,7 @@ This PHP code shows you how to convert PowerPoint to TIFF image with custom pixe
     // Saves the presentation to TIFF with specified image size
     $pres->save("Tiff-PixelFormat.tiff", SaveFormat::Tiff, $options);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

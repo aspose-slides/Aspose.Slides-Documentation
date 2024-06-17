@@ -30,7 +30,7 @@ This PHP code shows you how to identify merged table cells in a presentation:
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -71,7 +71,7 @@ This PHP code shows you how to remove the borders from table cells:
     // Writes the PPTX to disk
     $pres->save("table_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -115,7 +115,7 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
     $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -161,7 +161,7 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
     // Writes the PPTX file to disk
     $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -212,7 +212,7 @@ This PHP code demonstrates the process we described:
     // Writes the PPTX file to disk
     $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -237,7 +237,7 @@ This PHP code shows you how to change a table cell's background color:
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -276,7 +276,7 @@ This PHP code shows you how to place an image inside a table cell when creating 
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -289,7 +289,7 @@ This PHP code shows you how to place an image inside a table cell when creating 
     $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

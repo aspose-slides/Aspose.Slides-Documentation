@@ -22,7 +22,7 @@ url: /php-java/portion/
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

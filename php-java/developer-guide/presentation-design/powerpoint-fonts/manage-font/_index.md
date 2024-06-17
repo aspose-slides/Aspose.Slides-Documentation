@@ -76,7 +76,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
     // Save the PPTX to disk
     $pres->save("WelcomeFont.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -140,7 +140,7 @@ The implementation of the above steps is given below.
     // Save the presentation to disk
     $pres->save("pptxFont.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

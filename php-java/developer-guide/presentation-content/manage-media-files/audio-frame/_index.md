@@ -41,7 +41,7 @@ try {
     pres.save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 } catch(IOException e) {
 } finally {
-    if (pres != null) pres.dispose();
+    if (!java_is_null(pres)) pres.dispose();
 }
 ```php
 
@@ -67,7 +67,7 @@ This PHP code shows you how to change an audio frame's thumbnail or preview imag
     try {
       $picture = $presentation->getImages()->addImage($image);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -78,7 +78,7 @@ This PHP code shows you how to change an audio frame's thumbnail or preview imag
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -129,7 +129,7 @@ This PHP code demonstrates an operation in which an audio's options are adjusted
     // Saves the PowerPoint file to disk
     $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -166,7 +166,7 @@ This code  shows you how to extract the audio used in a slide:
     $audio = $transition->getSound()->getBinaryData();
     echo("Length: " . $Array->getLength($audio));
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

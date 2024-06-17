@@ -29,7 +29,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
     try {
       $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
@@ -54,14 +54,14 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
     try {
       $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
     // Saves the presentation without embedded "Calibri" font to disk
     $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -95,7 +95,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com
     // Saves the presentation to disk
     $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -114,7 +114,7 @@ This PHP code shows you how to compress embedded PowerPoint fonts:
     Compress->compressEmbeddedFonts($pres);
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

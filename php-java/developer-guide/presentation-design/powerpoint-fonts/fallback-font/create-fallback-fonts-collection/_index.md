@@ -21,7 +21,7 @@ Here is an examples how to create fallback fonts rules collection and assign in 
     $userRulesList->add(new FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic"));
     $pres->getFontsManager()->setFontFallBackRulesCollection($userRulesList);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

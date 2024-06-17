@@ -51,7 +51,7 @@ This PHP code shows you how to add a comment to a slide in a PowerPoint presenta
       $Comment = $commentCollection->get_Item(0)->getText();
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -73,7 +73,7 @@ This PHP code shows you how to access an existing comment on a slide in a PowerP
       }
     }
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -112,7 +112,7 @@ This PHP code shows you how to add comments and get replies to them:
     $comments = $slide->getSlideComments(null);
     for($i = 0; $i < $Array->getLength($comments); $i++) {
       $comment = $comments[$i];
-      while ($comment->getParentComment() != null) {
+      while (!java_is_null($comment->getParentComment())) {
         System::out->print("\t");
         $comment = $comment->getParentComment();
       } 
@@ -124,7 +124,7 @@ This PHP code shows you how to add comments and get replies to them:
     $comment1->remove();
     $pres->save("remove_comment.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -153,7 +153,7 @@ This PHP code shows you how to add a modern comment to a slide in a PowerPoint p
     $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2DFloat(100, 100), new Java("java.util.Date"));
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -177,7 +177,7 @@ This PHP code shows you how to remove all comments and authors in a presentation
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -210,7 +210,7 @@ This PHP code shows you how to delete specific comments on a slide:
     }
     $presentation->save("pres.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }

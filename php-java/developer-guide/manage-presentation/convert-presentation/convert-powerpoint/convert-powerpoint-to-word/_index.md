@@ -51,7 +51,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
     }
     $doc->save($outputDoc);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

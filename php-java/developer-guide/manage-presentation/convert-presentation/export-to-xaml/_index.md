@@ -29,7 +29,7 @@ This PHP code shows you how to export a presentation to XAML with default settin
   try {
     $pres->save(new XamlOptions());
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -49,7 +49,7 @@ For example, if you want Aspose.Slides to add hidden slides from your presentati
     $xamlOptions->setExportHiddenSlides(true);
     $pres->save($xamlOptions);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

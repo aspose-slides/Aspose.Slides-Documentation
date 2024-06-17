@@ -34,7 +34,7 @@ The implementation of the above is given below.
       // save the image on the disk.
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
-      if ($slideImage != null) {
+      if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
@@ -44,7 +44,7 @@ The implementation of the above is given below.
     $pres->save("output_out.xps", SaveFormat::Xps);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

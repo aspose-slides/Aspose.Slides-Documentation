@@ -41,13 +41,13 @@ This Java shows you how to add a large video file through the BLOB process to a 
       // stays low through the pres object's lifecycle
       $pres->save("presentationWithLargeVideo.pptx", SaveFormat::Pptx);
     } finally {
-      if ($fileStream != null) {
+      if (!java_is_null($fileStream)) {
         $fileStream->close();
       }
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -124,13 +124,13 @@ This PHP code shows you how to add a large image through the BLOB process:
       // stays low through the pres object's lifecycle
       $pres->save("presentationWithLargeImage.pptx", SaveFormat::Pptx);
     } finally {
-      if ($fileStream != null) {
+      if (!java_is_null($fileStream)) {
         $fileStream->close();
       }
     }
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -148,7 +148,7 @@ Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB vid
   try {
     $pres->save("large.pdf", SaveFormat::Pdf);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -169,7 +169,7 @@ Through the process involving a BLOB, you can load up a large presentation while
   try {
     $pres->save("large.pdf", SaveFormat::Pdf);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

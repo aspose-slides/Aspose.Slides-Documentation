@@ -35,7 +35,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing error bar valu
     // Saving presentation
     $pres->save("ErrorBars.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -84,7 +84,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing custom error b
     // Saving presentation
     $pres->save("ErrorBarsCustomValues.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

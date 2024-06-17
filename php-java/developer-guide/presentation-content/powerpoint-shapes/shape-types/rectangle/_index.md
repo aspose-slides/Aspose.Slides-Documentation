@@ -32,7 +32,7 @@ In the example given below, we have added a simple rectangle to the first slide 
     // Write the PPTX file to disk
     $pres->save("RecShp1.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -71,7 +71,7 @@ The above steps are implemented in the example given below.
     // Write the PPTX file to disk
     $pres->save("RecShp2.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

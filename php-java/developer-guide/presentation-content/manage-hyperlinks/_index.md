@@ -37,7 +37,7 @@ This PHP code shows you how to add a website hyperlink to a text:
     $portionFormat->setFontHeight(32);
     $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($presentation != null) {
+    if (!java_is_null($presentation)) {
       $presentation->dispose();
     }
   }
@@ -56,7 +56,7 @@ This sample code  shows you how to add a website hyperlink to a shape:
     $shape->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -78,7 +78,7 @@ This sample code shows you how to add a hyperlink to an **image**:
     try {
       $picture = $pres->getImages()->addImage($picture);
     } finally {
-      if ($image != null) {
+      if (!java_is_null($image)) {
         $image->dispose();
       }
     }
@@ -89,7 +89,7 @@ This sample code shows you how to add a hyperlink to an **image**:
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -108,7 +108,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $audio = $pres->getAudios()->addAudio($bytes);
 
@@ -118,7 +118,7 @@ try {
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -137,7 +137,7 @@ try {
     $bytes = $Array->newInstance($Byte, $dis->available());
     $dis->readFully($bytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
 }
     $video = $pres->getVideos()->addVideo($bytes);
 
@@ -147,7 +147,7 @@ try {
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -186,7 +186,7 @@ This sample code shows you how to create a table of contents with hyperlinks:
     $contentTable->getTextFrame()->getParagraphs()->add($paragraph);
     $pres->save("link_to_slide.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -216,7 +216,7 @@ This sample code demonstrates an operation where hyperlinks with different color
     $shape2->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pres->save("presentation-out-hyperlink.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -235,7 +235,7 @@ This PHP code shows you how to remove the hyperlink from a text in a presentatio
     $slide = $pres->getSlides()->get_Item(0);
     foreach($slide->getShapes() as $shape) {
       $autoShape = $shape;
-      if ($autoShape != null) {
+      if (!java_is_null($autoShape)) {
         foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
           foreach($paragraph->getPortions() as $portion) {
             $portion->getPortionFormat()->getHyperlinkManager()->removeHyperlinkClick();
@@ -245,7 +245,7 @@ This PHP code shows you how to remove the hyperlink from a text in a presentatio
     }
     $pres->save("pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -265,7 +265,7 @@ This PHP code shows you how to remove the hyperlink from a shape in a presentati
     }
     $pres->save("pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -295,7 +295,7 @@ The code snippet shows you how to add a hyperlink to a slide and edit its toolti
     $portionFormat->setFontHeight(32);
     $pres->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }

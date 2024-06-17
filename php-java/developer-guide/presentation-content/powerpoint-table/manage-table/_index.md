@@ -62,7 +62,7 @@ This PHP code shows you how to create a table in a presentation:
     // Saves the presentation to Disk
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -114,7 +114,7 @@ This PHP code shows you how to specify the numbering for cells in a table:
     // Saves presentation to disk
     $pres->save("StandardTables_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -158,7 +158,7 @@ This PHP code shows you how to access and work with an existing table:
     // Saves the modified presentation to disk
     $pres->save("table1_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -208,7 +208,7 @@ This PHP code shows you how to align the text in a table:
     // Saves the presentation to disk
     $pres->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -248,7 +248,7 @@ This PHP code shows you how to apply your preferred formatting options to the te
     $someTable->setTextFormat($textFrameFormat);
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -267,7 +267,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -290,7 +290,7 @@ This PHP code shows you how to lock the aspect ratio for a table:
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
-    if ($pres != null) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
