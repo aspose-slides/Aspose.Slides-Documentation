@@ -34,7 +34,7 @@ try {
     fstr.close();
     
     // Sets the Play Mode and Volume of the Audio
-    audioFrame.setPlayMode(AudioPlayModePreset.Auto);
+    audioFrame.setPlayMode(AudioPlayModePreset->Auto);
     audioFrame.setVolume(AudioVolumeMode->Loud);
 
     // Writes the PowerPoint file to disk
