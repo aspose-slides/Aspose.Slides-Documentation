@@ -268,7 +268,7 @@ try {
     // Gets the first effect of the main sequence
     $firstEffect = $sequence->get_Item(0);
     // Сhecks the effect for "No Sound"
-    if (!$firstEffect->getStopPreviousSound() && $firstEffect->getSound() == null) {
+    if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
       // Adds sound for the first effect
       $firstEffect->setSound($effectSound);
     }
@@ -303,7 +303,7 @@ This PHP code shows you how to extract the sound embedded in an animation effect
     // Gets the main sequence of the slide.
     $sequence = $slide->getTimeline()->getMainSequence();
     foreach($sequence as $effect) {
-      if ($effect->getSound() == null) {
+      if (java_is_null($effect->getSound())) {
         continue;
       }
       // Extracts the effect sound in byte array

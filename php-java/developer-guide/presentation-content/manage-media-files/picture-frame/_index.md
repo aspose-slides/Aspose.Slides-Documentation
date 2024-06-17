@@ -202,7 +202,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
     $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
     for($i = 0; $i < $shapesCount; $i++) {
       $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if ($autoShape->getPlaceholder() == null) {
+      if (java_is_null($autoShape->getPlaceholder())) {
         continue;
       }
       switch ($autoShape->getPlaceholder()->getType()) {

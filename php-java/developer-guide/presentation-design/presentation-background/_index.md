@@ -164,7 +164,7 @@ You may want to adjust the transparency of a slide's background image to make th
     }
   }
   // Sets the new transparency value.
-  if ($transparencyOperation == null) {
+  if (java_is_null($transparencyOperation)) {
     $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
   } else {
     $transparencyOperation->setAmount(100 - $transparencyValue);

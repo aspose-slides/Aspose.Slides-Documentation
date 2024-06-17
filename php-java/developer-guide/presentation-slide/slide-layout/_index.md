@@ -50,7 +50,7 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
     } else {
       $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
     }
-    if ($layoutSlide == null) {
+    if (java_is_null($layoutSlide)) {
       // The situation where a presentation doesn't contain some layout types.
       // presentation File only contains Blank and Custom layout types.
       // But layout slides with Custom types have different slide names,
@@ -64,16 +64,16 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
           break;
         }
       }
-      if ($layoutSlide == null) {
+      if (java_is_null($layoutSlide)) {
         foreach($layoutSlides as $titleLayoutSlide) {
           if ($titleLayoutSlide->getName() == "Title") {
             $layoutSlide = $titleLayoutSlide;
             break;
           }
         }
-        if ($layoutSlide == null) {
+        if (java_is_null($layoutSlide)) {
           $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-          if ($layoutSlide == null) {
+          if (java_is_null($layoutSlide)) {
             $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
           }
         }
