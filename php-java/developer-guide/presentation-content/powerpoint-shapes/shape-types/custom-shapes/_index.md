@@ -177,7 +177,7 @@ This Java shows you how to create a custom shape:
   }
   $starPath = new GeometryPath();
   $starPath->moveTo($points->get(0));
-  for($i = 1; $i < $points->size(); $i++) {
+  for($i = 1; $i < java_values($points->size()) ; $i++) {
     $starPath->lineTo($points->get($i));
   }
   $starPath->closeFigure();

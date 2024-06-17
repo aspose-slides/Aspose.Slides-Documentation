@@ -87,7 +87,7 @@ This PHP code shows you how to set the transparency for a picture background (in
   $presentation = new Presentation("example.pptx");
   $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $operationCollection = $shape->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
-  for($i = 0; $i < $operationCollection->size(); $i++) {
+  for($i = 0; $i < java_values($operationCollection->size()) ; $i++) {
     if (java_instanceof($operationCollection->get_Item($i)), new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
       $alphaModulate = $operationCollection->get_Item($i);
       $currentValue = 100 - $alphaModulate->getAmount();

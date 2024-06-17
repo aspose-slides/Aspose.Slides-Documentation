@@ -162,7 +162,7 @@ This PHP code shows you how to set the automatic fill color for a chart series:
     // Creates a clustered column chart
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
     // Sets series fill format to automatic
-    for($i = 0; $i < $chart->getChartData()->getSeries()->size(); $i++) {
+    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
     }
     // Writes the presentation file to disk

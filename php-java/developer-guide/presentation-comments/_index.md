@@ -110,7 +110,7 @@ This PHP code shows you how to add comments and get replies to them:
     // Displays the comments hierarchy on console
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
-    for($i = 0; $i < $Array->getLength($comments); $i++) {
+    for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
       $comment = $comments[$i];
       while (!java_is_null($comment->getParentComment())) {
         System::out->print("\t");

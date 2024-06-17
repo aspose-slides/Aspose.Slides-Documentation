@@ -47,7 +47,7 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
     while ($categoryIndex < 15) {
       $chart->getChartData()->getCategories()->add($workBook->getCell(0, $categoryIndex + 1, 0, "CATEGORY " . $categoryIndex));
       $i = 0;
-      while ($i < $chart->getChartData()->getSeries()->size()) {
+      while ($i < java_values($chart->getChartData()->getSeries()->size())) {
         $iCS = $chart->getChartData()->getSeries()->get_Item($i);
         $dataPoint = $iCS->getDataPoints()->addDataPointForDoughnutSeries($workBook->getCell(0, $categoryIndex + 1, $i + 1, 1));
         $dataPoint->getFormat()->getFill()->setFillType(FillType::Solid);

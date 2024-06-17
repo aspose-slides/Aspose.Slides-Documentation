@@ -63,7 +63,7 @@ This topic helps you to understand how to hide information from chart. Using Asp
     $chart->setLegend(false);
     // Hiding MajorGridLines
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
-    for($i = 0; $i < $chart->getChartData()->getSeries()->size(); $i++) {
+    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->removeAt($i);
     }
     $series = $chart->getChartData()->getSeries()->get_Item(0);

@@ -60,13 +60,13 @@ The example below accesses alternative text of group shape.
   try {
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < $sld->getShapes()->size(); $i++) {
+    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
       // Accessing the shape collection of slides
       $shape = $sld->getShapes()->get_Item($i);
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
         // Accessing the group shape.
         $grphShape = $shape;
-        for($j = 0; $j < $grphShape->getShapes()->size(); $j++) {
+        for($j = 0; $j < java_values($grphShape->getShapes()->size()) ; $j++) {
           $shape2 = $grphShape->getShapes()->get_Item($j);
           // Accessing the AltText property
           echo($shape2->getAlternativeText());

@@ -308,7 +308,7 @@ This PHP code shows you how to extract a file embedded in a slide as an OLE obje
   $pres = new Presentation("embeddedOle.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    for($index = 0; $index < $slide->getShapes()->size(); $index++) {
+    for($index = 0; $index < java_values($slide->getShapes()->size()) ; $index++) {
       $shape = $slide->getShapes()->get_Item($index);
       $oleFrame = $shape;
       if (!java_is_null($oleFrame)) {

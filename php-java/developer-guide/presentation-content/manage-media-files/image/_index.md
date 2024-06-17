@@ -230,7 +230,7 @@ This sample code shows you how to perform the described task:
   try {
     $pres->getSlides()->removeAt(0);
     $EmfSheetName = "";
-    for($j = 0; $j < $sr->getPageCount(); $j++) {
+    for($j = 0; $j < java_values($sr->getPageCount()) ; $j++) {
       $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
       $sr->toImage($j, $EmfSheetName);
       $picture;

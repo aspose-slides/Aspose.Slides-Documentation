@@ -39,7 +39,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
     // Finds the "Calibri" font
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
-    for($i = 0; $i < $Array->getLength($embeddedFonts); $i++) {
+    for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
       echo("" . $embeddedFonts[$i]->getFontName());
       if ("Calibri"->equals($embeddedFonts[$i]->getFontName())) {
         $calibriEmbeddedFont = $embeddedFonts[$i];
@@ -81,7 +81,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com
     $Array = new java_class("java.lang.reflect.Array");
     foreach($allFonts as $font) {
       $embeddedFontsContainsFont = false;
-      for($i = 0; $i < $Array->getLength($embeddedFonts); $i++) {
+      for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
         if ($embeddedFonts[$i]->equals($font)) {
           $embeddedFontsContainsFont = true;
           break;

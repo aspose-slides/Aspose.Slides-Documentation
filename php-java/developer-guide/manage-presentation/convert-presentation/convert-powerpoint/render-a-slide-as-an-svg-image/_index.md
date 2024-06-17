@@ -32,7 +32,7 @@ This sample code  shows you how to convert PPT to SVG using Aspose.Slides:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    for($index = 0; $index < $pres->getSlides()->size(); $index++) {
+    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
       $slide = $pres->getSlides()->get_Item($index);
       $fileStream = new Java("java.io.FileOutputStream", "slide-" . $index . ".svg");
       try {

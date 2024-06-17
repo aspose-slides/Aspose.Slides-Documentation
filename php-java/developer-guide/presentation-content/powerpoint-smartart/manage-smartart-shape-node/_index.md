@@ -106,7 +106,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traverse through all nodes inside SmartArt
-        for($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
+        for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           // Accessing SmartArt node at index i
           $node = $smart->getAllNodes()->get_Item($i);
           // Printing the SmartArt node parameters
@@ -147,11 +147,11 @@ The following sample code will help to access the child nodes belonging to respe
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traverse through all nodes inside SmartArt
-        for($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
+        for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           // Accessing SmartArt node at index i
           $node0 = $smart->getAllNodes()->get_Item($i);
           // Traversing through the child nodes in SmartArt node at index i
-          for($j = 0; $j < $node0->getChildNodes()->size(); $j++) {
+          for($j = 0; $j < java_values($node0->getChildNodes()->size()) ; $j++) {
             // Accessing the child node in SmartArt node
             $node = $node0->getChildNodes()->get_Item($j);
             // Printing the SmartArt child node parameters
@@ -350,7 +350,7 @@ In the following sample code we will investigate how to identify **Assistant Nod
         // Typecast shape to SmartArt
         $smart = $shape;
         // Traversing through all nodes of SmartArt shape
-        for($i = 0; $i < $smart->getAllNodes()->size(); $i++) {
+        for($i = 0; $i < java_values($smart->getAllNodes()->size()) ; $i++) {
           $node = $smart->getAllNodes()->get_Item($i);
           // Check if node is Assistant node
           if ($node->isAssistant()) {

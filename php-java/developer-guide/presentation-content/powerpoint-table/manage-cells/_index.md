@@ -21,8 +21,8 @@ This PHP code shows you how to identify merged table cells in a presentation:
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);// assuming that Slide#0.Shape#0 is a table
 
-    for($i = 0; $i < $table->getRows()->size(); $i++) {
-      for($j = 0; $j < $table->getColumns()->size(); $j++) {
+    for($i = 0; $i < java_values($table->getRows()->size()) ; $i++) {
+      for($j = 0; $j < java_values($table->getColumns()->size()) ; $j++) {
         $currentCell = $table->getRows()->get_Item($i)->get_Item($j);
         if ($currentCell->isMergedCell()) {
           echo(sprintf("Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", $i, $j, $currentCell->getRowSpan(), $currentCell->getColSpan(), $currentCell->getFirstRowIndex(), $currentCell->getFirstColumnIndex()));

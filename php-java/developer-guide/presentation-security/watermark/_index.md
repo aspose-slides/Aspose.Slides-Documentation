@@ -195,7 +195,7 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 To remove watermark shape and its child controls from slide, use [AutoShape.getName](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShape#getName--) method to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.remove**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ShapeCollection#remove-com.aspose.slides.IShape-) method:
 
 ```php
-  for($i = 0; $i < $slide->getShapes()->size(); $i++) {
+  for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
     $shape = $slide->getShapes()->get_Item($i);
     if ("watermark"->equals($shape->getName())) {
       $slide->getShapes()->remove($watermarkShape);

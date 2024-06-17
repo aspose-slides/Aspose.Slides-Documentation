@@ -190,7 +190,7 @@ This PHP code shows you how to convert a slide in a PowerPoint presentation to H
     $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter(new CustomFormattingController()));
     // Saving File
-    for($i = 0; $i < $pres->getSlides()->size(); $i++) {
+    for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $pres->save("Individual Slide" . $i + 1 . "_out.html", new int[]{ $i + 1 }, SaveFormat::Html, $htmlOptions);
     }
   } finally {

@@ -38,8 +38,8 @@ This PHP code shows you how to create a table in a presentation:
     // Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
-    for($row = 0; $row < $tbl->getRows()->size(); $row++) {
-      for($cell = 0; $cell < $tbl->getRows()->get_Item($row)->size(); $cell++) {
+    for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
+      for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
         $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
