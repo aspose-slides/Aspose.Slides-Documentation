@@ -66,8 +66,8 @@ This PHP code shows you how to clone a PowerPoint table's row or column:
     // Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 50, 50, 50 };
-    $dblRows = new double[]{ 50, 30, 30, 30, 30 };
+    $dblCols = array(50, 50, 50 );
+    $dblRows = array(50, 30, 30, 30, 30 );
     // Adds a table shape to slide
     $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Adds some text to the row 1 cell 1
@@ -113,8 +113,8 @@ This PHP code shows you how to remove a row or column from a table:
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $colWidth = new double[]{ 100, 50, 30 };
-    $rowHeight = new double[]{ 30, 50, 30 };
+    $colWidth = array(100, 50, 30 );
+    $rowHeight = array(30, 50, 30 );
     $table = $slide->getShapes()->addTable(100, 100, $colWidth, $rowHeight);
     $table->getRows()->removeAt(1, false);
     $table->getColumns()->removeAt(1, false);
@@ -215,7 +215,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 ```php
   $pres = new Presentation();
   try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, new double[]{ 100, 150 }, new double[]{ 5, 5, 5 });
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
     $table->setStylePreset(TableStylePreset::DarkStyle1);// change the default style preset theme
 
     $pres->save("table.pptx", SaveFormat::Pptx);

@@ -13,7 +13,7 @@ Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/p
   $firstRule = new FontFallBackRule($startUnicodeIndex, $endUnicodeIndex, "Vijaya");
   $secondRule = new FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic");
   // Using multiple ways you can add fonts list:
-  $fontNames = new String[]{ "Segoe UI Emoji, Segoe UI Symbol", "Arial" };
+  $fontNames = array("Segoe UI Emoji, Segoe UI Symbol", "Arial" );
   $thirdRule = new FontFallBackRule(0x1f300, 0x1f64f, $fontNames);
 
 ```

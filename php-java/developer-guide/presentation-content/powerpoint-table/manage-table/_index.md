@@ -33,8 +33,8 @@ This PHP code shows you how to create a table in a presentation:
     // Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 50, 50, 50 };
-    $dblRows = new double[]{ 50, 30, 30, 30, 30 };
+    $dblCols = array(50, 50, 50 );
+    $dblRows = array(50, 30, 30, 30, 30 );
     // Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
@@ -90,8 +90,8 @@ This PHP code shows you how to specify the numbering for cells in a table:
     // Accesses first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 70, 70, 70, 70 };
-    $dblRows = new double[]{ 70, 70, 70, 70 };
+    $dblCols = array(70, 70, 70, 70 );
+    $dblRows = array(70, 70, 70, 70 );
     // Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
@@ -185,8 +185,8 @@ This PHP code shows you how to align the text in a table:
     // Gets the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 120, 120, 120, 120 };
-    $dblRows = new double[]{ 100, 100, 100, 100 };
+    $dblCols = array(120, 120, 120, 120 );
+    $dblRows = array(100, 100, 100, 100 );
     // Adds the table shape to the slide
     $tbl = $slide->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
@@ -262,7 +262,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 ```php
   $pres = new Presentation();
   try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, new double[]{ 100, 150 }, new double[]{ 5, 5, 5 });
+    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
     $table->setStylePreset(TableStylePreset::DarkStyle1);// change the default style preset theme
 
     $pres->save("table.pptx", SaveFormat::Pptx);

@@ -220,7 +220,7 @@ This PHP code shows you to create a composite custom shape:
     $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight());
     $geometryPath1->lineTo(0, $shape->getHeight());
     $geometryPath1->closeFigure();
-    $shape->setGeometryPaths(new GeometryPath[]{ $geometryPath0, $geometryPath1 });
+    $shape->setGeometryPaths(array($geometryPath0, $geometryPath1 ));
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -305,7 +305,7 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
     $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
     $textPath->setFillMode(PathFillModeType::Normal);
     // Set combination of new geometry path and origin geometry path to the shape
-    $shape->setGeometryPaths(new IGeometryPath[]{ $originalPath, $textPath });
+    $shape->setGeometryPaths(array($originalPath, $textPath ));
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

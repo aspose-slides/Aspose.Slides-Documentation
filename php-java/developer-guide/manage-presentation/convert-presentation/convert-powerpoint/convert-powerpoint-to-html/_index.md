@@ -132,7 +132,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/c
   $pres = new Presentation("input.pptx");
   try {
     // exclude default presentation fonts
-    $fontNameExcludeList = new String[]{ "Calibri", "Arial" };
+    $fontNameExcludeList = array("Calibri", "Arial" );
     $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
     $htmlOptionsEmbed = new HtmlOptions();
     $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($embedFontsController));
@@ -191,7 +191,7 @@ This PHP code shows you how to convert a slide in a PowerPoint presentation to H
     $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter(new CustomFormattingController()));
     // Saving File
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      $pres->save("Individual Slide" . $i + 1 . "_out.html", new int[]{ $i + 1 }, SaveFormat::Html, $htmlOptions);
+      $pres->save("Individual Slide" . $i + 1 . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
     }
   } finally {
     if (!java_is_null($pres)) {
@@ -296,7 +296,7 @@ This PHP code shows you how to convert a PowerPoint to HTML while linking all fo
   $pres = new Presentation("pres.pptx");
   try {
     // Exclude default presentation fonts
-    $fontNameExcludeList = new String[]{ "Calibri", "Arial" };
+    $fontNameExcludeList = array("Calibri", "Arial" );
     $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
     $htmlOptionsEmbed = new HtmlOptions();
     $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($linkcont));

@@ -208,7 +208,7 @@ This PHP code shows you how to convert specific slides in a PowerPoint presentat
   $pres = new Presentation("PowerPoint.pptx");
   try {
     // Sets an array of slides positions
-    $slides = new int[]{ 1, 3 };
+    $slides = array(1, 3 );
     // Saves the presentation as a PDF
     $pres->save("PPTX-to-PDF.pdf", $slides, SaveFormat::Pdf);
   } finally {

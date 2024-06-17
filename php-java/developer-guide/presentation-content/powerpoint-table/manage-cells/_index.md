@@ -55,8 +55,8 @@ This PHP code shows you how to remove the borders from table cells:
     // Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 50, 50, 50, 50 };
-    $dblRows = new double[]{ 50, 30, 30, 30, 30 };
+    $dblCols = array(50, 50, 50, 50 );
+    $dblRows = array(50, 30, 30, 30, 30 );
     // Adds table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
@@ -88,8 +88,8 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
     // Accesses first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 70, 70, 70, 70 };
-    $dblRows = new double[]{ 70, 70, 70, 70 };
+    $dblCols = array(70, 70, 70, 70 );
+    $dblRows = array(70, 70, 70, 70 );
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
@@ -131,8 +131,8 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
     // Accesses first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 70, 70, 70, 70 };
-    $dblRows = new double[]{ 70, 70, 70, 70 };
+    $dblCols = array(70, 70, 70, 70 );
+    $dblRows = array(70, 70, 70, 70 );
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
@@ -182,8 +182,8 @@ This PHP code demonstrates the process we described:
     // Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 70, 70, 70, 70 };
-    $dblRows = new double[]{ 70, 70, 70, 70 };
+    $dblCols = array(70, 70, 70, 70 );
+    $dblRows = array(70, 70, 70, 70 );
     // Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     // Sets the border format for each cell
@@ -227,8 +227,8 @@ This PHP code shows you how to change a table cell's background color:
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $dblCols = new double[]{ 150, 150, 150, 150 };
-    $dblRows = new double[]{ 50, 50, 50, 50, 50 };
+    $dblCols = array(150, 150, 150, 150 );
+    $dblRows = array(50, 50, 50, 50, 50 );
     // create a new table
     $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
     // set the background color for a cell
@@ -266,8 +266,8 @@ This PHP code shows you how to place an image inside a table cell when creating 
     // Accesses the first slide
     $islide = $pres->getSlides()->get_Item(0);
     // Defines columns with widths and rows with heights
-    $dblCols = new double[]{ 150, 150, 150, 150 };
-    $dblRows = new double[]{ 100, 100, 100, 100, 90 };
+    $dblCols = array(150, 150, 150, 150 );
+    $dblRows = array(100, 100, 100, 100, 90 );
     // Adds a table shape to the slide
     $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
     // Create an IPPImage object using the image file

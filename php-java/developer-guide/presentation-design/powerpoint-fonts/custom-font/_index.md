@@ -30,7 +30,7 @@ This PHP code demonstrates the font loading process:
 
 ```php
   // Folders to seek fonts
-  $folders = new String[]{ $externalFontsDir };
+  $folders = array($externalFontsDir );
   // Loads the custom font directory fonts
   FontsLoader->loadExternalFonts($folders);
   // Do Some work and perform presentation/slide rendering
@@ -84,8 +84,8 @@ This PHP code shows you how to use the [setDocumentLevelFontSources](https://ref
         if (!java_is_null($dis2)) $dis2->close();
   }
   $loadOptions = new LoadOptions();
-  $loadOptions->getDocumentLevelFontSources()->setFontFolders(new String[]{ "assets/fonts", "global/fonts" });
-  $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(new byte[][]{ $memoryFont1, $memoryFont2 });
+  $loadOptions->getDocumentLevelFontSources()->setFontFolders(array("assets/fonts", "global/fonts" ));
+  $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
     // Work with the presentation

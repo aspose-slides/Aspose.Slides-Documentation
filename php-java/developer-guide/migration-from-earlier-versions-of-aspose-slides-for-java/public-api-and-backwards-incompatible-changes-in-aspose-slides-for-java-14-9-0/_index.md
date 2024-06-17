@@ -47,7 +47,7 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
 
 ```php
   $presentation = new Presentation($presentationFileName);
-  $slides = new int[]{ 2, 3, 5 };// Array of slides positions
+  $slides = array(2, 3, 5 );// Array of slides positions
 
   $presentation->save($outFileName, $slides, SaveFormat::Pdf);
 

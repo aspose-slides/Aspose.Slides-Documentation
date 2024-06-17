@@ -81,10 +81,10 @@ This PHP code shows you how to convert a presentation (containing a figure and t
       }
     }
     // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
-    $ffmpeg = new FFmpeg("path/to/ffmpeg");
-    $ffprobe = new FFprobe("path/to/ffprobe");
-    $builder = new FFmpegBuilder()->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg::FPS_24)->setFormat("avi")->done();
-    $executor = new FFmpegExecutor($ffmpeg, $ffprobe);
+    $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
+    $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
+    $builder = new Java("net.bramp.ffmpeg.builder.FFmpegBuilder")->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg::FPS_24)->setFormat("avi")->done();
+    $executor = new Java("net.bramp.ffmpeg.builder.FFmpegExecutor", $ffmpeg, $ffprobe);
     $executor->createJob($builder)->run();
   } catch (JavaException $e) {
     $e->printStackTrace();

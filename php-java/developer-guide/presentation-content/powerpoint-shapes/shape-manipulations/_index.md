@@ -286,7 +286,7 @@ Source code below aligns shapes with indices 1,2 and 4 along the top border of t
     $shape1 = $slide->getShapes()->get_Item(1);
     $shape2 = $slide->getShapes()->get_Item(2);
     $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), new int[]{ $slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) });
+    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

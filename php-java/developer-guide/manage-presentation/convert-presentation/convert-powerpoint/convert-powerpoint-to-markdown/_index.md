@@ -75,7 +75,7 @@ If you want the images to appear individually one after the other in the resulti
     $markdownSaveOptions->setFlavor(Flavor::Github);
     $markdownSaveOptions->setExportType(MarkdownExportType::Sequential);
     $markdownSaveOptions->setNewLineType(NewLineType::Windows);
-    $pres->save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat::Md, $markdownSaveOptions);
+    $pres->save("doc.md", array(1, 2, 3, 4, 5, 6, 7, 8, 9 ), SaveFormat::Md, $markdownSaveOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
