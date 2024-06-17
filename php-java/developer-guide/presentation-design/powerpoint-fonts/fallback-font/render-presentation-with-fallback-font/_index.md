@@ -26,7 +26,7 @@ The following example includes these steps:
     }
   }
   // Also we can remove any existing rules from list
-  if ($rulesList->size() > 0) {
+  if (java_values($rulesList->size()) > 0) {
     $rulesList->remove($rulesList->get_Item(0));
   }
   $pres = new Presentation("input.pptx");

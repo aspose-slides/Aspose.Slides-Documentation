@@ -224,7 +224,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         // Typecast shape to SmartArt
         $smart = $shape;
-        if ($smart->getAllNodes()->size() > 0) {
+        if (java_values($smart->getAllNodes()->size()) > 0) {
           // Accessing SmartArt node at index 0
           $node = $smart->getAllNodes()->get_Item(0);
           // Removing the selected node
@@ -264,10 +264,10 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         // Typecast shape to SmartArt
         $smart = $shape;
-        if ($smart->getAllNodes()->size() > 0) {
+        if (java_values($smart->getAllNodes()->size()) > 0) {
           // Accessing SmartArt node at index 0
           $node = $smart->getAllNodes()->get_Item(0);
-          if ($node->getChildNodes()->size() >= 2) {
+          if (java_values($node->getChildNodes()->size()) >= 2) {
             // Removing the child node at position 1
             $node->getChildNodes()->removeNode(1);
           }

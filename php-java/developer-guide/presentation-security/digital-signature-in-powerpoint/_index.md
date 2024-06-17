@@ -51,7 +51,7 @@ Now its possible to check if the presentation was digitally signed and has not 
   // Open presentation
   $pres = new Presentation("SomePresentationSigned.pptx");
   try {
-    if ($pres->getDigitalSignatures()->size() > 0) {
+    if (java_values($pres->getDigitalSignatures()->size()) > 0) {
       $allSignaturesAreValid = true;
       echo("Signatures used to sign the presentation: ");
       // Check if all digital signatures are valid
