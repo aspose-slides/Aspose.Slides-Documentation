@@ -46,7 +46,7 @@ This PHP code shows you how to convert a colored slide or image to black-and-whi
 ```php
   $tiffOptions = new TiffOptions();
   $tiffOptions->setCompressionType(TiffCompressionTypes.CCITT4);
-  $tiffOptions->setBwConversionMode(BlackWhiteConversionMode.Dithering);
+  $tiffOptions->setBwConversionMode(BlackWhiteConversionMode->Dithering);
   $presentation = new Presentation("sample.pptx");
   try {
     $presentation->save("output.tiff", SaveFormat->Tiff, $tiffOptions);

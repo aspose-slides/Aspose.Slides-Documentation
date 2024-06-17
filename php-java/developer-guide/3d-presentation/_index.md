@@ -153,7 +153,7 @@ You may also create an image gradient:
         }
       }
       $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-      $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode.Stretch);
+      $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
       // .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
       try {
         $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
