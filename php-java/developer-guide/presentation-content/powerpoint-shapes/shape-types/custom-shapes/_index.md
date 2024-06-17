@@ -166,13 +166,13 @@ This Java shows you how to create a custom shape:
   $r = 50;
   $step = 72;
   for($angle = -90; $angle < 270; $angle += $step) {
-    $radians = $angle * Math->PI / 180.0;
-    $x = $R * Math->cos($radians);
-    $y = $R * Math->sin($radians);
+    $radians = $angle * java("java.lang.Math")->PI / 180.0;
+    $x = $R * java("java.lang.Math")->cos($radians);
+    $y = $R * java("java.lang.Math")->sin($radians);
     $points->add(new Point2DFloat($x + $R, $y + $R));
-    $radians = Math->PI * $angle . $step / 2 / 180.0;
-    $x = $r * Math->cos($radians);
-    $y = $r * Math->sin($radians);
+    $radians = java("java.lang.Math")->PI * $angle . $step / 2 / 180.0;
+    $x = $r * java("java.lang.Math")->cos($radians);
+    $y = $r * java("java.lang.Math")->sin($radians);
     $points->add(new Point2DFloat($x + $R, $y + $R));
   }
   $starPath = new GeometryPath();
