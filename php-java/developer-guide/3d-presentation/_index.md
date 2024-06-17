@@ -63,15 +63,15 @@ The rotation of 3D model in PowerPoint can be done via menu:
 To rotate 3D model with Aspose.Slides API, use **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat#getCamera--)**
 method, set the rotation of the camera relatively to 3D shape:
 
-``` java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType->Rectangle, 200, 150, 200, 200);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+``` php
+$shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 150, 200, 200);
+$shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
 // ... set other 3D scene parameters
 try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat->Png);
+        $slideImage = pres->getSlides()->get_Item(0)->getImage(2, 2);
+        $slideImage->save("sample_3d.png", ImageFormat->Png);
     } finally {
-             if (!java_is_null(slideImage)) slideImage.dispose();
+             if (!java_is_null($slideImage)) $slideImage->dispose();
          }
 ```
 
